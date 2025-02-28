@@ -27,7 +27,7 @@
       "featured" (oject) (optional) {
         - "title": (string) Title of the featured panel
         - "content": (string) Top content of the featured panel
-        - "items": (associative array) (optional) Object of type ECL link
+        - "items": (associative array) (optional) Array of items with image and link
       }
       "children": (associative array) (optional): [
         {
@@ -93,7 +93,6 @@
   {%- if _close is not empty and _close.label is defined and _close.label is not empty -%}
     data-ecl-mega-menu-label-close="{{ _close.label }}"
   {%- endif -%}
-  aria-expanded="false"
   role="navigation"
   id={{ _id }}
   {%- if _aria_label is not empty %}

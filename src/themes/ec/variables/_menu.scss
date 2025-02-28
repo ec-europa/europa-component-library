@@ -32,7 +32,7 @@ $menu: (
     item-color: var(--c-d),
     item-color-hover: var(--c-d),
     item-border: 2px solid map.get($color, 'white'),
-    item-font: var(--f-m),
+    item-font: var(--f-s),
     item-padding: var(--s-xs) var(--s-m),
     item-active-background: var(--c-n-80),
     item-active-border: var(--c-p),
@@ -49,6 +49,7 @@ $menu: (
   desktop: (
     menu-background: var(--cm-surface-brand),
     menu-border: none,
+    item-font: var(--f-s),
     item-background-hover: var(--cm-surface-inverted),
     item-background-focus: var(--cm-surface-inverted),
     item-color: var(--cm-on-surface-inverted),

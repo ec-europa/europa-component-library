@@ -72,7 +72,7 @@ $menu: null !default;
   }
 }
 
-.ecl-menu[aria-expanded='true'] .ecl-menu__open {
+.ecl-menu[data-expanded] .ecl-menu__open {
   background-color: map.get($menu, 'mobile', 'open-background-active');
 
   .ecl-icon:first-of-type {
@@ -135,7 +135,7 @@ $menu: null !default;
 }
 
 // Expanded
-.ecl-menu[aria-expanded='true'] .ecl-menu__inner {
+.ecl-menu[data-expanded] .ecl-menu__inner {
   display: block;
   right: 0;
 }
@@ -258,7 +258,7 @@ $menu: null !default;
     z-index: map.get($theme, 'z-index', 'modal') + 2;
   }
 
-  .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
+  .ecl-menu[data-expanded] .ecl-menu__overlay {
     display: block;
   }
 }
@@ -480,7 +480,7 @@ $menu: null !default;
       box-shadow: none;
       color: map.get($menu, 'desktop', 'item-color');
       display: inline-flex;
-      font: var(--f-m);
+      font: map.get($menu, 'desktop', 'item-font');
       line-height: map.get($menu, 'desktop', 'link-line-height');
       padding: map.get($menu, 'desktop', 'link-padding');
       width: auto;
@@ -825,7 +825,7 @@ $menu: null !default;
 
     .ecl-menu__sublink {
       break-inside: avoid-column;
-      font: var(--f-m);
+      font: map.get($menu, 'desktop', 'item-font');
       margin: 0;
       padding: map.get($menu, 'desktop', 'sublink-padding');
       white-space: normal;

@@ -7,18 +7,70 @@
 // Exposed variables
 $theme: null !default;
 
-@each $key, $value in map.get($theme, 'color') {
-  @if $key == 'white' or $key == 'black' {
-    .ecl-u-bg-#{$key} {
-      background-color: map.get($theme, 'color', $key) !important;
+// Used only on EU
+@if map.has-key($theme, 'color') {
+  @each $key, $value in map.get($theme, 'color') {
+    @if $key != 'white' and $key != 'black' {
+      .ecl-u-bg-#{$key} {
+        background-color: var(--ecl-color-#{$key}) !important;
+      }
     }
-  } @else {
+  }
+}
+
+@if map.has-key($theme, 'color-default') {
+  @each $key, $value in map.get($theme, 'color-default') {
+    .ecl-u-bg-#{$key} {
+      background-color: var(--ecl-color-#{$key}) !important;
+    }
+  }
+
+  $semantic-color: (
+    'primary',
+    'secondary',
+    'neutral-dark',
+    'neutral-light',
+    'info',
+    'success',
+    'error',
+    'warning'
+  );
+
+  @each $key in $semantic-color {
     .ecl-u-bg-#{$key} {
       background-color: var(--ecl-color-#{$key}) !important;
     }
   }
 }
 
+@if map.has-key($theme, 'color-modes') {
+  $background-mode: (
+    'surface',
+    'surface-medium',
+    'surface-low',
+    'surface-lowest',
+    'surface-lowest-variant',
+    'on-surface',
+    'on-surface-highlight',
+    'on-surface-variant-1',
+    'on-surface-variant-2'
+  );
+
+  @each $key in $background-mode {
+    .ecl-u-bg-#{$key} {
+      background-color: var(--cm-#{$key}) !important;
+    }
+  }
+}
+
 .ecl-u-bg-transparent {
   background-color: transparent !important;
+}
+
+.ecl-u-bg-white {
+  background-color: #fff !important;
+}
+
+.ecl-u-bg-black {
+  background-color: #000 !important;
 }

@@ -362,13 +362,12 @@
   --cm-surface-lowest: var(--c-l-50);
   --cm-surface-lowest-variant: color-mix(
     in srgb,
-    #{map.get($color-palette, 'warm-grey-100')} 50%,
+    #{map.get($color-palette, 'warm-grey-50')} 50%,
     transparent
   );
   --cm-surface-low: var(--c-l-200);
   --cm-surface-medium: var(--c-l-300);
-  --cm-surface: var(--c-d-500);
-  --cm-surface-highlighted: var(--c-s-300);
+  --cm-surface: var(--c-p);
   --cm-surface-primary: var(--c-p);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-900);
@@ -377,6 +376,7 @@
   --cm-surface-secondary-highest: var(--c-s-500);
   --cm-surface-neutral-lowest: var(--c-l-200);
   --cm-surface-neutral-low: var(--c-l-300);
+  --cm-on-surface-highlight: var(--c-s-300);
   --cm-on-surface-dark: var(--c-d);
   --cm-on-surface-dark-medium: var(--c-d-700);
   --cm-on-surface-dark-low: var(--c-d-500);
@@ -386,6 +386,7 @@
   --cm-on-surface-primary: var(--c-p);
   --cm-on-surface-primary-highest: var(--c-p-900);
   --cm-on-surface: var(--c-d-500);
+  --cm-on-surface-swap-1: #fff;
   --cm-on-surface-variant-1: #{map.get($color-palette, 'orange-abricot-300')};
   --cm-on-surface-variant-2: var(--c-l-300);
   --cm-border-dark: var(--c-d);

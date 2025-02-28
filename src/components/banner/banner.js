@@ -176,17 +176,9 @@ export class Banner {
    */
   waitForAspectRatioToBeDefined() {
     this.attemptCounter = (this.attemptCounter || 0) + 1;
-    let aspectRatio = '';
-    if (this.bannerVideo) {
-      // Ensure that the video is loaded (width > 0) before passing the ratio
-      if (this.bannerVideo.videoWidth > 0) {
-        aspectRatio = this.defaultRatio();
-      }
-    } else if (this.bannerImage) {
-      aspectRatio = getComputedStyle(this.bannerImage).getPropertyValue(
-        '--css-aspect-ratio',
-      );
-    }
+    const aspectRatio = getComputedStyle(this.element).getPropertyValue(
+      '--css-aspect-ratio',
+    );
 
     if (
       (typeof aspectRatio === 'undefined' || aspectRatio === '') &&
@@ -215,12 +207,7 @@ export class Banner {
       const [denominator, numerator] = ratio.split('/').map(Number);
       const currentHeight = (bannerWidth * numerator) / denominator;
       if (bannerHeight > currentHeight) {
-        if (this.bannerImage) {
-          this.bannerImage.style.aspectRatio = 'auto';
-        }
-        if (this.bannerVideo) {
-          this.bannerVideo.style.aspectRatio = 'auto';
-        }
+        this.element.style.aspectRatio = 'auto';
         this.element.style.height = `${bannerHeight}px`;
       } else {
         this.resetBannerHeight();
@@ -252,15 +239,7 @@ export class Banner {
    * Remove any override and get back the css
    */
   resetBannerHeight() {
-    if (this.bannerImage) {
-      const computedStyle = getComputedStyle(this.bannerImage);
-      this.bannerImage.style.aspectRatio =
-        computedStyle.getPropertyValue('--css-aspect-ratio');
-    }
-    if (this.bannerVideo) {
-      this.bannerVideo.style.aspectRatio = this.defaultRatio();
-    }
-
+    this.element.style.removeProperty('aspect-ratio');
     this.element.style.height = 'auto';
 
     if (this.bannerFooter) {

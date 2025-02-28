@@ -34,7 +34,9 @@
   $button: var.$button
 );
 @use '@ecl/date-block/date-block-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $date-block: var.$date-block,
+  $date-block-print: var.$date-block-print
 );
 @use '@ecl/indicator/indicator-print';
 @use '@ecl/label/label-print' with (
@@ -110,11 +112,15 @@
 );
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $media-container: var.$media-container,
+  $media-container-print: var.$media-container-print
 );
 @use '@ecl/modal/modal-print';
 @use '@ecl/navigation-list/navigation-list-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $navigation-list: var.$navigation-list,
+  $navigation-list-print: var.$navigation-list-print
 );
 @use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
@@ -148,7 +154,8 @@
 @use '@ecl/category-filter/category-filter-print';
 @use '@ecl/gallery/gallery-print' with (
   $theme: theme.$theme,
-  $gallery: var.$gallery
+  $gallery: var.$gallery,
+  $gallery-print: var.$gallery-print
 );
 @use '@ecl/page-header/page-header-print-eu' with (
   $theme: theme.$theme,

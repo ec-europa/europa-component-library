@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
+import { getColorModeControls } from '@ecl/story-utils';
 
 import demoContentHeading from './demo/data--heading';
 import demoContentParagraph from './demo/data--paragraph';
@@ -8,11 +9,15 @@ import demoContentParagraph from './demo/data--paragraph';
 const system = getSystem();
 
 const getArgs = (data, story) => {
-  const args = {
-    content: data.content,
-  };
+  const args = {};
   if (story === 'text-colour') {
-    args.colour = 'ecl-u-type-color-dark';
+    if (system === 'ec') {
+      args.show_color_mode = false;
+      args.color_mode = 'default';
+      args.type_color_mode = 'on-surface';
+    }
+
+    args.colour = 'ecl-u-type-color-neutral-dark';
   }
   if (story === 'text-style') {
     args.size = 'ecl-u-type-m';
@@ -21,32 +26,69 @@ const getArgs = (data, story) => {
     args.alignment = 'ecl-u-type-align-left';
   }
 
+  args.content = data.content;
+
   return args;
 };
 
 const getArgTypes = (story) => {
-  const argTypes = {
-    content: {
-      description: `Content`,
-      type: 'string',
-      control: {
-        type: 'text',
-      },
-      table: {
-        category: 'Content',
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-      },
+  const argTypes = getColorModeControls({ arg: 'show_color_mode' });
+
+  argTypes.content = {
+    description: `Content`,
+    type: 'string',
+    control: {
+      type: 'text',
+    },
+    table: {
+      category: 'Content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
     },
   };
 
   if (story === 'text-colour') {
+    if (system === 'ec') {
+      argTypes.show_color_mode = {
+        name: 'use color modes',
+        type: 'boolean',
+        description: 'Switch to color mode colors',
+        table: {
+          type: { summary: 'boolean' },
+          defaultValue: { summary: true },
+        },
+      };
+
+      argTypes.type_color_mode = {
+        name: 'color mode typography',
+        type: 'select',
+        description: 'Select a color mode typography',
+        options: [
+          'on-surface',
+          'on-surface-highlight',
+          'on-surface-variant-1',
+          'on-surface-variant-2',
+        ],
+        table: {
+          type: { summary: 'string' },
+          defaultValue: { summary: '' },
+        },
+        mapping: {
+          'on-surface': 'on-surface',
+          'on-surface-highlight': 'on-surface-highlight',
+          'on-surface-variant-1': 'on-surface-variant-1',
+          'on-surface-variant-2': 'on-surface-variant-2',
+        },
+        if: { arg: 'show_color_mode' },
+      };
+    }
+
     argTypes.colour = {
-      name: 'Text colour (sample)',
-      description: 'Choose different colours',
+      name: 'Text color (sample)',
+      description: 'Choose different colors',
       type: 'select',
       options: [
-        'ecl-u-type-color-dark',
+        'ecl-u-type-color-neutral-dark',
         'ecl-u-type-color-white ecl-u-bg-dark',
         'ecl-u-type-color-primary',
         'ecl-u-type-color-secondary ecl-u-bg-dark',
@@ -56,7 +98,7 @@ const getArgTypes = (story) => {
       control: {
         type: 'select',
         labels: {
-          'ecl-u-type-color-dark': 'dark',
+          'ecl-u-type-color-neutral-dark': 'neutral-dark',
           'ecl-u-type-color-white ecl-u-bg-dark': 'white',
           'ecl-u-type-color-primary': 'primary',
           'ecl-u-type-color-secondary ecl-u-bg-dark': 'secondary',
@@ -70,13 +112,14 @@ const getArgTypes = (story) => {
         defaultValue: { summary: '' },
       },
       mapping: {
-        dark: 'ecl-u-type-color-dark',
+        'neutral-dark': 'ecl-u-type-color-neutral-dark',
         white: 'ecl-u-type-color-white ecl-u-bg-dark',
         primary: 'ecl-u-type-color-primary',
         secondary: 'ecl-u-type-color-secondary ecl-u-bg-dark',
         success: 'ecl-u-type-color-success',
         error: 'ecl-u-type-color-error',
       },
+      if: { arg: 'show_color_mode', truthy: false },
     };
   } else if (story === 'text-style') {
     argTypes.size = {
@@ -344,7 +387,11 @@ Heading.args = getArgs(demoContentHeading, 'heading');
 Heading.argTypes = getArgTypes('heading');
 
 export const TextColour = (args) => `
-    <p class="${classnames('ecl-u-type-paragraph-m', args.colour)}">
+    <p class="${classnames('ecl-u-type-paragraph-m', args.colour, {
+      [`ecl-color-mode--${args.color_mode}`]:
+        args.show_color_mode && args.color_mode !== 'default',
+      [`ecl-u-type-color-${args.type_color_mode}`]: args.show_color_mode,
+    })}">
       ${args.content}
     </p>
   `;

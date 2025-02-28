@@ -12,9 +12,10 @@ $notification: (
   border-width: 1px,
   font: var(--f-m),
   color: var(--c-d),
-  title-font: var(--f-l),
+  title-font: var(--f-xl),
   title-font-weight: map.get($font-weight, 'regular'),
   title-spacing: 0,
+  icon-offset-top: var(--s-2xs),
   close-color: var(--c-d),
   close-offset-top-mobile: calc(var(--s-m) - var(--s-xl)),
   close-offset-end-mobile: calc(var(--s-m) - var(--s-xl)),
@@ -37,8 +38,8 @@ $notification: (
     icon-background-color: var(--c-d),
     icon-background-height: var(--s-m),
     icon-background-width: var(--s-xs),
-    icon-background-top-mobile: calc(var(--s-m) + var(--s-s)),
-    icon-background-top: calc(var(--s-l) + var(--s-s)),
+    icon-background-top-mobile: calc(var(--s-m) + var(--s-s) + var(--s-2xs)),
+    icon-background-top: calc(var(--s-l) + var(--s-s) + var(--s-2xs)),
     icon-background-left-mobile: calc(
         var(--s-s) + (map.get($icon, 'l') / 2) - var(--s-2xs)
       ),
@@ -56,6 +57,7 @@ $notification-print: (
   padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'xl')
     map.get($spacing-print, '3xl') map.get($spacing-print, '3xl'),
   font: var(--f-m),
-  title-font: map.get($font-print, 'l'),
+  title-font: map.get($font-print, 'xl'),
   title-spacing: map.get($spacing-print, 's'),
+  icon-offset-top: map.get($spacing-print, '2xs'),
 );
