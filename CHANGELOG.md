@@ -1,5 +1,52 @@
 # Changelog
 
+## 5.0.0-alpha.5
+
+#### :rocket: New Feature
+
+- [#3854](https://github.com/ec-europa/europa-component-library/pull/3854) chore(grid): Adding XXL breakpoint at 1368px - FRONT-4794 ([@planctus](https://github.com/planctus))
+- [#3868](https://github.com/ec-europa/europa-component-library/pull/3868) chore(fonts): Adding inter font in the ec preset package - FRONT-4814 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3866](https://github.com/ec-europa/europa-component-library/pull/3866) feat(color): update token - FRONT-4810 ([@emeryro](https://github.com/emeryro))
+- [#3883](https://github.com/ec-europa/europa-component-library/pull/3883) feat(banner): Removing support for the centered parameter - FRONT-4823 ([@planctus](https://github.com/planctus))
+- [#3861](https://github.com/ec-europa/europa-component-library/pull/3861) feat(banner): Supporting display without media - FRONT-4808 ([@planctus](https://github.com/planctus))
+- [#3881](https://github.com/ec-europa/europa-component-library/pull/3881) feat(navigation-list): Supporting different color mode per item - FRONT-4821 ([@planctus](https://github.com/planctus))
+- [#3880](https://github.com/ec-europa/europa-component-library/pull/3880) chore(utilities): removing responsive utilities for borders - FRONT-4820 ([@planctus](https://github.com/planctus))
+- [#3872](https://github.com/ec-europa/europa-component-library/pull/3872) feat(list): Use inline links in ordered and unordered lists. - FRONT-4787 ([@tibi2303](https://github.com/tibi2303))
+- [#3870](https://github.com/ec-europa/europa-component-library/pull/3870) feat(spacing): Changed demo pages spacing. - FRONT-4809 ([@tibi2303](https://github.com/tibi2303))
+- [#3851](https://github.com/ec-europa/europa-component-library/pull/3851) feat(mega-menu): Link with images in featured panel - FRONT-4793 ([@planctus](https://github.com/planctus))
+- [#3873](https://github.com/ec-europa/europa-component-library/pull/3873) fix(menus): Removing aria-expanded from the main nav - FRONT-4815 ([@planctus](https://github.com/planctus))
+- [#3871](https://github.com/ec-europa/europa-component-library/pull/3871) fix(mega-menu): Whitespace fix for subitem. - FRONT-4812 ([@tibi2303](https://github.com/tibi2303))
+- [#3869](https://github.com/ec-europa/europa-component-library/pull/3869) feat(footer): Updating spacing top and bottom - FRONT-4816 ([@planctus](https://github.com/planctus))
+- [#3867](https://github.com/ec-europa/europa-component-library/pull/3867) feat(js): Using bowser to detect device - FRONT-4813 ([@emeryro](https://github.com/emeryro))
+- [#3853](https://github.com/ec-europa/europa-component-library/pull/3853) feat(accordion): update title markup - FRONT-4792 ([@emeryro](https://github.com/emeryro))
+- [#3850](https://github.com/ec-europa/europa-component-library/pull/3850) feat(utilities): add color mode utilities - FRONT-4783 ([@emeryro](https://github.com/emeryro))
+- [#3848](https://github.com/ec-europa/europa-component-library/pull/3848) feat(site-header): Changes in the logo for the site header in EC - FRONT-4791 ([@planctus](https://github.com/planctus))
+- [#3841](https://github.com/ec-europa/europa-component-library/pull/3841) fix(modal): Center alignment in the footer buttons - FRONT-4772 ([@planctus](https://github.com/planctus))
+- [#3837](https://github.com/ec-europa/europa-component-library/pull/3837) feat(popover): ECL Popover v3 - FRONT-4769 ([@planctus](https://github.com/planctus))
+
+#### Bug fix
+
+- [#3849](https://github.com/ec-europa/europa-component-library/pull/3849) fix(textarea): Removing rounded corners to prevent blurry text when in a modal - FRONT-4785 ([@planctus](https://github.com/planctus))
+- [#3847](https://github.com/ec-europa/europa-component-library/pull/3847) feat(featured-item): Removed margin top for featured item description. - FRONT-4790 ([@tibi2303](https://github.com/tibi2303))
+- [#3845](https://github.com/ec-europa/europa-component-library/pull/3845) fix(select): Fixing issues on the multiple select - FRONT-4789 ([@planctus](https://github.com/planctus))
+- [#3838](https://github.com/ec-europa/europa-component-library/pull/3838) fix(site-header): Fixing login and search arrow position - FRONT-4779 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3882](https://github.com/ec-europa/europa-component-library/pull/3882) chore(deps): updates 28-02-25 ([@planctus](https://github.com/planctus))
+- [#3852](https://github.com/ec-europa/europa-component-library/pull/3852) chore(deps): updates - 21-02-25 ([@planctus](https://github.com/planctus))
+- [#3852](https://github.com/ec-europa/europa-component-library/pull/3852) chore(deps): Updates - 17-02-25 ([@planctus](https://github.com/planctus))
+- [#3846](https://github.com/ec-europa/europa-component-library/pull/3846) chore(deps): updates 11-02-25 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-alpha.4
 
 #### :nail_care: Enhancement
