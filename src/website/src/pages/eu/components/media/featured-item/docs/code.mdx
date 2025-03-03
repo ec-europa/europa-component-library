@@ -3,15 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  featuredItem,
-  featuredItemRightAlignement,
-  featuredItemSimple,
-  featuredItemSimpleRightAlignement,
-  featuredItemHighlight,
-  featuredItemHighlightRightAlignement,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default
 
@@ -20,7 +12,6 @@ import {
   selectedKind="components-featured-item"
   selectedStory="default"
 >
-  <Html markup={featuredItem} />
 </Playground>
 
 ## Default right-aligned
@@ -31,7 +22,6 @@ import {
   selectedStory="default"
   selectedArgs="position:right"
 >
-  <Html markup={featuredItemRightAlignement} />
 </Playground>
 
 ## Simple
@@ -41,7 +31,6 @@ import {
   selectedKind="components-featured-item"
   selectedStory="simple"
 >
-  <Html markup={featuredItemSimple} />
 </Playground>
 
 ## Simple right-aligned
@@ -52,7 +41,6 @@ import {
   selectedStory="simple"
   selectedArgs="position:right"
 >
-  <Html markup={featuredItemSimpleRightAlignement} />
 </Playground>
 
 ## Highlighted
@@ -62,7 +50,6 @@ import {
   selectedKind="components-featured-item"
   selectedStory="highlight"
 >
-  <Html markup={featuredItemHighlight} />
 </Playground>
 
 ## Highlighted right-aligned
@@ -73,5 +60,4 @@ import {
   selectedStory="highlight"
   selectedArgs="position:right"
 >
-  <Html markup={featuredItemHighlightRightAlignement} />
 </Playground>

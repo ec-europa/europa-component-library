@@ -3,12 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  navigationList,
-  navigationListIllustration,
-  navigationListImageAsIllustration,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 <Playground
   system="ec"
@@ -16,7 +11,6 @@ import {
   selectedStory="default"
   showFrame
 >
-  <Html markup={navigationList} />
 </Playground>
 
 ## With small illustrations
@@ -27,7 +21,6 @@ import {
   selectedStory="illustration"
   showFrame
 >
-  <Html markup={navigationListIllustration} />
 </Playground>
 
 ## With images as illustrations
@@ -38,5 +31,4 @@ import {
   selectedStory="as-illustration"
   showFrame
 >
-  <Html markup={navigationListImageAsIllustration} />
 </Playground>

@@ -3,15 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  radioGroupDefault,
-  radioGroupInvalid,
-  radioGroupRequired,
-  radioGroupOptional,
-  radioGroupBinary,
-  radioGroupBinaryInvalid,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default radio group
 
@@ -21,7 +13,6 @@ import {
   selectedStory="radio-group"
   showFrame
 >
-  <Html markup={radioGroupDefault} />
 </Playground>
 
 ## Invalid radio group
@@ -33,7 +24,6 @@ import {
   selectedArgs="invalid:true"
   showFrame
 >
-  <Html markup={radioGroupInvalid} />
 </Playground>
 
 ## Optional radio group
@@ -45,7 +35,6 @@ import {
   selectedArgs="required:!false"
   showFrame
 >
-  <Html markup={radioGroupOptional} />
 </Playground>
 
 ## Binary radio group
@@ -56,7 +45,6 @@ import {
   selectedStory="radio"
   showFrame
 >
-  <Html markup={radioGroupBinary} />
 </Playground>
 
 ## Binary invalid radio group
@@ -68,5 +56,4 @@ import {
   selectedArgs="invalid:true"
   showFrame
 >
-  <Html markup={radioGroupBinaryInvalid} />
 </Playground>

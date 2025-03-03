@@ -3,26 +3,23 @@ title: Showcase
 order: 2
 ---
 
-import { Link, Playground, Html } from '@ecl/website-components';
+import { Link, Playground } from '@ecl/website-components';
 
-import { labelLow, labelMedium, labelHigh, labelHighlight } from '../demo';
+
 
 ## Low importance
 
 <Playground system="eu" selectedKind="components-label" selectedStory="low">
-  <Html markup={labelLow} />
 </Playground>
 
 ## Medium importance
 
 <Playground system="eu" selectedKind="components-label" selectedStory="medium">
-  <Html markup={labelMedium} />
 </Playground>
 
 ## High importance
 
 <Playground system="eu" selectedKind="components-label" selectedStory="high">
-  <Html markup={labelHigh} />
 </Playground>
 
 ## Highlight
@@ -32,5 +29,4 @@ import { labelLow, labelMedium, labelHigh, labelHighlight } from '../demo';
   selectedKind="components-label"
   selectedStory="highlight"
 >
-  <Html markup={labelHighlight} />
 </Playground>

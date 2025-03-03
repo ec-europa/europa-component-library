@@ -3,14 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Link, Playground, Html } from '@ecl/website-components';
-
-import {
-  fileWithTranslation,
-  fileWithoutTranslation,
-  fileThumbnail,
-  fileTaxonomy,
-} from '../demo';
+import { Link, Playground } from '@ecl/website-components';
 
 ## Without translations
 
@@ -21,7 +14,6 @@ import {
   showFrame
   selectedArgs="show_translations:false"
 >
-  <Html markup={fileWithoutTranslation} />
 </Playground>
 
 ## With translations
@@ -33,7 +25,6 @@ import {
   showFrame
   selectedArgs="show_translations:true"
 >
-  <Html markup={fileWithTranslation} />
 </Playground>
 
 ## With thumbnail
@@ -45,7 +36,6 @@ import {
   showFrame
   selectedArgs="show_taxonomy:false"
 >
-  <Html markup={fileThumbnail} />
 </Playground>
 
 ## With taxonomy
@@ -57,5 +47,4 @@ import {
   showFrame
   selectedArgs="show_taxonomy:true"
 >
-  <Html markup={fileTaxonomy} />
 </Playground>

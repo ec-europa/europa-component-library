@@ -84,15 +84,6 @@ module.exports = {
       {
         oneOf: [
           {
-            test: /\.twig$/,
-            use: [
-              {
-                loader: 'twing-loader',
-                options: { environmentModulePath },
-              },
-            ],
-          },
-          {
             test: /\.html$/i,
             loader: 'html-loader',
           },

@@ -3,25 +3,22 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import { tableDefault, tableMulti, tableSortable, tableZebra } from '../demo';
+import { Playground } from '@ecl/website-components';
+
 
 ## Default table
 
 <Playground system="eu" selectedKind="components-table" selectedStory="default">
-  <Html markup={tableDefault} />
 </Playground>
 
 ## Zebra table
 
 <Playground system="eu" selectedKind="components-table" selectedStory="zebra">
-  <Html markup={tableZebra} />
 </Playground>
 
 ## Multi header table
 
 <Playground system="eu" selectedKind="components-table" selectedStory="multi">
-  <Html markup={tableMulti} />
 </Playground>
 
 ## Sort table
@@ -32,7 +29,6 @@ import { tableDefault, tableMulti, tableSortable, tableZebra } from '../demo';
   selectedStory="sortable"
   showFrame
 >
-  <Html markup={tableSortable} />
 </Playground>
 
 ## Enhanced mobile table
@@ -55,5 +51,4 @@ Note: enhanced tables works for all the table variants listed here, but without 
   selectedKind="components-table"
   selectedStory="default"
 >
-  <Html markup={tableDefault} />
 </Playground>

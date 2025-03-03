@@ -3,15 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  socialMediaVertical,
-  socialMediaHorizontal,
-  socialMediaVerticalColor,
-  socialMediaVerticalColorRight,
-  socialMediaHorizontalColor,
-  socialMediaHorizontalColorRight,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Horizontal
 
@@ -20,7 +12,6 @@ import {
   selectedKind="components-social-media-follow"
   selectedStory="horizontal"
 >
-  <Html markup={socialMediaHorizontal} />
 </Playground>
 
 <Playground
@@ -28,7 +19,6 @@ import {
   selectedKind="components-social-media-follow"
   selectedStory="horizontal-color"
 >
-  <Html markup={socialMediaHorizontalColor} />
 </Playground>
 
 <Playground
@@ -37,7 +27,6 @@ import {
   selectedStory="horizontal-color"
   selectedArgs="position:right"
 >
-  <Html markup={socialMediaHorizontalColorRight} />
 </Playground>
 
 ## Vertical
@@ -47,7 +36,6 @@ import {
   selectedKind="components-social-media-follow"
   selectedStory="vertical"
 >
-  <Html markup={socialMediaVertical} />
 </Playground>
 
 <Playground
@@ -55,7 +43,6 @@ import {
   selectedKind="components-social-media-follow"
   selectedStory="vertical-color"
 >
-  <Html markup={socialMediaVerticalColor} />
 </Playground>
 
 <Playground
@@ -64,5 +51,4 @@ import {
   selectedStory="vertical-color"
   selectedArgs="position:right"
 >
-  <Html markup={socialMediaVerticalColorRight} />
 </Playground>

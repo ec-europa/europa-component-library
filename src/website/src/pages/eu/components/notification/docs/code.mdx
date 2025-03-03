@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  notificationInfo,
-  notificationSuccess,
-  notificationWarning,
-  notificationError,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Information
 
@@ -19,7 +13,6 @@ import {
   selectedStory="info"
   showFrame
 >
-  <Html markup={notificationInfo} />
 </Playground>
 
 ## Success
@@ -30,7 +23,6 @@ import {
   selectedStory="success"
   showFrame
 >
-  <Html markup={notificationSuccess} />
 </Playground>
 
 ## Warning
@@ -41,7 +33,6 @@ import {
   selectedStory="warning"
   showFrame
 >
-  <Html markup={notificationWarning} />
 </Playground>
 
 ## Error
@@ -52,5 +43,4 @@ import {
   selectedStory="error"
   showFrame
 >
-  <Html markup={notificationError} />
 </Playground>
