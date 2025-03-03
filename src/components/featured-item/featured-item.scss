@@ -141,10 +141,10 @@ $featured-item: null !default;
     margin-block-end: calc(
       -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
     );
-    margin-inline-end: calc(
+    margin-inline-end: 0;
+    margin-inline-start: calc(
       -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
     );
-    margin-inline-start: auto;
     width: clamp(
       1px,
       map.get($featured-item, 'background', 'link', 'max-width'),
@@ -211,6 +211,7 @@ $featured-item: null !default;
       margin-inline-end: calc(
         -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
       );
+      margin-inline-start: auto;
       padding: map.get($featured-item, 'background', 'link', 'padding-desktop');
     }
 
@@ -248,8 +249,17 @@ $featured-item: null !default;
       }
     }
 
-    .ecl-featured-item__item:last-child:only-child::before {
-      display: none;
+    .ecl-featured-item__item:last-child:only-child {
+      &::before {
+        display: none;
+      }
+
+      .ecl-featured-item__link {
+        margin-inline-end: 0;
+        margin-inline-start: calc(
+          -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
+        );
+      }
     }
   }
 }

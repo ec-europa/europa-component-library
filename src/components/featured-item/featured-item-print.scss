@@ -206,8 +206,17 @@ $featured-item-print: null !default;
     }
   }
 
-  .ecl-featured-item__item:last-child:only-child::before {
-    display: none;
+  .ecl-featured-item__item:last-child:only-child {
+    &::before {
+      display: none;
+    }
+
+    .ecl-featured-item__link {
+      margin-inline-end: 0;
+      margin-inline-start: calc(
+        -1 * #{map.get($featured-item-print, 'background', 'padding')}
+      );
+    }
   }
 }
 
