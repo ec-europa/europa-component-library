@@ -1,14 +1,16 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
 
-const demoDataLight = { ...demoData, type: 'background-light' };
-const demoDataStrong = { ...demoData, type: 'background-strong' };
+const demoDataSimple = { ...demoData, type: 'simple' };
+const demoDataHighlighted = { ...demoData, type: 'highlight' };
 const mediaContainer = { ...demoData.media_container };
+const system = getSystem();
 
 const getArgs = (data) => {
   const args = {
@@ -20,7 +22,9 @@ const getArgs = (data) => {
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  args.color_mode = 'default';
+  if (system === 'ec') {
+    args.color_mode = 'default';
+  }
 
   return args;
 };
@@ -95,6 +99,9 @@ const prepareData = (data, args) => {
   if (clone.link.link.label) {
     clone.link.link.label = args.link_label;
   }
+  if (clone.link.icon) {
+    clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
+  }
   if (args.show_media) {
     clone.media_container = mediaContainer;
   } else {
@@ -122,32 +129,32 @@ Default.parameters = {
   notes: { markdown: notes, json: demoData },
 };
 
-export const Light = (_, { loaded: { component } }) => component;
+export const Simple = (_, { loaded: { component } }) => component;
 
-Light.render = async (args) => {
+Simple.render = async (args) => {
   const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataLight, args),
+    prepareData(demoDataSimple, args),
   );
   return renderedFeaturedItem;
 };
-Light.storyName = 'light background';
-Light.args = getArgs(demoDataLight);
-Light.argTypes = getArgTypes(demoDataLight);
-Light.parameters = {
-  notes: { markdown: notes, json: demoDataLight },
+Simple.storyName = 'simple';
+Simple.args = getArgs(demoDataSimple);
+Simple.argTypes = getArgTypes(demoDataSimple);
+Simple.parameters = {
+  notes: { markdown: notes, json: demoDataSimple },
 };
 
-export const Strong = (_, { loaded: { component } }) => component;
+export const Highlighted = (_, { loaded: { component } }) => component;
 
-Strong.render = async (args) => {
+Highlighted.render = async (args) => {
   const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataStrong, args),
+    prepareData(demoDataHighlighted, args),
   );
   return renderedFeaturedItem;
 };
-Strong.storyName = 'strong background';
-Strong.args = getArgs(demoDataStrong);
-Strong.argTypes = getArgTypes(demoDataStrong);
-Strong.parameters = {
-  notes: { markdown: notes, json: demoDataStrong },
+Highlighted.storyName = 'highlighted';
+Highlighted.args = getArgs(demoDataHighlighted);
+Highlighted.argTypes = getArgTypes(demoDataHighlighted);
+Highlighted.parameters = {
+  notes: { markdown: notes, json: demoDataHighlighted },
 };

@@ -111,8 +111,7 @@ $featured-item: null !default;
     );
     display: flex;
     flex-direction: column;
-    padding: map.get($featured-item, 'background', 'padding-mobile')
-      map.get($featured-item, 'background', 'padding-mobile') 0;
+    padding: map.get($featured-item, 'background', 'padding-mobile');
   }
 
   .ecl-featured-item__title {
@@ -139,6 +138,9 @@ $featured-item: null !default;
     );
     color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
     display: block;
+    margin-block-end: calc(
+      -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
+    );
     margin-inline-end: calc(
       -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
     );
@@ -176,8 +178,7 @@ $featured-item: null !default;
 
   @include breakpoints.up('m') {
     .ecl-featured-item__item:last-child {
-      padding: map.get($featured-item, 'background', 'padding-desktop')
-        map.get($featured-item, 'background', 'padding-desktop') 0;
+      padding: map.get($featured-item, 'background', 'padding-desktop');
       position: relative;
 
       &::before {
@@ -204,6 +205,9 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__link {
+      margin-block-end: calc(
+        -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
+      );
       margin-inline-end: calc(
         -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
       );
@@ -251,11 +255,11 @@ $featured-item: null !default;
 }
 
 @if map.has-key($featured-item, 'background') {
-  .ecl-featured-item--background-light {
+  .ecl-featured-item--simple {
     @include background(light);
   }
 
-  .ecl-featured-item--background-strong {
+  .ecl-featured-item--highlight {
     @include background(strong);
   }
 }

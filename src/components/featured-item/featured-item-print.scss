@@ -212,11 +212,11 @@ $featured-item-print: null !default;
 }
 
 @if map.has-key($featured-item, 'background') {
-  .ecl-featured-item--background-light {
+  .ecl-featured-item--simple {
     @include background(light);
   }
 
-  .ecl-featured-item--background-strong {
+  .ecl-featured-item--highlight {
     @include background(strong);
   }
 }
