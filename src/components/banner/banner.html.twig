@@ -42,10 +42,6 @@
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
 
-{# DEPRECATED
-- "centered" (bool) (default: false) Define if banner should be centered
-#}
-
 {# Internal properties #}
 
 {% set _css_class = 'ecl-banner' %}
@@ -68,12 +64,6 @@
 {% set _sr_play = sr_play|default('') %}
 {% set _sr_pause = sr_pause|default('') %}
 {% set _icon_path = icon_path|default('') %}
-
-{# DEPRECATED #}
-{% set _centered = centered ?? false %}
-{% if _centered %}
-  {% set _horizontal = 'center' %}
-{% endif %}
 
 {# Internal logic - Process properties #}
 
