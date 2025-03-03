@@ -24,6 +24,7 @@ $tabs: (
     highlight-color: var(--c-p),
     color: var(--c-p),
     padding-top: calc(var(--s-xs) - 4px),
+    font-weight: map.get($font-weight, 'bold'),
   ),
   more: (
     font-weight: map.get($font-weight, 'regular'),
@@ -47,5 +48,6 @@ $tabs: (
     item-color: var(--c-d),
     item-active-background: var(--c-p-20),
     item-active-color: var(--c-d),
+    font-weight: map.get($font-weight, 'regular'),
   ),
 );
