@@ -101,7 +101,7 @@ $button-width: 44px;
   border-top: map.get($tabs, 'active', 'highlight-width') solid
     map.get($tabs, 'active', 'highlight-color');
   color: map.get($tabs, 'active', 'color');
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($tabs, 'active', 'font-weight');
   padding-top: map.get($tabs, 'active', 'padding-top');
 
   &:hover {
@@ -204,7 +204,7 @@ $button-width: 44px;
   .ecl-tabs__link:active {
     background-color: map.get($tabs, 'dropdown', 'item-active-background');
     color: map.get($tabs, 'dropdown', 'item-active-color');
-    font-weight: map.get($theme, 'font-weight', 'regular');
+    font-weight: map.get($tabs, 'dropdown', 'font-weight');
   }
 }
 

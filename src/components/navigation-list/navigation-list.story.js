@@ -82,6 +82,16 @@ const getArgTypes = (data) => {
     },
   };
 
+  argTypes.item_color_mode = {
+    ...getColorModeControls().color_mode,
+    name: 'first item color mode',
+    description: 'Choose the color mode for the first item',
+    table: {
+      type: 'string',
+      category: 'first item',
+    },
+  };
+
   return argTypes;
 };
 
@@ -99,6 +109,10 @@ const prepareData = (data, args) => {
     if (!args.show_links) {
       delete clone.items[i].links;
     }
+  }
+
+  if (args.item_color_mode !== 'default') {
+    clone.items[0].color_mode = args.item_color_mode;
   }
 
   // Other controls

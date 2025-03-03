@@ -43,8 +43,6 @@
 #}
 
 {# DEPRECATED
-- "variant" (string) (default: '') Variant of the banner
-    (can be 'plain-background', 'text-box', 'text-overlay')
 - "centered" (bool) (default: false) Define if banner should be centered
 #}
 
@@ -72,7 +70,6 @@
 {% set _icon_path = icon_path|default('') %}
 
 {# DEPRECATED #}
-{% set _variant = variant|default('') %}
 {% set _centered = centered ?? false %}
 {% if _centered %}
   {% set _horizontal = 'center' %}
@@ -84,10 +81,6 @@
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
-{% if _variant is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _variant %}
-{% endif %}
-
 {% if _size is not empty %}
   {% set _css_class = _css_class ~ ' ecl-banner--' ~ _size %}
 {% endif %}
@@ -96,12 +89,16 @@
   {% set _css_class = _css_class ~ ' ecl-banner--font-' ~ _font_size %}
 {% endif %}
 
+{% if _picture is empty and _video is empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--no-media' %}
+{% endif %}
+
 {% set _color = '' %}
-{% if _font_color is not empty %}
+{% if _font_color is not empty and (_picture is not empty or _video is not empty) %}
   {% set _color = _font_color %}
 {% endif %}
 
-{% if _box_background is not empty %}
+{% if _box_background is not empty and (_picture is not empty or _video is not empty) %}
   {% if _box_background == 'light' %}
     {% set _color = 'dark' %}
   {% elseif _box_background == 'dark' %}
