@@ -13,6 +13,11 @@ Color definition and usage have greately changed for ECL5, with the introduction
 
 Typography has also changed quite drastically in EC.
 
+### Grid
+
+A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
+All the responsive utilities have been updated to include also the new breakpoint.
+
 ### [EC] Color scales
 
 Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
