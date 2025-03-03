@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
 import Example from './Example';
 import PageNotFound from './404';
-import Redirects from './Redirects';
 
 import HomePageEC from '../pages/ec/index.md';
 import HomePageEU from '../pages/eu/index.md';
@@ -61,7 +60,6 @@ function MainRoutes() {
       <Route strict path="/example" component={Example} />
       <Route path="/ec/" strict component={WaitingEC} />
       <Route path="/eu/" strict component={WaitingEU} />
-      <Redirects />
       <Route component={PageNotFound} />
     </Switch>
   );
