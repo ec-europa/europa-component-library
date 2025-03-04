@@ -11,15 +11,9 @@ exports[`Link Cta variant with icon renders correctly 1`] = `
     >
       Call to action link
     </span>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#corner-arrow"
-      />
-    </svg>
+    <span
+      class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+    />
   </a>
 </jest>
 `;
@@ -46,19 +40,11 @@ exports[`Link External renders correctly 1`] = `
     >
       Standalone link
     </span>
-    <svg
-      aria-hidden="false"
-      class="ecl-icon ecl-icon--2xs ecl-link__icon"
-      focusable="false"
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
+      data-title="Links to an external url"
       role="img"
-    >
-      <title>
-        Links to an external url
-      </title>
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
+    />
   </a>
 </jest>
 `;
@@ -96,15 +82,9 @@ exports[`Link With icon after renders correctly 1`] = `
     >
       Standalone link with icon
     </span>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
   </a>
 </jest>
 `;
@@ -122,15 +102,9 @@ exports[`Link With icon after renders correctly with extra attributes 1`] = `
     >
       Standalone link with icon
     </span>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
   </a>
 </jest>
 `;
@@ -146,15 +120,9 @@ exports[`Link With icon after renders correctly with extra class names 1`] = `
     >
       Standalone link with icon
     </span>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
   </a>
 </jest>
 `;
@@ -165,15 +133,9 @@ exports[`Link With icon before renders correctly 1`] = `
     class="ecl-link ecl-link--standalone ecl-link--icon"
     href="/example"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
     <span
       class="ecl-link__label"
     >
@@ -194,24 +156,12 @@ exports[`Link With two icons after renders correctly 1`] = `
     >
       Standalone link with icon
     </span>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#download"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
+    />
+    <span
+      class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+    />
   </a>
 </jest>
 `;
@@ -233,24 +183,12 @@ exports[`Link With two icons before renders correctly 1`] = `
     class="ecl-link ecl-link--standalone ecl-link--icon"
     href="/example"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#download"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
+    />
+    <span
+      class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+    />
     <span
       class="ecl-link__label"
     >
@@ -266,24 +204,12 @@ exports[`Link With two icons before renders correctly with extra class names 1`]
     class="ecl-link ecl-link--standalone ecl-link--icon custom-class custom-class--test"
     href="/example"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#external"
-      />
-    </svg>
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#download"
-      />
-    </svg>
+    <span
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
+    />
+    <span
+      class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+    />
     <span
       class="ecl-link__label"
     >
@@ -307,15 +233,9 @@ exports[`Link with indicator renders correctly 1`] = `
     <span
       class="ecl-link__icon-container"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="static/icons.svg#corner-arrow"
-        />
-      </svg>
+      <span
+        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+      />
       <span
         class="ecl-indicator"
         data-ecl-auto-init="Indicator"

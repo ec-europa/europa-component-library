@@ -48,12 +48,12 @@
 {% set _icon_position = icon_position|default('after') %}
 {% set _disabled = disabled|default(false) %}
 {% set _hide_label = hide_label|default(false) %}
-{% set _icon = {
+{% set _icon = icon|default({
   name: '',
   path: '',
   size: '',
   title: ''
-} %}
+}) %}
 {% set _indicator = indicator|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -74,10 +74,10 @@
   {% endfor %}
 {% endif %}
 
-{% if icon.name is defined and icon.name is not empty %}
-  {% set _icons = [icon] %}
-{% elseif icon[1] is defined and icon[1] is not empty %}
-  {% set _icons = icon %}
+{% if _icon.name is defined and _icon.name is not empty %}
+  {% set _icons = [_icon] %}
+{% elseif _icon[1] is defined and _icon[1] is not empty %}
+  {% set _icons = _icon %}
 {% endif %}
 
 {% if _hide_label and _icon is not empty %}

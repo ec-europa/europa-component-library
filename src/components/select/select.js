@@ -2,8 +2,6 @@
 import { queryOne } from '@ecl/dom-utils';
 import * as getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
-import iconSvgAllCheck from '@ecl/resources-icons/dist/svg/all/check.svg';
-import iconSvgAllCornerArrow from '@ecl/resources-icons/dist/svg/all/corner-arrow.svg';
 
 const system = getSystem();
 const iconSize = system === 'eu' ? 's' : 'xs';
@@ -174,17 +172,11 @@ export class Select {
    * @private
    * @returns {HTMLElement}
    */
-  static #createSvgIcon(icon, classes) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.children[0];
-    svg.removeAttribute('height');
-    svg.removeAttribute('width');
-    svg.setAttribute('focusable', false);
-    svg.setAttribute('aria-hidden', true);
-    // The following element is <path> which does not support classList API as others.
-    svg.setAttribute('class', classes);
-    return svg;
+  static #createSvgIcon(name, classes) {
+    const markup = document.createElement('span');
+    markup.setAttribute('class', `wt-icon--${name} ${classes}`);
+
+    return markup;
   }
 
   /**
@@ -240,10 +232,7 @@ export class Select {
     box.classList.add('ecl-checkbox__box');
     box.setAttribute('aria-hidden', true);
     box.appendChild(
-      Select.#createSvgIcon(
-        iconSvgAllCheck,
-        'ecl-icon ecl-icon--s ecl-checkbox__icon',
-      ),
+      Select.#createSvgIcon('check', 'ecl-icon ecl-icon--s ecl-checkbox__icon'),
     );
     label.appendChild(box);
     labelText.classList.add('ecl-checkbox__label-text');
@@ -276,10 +265,12 @@ export class Select {
     label.classList.add('ecl-button__label');
     label.textContent = 'Toggle dropdown';
     labelWrapper.appendChild(label);
+
     const icon = Select.#createSvgIcon(
-      iconSvgAllCornerArrow,
+      'corner-arrow',
       `ecl-icon ecl-icon--${iconSize} ecl-icon--rotate-180`,
     );
+
     labelWrapper.appendChild(icon);
     button.appendChild(labelWrapper);
     wrapper.appendChild(button);

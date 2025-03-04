@@ -326,44 +326,46 @@ const getArgTypes = (data, variant) => {
 };
 
 const prepareDataItem = (data, args) => {
-  data.title = args.title;
+  const clone = JSON.parse(JSON.stringify(data));
+
+  clone.title = args.title;
   if (!args.show_value) {
-    data.value = '';
+    clone.value = '';
   } else {
-    data.value = args.value;
+    clone.value = args.value;
   }
   if (!args.show_description) {
-    data.description = '';
+    clone.description = '';
   } else {
-    data.description = args.description;
+    clone.description = args.description;
   }
   if (!args.show_image) {
-    data.picture = {};
+    clone.picture = {};
   } else {
-    data.picture = imgDefault;
-    data.picture.img.src = args.picture;
-    data.square = args.image_squared;
-    data.media_size = args.image_size;
+    clone.picture = imgDefault;
+    clone.picture.img.src = args.picture;
+    clone.square = args.image_squared;
+    clone.media_size = args.image_size;
   }
   if (!args.show_icon) {
-    delete data.icon;
+    delete clone.icon;
   } else {
-    data.icon = {};
-    data.icon.name = args.icon;
-    data.icon.path = 'icon.svg';
-    data.media_size = args.icon_size;
+    clone.icon = {};
+    clone.icon.name = args.icon;
+    clone.icon.path = 'icon.svg';
+    clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
-      data.icon.name = args.icon_flag;
-      data.icon.path = 'icon-flag.svg';
+      clone.icon.name = args.icon_flag;
+      clone.icon.path = 'icon-flag.svg';
     }
     if (args.icon === 'none') {
-      delete data.icon;
+      delete clone.icon;
     }
   }
 
-  correctPaths(data);
+  correctPaths(clone);
 
-  return data;
+  return clone;
 };
 
 const prepareDataList = (data, args) => {
