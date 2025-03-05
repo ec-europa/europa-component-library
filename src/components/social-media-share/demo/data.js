@@ -11,9 +11,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
-        name: 'twitter-color',
+        name: 'twitter',
         size: 'm',
+        family: 'networks',
       },
     },
     {
@@ -23,9 +23,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
-        name: 'facebook-color',
+        name: 'facebook',
         size: 'm',
+        family: 'networks',
       },
     },
     {
@@ -35,9 +35,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
-        name: 'linkedin-color',
+        name: 'linkedin',
         size: 'm',
+        family: 'networks',
       },
     },
     {
@@ -47,9 +47,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
-        name: 'telegram-color',
+        name: 'telegram',
         size: 'm',
+        family: 'networks',
       },
     },
   ],
@@ -62,9 +62,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icons.svg',
         name: 'share',
         size: 'm',
+        family: 'networks',
       },
     },
     content: `Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.

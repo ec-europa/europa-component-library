@@ -3,7 +3,6 @@
 {#
   Parameters:
   - "label" (string) (default: ''): for screen reader
-  - "icon_path" (string) (default: '') Path to the icons file
   - "items" (array) (default: []):
     - "type" (string) (default: ''): can be 'previous', 'current', 'next' or 'truncation'
     - "label" (string) (default: ''): label used when the item is not a link
@@ -21,7 +20,6 @@
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-pagination' %}
 {% set _extra_attributes = '' %}
-{% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -56,7 +54,7 @@
           {% endif %}
           {% set _icon = {} %}
           {% if _item.link.icon is defined and _item.link.icon is not empty %}
-            {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
+            {% set _icon = _item.link.icon %}
           {% endif %}
           {% include '@ecl/link/link.html.twig' with {
             link: _link|default({}),

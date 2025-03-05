@@ -9,7 +9,6 @@
   - "aria_label" (string) (default: '') Aria label for the main nav
   - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
   - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
-  - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (array) (default: []): The menu items - format: [
     {
       "label": (string) (default: '')
@@ -65,7 +64,6 @@
 {% set _items = items|default([{}]) %}
 {% set _css_class = 'ecl-mega-menu' %}
 {% set _extra_attributes = '' %}
-{% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -113,7 +111,6 @@
     {% include '@ecl/button/button.html.twig' with _toggle|merge({
       type: 'button',
       variant: 'tertiary',
-      icon_path: _icon_path,
       icon_position: 'before',
       icon: _toggle_icon,
       hide_label: true,
@@ -132,7 +129,6 @@
             variant: 'tertiary',
             label: _back_label,
             icon: {
-              path: _icon_path,
               name: 'corner-arrow',
               size: 'xs',
               transform: 'rotate-270',
@@ -153,7 +149,6 @@
             {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
               item: item,
               id: "ecl-mega-menu-item-" ~ _id ~ '-' ~ key,
-              icon_path: _icon_path,
               see_all_label: _see_all_label,
               second_level_aria_label: _second_level_aria_label,
               third_level_aria_label: _third_level_aria_label,

@@ -3,7 +3,6 @@
 {#
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
-  - "icon_path" (string) Path to the icon sprite
   - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
@@ -32,7 +31,6 @@
 {% set _menu_item_attribute = 'data-ecl-menu-link' %}
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
-{% set _icon_path = icon_path|default('') %}
 {% set _see_all_label = see_all_label|default('') %}
 {% set _menu_item_attributes = _item.extra_attributes|default([]) %}
 
@@ -57,7 +55,6 @@
       type: 'standalone',
       label: _item.label,
       path: _item.path,
-      icon_path: _icon_path,
       external: _item.external|default(false),
       sr_external: _item.sr_external|default(''),
     },
@@ -81,7 +78,6 @@
     icon: {
       name: 'corner-arrow',
       size: 'xs',
-      path: icon_path,
       transform: 'rotate-180',
     },
     extra_classes: 'ecl-menu__button-caret',
@@ -111,7 +107,6 @@
             type: 'standalone',
             label: child.label,
             path: child.path,
-            icon_path: _icon_path,
             external: child.external,
             sr_external: child.sr_external|default(''),
           },
@@ -128,12 +123,10 @@
             type: 'standalone',
             label: _see_all_label,
             path: _item.path,
-            icon_path: _icon_path,
           },
           icon: {
             name: 'arrow-left',
             size: 'xs',
-            path: icon_path,
             transform: 'rotate-180',
           },
           extra_classes: 'ecl-menu__sublink',

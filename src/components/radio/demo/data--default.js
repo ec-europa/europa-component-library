@@ -10,12 +10,6 @@ module.exports = {
   invalid: false,
   label: 'Select your country',
   helper_text: 'Helper text for the group',
-  invalid_text: 'This is the error message',
-  invalid_icon: {
-    path: '/icons.svg',
-    name: 'error',
-  },
-  sr_invalid_icon: 'Error',
   input: {
     id: 'radio-default',
     input_type: 'radio',

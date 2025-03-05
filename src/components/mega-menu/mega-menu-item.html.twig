@@ -3,7 +3,6 @@
 {#
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
-  - "icon_path" (string) Path to the icon sprite
   - "item" (object)
     - "label" (string) Label of the menu link
     - "external" (boolean) External link
@@ -51,7 +50,6 @@
 {% set _menu_sublink_attribute = 'data-ecl-mega-menu-sublink' %}
 {% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
-{% set _icon_path = icon_path|default('') %}
 {% set _featured = _item.featured|default({}) %}
 {% set _info = _item.info|default({}) %}
 {% set _see_all = see_all|default(false) %}
@@ -84,13 +82,11 @@
   {% set _icon = [{
     name: 'corner-arrow',
     transform: 'rotate-90',
-    path: _icon_path,
     size: '2xs',
   },
   {
     name: 'arrow-left',
     transform: 'flip-horizontal',
-    path: _icon_path,
     size: 's',
   }] %}
 {% endif %}
@@ -108,7 +104,6 @@
     {% include '@ecl/button/button.html.twig' with {
       type: 'button',
       label: _item.label,
-      icon_path: _icon_path,
       icon_position: 'after',
       icon: _icon,
       extra_classes: _menu_link_class,
@@ -120,7 +115,6 @@
         type: 'standalone',
         label: _item.label,
         path: _item.path,
-        icon_path: _icon_path,
         external: _can_be_external ? _item.external|default(false),
         sr_external: _item.sr_external|default(''),
         icon_position: 'after',
@@ -187,7 +181,6 @@
           icon: {
             name: 'arrow-left',
             transform: 'flip-horizontal',
-            path: _icon_path,
             size: 'xs',
           },
           extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
@@ -242,7 +235,6 @@
           {% set _icon = {
             name: 'corner-arrow',
             transform: 'rotate-90',
-            path: _icon_path,
             size: '2xs',
           } %}
         {% endif %}
@@ -255,7 +247,6 @@
             {% include '@ecl/button/button.html.twig' with {
               type: 'button',
               label: child.label,
-              icon_path: _icon_path,
               icon: _icon,
               extra_classes: _sublink_class,
               extra_attributes: _sublink_attrs,
@@ -265,7 +256,6 @@
               see_all: child.see_all|default(false),
               third_level_aria_label: third_level_aria_label|default(''), 
               see_all_attributes: child.see_all_attributes|default([]),
-              icon_path: _icon_path,
               sublink_id: _sublink_id|default(''),
               item: {
                 path: child.path, 
@@ -283,7 +273,6 @@
               path: child.path,
               external: _can_be_external ? child.external|default(false),
               sr_external: child.sr_external|default(''),
-              icon_path: _icon_path,
             },
             icon: _icon,
             extra_classes: _sublink_class,
@@ -302,7 +291,6 @@
               path: _item.path,
             },
             icon: {
-              path: _icon_path,
               name: 'arrow-left',
               size: 'xs',
               transform: 'rotate-180',
@@ -349,7 +337,7 @@
                 } only %}
               {% endif %}
               {% include '@ecl/link/link.html.twig' with {
-                link: item|merge({ type: 'standalone', icon_path: _icon_path }),
+                link: item|merge({ type: 'standalone' }),
                 extra_attributes: [
                   { name: 'data-ecl-mega-menu-featured-link' },
                 ]|merge(item.extra_attributes|default([])),

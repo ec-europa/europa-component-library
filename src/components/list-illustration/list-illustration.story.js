@@ -352,11 +352,9 @@ const prepareDataItem = (data, args) => {
   } else {
     clone.icon = {};
     clone.icon.name = args.icon;
-    clone.icon.path = 'icon.svg';
     clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
       clone.icon.name = args.icon_flag;
-      clone.icon.path = 'icon-flag.svg';
     }
     if (args.icon === 'none') {
       delete clone.icon;

@@ -9,9 +9,6 @@ import demoData from './demo/data';
 
 expect.extend(toHaveNoViolations);
 
-// Add SVG icon path.
-demoData.button.icon.path = 'example';
-
 describe('Expandable', () => {
   const template = '@ecl/expandable/expandable.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);

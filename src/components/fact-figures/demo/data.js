@@ -10,15 +10,11 @@ module.exports = {
       label: 'View all',
       icon_position: 'after',
     },
-    icon: {
-      path: '/icons.svg',
-    },
   },
   items: [
     {
       icon: {
         name: 'infographic',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Lorem ipsum',
@@ -28,7 +24,6 @@ module.exports = {
     {
       icon: {
         name: 'spreadsheet',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Sed hendrerit',
@@ -37,7 +32,6 @@ module.exports = {
     {
       icon: {
         name: 'growth',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
@@ -47,7 +41,6 @@ module.exports = {
     {
       icon: {
         name: 'digital',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Aenean dapibus',
@@ -57,7 +50,6 @@ module.exports = {
     {
       icon: {
         name: 'regulation',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Lorem ipsum',
@@ -67,7 +59,6 @@ module.exports = {
     {
       icon: {
         name: 'image',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Sed hendrerit',
@@ -76,7 +67,6 @@ module.exports = {
     {
       icon: {
         name: 'global',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
@@ -86,7 +76,6 @@ module.exports = {
     {
       icon: {
         name: 'presentation',
-        path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Aenean dapibus',

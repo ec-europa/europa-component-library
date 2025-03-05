@@ -6,7 +6,6 @@
   - "autoplay": (boolean) (default: false) For videos, setting this to true will hide the controls and make the video start playing
   - "sr_play" (string) (default: ''): Label for the play button (for autoplay video)
   - "sr_pause" (string) (default: ''): Label for the pause button (for autoplay video)
-  - "icon_path": (string) (default: '') Path to the icon sprite (needed for the autoplay video)
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
@@ -51,7 +50,6 @@
 {% set _embedded_media = embedded_media|default('') %}
 {% set _autoplay = autoplay|default(false) %}
 {% set _video = video|default({}) %}
-{% set _icon_path = icon_path|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
   'data-ecl-media-container="true"',
@@ -171,7 +169,6 @@
         extra_classes: 'ecl-media-container__play',
         extra_attributes: [{ name: 'data-ecl-media-container-play' }],
         icon: {
-          path: _icon_path,
           name: 'play-outline',
           size: 'm',
         },
@@ -184,7 +181,6 @@
         extra_classes: 'ecl-media-container__pause',
         extra_attributes: [{ name: 'data-ecl-media-container-pause' }],
         icon: {
-          path: _icon_path,
           name: 'pause-outline',
           size: 'm',
         },

@@ -51,7 +51,6 @@ npm install --save @ecl/content-block
       icon: {
         name: 'calendar',
         size: 'xs',
-        path: '/icons.svg',
       },
       label: '2018/10/22',
     },
@@ -59,7 +58,6 @@ npm install --save @ecl/content-block
       icon: {
         name: 'location',
         size: 'xs',
-        path: '/icons.svg',
       },
       label: 'Luxembourg',
     },

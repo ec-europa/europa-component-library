@@ -124,6 +124,11 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+### Icon
+
+- in the footer, icon names have been changed for the social media icons: the icon family and sttle have to be passed as data.
+  For instance, `instagram-inverted` (v4) is now `instagram`, with family `networks` and style `inverted`
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of image with an associated link, instead of an img and then a list of links.

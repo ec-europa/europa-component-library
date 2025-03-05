@@ -105,9 +105,9 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'instagram-negative',
+                name: 'instagram',
                 size: 'm',
+                family: 'networks',
               },
             },
             {
@@ -119,9 +119,9 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'twitter-negative',
+                name: 'twitter',
                 size: 'm',
+                family: 'networks',
               },
             },
             {
@@ -133,9 +133,9 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'linkedin-negative',
+                name: 'linkedin',
                 size: 'm',
+                family: 'networks',
               },
             },
             {
@@ -147,9 +147,9 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'chain-negative',
+                name: 'chain',
                 size: 'm',
+                family: 'networks',
               },
             },
           ],

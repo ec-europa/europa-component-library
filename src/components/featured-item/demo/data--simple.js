@@ -14,7 +14,6 @@ module.exports = {
       label: 'Standalone link',
       external: true,
       sr_external: 'Link to an external domain',
-      icon_path: '/icons.svg',
     },
   },
   media_container: {
@@ -36,7 +35,6 @@ module.exports = {
       icon_position: 'after',
     },
     icon: {
-      path: '/icons.svg',
       name: 'corner-arrow',
       size: 'xs',
       transform: 'rotate-90',

@@ -9,12 +9,6 @@ module.exports = {
     value_text: 'Value: ',
     width: 'm',
   },
-  invalid_text: 'This is the error message',
-  invalid_icon: {
-    path: '/icons.svg',
-    name: 'error',
-  },
-  sr_invalid_icon: 'Error',
   label: 'Range slider',
   helper_text: "This is the input's helper text.",
   optional_text: '(optional)',

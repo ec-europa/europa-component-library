@@ -17,7 +17,6 @@
     - "more_label" (string) (default: 'More (%d)') Label for the more button (responsive)
     - "previous_label" (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
     - "next_label" (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
-    - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -30,7 +29,6 @@
 
 {# Internal properties #}
 
-{% set _icon_path = icon_path|default('') %}
 {% set _more_label = more_label|default('More (%d)') %}
 {% set _previous_label = previous_label|default('Previous') %}
 {% set _next_label = next_label|default('Next') %}
@@ -111,7 +109,6 @@
       type: 'button',
       icon_position: 'after',
       icon: {
-        path: _icon_path,
         name: 'corner-arrow',
         size: 'fluid',
         transform: 'rotate-180'
@@ -128,7 +125,6 @@
       type: 'button',
       hide_label: true,
       icon: {
-        path: _icon_path,
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-270',
@@ -141,7 +137,6 @@
       type: 'button',
       hide_label: true,
       icon: {
-        path: _icon_path,
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-90',

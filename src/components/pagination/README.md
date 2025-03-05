@@ -36,7 +36,6 @@ npm install --save @ecl/pagination
           icon_position: 'before', 
         } 
         icon: { 
-          path: 'path/to/icons.svg', 
           name: 'corner-arrow', 
           size: 'xs', 
           transform: 'rotate-270', 
@@ -69,7 +68,6 @@ npm install --save @ecl/pagination
           icon_position: 'after', 
         } 
         icon: { 
-          path: 'path/to/icons.svg', 
           type: 'ui', 
           name: 'corner-arrow', 
           size: 'xs', 

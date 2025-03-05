@@ -31,10 +31,9 @@ npm install --save @ecl/social-media-share
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
-        name: 'twitter-color',
+        name: 'twitter',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
+        family: 'networks',
       },
     },
     {
@@ -44,10 +43,33 @@ npm install --save @ecl/social-media-share
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
-        name: 'facebook-color',
+        name: 'facebook',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
+        family: 'networks',
+      },
+    },
+    {
+      link: {
+        label: 'Linkedin',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        name: 'linkedin',
+        size: 'm',
+        family: 'networks',
+      },
+    },
+    {
+      link: {
+        label: 'Telegram',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        name: 'telegram',
+        size: 'm',
+        family: 'networks',
       },
     },
   ],
@@ -57,43 +79,16 @@ npm install --save @ecl/social-media-share
       link: {
         label: 'Other social networks',
         path: exampleLink,
-        aria_label: 'See other social media networks',
         icon_position: 'before',
       },
       icon: {
-        path: '/icons.svg',
         name: 'share',
         size: 'm',
+        family: 'networks',
       },
     },
-    links: [
-      {
-        link: {
-          label: 'Pinterest',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'pinterest-color',
-          size: 'fluid',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-      },
-      {
-        link: {
-          label: 'Mastodon',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'mastodon-color',
-          size: 'fluid',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-      },
-    ],
+    content: `Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+      Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.`,
   }
 } %}
 ```

@@ -12,7 +12,6 @@
     - "sr_play" (string) (default: 'Play carousel') screen reader label for the play button
     - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
     - "full_width": (bool) (default: false) Full width banner (inside the grid)
-    - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -36,7 +35,6 @@
 {% set _sr_pause = sr_pause|default('Pause carousel') %}
 {% set _counter_label = counter_label|default('of') %}
 {% set _full_width = full_width|default(false) %}
-{% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -84,7 +82,6 @@
           variant: 'tertiary',
           extra_classes: 'ecl-carousel__play',
           icon: {
-            path: _icon_path,
             name: 'play-outline',
             size: 'm',
             extra_classes: 'ecl-carousel__icon-default',
@@ -97,7 +94,6 @@
           variant: 'tertiary',
           extra_classes: 'ecl-carousel__pause',
           icon: {
-            path: _icon_path,
             name: 'pause-outline',
             size: 'm',
             extra_classes: 'ecl-carousel__icon-default',

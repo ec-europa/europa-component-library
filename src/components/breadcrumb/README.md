@@ -14,7 +14,6 @@ npm install --save @ecl/breadcrumb
 - **"navigation_text"** (string) (default: ''): Text of navigation in breadcrumb
 - **"ellipsis_label"** (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
 - **"ellipsis_text"** (string) (default: '...'): Text of the ellipsis
-- **"icon_path"** (string) (default: ''): URL to icons file
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -51,7 +50,6 @@ npm install --save @ecl/breadcrumb
       path: '/example' 
     }, 
   ], 
-  icon_path: '/path-to-the-icons-file', 
   navigation_text: 'You are here:',  
   ellipsis_label: 'Click to expand' 
 } %}  

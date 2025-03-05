@@ -9,13 +9,12 @@ npm install --save @ecl/icon
 ### Parameters
 
 - **"icon"** (associative array) (default: 'predefined structure below')
-  - "path" (string) (default: '') - path/url to general icon file (eg. /path-to-icon/icon.svg)
   - "name" (string) (default: '') - name of icon, eg. 'facebook', 'twitter'.
   - "size" (string) (default: 'm') size of icon. Available sizes are 'xs','s','m','l','xl','2xl','fluid'
   - "transform" (string) (default: '') Transformation of icon. Available transformations are 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical')
   - "color" (string) (default: '') Color of icon. Available colors are 'default', 'inverted', 'primary'
   - "title": '' (string) (default: '') Additional title for the icon; shortcut for extra accessibility title
-  - "category" (string) (default: ''): icon category
+  - "family" (string) (default: ''): icon family
 - **"as_image"**: (boolean) (default: false) Whether the icon is used as an image
 - **"extra_accessibility"** (optional) (object) Extra tags for accessibility when used as an image
   - description: '' (desc tag)
@@ -33,8 +32,7 @@ npm install --save @ecl/icon
 ```twig
 {% include '@ecl/icon/icon.html.twig' with { 
   icon: { 
-    path: '/static/media/icons.svg', 
-    name: 'facebook', 
+    name: 'audio', 
     size: 'm', 
     transform: 'rotate-90', 
     color: 'primary' 

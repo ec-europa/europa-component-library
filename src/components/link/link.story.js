@@ -201,14 +201,12 @@ const prepareData = (data, args) => {
     data.icon.name = args.icon_name;
     data.icon.transform = args.icon_transform;
     data.icon.size = 'xs';
-    data.icon.path = 'icons.svg';
     data.icon.title = args.icon_title;
   }
   if (args.icon_name === 'none') {
     delete data.icon;
   }
   if (args.external) {
-    data.link.icon_path = 'icons.svg';
     data.as_image = true;
   }
 

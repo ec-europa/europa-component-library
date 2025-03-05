@@ -190,7 +190,6 @@ const prepareData = (data, args) => {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.size = 'xs';
-    data.icon.path = 'icon.svg';
     data.icon.transform =
       args.icon_transform !== 'none' ? args.icon_transform : '';
     data.icon_position = args.icon_position;

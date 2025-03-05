@@ -9,15 +9,11 @@ module.exports = {
   icon: {
     name: 'file',
     size: '2xl',
-    path: '/icons.svg',
   },
   download: {
     link: {
       label: 'Download',
       path: exampleLink,
-    },
-    icon: {
-      path: '/icons.svg',
     },
   },
 };

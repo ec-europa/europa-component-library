@@ -77,7 +77,6 @@ npm install --save @ecl/content-item
       icon: {
         name: 'calendar',
         size: 'xs',
-        path: '/icons.svg',
       },
       label: '2018/10/22',
     },
@@ -85,7 +84,6 @@ npm install --save @ecl/content-item
       icon: {
         name: 'location',
         size: 'xs',
-        path: '/icons.svg',
       },
       label: 'Luxembourg',
     },
@@ -110,7 +108,6 @@ npm install --save @ecl/content-item
               },
               icon: {
                 name: 'copy',
-                path: '/icons.svg',
                 size: 's',
               },
             },
@@ -122,7 +119,6 @@ npm install --save @ecl/content-item
               },
               icon: {
                 name: 'download',
-                path: '/icons.svg',
                 size: 's',
               },
             },

@@ -16,7 +16,6 @@ npm install --save @ecl/mega-menu
 - **"second_level_aria_label"** (string): (default: ''): Second level list aria label
 - **"third_level_aria_label"** (string): (default: ''): Third level list aria label
 - **"back_label"** (string): (default: ''): Back button label
-- **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
@@ -64,7 +63,6 @@ npm install --save @ecl/mega-menu
     },
     icon:
       {
-        path: '/icons.svg',
         name: 'hamburger',
         size: 'm',
       },
@@ -73,13 +71,11 @@ npm install --save @ecl/mega-menu
   close: { 
     label: 'Close', 
     icon: { 
-      path: '/icons.svg', 
       name: 'close', 
       size: 'm', 
     }, 
   }, 
   back_label: 'Back',
-  icon_path: '/icons.svg',
   items: [
     {
       label: "Menu item",

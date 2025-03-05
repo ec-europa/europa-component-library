@@ -4,13 +4,12 @@
   Parameters:
     - "icon" (associative array) (default: predefined structure): format:
         {
-          path: '/static/media/icons.cbfd6efe.svg',
           name: '',
           size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
           transform: 'rotate-0' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
           color: 'default' (available options: 'default', 'inverted', 'primary')
           title: '' (additional title for the icon; shortcut for extra accessibility title)
-          category (string) (default: ''): icon category
+          family (string) (default: ''): icon family
         }
     - "as_image": false,
     - "extra_accessibility" : {
@@ -32,13 +31,12 @@
 {# Internal properties #}
 
 {% set _icon = {
-  path: '',
   name: '',
   size: 'm',
   transform: '',
   color: '',
   title: '',
-  category: '',
+  family: '',
 }|merge(icon|default({})) %}
 
 {% set _extra_accessibility = {
@@ -101,8 +99,8 @@
 
 {% set _wt_classes = '' %}
 {% set _full_name = '' %}
-{% if _icon.category is not empty %}
-  {% set _full_name = _full_name ~ '-' ~ _icon.category %}
+{% if _icon.family is not empty %}
+  {% set _full_name = _full_name ~ '-' ~ _icon.family %}
 {% endif %}
 {% if _icon.name is not empty %}
   {% set _full_name = _full_name ~ '--' ~ _icon.name %}

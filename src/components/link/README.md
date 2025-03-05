@@ -18,7 +18,6 @@ npm install --save @ecl/link
   - "sr_external" (string) (default: '') Additional label for external icon
   - "aria_label" (string) Aria label attribute value
   - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
-  - "icon_path" (string) (default: '') - Path to the icon sprite in case of external links
   - "indicator" (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
 - **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
   The name has to be non empty for the icon to be printed.
@@ -39,8 +38,7 @@ npm install --save @ecl/link
     icon_position: 'after' 
     aria_label: 'An aria label' 
   }, 
-  icon: { 
-    path: '/path-to-the-icon-file', 
+  icon: {  
     name: 'external', 
     extra_classes: 'my-extra-class-1 my-extra-class-2' 
   }, 

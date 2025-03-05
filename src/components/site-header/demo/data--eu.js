@@ -37,7 +37,6 @@ module.exports = {
       close: {
         label: 'Close',
         icon: {
-          path: '/icons.svg',
           name: 'close',
           size: 's',
         },
@@ -251,7 +250,6 @@ module.exports = {
       href: exampleLink,
     },
     icon: {
-      path: '/icons.svg',
       name: 'corner-arrow',
       size: 'fluid',
       transform: 'rotate-90',
@@ -260,14 +258,12 @@ module.exports = {
   notification: {
     variant: 'info',
     icon: {
-      path: '/icons.svg',
       name: 'information',
       size: 'l',
     },
     close: {
       label: 'Close',
       icon: {
-        path: '/icons.svg',
         name: 'close',
         size: 'm',
       },
@@ -290,5 +286,4 @@ module.exports = {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.',
   },
-  icon_path: '/icons.svg',
 };

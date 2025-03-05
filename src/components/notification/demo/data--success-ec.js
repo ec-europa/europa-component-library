@@ -2,7 +2,6 @@
 module.exports = {
   variant: 'success',
   icon: {
-    path: '/icons.svg',
     name: 'check-filled',
     size: 'l',
   },
@@ -13,7 +12,6 @@ module.exports = {
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },
