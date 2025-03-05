@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
-import styles from './Header.scss';
+import styles from './Header.module.scss';
 
 import { getPageTitle, getSectionTitle } from './utils/title';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LogoCard from './LogoCard';
-import styles from './LogoList.scss';
+import styles from './LogoList.module.scss';
 
 const officialLanguages = [
   'bg',

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import styles from './LogoLink.scss';
+import styles from './LogoLink.module.scss';
 
 const LogoLink = React.memo(({ system, logo, children, ...props }) => (
   <Link

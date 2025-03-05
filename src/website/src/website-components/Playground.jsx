@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 
 import iconSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
-import styles from './Playground.scss';
+import styles from './Playground.module.scss';
 import Code from './Code';
 
 class Playground extends Component {
@@ -125,8 +125,6 @@ class Playground extends Component {
 
     const { hasError, resolvedMarkup } = this.state;
 
-    if (!children) return null;
-
     if (hasError)
       return (
         <div className={styles.playground}>
@@ -156,7 +154,7 @@ class Playground extends Component {
             `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}${argsUrl}`,
           )
         : '';
-
+console.log(fullFrameUrl);
     let markupElement = null;
 
     if (resolvedMarkup) {
@@ -260,7 +258,7 @@ class Playground extends Component {
 }
 
 Playground.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   frameHeight: PropTypes.string,
   frameWidth: PropTypes.string,
   playgroundLink: PropTypes.string,

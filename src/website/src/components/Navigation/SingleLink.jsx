@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 // import classnames from 'classnames';
 
 import NavigationLink from './NavigationLink';
-import styles from './SingleLink.scss';
+import styles from './SingleLink.module.scss';
 
 const SingleLink = React.memo(({ page, level }) => (
   <NavigationLink

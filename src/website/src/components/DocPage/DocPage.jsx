@@ -8,7 +8,7 @@ import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
 
-import mdStyles from '../../styles/markdown.scss';
+import mdStyles from '../../styles/markdown.module.scss';
 
 import { getPageTitle, getSectionTitle } from './utils/title';
 

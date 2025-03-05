@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import iframeResizer from '@iframe-resizer/parent';
 
-import styles from './Iframe.scss';
+import styles from './Iframe.module.scss';
 
 class Iframe extends PureComponent {
   constructor(props) {

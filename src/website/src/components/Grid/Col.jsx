@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import grid from './grid.scss';
-import utilities from '../../styles/utilities.scss';
+import grid from './grid.module.scss';
+import utilities from '../../styles/utilities.module.scss';
 
 const Col = React.memo(
   ({ col, spacing, flex, className, children, ...props }) => {

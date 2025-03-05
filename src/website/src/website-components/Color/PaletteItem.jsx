@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import styles from './PaletteItem.scss';
+import styles from './PaletteItem.module.scss';
 
 const getCode = (alias, parentRef) => {
   if (!alias) return '';

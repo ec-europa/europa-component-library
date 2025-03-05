@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import LinkList from './LinkList';
-import styles from './Navigation.scss';
+import styles from './Navigation.module.scss';
 
 const Navigation = React.memo(
   ({

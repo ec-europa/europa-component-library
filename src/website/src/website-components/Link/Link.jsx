@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
-import styles from './Link.scss';
+import styles from './Link.module.scss';
 
 function StyledLink({ className, standalone, to, label, children, ...props }) {
   const cls = classnames(className, styles.link, {

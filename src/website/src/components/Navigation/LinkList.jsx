@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import SingleLink from './SingleLink';
 import LinkGroup from './LinkGroup'; // eslint-disable-line import/no-cycle
 import LinkSection from './LinkSection'; // eslint-disable-line import/no-cycle
-import styles from './LinkList.scss';
+import styles from './LinkList.module.scss';
 
 const LinkList = React.memo(
   ({ pages, level, showStatus, 'aria-hidden': ariaHidden }) => (

@@ -5,7 +5,7 @@ import withCode from '@ecl/storybook-addon-code';
 // Get data
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
-import enDataMenu from '@ecl/menu/demo/data--ec';
+import enDataMenu from '@ecl/menu/demo/data--ec-long';
 import enDataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataFullEC from './demo/data--ec';
 import siteHeader from './site-header.html.twig';

@@ -2,13 +2,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
-import { hot } from 'react-hot-loader';
 
 // Global styles
 import 'normalize.css/normalize.css';
 import './styles/app.scss';
 import 'prismjs/themes/prism.css';
-import styles from './styles/markdown.scss';
+import styles from './styles/markdown.module.scss';
 
 // Static routes
 import MainRoutes from './routes/MainRoutes';
@@ -130,4 +129,4 @@ function App() {
   );
 }
 
-export default hot(module)(App);
+export default App;

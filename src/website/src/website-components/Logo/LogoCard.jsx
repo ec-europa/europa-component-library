@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './LogoCard.scss';
+import styles from './LogoCard.module.scss';
 
 function LogoCard({ path, name, color }) {
   const cardClass =

@@ -2,7 +2,7 @@ import React, { PureComponent, createRef } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import styles from './Palette.scss';
+import styles from './Palette.module.scss';
 
 class Palette extends PureComponent {
   constructor(props) {
