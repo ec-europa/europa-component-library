@@ -139,7 +139,7 @@ If you don't use the templates, this would have to be done manually:
 - keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
   Examples:
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
-    - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
+    - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
 - extra title and description should be passed in `data-title` and `data-desc` respectively
 
 As the data structure of icons is slightly different on Webtools, here are a few extra steps:
