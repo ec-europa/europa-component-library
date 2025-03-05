@@ -12,6 +12,8 @@ module.exports = {
       },
       icon: {
         name: 'facebook',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -22,6 +24,8 @@ module.exports = {
       },
       icon: {
         name: 'instagram',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -32,6 +36,8 @@ module.exports = {
       },
       icon: {
         name: 'mastodon',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -42,6 +48,8 @@ module.exports = {
       },
       icon: {
         name: 'linkedin',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -52,6 +60,8 @@ module.exports = {
       },
       icon: {
         name: 'telegram',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -62,6 +72,8 @@ module.exports = {
       },
       icon: {
         name: 'chain',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
   ],

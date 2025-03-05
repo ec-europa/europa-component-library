@@ -11,7 +11,8 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        name: 'facebook-color',
+        name: 'facebook',
+        family: 'networks',
       },
     },
     {
@@ -21,7 +22,8 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        name: 'instagram-color',
+        name: 'instagram',
+        family: 'networks',
       },
     },
     {
@@ -31,7 +33,8 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        name: 'mastodon-color',
+        name: 'mastodon',
+        family: 'networks',
       },
     },
     {
@@ -41,7 +44,8 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        name: 'linkedin-color',
+        name: 'linkedin',
+        family: 'networks',
       },
     },
     {
@@ -51,7 +55,8 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        name: 'telegram-color',
+        name: 'telegram',
+        family: 'networks',
       },
     },
     {
@@ -62,6 +67,7 @@ module.exports = {
       },
       icon: {
         name: 'chain',
+        family: 'networks',
       },
     },
   ],

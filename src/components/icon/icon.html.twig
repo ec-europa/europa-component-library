@@ -10,6 +10,7 @@
           color: 'default' (available options: 'default', 'inverted', 'primary')
           title: '' (additional title for the icon; shortcut for extra accessibility title)
           family (string) (default: ''): icon family
+          style: (string) (default: ''): icon style; mostly used for social networks icons, can be 'primary', 'monochrome', 'inverted'
         }
     - "as_image": false,
     - "extra_accessibility" : {
@@ -37,6 +38,7 @@
   color: '',
   title: '',
   family: '',
+  style: '',
 }|merge(icon|default({})) %}
 
 {% set _extra_accessibility = {
@@ -107,6 +109,10 @@
 {% endif %}
 {% set _wt_classes = 'wt-icon' ~ _full_name %}
 {% set _css_class = _css_class  ~ ' ecl-icon' ~ _full_name %}
+
+{% if _icon.style is not empty %}
+  {% set _wt_classes = _wt_classes ~ ' wt-icon--' ~ _icon.style %}
+{% endif %}
 
 <span 
   class="{{ _wt_classes }} {{ _css_class }}"

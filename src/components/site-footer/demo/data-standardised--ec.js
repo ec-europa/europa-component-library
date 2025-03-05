@@ -53,6 +53,7 @@ module.exports = {
                 name: 'facebook',
                 size: 'xs',
                 family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -63,9 +64,10 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                name: 'twitter',
+                name: 'x',
                 size: 'xs',
                 family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -79,6 +81,7 @@ module.exports = {
                 name: 'linkedin',
                 size: 'xs',
                 family: 'networks',
+                style: 'inverted',
               },
             },
           ],

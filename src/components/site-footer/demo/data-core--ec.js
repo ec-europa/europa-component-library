@@ -108,6 +108,7 @@ module.exports = {
                 name: 'instagram',
                 size: 'm',
                 family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -119,9 +120,10 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                name: 'twitter',
+                name: 'x',
                 size: 'm',
                 family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -136,6 +138,7 @@ module.exports = {
                 name: 'linkedin',
                 size: 'm',
                 family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -150,6 +153,7 @@ module.exports = {
                 name: 'chain',
                 size: 'm',
                 family: 'networks',
+                style: 'inverted',
               },
             },
           ],

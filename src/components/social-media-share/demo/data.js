@@ -11,7 +11,7 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        name: 'twitter',
+        name: 'x',
         size: 'm',
         family: 'networks',
       },
