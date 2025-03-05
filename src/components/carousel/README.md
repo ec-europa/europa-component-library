@@ -15,8 +15,8 @@ npm install --save @ecl/carousel
 - **"sr_slide_role"** (string) (default: 'slide') screen reader localized role for the slides
 - **"sr_play"** (string) (default: 'Play carousel') screen reader label for the play button
 - **"sr_pause"** (string) (default: 'Pause carousel') screen reader label for the pause button
-- **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
-- **"icon_path"** (string) ) (default: '')
+- **"full_width"** (bool) (default: false) Extends the banner to whole viewport when used inside the grid
+- **"icon_path"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

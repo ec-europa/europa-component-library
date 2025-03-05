@@ -84,7 +84,6 @@
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
     {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
-      variant: _variant,
       extra_classes: 'ecl-page-header__breadcrumb',
     }) only -%}
   {% endif %}
