@@ -133,6 +133,10 @@ $timeline: null !default;
 .ecl-timeline__content {
   color: map.get($timeline, 'content-color');
   font: map.get($timeline, 'content-font');
+
+  > * {
+    margin-top: 0;
+  }
 }
 
 /* stylelint-disable-next-line order/order */

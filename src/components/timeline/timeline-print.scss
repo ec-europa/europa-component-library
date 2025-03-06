@@ -116,6 +116,10 @@ $timeline-print: null !default;
 .ecl-timeline__content {
   color: map.get($timeline, 'content-color');
   font: map.get($timeline-print, 'content-font');
+
+  > * {
+    margin-top: 0;
+  }
 }
 
 @if map.has-key($timeline, 'tooltip') {
