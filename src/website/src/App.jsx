@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 
 // Global styles
 import 'normalize.css/normalize.css';
-import './styles/app.scss';
+import './styles/app.module.scss';
 import 'prismjs/themes/prism.css';
 import styles from './styles/markdown.module.scss';
 

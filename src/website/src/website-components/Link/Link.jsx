@@ -41,7 +41,7 @@ function StyledLink({ className, standalone, to, label, children, ...props }) {
 
 StyledLink.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   standalone: PropTypes.bool,
   to: PropTypes.string,
   label: PropTypes.string,

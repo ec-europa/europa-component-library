@@ -1,11 +1,8 @@
 import React from 'react';
-import { hydrate, render } from 'react-dom';
-import App from './App';
+import ReactDOM from 'react-dom';
+import Page from './Page';
 
-const rootElement = document.querySelector('#root');
-
-if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
-} else {
-  render(<App />, rootElement);
-}
+ReactDOM.render(
+  <Page />,
+  document.getElementById('root')
+);

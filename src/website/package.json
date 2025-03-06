@@ -5,15 +5,13 @@
   "version": "5.0.0-alpha.5",
   "scripts": {
     "clean": "rimraf build public/apis/*",
-    "start": "npm run prebuild && webpack-dev-server --config webpack.config.dev.js",
     "postinstall": "npm run clean && ./scripts/docs.js",
     "prebuild": "npm run clean && ./scripts/docs.js",
     "build:copy": "./scripts/copy.sh",
-    "build": "npm run build:copy && webpack --config webpack.config.prod.js",
-    "postbuild": "react-snap",
+    "build": "npm run predev && npm run prebuild && npm run build:copy && vike build",
     "serve": "serve build",
-    "predev": "node prebuild/get-meta-ec.js",
-    "dev": "vite"
+    "predev": "node prebuild/get-meta-ec.js && node prebuild/get-meta-eu.js",
+    "start": "npm run prebuild && npm run predev && concurrently \"npx serve src/website/public -p 6006\" \"vike dev\""
   },
   "dependencies": {
     "@ecl/accordion": "5.0.0-alpha.5",
@@ -125,6 +123,7 @@
     "babel-loader": "9.2.1",
     "babel-plugin-preval": "5.1.0",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+    "concurrently": "9.1.2",
     "copy-webpack-plugin": "12.0.2",
     "css-loader": "6.11.0",
     "css-minimizer-webpack-plugin": "7.0.0",
@@ -164,8 +163,9 @@
     "twing": "5.2.2",
     "twing-loader": "4.0.1",
     "url-loader": "4.1.1",
+    "vike": "0.4.224",
     "vite": "6.2.0",
-    "vite-plugin-html": "3.2.2",
+    "vite-plugin-simple-html": "0.2.0",
     "webpack": "5.98.0",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "5.2.0",

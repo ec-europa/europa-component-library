@@ -1,70 +1,52 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-
-import meta from '../preval/get-meta-eu';
-
-// Helpers
 import sortPages from '../utils/nav-sort';
-
-// Static routes
-import HomePage from '../pages/eu/index.md';
-
+import HomePage from '../pages/ec/index.md';
 import DocPage from '../components/DocPage/DocPage';
-
 import Skeleton from './Skeleton';
+import meta from '../../prebuild/meta-eu.json'; // Import JSON
 
 const sortedPages = sortPages(meta);
 
 function flatDeep(pages) {
-  return pages.reduce((acc, page) => {
-    let acc2 = acc;
-    if (page.children && page.children.length > 0) {
-      acc2 = acc.concat(flatDeep(page.children));
-    }
-
-    return acc2.concat(page);
+  return pages.reduce((all, page) => {
+    all.push(page);
+    if (page.children) all.push(...flatDeep(page.children));
+    return all;
   }, []);
 }
 
-const pagesToRoutes = (pages) =>
-  flatDeep(pages).map((page) => {
-    page.document = React.lazy(
-      () =>
-        import(
-          /* webpackInclude: /\.mdx?$/ */
-          /* webpackChunkName: "eu-pages" */
-          /* webpackMode: "lazy-once" */
-          /* webpackPreload: true */
-          `../pages/eu${page.key.slice(1)}`
-        ),
-    );
-
-    if (page.attributes.defaultTab) {
-      return (
+const pagesToRoutes = (pages) => {
+  const routes = [];
+  flatDeep(pages).forEach((page) => {
+    page.document = React.lazy(() => import(`../pages/eu${page.key.slice(1)}`));
+    if (page.attributes && page.attributes.defaultTab) {
+      routes.push(
         <Redirect
-          key={page.attributes.url}
+          key={`${page.key}-default`}
           from={page.attributes.url}
           to={`${page.attributes.url}${page.attributes.defaultTab}/`}
           exact
           strict
-        />
+        />,
       );
     }
-
-    return (
+    routes.push(
       <Route
-        key={page.attributes.url}
+        key={page.key}
         path={page.attributes.url}
         exact
         strict
         render={() => <DocPage component={page} />}
-      />
+      />,
     );
   });
+  return routes;
+};
 
 const routes = pagesToRoutes(sortedPages);
 
-function EURoutes() {
+export default function EURoutes() {
   return (
     <Skeleton
       HomePage={HomePage}
@@ -76,5 +58,3 @@ function EURoutes() {
     />
   );
 }
-
-export default EURoutes;

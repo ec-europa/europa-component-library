@@ -1146,7 +1146,6 @@ export class Menu {
   handleClickOnCaret(e) {
     const menuExpanded = this.element.getAttribute('data-expanded');
     const menuItem = e.target.closest(this.itemSelector);
-    console.log(menuExpanded);
     // Desktop display
     if (menuExpanded) {
       if (menuItem.getAttribute('aria-expanded') === 'true') {
