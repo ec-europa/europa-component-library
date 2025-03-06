@@ -1,5 +1,10 @@
 module.exports = {
   label: 'Select a country',
+  invalid_text: 'This is the error message',
+  invalid_icon: {
+    name: 'error',
+  },
+  sr_invalid_icon: 'Error',
   helper_text: "This is the input's helper text.",
   required_text: '*',
   optional_text: '(optional)',

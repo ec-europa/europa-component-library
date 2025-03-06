@@ -1,6 +1,11 @@
 // Simple content for demo
 module.exports = {
   label: 'Label',
+  invalid_text: 'This is the error message',
+  invalid_icon: {
+    name: 'error',
+  },
+  sr_invalid_icon: 'Error',
   helper_text: "This is the input's helper text.",
   required: false,
   label_aria_required: 'required',
