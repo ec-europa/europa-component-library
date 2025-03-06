@@ -59,7 +59,7 @@ $page-header: null !default;
 .ecl-page-header__title {
   border-bottom: 2px solid var(--c-p-20);
   color: map.get($page-header, 'title-color');
-  font: map.get($page-header, 'title-font');
+  font: map.get($page-header, 'title-font-mobile');
   margin-bottom: 0;
   margin-top: var(--s-xs);
   padding-bottom: var(--s-s);
@@ -87,7 +87,7 @@ $page-header: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-page-header__title {
-    font: var(--f-6xl);
+    font: map.get($page-header, 'title-font-desktop');
   }
 }
 
