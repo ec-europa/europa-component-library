@@ -35,8 +35,6 @@ class Playground extends Component {
         this.showcaseLineHeight *
         this.showcaseNbLines *
         parseFloat(getComputedStyle(document.documentElement).fontSize);
-      console.log(this.maxHeight);
-      console.log(containerHeight);
 
       // Check if code area is too long
       if (this.showcaseCodeRef.current && containerHeight > this.maxHeight) {

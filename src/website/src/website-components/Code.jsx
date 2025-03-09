@@ -6,6 +6,7 @@ import { decode } from 'html-entities';
 import beautifyHtml from 'js-beautify/js/src/html';
 
 function Code({ children }) {
+  console.log('io');
   const [formattedCode, setFormattedCode] = useState('');
 
   useEffect(() => {
@@ -14,6 +15,7 @@ function Code({ children }) {
       wrap_line_length: 120,
     });
     const decodedMarkup = decode(unescapedMarkup);
+    console.log(decodedMarkup);
     setFormattedCode(decodedMarkup);
   }, [children]);
 

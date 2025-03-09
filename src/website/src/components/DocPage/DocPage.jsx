@@ -1,33 +1,36 @@
-import React, { Component, Suspense } from 'react';
+// src/website/src/components/DocPage/DocPage.jsx
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
-
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
-
-import mdStyles from '../../styles/markdown.module.scss';
-
 import { getPageTitle, getSectionTitle } from './utils/title';
 
 class DocPage extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      Prism.highlightAllUnder(document.querySelector('#main-content'));
-    }, 100);
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        Prism.highlightAllUnder(document.querySelector('#main-content'));
+      }, 100);
+    }
   }
 
   render() {
     const { component } = this.props;
-
     let title = getPageTitle(component);
-
     const sectionTitle = getSectionTitle(component);
     if (sectionTitle) {
       title += ` - ${sectionTitle}`;
     }
+
+    console.log('DocPage Rendering:', {
+      key: component.key,
+      url: component.attributes?.url,
+      hasDoc: !!component.document,
+    });
 
     return (
       <>
@@ -36,13 +39,11 @@ class DocPage extends Component {
         <Header component={component} />
         <main id="main-content" tabIndex="-1">
           <Container spacing="pv-l pv-md-3xl">
-            <Suspense
-              fallback={
-                <h2 className={mdStyles.h4}>Loading, please wait...</h2>
-              }
-            >
-              {component.document && <component.document />}
-            </Suspense>
+            {component.document ? (
+              React.createElement(component.document)
+            ) : (
+              <div>Content missing for {component.key || 'unknown'}</div>
+            )}
           </Container>
         </main>
       </>
@@ -59,7 +60,7 @@ DocPage.propTypes = {
         url: PropTypes.string,
         name: PropTypes.string,
         component: PropTypes.func,
-      }),
+      })
     ),
     document: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   }),

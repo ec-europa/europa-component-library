@@ -1,70 +1,26 @@
-import React, { Suspense, lazy } from 'react';
+// src/website/src/routes/MainRoutes.jsx
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import HomePage from './HomePage';
 import Example from './Example';
 import PageNotFound from './404';
 import Redirects from './Redirects';
+import ECRoutes from './Ec';
+import EURoutes from './Eu';
 
-import HomePageEC from '../pages/ec/index.md';
-import HomePageEU from '../pages/eu/index.md';
-
-import Skeleton from './Skeleton';
-
-const ECRoutes = lazy(
-  () => import(/* webpackChunkName: "ec", webpackPrefetch: true */ './Ec'),
-);
-const EURoutes = lazy(
-  () => import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu'),
-);
-
-function WaitingEC(props) {
-  return (
-    <Suspense
-      fallback={
-        <Skeleton
-          HomePage={HomePageEC}
-          prefix="/ec"
-          system="ec"
-          title="EC Homepage"
-          isLoading
-        />
-      }
-    >
-      <ECRoutes {...props} />
-    </Suspense>
-  );
-}
-
-function WaitingEU(props) {
-  return (
-    <Suspense
-      fallback={
-        <Skeleton
-          HomePage={HomePageEU}
-          prefix="/eu"
-          system="eu"
-          title="EU Homepage"
-          isLoading
-        />
-      }
-    >
-      <EURoutes {...props} />
-    </Suspense>
-  );
-}
-
-function MainRoutes() {
+export default function MainRoutes() {
+  console.log('MainRoutes Rendering');
   return (
     <Switch>
       <Route exact strict path="/" component={HomePage} />
       <Route strict path="/example" component={Example} />
-      <Route path="/ec/" strict component={WaitingEC} />
-      <Route path="/eu/" strict component={WaitingEU} />
+      <Route path="/ec" component={ECRoutes} /> {/* No trailing slash */}
+      <Route path="/eu" component={EURoutes} /> {/* No trailing slash */}
       <Redirects />
-      <Route component={PageNotFound} />
+      <Route render={({ location }) => {
+        console.log('MainRoutes 404:', location.pathname);
+        return <PageNotFound />;
+      }} />
     </Switch>
   );
 }
-
-export default MainRoutes;

@@ -1,13 +1,10 @@
+// src/website/src/routes/Skeleton.jsx
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-
-// Layout
 import Navigation from '../components/Navigation/Navigation';
 import MainContainer from '../components/MainContainer/MainContainer';
-
-// Static routes
 import PageNotFound from './404';
 import LoadingPage from './LoadingPage';
 import SimplePage from '../components/SimplePage/SimplePage';
@@ -15,29 +12,26 @@ import SimplePage from '../components/SimplePage/SimplePage';
 class Skeleton extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      sidebarOpen:
-        Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-        1140,
+      // Open by default in build—check SSR vs. client
+      sidebarOpen: typeof window === 'undefined' ? true : Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 1140,
       forceRefresh: false,
     };
-
     this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
   componentDidMount() {
     const { system, isLoading } = this.props;
+    if (typeof window === 'undefined') return;
 
-    // Force refresh if is mounted on a real client (two-pass rendering)
+    // Update state on client—keep open if prerendered open
     this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
+      sidebarOpen: Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 1140 || this.state.sidebarOpen,
     });
 
-    // Inject/enable ECL stylesheet
     if (!isLoading) {
       const element = document.getElementById(`${system}-css`);
-
       if (!element) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -45,7 +39,6 @@ class Skeleton extends Component {
         link.id = `${system}-css`;
         link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}.css`;
         link.media = 'screen';
-
         const head = document.head || document.getElementsByTagName('head')[0];
         head.appendChild(link);
 
@@ -64,8 +57,8 @@ class Skeleton extends Component {
 
   componentWillUnmount() {
     const { system, isLoading } = this.props;
+    if (typeof window === 'undefined') return;
 
-    // Disable ECL stylesheet
     if (!isLoading) {
       const element = document.getElementById(`${system}-css`);
       if (element) {
@@ -83,6 +76,9 @@ class Skeleton extends Component {
   render() {
     const { sidebarOpen, forceRefresh } = this.state;
     const { HomePage, prefix, title, pages, routes, isLoading } = this.props;
+
+    //  console.log('Skeleton Prefix:', prefix);
+    console.log('Skeleton Routes:', routes.map(r => r.props.path || 'Redirect'));
 
     return (
       <>
@@ -108,7 +104,12 @@ class Skeleton extends Component {
               )}
             />
             {routes}
-            <Route component={isLoading ? LoadingPage : PageNotFound} />
+            <Route
+              render={({ location }) => {
+                console.log('Falling to 404 for:', location.pathname);
+                return isLoading ? <LoadingPage /> : <PageNotFound />;
+              }}
+            />
           </Switch>
         </MainContainer>
       </>
@@ -121,7 +122,7 @@ Skeleton.propTypes = {
   prefix: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   system: PropTypes.string.isRequired,
-  pages: PropTypes.array, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array,
   routes: PropTypes.node,
   isLoading: PropTypes.bool,
 };

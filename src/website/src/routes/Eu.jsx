@@ -1,12 +1,16 @@
+// src/website/src/routes/Eu.jsx
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import sortPages from '../utils/nav-sort';
-import HomePage from '../pages/ec/index.md';
+import HomePage from '../pages/eu/index.md';
 import DocPage from '../components/DocPage/DocPage';
 import Skeleton from './Skeleton';
-import meta from '../../prebuild/meta-eu.json'; // Import JSON
+import meta from '../../prebuild/meta-eu.json';
 
 const sortedPages = sortPages(meta);
+const mdxFiles = import.meta.glob('../pages/eu/**/*.mdx', { eager: true });
+const mdFiles = import.meta.glob('../pages/eu/**/*.md', { eager: true });
+const allDocs = { ...mdxFiles, ...mdFiles };
 
 function flatDeep(pages) {
   return pages.reduce((all, page) => {
@@ -16,35 +20,46 @@ function flatDeep(pages) {
   }, []);
 }
 
-const pagesToRoutes = (pages) => {
+const pagesToRoutes = (pages, prefix = '/eu') => {
   const routes = [];
   flatDeep(pages).forEach((page) => {
-    page.document = React.lazy(() => import(`../pages/eu${page.key.slice(1)}`));
+    const filePath = `../pages/eu${page.key.slice(1)}`;
+    page.document = allDocs[filePath]?.default || (() => <div>Not found: {filePath}</div>);
+
+    // Smart URL—handle /docs/ only when present
+    let url = `${prefix}${page.key.replace(/^\.\//, '/').replace(/\/index\.(md|mdx)$/, '')}`;
+    if (url.includes('/docs/')) {
+      url = url.replace(/\/docs\//, '/').replace(/\.(md|mdx)$/, '');
+    }
+    url = url.endsWith('/') ? url : `${url}/`;
+
+    console.log(`Page Key: ${page.key}, URL: ${url}, Doc: ${!!page.document}`);
+
     if (page.attributes && page.attributes.defaultTab) {
       routes.push(
         <Redirect
           key={`${page.key}-default`}
-          from={page.attributes.url}
-          to={`${page.attributes.url}${page.attributes.defaultTab}/`}
+          from={url}
+          to={`${url}${page.attributes.defaultTab}/`}
           exact
-          strict
-        />,
+        />
       );
     }
     routes.push(
       <Route
         key={page.key}
-        path={page.attributes.url}
+        path={url}
         exact
-        strict
-        render={() => <DocPage component={page} />}
-      />,
+        render={() => {
+          console.log(`Rendering DocPage for: ${url}`);
+          return <DocPage component={page} />;
+        }}
+      />
     );
   });
   return routes;
 };
-
-const routes = pagesToRoutes(sortedPages);
+const routes = pagesToRoutes(sortedPages, '/eu');
 
 export default function EURoutes() {
   return (

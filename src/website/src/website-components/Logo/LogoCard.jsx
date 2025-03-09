@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import styles from './LogoCard.module.scss';
 
-function LogoCard({ path, name, color }) {
+function LogoCard({ markup, name, color }) {
   const cardClass =
     color === 'negative' ? styles['card--negative'] : styles.card;
 
   return (
     <li className={cardClass}>
-      <img className={styles.logo} alt={name} src={path.default} />
+      <div className={styles.logo} dangerouslySetInnerHTML={{ __html: markup }} />
       <div className={styles.title}>{name}</div>
     </li>
   );
@@ -17,7 +17,7 @@ function LogoCard({ path, name, color }) {
 
 LogoCard.propTypes = {
   name: PropTypes.string.isRequired,
-  path: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  markup: PropTypes.string.isRequired,
   color: PropTypes.string,
 };
 

@@ -1,165 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import LogoCard from './LogoCard';
 import styles from './LogoList.module.scss';
 
-const officialLanguages = [
-  'bg',
-  'es',
-  'cs',
-  'da',
-  'de',
-  'et',
-  'el',
-  'en',
-  'fr',
-  'ga',
-  'hr',
-  'it',
-  'lv',
-  'lt',
-  'hu',
-  'mt',
-  'nl',
-  'pl',
-  'pt',
-  'ro',
-  'sk',
-  'sl',
-  'fi',
-  'sv',
-];
+// EC logo exports—standard only
+import * as ecPositiveLogos from '@ecl/resources-ec-logo/dist/positive/esm-export.js';
+import * as ecNegativeLogos from '@ecl/resources-ec-logo/dist/negative/esm-export.js';
 
-function GetLanguageId(path) {
-  if (path.includes('mute')) {
-    return 'muted';
-  }
-  return path.split('--').pop().slice(0, 2);
+// EU logo exports—standard, condensed
+import * as euStandardPositiveLogos from '@ecl/resources-eu-logo/dist/standard-version/positive/esm-export.js';
+import * as euStandardNegativeLogos from '@ecl/resources-eu-logo/dist/standard-version/negative/esm-export.js';
+import * as euCondensedPositiveLogos from '@ecl/resources-eu-logo/dist/condensed-version/positive/esm-export.js';
+import * as euCondensedNegativeLogos from '@ecl/resources-eu-logo/dist/condensed-version/negative/esm-export.js';
+
+const officialLanguages = ['bg', 'es', 'cs', 'da', 'de', 'et', 'el', 'en', 'fr', 'ga', 'hr', 'it', 'lv', 'lt', 'hu', 'mt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'fi', 'sv'];
+
+function GetLanguageId(key) {
+  if (key.includes('mute')) return 'muted';
+  return key.replace('logoEc', '').replace('logoEu', '').slice(0, 2).toLowerCase();
 }
 
-function GetColor(path) {
-  if (path.includes('negative')) return 'negative';
+function GetColor(key) {
+  if (key.includes('negative')) return 'negative';
   return 'positive';
 }
 
 function GetLogos(logos, serie) {
-  return logos.filter((logo) => {
-    const languageId = GetLanguageId(logo);
-
-    // Exclude Japanese logos with 'jp' language code
-    if (languageId === 'jp') {
-      return false;
-    }
-
-    if (serie === 'muted') {
-      return languageId === 'muted';
-    }
-    if (serie === 'official') {
-      return officialLanguages.includes(languageId);
-    }
+  return Object.keys(logos).filter((key) => {
+    const languageId = GetLanguageId(key);
+    if (languageId === 'jp') return false;
+    if (serie === 'muted') return languageId === 'muted';
+    if (serie === 'official') return officialLanguages.includes(languageId);
     return !officialLanguages.includes(languageId) && languageId !== 'muted';
   });
 }
 
 function LogoList({ system, set, color, language }) {
-  let logosSet = [];
+  const logoSets = {
+    ec: {
+      standard: color === 'positive' ? ecPositiveLogos : ecNegativeLogos,
+      muted: {}, // Empty—muted unsupported for now
+    },
+    eu: {
+      standard: color === 'positive' ? euStandardPositiveLogos : euStandardNegativeLogos,
+      condensed: color === 'positive' ? euCondensedPositiveLogos : euCondensedNegativeLogos,
+      muted: {}, // Empty—muted unsupported for now
+    },
+  };
 
-  // EU logos
-  if (system === 'eu') {
-    // Get logos in folder
-    const logosEUMuted = require.context(
-      '@ecl/preset-eu/dist/images/logo/',
-      false,
-      /\.svg$/,
-    );
-    const logosEUStandardPositive = require.context(
-      '@ecl/preset-eu/dist/images/logo/standard-version/positive',
-      false,
-      /\.svg$/,
-    );
-    const logosEUCondensedPositive = require.context(
-      '@ecl/preset-eu/dist/images/logo/condensed-version/positive',
-      false,
-      /\.svg$/,
-    );
-    const logosEUStandardNegative = require.context(
-      '@ecl/preset-eu/dist/images/logo/standard-version/negative',
-      false,
-      /\.svg$/,
-    );
-    const logosEUCondensedNegative = require.context(
-      '@ecl/preset-eu/dist/images/logo/condensed-version/negative',
-      false,
-      /\.svg$/,
-    );
-
-    // Check logo set
-    const mapSet = (s) =>
-      ({
-        condensed:
-          color === 'positive'
-            ? logosEUCondensedPositive
-            : logosEUCondensedNegative,
-        standard:
-          color === 'positive'
-            ? logosEUStandardPositive
-            : logosEUStandardNegative,
-        muted: logosEUMuted,
-      })[s];
-    logosSet = mapSet(set);
-  }
-  // EC logos
-  else {
-    // Get logos in folder
-    const logosECMuted = require.context(
-      '@ecl/preset-ec/dist/images/logo/',
-      true,
-      /\.svg$/,
-    );
-    const logosECStandardPositive = require.context(
-      '@ecl/preset-ec/dist/images/logo/positive',
-      false,
-      /\.svg$/,
-    );
-    const logosECStandardNegative = require.context(
-      '@ecl/preset-ec/dist/images/logo/negative',
-      false,
-      /\.svg$/,
-    );
-
-    // Check logo set
-    const mapSet = (s) =>
-      ({
-        standard:
-          color === 'positive'
-            ? logosECStandardPositive
-            : logosECStandardNegative,
-        muted: logosECMuted,
-      })[s];
-    logosSet = mapSet(set);
-  }
-
-  // Split by logo language
-  const mapLanguage = (l) =>
-    ({
-      official: GetLogos(logosSet.keys(), 'official'),
-      other: GetLogos(logosSet.keys(), 'other'),
-      muted: GetLogos(logosSet.keys(), 'muted'),
-    })[l];
-  const logoFinal = mapLanguage(language);
-
-  // For muted logo, check color
+  const selectedLogos = logoSets[system][set] || {};
+  const logoFinal = GetLogos(selectedLogos, language);
 
   return (
     <ul className={styles.logos}>
-      {logoFinal.map((path) => (
+      {logoFinal.map((key) => (
         <LogoCard
-          path={logosSet(path)}
-          name={set === 'muted' ? set : GetLanguageId(path)}
-          key={logosSet(path)}
+          markup={selectedLogos[key]} // SVG string from ESM
+          name={set === 'muted' ? set : GetLanguageId(key)}
+          key={key}
           set={set}
-          color={set === 'muted' ? GetColor(path) : color}
+          color={set === 'muted' ? GetColor(key) : color}
         />
       ))}
     </ul>

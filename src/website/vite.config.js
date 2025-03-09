@@ -6,6 +6,11 @@ import simpleHtmlPlugin from 'vite-plugin-simple-html';
 import remarkGfm from 'remark-gfm';
 import path from 'path';
 import vike from 'vike/plugin';
+import { viteManifestPlugin } from 'vite-manifest-plugin';
+import htmlMinifier from 'vite-plugin-html-minifier';
+import lernaJson from '../../lerna.json';
+const eclVersion = lernaJson.version;
+const sri = {};
 
 export default defineConfig(({ command }) => {
   const isDev = command === 'serve';
@@ -13,10 +18,12 @@ export default defineConfig(({ command }) => {
   return {
     plugins: [
       react(),
-      mdx({
-        providerImportSource: '@mdx-js/react',
-        remarkPlugins: [remarkFrontmatter, remarkGfm],
-      }),
+      { enforce: 'pre',
+        ...mdx({
+          providerImportSource: '@mdx-js/react',
+          remarkPlugins: [remarkFrontmatter, remarkGfm],
+        }),
+      },
       simpleHtmlPlugin({
         inject: {
           data: {
@@ -25,6 +32,13 @@ export default defineConfig(({ command }) => {
         },
       }),
       vike(),
+      viteManifestPlugin({ fileName: 'manifest.json' }),
+      htmlMinifier({
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+        },
+      }),
     ],
     root: path.resolve(__dirname),
     publicDir: path.resolve(__dirname, 'public'),
@@ -73,21 +87,46 @@ export default defineConfig(({ command }) => {
       'process.env': {
         PUBLIC_URL: process.env.PUBLIC_URL || '',
         NODE_ENV: JSON.stringify(isDev ? 'development' : 'production'),
+        ECL_VERSION: eclVersion,
+        ECL_EC_CSS: JSON.stringify((sri['ecl-ec.css'] || []).join(' ') || 'n/a'),
+        ECL_EC_UTILITIES_CSS: JSON.stringify((sri['ecl-ec-utilities.css'] || []).join(' ') || 'n/a'),
+        ECL_EC_PRINT_CSS: JSON.stringify((sri['ecl-ec-print.css'] || []).join(' ') || 'n/a'),
+        ECL_EC_DEFAULT_CSS: JSON.stringify((sri['ecl-ec-default.css'] || []).join(' ') || 'n/a'),
+        ECL_EC_JS: JSON.stringify((sri['ecl-ec.js'] || []).join(' ') || 'n/a'),
+        ECL_ESM_EC_JS: JSON.stringify((sri['ecl-esm-ec.js'] || []).join(' ') || 'n/a'),
+        ECL_EU_CSS: JSON.stringify((sri['ecl-eu.css'] || []).join(' ') || 'n/a'),
+        ECL_EU_UTILITIES_CSS: JSON.stringify((sri['ecl-eu-utilities.css'] || []).join(' ') || 'n/a'),
+        ECL_EU_PRINT_CSS: JSON.stringify((sri['ecl-eu-print.css'] || []).join(' ') || 'n/a'),
+        ECL_EU_DEFAULT_CSS: JSON.stringify((sri['ecl-eu-default.css'] || []).join(' ') || 'n/a'),
+        ECL_EU_JS: JSON.stringify((sri['ecl-eu.js'] || []).join(' ') || 'n/a'),
+        ECL_ESM_EU_JS: JSON.stringify((sri['ecl-esm-eu.js'] || []).join(' ') || 'n/a'),
+        ECL_RESET_CSS: JSON.stringify((sri['ecl-reset.css'] || []).join(' ') || 'n/a'),
+        ECL_RTL_CSS: JSON.stringify((sri['ecl-rtl.css'] || []).join(' ') || 'n/a'),
       },
     },
-    optimizeDeps: {
-      exclude: ['glob', 'brace-expansion', 'minimatch', 'fs', 'path'],
-    },
     css: {
-      preprocessorOptions: {
+      postprocessorOptions: {
         scss: {
           api: 'modern',
-          includePaths: [path.resolve(__dirname, './node_modules')],
+          includePaths: [path.resolve(__dirname, '../../node_modules')], // Match Webpack
         },
       },
     },
+    ssr: {
+      noExternal: ['@iframe-resizer/parent'], // Force client-side—don’t externalize
+    },
     build: {
       outDir: 'build',
+      sourcemap: process.env.GENERATE_SOURCEMAP !== 'false',
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+              return 'vendor'; // Split react, react-dom—into vendor chunk
+            }
+          },
+        },
+      },
     },
   };
 });

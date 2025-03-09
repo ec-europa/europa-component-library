@@ -4,25 +4,28 @@ import PropTypes from 'prop-types';
 
 import styles from './PaletteItem.module.scss';
 
+const isBrowser = typeof window !== 'undefined';
+
 const getCode = (alias, parentRef) => {
   if (!alias) return '';
 
   let hex = '';
+  if (typeof window !== 'undefined') {
+    // Try getting the computed style from the parent ol element
+    if (parentRef?.current) {
+      hex = window
+        .getComputedStyle(parentRef.current)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
 
-  // Try getting the computed style from the parent ol element
-  if (parentRef?.current) {
-    hex = window
-      .getComputedStyle(parentRef.current)
-      .getPropertyValue(`--${alias}`)
-      .trim();
-  }
-
-  // If not found, fallback to document.body
-  if (!hex) {
-    hex = window
-      .getComputedStyle(document.body)
-      .getPropertyValue(`--${alias}`)
-      .trim();
+    // If not found, fallback to document.body
+    if (!hex) {
+      hex = window
+        .getComputedStyle(document.body)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
   }
 
   // Handle transparent color-mix cases
@@ -109,7 +112,9 @@ PaletteItem.propTypes = {
   value: PropTypes.string,
   alias: PropTypes.string,
   main: PropTypes.bool,
-  parentRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  parentRef: isBrowser
+    ? PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    : PropTypes.shape({ current: PropTypes.any }),
 };
 
 PaletteItem.defaultProps = {

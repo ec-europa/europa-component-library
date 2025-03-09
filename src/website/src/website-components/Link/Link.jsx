@@ -15,6 +15,10 @@ function StyledLink({ className, standalone, to, label, children, ...props }) {
     return null;
   }
 
+  if (to.includes('components')) {
+    console.log(`LINK including components': ${to}`);
+  }
+
   if (to.indexOf('http') === 0) {
     return (
       <a
