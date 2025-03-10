@@ -259,14 +259,14 @@ $color-palette: (
 
   'green-pine-50': #eff3f3,
   'green-pine-100': #dae2e4,
-  'green-pine-200': #ced8d8,
+  'green-pine-200': #ced8db,
   'green-pine-300': #b6c6ca,
   'green-pine-400': #94abb1,
   'green-pine-500': #809ba2,
-  'green-pine-600': #60828b,
-  'green-pine-700': #445c63,
-  'green-pine-800': #0a3f4d,
-  'green-pine-900': #08323e,
+  'green-pine-600': #445c63,
+  'green-pine-700': #0a3f4d,
+  'green-pine-800': #08323e,
+  'green-pine-900': #082f3a,
 
   'red-crayola-50': #fcebee,
   'red-crayola-100': #f6c1ca,
@@ -494,7 +494,7 @@ $color-modes: (
     // surface
     '--cm-surface-lowest': color-mix(
         in srgb,
-        map.get($color-palette, 'blue-navy-50') 50%,
+        map.get($color-palette, 'blue-navy-100') 50%,
         transparent
       ),
     '--cm-surface-lowest-variant': color-mix(
@@ -683,11 +683,8 @@ $color-modes: (
         map.get($color-palette, 'red-crayola-50') 50%,
         transparent
       ),
-    '--cm-surface-lowest-variant': color-mix(
-        in srgb,
-        map.get($color-default, 'neutral-light-50') 50%,
-        transparent
-      ),
+    '--cm-surface-lowest-variant': map.get($color-default, 'neutral-light-50')
+      50%,
     '--cm-surface-low-1': map.get($color-palette, 'red-crayola-100'),
     '--cm-surface-low-2': map.get($color-palette, 'red-crayola-200'),
     '--cm-surface-medium': map.get($color-palette, 'red-crayola-300'),
