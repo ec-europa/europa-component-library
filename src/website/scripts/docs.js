@@ -6,7 +6,7 @@ import { globSync } from 'glob';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url'; // Add this
 
-// Derive __dirname for ESM
+/* eslint-disable-next-line no-underscore-dangle */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const publicUrl = process.env.PUBLIC_URL || '';

@@ -1,23 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LogoCard from './LogoCard';
-import styles from './LogoList.module.scss';
 
 // EC logo exports—standard only
-import * as ecPositiveLogos from '@ecl/resources-ec-logo/dist/positive/esm-export.js';
-import * as ecNegativeLogos from '@ecl/resources-ec-logo/dist/negative/esm-export.js';
+import * as ecPositiveLogos from '@ecl/resources-ec-logo/dist/positive/esm-export';
+import * as ecNegativeLogos from '@ecl/resources-ec-logo/dist/negative/esm-export';
 
 // EU logo exports—standard, condensed
-import * as euStandardPositiveLogos from '@ecl/resources-eu-logo/dist/standard-version/positive/esm-export.js';
-import * as euStandardNegativeLogos from '@ecl/resources-eu-logo/dist/standard-version/negative/esm-export.js';
-import * as euCondensedPositiveLogos from '@ecl/resources-eu-logo/dist/condensed-version/positive/esm-export.js';
-import * as euCondensedNegativeLogos from '@ecl/resources-eu-logo/dist/condensed-version/negative/esm-export.js';
+import * as euStandardPositiveLogos from '@ecl/resources-eu-logo/dist/standard-version/positive/esm-export';
+import * as euStandardNegativeLogos from '@ecl/resources-eu-logo/dist/standard-version/negative/esm-export';
+import * as euCondensedPositiveLogos from '@ecl/resources-eu-logo/dist/condensed-version/positive/esm-export';
+import * as euCondensedNegativeLogos from '@ecl/resources-eu-logo/dist/condensed-version/negative/esm-export';
+import styles from './LogoList.module.scss';
+import LogoCard from './LogoCard';
 
-const officialLanguages = ['bg', 'es', 'cs', 'da', 'de', 'et', 'el', 'en', 'fr', 'ga', 'hr', 'it', 'lv', 'lt', 'hu', 'mt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'fi', 'sv'];
+const officialLanguages = [
+  'bg',
+  'es',
+  'cs',
+  'da',
+  'de',
+  'et',
+  'el',
+  'en',
+  'fr',
+  'ga',
+  'hr',
+  'it',
+  'lv',
+  'lt',
+  'hu',
+  'mt',
+  'nl',
+  'pl',
+  'pt',
+  'ro',
+  'sk',
+  'sl',
+  'fi',
+  'sv',
+];
 
 function GetLanguageId(key) {
   if (key.includes('mute')) return 'muted';
-  return key.replace('logoEc', '').replace('logoEu', '').slice(0, 2).toLowerCase();
+  return key
+    .replace('logoEc', '')
+    .replace('logoEu', '')
+    .slice(0, 2)
+    .toLowerCase();
 }
 
 function GetColor(key) {
@@ -42,8 +71,14 @@ function LogoList({ system, set, color, language }) {
       muted: {}, // Empty—muted unsupported for now
     },
     eu: {
-      standard: color === 'positive' ? euStandardPositiveLogos : euStandardNegativeLogos,
-      condensed: color === 'positive' ? euCondensedPositiveLogos : euCondensedNegativeLogos,
+      standard:
+        color === 'positive'
+          ? euStandardPositiveLogos
+          : euStandardNegativeLogos,
+      condensed:
+        color === 'positive'
+          ? euCondensedPositiveLogos
+          : euCondensedNegativeLogos,
       muted: {}, // Empty—muted unsupported for now
     },
   };

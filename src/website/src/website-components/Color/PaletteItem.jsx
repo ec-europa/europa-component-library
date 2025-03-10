@@ -114,7 +114,8 @@ PaletteItem.propTypes = {
   main: PropTypes.bool,
   parentRef: isBrowser
     ? PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-    : PropTypes.shape({ current: PropTypes.any }),
+    : /* eslint-disable-next-line react/forbid-prop-types */
+      PropTypes.shape({ current: PropTypes.any }),
 };
 
 PaletteItem.defaultProps = {

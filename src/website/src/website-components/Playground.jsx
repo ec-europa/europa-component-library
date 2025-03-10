@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOMServer from 'react-dom/server';
 
 import iconSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
@@ -46,11 +45,11 @@ class Playground extends Component {
       }
     });
 
-    window.addEventListener("message", this.handleMessage);
+    window.addEventListener('message', this.handleMessage);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("message", this.handleMessage);
+    window.removeEventListener('message', this.handleMessage);
   }
 
   handleMessage = (event) => {
@@ -60,14 +59,15 @@ class Playground extends Component {
     } catch (e) {
       return;
     }
-    
+
     if (
       parsedData &&
-      parsedData.key === "storybook-channel" &&
+      parsedData.key === 'storybook-channel' &&
       parsedData.event &&
-      parsedData.event.type === "storybook/docs/snippet-rendered"
+      parsedData.event.type === 'storybook/docs/snippet-rendered'
     ) {
       const [payload] = parsedData.event.args || [];
+      /* eslint-disable-next-line react/destructuring-assignment */
       const story = `${this.props.selectedKind}--${this.props.selectedStory}`;
 
       if (payload?.id === story) {
@@ -271,6 +271,7 @@ Playground.propTypes = {
 };
 
 Playground.defaultProps = {
+  children: '',
   frameHeight: '200',
   frameWidth: '100%',
   playgroundLink: '',

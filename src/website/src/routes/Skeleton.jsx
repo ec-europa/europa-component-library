@@ -14,7 +14,13 @@ class Skeleton extends Component {
     super(props);
     this.state = {
       // Open by default in build—check SSR vs. client
-      sidebarOpen: typeof window === 'undefined' ? true : Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 1140,
+      sidebarOpen:
+        typeof window === 'undefined'
+          ? true
+          : Math.max(
+              document.documentElement.clientWidth,
+              window.innerWidth || 0,
+            ) > 1140,
       forceRefresh: false,
     };
     this.toggleSidebar = this.toggleSidebar.bind(this);
@@ -27,7 +33,10 @@ class Skeleton extends Component {
     // Update state on client—keep open if prerendered open
     this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
-      sidebarOpen: Math.max(document.documentElement.clientWidth, window.innerWidth || 0) > 1140 || this.state.sidebarOpen,
+      sidebarOpen:
+        Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
+          /* eslint-disable-next-line react/destructuring-assignment, react/no-access-state-in-setstate */
+          1140 || this.state.sidebarOpen,
     });
 
     if (!isLoading) {
@@ -77,9 +86,6 @@ class Skeleton extends Component {
     const { sidebarOpen, forceRefresh } = this.state;
     const { HomePage, prefix, title, pages, routes, isLoading } = this.props;
 
-    //  console.log('Skeleton Prefix:', prefix);
-    console.log('Skeleton Routes:', routes.map(r => r.props.path || 'Redirect'));
-
     return (
       <>
         <Navigation
@@ -105,10 +111,7 @@ class Skeleton extends Component {
             />
             {routes}
             <Route
-              render={({ location }) => {
-                console.log('Falling to 404 for:', location.pathname);
-                return isLoading ? <LoadingPage /> : <PageNotFound />;
-              }}
+              render={() => (isLoading ? <LoadingPage /> : <PageNotFound />)}
             />
           </Switch>
         </MainContainer>

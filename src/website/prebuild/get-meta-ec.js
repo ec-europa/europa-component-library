@@ -1,4 +1,4 @@
-// src/website/prebuild/get-meta-ec.js
+/* eslint-disable no-underscore-dangle */
 import fs from 'node:fs';
 import path from 'node:path';
 import { globSync } from 'glob'; // Named export
@@ -12,8 +12,6 @@ const files = globSync('**/*.@(md|mdx)', {
   cwd: dir,
   ignore: '**/_jsdoc/**',
 }).sort((a, b) => a.localeCompare(b, 'en'));
-
-console.log('Files found:', files);
 
 const getUrl = (file) =>
   `/ec/${file
@@ -42,4 +40,3 @@ fs.writeFileSync(
   path.resolve(__dirname, 'meta-ec.json'),
   JSON.stringify(meta, null, 2),
 );
-console.log('Generated meta-ec.json with', meta.length, 'entries');

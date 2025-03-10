@@ -26,12 +26,6 @@ class DocPage extends Component {
       title += ` - ${sectionTitle}`;
     }
 
-    console.log('DocPage Rendering:', {
-      key: component.key,
-      url: component.attributes?.url,
-      hasDoc: !!component.document,
-    });
-
     return (
       <>
         <ScrollToTopOnMount />
@@ -55,12 +49,13 @@ DocPage.propTypes = {
   component: PropTypes.shape({
     section: PropTypes.string,
     title: PropTypes.string,
+    key: PropTypes.string,
     tabs: PropTypes.arrayOf(
       PropTypes.shape({
         url: PropTypes.string,
         name: PropTypes.string,
         component: PropTypes.func,
-      })
+      }),
     ),
     document: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   }),

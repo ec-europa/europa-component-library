@@ -5,7 +5,9 @@ function RemToPixels({ rem }) {
   const [pixels, setPixels] = useState(0);
 
   useEffect(() => {
-    const baseFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const baseFontSize = parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
     setPixels(rem * baseFontSize);
   }, [rem]);
 

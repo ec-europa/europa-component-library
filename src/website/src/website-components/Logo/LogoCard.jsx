@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,10 @@ function LogoCard({ markup, name, color }) {
 
   return (
     <li className={cardClass}>
-      <div className={styles.logo} dangerouslySetInnerHTML={{ __html: markup }} />
+      <div
+        className={styles.logo}
+        dangerouslySetInnerHTML={{ __html: markup }}
+      />
       <div className={styles.title}>{name}</div>
     </li>
   );

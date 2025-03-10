@@ -24,7 +24,8 @@ const pagesToRoutes = (pages, prefix = '/eu') => {
   const routes = [];
   flatDeep(pages).forEach((page) => {
     const filePath = `../pages/eu${page.key.slice(1)}`;
-    page.document = allDocs[filePath]?.default || (() => <div>Not found: {filePath}</div>);
+    page.document =
+      allDocs[filePath]?.default || (() => <div>Not found: {filePath}</div>);
 
     // Smart URL—handle /docs/ only when present
     let url = `${prefix}${page.key.replace(/^\.\//, '/').replace(/\/index\.(md|mdx)$/, '')}`;
@@ -33,8 +34,6 @@ const pagesToRoutes = (pages, prefix = '/eu') => {
     }
     url = url.endsWith('/') ? url : `${url}/`;
 
-    console.log(`Page Key: ${page.key}, URL: ${url}, Doc: ${!!page.document}`);
-
     if (page.attributes && page.attributes.defaultTab) {
       routes.push(
         <Redirect
@@ -42,7 +41,7 @@ const pagesToRoutes = (pages, prefix = '/eu') => {
           from={url}
           to={`${url}${page.attributes.defaultTab}/`}
           exact
-        />
+        />,
       );
     }
     routes.push(
@@ -50,11 +49,8 @@ const pagesToRoutes = (pages, prefix = '/eu') => {
         key={page.key}
         path={url}
         exact
-        render={() => {
-          console.log(`Rendering DocPage for: ${url}`);
-          return <DocPage component={page} />;
-        }}
-      />
+        render={() => <DocPage component={page} />}
+      />,
     );
   });
   return routes;

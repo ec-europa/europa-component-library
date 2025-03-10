@@ -1,5 +1,6 @@
 // src/website/src/App.jsx
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, StaticRouter } from 'react-router-dom'; // React 17
 import { MDXProvider } from '@mdx-js/react';
@@ -31,3 +32,11 @@ export default function App({ url } = {}) {
     </MDXProvider>
   );
 }
+
+App.defaultProps = {
+  url: '',
+};
+
+App.propTypes = {
+  url: PropTypes.string,
+};

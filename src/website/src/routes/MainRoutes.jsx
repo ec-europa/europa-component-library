@@ -1,4 +1,4 @@
-// src/website/src/routes/MainRoutes.jsx
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
@@ -9,18 +9,14 @@ import ECRoutes from './Ec';
 import EURoutes from './Eu';
 
 export default function MainRoutes() {
-  console.log('MainRoutes Rendering');
   return (
     <Switch>
       <Route exact strict path="/" component={HomePage} />
       <Route strict path="/example" component={Example} />
-      <Route path="/ec" component={ECRoutes} /> {/* No trailing slash */}
-      <Route path="/eu" component={EURoutes} /> {/* No trailing slash */}
+      <Route path="/ec" component={ECRoutes} />
+      <Route path="/eu" component={EURoutes} />
       <Redirects />
-      <Route render={({ location }) => {
-        console.log('MainRoutes 404:', location.pathname);
-        return <PageNotFound />;
-      }} />
+      <Route render={({ location }) => <PageNotFound />} />
     </Switch>
   );
 }

@@ -8,7 +8,7 @@
     "postinstall": "npm run clean && ./scripts/docs.js",
     "prebuild": "npm run clean && ./scripts/docs.js",
     "build:copy": "./scripts/copy.sh",
-    "build": "npm run predev && npm run prebuild && npm run build:copy && cross-env NODE_ENV=production vike build",
+    "build": "npm run predev && npm run prebuild && npm run build:copy && cross-env NODE_ENV=production vike build && node scripts/inject-storybook-message.js && node scripts/inject-mdx-listener.js",
     "serve": "npx serve build/client -p 5173",
     "predev": "node prebuild/get-meta-ec.js && node prebuild/get-meta-eu.js",
     "start": "npm run prebuild && npm run predev && concurrently \"npx serve src/website/public -p 6006\" \"vike dev\""
@@ -146,9 +146,7 @@
     "serve": "14.2.4",
     "vike": "0.4.224",
     "vite": "6.2.0",
-    "vite-plugin-raw": "1.0.3",
     "vite-plugin-simple-html": "0.2.0",
-    "vite-manifest-plugin": "1.0.2",
     "vite-plugin-html-minifier": "1.0.5",
     "vite-plugin-eslint": "1.8.1"
   }
