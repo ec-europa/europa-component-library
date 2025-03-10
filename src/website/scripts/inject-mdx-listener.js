@@ -45,6 +45,28 @@ for (const file of mdxFiles) {
                 Prism.highlightElement(codeElement);
               };
             }
+            if (code.scrollHeight > 250) {
+              code.style.maxHeight = "250px";
+              code.style.overflow = "hidden";
+              code.style.position = "relative";
+
+              let button = document.createElement("button");
+              button.textContent = "Show More";
+              button.style.display = "block";
+              button.style.marginTop = "5px";
+              button.style.padding = "5px 10px";
+              button.style.border = "none";
+              button.style.color = "#3860ed";
+              button.style.cursor = "pointer";
+              button.style.fontFamily = 'Inter, Arial, "sans-serif"';
+
+              button.onclick = function () {
+                code.style.maxHeight = "none";
+                button.remove();
+              };
+
+              code.after(button);
+            }
           }
         }
       });

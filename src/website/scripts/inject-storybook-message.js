@@ -23,6 +23,7 @@ const injectScript = `
       const formattedHtml = html_beautify(html, { indent_size: 2, wrap_line_length: 120 });
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id') || '';
+
       window.top.postMessage({
         key: 'ecl-demo',
         args: { id: window.location.search.slice(4).replace('&viewMode=story', ''), source: formattedHtml }
