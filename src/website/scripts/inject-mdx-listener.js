@@ -16,6 +16,14 @@ for (const file of mdxFiles) {
   if (content.includes('mdx-message-listener')) continue;
 
   const listenerScript = `
+    <script>
+      window.addEventListener("load", function () {
+        iframeResize({
+          license: 'GPLv3',
+          checkOrigin: false,
+        }, 'iframe');
+      });
+    </script>
     <script id="mdx-message-listener">
       const prismScript = document.createElement('script');
       prismScript.src = 'https://unpkg.com/prismjs@1.29.0/prism.js';
