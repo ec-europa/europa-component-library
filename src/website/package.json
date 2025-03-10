@@ -5,7 +5,7 @@
   "version": "5.0.0-alpha.5",
   "scripts": {
     "clean": "rimraf build public/apis/*",
-    "postinstall": "npm run clean && ./scripts/docs.js",
+    "postinstall": "npm run clean && ./scripts/docs.js && npm run predev",
     "prebuild": "npm run clean && ./scripts/docs.js",
     "build:copy": "./scripts/copy.sh",
     "build": "npm run predev && npm run prebuild && npm run build:copy && cross-env NODE_ENV=production vike build && node scripts/inject-storybook-message.js && node scripts/inject-mdx-listener.js",
