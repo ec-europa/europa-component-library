@@ -10,9 +10,6 @@
 $theme: null !default;
 $button: null !default;
 
-// Internal variables
-$min-width: 44px; // According to COMM every interactive element should be at least 44px large
-
 .ecl-button,
 %ecl-button {
   appearance: none;
@@ -25,7 +22,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   font: map.get($button, 'font');
   margin: 0;
   min-height: map.get($button, 'min-height');
-  min-width: $min-width;
+  min-width: map.get($button, 'min-width');
   text-decoration: none;
 
   &:hover {
