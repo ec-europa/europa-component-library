@@ -58,6 +58,8 @@ jobs:
         run: npm install -g pnpm@9.15.5
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build icons
+        run: pnpm build:icons
       - name: Build presets
         run: pnpm dist:presets
       - name: Test
