@@ -30,10 +30,20 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading1', 'mobile') !important;
   font-weight: map.get($typography, 'heading1', 'font-weight') !important;
+  letter-spacing: map.get(
+    $typography,
+    'heading1',
+    'letter-spacing-mobile'
+  ) !important;
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading1', 'desktop') !important;
     font-weight: map.get($typography, 'heading1', 'font-weight') !important;
+    letter-spacing: map.get(
+      $typography,
+      'heading1',
+      'letter-spacing-desktop'
+    ) !important;
   }
 }
 
@@ -42,10 +52,20 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading2', 'mobile') !important;
   font-weight: map.get($typography, 'heading2', 'font-weight') !important;
+  letter-spacing: map.get(
+    $typography,
+    'heading2',
+    'letter-spacing-mobile'
+  ) !important;
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading2', 'desktop') !important;
     font-weight: map.get($typography, 'heading2', 'font-weight') !important;
+    letter-spacing: map.get(
+      $typography,
+      'heading2',
+      'letter-spacing-desktop'
+    ) !important;
   }
 }
 
@@ -54,10 +74,20 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading3', 'mobile') !important;
   font-weight: map.get($typography, 'heading3', 'font-weight') !important;
+  letter-spacing: map.get(
+    $typography,
+    'heading3',
+    'letter-spacing-mobile'
+  ) !important;
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading3', 'desktop') !important;
     font-weight: map.get($typography, 'heading3', 'font-weight') !important;
+    letter-spacing: map.get(
+      $typography,
+      'heading3',
+      'letter-spacing-desktop'
+    ) !important;
   }
 }
 
