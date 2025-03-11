@@ -26,6 +26,7 @@ $timeline: null !default;
 .ecl-timeline__item {
   max-width: var(--max-w);
   padding-bottom: var(--s-xl);
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
   padding-inline-start: calc(
     var(--s-m) + (map.get($timeline, 'bullet-size') * 0.5) +
       map.get($timeline, 'bullet-border-width')
