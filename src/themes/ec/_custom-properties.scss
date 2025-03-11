@@ -355,58 +355,61 @@
 
   // Default color mode
   // surface
-  --cm-surface-dark: var(--c-d);
-  --cm-surface-inverted: #fff;
+  --cm-surface-dark: var(--c-d-900);
   --cm-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-surface-transparent-70: color-mix(in srgb, var(--c-d) 70%, transparent);
+  --cm-surface-inverted: #fff;
+  --cm-surface-transparent-70: color-mix(
+    in srgb,
+    var(--c-d-900) 70%,
+    transparent
+  );
   --cm-surface-transparent-01: color-mix(in srgb, #fff 0.1%, transparent);
   --cm-surface-lowest: var(--c-l-50);
   --cm-surface-lowest-variant: color-mix(
     in srgb,
-    #{map.get($color-palette, 'warm-grey-50')} 50%,
+    #{map.get($color-palette, 'warm-grey-50')} 70%,
     transparent
   );
   --cm-surface-low-1: var(--c-l-100);
-  --cm-surface-low-2: var(--c-l-200);
-  --cm-surface-medium: var(--c-l-300);
-  --cm-surface: var(--c-p);
-  --cm-surface-variant-1: var(--c-d-900);
-  --cm-surface-variant-2: #{map.get($color-palette, 'warm-grey-200')};
-  --cm-surface-variant-3: var(--c-d-900);
-  --cm-surface-primary: var(--c-p);
+  --cm-surface-low-2: var(--c-l-300);
+  --cm-surface-medium: var(--c-l-400);
+  --cm-surface: var(--c-d-900);
+  --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-200')};
+  --cm-surface-variant-2: var(--c-d-900);
+  --cm-surface-primary: var(--c-p-500);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-900);
-  --cm-surface-secondary: var(--c-s);
-  --cm-surface-secondary-high: var(--c-s-400);
-  --cm-surface-secondary-highest: var(--c-s-500);
+  --cm-surface-secondary: var(--c-s-500);
+  --cm-surface-secondary-high: var(--c-s-600);
+  --cm-surface-secondary-highest: var(--c-s-700);
   --cm-surface-neutral-lowest: var(--c-l-200);
   --cm-surface-neutral-low: var(--c-l-300);
 
   // on surface
   --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-on-surface-dark: var(--c-d);
-  --cm-on-surface-dark-medium: var(--c-d-700);
-  --cm-on-surface-dark-low: var(--c-d-500);
+  --cm-on-surface-dark: var(--c-d-900);
   --cm-on-surface-inverted: #fff;
-  --cm-on-surface-neutral-medium: var(--c-l-300);
-  --cm-on-surface-secondary-medium: var(--c-s-200);
-  --cm-on-surface-primary: var(--c-p);
-  --cm-on-surface-primary-highest: var(--c-p-900);
-  --cm-on-surface: var(--c-d-500);
-  --cm-on-surface-variant-1: #{map.get($color-palette, 'orange-abricot-300')};
-  --cm-on-surface-variant-2: var(--c-l-300);
-  --cm-on-surface-highlight: var(--c-s-300);
   --cm-on-surface-swap-1: #fff;
   --cm-on-surface-swap-2: #{map.get($color-palette, 'blue-navy-900')};
+  --cm-on-surface-dark-medium: var(--c-d-700);
+  --cm-on-surface-dark-low: var(--c-d-500);
+  --cm-on-surface-neutral-medium: var(--c-l-300);
+  --cm-on-surface-secondary-medium: var(--c-s-200);
+  --cm-on-surface-primary: var(--c-p-500);
+  --cm-on-surface-primary-highest: var(--c-p-900);
+  --cm-on-surface: var(--c-d-500);
+  --cm-on-surface-variant-1: var(--c-s-500);
+  --cm-on-surface-variant-2: var(--c-l-300);
+  --cm-on-surface-highlight: var(--c-s-300);
 
   // border
   --cm-border-brand: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-border-dark: var(--c-d);
+  --cm-border-dark: var(--c-d-900);
   --cm-border-inverted: #fff;
-  --cm-border-primary: var(--c-p);
+  --cm-border-primary: var(--c-p-500);
   --cm-border-neutral-medium: var(--c-l-400);
   --cm-border-neutral-lowest: var(--c-l-200);
-  --cm-border-medium: var(--c-l-500);
-  --cm-border: var(--c-p);
-  --cm-border-low: var(--c-l-300);
+  --cm-border-medium: var(--c-l-600);
+  --cm-border: var(--c-l-600);
+  --cm-border-low: var(--c-l-100);
 }
