@@ -22,6 +22,6 @@ $_outline-width: 2px;
 
   &:focus {
     outline: $_outline-width solid var(--ws-c-s);
-    outline-offset: -($_outline-width);
+    outline-offset: -#{$_outline-width};
   }
 }
