@@ -321,6 +321,7 @@ $select: null !default;
   }
 
   .ecl-select-multiple-toolbar {
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
     border-top: 1px solid
       map.get($select, 'multiple-dropdown-toolbar-separator-color');
     display: flex;
@@ -334,6 +335,7 @@ $select: null !default;
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__multiple-all {
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
     border-bottom: 1px solid
       map.get($select, 'multiple-dropdown-separator-color');
     margin-bottom: var(--s-s);
