@@ -34,7 +34,8 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 
 .nav--closed {
   overflow: visible;
-  transform: translate(-#{$nav-width}, 0);
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  transform: translate(-$_nav-width, 0);
 
   :global(.no-js) & {
     transform: translate(0, 0);
@@ -148,12 +149,14 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .button-toggle--closed {
-  transform: translate(#{$nav-toggle-size}, 0);
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  transform: translate($_nav-toggle-size);
 }
 
 .hamburger-inner {
   display: block;
-  margin-top: -#{$nav-toggle-bar-height * 0.5};
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  margin-top: -($_nav-toggle-bar-height * 0.5);
 }
 
 .hamburger-inner,
@@ -172,11 +175,13 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .hamburger-inner::before {
-  top: -#{$_nav-toggle-bar-spacing-between + $_nav-toggle-bar-height};
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  top: -($_nav-toggle-bar-spacing-between + $_nav-toggle-bar-height);
 }
 
 .hamburger-inner::after {
-  bottom: -#{$_nav-toggle-bar-spacing-between + $_nav-toggle-bar-height};
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  bottom: -($_nav-toggle-bar-spacing-between + $_nav-toggle-bar-height);
 }
 
 .button-toggle .hamburger-inner {
