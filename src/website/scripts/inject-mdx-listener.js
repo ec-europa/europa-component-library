@@ -16,15 +16,14 @@ for (const file of mdxFiles) {
   if (content.includes('mdx-message-listener')) continue;
 
   const listenerScript = `
-    <script>
+    <script id="mdx-message-listener">
       window.addEventListener("load", function () {
         iframeResize({
           license: 'GPLv3',
           checkOrigin: false,
         }, 'iframe');
       });
-    </script>
-    <script id="mdx-message-listener">
+
       const prismScript = document.createElement('script');
       prismScript.src = 'https://unpkg.com/prismjs@1.30.0/prism.js';
       document.head.appendChild(prismScript);
@@ -87,17 +86,30 @@ for (const file of mdxFiles) {
     const apiFilePath = join(mdxPagesDir, api);
     let apiContent = await readFile(apiFilePath, 'utf8');
     // Skip if already injected
-    if (content.includes('api-iframe-resize')) continue;
+    if (apiContent.includes('api-iframe-resize')) continue;
 
     const resizeScript = `
-          <script id="api-iframe-resize">
-            window.addEventListener("load", function () {
-              iframeResize({
-                license: 'GPLv3',
-                checkOrigin: false,
-              }, 'iframe');
-            });
-          </script>`;
+      <script id="api-iframe-resize">
+        const prismScript = document.createElement('script');
+        prismScript.src = 'https://unpkg.com/prismjs@1.30.0/prism.js';
+        document.head.appendChild(prismScript);
+
+        const codeElements = document.querySelectorAll('code');
+        if (codeElements) {
+          codeElements.forEach((codeElement) => {
+            if (window.Prism) {
+              Prism.highlightElement(codeElement);
+            } 
+          });
+        }
+    
+        window.addEventListener("load", function () {
+          iframeResize({
+            license: 'GPLv3',
+            checkOrigin: false,
+          }, 'iframe');
+        });
+      </script>`;
 
     apiContent = apiContent.replace('</body>', `${resizeScript}</body>`);
     await writeFile(apiFilePath, apiContent);
