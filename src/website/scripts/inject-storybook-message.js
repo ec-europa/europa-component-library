@@ -13,22 +13,26 @@ const injectScript = `
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
   <script>
     function sendMessage() {
-      const html = document.querySelector('#storybook-root')?.innerHTML;
-      if (!html) {
-        console.log('No #root yet, retrying');
+      const root = document.querySelector('#storybook-root');
+      if (!root) {
+        console.log('No #storybook-root yet, retrying...');
         setTimeout(sendMessage, 100);
         return;
       }
 
+      const html = root.innerHTML;
       const formattedHtml = html_beautify(html, { indent_size: 2, wrap_line_length: 120 });
       const params = new URLSearchParams(window.location.search);
-      const id = params.get('id') || '';
+      const storyId = params.get('id') || '';
+      const args = params.get('args') ? decodeURIComponent(params.get('args')) : '';
+      const id = storyId + (args ? \`&args=\${args}\` : '');
 
       window.top.postMessage({
         key: 'ecl-demo',
-        args: { id: window.location.search.slice(4).replace('&viewMode=story', ''), source: formattedHtml }
+        args: { id, source: formattedHtml }
       });
     }
+
     window.addEventListener('load', sendMessage);
   </script>
 `;
