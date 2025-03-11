@@ -26,7 +26,7 @@ for (const file of mdxFiles) {
     </script>
     <script id="mdx-message-listener">
       const prismScript = document.createElement('script');
-      prismScript.src = 'https://unpkg.com/prismjs@1.29.0/prism.js';
+      prismScript.src = 'https://unpkg.com/prismjs@1.30.0/prism.js';
       document.head.appendChild(prismScript);
 
       window.addEventListener('message', (event) => {
@@ -51,6 +51,12 @@ for (const file of mdxFiles) {
               code.style.position = "relative";
 
               let button = document.createElement("button");
+              button.id = "eclShowcaseShowMore";
+  
+              if (code.nextSibling.id === 'eclShowcaseShowMore') {
+                return;
+              }
+
               button.textContent = "Show More";
               button.style.display = "block";
               button.style.marginTop = "5px";
