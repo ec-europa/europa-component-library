@@ -363,7 +363,7 @@ Paragraph.argTypes = getArgTypes('paragraph');
 export const Heading = (args) => {
   if (system === 'ec') {
     return `
-    <div class="ecl-u-type-display">Display. ${args.content}</h1>
+    <div class="ecl-u-type-display">Display. ${args.content}</div>
     <h1 class="ecl-u-type-heading-1">H1. ${args.content}</h1>
     <h2 class="ecl-u-type-heading-2">H2. ${args.content}</h2>
     <h3 class="ecl-u-type-heading-3">H3. ${args.content}</h3>
