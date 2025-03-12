@@ -1148,7 +1148,7 @@ export class Menu {
     const menuItem = e.target.closest(this.itemSelector);
 
     // Desktop display
-    if (menuExpanded) {
+    if (!menuExpanded) {
       if (menuItem.getAttribute('aria-expanded') === 'true') {
         this.closeItem(e);
       } else {
