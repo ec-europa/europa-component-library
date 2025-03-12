@@ -90,12 +90,8 @@
       <div class="ecl-featured-item__description">{{ _description }}</div>
     {% endif %}
     {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
-      {% set _link_class = 'ecl-featured-item__link' %}
-      {% if _link_highlighted %}
-        {% set _link_class = _link_class ~ ' ecl-featured-item__link--highlighted' %}
-      {% endif %}
       {% include '@ecl/link/link.html.twig' with _link|merge({
-        extra_classes: _link_class,
+        extra_classes: 'ecl-featured-item__link',
       }) only %}
     {% endif %}
     </div>
