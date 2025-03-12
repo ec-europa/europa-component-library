@@ -36,6 +36,8 @@ for (const file of mdxFiles) {
             const code = iframe.parentNode.nextSibling;
             code.innerHTML = '<code class="language-html" style="white-space: pre;"></code>';
             const codeElement = code.querySelector('code');
+            console.log(iframe);
+            console.log(event.data.args.source);
             codeElement.textContent = event.data.args.source;
             if (window.Prism) {
               Prism.highlightElement(codeElement);
