@@ -21,6 +21,7 @@ const getArgs = (data) => {
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
+    args.link_highlighted = false;
   }
   if (system === 'ec') {
     args.color_mode = 'default';
@@ -73,6 +74,16 @@ const getArgTypes = (data) => {
       },
     };
   }
+
+  argTypes.link_highlighted = {
+    type: 'boolean',
+    name: 'highlighted link',
+    description: 'Use highlighted display for link',
+    table: {
+      category: 'Content',
+    },
+    if: { arg: 'link_label', neq: '' },
+  };
 
   argTypes.position = {
     type: { name: 'select' },

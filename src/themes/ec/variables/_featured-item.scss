@@ -23,7 +23,7 @@ $featured-item: (
   ),
   background: (
     background-color-light: var(--cm-surface-low-2),
-    background-color-strong: var(--cm-surface-variant-1),
+    background-color-strong: var(--cm-surface),
     padding-mobile: var(--s-xl),
     padding-desktop: var(--s-3xl),
     arrow-width: 2.75rem,
@@ -36,11 +36,12 @@ $featured-item: (
       color-strong: var(--cm-on-surface-swap-1),
     ),
     link: (
-      background-color-light: var(--cm-surface-variant-3),
-      background-color-strong: var(--cm-surface-variant-2),
+      background-color-light: var(--cm-surface-variant-2),
+      background-color-strong: var(--cm-surface-variant-1),
       color-light: var(--cm-on-surface-inverted),
       color-strong: var(--cm-on-surface-swap-2),
-      spacing: var(--s-3xl),
+      spacing: var(--s-l),
+      spacing-highlighted: var(--s-3xl),
       padding-mobile: var(--s-m) var(--s-xl),
       padding-desktop: var(--s-m) var(--s-3xl),
       max-width: 13.125rem,
@@ -65,7 +66,8 @@ $featured-item-print: (
   background: (
     padding: map.get($spacing-print, '3xl'),
     link: (
-      spacing: map.get($spacing-print, '3xl'),
+      spacing: map.get($spacing-print, 'l'),
+      spacing-highlighted: map.get($spacing-print, '3xl'),
       padding: map.get($spacing-print, 'm') map.get($spacing-print, '3xl'),
     ),
   ),

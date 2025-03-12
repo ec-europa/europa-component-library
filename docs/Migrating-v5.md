@@ -128,6 +128,7 @@ Corresponding twig parameter `level` has been removed.
 
 - Featured item footer has been removed, as it is no longer in use.
 - Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
+- New parameter `link-highlighted` to have a different display for the link
 
 ### Mega menu
 

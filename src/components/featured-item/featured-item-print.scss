@@ -94,8 +94,7 @@ $featured-item-print: null !default;
     );
     display: flex;
     flex-direction: column;
-    padding: map.get($featured-item-print, 'background', 'padding')
-      map.get($featured-item-print, 'background', 'padding') 0;
+    padding: map.get($featured-item-print, 'background', 'padding');
     position: relative;
 
     &::before {
@@ -123,6 +122,9 @@ $featured-item-print: null !default;
 
   .ecl-featured-item__title {
     color: map.get($featured-item, 'background', 'title', 'color-#{$variant}');
+  }
+
+  .ecl-featured-item--link-highlighted .ecl-featured-item__title {
     flex-grow: 1;
   }
 
@@ -133,10 +135,45 @@ $featured-item-print: null !default;
       'description',
       'color-#{$variant}'
     );
-    flex-grow: 100;
   }
 
-  .ecl-featured-item__link {
+  .ecl-featured-item--link-highlighted .ecl-featured-item__description {
+    flex-grow: 1000;
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block-start: map.get(
+      $featured-item-print,
+      'background',
+      'link',
+      'spacing'
+    );
+  }
+
+  .ecl-featured-item__link:not(.ecl-featured-item__link--highlighted) {
+    color: map.get(
+      $featured-item,
+      'background',
+      'description',
+      'color-#{$variant}'
+    );
+    text-decoration: underline;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &:visited {
+      color: map.get(
+        $featured-item,
+        'background',
+        'description',
+        'color-#{$variant}'
+      );
+    }
+  }
+
+  .ecl-featured-item__link--highlighted {
     background-color: map.get(
       $featured-item,
       'background',
@@ -145,6 +182,9 @@ $featured-item-print: null !default;
     );
     color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
     display: block;
+    margin-block-end: calc(
+      -1 * #{map.get($featured-item-print, 'background', 'padding')}
+    );
     margin-inline-end: calc(
       -1 * #{map.get($featured-item-print, 'background', 'padding')}
     );
@@ -170,13 +210,13 @@ $featured-item-print: null !default;
     }
   }
 
-  .ecl-featured-item__title + .ecl-featured-item__link,
-  .ecl-featured-item__description + .ecl-featured-item__link {
+  .ecl-featured-item__title + .ecl-featured-item__link--highlighted,
+  .ecl-featured-item__description + .ecl-featured-item__link--highlighted {
     margin-block-start: map.get(
       $featured-item-print,
       'background',
       'link',
-      'spacing'
+      'spacing-highlighted'
     );
   }
 
@@ -198,7 +238,7 @@ $featured-item-print: null !default;
       }
     }
 
-    .ecl-featured-item__link {
+    .ecl-featured-item__link--highlighted {
       margin-inline-end: 0;
       margin-inline-start: calc(
         -1 * #{map.get($featured-item-print, 'background', 'padding')}
@@ -211,7 +251,7 @@ $featured-item-print: null !default;
       display: none;
     }
 
-    .ecl-featured-item__link {
+    .ecl-featured-item__link--highlighted {
       margin-inline-end: 0;
       margin-inline-start: calc(
         -1 * #{map.get($featured-item-print, 'background', 'padding')}

@@ -6,6 +6,7 @@
   - "title" (string) (default: ''),
   - "description" (string) (default: ''),
   - "link" (object) (default: {}): object of type Link
+  - "link_highlighted" (bool) (default: false): display the link as highlighted
   - "media_container" (object) (default: {}): object of type Media container
   - "position" (object) (default: 'left'): Media position
   - "extra_classes" (string) (default: ''),
@@ -27,6 +28,7 @@
 {% set _title = title|default(false) %}
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
+{% set _link_highlighted = link_highlighted|default(false) %}
 {% set _media_container = media_container|default({}) %}
 {% set _position = position|default('left') %}
 {% set _extra_attributes = '' %}
@@ -41,6 +43,10 @@
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _link_highlighted %}
+  {% set _css_class = _css_class ~ ' ecl-featured-item--link-highlighted' %}
 {% endif %}
 
 {% if _position == 'right' %}
@@ -84,8 +90,12 @@
       <div class="ecl-featured-item__description">{{ _description }}</div>
     {% endif %}
     {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
+      {% set _link_class = 'ecl-featured-item__link' %}
+      {% if _link_highlighted %}
+        {% set _link_class = _link_class ~ ' ecl-featured-item__link--highlighted' %}
+      {% endif %}
       {% include '@ecl/link/link.html.twig' with _link|merge({
-        extra_classes: 'ecl-featured-item__link',
+        extra_classes: _link_class,
       }) only %}
     {% endif %}
     </div>
