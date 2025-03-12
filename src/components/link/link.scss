@@ -10,9 +10,6 @@
 $theme: null !default;
 $link: null !default;
 
-// Internal variables
-$min-width: 44px; // According to COMM every interactive element should be at least 44px large
-
 .ecl-link,
 %ecl-link {
   color: map.get($link, 'color');
@@ -177,7 +174,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   color: map.get($link, #{$variant}, 'color');
   display: inline-block;
   font: map.get($link, 'button', 'font');
-  min-width: $min-width;
+  min-height: map.get($link, 'button', 'min-height');
+  min-width: map.get($link, 'button', 'min-width');
   padding: calc(
       #{map.get($link, 'button', 'padding-vertical')} -
         #{map.get($link, 'button', 'border-width')}
