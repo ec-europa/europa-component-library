@@ -12,17 +12,24 @@ const iframePaths = [
 const injectScript = `
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
   <script>
-    function sendMessage(retries = 50) {
+    function waitForContent(retries = 50) {
       const root = document.querySelector('#storybook-root');
       if (!root || !root.innerHTML.trim()) {
         if (retries > 0) {
           console.log('No #storybook-root content yet, retrying...');
-          setTimeout(() => sendMessage(retries - 1), 100);
+          setTimeout(() => waitForContent(retries - 1), 100);
         } else {
           console.warn('Max retries reached, no content found in #storybook-root.');
         }
         return;
       }
+
+      sendMessage();
+    }
+
+    function sendMessage() {
+      const root = document.querySelector('#storybook-root');
+      if (!root) return;
 
       const html = root.innerHTML;
       const formattedHtml = html_beautify(html, { indent_size: 2, wrap_line_length: 120 });
@@ -37,7 +44,7 @@ const injectScript = `
       });
     }
 
-    window.addEventListener('load', sendMessage);
+    window.addEventListener('load', () => waitForContent());
   </script>
 `;
 
