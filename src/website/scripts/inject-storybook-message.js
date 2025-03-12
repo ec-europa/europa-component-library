@@ -26,7 +26,7 @@ const injectScript = `
       const storyId = params.get('id') || '';
       const args = params.get('args') ? decodeURIComponent(params.get('args')) : '';
       const id = storyId + (args ? \`&args=\${args}\` : '');
-
+      console.log(id + ' ' + html);
       window.top.postMessage({
         key: 'ecl-demo',
         args: { id, source: formattedHtml }
