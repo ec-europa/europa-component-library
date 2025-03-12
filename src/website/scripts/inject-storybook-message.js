@@ -12,11 +12,15 @@ const iframePaths = [
 const injectScript = `
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
   <script>
-    function sendMessage() {
+    function sendMessage(retries = 50) {
       const root = document.querySelector('#storybook-root');
-      if (!root) {
-        console.log('No #storybook-root yet, retrying...');
-        setTimeout(sendMessage, 100);
+      if (!root || !root.innerHTML.trim()) {
+        if (retries > 0) {
+          console.log('No #storybook-root content yet, retrying...');
+          setTimeout(() => sendMessage(retries - 1), 100);
+        } else {
+          console.warn('Max retries reached, no content found in #storybook-root.');
+        }
         return;
       }
 
@@ -26,7 +30,7 @@ const injectScript = `
       const storyId = params.get('id') || '';
       const args = params.get('args') ? decodeURIComponent(params.get('args')) : '';
       const id = storyId + (args ? \`&args=\${args}\` : '');
-      console.log(id + ' ' + html);
+
       window.top.postMessage({
         key: 'ecl-demo',
         args: { id, source: formattedHtml }
