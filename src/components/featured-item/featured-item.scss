@@ -31,13 +31,13 @@ $featured-item: null !default;
   color: map.get($featured-item, 'title', 'color');
   font: map.get($featured-item, 'title', 'font-mobile');
   font-weight: map.get($featured-item, 'title', 'font-weight');
-  max-width: var(--max-w);
+  max-width: map.get($featured-item, 'max-width');
 }
 
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description', 'color');
   font: map.get($featured-item, 'description', 'font');
-  max-width: var(--max-w);
+  max-width: map.get($featured-item, 'max-width');
 
   .ecl-featured-item__title + & {
     margin-block-start: map.get($featured-item, 'description', 'spacing');
@@ -54,8 +54,8 @@ $featured-item: null !default;
 }
 
 .ecl-featured-item__link {
-  display: inline-block;
   font: map.get($featured-item, 'link', 'font');
+  max-width: map.get($featured-item, 'max-width');
 
   .ecl-featured-item__title + &,
   .ecl-featured-item__description + & {
@@ -136,6 +136,7 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link {
+    align-self: flex-start;
     color: map.get(
       $featured-item,
       'background',
@@ -205,6 +206,15 @@ $featured-item: null !default;
     &:active,
     &:visited {
       color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
+    }
+
+    &:focus-visible {
+      outline-color: map.get(
+        $featured-item,
+        'background',
+        'link',
+        'background-color-#{$variant}'
+      );
     }
 
     .ecl-link__icon {
