@@ -26,6 +26,7 @@ $timeline: null !default;
 .ecl-timeline__item {
   max-width: var(--max-w);
   padding-bottom: var(--s-xl);
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
   padding-inline-start: calc(
     var(--s-m) + (map.get($timeline, 'bullet-size') * 0.5) +
       map.get($timeline, 'bullet-border-width')
@@ -133,6 +134,14 @@ $timeline: null !default;
 .ecl-timeline__content {
   color: map.get($timeline, 'content-color');
   font: map.get($timeline, 'content-font');
+
+  > *:first-child {
+    margin-block-start: 0;
+  }
+
+  > *:last-child {
+    margin-block-end: 0;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
