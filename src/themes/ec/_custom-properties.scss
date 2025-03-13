@@ -412,15 +412,12 @@
 
   // border
   --cm-border-brand: #{map.get($color-palette, 'blue-navy-900')};
+  --cm-border-on-brand: color-mix(in srgb, var(--c-l-300) 60%, transparent);
   --cm-border-inverted: #fff;
   --cm-border-low: var(--c-l-300);
   --cm-border: var(--c-l-600);
-  --cm-border-high: var(--c-l-600);
-  --cm-border-primary-medium: var(--c-p-200);
   --cm-border-primary: var(--c-p-500);
-  --cm-border-neutral-lowest: var(--c-l-200);
-  --cm-border-neutral-low: var(--c-l-300);
-  --cm-border-neutral-medium: var(--c-l-500);
+  --cm-border-neutral: var(--c-l-300);
   --cm-border-status-error: var(--c-er-600);
   --cm-border-status-warning: var(--c-wa-500);
   --cm-border-status-success: var(--c-su-700);
