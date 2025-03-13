@@ -27,6 +27,7 @@ const Navigation = React.memo(
             : styles['button-toggle--closed']
         }${forceRefresh ? ' ' : ''} `}
         onClick={onToggleSidebar}
+        data-toggle-sidebar
         aria-label={
           sidebarOpen ? 'Close side navigation' : 'Open side navigation'
         }
