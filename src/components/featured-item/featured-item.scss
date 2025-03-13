@@ -87,12 +87,7 @@ $featured-item: null !default;
     }
   }
 
-  .ecl-featured-item:not(
-      .ecl-featured-item--highlight,
-      .ecl-featured-item--simple,
-      .ecl-featured-item--background-light,
-      .ecl-featured-item--background-strong
-    ) {
+  .ecl-featured-item:not(.ecl-featured-item--highlight) {
     .ecl-featured-item__item:only-child {
       padding-inline-start: 0;
     }
@@ -100,22 +95,57 @@ $featured-item: null !default;
 }
 
 /**
-* Background
+* Highlight
 */
-@mixin background($variant: null) {
+.ecl-featured-item--highlight {
+  .ecl-featured-item__container {
+    background-color: map.get(
+      $featured-item,
+      'highlight',
+      'container',
+      'background-color'
+    );
+    border-inline-start: map.get($featured-item, 'highlight', 'border-size')
+      solid map.get($featured-item, 'highlight', 'border-color');
+    padding-block: map.get(
+      $featured-item,
+      'highlight',
+      'container',
+      'padding-block-mobile'
+    );
+    padding-inline: map.get(
+      $featured-item,
+      'highlight',
+      'container',
+      'padding-inline-mobile'
+    );
+  }
+
   .ecl-featured-item__item:last-child {
     background-color: map.get(
       $featured-item,
-      'background',
-      'background-color-#{$variant}'
+      'highlight',
+      'item',
+      'background-color'
     );
     display: flex;
     flex-direction: column;
-    padding: map.get($featured-item, 'background', 'padding-mobile');
+    padding-block: map.get(
+      $featured-item,
+      'highlight',
+      'item',
+      'padding-block-mobile'
+    );
+    padding-inline: map.get(
+      $featured-item,
+      'highlight',
+      'item',
+      'padding-inline-mobile'
+    );
   }
 
   .ecl-featured-item__title {
-    color: map.get($featured-item, 'background', 'title', 'color-#{$variant}');
+    color: map.get($featured-item, 'highlight', 'title', 'color');
   }
 
   &.ecl-featured-item--link-highlighted .ecl-featured-item__title {
@@ -123,12 +153,7 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__description {
-    color: map.get(
-      $featured-item,
-      'background',
-      'description',
-      'color-#{$variant}'
-    );
+    color: map.get($featured-item, 'highlight', 'description', 'color');
   }
 
   &.ecl-featured-item--link-highlighted .ecl-featured-item__description {
@@ -137,83 +162,70 @@ $featured-item: null !default;
 
   .ecl-featured-item__link {
     align-self: flex-start;
-    color: map.get(
-      $featured-item,
-      'background',
-      'description',
-      'color-#{$variant}'
-    );
+    color: map.get($featured-item, 'highlight', 'link', 'color');
     text-decoration: underline;
 
     &:hover,
     &:focus-visible,
     &:active,
     &:visited {
-      color: map.get(
-        $featured-item,
-        'background',
-        'description',
-        'color-#{$variant}'
-      );
+      color: map.get($featured-item, 'highlight', 'link', 'color');
     }
 
     &:focus-visible {
-      outline-color: map.get(
-        $featured-item,
-        'background',
-        'description',
-        'color-#{$variant}'
-      );
+      outline-color: map.get($featured-item, 'highlight', 'link', 'color');
     }
   }
 
   .ecl-featured-item__title + .ecl-featured-item__link,
   .ecl-featured-item__description + .ecl-featured-item__link {
-    margin-block-start: map.get(
-      $featured-item,
-      'background',
-      'link',
-      'spacing'
-    );
+    margin-block-start: map.get($featured-item, 'highlight', 'link', 'spacing');
   }
 
   &.ecl-featured-item--link-highlighted .ecl-featured-item__link {
     background-color: map.get(
       $featured-item,
-      'background',
+      'highlight',
       'link',
-      'background-color-#{$variant}'
+      'background-color'
     );
-    color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
+    color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
     display: block;
     margin-block-end: calc(
-      -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
+      -1 *
+        #{map.get($featured-item, 'highlight', 'item', 'padding-block-mobile')}
     );
     margin-inline-end: 0;
     margin-inline-start: calc(
-      -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
+      -1 *
+        #{map.get($featured-item, 'highlight', 'item', 'padding-inline-mobile')}
     );
     width: clamp(
       1px,
-      map.get($featured-item, 'background', 'link', 'max-width'),
+      #{map.get($featured-item, 'highlight', 'link', 'max-width')},
       100%
     );
-    padding: map.get($featured-item, 'background', 'link', 'padding-mobile');
+    padding: map.get($featured-item, 'highlight', 'link', 'padding-mobile');
     text-decoration: none;
 
     &:hover,
     &:focus-visible,
     &:active,
     &:visited {
-      color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
+      color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
     }
 
     &:focus-visible {
       outline-color: map.get(
         $featured-item,
-        'background',
+        'highlight',
         'link',
-        'color-#{$variant}'
+        'color-highlighted'
       );
       outline-offset: -4px;
     }
@@ -233,24 +245,49 @@ $featured-item: null !default;
     + .ecl-featured-item__link {
     margin-block-start: map.get(
       $featured-item,
-      'background',
+      'highlight',
       'link',
       'spacing-highlighted'
     );
   }
 
   @include breakpoints.up('m') {
+    .ecl-featured-item__container {
+      padding-block: map.get(
+        $featured-item,
+        'highlight',
+        'container',
+        'padding-block-desktop'
+      );
+      padding-inline: map.get(
+        $featured-item,
+        'highlight',
+        'container',
+        'padding-inline-desktop'
+      );
+    }
+
     .ecl-featured-item__item:last-child {
-      padding: map.get($featured-item, 'background', 'padding-desktop');
+      padding-block: map.get(
+        $featured-item,
+        'highlight',
+        'item',
+        'padding-block-desktop'
+      );
+      padding-inline: map.get(
+        $featured-item,
+        'highlight',
+        'item',
+        'padding-inline-desktop'
+      );
       position: relative;
 
       &::before {
-        border-bottom: map.get($featured-item, 'background', 'arrow-width')
-          solid transparent;
-        border-inline-end: map.get($featured-item, 'background', 'arrow-width')
-          solid
-          map.get($featured-item, 'background', 'background-color-#{$variant}');
-        border-top: map.get($featured-item, 'background', 'arrow-width') solid
+        border-bottom: map.get($featured-item, 'highlight', 'arrow-width') solid
+          transparent;
+        border-inline-end: map.get($featured-item, 'highlight', 'arrow-width')
+          solid map.get($featured-item, 'highlight', 'item', 'background-color');
+        border-top: map.get($featured-item, 'highlight', 'arrow-width') solid
           transparent;
         content: '';
         display: block;
@@ -258,8 +295,13 @@ $featured-item: null !default;
         margin-inline-start: calc(
           -1 *
             (
-              #{map.get($featured-item, 'background', 'arrow-width')} +
-                #{map.get($featured-item, 'background', 'padding-desktop')}
+              #{map.get($featured-item, 'highlight', 'arrow-width')} +
+                #{map.get(
+                  $featured-item,
+                  'highlight',
+                  'item',
+                  'padding-inline-desktop'
+                )}
             )
         );
         position: absolute;
@@ -269,13 +311,25 @@ $featured-item: null !default;
 
     &.ecl-featured-item--link-highlighted .ecl-featured-item__link {
       margin-block-end: calc(
-        -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
+        -1 *
+          #{map.get(
+            $featured-item,
+            'highlight',
+            'item',
+            'padding-block-desktop'
+          )}
       );
       margin-inline-end: calc(
-        -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
+        -1 *
+          #{map.get(
+            $featured-item,
+            'highlight',
+            'item',
+            'padding-inline-desktop'
+          )}
       );
       margin-inline-start: auto;
-      padding: map.get($featured-item, 'background', 'link', 'padding-desktop');
+      padding: map.get($featured-item, 'highlight', 'link', 'padding-desktop');
     }
 
     .ecl-featured-item__container--right {
@@ -283,23 +337,15 @@ $featured-item: null !default;
         &::before {
           border-inline-start: map.get(
               $featured-item,
-              'background',
+              'highlight',
               'arrow-width'
             )
             solid
-            map.get(
-              $featured-item,
-              'background',
-              'background-color-#{$variant}'
-            );
-          border-inline-end: map.get(
-              $featured-item,
-              'background',
-              'arrow-width'
-            )
+            map.get($featured-item, 'highlight', 'item', 'background-color');
+          border-inline-end: map.get($featured-item, 'highlight', 'arrow-width')
             solid transparent;
           margin-inline-start: calc(
-            100% - #{map.get($featured-item, 'background', 'arrow-width')} + 4px
+            100% - #{map.get($featured-item, 'highlight', 'arrow-width')} + 4px
           );
         }
       }
@@ -317,191 +363,14 @@ $featured-item: null !default;
       .ecl-featured-item__link {
       margin-inline-end: 0;
       margin-inline-start: calc(
-        -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
-      );
-    }
-  }
-}
-
-@if map.has-key($featured-item, 'background') {
-  .ecl-featured-item--simple {
-    @include background(light);
-  }
-
-  .ecl-featured-item--highlight {
-    @include background(strong);
-  }
-}
-
-/**
-* Highlight
-*/
-@if map.has-key($featured-item, 'highlight') {
-  .ecl-featured-item--highlight {
-    box-shadow: map.get($featured-item, 'shadow');
-
-    .ecl-featured-item__container {
-      background-color: map.get(
-        $featured-item,
-        'highlight',
-        'container-background'
-      );
-      border-inline-start: map.get($featured-item, 'highlight', 'border-size')
-        solid
-        map.get($featured-item, 'highlight', 'border-color');
-      padding: map.get($featured-item, 'highlight', 'padding-mobile');
-    }
-
-    .ecl-featured-item__media_container {
-      padding: map.get($featured-item, 'highlight', 'media-padding-mobile');
-    }
-
-    .ecl-featured-item__item:first-child {
-      background-color: map.get($featured-item, 'highlight', 'item-background');
-    }
-
-    .ecl-featured-item__title {
-      background-color: map.get(
-        $featured-item,
-        'highlight',
-        'title-background'
-      );
-      padding: map.get($featured-item, 'highlight', 'title-spacing');
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    .ecl-featured-item__description {
-      margin-inline: map.get(
-        $featured-item,
-        'highlight',
-        'description-spacing-horizontal'
-      );
-      margin-block: map.get(
-        $featured-item,
-        'highlight',
-        'description-spacing-vertical-no-title'
-      );
-    }
-
-    .ecl-featured-item__title + .ecl-featured-item__description {
-      margin-block: map.get(
-        $featured-item,
-        'highlight',
-        'description-spacing-vertical'
-      );
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    .ecl-featured-item__link {
-      color: var(--cm-on-surface-dark, var(--c-p));
-      margin-inline: map.get(
-        $featured-item,
-        'highlight',
-        'link-spacing-horizontal'
-      );
-      margin-block: map.get(
-        $featured-item,
-        'highlight',
-        'description-spacing-vertical-no-title'
-      );
-    }
-
-    .ecl-featured-item__title + .ecl-featured-item__link,
-    .ecl-featured-item__description + .ecl-featured-item__link {
-      margin-block: map.get(
-        $featured-item,
-        'highlight',
-        'link-spacing-vertical'
-      );
-    }
-  }
-
-  /* stylelint-disable order/order */
-  @include breakpoints.up('m') {
-    .ecl-featured-item--highlight {
-      .ecl-featured-item__container {
-        padding-block: map.get(
-          $featured-item,
-          'highlight',
-          'padding-vertical-desktop'
-        );
-        padding-inline: map.get(
-          $featured-item,
-          'highlight',
-          'padding-horizontal-desktop'
-        );
-      }
-
-      .ecl-featured-item__title {
-        margin-inline: map.get(
-          $featured-item,
-          'highlight',
-          'title-spacing-desktop'
-        );
-      }
-
-      .ecl-featured-item__description,
-      .ecl-featured-item__link {
-        margin-inline-start: map.get(
-          $featured-item,
-          'highlight',
-          'text-spacing-desktop'
-        );
-      }
-
-      .ecl-featured-item__description {
-        margin-block: map.get(
-          $featured-item,
-          'highlight',
-          'description-spacing-vertical-no-title'
-        );
-      }
-
-      .ecl-featured-item__media_container {
-        margin-block: map.get(
-          $featured-item,
-          'highlight',
-          'media-spacing-vertical-desktop'
-        );
-        margin-inline: map.get(
-          $featured-item,
-          'highlight',
-          'media-spacing-horizontal-desktop'
-        );
-        padding: map.get($featured-item, 'highlight', 'media-padding-desktop');
-      }
-
-      .ecl-featured-item__container--right {
-        .ecl-featured-item__media_container {
-          padding-block: map.get(
+        -1 *
+          #{map.get(
             $featured-item,
             'highlight',
-            'media-padding-vertical-right'
-          );
-          margin-inline: map.get(
-            $featured-item,
-            'highlight',
-            'media-padding-horizontal-right'
-          );
-        }
-
-        .ecl-featured-item__title {
-          margin-inline: map.get(
-            $featured-item,
-            'highlight',
-            'title-spacing-right-desktop'
-          );
-        }
-
-        .ecl-featured-item__description,
-        .ecl-featured-item__link {
-          margin-inline: map.get(
-            $featured-item,
-            'highlight',
-            'text-spacing-right-desktop'
-          );
-        }
-      }
+            'item',
+            'padding-inline-desktop'
+          )}
+      );
     }
   }
 }

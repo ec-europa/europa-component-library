@@ -7,7 +7,6 @@ import demoData from './demo/data';
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
 
-const demoDataSimple = { ...demoData, type: 'simple' };
 const demoDataHighlighted = { ...demoData, type: 'highlight' };
 const mediaContainer = { ...demoData.media_container };
 const system = getSystem();
@@ -143,21 +142,6 @@ Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = {
   notes: { markdown: notes, json: demoData },
-};
-
-export const Simple = (_, { loaded: { component } }) => component;
-
-Simple.render = async (args) => {
-  const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataSimple, args),
-  );
-  return renderedFeaturedItem;
-};
-Simple.storyName = 'simple';
-Simple.args = getArgs(demoDataSimple);
-Simple.argTypes = getArgTypes(demoDataSimple);
-Simple.parameters = {
-  notes: { markdown: notes, json: demoDataSimple },
 };
 
 export const Highlighted = (_, { loaded: { component } }) => component;
