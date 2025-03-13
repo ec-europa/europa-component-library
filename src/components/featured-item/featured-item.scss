@@ -213,8 +213,9 @@ $featured-item: null !default;
         $featured-item,
         'background',
         'link',
-        'background-color-#{$variant}'
+        'color-#{$variant}'
       );
+      outline-offset: -4px;
     }
 
     .ecl-link__icon {
