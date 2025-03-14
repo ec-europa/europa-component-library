@@ -5,7 +5,7 @@ import separator from './separator.html.twig';
 import notes from './README.md';
 
 export default {
-  title: 'Components/Separator',
+  title: 'Components/Divider',
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
