@@ -2,10 +2,6 @@
 
 npm package: `@ecl/site-header`
 
-```shell
-npm install --save @ecl/site-header
-```
-
 ### Parameters
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
@@ -31,6 +27,16 @@ npm install --save @ecl/site-header
   - "href_not_logged" (string) Link to the login form
   - "label_logged" (string) Label for the logged in users
   - "href_logged" (string) Link to the logout form
+- **"custom_action"** (associative array) (default: {}):
+  - "href": (string) (default: '#') Link URL
+  - "icon": (string) (default: '') Icon name, e.g. 'bell'
+  - "label": (string) (default: '') Visible label
+  - "aria_label": (string) (default: '') For improved accessibility
+  - "indicator": (string|boolean) (default: '')
+  - "overlay": (associative array) (optional):
+    - "title": (string) (default: '') Overlay title
+    - "close": (associative array) (default: {})
+    - "content": (string) (default: '') HTML for the popover
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "label" (string) (default: ''): Switcher language label, eg. 'English' in eu, 'EN' in ec
@@ -87,6 +93,20 @@ npm install --save @ecl/site-header
         { lang: 'es', label: 'español', path: '/example#language_es', active: true }, 
         ... 
       ], 
+    }, 
+  },
+  custom_action: { 
+    href: '/notifications', 
+    icon: 'bell', 
+    label: 'Notifications', 
+    aria_label: 'View notifications', 
+    indicator: true, 
+    overlay: { 
+      title: 'Notifications', 
+      close: { 
+        label: 'Close' 
+      }, 
+      content: '<p>You have new notifications.</p>', 
     }, 
   }, 
   login_toggle: { 

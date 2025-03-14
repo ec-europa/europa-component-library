@@ -49,6 +49,20 @@
               ],
             },
         },
+    - "custom_action" (associative array) (default: {}): optional custom link with optional popover, e.g.:
+      {
+        "href": (string) – optional link URL
+        "label": (string) – link label
+        "aria_label": (string) – aria label
+        "icon": (string) – icon name (eg. 'bell')
+        "indicator": (string|boolean) – optional indicator value
+        "overlay": (object) – if defined, we display a popover; otherwise it’s a simple link
+          {
+            "title": (string) (default: '')
+            "close_label": (string) (default: '')
+            "content": (string)
+          }
+      }
     - "search_toggle" (associate array) (default: {}) format:
       {
         "label": (string) Label of the element
@@ -83,6 +97,7 @@
 
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
+{% set _custom_action = custom_action|default({}) %}
 {% set _logged = logged|default(false) %}
 {% set _login_box = login_box|default({}) %}
 {% set _login_toggle = login_toggle|default({}) %}
@@ -323,6 +338,14 @@
                 </a>
               {% endif %}
               </div>
+            {% endif %}
+
+            {# Custom action #}
+            {% if custom_action is defined and custom_action is not empty %}
+              {% include '@ecl/site-header/site-header-custom-action.html.twig' with {
+                custom_action: custom_action,
+                icon_path: _icon_path
+              } only %}
             {% endif %}
 
             {# Language selector #}

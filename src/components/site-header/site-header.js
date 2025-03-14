@@ -53,6 +53,9 @@ export class SiteHeader {
       attachKeyListener = true,
       attachResizeListener = true,
       tabletBreakpoint = 768,
+      customActionLinkSelector = '[data-ecl-custom-action]',
+      customActionOverlaySelector = '[data-ecl-custom-action-overlay]',
+      customActionCloseSelector = '[data-ecl-custom-action-close]',
     } = {},
   ) {
     // Check element
@@ -81,6 +84,9 @@ export class SiteHeader {
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
     this.tabletBreakpoint = tabletBreakpoint;
+    this.customActionLinkSelector = customActionLinkSelector;
+    this.customActionOverlaySelector = customActionOverlaySelector;
+    this.customActionCloseSelector = customActionCloseSelector;
 
     // Private variables
     this.languageMaxColumnItems = 8;
@@ -99,6 +105,12 @@ export class SiteHeader {
     this.direction = null;
     this.notificationContainer = null;
 
+    // CUSTOM ACTION
+    this.customActionLink = null;
+    this.customActionOverlay = null;
+    this.customActionClose = null;
+    this.focusTrapCustomAction = null;
+
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
     this.closeOverlay = this.closeOverlay.bind(this);
@@ -113,6 +125,13 @@ export class SiteHeader {
     this.handleResize = this.handleResize.bind(this);
     this.setLanguageListHeight = this.setLanguageListHeight.bind(this);
     this.handleNotificationClose = this.handleNotificationClose.bind(this);
+
+    this.openCustomActionOverlay = this.openCustomActionOverlay.bind(this);
+    this.closeCustomActionOverlay = this.closeCustomActionOverlay.bind(this);
+    this.handleKeyboardCustomAction =
+      this.handleKeyboardCustomAction.bind(this);
+    this.toggleCustomActionOverlay = this.toggleCustomActionOverlay.bind(this);
+    this.updateCustomActionOverlay = this.updateCustomActionOverlay.bind(this);
   }
 
   /**
@@ -188,6 +207,36 @@ export class SiteHeader {
       this.loginToggle.addEventListener('click', this.toggleLogin);
     }
 
+    // Custom action management
+    this.customActionLink = queryOne(this.customActionLinkSelector);
+    this.customActionOverlay = queryOne(this.customActionOverlaySelector);
+    this.customActionClose = queryOne(this.customActionCloseSelector);
+
+    if (this.customActionOverlay) {
+      this.focusTrapCustomAction = createFocusTrap(this.customActionOverlay, {
+        onDeactivate: this.closeCustomActionOverlay,
+        allowOutsideClick: true,
+      });
+    }
+    if (this.attachClickListener && this.customActionLink) {
+      this.customActionLink.addEventListener(
+        'click',
+        this.toggleCustomActionOverlay,
+      );
+    }
+    if (this.attachClickListener && this.customActionClose) {
+      this.customActionClose.addEventListener(
+        'click',
+        this.toggleCustomActionOverlay,
+      );
+    }
+    if (this.attachKeyListener && this.customActionLink) {
+      this.customActionLink.addEventListener(
+        'keydown',
+        this.handleKeyboardCustomAction,
+      );
+    }
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
@@ -235,6 +284,28 @@ export class SiteHeader {
 
     if (this.attachClickListener && this.loginToggle) {
       this.loginToggle.removeEventListener('click', this.toggleLogin);
+    }
+
+    if (this.customActionLink && this.attachClickListener) {
+      this.customActionLink.removeEventListener(
+        'click',
+        this.toggleCustomActionOverlay,
+      );
+    }
+    if (this.customActionClose && this.attachClickListener) {
+      this.customActionClose.removeEventListener(
+        'click',
+        this.toggleCustomActionOverlay,
+      );
+    }
+    if (this.focusTrapCustomAction) {
+      this.focusTrapCustomAction.deactivate();
+    }
+    if (this.attachKeyListener && this.customActionLink) {
+      this.customActionLink.removeEventListener(
+        'keydown',
+        this.handleKeyboardCustomAction,
+      );
     }
 
     if (this.attachKeyListener) {
@@ -506,6 +577,12 @@ export class SiteHeader {
         this.updateOverlay();
       }, 200);
     }
+    if (
+      this.customActionOverlay &&
+      !this.customActionOverlay.hasAttribute('hidden')
+    ) {
+      this.updateCustomActionOverlay();
+    }
   }
 
   /**
@@ -517,6 +594,18 @@ export class SiteHeader {
     // Open the menu with space and enter
     if (e.keyCode === 32 || e.key === 'Enter') {
       this.toggleOverlay(e);
+    }
+  }
+
+  /**
+   * Handles keyboard events specific to the custom action.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardCustomAction(e) {
+    // Open the menu with space and enter
+    if (e.keyCode === 32 || e.key === 'Enter') {
+      this.toggleCustomActionOverlay(e);
     }
   }
 
@@ -637,6 +726,12 @@ export class SiteHeader {
       if (listExpanded === 'true') {
         this.toggleOverlay(e);
       }
+      if (
+        this.customActionLink &&
+        this.customActionLink.getAttribute('aria-expanded') === 'true'
+      ) {
+        this.toggleCustomActionOverlay(e);
+      }
     }
   }
 
@@ -646,7 +741,13 @@ export class SiteHeader {
    * @param {Event} e
    */
   handleClickGlobal(e) {
-    if (!this.languageLink && !this.searchToggle && !this.loginToggle) return;
+    if (
+      !this.languageLink &&
+      !this.searchToggle &&
+      !this.loginToggle &&
+      !this.customActionLink
+    )
+      return;
     const listExpanded =
       this.languageLink && this.languageLink.getAttribute('aria-expanded');
     const loginExpanded =
@@ -655,7 +756,10 @@ export class SiteHeader {
     const searchExpanded =
       this.searchToggle &&
       this.searchToggle.getAttribute('aria-expanded') === 'true';
-    // Check if the language list is open
+    const customActionExpanded =
+      this.customActionLink &&
+      this.customActionLink.getAttribute('aria-expanded') === 'true';
+
     if (listExpanded === 'true') {
       // Check if the click occured in the language popover
       if (
@@ -680,6 +784,117 @@ export class SiteHeader {
       ) {
         this.toggleSearch(e);
       }
+    }
+    if (customActionExpanded) {
+      if (
+        !this.customActionOverlay.contains(e.target) &&
+        !this.customActionLink.contains(e.target)
+      ) {
+        this.toggleCustomActionOverlay(e);
+      }
+    }
+  }
+
+  openCustomActionOverlay() {
+    if (!this.customActionOverlay || !this.customActionLink) return;
+    this.customActionOverlay.hidden = false;
+    this.customActionOverlay.setAttribute('aria-modal', 'true');
+    this.customActionLink.setAttribute('aria-expanded', 'true');
+  }
+
+  closeCustomActionOverlay() {
+    if (!this.customActionOverlay || !this.customActionLink) return;
+    this.customActionOverlay.hidden = true;
+    this.customActionOverlay.removeAttribute('aria-modal');
+    this.customActionLink.setAttribute('aria-expanded', 'false');
+  }
+
+  toggleCustomActionOverlay(e) {
+    if (!this.customActionOverlay || !this.focusTrapCustomAction) return;
+    e.preventDefault();
+    const isHidden = this.customActionOverlay.hasAttribute('hidden');
+    if (isHidden) {
+      this.openCustomActionOverlay();
+      this.focusTrapCustomAction.activate();
+      this.updateCustomActionOverlay();
+    } else {
+      this.focusTrapCustomAction.deactivate();
+    }
+  }
+
+  updateCustomActionOverlay() {
+    const popoverRect = this.customActionOverlay.getBoundingClientRect();
+    const containerRect = this.container.getBoundingClientRect();
+
+    this.customActionOverlay.classList.remove(
+      'ecl-site-header__language-container--push-right',
+      'ecl-site-header__language-container--push-left',
+      'ecl-site-header__language-container--full',
+    );
+
+    this.customActionOverlay.style.removeProperty(
+      '--ecl-language-arrow-position',
+    );
+    this.customActionOverlay.style.removeProperty('right');
+    this.customActionOverlay.style.removeProperty('left');
+
+    const screenWidth = window.innerWidth;
+    const linkRect = this.customActionLink.getBoundingClientRect();
+
+    if (this.direction === 'ltr' && popoverRect.right > screenWidth) {
+      this.customActionOverlay.classList.add(
+        'ecl-site-header__language-container--push-right',
+      );
+      this.customActionOverlay.style.setProperty(
+        'right',
+        `calc(-${containerRect.right}px + ${linkRect.right}px)`,
+      );
+      const arrowPosition =
+        containerRect.right - linkRect.right + linkRect.width / 2;
+      this.customActionOverlay.style.setProperty(
+        '--ecl-language-arrow-position',
+        `calc(${arrowPosition}px - ${this.arrowSize})`,
+      );
+    } else if (this.direction === 'rtl' && popoverRect.left < 0) {
+      this.customActionOverlay.classList.add(
+        'ecl-site-header__language-container--push-left',
+      );
+      this.customActionOverlay.style.setProperty(
+        'left',
+        `calc(-${linkRect.left}px + ${containerRect.left}px)`,
+      );
+      const arrowPosition =
+        linkRect.right - containerRect.left - linkRect.width / 2;
+      this.customActionOverlay.style.setProperty(
+        '--ecl-language-arrow-position',
+        `${arrowPosition}px`,
+      );
+    }
+
+    if (window.innerWidth < this.tabletBreakpoint) {
+      this.customActionOverlay.classList.add(
+        'ecl-site-header__language-container--full',
+      );
+      this.customActionOverlay.style.removeProperty('right');
+      const arrowPosition =
+        popoverRect.right - linkRect.right + linkRect.width / 2;
+      this.customActionOverlay.style.setProperty(
+        '--ecl-language-arrow-position',
+        `calc(${arrowPosition}px - ${this.arrowSize})`,
+      );
+    }
+
+    if (
+      this.loginBox &&
+      this.loginBox.classList.contains('ecl-site-header__login-box--active')
+    ) {
+      this.setLoginArrow();
+    }
+    if (
+      this.searchForm &&
+      this.searchForm.classList.contains('ecl-site-header__search--active')
+    ) {
+      this.setSearchArrow();
     }
   }
 }

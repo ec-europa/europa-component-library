@@ -22,6 +22,13 @@ module.exports = {
       path: exampleLink,
     },
   },
+  custom_action: {
+    href: '/notifications',
+    label: 'Notifications',
+    icon: 'notification',
+    indicator: '3',
+    aria_label: 'Check notifications',
+  },
   login_box: {
     id: 'login-box-id',
     description: 'Logged in as "last name" "first name"',

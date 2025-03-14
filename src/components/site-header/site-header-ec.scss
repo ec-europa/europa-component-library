@@ -144,6 +144,7 @@ $language-list: null !default;
   text-transform: uppercase;
 }
 
+.ecl-site-header__custom-action-toggle,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle,
 .ecl-site-header__language-selector {
@@ -212,6 +213,7 @@ $language-list: null !default;
   margin-top: var(--s-m);
 }
 
+.ecl-site-header__custom-action-icon,
 .ecl-site-header__language-icon {
   align-items: center;
   display: flex;
@@ -309,6 +311,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.down('m') {
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
@@ -454,6 +457,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     }
   }
 
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-selector {
     align-items: center;

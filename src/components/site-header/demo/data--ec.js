@@ -22,6 +22,25 @@ module.exports = {
     label: 'Log out',
     href: exampleLink,
   },
+  custom_action: {
+    label: 'Notifications',
+    icon: 'notification',
+    indicator: '3',
+    aria_label: 'Check notifications',
+    overlay: {
+      title: 'Notifications',
+      close: {
+        label: 'Close',
+        icon: {
+          path: '/icons.svg',
+          name: 'close',
+          size: 'm',
+        },
+        hide_label: true,
+      },
+      content: '<ul><li>Alert 1</li><li>Alert 2</li><li>Alert 3</li></ul>',
+    },
+  },
   language_selector: {
     href: exampleLink,
     label: 'EN',

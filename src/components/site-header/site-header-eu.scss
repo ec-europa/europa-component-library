@@ -211,6 +211,7 @@ $language-list: null !default;
   }
 }
 
+.ecl-site-header__custom-action-toggle,
 .ecl-site-header__language-selector,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle {
@@ -257,6 +258,7 @@ $language-list: null !default;
   margin-top: var(--s-m);
 }
 
+.ecl-site-header__custom-action-icon,
 .ecl-site-header__language-icon {
   align-items: center;
   display: flex;
@@ -296,6 +298,7 @@ $language-list: null !default;
 // stylelint-enable plugin/selector-bem-pattern
 
 @include breakpoints.down('m') {
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
@@ -456,6 +459,7 @@ $language-list: null !default;
     }
   }
 
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-selector {
     .ecl-site-header__icon {

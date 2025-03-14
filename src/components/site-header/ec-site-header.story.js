@@ -40,6 +40,7 @@ const getArgs = (data) => {
   const defaultArgs = {
     logo_size: 'large',
     show_language_selector: true,
+    show_custom_action: true,
     show_search: true,
     show_notification: false,
     show_notification_close: true,
@@ -96,6 +97,14 @@ const getArgTypes = (data) => {
     name: 'language selector',
     type: { name: 'boolean' },
     description: 'Show the language selector',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_custom_action = {
+    name: 'custom action',
+    type: { name: 'boolean' },
+    description: 'Show the custom action',
     table: {
       category: 'Optional',
     },
@@ -272,6 +281,14 @@ const prepareData = (data, args) => {
       ),
       data.language_selector.overlay.non_eu_items.length -
         args.languages_non_eu,
+    );
+  }
+
+  if (!args.show_custom_action) {
+    delete data.custom_action;
+  } else {
+    data.custom_action = JSON.parse(
+      JSON.stringify(clonedDataFull.custom_action),
     );
   }
 

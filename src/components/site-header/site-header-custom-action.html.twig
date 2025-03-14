@@ -1,0 +1,101 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "custom_action" (associative array) (default: {}):
+      {
+        "href": (string) (default: '#') Link URL
+        "icon": (string) (default: '') Icon name, e.g. 'bell'
+        "label": (string) (default: '') Visible label
+        "aria_label": (string) (default: '') For improved accessibility
+        "indicator": (string|boolean) (default: '')
+        "overlay": (associative array) (optional):
+          {
+            "title": (string) (default: '') Overlay title
+            "close": (associative array) (default: {})
+            "content": (string) (default: '') HTML for the popover
+          }
+      }
+    - "icon_path" (string) (default: '') Base path to icons
+#}
+
+{# Default variables #}
+
+{% set _custom_action = custom_action|default({}) %}
+{% set _icon_path = icon_path|default('') %}
+{% set _label = _custom_action.label|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+  {% set _has_overlay = true %}
+{% endif %}
+
+{% if _custom_action is not empty %}
+<div class="ecl-site-header__custom-action">
+  <a
+    class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
+    href="{{ _custom_action.href|default('') }}"
+    role="button"
+    aria-label="{{ _custom_action.aria_label|default('') ~ ' - ' ~   _label }}"
+    data-ecl-custom-action
+    {% if _has_overlay %}
+      aria-controls="custom-action-overlay"
+      aria-expanded="false"
+    {% endif %}
+  >
+    {% if _custom_action.icon is defined and _custom_action.icon is not empty %}
+      <span class="ecl-site-header__custom-action-icon">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            path: _icon_path,
+            name: _custom_action.icon,
+            size: 's'
+          },
+          as_image: true,
+          extra_classes: 'ecl-site-header__icon',
+          extra_accessibility: {
+            title: _label,
+          },
+        } only %}
+      </span>
+    {% endif %}
+    {{- _label -}}
+  </a>
+
+  {% if _has_overlay %}
+  <div
+    class="ecl-site-header__custom-action-overlay"
+    id="custom-action-overlay"
+    hidden
+    data-ecl-custom-action-overlay
+    role="dialog"
+    aria-labelledby="custom-action-overlay-title"
+  >
+    <div class="ecl-site-header__custom-action-header">
+      <div
+        class="ecl-site-header__custom-action-title"
+        id="custom-action-overlay-title"
+      >
+        {{- _custom_action.overlay.title|default('') -}}
+      </div>
+
+      {% if _custom_action.overlay.close is defined and _custom_action.overlay.close is not empty %}
+        {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
+          variant: 'tertiary',
+          extra_classes: 'ecl-site-header__custom-action-close',
+          extra_attributes: [{
+            name: 'data-ecl-custom-action-close',
+          }],
+        }) only %}
+      {% endif %}
+    </div>
+    <div class="ecl-site-header__custom-action-content">
+      {{ _custom_action.overlay.content|default('')|raw }}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% endapply %}
