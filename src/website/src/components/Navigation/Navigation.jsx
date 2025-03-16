@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import LinkList from './LinkList';
 import styles from './Navigation.module.scss';
@@ -13,73 +13,81 @@ const Navigation = React.memo(
     prefix,
     forceRefresh,
     isLoading,
-  }) => (
-    <nav
-      className={`${styles.nav}${
-        sidebarOpen ? '' : ` ${styles['nav--closed']}`
-      }${forceRefresh ? ' ' : ''}`}
-    >
-      <button
-        type="button"
-        className={`${styles['button-toggle']} ${
-          sidebarOpen
-            ? styles['button-toggle--open']
-            : styles['button-toggle--closed']
-        }${forceRefresh ? ' ' : ''} `}
-        onClick={onToggleSidebar}
-        data-toggle-sidebar
-        aria-label={
-          sidebarOpen ? 'Close side navigation' : 'Open side navigation'
-        }
+  }) => {
+    const location = useLocation(); // Get location from the hook
+
+    return (
+      <nav
+        className={`${styles.nav}${
+          sidebarOpen ? '' : ` ${styles['nav--closed']}`
+        }${forceRefresh ? ' ' : ''}`}
       >
-        <span className={styles['hamburger-inner']} />
-      </button>
-      <header className={styles.header}>
-        <span className={styles.version}>v{process.env.ECL_VERSION}</span>
-        {prefix === '/eu' ? (
-          <Link
-            to="/"
-            className={`${styles.logo} ${styles['logo--eu']}`}
-            title="European Union"
-          >
-            <span className={styles['logo-sr']}>European Union</span>
-          </Link>
+        <button
+          type="button"
+          className={`${styles['button-toggle']} ${
+            sidebarOpen
+              ? styles['button-toggle--open']
+              : styles['button-toggle--closed']
+          }${forceRefresh ? ' ' : ''} `}
+          onClick={onToggleSidebar}
+          data-toggle-sidebar
+          aria-label={
+            sidebarOpen ? 'Close side navigation' : 'Open side navigation'
+          }
+        >
+          <span className={styles['hamburger-inner']} />
+        </button>
+        <header className={styles.header}>
+          <span className={styles.version}>v{process.env.ECL_VERSION}</span>
+          {prefix === '/eu' ? (
+            <Link
+              to="/"
+              className={`${styles.logo} ${styles['logo--eu']}`}
+              title="European Union"
+            >
+              <span className={styles['logo-sr']}>European Union</span>
+            </Link>
+          ) : (
+            <Link to="/" className={styles.logo} title="European Commission">
+              <span className={styles['logo-sr']}>European Commission</span>
+            </Link>
+          )}
+          <div className={styles.title}>Europa Component Library</div>
+        </header>
+        <ul className={styles['system-list']}>
+          <li className={styles['system-list-item']}>
+            <NavLink
+              to="/ec/"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['system-list-item-link']} ${styles['system-list-item-link--selected']}`
+                  : styles['system-list-item-link']
+              }
+            >
+              EC
+            </NavLink>
+          </li>
+          <li className={styles['system-list-item']}>
+            <NavLink
+              to="/eu/"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['system-list-item-link']} ${styles['system-list-item-link--selected']}`
+                  : styles['system-list-item-link']
+              }
+            >
+              EU
+            </NavLink>
+          </li>
+        </ul>
+        {isLoading ? (
+          <p className={styles.loading}>Loading...</p>
         ) : (
-          <Link to="/" className={styles.logo} title="European Commission">
-            <span className={styles['logo-sr']}>European Commission</span>
-          </Link>
+          <LinkList pages={pages} level={0} parentSection={prefix} />
         )}
-        <div className={styles.title}>Europa Component Library</div>
-      </header>
-      <ul className={styles['system-list']}>
-        <li className={styles['system-list-item']}>
-          <NavLink
-            to="/ec/"
-            strict
-            className={styles['system-list-item-link']}
-            activeClassName={styles['system-list-item-link--selected']}
-          >
-            EC
-          </NavLink>
-        </li>
-        <li className={styles['system-list-item']}>
-          <NavLink
-            to="/eu/"
-            strict
-            className={styles['system-list-item-link']}
-            activeClassName={styles['system-list-item-link--selected']}
-          >
-            EU
-          </NavLink>
-        </li>
-      </ul>
-      {isLoading ? (
-        <p className={styles.loading}>Loading...</p>
-      ) : (
-        <LinkList pages={pages} level={0} parentSection={prefix} />
-      )}
-    </nav>
-  ),
+      </nav>
+    );
+  },
 );
 
 Navigation.propTypes = {
@@ -98,5 +106,4 @@ Navigation.defaultProps = {
   isLoading: false,
 };
 
-// Use withRouter to update links when they become active
-export default withRouter(Navigation);
+export default Navigation;

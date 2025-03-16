@@ -1,6 +1,5 @@
-// src/website/src/routes/Ec.jsx
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 import sortPages from '../utils/nav-sort';
 import HomePage from '../pages/ec/index.md';
 import DocPage from '../components/DocPage/DocPage';
@@ -28,7 +27,7 @@ const pagesToRoutes = (pages, prefix = '/ec') => {
       allDocs[filePath]?.default || (() => <div>Not found: {filePath}</div>);
 
     // Smart URL—handle /docs/ only when present
-    let url = `${prefix}${page.key.replace(/^\.\//, '/').replace(/\/index\.(md|mdx)$/, '')}`;
+    let url = `${page.key.replace(/^\.\//, '/').replace(/\/index\.(md|mdx)$/, '')}`;
     if (url.includes('/docs/')) {
       url = url.replace(/\/docs\//, '/').replace(/\.(md|mdx)$/, '');
     }
@@ -36,21 +35,20 @@ const pagesToRoutes = (pages, prefix = '/ec') => {
 
     if (page.attributes && page.attributes.defaultTab) {
       routes.push(
-        <Redirect
+        <Route
           key={`${page.key}-default`}
-          from={url}
-          to={`${url}${page.attributes.defaultTab}/`}
-          exact
-        />,
+          path={url}
+          element={<Navigate to={`${url}${page.attributes.defaultTab}/`} replace />}
+        />
       );
     }
+
     routes.push(
       <Route
         key={page.key}
         path={url}
-        exact
-        render={() => <DocPage component={page} />}
-      />,
+        element={<DocPage component={page} />}
+      />
     );
   });
   return routes;

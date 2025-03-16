@@ -1,7 +1,6 @@
-// src/website/src/routes/Skeleton.jsx
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navigation from '../components/Navigation/Navigation';
 import MainContainer from '../components/MainContainer/MainContainer';
@@ -35,7 +34,6 @@ class Skeleton extends Component {
       forceRefresh: navigator.userAgent !== 'ReactSnap',
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-          /* eslint-disable-next-line react/destructuring-assignment, react/no-access-state-in-setstate */
           1140 || this.state.sidebarOpen,
     });
 
@@ -97,23 +95,22 @@ class Skeleton extends Component {
           isLoading={isLoading}
         />
         <MainContainer sidebarOpen={sidebarOpen} forceRefresh={forceRefresh}>
-          <Switch>
+          <Routes>
             <Route
-              exact
-              strict
               path={`${prefix}/`}
-              component={() => (
+              element={
                 <SimplePage>
                   <Helmet title={title} />
                   <HomePage />
                 </SimplePage>
-              )}
+              }
             />
             {routes}
             <Route
-              render={() => (isLoading ? <LoadingPage /> : <PageNotFound />)}
+              path="*"
+              element={isLoading ? <LoadingPage /> : <PageNotFound />}
             />
-          </Switch>
+          </Routes>
         </MainContainer>
       </>
     );

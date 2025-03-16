@@ -1,48 +1,43 @@
-// src/website/src/components/DocPage/DocPage.jsx
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
 import { getPageTitle, getSectionTitle } from './utils/title';
 
-class DocPage extends Component {
-  componentDidMount() {
+function DocPage({ component }) {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       setTimeout(() => {
         Prism.highlightAllUnder(document.querySelector('#main-content'));
       }, 100);
     }
+  }, []);
+
+  let title = getPageTitle(component);
+  const sectionTitle = getSectionTitle(component);
+  if (sectionTitle) {
+    title += ` - ${sectionTitle}`;
   }
 
-  render() {
-    const { component } = this.props;
-    let title = getPageTitle(component);
-    const sectionTitle = getSectionTitle(component);
-    if (sectionTitle) {
-      title += ` - ${sectionTitle}`;
-    }
-
-    return (
-      <>
-        <ScrollToTopOnMount />
-        <Helmet title={title} />
-        <Header component={component} />
-        <main id="main-content" tabIndex="-1">
-          <Container spacing="pv-l pv-md-3xl">
-            {component.document ? (
-              React.createElement(component.document)
-            ) : (
-              <div>Content missing for {component.key || 'unknown'}</div>
-            )}
-          </Container>
-        </main>
-      </>
-    );
-  }
+  return (
+    <>
+      <ScrollToTopOnMount />
+      <Helmet title={title} />
+      <Header component={component} />
+      <main id="main-content" tabIndex="-1">
+        <Container spacing="pv-l pv-md-3xl">
+          {component.document ? (
+            React.createElement(component.document)
+          ) : (
+            <div>Content missing for {component.key || 'unknown'}</div>
+          )}
+        </Container>
+      </main>
+    </>
+  );
 }
 
 DocPage.propTypes = {
@@ -65,4 +60,4 @@ DocPage.defaultProps = {
   component: {},
 };
 
-export default withRouter(DocPage);
+export default DocPage;

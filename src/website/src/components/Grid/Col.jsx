@@ -12,7 +12,7 @@ const Col = React.memo(
       .map((c) => grid[`ecl-col-${c}`])
       .join(' ');
 
-    const spacingClasses = spacing
+    const spacingClasses = (spacing || '') 
       .split(' ')
       .map((sp) => utilities[sp])
       .join(' ');

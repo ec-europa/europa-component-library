@@ -6,7 +6,7 @@ import grid from './grid.module.scss';
 import utilities from '../../styles/utilities.module.scss';
 
 const Container = React.memo(({ spacing, className, children, ...props }) => {
-  const spacingClasses = spacing
+  const spacingClasses = (spacing || '')
     .split(' ')
     .map((sp) => utilities[sp])
     .join(' ');
