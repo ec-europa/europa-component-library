@@ -7,9 +7,11 @@ import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 import styles from './LinkSection.module.scss';
 import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 
-const LinkSection = ({ pages, level, showStatus, section, attributes }) => {
+function LinkSection({ pages, level, showStatus, section, attributes }) {
   const location = useLocation(); // Get the location object from the hook
-  const [isOpen, setIsOpen] = useState(location.pathname.indexOf(attributes.url) === 0);
+  const [isOpen, setIsOpen] = useState(
+    location.pathname.indexOf(attributes.url) === 0,
+  );
 
   useEffect(() => {
     setIsOpen(location.pathname.indexOf(attributes.url) === 0);
@@ -58,7 +60,7 @@ const LinkSection = ({ pages, level, showStatus, section, attributes }) => {
       />
     </>
   );
-};
+}
 
 LinkSection.propTypes = {
   attributes: PropTypes.shape({

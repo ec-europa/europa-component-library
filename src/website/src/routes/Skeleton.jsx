@@ -30,12 +30,12 @@ class Skeleton extends Component {
     if (typeof window === 'undefined') return;
 
     // Update state on client—keep open if prerendered open
-    this.setState({
+    this.setState((prevState) => ({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-          1140 || this.state.sidebarOpen,
-    });
+          1140 || prevState.sidebarOpen,
+    }));
 
     if (!isLoading) {
       const element = document.getElementById(`${system}-css`);

@@ -1,26 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
 
 import NavigationLink from './NavigationLink';
 import styles from './SingleLink.module.scss';
 
-const SingleLink = React.memo(({ page, level }) => {
-  const location = useLocation();
-
-  return (
-    <NavigationLink
-      meta={page}
-      className={({ isActive }) =>
-        `${styles['page-list-item']} ${styles[`level-${level}`]} ${
-          isActive ? styles['page-list-item--active'] : ''
-        }`
-      }
-    >
-      {page.title}
-    </NavigationLink>
-  );
-});
+const SingleLink = React.memo(({ page, level }) => (
+  <NavigationLink
+    meta={page}
+    className={({ isActive }) =>
+      `${styles['page-list-item']} ${styles[`level-${level}`]} ${
+        isActive ? styles['page-list-item--active'] : ''
+      }`
+    }
+  >
+    {page.title}
+  </NavigationLink>
+));
 
 SingleLink.propTypes = {
   page: PropTypes.shape({

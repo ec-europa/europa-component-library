@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom'; // Replace withRouter with hooks
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
@@ -122,25 +122,32 @@ const componentType = PropTypes.shape({
     url: PropTypes.string,
     title: PropTypes.string,
     isTab: PropTypes.bool,
+    playground: PropTypes.shape({
+      system: PropTypes.string,
+      path: PropTypes.string,
+    }),
+  }),
+  parent: PropTypes.shape({
+    children: PropTypes.arrayOf(
+      PropTypes.shape({
+        attributes: PropTypes.shape({
+          url: PropTypes.string,
+          title: PropTypes.string,
+          isTab: PropTypes.bool,
+        }),
+      }),
+    ),
+    attributes: PropTypes.shape({
+      playground: PropTypes.shape({
+        system: PropTypes.string,
+        path: PropTypes.string,
+      }),
+    }),
   }),
 });
 
-const componentDefaults = {
-  attributes: {
-    url: '',
-    title: '',
-    isTab: false,
-  },
-};
-
 Header.propTypes = {
-  parent: componentType,
-  component: componentType,
-};
-
-Header.defaultProps = {
-  parent: componentDefaults,
-  component: componentDefaults,
+  component: componentType.isRequired,
 };
 
 export default Header;
