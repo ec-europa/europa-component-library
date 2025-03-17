@@ -60,7 +60,7 @@
 {% if _extra_accessibility.title is not empty %}
   {% set _as_image = 'true' %}
   {% set _extra_accessibility = _extra_accessibility|merge({role: 'img'}) %}
-  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-title', value: _extra_accessibility.title }]) %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'title', value: _extra_accessibility.title }]) %}
 {% endif %}
 
 {% if _as_image %}
