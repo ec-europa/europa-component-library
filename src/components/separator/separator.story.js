@@ -28,7 +28,7 @@ Default.render = async () => {
     ${await separator()}
     <ol class="ecl-ordered-list">
       <li class="ecl-ordered-list__item">Ordered list</li>
-      <li class="ecl-ordered-list__item">Ordered list <ol>
+      <li class="ecl-ordered-list__item">Ordered list
         <ol class="ecl-ordered-list">
           <li class="ecl-ordered-list__item">Nested ordered list</li>
           <li class="ecl-ordered-list__item">Nested ordered list</li>
