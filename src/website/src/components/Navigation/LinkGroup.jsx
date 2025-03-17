@@ -11,7 +11,12 @@ const LinkGroup = React.memo(({ pages, level, showStatus, group }) => {
   return (
     <>
       <span className={styles.group}>{group}</span>
-      <LinkList pages={pages} level={level + 1} showStatus={showStatus} location={location} />
+      <LinkList
+        pages={pages}
+        level={level + 1}
+        showStatus={showStatus}
+        location={location}
+      />
     </>
   );
 });
