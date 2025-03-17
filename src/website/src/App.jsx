@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, StaticRouter } from 'react-router-dom'; // React 17
+import { BrowserRouter, StaticRouter } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
-import customComponents from './customComponents';
+import customComponents from './website-components/customComponents';
 import MainRoutes from './routes/MainRoutes';
 import 'normalize.css/normalize.css';
 import './styles/app.scss';
