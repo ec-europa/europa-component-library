@@ -130,6 +130,7 @@ $featured-item: null !default;
     );
     display: flex;
     flex-direction: column;
+    margin-block-start: 0;
     padding-block: map.get(
       $featured-item,
       'highlight',
