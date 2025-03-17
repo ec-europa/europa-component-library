@@ -1,6 +1,8 @@
 import React from 'react';
 import App from './App';
 
-export default function Page() {
+function Page() {
   return <App />;
 }
+
+export default Page;

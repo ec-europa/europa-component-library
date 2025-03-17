@@ -10,7 +10,6 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
     <title>Europa Component Library</title>
-    <script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@5.3.3/index.umd.min.js"></script>
     <script>
       if (navigator.userAgent !== 'ReactSnap') {
         var cl = document.querySelector('html').classList;
@@ -42,14 +41,6 @@
         document.location.pathname += '/admin';
       }
     </script>
-    <script>
-      if (!document.querySelector('head style[data-vite-dev-id]')) {
-        var script = document.createElement('script');
-        script.src = '/sidebar-toggle.js';
-        script.defer = true;
-        document.head.appendChild(script);
-      }
-    </script>
   </head>
   <body>
     <script type="application/json">
@@ -58,7 +49,7 @@
         "url": "https://commission.europa.eu/cookies-policy_en."
       }
     </script>
-    <div id="root"></div>
+    <div id="page-root"></div>
     <script type="module" src="/src/Index.jsx"></script>
   </body>
 </html>

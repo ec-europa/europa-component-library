@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import sortPages from '../utils/nav-sort';
 import HomePage from '../pages/ec/index.md';
 import DocPage from '../components/DocPage/DocPage';
@@ -19,7 +20,7 @@ function flatDeep(pages) {
   }, []);
 }
 
-const pagesToRoutes = (pages, prefix = '/ec') => {
+const pagesToRoutes = (pages) => {
   const routes = [];
   flatDeep(pages).forEach((page) => {
     const filePath = `../pages/ec${page.key.slice(1)}`;
@@ -34,12 +35,15 @@ const pagesToRoutes = (pages, prefix = '/ec') => {
     url = url.endsWith('/') ? url : `${url}/`;
 
     if (page.attributes && page.attributes.defaultTab) {
+      // Wrap the Navigate inside a state change or effect to ensure it only runs after the initial render
       routes.push(
         <Route
           key={`${page.key}-default`}
           path={url}
-          element={<Navigate to={`${url}${page.attributes.defaultTab}/`} replace />}
-        />
+          element={
+            <DelayedNavigate url={`${url}${page.attributes.defaultTab}/`} />
+          }
+        />,
       );
     }
 
@@ -48,10 +52,24 @@ const pagesToRoutes = (pages, prefix = '/ec') => {
         key={page.key}
         path={url}
         element={<DocPage component={page} />}
-      />
+      />,
     );
   });
   return routes;
+};
+
+function DelayedNavigate({ url }) {
+  const [shouldNavigate, setShouldNavigate] = useState(false);
+
+  useEffect(() => {
+    setShouldNavigate(true); // Trigger navigation after the initial render
+  }, []);
+
+  return shouldNavigate ? <Navigate to={url} replace /> : null;
+}
+
+DelayedNavigate.propTypes = {
+  url: PropTypes.string.isRequired,
 };
 
 const routes = pagesToRoutes(sortedPages, '/ec');
