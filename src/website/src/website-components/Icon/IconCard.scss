@@ -6,14 +6,14 @@
   border: 1px solid transparent;
   box-sizing: border-box;
   display: flex;
-  flex-basis: 8rem;
+  flex-basis: 9rem;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: center;
   margin: var(--ws-s-xs) var(--ws-s-xs) 0 0;
-  max-width: 8rem;
-  padding: var(--ws-s-s);
+  max-width: 9rem;
+  padding: var(--ws-s-s) 0;
 }
 
 .card {
@@ -59,15 +59,16 @@
 
 .title {
   box-sizing: border-box;
-  font: var(--ws-f-s);
+  font: var(--ws-f-xs);
   margin: var(--ws-s-s) 0 0;
   padding: 0;
   text-align: center;
   width: 100%;
+  white-space: pre-wrap;
 }
 
 .icon {
   fill: currentcolor;
-  height: map.get($theme, 'icon', 'l');
-  width: map.get($theme, 'icon', 'l');
+  height: 3rem;
+  width: 3rem;
 }
