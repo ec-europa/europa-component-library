@@ -97,7 +97,7 @@ class Skeleton extends Component {
         <MainContainer sidebarOpen={sidebarOpen} forceRefresh={forceRefresh}>
           <Routes>
             <Route
-              path={`${prefix}/`}
+              path="/"
               element={
                 <SimplePage>
                   <Helmet title={title} />

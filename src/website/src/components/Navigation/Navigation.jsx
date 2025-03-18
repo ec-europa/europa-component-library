@@ -27,7 +27,6 @@ const Navigation = React.memo(
             : styles['button-toggle--closed']
         }${forceRefresh ? ' ' : ''} `}
         onClick={onToggleSidebar}
-        data-toggle-sidebar
         aria-label={
           sidebarOpen ? 'Close side navigation' : 'Open side navigation'
         }
@@ -54,7 +53,7 @@ const Navigation = React.memo(
       <ul className={styles['system-list']}>
         <li className={styles['system-list-item']}>
           <NavLink
-            to="/ec/"
+            to="/ec"
             className={({ isActive }) =>
               isActive
                 ? `${styles['system-list-item-link']} ${styles['system-list-item-link--selected']}`
@@ -66,7 +65,7 @@ const Navigation = React.memo(
         </li>
         <li className={styles['system-list-item']}>
           <NavLink
-            to="/eu/"
+            to="/eu"
             className={({ isActive }) =>
               isActive
                 ? `${styles['system-list-item-link']} ${styles['system-list-item-link--selected']}`
