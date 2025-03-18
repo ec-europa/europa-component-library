@@ -64,7 +64,7 @@ async function onRenderHtml(pageContext) {
     pageHtml = '<p>Rendering Failed</p>';
   }
 
-  let documentHtml = templateHtml.replace(
+  const templateHtmlWithContent = templateHtml.replace(
     '<div id="page-root"></div>',
     `<div id="page-root">${pageHtml}</div>`,
   );
@@ -94,8 +94,8 @@ async function onRenderHtml(pageContext) {
     return value;
   });
 
-  documentHtml = injectScriptsIntoTemplate(
-    templateHtml,
+  const documentHtml = injectScriptsIntoTemplate(
+    templateHtmlWithContent,
     pageContextJson,
     clientScriptPath,
   );

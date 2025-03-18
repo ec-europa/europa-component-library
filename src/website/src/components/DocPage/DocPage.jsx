@@ -9,11 +9,9 @@ import { getPageTitle, getSectionTitle } from './utils/title';
 
 function DocPage({ component }) {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setTimeout(() => {
-        Prism.highlightAllUnder(document.querySelector('#main-content'));
-      }, 100);
-    }
+    setTimeout(() => {
+      Prism.highlightAllUnder(document.querySelector('#main-content'));
+    }, 100);
   }, []);
 
   let title = getPageTitle(component);

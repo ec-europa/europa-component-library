@@ -1,9 +1,9 @@
 import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
-import App from '../App';
+import Page from '../Page';
 
 async function onRenderClient() {
-  hydrateRoot(document.getElementById('page-root'), <App />);
+  hydrateRoot(document.getElementById('page-root'), <Page />);
 }
 
 export { onRenderClient };

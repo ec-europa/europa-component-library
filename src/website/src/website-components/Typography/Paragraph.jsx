@@ -6,13 +6,13 @@ import styles from './Paragraph.module.scss';
 
 function Paragraph({ size, children }) {
   return (
-    <p
+    <div
       className={classnames(styles.paragraph, {
         [styles[`paragraph--${size}`]]: size,
       })}
     >
       {children}
-    </p>
+    </div>
   );
 }
 
