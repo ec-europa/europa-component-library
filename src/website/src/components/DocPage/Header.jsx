@@ -2,7 +2,6 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';
@@ -61,13 +60,9 @@ const Header = React.memo(({ component, history, location }) => {
                     rel="noopener noreferrer"
                   >
                     Playground
-                    <svg
-                      focusable="false"
-                      aria-hidden="true"
-                      className={styles['header__tabs-icon']}
-                    >
-                      <use xlinkHref={`${icons}#external`} />
-                    </svg>
+                    <span
+                      className={`wt-icon--external ${styles['header__tabs-icon']}`}
+                    />
                   </a>
                 </li>
               )}
@@ -97,13 +92,9 @@ const Header = React.memo(({ component, history, location }) => {
                 )}
               </select>
               <div className={styles.select__icon}>
-                <svg
-                  focusable="false"
-                  aria-hidden="true"
-                  className={styles['select__icon-shape']}
-                >
-                  <use xlinkHref={`${icons}#corner-arrow`} />
-                </svg>
+                <span
+                  className={`wt-icon--corner-arrow ${styles['select__icon-shape']}`}
+                />
               </div>
             </div>
           </>

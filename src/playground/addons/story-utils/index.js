@@ -1,28 +1,8 @@
 /* eslint-disable no-param-reassign */
-import iconPath from '@ecl/resources-icons/dist/sprites/icons.svg';
-import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
-import iconMediaSocialPath from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
-import iconFlagPath from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 export const correctPaths = (data) => {
   Object.keys(data).forEach((prop) => {
-    if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
-      if (data[prop].includes('social-media')) {
-        data[prop] = iconMediaSocialPath;
-      } else if (data[prop].includes('social')) {
-        data[prop] = iconSocialPath;
-      } else if (data[prop].includes('flag')) {
-        data[prop] = iconFlagPath;
-      } else if (data[prop].includes('xlink:href="/icons.svg#')) {
-        data[prop] = data[prop].replace(
-          'xlink:href="/icons.svg#',
-          `xlink:href="${iconPath}#`,
-        );
-      } else {
-        data[prop] = iconPath;
-      }
-    }
     if (typeof data[prop] === 'string' && data[prop].endsWith('/example')) {
       data[prop] = data[prop].replace(
         '/example',
@@ -37,7 +17,7 @@ export const correctPaths = (data) => {
   return data;
 };
 
-export const getIconControls = (data, icons, mapping) => {
+export const getIconControls = (icons, mapping) => {
   const argTypes = {};
   argTypes.name = {
     type: { name: 'select', required: true },

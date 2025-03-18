@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/list.json';
 import dataDefault from './demo/data--default';
 import dataCta from './demo/data--cta';
 import dataPrimary from './demo/data--primary';

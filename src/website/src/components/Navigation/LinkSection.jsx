@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
 
-import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 import styles from './LinkSection.scss';
 import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 
@@ -63,17 +61,9 @@ class LinkSection extends Component {
             type="button"
             onClick={this.toggleSection}
             aria-label={`Click to expand the section ${section}`}
+            aria-expanded={isOpen}
           >
-            <svg
-              focusable="false"
-              aria-hidden="true"
-              className={classnames(styles.icon, {
-                [styles['icon-rotate-90']]: !isOpen,
-                [styles['icon-rotate-180']]: isOpen,
-              })}
-            >
-              <use xlinkHref={`${icons}#corner-arrow`} />
-            </svg>
+            <span className={`wt-icon--corner-arrow ${styles.icon}`} />
           </button>
         </span>
         <LinkList

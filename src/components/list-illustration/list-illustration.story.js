@@ -2,8 +2,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
-import iconsFlag from '@ecl/resources-flag-icons/dist/lists/members/all.json';
+import iconsAll from '@ecl/resources-icons/list.json';
+import iconsFlag from '@ecl/resources-flag-icons/list-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
 
@@ -23,8 +23,18 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
   return mapping;
 }, {});
 
+const flagOption = [];
+for (let i = 0; i < iconsFlag.length; i += 1) {
+  flagOption.push(iconsFlag[i].name);
+}
+
+const flagControl = iconsFlag.reduce((mapping, icon) => {
+  mapping[icon.name] = icon.label;
+  return mapping;
+}, {});
+
 const flagMapping = iconsFlag.reduce((mapping, icon) => {
-  mapping[icon] = icon;
+  mapping[icon.label] = icon.name;
   return mapping;
 }, {});
 
@@ -288,7 +298,10 @@ const getArgTypes = (data, variant) => {
       name: 'icon (flag)',
       description: 'The flag icon used in the list item (first item)',
       type: { name: 'select' },
-      options: iconsFlag,
+      options: flagOption,
+      control: {
+        labels: flagControl,
+      },
       mapping: flagMapping,
       table: {
         type: { summary: 'string' },
@@ -355,6 +368,7 @@ const prepareDataItem = (data, args) => {
     clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
       clone.icon.name = args.icon_flag;
+      clone.icon.family = 'flag';
     }
     if (args.icon === 'none') {
       delete clone.icon;

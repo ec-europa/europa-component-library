@@ -1,4 +1,3 @@
-export Anatomy from './Anatomy/Anatomy';
 export ColorLayout from './Color/Layout';
 export ColorPalette from './Color/Palette';
 export ColorPaletteItem from './Color/PaletteItem';

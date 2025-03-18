@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import icons from '@ecl/resources-icons/dist/lists/all.json';
+import icons from '@ecl/resources-icons/list.json';
 import iconsFlag from '@ecl/resources-flag-icons/list-eu-member.json';
 import iconsFlagNonMembers from '@ecl/resources-flag-icons/list-non-eu-member.json';
 import iconsSocialMedia from '@ecl/resources-social-media-icons/list.json';
