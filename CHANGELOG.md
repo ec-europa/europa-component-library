@@ -1,5 +1,30 @@
 # Changelog
 
+# 5.0.0-alpha.6
+
+#### :bug: Bug Fix
+
+- [#3891](https://github.com/ec-europa/europa-component-library/pull/3891) feat(timeline): Fixed spacing top on timeline items. - FRONT-4833 ([@tibi2303](https://github.com/tibi2303))
+- [#3900](https://github.com/ec-europa/europa-component-library/pull/3900) fix(font): fix cdn url - FRONT-4835 ([@emeryro](https://github.com/emeryro))
+- [#3887](https://github.com/ec-europa/europa-component-library/pull/3887) fix(menu): Fixing click on caret - FRONT-4827 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3896](https://github.com/ec-europa/europa-component-library/pull/3896) feat(button, link): set min size in rem - FRONT-4834 ([@emeryro](https://github.com/emeryro))
+- [#3893](https://github.com/ec-europa/europa-component-library/pull/3893) feat(typography): Changed letter spacing and font-weight of headings.- FRONT-4832 ([@tibi2303](https://github.com/tibi2303))
+- [#3895](https://github.com/ec-europa/europa-component-library/pull/3895) feat(typography): use font cdn - FRONT-4829 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3898](https://github.com/ec-europa/europa-component-library/pull/3898) chore(deps): updates 11-03-25 ([@planctus](https://github.com/planctus))
+- [#3884](https://github.com/ec-europa/europa-component-library/pull/3884) chore(website): Removing outdated redirects - FRONT-4824 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-alpha.5
 
 #### :rocket: New Feature
