@@ -12,7 +12,8 @@ function DocPage({ component }) {
     setTimeout(() => {
       Prism.highlightAllUnder(document.querySelector('#main-content'));
     }, 100);
-  }, []);
+    /* eslint-disable-next-line no-restricted-globals */
+  }, [location.pathname]);
 
   let title = getPageTitle(component);
   const sectionTitle = getSectionTitle(component);

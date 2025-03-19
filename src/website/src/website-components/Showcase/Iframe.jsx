@@ -27,14 +27,16 @@ class Iframe extends PureComponent {
   }
 
   componentWillUnmount() {
-    if (
-      this.iframeResizer &&
-      this.iframeResizer.length > 0 &&
-      this.iframeResizer[0].iFrameResizer
-    ) {
-      this.iframeResizer[0].iFrameResizer.disconnect();
-      this.iframeResizer[0].iFrameResizer.close();
-    }
+    setTimeout(() => {
+      if (
+        this.iframeResizer &&
+        this.iframeResizer.length > 0 &&
+        this.iframeResizer[0].iFrameResizer
+      ) {
+        this.iframeResizer[0].iFrameResizer.disconnect();
+        this.iframeResizer[0].iFrameResizer.close();
+      }
+    }, 0);
   }
 
   render() {
