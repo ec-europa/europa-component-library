@@ -51,8 +51,6 @@ module.exports = {
             title: 'Featured items',
             items: [
               {
-                label: 'Featured link 1',
-                path: exampleLink,
                 picture: {
                   img: {
                     src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
@@ -61,7 +59,14 @@ module.exports = {
                 },
               },
               {
+                label: 'Featured link 1',
+                path: exampleLink,
+              },
+              {
                 label: 'Featured link 2',
+                path: exampleLink,
+              },
+              {
                 path: exampleLink,
                 picture: {
                   img: {
@@ -73,6 +78,12 @@ module.exports = {
               {
                 label: 'Featured link 3',
                 path: exampleLink,
+                picture: {
+                  img: {
+                    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+                    alt: 'Jean Monnet banner',
+                  },
+                },
               },
             ],
           },
