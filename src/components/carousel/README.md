@@ -8,7 +8,7 @@ npm install --save @ecl/carousel
 
 ### Parameters
 
-- **"items"** (array) (default: []): List of banner compatible with EC banner component structure
+- **"items"** (array) (default: []): List of banner compatible with ECL banner component structure
 - **"counter_label"** (string) (default: 'of')
 - **"sr_description"** (string) (default: '') screen reader description of the carousel
 - **"sr_role"** (string) (default: 'carousel') screen reader localized role for the carousel

@@ -41,7 +41,7 @@ npm install --save @ecl/media-container
   - "src_lang" (string) (default: ''),
   - "label" (string) (default: ''),
   - "description" (string) (default: ''),
-- **"image"** (string) (default: ''): Image to be used as the video placeholder. It serves as a fallback if "picture.img" is empty.
+- **"image"** (string) (default: ''): Image to be used as the video placeholder.
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 
 ### Example for media container image:
