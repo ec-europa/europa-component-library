@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import icons from '@ecl/resources-icons/list.json';
-import iconsFlag from '@ecl/resources-flag-icons/list-eu-member.json';
-import iconsFlagNonMembers from '@ecl/resources-flag-icons/list-non-eu-member.json';
-import iconsSocialMedia from '@ecl/resources-social-media-icons/list.json';
+import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
+import iconsFlagNonMembers from '@ecl/resources-icons/list-flag-non-eu-member.json';
+import iconsSocialMedia from '@ecl/resources-icons/list-network.json';
 
 import IconCard from './IconCard';
 import styles from './IconList.scss';

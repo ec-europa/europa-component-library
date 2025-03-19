@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import iconsAll from '@ecl/resources-icons/list.json';
-import iconsFlag from '@ecl/resources-flag-icons/list-eu-member.json';
+import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
 
