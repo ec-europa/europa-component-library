@@ -8,7 +8,6 @@
         type: '' (can be '', 'standalone', 'cta', 'primary', 'secondary')
         inverted: false (boolean),
         no_visited: false (boolean),
-        button_behaviour: false (boolean),
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
@@ -56,7 +55,6 @@
   path: '',
   icon_position: 'after',
   external: false,
-  button_behaviour: false,
   sr_external: '',
   hide_label: false,
   icon_path: '',
@@ -118,20 +116,16 @@
   {% set _css_class = _css_class ~ ' ecl-link--icon' %}
 {% endif %}
 
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
 {% if _link.hide_label and _icon is not empty %}
   {% set _css_class = _css_class ~ ' ecl-link--icon-only' %}
 {% endif %}
 
 {% if _link.aria_label is defined and _link.aria_label is not empty %}
   {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'aria-label', value: _link.aria_label }]) %}
-{% endif %}
-
-{% if _link.button_behaviour is defined and _link.button_behaviour %}
-  {% set _css_class = 'ecl-button ecl-button--tertiary' %}
-{% endif %}
-
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}

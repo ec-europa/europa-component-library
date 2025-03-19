@@ -290,7 +290,9 @@
                     _custom_action.overlay is defined and _custom_action.overlay is not empty ? { name: 'aria-controls', value: 'custom-action-overlay' } : {},
                     _custom_action.overlay is defined and _custom_action.overlay is not empty ? { name: 'aria-expanded', value: 'false' } : {},
                   ],
-                  extra_classes: 'ecl-site-header__custom-action-toggle',
+                  extra_classes: _custom_action.link.extra_classes is defined and _custom_action.link.extra_classes is not empty 
+                                    ? _custom_action.link.extra_classes ~ ' ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary' 
+                                    : 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary',
                 } %}
 
                 {% include '@ecl/link/link.html.twig' with custom_action_link only %}

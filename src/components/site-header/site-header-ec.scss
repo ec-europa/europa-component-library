@@ -180,6 +180,11 @@ $language-list: null !default;
     color: map.get($site-header, 'toggle-color');
   }
 
+  &:hover {
+    text-decoration: none;
+    color: map.get($site-header, 'toggle-color');
+  }
+
   &:active,
   &[aria-expanded='true'] {
     background-color: var(--c-n-80);

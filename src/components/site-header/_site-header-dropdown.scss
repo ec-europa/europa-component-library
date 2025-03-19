@@ -266,7 +266,6 @@ $language-list: null !default;
 
   .ecl-site-header__custom-action-overlay {
     width: 400px;
-    right: 0;
     left: auto;
   }
 
@@ -333,5 +332,12 @@ $language-list: null !default;
 
   .ecl-site-header__language-link {
     width: calc(#{map.get($language-list, 'item-width')} - (2 * var(--s-s)));
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-site-header__custom-action-overlay {
+    right: 50%;
+    transform: translateX(50%);
   }
 }
