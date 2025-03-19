@@ -33,7 +33,7 @@ dataHarmonised.has_menu = true;
 const getArgs = (data) => {
   const defaultArgs = {
     show_language_selector: true,
-    show_custom_action: true,
+    show_custom_action: false,
     show_search: true,
     show_notification: false,
     show_notification_close: true,

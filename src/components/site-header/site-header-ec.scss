@@ -11,7 +11,7 @@ $theme: null !default;
 $site-header: null !default;
 $language-list: null !default;
 
-@use 'site-header-language-switcher' with (
+@use 'site-header-dropdown' with (
   $theme: $theme,
   $language-switcher: map.get($site-header, 'language-switcher'),
   $language-list: $language-list
@@ -144,7 +144,6 @@ $language-list: null !default;
   text-transform: uppercase;
 }
 
-.ecl-site-header__custom-action-toggle,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle,
 .ecl-site-header__language-selector {
@@ -164,6 +163,37 @@ $language-list: null !default;
   &:active,
   &[aria-expanded='true'] {
     background-color: var(--c-n-80);
+  }
+}
+
+.ecl-site-header__custom-action-toggle {
+  align-items: center;
+  box-sizing: border-box;
+  color: map.get($site-header, 'toggle-color');
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: var(--s-xs);
+  position: relative;
+  z-index: 101;
+
+  &:focus-visible {
+    color: map.get($site-header, 'toggle-color');
+  }
+
+  &:active,
+  &[aria-expanded='true'] {
+    background-color: var(--c-n-80);
+  }
+
+  &[aria-expanded='true'] {
+    &::before {
+      @include site-header-dropdown.arrow-up;
+
+      top: auto;
+      transform: translateY(31px) rotate(-45deg);
+      width: 1rem;
+      bottom: 0;
+    }
   }
 }
 
@@ -189,7 +219,7 @@ $language-list: null !default;
   width: 100%;
 
   &::before {
-    @include site-header-language-switcher.arrow-up;
+    @include site-header-dropdown.arrow-up;
 
     left: auto;
     right: var(--ecl-login-arrow-position);
@@ -225,7 +255,7 @@ $language-list: null !default;
   display: flex;
 
   &::before {
-    @include site-header-language-switcher.arrow-up;
+    @include site-header-dropdown.arrow-up;
 
     left: auto;
     right: var(--ecl-search-arrow-position);

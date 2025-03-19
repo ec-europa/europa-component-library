@@ -2,6 +2,10 @@
 
 npm package: `@ecl/site-header`
 
+```shell
+npm install --save @ecl/site-header
+```
+
 ### Parameters
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
@@ -28,11 +32,7 @@ npm package: `@ecl/site-header`
   - "label_logged" (string) Label for the logged in users
   - "href_logged" (string) Link to the logout form
 - **"custom_action"** (associative array) (default: {}):
-  - "href": (string) (default: '#') Link URL
-  - "icon": (string) (default: '') Icon name, e.g. 'bell'
-  - "label": (string) (default: '') Visible label
-  - "aria_label": (string) (default: '') For improved accessibility
-  - "indicator": (string|boolean) (default: '')
+  - "link" (object) (default: predefined structure) predefined structure for the Link component
   - "overlay": (associative array) (optional):
     - "title": (string) (default: '') Overlay title
     - "close": (associative array) (default: {})

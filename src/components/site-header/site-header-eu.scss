@@ -11,7 +11,7 @@ $theme: null !default;
 $site-header: null !default;
 $language-list: null !default;
 
-@use 'site-header-language-switcher' with (
+@use 'site-header-dropdown' with (
   $theme: $theme,
   $language-switcher: map.get($site-header, 'language-switcher'),
   $language-list: $language-list
@@ -200,7 +200,7 @@ $language-list: null !default;
   width: 100%;
 
   &::before {
-    @include site-header-language-switcher.arrow-up;
+    @include site-header-dropdown.arrow-up;
 
     left: auto;
     right: var(--ecl-login-arrow-position);
@@ -211,7 +211,6 @@ $language-list: null !default;
   }
 }
 
-.ecl-site-header__custom-action-toggle,
 .ecl-site-header__language-selector,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle {
@@ -227,13 +226,39 @@ $language-list: null !default;
   }
 }
 
+.ecl-site-header__custom-action-toggle {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font: var(--f-ui-m);
+  justify-content: center;
+  z-index: 101;
+  position: relative;
+
+  &:active,
+  &[aria-expanded='true'] {
+    background-color: var(--c-p-20);
+  }
+
+  &[aria-expanded='true'] {
+    &::before {
+      @include site-header-dropdown.arrow-up;
+
+      top: auto;
+      transform: translateY(34px) rotate(-45deg);
+      width: 1rem;
+      bottom: 0;
+    }
+  }
+}
+
 .ecl-site-header__search--active {
   display: flex;
   margin-top: var(--s-m);
 
   @include breakpoints.down('m') {
     &::before {
-      @include site-header-language-switcher.arrow-up;
+      @include site-header-dropdown.arrow-up;
 
       left: auto;
       right: var(--ecl-search-arrow-position);

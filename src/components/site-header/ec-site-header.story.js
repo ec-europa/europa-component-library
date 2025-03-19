@@ -40,7 +40,7 @@ const getArgs = (data) => {
   const defaultArgs = {
     logo_size: 'large',
     show_language_selector: true,
-    show_custom_action: true,
+    show_custom_action: false,
     show_search: true,
     show_notification: false,
     show_notification_close: true,

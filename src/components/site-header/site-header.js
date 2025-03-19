@@ -53,7 +53,7 @@ export class SiteHeader {
       attachKeyListener = true,
       attachResizeListener = true,
       tabletBreakpoint = 768,
-      customActionLinkSelector = '[data-ecl-custom-action]',
+      customActionToggleSelector = '[data-ecl-custom-action]',
       customActionOverlaySelector = '[data-ecl-custom-action-overlay]',
       customActionCloseSelector = '[data-ecl-custom-action-close]',
     } = {},
@@ -84,7 +84,7 @@ export class SiteHeader {
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
     this.tabletBreakpoint = tabletBreakpoint;
-    this.customActionLinkSelector = customActionLinkSelector;
+    this.customActionToggleSelector = customActionToggleSelector;
     this.customActionOverlaySelector = customActionOverlaySelector;
     this.customActionCloseSelector = customActionCloseSelector;
 
@@ -104,12 +104,10 @@ export class SiteHeader {
     this.resizeTimer = null;
     this.direction = null;
     this.notificationContainer = null;
-
-    // CUSTOM ACTION
-    this.customActionLink = null;
+    this.customActionToggle = null;
     this.customActionOverlay = null;
     this.customActionClose = null;
-    this.focusTrapCustomAction = null;
+    this.customActionFocusTrap = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
@@ -126,12 +124,11 @@ export class SiteHeader {
     this.setLanguageListHeight = this.setLanguageListHeight.bind(this);
     this.handleNotificationClose = this.handleNotificationClose.bind(this);
 
-    this.openCustomActionOverlay = this.openCustomActionOverlay.bind(this);
-    this.closeCustomActionOverlay = this.closeCustomActionOverlay.bind(this);
+    this.openCustomAction = this.openCustomAction.bind(this);
+    this.closeCustomAction = this.closeCustomAction.bind(this);
+    this.toggleCustomAction = this.toggleCustomAction.bind(this);
     this.handleKeyboardCustomAction =
       this.handleKeyboardCustomAction.bind(this);
-    this.toggleCustomActionOverlay = this.toggleCustomActionOverlay.bind(this);
-    this.updateCustomActionOverlay = this.updateCustomActionOverlay.bind(this);
   }
 
   /**
@@ -208,30 +205,29 @@ export class SiteHeader {
     }
 
     // Custom action management
-    this.customActionLink = queryOne(this.customActionLinkSelector);
+    this.customActionToggle = queryOne(this.customActionToggleSelector);
     this.customActionOverlay = queryOne(this.customActionOverlaySelector);
     this.customActionClose = queryOne(this.customActionCloseSelector);
 
     if (this.customActionOverlay) {
-      this.focusTrapCustomAction = createFocusTrap(this.customActionOverlay, {
-        onDeactivate: this.closeCustomActionOverlay,
+      // Create a separate focus trap for the custom action overlay
+      this.customActionFocusTrap = createFocusTrap(this.customActionOverlay, {
+        onDeactivate: this.closeCustomAction,
         allowOutsideClick: true,
       });
     }
-    if (this.attachClickListener && this.customActionLink) {
-      this.customActionLink.addEventListener(
+
+    if (this.attachClickListener && this.customActionToggle) {
+      this.customActionToggle.addEventListener(
         'click',
-        this.toggleCustomActionOverlay,
+        this.toggleCustomAction,
       );
     }
     if (this.attachClickListener && this.customActionClose) {
-      this.customActionClose.addEventListener(
-        'click',
-        this.toggleCustomActionOverlay,
-      );
+      this.customActionClose.addEventListener('click', this.toggleCustomAction);
     }
-    if (this.attachKeyListener && this.customActionLink) {
-      this.customActionLink.addEventListener(
+    if (this.attachKeyListener && this.customActionToggle) {
+      this.customActionToggle.addEventListener(
         'keydown',
         this.handleKeyboardCustomAction,
       );
@@ -286,25 +282,25 @@ export class SiteHeader {
       this.loginToggle.removeEventListener('click', this.toggleLogin);
     }
 
-    if (this.customActionLink && this.attachClickListener) {
-      this.customActionLink.removeEventListener(
+    if (this.attachClickListener && this.customActionToggle) {
+      this.customActionToggle.removeEventListener(
         'click',
-        this.toggleCustomActionOverlay,
+        this.toggleCustomAction,
       );
     }
-    if (this.customActionClose && this.attachClickListener) {
-      this.customActionClose.removeEventListener(
-        'click',
-        this.toggleCustomActionOverlay,
-      );
+    if (this.customActionFocusTrap) {
+      this.customActionFocusTrap.deactivate();
     }
-    if (this.focusTrapCustomAction) {
-      this.focusTrapCustomAction.deactivate();
-    }
-    if (this.attachKeyListener && this.customActionLink) {
-      this.customActionLink.removeEventListener(
+    if (this.attachKeyListener && this.customActionToggle) {
+      this.customActionToggle.removeEventListener(
         'keydown',
         this.handleKeyboardCustomAction,
+      );
+    }
+    if (this.attachClickListener && this.customActionClose) {
+      this.customActionClose.removeEventListener(
+        'click',
+        this.toggleCustomAction,
       );
     }
 
@@ -577,12 +573,6 @@ export class SiteHeader {
         this.updateOverlay();
       }, 200);
     }
-    if (
-      this.customActionOverlay &&
-      !this.customActionOverlay.hasAttribute('hidden')
-    ) {
-      this.updateCustomActionOverlay();
-    }
   }
 
   /**
@@ -594,18 +584,6 @@ export class SiteHeader {
     // Open the menu with space and enter
     if (e.keyCode === 32 || e.key === 'Enter') {
       this.toggleOverlay(e);
-    }
-  }
-
-  /**
-   * Handles keyboard events specific to the custom action.
-   *
-   * @param {Event} e
-   */
-  handleKeyboardCustomAction(e) {
-    // Open the menu with space and enter
-    if (e.keyCode === 32 || e.key === 'Enter') {
-      this.toggleCustomActionOverlay(e);
     }
   }
 
@@ -727,10 +705,10 @@ export class SiteHeader {
         this.toggleOverlay(e);
       }
       if (
-        this.customActionLink &&
-        this.customActionLink.getAttribute('aria-expanded') === 'true'
+        this.customActionToggle &&
+        this.customActionToggle.getAttribute('aria-expanded') === 'true'
       ) {
-        this.toggleCustomActionOverlay(e);
+        this.toggleCustomAction(e);
       }
     }
   }
@@ -741,13 +719,7 @@ export class SiteHeader {
    * @param {Event} e
    */
   handleClickGlobal(e) {
-    if (
-      !this.languageLink &&
-      !this.searchToggle &&
-      !this.loginToggle &&
-      !this.customActionLink
-    )
-      return;
+    if (!this.languageLink && !this.searchToggle && !this.loginToggle) return;
     const listExpanded =
       this.languageLink && this.languageLink.getAttribute('aria-expanded');
     const loginExpanded =
@@ -756,9 +728,6 @@ export class SiteHeader {
     const searchExpanded =
       this.searchToggle &&
       this.searchToggle.getAttribute('aria-expanded') === 'true';
-    const customActionExpanded =
-      this.customActionLink &&
-      this.customActionLink.getAttribute('aria-expanded') === 'true';
 
     if (listExpanded === 'true') {
       // Check if the click occured in the language popover
@@ -785,116 +754,71 @@ export class SiteHeader {
         this.toggleSearch(e);
       }
     }
+
+    // Check if the custom action is open
+    const customActionExpanded =
+      this.customActionToggle &&
+      this.customActionToggle.getAttribute('aria-expanded') === 'true';
     if (customActionExpanded) {
       if (
         !this.customActionOverlay.contains(e.target) &&
-        !this.customActionLink.contains(e.target)
+        !this.customActionToggle.contains(e.target)
       ) {
-        this.toggleCustomActionOverlay(e);
+        this.toggleCustomAction(e);
       }
     }
   }
 
-  openCustomActionOverlay() {
-    if (!this.customActionOverlay || !this.customActionLink) return;
+  /**
+   * Shows the custom action overlay.
+   */
+  openCustomAction() {
+    if (!this.customActionOverlay) return;
     this.customActionOverlay.hidden = false;
     this.customActionOverlay.setAttribute('aria-modal', 'true');
-    this.customActionLink.setAttribute('aria-expanded', 'true');
+    this.customActionToggle.setAttribute('aria-expanded', 'true');
   }
 
-  closeCustomActionOverlay() {
-    if (!this.customActionOverlay || !this.customActionLink) return;
+  /**
+   * Hides the custom action overlay.
+   */
+  closeCustomAction() {
+    if (!this.customActionOverlay) return;
     this.customActionOverlay.hidden = true;
     this.customActionOverlay.removeAttribute('aria-modal');
-    this.customActionLink.setAttribute('aria-expanded', 'false');
+    this.customActionToggle.setAttribute('aria-expanded', 'false');
   }
 
-  toggleCustomActionOverlay(e) {
-    if (!this.customActionOverlay || !this.focusTrapCustomAction) return;
+  /**
+   * Toggles the custom action overlay.
+   *
+   * @param {Event} e
+   */
+  toggleCustomAction(e) {
+    if (!this.customActionOverlay || !this.customActionFocusTrap) return;
+
     e.preventDefault();
+
+    // Check current state
     const isHidden = this.customActionOverlay.hasAttribute('hidden');
+
     if (isHidden) {
-      this.openCustomActionOverlay();
-      this.focusTrapCustomAction.activate();
-      this.updateCustomActionOverlay();
+      this.openCustomAction();
+      this.customActionFocusTrap.activate();
     } else {
-      this.focusTrapCustomAction.deactivate();
+      this.customActionFocusTrap.deactivate();
     }
   }
 
-  updateCustomActionOverlay() {
-    const popoverRect = this.customActionOverlay.getBoundingClientRect();
-    const containerRect = this.container.getBoundingClientRect();
-
-    this.customActionOverlay.classList.remove(
-      'ecl-site-header__language-container--push-right',
-      'ecl-site-header__language-container--push-left',
-      'ecl-site-header__language-container--full',
-    );
-
-    this.customActionOverlay.style.removeProperty(
-      '--ecl-language-arrow-position',
-    );
-    this.customActionOverlay.style.removeProperty('right');
-    this.customActionOverlay.style.removeProperty('left');
-
-    const screenWidth = window.innerWidth;
-    const linkRect = this.customActionLink.getBoundingClientRect();
-
-    if (this.direction === 'ltr' && popoverRect.right > screenWidth) {
-      this.customActionOverlay.classList.add(
-        'ecl-site-header__language-container--push-right',
-      );
-      this.customActionOverlay.style.setProperty(
-        'right',
-        `calc(-${containerRect.right}px + ${linkRect.right}px)`,
-      );
-      const arrowPosition =
-        containerRect.right - linkRect.right + linkRect.width / 2;
-      this.customActionOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${this.arrowSize})`,
-      );
-    } else if (this.direction === 'rtl' && popoverRect.left < 0) {
-      this.customActionOverlay.classList.add(
-        'ecl-site-header__language-container--push-left',
-      );
-      this.customActionOverlay.style.setProperty(
-        'left',
-        `calc(-${linkRect.left}px + ${containerRect.left}px)`,
-      );
-      const arrowPosition =
-        linkRect.right - containerRect.left - linkRect.width / 2;
-      this.customActionOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
-        `${arrowPosition}px`,
-      );
-    }
-
-    if (window.innerWidth < this.tabletBreakpoint) {
-      this.customActionOverlay.classList.add(
-        'ecl-site-header__language-container--full',
-      );
-      this.customActionOverlay.style.removeProperty('right');
-      const arrowPosition =
-        popoverRect.right - linkRect.right + linkRect.width / 2;
-      this.customActionOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${this.arrowSize})`,
-      );
-    }
-
-    if (
-      this.loginBox &&
-      this.loginBox.classList.contains('ecl-site-header__login-box--active')
-    ) {
-      this.setLoginArrow();
-    }
-    if (
-      this.searchForm &&
-      this.searchForm.classList.contains('ecl-site-header__search--active')
-    ) {
-      this.setSearchArrow();
+  /**
+   * Handles keyboard events specific to the custom action toggle.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardCustomAction(e) {
+    // Open the custom action with space and enter
+    if (e.keyCode === 32 || e.key === 'Enter') {
+      this.toggleCustomAction(e);
     }
   }
 }

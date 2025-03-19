@@ -23,11 +23,25 @@ module.exports = {
     },
   },
   custom_action: {
-    href: '/notifications',
-    label: 'Notifications',
-    icon: 'notification',
-    indicator: '3',
-    aria_label: 'Check notifications',
+    link: {
+      href: exampleLink,
+      label: 'Custom',
+      icon: 'brochure',
+      aria_label: 'Check notifications',
+    },
+    overlay: {
+      title: 'Custom title',
+      close: {
+        label: 'Close',
+        icon: {
+          path: '/icons.svg',
+          name: 'close',
+          size: 'm',
+        },
+        hide_label: true,
+      },
+      content: '<ul><li>Point 1</li><li>Point 2</li><li>Point 3</li></ul>',
+    },
   },
   login_box: {
     id: 'login-box-id',

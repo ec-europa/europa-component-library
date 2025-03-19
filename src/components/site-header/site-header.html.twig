@@ -51,11 +51,7 @@
         },
     - "custom_action" (associative array) (default: {}): optional custom link with optional popover, e.g.:
       {
-        "href": (string) – optional link URL
-        "label": (string) – link label
-        "aria_label": (string) – aria label
-        "icon": (string) – icon name (eg. 'bell')
-        "indicator": (string|boolean) – optional indicator value
+        "link": (object) (default: predefined structure) predefined structure for the Link component
         "overlay": (object) – if defined, we display a popover; otherwise it’s a simple link
           {
             "title": (string) (default: '')
@@ -274,6 +270,63 @@
             {# Header actions #}
             <div class="ecl-site-header__action">
             
+            {# Custom action #}
+            {% if _custom_action is not empty %}
+              <div class="ecl-site-header__custom-action">
+                {% set custom_action_link = {
+                  link: _custom_action.link|merge({
+                    icon_position: 'before',
+                    type: "standalone",
+                    button_behaviour: true
+                  }),
+                  icon: {
+                    path: _icon_path,
+                    name: _custom_action.link.icon, 
+                    extra_classes: 'ecl-site-header__icon'
+                  },
+                  extra_attributes: [
+                    { name: 'role', value: 'button' },
+                    { name: 'data-ecl-custom-action', value: '' },
+                    _custom_action.overlay is defined and _custom_action.overlay is not empty ? { name: 'aria-controls', value: 'custom-action-overlay' } : {},
+                    _custom_action.overlay is defined and _custom_action.overlay is not empty ? { name: 'aria-expanded', value: 'false' } : {},
+                  ],
+                  extra_classes: 'ecl-site-header__custom-action-toggle',
+                } %}
+
+                {% include '@ecl/link/link.html.twig' with custom_action_link only %}
+
+                {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+                  <div
+                    class="ecl-site-header__custom-action-overlay"
+                    id="custom-action-overlay"
+                    hidden
+                    data-ecl-custom-action-overlay
+                    role="dialog"
+                    aria-labelledby="custom-action-overlay-title"
+                  >
+                    <div class="ecl-site-header__custom-action-header">
+                      <div class="ecl-site-header__custom-action-title" id="custom-action-overlay-title">
+                        {{ _custom_action.overlay.title|default('') }}
+                      </div>
+
+                      {% if _custom_action.overlay.close is defined and _custom_action.overlay.close is not empty %}
+                        {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
+                          variant: 'tertiary',
+                          extra_classes: 'ecl-site-header__custom-action-close',
+                          extra_attributes: [{
+                            name: 'data-ecl-custom-action-close',
+                          }],
+                        }) %}
+                      {% endif %}
+                    </div>
+                    <div class="ecl-site-header__custom-action-content">
+                      {{ _custom_action.overlay.content|default('')|raw }}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
             {# Login #}
             {% if _login_toggle is not empty and _login_box is not empty %}
               <div class="ecl-site-header__login-container">
@@ -338,14 +391,6 @@
                 </a>
               {% endif %}
               </div>
-            {% endif %}
-
-            {# Custom action #}
-            {% if custom_action is defined and custom_action is not empty %}
-              {% include '@ecl/site-header/site-header-custom-action.html.twig' with {
-                custom_action: custom_action,
-                icon_path: _icon_path
-              } only %}
             {% endif %}
 
             {# Language selector #}

@@ -23,12 +23,14 @@ module.exports = {
     href: exampleLink,
   },
   custom_action: {
-    label: 'Notifications',
-    icon: 'notification',
-    indicator: '3',
-    aria_label: 'Check notifications',
+    link: {
+      path: exampleLink,
+      label: 'Custom action label',
+      icon: 'brochure',
+      aria_label: 'Custom aria label',
+    },
     overlay: {
-      title: 'Notifications',
+      title: 'Custom title',
       close: {
         label: 'Close',
         icon: {
@@ -38,7 +40,7 @@ module.exports = {
         },
         hide_label: true,
       },
-      content: '<ul><li>Alert 1</li><li>Alert 2</li><li>Alert 3</li></ul>',
+      content: '<ul><li>Point 1</li><li>Point 2</li><li>Point 3</li></ul>',
     },
   },
   language_selector: {
