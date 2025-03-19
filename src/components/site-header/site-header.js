@@ -728,7 +728,7 @@ export class SiteHeader {
     const searchExpanded =
       this.searchToggle &&
       this.searchToggle.getAttribute('aria-expanded') === 'true';
-
+    // Check if the language list is open
     if (listExpanded === 'true') {
       // Check if the click occured in the language popover
       if (
