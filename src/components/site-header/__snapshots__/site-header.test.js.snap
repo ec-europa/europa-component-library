@@ -44,60 +44,31 @@ exports[`Site Header EC renders correctly 1`] = `
                 class="ecl-site-header__action"
               >
                 <div
-                  class="ecl-site-header__login-container"
-                >
-                  <a
-                    class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
-                    data-ecl-login-toggle=""
-                    href="/example"
-                  >
-                    <svg
-                      aria-hidden="false"
-                      class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                      focusable="false"
-                      role="img"
-                    >
-                      <title>
-                        Log in
-                      </title>
-                      <use
-                        xlink:href="/icons.svg#log-in"
-                      />
-                    </svg>
-                    Log in
-                  </a>
-                </div>
-                <div
                   class="ecl-site-header__custom-action"
                 >
                   <a
                     aria-controls="custom-action-overlay"
                     aria-expanded="false"
-                    aria-label="Check notifications - Notifications"
+                    aria-label="Custom aria label"
                     class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
                     data-ecl-custom-action=""
-                    href=""
+                    href="/example"
                     role="button"
                   >
-                    <span
-                      class="ecl-site-header__custom-action-icon"
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon"
+                      focusable="false"
                     >
-                      <svg
-                        aria-hidden="false"
-                        class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                        focusable="false"
-                        role="img"
-                      >
-                        <title>
-                          Notifications
-                        </title>
-                        <use
-                          xlink:href="/icons.svg#notification"
-                        />
-                      </svg>
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Custom action label
                     </span>
-                    
-    Notifications
                   </a>
                   <div
                     aria-labelledby="custom-action-overlay-title"
@@ -114,7 +85,9 @@ exports[`Site Header EC renders correctly 1`] = `
                         class="ecl-site-header__custom-action-title"
                         id="custom-action-overlay-title"
                       >
-                        Notifications
+                        
+                        Custom title
+                      
                       </div>
                       <button
                         class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
@@ -148,17 +121,41 @@ exports[`Site Header EC renders correctly 1`] = `
                     >
                       <ul>
                         <li>
-                          Alert 1
+                          Point 1
                         </li>
                         <li>
-                          Alert 2
+                          Point 2
                         </li>
                         <li>
-                          Alert 3
+                          Point 3
                         </li>
                       </ul>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ecl-site-header__login-container"
+                >
+                  <a
+                    class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                    data-ecl-login-toggle=""
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="false"
+                      class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                      focusable="false"
+                      role="img"
+                    >
+                      <title>
+                        Log in
+                      </title>
+                      <use
+                        xlink:href="/icons.svg#log-in"
+                      />
+                    </svg>
+                    Log in
+                  </a>
                 </div>
                 <div
                   class="ecl-site-header__language"
@@ -1239,6 +1236,96 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 class="ecl-site-header__action"
               >
                 <div
+                  class="ecl-site-header__custom-action"
+                >
+                  <a
+                    aria-controls="custom-action-overlay"
+                    aria-expanded="false"
+                    aria-label="Custom aria label"
+                    class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
+                    data-ecl-custom-action=""
+                    href="/example"
+                    role="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Custom action label
+                    </span>
+                  </a>
+                  <div
+                    aria-labelledby="custom-action-overlay-title"
+                    class="ecl-site-header__custom-action-overlay"
+                    data-ecl-custom-action-overlay=""
+                    hidden=""
+                    id="custom-action-overlay"
+                    role="dialog"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-header"
+                    >
+                      <div
+                        class="ecl-site-header__custom-action-title"
+                        id="custom-action-overlay-title"
+                      >
+                        
+                        Custom title
+                      
+                      </div>
+                      <button
+                        class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                        data-ecl-custom-action-close=""
+                        type="submit"
+                      >
+                        <span
+                          class="ecl-button__container"
+                        >
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Close
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--m ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#close"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ecl-site-header__custom-action-content"
+                    >
+                      <ul>
+                        <li>
+                          Point 1
+                        </li>
+                        <li>
+                          Point 2
+                        </li>
+                        <li>
+                          Point 3
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
                   class="ecl-site-header__login-container"
                 >
                   <a
@@ -1282,99 +1369,6 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     >
                       Log out
                     </a>
-                  </div>
-                </div>
-                <div
-                  class="ecl-site-header__custom-action"
-                >
-                  <a
-                    aria-controls="custom-action-overlay"
-                    aria-expanded="false"
-                    aria-label="Check notifications - Notifications"
-                    class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
-                    data-ecl-custom-action=""
-                    href=""
-                    role="button"
-                  >
-                    <span
-                      class="ecl-site-header__custom-action-icon"
-                    >
-                      <svg
-                        aria-hidden="false"
-                        class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                        focusable="false"
-                        role="img"
-                      >
-                        <title>
-                          Notifications
-                        </title>
-                        <use
-                          xlink:href="/icons.svg#notification"
-                        />
-                      </svg>
-                    </span>
-                    
-    Notifications
-                  </a>
-                  <div
-                    aria-labelledby="custom-action-overlay-title"
-                    class="ecl-site-header__custom-action-overlay"
-                    data-ecl-custom-action-overlay=""
-                    hidden=""
-                    id="custom-action-overlay"
-                    role="dialog"
-                  >
-                    <div
-                      class="ecl-site-header__custom-action-header"
-                    >
-                      <div
-                        class="ecl-site-header__custom-action-title"
-                        id="custom-action-overlay-title"
-                      >
-                        Notifications
-                      </div>
-                      <button
-                        class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
-                        data-ecl-custom-action-close=""
-                        type="submit"
-                      >
-                        <span
-                          class="ecl-button__container"
-                        >
-                          <span
-                            class="ecl-button__label"
-                            data-ecl-label="true"
-                          >
-                            Close
-                          </span>
-                          <svg
-                            aria-hidden="true"
-                            class="ecl-icon ecl-icon--m ecl-button__icon"
-                            data-ecl-icon=""
-                            focusable="false"
-                          >
-                            <use
-                              xlink:href="/icons.svg#close"
-                            />
-                          </svg>
-                        </span>
-                      </button>
-                    </div>
-                    <div
-                      class="ecl-site-header__custom-action-content"
-                    >
-                      <ul>
-                        <li>
-                          Alert 1
-                        </li>
-                        <li>
-                          Alert 2
-                        </li>
-                        <li>
-                          Alert 3
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
                 <div
@@ -2458,60 +2452,31 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                 class="ecl-site-header__action"
               >
                 <div
-                  class="ecl-site-header__login-container"
-                >
-                  <a
-                    class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
-                    data-ecl-login-toggle=""
-                    href="/example"
-                  >
-                    <svg
-                      aria-hidden="false"
-                      class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                      focusable="false"
-                      role="img"
-                    >
-                      <title>
-                        Log in
-                      </title>
-                      <use
-                        xlink:href="/icons.svg#log-in"
-                      />
-                    </svg>
-                    Log in
-                  </a>
-                </div>
-                <div
                   class="ecl-site-header__custom-action"
                 >
                   <a
                     aria-controls="custom-action-overlay"
                     aria-expanded="false"
-                    aria-label="Check notifications - Notifications"
+                    aria-label="Custom aria label"
                     class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
                     data-ecl-custom-action=""
-                    href=""
+                    href="/example"
                     role="button"
                   >
-                    <span
-                      class="ecl-site-header__custom-action-icon"
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon"
+                      focusable="false"
                     >
-                      <svg
-                        aria-hidden="false"
-                        class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                        focusable="false"
-                        role="img"
-                      >
-                        <title>
-                          Notifications
-                        </title>
-                        <use
-                          xlink:href="/icons.svg#notification"
-                        />
-                      </svg>
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Custom action label
                     </span>
-                    
-    Notifications
                   </a>
                   <div
                     aria-labelledby="custom-action-overlay-title"
@@ -2528,7 +2493,9 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         class="ecl-site-header__custom-action-title"
                         id="custom-action-overlay-title"
                       >
-                        Notifications
+                        
+                        Custom title
+                      
                       </div>
                       <button
                         class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
@@ -2562,17 +2529,41 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     >
                       <ul>
                         <li>
-                          Alert 1
+                          Point 1
                         </li>
                         <li>
-                          Alert 2
+                          Point 2
                         </li>
                         <li>
-                          Alert 3
+                          Point 3
                         </li>
                       </ul>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ecl-site-header__login-container"
+                >
+                  <a
+                    class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                    data-ecl-login-toggle=""
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="false"
+                      class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                      focusable="false"
+                      role="img"
+                    >
+                      <title>
+                        Log in
+                      </title>
+                      <use
+                        xlink:href="/icons.svg#log-in"
+                      />
+                    </svg>
+                    Log in
+                  </a>
                 </div>
                 <div
                   class="ecl-site-header__language"
@@ -3653,60 +3644,31 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                 class="ecl-site-header__action"
               >
                 <div
-                  class="ecl-site-header__login-container"
-                >
-                  <a
-                    class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
-                    data-ecl-login-toggle=""
-                    href="/example"
-                  >
-                    <svg
-                      aria-hidden="false"
-                      class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                      focusable="false"
-                      role="img"
-                    >
-                      <title>
-                        Log in
-                      </title>
-                      <use
-                        xlink:href="/icons.svg#log-in"
-                      />
-                    </svg>
-                    Log in
-                  </a>
-                </div>
-                <div
                   class="ecl-site-header__custom-action"
                 >
                   <a
                     aria-controls="custom-action-overlay"
                     aria-expanded="false"
-                    aria-label="Check notifications - Notifications"
+                    aria-label="Custom aria label"
                     class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
                     data-ecl-custom-action=""
-                    href=""
+                    href="/example"
                     role="button"
                   >
-                    <span
-                      class="ecl-site-header__custom-action-icon"
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon"
+                      focusable="false"
                     >
-                      <svg
-                        aria-hidden="false"
-                        class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                        focusable="false"
-                        role="img"
-                      >
-                        <title>
-                          Notifications
-                        </title>
-                        <use
-                          xlink:href="/icons.svg#notification"
-                        />
-                      </svg>
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Custom action label
                     </span>
-                    
-    Notifications
                   </a>
                   <div
                     aria-labelledby="custom-action-overlay-title"
@@ -3723,7 +3685,9 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         class="ecl-site-header__custom-action-title"
                         id="custom-action-overlay-title"
                       >
-                        Notifications
+                        
+                        Custom title
+                      
                       </div>
                       <button
                         class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
@@ -3757,17 +3721,41 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     >
                       <ul>
                         <li>
-                          Alert 1
+                          Point 1
                         </li>
                         <li>
-                          Alert 2
+                          Point 2
                         </li>
                         <li>
-                          Alert 3
+                          Point 3
                         </li>
                       </ul>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ecl-site-header__login-container"
+                >
+                  <a
+                    class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                    data-ecl-login-toggle=""
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="false"
+                      class="ecl-icon ecl-icon--s ecl-site-header__icon"
+                      focusable="false"
+                      role="img"
+                    >
+                      <title>
+                        Log in
+                      </title>
+                      <use
+                        xlink:href="/icons.svg#log-in"
+                      />
+                    </svg>
+                    Log in
+                  </a>
                 </div>
                 <div
                   class="ecl-site-header__language"
@@ -4848,6 +4836,96 @@ exports[`Site Header EU renders correctly 1`] = `
                 class="ecl-site-header__action"
               >
                 <div
+                  class="ecl-site-header__custom-action"
+                >
+                  <a
+                    aria-controls="custom-action-overlay"
+                    aria-expanded="false"
+                    aria-label="Check notifications"
+                    class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
+                    data-ecl-custom-action=""
+                    href=""
+                    role="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Custom
+                    </span>
+                  </a>
+                  <div
+                    aria-labelledby="custom-action-overlay-title"
+                    class="ecl-site-header__custom-action-overlay"
+                    data-ecl-custom-action-overlay=""
+                    hidden=""
+                    id="custom-action-overlay"
+                    role="dialog"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-header"
+                    >
+                      <div
+                        class="ecl-site-header__custom-action-title"
+                        id="custom-action-overlay-title"
+                      >
+                        
+                        Custom title
+                      
+                      </div>
+                      <button
+                        class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                        data-ecl-custom-action-close=""
+                        type="submit"
+                      >
+                        <span
+                          class="ecl-button__container"
+                        >
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Close
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--m ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#close"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                    <div
+                      class="ecl-site-header__custom-action-content"
+                    >
+                      <ul>
+                        <li>
+                          Point 1
+                        </li>
+                        <li>
+                          Point 2
+                        </li>
+                        <li>
+                          Point 3
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
                   class="ecl-site-header__login-container"
                 >
                   <a
@@ -4869,37 +4947,6 @@ exports[`Site Header EU renders correctly 1`] = `
                       />
                     </svg>
                     Log in
-                  </a>
-                </div>
-                <div
-                  class="ecl-site-header__custom-action"
-                >
-                  <a
-                    aria-label="Check notifications - Notifications"
-                    class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-toggle"
-                    data-ecl-custom-action=""
-                    href="/notifications"
-                    role="button"
-                  >
-                    <span
-                      class="ecl-site-header__custom-action-icon"
-                    >
-                      <svg
-                        aria-hidden="false"
-                        class="ecl-icon ecl-icon--s ecl-site-header__icon"
-                        focusable="false"
-                        role="img"
-                      >
-                        <title>
-                          Notifications
-                        </title>
-                        <use
-                          xlink:href="/icons.svg#notification"
-                        />
-                      </svg>
-                    </span>
-                    
-    Notifications
                   </a>
                 </div>
                 <div
