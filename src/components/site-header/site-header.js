@@ -170,10 +170,12 @@ export class SiteHeader {
     }
 
     // Create focus trap
-    this.focusTrap = createFocusTrap(this.languageListOverlay, {
-      onDeactivate: this.closeOverlay,
-      allowOutsideClick: true,
-    });
+    if (this.languageListOverlay) {
+      this.focusTrap = createFocusTrap(this.languageListOverlay, {
+        onDeactivate: this.closeOverlay,
+        allowOutsideClick: true,
+      });
+    }
 
     if (this.attachClickListener && this.languageLink) {
       this.languageLink.addEventListener('click', this.toggleOverlay);
@@ -324,166 +326,147 @@ export class SiteHeader {
   }
 
   /**
-   * Update display of the modal language list overlay.
+   * Method repositions a popover overlay in the viewport.
+   * It also (optionally) handles language-list–specific logic such as columns.
+   *
+   * @param {HTMLElement} overlay The overlay element to be positioned
+   * @param {HTMLElement} toggle The toggle button/link that opens the overlay
+   * @param {String} arrowCssVar The CSS variable name for arrow positioning
    */
-  updateOverlay() {
-    // Check number of items and adapt display
-    let columnsEu = 1;
-    let columnsNonEu = 1;
-    if (this.languageListEu) {
-      // Get all Eu languages
-      const itemsEu = queryAll(
-        '.ecl-site-header__language-item',
-        this.languageListEu,
-      );
+  updateOverlayPosition(
+    overlay,
+    toggle,
+    arrowCssVar = '--ecl-overlay-arrow-position',
+  ) {
+    if (!overlay || !toggle || !this.container) return;
 
-      // Calculate number of columns
-      columnsEu = Math.ceil(itemsEu.length / this.languageMaxColumnItems);
-
-      // Apply column display
-      if (columnsEu > 1) {
-        this.languageListEu.classList.add(
-          `ecl-site-header__language-category--${columnsEu}-col`,
-        );
-      }
-    }
-    if (this.languageListNonEu) {
-      // Get all non-Eu languages
-      const itemsNonEu = queryAll(
-        '.ecl-site-header__language-item',
-        this.languageListNonEu,
-      );
-
-      // Calculate number of columns
-      columnsNonEu = Math.ceil(itemsNonEu.length / this.languageMaxColumnItems);
-
-      // Apply column display
-      if (columnsNonEu > 1) {
-        this.languageListNonEu.classList.add(
-          `ecl-site-header__language-category--${columnsNonEu}-col`,
-        );
-      }
-    }
-
-    // Check total width, and change display if needed
-    if (this.languageListEu) {
-      this.languageListEu.parentNode.classList.remove(
-        'ecl-site-header__language-content--stack',
-      );
-    } else if (this.languageListNonEu) {
-      this.languageListNonEu.parentNode.classList.remove(
-        'ecl-site-header__language-content--stack',
-      );
-    }
-    let popoverRect = this.languageListOverlay.getBoundingClientRect();
-    const containerRect = this.container.getBoundingClientRect();
-
-    if (popoverRect.width > containerRect.width) {
-      // Stack elements
+    // If this overlay is the language overlay, handle columns (EU vs Non-EU items)
+    if (overlay === this.languageListOverlay) {
+      // Calculate columns for the EU language list
       if (this.languageListEu) {
-        this.languageListEu.parentNode.classList.add(
+        const itemsEu = queryAll(
+          '.ecl-site-header__language-item',
+          this.languageListEu,
+        );
+        const columnsEu = Math.ceil(
+          itemsEu.length / this.languageMaxColumnItems,
+        );
+        if (columnsEu > 1) {
+          this.languageListEu.classList.add(
+            `ecl-site-header__language-category--${columnsEu}-col`,
+          );
+        }
+      }
+
+      // Calculate columns for the Non-EU language list
+      if (this.languageListNonEu) {
+        const itemsNonEu = queryAll(
+          '.ecl-site-header__language-item',
+          this.languageListNonEu,
+        );
+        const columnsNonEu = Math.ceil(
+          itemsNonEu.length / this.languageMaxColumnItems,
+        );
+        if (columnsNonEu > 1) {
+          this.languageListNonEu.classList.add(
+            `ecl-site-header__language-category--${columnsNonEu}-col`,
+          );
+        }
+      }
+
+      // Remove stacked classes first
+      if (this.languageListEu) {
+        this.languageListEu.parentNode.classList.remove(
           'ecl-site-header__language-content--stack',
         );
       } else if (this.languageListNonEu) {
-        this.languageListNonEu.parentNode.classList.add(
+        this.languageListNonEu.parentNode.classList.remove(
           'ecl-site-header__language-content--stack',
         );
       }
+    }
 
-      // Adapt column display
-      if (this.languageListNonEu) {
-        this.languageListNonEu.classList.remove(
-          `ecl-site-header__language-category--${columnsNonEu}-col`,
-        );
-        this.languageListNonEu.classList.add(
-          `ecl-site-header__language-category--${Math.max(
-            columnsEu,
-            columnsNonEu,
-          )}-col`,
-        );
+    // Clear leftover classes/inline styles
+    overlay.classList.remove(
+      'ecl-site-header__language-container--push-right',
+      'ecl-site-header__language-container--push-left',
+      'ecl-site-header__language-container--full',
+    );
+    overlay.style.removeProperty(arrowCssVar);
+    overlay.style.removeProperty('right');
+    overlay.style.removeProperty('left');
+
+    // Calculate bounding rects
+    let popoverRect = overlay.getBoundingClientRect();
+    const containerRect = this.container.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+    const toggleRect = toggle.getBoundingClientRect();
+
+    // If this is the language overlay, handle “too wide” scenario
+    if (overlay === this.languageListOverlay) {
+      if (popoverRect.width > containerRect.width) {
+        // Stack elements
+        if (this.languageListEu) {
+          this.languageListEu.parentNode.classList.add(
+            'ecl-site-header__language-content--stack',
+          );
+        } else if (this.languageListNonEu) {
+          this.languageListNonEu.parentNode.classList.add(
+            'ecl-site-header__language-content--stack',
+          );
+        }
       }
     }
 
-    // Check available space
-    this.languageListOverlay.classList.remove(
-      'ecl-site-header__language-container--push-right',
-      'ecl-site-header__language-container--push-left',
-    );
-    this.languageListOverlay.classList.remove(
-      'ecl-site-header__language-container--full',
-    );
-    this.languageListOverlay.style.removeProperty(
-      '--ecl-language-arrow-position',
-    );
-    this.languageListOverlay.style.removeProperty('right');
-    this.languageListOverlay.style.removeProperty('left');
-
-    popoverRect = this.languageListOverlay.getBoundingClientRect();
-    const screenWidth = window.innerWidth;
-    const linkRect = this.languageLink.getBoundingClientRect();
-    // Popover too large
-    if (this.direction === 'ltr' && popoverRect.right > screenWidth) {
-      // Push the popover to the right
-      this.languageListOverlay.classList.add(
-        'ecl-site-header__language-container--push-right',
-      );
-      this.languageListOverlay.style.setProperty(
-        'right',
-        `calc(-${containerRect.right}px + ${linkRect.right}px)`,
-      );
-      // Adapt arrow position
-      const arrowPosition =
-        containerRect.right - linkRect.right + linkRect.width / 2;
-      this.languageListOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${this.arrowSize})`,
-      );
-    } else if (this.direction === 'rtl' && popoverRect.left < 0) {
-      this.languageListOverlay.classList.add(
-        'ecl-site-header__language-container--push-left',
-      );
-      this.languageListOverlay.style.setProperty(
-        'left',
-        `calc(-${linkRect.left}px + ${containerRect.left}px)`,
-      );
-      // Adapt arrow position
-      const arrowPosition =
-        linkRect.right - containerRect.left - linkRect.width / 2;
-      this.languageListOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
-        `${arrowPosition}px`,
-      );
-    }
-
-    // Mobile popover (full width)
+    // Mobile: full width if below tablet breakpoint
     if (window.innerWidth < this.tabletBreakpoint) {
-      // Push the popover to the right
-      this.languageListOverlay.classList.add(
-        'ecl-site-header__language-container--full',
-      );
-      this.languageListOverlay.style.removeProperty('right');
-
-      // Adapt arrow position
+      overlay.classList.add('ecl-site-header__language-container--full');
+      // Recompute popoverRect after applying the class
+      popoverRect = overlay.getBoundingClientRect();
+      // Position arrow
       const arrowPosition =
-        popoverRect.right - linkRect.right + linkRect.width / 2;
-      this.languageListOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
+        popoverRect.right - toggleRect.right + toggleRect.width / 2;
+      overlay.style.setProperty(
+        arrowCssVar,
         `calc(${arrowPosition}px - ${this.arrowSize})`,
       );
+      return;
     }
 
-    if (
-      this.loginBox &&
-      this.loginBox.classList.contains('ecl-site-header__login-box--active')
-    ) {
-      this.setLoginArrow();
+    // If popover extends beyond right edge in LTR
+    if (this.direction === 'ltr' && popoverRect.right > screenWidth) {
+      overlay.classList.add('ecl-site-header__language-container--push-right');
+      overlay.style.setProperty(
+        'right',
+        `calc(-${containerRect.right}px + ${toggleRect.right}px)`,
+      );
+      const arrowPos =
+        containerRect.right - toggleRect.right + toggleRect.width / 2;
+      overlay.style.setProperty(
+        arrowCssVar,
+        `calc(${arrowPos}px - ${this.arrowSize})`,
+      );
     }
-    if (
-      this.searchForm &&
-      this.searchForm.classList.contains('ecl-site-header__search--active')
-    ) {
-      this.setSearchArrow();
+    // If popover extends beyond left edge in RTL
+    else if (this.direction === 'rtl' && popoverRect.left < 0) {
+      overlay.classList.add('ecl-site-header__language-container--push-left');
+      overlay.style.setProperty(
+        'left',
+        `calc(-${toggleRect.left}px + ${containerRect.left}px)`,
+      );
+      const arrowPos =
+        toggleRect.right - containerRect.left - toggleRect.width / 2;
+      overlay.style.setProperty(arrowCssVar, `${arrowPos}px`);
     }
+  }
+
+  /**
+   * Wrapper: Update display of the modal language list overlay
+   * (Calls the new `updateOverlayPosition` for the language popover).
+   */
+  updateOverlay() {
+    if (!this.languageListOverlay || !this.languageLink) return;
+    this.updateOverlayPosition(this.languageListOverlay, this.languageLink);
   }
 
   /**
@@ -543,47 +526,10 @@ export class SiteHeader {
 
     if (this.languageListOverlay.hasAttribute('hidden')) {
       this.openOverlay();
-      this.updateOverlay();
+      this.updateOverlayPosition(this.languageListOverlay, this.languageLink);
       this.focusTrap.activate();
     } else {
       this.focusTrap.deactivate();
-    }
-  }
-
-  /**
-   * Trigger events on resize
-   * Uses a debounce, for performance
-   */
-  handleResize() {
-    if (
-      !this.languageListOverlay ||
-      this.languageListOverlay.hasAttribute('hidden')
-    )
-      return;
-    if (
-      (this.loginBox &&
-        this.loginBox.classList.contains(
-          'ecl-site-header__login-box--active',
-        )) ||
-      (this.searchForm &&
-        this.searchForm.classList.contains('ecl-site-header__search--active'))
-    ) {
-      clearTimeout(this.resizeTimer);
-      this.resizeTimer = setTimeout(() => {
-        this.updateOverlay();
-      }, 200);
-    }
-  }
-
-  /**
-   * Handles keyboard events specific to the language list.
-   *
-   * @param {Event} e
-   */
-  handleKeyboardLanguage(e) {
-    // Open the menu with space and enter
-    if (e.keyCode === 32 || e.key === 'Enter') {
-      this.toggleOverlay(e);
     }
   }
 
@@ -691,6 +637,18 @@ export class SiteHeader {
   }
 
   /**
+   * Handles keyboard events specific to the language list.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardLanguage(e) {
+    // Open the menu with space and enter
+    if (e.keyCode === 32 || e.key === 'Enter') {
+      this.toggleOverlay(e);
+    }
+  }
+
+  /**
    * Handles global keyboard events, triggered outside of the site header.
    *
    * @param {Event} e
@@ -755,7 +713,7 @@ export class SiteHeader {
       }
     }
 
-    // Check if the custom action is open
+    // Custom action
     const customActionExpanded =
       this.customActionToggle &&
       this.customActionToggle.getAttribute('aria-expanded') === 'true';
@@ -767,6 +725,53 @@ export class SiteHeader {
         this.toggleCustomAction(e);
       }
     }
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    if (this.resizeTimer) {
+      clearTimeout(this.resizeTimer);
+    }
+    this.resizeTimer = setTimeout(() => {
+      // If language overlay is open, reposition
+      if (
+        this.languageListOverlay &&
+        !this.languageListOverlay.hasAttribute('hidden')
+      ) {
+        this.updateOverlayPosition(this.languageListOverlay, this.languageLink);
+      }
+
+      // If custom action overlay is open, reposition
+      if (
+        this.customActionOverlay &&
+        !this.customActionOverlay.hasAttribute('hidden')
+      ) {
+        this.updateOverlayPosition(
+          this.customActionOverlay,
+          this.customActionToggle,
+          '--ecl-overlay-arrow-position',
+        );
+      }
+
+      // If the login box is open, re-position arrow
+      if (
+        this.loginBox &&
+        this.loginBox.classList.contains('ecl-site-header__login-box--active')
+      ) {
+        this.setLoginArrow();
+      }
+
+      // If the search box is open, re-position arrow
+      if (
+        this.searchForm &&
+        this.searchForm.classList.contains('ecl-site-header__search--active')
+      ) {
+        this.setSearchArrow();
+      }
+    }, 200);
   }
 
   /**
@@ -804,6 +809,13 @@ export class SiteHeader {
 
     if (isHidden) {
       this.openCustomAction();
+      // Reuse the same overlay positioning logic,
+      // but use a different CSS arrow var for custom action if you like.
+      this.updateOverlayPosition(
+        this.customActionOverlay,
+        this.customActionToggle,
+        '--ecl-overlay-arrow-position',
+      );
       this.customActionFocusTrap.activate();
     } else {
       this.customActionFocusTrap.deactivate();

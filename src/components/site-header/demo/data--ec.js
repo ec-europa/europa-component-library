@@ -25,7 +25,7 @@ module.exports = {
   custom_action: {
     link: {
       path: exampleLink,
-      label: 'Custom action label',
+      label: 'Custom label',
       icon: 'brochure',
       aria_label: 'Custom aria label',
     },

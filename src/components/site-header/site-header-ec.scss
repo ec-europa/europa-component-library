@@ -144,6 +144,7 @@ $language-list: null !default;
   text-transform: uppercase;
 }
 
+.ecl-site-header__custom-action-toggle,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle,
 .ecl-site-header__language-selector {
@@ -167,38 +168,9 @@ $language-list: null !default;
 }
 
 .ecl-site-header__custom-action-toggle {
-  align-items: center;
-  box-sizing: border-box;
-  color: map.get($site-header, 'toggle-color');
-  display: flex;
-  flex-direction: column;
-  margin-inline-start: var(--s-xs);
-  position: relative;
-  z-index: 101;
-
-  &:focus-visible {
-    color: map.get($site-header, 'toggle-color');
-  }
-
   &:hover {
     text-decoration: none;
     color: map.get($site-header, 'toggle-color');
-  }
-
-  &:active,
-  &[aria-expanded='true'] {
-    background-color: var(--c-n-80);
-  }
-
-  &[aria-expanded='true'] {
-    &::before {
-      @include site-header-dropdown.arrow-up;
-
-      top: auto;
-      transform: translateY(31px) rotate(-45deg);
-      width: 1rem;
-      bottom: 0;
-    }
   }
 }
 

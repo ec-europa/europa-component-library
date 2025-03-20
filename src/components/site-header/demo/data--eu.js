@@ -25,7 +25,7 @@ module.exports = {
   custom_action: {
     link: {
       href: exampleLink,
-      label: 'Custom',
+      label: 'Custom label',
       icon: 'brochure',
       aria_label: 'Check notifications',
     },
