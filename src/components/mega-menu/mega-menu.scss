@@ -423,7 +423,6 @@ $mega-menu: null !default;
 
     .ecl-picture {
       margin-inline: calc(-1 * var(--s-s)) calc(-1 * var(--s-2xl));
-      margin-block: calc(-1 * var(--s-xs)) 0;
     }
 
     &:hover {
@@ -926,6 +925,10 @@ $mega-menu: null !default;
     }
   }
 
+  .ecl-link .ecl-mega-menu__featured-picture .ecl-mega-menu__featured-image {
+    margin-inline-start: var(--s-s);
+  }
+
   .ecl-mega-menu__featured-title {
     display: block;
     margin: calc(var(--s-xs) + 2px) var(--s-m) calc(var(--s-xs) + 2px)
@@ -954,6 +957,10 @@ $mega-menu: null !default;
         &:hover {
           color: var(--c-p);
         }
+      }
+
+      &--image-only {
+        margin-block-end: var(--s-xs);
       }
     }
   }

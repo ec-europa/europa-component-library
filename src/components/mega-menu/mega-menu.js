@@ -494,10 +494,13 @@ export class MegaMenu {
 
     // Remove display:none from the sublists
     if (subLists && viewport === 'mobile') {
-      const megaMenus = queryAll(
-        '.ecl-mega-menu__item > .ecl-mega-menu__wrapper > .ecl-container > [data-ecl-mega-menu-mega]',
+      const megaMenus = queryAll('[data-ecl-mega-menu-mega]', this.element);
+      const featuredPanels = queryAll(
+        '[data-ecl-mega-menu-featured]',
         this.element,
       );
+      megaMenus.push(...featuredPanels);
+
       megaMenus.forEach((menu) => {
         menu.style.height = '';
       });
@@ -756,6 +759,8 @@ export class MegaMenu {
                 featuredHeight += child.offsetHeight + marginHeight;
               },
             );
+            // Add 8px to the featured panel height to prevent scrollbar on hover
+            featuredHeight += 5;
             heights.push(featuredHeight);
           }
         }

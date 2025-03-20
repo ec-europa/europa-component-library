@@ -340,40 +340,7 @@
             aria-labelledby="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id }}"
           >
             {% for item in _featured.items %}
-              {% set _item_classes = 'ecl-mega-menu__featured-list__item' %}
-              {% set _picture_markup = '' %}
-              {% if item.picture is not empty %}
-                {% set _picture_markup %}
-                  {% include '@ecl/picture/picture.html.twig' with {
-                    picture: item.picture,
-                    extra_classes: 'ecl-mega-menu__featured-picture',
-                    extra_image_classes: 'ecl-mega-menu__featured-image',
-                  } only %}
-                {% endset %}
-              {% endif %}
-              {% set _text_label = item.label|default('') %}
-              {% if _text_label is not empty and _picture_markup is not empty %}
-                {% set _item_classes = _item_classes ~ ' ecl-mega-menu__featured-list__item--combo' %}
-              {% endif %}
-              <li class="{{ _item_classes }}">
-              {% if item.path is not empty %}
-                {% include '@ecl/link/link.html.twig' with {
-                  link: { 
-                    path: item.path,
-                    type: 'standalone',
-                    icon_path: _icon_path,
-                    external: item.external|default(false),
-                    label: _picture_markup ~ '' ~ _text_label, 
-                  },
-                  extra_attributes: [
-                    { name: 'data-ecl-mega-menu-featured-link' },
-                  ]|merge(item.extra_attributes|default([])),
-                  extra_classes: item.extra_classes|default(''),
-                } only %}
-              {% else %}
-                {{ _picture_markup }}
-              {% endif %}
-              </li>
+              {% include '@ecl/mega-menu/mega-menu-featured-item.html.twig' with item|merge({ icon_path: _icon_path }) only %}
             {% endfor %}
           </ul>
         {%- endif -%}
