@@ -86,11 +86,6 @@ $social-media-follow: null !default;
   @include ecl-social-media-follow-vertical;
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.down('s') {
-  @include ecl-social-media-follow-vertical;
-}
-
 // Position
 .ecl-social-media-follow--right {
   align-items: flex-end;
