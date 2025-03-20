@@ -761,7 +761,7 @@ export class MegaMenu {
                 featuredHeight += child.offsetHeight + marginHeight;
               },
             );
-            // Add 8px to the featured panel height to prevent scrollbar on hover
+            // Add 5px to the featured panel height to prevent scrollbar on hover
             featuredHeight += 5;
             heights.push(featuredHeight);
           }
