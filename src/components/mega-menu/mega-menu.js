@@ -499,7 +499,9 @@ export class MegaMenu {
         '[data-ecl-mega-menu-featured]',
         this.element,
       );
-      megaMenus.push(...featuredPanels);
+      if (featuredPanels.length) {
+        megaMenus.push(...featuredPanels);
+      }
 
       megaMenus.forEach((menu) => {
         menu.style.height = '';
