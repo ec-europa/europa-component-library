@@ -2,10 +2,10 @@
 @use '../index' as *;
 
 $date-block: (
-  background-color-cancelled: var(--cm-surface-neutral-lowest),
+  background-color-cancelled: var(--cm-surface-transparent-01),
   background-color-default: var(--cm-surface-inverted),
   background-color-ongoing: var(--cm-surface-inverted),
-  background-color-past: var(--cm-surface-neutral-lowest),
+  background-color-past: var(--cm-surface-transparent-01),
   outline-color-cancelled: var(--cm-border-brand),
   outline-color-default: var(--cm-border-brand),
   outline-color-ongoing: var(--cm-border-brand),
@@ -33,7 +33,7 @@ $date-block: (
   ),
   year: (
     padding: var(--s-2xs) 0,
-    background-color: var(--cm-surface-dark),
+    background-color: var(--cm-surface-brand),
     text-color: var(--cm-on-surface-inverted),
     font: var(--f-xs),
   ),
