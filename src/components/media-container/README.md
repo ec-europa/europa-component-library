@@ -19,7 +19,7 @@ npm install --save @ecl/media-container
 - **"sr_pause"** (string) (default: ''): Label for the pause button (for the autoplay video)
 - **"icon_path"**: (string) (default: '') Path or url to the icons sprite (for autoplay video)
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
-- **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
+- **"ratio"** (string) (default: '') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"expandable"** (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -41,7 +41,7 @@ npm install --save @ecl/media-container
   - "src_lang" (string) (default: ''),
   - "label" (string) (default: ''),
   - "description" (string) (default: ''),
-- **"image"** (string) (default: ''): Image to be used as the video placeholder
+- **"image"** (string) (default: ''): Image to be used as the video placeholder.
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 
 ### Example for media container image:

@@ -22,15 +22,12 @@
 {% set _id = id|default('ecl-text-area-' ~ random()) %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
-{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _required = required|default(false) %}
 {% set _name = name|default('') %}
 {% set _default_value = default_value|default('') %}
 {% set _rows = rows|default(4) %}
 {% set _placeholder = placeholder|default('') %}
 {% set _width = width|default('m') %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_text = invalid_text|default('') %}
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-area--invalid']) %}

@@ -49,8 +49,6 @@ npm install --save @ecl/select
     ... 
   ], 
   invalid: false, 
-  invalid_text: 'Error message', 
-  helper_text: 'Help message', 
   disabled: false, 
   id: 'example-id', 
   name: 'example-name', 

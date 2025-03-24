@@ -11,7 +11,6 @@ npm install --save @ecl/text-input
 - **"id"** (string) (default: random)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"type"** (string) (default: '')
