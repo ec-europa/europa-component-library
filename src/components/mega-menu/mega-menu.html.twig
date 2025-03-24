@@ -9,6 +9,7 @@
   - "aria_label" (string) (default: '') Aria label for the main nav
   - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
   - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
+  - "see_all_label": (string) (default: ''): Label for the "view all" link
   - "items": (array) (default: []): The menu items - format: [
     {
       "label": (string) (default: '')
@@ -34,7 +35,7 @@
           "path": (string) (default: '')
           "external": (boolean),
           "sr_external" (string) (default: '') Additional label for the external icon
-          "see_all" (boolean)
+          "see_all" (boolean) controls visibility of "View All" button
           "see_all_label" (string)
           "see_all_attributes" (optional) (array) (default: [])
             - "name" (string) Attribute name, eg. 'data-test'
@@ -46,7 +47,7 @@
       ]
     }
   ],
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -62,6 +63,7 @@
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
 {% set _items = items|default([{}]) %}
+{% set _see_all_label = see_all_label|default('') %}
 {% set _css_class = 'ecl-mega-menu' %}
 {% set _extra_attributes = '' %}
 

@@ -39,7 +39,7 @@ npm install --save @ecl/banner
 - **"description"** (string or Link) (default: '') Description of the banner
 - **"horizontal"** (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
 - **"vertical"** (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
-- **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
+- **"full_width"** (bool) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"link"** (object) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

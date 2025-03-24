@@ -8,7 +8,7 @@ npm install --save @ecl/tabs
 
 ### Parameters:
 
-- **"items"** (associative array) (default: {}): The tabs items - format:
+- **"items"** (associative array) (default: []): The tabs items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional)

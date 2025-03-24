@@ -27,7 +27,7 @@
   - "multiple_search_no_results_text" (string)(default: '') Label label when there is no result by searching for an option
   - "multiple_select_all" (boolean) (default: true) Show the select all checkbox in the multiple select
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the select
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -45,8 +45,6 @@
 {% set _icon_path = icon_path|default(false) %}
 {% set _icon_size = icon_size|default('xs') %}
 {% set _width = width|default('m') %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_text = invalid_text|default('') %}
 {% set _label = label|default('') %}
 {% set _toggle_label = toggle_label|default('Toggle dropdown') %}
 {% set _multiple = multiple|default(false) %}
@@ -55,7 +53,6 @@
 {% set _multiple_search = multiple_search ?? true %}
 {% set _multiple_search_text = multiple_search_text|default('') %}
 {% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
-{% set _multiple_search_text = multiple_search_text|default('') %}
 {% set _multiple_select_all = multiple_select_all ?? true %}
 {% set _multiple_close_text = multiple_close_text|default('') %}
 {% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}

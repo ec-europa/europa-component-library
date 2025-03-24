@@ -19,6 +19,8 @@ npm install --save @ecl/checkbox
   - "item_required_text" (string) (default: '')
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
+- **"invalid_icon"** (object of type "icon") (default: {})
+- **"sr_invalid_icon"** (string) (default: ''): additional label for the invalid icon; for screen readers
 - **"required"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

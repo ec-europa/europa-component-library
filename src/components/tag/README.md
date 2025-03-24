@@ -8,10 +8,10 @@ npm install --save @ecl/tag
 
 ### Parameters
 
-- **color_mode** (string)
+- **color_mode** (string) (default: '')
 - **"tag"** (associative array) (default: 'predefined structure below')
   - type: string (default: 'link') can be 'link' or 'removable'
-  - path: string (default: '') tag url if needed),
+  - path: string (default: '') tag url if needed,
   - label: string (default: '') tag text as string,
   - external: boolean (default: false) External icon for a tag with link
   - aria_label: (string) (default: '') (optional) aria label for removable tag as a string

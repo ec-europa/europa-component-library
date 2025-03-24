@@ -8,14 +8,14 @@ npm install --save @ecl/carousel
 
 ### Parameters
 
-- **"items"** (array) (default: []): List of banner compatible with EC banner component structure
+- **"items"** (array) (default: []): List of banner compatible with ECL banner component structure
 - **"counter_label"** (string) (default: 'of')
 - **"sr_description"** (string) (default: '') screen reader description of the carousel
 - **"sr_role"** (string) (default: 'carousel') screen reader localized role for the carousel
 - **"sr_slide_role"** (string) (default: 'slide') screen reader localized role for the slides
 - **"sr_play"** (string) (default: 'Play carousel') screen reader label for the play button
 - **"sr_pause"** (string) (default: 'Pause carousel') screen reader label for the pause button
-- **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
+- **"full_width"** (bool) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

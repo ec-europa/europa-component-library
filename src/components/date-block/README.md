@@ -27,7 +27,7 @@ npm install --save @ecl/date-block
   day: '26', 
   month: 'Dec', 
   year: '2018', 
-  full_month: 'December', 
+  month_full: 'December', 
   date_time: '2018-12-26',
   variant: 'ongoing', 
   extra_classes: 'extra_class_1 extra_class-2', 

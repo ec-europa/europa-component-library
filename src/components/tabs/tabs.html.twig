@@ -2,11 +2,11 @@
 
 {#
   Parameters:
-    - "items": (associative array) (default: {}): The tabs items - format: [
+    - "items": (associative array) (default: []): The tabs items - format: [
       {
         "label": "Home",
         "path": "/example",
-        "is_current": true
+        "is_current": true,
         "extra_classes": 'extra-class'
       },
       {
@@ -40,10 +40,6 @@
 %}
 
 {# Internal logic - Process properties #}
-
-{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
-  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -84,9 +80,6 @@
           {% endif %}
           {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
             {% set _item_extra_classes = _item_extra_classes ~ ' ' ~ _item.extra_classes %}
-          {% endif %}
-          {% if _menu is defined and _menu is not empty %}
-            {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
           {% endif %}
           {% include '@ecl/link/link.html.twig' with {
             link: {

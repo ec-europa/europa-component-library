@@ -8,7 +8,7 @@ npm install --save @ecl/tag
 
 ### Parameters
 
-- **color_mode** (string)
+- **color_mode** (string) (default: '')
 - **"items"** (array) (default: []): array of Tag
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

@@ -10,7 +10,6 @@ npm install --save @ecl/popover
 
 - **"id"** (string) (default: random)
 - **toggle** (associative array) (default: {}): Popover toggle element, following ECL Link or ECL button structure
-- **links** (array) (default: []): Array of ECL Links
 - **close** (object of type "button") (default: {}): close button (optional)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

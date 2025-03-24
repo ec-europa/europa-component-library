@@ -35,7 +35,7 @@
   - "vertical" (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (object) (default: predefined structure) predefined structure for the Link component
-  - "extra_classes" (optional) (string) (default: '')
+  - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -57,7 +57,6 @@
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
-{% set _image = image|default('') %}
 {% set _credit = credit|default('') %}
 {% set _link = link|default({}) %}
 {% set _sr_play = sr_play|default('') %}

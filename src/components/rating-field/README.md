@@ -27,7 +27,7 @@ npm install --save @ecl/rating-field
 {% include '@ecl/rating-field/rating-field.html.twig' with { 
   id: 'rating-id',
   name: 'rating-default', 
-  invalid: false, 
+  invalid: false,
   star_filled_icon: { 
     name: 'star-filled', 
     size: 'm', 

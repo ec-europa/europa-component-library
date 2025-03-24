@@ -15,7 +15,7 @@ Parameters:
 - **"links"** (associative array) (default: predefined structure):
   - href: (string) (default: '')
   - label: (string) (default: '')
-- **"icon_size"** (string) (default( 'xs') size of the toggle icon
+- **"icon_size"** (string) (default: 'xs') size of the toggle icon
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

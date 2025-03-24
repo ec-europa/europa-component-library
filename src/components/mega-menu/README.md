@@ -10,7 +10,6 @@ npm install --save @ecl/mega-menu
 
 - **"id"** (string) (default: random): Unique id
 - **"toggle"**: (associative array) (default: {}): Toggle (hamburger) button, using ECL button structure
-- **"title"** (string) (default: ''): Used as the inner container aria-label value
 - **"close"**: (associative array) (default: {}): Object, using ECL Button structure
 - **"aria_label"** (string): (default: ''): Main list aria label
 - **"second_level_aria_label"** (string): (default: ''): Second level list aria label
@@ -31,7 +30,7 @@ npm install --save @ecl/mega-menu
   "title": (string)
   "content": (string)
   "items": (associative array) Array of items with image and link
-  }
+  },
   "children": (associative array) (optional): [
   {
   "label": (string) (default: '')
@@ -55,7 +54,6 @@ npm install --save @ecl/mega-menu
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/mega-menu/mega-menu.html.twig' with {
-  title: 'Menu',
   toggle: {
     link: {
       label: 'Menu',

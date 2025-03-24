@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "color_mode" (string) The color mode name
-    - "items" (array) (default: []): List of banner compatible with EC Banner component structure
+    - "items" (array) (default: []): List of banner compatible with ECL Banner component structure
     - "size" (string) (default: 'm') Size of the carousel (can be 's', 'm', 'l')
     - "counter_label" (string) (default: 'of')
     - "sr_description" (string) (default: '') screen reader description of the carousel
@@ -26,7 +26,7 @@
 {% set _css_class = 'ecl-carousel' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _extra_attributes = '' %}
-{% set _items = items|default('') %}
+{% set _items = items|default([]) %}
 {% set _size = size|default('m') %}
 {% set _sr_description = sr_description|default('') %}
 {% set _sr_role = sr_role|default('carousel') %}

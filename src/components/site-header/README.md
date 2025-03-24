@@ -65,7 +65,6 @@ npm install --save @ecl/site-header
 ```twig
 {% include '@ecl/site-header/site-header.html.twig' with { 
   banner_top: 'Class name', 
-  banner: 'Class name',
   site_name: 'This site name'
   logo: {
     alt: 'European Commission', 

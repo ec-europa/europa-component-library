@@ -10,6 +10,15 @@ npm install --save @ecl/content-item
 
 - **color_mode** (string) (default: '') Name of the color mode
 - **picture** (associative array) (default: {}):
+  - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
+  - **position** (string) (default: 'left'): Position of the picture (can be 'left', 'right', or 'top')
+  - **img** (associative array) (default: {}): Default image properties
+    - **src** (string) (default: ''): Path to the default image
+    - **alt** (string) (default: ''): Alt text of the default image
+  - **sources** (array) (default: []): List of image sources for responsive behavior, format:
+    - **src** (string) (default: ''): Path to the source image
+    - **media** (string) (default: ''): Media condition to use this source
+    - **type** (string) (default: ''): MIME type of the image source
 - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
 - **position** (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
 - **img** (associative array) (default: {}):
@@ -26,8 +35,8 @@ npm install --save @ecl/content-item
 - **"picture_zoom"** (bool) (default: false): Should the picture be animated?
 - **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
 - **labels** (array) (default: []): Array of ECL Labels
-- **labels_aria** (strings) (default: ''): Aria label for the labels area
-- **primary_meta** (array of strings) (default: []): Primary meta of the content item
+- **labels_aria** (string) (default: ''): Aria label for the labels area
+- **primary_meta** (array of string) (default: []): Primary meta of the content item
 - **title** (associative array) (default: {}): Title of the content item, following ECL Link structure
 - **description** (string) (default: ''): Description of the content item
 - **secondary_meta** (array) (default: []): format: [
@@ -44,6 +53,7 @@ npm install --save @ecl/content-item
   {
   **name** (string) (default: ''),
   **value** (optional) (string)
+  },
   ...
   ],
 

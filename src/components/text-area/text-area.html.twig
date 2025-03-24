@@ -28,8 +28,6 @@
 {% set _rows = rows|default(4) %}
 {% set _placeholder = placeholder|default('') %}
 {% set _width = width|default('m') %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_text = invalid_text|default('') %}
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-area--invalid']) %}
