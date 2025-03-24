@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import path from 'path';
 import vike from 'vike/plugin';
 import htmlMinifier from 'vite-plugin-html-minifier';
+
 /* eslint-disable-next-line import/no-relative-packages */
 import lernaJson from '../../lerna.json';
 
@@ -145,6 +146,19 @@ export default defineConfig(({ command }) => {
     build: {
       outDir: 'build',
       sourcemap: process.env.GENERATE_SOURCEMAP !== 'false',
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react')) {
+                return 'vendor-framework';
+              }
+              return 'vendor';
+            }
+            return undefined;
+          },
+        },
+      },
     },
   };
 });

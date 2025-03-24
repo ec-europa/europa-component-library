@@ -66,7 +66,7 @@ class PaletteItem extends PureComponent {
     let code = value.toUpperCase();
 
     // Get color code from alias, trying parent first, then fallback to body
-    if (alias) {
+    if (alias && typeof window !== 'undefined') {
       code = getCode(alias, parentRef);
     }
 

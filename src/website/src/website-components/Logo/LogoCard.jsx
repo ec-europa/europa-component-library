@@ -1,19 +1,19 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './LogoCard.module.scss';
 
-function LogoCard({ markup, name, color }) {
+function LogoCard({ path, name, color }) {
   const cardClass =
     color === 'negative' ? styles['card--negative'] : styles.card;
 
+  // If 'path' is an object (JSON), extract the URL from the JSON
+  const logoPath = typeof path === 'string' ? path : path?.url;
+
   return (
     <li className={cardClass}>
-      <div
-        className={styles.logo}
-        dangerouslySetInnerHTML={{ __html: markup }}
-      />
+      {/* Render the logo image */}
+      <img className={styles.logo} alt={name} src={logoPath} />
       <div className={styles.title}>{name}</div>
     </li>
   );
@@ -21,7 +21,7 @@ function LogoCard({ markup, name, color }) {
 
 LogoCard.propTypes = {
   name: PropTypes.string.isRequired,
-  markup: PropTypes.string.isRequired,
+  path: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired, // Can be either a string (SVG path) or an object (JSON)
   color: PropTypes.string,
 };
 

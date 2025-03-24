@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import App from '../App';
 
+const publicUrl = import.meta.env.PUBLIC_URL || '';
 const isBuild = process.argv.some((arg) => arg.includes('build'));
 let templateHtml = fs.readFileSync(
   path.resolve(process.cwd(), 'index.html'),
@@ -20,13 +21,8 @@ if (isBuild) {
   );
 }
 
-function injectScriptsIntoTemplate(
-  $templateHtml,
-  pageContextJson,
-  clientScriptPath,
-) {
+function injectScriptsIntoTemplate($templateHtml, clientScriptPath) {
   // Define the script tags to be inserted
-  const pageContextScript = `<script id="vike_pageContext" type="application/json">${pageContextJson}</script>`;
   const clientScript = `<script type="module" src="${clientScriptPath}"></script>`;
 
   // Find the closing </head> tag and insert the scripts just before it
@@ -35,7 +31,6 @@ function injectScriptsIntoTemplate(
     // Insert the scripts before the closing </head> tag
     $templateHtml =
       $templateHtml.slice(0, headCloseTagIndex) +
-      pageContextScript +
       clientScript +
       $templateHtml.slice(headCloseTagIndex);
   }
@@ -84,25 +79,22 @@ async function onRenderHtml(pageContext) {
       throw new Error('No matching entry-server-routing.*.js file found!');
     }
 
-    clientScriptPath = `/assets/entries/${scriptFile}`;
+    clientScriptPath = `${publicUrl}/assets/entries/${scriptFile}`;
   } catch (error) {
     clientScriptPath = '';
   }
 
-  const pageContextJson = JSON.stringify(pageContext, (key, value) => {
-    if (key === '_prerenderContext') return undefined; // Remove problematic property
-    return value;
-  });
-
   const documentHtml = injectScriptsIntoTemplate(
     templateHtmlWithContent,
-    pageContextJson,
     clientScriptPath,
   );
 
   return {
     documentHtml: dangerouslySkipEscape(documentHtml),
-    pageContext: {},
+    pageContext: {
+      // Without this the #vike_pageContext script would not be injected.
+      _isHtmlOnly: false,
+    },
   };
 }
 
