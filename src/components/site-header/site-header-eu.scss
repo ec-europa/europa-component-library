@@ -241,6 +241,14 @@ $language-list: null !default;
   }
 }
 
+.ecl-site-header__custom-action-toggle {
+  .ecl-link__icon-container {
+    .ecl-site-header__icon {
+      margin-inline-end: 0;
+    }
+  }
+}
+
 .ecl-site-header__search--active {
   display: flex;
   margin-top: var(--s-m);
@@ -324,6 +332,10 @@ $language-list: null !default;
       .ecl-link__label {
         display: none;
       }
+    }
+
+    .ecl-link__icon-container {
+      margin-inline-start: 0;
     }
 
     .ecl-icon {

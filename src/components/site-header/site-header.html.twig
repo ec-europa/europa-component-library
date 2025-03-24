@@ -272,29 +272,43 @@
             
             {# Custom action #}
             {% if _custom_action is not empty %}
-              <div class="ecl-site-header__custom-action">
-                {% set custom_action_link = {
-                  link: _custom_action.link|merge({
-                    icon_position: 'before',
-                    type: "standalone",
-                    button_behaviour: true
-                  }),
-                  icon: {
-                    path: _icon_path,
-                    name: _custom_action.link.icon, 
-                    extra_classes: 'ecl-site-header__icon'
-                  },
-                  extra_attributes: [
-                    { name: 'role', value: 'button' },
-                    { name: 'data-ecl-custom-action', value: '' },
-                    _custom_action.overlay is defined and _custom_action.overlay is not empty ? { name: 'aria-controls', value: 'custom-action-overlay' } : {},
-                    _custom_action.overlay is defined and _custom_action.overlay is not empty ? { name: 'aria-expanded', value: 'false' } : {},
-                  ],
-                  extra_classes: _custom_action.link.extra_classes is defined and _custom_action.link.extra_classes is not empty 
-                                    ? _custom_action.link.extra_classes ~ ' ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary' 
-                                    : 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary',
-                } %}
+              <div class="ecl-site-header__custom-action" aria-live="polite">
+                {% set is_overlay = _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+                {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
 
+                {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
+                {% set link_extra_attributes = link_extra_attributes|merge([
+                  { name: 'role', value: 'button' },
+                  { name: 'data-ecl-custom-action', value: '' }
+                ]) %}
+                {% if is_overlay %}
+                  {% set link_extra_attributes = link_extra_attributes|merge([
+                    { name: 'aria-controls', value: 'custom-action-overlay' },
+                    { name: 'aria-expanded', value: 'false' }
+                  ]) %}
+                {% endif %}
+
+                {% if has_icon %}
+                  {% set icon_extra_classes = _custom_action.icon.extra_classes|default('') %}
+                  {% set icon_extra_classes = icon_extra_classes ~ ' ecl-site-header__icon' %}
+                  {% set icon = _custom_action.icon|merge({
+                    path: _icon_path,
+                    extra_classes: icon_extra_classes
+                  }) %}
+                {% else %}
+                  {% set icon = null %}
+                {% endif %}
+
+                {% set custom_action_link = {
+                  link: _custom_action.link|merge({ type: "standalone" }),
+                  icon: icon,
+                  extra_attributes: link_extra_attributes,
+                  extra_classes: (
+                    _custom_action.link.extra_classes is defined and _custom_action.link.extra_classes is not empty
+                      ? _custom_action.link.extra_classes ~ ' ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
+                      : 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
+                  )
+                } %}
                 {% include '@ecl/link/link.html.twig' with custom_action_link only %}
 
                 {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}

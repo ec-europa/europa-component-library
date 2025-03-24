@@ -26,8 +26,14 @@ module.exports = {
     link: {
       path: exampleLink,
       label: 'Custom label',
-      icon: 'brochure',
+      hide_label: true,
+      indicator: {
+        value: 10,
+      },
       aria_label: 'Custom aria label',
+    },
+    icon: {
+      name: 'brochure',
     },
     overlay: {
       title: 'Custom title',

@@ -172,6 +172,12 @@ $language-list: null !default;
     text-decoration: none;
     color: map.get($site-header, 'toggle-color');
   }
+
+  .ecl-link__icon-container {
+    .ecl-site-header__icon {
+      margin-inline-end: 0;
+    }
+  }
 }
 
 .ecl-site-header__login-box,
@@ -328,6 +334,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     justify-content: center;
     line-height: 0;
     padding: var(--s-xs) 0;
+
+    .ecl-link__icon-container {
+      margin-inline-start: 0;
+    }
 
     .ecl-icon {
       width: 1.5rem;

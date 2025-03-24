@@ -24,10 +24,16 @@ module.exports = {
   },
   custom_action: {
     link: {
-      href: exampleLink,
+      path: exampleLink,
       label: 'Custom label',
-      icon: 'brochure',
-      aria_label: 'Check notifications',
+      hide_label: true,
+      indicator: {
+        value: 10,
+      },
+      aria_label: 'Custom aria label',
+    },
+    icon: {
+      name: 'brochure',
     },
     overlay: {
       title: 'Custom title',
