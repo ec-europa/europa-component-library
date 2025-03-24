@@ -58,15 +58,15 @@ $font: (
     #{map.get($font-family, 'default')},
   '8xl': #{map.get($font-size, '8xl') + '/' + map.get($line-height, '8xl')}
     #{map.get($font-family, 'default')},
-  '7xl': #{map.get($font-size, '7xl') + '/' + map.get($line-height, '8xl')}
+  '7xl': #{map.get($font-size, '7xl') + '/' + map.get($line-height, '7xl')}
     #{map.get($font-family, 'default')},
   '6xl': #{map.get($font-size, '6xl') + '/' + map.get($line-height, '4xl')}
     #{map.get($font-family, 'default')},
-  '5xl': #{map.get($font-size, '5xl') + '/' + map.get($line-height, '5xl')}
+  '5xl': #{map.get($font-size, '5xl') + '/' + map.get($line-height, '4xl')}
     #{map.get($font-family, 'default')},
   '4xl': #{map.get($font-size, '4xl') + '/' + map.get($line-height, '3xl')}
     #{map.get($font-family, 'default')},
-  '3xl': #{map.get($font-size, '3xl') + '/' + map.get($line-height, '3xl')}
+  '3xl': #{map.get($font-size, '3xl') + '/' + map.get($line-height, 'xl')}
     #{map.get($font-family, 'default')},
   '2xl': #{map.get($font-size, '2xl') + '/' + map.get($line-height, 'xl')}
     #{map.get($font-family, 'default')},
@@ -174,20 +174,19 @@ $font-print: (
     map.get($line-height-print, '4xl')}
     #{map.get($font-family-print, 'default')},
   '5xl': #{map.get($font-size-print, '5xl') + '/' +
-    map.get($line-height-print, '5xl')}
+    map.get($line-height-print, '4xl')}
     #{map.get($font-family-print, 'default')},
   '4xl': #{map.get($font-size-print, '4xl') + '/' +
     map.get($line-height-print, '3xl')}
     #{map.get($font-family-print, 'default')},
   '3xl': #{map.get($font-size-print, '3xl') + '/' +
-    map.get($line-height-print, '3xl')}
-    #{map.get($font-family-print, 'default')},
+    map.get($line-height-print, 'xl')} #{map.get($font-family-print, 'default')},
   '2xl': #{map.get($font-size-print, '2xl') + '/' +
     map.get($line-height-print, 'xl')} #{map.get($font-family-print, 'default')},
   'xl': #{map.get($font-size-print, 'xl') + '/' +
-    map.get($line-height-print, 'xl')} #{map.get($font-family-print, 'default')},
-  'l': #{map.get($font-size-print, 'l') + '/' +
     map.get($line-height-print, 'l')} #{map.get($font-family-print, 'default')},
+  'l': #{map.get($font-size-print, 'l') + '/' +
+    map.get($line-height-print, 'm')} #{map.get($font-family-print, 'default')},
   'm': #{map.get($font-size-print, 'm') + '/' +
     map.get($line-height-print, 'm')} #{map.get($font-family-print, 'default')},
   's': #{map.get($font-size-print, 's') + '/' +
