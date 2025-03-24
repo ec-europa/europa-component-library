@@ -88,13 +88,24 @@ function LogoList({ system, set, color, language }) {
   return (
     <ul className={styles.logos}>
       {set === 'muted' ? (
-        <LogoCard
-          path={`/packages/${system}/images/logo/${mutedLogos[system].positive}`}
-          name="muted"
-          key="muted"
-          set={set}
-          color={color}
-        />
+        <>
+          <LogoCard
+            path={`/packages/${system}/images/logo/${mutedLogos[system].positive}`}
+            name="muted"
+            key="muted-positive"
+            set={set}
+            color="positive"
+          />
+          {system === 'ec' && (
+            <LogoCard
+              path={`/packages/${system}/images/logo/${mutedLogos[system].negative}`}
+              name="muted"
+              key="muted-negative"
+              set={set}
+              color="negative"
+            />
+          )}
+        </>
       ) : (
         logoFinal.map((logoName) => (
           <LogoCard
