@@ -33,6 +33,8 @@ npm install --save @ecl/site-header
   - "href_logged" (string) Link to the logout form
 - **"custom_action"** (associative array) (default: {}):
   - "link" (object) (default: predefined structure) predefined structure for the Link component
+  - "icon" (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
+    The name has to be non empty for the icon to be printed.
   - "overlay": (associative array) (optional):
     - "title": (string) (default: '') Overlay title
     - "close": (associative array) (default: {})

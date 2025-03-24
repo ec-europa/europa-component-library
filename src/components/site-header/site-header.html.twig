@@ -52,6 +52,12 @@
     - "custom_action" (associative array) (default: {}): optional custom link with optional popover, e.g.:
       {
         "link": (object) (default: predefined structure) predefined structure for the Link component
+        "icon" (associative array) OR (array) of associative arrays : format
+          {
+            name: (string) (default: ''),
+            extra_classes: (string) (default: 'ecl-link__icon'),
+            ...
+          }
         "overlay": (object) – if defined, we display a popover; otherwise it’s a simple link
           {
             "title": (string) (default: '')
