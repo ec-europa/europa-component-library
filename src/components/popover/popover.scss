@@ -59,7 +59,7 @@ $_arrow-size: 1rem;
 
 .ecl-popover__content {
   background-color: map.get($theme, 'color', 'white');
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   font: var(--f-m);
   line-height: map.get($popover, 'content-line-height');
   max-height: 11rem;

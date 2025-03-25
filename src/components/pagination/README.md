@@ -8,6 +8,7 @@ npm install --save @ecl/pagination
 
 ### Parameters
 
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"label"** (string) (default: ''): for screen reader
 - **"items"** (array) (default: []):
   - "type" (string) (default: ''): could be 'previous', 'current', 'next', 'truncation' (previous and next are always visible)

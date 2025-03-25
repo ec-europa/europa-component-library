@@ -2,9 +2,9 @@
 @use '../index' as *;
 
 $radio: (
-  box-background: map.get($color, 'white'),
-  box-border-color-checked: var(--c-p),
-  box-border-color: var(--c-d-80),
+  box-background: #fff,
+  box-border-color-checked: var(--cm-on-surface-primary),
+  box-border-color: var(--cm-border-brand),
   box-border-width: 1px,
   box-border-width-checked: 1px,
   box-inner-display: inline-block,
@@ -15,7 +15,7 @@ $radio: (
   help-text-font: var(--f-s),
   invalid-border-color: var(--c-er),
   invalid-border-color-hover: var(--c-er),
-  label-color: var(--c-d),
+  label-color: var(--cm-on-surface-brand),
   hover-circle: (
     height: 2.5rem,
     width: 2.5rem,

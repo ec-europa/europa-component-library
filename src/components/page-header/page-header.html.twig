@@ -1,6 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
+    - "color_mode" (string) (default: '') Name of the color mode
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of header
@@ -24,6 +25,7 @@
 
 {# Internal properties #}
 
+{% set _color_mode = color_mode|default('') %}
 {% set _title = title|default('') %}
 {% set _hide_title = hide_title|default(false) %}
 {% set _meta = meta|default([]) %}
@@ -49,6 +51,10 @@
 
 {% if (_title is empty or _hide_title) and _meta is empty %}
   {% set _info_classes = 'ecl-page-header__info--no-margin' %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
