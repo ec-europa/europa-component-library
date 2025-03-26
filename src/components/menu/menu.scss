@@ -643,17 +643,17 @@ $menu: null !default;
       }
 
       &[aria-expanded='true'] {
-        background-color: map.get($theme, 'color', 'white');
+        background-color: #fff;
 
         .ecl-menu__link {
-          background-color: map.get($theme, 'color', 'white');
+          background-color: #fff;
           margin-bottom: -2px;
           padding: map.get($menu, 'desktop', 'link-expanded-padding');
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
 
         .ecl-menu__button-caret {
-          background-color: map.get($theme, 'color', 'white');
+          background-color: #fff;
           margin-bottom: -2px;
           padding-bottom: 2px;
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
@@ -747,7 +747,7 @@ $menu: null !default;
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__mega {
-      background-color: map.get($theme, 'color', 'white');
+      background-color: #fff;
       border: map.get($menu, 'desktop', 'mega-border');
       border-radius: 0 0 map.get($menu, 'global', 'border-radius')
         map.get($menu, 'global', 'border-radius');
