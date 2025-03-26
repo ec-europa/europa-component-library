@@ -79,6 +79,9 @@ $radio: null !default;
         #{$property}: $value;
       }
     }
+  } @else {
+    outline: 2px solid var(--cm-on-surface-primary, var(--c-p));
+    outline-offset: 2px;
   }
 }
 
