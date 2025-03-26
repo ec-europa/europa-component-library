@@ -61,11 +61,11 @@ $form-group: null !default;
 }
 
 .ecl-form-label__optional {
-  color: var(--c-p);
+  color: var(--cm-on-surface-primary, var(--c-p));
 }
 
 .ecl-form-label__required {
-  color: var(--c-er);
+  color: var(--cm-on-surface-status-error, var(--c-er));
 }
 
 .ecl-form-label--hidden {

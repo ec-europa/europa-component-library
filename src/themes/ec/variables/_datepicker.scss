@@ -2,24 +2,24 @@
 @use '../index' as *;
 
 $datepicker: (
-  input-icon-color: var(--c-d-75),
+  input-icon-color: var(--cm-on-surface-brand),
   picker: (
     font: var(--f-s),
     border-radius: 2px,
     shadow: var(--sh-2),
-    theme-color: var(--c-d),
+    theme-color: var(--cm-on-surface-brand),
     margin-top: var(--s-2xs),
     padding: var(--s-m),
-    background-color: map.get($color, 'white'),
+    background-color: var(--cm-surface-inverted),
     title-padding: var(--s-2xs),
-    select-border: 1px solid var(--c-d-80),
+    select-border: 1px solid var(--cm-border-brand),
     table-spacing: 0,
     thead-margin: var(--s-2xs),
     day-hover-background: var(--c-p-20),
     day-hover-shadow: inset 0 0 0 1px var(--c-d-80),
-    day-selected-background: var(--c-p),
-    day-outside-color: var(--c-d-80),
-    day-outside-background: map.get($color, 'white'),
-    day-today-color: var(--c-p),
+    day-selected-background: var(--cm-on-surface-primary),
+    day-outside-color: var(--cm-on-surface-brand-medium),
+    day-outside-background: var(--cm-surface-inverted),
+    day-today-color: var(--cm-on-surface-primary),
   ),
 );
