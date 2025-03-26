@@ -11,7 +11,7 @@ $theme: null !default;
 $site-header: null !default;
 $language-list: null !default;
 
-@use 'site-header-language-switcher' with (
+@use 'site-header-dropdown' with (
   $theme: $theme,
   $language-switcher: map.get($site-header, 'language-switcher'),
   $language-list: $language-list
@@ -218,7 +218,7 @@ $language-list: null !default;
   width: 100%;
 
   &::before {
-    @include site-header-language-switcher.arrow-up;
+    @include site-header-dropdown.arrow-up;
 
     left: auto;
     right: var(--ecl-login-arrow-position);
@@ -229,6 +229,7 @@ $language-list: null !default;
   }
 }
 
+.ecl-site-header__custom-action-toggle,
 .ecl-site-header__language-selector,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle {
@@ -238,9 +239,31 @@ $language-list: null !default;
   font: var(--f-ui-m);
   justify-content: center;
 
+  &.ecl-link {
+    color: var(--c-d);
+    border-radius: 4px;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    .ecl-link__label {
+      margin: 0;
+    }
+  }
+
   &:active,
   &[aria-expanded='true'] {
     background-color: var(--c-p-20);
+  }
+}
+
+.ecl-site-header__custom-action-toggle {
+  .ecl-link__icon-container {
+    .ecl-site-header__icon {
+      margin-inline-end: 0;
+    }
   }
 }
 
@@ -250,7 +273,7 @@ $language-list: null !default;
 
   @include breakpoints.down('m') {
     &::before {
-      @include site-header-language-switcher.arrow-up;
+      @include site-header-dropdown.arrow-up;
 
       left: auto;
       right: var(--ecl-search-arrow-position);
@@ -275,6 +298,7 @@ $language-list: null !default;
   margin-top: var(--s-m);
 }
 
+.ecl-site-header__custom-action-icon,
 .ecl-site-header__language-icon {
   align-items: center;
   display: flex;
@@ -314,12 +338,23 @@ $language-list: null !default;
 // stylelint-enable plugin/selector-bem-pattern
 
 @include breakpoints.down('m') {
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
     font-size: 0;
     line-height: 0;
     padding: calc(var(--s-xs) - 1px) 0;
+
+    &.ecl-link {
+      .ecl-link__label {
+        display: none;
+      }
+    }
+
+    .ecl-link__icon-container {
+      margin-inline-start: 0;
+    }
 
     .ecl-icon {
       height: 1.5rem;
@@ -457,6 +492,7 @@ $language-list: null !default;
     }
   }
 
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-selector {
     .ecl-site-header__icon {
