@@ -194,7 +194,7 @@ $overflow-height: 2rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-modal__container {
-    margin: 0 var(--s-3xl);
+    margin: 0 map.get($modal, 'body', 'container-spacing-top');
   }
 
   .ecl-modal__header {

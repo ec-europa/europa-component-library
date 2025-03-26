@@ -29,12 +29,12 @@ $navigation-list: null !default;
 @include breakpoints.up('l') {
   .ecl-navigation-list--col-2 {
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: var(--s-3xl);
+    grid-row-gap: map.get($navigation-list, 'grid-row-gap');
   }
 
   .ecl-navigation-list--col-3 {
     grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: var(--s-3xl);
+    grid-row-gap: map.get($navigation-list, 'grid-row-gap');
   }
 }
 

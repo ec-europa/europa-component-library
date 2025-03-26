@@ -861,7 +861,7 @@ $mega-menu: null !default;
 .ecl-mega-menu__mega--level-2 {
   @include with-scrollbar;
 
-  margin-top: var(--s-3xl);
+  margin-top: map.get($mega-menu, 'mobile', 'spacing-top-level-2');
   margin-inline-start: calc(-1 * var(--s-xs));
   margin-inline-end: calc(-1 * var(--s-xs));
 

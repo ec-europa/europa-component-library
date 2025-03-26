@@ -740,7 +740,7 @@ $menu: null !default;
 }
 
 .ecl-menu__see-all {
-  margin-top: var(--s-3xl);
+  margin-top: map.get($menu, 'mobile', 'see-all-spacing-top');
 }
 
 /* stylelint-disable-next-line order/order */
