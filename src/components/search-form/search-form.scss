@@ -15,7 +15,7 @@ $search-form: null !default;
 $button-border-width: 1px;
 
 .ecl-search-form {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: #fff;
   display: flex;
   margin: 0;
   position: relative;
@@ -55,7 +55,7 @@ $button-border-width: 1px;
   position: relative;
 
   &.ecl-button--ghost:not(:hover, :focus-visible) {
-    background-color: map.get($theme, 'color', 'white');
+    background-color: #fff;
   }
 
   &::before {
