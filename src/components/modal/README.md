@@ -15,7 +15,6 @@ npm install --save @ecl/modal
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
 - **"close"** (object of type "button") (default: {}): close button; label has to be provided for screen reader
-- **"header_icon"** (associative array) (default: {}): Optional icon in the header, following ECL Icon structure
 - **"buttons"** (array) (default: {}) Array of ECL Button, displayed in the modal footer
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

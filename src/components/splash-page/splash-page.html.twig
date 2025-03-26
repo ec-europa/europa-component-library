@@ -44,8 +44,8 @@
 {% set _title = title|default('') %}
 {% set _eu_category = eu_category|default('') %}
 {% set _non_eu_category = non_eu_category|default('') %}
-{% set _items = items|default('') %}
-{% set _non_eu_items = non_eu_items|default('') %}
+{% set _items = items|default([]) %}
+{% set _non_eu_items = non_eu_items|default([]) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}

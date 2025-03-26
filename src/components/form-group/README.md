@@ -17,6 +17,7 @@ npm install --save @ecl/form-group
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
+- **"sr_invalid_icon"** (string) (default: ''): additional label for the invalid icon; for screen readers
 - **"label_aria_required"** (string) (default: ''): aria text for the required field label; if the required label is not explicit
 - **"label_aria_optional"** (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
 - **"extra_label_classes"** (optional) (string) (default: '') Extra classes for the label

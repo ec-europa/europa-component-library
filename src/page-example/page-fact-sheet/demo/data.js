@@ -12,7 +12,6 @@ import dataListIllustrationIcon from '@ecl/list-illustration/demo/data--icon';
 import dataListIllustrationImage from '@ecl/list-illustration/demo/data--image';
 import dataBlockquote from '@ecl/blockquote/demo/data';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
-import dataFeaturedItemHighlight from '@ecl/featured-item/demo/data--highlight';
 import dataTable from '@ecl/table/demo/data--multi';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
 import dataFactFigures from '@ecl/fact-figures/demo/data';
@@ -95,9 +94,8 @@ delete featuredItemRight.footer_description;
 delete featuredItemRight.footer_link;
 delete featuredItemRight.footer_picture;
 
-const featuredItemHighlight = JSON.parse(
-  JSON.stringify(dataFeaturedItemHighlight),
-);
+const featuredItemHighlight = JSON.parse(JSON.stringify(dataFeaturedItem));
+featuredItemHighlight.type = 'highlight';
 delete featuredItemHighlight.footer_description;
 delete featuredItemHighlight.footer_link;
 delete featuredItemHighlight.footer_picture;
