@@ -124,6 +124,13 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+### Featured item
+
+- Variant `simple` has been removed (deprecated in v4)
+- Featured item footer has been removed, as it is no longer in use.
+- Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
+- New parameter `link-highlighted` to have a different display for the link
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of image with an associated link, instead of an img and then a list of links.
