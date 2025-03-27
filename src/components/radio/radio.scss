@@ -79,9 +79,18 @@ $radio: null !default;
         #{$property}: $value;
       }
     }
-  } @else {
-    outline: 2px solid var(--cm-on-surface-primary, var(--c-p));
-    outline-offset: 2px;
+  }
+}
+
+@if map.has-key($radio, 'hover-effect') {
+  .ecl-radio__input:checked ~ .ecl-radio__label:hover {
+    .ecl-radio__box {
+      border-color: map.get($radio, 'hover-effect', 'color');
+
+      .ecl-radio__box-inner {
+        background: map.get($radio, 'hover-effect', 'color');
+      }
+    }
   }
 }
 
