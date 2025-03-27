@@ -18,27 +18,13 @@ $language-list: null !default;
 );
 
 .ecl-site-header {
+  background-color: map.get($site-header, 'background-color');
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
 
   .ecl-site-header__inner {
     box-shadow: var(--sh-2);
-  }
-
-  .ecl-site-header__background {
-    background-color: map.get($site-header, 'background-color');
-    background-image: url('data:image/svg+xml;base64,' + map.get(
-        $site-header,
-        'background-image'
-      ));
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-  }
-
-  &.ecl-site-header--rtl .ecl-site-header__background {
-    background-position: left bottom;
   }
 
   .ecl-menu,
@@ -231,20 +217,18 @@ $language-list: null !default;
 }
 
 .ecl-site-header__notification {
-  background-color: var(--c-bg);
-  border-top: 1px solid var(--c-n-60);
   display: flex;
 
   .ecl-notification {
     background: map.get($theme, 'color', 'white');
-    margin: var(--s-xl) 0;
+    margin: 0 0 var(--s-xl);
   }
 }
 
 .ecl-site-header__banner-top {
-  background: var(--c-n-40);
-  border-top: 1px solid var(--c-n);
-  font: var(--f-m);
+  border-top: 1px solid var(--cm-border-neutral);
+  box-shadow: var(--sh-2);
+  font: var(--f-s);
   padding: var(--s-xs) 0;
 }
 
@@ -506,6 +490,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__banner {
+    background: var(--cm-surface-neutral-lowest);
     box-shadow: none;
     font: var(--f-3xl);
     min-height: 0;
