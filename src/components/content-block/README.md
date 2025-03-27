@@ -9,8 +9,8 @@ npm install --save @ecl/content-block
 ### Parameters
 
 - **labels** (array) (default: []): Array of ECL Labels
-- **labels_aria** (strings) (default: ''): Aria label for the labels area
-- **primary_meta** (array of strings) (default: []): Primary meta of the content block
+- **labels_aria** (string) (default: ''): Aria label for the labels area
+- **primary_meta** (array of string) (default: []): Primary meta of the content block
 - **title** (associative array OR string) (default: {}): Title of the content block, following ECL Link structure
 - **description** (string) (default: ''): Description of the content block
 - **secondary_meta** (array) (default: []): format: [

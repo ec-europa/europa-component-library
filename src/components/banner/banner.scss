@@ -40,7 +40,7 @@ $banner: null !default;
 
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
-  color: var(--cm-on-surface-dark, var(--c-d));
+  color: var(--cm-on-surface-brand, var(--c-d));
   font: map.get($banner, 'font', 'credit');
   padding-bottom: var(--s-2xs);
   padding-top: var(--s-2xs);
@@ -135,7 +135,7 @@ $banner: null !default;
 .ecl-banner__play.ecl-button--icon-only,
 .ecl-banner__pause.ecl-button--icon-only {
   align-items: center;
-  background-color: var(--cm-on-surface-dark, var(--c-d));
+  background-color: var(--cm-on-surface-brand, var(--c-d));
   border: none;
   border-radius: 50%;
   bottom: calc(var(--s-m) + var(--banner-footer-height));
@@ -154,8 +154,8 @@ $banner: null !default;
   &:focus-visible {
     background-color: #fff;
     border: none;
-    color: var(--cm-on-surface-dark, var(--c-d));
-    outline-color: var(--cm-on-surface-dark, var(--c-d));
+    color: var(--cm-on-surface-brand, var(--c-d));
+    outline-color: var(--cm-on-surface-brand, var(--c-d));
     padding: 0;
   }
 

@@ -8,9 +8,8 @@ npm install --save @ecl/skip-link
 
 ### Parameters
 
-- **"link"** (associative array) (default: 'predefined structure below')
-  - "label" (string) (default: '') - Content of link
-  - "href" (string) (default: '') - href attribute
+- **"label"** (string) (default: '') - Content of link
+- **"href"** (string) (default: '') - href attribute
 
 ### Example:
 

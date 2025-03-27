@@ -10,7 +10,7 @@ npm install --save @ecl/file
 
 - **"id"** (string) (default: random string)
 - **"icon"** (object) (default: {}): object of type Icon; file type
-- **"variant"** (string) (default: '') Thumbnail
+- **"variant"** (string) (default: 'default') Name of the variant [default, thumbnail]
 - **"title"** (string|object) (default: '') Title as plain text or link object
 - **"description"** (string) (default: '')
 - **"language"** (string) (default: '')
@@ -27,6 +27,7 @@ npm install --save @ecl/file
     - term (string)
 - **"translation"** (array) (default: []):
   - "toggle" (object) (default: {}): object of type Button
+  - "download_attribute" (bool) (default to false)
   - "items" (array) (default: []):
     - "title" (string) (default: '')
     - "meta" (string) (default: '')
