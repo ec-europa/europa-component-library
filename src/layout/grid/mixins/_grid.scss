@@ -19,8 +19,8 @@ $theme: null !default;
     @include breakpoints.up($breakpoint) {
       $gutter: map.get($gutters, $breakpoint);
 
-      padding-inline-start: ($gutter * 0.5);
-      padding-inline-end: ($gutter * 0.5);
+      padding-inline-start: ($gutter);
+      padding-inline-end: ($gutter);
     }
   }
 }
