@@ -238,7 +238,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'News, policies, information and services',
+  site_name: 'European Commission',
   cta_link: {
     link: {
       label: 'CTA link',
@@ -254,7 +254,7 @@ module.exports = {
   icon_path: '/icons.svg',
   banner_top: {
     link: {
-      label: 'Class name',
+      label: 'Aid, Development cooperation, Fundamental rights',
       path: exampleLink,
     },
   },

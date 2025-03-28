@@ -19,6 +19,7 @@ $language-list: null !default;
 
 .ecl-site-header {
   background-color: map.get($site-header, 'background-color');
+  box-shadow: var(--sh-2);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -60,7 +61,6 @@ $language-list: null !default;
 }
 
 .ecl-site-header__header {
-  box-shadow: var(--sh-2);
   position: relative;
   z-index: 54;
 }
@@ -227,13 +227,12 @@ $language-list: null !default;
 
 .ecl-site-header__banner-top {
   border-top: 1px solid var(--cm-border-neutral);
-  box-shadow: var(--sh-2);
   font: var(--f-s);
   padding: var(--s-xs) 0;
 }
 
 .ecl-site-header__banner {
-  background-color: map.get($site-header, 'banner-background');
+  background: var(--cm-surface-neutral-lowest);
   color: map.get($site-header, 'banner-text-color');
   display: block;
   font: var(--f-2xl);
@@ -244,10 +243,6 @@ $language-list: null !default;
     display: flex;
     flex-direction: column;
   }
-}
-
-.ecl-site-header__site-name {
-  margin-inline-end: var(--s-3xl);
 }
 
 // Menu display and position
@@ -328,8 +323,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
 @include breakpoints.up('l') {
   .ecl-site-header {
-    box-shadow: var(--sh-2);
-
     .ecl-site-header__cta {
       align-self: center;
       margin: 0;
@@ -490,7 +483,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__banner {
-    background: var(--cm-surface-neutral-lowest);
     box-shadow: none;
     font: var(--f-3xl);
     min-height: 0;
