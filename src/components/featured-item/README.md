@@ -9,22 +9,17 @@ npm install --save @ecl/featured-item
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"type"** (string) (default: '') - Featured item type ('highlight'),
+- **"type"** (string) (default: '') - Featured item type (can be 'highlight'),
 - **"title"** (string) (default: '') - Title of the content opposite the media container,
 - **"description"** (string) (default: '') - Description of the content opposite the media container,
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
+- **"link_highlighted"** (bool) (default: false): display the link as highlighted
 - **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
 - **"position"** (string) (default: 'left') - Media position
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'.
-
-### Deprecated:
-
-- **"footer_description"** (string) (default: ''): short description in the footer
-- **"footer_link"** (object) (default: {}): call to action link in the footer; type Link
-- **"footer_picture"** (object) (default: {}): picture in the footer; type Picture
 
 ### Example for featured item:
 
