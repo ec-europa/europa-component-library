@@ -8,7 +8,7 @@ import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataBannerVideo from '@ecl/banner/demo/data--video';
 import dataCard from '@ecl/card/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--event';
-import dataFeaturedItem from '@ecl/featured-item/demo/data--highlight';
+import dataFeaturedItem from '@ecl/featured-item/demo/data';
 import dataNavigationList from '@ecl/navigation-list/demo/data-illustration';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
@@ -38,6 +38,7 @@ delete dataContentItem.labels;
 delete dataContentItem.labels_aria;
 delete dataContentItem.lists;
 
+dataFeaturedItem.type = 'highlight';
 delete dataFeaturedItem.footer_description;
 delete dataFeaturedItem.footer_link;
 delete dataFeaturedItem.footer_picture;
