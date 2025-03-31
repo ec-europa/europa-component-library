@@ -107,6 +107,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__action {
+  align-items: center;
   align-self: flex-end;
   display: flex;
 
@@ -165,6 +166,12 @@ $language-list: null !default;
   padding: var(--s-3xl) var(--s-m);
   position: absolute;
   z-index: map.get($theme, 'z-index', 'modal') + 1;
+
+  .ecl-search-form__button,
+  .ecl-search-form__text-input,
+  .ecl-search-form__text-input::placeholder {
+    font: var(--f-s);
+  }
 }
 
 .ecl-site-header__login-box {
@@ -436,7 +443,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     align-items: center;
     display: flex;
     flex-direction: row;
-    font: var(--f-m);
+    font: var(--f-s);
 
     .ecl-site-header__icon {
       flex-shrink: 0;
