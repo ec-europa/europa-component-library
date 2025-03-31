@@ -58,8 +58,7 @@ $banner-print: null !default;
 }
 
 .ecl-banner .ecl-container {
-  padding-inline-start: map.get($theme, 'spacing-print', '2xl');
-  padding-inline-end: map.get($theme, 'spacing-print', '2xl');
+  padding-inline: map.get($banner-print, 'container-padding-inline');
   position: absolute;
   z-index: 1;
 }
