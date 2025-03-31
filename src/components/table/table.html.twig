@@ -1,6 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
   - "id" (string) (default: random): unique id for the table; randomly generated if empty
   - "simple" (boolean) (default: false)
   - "sortable" (boolean) (default: false)
@@ -46,6 +47,7 @@
 
 {# Internal properties #}
 
+{% set _color_mode = color_mode|default('') %}
 {% set _id = id|default('ecl-table-' ~ random()) %}
 {% set _css_class = 'ecl-table' %}
 {% set _extra_attributes = '' %}
@@ -76,6 +78,10 @@
     { name: 'data-ecl-auto-init', value: 'Table' },
     { name: 'data-ecl-table-sort-label', value: _label_sort }
   ]) %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if _simple %}
