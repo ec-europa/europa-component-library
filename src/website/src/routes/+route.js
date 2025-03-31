@@ -6,7 +6,7 @@ const metaEc = metaEcModule.default || metaEcModule;
 const metaEu = metaEuModule.default || metaEuModule;
 
 export default function route(url) {
-  const urlStr = typeof url === 'string' ? url : url.pathname || '';
+  const urlStr = `${(url.urlPathname || '').replace(/\/+$/, '')}/`;
 
   if (urlStr === '/' || urlStr === '' || urlStr === '/index') {
     return { match: true };
