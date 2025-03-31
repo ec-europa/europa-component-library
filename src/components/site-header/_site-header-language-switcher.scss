@@ -13,12 +13,12 @@ $language-list: null !default;
 
 @mixin with-scrollbar {
   overflow-y: auto;
-  scrollbar-color: var(--c-n) rgba(0, 0, 0, 0);
+  scrollbar-color: var(--cm-surface-medium, var(--c-n)) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
 }
 
 @mixin arrow-up {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   border: map.get($language-switcher, 'arrow-border');
   box-shadow: map.get($language-switcher, 'arrow-shadow');
   clip-path: polygon(
@@ -44,7 +44,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__language-container {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   box-shadow: map.get($language-switcher, 'shadow');
   color: map.get($language-list, 'color');
   font: var(--f-m);

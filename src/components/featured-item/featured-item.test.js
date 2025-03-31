@@ -6,8 +6,9 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContent from './demo/data';
-import demoContentSimple from './demo/data--simple';
-import demoContentHighlight from './demo/data--highlight';
+
+const demoContentSimple = { ...demoContent, type: 'simple' };
+const demoContentHighlight = { ...demoContent, type: 'highlight' };
 
 expect.extend(toHaveNoViolations);
 
