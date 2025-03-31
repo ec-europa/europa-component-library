@@ -60,6 +60,7 @@ $menu: null !default;
   }
 
   &:hover {
+    background-color: map.get($menu, 'mobile', 'open-background-hover');
     text-decoration: underline;
   }
 
@@ -74,6 +75,10 @@ $menu: null !default;
 
 .ecl-menu[data-expanded] .ecl-menu__open {
   background-color: map.get($menu, 'mobile', 'open-background-active');
+
+  &:hover {
+    background-color: map.get($menu, 'mobile', 'open-background-hover');
+  }
 
   .ecl-icon:first-of-type {
     display: none;

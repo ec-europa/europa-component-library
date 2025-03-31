@@ -69,6 +69,7 @@ $mega-menu: null !default;
   }
 
   &:hover {
+    background-color: map.get($mega-menu, 'mobile', 'open-background-hover');
     text-decoration: underline;
   }
 
