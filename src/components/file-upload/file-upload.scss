@@ -25,7 +25,7 @@ $file-upload: null !default;
 }
 
 .ecl-file-upload__list {
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   font: var(--f-m);
   list-style: none;
   margin-bottom: 0;
@@ -63,6 +63,6 @@ $file-upload: null !default;
 .ecl-file-upload:focus-visible
   + .ecl-file-upload__button-container
   .ecl-file-upload__button {
-  outline: 1px solid map.get($theme, 'color', 'white');
+  outline: 1px solid #fff;
   outline-offset: -3px;
 }
