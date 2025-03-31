@@ -26,22 +26,18 @@ const pagesToRoutes = (pages) => {
     const filePath = `../pages/ec${page.key.slice(1)}`;
     page.document =
       allDocs[filePath]?.default || (() => <div>Not found: {filePath}</div>);
-
-    // Smart URL—handle /docs/ only when present
-    let url = `${page.key.replace(/^\.\//, '/').replace(/\/index\.(md|mdx)$/, '')}`;
-    if (url.includes('/docs/')) {
-      url = url.replace(/\/docs\//, '/').replace(/\.(md|mdx)$/, '');
-    }
-    url = url.endsWith('/') ? url : `${url}/`;
+    const pagePath = page.attributes.url.slice(3);
 
     if (page.attributes && page.attributes.defaultTab) {
       // Wrap the Navigate inside a state change or effect to ensure it only runs after the initial render
       routes.push(
         <Route
           key={`${page.key}-default`}
-          path={url}
+          path={pagePath}
           element={
-            <DelayedNavigate url={`${url}${page.attributes.defaultTab}/`} />
+            <DelayedNavigate
+              url={`${pagePath}${page.attributes.defaultTab}/`}
+            />
           }
         />,
       );
@@ -50,11 +46,12 @@ const pagesToRoutes = (pages) => {
     routes.push(
       <Route
         key={page.key}
-        path={url}
+        path={pagePath}
         element={<DocPage component={page} />}
       />,
     );
   });
+
   return routes;
 };
 
@@ -72,7 +69,7 @@ DelayedNavigate.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-const routes = pagesToRoutes(sortedPages, '/ec');
+const routes = pagesToRoutes(sortedPages);
 
 export default function ECRoutes() {
   return (
