@@ -58,7 +58,7 @@ $banner-print: null !default;
 }
 
 .ecl-banner .ecl-container {
-  padding-inline: map.get($banner-print, 'container-padding-inline');
+  padding-inline: map.get($banner-print, 'container-padding-horizontal');
   position: absolute;
   z-index: 1;
 }
