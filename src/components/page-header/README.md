@@ -8,7 +8,6 @@ npm install --save @ecl/page-header
 
 ### Parameters
 
-- **"color_mode"** (string) (default: '') Name of the color mode
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
 - **"description"** (string) (default: '') Description of header
