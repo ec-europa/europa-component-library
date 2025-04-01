@@ -8,7 +8,7 @@ npm install --save @ecl/blockquote
 
 ## Parameters
 
-- **"color_mode"** (string) (default: '')
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"citation"** (string) (default: '')
 - **"author"** (string) (default: '')
 - **"lang"** (string) (default: 'en')
