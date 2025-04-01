@@ -8,7 +8,6 @@ npm install --save @ecl/news-ticker
 
 ### Parameters:
 
-- **"color_mode"** (string) (default: '') Name of the color mode
 - **"id"** (string) (default: '')
 - **"items"** (array) (default: []) slide items
   - "content" (string)

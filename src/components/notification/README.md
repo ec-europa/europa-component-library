@@ -8,7 +8,6 @@ npm install --save @ecl/notification
 
 ### Parameters:
 
-- **"color_mode"** (string) (default: '') Name of the color mode
 - **"variant"** (string) (default: 'info'): could be 'info, 'success', 'warning' or 'error'
 - **"icon"** (object of type "icon") (default: {})
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
