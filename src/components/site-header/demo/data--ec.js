@@ -238,7 +238,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'News, policies, information and services',
+  site_name: 'European Commission',
   cta_link: {
     link: {
       label: 'CTA link',
