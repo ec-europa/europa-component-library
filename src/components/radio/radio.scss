@@ -82,13 +82,13 @@ $radio: null !default;
   }
 }
 
-@if map.has-key($radio, 'hover-effect') {
+@if map.has-key($radio, 'hover-effect-color') {
   .ecl-radio__input:checked ~ .ecl-radio__label:hover {
     .ecl-radio__box {
-      border-color: map.get($radio, 'hover-effect', 'color');
+      border-color: map.get($radio, 'hover-effect-color');
 
       .ecl-radio__box-inner {
-        background: map.get($radio, 'hover-effect', 'color');
+        background: map.get($radio, 'hover-effect-color');
       }
     }
   }

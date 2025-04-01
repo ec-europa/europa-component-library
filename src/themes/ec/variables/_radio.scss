@@ -20,11 +20,9 @@ $radio: (
       var(--c-er)
     ),
   label-color: var(--c-d),
-  hover-effect: (
-    color: color-mix(
-        in srgb,
-        var(--cm-surface-dark) 50%,
-        var(--cm-on-surface-primary)
-      ),
-  ),
+  hover-effect-color: color-mix(
+      in srgb,
+      var(--cm-surface-dark) 50%,
+      var(--cm-on-surface-primary)
+    ),
 );
