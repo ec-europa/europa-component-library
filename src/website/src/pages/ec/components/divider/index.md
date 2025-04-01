@@ -1,8 +1,8 @@
 ---
-title: Separator
+title: Divider
 defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/components-separator--default
+  path: /story/components-divider--default
 ---

@@ -5,7 +5,7 @@ import separator from './separator.html.twig';
 import notes from './README.md';
 
 export default {
-  title: 'Components/Separator',
+  title: 'Components/Divider',
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
@@ -28,7 +28,7 @@ Default.render = async () => {
     ${await separator()}
     <ol class="ecl-ordered-list">
       <li class="ecl-ordered-list__item">Ordered list</li>
-      <li class="ecl-ordered-list__item">Ordered list <ol>
+      <li class="ecl-ordered-list__item">Ordered list
         <ol class="ecl-ordered-list">
           <li class="ecl-ordered-list__item">Nested ordered list</li>
           <li class="ecl-ordered-list__item">Nested ordered list</li>
