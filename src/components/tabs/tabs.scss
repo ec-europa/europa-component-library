@@ -175,7 +175,7 @@ $button-width: 44px;
 }
 
 .ecl-tabs__dropdown {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-on-surface-inverted, #fff);
   box-shadow: map.get($tabs, 'dropdown', 'shadow');
   max-height: 233px;
   max-width: 100%;
@@ -232,7 +232,7 @@ $button-width: 44px;
 .ecl-tabs__prev,
 .ecl-tabs__next {
   align-items: center;
-  background: map.get($theme, 'color', 'white');
+  background: var(--cm-on-surface-inverted, #fff);
   position: absolute;
   top: 0;
   height: $button-width;
@@ -243,7 +243,7 @@ $button-width: 44px;
   }
 
   &:focus-visible {
-    background: map.get($theme, 'color', 'white');
+    background: var(--cm-on-surface-inverted, #fff);
   }
 }
 
