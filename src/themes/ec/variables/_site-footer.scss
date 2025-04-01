@@ -5,10 +5,6 @@
 $site-footer: (
   background: var(--cm-surface-brand),
   color: var(--cm-on-surface-inverted),
-  separator-color: #{color-mix(
-      in srgb,
-      var(--cm-border-neutral-medium) 80%,
-      transparent
-    )},
+  separator-color: var(--cm-border-on-brand),
   column-gap: map.get($grid-gutter-width, 'm'),
 );

@@ -18,7 +18,7 @@ $social-media-follow: null !default;
 }
 
 .ecl-social-media-follow__description {
-  color: var(--c-d);
+  color: map.get($social-media-follow, 'title-color');
   font: var(--f-m);
   font-weight: map.get($social-media-follow, 'title-font-weight');
   margin-bottom: var(--s-s);
@@ -54,7 +54,7 @@ $social-media-follow: null !default;
 
 // Icon
 .ecl-social-media-follow__icon {
-  color: var(--c-d);
+  color: map.get($social-media-follow, 'icon-color');
   flex-shrink: 0;
   top: 0 !important;
 }
@@ -83,11 +83,6 @@ $social-media-follow: null !default;
 
 // Vertical
 .ecl-social-media-follow--vertical {
-  @include ecl-social-media-follow-vertical;
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.down('s') {
   @include ecl-social-media-follow-vertical;
 }
 
