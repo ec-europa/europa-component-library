@@ -4,35 +4,25 @@
 $checkbox: (
   border-color: var(--cm-border-brand),
   background: var(--cm-surface-inverted),
-  box-background-checked-hover: var(--cm-surface-primary),
+  box-background-checked-hover: color-mix(
+      in srgb,
+      var(--cm-surface-primary) 50%,
+      var(--cm-surface-dark)
+    ),
   box-size: 1.5rem,
   box-margin-top: 0,
   help-text-color: var(--cm-on-surface-brand),
   help-text-font: var(--f-s),
   invalid-border-color: var(--cm-border-status-error),
-  invalid-border-color-hover: var(--cm-border-status-error),
+  invalid-border-color-hover: color-mix(
+      in srgb,
+      var(--cm-border-status-error) 50%,
+      var(--cm-surface-dark)
+    ),
   label-color: var(--cm-on-surface-brand),
   box-border-color-checked: var(--cm-border-primary),
   box-background-checked: var(--cm-border-primary),
   border-width: 1px,
   border-radius: map.get($border-radius, 's'),
   checkbox-fill: var(--cm-surface-inverted),
-  hover-circle: (
-    height: 100%,
-    width: 100%,
-    content: '',
-    display: block,
-    position: absolute,
-    top: 50%,
-    left: 50%,
-    transform: translate(-50%, -50%),
-    background-color: color-mix(
-        in srgb,
-        var(--cm-surface-dark) 50%,
-        transparent
-      ),
-    border: 1px solid
-      color-mix(in srgb, var(--cm-surface-dark) 50%, transparent),
-    border-radius: map.get($border-radius, 's'),
-  ),
 );
