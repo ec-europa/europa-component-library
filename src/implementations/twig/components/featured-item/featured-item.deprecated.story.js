@@ -94,7 +94,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Featured item/Deprecated',
+  title: 'Components/Deprecated/Featured item',
   decorators: [withNotes, withCode],
 };
 
