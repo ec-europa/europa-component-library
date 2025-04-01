@@ -1,5 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
@@ -10,12 +12,21 @@ import notes from './README.md';
 // Preserve original data
 const dataZebra = { ...dataDefault, zebra: true };
 
-const getArgs = () => ({
-  header: true,
-  simple: false,
-});
+const getArgs = () => {
+  const args = {
+    header: true,
+    simple: false,
+  };
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
+  return args;
+};
 
 const getArgTypes = () => ({
+  ...getColorModeControls(),
   header: {
     name: 'header',
     type: { name: 'boolean' },
