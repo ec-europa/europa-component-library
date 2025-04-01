@@ -436,7 +436,11 @@ $menu: null !default;
         padding-inline-end: 0;
       }
 
-      &:not(.ecl-menu__items-previous, .ecl-menu__items-next):hover,
+      &:not(
+          .ecl-menu__item--current,
+          .ecl-menu__items-previous,
+          .ecl-menu__items-next
+        ):hover,
       &:not(.ecl-menu__item--current):focus-within {
         background-color: map.get($menu, 'desktop', 'item-background-hover');
         box-shadow: map.get($menu, 'desktop', 'item-shadow-hover');
@@ -463,10 +467,13 @@ $menu: null !default;
       width: 1px;
     }
 
-    // Hide separators in some cases
     .ecl-menu__item--current:not(.ecl-menu__items-next)::before,
     .ecl-menu__item--current
-      + .ecl-menu__item:not(.ecl-menu__items-next)::before,
+      + .ecl-menu__item:not(.ecl-menu__items-next)::before {
+      background-color: map.get($menu, 'desktop', 'item-current-border');
+    }
+
+    // Hide separators in some cases
     .ecl-menu__item:hover:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:hover + .ecl-menu__item:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:focus-within:not(.ecl-menu__items-next)::before,
@@ -633,6 +640,10 @@ $menu: null !default;
       }
     }
 
+    .ecl-menu__item--current .ecl-menu__link {
+      font-weight: map.get($menu, 'desktop', 'item-current-font-weight');
+    }
+
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__item--current .ecl-menu__button-caret,
     .ecl-menu__link:active {
@@ -648,7 +659,7 @@ $menu: null !default;
       }
 
       &[aria-expanded='true'] {
-        background-color: #fff;
+        background-color: transparent;
 
         .ecl-menu__link {
           background-color: #fff;
