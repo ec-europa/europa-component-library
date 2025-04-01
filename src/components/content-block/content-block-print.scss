@@ -44,7 +44,7 @@ $content-block: null !default;
 }
 
 .ecl-content-block__primary-meta-item {
-  border-inline-end: 1px solid var(--c-p);
+  border-inline-end: 1px solid var(--cm-on-surface-brand, var(--c-p));
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
   margin-inline-end: map.get($theme, 'spacing-print', 'm');
   padding-inline-end: map.get($theme, 'spacing-print', 'm');
