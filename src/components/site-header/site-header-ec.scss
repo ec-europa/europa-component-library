@@ -11,7 +11,7 @@ $theme: null !default;
 $site-header: null !default;
 $language-list: null !default;
 
-@use 'site-header-language-switcher' with (
+@use 'site-header-dropdown' with (
   $theme: $theme,
   $language-switcher: map.get($site-header, 'language-switcher'),
   $language-list: $language-list
@@ -144,6 +144,7 @@ $language-list: null !default;
   text-transform: uppercase;
 }
 
+.ecl-site-header__custom-action-toggle,
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle,
 .ecl-site-header__language-selector {
@@ -163,6 +164,24 @@ $language-list: null !default;
   &:active,
   &[aria-expanded='true'] {
     background-color: var(--cm-surface-neutral-low);
+  }
+}
+
+.ecl-site-header__custom-action-toggle {
+  &:hover {
+    text-decoration: none;
+    color: map.get($site-header, 'toggle-color');
+  }
+
+  .ecl-link__icon-container {
+    .ecl-site-header__icon {
+      margin-inline-end: 0;
+    }
+  }
+
+  .ecl-indicator:not(:empty) {
+    left: -18px;
+    right: auto;
   }
 }
 
@@ -188,7 +207,7 @@ $language-list: null !default;
   width: 100%;
 
   &::before {
-    @include site-header-language-switcher.arrow-up;
+    @include site-header-dropdown.arrow-up;
 
     left: auto;
     right: var(--ecl-login-arrow-position);
@@ -212,6 +231,7 @@ $language-list: null !default;
   margin-top: var(--s-m);
 }
 
+.ecl-site-header__custom-action-icon,
 .ecl-site-header__language-icon {
   align-items: center;
   display: flex;
@@ -223,7 +243,7 @@ $language-list: null !default;
   display: flex;
 
   &::before {
-    @include site-header-language-switcher.arrow-up;
+    @include site-header-dropdown.arrow-up;
 
     left: auto;
     right: var(--ecl-search-arrow-position);
@@ -308,6 +328,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.down('m') {
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
@@ -317,6 +338,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     justify-content: center;
     line-height: 0;
     padding: var(--s-xs) 0;
+
+    .ecl-link__icon-container {
+      margin-inline-start: 0;
+    }
 
     .ecl-icon {
       width: 1.5rem;
@@ -453,6 +478,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     }
   }
 
+  .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-selector {
     align-items: center;
