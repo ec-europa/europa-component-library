@@ -10,9 +10,9 @@ $theme: null !default;
 
 .ecl-indicator {
   align-items: center;
-  background-color: var(--c-er);
+  background-color: var(--cm-surface-status-error, var(--c-er));
   border-radius: 50%;
-  color: map.get($theme, 'color', 'white');
+  color: #fff;
   content: '';
   display: flex;
   font: var(--f-xs);
