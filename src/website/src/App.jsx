@@ -1,4 +1,3 @@
-// src/website/src/App.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -11,9 +10,11 @@ import './styles/app.scss';
 import 'prismjs/themes/prism.css';
 
 export default function App({ url } = {}) {
-  // Use StaticRouter for SSR/prerender, BrowserRouter for client
   const Router = typeof window !== 'undefined' ? BrowserRouter : StaticRouter;
-  const routerProps = typeof window !== 'undefined' ? {} : { location: url };
+  const routerProps =
+    typeof window !== 'undefined'
+      ? { basename: process.env.PUBLIC_URL || '' } // Client-side base
+      : { location: url }; // SSR/prerendering
 
   return (
     <MDXProvider components={customComponents}>
