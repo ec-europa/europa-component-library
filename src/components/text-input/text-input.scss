@@ -16,7 +16,7 @@ $outline-width: 2px;
 
 .ecl-text-input {
   appearance: none;
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   border: $border-width solid map.get($text-input, 'border-color');
   border-radius: map.get($text-input, 'radius');
   box-shadow: map.get($text-input, 'shadow');
@@ -44,7 +44,7 @@ $outline-width: 2px;
   &:focus-visible,
   &:active {
     box-shadow: map.get($text-input, 'shadow-hover');
-    outline: $outline-width solid var(--c-p);
+    outline: $outline-width solid var(--cm-border-primary, var(--c-p));
     outline-offset: -#{$outline-width};
   }
 }
@@ -53,7 +53,7 @@ $outline-width: 2px;
 .ecl-text-input--disabled,
 .ecl-text-input[readonly],
 .ecl-text-input--readonly {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   cursor: not-allowed;
   opacity: 0.5;
 }

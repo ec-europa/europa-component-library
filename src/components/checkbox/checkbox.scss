@@ -137,44 +137,23 @@ $checkbox: null !default;
   input:checked
   ~ .ecl-checkbox__label:hover
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-  background: var(--c-er);
+  background-color: map.get($checkbox, 'invalid-border-color-hover');
 }
 
-.ecl-checkbox__label:hover
-  .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-  @if map.has-key($checkbox, 'hover-circle') {
-    &::before {
-      @each $property, $value in map.get($checkbox, 'hover-circle') {
-        #{$property}: $value;
-      }
-    }
-  }
-}
-
-// Hover and default focus state
+// Focus state
 .ecl-checkbox__input:focus-visible {
   ~ .ecl-checkbox__label {
     .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-      @if map.has-key($checkbox, 'hover-circle') {
-        &::before {
-          @each $property, $value in map.get($checkbox, 'hover-circle') {
-            #{$property}: $value;
-          }
-        }
-      } @else {
-        outline: 2px solid var(--c-p);
-        outline-offset: 2px;
-      }
+      outline: 2px solid var(--cm-border-primary);
+      outline-offset: 2px;
     }
   }
 
   &:checked {
     ~ .ecl-checkbox__label {
       .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-        @if not map.has-key($checkbox, 'hover-circle') {
-          outline: 2px solid var(--c-p);
-          outline-offset: 2px;
-        }
+        outline: 2px solid var(--cm-border-primary);
+        outline-offset: 2px;
       }
     }
   }

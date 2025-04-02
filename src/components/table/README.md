@@ -8,6 +8,7 @@ npm install --save @ecl/table
 
 ### Parameters:
 
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"id"** (string) (default: random): unique id for the table; randomly generated if empty
 - **"simple"** (boolean) (default: false)
 - **"zebra"** (boolean) (default: false)

@@ -1,5 +1,15 @@
 # Changelog
 
+# 5.0.0-alpha.7
+
+#### :bug: Bug Fix
+
+- [#3924](https://github.com/ec-europa/europa-component-library/pull/3924) fix(banner): fix aspect for small banner - FRONT-4857 ([@emeryro](https://github.com/emeryro)
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 # 5.0.0-alpha.6
 
 #### :bug: Bug Fix
