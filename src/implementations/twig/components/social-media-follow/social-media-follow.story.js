@@ -97,7 +97,7 @@ Horizontal.render = async (args) => {
   );
   return renderedHorizontal;
 };
-Horizontal.storyName = 'horizontal (monochrome)';
+Horizontal.storyName = 'horizontal';
 Horizontal.args = getArgs(dataHorizontal);
 Horizontal.argTypes = getArgTypes();
 Horizontal.parameters = {
@@ -111,7 +111,7 @@ Vertical.render = async (args) => {
   );
   return renderedVertical;
 };
-Vertical.storyName = 'vertical (monochrome)';
+Vertical.storyName = 'vertical';
 Vertical.args = getArgs(dataVertical);
 Vertical.argTypes = getArgTypes();
 Vertical.parameters = {

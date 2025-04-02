@@ -85,7 +85,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Social Media Follow',
+  title: 'Components/Deprecated/Social Media Follow',
   decorators: [withNotes, withCode],
 };
 export const HorizontalColor = (_, { loaded: { component } }) => component;
