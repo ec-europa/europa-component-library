@@ -94,7 +94,7 @@ $range: null !default;
 .ecl-range::range-thumb {
   appearance: none;
   border: none;
-  background-color: var(--c-p);
+  background-color: var(--cm-on-surface-primary, var(--c-p));
   border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
@@ -107,7 +107,7 @@ $range: null !default;
   z-index: 1;
 
   &:hover {
-    outline: 4px solid var(--c-p);
+    outline: 4px solid var(--cm-on-surface-primary, var(--c-p));
   }
 
   &:active {

@@ -21,18 +21,12 @@ npm install --save @ecl/file-upload
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-### Blocks:
-
-- "label" (string) (default: '')
-- "helper_text" (string) (default: '')
-
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/file-upload/file-upload.html.twig' with { 
   id: 'my-file-upload', 
-  label: 'my file upload label', 
   required_text: '*',  
   disabled: false, 
   required: false, 

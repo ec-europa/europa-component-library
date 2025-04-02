@@ -12,7 +12,6 @@ npm install --save @ecl/rating-field
 - **"items"** (array) (default: []): array of radio_button
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object) default({})
 - **"star_filled_icon"** (object) default({})
 - **"star_outline_icon"** (object) default({})
 - **"required"** (boolean) (default: false)
@@ -28,12 +27,7 @@ npm install --save @ecl/rating-field
 {% include '@ecl/rating-field/rating-field.html.twig' with { 
   id: 'rating-id',
   name: 'rating-default', 
-  invalid: false, 
-  invalid_icon: { 
-    path: '/icons.svg', 
-    name: 'error', 
-    size: 'm', 
-  }, 
+  invalid: false,
   star_filled_icon: { 
     path: '/icons.svg', 
     name: 'star-filled', 

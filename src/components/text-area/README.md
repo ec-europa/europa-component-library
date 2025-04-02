@@ -11,7 +11,6 @@ npm install --save @ecl/text-area
 - **"id"** (string) (default: random)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"default_value"** (string) (default: '')

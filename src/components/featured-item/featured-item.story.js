@@ -4,12 +4,12 @@ import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
-import demoDataSimple from './demo/data--simple';
-import demoDataHighlight from './demo/data--highlight';
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
 
+const demoDataHighlighted = { ...demoData, type: 'highlight' };
 const mediaContainer = { ...demoData.media_container };
+const system = getSystem();
 
 const getArgs = (data) => {
   const args = {
@@ -21,17 +21,10 @@ const getArgs = (data) => {
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  if (data.footer_link.link.label) {
-    args.footer_link_label = data.footer_link.link.label;
-  }
-  if (data.footer_description) {
-    args.footer_description = data.footer_description;
-  }
-  if (getSystem() === 'ec') {
+  if (system === 'ec') {
     args.color_mode = 'default';
+    args.link_highlighted = false;
   }
-
-  args.show_footer = false;
 
   return args;
 };
@@ -71,7 +64,7 @@ const getArgTypes = (data) => {
   if (data.link.link.label) {
     argTypes.link_label = {
       name: 'link label',
-      type: { name: 'string', required: true },
+      type: { name: 'string' },
       description: 'Label of the link',
       table: {
         type: { summary: 'string' },
@@ -81,40 +74,18 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.show_footer = {
-    type: 'boolean',
-    name: 'show footer',
-    description: 'Toggle footer visility',
-    table: {
-      category: 'Deprecated',
-    },
-  };
-
-  if (data.footer_link.link.label) {
-    argTypes.footer_link_label = {
-      name: 'footer link label',
-      type: { name: 'string' },
-      description: 'Label of the footer link',
+  if (
+    system === 'ec' &&
+    (data.type === 'simple' || data.type === 'highlight')
+  ) {
+    argTypes.link_highlighted = {
+      type: 'boolean',
+      name: 'highlighted link',
+      description: 'Use highlighted display for link',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Deprecated',
+        category: 'Content',
       },
-      if: { arg: 'show_footer' },
-    };
-  }
-
-  if (data.footer_description) {
-    argTypes.footer_description = {
-      name: 'footer description',
-      type: { name: 'string' },
-      description: 'Label of the footer description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Deprecated',
-      },
-      if: { arg: 'show_footer' },
+      if: { arg: 'link_label', neq: '' },
     };
   }
 
@@ -143,18 +114,13 @@ const prepareData = (data, args) => {
   if (clone.link.link.label) {
     clone.link.link.label = args.link_label;
   }
+  if (clone.link.icon) {
+    clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
+  }
   if (args.show_media) {
     clone.media_container = mediaContainer;
   } else {
     delete clone.media_container;
-  }
-
-  if (!args.show_footer) {
-    delete clone.footer_description;
-    delete clone.footer_link;
-    delete clone.footer_picture;
-  } else {
-    clone.footer_link.link.label = args.footer_link_label;
   }
 
   return Object.assign(correctPaths(clone), args);
@@ -178,32 +144,17 @@ Default.parameters = {
   notes: { markdown: notes, json: demoData },
 };
 
-export const Simple = (_, { loaded: { component } }) => component;
+export const Highlighted = (_, { loaded: { component } }) => component;
 
-Simple.render = async (args) => {
+Highlighted.render = async (args) => {
   const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataSimple, args),
+    prepareData(demoDataHighlighted, args),
   );
   return renderedFeaturedItem;
 };
-Simple.storyName = 'simple';
-Simple.args = getArgs(demoDataSimple);
-Simple.argTypes = getArgTypes(demoDataSimple);
-Simple.parameters = {
-  notes: { markdown: notes, json: demoDataSimple },
-};
-
-export const Highlight = (_, { loaded: { component } }) => component;
-
-Highlight.render = async (args) => {
-  const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataHighlight, args),
-  );
-  return renderedFeaturedItem;
-};
-Highlight.storyName = 'highlighted';
-Highlight.args = getArgs(demoDataHighlight);
-Highlight.argTypes = getArgTypes(demoDataHighlight);
-Highlight.parameters = {
-  notes: { markdown: notes, json: demoDataHighlight },
+Highlighted.storyName = 'highlighted';
+Highlighted.args = getArgs(demoDataHighlighted);
+Highlighted.argTypes = getArgTypes(demoDataHighlighted);
+Highlighted.parameters = {
+  notes: { markdown: notes, json: demoDataHighlighted },
 };

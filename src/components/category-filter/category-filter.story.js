@@ -1,13 +1,27 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import categoryFilter from './category-filter.html.twig';
 import notes from './README.md';
 
-const prepareData = (data) => {
+const getArgs = () => {
+  const args = {};
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
+  return args;
+};
+
+const getArgTypes = () => getColorModeControls();
+
+const prepareData = (data, args) => {
   correctPaths(data);
+  data.color_mode = args.color_mode;
 
   return data;
 };
@@ -15,18 +29,17 @@ const prepareData = (data) => {
 export default {
   title: 'Components/Category filter',
   decorators: [withNotes, withCode],
-  parameters: {
-    controls: {
-      disable: true,
-    },
-  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async () => {
-  const renderedCategoryFilter = await categoryFilter(prepareData(demoData));
+Default.render = async (args) => {
+  const renderedCategoryFilter = await categoryFilter(
+    prepareData(demoData, args),
+  );
   return renderedCategoryFilter;
 };
 Default.storyName = 'default';
+Default.args = getArgs();
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };

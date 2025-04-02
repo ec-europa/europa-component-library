@@ -10,13 +10,14 @@ npm install --save @ecl/inpage-navigation
 
 Parameters:
 
+- **color_mode** (string) (default: '') Name of the color mode
 - **"id"** (string) (default: random)
 - **"title"** (string) (default: '')
 - **"links"** (associative array) (default: predefined structure):
   - href: (string) (default: '')
   - label: (string) (default: '')
 - **"icon_path"** (string) (default: ''): path to the icons svg
-- **"icon_size"** (string) (default( 'xs') size of the toggle icon
+- **"icon_size"** (string) (default: 'xs') size of the toggle icon
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
