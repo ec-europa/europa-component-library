@@ -514,18 +514,13 @@ export class Menu {
     const isTablet = browser.getPlatformType() === 'tablet';
 
     // Detect mobile devices
-    if (isMobile) {
+    if (isMobile && window.innerWidth < this.breakpointL) {
       return false;
     }
 
     // Force mobile display on tablet
     if (isTablet) {
       this.element.classList.add('ecl-menu--forced-mobile');
-      return false;
-    }
-
-    // After all that, check if the hamburger button is displayed
-    if (window.innerWidth < this.breakpointL) {
       return false;
     }
 
