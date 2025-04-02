@@ -155,6 +155,10 @@ featured: {
 
 The image will be clickable and will act as the associated link.
 
+### Site header
+
+New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
+
 ## Js modifications
 
 ## Packages modifications
