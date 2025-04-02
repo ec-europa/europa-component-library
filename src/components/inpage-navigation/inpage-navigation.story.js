@@ -1,7 +1,7 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
@@ -23,11 +23,15 @@ const getArgs = (data) => {
     args[`heading${i + 1}`] = item.label;
   });
 
+  if (system === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
   const ordinalNum = ['first', 'second', 'third', 'fourth'];
   data.links.forEach((item, i) => {
     argTypes[`heading${i + 1}`] = {
@@ -87,6 +91,7 @@ const blockHandler = (region, state) => {
 // Prepare data for the navigation.
 const prepareData = (data, args) => {
   correctPaths(data);
+  data.color_mode = args.color_mode;
   data.links.forEach((item, i) => {
     item.label = args[`heading${i + 1}`];
   });

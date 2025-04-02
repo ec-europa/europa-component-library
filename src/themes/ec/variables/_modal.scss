@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $modal: (
-  overlay: var(--c-ov-l),
+  overlay: var(--cm-surface-lowest-variant),
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-4),
   font: var(--f-m),
@@ -28,7 +28,7 @@ $modal: (
     padding-desktop: 0 var(--s-5xl) var(--s-5xl),
   ),
   warning: (
-    icon-background-color: var(--c-d),
+    icon-background-color: var(--cm-on-surface-brand),
     icon-background-height: var(--s-m),
     icon-background-width: var(--s-xs),
     icon-background-top: calc(var(--s-5xl) + var(--s-s)),

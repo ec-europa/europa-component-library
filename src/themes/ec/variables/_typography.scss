@@ -3,8 +3,8 @@
 
 $typography: (
   heading-margin: var(--s-5xl) 0 var(--s-m),
-  heading-color: var(--c-d),
-  text-color: var(--c-d),
+  heading-color: var(--cm-on-surface-brand),
+  text-color: var(--cm-on-surface-brand),
   display: (
     'mobile': var(--f-9xl),
     'desktop': var(--f-10xl),
@@ -18,32 +18,32 @@ $typography: (
     'letter-spacing-desktop': map.get($letter-spacing-compact, '8xl'),
   ),
   heading2: (
-    'mobile': var(--f-6xl),
-    'desktop': var(--f-7xl),
-    'font-weight': map.get($font-weight, 'light'),
-    'letter-spacing-mobile': map.get($letter-spacing-compact, '6xl'),
-    'letter-spacing-desktop': map.get($letter-spacing-compact, '7xl'),
-  ),
-  heading3: (
     'mobile': var(--f-5xl),
     'desktop': var(--f-6xl),
     'font-weight': map.get($font-weight, 'light'),
     'letter-spacing-mobile': map.get($letter-spacing-compact, '5xl'),
     'letter-spacing-desktop': map.get($letter-spacing-compact, '6xl'),
   ),
+  heading3: (
+    'mobile': var(--f-2xl),
+    'desktop': var(--f-3xl),
+    'font-weight': map.get($font-weight, 'light'),
+    'letter-spacing-mobile': map.get($letter-spacing-compact, '2xl'),
+    'letter-spacing-desktop': map.get($letter-spacing-compact, '3xl'),
+  ),
   heading4: (
-    'mobile': var(--f-4xl),
-    'desktop': var(--f-5xl),
+    'mobile': var(--f-2xl),
+    'desktop': var(--f-2xl),
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading5: (
-    'mobile': var(--f-3xl),
-    'desktop': var(--f-4xl),
+    'mobile': var(--f-xl),
+    'desktop': var(--f-xl),
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading6: (
-    'mobile': var(--f-2xl),
-    'desktop': var(--f-3xl),
+    'mobile': var(--f-l),
+    'desktop': var(--f-l),
     'font-weight': map.get($font-weight, 'light'),
   ),
   paragraph: (
@@ -59,9 +59,9 @@ $typography-print: (
   heading-margin: map.get($spacing-print, '3xl') 0 map.get($spacing-print, 'm'),
   display: map.get($font-print, '10xl'),
   heading1: map.get($font-print, '8xl'),
-  heading2: map.get($font-print, '7xl'),
-  heading3: map.get($font-print, '6xl'),
-  heading4: map.get($font-print, '5xl'),
-  heading5: map.get($font-print, '4xl'),
-  heading6: map.get($font-print, '3xl'),
+  heading2: map.get($font-print, '6xl'),
+  heading3: map.get($font-print, '3xl'),
+  heading4: map.get($font-print, '2xl'),
+  heading5: map.get($font-print, 'xl'),
+  heading6: map.get($font-print, 'l'),
 );

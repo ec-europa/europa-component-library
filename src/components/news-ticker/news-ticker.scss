@@ -12,7 +12,7 @@ $news-ticker: null !default;
 
 .ecl-news-ticker {
   align-items: center;
-  background: map.get($theme, 'color', 'white');
+  background: #fff;
   border: map.get($news-ticker, 'border');
   border-radius: map.get($news-ticker, 'border-radius');
   box-shadow: map.get($news-ticker, 'box-shadow');
@@ -26,7 +26,7 @@ $news-ticker: null !default;
 }
 
 .ecl-news-ticker__icon {
-  fill: var(--c-p);
+  fill: var(--cm-on-surface-primary, var(--c-p));
   flex-shrink: 0;
   height: map.get($theme, 'icon', 'm');
   width: map.get($theme, 'icon', 'm');
@@ -36,7 +36,7 @@ $news-ticker: null !default;
 .ecl-news-ticker__container {
   box-sizing: border-box;
   align-items: center;
-  background: map.get($theme, 'color', 'white');
+  background: #fff;
   display: flex;
   height: 4.25rem;
   padding: var(--s-m);

@@ -2,16 +2,16 @@
 @use '../index' as *;
 
 $list-illustration: (
-  background-color: var(--c-n-40),
+  background-color: var(--cm-surface-low-1),
   column-gap: var(--s-5xl),
-  icon-color: var(--c-d),
+  icon-color: var(--cm-on-surface),
   item-padding-mobile: 0 0 var(--s-6xl),
   item-padding-desktop: 0 0 var(--s-5xl),
   item-padding-zebra-mobile: var(--s-5xl) var(--s-xl),
   item-padding-zebra-desktop: var(--s-5xl),
   item-margin-mobile: var(--s-6xl),
   value: (
-    color: var(--c-d),
+    color: var(--cm-on-surface-brand),
     font-mobile-m: var(--f-3xl),
     font-mobile-l: var(--f-5xl),
     font-desktop-m: var(--f-4xl),
@@ -19,13 +19,13 @@ $list-illustration: (
     font-weight: map.get($font-weight, 'medium'),
   ),
   title: (
-    color: var(--c-d),
+    color: var(--cm-on-surface-brand),
     font: var(--f-2xl),
     font-weight: map.get($font-weight, 'light'),
     margin: var(--s-xs),
   ),
   description: (
-    color: var(--c-d),
+    color: var(--cm-on-surface-brand),
     margin: var(--s-xs),
   ),
 );

@@ -3,13 +3,13 @@
 @use '../index' as *;
 
 $range: (
-  bar-color: var(--c-n),
-  disabled-color: var(--c-n-60),
+  bar-color: var(--cm-border-low),
+  disabled-color: var(--cm-surface-neutral-low),
   active-color: var(--c-p-160),
   invalid-color: var(--c-er),
   invalid-hover-color: var(--c-er),
   invalid-active-color: color.mix(#da1e28, #26324b, 50%),
-  value-color: var(--c-d),
+  value-color: var(--cm-on-surface-brand),
   value-font: var(--f-s),
   value-font-weight: map.get($font-weight, 'semi-bold'),
   bubble-font: var(--f-xs),

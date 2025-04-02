@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $language-list: (
-  color: var(--c-d),
+  color: var(--cm-on-surface-brand),
   container-padding-mobile: (
     block-start: var(--s-5xl),
     block-end: var(--s-5xl),
@@ -29,7 +29,7 @@ $language-list: (
     inline-start: var(--s-m),
     inline-end: 0,
   ),
-  category-separator: 1px solid var(--c-n),
+  category-separator: 1px solid var(--cm-border-neutral),
   category-stack-margin: var(--s-s),
   item-padding: (
     block-start: var(--s-xs),
@@ -37,14 +37,14 @@ $language-list: (
     inline-start: var(--s-m),
     inline-end: var(--s-s),
   ),
-  code-color: var(--c-d),
+  code-color: var(--cm-on-surface-brand),
   code-font-weight: map.get($font-weight, 'regular'),
   code-active-font-weight: map.get($font-weight, 'bold'),
   code-width: 26px,
-  item-active-background: var(--c-n-40),
-  item-active-color: var(--c-d),
+  item-active-background: var(--cm-surface-neutral-lowest),
+  item-active-color: var(--cm-on-surface-brand),
   item-active-border-width: 4px,
-  item-active-border-color: var(--c-p),
+  item-active-border-color: var(--cm-border-primary),
   item-width: 196px,
   column-spacing-before: var(--s-m),
   column-spacing-after: var(--s-m),

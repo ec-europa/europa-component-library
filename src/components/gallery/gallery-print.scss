@@ -79,7 +79,7 @@ $gallery-print: null !default;
 .ecl-gallery__description {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-  color: map.get($theme, 'color', 'white');
+  color: #fff;
   font: map.get($gallery-print, 'description-font');
   padding: map.get($theme, 'spacing-print', '2xs')
     map.get($theme, 'spacing-print', 'xs');
@@ -164,7 +164,7 @@ $gallery-print: null !default;
     padding: map.get($theme, 'spacing-print', 'm');
 
     * {
-      color: map.get($theme, 'color', 'white');
+      color: #fff;
     }
   }
 

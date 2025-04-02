@@ -16,7 +16,7 @@ $overflow-height: 2rem;
 .ecl-modal {
   background-color: map.get($modal, 'overlay');
   border: none;
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   height: 100%;
   left: 0;
   margin: 0;
@@ -41,7 +41,7 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal__content {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: #fff;
   border-radius: map.get($modal, 'border-radius');
   box-shadow: map.get($modal, 'shadow');
   display: flex;
@@ -91,19 +91,19 @@ $overflow-height: 2rem;
   z-index: 2;
 
   .ecl-modal--information & {
-    color: var(--c-in);
+    color: var(--cm-on-surface-status-info, var(--c-in));
   }
 
   .ecl-modal--success & {
-    color: var(--c-su);
+    color: var(--cm-on-surface-status-success, var(--c-su));
   }
 
   .ecl-modal--warning & {
-    color: var(--c-wa);
+    color: var(--cm-on-surface-status-warning, var(--c-wa));
   }
 
   .ecl-modal--error & {
-    color: var(--c-er);
+    color: var(--cm-on-surface-status-error, var(--c-er));
   }
 }
 

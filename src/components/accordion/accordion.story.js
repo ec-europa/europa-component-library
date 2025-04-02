@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import accordion from './accordion.html.twig';
@@ -13,11 +14,16 @@ const getArgs = (data) => {
     args[`content${i + 1}`] = item.content;
   });
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
+
   data.items.forEach((item, i) => {
     argTypes[`toggle${i + 1}`] = {
       name: `toggle ${i + 1}`,
@@ -56,6 +62,7 @@ const prepareData = (data, args) => {
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
   });
+  data.color_mode = args.color_mode;
 
   return data;
 };
