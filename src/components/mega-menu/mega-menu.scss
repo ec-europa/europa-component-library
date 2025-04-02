@@ -120,7 +120,7 @@ $mega-menu: null !default;
     padding-top: 0;
 
     .ecl-container {
-      padding: 0 var(--s-m);
+      padding: 0 map.get($mega-menu, 'desktop', 'container-padding-horizontal');
     }
 
     .ecl-mega-menu__container {
