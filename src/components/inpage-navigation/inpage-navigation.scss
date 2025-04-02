@@ -12,7 +12,8 @@ $inpage-navigation: null !default;
 
 @mixin with-scrollbar {
   overflow-y: auto;
-  scrollbar-color: var(--c-n) rgba(0, 0, 0, 0);
+  scrollbar-color: var(--cm-on-surface-neutral-medium, var(--c-n))
+    rgba(0, 0, 0, 0);
   scrollbar-width: thin;
 }
 
@@ -62,7 +63,7 @@ $inpage-navigation: null !default;
   width: 100%;
 
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white');
+    outline: 2px solid #fff;
     outline-offset: -4px;
   }
 }
@@ -286,7 +287,7 @@ $inpage-navigation: null !default;
         'active'
       );
       color: map.get($inpage-navigation, 'item', 'color', 'l');
-      outline-color: var(--c-p);
+      outline-color: var(--cm-border-primary, var(--c-p));
       outline-offset: -2px;
     }
   }
