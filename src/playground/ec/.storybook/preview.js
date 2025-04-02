@@ -8,6 +8,11 @@ global.Buffer = Buffer;
 import './ECL';
 
 export const parameters = {
+  options: {
+    storySort: (a, b) => {
+      return a.title.localeCompare(b.title, undefined);
+    },
+  },
   disableSaveFromUI: true,
   a11y: {
     element: '#storybook-root',

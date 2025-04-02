@@ -21,7 +21,7 @@ exports[`Site Header EC renders correctly 1`] = `
           >
             <a
               class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
-              href="/example"
+              href="/component-library/example"
             >
               <picture
                 class="ecl-picture ecl-site-header__picture"
@@ -41,12 +41,114 @@ exports[`Site Header EC renders correctly 1`] = `
               class="ecl-site-header__action"
             >
               <div
+                aria-live="polite"
+                class="ecl-site-header__custom-action"
+              >
+                <a
+                  aria-controls="custom-action-overlay"
+                  aria-expanded="false"
+                  aria-label="Custom aria label"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  data-ecl-custom-action=""
+                  href="/component-library/example"
+                  role="button"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Custom label
+                  </span>
+                  <span
+                    class="ecl-link__icon-container"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-indicator"
+                      data-ecl-auto-init="Indicator"
+                      data-ecl-indicator=""
+                    >
+                      10
+                    </span>
+                  </span>
+                </a>
+                <div
+                  aria-labelledby="custom-action-overlay-title"
+                  class="ecl-site-header__custom-action-overlay"
+                  data-ecl-custom-action-overlay=""
+                  hidden=""
+                  id="custom-action-overlay"
+                  role="dialog"
+                >
+                  <div
+                    class="ecl-site-header__custom-action-header"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-title"
+                      id="custom-action-overlay-title"
+                    >
+                      
+                      Custom title
+                    
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      data-ecl-custom-action-close=""
+                      type="submit"
+                    >
+                      <span
+                        class="ecl-button__container"
+                      >
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Close
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          class="ecl-icon ecl-icon--m ecl-button__icon"
+                          data-ecl-icon=""
+                          focusable="false"
+                        >
+                          <use
+                            xlink:href="/icons.svg#close"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ecl-site-header__custom-action-content"
+                  >
+                    <ul>
+                      <li>
+                        Point 1
+                      </li>
+                      <li>
+                        Point 2
+                      </li>
+                      <li>
+                        Point 3
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ecl-site-header__login-container"
               >
                 <a
                   class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -72,7 +174,7 @@ exports[`Site Header EC renders correctly 1`] = `
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
                   data-ecl-language-selector=""
-                  href="/example"
+                  href="/component-library/example"
                   role="button"
                 >
                   <span
@@ -159,7 +261,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="bg"
                           >
                             <span
@@ -180,7 +282,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="es"
                           >
                             <span
@@ -201,7 +303,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="cs"
                           >
                             <span
@@ -222,7 +324,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="da"
                           >
                             <span
@@ -243,7 +345,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="de"
                           >
                             <span
@@ -264,7 +366,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="et"
                           >
                             <span
@@ -285,7 +387,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="el"
                           >
                             <span
@@ -306,7 +408,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link ecl-site-header__language-link--active"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="en"
                           >
                             <span
@@ -327,7 +429,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fr"
                           >
                             <span
@@ -348,7 +450,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ga"
                           >
                             <span
@@ -369,7 +471,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hr"
                           >
                             <span
@@ -390,7 +492,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="it"
                           >
                             <span
@@ -411,7 +513,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lv"
                           >
                             <span
@@ -432,7 +534,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lt"
                           >
                             <span
@@ -453,7 +555,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hu"
                           >
                             <span
@@ -474,7 +576,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="mt"
                           >
                             <span
@@ -495,7 +597,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nl"
                           >
                             <span
@@ -516,7 +618,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pl"
                           >
                             <span
@@ -537,7 +639,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pt"
                           >
                             <span
@@ -558,7 +660,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ro"
                           >
                             <span
@@ -579,7 +681,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sk"
                           >
                             <span
@@ -600,7 +702,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sl"
                           >
                             <span
@@ -621,7 +723,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fi"
                           >
                             <span
@@ -642,7 +744,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sv"
                           >
                             <span
@@ -677,7 +779,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ar"
                             lang="ar"
                           >
@@ -698,7 +800,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ca"
                             lang="ca"
                           >
@@ -719,7 +821,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="is"
                             lang="is"
                           >
@@ -740,7 +842,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lb"
                             lang="lb"
                           >
@@ -761,7 +863,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ja"
                             lang="ja"
                           >
@@ -782,7 +884,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nb"
                             lang="nb"
                           >
@@ -803,7 +905,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ru"
                             lang="ru"
                           >
@@ -824,7 +926,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="tr"
                             lang="tr"
                           >
@@ -845,7 +947,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="uk"
                             lang="uk"
                           >
@@ -866,7 +968,7 @@ exports[`Site Header EC renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="zh"
                             lang="zh"
                           >
@@ -896,7 +998,7 @@ exports[`Site Header EC renders correctly 1`] = `
                   aria-expanded="false"
                   class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -1055,7 +1157,7 @@ exports[`Site Header EC renders correctly 1`] = `
         >
           <a
             class="ecl-link ecl-link--standalone ecl-link--no-visited"
-            href="/example"
+            href="/component-library/example"
           >
             Aid, Development cooperation, Fundamental rights
           </a>
@@ -1119,7 +1221,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
           >
             <a
               class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
-              href="/example"
+              href="/component-library/example"
             >
               <picture
                 class="ecl-picture ecl-site-header__picture"
@@ -1139,6 +1241,108 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
               class="ecl-site-header__action"
             >
               <div
+                aria-live="polite"
+                class="ecl-site-header__custom-action"
+              >
+                <a
+                  aria-controls="custom-action-overlay"
+                  aria-expanded="false"
+                  aria-label="Custom aria label"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  data-ecl-custom-action=""
+                  href="/component-library/example"
+                  role="button"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Custom label
+                  </span>
+                  <span
+                    class="ecl-link__icon-container"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-indicator"
+                      data-ecl-auto-init="Indicator"
+                      data-ecl-indicator=""
+                    >
+                      10
+                    </span>
+                  </span>
+                </a>
+                <div
+                  aria-labelledby="custom-action-overlay-title"
+                  class="ecl-site-header__custom-action-overlay"
+                  data-ecl-custom-action-overlay=""
+                  hidden=""
+                  id="custom-action-overlay"
+                  role="dialog"
+                >
+                  <div
+                    class="ecl-site-header__custom-action-header"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-title"
+                      id="custom-action-overlay-title"
+                    >
+                      
+                      Custom title
+                    
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      data-ecl-custom-action-close=""
+                      type="submit"
+                    >
+                      <span
+                        class="ecl-button__container"
+                      >
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Close
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          class="ecl-icon ecl-icon--m ecl-button__icon"
+                          data-ecl-icon=""
+                          focusable="false"
+                        >
+                          <use
+                            xlink:href="/icons.svg#close"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ecl-site-header__custom-action-content"
+                  >
+                    <ul>
+                      <li>
+                        Point 1
+                      </li>
+                      <li>
+                        Point 2
+                      </li>
+                      <li>
+                        Point 3
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ecl-site-header__login-container"
               >
                 <a
@@ -1146,7 +1350,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                   aria-expanded="false"
                   class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -1178,7 +1382,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                   />
                   <a
                     class="ecl-link ecl-link--standalone"
-                    href="/example"
+                    href="/component-library/example"
                   >
                     Log out
                   </a>
@@ -1192,7 +1396,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
                   data-ecl-language-selector=""
-                  href="/example"
+                  href="/component-library/example"
                   role="button"
                 >
                   <span
@@ -1279,7 +1483,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="bg"
                           >
                             <span
@@ -1300,7 +1504,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="es"
                           >
                             <span
@@ -1321,7 +1525,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="cs"
                           >
                             <span
@@ -1342,7 +1546,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="da"
                           >
                             <span
@@ -1363,7 +1567,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="de"
                           >
                             <span
@@ -1384,7 +1588,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="et"
                           >
                             <span
@@ -1405,7 +1609,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="el"
                           >
                             <span
@@ -1426,7 +1630,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link ecl-site-header__language-link--active"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="en"
                           >
                             <span
@@ -1447,7 +1651,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fr"
                           >
                             <span
@@ -1468,7 +1672,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ga"
                           >
                             <span
@@ -1489,7 +1693,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hr"
                           >
                             <span
@@ -1510,7 +1714,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="it"
                           >
                             <span
@@ -1531,7 +1735,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lv"
                           >
                             <span
@@ -1552,7 +1756,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lt"
                           >
                             <span
@@ -1573,7 +1777,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hu"
                           >
                             <span
@@ -1594,7 +1798,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="mt"
                           >
                             <span
@@ -1615,7 +1819,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nl"
                           >
                             <span
@@ -1636,7 +1840,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pl"
                           >
                             <span
@@ -1657,7 +1861,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pt"
                           >
                             <span
@@ -1678,7 +1882,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ro"
                           >
                             <span
@@ -1699,7 +1903,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sk"
                           >
                             <span
@@ -1720,7 +1924,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sl"
                           >
                             <span
@@ -1741,7 +1945,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fi"
                           >
                             <span
@@ -1762,7 +1966,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sv"
                           >
                             <span
@@ -1797,7 +2001,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ar"
                             lang="ar"
                           >
@@ -1818,7 +2022,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ca"
                             lang="ca"
                           >
@@ -1839,7 +2043,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="is"
                             lang="is"
                           >
@@ -1860,7 +2064,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lb"
                             lang="lb"
                           >
@@ -1881,7 +2085,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ja"
                             lang="ja"
                           >
@@ -1902,7 +2106,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nb"
                             lang="nb"
                           >
@@ -1923,7 +2127,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ru"
                             lang="ru"
                           >
@@ -1944,7 +2148,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="tr"
                             lang="tr"
                           >
@@ -1965,7 +2169,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="uk"
                             lang="uk"
                           >
@@ -1986,7 +2190,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="zh"
                             lang="zh"
                           >
@@ -2016,7 +2220,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                   aria-expanded="false"
                   class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -2175,7 +2379,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
         >
           <a
             class="ecl-link ecl-link--standalone ecl-link--no-visited"
-            href="/example"
+            href="/component-library/example"
           >
             Aid, Development cooperation, Fundamental rights
           </a>
@@ -2241,7 +2445,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
           >
             <a
               class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
-              href="/example"
+              href="/component-library/example"
             >
               <picture
                 class="ecl-picture ecl-site-header__picture"
@@ -2261,12 +2465,114 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
               class="ecl-site-header__action"
             >
               <div
+                aria-live="polite"
+                class="ecl-site-header__custom-action"
+              >
+                <a
+                  aria-controls="custom-action-overlay"
+                  aria-expanded="false"
+                  aria-label="Custom aria label"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  data-ecl-custom-action=""
+                  href="/component-library/example"
+                  role="button"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Custom label
+                  </span>
+                  <span
+                    class="ecl-link__icon-container"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-indicator"
+                      data-ecl-auto-init="Indicator"
+                      data-ecl-indicator=""
+                    >
+                      10
+                    </span>
+                  </span>
+                </a>
+                <div
+                  aria-labelledby="custom-action-overlay-title"
+                  class="ecl-site-header__custom-action-overlay"
+                  data-ecl-custom-action-overlay=""
+                  hidden=""
+                  id="custom-action-overlay"
+                  role="dialog"
+                >
+                  <div
+                    class="ecl-site-header__custom-action-header"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-title"
+                      id="custom-action-overlay-title"
+                    >
+                      
+                      Custom title
+                    
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      data-ecl-custom-action-close=""
+                      type="submit"
+                    >
+                      <span
+                        class="ecl-button__container"
+                      >
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Close
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          class="ecl-icon ecl-icon--m ecl-button__icon"
+                          data-ecl-icon=""
+                          focusable="false"
+                        >
+                          <use
+                            xlink:href="/icons.svg#close"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ecl-site-header__custom-action-content"
+                  >
+                    <ul>
+                      <li>
+                        Point 1
+                      </li>
+                      <li>
+                        Point 2
+                      </li>
+                      <li>
+                        Point 3
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ecl-site-header__login-container"
               >
                 <a
                   class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -2292,7 +2598,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
                   data-ecl-language-selector=""
-                  href="/example"
+                  href="/component-library/example"
                   role="button"
                 >
                   <span
@@ -2379,7 +2685,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="bg"
                           >
                             <span
@@ -2400,7 +2706,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="es"
                           >
                             <span
@@ -2421,7 +2727,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="cs"
                           >
                             <span
@@ -2442,7 +2748,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="da"
                           >
                             <span
@@ -2463,7 +2769,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="de"
                           >
                             <span
@@ -2484,7 +2790,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="et"
                           >
                             <span
@@ -2505,7 +2811,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="el"
                           >
                             <span
@@ -2526,7 +2832,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link ecl-site-header__language-link--active"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="en"
                           >
                             <span
@@ -2547,7 +2853,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fr"
                           >
                             <span
@@ -2568,7 +2874,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ga"
                           >
                             <span
@@ -2589,7 +2895,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hr"
                           >
                             <span
@@ -2610,7 +2916,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="it"
                           >
                             <span
@@ -2631,7 +2937,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lv"
                           >
                             <span
@@ -2652,7 +2958,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lt"
                           >
                             <span
@@ -2673,7 +2979,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hu"
                           >
                             <span
@@ -2694,7 +3000,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="mt"
                           >
                             <span
@@ -2715,7 +3021,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nl"
                           >
                             <span
@@ -2736,7 +3042,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pl"
                           >
                             <span
@@ -2757,7 +3063,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pt"
                           >
                             <span
@@ -2778,7 +3084,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ro"
                           >
                             <span
@@ -2799,7 +3105,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sk"
                           >
                             <span
@@ -2820,7 +3126,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sl"
                           >
                             <span
@@ -2841,7 +3147,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fi"
                           >
                             <span
@@ -2862,7 +3168,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sv"
                           >
                             <span
@@ -2897,7 +3203,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ar"
                             lang="ar"
                           >
@@ -2918,7 +3224,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ca"
                             lang="ca"
                           >
@@ -2939,7 +3245,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="is"
                             lang="is"
                           >
@@ -2960,7 +3266,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lb"
                             lang="lb"
                           >
@@ -2981,7 +3287,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ja"
                             lang="ja"
                           >
@@ -3002,7 +3308,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nb"
                             lang="nb"
                           >
@@ -3023,7 +3329,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ru"
                             lang="ru"
                           >
@@ -3044,7 +3350,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="tr"
                             lang="tr"
                           >
@@ -3065,7 +3371,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="uk"
                             lang="uk"
                           >
@@ -3086,7 +3392,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="zh"
                             lang="zh"
                           >
@@ -3116,7 +3422,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                   aria-expanded="false"
                   class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -3275,7 +3581,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
         >
           <a
             class="ecl-link ecl-link--standalone ecl-link--no-visited"
-            href="/example"
+            href="/component-library/example"
           >
             Aid, Development cooperation, Fundamental rights
           </a>
@@ -3339,7 +3645,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
           >
             <a
               class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
-              href="/example"
+              href="/component-library/example"
             >
               <picture
                 class="ecl-picture ecl-site-header__picture"
@@ -3359,12 +3665,114 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
               class="ecl-site-header__action"
             >
               <div
+                aria-live="polite"
+                class="ecl-site-header__custom-action"
+              >
+                <a
+                  aria-controls="custom-action-overlay"
+                  aria-expanded="false"
+                  aria-label="Custom aria label"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  data-ecl-custom-action=""
+                  href="/component-library/example"
+                  role="button"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Custom label
+                  </span>
+                  <span
+                    class="ecl-link__icon-container"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-indicator"
+                      data-ecl-auto-init="Indicator"
+                      data-ecl-indicator=""
+                    >
+                      10
+                    </span>
+                  </span>
+                </a>
+                <div
+                  aria-labelledby="custom-action-overlay-title"
+                  class="ecl-site-header__custom-action-overlay"
+                  data-ecl-custom-action-overlay=""
+                  hidden=""
+                  id="custom-action-overlay"
+                  role="dialog"
+                >
+                  <div
+                    class="ecl-site-header__custom-action-header"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-title"
+                      id="custom-action-overlay-title"
+                    >
+                      
+                      Custom title
+                    
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      data-ecl-custom-action-close=""
+                      type="submit"
+                    >
+                      <span
+                        class="ecl-button__container"
+                      >
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Close
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          class="ecl-icon ecl-icon--m ecl-button__icon"
+                          data-ecl-icon=""
+                          focusable="false"
+                        >
+                          <use
+                            xlink:href="/icons.svg#close"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ecl-site-header__custom-action-content"
+                  >
+                    <ul>
+                      <li>
+                        Point 1
+                      </li>
+                      <li>
+                        Point 2
+                      </li>
+                      <li>
+                        Point 3
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ecl-site-header__login-container"
               >
                 <a
                   class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -3390,7 +3798,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
                   data-ecl-language-selector=""
-                  href="/example"
+                  href="/component-library/example"
                   role="button"
                 >
                   <span
@@ -3477,7 +3885,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="bg"
                           >
                             <span
@@ -3498,7 +3906,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="es"
                           >
                             <span
@@ -3519,7 +3927,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="cs"
                           >
                             <span
@@ -3540,7 +3948,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="da"
                           >
                             <span
@@ -3561,7 +3969,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="de"
                           >
                             <span
@@ -3582,7 +3990,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="et"
                           >
                             <span
@@ -3603,7 +4011,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="el"
                           >
                             <span
@@ -3624,7 +4032,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link ecl-site-header__language-link--active"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="en"
                           >
                             <span
@@ -3645,7 +4053,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fr"
                           >
                             <span
@@ -3666,7 +4074,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ga"
                           >
                             <span
@@ -3687,7 +4095,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hr"
                           >
                             <span
@@ -3708,7 +4116,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="it"
                           >
                             <span
@@ -3729,7 +4137,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lv"
                           >
                             <span
@@ -3750,7 +4158,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lt"
                           >
                             <span
@@ -3771,7 +4179,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hu"
                           >
                             <span
@@ -3792,7 +4200,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="mt"
                           >
                             <span
@@ -3813,7 +4221,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nl"
                           >
                             <span
@@ -3834,7 +4242,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pl"
                           >
                             <span
@@ -3855,7 +4263,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pt"
                           >
                             <span
@@ -3876,7 +4284,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ro"
                           >
                             <span
@@ -3897,7 +4305,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sk"
                           >
                             <span
@@ -3918,7 +4326,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sl"
                           >
                             <span
@@ -3939,7 +4347,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fi"
                           >
                             <span
@@ -3960,7 +4368,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sv"
                           >
                             <span
@@ -3995,7 +4403,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ar"
                             lang="ar"
                           >
@@ -4016,7 +4424,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ca"
                             lang="ca"
                           >
@@ -4037,7 +4445,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="is"
                             lang="is"
                           >
@@ -4058,7 +4466,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lb"
                             lang="lb"
                           >
@@ -4079,7 +4487,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ja"
                             lang="ja"
                           >
@@ -4100,7 +4508,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nb"
                             lang="nb"
                           >
@@ -4121,7 +4529,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ru"
                             lang="ru"
                           >
@@ -4142,7 +4550,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="tr"
                             lang="tr"
                           >
@@ -4163,7 +4571,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="uk"
                             lang="uk"
                           >
@@ -4184,7 +4592,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="zh"
                             lang="zh"
                           >
@@ -4214,7 +4622,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                   aria-expanded="false"
                   class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -4373,7 +4781,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
         >
           <a
             class="ecl-link ecl-link--standalone ecl-link--no-visited"
-            href="/example"
+            href="/component-library/example"
           >
             Aid, Development cooperation, Fundamental rights
           </a>
@@ -4437,7 +4845,7 @@ exports[`Site Header EU renders correctly 1`] = `
           >
             <a
               class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
-              href="/example"
+              href="/component-library/example"
             >
               <picture
                 class="ecl-picture ecl-site-header__picture"
@@ -4457,12 +4865,114 @@ exports[`Site Header EU renders correctly 1`] = `
               class="ecl-site-header__action"
             >
               <div
+                aria-live="polite"
+                class="ecl-site-header__custom-action"
+              >
+                <a
+                  aria-controls="custom-action-overlay"
+                  aria-expanded="false"
+                  aria-label="Custom aria label"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  data-ecl-custom-action=""
+                  href="/component-library/example"
+                  role="button"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Custom label
+                  </span>
+                  <span
+                    class="ecl-link__icon-container"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#brochure"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-indicator"
+                      data-ecl-auto-init="Indicator"
+                      data-ecl-indicator=""
+                    >
+                      10
+                    </span>
+                  </span>
+                </a>
+                <div
+                  aria-labelledby="custom-action-overlay-title"
+                  class="ecl-site-header__custom-action-overlay"
+                  data-ecl-custom-action-overlay=""
+                  hidden=""
+                  id="custom-action-overlay"
+                  role="dialog"
+                >
+                  <div
+                    class="ecl-site-header__custom-action-header"
+                  >
+                    <div
+                      class="ecl-site-header__custom-action-title"
+                      id="custom-action-overlay-title"
+                    >
+                      
+                      Custom title
+                    
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      data-ecl-custom-action-close=""
+                      type="submit"
+                    >
+                      <span
+                        class="ecl-button__container"
+                      >
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Close
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          class="ecl-icon ecl-icon--m ecl-button__icon"
+                          data-ecl-icon=""
+                          focusable="false"
+                        >
+                          <use
+                            xlink:href="/icons.svg#close"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ecl-site-header__custom-action-content"
+                  >
+                    <ul>
+                      <li>
+                        Point 1
+                      </li>
+                      <li>
+                        Point 2
+                      </li>
+                      <li>
+                        Point 3
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ecl-site-header__login-container"
               >
                 <a
                   class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -4488,7 +4998,7 @@ exports[`Site Header EU renders correctly 1`] = `
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
                   data-ecl-language-selector=""
-                  href="/example"
+                  href="/component-library/example"
                   role="button"
                 >
                   <span
@@ -4575,7 +5085,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="bg"
                           >
                             <span
@@ -4596,7 +5106,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="es"
                           >
                             <span
@@ -4617,7 +5127,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="cs"
                           >
                             <span
@@ -4638,7 +5148,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="da"
                           >
                             <span
@@ -4659,7 +5169,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="de"
                           >
                             <span
@@ -4680,7 +5190,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="et"
                           >
                             <span
@@ -4701,7 +5211,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="el"
                           >
                             <span
@@ -4722,7 +5232,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link ecl-site-header__language-link--active"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="en"
                           >
                             <span
@@ -4743,7 +5253,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fr"
                           >
                             <span
@@ -4764,7 +5274,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ga"
                           >
                             <span
@@ -4785,7 +5295,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hr"
                           >
                             <span
@@ -4806,7 +5316,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="it"
                           >
                             <span
@@ -4827,7 +5337,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lv"
                           >
                             <span
@@ -4848,7 +5358,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lt"
                           >
                             <span
@@ -4869,7 +5379,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="hu"
                           >
                             <span
@@ -4890,7 +5400,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="mt"
                           >
                             <span
@@ -4911,7 +5421,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nl"
                           >
                             <span
@@ -4932,7 +5442,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pl"
                           >
                             <span
@@ -4953,7 +5463,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="pt"
                           >
                             <span
@@ -4974,7 +5484,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ro"
                           >
                             <span
@@ -4995,7 +5505,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sk"
                           >
                             <span
@@ -5016,7 +5526,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sl"
                           >
                             <span
@@ -5037,7 +5547,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="fi"
                           >
                             <span
@@ -5058,7 +5568,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="sv"
                           >
                             <span
@@ -5093,7 +5603,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ar"
                             lang="ar"
                           >
@@ -5114,7 +5624,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ca"
                             lang="ca"
                           >
@@ -5135,7 +5645,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="is"
                             lang="is"
                           >
@@ -5156,7 +5666,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="lb"
                             lang="lb"
                           >
@@ -5177,7 +5687,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ja"
                             lang="ja"
                           >
@@ -5198,7 +5708,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="nb"
                             lang="nb"
                           >
@@ -5219,7 +5729,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="ru"
                             lang="ru"
                           >
@@ -5240,7 +5750,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="tr"
                             lang="tr"
                           >
@@ -5261,7 +5771,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="uk"
                             lang="uk"
                           >
@@ -5282,7 +5792,7 @@ exports[`Site Header EU renders correctly 1`] = `
                         >
                           <a
                             class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-site-header__language-link"
-                            href="/example"
+                            href="/component-library/example"
                             hreflang="zh"
                             lang="zh"
                           >
@@ -5312,7 +5822,7 @@ exports[`Site Header EU renders correctly 1`] = `
                   aria-expanded="false"
                   class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
-                  href="/example"
+                  href="/component-library/example"
                 >
                   <svg
                     aria-hidden="false"
@@ -5471,7 +5981,7 @@ exports[`Site Header EU renders correctly 1`] = `
         >
           <a
             class="ecl-link ecl-link--standalone ecl-link--no-visited"
-            href="/example"
+            href="/component-library/example"
           >
             Class name
           </a>
