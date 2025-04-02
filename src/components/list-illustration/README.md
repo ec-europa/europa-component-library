@@ -8,6 +8,7 @@ npm install --save @ecl/list-illustration
 
 ### Parameters
 
+- **color_mode** (string) (default: '') Name of the color mode
 - **"items"** (array) (default: [])
   - "title" (string) (default: '')
   - "description" (string) (default: '')

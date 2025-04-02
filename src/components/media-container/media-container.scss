@@ -140,13 +140,13 @@ $media-container: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--c-p);
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: 2px;
   }
 
   .ecl-button__container {
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
   }
 
   .ecl-button__icon {
