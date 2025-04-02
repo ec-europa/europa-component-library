@@ -51,8 +51,6 @@ module.exports = {
             title: 'Featured items',
             items: [
               {
-                label: 'Featured link 1',
-                path: exampleLink,
                 picture: {
                   img: {
                     src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
@@ -61,7 +59,11 @@ module.exports = {
                 },
               },
               {
-                label: 'Featured link 2',
+                label: 'Featured link 1',
+                path: exampleLink,
+                extra_classes: 'featrured-link-extra-class',
+              },
+              {
                 path: exampleLink,
                 picture: {
                   img: {
@@ -71,8 +73,13 @@ module.exports = {
                 },
               },
               {
-                label: 'Featured link 3',
+                label: 'Featured link 2',
                 path: exampleLink,
+                external: true,
+                sr_external: 'this is an external link',
+                extra_attributes: [
+                  { name: 'an-extra-attribute-for-the-featured-link' },
+                ],
               },
             ],
           },
@@ -153,18 +160,9 @@ module.exports = {
           see_all_label: 'See all items',
           sublink_id: 'research-and-innovation-id',
           featured: {
-            picture: {
-              img: {
-                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-                alt: 'Jean Monnet banner',
-              },
-            },
             title: 'Featured items',
             items: [
-              { label: 'Featured link 1', path: exampleLink },
-              { label: 'Featured link 2', path: exampleLink },
               {
-                label: 'Featured link 3',
                 path: exampleLink,
                 picture: {
                   img: {
@@ -173,9 +171,11 @@ module.exports = {
                   },
                 },
               },
+              { label: 'Featured link 1', path: exampleLink },
+              { label: 'Featured link 2', path: exampleLink },
+              { label: 'Featured link 3', path: exampleLink },
               { label: 'Featured link 4', path: exampleLink },
               { label: 'Featured link 5', path: exampleLink },
-              { label: 'Featured link 6', path: exampleLink },
             ],
           },
           children: [
