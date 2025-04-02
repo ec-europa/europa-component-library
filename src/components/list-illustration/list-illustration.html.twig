@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "color_mode" (string) The color mode name
     - "items" (array) (default: []): array of list_illustration_item
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: false): use alternate background display for vertical list
@@ -18,6 +19,7 @@
 
 {# Internal properties #}
 
+{% set _color_mode = color_mode|default('') %}
 {% set _items = items|default([]) %}
 {% set _zebra = zebra|default(false) %}
 {% set _centered = centered|default(false) %}
@@ -27,6 +29,10 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--zebra' %}
