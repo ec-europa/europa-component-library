@@ -36,7 +36,7 @@ $card: null !default;
 
   @if map.has-key($card, 'yellow-bar') {
     &::before {
-      background-color: var(--c-s);
+      background-color: var(--cm-surface-secondary, var(--c-s));
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
       content: '';

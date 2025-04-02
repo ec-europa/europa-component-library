@@ -107,7 +107,8 @@ $range: null !default;
   z-index: 1;
 
   &:hover {
-    outline: 4px solid var(--cm-on-surface-primary, var(--c-p));
+    background-color: map.get($range, 'hover-color');
+    outline: 4px solid map.get($range, 'hover-color');
   }
 
   &:active {
@@ -123,9 +124,9 @@ $range: null !default;
 
 // Bubble
 .ecl-range__bubble {
-  background-color: var(--c-ov-d);
+  background-color: var(--cm-surface-transparent-70, var(--c-ov-d));
   border-radius: map.get($theme, 'border-radius', 's');
-  color: map.get($theme, 'color', 'white');
+  color: var(--cm-on-surface-inverted);
   display: none;
   font: map.get($range, 'bubble-font');
   margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));
@@ -134,7 +135,7 @@ $range: null !default;
 
   &::before {
     content: '';
-    border-bottom: 4px solid var(--c-ov-d);
+    border-bottom: 4px solid var(--cm-surface-transparent-70, var(--c-ov-d));
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
     display: inline-block;

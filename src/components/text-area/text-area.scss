@@ -48,7 +48,7 @@ $textarea: null !default;
   &:focus-visible,
   &:active {
     box-shadow: map.get($textarea, 'shadow-hover');
-    outline: 2px solid var(--c-p);
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -2px;
   }
 }
