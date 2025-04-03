@@ -19,6 +19,7 @@ $banner: (
   ),
   container-padding-horizontal: (
     'tablet': var(--s-xl),
+    'desktop': var(--s-m),
   ),
   border-color: var(--c-s),
   border-radius: (
@@ -88,5 +89,6 @@ $banner-print: (
   ),
   container-padding-bottom: map.get($spacing-print, '3xl'),
   container-padding-top: map.get($spacing-print, '3xl'),
+  container-padding-horizontal: map.get($spacing-print, 'm'),
   content-padding: map.get($spacing-print, 'm'),
 );

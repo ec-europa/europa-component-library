@@ -143,7 +143,6 @@ export class MegaMenu {
     this.infoLinks = null;
     this.seeAllLinks = null;
     this.featuredLinks = null;
-    this.featuredImages = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -153,8 +152,6 @@ export class MegaMenu {
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleClickOnSubitem = this.handleClickOnSubitem.bind(this);
-    this.handleClickOnFeaturedImage =
-      this.handleClickOnFeaturedImage.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
@@ -197,10 +194,6 @@ export class MegaMenu {
     );
     this.toggleLabel = queryOne('.ecl-button__label', this.open);
     this.menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
-    this.featuredImages = queryAll(
-      '.ecl-mega-menu__featured-image',
-      this.element,
-    );
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
@@ -216,12 +209,6 @@ export class MegaMenu {
       if (this.back) {
         this.back.addEventListener('click', this.handleClickOnBack);
         this.back.addEventListener('keyup', this.handleKeyboard);
-      }
-
-      if (this.featuredImages) {
-        this.featuredImages.forEach((img) => {
-          img.addEventListener('click', this.handleClickOnFeaturedImage);
-        });
       }
 
       // Global click
@@ -374,12 +361,6 @@ export class MegaMenu {
         this.back.removeEventListener('click', this.handleClickOnBack);
       }
 
-      if (this.featuredImages) {
-        this.featuredImages.forEach((img) => {
-          img.removeEventListener('click', this.handleClickOnFeaturedImage);
-        });
-      }
-
       document.removeEventListener('click', this.handleClickGlobal);
     }
 
@@ -513,10 +494,15 @@ export class MegaMenu {
 
     // Remove display:none from the sublists
     if (subLists && viewport === 'mobile') {
-      const megaMenus = queryAll(
-        '.ecl-mega-menu__item > .ecl-mega-menu__wrapper > .ecl-container > [data-ecl-mega-menu-mega]',
+      const megaMenus = queryAll('[data-ecl-mega-menu-mega]', this.element);
+      const featuredPanels = queryAll(
+        '[data-ecl-mega-menu-featured]',
         this.element,
       );
+      if (featuredPanels.length) {
+        megaMenus.push(...featuredPanels);
+      }
+
       megaMenus.forEach((menu) => {
         menu.style.height = '';
       });
@@ -775,7 +761,8 @@ export class MegaMenu {
                 featuredHeight += child.offsetHeight + marginHeight;
               },
             );
-
+            // Add 5px to the featured panel height to prevent scrollbar on hover
+            featuredHeight += 5;
             heights.push(featuredHeight);
           }
         }
@@ -796,6 +783,7 @@ export class MegaMenu {
         if (wrapper) {
           wrapper.style.height = `${height}px`;
         }
+
         if (mainPanel && this.isLarge) {
           mainPanel.style.height = `${height}px`;
         } else if (mainPanel && infoPanel && this.isDesktop) {
@@ -1319,19 +1307,6 @@ export class MegaMenu {
     }
 
     this.trigger('onBack', { level: level2 ? 2 : 1 });
-  }
-
-  /**
-   * Programmatically click the related link when an image is clicked
-   *
-   * @param {Event} e
-   */
-  handleClickOnFeaturedImage(e) {
-    const featuredImage = e.target;
-    const featuredLink = featuredImage.parentElement.nextSibling;
-    if (featuredLink) {
-      featuredLink.click();
-    }
   }
 
   /**
