@@ -108,53 +108,49 @@ export default defineConfig(({ command }) => {
       : {},
     base: process.env.PUBLIC_URL || '/',
     define: {
-      'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL) || '',
-      'process.env.NODE_ENV': JSON.stringify(
-        isDev ? 'development' : 'production',
-      ),
-      'process.env.ECL_VERSION': JSON.stringify(eclVersion),
-      'process.env.ECL_EC_CSS': JSON.stringify(
-        (sri['ecl-ec.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EC_UTILITIES_CSS': JSON.stringify(
-        (sri['ecl-ec-utilities.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EC_PRINT_CSS': JSON.stringify(
-        (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EC_DEFAULT_CSS': JSON.stringify(
-        (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EC_JS': JSON.stringify(
-        (sri['ecl-ec.js'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_ESM_EC_JS': JSON.stringify(
-        (sri['ecl-esm-ec.js'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EU_CSS': JSON.stringify(
-        (sri['ecl-eu.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EU_UTILITIES_CSS': JSON.stringify(
-        (sri['ecl-eu-utilities.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EU_PRINT_CSS': JSON.stringify(
-        (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EU_DEFAULT_CSS': JSON.stringify(
-        (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_EU_JS': JSON.stringify(
-        (sri['ecl-eu.js'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_ESM_EU_JS': JSON.stringify(
-        (sri['ecl-esm-eu.js'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_RESET_CSS': JSON.stringify(
-        (sri['ecl-reset.css'] || []).join(' ') || 'n/a',
-      ),
-      'process.env.ECL_RTL_CSS': JSON.stringify(
-        (sri['ecl-rtl.css'] || []).join(' ') || 'n/a',
-      ),
+      'process.env': {
+        PUBLIC_URL: process.env.PUBLIC_URL || '',
+        NODE_ENV: JSON.stringify(isDev ? 'development' : 'production'),
+        ECL_VERSION: eclVersion,
+        ECL_EC_CSS: JSON.stringify(
+          (sri['ecl-ec.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EC_UTILITIES_CSS: JSON.stringify(
+          (sri['ecl-ec-utilities.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EC_PRINT_CSS: JSON.stringify(
+          (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EC_DEFAULT_CSS: JSON.stringify(
+          (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EC_JS: JSON.stringify((sri['ecl-ec.js'] || []).join(' ') || 'n/a'),
+        ECL_ESM_EC_JS: JSON.stringify(
+          (sri['ecl-esm-ec.js'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EU_CSS: JSON.stringify(
+          (sri['ecl-eu.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EU_UTILITIES_CSS: JSON.stringify(
+          (sri['ecl-eu-utilities.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EU_PRINT_CSS: JSON.stringify(
+          (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EU_DEFAULT_CSS: JSON.stringify(
+          (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_EU_JS: JSON.stringify((sri['ecl-eu.js'] || []).join(' ') || 'n/a'),
+        ECL_ESM_EU_JS: JSON.stringify(
+          (sri['ecl-esm-eu.js'] || []).join(' ') || 'n/a',
+        ),
+        ECL_RESET_CSS: JSON.stringify(
+          (sri['ecl-reset.css'] || []).join(' ') || 'n/a',
+        ),
+        ECL_RTL_CSS: JSON.stringify(
+          (sri['ecl-rtl.css'] || []).join(' ') || 'n/a',
+        ),
+      },
     },
     css: {
       postprocessorOptions: {
