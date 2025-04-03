@@ -73,7 +73,7 @@ $pagination: null !default;
 
   &:active {
     background: transparent;
-    color: var(--c-d);
+    color: var(--cm-on-surface-brand, var(--c-d));
   }
 }
 
@@ -92,7 +92,7 @@ $pagination: null !default;
   flex-grow: 1;
 
   .ecl-pagination__link {
-    color: var(--c-p);
+    color: var(--cm-on-surface-primary, var(--c-p));
 
     &:hover {
       background: map.get($pagination, 'prev-next-hover-background');

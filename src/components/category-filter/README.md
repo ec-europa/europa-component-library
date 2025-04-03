@@ -8,6 +8,7 @@ npm install --save @ecl/category-filter
 
 ### Parameters
 
+- **color_mode** (string) (default: '') Name of the color mode
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"label"**: (string) (default: ''): Aria label provided for accessibility
 - **"id"**: (string) (default: randomized string): Unique id for the category filter

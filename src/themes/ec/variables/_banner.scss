@@ -19,6 +19,7 @@ $banner: (
   ),
   container-padding-horizontal: (
     'tablet': var(--s-2xl),
+    'desktop': var(--s-2xl),
   ),
   border-color: transparent,
   border-radius: (
@@ -53,13 +54,6 @@ $banner: (
     'credit': var(--f-xs),
   ),
   description-margin: var(--s-s),
-  // DEPRECATED
-  background: (
-      'plain-background': var(--c-p),
-      'text-box-mobile': var(--c-l-50),
-      'text-box-desktop': var(--cm-surface-inverted),
-      'text-overlay': var(--c-l-50),
-    ),
 );
 $banner-print: (
   font: (
@@ -75,6 +69,7 @@ $banner-print: (
   ),
   container-padding-bottom: map.get($spacing-print, '4xl'),
   container-padding-top: map.get($spacing-print, '4xl'),
+  container-padding-horizontal: map.get($spacing-print, '2xl'),
   content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
     map.get($spacing-print, 'l'),
 );

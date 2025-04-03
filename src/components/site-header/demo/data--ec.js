@@ -22,6 +22,33 @@ module.exports = {
     label: 'Log out',
     href: exampleLink,
   },
+  custom_action: {
+    link: {
+      path: exampleLink,
+      label: 'Custom label',
+      hide_label: true,
+      indicator: {
+        value: 10,
+      },
+      aria_label: 'Custom aria label',
+    },
+    icon: {
+      name: 'brochure',
+    },
+    overlay: {
+      title: 'Custom title',
+      close: {
+        label: 'Close',
+        icon: {
+          path: '/icons.svg',
+          name: 'close',
+          size: 'm',
+        },
+        hide_label: true,
+      },
+      content: '<ul><li>Point 1</li><li>Point 2</li><li>Point 3</li></ul>',
+    },
+  },
   language_selector: {
     href: exampleLink,
     label: 'EN',
@@ -238,7 +265,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'News, policies, information and services',
+  site_name: 'European Commission',
   cta_link: {
     link: {
       label: 'CTA link',
@@ -254,7 +281,7 @@ module.exports = {
   icon_path: '/icons.svg',
   banner_top: {
     link: {
-      label: 'Class name',
+      label: 'Aid, Development cooperation, Fundamental rights',
       path: exampleLink,
     },
   },

@@ -22,6 +22,33 @@ module.exports = {
       path: exampleLink,
     },
   },
+  custom_action: {
+    link: {
+      path: exampleLink,
+      label: 'Custom label',
+      hide_label: true,
+      indicator: {
+        value: 10,
+      },
+      aria_label: 'Custom aria label',
+    },
+    icon: {
+      name: 'brochure',
+    },
+    overlay: {
+      title: 'Custom title',
+      close: {
+        label: 'Close',
+        icon: {
+          path: '/icons.svg',
+          name: 'close',
+          size: 'm',
+        },
+        hide_label: true,
+      },
+      content: '<ul><li>Point 1</li><li>Point 2</li><li>Point 3</li></ul>',
+    },
+  },
   login_box: {
     id: 'login-box-id',
     description: 'Logged in as "last name" "first name"',
@@ -244,7 +271,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'Portal to news, policies, information and services',
+  site_name: 'European Union',
   cta_link: {
     link: {
       label: 'CTA link',

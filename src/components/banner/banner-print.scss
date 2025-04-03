@@ -58,8 +58,7 @@ $banner-print: null !default;
 }
 
 .ecl-banner .ecl-container {
-  padding-inline-start: map.get($theme, 'spacing-print', 'm');
-  padding-inline-end: map.get($theme, 'spacing-print', 'm');
+  padding-inline: map.get($banner-print, 'container-padding-horizontal');
   position: absolute;
   z-index: 1;
 }
@@ -96,7 +95,7 @@ $banner-print: null !default;
 
   .ecl-banner--box-bg-dark & {
     box-decoration-break: clone;
-    background: var(--c-ov-l);
+    background: var(--cm-surface-transparent-70, var(--c-ov-l));
     backdrop-filter: blur(2px);
   }
 }
@@ -156,7 +155,7 @@ $banner-print: null !default;
 
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   font: map.get($banner-print, 'font', 'credit');
   padding-bottom: map.get($theme, 'spacing-print', '2xs');
   padding-top: map.get($theme, 'spacing-print', '2xs');
