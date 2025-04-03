@@ -22,6 +22,7 @@ $accordion: null !default;
   cursor: pointer;
   display: block;
   font: var(--f-m);
+  font-weight: map.get($accordion, 'title-font-weight');
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
