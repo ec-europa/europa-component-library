@@ -254,6 +254,10 @@ $select: null !default;
     padding-inline-start: var(--s-m);
     padding-inline-end: var(--s-m);
     width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
+
+    &:hover {
+      background-color: var(--cm-surface-neutral-lowest, transparent);
+    }
   }
 
   .ecl-select__multiple-group {
