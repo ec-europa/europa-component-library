@@ -10,10 +10,11 @@ import './styles/app.scss';
 import 'prismjs/themes/prism.css';
 
 export default function App({ url } = {}) {
+  const base = process.env.PUBLIC_URL || '';
   const Router = typeof window !== 'undefined' ? BrowserRouter : StaticRouter;
   const routerProps =
     typeof window !== 'undefined'
-      ? { basename: process.env.PUBLIC_URL || '' } // Client-side base
+      ? { basename: base } // Client-side base
       : { location: url }; // SSR/prerendering
 
   return (
@@ -23,6 +24,8 @@ export default function App({ url } = {}) {
           titleTemplate="%s - ECL v5"
           defaultTitle="Europa Component Library"
         >
+          <link rel="icon" href={`${base}/favicon.ico`} />
+          <link rel="manifest" href={`${base}/manifest.json`} />
           <meta
             name="Description"
             content="Europa Component Library (ECL) documentation website"
