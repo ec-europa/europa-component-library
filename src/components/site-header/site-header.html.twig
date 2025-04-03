@@ -497,7 +497,7 @@
             {% set _site_name_class = _site_name_class ~ ' ecl-site-header__site-name--mobile-only' %}
           {% endif %}
         <div class="{{ _site_name_class }}">
-          {{ _site_name }}
+          {{- _site_name -}}
         </div>
         {% endif %}
         {% if _cta_link is not empty and _cta_link.link is not empty %}
