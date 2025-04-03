@@ -9,12 +9,12 @@ $news-ticker: (
   box-shadow: map.get($shadow, '6'),
   padding-horizontal: var(--s-s),
   font: var(--f-s),
-  controls-background: map.get($color, 'white'),
+  controls-background: var(--cm-surface-inverted),
   container-background: var(--cm-surface-neutral-lowest),
   counter: (
     font: var(--f-m),
     font-weight: map.get($font-weight, 'regular'),
     background: var(--cm-surface-primary),
-    color: map.get($color, 'white'),
+    color: var(--cm-on-surface-inverted),
   ),
 );

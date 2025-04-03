@@ -85,7 +85,7 @@ $checkbox: null !default;
 
 // Required
 .ecl-checkbox__required {
-  color: map.get($theme, 'color' 'error');
+  color: var(--cm-on-surface-status-error, var(--c-er));
   font: var(--f-xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding-inline-start: var(--s-2xs);
