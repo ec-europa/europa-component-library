@@ -2,10 +2,16 @@
 title: Usage
 order: 1
 ---
+
+## ⚠️ Deprecated
+
+> **This component is no longer supported by ECL.**  
+> Please use the [Webtools Social bookmarking and networking](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Social+bookmarking+and+networking) widget instead.
+
+---
+
 The Social Media Share component allows users to add a personalised message to a link before sharing a specific page through their preferred social media
 network. It showcases the most popular ones, while the rest can be found in an overlay, by clicking the "other social networks" button.
-
-_T﻿his component itself is no longer supported by ECL and the [Webtools Social bookmarking and networking](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Social+bookmarking+and+networking) widget should be used instead._
 
 ## Do's
 

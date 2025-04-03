@@ -2,13 +2,13 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
-import specs from '@ecl/specs-component-social-media-follow/demo/data--monochrome';
+import specsColor from '@ecl/specs-component-social-media-follow/demo/data--color';
 import SocialMediaFollow from './social-media-follow.html.twig';
 import notes from './README.md';
 
 // Preserve original data.
-const dataHorizontal = { ...specs };
-const dataVertical = { ...specs, variant: 'vertical' };
+const dataHorizontalColor = { ...specsColor };
+const dataVerticalColor = { ...specsColor, variant: 'vertical' };
 
 const getArgs = (data) => ({
   show_other: true,
@@ -85,35 +85,35 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Social Media Follow',
+  title: 'Components/Deprecated/Social Media Follow',
   decorators: [withNotes, withCode],
 };
+export const HorizontalColor = (_, { loaded: { component } }) => component;
 
-export const Horizontal = (_, { loaded: { component } }) => component;
-
-Horizontal.render = async (args) => {
-  const renderedHorizontal = await SocialMediaFollow(
-    prepareData(dataHorizontal, args),
+HorizontalColor.render = async (args) => {
+  const renderedHorizontalColor = await SocialMediaFollow(
+    prepareData(dataHorizontalColor, args),
   );
-  return renderedHorizontal;
+  return renderedHorizontalColor;
 };
-Horizontal.storyName = 'horizontal';
-Horizontal.args = getArgs(dataHorizontal);
-Horizontal.argTypes = getArgTypes();
-Horizontal.parameters = {
-  notes: { markdown: notes, json: dataHorizontal },
+HorizontalColor.storyName = 'horizontal (color)';
+HorizontalColor.args = getArgs(dataHorizontalColor);
+HorizontalColor.argTypes = getArgTypes();
+HorizontalColor.parameters = {
+  notes: { markdown: notes, json: dataHorizontalColor },
 };
-export const Vertical = (_, { loaded: { component } }) => component;
 
-Vertical.render = async (args) => {
-  const renderedVertical = await SocialMediaFollow(
-    prepareData(dataVertical, args),
+export const VerticalColor = (_, { loaded: { component } }) => component;
+
+VerticalColor.render = async (args) => {
+  const renderedVerticalColor = await SocialMediaFollow(
+    prepareData(dataVerticalColor, args),
   );
-  return renderedVertical;
+  return renderedVerticalColor;
 };
-Vertical.storyName = 'vertical';
-Vertical.args = getArgs(dataVertical);
-Vertical.argTypes = getArgTypes();
-Vertical.parameters = {
-  notes: { markdown: notes, json: dataVertical },
+VerticalColor.storyName = 'vertical (color)';
+VerticalColor.args = getArgs(dataVerticalColor);
+VerticalColor.argTypes = getArgTypes();
+VerticalColor.parameters = {
+  notes: { markdown: notes, json: dataVerticalColor },
 };

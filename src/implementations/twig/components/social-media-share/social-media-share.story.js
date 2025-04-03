@@ -48,7 +48,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Social Media Share',
+  title: 'Components/Deprecated/Social Media Share',
   decorators: [withNotes, withCode],
 };
 
