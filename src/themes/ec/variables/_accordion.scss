@@ -4,19 +4,19 @@
 $accordion: (
   radius: 0,
   shadow: var(--sh-1),
-  separator: 1px solid var(--c-n),
-  title-text-color: var(--c-d),
+  separator: 1px solid var(--cm-border-low),
+  title-text-color: var(--cm-on-surface-brand),
   item-padding: var(--s-xl),
   item-padding-expanded: var(--s-xl) var(--s-xl) var(--s-l),
-  item-background-hover: var(--c-n-60),
-  text-color: var(--c-d),
-  icon-color: var(--c-p),
+  item-background-hover: var(--cm-surface-lowest),
+  text-color: var(--cm-on-surface-brand),
+  icon-color: var(--cm-on-surface),
   icon-margin: var(--s-m),
 );
 $accordion-print: (
   toggle-background: transparent,
-  toggle-color: var(--c-d),
+  toggle-color: var(--cm-on-surface-brand),
   toggle-font: map.get($font-print, 'l'),
-  content-color: var(--c-d),
+  content-color: var(--cm-on-surface-brand),
   content-font: map.get($font-print, 'm'),
 );

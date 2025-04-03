@@ -406,7 +406,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -417,8 +417,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -428,32 +432,49 @@ exports[`Mega Menu Default renders correctly 1`] = `
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -992,7 +1013,26 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -1003,7 +1043,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -1013,17 +1053,8 @@ exports[`Mega Menu Default renders correctly 1`] = `
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -1034,7 +1065,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -1045,22 +1076,11 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -1583,7 +1603,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -1594,8 +1614,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -1605,32 +1629,49 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -2169,7 +2210,26 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -2180,7 +2240,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -2190,17 +2250,8 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -2211,7 +2262,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -2222,22 +2273,11 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -2762,7 +2802,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -2773,8 +2813,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -2784,32 +2828,49 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -3348,7 +3409,26 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -3359,7 +3439,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -3369,17 +3449,8 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -3390,7 +3461,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -3401,22 +3472,11 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -3939,7 +3999,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -3950,10 +4010,15 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
+                                  test-featured="testing value"
                                 >
                                   Featured link 1
                                 </a>
@@ -3961,33 +4026,49 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
-                                  test-featured="testing value"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -4526,7 +4607,26 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -4537,7 +4637,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -4547,17 +4647,8 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -4568,7 +4659,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -4579,22 +4670,11 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -5118,7 +5198,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -5129,8 +5209,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -5140,32 +5224,49 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -5704,7 +5805,26 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -5715,7 +5835,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -5725,17 +5845,8 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -5746,7 +5857,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -5757,22 +5868,11 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -6296,7 +6396,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -6307,8 +6407,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -6318,32 +6422,49 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -6882,7 +7003,26 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -6893,7 +7033,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -6903,17 +7043,8 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -6924,7 +7055,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -6935,22 +7066,11 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -7474,7 +7594,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -7485,8 +7605,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -7496,32 +7620,49 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -8060,7 +8201,26 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -8071,7 +8231,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -8081,17 +8241,8 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -8102,7 +8253,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -8113,22 +8264,11 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>
@@ -8651,7 +8791,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                               class="ecl-mega-menu__featured-list"
                             >
                               <li
-                                class="ecl-mega-menu__featured-list__item"
+                                class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
                               >
                                 <picture
                                   class="ecl-picture ecl-mega-menu__featured-picture"
@@ -8662,8 +8802,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                                   />
                                 </picture>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link featrured-link-extra-class"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -8673,32 +8817,49 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 2
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+                                    />
+                                  </picture>
                                 </a>
                               </li>
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  an-extra-attribute-for-the-featured-link=""
+                                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
-                                  Featured link 3
+                                  <span
+                                    class="ecl-link__label"
+                                  >
+                                    Featured link 2
+                                  </span>
+                                  <svg
+                                    aria-hidden="false"
+                                    class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                    focusable="false"
+                                    role="img"
+                                  >
+                                    <title>
+                                      this is an external link
+                                    </title>
+                                    <use
+                                      xlink:href="/icons.svg#external"
+                                    />
+                                  </svg>
                                 </a>
                               </li>
                             </ul>
@@ -9237,7 +9398,26 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
+                                  data-ecl-mega-menu-featured-link=""
+                                  href="/example"
+                                >
+                                  <picture
+                                    class="ecl-picture ecl-mega-menu__featured-picture"
+                                  >
+                                    <img
+                                      alt="Jean Monnet banner"
+                                      class="ecl-mega-menu__featured-image"
+                                      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                                    />
+                                  </picture>
+                                </a>
+                              </li>
+                              <li
+                                class="ecl-mega-menu__featured-list__item"
+                              >
+                                <a
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -9248,7 +9428,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -9258,17 +9438,8 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                               <li
                                 class="ecl-mega-menu__featured-list__item"
                               >
-                                <picture
-                                  class="ecl-picture ecl-mega-menu__featured-picture"
-                                >
-                                  <img
-                                    alt="Jean Monnet banner"
-                                    class="ecl-mega-menu__featured-image"
-                                    src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-                                  />
-                                </picture>
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -9279,7 +9450,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
@@ -9290,22 +9461,11 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 class="ecl-mega-menu__featured-list__item"
                               >
                                 <a
-                                  class="ecl-link ecl-link--standalone"
+                                  class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
                                   data-ecl-mega-menu-featured-link=""
                                   href="/example"
                                 >
                                   Featured link 5
-                                </a>
-                              </li>
-                              <li
-                                class="ecl-mega-menu__featured-list__item"
-                              >
-                                <a
-                                  class="ecl-link ecl-link--standalone"
-                                  data-ecl-mega-menu-featured-link=""
-                                  href="/example"
-                                >
-                                  Featured link 6
                                 </a>
                               </li>
                             </ul>

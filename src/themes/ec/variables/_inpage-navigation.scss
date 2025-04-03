@@ -8,7 +8,7 @@ $inpage-navigation: (
   shadow: none,
   title: (
     'background': transparent,
-    'color': var(--c-d),
+    'color': var(--cm-on-surface-brand),
     'font': var(--f-s),
     'letter-spacing': map.get($letter-spacing-extended, 's'),
     'text-transform': uppercase,
@@ -16,13 +16,13 @@ $inpage-navigation: (
   ),
   item: (
     'background': transparent,
-    'background-active': var(--c-n-80),
-    'background-hover': map.get($color, 'white'),
+    'background-active': var(--cm-surface-low-2),
+    'background-hover': #fff,
     'border': (
       'end': (
-        'default': 4px solid var(--c-n),
-        'hover': 4px solid var(--c-n),
-        'active': 4px solid var(--c-p),
+        'default': 4px solid var(--cm-border-neutral),
+        'hover': 4px solid var(--cm-border-neutral),
+        'active': 4px solid var(--cm-border),
       ),
       'start': (
         'default': (
@@ -31,7 +31,7 @@ $inpage-navigation: (
         ),
         'active': (
           'l': none,
-          's': 4px solid var(--c-p),
+          's': 4px solid var(--cm-border),
         ),
         'hover': none,
       ),
@@ -52,25 +52,25 @@ $inpage-navigation: (
       'l': map.get($font-weight, 'regular'),
     ),
     'color': (
-      's': var(--c-d),
-      'l': var(--c-d),
+      's': var(--cm-on-surface-brand),
+      'l': var(--cm-on-surface-brand),
     ),
-    'color-active': var(--c-d),
+    'color-active': var(--cm-on-surface-brand),
     'text-decoration-hover': underline,
   ),
   trigger: (
-    'background': map.get($color, 'white'),
-    'border': 1px solid var(--c-d-80),
+    'background': #fff,
+    'border': 1px solid var(--cm-border-brand),
     'border-radius': 2px,
-    'color': var(--c-d),
+    'color': var(--cm-on-surface-brand),
     'font': var(--f-m),
     'font-weight': map.get($font-weight, 'regular'),
     'height': 2.75rem,
     'margin': 0 auto,
-    'outline': 2px solid var(--c-p),
+    'outline': 2px solid var(--cm-border-primary),
     'outline-offset': -2px,
     'padding': calc(var(--s-xs) - 1px) calc(var(--s-m) - 1px),
-    'background-wrapper': map.get($color, 'white'),
+    'background-wrapper': #fff,
     'margin-wrapper': 0 0 calc(-1 * var(--s-xs)),
     'padding-wrapper': var(--s-s) var(--s-m),
     'shadow': var(--sh-2),
@@ -79,7 +79,7 @@ $inpage-navigation: (
   ),
   list: (
     'background': (
-      's': map.get($color, 'white'),
+      's': #fff,
       'l': transparent,
     ),
     'scrollbar': left,
@@ -89,8 +89,8 @@ $inpage-navigation: (
     ),
   ),
   outline: (
-    'color': var(--c-p),
-    'color-active': var(--c-p),
+    'color': var(--cm-border-primary),
+    'color-active': var(--cm-border-primary),
     'offset': -2px,
   ),
 );

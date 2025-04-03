@@ -12,7 +12,7 @@ $theme: null !default;
 $gallery: null !default;
 
 // Internal variables
-$_description-color: map.get($theme, 'color', 'white');
+$_description-color: #fff;
 $_image-height: 192px;
 $_image-height-mobile: 260px;
 $_description-height-mobile: 132px;
@@ -51,8 +51,9 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__item-icon-wrapper {
-  background: var(--c-d);
-  box-shadow: 0 0 15px 6px color-mix(in srgb, var(--c-d-80) 55%, transparent);
+  background: var(--cm-on-surface-dark, var(--c-d));
+  box-shadow: 0 0 15px 6px
+    color-mix(in srgb, var(--cm-surface-dark, var(--c-d-80)) 55%, transparent);
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -82,7 +83,7 @@ $_description-height-desktop: 108px;
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: 2px solid var(--c-p);
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: 2px;
   }
 }
@@ -193,7 +194,7 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__footer-divider {
-  background: var(--c-n-100);
+  background: var(--cm-border-neutral, (--c-n-100));
   border: none;
   height: 1px;
   width: 100%;
@@ -319,12 +320,12 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__close-button {
-  color: map.get($theme, 'color', 'white');
+  color: #fff;
   margin: var(--s-xs);
 
   &:focus-visible {
-    border-color: map.get($theme, 'color', 'white');
-    color: map.get($theme, 'color', 'white');
+    border-color: #fff;
+    color: #fff;
   }
 }
 
@@ -390,16 +391,16 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__slider-previous,
 .ecl-gallery__slider-next {
-  background: map.get($theme, 'color', 'white');
+  background-color: #fff;
   flex-shrink: 0;
 
   &:hover {
-    background-color: var(--c-p-20);
+    background-color: var(--cm-surface-neutral-lowest, var(--c-p-20));
   }
 
   &:focus-visible {
-    background-color: map.get($theme, 'color', 'white');
-    outline: 2px solid map.get($theme, 'color', 'white');
+    background-color: #fff;
+    outline: 2px solid #fff;
     outline-offset: 0;
   }
 }
@@ -421,8 +422,8 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__detail-counter {
   align-self: center;
-  border-left: 1px solid map.get($theme, 'color', 'white');
-  border-right: 1px solid map.get($theme, 'color', 'white');
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
   display: inline-flex;
   margin: 0;
   padding: 0 var(--s-xs);
@@ -684,5 +685,5 @@ $_description-height-desktop: 108px;
 .ecl-gallery__video-title {
   @include screen-reader.sr-only;
 
-  background-color: map.get($theme, 'color', 'white');
+  background-color: #fff;
 }

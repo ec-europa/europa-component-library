@@ -8,7 +8,7 @@ npm install --save @ecl/timeline
 
 ### Parameters
 
-- **"color_mode"** (string)
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"toggle_collapsed"** (string) (default: '')
 - **"toggle_expanded"** (string) (default: '')
 - **"hide"** (object): (default: undefined)

@@ -26,7 +26,7 @@ $category-filter: null !default;
   border: none;
   border-bottom: map.get($category-filter, 'separator');
   box-sizing: border-box;
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   display: flex;
   font: var(--f-s);
   justify-content: space-between;
@@ -41,14 +41,14 @@ $category-filter: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--c-p);
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -2px;
   }
 }
 
 .ecl-category-filter__item-icon {
   align-self: flex-start;
-  color: var(--c-p);
+  color: var(--cm-on-surface, var(--c-p));
   flex-shrink: 0;
   margin-inline-end: var(--s-xs);
   margin-top: 6px;
@@ -97,7 +97,7 @@ $category-filter: null !default;
   background-color: map.get($category-filter, 'background-subitem');
 
   &::before {
-    background-color: var(--c-p);
+    background-color: var(--cm-border, var(--c-p));
     content: '';
     display: inline-block;
     height: 100%;

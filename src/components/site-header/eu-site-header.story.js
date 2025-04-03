@@ -32,6 +32,7 @@ dataHarmonised.has_menu = true;
 const getArgs = (data) => {
   const defaultArgs = {
     show_language_selector: true,
+    show_custom_action: false,
     show_search: true,
     show_notification: false,
     show_notification_close: true,
@@ -90,6 +91,14 @@ const getArgTypes = (data) => {
     name: 'language selector',
     type: { name: 'boolean' },
     description: 'Show the language selector',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_custom_action = {
+    name: 'custom action',
+    type: { name: 'boolean' },
+    description: 'Show the custom action',
     table: {
       category: 'Optional',
     },
@@ -252,6 +261,14 @@ const prepareData = (data, args) => {
   if (args.show_menu === 'mega-menu' && !data.mega_menu) {
     data.mega_menu = enMegaMenu;
     delete data.menu;
+  }
+
+  if (!args.show_custom_action) {
+    delete data.custom_action;
+  } else {
+    data.custom_action = JSON.parse(
+      JSON.stringify(clonedDataFull.custom_action),
+    );
   }
 
   if (!args.show_language_selector) {

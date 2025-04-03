@@ -32,6 +32,14 @@ npm install --save @ecl/site-header
   - "href_not_logged" (string) Link to the login form
   - "label_logged" (string) Label for the logged in users
   - "href_logged" (string) Link to the logout form
+- **"custom_action"** (associative array) (default: {}):
+  - "link" (object) (default: predefined structure) predefined structure for the Link component
+  - "icon" (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
+    The name has to be non empty for the icon to be printed.
+  - "overlay": (associative array) (optional):
+    - "title": (string) (default: '') Overlay title
+    - "close": (associative array) (default: {})
+    - "content": (string) (default: '') HTML for the popover
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "label" (string) (default: ''): Switcher language label, eg. 'English' in eu, 'EN' in ec
@@ -87,6 +95,20 @@ npm install --save @ecl/site-header
         { lang: 'es', label: 'español', path: '/example#language_es', active: true }, 
         ... 
       ], 
+    }, 
+  },
+  custom_action: { 
+    href: '/notifications', 
+    icon: 'bell', 
+    label: 'Notifications', 
+    aria_label: 'View notifications', 
+    indicator: true, 
+    overlay: { 
+      title: 'Notifications', 
+      close: { 
+        label: 'Close' 
+      }, 
+      content: '<p>You have new notifications.</p>', 
     }, 
   }, 
   login_toggle: { 
