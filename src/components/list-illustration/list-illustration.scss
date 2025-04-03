@@ -70,14 +70,10 @@ $list-illustration: null !default;
 }
 
 .ecl-list-illustration__value {
-  color: map.get($list-illustration, 'value', 'color');
-  font: map.get($list-illustration, 'value', 'font-mobile-l');
-  font-weight: map.get($list-illustration, 'value', 'font-weight');
-
-  .ecl-list-illustration--font-m & {
-    font: map.get($list-illustration, 'value', 'font-mobile-m');
-    font-weight: map.get($list-illustration, 'value', 'font-weight');
-  }
+  @include title-typography(
+    map.get($list-illustration, 'value'),
+    '.ecl-list-illustration--font-m'
+  );
 }
 
 .ecl-list-illustration__title {
@@ -119,18 +115,6 @@ $list-illustration: null !default;
 
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
-    }
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-list-illustration__value {
-    font: map.get($list-illustration, 'value', 'font-desktop-l');
-    font-weight: map.get($list-illustration, 'value', 'font-weight');
-
-    .ecl-list-illustration--font-m & {
-      font: map.get($list-illustration, 'value', 'font-desktop-m');
-      font-weight: map.get($list-illustration, 'value', 'font-weight');
     }
   }
 }

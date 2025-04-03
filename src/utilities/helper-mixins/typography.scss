@@ -1,0 +1,33 @@
+/**
+ * Typography utilities
+ */
+
+@mixin title-typography($map, $medium-selector: null) {
+  @if map.has-key($map, 'color') {
+    color: map.get($map, 'color');
+  }
+
+  $font-weight: 400;
+
+  @if map.has-key($map, 'font-weight') {
+    $font-weight: map.get($map, 'font-weight');
+  }
+
+  font: map.get($map, 'font-mobile-l');
+  font-weight: $font-weight;
+
+  #{$medium-selector} & {
+    font: map.get($map, 'font-mobile-m');
+    font-weight: $font-weight;
+  }
+
+  @include breakpoints.up('l') {
+    font: map.get($map, 'font-desktop-l');
+    font-weight: $font-weight;
+
+    #{$medium-selector} & {
+      font: map.get($map, 'font-desktop-m');
+      font-weight: $font-weight;
+    }
+  }
+}
