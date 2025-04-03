@@ -8,6 +8,7 @@
     - "menu" (associative array): Menu content, if any. Uses ECL Menu structure
     - "mega_menu" (associative array): Menu content, if any. Uses ECL Mega Menu structure
     - "site_name" (string) Site name
+    - "site_name_mobile_only" (boolean): Whether the site name should be hidden on desktop or not
     - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
@@ -108,6 +109,7 @@
 {% set _menu = menu|default(false) %}
 {% set _mega_menu = mega_menu|default(false) %}
 {% set _site_name = site_name|default('') %}
+{% set _site_name_mobile_only = site_name_mobile_only|default(false) %}
 {% set _cta_link = cta_link|default({}) %}
 {% set _notification = notification|default({}) %}
 {% set _extra_attributes = '' %}
@@ -490,7 +492,13 @@
     <div class="ecl-site-header__banner">
       <div class="ecl-container">
         {% if _site_name is not empty %}
-        <div class="ecl-site-header__site-name">{{ _site_name }}</div>
+          {% set _site_name_class = 'ecl-site-header__site-name' %}
+          {% if _site_name_mobile_only %}
+            {% set _site_name_class = _site_name_class ~ ' ecl-site-header__site-name--mobile-only' %}
+          {% endif %}
+        <div class="{{ _site_name_class }}">
+          {{- _site_name -}}
+        </div>
         {% endif %}
         {% if _cta_link is not empty and _cta_link.link is not empty %}
         {% include '@ecl/link/link.html.twig' with _cta_link|merge({
