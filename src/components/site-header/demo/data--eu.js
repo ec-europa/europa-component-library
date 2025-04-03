@@ -271,7 +271,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'Portal to news, policies, information and services',
+  site_name: 'European Union',
   cta_link: {
     link: {
       label: 'CTA link',
