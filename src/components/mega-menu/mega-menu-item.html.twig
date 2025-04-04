@@ -192,10 +192,10 @@
             size: 'xs',
           },
           extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
-          extra_attributes: [{
+          extra_attributes: _info.link.extra_attributes|default([])|merge([{
             name: 'aria-describedby', 
             value: _info_title_id,
-          }],
+          }]),
         }) only %}
       {%- endif -%}
       </div>
