@@ -1,5 +1,39 @@
 # Changelog
 
+# 4.11.0
+
+#### :rocket: New Feature
+
+- [#3918](https://github.com/ec-europa/europa-component-library/pull/3918) feat(header): Added custom-action V4. - FRONT-4819 ([@tibi2303](https://github.com/tibi2303))
+
+#### :bug: Bug Fix
+
+- [#3936](https://github.com/ec-europa/europa-component-library/pull/3936) feat(featured-item): Removed description margin first-child. - FRONT-4860 ([@tibi2303](https://github.com/tibi2303))
+- [#3909](https://github.com/ec-europa/europa-component-library/pull/3909) feat(header): Set height of search input to rem. - FRONT-4840 ([@tibi2303](https://github.com/tibi2303))
+- [#3783](https://github.com/ec-europa/europa-component-library/pull/3783) chore(website): Fixing copy of the hex value - FRONT-4748 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3929](https://github.com/ec-europa/europa-component-library/pull/3929) feat(social-media): Marked social media share and color variants as deprecated. - FRONT-4853 ([@tibi2303](https://github.com/tibi2303))
+- [#3912](https://github.com/ec-europa/europa-component-library/pull/3912) feat(featured-item): Marked simple as deprecated. - FRONT-4838 ([@tibi2303](https://github.com/tibi2303))
+- [#3878](https://github.com/ec-europa/europa-component-library/pull/3878) fix(js): Replace mobile device detect with bowser - v4 - FRONT-4813 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3892](https://github.com/ec-europa/europa-component-library/pull/3892) feat(colors): Hide accent colors. - FRONT-4828 ([@tibi2303](https://github.com/tibi2303))
+
+#### :house: Internal
+
+- [#3930](https://github.com/ec-europa/europa-component-library/pull/3930) chore(deps): Updates - v4 - 02-04-25 ([@planctus](https://github.com/planctus))
+- [#3899](https://github.com/ec-europa/europa-component-library/pull/3899) chore(deps): v4 Updates - 11-03-25 ([@planctus](https://github.com/planctus))
+- [#3875](https://github.com/ec-europa/europa-component-library/pull/3875) chore(deps): Updates v4 26-02-25 ([@planctus](https://github.com/planctus))
+- [#3779](https://github.com/ec-europa/europa-component-library/pull/3779) chore(deps): Updates 16-01-25 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- [@planctus](https://github.com/planctus)
+
 # 4.10.0
 
 #### :rocket: New Feature
