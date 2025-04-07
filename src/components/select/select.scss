@@ -82,7 +82,7 @@ $select: null !default;
 }
 
 .ecl-select__container {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -154,7 +154,7 @@ $select: null !default;
    */
 .ecl-select__container--disabled {
   opacity: 0.75;
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,
@@ -254,6 +254,10 @@ $select: null !default;
     padding-inline-start: var(--s-m);
     padding-inline-end: var(--s-m);
     width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
+
+    &:hover {
+      background-color: var(--cm-surface-neutral-lowest, transparent);
+    }
   }
 
   .ecl-select__multiple-group {
@@ -311,7 +315,7 @@ $select: null !default;
 
   .ecl-select__multiple-no-results {
     align-items: center;
-    color: var(--c-d);
+    color: var(--cm-on-surface-brand, var(--c-d));
     display: flex;
     font: var(--f-m);
     height: 100%;
@@ -350,7 +354,7 @@ $select: null !default;
         position: relative;
         bottom: calc(-1 * var(--s-s));
         width: calc(100% - (#{var(--s-m)} * 2));
-        background: var(--c-n);
+        background: var(--cm-border-neutral, var(--c-n));
       }
     }
 

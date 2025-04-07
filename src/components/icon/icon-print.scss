@@ -55,11 +55,11 @@ $theme: null !default;
 }
 
 .ecl-icon--primary {
-  fill: var(--c-p);
+  fill: var(--cm-on-surface-primary, var(--c-p));
 }
 
 .ecl-icon--inverted {
-  fill: map.get($theme, 'color', 'white');
+  fill: var(--cm-on-surface-inverted, #fff);
 }
 
 .ecl-icon--rotate-90 {

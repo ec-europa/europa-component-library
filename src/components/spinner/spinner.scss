@@ -88,11 +88,11 @@ $_spinner-sizes: (
 // Inverted
 .ecl-spinner--inverted {
   .ecl-spinner__loader {
-    stroke: map.get($theme, 'color', 'white');
+    stroke: var(--cm-border-inverted, #fff);
   }
 
   .ecl-spinner__text {
-    color: map.get($theme, 'color', 'white');
+    color: var(--cm-on-surface-inverted, #fff);
   }
 }
 
