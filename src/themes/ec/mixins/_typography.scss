@@ -1,0 +1,36 @@
+// Responsive font
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+
+$font-size-map: (
+  '6xl': '5xl',
+  '5xl': '4xl',
+  '4xl': '3xl',
+  '3xl': '2xl',
+  '2xl': 'xl',
+  'xl': 'l',
+  'l': 'm',
+  'm': 's',
+  's': 'xs',
+);
+
+/// Responsive font
+/// @param {String} $desktop-size - Font size for desktop (e.g. '3xl')
+/// @param {String | null} $mobile-size - Optional override for mobile font size
+@mixin responsive-font($desktop-size, $mobile-size: null) {
+  $mobile: if(
+    $mobile-size,
+    $mobile-size,
+    map.get($font-size-map, $desktop-size)
+  );
+
+  @if not $mobile {
+    $mobile: $desktop-size;
+  }
+
+  font: var(--f-#{$mobile});
+
+  @include breakpoints.up('m') {
+    font: var(--f-#{$desktop-size});
+  }
+}

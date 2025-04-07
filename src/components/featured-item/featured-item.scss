@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/theme-ec/mixins' as *;
 
 // Exposed variables
 $theme: null !default;
@@ -29,9 +30,10 @@ $featured-item: null !default;
 
 .ecl-featured-item__title {
   color: map.get($featured-item, 'title', 'color');
-  font: map.get($featured-item, 'title', 'font-mobile');
   font-weight: map.get($featured-item, 'title', 'font-weight');
   max-width: map.get($featured-item, 'max-width');
+
+  @include responsive-font(map.get($featured-item, 'title', 'font'));
 }
 
 .ecl-featured-item__description {
@@ -75,7 +77,6 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__title {
-    font: map.get($featured-item, 'title', 'font-desktop');
     font-weight: map.get($featured-item, 'title', 'font-weight');
   }
 
