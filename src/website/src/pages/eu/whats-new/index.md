@@ -5,6 +5,28 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+# 4.11.0
+
+#### :rocket: New Feature
+
+* [#3918](https://github.com/ec-europa/europa-component-library/pull/3918) feat(header): Added custom-action V4. - FRONT-4819 
+
+#### :bug: Bug Fix
+
+* [#3936](https://github.com/ec-europa/europa-component-library/pull/3936) feat(featured-item): Removed description margin first-child. - FRONT-4860 
+* [#3909](https://github.com/ec-europa/europa-component-library/pull/3909) feat(header): Set height of search input to rem. - FRONT-4840 
+* [#3783](https://github.com/ec-europa/europa-component-library/pull/3783) chore(website): Fixing copy of the hex value - FRONT-4748 
+
+#### :nail_care: Enhancement
+
+* [#3929](https://github.com/ec-europa/europa-component-library/pull/3929) feat(social-media): Marked social media share and color variants as deprecated. - FRONT-4853 
+* [#3912](https://github.com/ec-europa/europa-component-library/pull/3912) feat(featured-item): Marked simple as deprecated. - FRONT-4838 
+* [#3878](https://github.com/ec-europa/europa-component-library/pull/3878) fix(js): Replace mobile device detect with bowser - v4 - FRONT-4813 
+
+#### :memo: Documentation
+
+* [#3892](https://github.com/ec-europa/europa-component-library/pull/3892) feat(colors): Hide accent colors. - FRONT-4828 
+
 # 4.10.0
 
 #### :rocket: New Feature
