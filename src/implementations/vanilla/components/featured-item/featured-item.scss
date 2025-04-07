@@ -140,6 +140,10 @@ $featured-item: null !default;
 
     .ecl-featured-item__description {
       margin: map.get($featured-item, 'description-spacing-right');
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
 
     .ecl-featured-item__link {
