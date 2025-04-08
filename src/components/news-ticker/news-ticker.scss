@@ -51,7 +51,7 @@ $news-ticker: null !default;
 }
 
 .ecl-news-ticker__slides {
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   font: map.get($news-ticker, 'font');
   list-style: none;
   margin: 0;

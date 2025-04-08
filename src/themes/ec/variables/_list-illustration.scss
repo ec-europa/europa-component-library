@@ -12,17 +12,17 @@ $list-illustration: (
   item-margin-mobile: var(--s-6xl),
   value: (
     color: var(--cm-on-surface-brand),
-    font-mobile-m: var(--f-3xl),
+    font-mobile-m: var(--f-2xl),
     font-mobile-l: var(--f-5xl),
-    font-desktop-m: var(--f-4xl),
+    font-desktop-m: var(--f-3xl),
     font-desktop-l: var(--f-6xl),
-    font-weight: map.get($font-weight, 'medium'),
+    font-weight: map.get($font-weight, 'regular'),
   ),
   title: (
     color: var(--cm-on-surface-brand),
     font: var(--f-2xl),
     font-weight: map.get($font-weight, 'light'),
-    margin: var(--s-xs),
+    margin: 0,
   ),
   description: (
     color: var(--cm-on-surface-brand),
@@ -36,7 +36,7 @@ $list-illustration-print: (
   ),
   title: (
     font: map.get($font-print, '2xl'),
-    margin: map.get($spacing-print, 'xs'),
+    margin: 0,
   ),
   description: (
     margin: map.get($spacing-print, 'xs'),

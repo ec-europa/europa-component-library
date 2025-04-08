@@ -20,7 +20,7 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover__container {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   box-shadow: map.get($popover, 'shadow');
   min-height: 7rem;
   position: absolute;
@@ -29,7 +29,7 @@ $_arrow-size: 1rem;
 
   // arrow with border shadow
   &::before {
-    background-color: map.get($theme, 'color', 'white');
+    background-color: var(--cm-surface-inverted, #fff);
     box-shadow: map.get($popover, 'shadow');
     clip-path: polygon(
       -#{map.get($popover, 'shadow-size')} -#{map.get($popover, 'shadow-size')},
@@ -58,7 +58,7 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover__content {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: var(--cm-surface-inverted, #fff);
   color: var(--cm-on-surface-brand, var(--c-d));
   font: var(--f-m);
   line-height: map.get($popover, 'content-line-height');

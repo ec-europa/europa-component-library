@@ -18,7 +18,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__info {
-  border-bottom: 1px solid var(--c-d);
+  border-bottom: 1px solid var(--cm-on-surface-brand, var(--c-d));
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -36,7 +36,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__title {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   font: map.get($theme, 'font-print', 'm');
   font-family: var(--ecl-font-family-print-alt);
   font-weight: map.get($theme, 'font-weight-print', 'bold');
@@ -45,7 +45,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__language {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   display: inline-block;
   font: map.get($theme, 'font-print', 's');
   font-weight: map.get($theme, 'font-weight-print', 'bold');
@@ -53,7 +53,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__meta {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   display: inline-block;
   font: map.get($theme, 'font-print', 's');
 }
@@ -69,7 +69,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__detail {
-  border-bottom: 1px solid var(--c-d-20);
+  border-bottom: 1px solid var(--cm-border-neutral, var(--c-d-20));
   display: flex;
   flex-direction: row;
   margin-bottom: map.get($theme, 'spacing-print', 'm');
@@ -77,7 +77,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__detail-meta {
-  color: var(--c-d);
+  color: var(--cm-on-surface-brand, var(--c-d));
   display: inline-block;
   font: map.get($theme, 'font-print', 's');
   list-style: none;
@@ -87,7 +87,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__detail-meta-item {
-  border-inline-end: 1px solid var(--c-p);
+  border-inline-end: 1px solid var(--cm-border-primary, var(--c-p));
   display: inline;
   margin-inline-end: map.get($theme, 'spacing-print', 'xs');
   padding-inline-end: map.get($theme, 'spacing-print', 'xs');
@@ -133,7 +133,7 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__description {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   display: inline-flex;
   font: map.get($theme, 'font-print', 'm');
   max-width: var(--max-w);
@@ -160,26 +160,26 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__translation-title {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   font: map.get($theme, 'font-print', 's');
   font-weight: map.get($theme, 'font-weight-print', 'bold');
   margin-inline-end: map.get($theme, 'spacing-print', '2xs');
 }
 
 .ecl-file__translation-meta {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   font: map.get($theme, 'font-print', 's');
 }
 
 .ecl-file__translation-description {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   font: map.get($theme, 'font-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 's');
   max-width: var(--max-w);
 }
 
 .ecl-file__translation-language {
-  color: map.get($theme, 'color', 'black');
+  color: var(--cm-on-surface-brand, #000);
   font: map.get($theme, 'font-print', 's');
   font-weight: map.get($theme, 'font-weight-print', 'bold');
 }

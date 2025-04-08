@@ -8,6 +8,7 @@
     - "menu" (associative array): Menu content, if any. Uses ECL Menu structure
     - "mega_menu" (associative array): Menu content, if any. Uses ECL Mega Menu structure
     - "site_name" (string) Site name
+    - "site_name_mobile_only" (boolean): Whether the site name should be hidden on desktop or not
     - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
@@ -108,6 +109,7 @@
 {% set _menu = menu|default(false) %}
 {% set _mega_menu = mega_menu|default(false) %}
 {% set _site_name = site_name|default('') %}
+{% set _site_name_mobile_only = site_name_mobile_only|default(false) %}
 {% set _cta_link = cta_link|default({}) %}
 {% set _notification = notification|default({}) %}
 {% set _extra_attributes = '' %}
@@ -231,228 +233,226 @@
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-site-header__inner">
-    <div class="ecl-site-header__background">
-      <div class="ecl-site-header__header">
-        <div class="ecl-site-header__container ecl-container">
-          <div class="ecl-site-header__top" data-ecl-site-header-top>
-            {# Logo #}
-            {% if _logo is not empty and _logo.src_desktop is not empty %}
-              {% set _label %}
-                {% set _picture = { sources: [{ src: _logo.src_desktop, media: _logo.breakpoint|default('s') }] } %}
-                {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
-                  {% set _picture = _picture|merge({
-                    img: {
-                      src: _logo.src_mobile,
-                      alt: _logo.alt,
-                    },
-                  }) %}
-                {% else %}
-                  {% set _picture = _picture|merge({
-                    img: {
-                      src: _logo.src_desktop,
-                      alt: _logo.alt,
-                    },
-                  }) %}
-                {% endif %}
-                {% set image_classes = 'ecl-site-header__logo-image' %}
-                {% set image_classes = image_classes ~ ' ecl-site-header__logo-image--' ~ _logo.size|default('l') %}
-                {% include '@ecl/picture/picture.html.twig' with {
-                  picture: _picture,
-                  extra_classes: "ecl-site-header__picture",
-                  extra_image_classes: image_classes,
-                  extra_attributes: _logo.title is not empty ? [{ name: 'title', value: _logo.title }] : [],
-                } only %}
-              {% endset %}
-              {% include '@ecl/link/link.html.twig' with {
-                link: {
-                  path: _logo.path,
-                  label: _label,
-                  type: 'standalone'
-                },
-                extra_classes: 'ecl-site-header__logo-link'
-              } only %}
-            {% endif %}
-
-            {# Header actions #}
-            <div class="ecl-site-header__action">
-            
-            {# Custom action #}
-            {% if _custom_action is not empty %}
-              <div class="ecl-site-header__custom-action" aria-live="polite">
-                {% set is_overlay = _custom_action.overlay is defined and _custom_action.overlay is not empty %}
-                {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
-
-                {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
-                {% set link_extra_attributes = link_extra_attributes|merge([
-                  { name: 'role', value: 'button' },
-                  { name: 'data-ecl-custom-action', value: '' }
-                ]) %}
-                {% if is_overlay %}
-                  {% set link_extra_attributes = link_extra_attributes|merge([
-                    { name: 'aria-controls', value: 'custom-action-overlay' },
-                    { name: 'aria-expanded', value: 'false' }
-                  ]) %}
-                {% endif %}
-
-                {% if has_icon %}
-                  {% set icon_extra_classes = _custom_action.icon.extra_classes|default('') %}
-                  {% set icon_extra_classes = icon_extra_classes ~ ' ecl-site-header__icon' %}
-                  {% set icon = _custom_action.icon|merge({
-                    path: _icon_path,
-                    extra_classes: icon_extra_classes
-                  }) %}
-                {% else %}
-                  {% set icon = null %}
-                {% endif %}
-
-                {% set custom_action_link = {
-                  link: _custom_action.link|merge({ type: "standalone" }),
-                  icon: icon,
-                  extra_attributes: link_extra_attributes,
-                  extra_classes: (
-                    _custom_action.link.extra_classes is defined and _custom_action.link.extra_classes is not empty
-                      ? _custom_action.link.extra_classes ~ ' ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
-                      : 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
-                  )
-                } %}
-                {% include '@ecl/link/link.html.twig' with custom_action_link only %}
-
-                {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
-                  <div
-                    class="ecl-site-header__custom-action-overlay"
-                    id="custom-action-overlay"
-                    hidden
-                    data-ecl-custom-action-overlay
-                    role="dialog"
-                    aria-labelledby="custom-action-overlay-title"
-                  >
-                    <div class="ecl-site-header__custom-action-header">
-                      <div class="ecl-site-header__custom-action-title" id="custom-action-overlay-title">
-                        {{ _custom_action.overlay.title|default('') }}
-                      </div>
-
-                      {% if _custom_action.overlay.close is defined and _custom_action.overlay.close is not empty %}
-                        {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
-                          variant: 'tertiary',
-                          extra_classes: 'ecl-site-header__custom-action-close',
-                          extra_attributes: [{
-                            name: 'data-ecl-custom-action-close',
-                          }],
-                        }) %}
-                      {% endif %}
-                    </div>
-                    <div class="ecl-site-header__custom-action-content">
-                      {{ _custom_action.overlay.content|default('')|raw }}
-                    </div>
-                  </div>
-                {% endif %}
-              </div>
-            {% endif %}
-
-            {# Login #}
-            {% if _login_toggle is not empty and _login_box is not empty %}
-              <div class="ecl-site-header__login-container">
-              {% if _logged %}
-                <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
-                  href="{{ _login_toggle.href_logged }}"
-                  aria-controls="{{ _login_box.id }}"
-                  data-ecl-login-toggle
-                  aria-expanded="false"
-                >
-                  {% include '@ecl/icon/icon.html.twig' with {
-                    icon: {
-                      path: _icon_path,
-                      name: 'logged-in',
-                      size: 's'
-                    },
-                    as_image: true,
-                    extra_classes: 'ecl-site-header__icon',
-                    extra_accessibility: {
-                      title: login_toggle.label_logged,
-                    },
-                  } only %}
-                  {{- login_toggle.label_logged -}}
-                </a>
-                <div
-                  id="{{ _login_box.id }}"
-                  class="ecl-site-header__login-box"
-                  data-ecl-login-box
-                >
-                  <p class="ecl-site-header__login-description">
-                    {{- _login_box.description -}}
-                  </p>
-                  <hr class="ecl-site-header__login-separator">
-                  {% include '@ecl/link/link.html.twig' with {
-                    link: {
-                      label: _login_box.label,
-                      path: _login_box.href,
-                      type: 'standalone',
-                    }
-                  } only %}
-                </div>
+    <div class="ecl-site-header__header">
+      <div class="ecl-site-header__container ecl-container">
+        <div class="ecl-site-header__top" data-ecl-site-header-top>
+          {# Logo #}
+          {% if _logo is not empty and _logo.src_desktop is not empty %}
+            {% set _label %}
+              {% set _picture = { sources: [{ src: _logo.src_desktop, media: _logo.breakpoint|default('s') }] } %}
+              {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+                {% set _picture = _picture|merge({
+                  img: {
+                    src: _logo.src_mobile,
+                    alt: _logo.alt,
+                  },
+                }) %}
               {% else %}
-                <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
-                  href="{{ _login_toggle.href_not_logged }}"
-                  data-ecl-login-toggle
-                >
-                  {% include '@ecl/icon/icon.html.twig' with {
-                    icon: {
-                      path: _icon_path,
-                      name: 'log-in',
-                      size: 's'
-                    },
-                    as_image: true,
-                    extra_classes: 'ecl-site-header__icon',
-                    extra_accessibility: {
-                      title: login_toggle.label_not_logged,
-                    },
-                  } only %}
-                  {{- login_toggle.label_not_logged -}}
-                </a>
+                {% set _picture = _picture|merge({
+                  img: {
+                    src: _logo.src_desktop,
+                    alt: _logo.alt,
+                  },
+                }) %}
               {% endif %}
-              </div>
-            {% endif %}
-
-            {# Language selector #}
-            {% if _language_selector is not empty %}
-              {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
-                language_selector: _language_selector,
-                icon_path: _icon_path,
+              {% set image_classes = 'ecl-site-header__logo-image' %}
+              {% set image_classes = image_classes ~ ' ecl-site-header__logo-image--' ~ _logo.size|default('l') %}
+              {% include '@ecl/picture/picture.html.twig' with {
+                picture: _picture,
+                extra_classes: "ecl-site-header__picture",
+                extra_image_classes: image_classes,
+                extra_attributes: _logo.title is not empty ? [{ name: 'title', value: _logo.title }] : [],
               } only %}
-            {% endif %}
+            {% endset %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                path: _logo.path,
+                label: _label,
+                type: 'standalone'
+              },
+              extra_classes: 'ecl-site-header__logo-link'
+            } only %}
+          {% endif %}
 
-            {# Search form #}
-            {% if _search_form is defined %}
-              <div class="ecl-site-header__search-container" role="search">
-              {% if _search_toggle is not empty %}
-                <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
-                  href="{{ _search_toggle.href }}"
-                  data-ecl-search-toggle="true"
-                  aria-controls="search-form-id"
-                  aria-expanded="false"
+          {# Header actions #}
+          <div class="ecl-site-header__action">
+          
+          {# Custom action #}
+          {% if _custom_action is not empty %}
+            <div class="ecl-site-header__custom-action" aria-live="polite">
+              {% set is_overlay = _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+              {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
+
+              {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
+              {% set link_extra_attributes = link_extra_attributes|merge([
+                { name: 'role', value: 'button' },
+                { name: 'data-ecl-custom-action', value: '' }
+              ]) %}
+              {% if is_overlay %}
+                {% set link_extra_attributes = link_extra_attributes|merge([
+                  { name: 'aria-controls', value: 'custom-action-overlay' },
+                  { name: 'aria-expanded', value: 'false' }
+                ]) %}
+              {% endif %}
+
+              {% if has_icon %}
+                {% set icon_extra_classes = _custom_action.icon.extra_classes|default('') %}
+                {% set icon_extra_classes = icon_extra_classes ~ ' ecl-site-header__icon' %}
+                {% set icon = _custom_action.icon|merge({
+                  path: _icon_path,
+                  extra_classes: icon_extra_classes
+                }) %}
+              {% else %}
+                {% set icon = null %}
+              {% endif %}
+
+              {% set custom_action_link = {
+                link: _custom_action.link|merge({ type: "standalone" }),
+                icon: icon,
+                extra_attributes: link_extra_attributes,
+                extra_classes: (
+                  _custom_action.link.extra_classes is defined and _custom_action.link.extra_classes is not empty
+                    ? _custom_action.link.extra_classes ~ ' ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
+                    : 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
+                )
+              } %}
+              {% include '@ecl/link/link.html.twig' with custom_action_link only %}
+
+              {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+                <div
+                  class="ecl-site-header__custom-action-overlay"
+                  id="custom-action-overlay"
+                  hidden
+                  data-ecl-custom-action-overlay
+                  role="dialog"
+                  aria-labelledby="custom-action-overlay-title"
                 >
-                {%- include '@ecl/icon/icon.html.twig' with {
+                  <div class="ecl-site-header__custom-action-header">
+                    <div class="ecl-site-header__custom-action-title" id="custom-action-overlay-title">
+                      {{ _custom_action.overlay.title|default('') }}
+                    </div>
+
+                    {% if _custom_action.overlay.close is defined and _custom_action.overlay.close is not empty %}
+                      {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
+                        variant: 'tertiary',
+                        extra_classes: 'ecl-site-header__custom-action-close',
+                        extra_attributes: [{
+                          name: 'data-ecl-custom-action-close',
+                        }],
+                      }) %}
+                    {% endif %}
+                  </div>
+                  <div class="ecl-site-header__custom-action-content">
+                    {{ _custom_action.overlay.content|default('')|raw }}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {# Login #}
+          {% if _login_toggle is not empty and _login_box is not empty %}
+            <div class="ecl-site-header__login-container">
+            {% if _logged %}
+              <a
+                class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                href="{{ _login_toggle.href_logged }}"
+                aria-controls="{{ _login_box.id }}"
+                data-ecl-login-toggle
+                aria-expanded="false"
+              >
+                {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
-                    name: 'search',
                     path: _icon_path,
-                    size: 's',
+                    name: 'logged-in',
+                    size: 's'
                   },
                   as_image: true,
                   extra_classes: 'ecl-site-header__icon',
                   extra_accessibility: {
-                    title: _search_toggle.label,
+                    title: login_toggle.label_logged,
                   },
-                } only -%}
-                {{- _search_toggle.label -}}
-                </a>
-              {% endif %}
-                {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
+                } only %}
+                {{- login_toggle.label_logged -}}
+              </a>
+              <div
+                id="{{ _login_box.id }}"
+                class="ecl-site-header__login-box"
+                data-ecl-login-box
+              >
+                <p class="ecl-site-header__login-description">
+                  {{- _login_box.description -}}
+                </p>
+                <hr class="ecl-site-header__login-separator">
+                {% include '@ecl/link/link.html.twig' with {
+                  link: {
+                    label: _login_box.label,
+                    path: _login_box.href,
+                    type: 'standalone',
+                  }
+                } only %}
               </div>
+            {% else %}
+              <a
+                class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                href="{{ _login_toggle.href_not_logged }}"
+                data-ecl-login-toggle
+              >
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: {
+                    path: _icon_path,
+                    name: 'log-in',
+                    size: 's'
+                  },
+                  as_image: true,
+                  extra_classes: 'ecl-site-header__icon',
+                  extra_accessibility: {
+                    title: login_toggle.label_not_logged,
+                  },
+                } only %}
+                {{- login_toggle.label_not_logged -}}
+              </a>
             {% endif %}
             </div>
+          {% endif %}
+
+          {# Language selector #}
+          {% if _language_selector is not empty %}
+            {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
+              language_selector: _language_selector,
+              icon_path: _icon_path,
+            } only %}
+          {% endif %}
+
+          {# Search form #}
+          {% if _search_form is defined %}
+            <div class="ecl-site-header__search-container" role="search">
+            {% if _search_toggle is not empty %}
+              <a
+                class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                href="{{ _search_toggle.href }}"
+                data-ecl-search-toggle="true"
+                aria-controls="search-form-id"
+                aria-expanded="false"
+              >
+              {%- include '@ecl/icon/icon.html.twig' with {
+                icon: {
+                  name: 'search',
+                  path: _icon_path,
+                  size: 's',
+                },
+                as_image: true,
+                extra_classes: 'ecl-site-header__icon',
+                extra_accessibility: {
+                  title: _search_toggle.label,
+                },
+              } only -%}
+              {{- _search_toggle.label -}}
+              </a>
+            {% endif %}
+              {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
+            </div>
+          {% endif %}
           </div>
         </div>
       </div>
@@ -492,7 +492,13 @@
     <div class="ecl-site-header__banner">
       <div class="ecl-container">
         {% if _site_name is not empty %}
-        <div class="ecl-site-header__site-name">{{ _site_name }}</div>
+          {% set _site_name_class = 'ecl-site-header__site-name' %}
+          {% if _site_name_mobile_only %}
+            {% set _site_name_class = _site_name_class ~ ' ecl-site-header__site-name--mobile-only' %}
+          {% endif %}
+        <div class="{{ _site_name_class }}">
+          {{- _site_name -}}
+        </div>
         {% endif %}
         {% if _cta_link is not empty and _cta_link.link is not empty %}
         {% include '@ecl/link/link.html.twig' with _cta_link|merge({

@@ -1,69 +1,6 @@
 @use 'sass:color';
 @use 'sass:map';
 
-$color: (
-  // to be removed once components are updated
-  // Semantic colors
-  'primary': #3860ed,
-  'primary-180': #051036,
-  'primary-160': #0a1f6c,
-  'primary-140': #0f2fa2,
-  'primary-120': #143fd9,
-  'primary-100': #3860ed,
-  'primary-80': #5577f0,
-  'primary-60': #89a1f4,
-  'primary-40': #b1c0f8,
-  'primary-20': #d8e0fb,
-  'secondary': #ffbe5c,
-  'secondary-180': #8f5600,
-  'secondary-160': #e08700,
-  'secondary-140': #ff9d0a,
-  'secondary-120': #ffad33,
-  'secondary-100': #ffbe5c,
-  'secondary-80': #ffcb7c,
-  'secondary-60': #ffd89d,
-  'secondary-40': #ffe5be,
-  'secondary-20': #fff2de,
-  'dark': #26324b,
-  'dark-100': #26324b,
-  'dark-80': #546fa6,
-  'dark-60': #9ac,
-  'info': #3860ed,
-  'success': #24a148,
-  'error': #da1e28,
-  'warning': #f39811,
-  'background': #fcfcfc,
-
-  // Neutral colors
-  'neutral': #b9c5e9,
-  'neutral-180': #6c85d1,
-  'neutral-160': #7f95d7,
-  'neutral-140': #92a5dd,
-  'neutral-120': #a6b5e3,
-  'neutral-100': #b9c5e9,
-  'neutral-80': #cdd5ef,
-  'neutral-60': #e0e5f5,
-  'neutral-40': #f3f5fb,
-  'neutral-20': #f8f9fd,
-
-  // Accent colors
-  'accent': #bbb3ff,
-  'accent-160': #887de8,
-  'accent-140': #978cf2,
-  'accent-120': #a89efa,
-  'accent-100': #bbb3ff,
-  'accent-80': #bfb2ff,
-  'accent-60': #d1ccff,
-  'accent-40': #fafaff,
-
-  // Other colors
-  'branding': #004494,
-  'black': #000,
-  'white': #fff,
-  'stroke': color.adjust(#3860ed, $alpha: -0.5),
-  'overlay-light': color.adjust(#26324b, $alpha: -0.3),
-  'overlay-dark': color.adjust(#26324b, $alpha: -0.1)
-) !default;
 $color-default: (
   // Main
   'primary-50': #e6edff,

@@ -15,7 +15,7 @@ $mega-menu: null !default;
 @mixin with-scrollbar {
   overflow-y: auto;
   scrollbar-color: var(--cm-on-surface-neutral-medium, var(--c-n))
-    rgba(0, 0, 0, 0);
+    rgb(0, 0, 0, 0);
   scrollbar-width: thin;
 }
 
@@ -120,7 +120,7 @@ $mega-menu: null !default;
     padding-top: 0;
 
     .ecl-container {
-      padding: 0 var(--s-m);
+      padding: 0 map.get($mega-menu, 'desktop', 'container-padding-horizontal');
     }
 
     .ecl-mega-menu__container {
@@ -421,11 +421,23 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu__featured-list__item .ecl-link {
-  border-bottom: 1px solid map.get($mega-menu, 'mobile', 'featured-link-border');
+.ecl-mega-menu__featured-list__item {
+  .ecl-link {
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    border-bottom: 1px solid
+      map.get($mega-menu, 'mobile', 'featured-link-border');
 
-  &:hover {
-    border-color: map.get($mega-menu, 'mobile', 'featured-link-border');
+    .ecl-picture {
+      margin-inline: calc(-1 * var(--s-s)) calc(-1 * var(--s-2xl));
+    }
+
+    &:hover {
+      border-color: map.get($mega-menu, 'mobile', 'featured-link-border');
+    }
+  }
+
+  &--combo .ecl-mega-menu__featured-image {
+    margin-block-end: var(--s-xs);
   }
 }
 
@@ -915,13 +927,16 @@ $mega-menu: null !default;
     display: block;
 
     .ecl-mega-menu__featured-image {
-      cursor: pointer;
       aspect-ratio: 16/9;
       display: block;
       margin-inline-start: var(--s-l);
       margin-block-start: var(--s-m);
       max-width: 15.25rem;
     }
+  }
+
+  .ecl-link .ecl-mega-menu__featured-picture .ecl-mega-menu__featured-image {
+    margin-inline-start: var(--s-s);
   }
 
   .ecl-mega-menu__featured-title {
@@ -952,6 +967,10 @@ $mega-menu: null !default;
         &:hover {
           color: var(--cm-on-surface-primary, var(--c-p));
         }
+      }
+
+      &--image-only {
+        margin-block-end: var(--s-xs);
       }
     }
   }
@@ -1108,7 +1127,7 @@ $mega-menu: null !default;
 
       > .ecl-mega-menu__info {
         box-sizing: border-box;
-        box-shadow: 0px 4px 10px 0px rgba(224, 229, 245, 0.42);
+        box-shadow: 0px 4px 10px 0px rgb(224, 229, 245, 0.42);
       }
 
       .ecl-mega-menu__subitem--expanded .ecl-mega-menu__featured {
@@ -1359,7 +1378,7 @@ $mega-menu: null !default;
           right: 0;
           bottom: 0;
           width: 10px;
-          box-shadow: 4px 0px 10px 0px rgba(224, 229, 245, 0.5);
+          box-shadow: 4px 0px 10px 0px rgb(224, 229, 245, 0.5);
           pointer-events: none;
         }
 
