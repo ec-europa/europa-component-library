@@ -2,29 +2,29 @@
 @use '../index' as *;
 
 $list-illustration: (
-  background-color: var(--c-n-40),
-  icon-color: var(--c-d),
+  background-color: var(--cm-surface-low-1),
+  icon-color: var(--cm-on-surface),
   item-padding-mobile: 0 0 var(--s-6xl),
   item-padding-desktop: 0 0 var(--s-3xl),
   item-padding-zebra-mobile: var(--s-3xl) var(--s-xl),
   item-padding-zebra-desktop: var(--s-3xl),
   item-margin-mobile: var(--s-6xl),
   value: (
-    color: var(--c-d),
-    font-mobile-m: var(--f-3xl),
+    color: var(--cm-on-surface-brand),
+    font-mobile-m: var(--f-2xl),
     font-mobile-l: var(--f-5xl),
-    font-desktop-m: var(--f-4xl),
+    font-desktop-m: var(--f-3xl),
     font-desktop-l: var(--f-6xl),
-    font-weight: map.get($font-weight, 'medium'),
+    font-weight: map.get($font-weight, 'regular'),
   ),
   title: (
-    color: var(--c-d),
+    color: var(--cm-on-surface-brand),
     font: var(--f-2xl),
     font-weight: map.get($font-weight, 'light'),
-    margin: var(--s-xs),
+    margin: 0,
   ),
   description: (
-    color: var(--c-d),
+    color: var(--cm-on-surface-brand),
     margin: var(--s-xs),
   ),
 );
@@ -35,7 +35,7 @@ $list-illustration-print: (
   ),
   title: (
     font: map.get($font-print, '2xl'),
-    margin: map.get($spacing-print, 'xs'),
+    margin: 0,
   ),
   description: (
     margin: map.get($spacing-print, 'xs'),

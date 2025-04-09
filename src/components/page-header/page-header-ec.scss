@@ -37,7 +37,7 @@ $page-header: null !default;
 }
 
 .ecl-page-header__meta-item {
-  border-inline-end: 1px solid var(--c-p);
+  border-inline-end: 1px solid var(--cm-surface-brand);
   display: inline;
   margin-inline-end: var(--s-xs);
   padding-inline-end: var(--s-xs);
@@ -114,7 +114,7 @@ $page-header: null !default;
 // DEPRECATED
 .ecl-page-header--overlay-dark {
   .ecl-page-header__background-container::before {
-    background-color: rgba(map.get($theme, 'color', 'black'), 0.5);
+    background-color: rgb(0, 0, 0, 0.5);
     content: '';
     height: 100%;
     position: absolute;
@@ -124,7 +124,7 @@ $page-header: null !default;
 
 .ecl-page-header--overlay-light {
   .ecl-page-header__background-container::before {
-    background-color: rgba(map.get($theme, 'color', 'black'), 0.3);
+    background-color: rgb(0, 0, 0, 0.3);
     content: '';
     height: 100%;
     position: absolute;

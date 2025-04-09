@@ -4,14 +4,7 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import {
-  socialMediaVertical,
-  socialMediaHorizontal,
-  socialMediaVerticalColor,
-  socialMediaVerticalColorRight,
-  socialMediaHorizontalColor,
-  socialMediaHorizontalColorRight,
-} from '../demo';
+import { socialMediaVertical, socialMediaHorizontal } from '../demo';
 
 ## Horizontal
 
@@ -23,23 +16,6 @@ import {
   <Html markup={socialMediaHorizontal} />
 </Playground>
 
-<Playground
-  system="ec"
-  selectedKind="components-social-media-follow"
-  selectedStory="horizontal-color"
->
-  <Html markup={socialMediaHorizontalColor} />
-</Playground>
-
-<Playground
-  system="ec"
-  selectedKind="components-social-media-follow"
-  selectedStory="horizontal-color"
-  selectedArgs="position:right"
->
-  <Html markup={socialMediaHorizontalColorRight} />
-</Playground>
-
 ## Vertical
 
 <Playground
@@ -48,21 +24,4 @@ import {
   selectedStory="vertical"
 >
   <Html markup={socialMediaVertical} />
-</Playground>
-
-<Playground
-  system="ec"
-  selectedKind="components-social-media-follow"
-  selectedStory="vertical-color"
->
-  <Html markup={socialMediaVerticalColor} />
-</Playground>
-
-<Playground
-  system="ec"
-  selectedKind="components-social-media-follow"
-  selectedStory="vertical-color"
-  selectedArgs="position:right"
->
-  <Html markup={socialMediaVerticalColorRight} />
 </Playground>

@@ -165,15 +165,16 @@ Extra attention points:
 
 ### Mega menu
 
-The featured panel has changed in order to present a list of image with an associated link, instead of an img and then a list of links.
-So now the expected data for the featured panel looks like this:
+The featured panel has changed in order to present a list of elements including images, links with images only, textual links instead of an img and then a list of links.
+A new template has been added in the `@ecl/mega-menu` package, it's named: `ecl-mega-menu-featured-item.html.twig`
+The expected data for the featured panel looks like this:
 
 `...
 featured: {
 	title: 'Featured items',
+	// This is for an image that links without a label (alt text is mandatory)
 	items: [
 	  {
-	    label: 'Featured link 1',
 	    path: exampleLink,
 	    picture: {
 	      img: {
@@ -182,10 +183,27 @@ featured: {
 	      },
 	    },
 	  },
+	  // This is for a textual link
+	  {
+	    path: exampleLink,
+	    label: "this is a textual link"
+	  },
+	  // This is just an image
+	  {
+	    picture: {
+	      img: {
+	        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+	      },
+	    },
+	  },
 	],
 }`
 
 The image will be clickable and will act as the associated link.
+
+### Site header
+
+New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
 
 ## Js modifications
 

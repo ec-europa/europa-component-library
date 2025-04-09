@@ -21,7 +21,6 @@ const closeButton = { ...dataFull.notification.close };
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
 delete dataCore.login_box;
-delete dataCore.site_name;
 delete dataCore.cta_link;
 delete dataCore.banner_top;
 dataCore.has_menu = true;
@@ -33,6 +32,7 @@ dataHarmonised.has_menu = true;
 const getArgs = (data) => {
   const defaultArgs = {
     show_language_selector: true,
+    show_custom_action: false,
     show_search: true,
     show_notification: false,
     show_notification_close: true,
@@ -46,6 +46,7 @@ const getArgs = (data) => {
   if (data.site_name) {
     defaultArgs.show_site_name = true;
     defaultArgs.site_name = data.site_name;
+    defaultArgs.site_name_mobile_only = false;
   }
   if (data.banner_top) {
     defaultArgs.show_banner_top = false;
@@ -90,6 +91,14 @@ const getArgTypes = (data) => {
     name: 'language selector',
     type: { name: 'boolean' },
     description: 'Show the language selector',
+    table: {
+      category: 'Optional',
+    },
+  };
+  argTypes.show_custom_action = {
+    name: 'custom action',
+    type: { name: 'boolean' },
+    description: 'Show the custom action',
     table: {
       category: 'Optional',
     },
@@ -171,6 +180,17 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     };
+    argTypes.site_name_mobile_only = {
+      name: 'site name mobile only',
+      type: { name: 'boolean' },
+      description: 'Display the site name only on mobile',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+      if: { arg: 'show_site_name' },
+    };
   }
   if (data.language_selector) {
     argTypes.languages_eu = {
@@ -243,6 +263,14 @@ const prepareData = (data, args) => {
     delete data.menu;
   }
 
+  if (!args.show_custom_action) {
+    delete data.custom_action;
+  } else {
+    data.custom_action = JSON.parse(
+      JSON.stringify(clonedDataFull.custom_action),
+    );
+  }
+
   if (!args.show_language_selector) {
     delete data.language_selector;
   } else {
@@ -267,6 +295,7 @@ const prepareData = (data, args) => {
     data.site_name = '';
   } else {
     data.site_name = args.site_name;
+    data.site_name_mobile_only = args.site_name_mobile_only;
   }
 
   if (!args.show_search) {

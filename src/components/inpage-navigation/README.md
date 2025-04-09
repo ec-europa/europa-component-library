@@ -10,6 +10,7 @@ npm install --save @ecl/inpage-navigation
 
 Parameters:
 
+- **color_mode** (string) (default: '') Name of the color mode
 - **"id"** (string) (default: random)
 - **"title"** (string) (default: '')
 - **"links"** (associative array) (default: predefined structure):

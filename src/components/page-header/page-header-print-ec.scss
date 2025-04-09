@@ -28,7 +28,7 @@ $page-header-print: null !default;
 }
 
 .ecl-page-header__meta-item {
-  border-inline-end: 1px solid var(--c-p);
+  border-inline-end: 1px solid var(--cm-surface-brand);
   display: inline;
   margin-inline-end: map.get($theme, 'spacing-print', 'xs');
   padding-inline-end: map.get($theme, 'spacing-print', 'xs');
@@ -61,7 +61,7 @@ $page-header-print: null !default;
 }
 
 .ecl-page-header__description-thumbnail {
-  border: 1px solid var(--c-n-20);
+  border: 1px solid var(--cm-border-neutral);
   margin-inline-end: map.get($theme, 'spacing-print', 's');
   max-width: 120px;
 }

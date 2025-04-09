@@ -19,6 +19,7 @@ $banner: (
   ),
   container-padding-horizontal: (
     'tablet': var(--s-xl),
+    'desktop': var(--s-m),
   ),
   border-color: var(--c-s),
   border-radius: (
@@ -61,7 +62,7 @@ $banner: (
           var(--c-p) 100%
         ),
       'text-box-mobile': map.get($color, 'white'),
-      'text-box-desktop': rgba(255, 255, 255, 0.9),
+      'text-box-desktop': rgb(255, 255, 255, 0.9),
       'image-overlay': linear-gradient(
           to right,
           var(--c-p-140) 0%,
@@ -88,5 +89,6 @@ $banner-print: (
   ),
   container-padding-bottom: map.get($spacing-print, '3xl'),
   container-padding-top: map.get($spacing-print, '3xl'),
+  container-padding-horizontal: map.get($spacing-print, 'm'),
   content-padding: map.get($spacing-print, 'm'),
 );

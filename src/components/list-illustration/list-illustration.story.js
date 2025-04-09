@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import iconsAll from '@ecl/resources-icons/list.json';
 import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
@@ -81,26 +82,29 @@ const getArgs = (data, variant) => {
     args.zebra = true;
   }
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = (data, variant) => {
-  const argTypes = {
-    show_description: {
-      name: 'description',
-      type: { name: 'boolean' },
-      description: 'Show the description',
-      table: {
-        category: 'Optional',
-      },
+  const argTypes = getColorModeControls();
+  argTypes.show_description = {
+    name: 'description',
+    type: { name: 'boolean' },
+    description: 'Show the description',
+    table: {
+      category: 'Optional',
     },
-    show_value: {
-      name: 'value',
-      type: { name: 'boolean' },
-      description: 'Show the value',
-      table: {
-        category: 'Optional',
-      },
+  };
+  argTypes.show_value = {
+    name: 'value',
+    type: { name: 'boolean' },
+    description: 'Show the value',
+    table: {
+      category: 'Optional',
     },
   };
   if (variant.includes('image')) {
@@ -381,6 +385,7 @@ const prepareDataItem = (data, args) => {
 };
 
 const prepareDataList = (data, args) => {
+  data.color_mode = args.color_mode;
   data.font_size = args.font_size;
   data.items[0] = prepareDataItem(data.items[0], args);
   if (args.show_image) {

@@ -4,8 +4,7 @@
 
 // Icons & Images
 @use '@ecl/icon/icon' with (
-  $theme: theme.$theme,
-  $icons: var.$icons
+  $theme: theme.$theme
 );
 
 // Layout
@@ -192,10 +191,6 @@
 @use '@ecl/social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
-);
-@use '@ecl/social-media-share/social-media-share' with (
-  $theme: theme.$theme,
-  $social-media-share: var.$social-media-share
 );
 @use '@ecl/timeline/timeline' with (
   $theme: theme.$theme,

@@ -1,5 +1,59 @@
 # Changelog
 
+# 5.0.0-alpha.8
+
+#### :rocket: New Feature
+
+- [#3904](https://github.com/ec-europa/europa-component-library/pull/3904) feat(site-header): Custom action. - FRONT-4819 ([@tibi2303](https://github.com/tibi2303))
+- [#3874](https://github.com/ec-europa/europa-component-library/pull/3874) feat(featured-item): new design - FRONT-4811 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#3924](https://github.com/ec-europa/europa-component-library/pull/3924) fix(banner): fix aspect for small banner - FRONT-4857 ([@emeryro](https://github.com/emeryro))
+- [#3889](https://github.com/ec-europa/europa-component-library/pull/3889) feat(documentation): Fixed documentation parameters. - FRONT-4826 ([@tibi2303](https://github.com/tibi2303))
+- [#3910](https://github.com/ec-europa/europa-component-library/pull/3910) feat(header): Set height of search input to rem. - FRONT-4840 ([@tibi2303](https://github.com/tibi2303))
+
+#### :nail_care: Enhancement
+
+- [#3934](https://github.com/ec-europa/europa-component-library/pull/3934) feat(mega-menu): Extra attributes for the info link - FRONT-4862 ([@planctus](https://github.com/planctus))
+- [#3932](https://github.com/ec-europa/europa-component-library/pull/3932) feat(color): remove old EC color, small fixes - FRONT-4830 ([@emeryro](https://github.com/emeryro))
+- [#3931](https://github.com/ec-europa/europa-component-library/pull/3931) feat(typography): Changed title sizes for fact-figures, featured-item, list-illustration. - FRONT-4852 ([@tibi2303](https://github.com/tibi2303))
+- [#3925](https://github.com/ec-europa/europa-component-library/pull/3925) feat(social-media): Removed social-media-share and color variants from social media follow. - FRONT-4853 ([@tibi2303](https://github.com/tibi2303))
+- [#3926](https://github.com/ec-europa/europa-component-library/pull/3926) feat(site-header): site name on mobile only - FRONT-4856 ([@emeryro](https://github.com/emeryro))
+- [#3921](https://github.com/ec-europa/europa-component-library/pull/3921) feat(site-header): Style updates - FRONT-4854 ([@planctus](https://github.com/planctus))
+- [#3913](https://github.com/ec-europa/europa-component-library/pull/3913) feat(grid): Different columns gutter based on breakpoints - FRONT-4849 ([@planctus](https://github.com/planctus))
+- [#3907](https://github.com/ec-europa/europa-component-library/pull/3907) feat(mega-menu): Featured links, revisited - FRONT-4842 ([@planctus](https://github.com/planctus))
+- [#3923](https://github.com/ec-europa/europa-component-library/pull/3923) feat(color): update component G-M - FRONT-4846 ([@emeryro](https://github.com/emeryro))
+- [#3916](https://github.com/ec-europa/europa-component-library/pull/3916) feat(color): update component A-C - FRONT-4844 ([@emeryro](https://github.com/emeryro))
+- [#3917](https://github.com/ec-europa/europa-component-library/pull/3917) feat(color): update component N-R. - FRONT-4847 ([@tibi2303](https://github.com/tibi2303))
+- [#3920](https://github.com/ec-europa/europa-component-library/pull/3920) feat(colors): Update components from S to Z ([@planctus](https://github.com/planctus))
+- [#3905](https://github.com/ec-europa/europa-component-library/pull/3905) feat(divider): Renaming separator to divider, updating EC color - FRONT-4839 ([@planctus](https://github.com/planctus))
+- [#3908](https://github.com/ec-europa/europa-component-library/pull/3908) feat(typography): update font values - FRONT-4843 ([@emeryro](https://github.com/emeryro))
+- [#3915](https://github.com/ec-europa/europa-component-library/pull/3915) feat(colors): Udpate components from D to F - FRONT-4845 ([@planctus](https://github.com/planctus))
+- [#3911](https://github.com/ec-europa/europa-component-library/pull/3911) feat(social-follow): Changed orientation on mobile. - FRONT-4841 ([@tibi2303](https://github.com/tibi2303))
+- [#3886](https://github.com/ec-europa/europa-component-library/pull/3886) feat(colors): update tokens - FRONT-4825 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3922](https://github.com/ec-europa/europa-component-library/pull/3922) chore(deps): Updates 31-03-25 ([@planctus](https://github.com/planctus))
+- [#3919](https://github.com/ec-europa/europa-component-library/pull/3919) chore(deps): Updates 27-03-25 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 5.0.0-alpha.7
+
+#### :bug: Bug Fix
+
+- [#3924](https://github.com/ec-europa/europa-component-library/pull/3924) fix(banner): fix aspect for small banner - FRONT-4857 ([@emeryro](https://github.com/emeryro)
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 # 5.0.0-alpha.6
 
 #### :bug: Bug Fix

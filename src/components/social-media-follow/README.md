@@ -32,9 +32,8 @@ npm install --save @ecl/social-media-follow
         icon_position: 'before',
       },
       icon: {
-        name: 'twitter-color',
+        name: 'twitter',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
     {
@@ -44,9 +43,8 @@ npm install --save @ecl/social-media-follow
         icon_position: 'before',
       },
       icon: {
-        name: 'facebook-color',
+        name: 'facebook',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
   ],

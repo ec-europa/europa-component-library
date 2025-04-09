@@ -61,6 +61,17 @@ describe('Mega Menu', () => {
       return expect(render(withItemExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra attributes for the info link', () => {
+      expect.assertions(1);
+
+      const withInfoExtraAttributes = JSON.parse(JSON.stringify(data));
+      withInfoExtraAttributes.items[1].info.link.extra_attributes = [
+        { name: 'test-attribute-info-link' },
+      ];
+
+      return expect(render(withInfoExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes for the second level items', () => {
       expect.assertions(1);
 

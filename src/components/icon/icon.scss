@@ -7,7 +7,6 @@
 
 // Exposed variables
 $theme: null !default;
-$icons: null !default;
 
 .ecl-icon {
   fill: currentcolor;
@@ -56,11 +55,11 @@ $icons: null !default;
 }
 
 .ecl-icon--primary {
-  fill: var(--c-p);
+  fill: var(--cm-on-surface-primary, var(--c-p));
 }
 
 .ecl-icon--inverted {
-  fill: map.get($theme, 'color', 'white');
+  fill: #fff;
 }
 
 .ecl-icon--rotate-0 {
