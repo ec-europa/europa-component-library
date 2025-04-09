@@ -5,6 +5,9 @@ $theme: null !default;
 @use 'breakpoints' with (
   $theme: $theme
 );
+@use 'containers' with (
+  $theme: $theme
+);
 @use 'grid' with (
   $theme: $theme
 );
@@ -24,6 +27,7 @@ $theme: null !default;
   // Common properties for all breakpoints
   %grid-column {
     box-sizing: border-box;
+    container-type: inline-size;
     min-height: 1px; // Prevent columns from collapsing when empty
     position: relative;
     width: 100%;

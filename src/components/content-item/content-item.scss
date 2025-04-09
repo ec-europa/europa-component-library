@@ -4,7 +4,7 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/grid/mixins/containers';
 
 // Exposed variables
 $theme: null !default;
@@ -44,7 +44,7 @@ $content-item: null !default;
 }
 
 .ecl-content-item__picture--small {
-  height: 140px;
+  max-height: 140px;
   width: 140px;
 }
 
@@ -54,7 +54,7 @@ $content-item: null !default;
   width: calc(100% - 2px);
 }
 
-@include breakpoints.up('m') {
+@include containers.up('m') {
   .ecl-content-item {
     &:not(.ecl-content-item--stack) {
       flex-direction: row;
