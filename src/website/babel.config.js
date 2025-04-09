@@ -10,11 +10,7 @@ module.exports = {
     ],
     '@babel/preset-react',
   ],
-  plugins: [
-    'preval',
-    'react-hot-loader/babel',
-    '@babel/plugin-proposal-export-default-from',
-  ],
+  plugins: ['preval', '@babel/plugin-proposal-export-default-from'],
   env: {
     production: {
       plugins: ['transform-react-remove-prop-types'],
