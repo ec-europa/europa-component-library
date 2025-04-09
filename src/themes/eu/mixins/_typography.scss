@@ -2,17 +2,7 @@
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
 
-$font-size-map: (
-  '8xl': '7xl',
-  '6xl': '5xl',
-  '3xl': '2xl',
-  '2xl': '2xl',
-  'xl': 'xl',
-  'l': 'l',
-  'm': 'm',
-  's': 's',
-  'xs': 'xs',
-);
+$font-size-map: ();
 
 // Helper to check if value is already a CSS variable
 @function is-var($value) {
