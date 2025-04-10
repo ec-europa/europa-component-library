@@ -312,3 +312,29 @@ index 974ccc8..be7d0f0 100644
  import { ADDON_ID, PANEL_ID, PARAM_KEY } from './constants';
  import { CssResourcePanel } from './css-resource-panel';
  addons.register(ADDON_ID, function (api) {
+diff --git a/node_modules/@storybook/addon-cssresources/package.json b/node_modules/@storybook/addon-cssresources/package.json
+index d685f3c..99679f5 100644
+--- a/node_modules/@storybook/addon-cssresources/package.json
++++ b/node_modules/@storybook/addon-cssresources/package.json
+@@ -40,12 +40,6 @@
+     "prepare": "node ../../scripts/prepare.js"
+   },
+   "dependencies": {
+-    "@storybook/addons": "6.2.9",
+-    "@storybook/api": "6.2.9",
+-    "@storybook/components": "6.2.9",
+-    "@storybook/core-events": "6.2.9",
+-    "@storybook/theming": "6.2.9",
+-    "core-js": "^3.8.2",
+     "global": "^4.4.0",
+     "regenerator-runtime": "^0.13.7"
+   },
+@@ -53,8 +47,6 @@
+     "@types/webpack-env": "^1.16.0"
+   },
+   "peerDependencies": {
+-    "react": "^16.8.0 || ^17.0.0",
+-    "react-dom": "^16.8.0 || ^17.0.0"
+   },
+   "peerDependenciesMeta": {
+     "react": {
