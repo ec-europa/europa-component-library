@@ -11,7 +11,8 @@ $theme: null !default;
 
 @mixin ecl-make-container($gutters: map.get($theme, 'grid-gutter-width')) {
   box-sizing: border-box;
-  container-type: inline-size;
+
+  // container-type: inline-size;
   margin-inline-start: auto;
   margin-inline-end: auto;
   position: relative;

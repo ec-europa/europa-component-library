@@ -27,7 +27,8 @@ $theme: null !default;
   // Common properties for all breakpoints
   %grid-column {
     box-sizing: border-box;
-    container-type: inline-size;
+
+    // container-type: inline-size;
     min-height: 1px; // Prevent columns from collapsing when empty
     position: relative;
     width: 100%;
