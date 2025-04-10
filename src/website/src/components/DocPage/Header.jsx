@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router';
 import PropTypes from 'prop-types';
 import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 

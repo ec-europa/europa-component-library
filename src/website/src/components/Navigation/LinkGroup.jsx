@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom'; // Use the useLocation hook
+import { useLocation } from 'react-router'; // Use the useLocation hook
 
 import styles from './LinkGroup.module.scss';
 import LinkList from './LinkList'; // eslint-disable-line import/no-cycle

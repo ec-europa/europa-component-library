@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router';
 import { Helmet } from 'react-helmet';
 import Navigation from '../components/Navigation/Navigation';
 import MainContainer from '../components/MainContainer/MainContainer';

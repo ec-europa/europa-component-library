@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, StaticRouter } from 'react-router-dom';
+import { BrowserRouter, StaticRouter } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
 import customComponents from './website-components/customComponents';
 import MainRoutes from './routes/MainRoutes';

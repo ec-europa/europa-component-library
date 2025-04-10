@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Route, Navigate } from 'react-router';
 import PropTypes from 'prop-types';
 import sortPages from '../utils/nav-sort';
 import HomePage from '../pages/eu/index.md';
