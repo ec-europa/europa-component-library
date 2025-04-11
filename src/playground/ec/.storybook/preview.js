@@ -1,11 +1,81 @@
-import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
+import { addons } from '@storybook/manager-api';
+import { useChannel } from '@storybook/preview-api';
+import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
 global.Buffer = Buffer;
 
 import './ECL';
+
+const styleSheets = [
+  {
+    id: 'ecl-reset',
+    href: './styles/optional/ecl-reset.css',
+    picked: true,
+    group: 'others',
+  },
+  {
+    id: 'ecl-ec-default',
+    href: './styles/optional/ecl-ec-default.css',
+    picked: true,
+    group: 'screen',
+  },
+  { id: 'ecl-ec', href: './styles/ecl-ec.css', picked: true, group: 'screen' },
+  {
+    id: 'ecl-ec-color-modes',
+    href: './styles/ecl-ec-color-modes.css',
+    picked: true,
+    group: 'others',
+  },
+  {
+    id: 'ecl-ec-utilities',
+    href: './styles/optional/ecl-ec-utilities.css',
+    picked: true,
+    group: 'others',
+  },
+  {
+    id: 'ecl-rtl',
+    href: './styles/optional/ecl-rtl.css',
+    picked: false,
+    group: 'others',
+  },
+  {
+    id: 'ecl-ec-default-print',
+    href: './styles/optional/ecl-ec-default-print.css',
+    picked: false,
+    group: 'print',
+  },
+  {
+    id: 'ecl-ec-print',
+    href: './styles/ecl-ec-print.css',
+    picked: false,
+    group: 'print',
+  },
+];
+
+export const initialGlobals = {
+  styleSheets,
+};
+
+export const decorators = [
+  (story) => {
+    useChannel({
+      [TOGGLE_STYLE]: ({ key, enabled }) =>
+        toggleStyle(key, enabled, styleSheets),
+    });
+
+    // Initial load
+    styleSheets.forEach(({ id, picked }) => {
+      if (picked && !document.getElementById(`style-${id}`)) {
+        toggleStyle(id, true, styleSheets);
+      }
+    });
+
+    return story();
+  },
+];
 
 export const parameters = {
   options: {
@@ -31,56 +101,6 @@ export const parameters = {
     canvas: { sourceState: 'shown' },
   },
   viewMode: 'story',
-  cssresources: [
-    {
-      id: 'ecl-reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-default',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-color-modes',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-color-modes.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-utilities',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-utilities.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-rtl',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-  ],
   controls: { expanded: true },
   layout: 'padded',
   viewport: {
@@ -118,8 +138,6 @@ export const parameters = {
     },
   },
 };
-
-export const decorators = [withCssResources];
 
 export const loaders = [
   async ({ args, originalStoryFn }) => {

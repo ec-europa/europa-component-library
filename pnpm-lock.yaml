@@ -914,8 +914,6 @@ importers:
 
   src/layout/grid: {}
 
-  src/layout/headings: {}
-
   src/page-example/page-fact-sheet:
     dependencies:
       '@ecl/banner':
@@ -1166,6 +1164,21 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
 
+  src/playground/addons/storybook-addon-styles:
+    devDependencies:
+      '@storybook/components':
+        specifier: 8.6.12
+        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
+      '@storybook/manager-api':
+        specifier: 8.6.12
+        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
+      '@storybook/preview-api':
+        specifier: 8.6.12
+        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
+      react:
+        specifier: 19.1.0
+        version: 19.1.0
+
   src/playground/addons/storybook-addon-system-switcher:
     dependencies:
       '@ecl/builder':
@@ -1201,15 +1214,15 @@ importers:
       '@babel/runtime':
         specifier: 7.27.0
         version: 7.27.0
+      '@ecl/storybook-addon-styles':
+        specifier: 1.0.0
+        version: link:../addons/storybook-addon-styles
       '@iframe-resizer/child':
         specifier: 5.4.3
         version: 5.4.3
       '@storybook/addon-a11y':
         specifier: 8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
-      '@storybook/addon-cssresources':
-        specifier: 6.2.9
-        version: 6.2.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@storybook/addon-essentials':
         specifier: 8.6.12
         version: 8.6.12(@types/react@19.0.10)(storybook@8.6.12(prettier@3.5.3))
