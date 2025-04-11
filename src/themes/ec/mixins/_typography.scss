@@ -14,38 +14,52 @@ $font-size-map: (
   'xs': 'xs',
 );
 
-// Helper to check if value is already a CSS variable
+// Helper to check if value is a CSS variable
 @function is-var($value) {
   @return string.index(#{$value}, 'var(--') == 1;
+}
+
+@function extract-token($value) {
+  @if is-var($value) {
+    $start: string.index(#{$value}, '--f-') + 4;
+    $end: string.index(#{$value}, ')');
+
+    @return string.slice(#{$value}, $start, $end - 1);
+  }
+
+  @return $value;
 }
 
 /// Responsive font
 /// @param {String} $desktop-size - Font size for desktop (e.g. '3xl' or var(--f-3xl))
 /// @param {String | null} $mobile-size - Optional override for mobile font size
 /// @param {String} $breakpoint - Breakpoint for desktop font size (default: 'm')
-@mixin responsive-font($desktop-size, $mobile-size: null, $breakpoint: 'm') {
-  // Get effective mobile size
-  $mobile: if(
+/// @param {Number | String | null} $font-weight - Optional font weight (e.g. 300, 500, bold)
+@mixin responsive-font(
+  $desktop-size,
+  $mobile-size: null,
+  $breakpoint: 'm',
+  $font-weight: 300
+) {
+  $desktop-key: extract-token($desktop-size);
+  $mobile-key: if(
     $mobile-size,
-    $mobile-size,
-    map.get($font-size-map, $desktop-size)
+    extract-token($mobile-size),
+    map.get($font-size-map, $desktop-key)
   );
 
-  // Fallback if mapping doesn't exist
-  @if not $mobile {
-    $mobile: $desktop-size;
+  @if not $mobile-key {
+    $mobile-key: $desktop-key;
   }
 
-  // Resolve values for comparison
-  $resolved-mobile: if(is-var($mobile), $mobile, var(--f-#{$mobile}));
-  $resolved-desktop: if(
-    is-var($desktop-size),
-    $desktop-size,
-    var(--f-#{$desktop-size})
-  );
+  $resolved-mobile: var(--f-#{$mobile-key});
+  $resolved-desktop: var(--f-#{$desktop-key});
 
-  // Always apply mobile font-size
   font: $resolved-mobile;
+
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
 
   // Only add desktop font-size at breakpoint if it differs from mobile
   @if $resolved-desktop != $resolved-mobile {

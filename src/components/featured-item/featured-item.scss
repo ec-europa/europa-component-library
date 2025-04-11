@@ -30,10 +30,12 @@ $featured-item: null !default;
 
 .ecl-featured-item__title {
   color: map.get($featured-item, 'title', 'color');
-  font-weight: map.get($featured-item, 'title', 'font-weight');
   max-width: map.get($featured-item, 'max-width');
 
-  @include responsive-font(map.get($featured-item, 'title', 'font'));
+  @include responsive-font(
+    map.get($featured-item, 'title', 'font'),
+    $font-weight: map.get($featured-item, 'title', 'font-weight')
+  );
 }
 
 .ecl-featured-item__description {
