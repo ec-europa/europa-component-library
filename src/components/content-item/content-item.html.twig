@@ -101,49 +101,51 @@
 
 {# Print the result #}
 
-<article
-  class="{{ _css_class }}"
-  {{ _extra_attributes|raw }}
->
-  {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
-    {% set _picture_extra_attrs = _picture.extra_attributes|default([]) %}
-    {% set _picture_extra_classes = 'ecl-content-item__picture' %}
-    {% if _title.link is defined %}
-      {% set _picture_extra_attrs = _picture_extra_attrs|merge([{ name: 'data-ecl-picture-link' }]) %}
+<div class="ecl-component-wrapper">
+  <article
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
+    {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
+      {% set _picture_extra_attrs = _picture.extra_attributes|default([]) %}
+      {% set _picture_extra_classes = 'ecl-content-item__picture' %}
+      {% if _title.link is defined %}
+        {% set _picture_extra_attrs = _picture_extra_attrs|merge([{ name: 'data-ecl-picture-link' }]) %}
+      {% endif %}
+      {% if _picture.size is not empty %}
+        {% set _picture_extra_classes = _picture_extra_classes ~ ' ecl-content-item__picture--' ~ _picture.size %}
+      {% endif %}
+      {% if _picture.position is not empty %}
+        {% set _picture_extra_classes = _picture_extra_classes ~ ' ecl-content-item__picture--' ~ _picture.position %}
+      {% endif %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        zoom: _picture_zoom,
+        extra_classes: _picture_extra_classes,
+        extra_image_classes: "ecl-content-item__image",
+        extra_attributes: _picture_extra_attrs,
+      } only %}
     {% endif %}
-    {% if _picture.size is not empty %}
-      {% set _picture_extra_classes = _picture_extra_classes ~ ' ecl-content-item__picture--' ~ _picture.size %}
-    {% endif %}
-    {% if _picture.position is not empty %}
-      {% set _picture_extra_classes = _picture_extra_classes ~ ' ecl-content-item__picture--' ~ _picture.position %}
-    {% endif %}
-    {% include '@ecl/picture/picture.html.twig' with {
-      picture: _picture,
-      zoom: _picture_zoom,
-      extra_classes: _picture_extra_classes,
-      extra_image_classes: "ecl-content-item__image",
-      extra_attributes: _picture_extra_attrs,
-    } only %}
-  {% endif %}
 
-  {% if _date is not empty %}
-    {% include '@ecl/date-block/date-block.html.twig' with _date|merge({
-      extra_classes: 'ecl-content-item__date'
+    {% if _date is not empty %}
+      {% include '@ecl/date-block/date-block.html.twig' with _date|merge({
+        extra_classes: 'ecl-content-item__date'
+      }) only %}
+    {% endif %}
+
+    {% set _content_block = {
+      labels: _labels,
+      labels_aria: _labels_aria,
+      primary_meta: _primary_meta,
+      title: _title,
+      description: _description,
+      secondary_meta: _secondary_meta,
+      lists: _lists,
+    } %}
+    {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
+      extra_classes: 'ecl-content-item__content-block'
     }) only %}
-  {% endif %}
-
-  {% set _content_block = {
-    labels: _labels,
-    labels_aria: _labels_aria,
-    primary_meta: _primary_meta,
-    title: _title,
-    description: _description,
-    secondary_meta: _secondary_meta,
-    lists: _lists,
-  } %}
-  {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
-    extra_classes: 'ecl-content-item__content-block'
-  }) only %}
-</article>
+  </article>
+</div>
 
 {% endapply %}

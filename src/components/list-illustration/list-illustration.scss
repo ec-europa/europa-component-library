@@ -4,7 +4,7 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/grid/mixins/containers';
 
 // Exposed variables
 $theme: null !default;
@@ -100,7 +100,7 @@ $list-illustration: null !default;
   margin-top: map.get($list-illustration, 'description', 'margin');
 }
 
-@include breakpoints.up('m') {
+@include containers.up('m') {
   .ecl-list-illustration__item {
     flex-direction: row;
     margin-bottom: 0;
@@ -123,7 +123,7 @@ $list-illustration: null !default;
   }
 }
 
-@include breakpoints.up('l') {
+@include containers.up('l') {
   .ecl-list-illustration__value {
     font: map.get($list-illustration, 'value', 'font-desktop-l');
     font-weight: map.get($list-illustration, 'value', 'font-weight');
@@ -155,13 +155,14 @@ $list-illustration: null !default;
   }
 }
 
-@include breakpoints.up('m') {
+@include containers.up('m') {
   .ecl-list-illustration--col-2,
   .ecl-list-illustration--col-3,
   .ecl-list-illustration--col-4 {
     display: grid;
     grid-auto-rows: auto;
     grid-column-gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
     grid-row-gap: map.get($list-illustration, 'column-gap');
     width: 100%;
 
@@ -186,15 +187,16 @@ $list-illustration: null !default;
       }
     }
   }
+}
 
-  .ecl-list-illustration--col-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ecl-list-illustration--col-3 {
+@include containers.up('l') {
+  .ecl-list-illustration--col-3,
+  .ecl-list-illustration--col-4 {
     grid-template-columns: repeat(3, 1fr);
   }
+}
 
+@include containers.up('xl') {
   .ecl-list-illustration--col-4 {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -225,7 +227,7 @@ $list-illustration: null !default;
   }
 }
 
-@include breakpoints.up('s') {
+@include containers.up('s') {
   .ecl-list-illustration--zebra {
     left: auto;
     margin-inline-start: 0;
@@ -233,7 +235,7 @@ $list-illustration: null !default;
   }
 }
 
-@include breakpoints.up('m') {
+@include containers.up('m') {
   .ecl-list-illustration--zebra {
     .ecl-list-illustration__item {
       padding: map.get($list-illustration, 'item-padding-zebra-desktop');

@@ -4,7 +4,7 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/grid/mixins/containers';
 
 // Exposed variables
 $theme: null !default;
@@ -96,6 +96,7 @@ $banner: null !default;
 .ecl-banner__info {
   align-items: center;
   background-color: map.get($banner, 'background-color');
+  container-type: normal;
   display: flex;
   flex-grow: 1;
 }
@@ -242,7 +243,7 @@ $banner: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include containers.up('m') {
   .ecl-banner .ecl-container {
     padding-inline-start: map.get(
       $banner,
@@ -267,7 +268,7 @@ $banner: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include containers.up('l') {
   .ecl-banner {
     aspect-ratio: 4/1;
     padding-bottom: var(--banner-footer-height);
