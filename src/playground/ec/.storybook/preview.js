@@ -57,6 +57,9 @@ const styleSheets = [
 
 export const initialGlobals = {
   styleSheets,
+  panelDescription:
+    'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
+  panelTitle: 'ECL styles',
 };
 
 export const decorators = [

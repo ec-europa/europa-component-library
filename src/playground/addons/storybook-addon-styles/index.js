@@ -1,17 +1,19 @@
 export const TOGGLE_STYLE = 'TOGGLE_STYLE';
 
-export function toggleStyle(id, enabled, styleSheets) {
-  const style = styleSheets.find((s) => s.id === id);
-  if (!style) return;
+export function toggleStyle(key, enabled, styleSheets) {
+  const styleSheet = styleSheets.find((s) => s.id === key);
+  if (!styleSheet) {
+    return;
+  }
 
-  const link = document.getElementById(`style-${id}`);
-  if (enabled && !link) {
-    const newLink = document.createElement('link');
-    newLink.id = `style-${id}`;
-    newLink.rel = 'stylesheet';
-    newLink.href = style.href;
-    document.head.appendChild(newLink);
-  } else if (!enabled && link) {
-    link.remove();
+  const existing = document.getElementById(`style-${key}`);
+  if (enabled && !existing) {
+    const link = document.createElement('link');
+    link.id = `style-${key}`;
+    link.rel = 'stylesheet';
+    link.href = styleSheet.href;
+    document.head.appendChild(link);
+  } else if (!enabled && existing) {
+    existing.remove();
   }
 }
