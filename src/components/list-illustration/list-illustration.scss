@@ -162,8 +162,8 @@ $list-illustration: null !default;
     display: grid;
     grid-auto-rows: auto;
     grid-column-gap: 2.5rem;
-    grid-row-gap: var(--s-3xl);
     grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: map.get($list-illustration, 'column-gap');
     width: 100%;
 
     .ecl-list-illustration__item {

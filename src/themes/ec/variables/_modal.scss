@@ -9,30 +9,31 @@ $modal: (
   header: (
     font: var(--f-2xl),
     font-weight: map.get($font-weight, 'light'),
-    padding-mobile: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
-    padding-desktop: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
+    padding-mobile: var(--s-5xl) var(--s-5xl) var(--s-xl) var(--s-5xl),
+    padding-desktop: var(--s-5xl) var(--s-5xl) var(--s-xl) var(--s-5xl),
   ),
   close: (
     margin-top: calc(-1 * var(--s-xl)),
     margin-end: calc(-1 * var(--s-xl)),
   ),
   body: (
-    padding-mobile: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
-    padding-desktop: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
-    padding-last-child: var(--s-3xl),
+    container-spacing-top: var(--s-5xl),
+    padding-mobile: 0 var(--s-5xl) var(--s-xl) var(--s-5xl),
+    padding-desktop: 0 var(--s-5xl) var(--s-xl) var(--s-5xl),
+    padding-last-child: var(--s-5xl),
     margin-fixed: var(--s-m),
   ),
   footer: (
-    padding-mobile: 0 var(--s-3xl) var(--s-3xl),
-    padding-desktop: 0 var(--s-3xl) var(--s-3xl),
+    padding-mobile: 0 var(--s-5xl) var(--s-5xl),
+    padding-desktop: 0 var(--s-5xl) var(--s-5xl),
   ),
   warning: (
     icon-background-color: var(--cm-on-surface-brand),
     icon-background-height: var(--s-m),
     icon-background-width: var(--s-xs),
-    icon-background-top: calc(var(--s-3xl) + var(--s-s)),
+    icon-background-top: calc(var(--s-5xl) + var(--s-s)),
     icon-background-left: calc(
-        var(--s-3xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)
+        var(--s-5xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)
       ),
   ),
 );
