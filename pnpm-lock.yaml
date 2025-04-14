@@ -1165,19 +1165,20 @@ importers:
         version: 19.1.0(react@19.1.0)
 
   src/playground/addons/storybook-addon-styles:
-    devDependencies:
-      '@storybook/components':
-        specifier: 8.6.12
-        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
+    dependencies:
       '@storybook/manager-api':
-        specifier: 8.6.12
-        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
-      '@storybook/preview-api':
         specifier: 8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
       react:
         specifier: 19.1.0
         version: 19.1.0
+    devDependencies:
+      '@storybook/components':
+        specifier: 8.6.12
+        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
+      '@storybook/preview-api':
+        specifier: 8.6.12
+        version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
 
   src/playground/addons/storybook-addon-system-switcher:
     dependencies:
@@ -1215,7 +1216,7 @@ importers:
         specifier: 7.27.0
         version: 7.27.0
       '@ecl/storybook-addon-styles':
-        specifier: 1.0.0
+        specifier: 5.0.0-alpha.8
         version: link:../addons/storybook-addon-styles
       '@iframe-resizer/child':
         specifier: 5.4.3
@@ -1253,9 +1254,6 @@ importers:
       core-js:
         specifier: 3.41.0
         version: 3.41.0
-      react:
-        specifier: 19.1.0
-        version: 19.1.0
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
@@ -1283,15 +1281,15 @@ importers:
       '@babel/runtime':
         specifier: 7.27.0
         version: 7.27.0
+      '@ecl/storybook-addon-styles':
+        specifier: 5.0.0-alpha.8
+        version: link:../addons/storybook-addon-styles
       '@iframe-resizer/child':
         specifier: 5.4.3
         version: 5.4.3
       '@storybook/addon-a11y':
         specifier: 8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
-      '@storybook/addon-cssresources':
-        specifier: 6.2.9
-        version: 6.2.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@storybook/addon-essentials':
         specifier: 8.6.12
         version: 8.6.12(@types/react@19.0.10)(storybook@8.6.12(prettier@3.5.3))
@@ -4728,17 +4726,6 @@ packages:
     resolution: {integrity: sha512-9VSRPJWQVb9wLp21uvpxDGNctYptyUX0gbvxIWOHMH3R2DslSoq41lsC/oQ4l4zSHVdL+nq8sCTkhBxIsjKqdQ==}
     peerDependencies:
       storybook: ^8.6.12
-
-  '@storybook/addon-cssresources@6.2.9':
-    resolution: {integrity: sha512-m1qWBFelOSbl8/xJa7zvYIt/ej+uCGuoOJnWFPbvo8zI0fegDGIOJBiMjF9dotLcNjdeZS3fUjAoxxWyrDrKeA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
 
   '@storybook/addon-docs@8.6.12':
     resolution: {integrity: sha512-kEezQjAf/p3SpDzLABgg4fbT48B6dkT2LiZCKTRmCrJVtuReaAr4R9MMM6Jsph6XjbIj/SvOWf3CMeOPXOs9sg==}
@@ -15059,11 +15046,6 @@ snapshots:
       dequal: 2.0.3
       storybook: 8.6.12(prettier@3.5.3)
       ts-dedent: 2.2.0
-
-  '@storybook/addon-cssresources@6.2.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    optionalDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
 
   '@storybook/addon-docs@8.6.12(@types/react@19.0.10)(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
