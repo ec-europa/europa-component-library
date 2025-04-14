@@ -103,6 +103,12 @@ Here are ECL 5 shadows, and the mapping with ECL 4.
 
 EU shadows have not been modified (name and value).
 
+### [EC] Spacing
+
+The scale has been extended in EC, it now has all these values: `5xs`, `4xs`, `3xs`, `2xs`, `xs`, `s`, `m`, `l`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`, `8xl`, `9xl`, `10xl`
+
+The primary values used for spacing have largely remained unchanged: `m` is still `16px`, `s` is `12px`, and `l` is `20px`."
+
 ### Utilities
 
 Utilities have been added for the color modes. They are available for background, border and typography.
