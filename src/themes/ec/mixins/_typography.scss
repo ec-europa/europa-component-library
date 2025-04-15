@@ -33,7 +33,7 @@ $font-size-map: (
 
 /// Responsive font
 ///
-/// Applies responsive font size, weight, and letter-spacing based on provided configuration.
+/// Applies responsive font size, weight, and optionally letter-spacing based on provided configuration.
 /// Accepts a map of parameters, allowing flexibility and easier maintenance.
 ///
 /// @param {Map} $config - Configuration map with optional keys:
@@ -42,7 +42,7 @@ $font-size-map: (
 ///   - `breakpoint` {String} (optional): Breakpoint name for applying desktop styles (default: `'m'`)
 ///   - `desktop-weight` {Number | String | null} (optional): Font weight for desktop (default: `300`)
 ///   - `mobile-weight` {Number | String | null} (optional): Font weight for mobile (default: same as desktop)
-///   - `letter-spacing-map` {Map} (optional): Letter-spacing map to use (default: `typography.$letter-spacing-compact`)
+///   - `letter-spacing-map` {Map | null} (optional): Letter-spacing map to use.
 ///
 @mixin responsive-font($config) {
   // Set defaults
@@ -62,7 +62,7 @@ $font-size-map: (
   $letter-spacing-map: if(
     map.has-key($config, 'letter-spacing-map'),
     map.get($config, 'letter-spacing-map'),
-    typography.$letter-spacing-compact
+    null
   );
   $desktop-key: extract-token($desktop-size);
   $mobile-key: if(
@@ -85,7 +85,13 @@ $font-size-map: (
 
   font: $resolved-mobile-size;
   font-weight: $resolved-mobile-weight;
-  letter-spacing: map.get($letter-spacing-map, $mobile-key);
+
+  @if $letter-spacing-map !=
+    null and
+    map.has-key($letter-spacing-map, $mobile-key)
+  {
+    letter-spacing: map.get($letter-spacing-map, $mobile-key);
+  }
 
   @if ($resolved-desktop-size != $resolved-mobile-size) or
     ($desktop-weight != $resolved-mobile-weight)
@@ -96,7 +102,13 @@ $font-size-map: (
       }
 
       font-weight: $desktop-weight;
-      letter-spacing: map.get($letter-spacing-map, $desktop-key);
+
+      @if $letter-spacing-map !=
+        null and
+        map.has-key($letter-spacing-map, $desktop-key)
+      {
+        letter-spacing: map.get($letter-spacing-map, $desktop-key);
+      }
     }
   }
 }
