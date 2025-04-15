@@ -33,8 +33,10 @@ $featured-item: null !default;
   max-width: map.get($featured-item, 'max-width');
 
   @include responsive-font(
-    map.get($featured-item, 'title', 'font'),
-    $font-weight: map.get($featured-item, 'title', 'font-weight')
+    (
+      desktop-size: map.get($featured-item, 'title', 'font'),
+      desktop-weight: map.get($featured-item, 'title', 'font-weight'),
+    )
   );
 }
 
@@ -76,10 +78,6 @@ $featured-item: null !default;
   .ecl-featured-item__item:last-child {
     margin-block-start: 0;
     padding-inline: map.get($featured-item, 'gap-horizontal') 0;
-  }
-
-  .ecl-featured-item__title {
-    font-weight: map.get($featured-item, 'title', 'font-weight');
   }
 
   .ecl-featured-item__container--right {

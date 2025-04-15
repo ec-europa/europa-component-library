@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
+@use '../maps/typography.scss' as typography;
 
 $font-size-map: ();
 
@@ -21,16 +22,38 @@ $font-size-map: ();
 }
 
 /// Responsive font
-/// @param {String} $desktop-size - Font size for desktop (e.g. '3xl' or var(--f-3xl))
-/// @param {String | null} $mobile-size - Optional override for mobile font size
-/// @param {String} $breakpoint - Breakpoint for desktop font size (default: 'm')
-/// @param {Number | String | null} $font-weight - Optional font weight (e.g. 300, 500, bold)
-@mixin responsive-font(
-  $desktop-size,
-  $mobile-size: null,
-  $breakpoint: 'm',
-  $font-weight: null
-) {
+///
+/// Applies responsive font size, weight, and letter-spacing based on provided configuration.
+/// Accepts a map of parameters, allowing flexibility and easier maintenance.
+///
+/// @param {Map} $config - Configuration map with optional keys:
+///   - `desktop-size` {String} (required): Font size for desktop (e.g. `'3xl'` or `var(--f-3xl)`)
+///   - `mobile-size` {String | null} (optional): Override for mobile font size
+///   - `breakpoint` {String} (optional): Breakpoint name for applying desktop styles (default: `'m'`)
+///   - `desktop-weight` {Number | String | null} (optional): Font weight for desktop (default: `300`)
+///   - `mobile-weight` {Number | String | null} (optional): Font weight for mobile (default: same as desktop)
+///   - `letter-spacing-map` {Map} (optional): Letter-spacing map to use (default: `typography.$letter-spacing-compact`)
+///
+@mixin responsive-font($config) {
+  // Set defaults
+  $desktop-size: map.get($config, 'desktop-size');
+  $mobile-size: map.get($config, 'mobile-size');
+  $breakpoint: if(
+    map.has-key($config, 'breakpoint'),
+    map.get($config, 'breakpoint'),
+    'm'
+  );
+  $desktop-weight: if(
+    map.has-key($config, 'desktop-weight'),
+    map.get($config, 'desktop-weight'),
+    300
+  );
+  $mobile-weight: map.get($config, 'mobile-weight');
+  $letter-spacing-map: if(
+    map.has-key($config, 'letter-spacing-map'),
+    map.get($config, 'letter-spacing-map'),
+    typography.$letter-spacing-compact
+  );
   $desktop-key: extract-token($desktop-size);
   $mobile-key: if(
     $mobile-size,
@@ -42,19 +65,28 @@ $font-size-map: ();
     $mobile-key: $desktop-key;
   }
 
-  $resolved-mobile: var(--f-#{$mobile-key});
-  $resolved-desktop: var(--f-#{$desktop-key});
+  $resolved-mobile-size: var(--f-#{$mobile-key});
+  $resolved-desktop-size: var(--f-#{$desktop-key});
+  $resolved-mobile-weight: if(
+    $mobile-weight != null,
+    $mobile-weight,
+    $desktop-weight
+  );
 
-  font: $resolved-mobile;
+  font: $resolved-mobile-size;
+  font-weight: $resolved-mobile-weight;
+  letter-spacing: map.get($letter-spacing-map, $mobile-key);
 
-  @if $font-weight {
-    font-weight: $font-weight;
-  }
-
-  // Only add desktop font-size at breakpoint if it differs from mobile
-  @if $resolved-desktop != $resolved-mobile {
+  @if ($resolved-desktop-size != $resolved-mobile-size) or
+    ($desktop-weight != $resolved-mobile-weight)
+  {
     @include breakpoints.up($breakpoint) {
-      font: $resolved-desktop;
+      @if $resolved-desktop-size != $resolved-mobile-size {
+        font: $resolved-desktop-size;
+      }
+
+      font-weight: $desktop-weight;
+      letter-spacing: map.get($letter-spacing-map, $desktop-key);
     }
   }
 }
