@@ -53,7 +53,7 @@ $font-size-map: (
   $desktop-weight: if(
     map.has-key($config, 'desktop-weight'),
     map.get($config, 'desktop-weight'),
-    300
+    map.get(typography.$letter-spacing-compact, 'regular')
   );
   $mobile-weight: map.get($config, 'mobile-weight');
   $letter-spacing-type: map.get($config, 'letter-spacing-type');
