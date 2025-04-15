@@ -33,16 +33,13 @@ $font-size-map: (
 
 /// Responsive font
 ///
-/// Applies responsive font size, weight, and optionally letter-spacing based on provided configuration.
-/// Accepts a map of parameters, allowing flexibility and easier maintenance.
-///
-/// @param {Map} $config - Configuration map with optional keys:
-///   - `desktop-size` {String} (required): Font size for desktop (e.g. `'3xl'` or `var(--f-3xl)`)
-///   - `mobile-size` {String | null} (optional): Override for mobile font size
-///   - `breakpoint` {String} (optional): Breakpoint name for applying desktop styles (default: `'m'`)
-///   - `desktop-weight` {Number | String | null} (optional): Font weight for desktop (default: `300`)
-///   - `mobile-weight` {Number | String | null} (optional): Font weight for mobile (default: same as desktop)
-///   - `letter-spacing-map` {Map | null} (optional): Letter-spacing map to use.
+/// @param {Map} $config - Configuration map with keys:
+///   - `desktop-size` {String} (required)
+///   - `mobile-size` {String | null} (optional)
+///   - `breakpoint` {String} (default: `'m'`)
+///   - `desktop-weight` {Number | String | null} (default: `300`)
+///   - `mobile-weight` {Number | String | null} (optional)
+///   - `letter-spacing-type` {String | null} (optional): `'compact'`, `'extended'`, or `null`
 ///
 @mixin responsive-font($config) {
   // Set defaults
@@ -59,11 +56,7 @@ $font-size-map: (
     300
   );
   $mobile-weight: map.get($config, 'mobile-weight');
-  $letter-spacing-map: if(
-    map.has-key($config, 'letter-spacing-map'),
-    map.get($config, 'letter-spacing-map'),
-    null
-  );
+  $letter-spacing-type: map.get($config, 'letter-spacing-type');
   $desktop-key: extract-token($desktop-size);
   $mobile-key: if(
     $mobile-size,
@@ -86,11 +79,18 @@ $font-size-map: (
   font: $resolved-mobile-size;
   font-weight: $resolved-mobile-weight;
 
-  @if $letter-spacing-map !=
-    null and
-    map.has-key($letter-spacing-map, $mobile-key)
+  // Letter-spacing
+  @if $letter-spacing-type ==
+    'compact' and
+    map.has-key(typography.$letter-spacing-compact, $desktop-key)
   {
-    letter-spacing: map.get($letter-spacing-map, $mobile-key);
+    letter-spacing: map.get(typography.$letter-spacing-compact, $desktop-key);
+  } @else if
+    $letter-spacing-type ==
+    'extended' and
+    map.has-key(typography.$letter-spacing-extended, $desktop-key)
+  {
+    letter-spacing: map.get(typography.$letter-spacing-extended, $desktop-key);
   }
 
   @if ($resolved-desktop-size != $resolved-mobile-size) or
@@ -102,13 +102,6 @@ $font-size-map: (
       }
 
       font-weight: $desktop-weight;
-
-      @if $letter-spacing-map !=
-        null and
-        map.has-key($letter-spacing-map, $desktop-key)
-      {
-        letter-spacing: map.get($letter-spacing-map, $desktop-key);
-      }
     }
   }
 }
