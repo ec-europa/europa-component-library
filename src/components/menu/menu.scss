@@ -675,6 +675,23 @@ $menu: null !default;
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
       }
+
+      &.ecl-menu__item--current {
+        .ecl-menu__link:hover {
+          background-color: map.get($menu, 'desktop', 'item-background-hover');
+        }
+
+        &:focus-within {
+          .ecl-menu__link,
+          .ecl-menu__button-caret {
+            background-color: map.get(
+              $menu,
+              'desktop',
+              'item-background-focus'
+            );
+          }
+        }
+      }
     }
   }
 }
@@ -756,7 +773,7 @@ $menu: null !default;
 }
 
 .ecl-menu__see-all {
-  margin-top: var(--s-3xl);
+  margin-top: map.get($menu, 'mobile', 'see-all-spacing-top');
 }
 
 /* stylelint-disable-next-line order/order */

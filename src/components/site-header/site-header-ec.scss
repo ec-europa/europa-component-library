@@ -182,7 +182,7 @@ $language-list: null !default;
   font: var(--f-m);
   left: 0;
   margin-top: var(--s-l);
-  padding: var(--s-3xl) var(--s-m);
+  padding: var(--s-5xl) var(--s-m);
   position: absolute;
   z-index: map.get($theme, 'z-index', 'modal') + 1;
 
@@ -276,6 +276,10 @@ $language-list: null !default;
     display: flex;
     flex-direction: column;
   }
+}
+
+.ecl-site-header__site-name {
+  margin-inline-end: var(--s-5xl);
 }
 
 // Menu display and position
@@ -464,7 +468,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     left: 50%;
     margin-top: var(--s-l);
     min-width: 22rem;
-    padding: var(--s-3xl);
+    padding: var(--s-5xl);
     transform: translateX(-50%);
     width: auto;
 
