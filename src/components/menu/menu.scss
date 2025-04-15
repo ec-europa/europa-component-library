@@ -675,6 +675,23 @@ $menu: null !default;
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
       }
+
+      &.ecl-menu__item--current {
+        .ecl-menu__link:hover {
+          background-color: map.get($menu, 'desktop', 'item-background-hover');
+        }
+
+        &:focus-within {
+          .ecl-menu__link,
+          .ecl-menu__button-caret {
+            background-color: map.get(
+              $menu,
+              'desktop',
+              'item-background-focus'
+            );
+          }
+        }
+      }
     }
   }
 }
