@@ -5,22 +5,12 @@ order: 2
 
 import { Link, Playground, Html } from '@ecl/website-components';
 
-import {
-  fileUpload,
-  fileUploadMultiple,
-  fileUploadDisabled,
-  fileUploadOptional,
-  fileUploadInvalid,
-} from '../demo';
-
 <Playground
   system="eu"
   selectedKind="components-forms"
   selectedStory="file"
   showFrame
->
-  <Html markup={fileUpload} />
-</Playground>
+></Playground>
 
 ## Multiple uploads
 
@@ -30,9 +20,7 @@ import {
   selectedStory="file"
   showFrame
   selectedArgs="input.multiple:true"
->
-  <Html markup={fileUploadMultiple} />
-</Playground>
+></Playground>
 
 ## Disabled
 
@@ -42,9 +30,7 @@ import {
   selectedStory="file"
   selectedArgs="disabled:true"
   showFrame
->
-  <Html markup={fileUploadDisabled} />
-</Playground>
+></Playground>
 
 ## With error
 
@@ -54,9 +40,7 @@ import {
   selectedStory="file"
   selectedArgs="invalid:true"
   showFrame
->
-  <Html markup={fileUploadInvalid} />
-</Playground>
+></Playground>
 
 ## Optional
 
@@ -66,6 +50,4 @@ import {
   selectedStory="file-upload"
   selectedArgs="required:!false"
   showFrame
->
-  <Html markup={fileUploadOptional} />
-</Playground>
+></Playground>

@@ -7,7 +7,7 @@ import iconsFlagNonMembers from '@ecl/resources-flag-icons/dist/lists/non-member
 import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/lists/social-media.json';
 
 import IconCard from './IconCard';
-import styles from './IconList.scss';
+import styles from './IconList.module.scss';
 
 function IconList({ set }) {
   let iconSet = icons;

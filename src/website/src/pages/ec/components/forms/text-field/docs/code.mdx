@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  textInputDefault,
-  textInputDisabled,
-  textInputInvalid,
-  textInputRequired,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default text field
 
@@ -17,9 +11,7 @@ import {
   system="ec"
   selectedKind="components-forms--text"
   selectedStory="default"
->
-  <Html markup={textInputDefault} />
-</Playground>
+></Playground>
 
 ## Disabled text field
 
@@ -28,9 +20,7 @@ import {
   selectedKind="components-forms"
   selectedStory="text"
   selectedArgs="disabled:true"
->
-  <Html markup={textInputDisabled} />
-</Playground>
+></Playground>
 
 ## Invalid text field
 
@@ -39,9 +29,7 @@ import {
   selectedKind="components-forms"
   selectedStory="text"
   selectedArgs="invalid:true"
->
-  <Html markup={textInputInvalid} />
-</Playground>
+></Playground>
 
 ## Required text field
 
@@ -50,6 +38,4 @@ import {
   selectedKind="components-forms"
   selectedStory="text"
   selectedArgs="required:true"
->
-  <Html markup={textInputRequired} />
-</Playground>
+></Playground>

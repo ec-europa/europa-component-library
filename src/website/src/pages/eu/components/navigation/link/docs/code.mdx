@@ -4,13 +4,7 @@ order: 2
 ---
 
 import { correctSvgPath } from '@ecl/website-utils';
-import { Playground, Html } from '@ecl/website-components';
-import {
-  linkStandalone,
-  linkCTA,
-  linkPrimary,
-  linkSecondary,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default link
 
@@ -29,7 +23,6 @@ import {
   selectedKind="components-navigation-link"
   selectedStory="standalone"
 >
-  <Html markup={linkStandalone} />
 </Playground>
 
 ## Link with icon
@@ -51,7 +44,6 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="cta"
 >
-  <Html markup={linkCTA} />
 </Playground>
 
 ## Primary link
@@ -61,7 +53,6 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="primary"
 >
-  <Html markup={linkPrimary} />
 </Playground>
 
 ## Secondary link
@@ -71,7 +62,6 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="secondary"
 >
-  <Html markup={linkSecondary} />
 </Playground>
 
 ## Inverted link

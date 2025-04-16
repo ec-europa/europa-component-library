@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Container from '../Grid/Container';
-import mdStyles from '../../styles/markdown.scss';
-import styles from './Example.scss';
-import utilityStyles from '../../styles/utilities.scss';
+import mdStyles from '../../styles/markdown.module.scss';
+import styles from './Example.module.scss';
+import utilityStyles from '../../styles/utilities.module.scss';
 
 const handleClick = () => window.history.back();
 

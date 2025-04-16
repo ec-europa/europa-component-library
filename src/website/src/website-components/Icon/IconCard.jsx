@@ -5,7 +5,7 @@ import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 import iconsFlag from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
 import iconsFlagNonMembers from '@ecl/resources-flag-icons/dist/sprites/icons-flag-non-members.svg';
 import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
-import styles from './IconCard.scss';
+import styles from './IconCard.module.scss';
 
 function IconCard({ name, set }) {
   let cardClass = styles.card;

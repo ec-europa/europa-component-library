@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  contentItemImage,
-  contentItemImageRight,
-  contentItemImageTop,
-  contentItemEvent,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Content item with image (left)
 
@@ -18,9 +12,7 @@ import {
   selectedKind="components-content-item"
   selectedStory="image"
   showFrame
->
-  <Html markup={contentItemImage} />
-</Playground>
+></Playground>
 
 ## Content item with image (right)
 
@@ -30,9 +22,7 @@ import {
   selectedStory="image"
   showFrame
   selectedArgs="image_position:right"
->
-  <Html markup={contentItemImageRight} />
-</Playground>
+></Playground>
 
 ## Content item with image (top)
 
@@ -42,9 +32,7 @@ import {
   selectedStory="image"
   showFrame
   selectedArgs="image_position:top"
->
-  <Html markup={contentItemImageTop} />
-</Playground>
+></Playground>
 
 ## Event content item
 
@@ -52,6 +40,4 @@ import {
   system="eu"
   selectedKind="components-content-item"
   selectedStory="event"
->
-  <Html markup={contentItemEvent} />
-</Playground>
+></Playground>

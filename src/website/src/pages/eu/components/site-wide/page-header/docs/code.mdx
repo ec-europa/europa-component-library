@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-
-import {
-  pageHeaderDefault,
-  pageHeaderThumbnail,
-  pageHeaderBackground,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default page header
 
@@ -19,9 +13,7 @@ import {
   selectedStory="default"
   selectedArgs="show_thumbnail:false;background_image_url:"
   showFrame
->
-  <Html markup={pageHeaderDefault} />
-</Playground>
+></Playground>
 
 ## Page header with background image
 
@@ -33,9 +25,7 @@ Overlay can be configured (dark, light or none)
   selectedStory="default"
   selectedArgs="show_thumbnail:false"
   showFrame
->
-  <Html markup={pageHeaderBackground} />
-</Playground>
+></Playground>
 
 ## Page header with thumbnail
 
@@ -45,6 +35,4 @@ Overlay can be configured (dark, light or none)
   selectedStory="default"
   selectedArgs="background_image_url:"
   showFrame
->
-  <Html markup={pageHeaderThumbnail} />
-</Playground>
+></Playground>

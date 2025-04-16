@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import grid from './grid.scss';
-import utilities from '../../styles/utilities.scss';
+import grid from './grid.module.scss';
+import utilities from '../../styles/utilities.module.scss';
 
 const Col = React.memo(
   ({ col, spacing, flex, className, children, ...props }) => {
@@ -12,7 +12,7 @@ const Col = React.memo(
       .map((c) => grid[`ecl-col-${c}`])
       .join(' ');
 
-    const spacingClasses = spacing
+    const spacingClasses = (spacing || '')
       .split(' ')
       .map((sp) => utilities[sp])
       .join(' ');

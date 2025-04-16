@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  mediaContainerImg,
-  mediaContainerVideo,
-  mediaContainerEmbed,
-  mediaContainerInfographic,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Image
 
@@ -17,9 +11,7 @@ import {
   system="eu"
   selectedKind="components-media-container"
   selectedStory="image"
->
-  <Html markup={mediaContainerImg} />
-</Playground>
+></Playground>
 
 ## Video (using &lt;video&gt; tag)
 
@@ -27,9 +19,7 @@ import {
   system="eu"
   selectedKind="components-media-container"
   selectedStory="video"
->
-  <Html markup={mediaContainerVideo} />
-</Playground>
+></Playground>
 
 ## Embedded video (using &lt;iframe&gt;)
 
@@ -42,9 +32,7 @@ It is also possible to manually specify a ratio if needed. Possible manual ratio
   system="eu"
   selectedKind="components-media-container"
   selectedStory="embedded-video"
->
-  <Html markup={mediaContainerEmbed} />
-</Playground>
+></Playground>
 
 ## Infographic
 
@@ -53,9 +41,7 @@ It is also possible to manually specify a ratio if needed. Possible manual ratio
   selectedKind="components-media-container"
   selectedStory="infographic"
   showFrame
->
-  <Html markup={mediaContainerInfographic} />
-</Playground>
+></Playground>
 
 ### Media container width
 
