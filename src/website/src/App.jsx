@@ -1,133 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, StaticRouter } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
-import { hot } from 'react-hot-loader';
-
-// Global styles
+import customComponents from './website-components/customComponents';
+import MainRoutes from './routes/MainRoutes';
 import 'normalize.css/normalize.css';
 import './styles/app.scss';
 import 'prismjs/themes/prism.css';
-import styles from './styles/markdown.scss';
 
-// Static routes
-import MainRoutes from './routes/MainRoutes';
+export default function App({ url } = {}) {
+  const base = process.env.PUBLIC_URL || '';
+  const Router = typeof window !== 'undefined' ? BrowserRouter : StaticRouter;
+  const routerProps =
+    typeof window !== 'undefined'
+      ? { basename: base } // Client-side base
+      : { location: url }; // SSR/prerendering
 
-const customComponents = {
-  h1: ({ children, className, ...props }) => (
-    <h1 className={className || styles.h1} {...props}>
-      {children}
-    </h1>
-  ),
-  h2: ({ children, className, ...props }) => (
-    <h2 className={className || styles.h2} {...props}>
-      {children}
-    </h2>
-  ),
-  h3: ({ children, className, ...props }) => (
-    <h3 className={className || styles.h3} {...props}>
-      {children}
-    </h3>
-  ),
-  h4: ({ children, className, ...props }) => (
-    <h4 className={className || styles.h4} {...props}>
-      {children}
-    </h4>
-  ),
-  p: ({ children, className, ...props }) => (
-    <p className={className || styles.p} {...props}>
-      {children}
-    </p>
-  ),
-  details: ({ children, className, ...props }) => (
-    <details className={className || styles.details} {...props}>
-      {children}
-    </details>
-  ),
-  summary: ({ children, className, ...props }) => (
-    <summary className={className || styles.summary} {...props}>
-      {children}
-    </summary>
-  ),
-  ul: ({ children, className, ...props }) => (
-    <ul className={className || styles.ul} {...props}>
-      {children}
-    </ul>
-  ),
-  ol: ({ children, className, ...props }) => (
-    <ol className={className || styles.ol} {...props}>
-      {children}
-    </ol>
-  ),
-  table: ({ children, className, ...props }) => (
-    <table className={className || styles.table} {...props}>
-      {children}
-    </table>
-  ),
-  thead: ({ children, className, ...props }) => (
-    <thead className={className || styles.thead} {...props}>
-      {children}
-    </thead>
-  ),
-  tbody: ({ children, className, ...props }) => (
-    <tbody className={className || styles.tbody} {...props}>
-      {children}
-    </tbody>
-  ),
-  tr: ({ children, className, ...props }) => (
-    <tr className={className || styles.tr} {...props}>
-      {children}
-    </tr>
-  ),
-  th: ({ children, className, ...props }) => (
-    <th className={className || styles.th} {...props}>
-      {children}
-    </th>
-  ),
-  td: ({ children, className, ...props }) => (
-    <td className={className || styles.td} {...props}>
-      {children}
-    </td>
-  ),
-  hr: ({ className, ...props }) => (
-    <hr className={className || styles.hr} {...props} />
-  ),
-  a: ({ href, children, className, ...props }) => (
-    <a href={href} className={className || styles.a} {...props}>
-      {children}
-    </a>
-  ),
-  img: ({ alt, src, className, ...props }) => (
-    <a
-      className={styles.imgA}
-      href={src}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img alt={alt} src={src} className={className || styles.img} {...props} />
-    </a>
-  ),
-};
-
-function App() {
   return (
     <MDXProvider components={customComponents}>
-      <Router basename={process.env.PUBLIC_URL}>
-        <>
-          <Helmet
-            titleTemplate="%s - ECL v4"
-            defaultTitle="Europa Component Library"
-          >
-            <meta
-              name="Description"
-              content="Europa Component Library (ECL) documentation website"
-            />
-          </Helmet>
-          <MainRoutes />
-        </>
+      <Router {...routerProps}>
+        <Helmet
+          titleTemplate="%s - ECL v5"
+          defaultTitle="Europa Component Library"
+        >
+          <link rel="icon" href={`${base}/favicon.ico`} />
+          <link rel="manifest" href={`${base}/manifest.json`} />
+          <meta
+            name="Description"
+            content="Europa Component Library (ECL) documentation website"
+          />
+        </Helmet>
+        <MainRoutes />
       </Router>
     </MDXProvider>
   );
 }
 
-export default hot(module)(App);
+App.defaultProps = {
+  url: '',
+};
+
+App.propTypes = {
+  url: PropTypes.string,
+};

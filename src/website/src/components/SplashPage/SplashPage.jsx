@@ -11,8 +11,8 @@ import Container from '../Grid/Container';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
 
-import utilities from '../../styles/utilities.scss';
-import styles from './SplashPage.scss';
+import utilities from '../../styles/utilities.module.scss';
+import styles from './SplashPage.module.scss';
 
 const SplashPage = React.memo(({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
@@ -25,7 +25,7 @@ const SplashPage = React.memo(({ children }) => (
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
           <LogoLink
-            to="/ec/"
+            to="/ec"
             aria-label="Open EU system"
             system="ec"
             logo={logoEcEn}
@@ -36,7 +36,7 @@ const SplashPage = React.memo(({ children }) => (
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
           <LogoLink
-            to="/eu/"
+            to="/eu"
             aria-label="Open EU system"
             system="eu"
             logo={logoEuEn}

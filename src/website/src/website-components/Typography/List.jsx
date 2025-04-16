@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import styles from './List.scss';
+import styles from './List.module.scss';
 
 function List({ size, children }) {
   return (

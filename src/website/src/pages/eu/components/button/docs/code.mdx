@@ -3,16 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  buttonPrimary,
-  buttonSecondary,
-  buttonTertiary,
-  buttonCall,
-  buttonGhost,
-  buttonGhostInverted,
-  buttonIconOnly,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Primary
 
@@ -20,9 +11,7 @@ import {
   system="eu"
   selectedKind="components-button"
   selectedStory="primary"
->
-  <Html markup={buttonPrimary} />
-</Playground>
+></Playground>
 
 ## Secondary
 
@@ -30,9 +19,7 @@ import {
   system="eu"
   selectedKind="components-button"
   selectedStory="secondary"
->
-  <Html markup={buttonSecondary} />
-</Playground>
+></Playground>
 
 ## Tertiary
 
@@ -40,9 +27,7 @@ import {
   system="eu"
   selectedKind="components-button"
   selectedStory="tertiary"
->
-  <Html markup={buttonTertiary} />
-</Playground>
+></Playground>
 
 ## Call to action
 
@@ -50,15 +35,15 @@ import {
   system="eu"
   selectedKind="components-button"
   selectedStory="call-to-action"
->
-  <Html markup={buttonCall} />
-</Playground>
+></Playground>
 
 ## Ghost
 
-<Playground system="eu" selectedKind="components-button" selectedStory="ghost">
-  <Html markup={buttonGhost} />
-</Playground>
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="ghost"
+></Playground>
 
 ## Ghost inverted
 
@@ -67,10 +52,7 @@ import {
   selectedKind="components-button"
   selectedStory="ghost-inverted"
 >
-  <Html
-    extraClasses="ecl-u-pa-s ecl-u-bg-dark ecl-u-type-color-white"
-    markup={buttonGhostInverted}
-  />
+
 </Playground>
 
 ## Button with icon only
@@ -86,6 +68,4 @@ Spacing of icon only button is adapted to make it square.
   selectedKind="components-button"
   selectedStory="secondary"
   selectedArgs="icon_name:logged-in;hide_label:true"
->
-  <Html markup={buttonIconOnly} />
-</Playground>
+></Playground>

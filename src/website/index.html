@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>Europa Component Library</title>
+    <script>
+      if (navigator.userAgent !== 'ReactSnap') {
+        var cl = document.querySelector('html').classList;
+        cl.remove('no-js');
+        cl.add('has-js');
+
+        var head = document.head || document.getElementsByTagName('head')[0];
+        var cck = document.createElement('script');
+        cck.src = 'https://europa.eu/webtools/load.js';
+        cck.type = 'text/javascript';
+        cck.defer = true;
+        head.appendChild(cck);
+      }
+    </script>
+    <script>
+      if (window.location.hash.match('access_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('invite_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('confirmation_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('email_change_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('recovery_token')) {
+        document.location.pathname += '/admin';
+      }
+    </script>
+  </head>
+  <body>
+    <script type="application/json">
+      {
+        "utility": "cck",
+        "url": "https://commission.europa.eu/cookies-policy_en."
+      }
+    </script>
+    <div id="page-root"></div>
+    <script type="module" src="/src/Index.jsx"></script>
+  </body>
+</html>

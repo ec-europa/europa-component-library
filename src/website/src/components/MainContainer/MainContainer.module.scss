@@ -1,0 +1,19 @@
+.container {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+  transition: margin-left 300ms ease;
+
+  :global(.no-js) & {
+    @media screen and (width >= 1140px) {
+      margin-left: 15rem;
+    }
+  }
+}
+
+.container--with-sidebar,
+[data-container-with-sidebar] {
+  @media screen and (width >= 1140px) {
+    margin-left: 15rem;
+  }
+}

@@ -3,8 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import { card, cardLists } from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default card
 
@@ -14,9 +13,7 @@ import { card, cardLists } from '../demo';
   selectedStory="default"
   showFrame
   frameWidth="540px"
->
-  <Html markup={card} />
-</Playground>
+></Playground>
 
 ## Card with lists
 
@@ -27,6 +24,4 @@ import { card, cardLists } from '../demo';
   showFrame
   frameWidth="540px"
   selectedArgs="show_lists:true"
->
-  <Html markup={cardLists} />
-</Playground>
+></Playground>

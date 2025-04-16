@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import grid from './grid.scss';
-import utilities from '../../styles/utilities.scss';
+import grid from './grid.module.scss';
+import utilities from '../../styles/utilities.module.scss';
 
 const Row = React.memo(({ spacing, className, children, ...props }) => {
-  const spacingClasses = spacing
+  const spacingClasses = (spacing || '')
     .split(' ')
     .map((sp) => utilities[sp])
     .join(' ');

@@ -3,15 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  listOrdered,
-  listUnordered,
-  listUnorderedUnstyled,
-  listUnorderedWithDivider,
-  listDescription,
-  listDescriptionHorizontal,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Ordered list
 
@@ -19,9 +11,7 @@ import {
   system="ec"
   selectedKind="components-list-ordered-list"
   selectedStory="default"
->
-  <Html markup={listOrdered} />
-</Playground>
+></Playground>
 
 ## Unordered list
 
@@ -29,9 +19,7 @@ import {
   system="ec"
   selectedKind="components-list-unordered-list"
   selectedStory="text"
->
-  <Html markup={listUnordered} />
-</Playground>
+></Playground>
 
 ### Unstyled
 
@@ -39,9 +27,7 @@ import {
   system="ec"
   selectedKind="components-list-unordered-list"
   selectedStory="unstyled"
->
-  <Html markup={listUnorderedUnstyled} />
-</Playground>
+></Playground>
 
 ### With dividers
 
@@ -49,9 +35,7 @@ import {
   system="ec"
   selectedKind="components-list-unordered-list"
   selectedStory="divider"
->
-  <Html markup={listUnorderedWithDivider} />
-</Playground>
+></Playground>
 
 ## Description list
 
@@ -60,9 +44,7 @@ import {
   selectedKind="components-list-description-list"
   selectedStory="vertical"
   showFrame
->
-  <Html markup={listDescription} />
-</Playground>
+></Playground>
 
 ## Description list (horizontal)
 
@@ -71,6 +53,4 @@ import {
   selectedKind="components-list-description-list"
   selectedStory="horizontal"
   showFrame
->
-  <Html markup={listDescriptionHorizontal} />
-</Playground>
+></Playground>

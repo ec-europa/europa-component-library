@@ -1,12 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import iconSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 import Col from '../../components/Grid/Col';
 import Row from '../../components/Grid/Row';
-import styles from './Anatomy.scss';
+import styles from './Anatomy.module.scss';
 
 function Anatomy({
   vertical,

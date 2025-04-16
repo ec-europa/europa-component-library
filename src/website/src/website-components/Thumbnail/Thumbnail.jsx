@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Link from '../Link/Link';
-import styles from './Thumbnail.scss';
+import styles from './Thumbnail.module.scss';
 
 function Thumbnail({ image, link, title }) {
   return (

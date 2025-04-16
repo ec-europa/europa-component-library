@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import { Link, NavLink } from 'react-router';
 
 import LinkList from './LinkList';
-import styles from './Navigation.scss';
+import styles from './Navigation.module.scss';
 
 const Navigation = React.memo(
   ({
@@ -53,20 +53,24 @@ const Navigation = React.memo(
       <ul className={styles['system-list']}>
         <li className={styles['system-list-item']}>
           <NavLink
-            to="/ec/"
-            strict
-            className={styles['system-list-item-link']}
-            activeClassName={styles['system-list-item-link--selected']}
+            to="/ec"
+            className={({ isActive }) =>
+              isActive
+                ? `${styles['system-list-item-link']} ${styles['system-list-item-link--selected']}`
+                : styles['system-list-item-link']
+            }
           >
             EC
           </NavLink>
         </li>
         <li className={styles['system-list-item']}>
           <NavLink
-            to="/eu/"
-            strict
-            className={styles['system-list-item-link']}
-            activeClassName={styles['system-list-item-link--selected']}
+            to="/eu"
+            className={({ isActive }) =>
+              isActive
+                ? `${styles['system-list-item-link']} ${styles['system-list-item-link--selected']}`
+                : styles['system-list-item-link']
+            }
           >
             EU
           </NavLink>
@@ -97,5 +101,4 @@ Navigation.defaultProps = {
   isLoading: false,
 };
 
-// Use withRouter to update links when they become active
-export default withRouter(Navigation);
+export default Navigation;

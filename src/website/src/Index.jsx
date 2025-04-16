@@ -1,11 +1,6 @@
 import React from 'react';
-import { hydrate, render } from 'react-dom';
-import App from './App';
+import ReactDOM from 'react-dom/client';
+import Page from './Page';
 
-const rootElement = document.querySelector('#root');
-
-if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
-} else {
-  render(<App />, rootElement);
-}
+const root = ReactDOM.createRoot(document.getElementById('page-root'));
+root.render(<Page />);
