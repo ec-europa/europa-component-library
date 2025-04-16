@@ -246,12 +246,10 @@
 );
 
 @font-face {
+  /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
   font-family: 'Inter';
-  src:
-    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
-    url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
-      format('woff2'),
-    '../fonts/InterVariable.woff2';
+  src: url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+    format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -259,11 +257,25 @@
 
 @font-face {
   font-family: 'Inter';
-  src:
-    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
-    url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
-      format('woff2'),
-    '../fonts/InterVariable-Italic.woff2';
+  src: url('../fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+  src: url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
+    format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/InterVariable-Italic.woff2') format('woff2');
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
