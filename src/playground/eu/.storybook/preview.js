@@ -1,11 +1,84 @@
-import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
+import { addons } from '@storybook/manager-api';
+import { useChannel } from '@storybook/preview-api';
+import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
 global.Buffer = Buffer;
 
 import './ECL';
+
+const styleSheets = [
+  {
+    id: 'ecl-reset',
+    href: './styles/optional/ecl-reset.css',
+    picked: true,
+    group: 'others',
+  },
+  {
+    id: 'ecl-eu-default',
+    href: './styles/optional/ecl-eu-default.css',
+    picked: true,
+    group: 'screen',
+  },
+  { id: 'ecl-eu', href: './styles/ecl-eu.css', picked: true, group: 'screen' },
+  {
+    id: 'ecl-eu-color-modes',
+    href: './styles/ecl-eu-color-modes.css',
+    picked: true,
+    group: 'others',
+  },
+  {
+    id: 'ecl-eu-utilities',
+    href: './styles/optional/ecl-eu-utilities.css',
+    picked: true,
+    group: 'others',
+  },
+  {
+    id: 'ecl-rtl',
+    href: './styles/optional/ecl-rtl.css',
+    picked: false,
+    group: 'others',
+  },
+  {
+    id: 'ecl-eu-default-print',
+    href: './styles/optional/ecl-eu-default-print.css',
+    picked: false,
+    group: 'print',
+  },
+  {
+    id: 'ecl-eu-print',
+    href: './styles/ecl-eu-print.css',
+    picked: false,
+    group: 'print',
+  },
+];
+
+export const initialGlobals = {
+  styleSheets,
+  panelDescription:
+    'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
+  panelTitle: 'ECL styles',
+};
+
+export const decorators = [
+  (story) => {
+    useChannel({
+      [TOGGLE_STYLE]: ({ key, enabled }) =>
+        toggleStyle(key, enabled, styleSheets),
+    });
+
+    // Initial load
+    styleSheets.forEach(({ id, picked }) => {
+      if (picked && !document.getElementById(`style-${id}`)) {
+        toggleStyle(id, true, styleSheets);
+      }
+    });
+
+    return story();
+  },
+];
 
 export const parameters = {
   options: {
@@ -112,8 +185,6 @@ export const parameters = {
     },
   },
 };
-
-export const decorators = [withCssResources];
 
 export const loaders = [
   async ({ args, originalStoryFn }) => {
