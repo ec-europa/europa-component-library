@@ -1297,8 +1297,8 @@ importers:
         specifier: 5.0.0-alpha.8
         version: link:../addons/storybook-addon-styles
       '@iframe-resizer/child':
-        specifier: 5.4.5
-        version: 5.4.5
+        specifier: 5.4.4
+        version: 5.4.4
       '@storybook/addon-a11y':
         specifier: 8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
@@ -3793,6 +3793,9 @@ packages:
     resolution: {integrity: sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==}
     engines: {node: '>=6.9.0'}
 
+  '@iframe-resizer/child@5.4.4':
+    resolution: {integrity: sha512-igBknJNJ8SQxBqRPCrot+fcVYiEsqAX2yJsHkJ0K2lgFUkxwmR0v6eNbwXim/8atYU/y9Sc+nFAHzRSkGbV4tQ==}
+
   '@iframe-resizer/child@5.4.5':
     resolution: {integrity: sha512-VgTq7YkfjHgv3Iqr4+Px3dp2NdBVM4AyS3qpaYGL5vThXCEEKDwq4k/XxxcyiyMrUfEOawQqfKLAfEWh3O9cwg==}
 
@@ -5511,6 +5514,9 @@ packages:
   at-least-node@1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
+
+  auto-console-group@1.2.5:
+    resolution: {integrity: sha512-04gZ21WgVHlzfC/Kp+Zvel7tKGgSXX9KSm3pezrh1OU4KElxiEJCdRm2T8ntiOWkTHfFMIrX0/OhiTUO74K27Q==}
 
   auto-console-group@1.2.9:
     resolution: {integrity: sha512-YGJqZByv1SFIq8viTpKFmI0eNHIoa9hllKP3487VbIN4zjRcsKKoouu2TiQ189oscvwCSKTndfAe6wf6izbSMA==}
@@ -13014,6 +13020,10 @@ snapshots:
 
   '@hutson/parse-repository-url@3.0.2': {}
 
+  '@iframe-resizer/child@5.4.4':
+    dependencies:
+      auto-console-group: 1.2.5
+
   '@iframe-resizer/child@5.4.5':
     dependencies:
       auto-console-group: 1.2.9
@@ -15202,6 +15212,8 @@ snapshots:
   asynckit@0.4.0: {}
 
   at-least-node@1.0.0: {}
+
+  auto-console-group@1.2.5: {}
 
   auto-console-group@1.2.9: {}
 
