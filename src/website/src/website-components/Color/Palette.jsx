@@ -2,22 +2,16 @@ import React, { PureComponent, createRef } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import styles from './Palette.scss';
+import styles from './Palette.module.scss';
 
 class Palette extends PureComponent {
   constructor(props) {
     super(props);
     this.paletteRef = createRef();
-    this.state = { isMounted: false }; // Track mount status
-  }
-
-  componentDidMount() {
-    this.setState({ isMounted: true });
   }
 
   render() {
     const { children, mode } = this.props;
-    const { isMounted } = this.state;
 
     return (
       <ol
@@ -26,10 +20,9 @@ class Palette extends PureComponent {
           [styles[`mode--${mode}`]]: mode,
         })}
       >
-        {isMounted &&
-          React.Children.map(children, (child) =>
-            React.cloneElement(child, { parentRef: this.paletteRef }),
-          )}
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, { parentRef: this.paletteRef }),
+        )}
       </ol>
     );
   }

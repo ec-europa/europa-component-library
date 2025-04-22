@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
-import styles from './Link.scss';
+import styles from './Link.module.scss';
 
 function StyledLink({ className, standalone, to, label, children, ...props }) {
   const cls = classnames(className, styles.link, {
@@ -38,13 +38,14 @@ function StyledLink({ className, standalone, to, label, children, ...props }) {
 
 StyledLink.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   standalone: PropTypes.bool,
   to: PropTypes.string,
   label: PropTypes.string,
 };
 
 StyledLink.defaultProps = {
+  children: '',
   className: '',
   standalone: false,
   to: '',

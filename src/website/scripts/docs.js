@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob');
-const { execSync } = require('child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { globSync } from 'glob';
+import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url'; // Add this
+
+/* eslint-disable-next-line no-underscore-dangle */
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const publicUrl = process.env.PUBLIC_URL || '';
 const dir = path.resolve(__dirname, '../../components');
 
-const files = glob
-  .sync('*/*.js', {
-    cwd: dir,
-    ignore: ['**/*.story.js', '**/*.test.js'],
-  })
-  .sort((a, b) => a.localeCompare(b, 'en'));
+const files = globSync('*/*.js', {
+  cwd: dir,
+  ignore: ['**/*.story.js', '**/*.test.js'],
+}).sort((a, b) => a.localeCompare(b, 'en'));
 
 const publicDir = path.resolve(__dirname, '../public');
 const apisDir = 'apis';

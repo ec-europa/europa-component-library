@@ -15,4 +15,4 @@ cd ./src/website && pnpm build && cd ../..
 
 # Copy builds
 rm -rf ./dist/website
-cp -r ./src/website/build dist/website
+cp -r ./src/website/build/client dist/website

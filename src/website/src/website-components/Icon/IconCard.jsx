@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './IconCard.scss';
+import styles from './IconCard.module.scss';
 
 function IconCard({ name, label, set }) {
   const cardClass = styles.card;

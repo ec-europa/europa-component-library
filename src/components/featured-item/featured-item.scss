@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/theme-ec/mixins' as *;
 
 // Exposed variables
 $theme: null !default;
@@ -29,9 +30,14 @@ $featured-item: null !default;
 
 .ecl-featured-item__title {
   color: map.get($featured-item, 'title', 'color');
-  font: map.get($featured-item, 'title', 'font-mobile');
-  font-weight: map.get($featured-item, 'title', 'font-weight');
   max-width: map.get($featured-item, 'max-width');
+
+  @include responsive-font(
+    (
+      desktop-size: map.get($featured-item, 'title', 'font'),
+      desktop-weight: map.get($featured-item, 'title', 'font-weight'),
+    )
+  );
 }
 
 .ecl-featured-item__description {
@@ -72,11 +78,6 @@ $featured-item: null !default;
   .ecl-featured-item__item:last-child {
     margin-block-start: 0;
     padding-inline: map.get($featured-item, 'gap-horizontal') 0;
-  }
-
-  .ecl-featured-item__title {
-    font: map.get($featured-item, 'title', 'font-desktop');
-    font-weight: map.get($featured-item, 'title', 'font-weight');
   }
 
   .ecl-featured-item__container--right {
@@ -155,6 +156,14 @@ $featured-item: null !default;
 
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
+
+    .ecl & *,
+    .ecl & a:hover,
+    .ecl & a:focus-visible,
+    .ecl & a:visited,
+    .ecl & a:active {
+      color: map.get($featured-item, 'highlight', 'description', 'color');
+    }
   }
 
   &.ecl-featured-item--link-highlighted .ecl-featured-item__description {

@@ -2,13 +2,12 @@ import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import styles from './PaletteItem.scss';
+import styles from './PaletteItem.module.scss';
 
 const getCode = (alias, parentRef) => {
   if (!alias) return '';
 
   let hex = '';
-
   // Try getting the computed style from the parent ol element
   if (parentRef?.current) {
     hex = window
@@ -67,7 +66,7 @@ class PaletteItem extends PureComponent {
     let code = value.toUpperCase();
 
     // Get color code from alias, trying parent first, then fallback to body
-    if (alias) {
+    if (alias && typeof window !== 'undefined') {
       code = getCode(alias, parentRef);
     }
 
@@ -109,7 +108,10 @@ PaletteItem.propTypes = {
   value: PropTypes.string,
   alias: PropTypes.string,
   main: PropTypes.bool,
-  parentRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  parentRef: PropTypes.shape({
+    /* eslint-disable-next-line react/forbid-prop-types */
+    current: PropTypes.any,
+  }),
 };
 
 PaletteItem.defaultProps = {
