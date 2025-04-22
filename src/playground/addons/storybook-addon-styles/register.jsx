@@ -34,6 +34,7 @@ function StylePanel() {
   }, [styleSheets]);
 
   const channel = addons.getChannel();
+
   // Apply styles to DOM
   useEffect(() => {
     if (Object.keys(styles).length === 0) return;
@@ -51,19 +52,34 @@ function StylePanel() {
 
   const handleGroupToggle = (group) => (e) => {
     const enabled = e.target.checked;
+    const oppositeGroup = group === 'screen' ? 'print' : 'screen';
+
+    // Set styles for the toggled group and reset the opposite group
     const groupStyles = styleSheets
       .filter((s) => s.group === group)
       .reduce((acc, s) => ({ ...acc, [s.id]: enabled }), {});
-    setStyles((prev) => ({ ...prev, ...groupStyles }));
+    const oppositeStyles = styleSheets
+      .filter((s) => s.group === oppositeGroup)
+      .reduce((acc, s) => ({ ...acc, [s.id]: false }), {});
+
+    setStyles((prev) => ({ ...prev, ...groupStyles, ...oppositeStyles }));
+
+    // Emit TOGGLE_STYLE for both groups
     styleSheets
       .filter((s) => s.group === group)
       .forEach((s) => {
         channel.emit(TOGGLE_STYLE, { key: s.id, enabled });
       });
+    styleSheets
+      .filter((s) => s.group === oppositeGroup)
+      .forEach((s) => {
+        channel.emit(TOGGLE_STYLE, { key: s.id, enabled: false });
+      });
 
     // Update URL params
     const params = new URLSearchParams(window.location.search);
     params.set(group, enabled.toString());
+    params.set(oppositeGroup, 'false');
     window.history.replaceState(
       {},
       '',
@@ -90,7 +106,6 @@ function StylePanel() {
           }
           .styles-toggle-panel .panel-header {
             font-size: 14px;
-            color: #333;
             margin-bottom: 20px;
             line-height: 1.4;
           }
@@ -108,7 +123,6 @@ function StylePanel() {
           .styles-toggle-panel .group-title {
             font-weight: bold;
             font-size: 16px;
-            color: #222;
             margin-bottom: 8px;
             padding-bottom: 4px;
             border-bottom: 1px solid #ddd;
@@ -121,7 +135,6 @@ function StylePanel() {
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            color: #333;
             cursor: pointer;
           }
           .styles-toggle-panel input[type="checkbox"] {
