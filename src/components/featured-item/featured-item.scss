@@ -156,6 +156,14 @@ $featured-item: null !default;
 
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
+
+    .ecl & *,
+    .ecl & a:hover,
+    .ecl & a:focus-visible,
+    .ecl & a:visited,
+    .ecl & a:active {
+      color: map.get($featured-item, 'highlight', 'description', 'color');
+    }
   }
 
   &.ecl-featured-item--link-highlighted .ecl-featured-item__description {
