@@ -57,7 +57,7 @@
 {% endif %}
 
 {% if _autoplay %}
-  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' autoplay' : 'autoplay' %}
+  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' autoplay playsinline' : 'autoplay playsinline' %}
 {% endif %}
 
 {% if _muted %}
