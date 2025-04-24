@@ -16,7 +16,6 @@ npm install --save @ecl/datepicker
 - **"id"** (string) (default: random)
 - **"type"**: (string) (default: 'text')
 - **"name"** (string) (default: '')
-- **"icon_path"**: (string) (default: '')
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker
@@ -31,7 +30,6 @@ npm install --save @ecl/datepicker
   id: 'an-id-for-the-input', 
   name: 'a-name-for-the-input', 
   required: true, 
-  type: 'text', 
-  icon_path: '/icons.svg', 
+  type: 'text',
 } %} 
 ```

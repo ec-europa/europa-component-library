@@ -16,7 +16,6 @@ npm install --save @ecl/checkbox
   - "checked" (boolean) (default: false)
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
-  - "icon_path" (string) (default: ''): file containing the svg icons
   - "item_required_text" (string) (default: '')
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)

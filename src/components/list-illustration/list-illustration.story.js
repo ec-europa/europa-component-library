@@ -3,8 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
-import iconsFlag from '@ecl/resources-flag-icons/dist/lists/members/all.json';
+import iconsAll from '@ecl/resources-icons/list.json';
+import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
 
@@ -24,8 +24,18 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
   return mapping;
 }, {});
 
+const flagOption = [];
+for (let i = 0; i < iconsFlag.length; i += 1) {
+  flagOption.push(iconsFlag[i].name);
+}
+
+const flagControl = iconsFlag.reduce((mapping, icon) => {
+  mapping[icon.name] = icon.label;
+  return mapping;
+}, {});
+
 const flagMapping = iconsFlag.reduce((mapping, icon) => {
-  mapping[icon] = icon;
+  mapping[icon.label] = icon.name;
   return mapping;
 }, {});
 
@@ -292,7 +302,10 @@ const getArgTypes = (data, variant) => {
       name: 'icon (flag)',
       description: 'The flag icon used in the list item (first item)',
       type: { name: 'select' },
-      options: iconsFlag,
+      options: flagOption,
+      control: {
+        labels: flagControl,
+      },
       mapping: flagMapping,
       table: {
         type: { summary: 'string' },
@@ -330,44 +343,45 @@ const getArgTypes = (data, variant) => {
 };
 
 const prepareDataItem = (data, args) => {
-  data.title = args.title;
+  const clone = JSON.parse(JSON.stringify(data));
+
+  clone.title = args.title;
   if (!args.show_value) {
-    data.value = '';
+    clone.value = '';
   } else {
-    data.value = args.value;
+    clone.value = args.value;
   }
   if (!args.show_description) {
-    data.description = '';
+    clone.description = '';
   } else {
-    data.description = args.description;
+    clone.description = args.description;
   }
   if (!args.show_image) {
-    data.picture = {};
+    clone.picture = {};
   } else {
-    data.picture = imgDefault;
-    data.picture.img.src = args.picture;
-    data.square = args.image_squared;
-    data.media_size = args.image_size;
+    clone.picture = imgDefault;
+    clone.picture.img.src = args.picture;
+    clone.square = args.image_squared;
+    clone.media_size = args.image_size;
   }
   if (!args.show_icon) {
-    delete data.icon;
+    delete clone.icon;
   } else {
-    data.icon = {};
-    data.icon.name = args.icon;
-    data.icon.path = 'icon.svg';
-    data.media_size = args.icon_size;
+    clone.icon = {};
+    clone.icon.name = args.icon;
+    clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
-      data.icon.name = args.icon_flag;
-      data.icon.path = 'icon-flag.svg';
+      clone.icon.name = args.icon_flag;
+      clone.icon.family = 'flag';
     }
     if (args.icon === 'none') {
-      delete data.icon;
+      delete clone.icon;
     }
   }
 
-  correctPaths(data);
+  correctPaths(clone);
 
-  return data;
+  return clone;
 };
 
 const prepareDataList = (data, args) => {

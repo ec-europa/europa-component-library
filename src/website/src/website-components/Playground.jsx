@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import iconSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
 import styles from './Playground.module.scss';
 import Code from './Code';
@@ -185,13 +184,7 @@ class Playground extends Component {
                 rel="noopener noreferrer"
               >
                 <span className={styles.link__label}>Fullscreen</span>
-                <svg
-                  focusable="false"
-                  aria-hidden="true"
-                  className={styles.link__icon}
-                >
-                  <use xlinkHref={`${iconSprite}#fullscreen`} />
-                </svg>
+                <span className={`wt-icon--fullscreen ${styles.link__icon}`} />
               </a>
             </div>
           )}
@@ -213,13 +206,9 @@ class Playground extends Component {
               >
                 <div className={styles.toggle__container}>
                   <span className={styles.link__label}>Show more</span>
-                  <svg
-                    focusable="false"
-                    aria-hidden="true"
-                    className={styles.link__icon}
-                  >
-                    <use xlinkHref={`${iconSprite}#corner-arrow`} />
-                  </svg>
+                  <span
+                    className={`wt-icon--corner-arrow ${styles.link__icon}`}
+                  />
                 </div>
               </button>
             </div>
@@ -238,13 +227,7 @@ class Playground extends Component {
               rel="noopener noreferrer"
             >
               <span className={styles.link__label}>Playground</span>
-              <svg
-                focusable="false"
-                aria-hidden="true"
-                className={styles.link__icon}
-              >
-                <use xlinkHref={`${iconSprite}#corner-arrow`} />
-              </svg>
+              <span className={`wt-icon--corner-arrow ${styles.link__icon}`} />
             </a>
           </>
         )}

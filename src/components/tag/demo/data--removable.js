@@ -4,5 +4,4 @@ module.exports = {
     label: 'Removable tag',
     aria_label: 'Dismiss',
   },
-  icon_path: '/icons.svg',
 };

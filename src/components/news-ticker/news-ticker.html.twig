@@ -22,7 +22,6 @@
     - "sr_next" (string) (default: 'Next news') screen reader label for next button
     - "sr_play" (string) (default: 'Play news ticker') screen reader label for play button
     - "sr_pause" (string) (default: 'Pause news ticker') screen reader label for pause button
-    - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -36,7 +35,6 @@
 {# Internal properties #}
 
 {% set _id = id|default('ecl-news-ticker-' ~ random()) %}
-{% set _icon_path = icon_path|default('') %}
 {% set _counter_label = counter_label|default('of') %}
 {% set _items = items|default([]) %}
 {% set _aria_controls = _id ~ '-content' %}
@@ -88,7 +86,6 @@
           {% set _icon %}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: _item.icon|merge({
-                path: _icon_path,
                 name: _item.icon.name,
                 size: 'l',
               }),
@@ -119,7 +116,6 @@
               label: _item.content,
               path: _item.link,
               icon_position: 'before',
-              icon_path: _icon_path,
               external: _item.external,
               sr_external: _sr_external
             },
@@ -142,7 +138,6 @@
         label: _sr_previous,
         hide_label: true,
         icon: {
-          path: _icon_path,
           name: 'corner-arrow',
           size: 'l',
           transform: 'rotate-270',
@@ -159,7 +154,6 @@
         label: _sr_play,
         hide_label: true,
         icon: {
-          path: _icon_path,
           name: 'play-outline',
           size: 'l',
         },
@@ -175,7 +169,6 @@
         label: _sr_pause,
         hide_label: true,
         icon: {
-          path: _icon_path,
           name: 'pause-outline',
           size: 'l',
         },
@@ -191,7 +184,6 @@
         label: _sr_next,
         hide_label: true,
         icon: {
-          path: _icon_path,
           name: 'corner-arrow',
           size: 'l',
           transform: 'rotate-90',

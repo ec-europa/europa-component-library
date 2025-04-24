@@ -41,7 +41,6 @@ npm install --save @ecl/banner
 - **"vertical"** (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
 - **"full_width"** (bool) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"link"** (object) (default: predefined structure) predefined structure for the Link component
-- **"icon_path"** (string) (default: '') Path to the icons file
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

@@ -9,7 +9,6 @@ npm install --save @ecl/category-filter
 ### Parameters
 
 - **color_mode** (string) (default: '') Name of the color mode
-- **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"label"**: (string) (default: ''): Aria label provided for accessibility
 - **"id"**: (string) (default: randomized string): Unique id for the category filter
 - **"items"** (associative array) (default: {}): The tree items - format:
@@ -32,7 +31,6 @@ npm install --save @ecl/category-filter
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/category-filter/category-filter.html.twig' with {
-  icon_path: '/icons.svg',
   label: 'Category filter',
   id: 'unique-id',
   items: [

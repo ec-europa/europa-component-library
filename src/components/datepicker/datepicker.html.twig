@@ -10,7 +10,6 @@
     - "disabled" (boolean) (default: false)
     - "invalid" (boolean) (default: false)
     - "type" (string) (default: 'text')
-    - "icon_path" (string) (default: '')
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []) Extra attributes for the datepicker
@@ -28,7 +27,6 @@
 {% set _name = name|default('') %}
 {% set _type = type|default('text') %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
-{% set _icon_path = icon_path|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
@@ -91,16 +89,13 @@
     {% endif %}
     {{ _extra_attributes|raw }}
     />
-  {% if _icon_path is not empty %}
     {% include '@ecl/icon/icon.html.twig' with {
       icon: {
         name: 'calendar',
         size: 'xs',
-        path: _icon_path,
       },
       extra_classes: 'ecl-datepicker__icon',
     } only %}
-  {% endif %}
   </div>
 
 

@@ -35,7 +35,6 @@ npm install --save @ecl/page-header
         path: '/example'  
       },  
     ],  
-    icon_file_path: '/path-to-the-icons-file',  
     navigation_text: 'You are here:',  
   },  
 } %}  

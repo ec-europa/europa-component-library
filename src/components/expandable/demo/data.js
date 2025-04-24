@@ -7,7 +7,6 @@ module.exports = {
       name: 'corner-arrow',
       transform: 'rotate-180',
       size: 'fluid',
-      path: '/icons.svg',
     },
   },
   label_expanded: 'Expanded',

@@ -114,5 +114,4 @@ module.exports = {
       },
     },
   ],
-  icon_path: '/icons.svg',
 };

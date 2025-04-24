@@ -1,12 +1,11 @@
 module.exports = {
   label: 'Select a country',
-  helper_text: "This is the input's helper text.",
   invalid_text: 'This is the error message',
   invalid_icon: {
-    path: '/icons.svg',
     name: 'error',
   },
   sr_invalid_icon: 'Error',
+  helper_text: "This is the input's helper text.",
   required_text: '*',
   optional_text: '(optional)',
   required: true,
@@ -14,7 +13,6 @@ module.exports = {
   input: {
     input_type: 'select',
     width: 'm',
-    icon_path: '/icons.svg',
     name: 'country',
     id: 'select-default',
     required: true,

@@ -27,6 +27,5 @@ module.exports = {
       item: `<h2 class="ecl-u-type-heading-2" id="inline-nav-4">Heading 4</h2><p class="ecl-u-type-paragraph-m">${loremIpsum}</p><p class="ecl-u-type-paragraph-m">${loremIpsum}</p>`,
     },
   ],
-  icon_path: '/icons.svg',
   icon_size: 'xs',
 };

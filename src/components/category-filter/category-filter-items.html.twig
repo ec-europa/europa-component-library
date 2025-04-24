@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-  - "icon_path": (string) (default: ''): Path to the icon sprite
   - "id": (string) (default: randomized string): Unique id for the category filter
   - "items": (associative array) (default: {}): The menu items - format: [
     {
@@ -28,7 +27,6 @@
 #}
 
 {% set _items = items|default({}) %}
-{% set _icon_path = icon_path|default('') %}
 {% set _level = level|default(1) %}
 
 {% if _items is defined and _items is not empty %}
@@ -70,8 +68,7 @@
               icon: {
                 name: 'solid-arrow',
                 size: 'xs',
-                transform: 'rotate-90',  
-                path: _icon_path,
+                transform: 'rotate-90',
               },
               extra_classes: 'ecl-category-filter__item-icon',
             } only %}
@@ -82,8 +79,7 @@
               icon: {
                 name: 'corner-arrow',
                 size: 'xs',
-                transform: 'rotate-180',  
-                path: _icon_path,
+                transform: 'rotate-180',
               },
               extra_classes: 'ecl-category-filter__item-icon',
             } only %}
@@ -93,7 +89,6 @@
           <ul class="ecl-category-filter__list" id="{{ _item_id }}">
             {% include '@ecl/category-filter/category-filter-items.html.twig' with {
               items: item.children,
-              icon_path: _icon_path,
               level: _level + 1,
               id: _item_id,
             } only %}

@@ -31,7 +31,6 @@ npm install --save @ecl/notification
 {% include '@ecl/notification/notification.html.twig' with { 
   variant: 'info', 
   icon: { 
-    path: 'path/to/icons.svg', 
     name: 'info', 
     size: 'l', 
   }, 
@@ -41,7 +40,6 @@ npm install --save @ecl/notification
   close: { 
     label: 'Close', 
     icon: { 
-      path: 'path/to/icons.svg', 
       name: 'close', 
       size: 's', 
     }, 

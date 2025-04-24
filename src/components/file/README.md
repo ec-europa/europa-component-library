@@ -47,19 +47,14 @@ npm install --save @ecl/file
   title: 'State of the Union 2018 brochure',
   language: 'English',
   meta: '(16.2 MB - PDF)',
-  icon_path: 'path/to/icons.svg',
   icon: {
     name: 'copy',
     size: '2xl',
-    path: 'path/to/icons.svg',
   },
   download: {
     link: {
       label: 'Download',
       path: '/example',
-    },
-    icon: {
-      path: 'path/to/icons.svg',
     },
   },
   translation: {

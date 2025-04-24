@@ -32,7 +32,6 @@ npm install --save @ecl/social-media-follow
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'twitter',
         size: 'm',
       },
@@ -44,7 +43,6 @@ npm install --save @ecl/social-media-follow
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'facebook',
         size: 'm',
       },

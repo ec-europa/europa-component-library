@@ -1,4 +1,3 @@
-import Anatomy from './Anatomy/Anatomy';
 import ColorLayout from './Color/Layout';
 import ColorPalette from './Color/Palette';
 import ColorPaletteItem from './Color/PaletteItem';
@@ -16,7 +15,6 @@ import RemToPixels from './RemToPixels';
 import Thumbnail from './Thumbnail/Thumbnail';
 
 export {
-  Anatomy,
   ColorLayout,
   ColorPalette,
   ColorPaletteItem,

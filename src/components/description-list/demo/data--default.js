@@ -36,7 +36,6 @@ module.exports = {
             path: exampleLink,
             external: true,
             sr_external: 'Link to an external domain',
-            icon_path: '/icons.svg',
           },
         },
       ],
@@ -96,7 +95,6 @@ module.exports = {
           },
           icon: {
             name: 'facebook',
-            path: '/icons-social-media.svg',
             size: 's',
           },
         },
@@ -108,7 +106,6 @@ module.exports = {
           },
           icon: {
             name: 'twitter',
-            path: '/icons-social-media.svg',
             size: 's',
           },
         },
@@ -120,7 +117,6 @@ module.exports = {
           },
           icon: {
             name: 'mastodon',
-            path: '/icons-social-media.svg',
             size: 's',
           },
         },

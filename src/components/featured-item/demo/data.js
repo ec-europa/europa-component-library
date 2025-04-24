@@ -13,7 +13,6 @@ module.exports = {
       label: 'Read more',
     },
     icon: {
-      path: '/icons.svg',
       name: 'arrow-left',
       transform: 'flip-horizontal',
       size: 'm',
