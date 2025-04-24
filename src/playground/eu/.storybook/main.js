@@ -14,7 +14,7 @@ const stories = [
 
 const addons = [
   '@storybook/addon-docs',
-  '@storybook/addon-cssresources',
+  '@ecl/storybook-addon-styles',
   '@ecl/storybook-addon-notes',
   '@ecl/storybook-addon-code',
   '@storybook/addon-viewport',
