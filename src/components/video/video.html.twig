@@ -46,7 +46,7 @@
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _zoom = zoom|default(false) %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'playsinline' %}
 
 {% if _zoom %}
   {% set _css_class = _css_class ~ ' ecl-video--zoom' %}
@@ -57,7 +57,7 @@
 {% endif %}
 
 {% if _autoplay %}
-  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' autoplay playsinline' : 'autoplay playsinline' %}
+  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' autoplay' : 'autoplay' %}
 {% endif %}
 
 {% if _muted %}
