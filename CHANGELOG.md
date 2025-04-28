@@ -1,5 +1,22 @@
 # Changelog
 
+# 5.0.0-alpha.9
+
+#### :bug: Bug Fix
+
+- [#3954](https://github.com/ec-europa/europa-component-library/pull/3954) fix(safari): Icon size in navigation list - FRONT-4877 ([@planctus](https://github.com/planctus))
+- [#3951](https://github.com/ec-europa/europa-component-library/pull/3951) fix(featured-item): fix description color - FRONT-4869 ([@emeryro](https://github.com/emeryro))
+- [#3948](https://github.com/ec-europa/europa-component-library/pull/3948) fix(menu): fix current item - FRONT-4868 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3955](https://github.com/ec-europa/europa-component-library/pull/3955) fix(video): Fixing autoplay in iphones - FRONT-4878 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.8
 
 #### :rocket: New Feature
