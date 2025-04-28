@@ -31,10 +31,6 @@ npm install --save @ecl/search-form
   }, 
   button: { 
     variant: 'search', 
-    icon: { 
-      name: 'search', 
-      path: '/path-to-the-icon-file', 
-    }, 
     label: 'Search', 
     extra_classes: 'ecl-search-form__button' 
   }, 

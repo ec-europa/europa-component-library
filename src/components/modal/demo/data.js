@@ -2,11 +2,9 @@
 module.exports = {
   id: 'modal-example',
   toggle_id: 'modal-toggle',
-  icon_path: '/icons.svg',
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },

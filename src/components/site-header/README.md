@@ -11,7 +11,6 @@ npm install --save @ecl/site-header
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
 - **"banner_top"** (string) OR (object with Link component in property): Class name
-- **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"site_name"** (string) (default: '') Site name
 - **"site_name_mobile_only"** (boolean): Whether the site name should be hidden on desktop or not
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
@@ -76,7 +75,6 @@ npm install --save @ecl/site-header
 {% include '@ecl/site-header/site-header.html.twig' with { 
   banner_top: 'Class name', 
   site_name: 'This site name'
-  icon_path: '/icons.svg', 
   logo: {
     alt: 'European Commission', 
     href: '/example', 

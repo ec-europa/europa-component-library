@@ -39,7 +39,6 @@ module.exports = {
       icon: {
         name: 'calendar',
         size: 'xs',
-        path: '/icons.svg',
       },
       label: '2018/10/22',
     },
@@ -47,7 +46,6 @@ module.exports = {
       icon: {
         name: 'location',
         size: 'xs',
-        path: '/icons.svg',
       },
       label: 'Luxembourg',
     },

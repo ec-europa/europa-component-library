@@ -2,7 +2,6 @@
 module.exports = {
   variant: 'error',
   icon: {
-    path: '/icons.svg',
     name: 'error',
     size: 'l',
   },
@@ -13,7 +12,6 @@ module.exports = {
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },

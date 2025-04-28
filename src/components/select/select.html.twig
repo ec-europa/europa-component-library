@@ -60,6 +60,9 @@
 {% set _css_class = 'ecl-select' %}
 {% set _extra_attributes = '' %}
 {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
+
+{# Internal logic - Process properties #}
+
 {% if _multiple %}
   {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
@@ -81,8 +84,6 @@
     ]) %}
   {% endif %}
 {% endif %}
-
-{# Internal logic - Process properties #}
 
 {% if extra_group_classes is defined and extra_group_classes is not empty %}
   {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}

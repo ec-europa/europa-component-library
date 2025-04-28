@@ -105,9 +105,10 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'instagram-negative',
+                name: 'instagram',
                 size: 'm',
+                family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -119,9 +120,10 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'twitter-negative',
+                name: 'x',
                 size: 'm',
+                family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -133,9 +135,10 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'linkedin-negative',
+                name: 'linkedin',
                 size: 'm',
+                family: 'networks',
+                style: 'inverted',
               },
             },
             {
@@ -147,9 +150,10 @@ module.exports = {
                 hide_label: true,
               },
               icon: {
-                path: '/icon-social-media.svg',
-                name: 'chain-negative',
+                name: 'chain',
                 size: 'm',
+                family: 'networks',
+                style: 'inverted',
               },
             },
           ],

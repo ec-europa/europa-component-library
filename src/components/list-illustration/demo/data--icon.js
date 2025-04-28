@@ -4,7 +4,6 @@ module.exports = {
     {
       title: 'List with illustration item 1',
       icon: {
-        path: '/icons.svg',
         name: 'regulation',
       },
       description:
@@ -14,7 +13,6 @@ module.exports = {
     {
       title: 'List with illustration item 2',
       icon: {
-        path: '/icons.svg',
         name: 'regulation',
       },
       description:
@@ -24,7 +22,6 @@ module.exports = {
     {
       title: 'List with illustration item 3',
       icon: {
-        path: '/icons.svg',
         name: 'regulation',
       },
       description:
@@ -34,7 +31,6 @@ module.exports = {
     {
       title: 'List with illustration item 4',
       icon: {
-        path: '/icons.svg',
         name: 'regulation',
       },
       description:

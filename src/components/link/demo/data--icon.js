@@ -9,6 +9,5 @@ module.exports = {
     path: exampleLink,
     external: true,
     sr_external: 'Link to an external domain',
-    icon_path: '/icons.svg',
   },
 };

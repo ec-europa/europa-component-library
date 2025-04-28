@@ -79,11 +79,9 @@
               <span class="ecl-accordion__toggle-indicator">
               {% for icon in _icons %}
                 {% include '@ecl/icon/icon.html.twig' with {
-                  icon: {
-                    path: icon.path|default(''),
-                    name: icon.name|default(''),
+                  icon: icon|merge({
                     size: icon.size|default('s'),
-                  },
+                  }),
                   extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
                   extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),
                 } only %}

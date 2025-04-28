@@ -10,7 +10,6 @@ npm install --save @ecl/tag
 
 - **color_mode** (string) (default: '')
 - **"items"** (array) (default: []): array of Tag
-- **"icon_path"** (string) Path to the icons sprite. If provided here, it will be used for every tag in the set
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -21,7 +20,6 @@ npm install --save @ecl/tag
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/tag/tag-set.html.twig' with { 
-  icon_path: '/icons.svg',
   items: [
     {
       tag: {

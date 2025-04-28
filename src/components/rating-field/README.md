@@ -29,12 +29,10 @@ npm install --save @ecl/rating-field
   name: 'rating-default', 
   invalid: false,
   star_filled_icon: { 
-    path: '/icons.svg', 
     name: 'star-filled', 
     size: 'm', 
   }, 
   star_outline_icon: { 
-    path: '/icons.svg', 
     name: 'star-outline', 
     size: 'm', 
   }, 

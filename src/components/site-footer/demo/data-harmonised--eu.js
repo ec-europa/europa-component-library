@@ -49,9 +49,9 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                path: '/icon-social-media.svg',
                 name: 'facebook',
                 size: 'xs',
+                family: 'networks',
               },
             },
             {
@@ -61,9 +61,9 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                path: '/icon-social-media.svg',
                 name: 'twitter',
                 size: 'xs',
+                family: 'networks',
               },
             },
             {
@@ -73,9 +73,9 @@ module.exports = {
                 icon_position: 'before',
               },
               icon: {
-                path: '/icon-social-media.svg',
                 name: 'mastodon',
                 size: 'xs',
+                family: 'networks',
               },
             },
           ],

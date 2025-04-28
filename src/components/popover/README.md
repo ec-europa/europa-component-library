@@ -35,7 +35,6 @@ npm install --save @ecl/popover
       icon_position: 'before',
     },
     icon: {
-      path: '/icons.svg',
       name: 'share',
       size: 'fluid',
     },
@@ -43,7 +42,6 @@ npm install --save @ecl/popover
   close: { 
     label: "Close", 
     icon: { 
-      path: "/icons.svg", 
       name: "close", 
       size: "m" 
     }, 
@@ -57,7 +55,6 @@ npm install --save @ecl/popover
         aria_label: 'Link to item 1',
       },
       icon: {
-        path: '/icons.svg',
         name: 'global',
         size: 'fluid',
       },
@@ -69,7 +66,6 @@ npm install --save @ecl/popover
         aria_label: 'Link to item 2',
       },
       icon: {
-        path: '/icons.svg',
         name: 'global',
         size: 'fluid',
       },
@@ -81,7 +77,6 @@ npm install --save @ecl/popover
         aria_label: 'Link to item 3',
       },
       icon: {
-        path: '/icons.svg',
         name: 'global',
         size: 'fluid',
       },

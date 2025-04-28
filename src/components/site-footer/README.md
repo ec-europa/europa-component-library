@@ -85,8 +85,6 @@ npm install --save @ecl/site-footer
                 aria_label: 'Link to Facebook', 
                 icon_position: 'before', 
               }, 
-              icon: { 
-                path: '/icon-social-media.svg', 
             }, 
             ... 
           ], 
