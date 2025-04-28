@@ -211,6 +211,18 @@ The image will be clickable and will act as the associated link.
 
 New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
 
+### Social media follow
+
+- additional option to display the description inline with the links. Corresponding twig parameter: `description_inline`
+
+### Social media share
+
+This element is managed by Webtools, and has been removed from ECL showcase
+
+### Site footer
+
+TODO
+
 ## Js modifications
 
 ## Packages modifications

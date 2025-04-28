@@ -15,9 +15,7 @@ const getArgs = () => {
     show_about: true,
     show_more: true,
     show_related: true,
-    show_follow: true,
-    show_logo: true,
-    show_class_names: true,
+    social_vertical: false,
   };
 
   return args;
@@ -61,30 +59,12 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.show_logo = {
-    name: 'logo',
+  argTypes.social_vertical = {
+    name: 'social vertical',
     type: { name: 'boolean' },
-    description: 'Show logo',
+    description: 'Display social media vertically',
     table: {
-      category: 'Optional sections',
-    },
-  };
-
-  argTypes.show_follow = {
-    name: 'follow us',
-    type: { name: 'boolean' },
-    description: 'Show "Follow us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
-  argTypes.show_class_names = {
-    name: 'class names',
-    type: { name: 'boolean' },
-    description: 'Show "Class names" section',
-    table: {
-      category: 'Optional sections',
+      category: 'Display',
     },
   };
 
@@ -100,18 +80,6 @@ const prepareData = (data, args) => {
   }
 
   clone.rows[2][0][0].logo.src_desktop = logoEc;
-  if (!args.show_logo && clone.rows[1][0][0].logo) {
-    delete clone.rows[1][0][0].logo;
-  }
-  if (!args.show_logo && clone.rows[2]) {
-    delete clone.rows[2][0][0].logo;
-  }
-  if (!args.show_follow) {
-    clone.rows[0][1].splice(1, 1);
-  }
-  if (!args.show_class_names) {
-    clone.rows.splice(1, 1);
-  }
 
   if (!args.show_contact) {
     delete clone.section_contact;
@@ -124,6 +92,13 @@ const prepareData = (data, args) => {
   }
   if (!args.show_related) {
     delete clone.section_related;
+  }
+
+  if (args.social_vertical) {
+    clone.section_site_info.social_media.variant = 'vertical';
+    clone.section_site_info.social_media.links.forEach((element) => {
+      element.link.hide_label = false;
+    });
   }
 
   return Object.assign(clone, args);

@@ -41,31 +41,70 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  {%- if _section.title is not empty -%}
+  {# Title #}
+  {% if _section.title is not empty %}
   <div class="ecl-site-footer__title">
-    {%- if _section.title.link is not empty -%}
+    {% if _section.title.link is not empty %}
       {% include '@ecl/link/link.html.twig' with _section.title.link|merge({
-        link: _section.title.link.link|default({})|merge({ type: 'standalone', inverted: true }),
+        link: _section.title.link|default({})|merge({ type: 'standalone', inverted: true }),
+        icon: _section.title.icon|default({}),
         extra_classes: 'ecl-site-footer__title-link',
       }) only %}
-    {%- else -%}
+    {% else %}
       {{- _section.title -}}
-    {%- endif -%}
+    {% endif %}
   </div>
-  {%- endif -%}
+  {% endif %}
 
-  {%- if _section.links is not empty -%}
-  <ul class="ecl-site-footer__list">
-    {% for _item in _section.links %}
-      <li class="ecl-site-footer__list-item">
-        {% include '@ecl/link/link.html.twig' with _item|merge({
-          link: _item.link|default({})|merge({ type: 'standalone', inverted: true }),
-          extra_classes: 'ecl-site-footer__link',
-        }) only %}
-      </li>
-    {% endfor %}
-  </ul>
-  {%- endif -%}
+  {# Logo #}
+  {% if _section.logo is not empty and _section.logo.picture is not empty %}
+    {% set _label %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _section.logo.picture,
+      extra_classes: "ecl-site-footer__picture",
+      extra_image_classes: 'ecl-site-footer__logo-image',
+    } only %}
+    {% endset %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: {
+        path: _section.logo.path,
+        label: _label,
+        type: 'standalone',
+        inverted: true,
+      },
+      extra_classes: 'ecl-site-footer__logo-link'
+    } only %}
+  {% endif %}
+
+  {# Description #}
+  {% if _section.description is not empty %}
+    <div class="ecl-site-footer__description">{{ _section.description }}</div>
+  {% endif %}
+
+  {# Social media #}
+  {% if _section.social_media is not empty %}
+    {% include '@ecl/social-media-follow/social-media-follow.html.twig' with _section.social_media|merge({
+      extra_classes: 'ecl-site-footer__social-media',
+    }) only %}
+  {% endif %}
+
+  {# Links #}
+  {% if _section.links is not empty %}
+    {% set _list_class_name = 'ecl-site-footer__list' %}
+    {% if _section.links_inline %}
+      {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--inline' %}
+    {% endif %}
+    <ul class="{{ _list_class_name }}">
+      {% for _item in _section.links %}
+        <li class="ecl-site-footer__list-item">
+          {% include '@ecl/link/link.html.twig' with _item|merge({
+            link: _item.link|default({})|merge({ type: 'standalone', inverted: true }),
+            extra_classes: 'ecl-site-footer__link',
+          }) only %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </div>
           
 {% endapply %}

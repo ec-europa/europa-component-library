@@ -3,7 +3,94 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   section_site_info: {
-    links: [],
+    title: {
+      link: {
+        label: 'Site name',
+        path: exampleLink,
+      },
+      icon: {
+        name: 'arrow-left',
+        size: 'xs',
+        style: 'inverted',
+        transform: 'flip-horizontal',
+      },
+    },
+    description:
+      'This site is managed by:<br />[name of the manager of the site]',
+    social_media: {
+      links: [
+        {
+          link: {
+            label: 'Instagram',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'instagram',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'X',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'x',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'Linkedin',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'linkedin',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'Other',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'chain',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'Other',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'chain',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+      ],
+    },
   },
   section_contact: {
     title: 'Contact us',

@@ -74,9 +74,11 @@
     <div class="ecl-site-footer__row">
       {# Site info #}
       {%- if _section_site_info is not empty -%}
-      <div class="ecl-site-footer__section ecl-site-footer__section--site-info">
-        Site info
-      </div>
+        {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+          section: _section_site_info|merge({ name: 'site-info' }),
+          extra_classes: _section_site_info.extra_classes|default(''),
+          extra_attributes: _section_site_info.extra_attributes|default([])
+        } only %}
       {%- endif -%}
 
       {%- if _section_core is not empty -%}
@@ -146,9 +148,11 @@
     {%- if _section_common is not empty -%}
     <div class="ecl-site-footer__row">
       {# Common #}
-      <div class="ecl-site-footer__section ecl-site-footer__section--common">
-        Common section
-      </div>
+      {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+        section: _section_common|merge({ name: 'common' }),
+        extra_classes: _section_common.extra_classes|default(''),
+        extra_attributes: _section_common.extra_attributes|default([])
+      } only %}
     </div>
     {%- endif -%}
   </div>

@@ -1,14 +1,33 @@
 /* eslint-disable no-param-reassign */
 import getSystem from '@ecl/builder/utils/getSystem';
+import logoEc from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
+import logoEcNegative from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
+import logoEu from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
+import logoEuNegative from '@ecl/resources-eu-logo/dist/standard-version/negative/logo-eu--en.svg';
 
 export const correctPaths = (data) => {
   Object.keys(data).forEach((prop) => {
+    // link
     if (typeof data[prop] === 'string' && data[prop].endsWith('/example')) {
       data[prop] = data[prop].replace(
         '/example',
         `/example#${Math.random().toString(36).slice(2, 7)}`,
       );
     }
+
+    // logo
+    if (typeof data[prop] === 'string' && data[prop].startsWith('/logo.svg')) {
+      const system = getSystem();
+      let logo = system === 'eu' ? logoEu : logoEc;
+      if (data[prop].includes('#')) {
+        const param = data[prop].split('#')[1].split(',');
+        if (param.includes('negative')) {
+          logo = system === 'eu' ? logoEuNegative : logoEcNegative;
+        }
+      }
+      data[prop] = data[prop].replace('/logo.svg', logo);
+    }
+
     if (data[prop] !== null && typeof data[prop] === 'object') {
       data[prop] = correctPaths(data[prop]);
     }
