@@ -6,16 +6,17 @@ import logoEc from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
 import dataCore from './demo/data-core--ec';
 import dataStandardised from './demo/data-standardised--ec';
 import dataHarmonised from './demo/data-harmonised--ec';
-import footer from './site-footer.html.twig';
+import footer from './site-footer-ec.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
   const args = {
     show_contact: true,
-    show_follow: true,
-    show_relate_site: true,
-    show_logo: true,
     show_about: true,
+    show_more: true,
+    show_related: true,
+    show_follow: true,
+    show_logo: true,
     show_class_names: true,
   };
 
@@ -28,6 +29,33 @@ const getArgTypes = () => {
     name: 'contact us',
     type: { name: 'boolean' },
     description: 'Show "Contact us" section',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
+  argTypes.show_about = {
+    name: 'about us',
+    type: { name: 'boolean' },
+    description: 'Show "About us" section',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
+  argTypes.show_more = {
+    name: 'more information',
+    type: { name: 'boolean' },
+    description: 'Show "More information" section',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
+  argTypes.show_related = {
+    name: 'related links',
+    type: { name: 'boolean' },
+    description: 'Show "Related links" section',
     table: {
       category: 'Optional sections',
     },
@@ -51,24 +79,6 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.show_about = {
-    name: 'about us',
-    type: { name: 'boolean' },
-    description: 'Show "About us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
-  argTypes.show_relate_site = {
-    name: 'related sites',
-    type: { name: 'boolean' },
-    description: 'Show "Related sites" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
   argTypes.show_class_names = {
     name: 'class names',
     type: { name: 'boolean' },
@@ -83,42 +93,40 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   correctPaths(data);
-  const res = JSON.parse(JSON.stringify(data));
-  if (res.split_columns) {
-    res.rows[0][0][0].logo.src_desktop = logoEc;
-    return res;
+  const clone = JSON.parse(JSON.stringify(data));
+  if (clone.split_columns) {
+    clone.rows[0][0][0].logo.src_desktop = logoEc;
+    return clone;
   }
 
-  res.rows[2][0][0].logo.src_desktop = logoEc;
-  if (!args.show_logo && res.rows[1][0][0].logo) {
-    delete res.rows[1][0][0].logo;
+  clone.rows[2][0][0].logo.src_desktop = logoEc;
+  if (!args.show_logo && clone.rows[1][0][0].logo) {
+    delete clone.rows[1][0][0].logo;
   }
-  if (!args.show_logo && res.rows[2]) {
-    delete res.rows[2][0][0].logo;
-  }
-  if (!args.show_contact) {
-    res.rows[0][1].splice(0, 1);
+  if (!args.show_logo && clone.rows[2]) {
+    delete clone.rows[2][0][0].logo;
   }
   if (!args.show_follow) {
-    res.rows[0][1].splice(1, 1);
-  }
-  if (!args.show_relate_site) {
-    res.rows[0][2].splice(1, 1);
-  }
-  if (!args.show_about) {
-    res.rows[0][2].splice(0, 1);
+    clone.rows[0][1].splice(1, 1);
   }
   if (!args.show_class_names) {
-    res.rows.splice(1, 1);
-  }
-  if (!args.show_about && !args.show_relate_site) {
-    res.rows[0].splice(2, 1);
-  }
-  if (!args.show_contact && !args.show_follow) {
-    res.rows[0].splice(1, 1);
+    clone.rows.splice(1, 1);
   }
 
-  return res;
+  if (!args.show_contact) {
+    delete clone.section_contact;
+  }
+  if (!args.show_about) {
+    delete clone.section_about;
+  }
+  if (!args.show_more) {
+    delete clone.section_more;
+  }
+  if (!args.show_related) {
+    delete clone.section_related;
+  }
+
+  return Object.assign(clone, args);
 };
 
 export default {

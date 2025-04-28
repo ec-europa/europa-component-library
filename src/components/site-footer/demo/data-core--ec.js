@@ -2,6 +2,65 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  section_site_info: {
+    links: [],
+  },
+  section_core: {
+    links: [
+      {
+        link: {
+          label: 'About us',
+          path: 'https://commission.europa.eu/about-european-commission_en',
+        },
+      },
+      {
+        link: {
+          label: 'Contact us',
+          path: 'https://commission.europa.eu/about-european-commission/contact_en',
+        },
+      },
+      {
+        link: {
+          label: 'Priorities',
+          path: '#',
+        },
+      },
+      {
+        link: {
+          label: 'Topics',
+          path: '#',
+        },
+      },
+      {
+        link: {
+          label: 'Funding and tenders',
+          path: 'https://commission.europa.eu/funding-tenders_en',
+        },
+      },
+      {
+        link: {
+          label: 'Jobs',
+          path: 'https://commission.europa.eu/jobs-european-commission_en',
+        },
+      },
+      {
+        link: {
+          label: 'Press corner',
+          path: 'https://ec.europa.eu/commission/presscorner/home/en',
+        },
+      },
+      {
+        link: {
+          label: 'Events',
+          path: 'https://commission.europa.eu/events_en',
+        },
+      },
+    ],
+  },
+  section_common: {
+    links: [],
+  },
+
   split_columns: true,
   rows: [
     [

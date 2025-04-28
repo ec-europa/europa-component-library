@@ -2,6 +2,93 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  section_site_info: {
+    links: [],
+  },
+  section_contact: {
+    title: 'Contact us',
+    links: [
+      {
+        link: {
+          label: 'Contact information of the DG',
+          path: exampleLink,
+        },
+      },
+    ],
+  },
+  section_about: {
+    title: 'About us',
+    links: [
+      {
+        link: {
+          label: 'Information about the DG',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Information about the DG',
+          path: exampleLink,
+        },
+      },
+    ],
+  },
+  section_more: {
+    title: 'More information on',
+    links: [
+      {
+        link: {
+          label: 'Class name 1',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Class name 2',
+          path: exampleLink,
+        },
+      },
+    ],
+  },
+  section_related: {
+    title: 'Related links',
+    links: [
+      {
+        link: {
+          label: 'Related link 1',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Related link 2',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Related link 3',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Related link 4',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Related link 5',
+          path: exampleLink,
+        },
+      },
+    ],
+  },
+  section_common: {
+    links: [],
+  },
+
   rows: [
     [
       [
