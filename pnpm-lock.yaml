@@ -99,7 +99,7 @@ importers:
         version: 2.31.0(eslint@8.57.0)
       eslint-plugin-jest:
         specifier: 28.11.0
-        version: 28.11.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0))(typescript@5.8.3)
+        version: 28.11.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0))(typescript@5.8.3)
       eslint-plugin-jsx-a11y:
         specifier: 6.10.2
         version: 6.10.2(eslint@8.57.0)
@@ -123,7 +123,7 @@ importers:
         version: 9.1.7
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+        version: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
       jest-axe:
         specifier: 10.0.0
         version: 10.0.0
@@ -132,7 +132,7 @@ importers:
         version: 29.7.0
       lerna:
         specifier: 8.2.2
-        version: 8.2.2(@types/node@22.14.0)(babel-plugin-macros@3.1.0)(encoding@0.1.13)
+        version: 8.2.2(@types/node@22.15.3)(babel-plugin-macros@3.1.0)(encoding@0.1.13)
       lerna-changelog:
         specifier: 2.2.0
         version: 2.2.0
@@ -145,9 +145,6 @@ importers:
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
-      patch-package:
-        specifier: 8.0.0
-        version: 8.0.0
       postinstall-postinstall:
         specifier: 2.1.0
         version: 2.1.0
@@ -176,23 +173,23 @@ importers:
         specifier: 12.0.0
         version: 12.0.0
       stylelint:
-        specifier: 16.19.0
-        version: 16.19.0(typescript@5.8.3)
+        specifier: 16.19.1
+        version: 16.19.1(typescript@5.8.3)
       stylelint-config-css-modules:
         specifier: 4.4.0
-        version: 4.4.0(stylelint@16.19.0(typescript@5.8.3))
+        version: 4.4.0(stylelint@16.19.1(typescript@5.8.3))
       stylelint-config-standard:
         specifier: 38.0.0
-        version: 38.0.0(stylelint@16.19.0(typescript@5.8.3))
+        version: 38.0.0(stylelint@16.19.1(typescript@5.8.3))
       stylelint-config-standard-scss:
         specifier: 14.0.0
-        version: 14.0.0(postcss@8.5.3)(stylelint@16.19.0(typescript@5.8.3))
+        version: 14.0.0(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3))
       stylelint-order:
         specifier: 7.0.0
-        version: 7.0.0(stylelint@16.19.0(typescript@5.8.3))
+        version: 7.0.0(stylelint@16.19.1(typescript@5.8.3))
       stylelint-scss:
         specifier: 6.11.1
-        version: 6.11.1(stylelint@16.19.0(typescript@5.8.3))
+        version: 6.11.1(stylelint@16.19.1(typescript@5.8.3))
       unist-util-visit:
         specifier: 5.0.0
         version: 5.0.0
@@ -200,140 +197,140 @@ importers:
   src/components/accordion:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
 
   src/components/banner:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
       '@ecl/video':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../video
 
   src/components/blockquote:
     dependencies:
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/breadcrumb:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
 
   src/components/button:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/indicator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../indicator
     devDependencies:
       '@ecl/resources-icons':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/icons
 
   src/components/card:
     dependencies:
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../content-block
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/carousel:
     dependencies:
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../banner
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
 
   src/components/category-filter:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
 
   src/components/checkbox:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
 
   src/components/content-block:
     dependencies:
       '@ecl/description-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../description-list
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/label':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../label
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
 
   src/components/content-item:
     dependencies:
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../content-block
       '@ecl/date-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../date-block
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/date-block: {}
@@ -341,7 +338,7 @@ importers:
   src/components/datepicker:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       pikaday:
         specifier: 1.8.2
@@ -350,137 +347,137 @@ importers:
   src/components/description-list:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/tag':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../tag
 
   src/components/expandable:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
 
   src/components/fact-figures:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
     devDependencies:
       '@ecl/resources-icons':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/icons
 
   src/components/featured-item:
     dependencies:
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/media-container':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../media-container
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/file:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/description-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../description-list
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/label':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../label
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/file-upload:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
 
   src/components/form-group:
     dependencies:
       '@ecl/checkbox':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../checkbox
       '@ecl/datepicker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../datepicker
       '@ecl/file-upload':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../file-upload
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/radio':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../radio
       '@ecl/range':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../range
       '@ecl/rating-field':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../rating-field
       '@ecl/select':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../select
       '@ecl/text-area':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../text-area
       '@ecl/text-input':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../text-input
 
   src/components/gallery:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
       '@ecl/video':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../video
       focus-trap:
         specifier: 7.6.4
@@ -489,7 +486,7 @@ importers:
   src/components/icon:
     devDependencies:
       '@ecl/resources-icons':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/icons
 
   src/components/indicator: {}
@@ -497,19 +494,19 @@ importers:
   src/components/inpage-navigation:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       focus-trap:
         specifier: 7.6.4
@@ -530,60 +527,60 @@ importers:
   src/components/link:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
     devDependencies:
       '@ecl/resources-icons':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/icons
 
   src/components/list-illustration:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
     devDependencies:
       '@ecl/resources-icons':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/icons
 
   src/components/media-container:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/expandable':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../expandable
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
       '@ecl/video':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../video
 
   src/components/mega-menu:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
       bowser:
         specifier: 2.11.0
@@ -595,16 +592,16 @@ importers:
   src/components/menu:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       bowser:
         specifier: 2.11.0
@@ -616,13 +613,13 @@ importers:
   src/components/modal:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       focus-trap:
         specifier: 7.6.4
@@ -631,40 +628,40 @@ importers:
   src/components/navigation-list:
     dependencies:
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../content-block
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/news-ticker:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
 
   src/components/notification:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
 
   src/components/ordered-list: {}
@@ -672,22 +669,22 @@ importers:
   src/components/page-header:
     dependencies:
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../breadcrumb
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
 
   src/components/pagination:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
 
   src/components/picture: {}
@@ -695,19 +692,19 @@ importers:
   src/components/popover:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
 
   src/components/radio: {}
@@ -715,43 +712,43 @@ importers:
   src/components/range:
     dependencies:
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/layout-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/form
 
   src/components/rating-field:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
 
   src/components/search-form:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/form-group':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../form-group
 
   src/components/select:
     dependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/layout-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/form
 
   src/components/separator: {}
@@ -759,75 +756,75 @@ importers:
   src/components/site-footer:
     dependencies:
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
     devDependencies:
       '@ecl/resources-ec-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-ec
       '@ecl/resources-eu-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-eu
 
   src/components/site-header:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../menu
       '@ecl/notification':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../notification
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
       '@ecl/search-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../search-form
       focus-trap:
         specifier: 7.6.4
         version: 7.6.4
     devDependencies:
       '@ecl/resources-ec-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-ec
       '@ecl/resources-eu-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-eu
 
   src/components/skip-link:
     dependencies:
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/utility-screen-reader':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/screen-reader
 
   src/components/social-media-follow:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
 
   src/components/spinner: {}
@@ -835,56 +832,59 @@ importers:
   src/components/splash-page:
     dependencies:
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../picture
     devDependencies:
       '@ecl/resources-ec-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-ec
       '@ecl/resources-eu-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-eu
 
   src/components/table:
     dependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
+      '@ecl/resources-icons':
+        specifier: 5.0.0-alpha.9
+        version: link:../../resources/icons
 
   src/components/tabs:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/event-manager
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../link
       '@ecl/utility-screen-reader':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/screen-reader
 
   src/components/tag:
     dependencies:
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../icon
 
   src/components/text-area: {}
@@ -894,13 +894,13 @@ importers:
   src/components/timeline:
     dependencies:
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../button
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/components/unordered-list: {}
@@ -912,16 +912,16 @@ importers:
   src/compositions/file-upload-status:
     dependencies:
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/link
       '@ecl/spinner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/spinner
 
   src/layout/form:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../grid
 
   src/layout/grid: {}
@@ -929,170 +929,170 @@ importers:
   src/page-example/page-fact-sheet:
     dependencies:
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/banner
       '@ecl/blockquote':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/blockquote
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/breadcrumb
       '@ecl/fact-figures':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/fact-figures
       '@ecl/featured-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/featured-item
       '@ecl/list-illustration':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/list-illustration
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/mega-menu
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/page-header
       '@ecl/separator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/separator
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-header
       '@ecl/table':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/table
       '@ecl/timeline':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/timeline
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/unordered-list
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
 
   src/page-example/page-home:
     dependencies:
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/banner
       '@ecl/card':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/card
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/content-item
       '@ecl/featured-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/featured-item
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/link
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/mega-menu
       '@ecl/navigation-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/navigation-list
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-header
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/unordered-list
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
 
   src/page-example/page-inner:
     dependencies:
       '@ecl/accordion':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/accordion
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/breadcrumb
       '@ecl/file':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/file
       '@ecl/gallery':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/gallery
       '@ecl/inpage-navigation':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/inpage-navigation
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/mega-menu
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/page-header
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-header
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/unordered-list
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
 
   src/page-example/page-search:
     dependencies:
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/breadcrumb
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/button
       '@ecl/checkbox':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/checkbox
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/content-item
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/mega-menu
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/page-header
       '@ecl/pagination':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/pagination
       '@ecl/select':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/select
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-header
       '@ecl/text-input':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/text-input
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
 
   src/playground/addons/story-utils:
     dependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../../tools/builder
       he:
         specifier: 1.2.0
@@ -1101,7 +1101,7 @@ importers:
   src/playground/addons/storybook-addon-code:
     dependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../../tools/builder
       '@storybook/components':
         specifier: 8.6.12
@@ -1183,7 +1183,7 @@ importers:
   src/playground/addons/storybook-addon-system-switcher:
     dependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../../tools/builder
       '@storybook/components':
         specifier: 8.6.12
@@ -1226,7 +1226,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: 8.6.12
-        version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
+        version: 8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-links':
         specifier: 8.6.12
         version: 8.6.12(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
@@ -1244,7 +1244,7 @@ importers:
         version: 8.6.12(esbuild@0.24.2)(storybook@8.6.12(prettier@3.5.3))(typescript@5.8.3)
       babel-loader:
         specifier: 10.0.0
-        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.5(esbuild@0.24.2))
+        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.7(esbuild@0.24.2))
       browser-update:
         specifier: 3.3.55
         version: 3.3.55
@@ -1295,7 +1295,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: 8.6.12
-        version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
+        version: 8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-links':
         specifier: 8.6.12
         version: 8.6.12(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
@@ -1313,7 +1313,7 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))(typescript@5.8.3)
       babel-loader:
         specifier: 10.0.0
-        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.5)
+        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.7)
       browser-update:
         specifier: 3.3.55
         version: 3.3.55
@@ -1342,241 +1342,241 @@ importers:
   src/presets/ec:
     dependencies:
       '@ecl/accordion':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/accordion
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/banner
       '@ecl/blockquote':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/blockquote
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/breadcrumb
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/button
       '@ecl/card':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/card
       '@ecl/carousel':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/carousel
       '@ecl/category-filter':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/category-filter
       '@ecl/checkbox':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/checkbox
       '@ecl/color-modes':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../themes/color-modes
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/content-block
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/content-item
       '@ecl/date-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/date-block
       '@ecl/datepicker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/datepicker
       '@ecl/description-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/description-list
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/expandable':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/expandable
       '@ecl/fact-figures':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/fact-figures
       '@ecl/featured-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/featured-item
       '@ecl/file':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/file
       '@ecl/file-upload':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/file-upload
       '@ecl/form-group':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/form-group
       '@ecl/gallery':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/gallery
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/icon
       '@ecl/indicator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/indicator
       '@ecl/inpage-navigation':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/inpage-navigation
       '@ecl/label':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/label
       '@ecl/layout-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/form
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/link
       '@ecl/list-illustration':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/list-illustration
       '@ecl/media-container':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/media-container
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/mega-menu
       '@ecl/menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/menu
       '@ecl/modal':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/modal
       '@ecl/navigation-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/navigation-list
       '@ecl/news-ticker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/news-ticker
       '@ecl/notification':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/notification
       '@ecl/ordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/ordered-list
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/page-header
       '@ecl/pagination':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/pagination
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/picture
       '@ecl/popover':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/popover
       '@ecl/radio':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/radio
       '@ecl/range':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/range
       '@ecl/rating-field':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/rating-field
       '@ecl/search-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/search-form
       '@ecl/select':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/select
       '@ecl/separator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/separator
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-header
       '@ecl/skip-link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/skip-link
       '@ecl/social-media-follow':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/social-media-follow
       '@ecl/spinner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/spinner
       '@ecl/splash-page':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/splash-page
       '@ecl/table':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/table
       '@ecl/tabs':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/tabs
       '@ecl/tag':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/tag
       '@ecl/text-area':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/text-area
       '@ecl/text-input':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/text-input
       '@ecl/theme-ec':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../themes/ec
       '@ecl/timeline':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/timeline
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/unordered-list
       '@ecl/utility-background':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/background
       '@ecl/utility-border':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/border
       '@ecl/utility-clearfix':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/clearfix
       '@ecl/utility-dimension':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/dimension
       '@ecl/utility-disablescroll':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/disablescroll
       '@ecl/utility-display':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/display
       '@ecl/utility-flex':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/flex
       '@ecl/utility-float':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/float
       '@ecl/utility-media':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/media
       '@ecl/utility-print':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/print
       '@ecl/utility-screen-reader':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/screen-reader
       '@ecl/utility-shadow':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/shadow
       '@ecl/utility-spacing':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/spacing
       '@ecl/utility-typography':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/typography
       '@ecl/utility-z-index':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/z-index
       '@ecl/video':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/video
       normalize.css:
         specifier: 8.0.1
@@ -1586,16 +1586,16 @@ importers:
         version: 1.8.2
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
       '@ecl/preset-reset':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../reset
       '@ecl/preset-rtl':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../rtl
       '@ecl/resources-ec-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-ec
       cross-env:
         specifier: 7.0.3
@@ -1613,238 +1613,238 @@ importers:
   src/presets/eu:
     dependencies:
       '@ecl/accordion':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/accordion
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/banner
       '@ecl/blockquote':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/blockquote
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/breadcrumb
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/button
       '@ecl/card':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/card
       '@ecl/carousel':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/carousel
       '@ecl/category-filter':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/category-filter
       '@ecl/checkbox':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/checkbox
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/content-block
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/content-item
       '@ecl/date-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/date-block
       '@ecl/datepicker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/datepicker
       '@ecl/description-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/description-list
       '@ecl/dom-utils':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/dom-utils
       '@ecl/expandable':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/expandable
       '@ecl/fact-figures':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/fact-figures
       '@ecl/featured-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/featured-item
       '@ecl/file':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/file
       '@ecl/file-upload':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/file-upload
       '@ecl/form-group':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/form-group
       '@ecl/gallery':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/gallery
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/icon
       '@ecl/indicator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/indicator
       '@ecl/inpage-navigation':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/inpage-navigation
       '@ecl/label':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/label
       '@ecl/layout-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/form
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/link
       '@ecl/list-illustration':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/list-illustration
       '@ecl/media-container':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/media-container
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/mega-menu
       '@ecl/menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/menu
       '@ecl/modal':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/modal
       '@ecl/navigation-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/navigation-list
       '@ecl/news-ticker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/news-ticker
       '@ecl/notification':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/notification
       '@ecl/ordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/ordered-list
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/page-header
       '@ecl/pagination':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/pagination
       '@ecl/picture':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/picture
       '@ecl/popover':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/popover
       '@ecl/radio':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/radio
       '@ecl/range':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/range
       '@ecl/rating-field':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/rating-field
       '@ecl/search-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/search-form
       '@ecl/select':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/select
       '@ecl/separator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/separator
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/site-header
       '@ecl/skip-link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/skip-link
       '@ecl/social-media-follow':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/social-media-follow
       '@ecl/spinner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/spinner
       '@ecl/splash-page':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/splash-page
       '@ecl/table':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/table
       '@ecl/tabs':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/tabs
       '@ecl/tag':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/tag
       '@ecl/text-area':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/text-area
       '@ecl/text-input':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/text-input
       '@ecl/theme-ec':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../themes/ec
       '@ecl/timeline':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/timeline
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/unordered-list
       '@ecl/utility-background':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/background
       '@ecl/utility-border':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/border
       '@ecl/utility-clearfix':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/clearfix
       '@ecl/utility-dimension':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/dimension
       '@ecl/utility-disablescroll':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/disablescroll
       '@ecl/utility-display':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/display
       '@ecl/utility-flex':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/flex
       '@ecl/utility-float':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/float
       '@ecl/utility-media':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/media
       '@ecl/utility-print':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/print
       '@ecl/utility-screen-reader':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/screen-reader
       '@ecl/utility-shadow':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/shadow
       '@ecl/utility-spacing':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/spacing
       '@ecl/utility-typography':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/typography
       '@ecl/utility-z-index':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../utilities/z-index
       '@ecl/video':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../components/video
       normalize.css:
         specifier: 8.0.1
@@ -1854,19 +1854,19 @@ importers:
         version: 1.8.2
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
       '@ecl/preset-reset':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../reset
       '@ecl/preset-rtl':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../rtl
       '@ecl/resources-eu-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../resources/logo-eu
       '@ecl/theme-eu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../themes/eu
       cross-env:
         specifier: 7.0.3
@@ -1885,7 +1885,7 @@ importers:
         version: 8.0.1
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
       cross-env:
         specifier: 7.0.3
@@ -1900,10 +1900,10 @@ importers:
   src/presets/rtl:
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../tools/builder
       '@ecl/theme-ec':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../themes/ec
       cross-env:
         specifier: 7.0.3
@@ -1976,19 +1976,19 @@ importers:
         version: 7.27.0
       '@rollup/plugin-babel':
         specifier: 6.0.4
-        version: 6.0.4(@babel/core@7.26.10)(@types/babel__core@7.20.5)(rollup@4.40.0)
+        version: 6.0.4(@babel/core@7.26.10)(@types/babel__core@7.20.5)(rollup@4.40.1)
       '@rollup/plugin-commonjs':
         specifier: 28.0.3
-        version: 28.0.3(rollup@4.40.0)
+        version: 28.0.3(rollup@4.40.1)
       '@rollup/plugin-node-resolve':
         specifier: 16.0.1
-        version: 16.0.1(rollup@4.40.0)
+        version: 16.0.1(rollup@4.40.1)
       '@rollup/plugin-replace':
         specifier: 6.0.2
-        version: 6.0.2(rollup@4.40.0)
+        version: 6.0.2(rollup@4.40.1)
       '@rollup/plugin-terser':
         specifier: 0.4.4
-        version: 0.4.4(rollup@4.40.0)
+        version: 0.4.4(rollup@4.40.1)
       autoprefixer:
         specifier: 10.4.21
         version: 10.4.21(postcss@8.5.3)
@@ -2020,11 +2020,11 @@ importers:
         specifier: 6.0.0
         version: 6.0.0(postcss@8.5.3)
       rollup:
-        specifier: 4.40.0
-        version: 4.40.0
+        specifier: 4.40.1
+        version: 4.40.1
       rollup-plugin-external-globals:
         specifier: 0.13.0
-        version: 0.13.0(rollup@4.40.0)
+        version: 0.13.0(rollup@4.40.1)
       rollup-plugin-svg:
         specifier: 2.0.0
         version: 2.0.0
@@ -2039,7 +2039,7 @@ importers:
   src/tools/test-utils:
     devDependencies:
       '@ecl/twig-ec-storybook':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../playground/ec
       deepmerge:
         specifier: 4.3.1
@@ -2048,172 +2048,172 @@ importers:
   src/twig-templates:
     devDependencies:
       '@ecl/accordion':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/accordion
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/banner
       '@ecl/blockquote':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/blockquote
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/breadcrumb
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/button
       '@ecl/card':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/card
       '@ecl/carousel':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/carousel
       '@ecl/category-filter':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/category-filter
       '@ecl/checkbox':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/checkbox
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/content-block
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/content-item
       '@ecl/date-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/date-block
       '@ecl/datepicker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/datepicker
       '@ecl/description-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/description-list
       '@ecl/etrans':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../compositions/etrans
       '@ecl/expandable':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/expandable
       '@ecl/fact-figures':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/fact-figures
       '@ecl/featured-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/featured-item
       '@ecl/file':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/file
       '@ecl/file-upload':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/file-upload
       '@ecl/file-upload-status':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../compositions/file-upload-status
       '@ecl/form-group':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/form-group
       '@ecl/gallery':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/gallery
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/icon
       '@ecl/inpage-navigation':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/inpage-navigation
       '@ecl/label':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/label
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/link
       '@ecl/list-illustration':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/list-illustration
       '@ecl/media-container':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/media-container
       '@ecl/modal':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/modal
       '@ecl/navigation-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/navigation-list
       '@ecl/news-ticker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/news-ticker
       '@ecl/notification':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/notification
       '@ecl/ordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/ordered-list
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/page-header
       '@ecl/pagination':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/pagination
       '@ecl/popover':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/popover
       '@ecl/radio':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/radio
       '@ecl/range':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/range
       '@ecl/rating-field':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/rating-field
       '@ecl/search-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/search-form
       '@ecl/select':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/select
       '@ecl/separator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/separator
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/site-header
       '@ecl/skip-link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/skip-link
       '@ecl/social-media-follow':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/social-media-follow
       '@ecl/spinner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/spinner
       '@ecl/splash-page':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/splash-page
       '@ecl/table':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/table
       '@ecl/tabs':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/tabs
       '@ecl/tag':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/tag
       '@ecl/text-area':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/text-area
       '@ecl/text-input':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/text-input
       '@ecl/timeline':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/timeline
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/unordered-list
       copyfiles:
         specifier: 2.4.1
@@ -2227,7 +2227,7 @@ importers:
   src/utilities/border:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/utilities/clearfix: {}
@@ -2239,13 +2239,13 @@ importers:
   src/utilities/display:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/utilities/flex:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/utilities/float: {}
@@ -2253,7 +2253,7 @@ importers:
   src/utilities/media:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/utilities/print: {}
@@ -2265,13 +2265,13 @@ importers:
   src/utilities/spacing:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/utilities/typography:
     dependencies:
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../../layout/grid
 
   src/utilities/z-index: {}
@@ -2279,202 +2279,211 @@ importers:
   src/website:
     dependencies:
       '@ecl/accordion':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/accordion
       '@ecl/banner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/banner
       '@ecl/blockquote':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/blockquote
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/breadcrumb
       '@ecl/button':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/button
       '@ecl/card':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/card
       '@ecl/carousel':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/carousel
       '@ecl/category-filter':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/category-filter
       '@ecl/checkbox':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/checkbox
       '@ecl/color-modes':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../themes/color-modes
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/content-block
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/content-item
       '@ecl/date-block':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/date-block
       '@ecl/datepicker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/datepicker
       '@ecl/description-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/description-list
       '@ecl/expandable':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/expandable
       '@ecl/fact-figures':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/fact-figures
       '@ecl/featured-item':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/featured-item
       '@ecl/file':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/file
       '@ecl/file-upload':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/file-upload
       '@ecl/form-group':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/form-group
       '@ecl/gallery':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/gallery
       '@ecl/grid':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../layout/grid
       '@ecl/icon':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/icon
       '@ecl/inpage-navigation':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/inpage-navigation
       '@ecl/label':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/label
       '@ecl/link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/link
       '@ecl/list-illustration':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/list-illustration
       '@ecl/media-container':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/media-container
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/mega-menu
       '@ecl/menu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/menu
       '@ecl/modal':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/modal
       '@ecl/navigation-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/navigation-list
       '@ecl/news-ticker':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/news-ticker
       '@ecl/notification':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/notification
       '@ecl/ordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/ordered-list
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/page-header
       '@ecl/pagination':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/pagination
       '@ecl/popover':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/popover
       '@ecl/preset-ec':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../presets/ec
       '@ecl/preset-eu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../presets/eu
       '@ecl/radio':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/radio
       '@ecl/range':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/range
       '@ecl/rating-field':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/rating-field
       '@ecl/resources-ec-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../resources/logo-ec
+      '@ecl/resources-ec-social-icons':
+        specifier: 5.0.0-alpha.9
+        version: 5.0.0-alpha.9
       '@ecl/resources-eu-logo':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../resources/logo-eu
+      '@ecl/resources-flag-icons':
+        specifier: 5.0.0-alpha.9
+        version: 5.0.0-alpha.9
       '@ecl/resources-icons':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../resources/icons
+      '@ecl/resources-social-media-icons':
+        specifier: 5.0.0-alpha.9
+        version: 5.0.0-alpha.9
       '@ecl/search-form':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/search-form
       '@ecl/select':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/select
       '@ecl/separator':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/separator
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/site-header
       '@ecl/skip-link':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/skip-link
       '@ecl/social-media-follow':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/social-media-follow
       '@ecl/spinner':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/spinner
       '@ecl/splash-page':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/splash-page
       '@ecl/table':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/table
       '@ecl/tabs':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/tabs
       '@ecl/tag':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/tag
       '@ecl/text-area':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/text-area
       '@ecl/text-input':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/text-input
       '@ecl/theme-ec':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../themes/ec
       '@ecl/theme-eu':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../themes/eu
       '@ecl/timeline':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/timeline
       '@ecl/unordered-list':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../components/unordered-list
       '@ecl/utility-typography':
-        specifier: 5.0.0-alpha.8
+        specifier: 5.0.0-alpha.9
         version: link:../utilities/typography
       '@hot-loader/react-dom':
         specifier: 17.0.2
@@ -2490,7 +2499,7 @@ importers:
         version: 3.1.0(acorn@8.14.1)
       '@mdx-js/react':
         specifier: 3.1.0
-        version: 3.1.0(@types/react@19.1.0)(react@19.1.0)
+        version: 3.1.0(@types/react@19.1.2)(react@19.1.0)
       classnames:
         specifier: 2.5.1
         version: 2.5.1
@@ -2505,7 +2514,7 @@ importers:
         version: 2.6.0
       html-react-parser:
         specifier: 5.2.3
-        version: 5.2.3(@types/react@19.1.0)(react@19.1.0)
+        version: 5.2.3(@types/react@19.1.2)(react@19.1.0)
       js-beautify:
         specifier: 1.15.4
         version: 1.15.4
@@ -2563,13 +2572,13 @@ importers:
         version: 7.27.0
       '@mdx-js/loader':
         specifier: 3.1.0
-        version: 3.1.0(acorn@8.14.1)(webpack@5.99.5)
+        version: 3.1.0(acorn@8.14.1)(webpack@5.99.7)
       '@mdx-js/rollup':
         specifier: 3.1.0
-        version: 3.1.0(acorn@8.14.1)(rollup@4.40.0)
+        version: 3.1.0(acorn@8.14.1)(rollup@4.40.1)
       '@vitejs/plugin-react':
         specifier: 4.4.1
-        version: 4.4.1(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 4.4.1(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
       autoprefixer:
         specifier: 10.4.21
         version: 10.4.21(postcss@8.5.3)
@@ -2578,7 +2587,7 @@ importers:
         version: 10.1.0(eslint@8.57.0)
       babel-loader:
         specifier: 10.0.0
-        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.5)
+        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.7)
       babel-plugin-preval:
         specifier: 5.1.0
         version: 5.1.0
@@ -2623,7 +2632,7 @@ importers:
         version: 5.0.2(postcss@8.5.3)
       postcss-loader:
         specifier: 8.1.1
-        version: 8.1.1(postcss@8.5.3)(typescript@5.8.3)(webpack@5.99.5)
+        version: 8.1.1(postcss@8.5.3)(typescript@5.8.3)(webpack@5.99.7)
       postcss-prefix-selector:
         specifier: 2.1.1
         version: 2.1.1(postcss@8.5.3)
@@ -2632,7 +2641,7 @@ importers:
         version: 7.0.1(postcss@8.5.3)
       react-dev-utils:
         specifier: 12.0.1
-        version: 12.0.1(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.5)
+        version: 12.0.1(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.7)
       remark-frontmatter:
         specifier: 5.0.0
         version: 5.0.0
@@ -2650,19 +2659,19 @@ importers:
         version: 14.2.4
       vike:
         specifier: 0.4.229
-        version: 0.4.229(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 0.4.229(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
       vite:
         specifier: 6.3.3
-        version: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+        version: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
       vite-plugin-eslint:
         specifier: 1.8.1
-        version: 1.8.1(eslint@8.57.0)(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 1.8.1(eslint@8.57.0)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
       vite-plugin-html-minifier:
         specifier: 1.0.5
-        version: 1.0.5(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 1.0.5(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
       vite-plugin-simple-html:
         specifier: 0.2.0
-        version: 0.2.0(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 0.2.0(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))
 
 packages:
 
@@ -3413,14 +3422,23 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
-  '@emnapi/core@1.4.0':
-    resolution: {integrity: sha512-H+N/FqT07NmLmt6OFFtDfwe8PNygprzBikrEMyQfgqSmT0vzE515Pz7R8izwB9q/zsH/MA64AKoul3sA6/CzVg==}
+  '@ecl/resources-ec-social-icons@5.0.0-alpha.9':
+    resolution: {integrity: sha512-8MyT/u36/l1RsbuSIaACxjB781lEkd2Id4bHDfhx/fHS9GqfM3TM8KF1yllEr+IemwnF/BVbUgs+t4th4F9k6Q==}
 
-  '@emnapi/runtime@1.4.0':
-    resolution: {integrity: sha512-64WYIf4UYcdLnbKn/umDlNjQDSS8AgZrI/R9+x5ilkUVFxXcA1Ebl+gQLc/6mERA4407Xof0R7wEyEuj091CVw==}
+  '@ecl/resources-flag-icons@5.0.0-alpha.9':
+    resolution: {integrity: sha512-9tUrSxeUDH8E0WRQ/MUR1/glzSROs2IebGk9oolp/dB6pbGDZxBeedO74VbuK46HFS2bZl7gckz6Tb+e99UheQ==}
 
-  '@emnapi/wasi-threads@1.0.1':
-    resolution: {integrity: sha512-iIBu7mwkq4UQGeMEM8bLwNK962nXdhodeScX4slfQnRhEMMzvYivHhutCIk8uojvmASXXPC2WNEjwxFWk72Oqw==}
+  '@ecl/resources-social-media-icons@5.0.0-alpha.9':
+    resolution: {integrity: sha512-b5Jn34/pVq3xjGIiaPm9gB9SUEqIEhlgPY4WFSH+ca1aNeIfQ/i6Xrehj1QuMRgZsJXEMbrXkOJKuDwlsWq6Ig==}
+
+  '@emnapi/core@1.4.3':
+    resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
+
+  '@emnapi/runtime@1.4.3':
+    resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
+
+  '@emnapi/wasi-threads@1.0.2':
+    resolution: {integrity: sha512-5n3nTJblwRi8LlXkJ9eBzu+kZR8Yxcc7ubakyQTFzPMtIhFpUBRbsnc2Dv88IZDIbCDlBiWrknhB4Lsz7mg6BA==}
 
   '@emotion/babel-plugin@11.13.5':
     resolution: {integrity: sha512-pxHCpT2ex+0q+HH91/zsdHkw/lXd468DIN2zvfvLtPKLLMo6gQj7oLObq8PhkrxOZb/gGCq03S3Z7PDhS8pduQ==}
@@ -3626,8 +3644,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@eslint-community/eslint-utils@4.5.1':
-    resolution: {integrity: sha512-soEIOALTfTK6EjmKMMoLugwaP0rzkad90iIWd1hMO9ARkSAyjfMfkRRhLvD5qH7vvM0Cg72pieUfR6yh6XxC4w==}
+  '@eslint-community/eslint-utils@4.6.1':
+    resolution: {integrity: sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -3775,8 +3793,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/prompts@7.4.1':
-    resolution: {integrity: sha512-UlmM5FVOZF0gpoe1PT/jN4vk8JmpIWBlMvTL8M+hlvPmzN89K6z03+IFmyeu/oFCenwdwHDr2gky7nIGSEVvlA==}
+  '@inquirer/prompts@7.5.0':
+    resolution: {integrity: sha512-tk8Bx7l5AX/CR0sVfGj3Xg6v7cYlFBkEahH+EgBB+cZib6Fc83dwerTbzj7f2+qKckjIUGsviWRI1d7lx6nqQA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -3784,8 +3802,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/rawlist@4.0.12':
-    resolution: {integrity: sha512-wNPJZy8Oc7RyGISPxp9/MpTOqX8lr0r+lCCWm7hQra+MDtYRgINv1hxw7R+vKP71Bu/3LszabxOodfV/uTfsaA==}
+  '@inquirer/rawlist@4.1.0':
+    resolution: {integrity: sha512-6ob45Oh9pXmfprKqUiEeMz/tjtVTFQTgDDz1xAMKMrIvyrYjAmRbQZjMJfsictlL4phgjLhdLu27IkHNnNjB7g==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -3802,8 +3820,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/select@4.1.1':
-    resolution: {integrity: sha512-IUXzzTKVdiVNMA+2yUvPxWsSgOG4kfX93jOM4Zb5FgujeInotv5SPIJVeXQ+fO4xu7tW8VowFhdG5JRmmCyQ1Q==}
+  '@inquirer/select@4.2.0':
+    resolution: {integrity: sha512-KkXQ4aSySWimpV4V/TUJWdB3tdfENZUU765GjOIZ0uPwdbGIG6jrxD4dDf1w68uP+DVtfNhr1A92B+0mbTZ8FA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -4045,67 +4063,67 @@ packages:
     resolution: {integrity: sha512-y7efHHwghQfk28G2z3tlZ67pLG0XdfYbcVG26r7YIXALRsrVQcTq4/tdenSmdOrEsNahIYA/eh8aEVROWGFUDg==}
     engines: {node: ^16.14.0 || >=18.0.0}
 
-  '@nx/devkit@20.7.2':
-    resolution: {integrity: sha512-6qsQ49T1hWQ8s4JMvGX9k3tpjY4kwr+/2CE1ZCy1txJVFflDatJxdV3fMqUDqo6n81yB6AmVqoSQjQkO6fCRRQ==}
+  '@nx/devkit@20.8.1':
+    resolution: {integrity: sha512-N3nwIg/7RIZeB76iuVo29q+l9WyTtvuBSgDFM2msiIK6Q928ilzoeNPZ/p7w/TE3Gqs5XVhq9ExMvDAOTxdmXA==}
     peerDependencies:
       nx: '>= 19 <= 21'
 
-  '@nx/nx-darwin-arm64@20.7.2':
-    resolution: {integrity: sha512-ejcAkFpKUR8rsmL86NjBA8WwUf5RlxxlS/3Vz6V59ZJVPsjxsTephyV8z+y8WEyWP4GaDycsc608Me8kijp5EQ==}
+  '@nx/nx-darwin-arm64@20.8.1':
+    resolution: {integrity: sha512-Gat4Io66cV70Oa1CjrMJPsEx5ICpAGayv9hejOtBUEDb6XjR12L2e4wV+4EHliF0UbEcuZAr8/lTROEPk0RGWQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@nx/nx-darwin-x64@20.7.2':
-    resolution: {integrity: sha512-e9FC7QMolZ+RslMOzm4x9ysIIsaTo3Bojcmt6IZ0WofjPqWTvHyMK95Gwz1I3qt0PDygKS5qtmlI1ganybyfpQ==}
+  '@nx/nx-darwin-x64@20.8.1':
+    resolution: {integrity: sha512-TB9mZk7neGFKgBr2wSBgY6c4kFF9vvChNSp3TrEeXR3FppFcYG5eK4AaKfzWCpYb0wMtseAm7NMX1Lu74utClQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@nx/nx-freebsd-x64@20.7.2':
-    resolution: {integrity: sha512-KJ9bqwiOeZPXLvCecfFsFtuSxccZ+0wC/waDGY0Ds2bSevNyb3P3c3HoZJskyQj+roZ5IlawKPO9brE6SKAS9A==}
+  '@nx/nx-freebsd-x64@20.8.1':
+    resolution: {integrity: sha512-7UQu0/Afna5Af2GagEQ6rbKfUh75NfUn+g66wsoQoUGBvDW0U7B8P3Ph5Bk4Urub0BSfMVcNg2X7CgfypLFN/g==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [freebsd]
 
-  '@nx/nx-linux-arm-gnueabihf@20.7.2':
-    resolution: {integrity: sha512-2j7z7rS7NEtvfosLZn6pzr+WnDQ/XtW3a+o/XMgcD8PkfWFOiAzK1DL8DvXE3G1MJq62jSzw+euahpYHLIkH0w==}
+  '@nx/nx-linux-arm-gnueabihf@20.8.1':
+    resolution: {integrity: sha512-Tjh8JkTP+x1jSrzx+ofx1pKpkhIbXd7bi0bPdpYt6NI1lZz2HB/dv8vtdzP80jXEDztHf0AeGnEJVgJKsgI6yg==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
 
-  '@nx/nx-linux-arm64-gnu@20.7.2':
-    resolution: {integrity: sha512-tIgHCRe9M4SZ+seG98jE/FoG4/pfvGoEny/TV5V0tYvpMfUlKAU0GdcnP6YZCrQR9iRF6ZsuCZbPf7IuACyXdA==}
+  '@nx/nx-linux-arm64-gnu@20.8.1':
+    resolution: {integrity: sha512-2+qPIwav2vrytH6pe7fukBe8+yN5JGbEDCnDO8wKQsHeeZMLAQJiZ7EJH/+vynRkI7oWf87mihIKNQME19+w6A==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@nx/nx-linux-arm64-musl@20.7.2':
-    resolution: {integrity: sha512-/r4TNzyjhic7DZei6DXfbsfONDp40LbHjn/XcrJ53yI1UHGFunUUQYEDeBbgOcqs0IkRitNSgTDgpkG9UvJ65Q==}
+  '@nx/nx-linux-arm64-musl@20.8.1':
+    resolution: {integrity: sha512-DsKc+DiMsuHqpBWchUUUg6zv4OaexRqpFXys6auZlrpFpn80kSqLQ3S4zZ5AUu+26wxZqEVJs+uxHGwFbhEssQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@nx/nx-linux-x64-gnu@20.7.2':
-    resolution: {integrity: sha512-s/cMSJlJeF+Io+3bWy+wJSemBwKL/IAcXUxLXRSDuaPXv7AoDWctmbfcyLqQJ7Ufcioivvil0XTtD/vkJI0x3A==}
+  '@nx/nx-linux-x64-gnu@20.8.1':
+    resolution: {integrity: sha512-Kzru44beVKAmSG84ShuMIIfyu2Uu5r8gsHdtiQPBIOGkZa0Z/e6YtUxcN3w1UZ7yvvzoQ4pQLvqU6UZRSWZtEg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@nx/nx-linux-x64-musl@20.7.2':
-    resolution: {integrity: sha512-9ZdPQwD4LDhwMOQ1NyYRDNr+6FVOdFeibkO+nN4nhkNBFxK6w2iprebrUKeOvQ1yHttt2YSC5p9bqxP7DVtE7w==}
+  '@nx/nx-linux-x64-musl@20.8.1':
+    resolution: {integrity: sha512-cSVVb7DVMhrxCaj/n55okBZS6lZoP5a5vynOBGIV4z3/OJLev+xI9A+3imn/aXnBl8iS69HogYyrW0YTXv4Xaw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@nx/nx-win32-arm64-msvc@20.7.2':
-    resolution: {integrity: sha512-fSd44rmECiw/HZD9f0mNPRF8zwtx3N3TNU7CRohZtRBVotUgOuQU1XONi1J0V117g8q4VQmmaAO9eMdVxM2ZuQ==}
+  '@nx/nx-win32-arm64-msvc@20.8.1':
+    resolution: {integrity: sha512-gte5HcvI24CN6b9I6IYTXh/A0CtRfnlAFaJomPpfT8Wcq637aOZzS0arAEZVoU8QZty1350hj6sfu+wSIjoP7A==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@nx/nx-win32-x64-msvc@20.7.2':
-    resolution: {integrity: sha512-/ApoP28ztk/MSNGHnZ/t4bfvjHwU5kmQan2O3aTOj84vZHOlIk57SncVeCsVnT4XQihNjaSw3cbqLi2PZ+rRUw==}
+  '@nx/nx-win32-x64-msvc@20.8.1':
+    resolution: {integrity: sha512-6c2fVEPdPwJdnRbckBatRDF/g6JAp6p3Mfl90DpuaEF2DZC5pmCXKOsXE0aSIZ+gODom2JIchM++2KmDZPJUoA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -4254,8 +4272,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@pkgr/core@0.2.2':
-    resolution: {integrity: sha512-25L86MyPvnlQoX2MTIV2OiUcb6vJ6aRbFa9pbwByn95INKD5mFH2smgjDhq+fwJoqAgvgbdJLj6Tz7V9X5CFAQ==}
+  '@pkgr/core@0.2.4':
+    resolution: {integrity: sha512-ROFF39F6ZrnzSUEmQQZUar0Jt4xVoP9WnDRdWwF4NNcXs3xBTLgBUDoOwW141y1jP+S8nahIbdxbFC7IShw9Iw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
   '@polka/url@1.0.0-next.29':
@@ -4266,8 +4284,8 @@ packages:
     peerDependencies:
       prettier: ^3.0.0
 
-  '@puppeteer/browsers@2.10.0':
-    resolution: {integrity: sha512-HdHF4rny4JCvIcm7V1dpvpctIGqM3/Me255CB44vW7hDG1zYMmcBMjpNqZEDxdCfXGLkx5kP0+Jz5DUS+ukqtA==}
+  '@puppeteer/browsers@2.10.2':
+    resolution: {integrity: sha512-i4Ez+s9oRWQbNjtI/3+jxr7OH508mjAKvza0ekPJem0ZtmsYHP3B5dq62+IaBHKaGCOuqJxXzvFLUhJvQ6jtsQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4338,103 +4356,103 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/rollup-android-arm-eabi@4.40.0':
-    resolution: {integrity: sha512-+Fbls/diZ0RDerhE8kyC6hjADCXA1K4yVNlH0EYfd2XjyH0UGgzaQ8MlT0pCXAThfxv3QUAczHaL+qSv1E4/Cg==}
+  '@rollup/rollup-android-arm-eabi@4.40.1':
+    resolution: {integrity: sha512-kxz0YeeCrRUHz3zyqvd7n+TVRlNyTifBsmnmNPtk3hQURUyG9eAB+usz6DAwagMusjx/zb3AjvDUvhFGDAexGw==}
     cpu: [arm]
     os: [android]
 
-  '@rollup/rollup-android-arm64@4.40.0':
-    resolution: {integrity: sha512-PPA6aEEsTPRz+/4xxAmaoWDqh67N7wFbgFUJGMnanCFs0TV99M0M8QhhaSCks+n6EbQoFvLQgYOGXxlMGQe/6w==}
+  '@rollup/rollup-android-arm64@4.40.1':
+    resolution: {integrity: sha512-PPkxTOisoNC6TpnDKatjKkjRMsdaWIhyuMkA4UsBXT9WEZY4uHezBTjs6Vl4PbqQQeu6oION1w2voYZv9yquCw==}
     cpu: [arm64]
     os: [android]
 
-  '@rollup/rollup-darwin-arm64@4.40.0':
-    resolution: {integrity: sha512-GwYOcOakYHdfnjjKwqpTGgn5a6cUX7+Ra2HeNj/GdXvO2VJOOXCiYYlRFU4CubFM67EhbmzLOmACKEfvp3J1kQ==}
+  '@rollup/rollup-darwin-arm64@4.40.1':
+    resolution: {integrity: sha512-VWXGISWFY18v/0JyNUy4A46KCFCb9NVsH+1100XP31lud+TzlezBbz24CYzbnA4x6w4hx+NYCXDfnvDVO6lcAA==}
     cpu: [arm64]
     os: [darwin]
 
-  '@rollup/rollup-darwin-x64@4.40.0':
-    resolution: {integrity: sha512-CoLEGJ+2eheqD9KBSxmma6ld01czS52Iw0e2qMZNpPDlf7Z9mj8xmMemxEucinev4LgHalDPczMyxzbq+Q+EtA==}
+  '@rollup/rollup-darwin-x64@4.40.1':
+    resolution: {integrity: sha512-nIwkXafAI1/QCS7pxSpv/ZtFW6TXcNUEHAIA9EIyw5OzxJZQ1YDrX+CL6JAIQgZ33CInl1R6mHet9Y/UZTg2Bw==}
     cpu: [x64]
     os: [darwin]
 
-  '@rollup/rollup-freebsd-arm64@4.40.0':
-    resolution: {integrity: sha512-r7yGiS4HN/kibvESzmrOB/PxKMhPTlz+FcGvoUIKYoTyGd5toHp48g1uZy1o1xQvybwwpqpe010JrcGG2s5nkg==}
+  '@rollup/rollup-freebsd-arm64@4.40.1':
+    resolution: {integrity: sha512-BdrLJ2mHTrIYdaS2I99mriyJfGGenSaP+UwGi1kB9BLOCu9SR8ZpbkmmalKIALnRw24kM7qCN0IOm6L0S44iWw==}
     cpu: [arm64]
     os: [freebsd]
 
-  '@rollup/rollup-freebsd-x64@4.40.0':
-    resolution: {integrity: sha512-mVDxzlf0oLzV3oZOr0SMJ0lSDd3xC4CmnWJ8Val8isp9jRGl5Dq//LLDSPFrasS7pSm6m5xAcKaw3sHXhBjoRw==}
+  '@rollup/rollup-freebsd-x64@4.40.1':
+    resolution: {integrity: sha512-VXeo/puqvCG8JBPNZXZf5Dqq7BzElNJzHRRw3vjBE27WujdzuOPecDPc/+1DcdcTptNBep3861jNq0mYkT8Z6Q==}
     cpu: [x64]
     os: [freebsd]
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.40.0':
-    resolution: {integrity: sha512-y/qUMOpJxBMy8xCXD++jeu8t7kzjlOCkoxxajL58G62PJGBZVl/Gwpm7JK9+YvlB701rcQTzjUZ1JgUoPTnoQA==}
+  '@rollup/rollup-linux-arm-gnueabihf@4.40.1':
+    resolution: {integrity: sha512-ehSKrewwsESPt1TgSE/na9nIhWCosfGSFqv7vwEtjyAqZcvbGIg4JAcV7ZEh2tfj/IlfBeZjgOXm35iOOjadcg==}
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm-musleabihf@4.40.0':
-    resolution: {integrity: sha512-GoCsPibtVdJFPv/BOIvBKO/XmwZLwaNWdyD8TKlXuqp0veo2sHE+A/vpMQ5iSArRUz/uaoj4h5S6Pn0+PdhRjg==}
+  '@rollup/rollup-linux-arm-musleabihf@4.40.1':
+    resolution: {integrity: sha512-m39iO/aaurh5FVIu/F4/Zsl8xppd76S4qoID8E+dSRQvTyZTOI2gVk3T4oqzfq1PtcvOfAVlwLMK3KRQMaR8lg==}
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-gnu@4.40.0':
-    resolution: {integrity: sha512-L5ZLphTjjAD9leJzSLI7rr8fNqJMlGDKlazW2tX4IUF9P7R5TMQPElpH82Q7eNIDQnQlAyiNVfRPfP2vM5Avvg==}
+  '@rollup/rollup-linux-arm64-gnu@4.40.1':
+    resolution: {integrity: sha512-Y+GHnGaku4aVLSgrT0uWe2o2Rq8te9hi+MwqGF9r9ORgXhmHK5Q71N757u0F8yU1OIwUIFy6YiJtKjtyktk5hg==}
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-musl@4.40.0':
-    resolution: {integrity: sha512-ATZvCRGCDtv1Y4gpDIXsS+wfFeFuLwVxyUBSLawjgXK2tRE6fnsQEkE4csQQYWlBlsFztRzCnBvWVfcae/1qxQ==}
+  '@rollup/rollup-linux-arm64-musl@4.40.1':
+    resolution: {integrity: sha512-jEwjn3jCA+tQGswK3aEWcD09/7M5wGwc6+flhva7dsQNRZZTe30vkalgIzV4tjkopsTS9Jd7Y1Bsj6a4lzz8gQ==}
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-loongarch64-gnu@4.40.0':
-    resolution: {integrity: sha512-wG9e2XtIhd++QugU5MD9i7OnpaVb08ji3P1y/hNbxrQ3sYEelKJOq1UJ5dXczeo6Hj2rfDEL5GdtkMSVLa/AOg==}
+  '@rollup/rollup-linux-loongarch64-gnu@4.40.1':
+    resolution: {integrity: sha512-ySyWikVhNzv+BV/IDCsrraOAZ3UaC8SZB67FZlqVwXwnFhPihOso9rPOxzZbjp81suB1O2Topw+6Ug3JNegejQ==}
     cpu: [loong64]
     os: [linux]
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.40.0':
-    resolution: {integrity: sha512-vgXfWmj0f3jAUvC7TZSU/m/cOE558ILWDzS7jBhiCAFpY2WEBn5jqgbqvmzlMjtp8KlLcBlXVD2mkTSEQE6Ixw==}
+  '@rollup/rollup-linux-powerpc64le-gnu@4.40.1':
+    resolution: {integrity: sha512-BvvA64QxZlh7WZWqDPPdt0GH4bznuL6uOO1pmgPnnv86rpUpc8ZxgZwcEgXvo02GRIZX1hQ0j0pAnhwkhwPqWg==}
     cpu: [ppc64]
     os: [linux]
 
-  '@rollup/rollup-linux-riscv64-gnu@4.40.0':
-    resolution: {integrity: sha512-uJkYTugqtPZBS3Z136arevt/FsKTF/J9dEMTX/cwR7lsAW4bShzI2R0pJVw+hcBTWF4dxVckYh72Hk3/hWNKvA==}
+  '@rollup/rollup-linux-riscv64-gnu@4.40.1':
+    resolution: {integrity: sha512-EQSP+8+1VuSulm9RKSMKitTav89fKbHymTf25n5+Yr6gAPZxYWpj3DzAsQqoaHAk9YX2lwEyAf9S4W8F4l3VBQ==}
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-riscv64-musl@4.40.0':
-    resolution: {integrity: sha512-rKmSj6EXQRnhSkE22+WvrqOqRtk733x3p5sWpZilhmjnkHkpeCgWsFFo0dGnUGeA+OZjRl3+VYq+HyCOEuwcxQ==}
+  '@rollup/rollup-linux-riscv64-musl@4.40.1':
+    resolution: {integrity: sha512-n/vQ4xRZXKuIpqukkMXZt9RWdl+2zgGNx7Uda8NtmLJ06NL8jiHxUawbwC+hdSq1rrw/9CghCpEONor+l1e2gA==}
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-s390x-gnu@4.40.0':
-    resolution: {integrity: sha512-SpnYlAfKPOoVsQqmTFJ0usx0z84bzGOS9anAC0AZ3rdSo3snecihbhFTlJZ8XMwzqAcodjFU4+/SM311dqE5Sw==}
+  '@rollup/rollup-linux-s390x-gnu@4.40.1':
+    resolution: {integrity: sha512-h8d28xzYb98fMQKUz0w2fMc1XuGzLLjdyxVIbhbil4ELfk5/orZlSTpF/xdI9C8K0I8lCkq+1En2RJsawZekkg==}
     cpu: [s390x]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-gnu@4.40.0':
-    resolution: {integrity: sha512-RcDGMtqF9EFN8i2RYN2W+64CdHruJ5rPqrlYw+cgM3uOVPSsnAQps7cpjXe9be/yDp8UC7VLoCoKC8J3Kn2FkQ==}
+  '@rollup/rollup-linux-x64-gnu@4.40.1':
+    resolution: {integrity: sha512-XiK5z70PEFEFqcNj3/zRSz/qX4bp4QIraTy9QjwJAb/Z8GM7kVUsD0Uk8maIPeTyPCP03ChdI+VVmJriKYbRHQ==}
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-musl@4.40.0':
-    resolution: {integrity: sha512-HZvjpiUmSNx5zFgwtQAV1GaGazT2RWvqeDi0hV+AtC8unqqDSsaFjPxfsO6qPtKRRg25SisACWnJ37Yio8ttaw==}
+  '@rollup/rollup-linux-x64-musl@4.40.1':
+    resolution: {integrity: sha512-2BRORitq5rQ4Da9blVovzNCMaUlyKrzMSvkVR0D4qPuOy/+pMCrh1d7o01RATwVy+6Fa1WBw+da7QPeLWU/1mQ==}
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-win32-arm64-msvc@4.40.0':
-    resolution: {integrity: sha512-UtZQQI5k/b8d7d3i9AZmA/t+Q4tk3hOC0tMOMSq2GlMYOfxbesxG4mJSeDp0EHs30N9bsfwUvs3zF4v/RzOeTQ==}
+  '@rollup/rollup-win32-arm64-msvc@4.40.1':
+    resolution: {integrity: sha512-b2bcNm9Kbde03H+q+Jjw9tSfhYkzrDUf2d5MAd1bOJuVplXvFhWz7tRtWvD8/ORZi7qSCy0idW6tf2HgxSXQSg==}
     cpu: [arm64]
     os: [win32]
 
-  '@rollup/rollup-win32-ia32-msvc@4.40.0':
-    resolution: {integrity: sha512-+m03kvI2f5syIqHXCZLPVYplP8pQch9JHyXKZ3AGMKlg8dCyr2PKHjwRLiW53LTrN/Nc3EqHOKxUxzoSPdKddA==}
+  '@rollup/rollup-win32-ia32-msvc@4.40.1':
+    resolution: {integrity: sha512-DfcogW8N7Zg7llVEfpqWMZcaErKfsj9VvmfSyRjCyo4BI3wPEfrzTtJkZG6gKP/Z92wFm6rz2aDO7/JfiR/whA==}
     cpu: [ia32]
     os: [win32]
 
-  '@rollup/rollup-win32-x64-msvc@4.40.0':
-    resolution: {integrity: sha512-lpPE1cLfP5oPzVjKMx10pgBmKELQnFJXHgvtHCtuJWOv8MxqdEIMNtgHgBFf7Ea2/7EuVwa9fodWUfXAlXZLZQ==}
+  '@rollup/rollup-win32-x64-msvc@4.40.1':
+    resolution: {integrity: sha512-ECyOuDeH3C1I8jH2MK1RtBJW+YPMvSfT0a5NN0nHfQYnDSJ6tUiZH3gzwVP5/Kfh/+Tt7tpWVF9LXNTnhTJ3kA==}
     cpu: [x64]
     os: [win32]
 
@@ -4702,68 +4720,68 @@ packages:
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
 
-  '@swc/html-darwin-arm64@1.11.18':
-    resolution: {integrity: sha512-WIQ6zEg4EJ5NN/1rG08OA3eyuE2KY+eBzQ0XDt5xtsyfIL041wnNn03xEi15NiR7HQobq9528ypj4Eo4JJpyLA==}
+  '@swc/html-darwin-arm64@1.11.22':
+    resolution: {integrity: sha512-nsrm0UplPVzMwFiOnNot1Z7TSZcCVR7bsGENlUXIynicLk+T51tow0z65XavXzLl//9xeymbSTo3XtoKkn33Hg==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@swc/html-darwin-x64@1.11.18':
-    resolution: {integrity: sha512-CUPWG3fyOSCwh0QfC7kPQUS534xR0zZBtXBhZt4GVsq5DNKbIG4TXXzzz9awCyul4y8TWGa/tGs4ePhql/8CBA==}
+  '@swc/html-darwin-x64@1.11.22':
+    resolution: {integrity: sha512-66CSRChBIJDztMo2qvhfdy3wbx/oYauqXpCKCaZMbSQBcFbGRpqBVOgcvT1tJ8v0NfmVpR+Cv6ZC3L7fxqfFbw==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [darwin]
 
-  '@swc/html-linux-arm-gnueabihf@1.11.18':
-    resolution: {integrity: sha512-EA6SEVFZ8Fpc/Oszezsw3qjSOUDjsSKVkN+YXOhkngnq0oA3MKEvKK92750Ljzd3TfAPVb+9TuUZSBnmNgVttw==}
+  '@swc/html-linux-arm-gnueabihf@1.11.22':
+    resolution: {integrity: sha512-ORb4VGf6dzU5Z7C+9+ocgREyiwyAGcmKtfokFQSeP2xJrgZa4wCvrwg0Zp1xPLCJZ0BzMcr6jH5vBGse7qYrzw==}
     engines: {node: '>=10'}
     cpu: [arm]
     os: [linux]
 
-  '@swc/html-linux-arm64-gnu@1.11.18':
-    resolution: {integrity: sha512-0w/hjm3ds52cXsD+Rln/hSlCYgUCZ3AwVPdV1eejzL/i2tE4+Igg19Vxq3f892uCuX+i1hMC6cEaRzmdsDGJKQ==}
+  '@swc/html-linux-arm64-gnu@1.11.22':
+    resolution: {integrity: sha512-TfTQocbg6ZV5d0ROT5uSnN63C3e76fLZzru2rMpyoI7D9POeU3DWyI2PPTdgb/xgyi2jgXdqMmKu7G+n6kBkPA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
 
-  '@swc/html-linux-arm64-musl@1.11.18':
-    resolution: {integrity: sha512-od2PdV4TekAKrtJc56OahzM0tZ1b2fh4/bJzopOHszxYLXFdWs90WFc+pIME2cTIlL4YZMVp5awHp9DiWMlFQg==}
+  '@swc/html-linux-arm64-musl@1.11.22':
+    resolution: {integrity: sha512-DF8GKZ6qCxQcwwBdtdY7pGpmpVxtQ7X0MeWQpQdynU9M+je7rmbprHddo/MD2OxiH44YnpdUwNYNlQSWNN6OjA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
 
-  '@swc/html-linux-x64-gnu@1.11.18':
-    resolution: {integrity: sha512-FMhZBUOZLKId9LraTxAHODySWisNdpHGrPbLjdaw6fgc0RlnQSdStEnqGy4YfNOTUIzvKdWQNLLHmE2uVOdfiQ==}
+  '@swc/html-linux-x64-gnu@1.11.22':
+    resolution: {integrity: sha512-W+MHCjHk6y2d6VB1lMjzGCpbDJtKZR+BLlAZoLOITZfhMC5PUmUBZb9PQJoQdFsfNZpuLwHgwykTwz//s/w6mQ==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
 
-  '@swc/html-linux-x64-musl@1.11.18':
-    resolution: {integrity: sha512-t6se34MDgKXp6UVNhGhUwTsMX8Br9Bk8L2I8n4/p5AtnHjPDz2mPwpdgF9iMwazDn7I2h9LoGKFvDjrdmYWeuw==}
+  '@swc/html-linux-x64-musl@1.11.22':
+    resolution: {integrity: sha512-3xRSgqHea+gN0Jl5XBQHHY5I+B6uUoj586+kSzOR+dTgPVv8ovQaIIeKKaQhOYYovuyQZKUBWwJznR3C/dElrg==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
 
-  '@swc/html-win32-arm64-msvc@1.11.18':
-    resolution: {integrity: sha512-TwYcheL14ZaYJGzI0sjwA5aQqg/lQP7r0lzMziLM8d3pOkoRbAdDpEsCfXYL2WLFc7DfcWeRMZ8zLhN6DyEtWw==}
+  '@swc/html-win32-arm64-msvc@1.11.22':
+    resolution: {integrity: sha512-LVzMMbJuTNtjF3QYpOOjyN8RXXEs2GbEMjAqv/9K7TyZ3PsHEUbJOFWV9lHtoAn6ZmtAKtFVxG842pAwOc2hjA==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [win32]
 
-  '@swc/html-win32-ia32-msvc@1.11.18':
-    resolution: {integrity: sha512-CUpgStcO4uPYrf5YZFtEKa1GOAwdBgtxs0WHPnMH9wIIEkY+MbSaaao5bO669VvVpaDKmYSOfCwljcuod8ditw==}
+  '@swc/html-win32-ia32-msvc@1.11.22':
+    resolution: {integrity: sha512-et6Vz9SNORmmKN1ZgfqYkuSHvvsE2GssPL/JHRIu52vcaHtAsJs6i8QAIPKSIxcm3kbaFTDSwYBeCnfOXxY0jQ==}
     engines: {node: '>=10'}
     cpu: [ia32]
     os: [win32]
 
-  '@swc/html-win32-x64-msvc@1.11.18':
-    resolution: {integrity: sha512-TJESl7PKbg79XRcxoV1lTLL5dBqslDDbBinj2u5He+z9mdR1NnQlsL08tzUTWT2G0jB9fdRXkgVjDWzSHdVoNQ==}
+  '@swc/html-win32-x64-msvc@1.11.22':
+    resolution: {integrity: sha512-/jnmWB/nYAROBzj8s2aLGAWnuTG1WmPF2OkfXY9+2aSz/qAdtycujppObWCidYraDw3TadP0q6WoX8kuRdIpnA==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [win32]
 
-  '@swc/html@1.11.18':
-    resolution: {integrity: sha512-ae72RVX8uwm/Vh3ZsjaRWqwBH3o3n0I99PIq2sqaBnTebGKuV3K0YDmthpGyWkwdzu4J+PyWZ2VeArgSbu6Lhw==}
+  '@swc/html@1.11.22':
+    resolution: {integrity: sha512-BYyDVtw/C3zFo1IpDGgC4iw75EO9iKZLRjGIVPwf6vhIGEjkLfDV+WaRk6TNUbCRteOtBl1DUvZ9X1kHOBUmIA==}
     engines: {node: '>=14'}
 
   '@testing-library/dom@10.4.0':
@@ -4905,8 +4923,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@22.14.0':
-    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
+  '@types/node@22.15.3':
+    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -4917,8 +4935,8 @@ packages:
   '@types/parse-path@7.0.3':
     resolution: {integrity: sha512-LriObC2+KYZD3FzCrgWGv/qufdUy4eXrxcLgQMfYXgPbLIecKIsVBaQgUPmxSSLcjmYbDTQbMgr6qr6l/eb7Bg==}
 
-  '@types/react@19.1.0':
-    resolution: {integrity: sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w==}
+  '@types/react@19.1.2':
+    resolution: {integrity: sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -4953,29 +4971,29 @@ packages:
   '@types/yauzl@2.10.3':
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
 
-  '@typescript-eslint/scope-manager@8.29.1':
-    resolution: {integrity: sha512-2nggXGX5F3YrsGN08pw4XpMLO1Rgtnn4AzTegC2MDesv6q3QaTU5yU7IbS1tf1IwCR0Hv/1EFygLn9ms6LIpDA==}
+  '@typescript-eslint/scope-manager@8.31.0':
+    resolution: {integrity: sha512-knO8UyF78Nt8O/B64i7TlGXod69ko7z6vJD9uhSlm0qkAbGeRUSudcm0+K/4CrRjrpiHfBCjMWlc08Vav1xwcw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@typescript-eslint/types@8.29.1':
-    resolution: {integrity: sha512-VT7T1PuJF1hpYC3AGm2rCgJBjHL3nc+A/bhOp9sGMKfi5v0WufsX/sHCFBfNTx2F+zA6qBc/PD0/kLRLjdt8mQ==}
+  '@typescript-eslint/types@8.31.0':
+    resolution: {integrity: sha512-Ch8oSjVyYyJxPQk8pMiP2FFGYatqXQfQIaMp+TpuuLlDachRWpUAeEu1u9B/v/8LToehUIWyiKcA/w5hUFRKuQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@typescript-eslint/typescript-estree@8.29.1':
-    resolution: {integrity: sha512-l1enRoSaUkQxOQnbi0KPUtqeZkSiFlqrx9/3ns2rEDhGKfTa+88RmXqedC1zmVTOWrLc2e6DEJrTA51C9iLH5g==}
+  '@typescript-eslint/typescript-estree@8.31.0':
+    resolution: {integrity: sha512-xLmgn4Yl46xi6aDSZ9KkyfhhtnYI15/CvHbpOy/eR5NWhK/BK8wc709KKwhAR0m4ZKRP7h07bm4BWUYOCuRpQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       typescript: '>=4.8.4 <5.9.0'
 
-  '@typescript-eslint/utils@8.29.1':
-    resolution: {integrity: sha512-QAkFEbytSaB8wnmB+DflhUPz6CLbFWE2SnSCrRMEa+KnXIzDYbpsn++1HGvnfAsUY44doDXmvRkO5shlM/3UfA==}
+  '@typescript-eslint/utils@8.31.0':
+    resolution: {integrity: sha512-qi6uPLt9cjTFxAb1zGNgTob4x9ur7xC6mHQJ8GwEzGMGE9tYniublmJaowOJ9V2jUzxrltTPfdG2nKlWsq0+Ww==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
-  '@typescript-eslint/visitor-keys@8.29.1':
-    resolution: {integrity: sha512-RGLh5CRaUEf02viP5c1Vh1cMGffQscyHe7HPAzGpfmfflFg1wUz2rYxd+OZqwpeypYvZ8UxSxuIpF++fmOzEcg==}
+  '@typescript-eslint/visitor-keys@8.31.0':
+    resolution: {integrity: sha512-QcGHmlRHWOl93o64ZUMNewCdwKGU6WItOU52H0djgNmn1EOrhVudrDzXz4OycCRSCPwFCDrE2iIt5vmuUdHxuQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@ungap/structured-clone@1.3.0':
@@ -5351,8 +5369,8 @@ packages:
     resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
     engines: {node: '>=4'}
 
-  axios@1.8.4:
-    resolution: {integrity: sha512-eBSYY4Y68NNlHbHBMdeDmKNtDgXWhQsJcGqzO3iLUM0GraQFSS9cVgPX5I9b3lbdFKyYoAEGAZF1DwhTaljNAw==}
+  axios@1.9.0:
+    resolution: {integrity: sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -5446,8 +5464,8 @@ packages:
   bare-fs@2.3.5:
     resolution: {integrity: sha512-SlE9eTxifPDJrT6YgemQ1WGFleevzwY+XAP1Xqgl56HtcrisC2CHCZ2tq6dBpcH2TnNxwUEUGhweo+lrQtYuiw==}
 
-  bare-fs@4.1.2:
-    resolution: {integrity: sha512-8wSeOia5B7LwD4+h465y73KOdj5QHsbbuoUfPBi+pXgFJIPuG7SsiOdJuijWMyfid49eD+WivpfY7KT8gbAzBA==}
+  bare-fs@4.1.3:
+    resolution: {integrity: sha512-OeEZYIg+2qepaWLyphaOXHAHKo3xkM8y3BeGAvHdMN8GNWvEAU1Yw6rYpGzu/wDDbKxgEjVeVDpgGhDzaeMpjg==}
     engines: {bare: '>=1.16.0'}
     peerDependencies:
       bare-buffer: '*'
@@ -5655,8 +5673,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001713:
-    resolution: {integrity: sha512-wCIWIg+A4Xr7NfhTuHdX+/FKh3+Op3LBbSp2N5Pfx6T/LhdQy3GTyoTg48BReaW/MyMNZAkTadsBtai3ldWK0Q==}
+  caniuse-lite@1.0.30001715:
+    resolution: {integrity: sha512-7ptkFGMm2OAOgvZpwgA4yjQ5SQbrNVGdRjzH0pBdy1Fasvcr+KAeECmbCAECzTuDuoX0FCY8KzUxjf9+9kfZEw==}
 
   capitalize@1.0.0:
     resolution: {integrity: sha512-ZvPF27zRh4ZiRbWYfSktO+t7xi4RPfqL9w6gfPAWGT5pT9TjB0rlP8cKHmKWHYYCR8QHKDDebX3HVHcfw6K3GQ==}
@@ -6489,8 +6507,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.135:
-    resolution: {integrity: sha512-8gXUdEmvb+WCaYUhA0Svr08uSeRjM2w3x5uHOc1QbaEVzJXB8rgm5eptieXzyKoVEtinLvW6MtTcurA65PeS1Q==}
+  electron-to-chromium@1.5.143:
+    resolution: {integrity: sha512-QqklJMOFBMqe46k8iIOwA9l2hz57V2OKMmP5eSWcUvwx+mASAsbU+wkF1pHjn9ZVSBPrsYWr4/W/95y5SwYg2g==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -6596,8 +6614,8 @@ packages:
     resolution: {integrity: sha512-uDn+FE1yrDzyC0pCo961B2IHbdM8y/ACZsKD4dG6WqrjV53BADjwa7D+1aom2rsNVfLyDgU/eigvlJGJ08OQ4w==}
     engines: {node: '>= 0.4'}
 
-  es-module-lexer@1.6.0:
-    resolution: {integrity: sha512-qqnD1yMU6tk/jnaMosogGySTZP8YtUgAffA9nMN+E/rjxcfRQ6IEk7IiozUjgxKoFHBGjTLnrHB/YC45r/59EQ==}
+  es-module-lexer@1.7.0:
+    resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
 
   es-object-atoms@1.1.1:
     resolution: {integrity: sha512-FGgH2h8zKNim9ljj7dankFPcICIK9Cp5bm+c2gQSYePhpaG5+esrLODihIorn+Pe6FGJzWhXQotPv73jTaldXA==}
@@ -6615,8 +6633,8 @@ packages:
     resolution: {integrity: sha512-w+5mJ3GuFL+NjVtJlvydShqE1eN3h3PbI7/5LAsYJP/2qtuMXjfL2LpHSRqo4b4eSF5K/DH1JXKUAHSB2UW50g==}
     engines: {node: '>= 0.4'}
 
-  es-toolkit@1.34.1:
-    resolution: {integrity: sha512-OA6cd94fJV9bm8dWhIySkWq4xV+rAQnBZUr2dnpXam0QJ8c+hurLbKA8/QooL9Mx4WCAxvIDsiEkid5KPQ5xgQ==}
+  es-toolkit@1.36.0:
+    resolution: {integrity: sha512-5lpkRpDELuTSeAL//Rcg5urg+K/yOD1BobJSiNeCc89snMqgrhckmj8jdljqraDbpREiXTNW311RN518eVHBng==}
 
   esast-util-from-estree@2.0.0:
     resolution: {integrity: sha512-4CyanoAudUSBAn5K13H4JhsMH6L9ZP7XbLVe/dKybkxMO7eDyLsT8UHl9TRNrU2Gr9nz+FovfSIjuXWJ81uVwQ==}
@@ -6960,14 +6978,6 @@ packages:
   fd-slicer@1.1.0:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
 
-  fdir@6.4.3:
-    resolution: {integrity: sha512-PMXmW2y1hDDfTSRc9gaXIuCCRpuoz3Kaz8cUelp3smouvfT632ozg2vrT6lJsHKKOF59YLbOGfAWGUcKEfRMQw==}
-    peerDependencies:
-      picomatch: ^3 || ^4
-    peerDependenciesMeta:
-      picomatch:
-        optional: true
-
   fdir@6.4.4:
     resolution: {integrity: sha512-1NZP+GK4GfuAv3PqKvxQRDMjdSRZjnkq7KfhlNrCNNlZ0ygQFpebfrnfnq/W7fpUnAv9aGWmY1zKx7FYL3gwhg==}
     peerDependencies:
@@ -7036,9 +7046,6 @@ packages:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
 
-  find-yarn-workspace-root@2.0.0:
-    resolution: {integrity: sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==}
-
   flat-cache@3.2.0:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -7053,8 +7060,8 @@ packages:
   flatted@3.3.3:
     resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
 
-  flow-parser@0.266.1:
-    resolution: {integrity: sha512-dON6h+yO7FGa/FO5NQCZuZHN0o3I23Ev6VYOJf9d8LpdrArHPt39wE++LLmueNV/hNY5hgWGIIrgnrDkRcXkPg==}
+  flow-parser@0.268.0:
+    resolution: {integrity: sha512-URZmPy/jKDDIJUHUfC+5KNwaPcfONTL3R8xltQWVEoCKLWowVebEBg89nbAnYHNo6ev8KzKWFpOROfHZdaCoxA==}
     engines: {node: '>=0.4.0'}
 
   fn.name@1.1.0:
@@ -7577,8 +7584,8 @@ packages:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
-  ignore@7.0.3:
-    resolution: {integrity: sha512-bAH5jbK/F3T3Jls4I0SO1hmPR0dKU0a7+SY6n1yzRtG54FLO8d6w/nxLFX2Nb7dBu6cCWXPaAME6cYqFUMmuCA==}
+  ignore@7.0.4:
+    resolution: {integrity: sha512-gJzzk+PQNznz8ysRrC0aOkBNVRBDtE1n53IqyqEf3PXrYwomFs5q4pGMizBMJF+ykh03insJ27hB8gSrD2Hn8A==}
     engines: {node: '>= 4'}
 
   immer@10.1.1:
@@ -8212,10 +8219,6 @@ packages:
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
 
-  json-stable-stringify@1.2.1:
-    resolution: {integrity: sha512-Lp6HbbBgosLmJbjx0pBLbgvx68FaFU1sdkmBuckmhhJ88kL13OA51CDtR2yJB50eCNMH9wRqtQNNiAqQH4YXnA==}
-    engines: {node: '>= 0.4'}
-
   json-stringify-nice@1.1.4:
     resolution: {integrity: sha512-5Z5RFW63yxReJ7vANgW6eZFGWaQvnPE3WNmZoOJrSkGju2etKA2L5rrOa1sm877TVTFt57A80BH1bArcmlLfPw==}
 
@@ -8239,9 +8242,6 @@ packages:
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
 
-  jsonify@0.0.1:
-    resolution: {integrity: sha512-2/Ki0GcmuqSrgFyelQq9M05y7PS0mEwuIzrf3f1fPqkVDVRvZrPZtVSMHxdgo8Aq0sxAOb/cr2aqqA3LeWHVPg==}
-
   jsonparse@1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
@@ -8259,15 +8259,12 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  keyv@5.3.2:
-    resolution: {integrity: sha512-Lji2XRxqqa5Wg+CHLVfFKBImfJZ4pCSccu9eVWK6w4c2SDFLd8JAn1zqTuSFnsxb7ope6rMsnIHfp+eBbRBRZQ==}
+  keyv@5.3.3:
+    resolution: {integrity: sha512-Rwu4+nXI9fqcxiEHtbkvoes2X+QfkTRo1TMkPfwzipGsJlJO/z69vqB4FNl9xJ3xCpAcbkvmEabZfPzrwN3+gQ==}
 
   kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
-
-  klaw-sync@6.0.0:
-    resolution: {integrity: sha512-nIeuVSzdCCs6TDPTqI8w1Yre34sSq7AkZ4B3sfOBbI2CgVSB4Du4aLQijFU2+lhAFCwt9+42Hel6lQNIv6AntQ==}
 
   klaw@3.0.0:
     resolution: {integrity: sha512-0Fo5oir+O9jnXu5EefYbVK+mHMBeEVEy2cmctR1O1NECcCkPRreJKrS6Qt/j3KC2C148Dfo9i3pCmCMsdqGr0g==}
@@ -8599,8 +8596,8 @@ packages:
   mdn-data@2.12.2:
     resolution: {integrity: sha512-IEn+pegP1aManZuckezWCO+XZQDplx1366JoVhTpMpBB1sPey/SbveZQUosKiKiGYjg1wH4pMlNgXbCiYgihQA==}
 
-  mdn-data@2.20.0:
-    resolution: {integrity: sha512-/d3otgvmquUkAN2RVxSg6lIbQrYX7isR4aC5Hvw8JuHvzctR3eUG50WmsAZjb9MkbJ5LbijPSy7uIxEtQDGI0w==}
+  mdn-data@2.21.0:
+    resolution: {integrity: sha512-+ZKPQezM5vYJIkCxaC+4DTnRrVZR1CgsKLu5zsQERQx6Tea8Y+wMx5A24rq8A8NepCeatIQufVAekKNgiBMsGQ==}
 
   mdurl@2.0.0:
     resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
@@ -9104,8 +9101,8 @@ packages:
   nwsapi@2.2.20:
     resolution: {integrity: sha512-/ieB+mDe4MrrKMT8z+mQL8klXydZWGR5Dowt4RAGKbJ3kIGEx3X4ljUo+6V73IXtUPWgfOlU5B9MlGxFO5T+cA==}
 
-  nx@20.7.2:
-    resolution: {integrity: sha512-T9pCTw6pA9PoowpLsm9L+GeQw0iHitrIX96jrpMXKbSjPmryokP7EJ+LNkdEV6xX+MrATERWJlPd+NYwnYxbIA==}
+  nx@20.8.1:
+    resolution: {integrity: sha512-73Uw8YXpsjeLqHSl7NMCmGdCs+8ynPzoNJFWAqVanPETEY9zPd5wevVQmeyzYtNNQU35uj6Os4iUzYunmwnFaA==}
     hasBin: true
     peerDependencies:
       '@swc-node/register': ^1.8.0
@@ -9186,10 +9183,6 @@ packages:
   onetime@7.0.0:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
-
-  open@7.4.2:
-    resolution: {integrity: sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==}
-    engines: {node: '>=8'}
 
   open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
@@ -9336,8 +9329,8 @@ packages:
     resolution: {integrity: sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==}
     engines: {node: '>=8'}
 
-  parse-path@7.0.1:
-    resolution: {integrity: sha512-6ReLMptznuuOEzLoGEa+I1oWRSj2Zna5jLWC+l6zlfAI4dbbSaIES29ThzuPkbhNahT65dWzfoZEO6cfJw2Ksg==}
+  parse-path@7.1.0:
+    resolution: {integrity: sha512-EuCycjZtfPcjWk7KTksnJ5xPMvWGA/6i4zrLYhRG0hGvC3GPU/jGUj3Cy+ZR0v30duV3e23R95T1lE2+lsndSw==}
 
   parse-url@9.2.0:
     resolution: {integrity: sha512-bCgsFI+GeGWPAvAiUv63ZorMeif3/U0zaXABGJbOWt5OH2KCaPHF6S+0ok4aqM9RuIPGyZdx9tR9l13PsW4AYQ==}
@@ -9352,8 +9345,8 @@ packages:
   parse5@6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
 
-  parse5@7.2.1:
-    resolution: {integrity: sha512-BuBYQYlv1ckiPdQi/ohiivi9Sagc9JG+Ozs0r7b/0iK3sKmrb0b9FdWdBbOdx6hBCM/F9Ir82ofnBhtZOjCRPQ==}
+  parse5@7.3.0:
+    resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
 
   parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
@@ -9361,11 +9354,6 @@ packages:
 
   pascal-case@3.1.2:
     resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
-
-  patch-package@8.0.0:
-    resolution: {integrity: sha512-da8BVIhzjtgScwDJ2TtKsfT5JFWz1hYoBl9rUQ1f38MC2HwnEIkK8VN3dKMKcP7P7bvvgzNDbfNHtx3MsQb5vA==}
-    engines: {node: '>=14', npm: '>5'}
-    hasBin: true
 
   path-browserify@1.0.1:
     resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
@@ -10208,11 +10196,6 @@ packages:
     deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-  rimraf@2.7.1:
-    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
-    deprecated: Rimraf versions prior to v4 are no longer supported
-    hasBin: true
-
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     deprecated: Rimraf versions prior to v4 are no longer supported
@@ -10247,8 +10230,8 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
 
-  rollup@4.40.0:
-    resolution: {integrity: sha512-Noe455xmA96nnqH5piFtLobsGbCij7Tu+tb3c1vYjNbTkfzGqXqQXG3wJaYXkRZuQ0vEYN4bhwg7QnIrqB5B+w==}
+  rollup@4.40.1:
+    resolution: {integrity: sha512-C5VvvgCCyfyotVITIAv+4efVytl5F7wt+/I2i9q9GZcEXW9BP52YYOXC58igUi+LFZVHukErIIqQSWwv/M3WRw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
@@ -10321,8 +10304,8 @@ packages:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
     engines: {node: '>= 10.13.0'}
 
-  schema-utils@4.3.0:
-    resolution: {integrity: sha512-Gf9qqc58SpCA/xdziiHz35F4GNIWYWZrEshUc/G/r5BnLph6xpKuLeoJoQuj5WfBIx/eQLf+hmVPYHaxJu7V2g==}
+  schema-utils@4.3.2:
+    resolution: {integrity: sha512-Gn/JaSk/Mt9gYubxTtSn/QCV4em9mpAPiR1rqy/Ocu19u/G9J5WWdNoUT4SiV6mFC3y6cxyFcFwdzPM3FgxGAQ==}
     engines: {node: '>= 10.13.0'}
 
   section-matter@1.0.0:
@@ -10464,10 +10447,6 @@ packages:
     resolution: {integrity: sha512-2kpQq2DD/pRpx3Tal/qRW1SYwcIeQ0iq8li5CJHQgOC+FtPn2BVmuDtzUCgNnpCrbgtfEHqh+iWzxK+Tq6C+RQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
-
-  slash@2.0.0:
-    resolution: {integrity: sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==}
-    engines: {node: '>=6'}
 
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
@@ -10819,8 +10798,8 @@ packages:
     peerDependencies:
       stylelint: ^16.0.2
 
-  stylelint@16.19.0:
-    resolution: {integrity: sha512-BJzc5mo/ez0H/ZSl3UbxGdkK/s0kFGsF5/k6IGu4z8wJ1qp49WrOS9RxswvcN6HMirt0g/iiJqOwLHTbWv49IQ==}
+  stylelint@16.19.1:
+    resolution: {integrity: sha512-C1SlPZNMKl+d/C867ZdCRthrS+6KuZ3AoGW113RZCOL0M8xOGpgx7G70wq7lFvqvm4dcfdGFVLB/mNaLFChRKw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -10858,8 +10837,8 @@ packages:
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
-  synckit@0.11.3:
-    resolution: {integrity: sha512-szhWDqNNI9etJUvbZ1/cx1StnZx8yMmFxme48SwR4dty4ioSY50KEZlpv0qAfgc1fpRzuh9hBXEzoCpJ779dLg==}
+  synckit@0.11.4:
+    resolution: {integrity: sha512-Q/XQKRaJiLiFIBNN+mndW7S/RHxvwzuZS6ZwmRzUBqJBv/5QIKCEwkBC8GBf8EQJKYnaFs0wOZbKTXBPj8L9oQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
   tabbable@6.2.0:
@@ -10958,10 +10937,6 @@ packages:
 
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
-
-  tinyglobby@0.2.12:
-    resolution: {integrity: sha512-qkf4trmKSIiMTs/E63cxH+ojC2unam7rJ0WrauAzpT3ECNTxGRMlaXxVbfxMUC/w0LaYk6jQ4y/nGR9uBO3tww==}
-    engines: {node: '>=12.0.0'}
 
   tinyglobby@0.2.13:
     resolution: {integrity: sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==}
@@ -11431,8 +11406,8 @@ packages:
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
-  webpack@5.99.5:
-    resolution: {integrity: sha512-q+vHBa6H9qwBLUlHL4Y7L0L1/LlyBKZtS9FHNCQmtayxjI5RKC9yD8gpvLeqGv5lCQp1Re04yi0MF40pf30Pvg==}
+  webpack@5.99.7:
+    resolution: {integrity: sha512-CNqKBRMQjwcmKR0idID5va1qlhrqVUKpovi+Ec79ksW8ux7iS1+A6VqzfZXgVYCFRKl7XL5ap3ZoMpwBJxcg0w==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -12538,16 +12513,22 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
-  '@emnapi/core@1.4.0':
+  '@ecl/resources-ec-social-icons@5.0.0-alpha.9': {}
+
+  '@ecl/resources-flag-icons@5.0.0-alpha.9': {}
+
+  '@ecl/resources-social-media-icons@5.0.0-alpha.9': {}
+
+  '@emnapi/core@1.4.3':
     dependencies:
-      '@emnapi/wasi-threads': 1.0.1
+      '@emnapi/wasi-threads': 1.0.2
       tslib: 2.8.1
 
-  '@emnapi/runtime@1.4.0':
+  '@emnapi/runtime@1.4.3':
     dependencies:
       tslib: 2.8.1
 
-  '@emnapi/wasi-threads@1.0.1':
+  '@emnapi/wasi-threads@1.0.2':
     dependencies:
       tslib: 2.8.1
 
@@ -12705,7 +12686,7 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@eslint-community/eslint-utils@4.5.1(eslint@8.57.0)':
+  '@eslint-community/eslint-utils@4.6.1(eslint@8.57.0)':
     dependencies:
       eslint: 8.57.0
       eslint-visitor-keys: 3.4.3
@@ -12786,27 +12767,27 @@ snapshots:
       '@iframe-resizer/core': 5.4.6
       auto-console-group: 1.2.9
 
-  '@inquirer/checkbox@4.1.5(@types/node@22.14.0)':
+  '@inquirer/checkbox@4.1.5(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
       '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       ansi-escapes: 4.3.2
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/confirm@5.1.9(@types/node@22.14.0)':
+  '@inquirer/confirm@5.1.9(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/core@10.1.10(@types/node@22.14.0)':
+  '@inquirer/core@10.1.10(@types/node@22.15.3)':
     dependencies:
       '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
       mute-stream: 2.0.0
@@ -12814,93 +12795,93 @@ snapshots:
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/editor@4.2.10(@types/node@22.14.0)':
+  '@inquirer/editor@4.2.10(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       external-editor: 3.1.0
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/expand@4.0.12(@types/node@22.14.0)':
+  '@inquirer/expand@4.0.12(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
   '@inquirer/figures@1.0.11': {}
 
-  '@inquirer/input@4.1.9(@types/node@22.14.0)':
+  '@inquirer/input@4.1.9(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/number@3.0.12(@types/node@22.14.0)':
+  '@inquirer/number@3.0.12(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/password@4.0.12(@types/node@22.14.0)':
+  '@inquirer/password@4.0.12(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       ansi-escapes: 4.3.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/prompts@7.4.1(@types/node@22.14.0)':
+  '@inquirer/prompts@7.5.0(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/checkbox': 4.1.5(@types/node@22.14.0)
-      '@inquirer/confirm': 5.1.9(@types/node@22.14.0)
-      '@inquirer/editor': 4.2.10(@types/node@22.14.0)
-      '@inquirer/expand': 4.0.12(@types/node@22.14.0)
-      '@inquirer/input': 4.1.9(@types/node@22.14.0)
-      '@inquirer/number': 3.0.12(@types/node@22.14.0)
-      '@inquirer/password': 4.0.12(@types/node@22.14.0)
-      '@inquirer/rawlist': 4.0.12(@types/node@22.14.0)
-      '@inquirer/search': 3.0.12(@types/node@22.14.0)
-      '@inquirer/select': 4.1.1(@types/node@22.14.0)
+      '@inquirer/checkbox': 4.1.5(@types/node@22.15.3)
+      '@inquirer/confirm': 5.1.9(@types/node@22.15.3)
+      '@inquirer/editor': 4.2.10(@types/node@22.15.3)
+      '@inquirer/expand': 4.0.12(@types/node@22.15.3)
+      '@inquirer/input': 4.1.9(@types/node@22.15.3)
+      '@inquirer/number': 3.0.12(@types/node@22.15.3)
+      '@inquirer/password': 4.0.12(@types/node@22.15.3)
+      '@inquirer/rawlist': 4.1.0(@types/node@22.15.3)
+      '@inquirer/search': 3.0.12(@types/node@22.15.3)
+      '@inquirer/select': 4.2.0(@types/node@22.15.3)
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/rawlist@4.0.12(@types/node@22.14.0)':
+  '@inquirer/rawlist@4.1.0(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/search@3.0.12(@types/node@22.14.0)':
+  '@inquirer/search@3.0.12(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
       '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/select@4.1.1(@types/node@22.14.0)':
+  '@inquirer/select@4.2.0(@types/node@22.15.3)':
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
       '@inquirer/figures': 1.0.11
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
       ansi-escapes: 4.3.2
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
-  '@inquirer/type@3.0.6(@types/node@22.14.0)':
+  '@inquirer/type@3.0.6(@types/node@22.15.3)':
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -12926,7 +12907,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -12939,14 +12920,14 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.9.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+      jest-config: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -12971,7 +12952,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       jest-mock: 29.7.0
 
   '@jest/expect-utils@29.7.0':
@@ -12989,7 +12970,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -13011,7 +12992,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -13081,7 +13062,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -13123,12 +13104,12 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lerna/create@8.2.2(@types/node@22.14.0)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.8.3)':
+  '@lerna/create@8.2.2(@types/node@22.15.3)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.8.3)':
     dependencies:
       '@npmcli/arborist': 7.5.4
       '@npmcli/package-json': 5.2.0
       '@npmcli/run-script': 8.1.0
-      '@nx/devkit': 20.7.2(nx@20.7.2)
+      '@nx/devkit': 20.8.1(nx@20.8.1)
       '@octokit/plugin-enterprise-rest': 6.0.1
       '@octokit/rest': 20.1.2
       aproba: 2.0.0
@@ -13153,7 +13134,7 @@ snapshots:
       has-unicode: 2.0.1
       ini: 1.3.8
       init-package-json: 6.0.3
-      inquirer: 12.2.0(@types/node@22.14.0)
+      inquirer: 12.2.0(@types/node@22.15.3)
       is-ci: 3.0.1
       is-stream: 2.0.0
       js-yaml: 4.1.0
@@ -13167,7 +13148,7 @@ snapshots:
       npm-package-arg: 11.0.2
       npm-packlist: 8.0.2
       npm-registry-fetch: 17.1.0
-      nx: 20.7.2
+      nx: 20.8.1
       p-map: 4.0.0
       p-map-series: 2.1.0
       p-queue: 6.6.2
@@ -13206,12 +13187,12 @@ snapshots:
       - supports-color
       - typescript
 
-  '@mdx-js/loader@3.1.0(acorn@8.14.1)(webpack@5.99.5)':
+  '@mdx-js/loader@3.1.0(acorn@8.14.1)(webpack@5.99.7)':
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
       source-map: 0.7.4
     optionalDependencies:
-      webpack: 5.99.5
+      webpack: 5.99.7
     transitivePeerDependencies:
       - acorn
       - supports-color
@@ -13246,17 +13227,17 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@19.1.0)(react@19.1.0)':
+  '@mdx-js/react@3.1.0(@types/react@19.1.2)(react@19.1.0)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.1.0
+      '@types/react': 19.1.2
       react: 19.1.0
 
-  '@mdx-js/rollup@3.1.0(acorn@8.14.1)(rollup@4.40.0)':
+  '@mdx-js/rollup@3.1.0(acorn@8.14.1)(rollup@4.40.1)':
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
-      rollup: 4.40.0
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
+      rollup: 4.40.1
       source-map: 0.7.4
       vfile: 6.0.3
     transitivePeerDependencies:
@@ -13265,8 +13246,8 @@ snapshots:
 
   '@napi-rs/wasm-runtime@0.2.4':
     dependencies:
-      '@emnapi/core': 1.4.0
-      '@emnapi/runtime': 1.4.0
+      '@emnapi/core': 1.4.3
+      '@emnapi/runtime': 1.4.3
       '@tybys/wasm-util': 0.9.0
 
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
@@ -13425,46 +13406,46 @@ snapshots:
       - bluebird
       - supports-color
 
-  '@nx/devkit@20.7.2(nx@20.7.2)':
+  '@nx/devkit@20.8.1(nx@20.8.1)':
     dependencies:
       ejs: 3.1.10
       enquirer: 2.3.6
       ignore: 5.3.2
       minimatch: 9.0.3
-      nx: 20.7.2
+      nx: 20.8.1
       semver: 7.7.1
       tmp: 0.2.3
       tslib: 2.8.1
       yargs-parser: 21.1.1
 
-  '@nx/nx-darwin-arm64@20.7.2':
+  '@nx/nx-darwin-arm64@20.8.1':
     optional: true
 
-  '@nx/nx-darwin-x64@20.7.2':
+  '@nx/nx-darwin-x64@20.8.1':
     optional: true
 
-  '@nx/nx-freebsd-x64@20.7.2':
+  '@nx/nx-freebsd-x64@20.8.1':
     optional: true
 
-  '@nx/nx-linux-arm-gnueabihf@20.7.2':
+  '@nx/nx-linux-arm-gnueabihf@20.8.1':
     optional: true
 
-  '@nx/nx-linux-arm64-gnu@20.7.2':
+  '@nx/nx-linux-arm64-gnu@20.8.1':
     optional: true
 
-  '@nx/nx-linux-arm64-musl@20.7.2':
+  '@nx/nx-linux-arm64-musl@20.8.1':
     optional: true
 
-  '@nx/nx-linux-x64-gnu@20.7.2':
+  '@nx/nx-linux-x64-gnu@20.8.1':
     optional: true
 
-  '@nx/nx-linux-x64-musl@20.7.2':
+  '@nx/nx-linux-x64-musl@20.8.1':
     optional: true
 
-  '@nx/nx-win32-arm64-msvc@20.7.2':
+  '@nx/nx-win32-arm64-msvc@20.8.1':
     optional: true
 
-  '@nx/nx-win32-x64-msvc@20.7.2':
+  '@nx/nx-win32-x64-msvc@20.8.1':
     optional: true
 
   '@octokit/auth-token@4.0.0': {}
@@ -13598,7 +13579,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@pkgr/core@0.2.2': {}
+  '@pkgr/core@0.2.4': {}
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -13607,7 +13588,7 @@ snapshots:
       '@xml-tools/parser': 1.0.11
       prettier: 3.5.3
 
-  '@puppeteer/browsers@2.10.0':
+  '@puppeteer/browsers@2.10.2':
     dependencies:
       debug: 4.4.0
       extract-zip: 2.0.1
@@ -13634,125 +13615,125 @@ snapshots:
       - bare-buffer
       - supports-color
 
-  '@rollup/plugin-babel@6.0.4(@babel/core@7.26.10)(@types/babel__core@7.20.5)(rollup@4.40.0)':
+  '@rollup/plugin-babel@6.0.4(@babel/core@7.26.10)(@types/babel__core@7.20.5)(rollup@4.40.1)':
     dependencies:
       '@babel/core': 7.26.10
       '@babel/helper-module-imports': 7.25.9
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
     optionalDependencies:
       '@types/babel__core': 7.20.5
-      rollup: 4.40.0
+      rollup: 4.40.1
     transitivePeerDependencies:
       - supports-color
 
-  '@rollup/plugin-commonjs@28.0.3(rollup@4.40.0)':
+  '@rollup/plugin-commonjs@28.0.3(rollup@4.40.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
       commondir: 1.0.1
       estree-walker: 2.0.2
-      fdir: 6.4.3(picomatch@4.0.2)
+      fdir: 6.4.4(picomatch@4.0.2)
       is-reference: 1.2.1
       magic-string: 0.30.17
       picomatch: 4.0.2
     optionalDependencies:
-      rollup: 4.40.0
+      rollup: 4.40.1
 
-  '@rollup/plugin-node-resolve@16.0.1(rollup@4.40.0)':
+  '@rollup/plugin-node-resolve@16.0.1(rollup@4.40.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-module: 1.0.0
       resolve: 1.22.10
     optionalDependencies:
-      rollup: 4.40.0
+      rollup: 4.40.1
 
-  '@rollup/plugin-replace@6.0.2(rollup@4.40.0)':
+  '@rollup/plugin-replace@6.0.2(rollup@4.40.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
       magic-string: 0.30.17
     optionalDependencies:
-      rollup: 4.40.0
+      rollup: 4.40.1
 
-  '@rollup/plugin-terser@0.4.4(rollup@4.40.0)':
+  '@rollup/plugin-terser@0.4.4(rollup@4.40.1)':
     dependencies:
       serialize-javascript: 6.0.2
       smob: 1.5.0
       terser: 5.39.0
     optionalDependencies:
-      rollup: 4.40.0
+      rollup: 4.40.1
 
   '@rollup/pluginutils@4.2.1':
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
 
-  '@rollup/pluginutils@5.1.4(rollup@4.40.0)':
+  '@rollup/pluginutils@5.1.4(rollup@4.40.1)':
     dependencies:
       '@types/estree': 1.0.7
       estree-walker: 2.0.2
       picomatch: 4.0.2
     optionalDependencies:
-      rollup: 4.40.0
+      rollup: 4.40.1
 
-  '@rollup/rollup-android-arm-eabi@4.40.0':
+  '@rollup/rollup-android-arm-eabi@4.40.1':
     optional: true
 
-  '@rollup/rollup-android-arm64@4.40.0':
+  '@rollup/rollup-android-arm64@4.40.1':
     optional: true
 
-  '@rollup/rollup-darwin-arm64@4.40.0':
+  '@rollup/rollup-darwin-arm64@4.40.1':
     optional: true
 
-  '@rollup/rollup-darwin-x64@4.40.0':
+  '@rollup/rollup-darwin-x64@4.40.1':
     optional: true
 
-  '@rollup/rollup-freebsd-arm64@4.40.0':
+  '@rollup/rollup-freebsd-arm64@4.40.1':
     optional: true
 
-  '@rollup/rollup-freebsd-x64@4.40.0':
+  '@rollup/rollup-freebsd-x64@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.40.0':
+  '@rollup/rollup-linux-arm-gnueabihf@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-arm-musleabihf@4.40.0':
+  '@rollup/rollup-linux-arm-musleabihf@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-arm64-gnu@4.40.0':
+  '@rollup/rollup-linux-arm64-gnu@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-arm64-musl@4.40.0':
+  '@rollup/rollup-linux-arm64-musl@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-loongarch64-gnu@4.40.0':
+  '@rollup/rollup-linux-loongarch64-gnu@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.40.0':
+  '@rollup/rollup-linux-powerpc64le-gnu@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-riscv64-gnu@4.40.0':
+  '@rollup/rollup-linux-riscv64-gnu@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-riscv64-musl@4.40.0':
+  '@rollup/rollup-linux-riscv64-musl@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-s390x-gnu@4.40.0':
+  '@rollup/rollup-linux-s390x-gnu@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.40.0':
+  '@rollup/rollup-linux-x64-gnu@4.40.1':
     optional: true
 
-  '@rollup/rollup-linux-x64-musl@4.40.0':
+  '@rollup/rollup-linux-x64-musl@4.40.1':
     optional: true
 
-  '@rollup/rollup-win32-arm64-msvc@4.40.0':
+  '@rollup/rollup-win32-arm64-msvc@4.40.1':
     optional: true
 
-  '@rollup/rollup-win32-ia32-msvc@4.40.0':
+  '@rollup/rollup-win32-ia32-msvc@4.40.1':
     optional: true
 
-  '@rollup/rollup-win32-x64-msvc@4.40.0':
+  '@rollup/rollup-win32-x64-msvc@4.40.1':
     optional: true
 
   '@rtsao/scc@1.1.0': {}
@@ -13841,7 +13822,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.8
       size-limit: 11.2.0
-      webpack: 5.99.5
+      webpack: 5.99.7
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
@@ -13889,9 +13870,9 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@storybook/addon-docs@8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))':
+  '@storybook/addon-docs@8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@19.1.0)(react@19.1.0)
+      '@mdx-js/react': 3.1.0(@types/react@19.1.2)(react@19.1.0)
       '@storybook/blocks': 8.6.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/csf-plugin': 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/react-dom-shim': 8.6.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
@@ -13902,12 +13883,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))':
+  '@storybook/addon-essentials@8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
       '@storybook/addon-actions': 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-backgrounds': 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-controls': 8.6.12(storybook@8.6.12(prettier@3.5.3))
-      '@storybook/addon-docs': 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
+      '@storybook/addon-docs': 8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-highlight': 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-measure': 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-outline': 8.6.12(storybook@8.6.12(prettier@3.5.3))
@@ -13969,23 +13950,23 @@ snapshots:
       case-sensitive-paths-webpack-plugin: 2.4.0
       cjs-module-lexer: 1.4.3
       constants-browserify: 1.0.0
-      css-loader: 6.11.0(webpack@5.99.5(esbuild@0.24.2))
-      es-module-lexer: 1.6.0
-      fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.8.3)(webpack@5.99.5(esbuild@0.24.2))
-      html-webpack-plugin: 5.6.3(webpack@5.99.5(esbuild@0.24.2))
+      css-loader: 6.11.0(webpack@5.99.7(esbuild@0.24.2))
+      es-module-lexer: 1.7.0
+      fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.8.3)(webpack@5.99.7(esbuild@0.24.2))
+      html-webpack-plugin: 5.6.3(webpack@5.99.7(esbuild@0.24.2))
       magic-string: 0.30.17
       path-browserify: 1.0.1
       process: 0.11.10
       semver: 7.7.1
       storybook: 8.6.12(prettier@3.5.3)
-      style-loader: 3.3.4(webpack@5.99.5(esbuild@0.24.2))
-      terser-webpack-plugin: 5.3.14(esbuild@0.24.2)(webpack@5.99.5(esbuild@0.24.2))
+      style-loader: 3.3.4(webpack@5.99.7(esbuild@0.24.2))
+      terser-webpack-plugin: 5.3.14(esbuild@0.24.2)(webpack@5.99.7(esbuild@0.24.2))
       ts-dedent: 2.2.0
       url: 0.11.4
       util: 0.12.5
       util-deprecate: 1.0.2
-      webpack: 5.99.5(esbuild@0.24.2)
-      webpack-dev-middleware: 6.1.3(webpack@5.99.5(esbuild@0.24.2))
+      webpack: 5.99.7(esbuild@0.24.2)
+      webpack-dev-middleware: 6.1.3(webpack@5.99.7(esbuild@0.24.2))
       webpack-hot-middleware: 2.26.1
       webpack-virtual-modules: 0.6.2
     optionalDependencies:
@@ -14005,23 +13986,23 @@ snapshots:
       case-sensitive-paths-webpack-plugin: 2.4.0
       cjs-module-lexer: 1.4.3
       constants-browserify: 1.0.0
-      css-loader: 6.11.0(webpack@5.99.5)
-      es-module-lexer: 1.6.0
-      fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.8.3)(webpack@5.99.5)
-      html-webpack-plugin: 5.6.3(webpack@5.99.5)
+      css-loader: 6.11.0(webpack@5.99.7)
+      es-module-lexer: 1.7.0
+      fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.8.3)(webpack@5.99.7)
+      html-webpack-plugin: 5.6.3(webpack@5.99.7)
       magic-string: 0.30.17
       path-browserify: 1.0.1
       process: 0.11.10
       semver: 7.7.1
       storybook: 8.6.12(prettier@3.5.3)
-      style-loader: 3.3.4(webpack@5.99.5)
-      terser-webpack-plugin: 5.3.14(webpack@5.99.5)
+      style-loader: 3.3.4(webpack@5.99.7)
+      terser-webpack-plugin: 5.3.14(webpack@5.99.7)
       ts-dedent: 2.2.0
       url: 0.11.4
       util: 0.12.5
       util-deprecate: 1.0.2
-      webpack: 5.99.5
-      webpack-dev-middleware: 6.1.3(webpack@5.99.5)
+      webpack: 5.99.7
+      webpack-dev-middleware: 6.1.3(webpack@5.99.7)
       webpack-hot-middleware: 2.26.1
       webpack-virtual-modules: 0.6.2
     optionalDependencies:
@@ -14071,7 +14052,7 @@ snapshots:
       '@storybook/core': 8.6.12(prettier@3.5.3)(storybook@8.6.12(prettier@3.5.3))
       '@types/cross-spawn': 6.0.6
       cross-spawn: 7.0.6
-      es-toolkit: 1.34.1
+      es-toolkit: 1.36.0
       globby: 14.1.0
       jscodeshift: 0.15.2(@babel/preset-env@7.26.9(@babel/core@7.26.10))
       prettier: 3.5.3
@@ -14182,9 +14163,9 @@ snapshots:
   '@storybook/preset-html-webpack@8.6.12(esbuild@0.24.2)(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
       '@storybook/core-webpack': 8.6.12(storybook@8.6.12(prettier@3.5.3))
-      html-loader: 3.1.2(webpack@5.99.5(esbuild@0.24.2))
+      html-loader: 3.1.2(webpack@5.99.7(esbuild@0.24.2))
       storybook: 8.6.12(prettier@3.5.3)
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
@@ -14194,9 +14175,9 @@ snapshots:
   '@storybook/preset-html-webpack@8.6.12(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
       '@storybook/core-webpack': 8.6.12(storybook@8.6.12(prettier@3.5.3))
-      html-loader: 3.1.2(webpack@5.99.5)
+      html-loader: 3.1.2(webpack@5.99.7)
       storybook: 8.6.12(prettier@3.5.3)
-      webpack: 5.99.5
+      webpack: 5.99.7
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
@@ -14230,50 +14211,50 @@ snapshots:
 
   '@swc/counter@0.1.3': {}
 
-  '@swc/html-darwin-arm64@1.11.18':
+  '@swc/html-darwin-arm64@1.11.22':
     optional: true
 
-  '@swc/html-darwin-x64@1.11.18':
+  '@swc/html-darwin-x64@1.11.22':
     optional: true
 
-  '@swc/html-linux-arm-gnueabihf@1.11.18':
+  '@swc/html-linux-arm-gnueabihf@1.11.22':
     optional: true
 
-  '@swc/html-linux-arm64-gnu@1.11.18':
+  '@swc/html-linux-arm64-gnu@1.11.22':
     optional: true
 
-  '@swc/html-linux-arm64-musl@1.11.18':
+  '@swc/html-linux-arm64-musl@1.11.22':
     optional: true
 
-  '@swc/html-linux-x64-gnu@1.11.18':
+  '@swc/html-linux-x64-gnu@1.11.22':
     optional: true
 
-  '@swc/html-linux-x64-musl@1.11.18':
+  '@swc/html-linux-x64-musl@1.11.22':
     optional: true
 
-  '@swc/html-win32-arm64-msvc@1.11.18':
+  '@swc/html-win32-arm64-msvc@1.11.22':
     optional: true
 
-  '@swc/html-win32-ia32-msvc@1.11.18':
+  '@swc/html-win32-ia32-msvc@1.11.22':
     optional: true
 
-  '@swc/html-win32-x64-msvc@1.11.18':
+  '@swc/html-win32-x64-msvc@1.11.22':
     optional: true
 
-  '@swc/html@1.11.18':
+  '@swc/html@1.11.22':
     dependencies:
       '@swc/counter': 0.1.3
     optionalDependencies:
-      '@swc/html-darwin-arm64': 1.11.18
-      '@swc/html-darwin-x64': 1.11.18
-      '@swc/html-linux-arm-gnueabihf': 1.11.18
-      '@swc/html-linux-arm64-gnu': 1.11.18
-      '@swc/html-linux-arm64-musl': 1.11.18
-      '@swc/html-linux-x64-gnu': 1.11.18
-      '@swc/html-linux-x64-musl': 1.11.18
-      '@swc/html-win32-arm64-msvc': 1.11.18
-      '@swc/html-win32-ia32-msvc': 1.11.18
-      '@swc/html-win32-x64-msvc': 1.11.18
+      '@swc/html-darwin-arm64': 1.11.22
+      '@swc/html-darwin-x64': 1.11.22
+      '@swc/html-linux-arm-gnueabihf': 1.11.22
+      '@swc/html-linux-arm64-gnu': 1.11.22
+      '@swc/html-linux-arm64-musl': 1.11.22
+      '@swc/html-linux-x64-gnu': 1.11.22
+      '@swc/html-linux-x64-musl': 1.11.22
+      '@swc/html-win32-arm64-msvc': 1.11.22
+      '@swc/html-win32-ia32-msvc': 1.11.22
+      '@swc/html-win32-x64-msvc': 1.11.22
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -14344,11 +14325,11 @@ snapshots:
 
   '@types/cors@2.8.17':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
   '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
   '@types/debug@4.1.12':
     dependencies:
@@ -14377,7 +14358,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
 
   '@types/hast@2.3.10':
     dependencies:
@@ -14401,9 +14382,9 @@ snapshots:
 
   '@types/jsdom@20.0.1':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       '@types/tough-cookie': 4.0.5
-      parse5: 7.2.1
+      parse5: 7.3.0
 
   '@types/json-schema@7.0.15': {}
 
@@ -14432,12 +14413,12 @@ snapshots:
 
   '@types/node-fetch@2.6.12':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       form-data: 4.0.2
 
   '@types/node@12.20.55': {}
 
-  '@types/node@22.14.0':
+  '@types/node@22.15.3':
     dependencies:
       undici-types: 6.21.0
 
@@ -14447,7 +14428,7 @@ snapshots:
 
   '@types/parse-path@7.0.3': {}
 
-  '@types/react@19.1.0':
+  '@types/react@19.1.2':
     dependencies:
       csstype: 3.1.3
 
@@ -14475,20 +14456,20 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
     optional: true
 
-  '@typescript-eslint/scope-manager@8.29.1':
+  '@typescript-eslint/scope-manager@8.31.0':
     dependencies:
-      '@typescript-eslint/types': 8.29.1
-      '@typescript-eslint/visitor-keys': 8.29.1
+      '@typescript-eslint/types': 8.31.0
+      '@typescript-eslint/visitor-keys': 8.31.0
 
-  '@typescript-eslint/types@8.29.1': {}
+  '@typescript-eslint/types@8.31.0': {}
 
-  '@typescript-eslint/typescript-estree@8.29.1(typescript@5.8.3)':
+  '@typescript-eslint/typescript-estree@8.31.0(typescript@5.8.3)':
     dependencies:
-      '@typescript-eslint/types': 8.29.1
-      '@typescript-eslint/visitor-keys': 8.29.1
+      '@typescript-eslint/types': 8.31.0
+      '@typescript-eslint/visitor-keys': 8.31.0
       debug: 4.4.0
       fast-glob: 3.3.3
       is-glob: 4.0.3
@@ -14499,32 +14480,32 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.29.1(eslint@8.57.0)(typescript@5.8.3)':
+  '@typescript-eslint/utils@8.31.0(eslint@8.57.0)(typescript@5.8.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@8.57.0)
-      '@typescript-eslint/scope-manager': 8.29.1
-      '@typescript-eslint/types': 8.29.1
-      '@typescript-eslint/typescript-estree': 8.29.1(typescript@5.8.3)
+      '@eslint-community/eslint-utils': 4.6.1(eslint@8.57.0)
+      '@typescript-eslint/scope-manager': 8.31.0
+      '@typescript-eslint/types': 8.31.0
+      '@typescript-eslint/typescript-estree': 8.31.0(typescript@5.8.3)
       eslint: 8.57.0
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/visitor-keys@8.29.1':
+  '@typescript-eslint/visitor-keys@8.31.0':
     dependencies:
-      '@typescript-eslint/types': 8.29.1
+      '@typescript-eslint/types': 8.31.0
       eslint-visitor-keys: 4.2.0
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-react@4.4.1(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))':
+  '@vitejs/plugin-react@4.4.1(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       '@babel/core': 7.26.10
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.10)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.10)
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -14914,7 +14895,7 @@ snapshots:
   autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001713
+      caniuse-lite: 1.0.30001715
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -14929,7 +14910,7 @@ snapshots:
 
   axe-core@4.10.3: {}
 
-  axios@1.8.4:
+  axios@1.9.0:
     dependencies:
       follow-redirects: 1.15.9
       form-data: 4.0.2
@@ -14970,17 +14951,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-loader@10.0.0(@babel/core@7.26.10)(webpack@5.99.5(esbuild@0.24.2)):
+  babel-loader@10.0.0(@babel/core@7.26.10)(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       '@babel/core': 7.26.10
       find-up: 5.0.0
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  babel-loader@10.0.0(@babel/core@7.26.10)(webpack@5.99.5):
+  babel-loader@10.0.0(@babel/core@7.26.10)(webpack@5.99.7):
     dependencies:
       '@babel/core': 7.26.10
       find-up: 5.0.0
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   babel-plugin-istanbul@6.1.1:
     dependencies:
@@ -15081,7 +15062,7 @@ snapshots:
       - bare-buffer
     optional: true
 
-  bare-fs@4.1.2:
+  bare-fs@4.1.3:
     dependencies:
       bare-events: 2.5.4
       bare-path: 3.0.0
@@ -15256,8 +15237,8 @@ snapshots:
 
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001713
-      electron-to-chromium: 1.5.135
+      caniuse-lite: 1.0.30001715
+      electron-to-chromium: 1.5.143
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
 
@@ -15332,7 +15313,7 @@ snapshots:
   cacheable@1.8.10:
     dependencies:
       hookified: 1.8.2
-      keyv: 5.3.2
+      keyv: 5.3.3
 
   call-bind-apply-helpers@1.0.2:
     dependencies:
@@ -15373,11 +15354,11 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001713
+      caniuse-lite: 1.0.30001715
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001713: {}
+  caniuse-lite@1.0.30001715: {}
 
   capitalize@1.0.0: {}
 
@@ -15820,13 +15801,13 @@ snapshots:
       ripemd160: 2.0.2
       sha.js: 2.4.11
 
-  create-jest@29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0):
+  create-jest@29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+      jest-config: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -15866,7 +15847,7 @@ snapshots:
 
   css-functions-list@3.2.3: {}
 
-  css-loader@6.11.0(webpack@5.99.5(esbuild@0.24.2)):
+  css-loader@6.11.0(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.3)
       postcss: 8.5.3
@@ -15877,9 +15858,9 @@ snapshots:
       postcss-value-parser: 4.2.0
       semver: 7.7.1
     optionalDependencies:
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  css-loader@6.11.0(webpack@5.99.5):
+  css-loader@6.11.0(webpack@5.99.7):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.3)
       postcss: 8.5.3
@@ -15890,7 +15871,7 @@ snapshots:
       postcss-value-parser: 4.2.0
       semver: 7.7.1
     optionalDependencies:
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   css-select@4.3.0:
     dependencies:
@@ -16240,7 +16221,7 @@ snapshots:
     dependencies:
       jake: 10.9.2
 
-  electron-to-chromium@1.5.135: {}
+  electron-to-chromium@1.5.143: {}
 
   emittery@0.13.1: {}
 
@@ -16284,7 +16265,7 @@ snapshots:
   engine.io@6.6.4:
     dependencies:
       '@types/cors': 2.8.17
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -16403,7 +16384,7 @@ snapshots:
       iterator.prototype: 1.1.5
       safe-array-concat: 1.1.3
 
-  es-module-lexer@1.6.0: {}
+  es-module-lexer@1.7.0: {}
 
   es-object-atoms@1.1.1:
     dependencies:
@@ -16426,7 +16407,7 @@ snapshots:
       is-date-object: 1.1.0
       is-symbol: 1.1.1
 
-  es-toolkit@1.34.1: {}
+  es-toolkit@1.36.0: {}
 
   esast-util-from-estree@2.0.0:
     dependencies:
@@ -16565,12 +16546,12 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-jest@28.11.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0))(typescript@5.8.3):
+  eslint-plugin-jest@28.11.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0))(typescript@5.8.3):
     dependencies:
-      '@typescript-eslint/utils': 8.29.1(eslint@8.57.0)(typescript@5.8.3)
+      '@typescript-eslint/utils': 8.31.0(eslint@8.57.0)(typescript@5.8.3)
       eslint: 8.57.0
     optionalDependencies:
-      jest: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+      jest: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -16599,7 +16580,7 @@ snapshots:
       eslint: 8.57.0
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
-      synckit: 0.11.3
+      synckit: 0.11.4
     optionalDependencies:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 10.1.2(eslint@8.57.0)
@@ -16650,7 +16631,7 @@ snapshots:
 
   eslint@8.57.0:
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@8.57.0)
+      '@eslint-community/eslint-utils': 4.6.1(eslint@8.57.0)
       '@eslint-community/regexpp': 4.12.1
       '@eslint/eslintrc': 2.1.4
       '@eslint/js': 8.57.0
@@ -16925,10 +16906,6 @@ snapshots:
     dependencies:
       pend: 1.2.0
 
-  fdir@6.4.3(picomatch@4.0.2):
-    optionalDependencies:
-      picomatch: 4.0.2
-
   fdir@6.4.4(picomatch@4.0.2):
     optionalDependencies:
       picomatch: 4.0.2
@@ -16989,7 +16966,7 @@ snapshots:
 
   find-chrome-bin@2.0.2:
     dependencies:
-      '@puppeteer/browsers': 2.10.0
+      '@puppeteer/browsers': 2.10.2
     transitivePeerDependencies:
       - bare-buffer
       - supports-color
@@ -17014,10 +16991,6 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
-  find-yarn-workspace-root@2.0.0:
-    dependencies:
-      micromatch: 4.0.8
-
   flat-cache@3.2.0:
     dependencies:
       flatted: 3.3.3
@@ -17034,7 +17007,7 @@ snapshots:
 
   flatted@3.3.3: {}
 
-  flow-parser@0.266.1: {}
+  flow-parser@0.268.0: {}
 
   fn.name@1.1.0: {}
 
@@ -17053,7 +17026,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  fork-ts-checker-webpack-plugin@6.5.3(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.5):
+  fork-ts-checker-webpack-plugin@6.5.3(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.7):
     dependencies:
       '@babel/code-frame': 7.26.2
       '@types/json-schema': 7.0.15
@@ -17069,11 +17042,11 @@ snapshots:
       semver: 7.7.1
       tapable: 1.1.3
       typescript: 5.8.3
-      webpack: 5.99.5
+      webpack: 5.99.7
     optionalDependencies:
       eslint: 8.57.0
 
-  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.8.3)(webpack@5.99.5(esbuild@0.24.2)):
+  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.8.3)(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       '@babel/code-frame': 7.26.2
       chalk: 4.1.2
@@ -17088,9 +17061,9 @@ snapshots:
       semver: 7.7.1
       tapable: 2.2.1
       typescript: 5.8.3
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.8.3)(webpack@5.99.5):
+  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.8.3)(webpack@5.99.7):
     dependencies:
       '@babel/code-frame': 7.26.2
       chalk: 4.1.2
@@ -17105,7 +17078,7 @@ snapshots:
       semver: 7.7.1
       tapable: 2.2.1
       typescript: 5.8.3
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   form-data@4.0.2:
     dependencies:
@@ -17384,7 +17357,7 @@ snapshots:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
       fast-glob: 3.3.3
-      ignore: 7.0.3
+      ignore: 7.0.4
       path-type: 6.0.0
       slash: 5.1.0
       unicorn-magic: 0.3.0
@@ -17543,17 +17516,17 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  html-loader@3.1.2(webpack@5.99.5(esbuild@0.24.2)):
+  html-loader@3.1.2(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       html-minifier-terser: 6.1.0
       parse5: 6.0.1
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  html-loader@3.1.2(webpack@5.99.5):
+  html-loader@3.1.2(webpack@5.99.7):
     dependencies:
       html-minifier-terser: 6.1.0
       parse5: 6.0.1
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   html-minifier-terser@6.1.0:
     dependencies:
@@ -17575,7 +17548,7 @@ snapshots:
       relateurl: 0.2.7
       terser: 5.39.0
 
-  html-react-parser@5.2.3(@types/react@19.1.0)(react@19.1.0):
+  html-react-parser@5.2.3(@types/react@19.1.2)(react@19.1.0):
     dependencies:
       domhandler: 5.0.3
       html-dom-parser: 5.0.13
@@ -17583,11 +17556,11 @@ snapshots:
       react-property: 2.0.2
       style-to-js: 1.1.16
     optionalDependencies:
-      '@types/react': 19.1.0
+      '@types/react': 19.1.2
 
   html-tags@3.3.1: {}
 
-  html-webpack-plugin@5.6.3(webpack@5.99.5(esbuild@0.24.2)):
+  html-webpack-plugin@5.6.3(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -17595,9 +17568,9 @@ snapshots:
       pretty-error: 4.0.0
       tapable: 2.2.1
     optionalDependencies:
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  html-webpack-plugin@5.6.3(webpack@5.99.5):
+  html-webpack-plugin@5.6.3(webpack@5.99.7):
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -17605,7 +17578,7 @@ snapshots:
       pretty-error: 4.0.0
       tapable: 2.2.1
     optionalDependencies:
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   htmlparser2@10.0.0:
     dependencies:
@@ -17715,7 +17688,7 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  ignore@7.0.3: {}
+  ignore@7.0.4: {}
 
   immer@10.1.1: {}
 
@@ -17771,12 +17744,12 @@ snapshots:
 
   inline-style-parser@0.2.4: {}
 
-  inquirer@12.2.0(@types/node@22.14.0):
+  inquirer@12.2.0(@types/node@22.15.3):
     dependencies:
-      '@inquirer/core': 10.1.10(@types/node@22.14.0)
-      '@inquirer/prompts': 7.4.1(@types/node@22.14.0)
-      '@inquirer/type': 3.0.6(@types/node@22.14.0)
-      '@types/node': 22.14.0
+      '@inquirer/core': 10.1.10(@types/node@22.15.3)
+      '@inquirer/prompts': 7.5.0(@types/node@22.15.3)
+      '@inquirer/type': 3.0.6(@types/node@22.15.3)
+      '@types/node': 22.15.3
       ansi-escapes: 4.3.2
       mute-stream: 2.0.0
       run-async: 3.0.0
@@ -18113,7 +18086,7 @@ snapshots:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.3(babel-plugin-macros@3.1.0)
@@ -18133,16 +18106,16 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  jest-cli@29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0):
+  jest-cli@29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+      create-jest: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
       exit: 0.1.2
       import-local: 3.2.0
-      jest-config: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+      jest-config: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -18152,7 +18125,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0):
+  jest-config@29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0):
     dependencies:
       '@babel/core': 7.26.10
       '@jest/test-sequencer': 29.7.0
@@ -18177,14 +18150,14 @@ snapshots:
       slash: 3.0.0
       strip-json-comments: 3.1.1
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
 
   jest-diff@29.7.0:
     dependencies:
-      chalk: 4.1.2
+      chalk: 4.1.0
       diff-sequences: 29.6.3
       jest-get-type: 29.6.3
       pretty-format: 29.7.0
@@ -18207,7 +18180,7 @@ snapshots:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
       '@types/jsdom': 20.0.1
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       jest-mock: 29.7.0
       jest-util: 29.7.0
       jsdom: 20.0.3
@@ -18221,7 +18194,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -18231,7 +18204,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -18277,7 +18250,7 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       jest-util: 29.7.0
 
   jest-pnp-resolver@1.2.3(jest-resolve@29.7.0):
@@ -18312,7 +18285,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -18340,7 +18313,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       chalk: 4.1.2
       cjs-module-lexer: 1.4.3
       collect-v8-coverage: 1.0.2
@@ -18386,7 +18359,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -18405,7 +18378,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -18414,23 +18387,23 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0):
+  jest@29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/types': 29.6.3
       import-local: 3.2.0
-      jest-cli: 29.7.0(@types/node@22.14.0)(babel-plugin-macros@3.1.0)
+      jest-cli: 29.7.0(@types/node@22.15.3)(babel-plugin-macros@3.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -18482,7 +18455,7 @@ snapshots:
       '@babel/register': 7.25.9(@babel/core@7.26.10)
       babel-core: 7.0.0-bridge.0(@babel/core@7.26.10)
       chalk: 4.1.2
-      flow-parser: 0.266.1
+      flow-parser: 0.268.0
       graceful-fs: 4.2.11
       micromatch: 4.0.8
       neo-async: 2.6.2
@@ -18532,7 +18505,7 @@ snapshots:
       https-proxy-agent: 5.0.1
       is-potential-custom-element-name: 1.0.1
       nwsapi: 2.2.20
-      parse5: 7.2.1
+      parse5: 7.3.0
       saxes: 6.0.0
       symbol-tree: 3.2.4
       tough-cookie: 4.1.4
@@ -18566,14 +18539,6 @@ snapshots:
 
   json-stable-stringify-without-jsonify@1.0.1: {}
 
-  json-stable-stringify@1.2.1:
-    dependencies:
-      call-bind: 1.0.8
-      call-bound: 1.0.4
-      isarray: 2.0.5
-      jsonify: 0.0.1
-      object-keys: 1.1.1
-
   json-stringify-nice@1.1.4: {}
 
   json-stringify-safe@5.0.1: {}
@@ -18596,8 +18561,6 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  jsonify@0.0.1: {}
-
   jsonparse@1.3.1: {}
 
   jsx-ast-utils@3.3.5:
@@ -18615,15 +18578,11 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  keyv@5.3.2:
+  keyv@5.3.3:
     dependencies:
       '@keyv/serialize': 1.0.3
 
   kind-of@6.0.3: {}
-
-  klaw-sync@6.0.0:
-    dependencies:
-      graceful-fs: 4.2.11
 
   klaw@3.0.0:
     dependencies:
@@ -18657,13 +18616,13 @@ snapshots:
       - bluebird
       - supports-color
 
-  lerna@8.2.2(@types/node@22.14.0)(babel-plugin-macros@3.1.0)(encoding@0.1.13):
+  lerna@8.2.2(@types/node@22.15.3)(babel-plugin-macros@3.1.0)(encoding@0.1.13):
     dependencies:
-      '@lerna/create': 8.2.2(@types/node@22.14.0)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.8.3)
+      '@lerna/create': 8.2.2(@types/node@22.15.3)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.8.3)
       '@npmcli/arborist': 7.5.4
       '@npmcli/package-json': 5.2.0
       '@npmcli/run-script': 8.1.0
-      '@nx/devkit': 20.7.2(nx@20.7.2)
+      '@nx/devkit': 20.8.1(nx@20.8.1)
       '@octokit/plugin-enterprise-rest': 6.0.1
       '@octokit/rest': 20.1.2
       aproba: 2.0.0
@@ -18692,7 +18651,7 @@ snapshots:
       import-local: 3.1.0
       ini: 1.3.8
       init-package-json: 6.0.3
-      inquirer: 12.2.0(@types/node@22.14.0)
+      inquirer: 12.2.0(@types/node@22.15.3)
       is-ci: 3.0.1
       is-stream: 2.0.0
       jest-diff: 29.7.0
@@ -18708,7 +18667,7 @@ snapshots:
       npm-package-arg: 11.0.2
       npm-packlist: 8.0.2
       npm-registry-fetch: 17.1.0
-      nx: 20.7.2
+      nx: 20.8.1
       p-map: 4.0.0
       p-map-series: 2.1.0
       p-pipe: 3.1.0
@@ -18874,7 +18833,7 @@ snapshots:
 
   log-symbols@4.1.0:
     dependencies:
-      chalk: 4.1.0
+      chalk: 4.1.2
       is-unicode-supported: 0.1.0
 
   log-update@6.1.0:
@@ -19209,7 +19168,7 @@ snapshots:
 
   mdn-data@2.12.2: {}
 
-  mdn-data@2.20.0: {}
+  mdn-data@2.21.0: {}
 
   mdurl@2.0.0: {}
 
@@ -19886,13 +19845,13 @@ snapshots:
 
   nwsapi@2.2.20: {}
 
-  nx@20.7.2:
+  nx@20.8.1:
     dependencies:
       '@napi-rs/wasm-runtime': 0.2.4
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.2
       '@zkochan/js-yaml': 0.0.7
-      axios: 1.8.4
+      axios: 1.9.0
       chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
@@ -19923,16 +19882,16 @@ snapshots:
       yargs: 17.7.2
       yargs-parser: 21.1.1
     optionalDependencies:
-      '@nx/nx-darwin-arm64': 20.7.2
-      '@nx/nx-darwin-x64': 20.7.2
-      '@nx/nx-freebsd-x64': 20.7.2
-      '@nx/nx-linux-arm-gnueabihf': 20.7.2
-      '@nx/nx-linux-arm64-gnu': 20.7.2
-      '@nx/nx-linux-arm64-musl': 20.7.2
-      '@nx/nx-linux-x64-gnu': 20.7.2
-      '@nx/nx-linux-x64-musl': 20.7.2
-      '@nx/nx-win32-arm64-msvc': 20.7.2
-      '@nx/nx-win32-x64-msvc': 20.7.2
+      '@nx/nx-darwin-arm64': 20.8.1
+      '@nx/nx-darwin-x64': 20.8.1
+      '@nx/nx-freebsd-x64': 20.8.1
+      '@nx/nx-linux-arm-gnueabihf': 20.8.1
+      '@nx/nx-linux-arm64-gnu': 20.8.1
+      '@nx/nx-linux-arm64-musl': 20.8.1
+      '@nx/nx-linux-x64-gnu': 20.8.1
+      '@nx/nx-linux-x64-musl': 20.8.1
+      '@nx/nx-win32-arm64-msvc': 20.8.1
+      '@nx/nx-win32-x64-msvc': 20.8.1
     transitivePeerDependencies:
       - debug
 
@@ -20019,11 +19978,6 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  open@7.4.2:
-    dependencies:
-      is-docker: 2.2.1
-      is-wsl: 2.2.0
-
   open@8.4.2:
     dependencies:
       define-lazy-prop: 2.0.0
@@ -20046,7 +20000,7 @@ snapshots:
   ora@5.3.0:
     dependencies:
       bl: 4.1.0
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       is-interactive: 1.0.0
@@ -20220,14 +20174,14 @@ snapshots:
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
 
-  parse-path@7.0.1:
+  parse-path@7.1.0:
     dependencies:
       protocols: 2.0.2
 
   parse-url@9.2.0:
     dependencies:
       '@types/parse-path': 7.0.3
-      parse-path: 7.0.1
+      parse-path: 7.1.0
 
   parse5-htmlparser2-tree-adapter@6.0.1:
     dependencies:
@@ -20237,9 +20191,9 @@ snapshots:
 
   parse5@6.0.1: {}
 
-  parse5@7.2.1:
+  parse5@7.3.0:
     dependencies:
-      entities: 4.5.0
+      entities: 6.0.0
 
   parseurl@1.3.3: {}
 
@@ -20247,24 +20201,6 @@ snapshots:
     dependencies:
       no-case: 3.0.4
       tslib: 2.8.1
-
-  patch-package@8.0.0:
-    dependencies:
-      '@yarnpkg/lockfile': 1.1.0
-      chalk: 4.1.2
-      ci-info: 3.9.0
-      cross-spawn: 7.0.6
-      find-yarn-workspace-root: 2.0.0
-      fs-extra: 9.1.0
-      json-stable-stringify: 1.2.1
-      klaw-sync: 6.0.0
-      minimist: 1.2.8
-      open: 7.4.2
-      rimraf: 2.7.1
-      semver: 7.7.1
-      slash: 2.0.0
-      tmp: 0.0.33
-      yaml: 2.7.1
 
   path-browserify@1.0.1: {}
 
@@ -20411,14 +20347,14 @@ snapshots:
       postcss: 8.5.3
       postcss-selector-parser: 7.1.0
 
-  postcss-loader@8.1.1(postcss@8.5.3)(typescript@5.8.3)(webpack@5.99.5):
+  postcss-loader@8.1.1(postcss@8.5.3)(typescript@5.8.3)(webpack@5.99.7):
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.8.3)
       jiti: 1.21.7
       postcss: 8.5.3
       semver: 7.7.1
     optionalDependencies:
-      webpack: 5.99.5
+      webpack: 5.99.7
     transitivePeerDependencies:
       - typescript
 
@@ -20767,7 +20703,7 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-dev-utils@12.0.1(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.5):
+  react-dev-utils@12.0.1(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.7):
     dependencies:
       '@babel/code-frame': 7.26.2
       address: 1.2.2
@@ -20778,7 +20714,7 @@ snapshots:
       escape-string-regexp: 4.0.0
       filesize: 8.0.7
       find-up: 5.0.0
-      fork-ts-checker-webpack-plugin: 6.5.3(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.5)
+      fork-ts-checker-webpack-plugin: 6.5.3(eslint@8.57.0)(typescript@5.8.3)(webpack@5.99.7)
       global-modules: 2.0.0
       globby: 11.0.4
       gzip-size: 6.0.0
@@ -20793,7 +20729,7 @@ snapshots:
       shell-quote: 1.8.2
       strip-ansi: 6.0.1
       text-table: 0.2.0
-      webpack: 5.99.5
+      webpack: 5.99.7
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -21159,10 +21095,6 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  rimraf@2.7.1:
-    dependencies:
-      glob: 7.2.3
-
   rimraf@3.0.2:
     dependencies:
       glob: 7.2.3
@@ -21181,13 +21113,13 @@ snapshots:
       hash-base: 3.1.0
       inherits: 2.0.4
 
-  rollup-plugin-external-globals@0.13.0(rollup@4.40.0):
+  rollup-plugin-external-globals@0.13.0(rollup@4.40.1):
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.40.1)
       estree-walker: 3.0.3
       is-reference: 3.0.3
       magic-string: 0.30.17
-      rollup: 4.40.0
+      rollup: 4.40.1
 
   rollup-plugin-svg@2.0.0:
     dependencies:
@@ -21202,30 +21134,30 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  rollup@4.40.0:
+  rollup@4.40.1:
     dependencies:
       '@types/estree': 1.0.7
     optionalDependencies:
-      '@rollup/rollup-android-arm-eabi': 4.40.0
-      '@rollup/rollup-android-arm64': 4.40.0
-      '@rollup/rollup-darwin-arm64': 4.40.0
-      '@rollup/rollup-darwin-x64': 4.40.0
-      '@rollup/rollup-freebsd-arm64': 4.40.0
-      '@rollup/rollup-freebsd-x64': 4.40.0
-      '@rollup/rollup-linux-arm-gnueabihf': 4.40.0
-      '@rollup/rollup-linux-arm-musleabihf': 4.40.0
-      '@rollup/rollup-linux-arm64-gnu': 4.40.0
-      '@rollup/rollup-linux-arm64-musl': 4.40.0
-      '@rollup/rollup-linux-loongarch64-gnu': 4.40.0
-      '@rollup/rollup-linux-powerpc64le-gnu': 4.40.0
-      '@rollup/rollup-linux-riscv64-gnu': 4.40.0
-      '@rollup/rollup-linux-riscv64-musl': 4.40.0
-      '@rollup/rollup-linux-s390x-gnu': 4.40.0
-      '@rollup/rollup-linux-x64-gnu': 4.40.0
-      '@rollup/rollup-linux-x64-musl': 4.40.0
-      '@rollup/rollup-win32-arm64-msvc': 4.40.0
-      '@rollup/rollup-win32-ia32-msvc': 4.40.0
-      '@rollup/rollup-win32-x64-msvc': 4.40.0
+      '@rollup/rollup-android-arm-eabi': 4.40.1
+      '@rollup/rollup-android-arm64': 4.40.1
+      '@rollup/rollup-darwin-arm64': 4.40.1
+      '@rollup/rollup-darwin-x64': 4.40.1
+      '@rollup/rollup-freebsd-arm64': 4.40.1
+      '@rollup/rollup-freebsd-x64': 4.40.1
+      '@rollup/rollup-linux-arm-gnueabihf': 4.40.1
+      '@rollup/rollup-linux-arm-musleabihf': 4.40.1
+      '@rollup/rollup-linux-arm64-gnu': 4.40.1
+      '@rollup/rollup-linux-arm64-musl': 4.40.1
+      '@rollup/rollup-linux-loongarch64-gnu': 4.40.1
+      '@rollup/rollup-linux-powerpc64le-gnu': 4.40.1
+      '@rollup/rollup-linux-riscv64-gnu': 4.40.1
+      '@rollup/rollup-linux-riscv64-musl': 4.40.1
+      '@rollup/rollup-linux-s390x-gnu': 4.40.1
+      '@rollup/rollup-linux-x64-gnu': 4.40.1
+      '@rollup/rollup-linux-x64-musl': 4.40.1
+      '@rollup/rollup-win32-arm64-msvc': 4.40.1
+      '@rollup/rollup-win32-ia32-msvc': 4.40.1
+      '@rollup/rollup-win32-x64-msvc': 4.40.1
       fsevents: 2.3.3
 
   run-async@3.0.0: {}
@@ -21306,7 +21238,7 @@ snapshots:
       ajv: 6.12.6
       ajv-keywords: 3.5.2(ajv@6.12.6)
 
-  schema-utils@4.3.0:
+  schema-utils@4.3.2:
     dependencies:
       '@types/json-schema': 7.0.15
       ajv: 8.17.1
@@ -21549,9 +21481,7 @@ snapshots:
       lilconfig: 3.1.3
       nanospinner: 1.2.2
       picocolors: 1.1.1
-      tinyglobby: 0.2.12
-
-  slash@2.0.0: {}
+      tinyglobby: 0.2.13
 
   slash@3.0.0: {}
 
@@ -21885,13 +21815,13 @@ snapshots:
       minimist: 1.2.8
       through: 2.3.8
 
-  style-loader@3.3.4(webpack@5.99.5(esbuild@0.24.2)):
+  style-loader@3.3.4(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  style-loader@3.3.4(webpack@5.99.5):
+  style-loader@3.3.4(webpack@5.99.7):
     dependencies:
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   style-to-js@1.1.16:
     dependencies:
@@ -21907,66 +21837,66 @@ snapshots:
       postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
-  stylelint-config-css-modules@4.4.0(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-css-modules@4.4.0(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.19.0(typescript@5.8.3)
+      stylelint: 16.19.1(typescript@5.8.3)
     optionalDependencies:
-      stylelint-scss: 6.11.1(stylelint@16.19.0(typescript@5.8.3))
+      stylelint-scss: 6.11.1(stylelint@16.19.1(typescript@5.8.3))
 
-  stylelint-config-recommended-scss@14.1.0(postcss@8.5.3)(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-recommended-scss@14.1.0(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.5.3)
-      stylelint: 16.19.0(typescript@5.8.3)
-      stylelint-config-recommended: 14.0.1(stylelint@16.19.0(typescript@5.8.3))
-      stylelint-scss: 6.11.1(stylelint@16.19.0(typescript@5.8.3))
+      stylelint: 16.19.1(typescript@5.8.3)
+      stylelint-config-recommended: 14.0.1(stylelint@16.19.1(typescript@5.8.3))
+      stylelint-scss: 6.11.1(stylelint@16.19.1(typescript@5.8.3))
     optionalDependencies:
       postcss: 8.5.3
 
-  stylelint-config-recommended@14.0.1(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-recommended@14.0.1(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.19.0(typescript@5.8.3)
+      stylelint: 16.19.1(typescript@5.8.3)
 
-  stylelint-config-recommended@16.0.0(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-recommended@16.0.0(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.19.0(typescript@5.8.3)
+      stylelint: 16.19.1(typescript@5.8.3)
 
-  stylelint-config-standard-scss@14.0.0(postcss@8.5.3)(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-standard-scss@14.0.0(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.19.0(typescript@5.8.3)
-      stylelint-config-recommended-scss: 14.1.0(postcss@8.5.3)(stylelint@16.19.0(typescript@5.8.3))
-      stylelint-config-standard: 36.0.1(stylelint@16.19.0(typescript@5.8.3))
+      stylelint: 16.19.1(typescript@5.8.3)
+      stylelint-config-recommended-scss: 14.1.0(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3))
+      stylelint-config-standard: 36.0.1(stylelint@16.19.1(typescript@5.8.3))
     optionalDependencies:
       postcss: 8.5.3
 
-  stylelint-config-standard@36.0.1(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-standard@36.0.1(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.19.0(typescript@5.8.3)
-      stylelint-config-recommended: 14.0.1(stylelint@16.19.0(typescript@5.8.3))
+      stylelint: 16.19.1(typescript@5.8.3)
+      stylelint-config-recommended: 14.0.1(stylelint@16.19.1(typescript@5.8.3))
 
-  stylelint-config-standard@38.0.0(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-config-standard@38.0.0(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
-      stylelint: 16.19.0(typescript@5.8.3)
-      stylelint-config-recommended: 16.0.0(stylelint@16.19.0(typescript@5.8.3))
+      stylelint: 16.19.1(typescript@5.8.3)
+      stylelint-config-recommended: 16.0.0(stylelint@16.19.1(typescript@5.8.3))
 
-  stylelint-order@7.0.0(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-order@7.0.0(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
       postcss: 8.5.3
       postcss-sorting: 9.1.0(postcss@8.5.3)
-      stylelint: 16.19.0(typescript@5.8.3)
+      stylelint: 16.19.1(typescript@5.8.3)
 
-  stylelint-scss@6.11.1(stylelint@16.19.0(typescript@5.8.3)):
+  stylelint-scss@6.11.1(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:
       css-tree: 3.1.0
       is-plain-object: 5.0.0
       known-css-properties: 0.35.0
-      mdn-data: 2.20.0
+      mdn-data: 2.21.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.6
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
-      stylelint: 16.19.0(typescript@5.8.3)
+      stylelint: 16.19.1(typescript@5.8.3)
 
-  stylelint@16.19.0(typescript@5.8.3):
+  stylelint@16.19.1(typescript@5.8.3):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
@@ -21986,7 +21916,7 @@ snapshots:
       globby: 11.1.0
       globjoin: 0.1.4
       html-tags: 3.3.1
-      ignore: 7.0.3
+      ignore: 7.0.4
       imurmurhash: 0.1.4
       is-plain-object: 5.0.0
       known-css-properties: 0.36.0
@@ -22045,9 +21975,9 @@ snapshots:
 
   symbol-tree@3.2.4: {}
 
-  synckit@0.11.3:
+  synckit@0.11.4:
     dependencies:
-      '@pkgr/core': 0.2.2
+      '@pkgr/core': 0.2.4
       tslib: 2.8.1
 
   tabbable@6.2.0: {}
@@ -22079,7 +22009,7 @@ snapshots:
       pump: 3.0.2
       tar-stream: 3.1.7
     optionalDependencies:
-      bare-fs: 4.1.2
+      bare-fs: 4.1.3
       bare-path: 3.0.0
     transitivePeerDependencies:
       - bare-buffer
@@ -22113,25 +22043,25 @@ snapshots:
     dependencies:
       rimraf: 2.6.3
 
-  terser-webpack-plugin@5.3.14(esbuild@0.24.2)(webpack@5.99.5(esbuild@0.24.2)):
+  terser-webpack-plugin@5.3.14(esbuild@0.24.2)(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
-      schema-utils: 4.3.0
+      schema-utils: 4.3.2
       serialize-javascript: 6.0.2
       terser: 5.39.0
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
     optionalDependencies:
       esbuild: 0.24.2
 
-  terser-webpack-plugin@5.3.14(webpack@5.99.5):
+  terser-webpack-plugin@5.3.14(webpack@5.99.7):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
-      schema-utils: 4.3.0
+      schema-utils: 4.3.2
       serialize-javascript: 6.0.2
       terser: 5.39.0
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   terser@5.39.0:
     dependencies:
@@ -22174,11 +22104,6 @@ snapshots:
   tiny-invariant@1.3.3: {}
 
   tinyexec@0.3.2: {}
-
-  tinyglobby@0.2.12:
-    dependencies:
-      fdir: 6.4.3(picomatch@4.0.2)
-      picomatch: 4.0.2
 
   tinyglobby@0.2.13:
     dependencies:
@@ -22552,7 +22477,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vike@0.4.229(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
+  vike@0.4.229(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
       '@brillout/import': 0.2.6
       '@brillout/json-serializer': 0.5.15
@@ -22561,7 +22486,7 @@ snapshots:
       '@brillout/vite-plugin-server-entry': 0.7.8
       acorn: 8.14.1
       cac: 6.7.14
-      es-module-lexer: 1.6.0
+      es-module-lexer: 1.7.0
       esbuild: 0.24.2
       json5: 2.2.3
       magic-string: 0.30.17
@@ -22569,38 +22494,38 @@ snapshots:
       semver: 7.7.1
       sirv: 3.0.1
       source-map-support: 0.5.21
-      tinyglobby: 0.2.12
+      tinyglobby: 0.2.13
     optionalDependencies:
-      vite: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
 
-  vite-plugin-eslint@1.8.1(eslint@8.57.0)(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
+  vite-plugin-eslint@1.8.1(eslint@8.57.0)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       '@types/eslint': 8.56.12
       eslint: 8.57.0
       rollup: 2.79.2
-      vite: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
 
-  vite-plugin-html-minifier@1.0.5(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
+  vite-plugin-html-minifier@1.0.5(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
       html-minifier-terser: 7.2.0
-      vite: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
 
-  vite-plugin-simple-html@0.2.0(vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
+  vite-plugin-simple-html@0.2.0(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
-      '@swc/html': 1.11.18
-      vite: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
+      '@swc/html': 1.11.22
+      vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1)
 
-  vite@6.3.3(@types/node@22.14.0)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1):
+  vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1):
     dependencies:
       esbuild: 0.24.2
       fdir: 6.4.4(picomatch@4.0.2)
       picomatch: 4.0.2
       postcss: 8.5.3
-      rollup: 4.40.0
+      rollup: 4.40.1
       tinyglobby: 0.2.13
     optionalDependencies:
-      '@types/node': 22.14.0
+      '@types/node': 22.15.3
       fsevents: 2.3.3
       jiti: 2.4.2
       sass: 1.87.0
@@ -22630,25 +22555,25 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
-  webpack-dev-middleware@6.1.3(webpack@5.99.5(esbuild@0.24.2)):
+  webpack-dev-middleware@6.1.3(webpack@5.99.7(esbuild@0.24.2)):
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
       mime-types: 2.1.35
       range-parser: 1.2.1
-      schema-utils: 4.3.0
+      schema-utils: 4.3.2
     optionalDependencies:
-      webpack: 5.99.5(esbuild@0.24.2)
+      webpack: 5.99.7(esbuild@0.24.2)
 
-  webpack-dev-middleware@6.1.3(webpack@5.99.5):
+  webpack-dev-middleware@6.1.3(webpack@5.99.7):
     dependencies:
       colorette: 2.0.20
       memfs: 3.5.3
       mime-types: 2.1.35
       range-parser: 1.2.1
-      schema-utils: 4.3.0
+      schema-utils: 4.3.2
     optionalDependencies:
-      webpack: 5.99.5
+      webpack: 5.99.7
 
   webpack-hot-middleware@2.26.1:
     dependencies:
@@ -22660,10 +22585,11 @@ snapshots:
 
   webpack-virtual-modules@0.6.2: {}
 
-  webpack@5.99.5:
+  webpack@5.99.7:
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.7
+      '@types/json-schema': 7.0.15
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
@@ -22671,7 +22597,7 @@ snapshots:
       browserslist: 4.24.4
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.18.1
-      es-module-lexer: 1.6.0
+      es-module-lexer: 1.7.0
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
@@ -22680,9 +22606,9 @@ snapshots:
       loader-runner: 4.3.0
       mime-types: 2.1.35
       neo-async: 2.6.2
-      schema-utils: 4.3.0
+      schema-utils: 4.3.2
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(webpack@5.99.5)
+      terser-webpack-plugin: 5.3.14(webpack@5.99.7)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -22690,10 +22616,11 @@ snapshots:
       - esbuild
       - uglify-js
 
-  webpack@5.99.5(esbuild@0.24.2):
+  webpack@5.99.7(esbuild@0.24.2):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.7
+      '@types/json-schema': 7.0.15
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
@@ -22701,7 +22628,7 @@ snapshots:
       browserslist: 4.24.4
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.18.1
-      es-module-lexer: 1.6.0
+      es-module-lexer: 1.7.0
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
@@ -22710,9 +22637,9 @@ snapshots:
       loader-runner: 4.3.0
       mime-types: 2.1.35
       neo-async: 2.6.2
-      schema-utils: 4.3.0
+      schema-utils: 4.3.2
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(esbuild@0.24.2)(webpack@5.99.5(esbuild@0.24.2))
+      terser-webpack-plugin: 5.3.14(esbuild@0.24.2)(webpack@5.99.7(esbuild@0.24.2))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
