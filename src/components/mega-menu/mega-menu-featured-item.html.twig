@@ -28,6 +28,7 @@
 {% set _item_css_class = 'ecl-mega-menu__featured-list__item' %}
 {% set _css_class = 'ecl-mega-menu__featured-link' %}
 {% set _label = label|default('') %}
+{% set _description = description|default('') %}
 {% set _path = path|default('') %}
 {% set _picture = picture|default({})  %}
 {% set _icon_path = icon_path|default('') %}
@@ -96,6 +97,11 @@
       extra_attributes: extra_attributes|default([])|merge([{ name: 'data-ecl-mega-menu-featured-link' }]),
       extra_classes: _css_class,
     } only %}
+  {% endif %}
+  {% if _description is not empty %}
+    <div class="ecl-mega-menu__featured-list__item-description">
+      {{- _description -}}
+    </div>
   {% endif %}
 </li>
 

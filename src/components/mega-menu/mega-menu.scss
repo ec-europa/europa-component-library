@@ -439,6 +439,11 @@ $mega-menu: null !default;
   &--combo .ecl-mega-menu__featured-image {
     margin-block-end: var(--s-xs);
   }
+
+  .ecl-mega-menu__featured-list__item-description {
+    font: var(--f-xs);
+    margin-inline-start: var(--s-s);
+  }
 }
 
 .ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
@@ -1192,7 +1197,6 @@ $mega-menu: null !default;
           height: 1px;
           position: absolute;
           left: var(--s-s);
-          top: calc(-1 * var(--s-s));
           width: calc(100% - (var(--s-l) * 2));
           background: map.get($mega-menu, 'desktop', 'see-all-divider');
         }
@@ -1396,6 +1400,10 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__mega {
         width: 18.75rem;
+      }
+
+      .ecl-mega-menu-featured-only {
+        background: var(--cm-surface-inverted, #fff);
       }
 
       .ecl-mega-menu__featured {

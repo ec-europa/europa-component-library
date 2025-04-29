@@ -42,8 +42,6 @@ module.exports = {
           label: 'Item 2.1',
           path: exampleLink,
           sublink_id: 'item-2-1-id',
-          see_all: true,
-          see_all_label: 'View all',
           featured: {
             title: 'Featured items',
             items: [
@@ -59,6 +57,8 @@ module.exports = {
                 label: 'Featured link 1',
                 path: exampleLink,
                 extra_classes: 'featrured-link-extra-class',
+                description:
+                  'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
               },
               {
                 path: exampleLink,
@@ -80,29 +80,13 @@ module.exports = {
               },
             ],
           },
-          children: [
-            {
-              label: 'Item 2.1 subitem 1',
-              path: exampleLink,
-            },
-            {
-              label: 'Item 2.1 subitem 2',
-              path: exampleLink,
-              external: true,
-              sr_external: 'Link to an external domain',
-            },
-            { label: 'Item 2.1 subitem 3', path: exampleLink },
-            { label: 'Item 2.1 subitem 4', path: exampleLink },
-            { label: 'Item 2.1 subitem 5', path: exampleLink },
-            { label: 'Item 2.1 subitem 6', path: exampleLink },
-            { label: 'Item 2.1 subitem 7', path: exampleLink },
-            { label: 'Item 2.1 subitem 8', path: exampleLink },
-          ],
         },
         { label: 'Item 2.2', path: exampleLink },
         {
           label: 'Item 2.3 that has a very long label',
           path: exampleLink,
+          see_all: true,
+          see_all_label: 'See all',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
             {

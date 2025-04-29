@@ -76,6 +76,9 @@
 
 {% if _item.level == 2 %}
   {% set _mega_class = _mega_class ~ ' ecl-mega-menu__mega--level-2' %}
+  {% if _item.children is empty %}
+    {% set _mega_class = _mega_class ~ ' ecl-mega-menu-featured-only' %}
+  {% endif %}
 {% endif %}
 
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
@@ -140,7 +143,7 @@
     </div>
   </div>
 {# Children #}
-{%- elseif _item.children is defined and _item.children is not empty and _item.children is iterable -%}
+{%- elseif (_item.children is defined and _item.children is not empty and _item.children is iterable) or _featured is not empty -%}
   {% set _sublist_aria_label = '' %}
 {% if _item.level|default(0) < 2 %}
   {% set _sublist_aria_label = second_level_aria_label|default('') %}
@@ -172,33 +175,14 @@
       {%- if _info.content is not empty -%}
         <div class="ecl-mega-menu__info-content">{{ _info.content }}</div>
       {%- endif -%}
-      {%- if _info.link is not empty -%}
-        {% set _path = (_info.link.link.path is not empty) ? _info.link.link.path : _item.path %}
-        {% include '@ecl/link/link.html.twig' with _info.link|merge({
-          link: _info.link.link|merge({
-            type: 'standalone',
-            path: _path,
-          }),
-          icon: {
-            name: 'arrow-left',
-            transform: 'flip-horizontal',
-            size: 'xs',
-          },
-          extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
-          extra_attributes: _info.link.extra_attributes|default([])|merge([{
-            name: 'aria-describedby', 
-            value: _info_title_id,
-          }]),
-        }) only %}
-      {%- endif -%}
       </div>
-
     </div>
   {% endif %}
     <div
       class="{{ _mega_class }}"
       data-ecl-mega-menu-mega
     >
+    {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
       <ul
         class="{{ _sublist_class }}"
         {%- if _sublist_aria_label -%}
@@ -217,12 +201,12 @@
         {% set _sublink_attrs = child.extra_attributes|default([])|merge([
           { name: _menu_sublink_attribute },
         ]) %}
-        {% if child.children is defined and child.children is not empty %}
+        {% if (child.children is defined and child.children is not empty) or child.featured is not empty %}
           {% set _sublink_attrs = _sublink_attrs|merge([
             { name: 'aria-expanded', value: 'false' },
           ]) %}
         {% endif %}
-        {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
+        {% if (child.children is defined and child.children is not empty and _item.level|default(0) < 2) or child.featured is not empty %}
           {%- if child.see_all and child.see_all_label is not empty -%}
             {% if child.sublink_id is empty %}
               {% set _sublink_id = 'ecl-mega-menu-sublink-' ~ random() %}
@@ -243,7 +227,7 @@
           class="{{ _subitem_class }}"
           {{ ' ' ~ _subitem_attrs|raw }}
         >
-        {%- if child.children is defined and child.children is not empty -%}
+        {%- if (child.children is defined and child.children is not empty) or child.featured is not empty -%}
           {# Children, 2nd level #}
             {% include '@ecl/button/button.html.twig' with {
               type: 'button',
@@ -303,7 +287,30 @@
           } only %}
         </li>
       {%- endif -%}
+      {%- if _info.link is not empty -%}
+        <li class="ecl-mega-menu__spacer" data-ecl-mega-menu-subitem>&nbsp;</li>
+        <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all" data-ecl-mega-menu-subitem>
+        {% set _path = (_info.link.link.path is not empty) ? _info.link.link.path : _item.path %}
+        {% include '@ecl/link/link.html.twig' with _info.link|merge({
+          link: _info.link.link|merge({
+            type: 'standalone',
+            path: _path,
+          }),
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            size: 'xs',
+          },
+          extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
+          extra_attributes: _info.link.extra_attributes|default([])|merge([{
+            name: 'aria-describedby', 
+            value: _info_title_id,
+          }]),
+        }) only %}
+        </li>
+      {%- endif -%}
       </ul>
+    {% endif %}
 
     {# Featured #}
     {% if _featured is not empty %}
