@@ -122,22 +122,6 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/resources-icons/dist'),
-      to: path.resolve(outputFolder, 'images/icons'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-social-media-icons/dist'),
-      to: path.resolve(outputFolder, 'images/icons-social-media'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-flag-icons/dist'),
-      to: path.resolve(outputFolder, 'images/icons-flag'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-eu-social-icons/dist'),
-      to: path.resolve(outputFolder, 'images/social-icons'),
-    },
-    {
       from: path.resolve(nodeModules, '@ecl/resources-eu-logo/dist'),
       to: path.resolve(outputFolder, 'images/logo'),
     },

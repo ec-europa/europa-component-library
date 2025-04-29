@@ -10,7 +10,6 @@ module.exports = {
   toggle: {
     label: 'Menu',
     icon: {
-      path: '/icons.svg',
       name: 'hamburger',
       size: 'm',
     },
@@ -18,13 +17,11 @@ module.exports = {
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },
   },
   back_label: 'Back',
-  icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
     {

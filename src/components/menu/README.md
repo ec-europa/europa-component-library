@@ -14,7 +14,6 @@ npm install --save @ecl/menu
 - **"close"**: (associative array) (default: {}): Close button, using ECL Button structure
 - **"back_label"** (string): (default: ''): Back button label
 - **"aria_label"** (string) (default: '') Aria label for the main nav
-- **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
@@ -59,12 +58,10 @@ npm install --save @ecl/menu
     },
     icon: [
       {
-        path: '/icons.svg',
         name: 'hamburger',
         size: 'm',
       },
       {
-        path: '/icons.svg',
         name: 'close',
         size: 'm',
       }
@@ -73,7 +70,6 @@ npm install --save @ecl/menu
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },
@@ -81,7 +77,6 @@ npm install --save @ecl/menu
   },
   back_label: 'Back',
   aria_label: 'Main navigation',
-  icon_path: '/icons.svg',
   menu_link: './example.com',
   items: [
     {

@@ -1,6 +1,5 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
 import * as getSystem from '@ecl/builder/utils/getSystem';
-import iconSvgAllArrow from '@ecl/resources-icons/dist/svg/all/solid-arrow.svg';
 
 const system = getSystem();
 const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
@@ -59,19 +58,13 @@ export class Table {
    * @returns {HTMLElement}
    */
   static createSortIcon(customClass) {
-    const tempElement = document.createElement('span');
-    tempElement.innerHTML = iconSvgAllArrow; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.children[0];
-    svg.removeAttribute('height');
-    svg.removeAttribute('width');
-    svg.setAttribute('focusable', false);
-    svg.setAttribute('aria-hidden', true);
-    // The following element is <path> which does not support classList API as others.
-    svg.setAttribute(
+    const markup = document.createElement('span');
+    markup.setAttribute(
       'class',
-      `ecl-table__icon ecl-icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+      `wt-icon--solid-arrow ecl-table__icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
     );
-    return svg;
+
+    return markup;
   }
 
   /**

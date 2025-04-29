@@ -77,7 +77,7 @@
   <div class="ecl-list-illustration__detail">
   {% if _title is not empty or _icon is not empty or _value is not empty %}
     <div class="ecl-list-illustration__title-container">
-    {% if _icon is not empty and _icon.path is defined %}
+    {% if _icon is not empty %}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: _icon|merge({ size: _icon_size }),
         extra_classes: 'ecl-list-illustration__icon',

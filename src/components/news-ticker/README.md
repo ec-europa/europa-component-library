@@ -24,7 +24,6 @@ npm install --save @ecl/news-ticker
 - **"sr_next"** (string) (default: 'Next news') screen reader label for next button
 - **"sr_play"** (string) (default: 'Play news ticker') screen reader label for the play button
 - **"sr_pause"** (string) (default: 'Pause news ticker') screen reader label for the pause button
-- **"icon_path"** (string) (default: ''): path to the icons svg
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -36,7 +35,6 @@ npm install --save @ecl/news-ticker
 ```twig
 {% include '@ecl/news-ticker/news-ticker.html.twig' with { 
   id: 'news-ticker-example', 
-  icon_path: '/icons.svg', 
   counter_label: 'of', 
   items: [ 
     { 

@@ -15,7 +15,6 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          path: '/icons.svg',
           name: 'corner-arrow',
           size: 'xs',
           transform: 'rotate-90',
@@ -39,7 +38,6 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          path: '/icons.svg',
           name: 'corner-arrow',
           size: 'xs',
           transform: 'rotate-90',
@@ -65,7 +63,6 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          path: '/icons.svg',
           name: 'corner-arrow',
           size: 'xs',
           transform: 'rotate-90',
@@ -83,10 +80,8 @@ module.exports = {
           },
         ],
       },
-      icon_path: '/icons.svg',
       box_background: 'dark',
     },
   ],
-  icon_path: '/icons.svg',
   counter_label: 'of',
 };

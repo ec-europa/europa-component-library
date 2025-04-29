@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/list.json';
 import demoData from './demo/data';
 
 import factFigures from './fact-figures.html.twig';

@@ -16,7 +16,6 @@ npm install --save @ecl/tabs
 - **"more_label"** (string) (default: 'More (%d)')
 - **"previous_label"** (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
 - **"next_label"** (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
-- **"icon_path"** (string) (default: ''): path to the icons svg
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -27,7 +26,6 @@ npm install --save @ecl/tabs
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/tabs/tabs.html.twig' with { 
-  icon_path: '/icons.svg', 
   items: [ 
     { 
       label: 'Item 1 label', 

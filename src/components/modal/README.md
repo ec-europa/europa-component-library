@@ -12,7 +12,6 @@ npm install --save @ecl/modal
 - **"toggle_id"** (string) (default: random) id of the element to toggle the modal
 - **"variant"** (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
 - **"size"** (string) (default: 'l'): Size of the modal. Could be 's' or 'l'
-- **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
 - **"close"** (object of type "button") (default: {}): close button; label has to be provided for screen reader
 - **"buttons"** (array) (default: {}) Array of ECL Button, displayed in the modal footer
@@ -35,12 +34,10 @@ npm install --save @ecl/modal
 {% include '@ecl/modal/modal.html.twig' with { 
   id: 'modal-example',
   toggle_id: 'modal-toggle',
-  icon_path: '/icons.svg',
   sr_icon: 'Information',
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },

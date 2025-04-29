@@ -3,7 +3,6 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'gallery-id',
-  icon_path: '/icons.svg',
   sr_gallery_label:
     'Open gallery items to view images in original size, watch videos and share them',
   sr_video_label: 'Video',
@@ -269,7 +268,6 @@ module.exports = {
       hide_label: true,
       label: 'Close',
       icon: {
-        path: '/icons.svg',
         name: 'close',
         size: 'm',
       },
@@ -278,7 +276,6 @@ module.exports = {
       variant: 'tertiary',
       label: 'Previous',
       icon: {
-        path: 'icons.svg',
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-270',
@@ -289,7 +286,6 @@ module.exports = {
       variant: 'tertiary',
       label: 'Next',
       icon: {
-        path: '/icons.svg',
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-90',
@@ -305,7 +301,6 @@ module.exports = {
       icon: {
         name: 'share',
         size: 'fluid',
-        path: '/icons.svg',
       },
     },
     sr_overlay_label: 'Gallery overlay',
@@ -319,7 +314,6 @@ module.exports = {
       label: 'Further media items',
       external: true,
       sr_external: 'Link to an external domain',
-      icon_path: '/icons.svg',
     },
   },
   counter_label: 'Media files in this gallery',

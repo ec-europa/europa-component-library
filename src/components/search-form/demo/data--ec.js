@@ -8,9 +8,6 @@ module.exports = {
   },
   button: {
     variant: 'ghost',
-    icon: {
-      path: '/icons.svg',
-    },
     label: 'Search',
     icon_position: 'before',
   },

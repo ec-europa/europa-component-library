@@ -46,26 +46,26 @@
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _zoom = zoom|default(false) %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'playsinline' %}
 
 {% if _zoom %}
   {% set _css_class = _css_class ~ ' ecl-video--zoom' %}
 {% endif %}
 
 {% if _controls %}
-  {% set _extra_attributes = 'controls' %}
+  {% set _extra_attributes = _extra_attributes ~ ' controls' %}
 {% endif %}
 
 {% if _autoplay %}
-  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' autoplay' : 'autoplay' %}
+  {% set _extra_attributes = _extra_attributes ~ ' autoplay' %}
 {% endif %}
 
 {% if _muted %}
-  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' muted' : 'muted' %}
+  {% set _extra_attributes = _extra_attributes ~ ' muted' %}
 {% endif %}
 
 {% if _loop %}
-  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' loop' : 'loop' %}
+  {% set _extra_attributes = _extra_attributes ~ ' loop' %}
 {% endif %}
 
 {% if _title is not empty and _sr_video_label is not empty %}

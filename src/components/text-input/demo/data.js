@@ -3,7 +3,6 @@ module.exports = {
   label: 'Label',
   invalid_text: 'This is the error message',
   invalid_icon: {
-    path: '/icons.svg',
     name: 'error',
   },
   sr_invalid_icon: 'Error',

@@ -137,6 +137,38 @@ Corresponding twig parameter `level` has been removed.
 - Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
 
+### Icon
+
+ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools
+Here is the official documentation: https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_use
+
+Twig templates have been updated to deliver the new markup for the icon, so this is mostly transparent, except for a few new parameters:
+
+- `family`, to specify the icon family when needed (social media and flags currently)
+- `style`, if the icon has to be displayed in a specific style (primary, inverted, ...). This is only used for social media currently
+
+If you don't use the templates, this would have to be done manually:
+
+- keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
+
+  Examples:
+
+  - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
+    - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
+
+- extra title and description should be passed in `data-title` and `data-desc` respectively
+
+As the data structure of icons is slightly different on Webtools, here are a few extra steps:
+
+- in the site footer, icon names have been changed for the social media icons: the icon family and style have to be passed as data.
+  For instance, `instagram-inverted` (v4) is now `instagram`, with family `networks` and style `inverted`
+- Twitter and X now are 2 different icons. So whenever you were using `twitter` icon, it has to be changed to `x`
+
+Extra attention points:
+
+- flags are now names with the country code istead of the full name (`be` instead of `belgium`)
+- flags squared are no longer available
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of elements including images, links with images only, textual links instead of an img and then a list of links.

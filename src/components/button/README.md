@@ -30,7 +30,6 @@ npm install --save @ecl/button
   label: 'Example button', 
   disabled: false, 
   icon: { 
-    path: '/path-to-the-icon-file', 
     type: 'ui', 
     name: 'corner-arrow', 
     size: 'xs,' 

@@ -7,7 +7,6 @@ module.exports = {
   helper_text: "This is the group's helper text.",
   invalid_text: 'This is the error message',
   invalid_icon: {
-    path: '/icons.svg',
     name: 'error',
   },
   sr_invalid_icon: 'Error',
@@ -17,12 +16,10 @@ module.exports = {
     name: 'rating-group',
     required: true,
     star_filled_icon: {
-      path: '/icons.svg',
       name: 'star-filled',
       size: 'l',
     },
     star_outline_icon: {
-      path: '/icons.svg',
       name: 'star-outline',
       size: 'l',
     },
