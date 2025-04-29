@@ -60,12 +60,14 @@ $social-media-follow: null !default;
 }
 
 // Description inline
-.ecl-social-media-follow--description_inline {
-  flex-direction: row;
+@include breakpoints.up('m') {
+  .ecl-social-media-follow--description_inline {
+    flex-direction: row;
 
-  .ecl-social-media-follow__description {
-    margin-inline-end: var(--s-m);
-    margin-block-end: 0;
+    .ecl-social-media-follow__description {
+      margin-inline-end: var(--s-m);
+      margin-block-end: 0;
+    }
   }
 }
 

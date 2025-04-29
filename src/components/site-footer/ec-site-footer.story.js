@@ -2,7 +2,6 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import logoEc from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
 import dataCore from './demo/data-core--ec';
 import dataStandardised from './demo/data-standardised--ec';
 import dataHarmonised from './demo/data-harmonised--ec';
@@ -74,12 +73,6 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
-  if (clone.split_columns) {
-    clone.rows[0][0][0].logo.src_desktop = logoEc;
-    return clone;
-  }
-
-  clone.rows[2][0][0].logo.src_desktop = logoEc;
 
   if (!args.show_contact) {
     delete clone.section_contact;

@@ -72,32 +72,9 @@ $site-footer: null !default;
   }
 }
 
-.ecl-site-footer__section--site-info {
-  background-color: brown;
-}
-
-.ecl-site-footer__section--core {
-  background-color: purple;
-}
-
-.ecl-site-footer__section--contact {
-  background-color: olive;
-}
-
-.ecl-site-footer__section--about {
-  background-color: tomato;
-}
-
-.ecl-site-footer__section--more {
-  background-color: forestgreen;
-}
-
-.ecl-site-footer__section--related {
-  background-color: goldenrod;
-}
-
-.ecl-site-footer__section--common {
-  background-color: darkslateblue;
+// Specific mobile styles
+.ecl-site-footer__section--common .ecl-site-footer__list {
+  margin-block-start: var(--s-3xl);
 }
 
 @include breakpoints.up('l') {
@@ -133,6 +110,11 @@ $site-footer: null !default;
         padding-inline-end: 0;
       }
     }
+  }
+
+  // Specific desktop styles
+  .ecl-site-footer__section--common .ecl-site-footer__list {
+    margin-block-start: var(--s-m);
   }
 
   .ecl-site-footer__section--site-info {
