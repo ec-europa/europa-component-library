@@ -221,7 +221,14 @@ This element is managed by Webtools, and has been removed from ECL showcase
 
 ### Site footer
 
-TODO
+Site footer EC has been completely revamped to accomodate new design (markup, css and data structure):
+
+- sections are now clearly identified
+- social media links are using the Social Media Follow component
+- data structure is less complex to use and maintain
+  See the component documentation and examples for more information
+
+EU footer hasn't changed, but is now using its own template file
 
 ## Js modifications
 
