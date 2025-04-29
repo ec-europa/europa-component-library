@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/theme-ec/mixins' as *;
 
 // Exposed variables
 $theme: null !default;
@@ -60,6 +61,14 @@ $page-header: null !default;
   font-weight: map.get($page-header, 'title', 'font-weight');
   letter-spacing: map.get($page-header, 'title', 'letter-spacing-mobile');
   margin-bottom: 0;
+
+  @include responsive-font(
+    (
+      'mobile-size': map.get($page-header, 'title', 'font-mobile'),
+      'desktop-size': map.get($page-header, 'title', 'font-desktop'),
+      'mobile-weight': map.get($page-header, 'title', 'font-weight'),
+    )
+  );
 }
 
 .ecl-page-header__meta + .ecl-page-header__title {
@@ -87,8 +96,6 @@ $page-header: null !default;
 
 @include breakpoints.up('m') {
   .ecl-page-header__title {
-    font: map.get($page-header, 'title', 'font-desktop');
-    font-weight: map.get($page-header, 'title', 'font-weight');
     letter-spacing: map.get($page-header, 'title', 'letter-spacing-desktop');
     margin-bottom: 0;
   }

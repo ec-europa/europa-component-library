@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/theme-ec/mixins' as *;
 
 // Exposed variables
 $theme: null !default;
@@ -119,18 +120,6 @@ $list-illustration: null !default;
 
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
-    }
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-list-illustration__value {
-    font: map.get($list-illustration, 'value', 'font-desktop-l');
-    font-weight: map.get($list-illustration, 'value', 'font-weight');
-
-    .ecl-list-illustration--font-m & {
-      font: map.get($list-illustration, 'value', 'font-desktop-m');
-      font-weight: map.get($list-illustration, 'value', 'font-weight');
     }
   }
 }

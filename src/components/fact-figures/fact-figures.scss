@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/theme-ec/mixins' as *;
 
 // Exposed variables
 $theme: null !default;
@@ -109,14 +110,6 @@ $fact-figures: null !default;
   .ecl-fact-figures__item {
     margin-top: 0;
     max-width: var(--max-w);
-  }
-
-  .ecl-fact-figures__value {
-    font: map.get($fact-figures, 'value-font-desktop-l');
-
-    .ecl-fact-figures--font-m & {
-      font: map.get($fact-figures, 'value-font-desktop-m');
-    }
   }
 
   .ecl-fact-figures__view-all {

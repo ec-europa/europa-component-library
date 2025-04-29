@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/theme-ec/mixins' as *;
 
 // Exposed variables
 $theme: null !default;
@@ -61,11 +62,18 @@ $language-list: null !default;
 }
 
 .ecl-splash-page__language-title {
-  font: map.get($language-list, 'header-font-mobile');
   margin: 0;
   padding-inline-start: calc(
     #{map.get($language-list, 'title-padding-start')} +
       #{map.get($language-list, 'item-active-border-width')}
+  );
+
+  @include responsive-font(
+    (
+      'mobile-size': map.get($language-list, 'header-font-mobile'),
+      'desktop-size': map.get($language-list, 'header-font-desktop'),
+      'desktop-weight': map.get($language-list, 'header-font-weight'),
+    )
   );
 }
 
@@ -198,11 +206,6 @@ $language-list: null !default;
       #{map.get($language-list, 'container-padding-mobile', 'inline-end')} +
         #{map.get($language-list, 'item-active-border-width')}
     );
-  }
-
-  .ecl-splash-page__language-title {
-    font: map.get($language-list, 'header-font-desktop');
-    font-weight: map.get($language-list, 'header-font-weight');
   }
 
   // Columns display
