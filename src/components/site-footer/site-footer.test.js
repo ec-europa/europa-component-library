@@ -13,11 +13,11 @@ import dataHarmonisedEU from '@ecl/site-footer/demo/data-harmonised--eu';
 
 expect.extend(toHaveNoViolations);
 
-describe('Site Footer', () => {
-  const template = '@ecl/site-footer/site-footer.html.twig';
+describe('Site Footer EC', () => {
+  const template = '@ecl/site-footer/site-footer-ec.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Core EC', () => {
+  describe('Core', () => {
     const options = dataCoreEC;
 
     test('renders correctly', () => {
@@ -55,7 +55,7 @@ describe('Site Footer', () => {
     });
   });
 
-  describe('Standardised EC', () => {
+  describe('Standardised', () => {
     const options = dataStandardisedEC;
 
     test('renders correctly', () => {
@@ -72,7 +72,7 @@ describe('Site Footer', () => {
     });
   });
 
-  describe('Harmonised EC', () => {
+  describe('Harmonised', () => {
     const options = dataHarmonisedEC;
 
     test('renders correctly', () => {
@@ -86,8 +86,13 @@ describe('Site Footer', () => {
       ).toHaveNoViolations();
     });
   });
+});
 
-  describe('Core EU', () => {
+describe('Site Footer EU', () => {
+  const template = '@ecl/site-footer/site-footer-eu.html.twig';
+  const render = (params) => renderTwigFileAsNode(template, params);
+
+  describe('Core', () => {
     const options = dataCoreEU;
 
     test('renders correctly', () => {
@@ -102,7 +107,7 @@ describe('Site Footer', () => {
     });
   });
 
-  describe('Harmonised EU', () => {
+  describe('Harmonised', () => {
     const options = dataHarmonisedEU;
 
     test('renders correctly', () => {
