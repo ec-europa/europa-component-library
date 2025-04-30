@@ -5,7 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/theme-ec/mixins' as *;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -32,7 +32,7 @@ $featured-item: null !default;
   color: map.get($featured-item, 'title', 'color');
   max-width: map.get($featured-item, 'max-width');
 
-  @include responsive-font(
+  @include mixins.responsive-font(
     (
       desktop-size: map.get($featured-item, 'title', 'font'),
       desktop-weight: map.get($featured-item, 'title', 'font-weight'),

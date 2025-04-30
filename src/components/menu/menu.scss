@@ -7,7 +7,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/theme-ec/mixins' as *;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -329,7 +329,7 @@ $menu: null !default;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
 
-  @include responsive-font(
+  @include mixins.responsive-font(
     (
       'mobile-size': map.get($menu, 'mobile', 'item-font'),
       'desktop-size': map.get($menu, 'desktop', 'item-font'),

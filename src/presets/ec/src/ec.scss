@@ -12,6 +12,11 @@
   $theme: theme.$theme
 );
 
+// Typography Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $theme: theme.$theme
+);
+
 // Forms
 @use '@ecl/form-group/form-group' with (
   $theme: theme.$theme,

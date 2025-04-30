@@ -5,7 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/theme-ec/mixins' as *;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -272,7 +272,7 @@ $language-list: null !default;
   min-height: 1.75rem;
   padding: var(--s-m) 0;
 
-  @include responsive-font(
+  @include mixins.responsive-font(
     (
       'mobile-size': var(--f-2xl),
       'desktop-size': var(--f-3xl),

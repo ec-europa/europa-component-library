@@ -5,7 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/theme-ec/mixins' as *;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -108,7 +108,7 @@ $banner: null !default;
   letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile');
   margin: 0;
 
-  @include responsive-font(
+  @include mixins.responsive-font(
     (
       'mobile-size': map.get($banner, 'font', 'title', 'mobile'),
       'desktop-size': map.get($banner, 'font', 'title', 'desktop-m'),
@@ -129,7 +129,7 @@ $banner: null !default;
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
 
-  @include responsive-font(
+  @include mixins.responsive-font(
     (
       'mobile-size': map.get($banner, 'font', 'description', 'mobile'),
       'desktop-size': map.get($banner, 'font', 'description', 'desktop-m'),

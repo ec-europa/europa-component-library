@@ -194,3 +194,14 @@ $font-print: (
   'xs': #{map.get($font-size-print, 'xs') + '/' +
     map.get($line-height-print, 'xs')} #{map.get($font-family-print, 'default')},
 ) !default;
+$font-size-map: (
+  '8xl': '7xl',
+  '6xl': '5xl',
+  '3xl': '2xl',
+  '2xl': '2xl',
+  'xl': 'xl',
+  'l': 'l',
+  'm': 'm',
+  's': 's',
+  'xs': 'xs',
+) !default;

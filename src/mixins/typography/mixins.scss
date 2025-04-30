@@ -1,19 +1,12 @@
 @use 'sass:map';
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
-@use '../maps/typography.scss' as typography;
 
-$font-size-map: (
-  '8xl': '7xl',
-  '6xl': '5xl',
-  '3xl': '2xl',
-  '2xl': '2xl',
-  'xl': 'xl',
-  'l': 'l',
-  'm': 'm',
-  's': 's',
-  'xs': 'xs',
-);
+$theme: null !default;
+$font-size-map: map.get($theme, 'font-size-map');
+$font-weight: map.get($theme, 'font-weight');
+$letter-spacing-compact: map.get($theme, 'letter-spacing-compact');
+$letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
 
 // Helper to check if value is a CSS variable
 @function is-var($value) {
@@ -53,7 +46,7 @@ $font-size-map: (
   $desktop-weight: if(
     map.has-key($config, 'desktop-weight'),
     map.get($config, 'desktop-weight'),
-    map.get(typography.$font-weight, 'regular')
+    map.get($font-weight, 'regular')
   );
   $mobile-weight: map.get($config, 'mobile-weight');
   $letter-spacing-type: map.get($config, 'letter-spacing-type');
@@ -82,15 +75,15 @@ $font-size-map: (
   // Letter-spacing
   @if $letter-spacing-type ==
     'compact' and
-    map.has-key(typography.$letter-spacing-compact, $desktop-key)
+    map.has-key($letter-spacing-compact, $desktop-key)
   {
-    letter-spacing: map.get(typography.$letter-spacing-compact, $desktop-key);
+    letter-spacing: map.get($letter-spacing-compact, $desktop-key);
   } @else if
     $letter-spacing-type ==
     'extended' and
-    map.has-key(typography.$letter-spacing-extended, $desktop-key)
+    map.has-key($letter-spacing-extended, $desktop-key)
   {
-    letter-spacing: map.get(typography.$letter-spacing-extended, $desktop-key);
+    letter-spacing: map.get($letter-spacing-extended, $desktop-key);
   }
 
   @if ($resolved-desktop-size != $resolved-mobile-size) or

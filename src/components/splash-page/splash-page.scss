@@ -5,7 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/theme-ec/mixins' as *;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -68,7 +68,7 @@ $language-list: null !default;
       #{map.get($language-list, 'item-active-border-width')}
   );
 
-  @include responsive-font(
+  @include mixins.responsive-font(
     (
       'mobile-size': map.get($language-list, 'header-font-mobile'),
       'desktop-size': map.get($language-list, 'header-font-desktop'),
