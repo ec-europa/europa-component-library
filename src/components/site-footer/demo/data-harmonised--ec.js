@@ -296,6 +296,8 @@ module.exports = {
           path: exampleLink,
         },
       },
+    ],
+    extra_links: [
       {
         link: {
           label: 'Contact',
