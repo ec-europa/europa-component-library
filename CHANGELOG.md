@@ -1,5 +1,15 @@
 # Changelog
 
+# 5.0.0-alpha.10
+
+#### :bug: Bug Fix
+
+- [#3966](https://github.com/ec-europa/europa-component-library/pull/3966) fix(featured-item): Fixing text color when using the default css and markup inside the description - FRONT-4887 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.9
 
 #### :bug: Bug Fix
