@@ -88,7 +88,7 @@ export const parameters = {
   },
   disableSaveFromUI: true,
   a11y: {
-    element: '#storybook-root',
+    context: '#storybook-root',
     config: {},
     options: {
       checks: { 'color-contrast': { options: { noScroll: true } } },
