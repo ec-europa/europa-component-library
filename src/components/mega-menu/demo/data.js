@@ -59,19 +59,6 @@ module.exports = {
                 extra_classes: 'featrured-link-extra-class',
                 description:
                   'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-              },
-              {
-                path: exampleLink,
-                picture: {
-                  img: {
-                    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
-                    alt: 'Jean Monnet banner',
-                  },
-                },
-              },
-              {
-                label: 'Featured link 2',
-                path: exampleLink,
                 external: true,
                 sr_external: 'this is an external link',
                 extra_attributes: [
@@ -124,6 +111,11 @@ module.exports = {
         title: 'About key priorities',
         content:
           'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+          },
+        },
       },
       children: [
         {

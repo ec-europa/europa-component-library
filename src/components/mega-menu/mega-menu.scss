@@ -975,7 +975,7 @@ $mega-menu: null !default;
       }
 
       &--image-only {
-        margin-block-end: var(--s-xs);
+        margin-block-end: var(--s-2xs);
       }
     }
   }
@@ -1174,6 +1174,7 @@ $mega-menu: null !default;
         display: block;
         flex-grow: 0;
         margin-top: auto;
+        padding-inline-start: var(--s-xs);
         position: relative;
 
         .ecl-link {
@@ -1196,7 +1197,7 @@ $mega-menu: null !default;
           display: block;
           height: 1px;
           position: absolute;
-          left: var(--s-s);
+          left: var(--s-l);
           width: calc(100% - (var(--s-l) * 2));
           background: map.get($mega-menu, 'desktop', 'see-all-divider');
         }
