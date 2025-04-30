@@ -81,11 +81,31 @@
     <div class="ecl-site-footer__description">{{ _section.description }}</div>
   {% endif %}
 
-  {# Social media #}
-  {% if _section.social_media is not empty %}
-    {% include '@ecl/social-media-follow/social-media-follow.html.twig' with _section.social_media|merge({
-      extra_classes: 'ecl-site-footer__social-media',
-    }) only %}
+  {# Social media and extra links #}
+  {% if _section.social_media is not empty or _section.extra_links is not empty %}
+    {% if _section.extra_links is not empty %}
+      <div class="ecl-site-footer__extra-links-container">
+    {% endif %}
+
+    {% if _section.social_media is not empty %}
+      {% include '@ecl/social-media-follow/social-media-follow.html.twig' with _section.social_media|merge({
+        extra_classes: 'ecl-site-footer__social-media',
+      }) only %}
+    {% endif %}
+
+    {% if _section.extra_links is not empty %}
+        <ul class="ecl-site-footer__list ecl-site-footer__list--inline">
+          {% for _item in _section.extra_links %}
+            <li class="ecl-site-footer__list-item">
+              {% include '@ecl/link/link.html.twig' with _item|merge({
+                link: _item.link|default({})|merge({ type: 'standalone', inverted: true }),
+                extra_classes: 'ecl-site-footer__link',
+              }) only %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   {% endif %}
 
   {# Links #}
