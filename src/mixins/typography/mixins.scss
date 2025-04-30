@@ -3,7 +3,11 @@
 @use '@ecl/grid/mixins/breakpoints';
 
 $theme: null !default;
-$font-size-map: map.get($theme, 'font-size-map');
+$font-size-map: if(
+  map.has-key($theme, 'font-size-map'),
+  map.get($theme, 'font-size-map'),
+  ()
+);
 $font-weight: map.get($theme, 'font-weight');
 $letter-spacing-compact: map.get($theme, 'letter-spacing-compact');
 $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
