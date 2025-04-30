@@ -5,7 +5,7 @@ const { apps } = rootPkg;
 const app = apps['storybook-ec'];
 
 const cp = spawn(
-  'sb',
+  'storybook',
   [`dev`, `-p`, `${app.port}`, `-c`, `.storybook`, `--ci`],
   { stdio: 'inherit' },
 );
