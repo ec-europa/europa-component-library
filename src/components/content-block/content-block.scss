@@ -132,7 +132,11 @@ $content-block: null !default;
 .ecl-content-block__link-item {
   font: map.get($content-block, 'link-font');
   line-height: map.get($theme, 'line-height', 'm');
-  padding: map.get($content-block, 'link-padding');
+  margin-block-start: map.get($content-block, 'link-spacing');
+
+  &:first-child {
+    margin-block-start: 0;
+  }
 }
 
 .ecl-content-block__list-container {
