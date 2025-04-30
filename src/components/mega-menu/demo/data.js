@@ -74,6 +74,7 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'See all',
+          sublink_id: 'item-2.3-that-has-a-very-long-label-id',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
             {

@@ -1220,6 +1220,10 @@ $mega-menu: null !default;
       transition-property: opacity;
       transition-duration: 0.3s;
 
+      &.ecl-mega-menu-featured-only {
+        background: var(--cm-surface-inverted, #fff);
+      }
+
       > .ecl-mega-menu__sublist {
         border: none;
         position: relative;
@@ -1401,10 +1405,6 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__mega {
         width: 18.75rem;
-      }
-
-      .ecl-mega-menu-featured-only {
-        background: var(--cm-surface-inverted, #fff);
       }
 
       .ecl-mega-menu__featured {
