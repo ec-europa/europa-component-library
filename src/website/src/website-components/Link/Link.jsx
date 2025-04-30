@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 import styles from './Link.module.scss';
 
@@ -25,9 +24,7 @@ function StyledLink({ className, standalone, to, label, children, ...props }) {
         rel="noopener noreferrer"
       >
         {label || children}&nbsp;
-        <svg focusable="false" aria-hidden="true" className={styles.icon}>
-          <use xlinkHref={`${icons}#external`} />
-        </svg>
+        <span className={`wt-icon--external ${styles.icon}`} />
       </a>
     );
   }

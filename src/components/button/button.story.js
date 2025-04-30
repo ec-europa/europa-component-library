@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/list.json';
 import dataPrimary from './demo/data--primary';
 import dataSecondary from './demo/data--secondary';
 import dataCall from './demo/data--call';
@@ -190,7 +190,6 @@ const prepareData = (data, args) => {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.size = 'xs';
-    data.icon.path = 'icon.svg';
     data.icon.transform =
       args.icon_transform !== 'none' ? args.icon_transform : '';
     data.icon_position = args.icon_position;

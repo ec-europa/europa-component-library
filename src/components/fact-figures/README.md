@@ -39,7 +39,6 @@ npm install --save @ecl/fact-figures
   items: [ 
     { 
       icon: { 
-        path: "/icons.svg",
         name: "digital", 
       }, 
       value: "00.0 million", 
@@ -48,7 +47,6 @@ npm install --save @ecl/fact-figures
     }, 
     { 
       icon: { 
-        path: "/icons.svg",
         name: "digital", 
       }, 
       value: "00.0 million", 

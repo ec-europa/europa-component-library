@@ -37,7 +37,6 @@ npm install --save @ecl/featured-item
       icon_position: 'after', 
     }, 
     icon: { 
-      path: '/icons.svg', 
       name: 'external', 
       size: 'xs', 
     }, 

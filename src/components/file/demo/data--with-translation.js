@@ -8,23 +8,16 @@ module.exports = {
   icon: {
     name: 'file',
     size: '2xl',
-    path: '/icons.svg',
   },
   download: {
     link: {
       label: 'Download',
       path: exampleLink,
     },
-    icon: {
-      path: '/icons.svg',
-    },
   },
   translation: {
     toggle: {
       label: 'Translations (3)',
-      icon: {
-        path: '/icons.svg',
-      },
     },
     items: [
       {
@@ -35,9 +28,6 @@ module.exports = {
           link: {
             label: 'Download',
             path: '/example#bg',
-          },
-          icon: {
-            path: '/icons.svg',
           },
         },
         download_attribute: false,
@@ -51,9 +41,6 @@ module.exports = {
             label: 'Download',
             path: '/example#es',
           },
-          icon: {
-            path: '/icons.svg',
-          },
         },
         download_attribute: true,
       },
@@ -65,9 +52,6 @@ module.exports = {
           link: {
             label: 'Download',
             path: '/example#fr',
-          },
-          icon: {
-            path: '/icons.svg',
           },
         },
       },

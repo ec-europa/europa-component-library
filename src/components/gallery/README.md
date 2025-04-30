@@ -36,7 +36,6 @@ npm install --save @ecl/gallery
   - "share_path" (optional) (string) (default: '')
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
-- **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
@@ -96,7 +95,6 @@ npm install --save @ecl/gallery
       description: 'Living, working, travelling in the EU', 
       meta: 'Copyright, Author, Licence for image 2', 
       icon: { 
-        path: 'path/to/icons.svg', 
         name: 'audio', 
       }, 
       share_href: '/share#example-image2.jpg', 
@@ -110,7 +108,6 @@ npm install --save @ecl/gallery
       aria_label: "View all link aria-label value" 
     }, 
     icon: { 
-      path: "/icons.svg", 
       name: "external", 
       size: "s" 
     } 
@@ -120,7 +117,6 @@ npm install --save @ecl/gallery
       variant: 'ghost', 
       label: 'Close', 
       icon: { 
-        path: 'path/to/icons.svg', 
         name: 'close', 
         size: 's', 
       }, 
@@ -129,7 +125,6 @@ npm install --save @ecl/gallery
       variant: 'ghost', 
       label: 'Previous', 
       icon: { 
-        path: 'path/to/icons.svg', 
         name: 'corner-arrow', 
         transform: 'rotate-270', 
         size: 'l', 
@@ -140,7 +135,6 @@ npm install --save @ecl/gallery
       variant: 'ghost', 
       label: 'Next', 
       icon: { 
-        path: 'path/to/icons.svg', 
         name: 'corner-arrow', 
         transform: 'rotate-90', 
         size: 'l', 
@@ -151,7 +145,6 @@ npm install --save @ecl/gallery
     share: { 
       label: 'Share', 
       icon: { 
-        path: 'path/to/icons.svg', 
         name: 'share', 
         size: 'fluid', 
       }, 

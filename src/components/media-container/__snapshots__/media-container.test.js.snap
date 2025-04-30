@@ -138,16 +138,10 @@ exports[`Media Container infographic renders correctly 1`] = `
           >
             Collapsed
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+          <span
+            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
             data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
+          />
         </span>
       </button>
       <div
@@ -199,16 +193,10 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
           <span
             class="ecl-button__container"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--m ecl-button__icon"
+            <span
+              class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
               data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="#play-outline"
-              />
-            </svg>
+            />
           </span>
         </button>
         <button
@@ -219,16 +207,10 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
           <span
             class="ecl-button__container"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--m ecl-button__icon"
+            <span
+              class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
               data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="#pause-outline"
-              />
-            </svg>
+            />
           </span>
         </button>
       </div>
@@ -253,6 +235,7 @@ exports[`Media Container video renders correctly 1`] = `
           class="ecl-video ecl-media-container__media"
           controls=""
           data-ecl-media-container-video=""
+          playsinline=""
           poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
         >
           <source
@@ -320,6 +303,7 @@ exports[`Media Container video with old data renders correctly 1`] = `
           class="ecl-video ecl-media-container__media"
           controls=""
           data-ecl-media-container-video=""
+          playsinline=""
           poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
         >
           <source

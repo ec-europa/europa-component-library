@@ -8,7 +8,6 @@ module.exports = {
     from: 5,
     to: -2,
   },
-  icon_path: '/icon.svg',
   items: [
     {
       label: '1995 - 1996',

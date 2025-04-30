@@ -16,7 +16,6 @@ Parameters:
 - **"links"** (associative array) (default: predefined structure):
   - href: (string) (default: '')
   - label: (string) (default: '')
-- **"icon_path"** (string) (default: ''): path to the icons svg
 - **"icon_size"** (string) (default: 'xs') size of the toggle icon
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -47,6 +46,5 @@ Parameters:
       label: "Heading 4" 
     }, 
   ], 
-  icon_path: '/static/media/icons.svg' 
 } %}
 ```

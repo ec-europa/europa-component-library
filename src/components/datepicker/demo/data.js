@@ -2,7 +2,6 @@ module.exports = {
   label: 'Label',
   helper_text: "This is the input's helper text.",
   invalid_icon: {
-    path: '/icons.svg',
     name: 'error',
   },
   sr_invalid_icon: 'Error',
@@ -21,6 +20,5 @@ module.exports = {
     autoinit: true,
     required: true,
     default_value: '03-10-2023',
-    icon_path: '/icons.svg',
   },
 };

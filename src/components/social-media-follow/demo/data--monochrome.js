@@ -11,8 +11,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'facebook',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -22,8 +23,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'instagram',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -33,8 +35,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'mastodon',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -44,8 +47,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'linkedin',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -55,8 +59,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'telegram',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
     {
@@ -66,8 +71,9 @@ module.exports = {
         icon_position: 'before',
       },
       icon: {
-        path: '/icon-social-media.svg',
         name: 'chain',
+        family: 'networks',
+        style: 'monochrome',
       },
     },
   ],

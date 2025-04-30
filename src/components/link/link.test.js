@@ -14,7 +14,6 @@ expect.extend(toHaveNoViolations);
 describe('Link', () => {
   const template = '@ecl/link/link.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
-  const defaultIconPath = 'static/icons.svg';
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -52,7 +51,6 @@ describe('Link', () => {
       },
       icon: {
         size: 'fluid',
-        path: defaultIconPath,
       },
     });
 
@@ -66,12 +64,10 @@ describe('Link', () => {
     const options = merge(dataStandalone, {
       link: {
         external: true,
-        icon_path: defaultIconPath,
         sr_external: 'Links to an external url',
       },
       icon: {
         size: 'fluid',
-        path: defaultIconPath,
         name: 'test',
       },
     });
@@ -93,12 +89,10 @@ describe('Link', () => {
         {
           name: 'external',
           size: 'fluid',
-          path: defaultIconPath,
         },
         {
           name: 'download',
           size: 'fluid',
-          path: defaultIconPath,
         },
       ],
     });
@@ -130,12 +124,10 @@ describe('Link', () => {
         {
           name: 'external',
           size: 'fluid',
-          path: defaultIconPath,
         },
         {
           name: 'download',
           size: 'fluid',
-          path: defaultIconPath,
         },
       ],
     });
@@ -165,7 +157,6 @@ describe('Link', () => {
       icon: {
         name: 'external',
         size: 'fluid',
-        path: defaultIconPath,
         extra_classes: 'ecl-test-extra-class',
       },
     });
@@ -192,7 +183,6 @@ describe('Link', () => {
       icon: {
         name: 'external',
         size: 'fluid',
-        path: defaultIconPath,
         extra_classes: 'ecl-test-extra-class',
       },
     });
@@ -235,7 +225,6 @@ describe('Link', () => {
       icon: {
         name: 'corner-arrow',
         size: 'fluid',
-        path: defaultIconPath,
         transform: 'rotate-90',
       },
     });
@@ -260,7 +249,6 @@ describe('Link', () => {
       icon: {
         name: 'corner-arrow',
         size: 'fluid',
-        path: defaultIconPath,
         transform: 'rotate-90',
       },
     });

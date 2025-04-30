@@ -58,7 +58,6 @@ module.exports = {
       close: {
         label: 'Close',
         icon: {
-          path: '/icons.svg',
           name: 'close',
           size: 'm',
         },
@@ -272,13 +271,11 @@ module.exports = {
       href: exampleLink,
     },
     icon: {
-      path: '/icons.svg',
       name: 'corner-arrow',
       size: 'fluid',
       transform: 'rotate-90',
     },
   },
-  icon_path: '/icons.svg',
   banner_top: {
     link: {
       label: 'Aid, Development cooperation, Fundamental rights',
@@ -288,14 +285,12 @@ module.exports = {
   notification: {
     variant: 'info',
     icon: {
-      path: '/icons.svg',
       name: 'information',
       size: 'l',
     },
     close: {
       label: 'Close',
       icon: {
-        path: '/icons.svg',
         name: 'close',
         size: 'm',
       },

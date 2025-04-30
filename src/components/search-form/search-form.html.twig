@@ -63,7 +63,6 @@
   {% if _button is not empty %}
     {% include '@ecl/button/button.html.twig' with _button|merge({
       icon: {
-        path: _button.icon.path,
         name: 'search',
         size: 'xs',
       },

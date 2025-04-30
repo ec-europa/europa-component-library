@@ -50,7 +50,6 @@ npm install --save @ecl/description-list
           },
           icon: {
             name: 'copy',
-            path: '/icons.svg',
             size: 's',
           },
         },
@@ -62,7 +61,6 @@ npm install --save @ecl/description-list
           },
           icon: {
             name: 'download',
-            path: '/icons.svg',
             size: 's',
           },
         },

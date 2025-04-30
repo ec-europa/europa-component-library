@@ -108,7 +108,6 @@ describe('Button', () => {
       label: 'CTA Button with icon only',
       variant: 'cta',
       icon: {
-        path: 'static/icons.svg',
         name: 'corner-arrow',
         size: 'fluid',
       },
@@ -133,7 +132,6 @@ describe('Button', () => {
       label: 'CTA Button with indicator',
       variant: 'cta',
       icon: {
-        path: 'static/icons.svg',
         name: 'corner-arrow',
         size: 'fluid',
       },
@@ -162,7 +160,6 @@ describe('Button', () => {
       variant: 'cta',
       icon_position: 'before',
       icon: {
-        path: 'static/icons.svg',
         name: 'corner-arrow',
         size: 'fluid',
       },
@@ -186,7 +183,6 @@ describe('Button', () => {
       label: 'CTA Button with icon after',
       variant: 'cta',
       icon: {
-        path: 'static/icons.svg',
         name: 'corner-arrow',
         size: 'fluid',
       },

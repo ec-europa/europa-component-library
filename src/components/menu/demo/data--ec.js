@@ -9,7 +9,6 @@ module.exports = {
   toggle: {
     label: 'Menu',
     icon: {
-      path: '/icons.svg',
       name: 'hamburger',
       size: 'm',
     },
@@ -17,7 +16,6 @@ module.exports = {
   close: {
     label: 'Close',
     icon: {
-      path: '/icons.svg',
       name: 'close',
       size: 'm',
     },
@@ -27,7 +25,6 @@ module.exports = {
   see_all_label: 'See all pages',
   button_previous_label: 'Previous items',
   button_next_label: 'Next items',
-  icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
     {

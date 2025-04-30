@@ -12,7 +12,6 @@
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
-        icon_path: (string) (default: '')
         external: (boolean) (default: false)
         sr_external: (string) (default: '') Additional label for external icon
         hide_label: (boolean) (default: false) hide link label, for screen reader only. Note: requires to have an icon defined
@@ -57,7 +56,6 @@
   external: false,
   sr_external: '',
   hide_label: false,
-  icon_path: '',
   indicator: {}
 } %}
 {% set _extra_accessibility = extra_accessibility|default({}) %}
@@ -65,7 +63,6 @@
 
 {% set _icon = {
   name: '',
-  path: '',
   size: '',
   title: ''
 } %}
@@ -77,10 +74,9 @@
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% if _link.external and _link.icon_path is not empty %}
+{% if _link.external %}
   {% set _icons = [_icon|merge({
     name: 'external',
-    path: _link.icon_path,
     size: '2xs',
     title: _extra_accessibility.title is empty and _icon.title is empty and _link.sr_external is not empty ? _link.sr_external : '',
   })] %}

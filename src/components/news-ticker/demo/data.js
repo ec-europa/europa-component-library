@@ -4,7 +4,6 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'news-ticker-example',
-  icon_path: '/icons.svg',
   counter_label: 'of',
   sr_external: 'Link to an external domain',
   sr_next: 'Next item',

@@ -4,12 +4,13 @@
   Parameters:
     - "icon" (associative array) (default: predefined structure): format:
         {
-          path: '/static/media/icons.cbfd6efe.svg',
           name: '',
           size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
           transform: '' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
           color: '' (available options: 'default', 'inverted', 'primary')
           title: '' (additional title for the icon; shortcut for extra accessibility title)
+          family (string) (default: ''): icon family
+          style: (string) (default: ''): icon style; mostly used for social networks icons, can be 'primary', 'monochrome', 'inverted'
         }
     - "as_image": false,
     - "extra_accessibility" : {
@@ -31,12 +32,13 @@
 {# Internal properties #}
 
 {% set _icon = {
-  path: '',
   name: '',
   size: 'm',
   transform: '',
   color: '',
   title: '',
+  family: '',
+  style: '',
 }|merge(icon|default({})) %}
 
 {% set _extra_accessibility = {
@@ -58,6 +60,7 @@
 {% if _extra_accessibility.title is not empty %}
   {% set _as_image = 'true' %}
   {% set _extra_accessibility = _extra_accessibility|merge({role: 'img'}) %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'title', value: _extra_accessibility.title }]) %}
 {% endif %}
 
 {% if _as_image %}
@@ -79,9 +82,9 @@
     { name: 'role', value: _extra_accessibility.role },
   ]) %}
 {% endif %}
-  
-{% if _extra_accessibility.title_id is not empty or _extra_accessibility.description_id is not empty %}
-  {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
+
+{% if _extra_accessibility.description is not empty %}
+  {% set extra_attributes = extra_attributes|merge([{ name: 'data-desc', value: _extra_accessibility.description }]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -96,30 +99,24 @@
 
 {# Print the result #}
 
-<svg
-  class="{{ _css_class }}"
-  focusable="false"
-  aria-hidden="{{ _aria_hidden }}"
-  {{ _extra_attributes|raw }}>
-{% if _extra_accessibility.title is not empty %}
-  <title
-  {% if _extra_accessibility.title_id is not empty %}
-    id="{{ _extra_accessibility.title_id }}"
-  {% endif %}
-  >
-    {{- _extra_accessibility.title -}}
-  </title>
-  {% endif %}
-{% if _extra_accessibility.description is not empty %}
-  <desc
-  {% if _extra_accessibility.description_id is not empty %}
-    id="{{ _extra_accessibility.description_id }}"
-  {% endif %}
-  >
-    {{- _extra_accessibility.description -}}
-  </desc>
+{% set _wt_classes = '' %}
+{% set _full_name = '' %}
+{% if _icon.family is not empty %}
+  {% set _full_name = _full_name ~ '-' ~ _icon.family %}
 {% endif %}
-  <use xlink:href="{{ _icon.path }}#{{ _icon.name }}"></use>
-</svg>
+{% if _icon.name is not empty %}
+  {% set _full_name = _full_name ~ '--' ~ _icon.name %}
+{% endif %}
+{% set _wt_classes = 'wt-icon' ~ _full_name %}
+{% set _css_class = _css_class  ~ ' ecl-icon' ~ _full_name %}
+
+{% if _icon.style is not empty %}
+  {% set _wt_classes = _wt_classes ~ ' wt-icon--' ~ _icon.style %}
+{% endif %}
+
+<span 
+  class="{{ _wt_classes }} {{ _css_class }}"
+  {{ _extra_attributes|raw }}>
+</span>
 
 {% endapply %}

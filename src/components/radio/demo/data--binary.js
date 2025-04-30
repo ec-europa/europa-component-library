@@ -6,13 +6,12 @@ module.exports = {
   disabled: false,
   invalid: false,
   label: 'Do you need help?',
-  helper_text: 'Helper text for the group',
-  invalid_text: 'Error message for the group',
+  invalid_text: 'This is the error message',
   invalid_icon: {
-    path: '/icons.svg',
     name: 'error',
   },
   sr_invalid_icon: 'Error',
+  helper_text: 'Helper text for the group',
   input: {
     id: 'radio-default',
     input_type: 'radio',
