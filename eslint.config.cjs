@@ -1,16 +1,15 @@
-const js = require('@eslint/js')
-const babelParser = require('@babel/eslint-parser')
-const standard = require('eslint-config-standard')
+const js = require('@eslint/js');
+const babelParser = require('@babel/eslint-parser');
+const standard = require('eslint-config-standard');
 
-const reactPlugin = require('eslint-plugin-react')
-const jsxA11yPlugin = require('eslint-plugin-jsx-a11y')
+const reactPlugin = require('eslint-plugin-react');
+const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
 const prettierPlugin = require('eslint-plugin-prettier');
 
-const prettierConfig = require('eslint-config-prettier')
-const importPlugin = require('eslint-plugin-import')
-const nPlugin = require('eslint-plugin-n')
-const promisePlugin = require('eslint-plugin-promise')
-const jestPlugin = require('eslint-plugin-jest')
+const importPlugin = require('eslint-plugin-import');
+const nPlugin = require('eslint-plugin-n');
+const promisePlugin = require('eslint-plugin-promise');
+const jestPlugin = require('eslint-plugin-jest');
 
 module.exports = [
   js.configs.recommended,
@@ -22,8 +21,8 @@ module.exports = [
         sourceType: 'module',
         requireConfigFile: false,
         ecmaFeatures: {
-          jsx: true
-        }
+          jsx: true,
+        },
       },
       globals: {
         ECL: 'writable',
@@ -53,8 +52,8 @@ module.exports = [
         __dirname: 'readonly',
         URLSearchParams: 'readonly',
         module: 'readonly',
-        __filename: 'readonly'
-      }
+        __filename: 'readonly',
+      },
     },
     plugins: {
       jest: jestPlugin,
@@ -73,30 +72,30 @@ module.exports = [
       'no-param-reassign': 'off',
       'comma-dangle': 'off',
       'multiline-ternary': 'off',
-      'indent': 'off',
+      indent: 'off',
       'prettier/prettier': 'error',
       'space-before-function-paren': 'off',
-      'semi': 'off',
+      semi: 'off',
       'no-unused-vars': [
         'error',
         {
           vars: 'all',
           args: 'after-used',
           ignoreRestSiblings: true,
-          varsIgnorePattern: '^React$' // Ignore React import
-        }
-      ]
+          varsIgnorePattern: '^React$', // Ignore React import
+        },
+      ],
     },
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.js', '.jsx', '.json', '.svg']
-        }
+          extensions: ['.js', '.jsx', '.json', '.svg'],
+        },
       },
       react: {
-        version: '19.1.0'
-      }
-    }
+        version: '19.1.0',
+      },
+    },
   },
   // Website-level React overrides
   {
@@ -105,8 +104,8 @@ module.exports = [
       globals: {
         document: 'readonly',
         window: 'readonly',
-        navigator: 'readonly'
-      }
+        navigator: 'readonly',
+      },
     },
     rules: {
       'react/forbid-prop-types': 'off',
@@ -115,8 +114,8 @@ module.exports = [
       'import/prefer-default-export': 'off',
       'react/jsx-no-useless-fragment': 'off',
       'react/no-unstable-nested-components': 'off',
-      'react/display-name': 'off'
-    }
+      'react/display-name': 'off',
+    },
   },
   // Component-specific overrides
   {
@@ -124,14 +123,14 @@ module.exports = [
     languageOptions: {
       globals: {
         document: 'readonly',
-        window: 'readonly'
-      }
+        window: 'readonly',
+      },
     },
     rules: {
       'react/jsx-props-no-spreading': 'off',
       'react/jsx-no-useless-fragment': 'off',
-      'react/no-unused-class-component-methods': 'off'
-    }
+      'react/no-unused-class-component-methods': 'off',
+    },
   },
   // Test files
   {
@@ -141,12 +140,12 @@ module.exports = [
         process: 'readonly', // Explicitly add process here for tests
         document: 'readonly',
         window: 'readonly',
-        navigator: 'readonly'
-      }
+        navigator: 'readonly',
+      },
     },
     rules: {
-      'no-undef': 'off'
-    }
+      'no-undef': 'off',
+    },
   },
   // Scripts: allow console, process, require, etc.
   {
@@ -158,33 +157,33 @@ module.exports = [
         require: 'readonly',
         module: 'readonly',
         __dirname: 'readonly',
-        __filename: 'readonly'
-      }
+        __filename: 'readonly',
+      },
     },
     rules: {
-      'no-console': 'off'
-    }
+      'no-console': 'off',
+    },
   },
   // Website index legacy override
   {
     files: ['src/website/src/Index.jsx'],
     rules: {
-      'react/no-deprecated': 'off'
-    }
+      'react/no-deprecated': 'off',
+    },
   },
   // Demo files: ignore module resolution
   {
     files: ['**/demo/*.js'],
     rules: {
-      'import/no-unresolved': 'off'
-    }
+      'import/no-unresolved': 'off',
+    },
   },
   // Playground
   {
     files: ['src/playground/addons/**/*.{js,jsx}'],
     rules: {
-      'react/jsx-props-no-spreading': 'off'
-    }
+      'react/jsx-props-no-spreading': 'off',
+    },
   },
   {
     ignores: [
@@ -199,7 +198,7 @@ module.exports = [
       '**/static',
       'src/website/src/Index.jsx',
       'src/website/public/playground',
-      'src/website/public/apis'
-    ]
-  }
-]
+      'src/website/public/apis',
+    ],
+  },
+];
