@@ -17,6 +17,6 @@ module.exports = {
     // Might be re-enabled once the current issues are fixed
     'declaration-block-no-redundant-longhand-properties': null,
     // Disable checks because automated fixes would be breaking
-    'color-function-notation': null,
-  },
-};
+    'color-function-notation': null
+  }
+}

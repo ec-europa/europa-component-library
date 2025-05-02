@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import getSystem from '@ecl/builder/utils/getSystem';
 
 export const correctPaths = (data) => {
@@ -290,7 +289,7 @@ export const getFormControls = (data, type) => {
     argTypes.name = {
       name: 'name',
       type: 'string',
-      description: `Name attribute`,
+      description: 'Name attribute',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },

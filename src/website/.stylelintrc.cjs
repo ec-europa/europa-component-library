@@ -2,7 +2,7 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-standard-scss',
-    'stylelint-config-css-modules',
+    'stylelint-config-css-modules'
   ],
   rules: {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['use'] }],
@@ -25,6 +25,6 @@ module.exports = {
     // Disable checks because automated fixes would be breaking
     'color-function-notation': null,
     // Disabled because triggered by negative values
-    'scss/function-no-unknown': null,
-  },
-};
+    'scss/function-no-unknown': null
+  }
+}

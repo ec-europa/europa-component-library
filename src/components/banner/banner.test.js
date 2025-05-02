@@ -18,13 +18,13 @@ describe('Banner', () => {
   describe('Image', () => {
     const data = bannerDataImage;
 
-    test(`renders correctly`, () => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
-    test(`renders correctly without title, description and link`, () => {
+    test('renders correctly without title, description and link', () => {
       expect.assertions(1);
 
       const dataNoDescNoTitle = JSON.parse(JSON.stringify(bannerDataImage));
@@ -75,7 +75,7 @@ describe('Banner', () => {
       return expect(render(dataClone)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();
@@ -85,13 +85,13 @@ describe('Banner', () => {
   describe('Video', () => {
     const data = bannerDataVideo;
 
-    test(`renders correctly`, () => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
-    test(`renders correctly with extra attributes for the video`, () => {
+    test('renders correctly with extra attributes for the video', () => {
       expect.assertions(1);
       const dataVideo = {
         ...data.video,

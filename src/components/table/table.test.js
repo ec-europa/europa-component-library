@@ -76,7 +76,7 @@ describe('Table', () => {
         row.extra_attributes = [
           { name: 'data-test' },
           { name: 'data-test-another', value: 'value' },
-        ]; // eslint-disable-line no-param-reassign
+        ];
       });
 
       return expect(render(withRowExtraAttributes)).resolves.toMatchSnapshot();
@@ -87,13 +87,13 @@ describe('Table', () => {
 
       const withRowExtraClasses = dataDefault;
       withRowExtraClasses.rows.forEach((row, i) => {
-        row.extra_classes = `row-extra-class-${i}`; // eslint-disable-line no-param-reassign
+        row.extra_classes = `row-extra-class-${i}`;
       });
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();

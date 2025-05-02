@@ -26,7 +26,7 @@ describe('Button', () => {
       return expect(render(dataPrimary)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataPrimary)),
       ).toHaveNoViolations();
@@ -40,7 +40,7 @@ describe('Button', () => {
       return expect(render(dataSecondary)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataSecondary)),
       ).toHaveNoViolations();
@@ -54,7 +54,7 @@ describe('Button', () => {
       return expect(render(dataTertiary)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataTertiary)),
       ).toHaveNoViolations();
@@ -68,7 +68,7 @@ describe('Button', () => {
       return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCall, true)),
       ).toHaveNoViolations();
@@ -82,7 +82,7 @@ describe('Button', () => {
       return expect(render(dataGhost)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataGhost)),
       ).toHaveNoViolations();
@@ -96,7 +96,7 @@ describe('Button', () => {
       return expect(render(dataGhostInverted)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataGhostInverted)),
       ).toHaveNoViolations();
@@ -120,7 +120,7 @@ describe('Button', () => {
       return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCall)),
       ).toHaveNoViolations();
@@ -147,7 +147,7 @@ describe('Button', () => {
       return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCall)),
       ).toHaveNoViolations();
@@ -171,7 +171,7 @@ describe('Button', () => {
       return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCall)),
       ).toHaveNoViolations();
