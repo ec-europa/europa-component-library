@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router'; // Use the useLocation hook
 
 import styles from './LinkGroup.module.scss';
-import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
+import LinkList from './LinkList';
 
 const LinkGroup = React.memo(({ pages, level, showStatus, group }) => {
   const location = useLocation(); // Get the location object from the hook

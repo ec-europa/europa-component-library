@@ -75,7 +75,7 @@ export class CategoryFilter {
         if (item.getAttribute('aria-current')) {
           e.target = item;
           this.handleClickExpand(e);
-          this.expandParents.call(this, item);
+          this.expandParents(item);
         }
       });
     }
@@ -111,7 +111,7 @@ export class CategoryFilter {
     if (parent && parent.classList.contains(this.parentItemSelector)) {
       e.target = parent;
       this.handleClickExpand(e);
-      this.expandParents.call(this, parent);
+      this.expandParents(parent);
     }
   }
 

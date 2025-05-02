@@ -721,7 +721,7 @@ export class Gallery {
    *
    * @param {Event} e
    */
-  // eslint-disable-next-line class-methods-use-this
+
   preventClickOnItem(e) {
     e.preventDefault();
     e.stopPropagation();

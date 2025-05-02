@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { addons, makeDecorator } from '@storybook/preview-api';
 import { marked } from 'marked';
 import Prism from 'prismjs';
@@ -85,7 +84,7 @@ function renderMarkdown(text, options, json) {
     specs = [specs.slice(0, n), '\n', specs.slice(n)].join('');
     const preTwig = text.slice(0, Math.max(0, text.indexOf("twig' with {")));
     const postTwig = text.split('```').pop();
-    // eslint-disable-next-line prefer-template
+
     text = preTwig + "twig' with \n" + specs + postTwig + ' %}\n```';
   }
   marked.use({ renderer });

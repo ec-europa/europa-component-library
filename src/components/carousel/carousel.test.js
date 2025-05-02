@@ -43,7 +43,7 @@ describe('Carousel', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
     jest.setTimeout(15000);
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();

@@ -5,7 +5,8 @@ module.exports = {
       alt: 'Infographic alt text',
     },
   },
-  description: `Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing<br />@Copyright`,
+  description:
+    'Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing<br />@Copyright',
   expandable: {
     id: 'expandable-example',
     button: {

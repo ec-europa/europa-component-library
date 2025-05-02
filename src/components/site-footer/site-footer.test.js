@@ -48,7 +48,7 @@ describe('Site Footer', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCoreEC, true)),
       ).toHaveNoViolations();
@@ -63,7 +63,7 @@ describe('Site Footer', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, dataStandardisedEC, true),
@@ -80,7 +80,7 @@ describe('Site Footer', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataHarmonisedEC, true)),
       ).toHaveNoViolations();
@@ -95,7 +95,7 @@ describe('Site Footer', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCoreEU, true)),
       ).toHaveNoViolations();
@@ -110,7 +110,7 @@ describe('Site Footer', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataHarmonisedEU, true)),
       ).toHaveNoViolations();

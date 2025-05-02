@@ -58,7 +58,7 @@ describe('Tag', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataLink, true)),
       ).toHaveNoViolations();
@@ -71,7 +71,7 @@ describe('Tag', () => {
       return expect(render(dataRemovable)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataRemovable, true)),
       ).toHaveNoViolations();
@@ -111,7 +111,7 @@ describe('Tag', () => {
       ).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(templateSet, dataSet, true)),
       ).toHaveNoViolations();

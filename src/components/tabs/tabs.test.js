@@ -63,7 +63,7 @@ describe('Tabs', () => {
       return expect(render(withExtraClassesOnItems)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
       ).toHaveNoViolations();

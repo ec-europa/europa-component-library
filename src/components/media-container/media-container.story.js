@@ -120,7 +120,7 @@ const getArgTypes = (data) => {
   argTypes.full_width = {
     name: 'full width',
     type: 'boolean',
-    description: `Extend the component to the full viewport width`,
+    description: 'Extend the component to the full viewport width',
     table: {
       defaultValue: { summary: 'false' },
       category: 'Display',

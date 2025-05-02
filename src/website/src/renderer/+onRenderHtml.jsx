@@ -55,7 +55,7 @@ async function onRenderHtml(pageContext) {
   let pageHtml;
   try {
     pageHtml = renderToString(app);
-  } catch (e) {
+  } catch {
     pageHtml = '<p>Rendering Failed</p>';
   }
 
@@ -80,7 +80,7 @@ async function onRenderHtml(pageContext) {
     }
 
     clientScriptPath = `${publicUrl}/assets/entries/${scriptFile}`;
-  } catch (error) {
+  } catch {
     clientScriptPath = '';
   }
 
