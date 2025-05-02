@@ -2,7 +2,7 @@ module.exports = {
   parser: '@babel/eslint-parser',
   root: true,
   plugins: ['jest', 'import'],
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['prettier'],
   globals: {
     ECL: 'writable',
   },
