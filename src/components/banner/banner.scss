@@ -55,15 +55,22 @@ $banner: null !default;
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: var(--s-m);
-  padding-inline-end: var(--s-m);
+  padding-inline: map.get($banner, 'container-padding-inline', 'mobile');
 }
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: map.get($banner, 'container-padding-bottom', 'mobile');
-  padding-top: map.get($banner, 'container-padding-top', 'mobile');
+  padding-block: map.get($banner, 'container-padding-block', 'media', 'mobile');
   width: 100%;
+
+  .ecl-banner--no-media & {
+    padding-block: map.get(
+      $banner,
+      'container-padding-block',
+      'no-media',
+      'mobile'
+    );
+  }
 }
 
 .ecl-banner__content {
@@ -202,67 +209,56 @@ $banner: null !default;
   }
 }
 
-// Medium banner - ratio 4:1
-.ecl-banner,
-.ecl-banner--m {
-  .ecl-banner__image,
-  .ecl-banner__video,
-  &.ecl-banner--no-media {
-    aspect-ratio: 4/1;
+// Fixed ratio on mobile
+.ecl-banner .ecl-banner__image,
+.ecl-banner .ecl-banner__video {
+  aspect-ratio: 3/2;
 
-    --css-aspect-ratio: 4/1;
-  }
-}
-
-// Extra small banner - ratio 6:1
-.ecl-banner--xs .ecl-banner__image,
-.ecl-banner--xs .ecl-banner__video,
-.ecl-banner--xs.ecl-banner--no-media {
-  aspect-ratio: 6/1;
-
-  --css-aspect-ratio: 6/1;
-}
-
-// Small banner - ratio 5:1
-.ecl-banner--s .ecl-banner__image,
-.ecl-banner--s .ecl-banner__video,
-.ecl-banner--s.ecl-banner--no-media {
-  aspect-ratio: 5/1;
-
-  --css-aspect-ratio: 5/1;
-}
-
-// Large banner - ratio 3:1
-.ecl-banner--l .ecl-banner__image,
-.ecl-banner--l .ecl-banner__video,
-.ecl-banner--l.ecl-banner--no-media {
-  aspect-ratio: 3/1;
-
-  --css-aspect-ratio: 3/1;
+  --css-aspect-ratio: 3/2;
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-banner .ecl-container {
-    padding-inline-start: map.get(
-      $banner,
-      'container-padding-horizontal',
-      'tablet'
-    );
-    padding-inline-end: map.get(
-      $banner,
-      'container-padding-horizontal',
-      'tablet'
-    );
+    padding-inline: map.get($banner, 'container-padding-inline', 'tablet');
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($banner, 'container-padding-bottom', 'tablet');
-    padding-top: map.get($banner, 'container-padding-top', 'tablet');
+    padding-block: map.get(
+      $banner,
+      'container-padding-block',
+      'media',
+      'tablet'
+    );
 
     .ecl-banner--no-media & {
-      padding-block: var(--s-l) var(--s-2xl);
+      padding-block: map.get(
+        $banner,
+        'container-padding-block',
+        'no-media',
+        'tablet'
+      );
     }
+  }
+
+  // Fixed ratio on tablet
+  .ecl-banner .ecl-banner__image,
+  .ecl-banner .ecl-banner__video {
+    aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
+  }
+
+  .ecl-banner__title,
+  .ecl-banner__title-link {
+    font: map.get($banner, 'font', 'title', 'tablet');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-tablet');
+  }
+
+  .ecl-banner__description,
+  .ecl-banner__description-link {
+    font: map.get($banner, 'font', 'description', 'tablet');
   }
 }
 
@@ -300,7 +296,7 @@ $banner: null !default;
   }
 
   .ecl-banner .ecl-container {
-    padding-inline: map.get($banner, 'container-padding-horizontal', 'desktop');
+    padding-inline: map.get($banner, 'container-padding-inline', 'desktop');
     position: absolute;
     z-index: 1;
   }
@@ -316,12 +312,25 @@ $banner: null !default;
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($banner, 'container-padding-bottom', 'desktop');
-    padding-top: map.get($banner, 'container-padding-top', 'desktop');
+    padding-block: map.get(
+      $banner,
+      'container-padding-block',
+      'media',
+      'desktop'
+    );
+
+    .ecl-banner--no-media & {
+      padding-block: map.get(
+        $banner,
+        'container-padding-block',
+        'no-media',
+        'desktop'
+      );
+    }
 
     .ecl-banner--v-bottom & {
-      padding-bottom: calc(
-        #{map.get($banner, 'container-padding-bottom', 'desktop')} +
+      padding-block-end: calc(
+        #{map.get($banner, 'container-padding-block', 'media', 'desktop')} +
           var(--banner-footer-height)
       );
     }

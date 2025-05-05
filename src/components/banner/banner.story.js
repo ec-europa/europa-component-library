@@ -106,7 +106,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
     },
     font_size: {
@@ -127,7 +127,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
     },
     font_color: {
@@ -148,7 +148,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'dark' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
       if: { arg: 'box_background', eq: 'none' },
     },
@@ -172,7 +172,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'light' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
       if: { arg: 'show_media' },
     },
@@ -196,7 +196,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'left' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
     },
     vertical: {
@@ -219,7 +219,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'center' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
     },
     full_width: {
@@ -233,7 +233,7 @@ const getArgTypes = (data) => {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
-        category: 'Display',
+        category: 'Display (desktop only)',
       },
     },
     title: {

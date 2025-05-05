@@ -7,18 +7,21 @@ $banner: (
   content-background: var(--cm-surface-inverted),
   content-border-radius: 0,
   content-padding: var(--s-l) var(--s-xl) var(--s-xl),
-  container-padding-bottom: (
-    'mobile': var(--s-xl),
-    'tablet': var(--s-2xl),
-    'desktop': var(--s-4xl),
+  container-padding-block: (
+    'media': (
+      'mobile': var(--s-l) var(--s-xl),
+      'tablet': var(--s-xl) var(--s-2xl),
+      'desktop': var(--s-4xl),
+    ),
+    'no-media': (
+      'mobile': var(--s-xl) var(--s-2xl),
+      'tablet': var(--s-2xl),
+      'desktop': var(--s-4xl),
+    ),
   ),
-  container-padding-top: (
+  container-padding-inline: (
     'mobile': var(--s-m),
-    'tablet': var(--s-m),
-    'desktop': var(--s-4xl),
-  ),
-  container-padding-horizontal: (
-    'tablet': var(--s-2xl),
+    'tablet': var(--s-xl),
     'desktop': var(--s-2xl),
   ),
   border-color: transparent,
@@ -39,15 +42,18 @@ $banner: (
   font: (
     'title': (
       'font-weight': map.get($font-weight, 'light'),
-      'mobile': var(--f-7xl),
-      'letter-spacing-mobile': map.get($letter-spacing-compact, '7xl'),
+      'mobile': var(--f-6xl),
+      'letter-spacing-mobile': map.get($letter-spacing-compact, '6xl'),
+      'tablet': var(--f-7xl),
+      'letter-spacing-tablet': map.get($letter-spacing-compact, '7xl'),
       'desktop-m': var(--f-8xl),
       'letter-spacing-desktop-m': map.get($letter-spacing-compact, '8xl'),
       'desktop-l': var(--f-10xl),
       'letter-spacing-desktop-l': map.get($letter-spacing-compact, '10xl'),
     ),
     'description': (
-      'mobile': var(--f-2xl),
+      'mobile': var(--f-xl),
+      'tablet': var(--f-2xl),
       'desktop-m': var(--f-6xl),
       'desktop-l': var(--f-6xl),
     ),
