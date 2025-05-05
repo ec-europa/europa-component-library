@@ -43,7 +43,6 @@ module.exports = {
           path: exampleLink,
           sublink_id: 'item-2-1-id',
           featured: {
-            title: 'Featured items',
             items: [
               {
                 picture: {
