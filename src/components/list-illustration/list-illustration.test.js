@@ -65,7 +65,7 @@ describe('List with illustration', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, dataListIllustrationImage, true),
@@ -83,7 +83,7 @@ describe('List with illustration', () => {
       ).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, dataListIllustrationIcon, true),

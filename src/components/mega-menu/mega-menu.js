@@ -1,5 +1,3 @@
-/* eslint-disable  class-methods-use-this */
-
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import { createFocusTrap } from 'focus-trap';

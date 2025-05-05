@@ -28,7 +28,7 @@ const getArgTypes = (data) => {
     argTypes[`toggle${i + 1}`] = {
       name: `toggle ${i + 1}`,
       type: { name: 'string', required: true },
-      description: `Text of the accordion toggler`,
+      description: 'Text of the accordion toggler',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },

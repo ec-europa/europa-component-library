@@ -11,7 +11,7 @@ const pkg = require('../package.json');
 
 const loadConfig = (configFile) => {
   const conf = configFile || 'ecl-builder.config.js';
-  return require(path.resolve(process.cwd(), conf)); // eslint-disable-line import/no-dynamic-require, global-require
+  return require(path.resolve(process.cwd(), conf));
 };
 
 program

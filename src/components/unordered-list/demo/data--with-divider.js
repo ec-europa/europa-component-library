@@ -5,7 +5,7 @@ module.exports = {
   variant: 'divider',
   items: [
     {
-      label: `Lorem ipsum dolor sit amet, consectetur adipiscing elit`,
+      label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       nested: [
         {
           label: `<a class="ecl-link" href="${exampleLink}">Duis commodo nibh eget magna</a>`,
@@ -16,7 +16,8 @@ module.exports = {
       ],
     },
     {
-      label: `Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis feugiat. Vivamus eget turpis a est lacinia blandit`,
+      label:
+        'Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis feugiat. Vivamus eget turpis a est lacinia blandit',
     },
     {
       label: `<a class="ecl-link" href="${exampleLink}">Vestibulum sed accumsan ipsum</a>`,
@@ -25,10 +26,11 @@ module.exports = {
           label: `<a class="ecl-link" href="${exampleLink}">Morbi vitae tortor accumsan</a>`,
         },
         {
-          label: `Nulla facilisi`,
+          label: 'Nulla facilisi',
         },
         {
-          label: `Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus`,
+          label:
+            'Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus',
         },
       ],
     },

@@ -69,10 +69,10 @@ $description-list: null !default;
 }
 
 .ecl-description-list__definition--link .ecl-description-list__definition-item {
-  margin-top: var(--s-m);
+  margin-block-start: map.get($description-list, 'definition-spacing');
 
   &:first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 

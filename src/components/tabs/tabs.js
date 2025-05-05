@@ -340,7 +340,7 @@ export class Tabs {
     }
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
-      this.list.style.transform = `translate3d(0px, 0px, 0px)`;
+      this.list.style.transform = 'translate3d(0px, 0px, 0px)';
 
       // Behaviors for mobile format
       const vw = Math.max(

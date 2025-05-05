@@ -109,7 +109,6 @@ PaletteItem.propTypes = {
   alias: PropTypes.string,
   main: PropTypes.bool,
   parentRef: PropTypes.shape({
-    /* eslint-disable-next-line react/forbid-prop-types */
     current: PropTypes.any,
   }),
 };

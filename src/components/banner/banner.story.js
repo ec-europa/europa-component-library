@@ -225,7 +225,7 @@ const getArgTypes = (data) => {
     full_width: {
       name: 'full width',
       type: 'boolean',
-      description: `Take the full width of the viewport when in a container`,
+      description: 'Take the full width of the viewport when in a container',
       mapping: {
         0: false,
         1: true,

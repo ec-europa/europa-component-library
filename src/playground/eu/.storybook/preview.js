@@ -1,13 +1,12 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
-import { addons } from '@storybook/manager-api';
 import { useChannel } from '@storybook/preview-api';
 import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
-global.Buffer = Buffer;
-
 import './ECL';
+
+global.Buffer = Buffer;
 
 const styleSheets = [
   {
@@ -107,43 +106,43 @@ export const parameters = {
   cssresources: [
     {
       id: 'ecl-reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />',
       picked: true,
       hideCode: true,
     },
     {
       id: 'ecl-eu-default',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default.css" />',
       picked: true,
       hideCode: true,
     },
     {
       id: 'ecl-eu',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/ecl-eu.css" />',
       picked: true,
       hideCode: true,
     },
     {
       id: 'ecl-eu-utlities',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-utilities.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-utilities.css" />',
       picked: true,
       hideCode: true,
     },
     {
       id: 'ecl-rtl',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />',
       picked: false,
       hideCode: true,
     },
     {
       id: 'ecl-eu-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default-print.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default-print.css" />',
       picked: false,
       hideCode: true,
     },
     {
       id: 'ecl-eu-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
+      code: '<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />',
       picked: false,
       hideCode: true,
     },

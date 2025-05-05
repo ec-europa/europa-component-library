@@ -9,10 +9,8 @@ import path from 'path';
 import vike from 'vike/plugin';
 import htmlMinifier from 'vite-plugin-html-minifier';
 
-/* eslint-disable import/no-relative-packages */
 import mdxReplace from './scripts/mdx-replace';
 import lernaJson from '../../lerna.json';
-/* eslint-enable import/no-relative-packages */
 
 const eclVersion = lernaJson.version;
 
@@ -28,7 +26,6 @@ if ('CI' in process.env && process.env.GITHUB_REF?.includes('refs/tags/')) {
       sri = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
       fs.copyFileSync(srcPath, destPath);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.warn(
         `Failed to load/move SRI file ${sriFileName}: ${error.message}`,
       );

@@ -88,7 +88,7 @@ const Navigation = React.memo(
 Navigation.propTypes = {
   sidebarOpen: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
-  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array.isRequired,
   prefix: PropTypes.string.isRequired,
   forceRefresh: PropTypes.bool,
   isLoading: PropTypes.bool,

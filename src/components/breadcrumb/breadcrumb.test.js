@@ -19,7 +19,7 @@ describe('Breadcrumb', () => {
       ellipsis_label: 'Click to expand',
     });
 
-    test(`renders correctly`, () => {
+    test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(data)).resolves.toMatchSnapshot();
     });
@@ -47,7 +47,7 @@ describe('Breadcrumb', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
@@ -60,7 +60,7 @@ describe('Breadcrumb', () => {
       ellipsis_label: 'Click to expand',
     });
 
-    test(`renders correctly`, () => {
+    test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(data)).resolves.toMatchSnapshot();
     });
@@ -88,7 +88,7 @@ describe('Breadcrumb', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
