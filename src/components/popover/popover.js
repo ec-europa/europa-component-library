@@ -261,7 +261,7 @@ export class Popover {
    *
    * @param {Node} element
    */
-  /* eslint-disable-next-line class-methods-use-this */
+
   getClosestScrollableParent(element) {
     let parent = element.parentElement;
 
@@ -409,13 +409,11 @@ export class Popover {
         containerWidth > maxWidth)
     ) {
       targetWidth = maxWidth;
-    }
-    // If the available space is smaller than minWidth (plus padding), set to minWidth
-    else if (horizontalSpace < minWidth + padding) {
+    } else if (horizontalSpace < minWidth + padding) {
+      // If the available space is smaller than minWidth (plus padding), set to minWidth
       targetWidth = minWidth;
-    }
-    // Otherwise, set the width to the available space minus the padding
-    else if (direction === 'left' || direction === 'right') {
+    } else if (direction === 'left' || direction === 'right') {
+      // Otherwise, set the width to the available space minus the padding
       targetWidth = horizontalSpace - padding;
     } else {
       targetWidth = (horizontalSpace - padding) * 2;
@@ -509,7 +507,6 @@ export class Popover {
         );
       }
     } else {
-      // eslint-disable-next-line no-lonely-if
       if (this.element.classList.contains(this.POPOVER_CLASSES.PUSH_RIGHT)) {
         this.target.style.setProperty(
           '--ecl-popover-position',

@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import fs from 'node:fs';
 import path from 'node:path';
 import { globSync } from 'glob'; // Named export

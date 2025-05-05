@@ -43,7 +43,7 @@ describe('Splash page', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEC, true)),
       ).toHaveNoViolations();
@@ -56,7 +56,7 @@ describe('Splash page', () => {
       return expect(render(dataEU)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEU, true)),
       ).toHaveNoViolations();

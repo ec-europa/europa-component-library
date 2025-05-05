@@ -184,7 +184,6 @@ export class Breadcrumb {
     if (this.onPartialExpand) {
       this.onPartialExpand(isItemVisible);
     } else {
-      // eslint-disable-next-line no-lonely-if
       if (Math.floor(this.element.getBoundingClientRect().width) > 767) {
         const ellipsis = queryOne(this.ellipsisSelector, this.element);
         if (ellipsis) {

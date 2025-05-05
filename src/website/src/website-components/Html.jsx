@@ -15,7 +15,6 @@ function Html({ markup, extraClasses }) {
   }
 
   return (
-    // eslint-disable-next-line react/no-danger
     <div className={extraClasses} dangerouslySetInnerHTML={{ __html: html }} />
   );
 }

@@ -6,7 +6,7 @@ const app = apps['storybook-eu'];
 
 const cp = spawn(
   'sb',
-  ['dev', `-p`, `${app.port}`, `-c`, `.storybook`, `--ci`],
+  ['dev', '-p', `${app.port}`, '-c', '.storybook', '--ci'],
   { stdio: 'inherit' },
 );
 

@@ -446,9 +446,8 @@ export class SiteHeader {
         arrowCssVar,
         `calc(${arrowPos}px - ${this.arrowSize})`,
       );
-    }
-    // If popover extends beyond left edge in RTL
-    else if (this.direction === 'rtl' && popoverRect.left < 0) {
+    } else if (this.direction === 'rtl' && popoverRect.left < 0) {
+      // If popover extends beyond left edge in RTL
       overlay.classList.add('ecl-site-header__language-container--push-left');
       overlay.style.setProperty(
         'left',

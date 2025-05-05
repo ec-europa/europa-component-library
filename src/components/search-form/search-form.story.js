@@ -41,7 +41,7 @@ const getArgTypes = () => ({
   disabled: {
     name: 'disabled',
     type: 'boolean',
-    description: `Disabled search form`,
+    description: 'Disabled search form',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },

@@ -72,7 +72,7 @@ describe('File Upload ', () => {
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
@@ -86,7 +86,7 @@ describe('File Upload ', () => {
       return expect(render(dataMultiple)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataMultiple, true)),
       ).toHaveNoViolations();

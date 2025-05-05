@@ -61,7 +61,7 @@ describe('Select', () => {
       ).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataSingle, true)),
       ).toHaveNoViolations();
@@ -111,7 +111,7 @@ describe('Select', () => {
       return expect(render(dataMultiple)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataMultiple, true)),
       ).toHaveNoViolations();
