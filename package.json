@@ -34,23 +34,26 @@
     "update-version": "scripts/update-version.sh"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.27.0",
-    "@babel/plugin-proposal-export-default-from": "7.25.9",
-    "@babel/plugin-proposal-export-namespace-from": "7.18.9",
+    "@babel/eslint-parser": "7.27.1",
+    "@babel/plugin-proposal-export-default-from": "7.27.1",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
-    "@babel/plugin-transform-runtime": "7.26.10",
+    "@babel/plugin-transform-runtime": "7.27.1",
+    "@eslint/js": "9.26.0",
     "@prettier/plugin-xml": "3.4.1",
     "@size-limit/preset-big-lib": "11.2.0",
+    "@storybook/addon-cssresources": "6.2.9",
     "babel-jest": "29.7.0",
     "classnames": "2.5.1",
     "cross-env": "7.0.3",
-    "eslint": "8.57.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-base": "15.0.0",
+    "eslint": "9.26.0",
+    "eslint-config-prettier": "10.1.2",
+    "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.11.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-prettier": "5.2.6",
+    "eslint-plugin-n": "17.17.0",
+    "eslint-plugin-prettier": "5.3.1",
+    "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "glob": "11.0.2",
@@ -62,18 +65,17 @@
     "lerna": "8.2.2",
     "lerna-changelog": "2.2.0",
     "lint-staged": "15.5.1",
-    "npm-run-all": "4.1.5",
     "npm-check-updates": "18.0.1",
+    "npm-run-all": "4.1.5",
     "postinstall-postinstall": "2.1.0",
     "prettier": "3.5.3",
     "prop-types": "15.8.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-router": "7.5.2",
+    "react-router": "7.5.3",
     "rimraf": "6.0.1",
     "size-limit": "11.2.0",
     "ssri": "12.0.0",
-    "@storybook/addon-cssresources": "6.2.9",
     "stylelint": "16.19.1",
     "stylelint-config-css-modules": "4.4.0",
     "stylelint-config-standard": "38.0.0",
@@ -82,7 +84,7 @@
     "stylelint-scss": "6.11.1",
     "unist-util-visit": "5.0.0"
   },
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "pnpm": {
     "overrides": {
       "serialize-javascript": ">=3.1.0",
@@ -129,7 +131,7 @@
   },
   "engines": {
     "node": ">=22.11.0",
-    "pnpm": ">=9.15.3"
+    "pnpm": ">=10.9.0"
   },
   "lint-staged": {
     "*.{md,mdx,html,json,yml,svg}": [

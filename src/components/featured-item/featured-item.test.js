@@ -30,7 +30,7 @@ describe('Featured item', () => {
       return expect(render(withoutImage)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoContent, true)),
       ).toHaveNoViolations();
@@ -44,7 +44,7 @@ describe('Featured item', () => {
       return expect(render(demoContentSimple)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, demoContentSimple, true),
@@ -60,7 +60,7 @@ describe('Featured item', () => {
       return expect(render(demoContentHighlight)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, demoContentHighlight, true),

@@ -9,7 +9,7 @@ import path from 'path';
 import vike from 'vike/plugin';
 import htmlMinifier from 'vite-plugin-html-minifier';
 
-/* eslint-disable-next-line import/no-relative-packages */
+import mdxReplace from './scripts/mdx-replace';
 import lernaJson from '../../lerna.json';
 
 const eclVersion = lernaJson.version;
@@ -24,9 +24,8 @@ if ('CI' in process.env && process.env.GITHUB_REF?.includes('refs/tags/')) {
   if (fs.existsSync(srcPath)) {
     try {
       sri = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
-      fs.renameSync(srcPath, destPath);
+      fs.copyFileSync(srcPath, destPath);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.warn(
         `Failed to load/move SRI file ${sriFileName}: ${error.message}`,
       );
@@ -37,9 +36,29 @@ if ('CI' in process.env && process.env.GITHUB_REF?.includes('refs/tags/')) {
 export default defineConfig(({ command }) => {
   const isDev = command === 'serve';
 
+  const env = {
+    ECL_EC_CSS: (sri['ecl-ec.css'] || []).join(' ') || 'n/a',
+    ECL_EC_UTILITIES_CSS:
+      (sri['ecl-ec-utilities.css'] || []).join(' ') || 'n/a',
+    ECL_EC_PRINT_CSS: (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a',
+    ECL_EC_DEFAULT_CSS: (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a',
+    ECL_EC_JS: (sri['ecl-ec.js'] || []).join(' ') || 'n/a',
+    ECL_ESM_EC_JS: (sri['ecl-esm-ec.js'] || []).join(' ') || 'n/a',
+    ECL_EU_CSS: (sri['ecl-eu.css'] || []).join(' ') || 'n/a',
+    ECL_EU_UTILITIES_CSS:
+      (sri['ecl-eu-utilities.css'] || []).join(' ') || 'n/a',
+    ECL_EU_PRINT_CSS: (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a',
+    ECL_EU_DEFAULT_CSS: (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a',
+    ECL_EU_JS: (sri['ecl-eu.js'] || []).join(' ') || 'n/a',
+    ECL_ESM_EU_JS: (sri['ecl-esm-eu.js'] || []).join(' ') || 'n/a',
+    ECL_RESET_CSS: (sri['ecl-reset.css'] || []).join(' ') || 'n/a',
+    ECL_RTL_CSS: (sri['ecl-rtl.css'] || []).join(' ') || 'n/a',
+  };
+
   return {
     plugins: [
       react(),
+      mdxReplace(env),
       {
         enforce: 'pre',
         ...mdx({
@@ -112,44 +131,6 @@ export default defineConfig(({ command }) => {
         PUBLIC_URL: process.env.PUBLIC_URL || '',
         NODE_ENV: JSON.stringify(isDev ? 'development' : 'production'),
         ECL_VERSION: eclVersion,
-        ECL_EC_CSS: JSON.stringify(
-          (sri['ecl-ec.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EC_UTILITIES_CSS: JSON.stringify(
-          (sri['ecl-ec-utilities.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EC_PRINT_CSS: JSON.stringify(
-          (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EC_DEFAULT_CSS: JSON.stringify(
-          (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EC_JS: JSON.stringify((sri['ecl-ec.js'] || []).join(' ') || 'n/a'),
-        ECL_ESM_EC_JS: JSON.stringify(
-          (sri['ecl-esm-ec.js'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EU_CSS: JSON.stringify(
-          (sri['ecl-eu.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EU_UTILITIES_CSS: JSON.stringify(
-          (sri['ecl-eu-utilities.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EU_PRINT_CSS: JSON.stringify(
-          (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EU_DEFAULT_CSS: JSON.stringify(
-          (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_EU_JS: JSON.stringify((sri['ecl-eu.js'] || []).join(' ') || 'n/a'),
-        ECL_ESM_EU_JS: JSON.stringify(
-          (sri['ecl-esm-eu.js'] || []).join(' ') || 'n/a',
-        ),
-        ECL_RESET_CSS: JSON.stringify(
-          (sri['ecl-reset.css'] || []).join(' ') || 'n/a',
-        ),
-        ECL_RTL_CSS: JSON.stringify(
-          (sri['ecl-rtl.css'] || []).join(' ') || 'n/a',
-        ),
       },
     },
     css: {

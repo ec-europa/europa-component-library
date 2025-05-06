@@ -1,4 +1,3 @@
-/* eslint-disable no-return-assign */
 import { queryOne } from '@ecl/dom-utils';
 import * as getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
@@ -878,7 +877,6 @@ export class Select {
       if (nextSiblings.length > 0) {
         nextSiblings[0].focus();
       } else {
-        // eslint-disable-next-line no-lonely-if
         if (
           this.dropDownToolbar &&
           this.dropDownToolbar.style.display === 'flex'
@@ -1066,10 +1064,10 @@ export class Select {
     const groups = this.optionsContainer.getElementsByClassName(
       'ecl-select__multiple-group',
     );
-    // eslint-disable-next-line no-restricted-syntax
+
     for (const group of groups) {
       group.style.display = 'none';
-      // eslint-disable-next-line no-restricted-syntax
+
       const groupedCheckboxes = [...group.children].filter((node) =>
         node.classList.contains('ecl-checkbox'),
       );
@@ -1433,7 +1431,6 @@ export class Select {
             this.handleToggle(e);
           }
         } else {
-          // eslint-disable-next-line no-lonely-if
           if (this.visibleOptions.length > 0) {
             this.visibleOptions[this.visibleOptions.length - 1]
               .querySelector('input')

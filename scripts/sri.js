@@ -7,7 +7,7 @@ const prettier = require('prettier');
 const version = process.argv.slice(2)[0];
 
 if (!version) {
-  console.warn(`Couldn't retrieve the version. Skipping...`);
+  console.warn("Couldn't retrieve the version. Skipping...");
   process.exit(0);
 }
 // Get all CSS and JS files

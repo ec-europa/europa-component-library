@@ -12,9 +12,9 @@ import dataThumbnail from './demo/data--thumbnail';
 import dataTaxonomy from './demo/data--taxonomy';
 
 dataWithoutTranslation.id = 'ecl-file-without-translations';
-dataWithTranslation.id = `ecl-file-with-translation`;
-dataThumbnail.id = `ecl-file-with-thumbnail`;
-dataTaxonomy.id = `ecl-file-taxonomy`;
+dataWithTranslation.id = 'ecl-file-with-translation';
+dataThumbnail.id = 'ecl-file-with-thumbnail';
+dataTaxonomy.id = 'ecl-file-taxonomy';
 
 expect.extend(toHaveNoViolations);
 
@@ -62,7 +62,7 @@ describe('File', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, dataWithTranslation, true),
@@ -124,7 +124,7 @@ describe('File', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, dataWithoutTranslation, true),
@@ -154,7 +154,7 @@ describe('File', () => {
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataThumbnail, true)),
       ).toHaveNoViolations();

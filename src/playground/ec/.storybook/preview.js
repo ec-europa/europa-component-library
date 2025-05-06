@@ -1,13 +1,12 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
-import { addons } from '@storybook/manager-api';
 import { useChannel } from '@storybook/preview-api';
 import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
-global.Buffer = Buffer;
-
 import './ECL';
+
+global.Buffer = Buffer;
 
 const styleSheets = [
   {

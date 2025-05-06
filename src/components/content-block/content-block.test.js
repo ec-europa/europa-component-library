@@ -81,7 +81,7 @@ describe('Content block', () => {
       return expect(render(withLinkExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataImage, true)),
       ).toHaveNoViolations();

@@ -487,7 +487,6 @@ export class Menu {
     }
   }
 
-  /* eslint-disable class-methods-use-this */
   /**
    * Disable page scrolling
    */
@@ -501,7 +500,6 @@ export class Menu {
   enableScroll() {
     document.body.classList.remove('no-scroll');
   }
-  /* eslint-enable class-methods-use-this */
 
   /**
    * Check if desktop display has to be used
@@ -700,11 +698,9 @@ export class Menu {
           return true;
         });
       }
-    }
-    // Second case: overflow to the begining
-    else {
+    } else {
+      // Second case: overflow to the begining
       // Get visible items
-      // eslint-disable-next-line no-lonely-if
       if (this.direction === 'rtl') {
         this.items.forEach((item) => {
           if (
@@ -1104,8 +1100,9 @@ export class Menu {
       !this.items ||
       !this.btnPrevious ||
       !this.lastVisibleItem
-    )
+    ) {
       return;
+    }
 
     // Update button display
     this.btnPrevious.style.display = 'flex';
@@ -1198,8 +1195,9 @@ export class Menu {
     if (
       this.hasOverflow &&
       !menuItem.hasAttribute('data-ecl-menu-item-visible')
-    )
+    ) {
       return;
+    }
 
     // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {

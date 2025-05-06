@@ -40,7 +40,7 @@ const getArgTypes = () => ({
   size: {
     name: 'size',
     type: { name: 'select' },
-    description: `The width of the modal`,
+    description: 'The width of the modal',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'l' },

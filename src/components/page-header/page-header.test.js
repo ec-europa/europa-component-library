@@ -20,7 +20,7 @@ describe('Page Header Standardised', () => {
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
-    test(`- renders correctly`, () => {
+    test('- renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoSimple)).resolves.toMatchSnapshot();
     });
@@ -55,7 +55,7 @@ describe('Page Header Standardised', () => {
       return expect(render(noMargin)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoSimple, true)),
       ).toHaveNoViolations();
@@ -63,7 +63,7 @@ describe('Page Header Standardised', () => {
   });
 
   describe('Background image', () => {
-    test(`- renders correctly`, () => {
+    test('- renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoDefault)).resolves.toMatchSnapshot();
     });
