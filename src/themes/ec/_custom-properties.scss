@@ -297,9 +297,9 @@
   --cm-surface-low-1: var(--c-l-100);
   --cm-surface-low-2: var(--c-l-300);
   --cm-surface-medium: var(--c-l-400);
-  --cm-surface: var(--c-d-900);
+  --cm-surface: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-200')};
-  --cm-surface-variant-2: var(--c-d-900);
+  --cm-surface-variant-2: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-primary: var(--c-p-500);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-900);
