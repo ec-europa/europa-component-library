@@ -84,7 +84,7 @@ $banner-print: null !default;
   box-sizing: content-box;
   display: inline-flex;
   flex-direction: column;
-  max-width: map.get($banner, 'content-width');
+  max-width: map.get($banner, 'content-width', 'desktop');
   padding: map.get($banner-print, 'content-padding');
 
   .ecl-banner--box-bg-none & {

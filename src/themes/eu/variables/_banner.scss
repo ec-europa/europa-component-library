@@ -3,7 +3,10 @@
 
 $banner: (
   background-color: var(--c-p-5),
-  content-width: 42.5rem,
+  content-width: (
+    'mobile': 50rem,
+    'desktop': 42.5rem,
+  ),
   content-background: map.get($color, 'white'),
   content-border-radius: map.get($border-radius, 'm'),
   content-padding: var(--s-l) var(--s-l),
@@ -57,7 +60,10 @@ $banner: (
       'desktop-m': var(--f-2xl),
       'desktop-l': var(--f-4xl),
     ),
-    'credit': var(--f-s),
+    'credit': (
+      'mobile': var(--f-s),
+      'desktop': var(--f-s),
+    ),
   ),
   description-margin: var(--s-s),
   // DEPRECATED

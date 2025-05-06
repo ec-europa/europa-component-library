@@ -3,7 +3,10 @@
 
 $banner: (
   background-color: var(--cm-surface-lowest),
-  content-width: 42.5rem,
+  content-width: (
+    'mobile': 50rem,
+    'desktop': 42.5rem,
+  ),
   content-background: var(--cm-surface-inverted),
   content-border-radius: 0,
   content-padding: var(--s-l) var(--s-xl) var(--s-xl),
@@ -57,7 +60,10 @@ $banner: (
       'desktop-m': var(--f-6xl),
       'desktop-l': var(--f-6xl),
     ),
-    'credit': var(--f-xs),
+    'credit': (
+      'mobile': var(--f-2xs),
+      'desktop': var(--f-xs),
+    ),
   ),
   description-margin: var(--s-s),
 );

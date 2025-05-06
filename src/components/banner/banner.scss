@@ -41,16 +41,12 @@ $banner: null !default;
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($banner, 'font', 'credit');
-  padding-bottom: var(--s-2xs);
-  padding-top: var(--s-2xs);
+  font: map.get($banner, 'font', 'credit', 'mobile');
+  margin-block-end: calc(-1 * var(--s-xl));
   position: relative;
+  text-align: end;
   width: 100%;
   z-index: 1;
-
-  .ecl-banner & .ecl-container {
-    position: relative;
-  }
 }
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
@@ -78,6 +74,7 @@ $banner: null !default;
   box-sizing: content-box;
   display: inline-flex;
   flex-direction: column;
+  max-width: map.get($banner, 'content-width', 'mobile');
 }
 
 .ecl-banner__image {
@@ -210,6 +207,8 @@ $banner: null !default;
 }
 
 // Fixed ratio on mobile
+.ecl-banner__picture-container,
+.ecl-banner__video-container,
 .ecl-banner .ecl-banner__image,
 .ecl-banner .ecl-banner__video {
   aspect-ratio: 3/2;
@@ -242,6 +241,8 @@ $banner: null !default;
   }
 
   // Fixed ratio on tablet
+  .ecl-banner__picture-container,
+  .ecl-banner__video-container,
   .ecl-banner .ecl-banner__image,
   .ecl-banner .ecl-banner__video {
     aspect-ratio: 3/1;
@@ -263,7 +264,7 @@ $banner: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-banner {
     aspect-ratio: 4/1;
     padding-bottom: var(--banner-footer-height);
@@ -299,6 +300,18 @@ $banner: null !default;
     padding-inline: map.get($banner, 'container-padding-inline', 'desktop');
     position: absolute;
     z-index: 1;
+  }
+
+  .ecl-banner__credit {
+    font: map.get($banner, 'font', 'credit', 'desktop');
+    margin-block-end: 0;
+    padding-block: var(--s-2xs);
+    position: absolute;
+    text-align: start;
+
+    .ecl-banner & .ecl-container {
+      position: relative;
+    }
   }
 
   // stylelint-disable-next-line plugin/selector-bem-pattern
@@ -339,7 +352,7 @@ $banner: null !default;
   .ecl-banner__content {
     background-color: map.get($banner, 'content-background');
     border-radius: map.get($banner, 'content-border-radius');
-    max-width: map.get($banner, 'content-width');
+    max-width: map.get($banner, 'content-width', 'desktop');
     padding: map.get($banner, 'content-padding');
 
     .ecl-banner--box-bg-none & {
@@ -353,10 +366,6 @@ $banner: null !default;
       background: var(--cm-surface-transparent-70, var(--c-ov-l));
       backdrop-filter: blur(2px);
     }
-  }
-
-  .ecl-banner__credit {
-    position: absolute;
   }
 
   .ecl-banner__play.ecl-button--icon-only,
@@ -413,6 +422,7 @@ $banner: null !default;
 
   .ecl-banner__picture-container,
   .ecl-banner__video-container {
+    aspect-ratio: auto;
     height: 100%;
     position: static;
   }
