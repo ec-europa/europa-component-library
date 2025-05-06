@@ -26,10 +26,6 @@ $carousel: null !default;
 
   .ecl-banner {
     height: 100%;
-
-    .ecl-container {
-      height: 100%;
-    }
   }
 }
 
@@ -58,10 +54,6 @@ $carousel: null !default;
 
 .ecl-carousel__slide .ecl-banner__credit {
   width: auto;
-}
-
-.ecl-carousel__slide .ecl-banner__picture-container {
-  padding-bottom: var(--banner-footer-height);
 }
 
 .ecl-carousel__controls {
@@ -125,7 +117,7 @@ $carousel: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-carousel__controls .ecl-container {
     padding-inline-start: var(--s-2xl);
     padding-inline-end: var(--s-2xl);

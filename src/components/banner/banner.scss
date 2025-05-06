@@ -98,7 +98,6 @@ $banner: null !default;
 }
 
 .ecl-banner__info {
-  align-items: center;
   background-color: map.get($banner, 'background-color');
   display: flex;
   flex-grow: 1;
@@ -321,6 +320,7 @@ $banner: null !default;
   }
 
   .ecl-banner__info {
+    align-items: center;
     background-color: transparent;
   }
 
