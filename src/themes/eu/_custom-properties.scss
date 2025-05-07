@@ -86,6 +86,24 @@
   --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
   --ecl-max-width: #{$max-width};
 
+  // Font sizes
+  --ecl-font-size-m: #{map.get($font-size, 'm')};
+  --ecl-font-size-l: #{map.get($font-size, 'l')};
+  --ecl-font-size-xl: #{map.get($font-size, 'xl')};
+  --ecl-font-size-2xl: #{map.get($font-size, '2xl')};
+  --ecl-font-size-3xl: #{map.get($font-size, '3xl')};
+  --ecl-font-size-4xl: #{map.get($font-size, '4xl')};
+  --ecl-font-size-5xl: #{map.get($font-size, '5xl')};
+
+  // Line heights
+  --ecl-line-height-m: #{map.get($line-height, 'm')};
+  --ecl-line-height-l: #{map.get($line-height, 'l')};
+  --ecl-line-height-xl: #{map.get($line-height, 'xl')};
+  --ecl-line-height-2xl: #{map.get($line-height, '2xl')};
+  --ecl-line-height-3xl: #{map.get($line-height, '3xl')};
+  --ecl-line-height-4xl: #{map.get($line-height, '4xl')};
+  --ecl-line-height-5xl: #{map.get($line-height, '5xl')};
+
   // Aliases (internal use)
   --c-p: var(--ecl-color-primary);
   --c-p-180: var(--ecl-color-primary-180);
@@ -146,6 +164,20 @@
   --f-5xl: var(--ecl-font-5xl);
   --f-ui-s: var(--ecl-font-ui-s);
   --f-ui-m: var(--ecl-font-ui-m);
+  --fs-m: var(--ecl-font-size-m);
+  --fs-l: var(--ecl-font-size-l);
+  --fs-xl: var(--ecl-font-size-xl);
+  --fs-2xl: var(--ecl-font-size-2xl);
+  --fs-3xl: var(--ecl-font-size-3xl);
+  --fs-4xl: var(--ecl-font-size-4xl);
+  --fs-5xl: var(--ecl-font-size-5xl);
+  --lh-m: var(--ecl-line-height-m);
+  --lh-l: var(--ecl-line-height-l);
+  --lh-xl: var(--ecl-line-height-xl);
+  --lh-2xl: var(--ecl-line-height-2xl);
+  --lh-3xl: var(--ecl-line-height-3xl);
+  --lh-4xl: var(--ecl-line-height-4xl);
+  --lh-5xl: var(--ecl-line-height-5xl);
   --s-2xs: var(--ecl-spacing-2xs);
   --s-xs: var(--ecl-spacing-xs);
   --s-s: var(--ecl-spacing-s);
