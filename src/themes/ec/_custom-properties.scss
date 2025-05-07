@@ -95,6 +95,7 @@
   --ecl-font-family-default: #{map.get($font-family, 'default')};
   --ecl-font-family-print-default: #{map.get($font-family-print, 'default')};
   --ecl-font-family-print-alt: #{map.get($font-family-print, 'alt')};
+  --ecl-font-2xs: #{map.get($font, '2xs')};
   --ecl-font-xs: #{map.get($font, 'xs')};
   --ecl-font-s: #{map.get($font, 's')};
   --ecl-font-m: #{map.get($font, 'm')};
@@ -109,6 +110,41 @@
   --ecl-font-8xl: #{map.get($font, '8xl')};
   --ecl-font-9xl: #{map.get($font, '9xl')};
   --ecl-font-10xl: #{map.get($font, '10xl')};
+
+  // font-size
+  --ecl-font-size-2xs: #{map.get($font-size, '2xs')};
+  --ecl-font-size-xs: #{map.get($font-size, 'xs')};
+  --ecl-font-size-s: #{map.get($font-size, 's')};
+  --ecl-font-size-m: #{map.get($font-size, 'm')};
+  --ecl-font-size-l: #{map.get($font-size, 'l')};
+  --ecl-font-size-xl: #{map.get($font-size, 'xl')};
+  --ecl-font-size-2xl: #{map.get($font-size, '2xl')};
+  --ecl-font-size-3xl: #{map.get($font-size, '3xl')};
+  --ecl-font-size-4xl: #{map.get($font-size, '4xl')};
+  --ecl-font-size-5xl: #{map.get($font-size, '5xl')};
+  --ecl-font-size-6xl: #{map.get($font-size, '6xl')};
+  --ecl-font-size-7xl: #{map.get($font-size, '7xl')};
+  --ecl-font-size-8xl: #{map.get($font-size, '8xl')};
+  --ecl-font-size-9xl: #{map.get($font-size, '9xl')};
+  --ecl-font-size-10xl: #{map.get($font-size, '10xl')};
+
+  // line-height:
+  --ecl-line-height-3xs: #{map.get($line-height, '3xs')};
+  --ecl-line-height-2xs: #{map.get($line-height, '2xs')};
+  --ecl-line-height-xs: #{map.get($line-height, 'xs')};
+  --ecl-line-height-s: #{map.get($line-height, 's')};
+  --ecl-line-height-m: #{map.get($line-height, 'm')};
+  --ecl-line-height-l: #{map.get($line-height, 'l')};
+  --ecl-line-height-xl: #{map.get($line-height, 'xl')};
+  --ecl-line-height-2xl: #{map.get($line-height, '2xl')};
+  --ecl-line-height-3xl: #{map.get($line-height, '3xl')};
+  --ecl-line-height-4xl: #{map.get($line-height, '4xl')};
+  --ecl-line-height-5xl: #{map.get($line-height, '5xl')};
+  --ecl-line-height-6xl: #{map.get($line-height, '6xl')};
+  --ecl-line-height-7xl: #{map.get($line-height, '7xl')};
+  --ecl-line-height-8xl: #{map.get($line-height, '8xl')};
+  --ecl-line-height-9xl: #{map.get($line-height, '9xl')};
+  --ecl-line-height-10xl: #{map.get($line-height, '10xl')};
 
   // spacing
   --ecl-spacing-5xs: #{map.get($spacing, '5xs')};
@@ -232,6 +268,7 @@
 
   // font
   --ff-d: var(--ecl-font-family-default);
+  --f-2xs: var(--ecl-font-2xs);
   --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
@@ -246,6 +283,41 @@
   --f-8xl: var(--ecl-font-8xl);
   --f-9xl: var(--ecl-font-9xl);
   --f-10xl: var(--ecl-font-10xl);
+
+  // font-size
+  --fs-2xs: var(--ecl-font-size-2xs);
+  --fs-xs: var(--ecl-font-size-xs);
+  --fs-s: var(--ecl-font-size-s);
+  --fs-m: var(--ecl-font-size-m);
+  --fs-l: var(--ecl-font-size-l);
+  --fs-xl: var(--ecl-font-size-xl);
+  --fs-2xl: var(--ecl-font-size-2xl);
+  --fs-3xl: var(--ecl-font-size-3xl);
+  --fs-4xl: var(--ecl-font-size-4xl);
+  --fs-5xl: var(--ecl-font-size-5xl);
+  --fs-6xl: var(--ecl-font-size-6xl);
+  --fs-7xl: var(--ecl-font-size-7xl);
+  --fs-8xl: var(--ecl-font-size-8xl);
+  --fs-9xl: var(--ecl-font-size-9xl);
+  --fs-10xl: var(--ecl-font-size-10xl);
+
+  // line-height:
+  --lh-3xs: var(--ecl-line-height-3xs);
+  --lh-2xs: var(--ecl-line-height-2xs);
+  --lh-xs: var(--ecl-line-height-xs);
+  --lh-s: var(--ecl-line-height-s);
+  --lh-m: var(--ecl-line-height-m);
+  --lh-l: var(--ecl-line-height-l);
+  --lh-xl: var(--ecl-line-height-xl);
+  --lh-2xl: var(--ecl-line-height-2xl);
+  --lh-3xl: var(--ecl-line-height-3xl);
+  --lh-4xl: var(--ecl-line-height-4xl);
+  --lh-5xl: var(--ecl-line-height-5xl);
+  --lh-6xl: var(--ecl-line-height-6xl);
+  --lh-7xl: var(--ecl-line-height-7xl);
+  --lh-8xl: var(--ecl-line-height-8xl);
+  --lh-9xl: var(--ecl-line-height-9xl);
+  --lh-10xl: var(--ecl-line-height-10xl);
 
   // spacing
   --s-5xs: var(--ecl-spacing-5xs);
@@ -297,9 +369,9 @@
   --cm-surface-low-1: var(--c-l-100);
   --cm-surface-low-2: var(--c-l-300);
   --cm-surface-medium: var(--c-l-400);
-  --cm-surface: var(--c-d-900);
+  --cm-surface: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-200')};
-  --cm-surface-variant-2: var(--c-d-900);
+  --cm-surface-variant-2: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-primary: var(--c-p-500);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-900);
