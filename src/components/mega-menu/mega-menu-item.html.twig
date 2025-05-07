@@ -6,6 +6,7 @@
   - "item" (object)
     - "label" (string) Label of the menu link
     - "external" (boolean) External link
+    - "promotional" (boolean) (default: false) Promotional menu item
     - "sr_external" (string) (default: '') Additional label for the external icon
     - "path" (string) Href of the menu link
     - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
@@ -54,6 +55,7 @@
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _featured = _item.featured|default({}) %}
 {% set _info = _item.info|default({}) %}
+{% set _promotional = _item.promotional|default(false) %}
 {% set _see_all = see_all|default(false) %}
 {% set _sublist_class = 'ecl-mega-menu__sublist' %}
 {% set _mega_class = 'ecl-mega-menu__mega' %}
@@ -80,6 +82,10 @@
   {% if _item.children is empty %}
     {% set _mega_class = _mega_class ~ ' ecl-mega-menu-featured-only' %}
   {% endif %}
+{% endif %}
+
+{% if _promotional %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--promotional' %}
 {% endif %}
 
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}

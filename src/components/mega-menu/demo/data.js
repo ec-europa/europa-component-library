@@ -169,7 +169,8 @@ module.exports = {
         </div>`,
     },
     {
-      label: 'Contact',
+      label: 'SOTEU',
+      promotional: true,
       path: exampleLink,
     },
   ],

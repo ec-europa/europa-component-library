@@ -12,6 +12,29 @@
 $theme: null !default;
 $mega-menu: null !default;
 
+:root {
+  --ecl-mega-menu-item-promotional-bg: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-bg'
+    )};
+  --ecl-mega-menu-item-promotional-hover-bg: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-bg-hover'
+    )};
+  --ecl-mega-menu-item-promotional-outline-color: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-outline-color'
+    )};
+  --ecl-mega-menu-item-promotional-text-color: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-text-color'
+    )};
+}
+
 @mixin with-scrollbar {
   overflow-y: auto;
   scrollbar-color: var(--cm-on-surface-neutral-medium, var(--c-n))
@@ -421,6 +444,20 @@ $mega-menu: null !default;
   }
 }
 
+.ecl-mega-menu__item--promotional .ecl-mega-menu__link {
+  background: var(--ecl-mega-menu-item-promotional-bg);
+  color: var(--ecl-mega-menu-item-promotional-text-color);
+
+  &:hover {
+    background: var(--ecl-mega-menu-item-promotional-hover-bg);
+  }
+
+  &:focus-visible {
+    outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
+    outline-offset: -4px;
+  }
+}
+
 .ecl-mega-menu__featured-list__item {
   .ecl-link {
     .ecl-picture {
@@ -595,8 +632,21 @@ $mega-menu: null !default;
         border-radius: 0;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: #fff;
-        outline-offset: -8px;
+        outline-offset: -4px;
         outline-width: map.get($mega-menu, 'desktop', 'outline-width');
+      }
+    }
+
+    .ecl-mega-menu__item--promotional .ecl-mega-menu__link {
+      background: var(--ecl-mega-menu-item-promotional-bg);
+      color: var(--ecl-mega-menu-item-promotional-text-color);
+
+      &:hover {
+        background: var(--ecl-mega-menu-item-promotional-hover-bg);
+      }
+
+      &:focus-visible {
+        outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
       }
     }
 
