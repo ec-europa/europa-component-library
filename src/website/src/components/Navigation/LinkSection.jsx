@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router';
 
 import styles from './LinkSection.module.scss';
-import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
+import LinkList from './LinkList';
 
 function LinkSection({ pages, level, showStatus, section, attributes }) {
   const location = useLocation(); // Get the location object from the hook
@@ -57,7 +57,7 @@ LinkSection.propTypes = {
     url: PropTypes.string,
     defaultTab: PropTypes.string,
   }).isRequired,
-  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array.isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   section: PropTypes.string,

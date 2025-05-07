@@ -60,7 +60,6 @@ const ECL = {
   Timeline,
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export { ECL };
 
 if (typeof globalThis !== 'undefined') {

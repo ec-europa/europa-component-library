@@ -22,7 +22,7 @@ describe('Link', () => {
       return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
@@ -36,7 +36,7 @@ describe('Link', () => {
       return expect(render(dataStandalone)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataStandalone, true)),
       ).toHaveNoViolations();
@@ -167,7 +167,7 @@ describe('Link', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, options, true)),
       ).toHaveNoViolations();

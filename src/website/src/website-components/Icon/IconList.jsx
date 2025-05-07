@@ -20,7 +20,14 @@ function IconList({ set }) {
       {iconSet.map((icon) => {
         const iconName = icon.name ? icon.name : icon;
         const iconLabel = icon.label ? icon.label : '';
-        return <IconCard name={iconName} label={iconLabel} set={set} />;
+        return (
+          <IconCard
+            key={iconName}
+            name={iconName}
+            label={iconLabel}
+            set={set}
+          />
+        );
       })}
     </ul>
   );

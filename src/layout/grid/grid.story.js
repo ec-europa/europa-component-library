@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 import withCode from '@ecl/storybook-addon-code';
 
 import example234612 from './examples/234612.html';

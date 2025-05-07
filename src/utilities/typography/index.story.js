@@ -35,7 +35,7 @@ const getArgTypes = (story) => {
   const argTypes = getColorModeControls({ arg: 'show_color_mode' });
 
   argTypes.content = {
-    description: `Content`,
+    description: 'Content',
     type: 'string',
     control: {
       type: 'text',

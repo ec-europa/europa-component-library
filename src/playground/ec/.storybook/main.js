@@ -26,10 +26,10 @@ const addons = [
 ];
 
 let staticDirs = [
-  path.resolve(`${__dirname}/../../../presets/ec/${outputFolder}`),
-  path.resolve(`${__dirname}/../../../presets/reset/${outputFolder}`),
-  path.resolve(`${__dirname}/../../../presets/rtl/${outputFolder}`),
-  path.resolve(`${__dirname}/../public`),
+  path.resolve(__dirname, '../../../presets/ec', outputFolder),
+  path.resolve(__dirname, '../../../presets/reset', outputFolder),
+  path.resolve(__dirname, '../../../presets/rtl', outputFolder),
+  path.resolve(__dirname, '../public'),
 ];
 
 // FRONT-3789 - No need for static dirs, we manually copy the files.
@@ -45,7 +45,7 @@ const webpackFinal = (config) => {
     test: /\.twig$/,
     loader: 'twing-loader',
     options: {
-      environmentModulePath: path.resolve(`${__dirname}/environment.js`),
+      environmentModulePath: path.resolve(__dirname, 'environment.js'),
     },
   });
 

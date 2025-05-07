@@ -53,7 +53,7 @@ describe('Checkbox', () => {
       expect.assertions(1);
 
       data.items.forEach((item) => {
-        item.required = true; // eslint-disable-line no-param-reassign
+        item.required = true;
       });
 
       return expect(render(data)).resolves.toMatchSnapshot();
@@ -71,7 +71,7 @@ describe('Checkbox', () => {
       return expect(render(dataSingle)).resolves.toMatchSnapshot();
     });
 
-    test(`passes the accessibility tests`, async () => {
+    test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();

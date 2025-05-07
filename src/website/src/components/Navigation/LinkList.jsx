@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SingleLink from './SingleLink';
-import LinkGroup from './LinkGroup'; // eslint-disable-line import/no-cycle
-import LinkSection from './LinkSection'; // eslint-disable-line import/no-cycle
+import LinkGroup from './LinkGroup';
+import LinkSection from './LinkSection';
 import styles from './LinkList.module.scss';
 
 const LinkList = React.memo(
@@ -55,7 +55,7 @@ const LinkList = React.memo(
 );
 
 LinkList.propTypes = {
-  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array.isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   'aria-hidden': PropTypes.bool,

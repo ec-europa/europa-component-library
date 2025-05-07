@@ -55,7 +55,7 @@ class Playground extends Component {
     let parsedData = null;
     try {
       parsedData = JSON.parse(event.data);
-    } catch (e) {
+    } catch {
       return;
     }
 
@@ -66,7 +66,7 @@ class Playground extends Component {
       parsedData.event.type === 'storybook/docs/snippet-rendered'
     ) {
       const [payload] = parsedData.event.args || [];
-      /* eslint-disable-next-line react/destructuring-assignment */
+
       const story = `${this.props.selectedKind}--${this.props.selectedStory}`;
 
       if (payload?.id === story) {
@@ -120,7 +120,7 @@ class Playground extends Component {
 
     const { hasError, iframeHtml } = this.state;
 
-    if (hasError)
+    if (hasError) {
       return (
         <div className={styles.playground}>
           <p className={styles.description}>
@@ -128,6 +128,7 @@ class Playground extends Component {
           </p>
         </div>
       );
+    }
 
     let playgroundUrl;
 

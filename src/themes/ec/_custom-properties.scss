@@ -95,6 +95,7 @@
   --ecl-font-family-default: #{map.get($font-family, 'default')};
   --ecl-font-family-print-default: #{map.get($font-family-print, 'default')};
   --ecl-font-family-print-alt: #{map.get($font-family-print, 'alt')};
+  --ecl-font-2xs: #{map.get($font, '2xs')};
   --ecl-font-xs: #{map.get($font, 'xs')};
   --ecl-font-s: #{map.get($font, 's')};
   --ecl-font-m: #{map.get($font, 'm')};
@@ -232,6 +233,7 @@
 
   // font
   --ff-d: var(--ecl-font-family-default);
+  --f-2xs: var(--ecl-font-2xs);
   --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
@@ -297,9 +299,9 @@
   --cm-surface-low-1: var(--c-l-100);
   --cm-surface-low-2: var(--c-l-300);
   --cm-surface-medium: var(--c-l-400);
-  --cm-surface: var(--c-d-900);
+  --cm-surface: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-200')};
-  --cm-surface-variant-2: var(--c-d-900);
+  --cm-surface-variant-2: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-primary: var(--c-p-500);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-900);

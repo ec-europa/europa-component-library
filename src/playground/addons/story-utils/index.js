@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import getSystem from '@ecl/builder/utils/getSystem';
 import logoEc from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import logoEcNegative from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
@@ -309,7 +308,7 @@ export const getFormControls = (data, type) => {
     argTypes.name = {
       name: 'name',
       type: 'string',
-      description: `Name attribute`,
+      description: 'Name attribute',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },

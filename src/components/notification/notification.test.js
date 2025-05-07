@@ -65,7 +65,7 @@ expect.extend(toHaveNoViolations);
         return expect(render(withoutDesc)).resolves.toMatchSnapshot();
       });
 
-      test(`passes the accessibility tests`, async () => {
+      test('passes the accessibility tests', async () => {
         expect(
           await axe(await renderTwigFileAsHtml(template, dataInfo)),
         ).toHaveNoViolations();
