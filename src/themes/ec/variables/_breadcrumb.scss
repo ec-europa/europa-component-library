@@ -3,9 +3,6 @@
 
 $breadcrumb: (
   padding-vertical: var(--s-xs),
-  font-mobile: var(--f-m),
-  font-desktop: var(--f-s),
-  line-height: map.get($line-height, 'm'),
   last-link-color: var(--cm-on-surface-brand),
   icon-color: var(--cm-on-surface-brand),
   icon-spacing: var(--s-m),
@@ -15,5 +12,10 @@ $breadcrumb: (
     font-weight: map.get($font-weight, 'regular'),
     offset-vertical: calc(-1 * var(--s-xs)),
     offset-horizontal: calc(-1 * var(--s-m)),
+  ),
+  typography: (
+    mobile-size: var(--fs-m),
+    desktop-size: var(--fs-s),
+    mobile-line-height: map.get($line-height, 'm'),
   ),
 );

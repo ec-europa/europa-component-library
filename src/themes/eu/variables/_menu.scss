@@ -8,6 +8,11 @@ $menu: (
     shadow: var(--sh-2),
     color-outline: map.get($color, 'white'),
   ),
+  link-typography: (
+    mobile-size: var(--fs-l),
+    mobile-line-height: map.get($line-height, 's'),
+    desktop-size: var(--fs-m),
+  ),
   mobile: (
     menu-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     color: var(--c-d),

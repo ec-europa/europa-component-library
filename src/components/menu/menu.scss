@@ -329,13 +329,7 @@ $menu: null !default;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
 
-  @include mixins.responsive-font(
-    (
-      'mobile-size': map.get($menu, 'mobile', 'item-font'),
-      'desktop-size': map.get($menu, 'desktop', 'item-font'),
-      'breakpoint': 'l',
-    )
-  );
+  @include mixins.responsive-font(map.get($menu, 'link-typography'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');

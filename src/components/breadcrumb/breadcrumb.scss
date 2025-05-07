@@ -12,15 +12,9 @@ $theme: null !default;
 $breadcrumb: null !default;
 
 .ecl-breadcrumb {
-  line-height: map.get($breadcrumb, 'line-height');
   margin: 0;
 
-  @include mixins.responsive-font(
-    (
-      'mobile-size': map.get($breadcrumb, 'font-mobile'),
-      'desktop-size': map.get($breadcrumb, 'font-desktop'),
-    )
-  );
+  @include mixins.responsive-font(map.get($breadcrumb, 'typography'));
 }
 
 .ecl-breadcrumb__container {
