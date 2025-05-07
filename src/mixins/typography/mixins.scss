@@ -107,10 +107,14 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
   $t-size: map.get($config, 'tablet-size');
   $m-size: map.get($config, 'mobile-size');
   $ld-size: map.get($config, 'large-desktop-size');
+
+  // Line heights
   $d-lh: map.get($config, 'desktop-line-height');
   $t-lh: map.get($config, 'tablet-line-height');
   $m-lh: map.get($config, 'mobile-line-height');
   $ld-lh: map.get($config, 'large-desktop-line-height');
+
+  // Breakpoints
   $t-bp: if(
     map.has-key($config, 'tablet-breakpoint'),
     map.get($config, 'tablet-breakpoint'),
@@ -126,6 +130,8 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
     map.get($config, 'large-desktop-breakpoint'),
     'xl'
   );
+
+  // Font weights
   $d-w: if(
     map.has-key($config, 'desktop-weight'),
     map.get($config, 'desktop-weight'),
@@ -134,13 +140,19 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
   $t-w: map.get($config, 'tablet-weight');
   $m-w: map.get($config, 'mobile-weight');
   $ld-w: map.get($config, 'large-desktop-weight');
+
+  // Font family
   $family-prop: map.get($config, 'font-family');
   $resolved-family: if(
     $family-prop != null,
     $family-prop,
     map.get($font-family, 'default')
   );
+
+  // Letter spacing
   $ls-type: map.get($config, 'letter-spacing-type');
+
+  // Fallbacks
   $d-key: extract-token($d-size);
   $t-key: if($t-size, extract-token($t-size), fallback-token($d-key, 'tablet'));
   $m-key: if($m-size, extract-token($m-size), fallback-token($t-key, 'mobile'));
