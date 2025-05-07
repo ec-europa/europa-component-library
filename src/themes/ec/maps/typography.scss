@@ -87,37 +87,19 @@ $font: (
   '2xs': #{map.get($font-size, '2xs') + '/' + map.get($line-height, '3xs')}
     #{map.get($font-family, 'default')}
 ) !default;
-$letter-spacing-compact: (
-  '10xl': -1px,
-  '9xl': -1px,
-  '8xl': -1px,
-  '7xl': -1px,
-  '6xl': -0.5px,
-  '5xl': -0.5px,
-  '4xl': -1px,
-  '3xl': -1px,
-  '2xl': -1px,
-  'xl': -1px,
-  'l': -1px,
-  'm': -1px,
-  's': -1px,
-  'xs': -1px,
-) !default;
-$letter-spacing-extended: (
-  '10xl': 3px,
-  '9xl': 3px,
-  '8xl': 3px,
-  '7xl': 3px,
-  '6xl': 3px,
+$letter-spacing: (
   '5xl': 3px,
-  '4xl': 3px,
-  '3xl': 3px,
-  '2xl': 3px,
-  'xl': 3px,
-  'l': 1.5px,
-  'm': 1.5px,
-  's': 1.5px,
-  'xs': 1.5px,
+  '4xl': 2.5px,
+  '3xl': 2px,
+  '2xl': 1.5px,
+  'xl': 1px,
+  'l': 0.5px,
+  'm': 0px,
+  's': -0.5px,
+  'xs': -1px,
+  '2xs': -1.5px,
+  '3xs': -2px,
+  '4xs': -2.5px,
 ) !default;
 
 // Print
