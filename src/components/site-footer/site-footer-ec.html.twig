@@ -54,7 +54,7 @@
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-container ecl-site-footer__container">
-    <div class="ecl-site-footer__row">
+    <div class="ecl-site-footer__row ecl-site-footer__row--specific">
       {# Site info #}
       {%- if _section_site_info is not empty -%}
         {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
@@ -66,14 +66,12 @@
 
       {%- if _section_core is not empty -%}
 
-      <div class="ecl-site-footer__section ecl-site-footer__section--links">
         {# Core #}
         {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
           section: _section_core|merge({ name: 'core' }),
           extra_classes: _section_core.extra_classes|default(''),
           extra_attributes: _section_core.extra_attributes|default([])
         } only %}
-      </div>
 
       {%- else -%}
 
@@ -129,7 +127,7 @@
     </div>
 
     {%- if _section_common is not empty -%}
-    <div class="ecl-site-footer__row">
+    <div class="ecl-site-footer__row ecl-site-footer__row--common">
       {# Common #}
       {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
         section: _section_common|merge({ name: 'common' }),

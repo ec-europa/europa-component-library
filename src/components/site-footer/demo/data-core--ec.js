@@ -124,14 +124,14 @@ module.exports = {
         },
         {
           link: {
-            label: 'Other',
+            label: 'Telegram',
             path: exampleLink,
             hide_label: true,
             icon_position: 'before',
             inverted: true,
           },
           icon: {
-            name: 'chain',
+            name: 'telegram',
             family: 'networks',
             style: 'inverted',
           },

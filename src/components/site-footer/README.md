@@ -6,7 +6,7 @@ npm package: `@ecl/site-footer`
 npm install --save @ecl/site-footer
 ```
 
-### Parameters
+### EC footer parameters
 
 - **"section_xx"** (object) (default: {}): Specific section of the footer, all using the same structure
   Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related" and "section_common"
@@ -21,6 +21,32 @@ npm install --save @ecl/site-footer
   - **"extra_links"** (optional) (array of object): Extra links, at the end of the social media, using the ECL Link structure
 - **"extra_classes"** (string) (default: '') Extra classes (space separated) for the footer
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the footer
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
+
+### EU footer parameters
+
+- **"rows"** (array of objects) (default: [])
+  - **"section_class_name"** (optional) (string) (default: '')
+  - **"logo"**
+    - "title": (string) (default: ''): Logo title attribute.
+    - "alt" (string) alt attribute for the logo link
+    - "path" (string) logo link path
+    - "language" (string) Language code
+    - "src_mobile" (string) Path the mobile logo
+    - "src_desktop" (string) Path to the desktop logo
+  - **"title"** (optional) (string) OR (object with Link component in property)
+  - **"title_with_separator"** (optional) (bolean) (default: false)
+  - **"description"** (optional) (string) (default: '')
+  - **"content_before"** (optional) (string) (default: '')
+  - **"links"** (optional) (array of objects) (default: []),
+    - "link" (link object)
+    - "content_before" (string) Optional text before the link
+    - "content_after" (string) Optional text after the link
+  - **"links_inline"** (optional) (boolean) (default: false) Optional inline style for the list
+  - **"links_separator"** (optional) (boolean) (default: false) Optional separator for inline links
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

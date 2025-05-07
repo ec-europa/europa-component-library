@@ -9,7 +9,7 @@ exports[`Site Footer EC Core renders correctly 1`] = `
       class="ecl-container ecl-site-footer__container"
     >
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--specific"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--site-info"
@@ -51,100 +51,96 @@ exports[`Site Footer EC Core renders correctly 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-site-footer__section ecl-site-footer__section--links"
+          class="ecl-site-footer__section ecl-site-footer__section--core"
         >
-          <div
-            class="ecl-site-footer__section ecl-site-footer__section--core"
+          <ul
+            class="ecl-site-footer__list"
           >
-            <ul
-              class="ecl-site-footer__list"
+            <li
+              class="ecl-site-footer__list-item"
             >
-              <li
-                class="ecl-site-footer__list-item"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/about-european-commission_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/about-european-commission_en"
-                >
-                  About us
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                About us
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/about-european-commission/contact_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/about-european-commission/contact_en"
-                >
-                  Contact us
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Contact us
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="/example"
-                >
-                  Priorities
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Priorities
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="/example"
-                >
-                  Topics
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Topics
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/funding-tenders_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/funding-tenders_en"
-                >
-                  Funding and tenders
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Funding and tenders
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/jobs-european-commission_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/jobs-european-commission_en"
-                >
-                  Jobs
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Jobs
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://ec.europa.eu/commission/presscorner/home/en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://ec.europa.eu/commission/presscorner/home/en"
-                >
-                  Press corner
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Press corner
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/events_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/events_en"
-                >
-                  Events
-                </a>
-              </li>
-            </ul>
-          </div>
+                Events
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--common"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--common"
@@ -219,12 +215,12 @@ exports[`Site Footer EC Core renders correctly 1`] = `
                   href="/example"
                 >
                   <span
-                    class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
                   />
                   <span
                     class="ecl-link__label"
                   >
-                    Other
+                    Telegram
                   </span>
                 </a>
               </li>
@@ -319,7 +315,7 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
       class="ecl-container ecl-site-footer__container"
     >
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--specific"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--site-info"
@@ -361,100 +357,96 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-site-footer__section ecl-site-footer__section--links"
+          class="ecl-site-footer__section ecl-site-footer__section--core"
         >
-          <div
-            class="ecl-site-footer__section ecl-site-footer__section--core"
+          <ul
+            class="ecl-site-footer__list"
           >
-            <ul
-              class="ecl-site-footer__list"
+            <li
+              class="ecl-site-footer__list-item"
             >
-              <li
-                class="ecl-site-footer__list-item"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/about-european-commission_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/about-european-commission_en"
-                >
-                  About us
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                About us
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/about-european-commission/contact_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/about-european-commission/contact_en"
-                >
-                  Contact us
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Contact us
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="/example"
-                >
-                  Priorities
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Priorities
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="/example"
-                >
-                  Topics
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Topics
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/funding-tenders_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/funding-tenders_en"
-                >
-                  Funding and tenders
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Funding and tenders
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/jobs-european-commission_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/jobs-european-commission_en"
-                >
-                  Jobs
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Jobs
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://ec.europa.eu/commission/presscorner/home/en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://ec.europa.eu/commission/presscorner/home/en"
-                >
-                  Press corner
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Press corner
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/events_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/events_en"
-                >
-                  Events
-                </a>
-              </li>
-            </ul>
-          </div>
+                Events
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--common"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--common"
@@ -529,12 +521,12 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
                   href="/example"
                 >
                   <span
-                    class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
                   />
                   <span
                     class="ecl-link__label"
                   >
-                    Other
+                    Telegram
                   </span>
                 </a>
               </li>
@@ -627,7 +619,7 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
       class="ecl-container ecl-site-footer__container"
     >
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--specific"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--site-info"
@@ -669,100 +661,96 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
           </ul>
         </div>
         <div
-          class="ecl-site-footer__section ecl-site-footer__section--links"
+          class="ecl-site-footer__section ecl-site-footer__section--core"
         >
-          <div
-            class="ecl-site-footer__section ecl-site-footer__section--core"
+          <ul
+            class="ecl-site-footer__list"
           >
-            <ul
-              class="ecl-site-footer__list"
+            <li
+              class="ecl-site-footer__list-item"
             >
-              <li
-                class="ecl-site-footer__list-item"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/about-european-commission_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/about-european-commission_en"
-                >
-                  About us
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                About us
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/about-european-commission/contact_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/about-european-commission/contact_en"
-                >
-                  Contact us
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Contact us
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="/example"
-                >
-                  Priorities
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Priorities
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="/example"
-                >
-                  Topics
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Topics
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/funding-tenders_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/funding-tenders_en"
-                >
-                  Funding and tenders
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Funding and tenders
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/jobs-european-commission_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/jobs-european-commission_en"
-                >
-                  Jobs
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Jobs
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://ec.europa.eu/commission/presscorner/home/en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://ec.europa.eu/commission/presscorner/home/en"
-                >
-                  Press corner
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
+                Press corner
+              </a>
+            </li>
+            <li
+              class="ecl-site-footer__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                href="https://commission.europa.eu/events_en"
               >
-                <a
-                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
-                  href="https://commission.europa.eu/events_en"
-                >
-                  Events
-                </a>
-              </li>
-            </ul>
-          </div>
+                Events
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--common"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--common"
@@ -837,12 +825,12 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
                   href="/example"
                 >
                   <span
-                    class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
                   />
                   <span
                     class="ecl-link__label"
                   >
-                    Other
+                    Telegram
                   </span>
                 </a>
               </li>
@@ -935,7 +923,7 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
       class="ecl-container ecl-site-footer__container"
     >
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--specific"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--site-info"
@@ -1029,12 +1017,12 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                   href="/example"
                 >
                   <span
-                    class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
                   />
                   <span
                     class="ecl-link__label"
                   >
-                    Other
+                    Telegram
                   </span>
                 </a>
               </li>
@@ -1228,7 +1216,7 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--common"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--common"
@@ -1443,7 +1431,7 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
       class="ecl-container ecl-site-footer__container"
     >
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--specific"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--site-info"
@@ -1537,12 +1525,12 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                   href="/example"
                 >
                   <span
-                    class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
                   />
                   <span
                     class="ecl-link__label"
                   >
-                    Other
+                    Telegram
                   </span>
                 </a>
               </li>
@@ -1736,7 +1724,7 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="ecl-site-footer__row"
+        class="ecl-site-footer__row ecl-site-footer__row--common"
       >
         <div
           class="ecl-site-footer__section ecl-site-footer__section--common"
