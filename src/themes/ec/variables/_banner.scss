@@ -38,14 +38,14 @@ $banner: (
   ),
   font: (
     'title': (
-      'font-weight': map.get($font-weight, 'light'),
+      'mobile-weight': map.get($font-weight, 'light'),
+      'mobile-letter-spacing': map.get($letter-spacing, 'xs'),
       'mobile-size': var(--fs-7xl),
       'mobile-line-height': var(--lh-7xl),
       'desktop-size': var(--fs-8xl),
       'desktop-line-height': var(--lh-8xl),
       'large-desktop-size': var(--fs-10xl),
       'large-desktop-line-height': var(--lh-10xl),
-      'letter-spacing-type': 'compact',
     ),
     'description': (
       'mobile-size': var(--fs-2xl),

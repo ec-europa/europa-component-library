@@ -20,8 +20,6 @@ $line-height: if(
 );
 $font-weight: map.get($theme, 'font-weight');
 $font-family: map.get($theme, 'font-family');
-$letter-spacing-compact: map.get($theme, 'letter-spacing-compact');
-$letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
 
 @function is-var($value) {
   @return string.index(#{$value}, 'var(--') == 1;
@@ -84,23 +82,26 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
 }
 
 /// @param {Map} $config - Configuration map with keys:
-///   - `desktop-size`            {String}  (required)
-///   - `tablet-size`             {String | null}
-///   - `mobile-size`             {String | null}
-///   - `large-desktop-size`      {String | null}
-///   - `desktop-line-height`     {String | null}
-///   - `tablet-line-height`      {String | null}
-///   - `mobile-line-height`      {String | null}
-///   - `large-desktop-line-height` {String | null}
-///   - `desktop-breakpoint`      {String}  (default: `'l'`)
-///   - `tablet-breakpoint`       {String}  (default: `'m'`)
-///   - `large-desktop-breakpoint`{String}  (default: `'xl'`)
-///   - `desktop-weight`          {Number | String | null} (default: `$font-weight.regular`)
-///   - `tablet-weight`           {Number | String | null}
-///   - `mobile-weight`           {Number | String | null}
-///   - `large-desktop-weight`    {Number | String | null}
-///   - `font-family`             {String | null}
-///   - `letter-spacing-type`     {String | null}: `'compact' | 'extended' | null`
+///   - `desktop-size`               {String}  (required)
+///   - `tablet-size`                {String | null}
+///   - `mobile-size`                {String | null}
+///   - `large-desktop-size`         {String | null}
+///   - `desktop-line-height`        {String | null}
+///   - `tablet-line-height`         {String | null}
+///   - `mobile-line-height`         {String | null}
+///   - `large-desktop-line-height`  {String | null}
+///   - `desktop-breakpoint`         {String}  (default: `'l'`)
+///   - `tablet-breakpoint`          {String}  (default: `'m'`)
+///   - `large-desktop-breakpoint`   {String}  (default: `'xl'`)
+///   - `desktop-weight`             {Number | String | null}
+///   - `tablet-weight`              {Number | String | null}
+///   - `mobile-weight`              {Number | String | null}
+///   - `large-desktop-weight`       {Number | String | null}
+///   - `font-family`                {String | null}
+///   - `desktop-letter-spacing`     {String | null}
+///   - `tablet-letter-spacing`      {String | null}
+///   - `mobile-letter-spacing`      {String | null}
+///   - `large-desktop-letter-spacing` {String | null}
 @mixin responsive-font($config) {
   // Sizes
   $d-size: map.get($config, 'desktop-size');
@@ -113,6 +114,12 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
   $t-lh: map.get($config, 'tablet-line-height');
   $m-lh: map.get($config, 'mobile-line-height');
   $ld-lh: map.get($config, 'large-desktop-line-height');
+
+  // Letter spacing
+  $ls-d: map.get($config, 'desktop-letter-spacing');
+  $ls-t: map.get($config, 'tablet-letter-spacing');
+  $ls-m: map.get($config, 'mobile-letter-spacing');
+  $ls-ld: map.get($config, 'large-desktop-letter-spacing');
 
   // Breakpoints
   $t-bp: if(
@@ -144,13 +151,10 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
   // Font family
   $family-prop: map.get($config, 'font-family');
   $resolved-family: if(
-    $family-prop != null,
+    $family-prop,
     $family-prop,
     map.get($font-family, 'default')
   );
-
-  // Letter spacing
-  $ls-type: map.get($config, 'letter-spacing-type');
 
   // Fallbacks
   $d-key: extract-token($d-size);
@@ -182,28 +186,23 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
   $r-t-lh: to-line-height-var(if($t-lh, $t-lh, $t-lh-key));
   $r-d-lh: to-line-height-var(if($d-lh, $d-lh, $d-lh-key));
   $r-ld-lh: to-line-height-var(if($ld-lh, $ld-lh, $ld-lh-key));
-  $r-m-weight: if($m-w != null, $m-w, if($t-w != null, $t-w, $d-w));
-  $r-t-weight: if($t-w != null, $t-w, $d-w);
-  $r-ld-weight: if($ld-w != null, $ld-w, $d-w);
+  $r-m-weight: if($m-w, $m-w, if($t-w, $t-w, $d-w));
+  $r-t-weight: if($t-w, $t-w, $d-w);
+  $r-ld-weight: if($ld-w, $ld-w, $d-w);
 
   font-family: $resolved-family;
   font-size: $r-m-size;
   line-height: $r-m-lh;
   font-weight: $r-m-weight;
 
-  @if $ls-type == 'compact' and map.has-key($letter-spacing-compact, $m-key) {
-    letter-spacing: map.get($letter-spacing-compact, $m-key);
-  } @else if
-    $ls-type ==
-    'extended' and
-    map.has-key($letter-spacing-extended, $m-key)
-  {
-    letter-spacing: map.get($letter-spacing-extended, $m-key);
+  @if $ls-m {
+    letter-spacing: $ls-m;
   }
 
   @if ($r-t-size != $r-m-size) or
     ($r-t-lh != $r-m-lh) or
-    ($r-t-weight != $r-m-weight)
+    ($r-t-weight != $r-m-weight) or
+    ($ls-t and $ls-t != $ls-m)
   {
     @include breakpoints.up($t-bp) {
       @if $r-t-size != $r-m-size {
@@ -215,10 +214,21 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
       }
 
       font-weight: $r-t-weight;
+
+      @if $ls-t and $ls-t != $ls-m {
+        letter-spacing: $ls-t;
+      }
     }
   }
 
-  @if $r-d-size != $r-t-size or $r-d-lh != $r-t-lh or $d-w != $r-t-weight {
+  @if $r-d-size !=
+    $r-t-size or
+    $r-d-lh !=
+    $r-t-lh or
+    $d-w !=
+    $r-t-weight or
+    ($ls-d and $ls-d != $ls-t)
+  {
     @include breakpoints.up($d-bp) {
       @if $r-d-size != $r-t-size {
         font-size: $r-d-size;
@@ -229,12 +239,20 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
       }
 
       font-weight: $d-w;
+
+      @if $ls-d and $ls-d != $ls-t {
+        letter-spacing: $ls-d;
+      }
     }
   }
 
-  @if ($r-ld-size != $r-d-size) or
-    ($r-ld-lh != $r-d-lh) or
-    ($r-ld-weight != $d-w)
+  @if $r-ld-size !=
+    $r-d-size or
+    $r-ld-lh !=
+    $r-d-lh or
+    $r-ld-weight !=
+    $d-w or
+    ($ls-ld and $ls-ld != $ls-d)
   {
     @include breakpoints.up($ld-bp) {
       @if $r-ld-size != $r-d-size {
@@ -246,6 +264,10 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
       }
 
       font-weight: $r-ld-weight;
+
+      @if $ls-ld and $ls-ld != $ls-d {
+        letter-spacing: $ls-ld;
+      }
     }
   }
 }

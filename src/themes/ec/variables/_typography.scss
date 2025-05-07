@@ -20,7 +20,7 @@ $typography: (
       'line-height': var(--lh-10xl),
     ),
     'font-weight': map.get($font-weight, 'regular'),
-    'letter-spacing-compact': -1px,
+    'letter-spacing-compact': map.get($letter-spacing, 'xs'),
   ),
   heading1: (
     'mobile': (
@@ -36,7 +36,7 @@ $typography: (
       'line-height': var(--lh-8xl),
     ),
     'font-weight': map.get($font-weight, 'light'),
-    'letter-spacing-compact': -1.5px,
+    'letter-spacing-compact': map.get($letter-spacing, '2xs'),
   ),
   heading2: (
     'mobile': (
@@ -52,7 +52,7 @@ $typography: (
       'line-height': var(--lh-4xl),
     ),
     'font-weight': map.get($font-weight, 'light'),
-    'letter-spacing-compact': -0.5px,
+    'letter-spacing-compact': map.get($letter-spacing, 's'),
   ),
   heading3: (
     'mobile': (
