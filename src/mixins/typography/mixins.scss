@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:meta';
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
 
@@ -109,18 +110,6 @@ $font-family: map.get($theme, 'font-family');
   $m-size: map.get($config, 'mobile-size');
   $ld-size: map.get($config, 'large-desktop-size');
 
-  // Line heights
-  $d-lh: map.get($config, 'desktop-line-height');
-  $t-lh: map.get($config, 'tablet-line-height');
-  $m-lh: map.get($config, 'mobile-line-height');
-  $ld-lh: map.get($config, 'large-desktop-line-height');
-
-  // Letter spacing
-  $ls-d: map.get($config, 'desktop-letter-spacing');
-  $ls-t: map.get($config, 'tablet-letter-spacing');
-  $ls-m: map.get($config, 'mobile-letter-spacing');
-  $ls-ld: map.get($config, 'large-desktop-letter-spacing');
-
   // Breakpoints
   $t-bp: if(
     map.has-key($config, 'tablet-breakpoint'),
@@ -139,28 +128,36 @@ $font-family: map.get($theme, 'font-family');
   );
 
   // Font weights
-  $d-w: if(
-    map.has-key($config, 'desktop-weight'),
-    map.get($config, 'desktop-weight'),
-    map.get($font-weight, 'regular')
-  );
-  $t-w: map.get($config, 'tablet-weight');
   $m-w: map.get($config, 'mobile-weight');
+  $t-w: map.get($config, 'tablet-weight');
+  $d-w: map.get($config, 'desktop-weight');
   $ld-w: map.get($config, 'large-desktop-weight');
+  $r-m-weight: if($m-w, $m-w, null);
+  $r-t-weight: if($t-w, $t-w, $r-m-weight);
+  $r-d-weight: if($d-w, $d-w, $r-t-weight);
+  $r-ld-weight: if($ld-w, $ld-w, $r-d-weight);
 
-  // Font family
-  $family-prop: map.get($config, 'font-family');
-  $resolved-family: if(
-    $family-prop,
-    $family-prop,
-    map.get($font-family, 'default')
-  );
+  // Letter spacing
+  $ls-m: map.get($config, 'mobile-letter-spacing');
+  $ls-t: map.get($config, 'tablet-letter-spacing');
+  $ls-d: map.get($config, 'desktop-letter-spacing');
+  $ls-ld: map.get($config, 'large-desktop-letter-spacing');
+  $r-ls-m: $ls-m;
+  $r-ls-t: if($ls-t, $ls-t, $r-ls-m);
+  $r-ls-d: if($ls-d, $ls-d, $r-ls-t);
+  $r-ls-ld: if($ls-ld, $ls-ld, $r-ls-d);
 
-  // Fallbacks
+  // Line heights
+  $m-lh: map.get($config, 'mobile-line-height');
+  $t-lh: map.get($config, 'tablet-line-height');
+  $d-lh: map.get($config, 'desktop-line-height');
+  $ld-lh: map.get($config, 'large-desktop-line-height');
+
+  // Fallback
   $d-key: extract-token($d-size);
   $t-key: if($t-size, extract-token($t-size), fallback-token($d-key, 'tablet'));
   $m-key: if($m-size, extract-token($m-size), fallback-token($t-key, 'mobile'));
-  $ld-key: if($ld-size, extract-token($ld-size), null);
+  $ld-key: if($ld-size, extract-token($ld-size), $d-key);
 
   @if not $t-key {
     $t-key: $d-key;
@@ -174,99 +171,97 @@ $font-family: map.get($theme, 'font-family');
     $ld-key: $d-key;
   }
 
-  $d-lh-key: if($d-lh, extract-token($d-lh), $d-key);
-  $t-lh-key: if($t-lh, extract-token($t-lh), $t-key);
-  $m-lh-key: if($m-lh, extract-token($m-lh), $m-key);
-  $ld-lh-key: if($ld-lh, extract-token($ld-lh), $ld-key);
+  $r-m-lh: to-line-height-var(if($m-lh, $m-lh, $m-key));
+  $r-t-lh: to-line-height-var(if($t-lh, $t-lh, $r-m-lh));
+  $r-d-lh: to-line-height-var(if($d-lh, $d-lh, $r-t-lh));
+  $r-ld-lh: to-line-height-var(if($ld-lh, $ld-lh, $r-d-lh));
+
+  // Font sizes
   $r-m-size: to-size-var(if($m-size, $m-size, $m-key));
   $r-t-size: to-size-var(if($t-size, $t-size, $t-key));
   $r-d-size: to-size-var($d-size);
   $r-ld-size: to-size-var(if($ld-size, $ld-size, $ld-key));
-  $r-m-lh: to-line-height-var(if($m-lh, $m-lh, $m-lh-key));
-  $r-t-lh: to-line-height-var(if($t-lh, $t-lh, $t-lh-key));
-  $r-d-lh: to-line-height-var(if($d-lh, $d-lh, $d-lh-key));
-  $r-ld-lh: to-line-height-var(if($ld-lh, $ld-lh, $ld-lh-key));
-  $r-m-weight: if($m-w, $m-w, if($t-w, $t-w, $d-w));
-  $r-t-weight: if($t-w, $t-w, $d-w);
-  $r-ld-weight: if($ld-w, $ld-w, $d-w);
 
+  // Font family
+  $family-prop: map.get($config, 'font-family');
+  $resolved-family: if(
+    $family-prop,
+    $family-prop,
+    map.get($font-family, 'default')
+  );
+
+  // Base (mobile)
   font-family: $resolved-family;
   font-size: $r-m-size;
   line-height: $r-m-lh;
   font-weight: $r-m-weight;
 
-  @if $ls-m {
-    letter-spacing: $ls-m;
+  @if $r-ls-m {
+    letter-spacing: $r-ls-m;
   }
 
-  @if ($r-t-size != $r-m-size) or
-    ($r-t-lh != $r-m-lh) or
-    ($r-t-weight != $r-m-weight) or
-    ($ls-t and $ls-t != $ls-m)
-  {
+  // Tablet
+  @if (
+    $r-t-size !=
+      $r-m-size or
+      $r-t-lh !=
+      $r-m-lh or
+      $r-t-weight !=
+      $r-m-weight or
+      $r-ls-t !=
+      $r-ls-m
+  ) {
     @include breakpoints.up($t-bp) {
-      @if $r-t-size != $r-m-size {
-        font-size: $r-t-size;
-      }
-
-      @if $r-t-lh != $r-m-lh {
-        line-height: $r-t-lh;
-      }
-
+      font-size: $r-t-size;
+      line-height: $r-t-lh;
       font-weight: $r-t-weight;
 
-      @if $ls-t and $ls-t != $ls-m {
-        letter-spacing: $ls-t;
+      @if $r-ls-t {
+        letter-spacing: $r-ls-t;
       }
     }
   }
 
-  @if $r-d-size !=
-    $r-t-size or
-    $r-d-lh !=
-    $r-t-lh or
-    $d-w !=
-    $r-t-weight or
-    ($ls-d and $ls-d != $ls-t)
-  {
+  // Desktop
+  @if (
+    $r-d-size !=
+      $r-t-size or
+      $r-d-lh !=
+      $r-t-lh or
+      $r-d-weight !=
+      $r-t-weight or
+      $r-ls-d !=
+      $r-ls-t
+  ) {
     @include breakpoints.up($d-bp) {
-      @if $r-d-size != $r-t-size {
-        font-size: $r-d-size;
-      }
+      font-size: $r-d-size;
+      line-height: $r-d-lh;
+      font-weight: $r-d-weight;
 
-      @if $r-d-lh != $r-t-lh {
-        line-height: $r-d-lh;
-      }
-
-      font-weight: $d-w;
-
-      @if $ls-d and $ls-d != $ls-t {
-        letter-spacing: $ls-d;
+      @if $r-ls-d {
+        letter-spacing: $r-ls-d;
       }
     }
   }
 
-  @if $r-ld-size !=
-    $r-d-size or
-    $r-ld-lh !=
-    $r-d-lh or
-    $r-ld-weight !=
-    $d-w or
-    ($ls-ld and $ls-ld != $ls-d)
-  {
+  // Large Desktop
+  @if (
+    $r-ld-size !=
+      $r-d-size or
+      $r-ld-lh !=
+      $r-d-lh or
+      $r-ld-weight !=
+      $r-d-weight or
+      $r-ls-ld !=
+      $r-ls-d
+  ) {
     @include breakpoints.up($ld-bp) {
-      @if $r-ld-size != $r-d-size {
-        font-size: $r-ld-size;
-      }
-
-      @if $r-ld-lh != $r-d-lh {
-        line-height: $r-ld-lh;
-      }
-
+      font-size: $r-ld-size;
+      line-height: $r-ld-lh;
       font-weight: $r-ld-weight;
 
-      @if $ls-ld and $ls-ld != $ls-d {
-        letter-spacing: $ls-ld;
+      @if $r-ls-ld {
+        letter-spacing: $r-ls-ld;
       }
     }
   }

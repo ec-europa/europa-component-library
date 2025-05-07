@@ -105,7 +105,6 @@ $banner: null !default;
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
   display: block;
-  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile');
   margin: 0;
 
   @include mixins.responsive-font(map.get($banner, 'font', 'title'));

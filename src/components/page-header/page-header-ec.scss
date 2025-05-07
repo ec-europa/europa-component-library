@@ -57,7 +57,6 @@ $page-header: null !default;
 
 .ecl-page-header__title {
   color: map.get($page-header, 'title', 'color');
-  letter-spacing: map.get($page-header, 'title', 'letter-spacing-mobile');
   margin-bottom: 0;
 
   @include mixins.responsive-font(map.get($page-header, 'title'));
