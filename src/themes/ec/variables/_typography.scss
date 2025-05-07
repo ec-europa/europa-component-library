@@ -20,6 +20,7 @@ $typography: (
       'line-height': var(--lh-10xl),
     ),
     'font-weight': map.get($font-weight, 'regular'),
+    'letter-spacing-compact': -1px,
   ),
   heading1: (
     'mobile': (
@@ -67,8 +68,6 @@ $typography: (
       'line-height': var(--lh-xl),
     ),
     'font-weight': map.get($font-weight, 'light'),
-    'letter-spacing-mobile': map.get($letter-spacing-compact, '2xl'),
-    'letter-spacing-desktop': map.get($letter-spacing-compact, '3xl'),
   ),
   heading4: (
     'mobile': (
