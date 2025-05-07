@@ -108,16 +108,6 @@ $typography-print: null !default;
   .ecl-u-type-#{$key} {
     font: map.get($theme, 'font-print', $key) !important;
   }
-
-  .ecl-u-type-compact-#{$key} {
-    font: map.get($theme, 'font-print', $key) !important;
-    letter-spacing: map.get($theme, 'letter-spacing-compact', $key);
-  }
-
-  .ecl-u-type-extended-#{$key} {
-    font: map.get($theme, 'font-print', $key) !important;
-    letter-spacing: map.get($theme, 'letter-spacing-extended', $key);
-  }
 }
 
 /*

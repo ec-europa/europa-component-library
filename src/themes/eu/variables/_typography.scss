@@ -2,43 +2,104 @@
 @use '../index' as *;
 
 $typography: (
+  font-family: map.get($font-family, 'default'),
   heading-margin: var(--s-2xl) 0 var(--s-m),
   heading-color: var(--c-d),
   text-color: var(--c-d-80),
   heading1: (
-    'mobile': var(--f-4xl),
-    'desktop': var(--f-5xl),
+    'mobile': (
+      'size': var(--fs-4xl),
+      'line-height': var(--lh-4xl),
+    ),
+    'tablet': (
+      'size': var(--fs-4xl),
+      'line-height': var(--lh-4xl),
+    ),
+    'desktop': (
+      'size': var(--fs-5xl),
+      'line-height': var(--lh-5xl),
+    ),
     'font-weight': map.get($font-weight, 'regular'),
     'letter-spacing-mobile': normal,
     'letter-spacing-desktop': normal,
   ),
   heading2: (
-    'mobile': var(--f-3xl),
-    'desktop': var(--f-4xl),
+    'mobile': (
+      'size': var(--fs-3xl),
+      'line-height': var(--lh-3xl),
+    ),
+    'tablet': (
+      'size': var(--fs-3xl),
+      'line-height': var(--lh-3xl),
+    ),
+    'desktop': (
+      'size': var(--fs-4xl),
+      'line-height': var(--lh-4xl),
+    ),
     'font-weight': map.get($font-weight, 'regular'),
     'letter-spacing-mobile': normal,
     'letter-spacing-desktop': normal,
   ),
   heading3: (
-    'mobile': var(--f-2xl),
-    'desktop': var(--f-3xl),
+    'mobile': (
+      'size': var(--fs-2xl),
+      'line-height': var(--lh-2xl),
+    ),
+    'tablet': (
+      'size': var(--fs-2xl),
+      'line-height': var(--lh-2xl),
+    ),
+    'desktop': (
+      'size': var(--fs-3xl),
+      'line-height': var(--lh-3xl),
+    ),
     'font-weight': map.get($font-weight, 'regular'),
     'letter-spacing-mobile': normal,
     'letter-spacing-desktop': normal,
   ),
   heading4: (
-    'mobile': var(--f-xl),
-    'desktop': var(--f-2xl),
+    'mobile': (
+      'size': var(--fs-xl),
+      'line-height': var(--lh-xl),
+    ),
+    'tablet': (
+      'size': var(--fs-xl),
+      'line-height': var(--lh-xl),
+    ),
+    'desktop': (
+      'size': var(--fs-2xl),
+      'line-height': var(--lh-2xl),
+    ),
     'font-weight': map.get($font-weight, 'regular'),
   ),
   heading5: (
-    'mobile': var(--f-l),
-    'desktop': var(--f-l),
+    'mobile': (
+      'size': var(--fs-l),
+      'line-height': var(--lh-l),
+    ),
+    'tablet': (
+      'size': var(--fs-l),
+      'line-height': var(--lh-l),
+    ),
+    'desktop': (
+      'size': var(--fs-l),
+      'line-height': var(--lh-l),
+    ),
     'font-weight': map.get($font-weight, 'regular'),
   ),
   heading6: (
-    'mobile': var(--f-m),
-    'desktop': var(--f-m),
+    'mobile': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-m),
+    ),
+    'tablet': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-m),
+    ),
+    'desktop': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-m),
+    ),
     'font-weight': map.get($font-weight, 'regular'),
   ),
   paragraph: (
