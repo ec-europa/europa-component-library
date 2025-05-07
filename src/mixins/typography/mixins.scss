@@ -102,6 +102,7 @@ $letter-spacing-extended: map.get($theme, 'letter-spacing-extended');
 ///   - `font-family`             {String | null}
 ///   - `letter-spacing-type`     {String | null}: `'compact' | 'extended' | null`
 @mixin responsive-font($config) {
+  // Sizes
   $d-size: map.get($config, 'desktop-size');
   $t-size: map.get($config, 'tablet-size');
   $m-size: map.get($config, 'mobile-size');
