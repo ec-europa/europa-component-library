@@ -43,6 +43,7 @@ $banner: null !default;
   color: var(--cm-on-surface-brand, var(--c-d));
   font: map.get($banner, 'font', 'credit', 'mobile');
   margin-block-end: calc(-1 * var(--s-xl));
+  padding-block-start: 1px;
   position: relative;
   text-align: end;
   width: 100%;
@@ -107,27 +108,91 @@ $banner: null !default;
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
   display: block;
-  font: map.get($banner, 'font', 'title', 'mobile');
+  font: map.get($banner, 'font', 'title', 'mobile-m');
   font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile');
+  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile-m');
+  line-height: map.get($banner, 'font', 'title', 'line-height-mobile-m');
   margin: 0;
 
   &:hover,
   &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
+
+  .ecl-banner--font-s & {
+    font: map.get($banner, 'font', 'title', 'mobile-s');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'title',
+      'letter-spacing-mobile-s'
+    );
+    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-s');
+  }
+
+  .ecl-banner--font-l & {
+    font: map.get($banner, 'font', 'title', 'mobile-l');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'title',
+      'letter-spacing-mobile-l'
+    );
+    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-l');
+  }
 }
 
 .ecl-banner__description,
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
-  font: map.get($banner, 'font', 'description', 'mobile');
+  font: map.get($banner, 'font', 'description', 'mobile-m');
+  letter-spacing: map.get(
+    $banner,
+    'font',
+    'description',
+    'letter-spacing-mobile-m'
+  );
+  line-height: map.get($banner, 'font', 'description', 'line-height-mobile-m');
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
 
   &:hover,
   &:visited {
     color: map.get($banner, 'text-color', 'dark');
+  }
+
+  .ecl-banner--font-s & {
+    font: map.get($banner, 'font', 'description', 'mobile-s');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'description',
+      'letter-spacing-mobile-s'
+    );
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-mobile-s'
+    );
+  }
+
+  .ecl-banner--font-l & {
+    font: map.get($banner, 'font', 'description', 'mobile-l');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'description',
+      'letter-spacing-mobile-l'
+    );
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-mobile-l'
+    );
   }
 }
 
@@ -251,14 +316,88 @@ $banner: null !default;
 
   .ecl-banner__title,
   .ecl-banner__title-link {
-    font: map.get($banner, 'font', 'title', 'tablet');
+    font: map.get($banner, 'font', 'title', 'tablet-m');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-tablet');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'title',
+      'letter-spacing-tablet-m'
+    );
+    line-height: map.get($banner, 'font', 'title', 'line-height-tablet-m');
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'title', 'tablet-s');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'title',
+        'letter-spacing-tablet-s'
+      );
+      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-s');
+    }
+
+    .ecl-banner--font-l & {
+      font: map.get($banner, 'font', 'title', 'tablet-l');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'title',
+        'letter-spacing-tablet-l'
+      );
+      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-l');
+    }
   }
 
   .ecl-banner__description,
   .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'tablet');
+    font: map.get($banner, 'font', 'description', 'tablet-m');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'description',
+      'letter-spacing-tablet-m'
+    );
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-tablet-m'
+    );
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'description', 'tablet-s');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'description',
+        'letter-spacing-tablet-s'
+      );
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-tablet-s'
+      );
+    }
+
+    .ecl-banner--font-l & {
+      font: map.get($banner, 'font', 'description', 'tablet-l');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'description',
+        'letter-spacing-tablet-l'
+      );
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-tablet-l'
+      );
+    }
   }
 }
 
@@ -390,6 +529,19 @@ $banner: null !default;
       'title',
       'letter-spacing-desktop-m'
     );
+    line-height: map.get($banner, 'font', 'title', 'line-height-desktop-m');
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'title', 'desktop-s');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'title',
+        'letter-spacing-desktop-s'
+      );
+      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-s');
+    }
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'desktop-l');
@@ -400,6 +552,7 @@ $banner: null !default;
         'title',
         'letter-spacing-desktop-l'
       );
+      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-l');
     }
 
     .ecl-banner--color-light & {
@@ -410,9 +563,49 @@ $banner: null !default;
   .ecl-banner__description,
   .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'desktop-m');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'description',
+      'letter-spacing-desktop-m'
+    );
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-desktop-m'
+    );
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'description', 'desktop-s');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'description',
+        'letter-spacing-desktop-s'
+      );
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-desktop-s'
+      );
+    }
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'description', 'desktop-l');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'description',
+        'letter-spacing-desktop-l'
+      );
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-desktop-l'
+      );
     }
 
     .ecl-banner--color-light & {

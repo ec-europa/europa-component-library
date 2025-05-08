@@ -106,28 +106,30 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
     },
     font_size: {
       name: 'font size',
       type: 'select',
       description: 'Change font size',
-      options: ['m', 'l'],
+      options: ['s', 'm', 'l'],
       control: {
         labels: {
+          s: 'small',
           m: 'medium',
           l: 'large',
         },
       },
       mapping: {
+        small: 's',
         medium: 'm',
         large: 'l',
       },
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
     },
     font_color: {
@@ -148,7 +150,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'dark' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
       if: { arg: 'box_background', eq: 'none' },
     },
@@ -172,7 +174,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'light' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
       if: { arg: 'show_media' },
     },
@@ -196,7 +198,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'left' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
     },
     vertical: {
@@ -219,7 +221,7 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'center' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
     },
     full_width: {
@@ -233,7 +235,7 @@ const getArgTypes = (data) => {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
-        category: 'Display (desktop only)',
+        category: 'Display',
       },
     },
     title: {
