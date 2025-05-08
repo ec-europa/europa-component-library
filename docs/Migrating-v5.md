@@ -133,7 +133,7 @@ Corresponding twig parameter `level` has been removed.
 ### Banner
 
 - Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
-  Desktop banners are unchanged in terms of aspect ratio. - Mobile: 3/2 - Tablet: 3/1
+  Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
 ### Featured item
