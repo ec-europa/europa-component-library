@@ -107,7 +107,7 @@ $banner: null !default;
   display: block;
   margin: 0;
 
-  @include mixins.responsive-font(map.get($banner, 'font', 'title'));
+  @include mixins.responsive-font('heading1');
 
   &:hover,
   &:visited {

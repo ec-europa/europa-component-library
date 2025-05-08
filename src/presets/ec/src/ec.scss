@@ -14,7 +14,8 @@
 
 // Typography Mixins
 @use '@ecl/mixins-typography/mixins' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $typography: var.$typography
 );
 
 // Forms

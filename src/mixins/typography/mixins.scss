@@ -4,264 +4,84 @@
 @use '@ecl/grid/mixins/breakpoints';
 
 $theme: null !default;
-$font-size-map: if(
-  map.has-key($theme, 'font-size-map'),
-  map.get($theme, 'font-size-map'),
-  ()
-);
-$font-size: if(
-  map.has-key($theme, 'font-size'),
-  map.get($theme, 'font-size'),
-  ()
-);
-$line-height: if(
-  map.has-key($theme, 'line-height'),
-  map.get($theme, 'line-height'),
-  ()
-);
-$font-weight: map.get($theme, 'font-weight');
-$font-family: map.get($theme, 'font-family');
+$typography: null !default;
 
-@function is-var($value) {
-  @return string.index(#{$value}, 'var(--') == 1;
-}
+@mixin responsive-font-emit($tier-map) {
+  @if meta.type-of($tier-map) == 'map' {
+    $size: map.get($tier-map, 'size');
+    $lh: map.get($tier-map, 'line-height');
 
-@function extract-token($value) {
-  @if is-var($value) {
-    $start: string.index(#{$value}, '--');
-    $end: string.index(#{$value}, ')');
-
-    @if not $start or not $end {
-      @return $value;
+    @if $size {
+      font-size: $size;
     }
 
-    $slice: string.slice(#{$value}, $start + 2, $end - 1);
-    $dash-pos: string.index($slice, '-');
-
-    @return string.slice($slice, $dash-pos + 1);
+    @if $lh {
+      line-height: $lh;
+    }
   }
-
-  @return $value;
 }
 
-@function to-size-var($value) {
-  @if is-var($value) {
-    @return $value;
+@function map-deep-get($map, $keys...) {
+  $v: $map;
+
+  @each $k in $keys {
+    $v: if(meta.type-of($v) == 'map', map.get($v, $k), null);
   }
 
-  @if map.has-key($font-size, $value) {
-    @return var(--fs-#{$value});
-  }
-
-  @return $value;
+  @return $v;
 }
 
-@function to-line-height-var($value) {
-  @if is-var($value) {
-    @return $value;
-  }
+$font-breakpoints: (
+  'tablet': 'm',
+  'desktop': 'l',
+);
 
-  @if map.has-key($line-height, $value) {
-    @return var(--lh-#{$value});
-  }
+@mixin responsive-font($token) {
+  $token-map: null;
 
-  @return $value;
-}
+  @if meta.type-of($token) == 'map' {
+    $token-map: $token;
+  } @else if meta.type-of($token) == 'string' {
+    $hyphen: string.index($token, '-');
+    $base-token: if($hyphen, string.slice($token, 1, $hyphen - 1), $token);
+    $variant: if($hyphen, string.slice($token, $hyphen + 1), null);
+    $token-map: map.get($typography, $base-token);
 
-@function fallback-token($token, $tier) {
-  $entry: map.get($font-size-map, $token);
-
-  @if not $entry {
-    @return null;
-  }
-
-  @if meta.type-of($entry) == 'map' {
-    @return map.get($entry, $tier);
-  }
-
-  @return $entry;
-}
-
-/// @param {Map} $config - Configuration map with keys:
-///   - `desktop-size`               {String}  (required)
-///   - `tablet-size`                {String | null}
-///   - `mobile-size`                {String | null}
-///   - `large-desktop-size`         {String | null}
-///   - `desktop-line-height`        {String | null}
-///   - `tablet-line-height`         {String | null}
-///   - `mobile-line-height`         {String | null}
-///   - `large-desktop-line-height`  {String | null}
-///   - `desktop-breakpoint`         {String}  (default: `'l'`)
-///   - `tablet-breakpoint`          {String}  (default: `'m'`)
-///   - `large-desktop-breakpoint`   {String}  (default: `'xl'`)
-///   - `desktop-weight`             {Number | String | null}
-///   - `tablet-weight`              {Number | String | null}
-///   - `mobile-weight`              {Number | String | null}
-///   - `large-desktop-weight`       {Number | String | null}
-///   - `font-family`                {String | null}
-///   - `desktop-letter-spacing`     {String | null}
-///   - `tablet-letter-spacing`      {String | null}
-///   - `mobile-letter-spacing`      {String | null}
-///   - `large-desktop-letter-spacing` {String | null}
-@mixin responsive-font($config) {
-  // Sizes
-  $d-size: map.get($config, 'desktop-size');
-  $t-size: map.get($config, 'tablet-size');
-  $m-size: map.get($config, 'mobile-size');
-  $ld-size: map.get($config, 'large-desktop-size');
-
-  // Breakpoints
-  $t-bp: if(
-    map.has-key($config, 'tablet-breakpoint'),
-    map.get($config, 'tablet-breakpoint'),
-    'm'
-  );
-  $d-bp: if(
-    map.has-key($config, 'desktop-breakpoint'),
-    map.get($config, 'desktop-breakpoint'),
-    'l'
-  );
-  $ld-bp: if(
-    map.has-key($config, 'large-desktop-breakpoint'),
-    map.get($config, 'large-desktop-breakpoint'),
-    'xl'
-  );
-
-  // Font weights
-  $m-w: map.get($config, 'mobile-weight');
-  $t-w: map.get($config, 'tablet-weight');
-  $d-w: map.get($config, 'desktop-weight');
-  $ld-w: map.get($config, 'large-desktop-weight');
-  $r-m-weight: if($m-w, $m-w, null);
-  $r-t-weight: if($t-w, $t-w, $r-m-weight);
-  $r-d-weight: if($d-w, $d-w, $r-t-weight);
-  $r-ld-weight: if($ld-w, $ld-w, $r-d-weight);
-
-  // Letter spacing
-  $ls-m: map.get($config, 'mobile-letter-spacing');
-  $ls-t: map.get($config, 'tablet-letter-spacing');
-  $ls-d: map.get($config, 'desktop-letter-spacing');
-  $ls-ld: map.get($config, 'large-desktop-letter-spacing');
-  $r-ls-m: $ls-m;
-  $r-ls-t: if($ls-t, $ls-t, $r-ls-m);
-  $r-ls-d: if($ls-d, $ls-d, $r-ls-t);
-  $r-ls-ld: if($ls-ld, $ls-ld, $r-ls-d);
-
-  // Line heights
-  $m-lh: map.get($config, 'mobile-line-height');
-  $t-lh: map.get($config, 'tablet-line-height');
-  $d-lh: map.get($config, 'desktop-line-height');
-  $ld-lh: map.get($config, 'large-desktop-line-height');
-
-  // Fallback
-  $d-key: extract-token($d-size);
-  $t-key: if($t-size, extract-token($t-size), fallback-token($d-key, 'tablet'));
-  $m-key: if($m-size, extract-token($m-size), fallback-token($t-key, 'mobile'));
-  $ld-key: if($ld-size, extract-token($ld-size), $d-key);
-
-  @if not $t-key {
-    $t-key: $d-key;
-  }
-
-  @if not $m-key {
-    $m-key: $t-key;
-  }
-
-  @if not $ld-key {
-    $ld-key: $d-key;
-  }
-
-  $r-m-lh: to-line-height-var(if($m-lh, $m-lh, $m-key));
-  $r-t-lh: to-line-height-var(if($t-lh, $t-lh, $r-m-lh));
-  $r-d-lh: to-line-height-var(if($d-lh, $d-lh, $r-t-lh));
-  $r-ld-lh: to-line-height-var(if($ld-lh, $ld-lh, $r-d-lh));
-
-  // Font sizes
-  $r-m-size: to-size-var(if($m-size, $m-size, $m-key));
-  $r-t-size: to-size-var(if($t-size, $t-size, $t-key));
-  $r-d-size: to-size-var($d-size);
-  $r-ld-size: to-size-var(if($ld-size, $ld-size, $ld-key));
-
-  // Font family
-  $family-prop: map.get($config, 'font-family');
-  $resolved-family: if(
-    $family-prop,
-    $family-prop,
-    map.get($font-family, 'default')
-  );
-
-  // Base (mobile)
-  font-family: $resolved-family;
-  font-size: $r-m-size;
-  line-height: $r-m-lh;
-  font-weight: $r-m-weight;
-
-  @if $r-ls-m {
-    letter-spacing: $r-ls-m;
-  }
-
-  // Tablet
-  @if (
-    $r-t-size !=
-      $r-m-size or
-      $r-t-lh !=
-      $r-m-lh or
-      $r-t-weight !=
-      $r-m-weight or
-      $r-ls-t !=
-      $r-ls-m
-  ) {
-    @include breakpoints.up($t-bp) {
-      font-size: $r-t-size;
-      line-height: $r-t-lh;
-      font-weight: $r-t-weight;
-
-      @if $r-ls-t {
-        letter-spacing: $r-ls-t;
-      }
+    @if $variant {
+      $token-map: map.get($token-map, $variant);
     }
   }
 
-  // Desktop
-  @if (
-    $r-d-size !=
-      $r-t-size or
-      $r-d-lh !=
-      $r-t-lh or
-      $r-d-weight !=
-      $r-t-weight or
-      $r-ls-d !=
-      $r-ls-t
-  ) {
-    @include breakpoints.up($d-bp) {
-      font-size: $r-d-size;
-      line-height: $r-d-lh;
-      font-weight: $r-d-weight;
+  $font-family: map.get($theme, 'font-family', 'default');
 
-      @if $r-ls-d {
-        letter-spacing: $r-ls-d;
-      }
+  @if $font-family {
+    font-family: $font-family;
+  }
+
+  @if map.has-key($token-map, 'font-weight') {
+    $fw: map.get($token-map, 'font-weight');
+
+    @if $fw {
+      font-weight: $fw;
     }
   }
 
-  // Large Desktop
-  @if (
-    $r-ld-size !=
-      $r-d-size or
-      $r-ld-lh !=
-      $r-d-lh or
-      $r-ld-weight !=
-      $r-d-weight or
-      $r-ls-ld !=
-      $r-ls-d
-  ) {
-    @include breakpoints.up($ld-bp) {
-      font-size: $r-ld-size;
-      line-height: $r-ld-lh;
-      font-weight: $r-ld-weight;
+  @if map.has-key($token-map, 'letter-spacing-compact') {
+    $ls: map.get($token-map, 'letter-spacing-compact');
 
-      @if $r-ls-ld {
-        letter-spacing: $r-ls-ld;
+    @if $ls {
+      letter-spacing: $ls;
+    }
+  }
+
+  @if map.has-key($token-map, 'mobile') {
+    @include responsive-font-emit(map.get($token-map, 'mobile'));
+  }
+
+  @each $tier, $bp-name in $font-breakpoints {
+    @if map.has-key($token-map, $tier) {
+      @include breakpoints.up($bp-name) {
+        @include responsive-font-emit(map.get($token-map, $tier));
       }
     }
   }
