@@ -10,7 +10,7 @@ $mega-menu: (
     font: var(--f-m),
     promotional-item-bg: var(--c-s-100),
     promotional-item-bg-hover: var(--c-s-40),
-    promotional-item-outline-color: var(--c-p-100),
+    promotional-item-outline-color: var(--c-d),
     promotional-item-text-color: var(--c-d),
   ),
   mobile: (
@@ -60,6 +60,7 @@ $mega-menu: (
     link-line-height: map.get($line-height, 'm'),
     mega-border: none,
     mega-shadow: none,
+    outline-offset: -8px,
     outline-width: 1px,
     overlay-background: var(--c-p-5),
     see-all-divider: var(--c-p-40),

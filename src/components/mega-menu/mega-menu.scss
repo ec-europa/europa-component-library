@@ -454,7 +454,6 @@ $mega-menu: null !default;
 
   &:focus-visible {
     outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
-    outline-offset: -4px;
   }
 }
 
@@ -632,7 +631,7 @@ $mega-menu: null !default;
         border-radius: 0;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: #fff;
-        outline-offset: -4px;
+        outline-offset: map.get($mega-menu, 'desktop', 'outline-offset');
         outline-width: map.get($mega-menu, 'desktop', 'outline-width');
       }
     }
