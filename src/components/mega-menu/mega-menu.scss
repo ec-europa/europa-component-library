@@ -982,7 +982,7 @@ $mega-menu: null !default;
     display: block;
 
     .ecl-mega-menu__featured-image {
-      aspect-ratio: 16/9;
+      aspect-ratio: 3/2;
       display: block;
       margin-inline-start: var(--s-l);
       margin-block-start: var(--s-m);
@@ -1016,7 +1016,7 @@ $mega-menu: null !default;
         color: var(--cm-on-surface-primary, var(--c-p));
         display: block;
         outline-offset: -2px;
-        padding: var(--s-m) var(--s-l);
+        padding: var(--s-2xs) var(--s-l);
         width: 100%;
 
         &:hover {
@@ -1199,8 +1199,7 @@ $mega-menu: null !default;
         .ecl-mega-menu__featured-list__item .ecl-link {
           border-bottom: none;
           margin: 0;
-          padding: calc(var(--s-xs) + 2px) var(--s-2xl) calc(var(--s-xs) + 2px)
-            var(--s-s);
+          padding: var(--s-2xs) var(--s-2xl) var(--s-2xs) var(--s-s);
         }
       }
     }
@@ -1390,7 +1389,7 @@ $mega-menu: null !default;
       display: block;
 
       .ecl-mega-menu__featured-image {
-        aspect-ratio: 16/9;
+        aspect-ratio: 3/2;
         display: block;
         margin-block-start: 0;
         margin-inline-start: var(--s-s);
