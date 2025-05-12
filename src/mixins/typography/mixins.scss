@@ -35,7 +35,7 @@ $font-breakpoints: (
   'desktop': 'l',
 );
 
-@mixin responsive-font($token, $letter-spacing: null) {
+@mixin responsive-font($token) {
   $token-map: null;
 
   @if meta.type-of($token) == 'map' {
@@ -65,15 +65,6 @@ $font-breakpoints: (
 
     @if $fw {
       font-weight: $fw;
-    }
-  }
-
-  // Optional letter-spacing
-  @if $letter-spacing {
-    $ls: map.get($token-map, 'letter-spacing-#{$letter-spacing}');
-
-    @if $ls {
-      letter-spacing: $ls;
     }
   }
 

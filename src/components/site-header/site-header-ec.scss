@@ -274,8 +274,14 @@ $language-list: null !default;
 
   @include mixins.responsive-font(
     (
-      'mobile-size': var(--f-2xl),
-      'desktop-size': var(--f-3xl),
+      'mobile': (
+        'size': var(--fs-2xl),
+        'line-height': var(--lh-2xl),
+      ),
+      'desktop': (
+        'size': var(--fs-3xl),
+        'line-height': var(--lh-3xl),
+      ),
     )
   );
 

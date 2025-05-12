@@ -18,11 +18,11 @@ $language-list: (
   header-typography: (
     'mobile': (
       'size': var(--fs-p-l),
-      'line-height': var(--lh-l),
+      'line-height': map.get($line-height-prolonged, 'l'),
     ),
     'desktop': (
       'size': var(--fs-p-xl),
-      'line-height': var(--lh-xl),
+      'line-height': map.get($line-height-prolonged, 'xl'),
     ),
     'font-weight': map.get($font-weight, 'regular'),
   ),

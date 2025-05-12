@@ -59,7 +59,7 @@ $page-header: null !default;
   color: map.get($page-header, 'title', 'color');
   margin-bottom: 0;
 
-  @include mixins.responsive-font(map.get($page-header, 'title'));
+  @include mixins.responsive-font(map.get($page-header, 'title', 'typography'));
 }
 
 .ecl-page-header__meta + .ecl-page-header__title {

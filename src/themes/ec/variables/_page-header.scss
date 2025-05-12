@@ -4,10 +4,17 @@
 $page-header: (
   title: (
     color: var(--cm-on-surface-brand),
-    font-mobile: var(--f-7xl),
-    font-desktop: var(--f-8xl),
-    font-weight: map.get($font-weight, 'light'),
-    mobile-letter-spacing: map.get($letter-spacing, 'xs'),
+    typography: (
+      'mobile': (
+        'size': var(--fs-7xl),
+        'line-height': var(--lh-7xl),
+      ),
+      'desktop': (
+        'size': var(--fs-8xl),
+        'line-height': var(--lh-8xl),
+      ),
+      'font-weight': map.get($font-weight, 'light'),
+    ),
   ),
   description: (
     color: var(--cm-on-surface-brand),
