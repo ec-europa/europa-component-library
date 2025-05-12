@@ -14,14 +14,6 @@ module.exports = {
     },
     description:
       'This site is managed by:<br />[name of the manager of the site]',
-    links: [
-      {
-        link: {
-          label: 'Accessibility',
-          path: exampleLink,
-        },
-      },
-    ],
   },
   section_core: {
     links: [
@@ -182,6 +174,12 @@ module.exports = {
         link: {
           label: 'Legal notice',
           path: 'https://commission.europa.eu/legal-notice_en',
+        },
+      },
+      {
+        link: {
+          label: 'Accessibility',
+          path: exampleLink,
         },
       },
     ],

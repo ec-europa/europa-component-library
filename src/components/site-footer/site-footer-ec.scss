@@ -44,7 +44,7 @@ $site-footer: null !default;
 
 .ecl-site-footer__description {
   font: var(--f-s);
-  margin-block-start: map.get($site-footer, 'row-gap-small');
+  margin-block-start: var(--s-xs);
 }
 
 .ecl-site-footer__social-media {
@@ -86,12 +86,6 @@ $site-footer: null !default;
 .ecl-site-footer__section--links {
   border-block-start: 1px solid map.get($site-footer, 'separator-color');
   padding-block-start: map.get($site-footer, 'row-gap-large');
-}
-
-.ecl-site-footer__section--site-info {
-  .ecl-site-footer__list {
-    margin-block-start: var(--s-xl);
-  }
 }
 
 .ecl-site-footer__section--common {
@@ -180,7 +174,11 @@ $site-footer: null !default;
 
   // Specific desktop styles
   // stylelint-disable no-descending-specificity
-  .ecl-site-footer__section--core,
+  .ecl-site-footer__section--core {
+    border-block-start: none;
+    margin-block-start: 0;
+  }
+
   .ecl-site-footer__section--links {
     border-block-start: none;
     margin-block-start: 0;
@@ -197,7 +195,7 @@ $site-footer: null !default;
 
   .ecl-site-footer__section--core .ecl-site-footer__list {
     column-count: 2;
-    column-gap: map.get($site-footer, 'column-gap');
+    column-gap: map.get($theme, 'grid-gutter-width', 'xl');
   }
   // stylelint-enable no-descending-specificity
 }
