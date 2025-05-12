@@ -82,15 +82,15 @@ $font-size-map: (
   // Letter-spacing
   @if $letter-spacing-type ==
     'compact' and
-    map.has-key(typography.$letter-spacing-compact, $desktop-key)
+    map.has-key(typography.$letter-spacing, $desktop-key)
   {
-    letter-spacing: map.get(typography.$letter-spacing-compact, $desktop-key);
+    letter-spacing: map.get(typography.$letter-spacing, $desktop-key);
   } @else if
     $letter-spacing-type ==
     'extended' and
-    map.has-key(typography.$letter-spacing-extended, $desktop-key)
+    map.has-key(typography.$letter-spacing, $desktop-key)
   {
-    letter-spacing: map.get(typography.$letter-spacing-extended, $desktop-key);
+    letter-spacing: map.get(typography.$letter-spacing, $desktop-key);
   }
 
   @if ($resolved-desktop-size != $resolved-mobile-size) or

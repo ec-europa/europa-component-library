@@ -296,20 +296,6 @@ $typography: null !default;
   .ecl-u-type-#{$key} {
     font: var(--f-#{$key}) !important;
   }
-
-  @if map.has-key($theme, 'letter-spacing-compact') {
-    .ecl-u-type-compact-#{$key} {
-      font: var(--f-#{$key}) !important;
-      letter-spacing: map.get($theme, 'letter-spacing-compact', $key);
-    }
-  }
-
-  @if map.has-key($theme, 'letter-spacing-extended') {
-    .ecl-u-type-extended-#{$key} {
-      font: var(--f-#{$key}) !important;
-      letter-spacing: map.get($theme, 'letter-spacing-extended', $key);
-    }
-  }
 }
 
 /*
