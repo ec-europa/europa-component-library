@@ -92,6 +92,13 @@ const prepareData = (data, args) => {
     clone.section_site_info.social_media.links.forEach((element) => {
       element.link.hide_label = false;
     });
+
+    // Example with twice the same network, when displayed vertically
+    clone.section_site_info.social_media.links[2].link.label =
+      'Linkedin - link 1';
+    clone.section_site_info.social_media.links[3].link.label =
+      'Linkedin - link 2';
+    clone.section_site_info.social_media.links[3].icon.name = 'linkedin';
   }
 
   return Object.assign(clone, args);
