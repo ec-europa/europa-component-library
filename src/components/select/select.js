@@ -337,7 +337,6 @@ export class Select {
 
       this.formGroup = this.element.closest('.ecl-form-group');
       if (this.formGroup) {
-        this.formGroup.setAttribute('role', 'application');
         this.label = queryOne('.ecl-form-label', this.formGroup);
         this.helper = queryOne('.ecl-help-block', this.formGroup);
         this.invalid = queryOne('.ecl-feedback-message', this.formGroup);
@@ -370,7 +369,6 @@ export class Select {
 
       // Add accessibility attributes
       if (this.label) {
-        this.label.setAttribute('for', `${this.selectMultipleId}-toggle`);
         this.input.setAttribute('aria-labelledby', this.label.id);
       }
       let describedby = '';
