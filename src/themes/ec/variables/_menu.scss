@@ -9,8 +9,10 @@ $menu: (
     color-outline: var(--cm-border-primary),
   ),
   link-typography: (
-    mobile-size: var(--fs-s),
-    mobile-line-height: map.get($line-height, 's'),
+    'mobile': (
+      'size': var(--fs-s),
+      'line-height': var(--lh-s),
+    ),
   ),
   mobile: (
     menu-background: transparent,

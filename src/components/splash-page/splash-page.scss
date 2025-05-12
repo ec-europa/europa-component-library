@@ -68,13 +68,7 @@ $language-list: null !default;
       #{map.get($language-list, 'item-active-border-width')}
   );
 
-  @include mixins.responsive-font(
-    (
-      'mobile-size': map.get($language-list, 'header-font-mobile'),
-      'desktop-size': map.get($language-list, 'header-font-desktop'),
-      'desktop-weight': map.get($language-list, 'header-font-weight'),
-    )
-  );
+  @include mixins.responsive-font(map.get($language-list, 'header-typography'));
 }
 
 .ecl-splash-page__language-content {

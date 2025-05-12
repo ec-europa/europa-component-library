@@ -9,9 +9,14 @@ $menu: (
     color-outline: map.get($color, 'white'),
   ),
   link-typography: (
-    mobile-size: var(--fs-l),
-    mobile-line-height: map.get($line-height, 's'),
-    desktop-size: var(--fs-m),
+    'mobile': (
+      'size': var(--fs-l),
+      'line-height': var(--lh-s),
+    ),
+    'desktop': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-s),
+    ),
   ),
   mobile: (
     menu-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),

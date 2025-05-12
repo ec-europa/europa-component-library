@@ -3,7 +3,6 @@
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
 
-$theme: null !default;
 $typography: null !default;
 
 @mixin responsive-font-emit($tier-map) {
@@ -36,7 +35,7 @@ $font-breakpoints: (
   'desktop': 'l',
 );
 
-@mixin responsive-font($token) {
+@mixin responsive-font($token, $letter-spacing: null) {
   $token-map: null;
 
   @if meta.type-of($token) == 'map' {
@@ -45,19 +44,22 @@ $font-breakpoints: (
     $hyphen: string.index($token, '-');
     $base-token: if($hyphen, string.slice($token, 1, $hyphen - 1), $token);
     $variant: if($hyphen, string.slice($token, $hyphen + 1), null);
-    $token-map: map.get($typography, $base-token);
 
     @if $variant {
-      $token-map: map.get($token-map, $variant);
+      $token-map: map-deep-get($typography, $base-token, $variant);
+    } @else {
+      $token-map: map.get($typography, $base-token);
     }
   }
 
-  $font-family: map.get($theme, 'font-family', 'default');
+  // Font family
+  $font-family: map.get($typography, 'font-family');
 
   @if $font-family {
     font-family: $font-family;
   }
 
+  // Font weight
   @if map.has-key($token-map, 'font-weight') {
     $fw: map.get($token-map, 'font-weight');
 
@@ -66,18 +68,21 @@ $font-breakpoints: (
     }
   }
 
-  @if map.has-key($token-map, 'letter-spacing-compact') {
-    $ls: map.get($token-map, 'letter-spacing-compact');
+  // Optional letter-spacing
+  @if $letter-spacing {
+    $ls: map.get($token-map, 'letter-spacing-#{$letter-spacing}');
 
     @if $ls {
       letter-spacing: $ls;
     }
   }
 
+  // Base (mobile)
   @if map.has-key($token-map, 'mobile') {
     @include responsive-font-emit(map.get($token-map, 'mobile'));
   }
 
+  // Responsive breakpoints
   @each $tier, $bp-name in $font-breakpoints {
     @if map.has-key($token-map, $tier) {
       @include breakpoints.up($bp-name) {

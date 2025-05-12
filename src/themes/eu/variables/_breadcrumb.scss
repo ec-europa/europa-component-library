@@ -16,9 +16,13 @@ $breadcrumb: (
     offset-horizontal: 0px,
   ),
   typography: (
-    mobile-size: var(--fs-p-m),
-    desktop-size: var(--fs-p-m),
-    mobile-line-height: map.get($line-height-prolonged, 'm'),
+    'mobile': (
+      'size': var(--fs-p-m),
+      'line-height': map.get($line-height-prolonged, 'm'),
+    ),
+    'desktop': (
+      'size': var(--fs-s),
+    ),
   ),
 );
 // stylelint-enable length-zero-no-unit

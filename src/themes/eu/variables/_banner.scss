@@ -38,18 +38,33 @@ $banner: (
   ),
   font: (
     'title': (
+      'mobile': (
+        'size': var(--fs-2xl),
+        'line-height': var(--lh-2xl),
+      ),
+      'tablet': (
+        'size': var(--fs-4xl),
+        'line-height': var(--lh-4xl),
+      ),
+      'desktop': (
+        'size': var(--fs-5xl),
+        'line-height': var(--lh-4xl),
+      ),
       'font-weight': map.get($font-weight, 'regular'),
-      'mobile': var(--f-2xl),
-      'letter-spacing-mobile': 0,
-      'desktop-m': var(--f-4xl),
-      'letter-spacing-desktop-m': 0,
-      'desktop-l': var(--f-5xl),
-      'letter-spacing-desktop-l': 0,
     ),
     'description': (
-      'mobile': var(--f-xl),
-      'desktop-m': var(--f-2xl),
-      'desktop-l': var(--f-4xl),
+      'mobile': (
+        'size': var(--fs-xl),
+        'line-height': var(--lh-xl),
+      ),
+      'tablet': (
+        'size': var(--fs-2xl),
+        'line-height': var(--lh-2xl),
+      ),
+      'desktop': (
+        'size': var(--fs-4xl),
+        'line-height': var(--lh-4xl),
+      ),
     ),
     'credit': var(--f-s),
   ),

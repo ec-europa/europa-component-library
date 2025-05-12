@@ -14,8 +14,12 @@ $breadcrumb: (
     offset-horizontal: calc(-1 * var(--s-m)),
   ),
   typography: (
-    mobile-size: var(--fs-m),
-    desktop-size: var(--fs-s),
-    mobile-line-height: map.get($line-height, 'm'),
+    'mobile': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-m),
+    ),
+    'desktop': (
+      'size': var(--fs-s),
+    ),
   ),
 );

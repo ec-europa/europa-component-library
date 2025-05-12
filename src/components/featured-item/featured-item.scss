@@ -32,7 +32,9 @@ $featured-item: null !default;
   color: map.get($featured-item, 'title', 'color');
   max-width: map.get($featured-item, 'max-width');
 
-  @include mixins.responsive-font(map.get($featured-item, 'title'));
+  @include mixins.responsive-font(
+    map.get($featured-item, 'title', 'typography')
+  );
 }
 
 .ecl-featured-item__description {
