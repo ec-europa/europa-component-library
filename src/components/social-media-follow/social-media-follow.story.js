@@ -15,6 +15,7 @@ const getArgs = (data) => ({
   show_label: true,
   position: 'left',
   description: data.description,
+  description_inline: false,
 });
 
 const getArgTypes = () => ({
@@ -57,12 +58,22 @@ const getArgTypes = () => ({
   },
   description: {
     name: 'description',
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     description: 'The description of the elements',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Content',
+    },
+  },
+  description_inline: {
+    name: 'description inline',
+    type: { name: 'boolean' },
+    description: 'Display the description inline',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: 'false' },
+      category: 'Display',
     },
   },
 });

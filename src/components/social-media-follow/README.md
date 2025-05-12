@@ -10,6 +10,7 @@ npm install --save @ecl/social-media-follow
 
 - **"variant"** (string) (default: '') Can be 'vertical'
 - **"description"** (string) (default: '')
+- **"description_inline"** (boolean) (default: false) Should the description be displayed inline?
 - **"position"** (string) (default: 'left') Position (can be 'left', 'right')
 - **"links"** (array) (default: []) Array of links for social media, following ECL Link structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
