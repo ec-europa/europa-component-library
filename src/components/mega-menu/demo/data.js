@@ -48,7 +48,7 @@ module.exports = {
             },
           },
           {
-            label: 'I belong to news and media',
+            label: 'I belong to news & media',
             path: exampleLink,
             description:
               'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
