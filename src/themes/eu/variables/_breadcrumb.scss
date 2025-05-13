@@ -18,11 +18,11 @@ $breadcrumb: (
   typography: (
     'mobile': (
       'size': var(--fs-p-m),
-      'line-height': map.get($line-height-prolonged, 'm'),
+      'line-height': var(--lh-m),
     ),
     'desktop': (
       'size': var(--fs-s),
-      'line-height': map.get($line-height, 's'),
+      'line-height': var(--lh-s),
     ),
   ),
 );
