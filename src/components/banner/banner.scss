@@ -110,7 +110,6 @@ $banner: null !default;
   display: block;
   font: map.get($banner, 'font', 'title', 'mobile-m');
   font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile-m');
   line-height: map.get($banner, 'font', 'title', 'line-height-mobile-m');
   margin: 0;
 
@@ -122,24 +121,12 @@ $banner: null !default;
   .ecl-banner--font-s & {
     font: map.get($banner, 'font', 'title', 'mobile-s');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-mobile-s'
-    );
     line-height: map.get($banner, 'font', 'title', 'line-height-mobile-s');
   }
 
   .ecl-banner--font-l & {
     font: map.get($banner, 'font', 'title', 'mobile-l');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-mobile-l'
-    );
     line-height: map.get($banner, 'font', 'title', 'line-height-mobile-l');
   }
 }
@@ -149,12 +136,6 @@ $banner: null !default;
   color: map.get($banner, 'text-color', 'dark');
   font: map.get($banner, 'font', 'description', 'mobile-m');
   font-weight: map.get($banner, 'font', 'description', 'font-weight');
-  letter-spacing: map.get(
-    $banner,
-    'font',
-    'description',
-    'letter-spacing-mobile-m'
-  );
   line-height: map.get($banner, 'font', 'description', 'line-height-mobile-m');
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
@@ -166,12 +147,6 @@ $banner: null !default;
 
   .ecl-banner--font-s & {
     font: map.get($banner, 'font', 'description', 'mobile-s');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'description',
-      'letter-spacing-mobile-s'
-    );
     line-height: map.get(
       $banner,
       'font',
@@ -183,12 +158,6 @@ $banner: null !default;
   .ecl-banner--font-l & {
     font: map.get($banner, 'font', 'description', 'mobile-l');
     font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'description',
-      'letter-spacing-mobile-l'
-    );
     line-height: map.get(
       $banner,
       'font',
@@ -320,35 +289,17 @@ $banner: null !default;
   .ecl-banner__title-link {
     font: map.get($banner, 'font', 'title', 'tablet-m');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-tablet-m'
-    );
     line-height: map.get($banner, 'font', 'title', 'line-height-tablet-m');
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'title', 'tablet-s');
       font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'title',
-        'letter-spacing-tablet-s'
-      );
       line-height: map.get($banner, 'font', 'title', 'line-height-tablet-s');
     }
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'tablet-l');
       font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'title',
-        'letter-spacing-tablet-l'
-      );
       line-height: map.get($banner, 'font', 'title', 'line-height-tablet-l');
     }
   }
@@ -357,12 +308,6 @@ $banner: null !default;
   .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'tablet-m');
     font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'description',
-      'letter-spacing-tablet-m'
-    );
     line-height: map.get(
       $banner,
       'font',
@@ -372,12 +317,6 @@ $banner: null !default;
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'description', 'tablet-s');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'description',
-        'letter-spacing-tablet-s'
-      );
       line-height: map.get(
         $banner,
         'font',
@@ -389,12 +328,6 @@ $banner: null !default;
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'description', 'tablet-l');
       font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'description',
-        'letter-spacing-tablet-l'
-      );
       line-height: map.get(
         $banner,
         'font',
@@ -527,35 +460,17 @@ $banner: null !default;
     display: inline;
     font: map.get($banner, 'font', 'title', 'desktop-m');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-desktop-m'
-    );
     line-height: map.get($banner, 'font', 'title', 'line-height-desktop-m');
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'title', 'desktop-s');
       font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'title',
-        'letter-spacing-desktop-s'
-      );
       line-height: map.get($banner, 'font', 'title', 'line-height-desktop-s');
     }
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'desktop-l');
       font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'title',
-        'letter-spacing-desktop-l'
-      );
       line-height: map.get($banner, 'font', 'title', 'line-height-desktop-l');
     }
 
@@ -567,12 +482,6 @@ $banner: null !default;
   .ecl-banner__description,
   .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'desktop-m');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'description',
-      'letter-spacing-desktop-m'
-    );
     line-height: map.get(
       $banner,
       'font',
@@ -582,12 +491,6 @@ $banner: null !default;
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'description', 'desktop-s');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'description',
-        'letter-spacing-desktop-s'
-      );
       line-height: map.get(
         $banner,
         'font',
@@ -598,12 +501,6 @@ $banner: null !default;
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'description', 'desktop-l');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'description',
-        'letter-spacing-desktop-l'
-      );
       line-height: map.get(
         $banner,
         'font',
