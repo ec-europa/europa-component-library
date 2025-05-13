@@ -211,9 +211,12 @@ It is now possible to highlight a menu link (first level) associated to a specia
 The related styles can be customized defining:
 --ecl-mega-menu-item-promotional-bg
 --ecl-mega-menu-item-promotional-hover-bg
+--ecl-mega-menu-item-promotional-focus-bg
 --ecl-mega-menu-item-promotional-outline-color
 --ecl-mega-menu-item-promotional-text-color
 --ecl-mega-menu-item-promotional-hover-text-color
+--ecl-mega-menu-item-promotional-focus-text-color
+--ecl-mega-menu-item-promotional-focus-border-color
 
 ### Site header
 

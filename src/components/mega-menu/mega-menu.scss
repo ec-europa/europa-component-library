@@ -23,6 +23,11 @@ $mega-menu: null !default;
       'global',
       'promotional-item-bg-hover'
     )};
+  --ecl-mega-menu-item-promotional-focus-bg: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-bg-focus'
+    )};
   --ecl-mega-menu-item-promotional-outline-color: #{map.get(
       $mega-menu,
       'global',
@@ -37,6 +42,16 @@ $mega-menu: null !default;
       $mega-menu,
       'global',
       'promotional-item-hover-text-color'
+    )};
+  --ecl-mega-menu-item-promotional-focus-text-color: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-focus-text-color'
+    )};
+  --ecl-mega-menu-item-promotional-focus-border-color: #{map.get(
+      $mega-menu,
+      'global',
+      'promotional-item-focus-border-color'
     )};
 }
 
@@ -464,7 +479,13 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
+    background: var(--ecl-mega-menu-item-promotional-focus-bg);
+    border: 1px solid var(--ecl-mega-menu-item-promotional-focus-border-color);
+    color: var(--ecl-mega-menu-item-promotional-focus-text-color);
+    padding: calc(var(--s-m) - 1px) calc(var(--s-m) - 1px)
+      calc(var(--s-m) - 1px) calc(var(--s-l) - 1px);
     outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
+    outline-offset: -4px;
   }
 }
 
@@ -641,9 +662,15 @@ $mega-menu: null !default;
 
       &:hover {
         background: var(--ecl-mega-menu-item-promotional-hover-bg);
+        color: var(--ecl-mega-menu-item-promotional-hover-text-color);
       }
 
       &:focus-visible {
+        background: var(--ecl-mega-menu-item-promotional-focus-bg);
+        border: 1px solid
+          var(--ecl-mega-menu-item-promotional-focus-border-color);
+        color: var(--ecl-mega-menu-item-promotional-focus-text-color);
+        padding: calc(var(--s-s) - 1px) calc(var(--s-m) - 1px);
         outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
       }
     }

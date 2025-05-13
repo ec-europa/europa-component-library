@@ -24,9 +24,12 @@ npm install --save @ecl/mega-menu
   "promotional" (boolean) (default: false) Promotional menu item, styles can be custommized defining:
   --ecl-mega-menu-item-promotional-bg
   --ecl-mega-menu-item-promotional-hover-bg
+  --ecl-mega-menu-item-promotional-focus-bg
   --ecl-mega-menu-item-promotional-outline-color
   --ecl-mega-menu-item-promotional-text-color
   --ecl-mega-menu-item-promotional-hover-text-color
+  --ecl-mega-menu-item-promotional-focus-text-color
+  --ecl-mega-menu-item-promotional-focus-border-color
   "sr_external" (string) (default: '') Additional label for the external icon
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column
