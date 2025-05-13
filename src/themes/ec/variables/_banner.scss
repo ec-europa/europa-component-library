@@ -37,16 +37,19 @@ $banner: (
     'inverted': #fff,
   ),
   font: (
-    'title': 'heading1',
+    'title': (
+      'font-weight': map.get($font-weight, 'light'),
+      'mobile': var(--f-7xl),
+      'letter-spacing-mobile': map.get($letter-spacing, 'xs'),
+      'desktop-m': var(--f-8xl),
+      'letter-spacing-desktop-m': map.get($letter-spacing, 'xs'),
+      'desktop-l': var(--f-10xl),
+      'letter-spacing-desktop-l': map.get($letter-spacing, 'xs'),
+    ),
     'description': (
-      'mobile': (
-        'size': var(--fs-2xl),
-        'line-height': var(--lh-2xl),
-      ),
-      'desktop': (
-        'size': var(--fs-6xl),
-        'line-height': var(--lh-4xl),
-      ),
+      'mobile': var(--f-2xl),
+      'desktop-m': var(--f-6xl),
+      'desktop-l': var(--f-6xl),
     ),
     'credit': var(--f-xs),
   ),

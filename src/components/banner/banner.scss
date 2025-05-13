@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -105,9 +104,10 @@ $banner: null !default;
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
   display: block;
+  font: map.get($banner, 'font', 'title', 'mobile');
+  font-weight: map.get($banner, 'font', 'title', 'font-weight');
+  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile');
   margin: 0;
-
-  @include mixins.responsive-font(map.get($banner, 'font', 'title'));
 
   &:hover,
   &:visited {
@@ -118,10 +118,9 @@ $banner: null !default;
 .ecl-banner__description,
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
+  font: map.get($banner, 'font', 'description', 'mobile');
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
-
-  @include mixins.responsive-font(map.get($banner, 'font', 'description'));
 
   &:hover,
   &:visited {
@@ -365,6 +364,8 @@ $banner: null !default;
   .ecl-banner__title,
   .ecl-banner__title-link {
     display: inline;
+    font: map.get($banner, 'font', 'title', 'desktop-m');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
     letter-spacing: map.get(
       $banner,
       'font',
@@ -390,6 +391,8 @@ $banner: null !default;
 
   .ecl-banner__description,
   .ecl-banner__description-link {
+    font: map.get($banner, 'font', 'description', 'desktop-m');
+
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'description', 'desktop-l');
     }
