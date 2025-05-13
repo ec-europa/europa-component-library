@@ -111,6 +111,14 @@ $fact-figures: null !default;
     max-width: var(--max-w);
   }
 
+  .ecl-fact-figures__value {
+    font: map.get($fact-figures, 'value-font-desktop-l');
+
+    .ecl-fact-figures--font-m & {
+      font: map.get($fact-figures, 'value-font-desktop-m');
+    }
+  }
+
   .ecl-fact-figures__view-all {
     padding-top: map.get($fact-figures, 'view-all-padding-desktop');
   }

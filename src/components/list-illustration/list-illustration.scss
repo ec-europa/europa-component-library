@@ -123,6 +123,18 @@ $list-illustration: null !default;
   }
 }
 
+@include breakpoints.up('l') {
+  .ecl-list-illustration__value {
+    font: map.get($list-illustration, 'value', 'font-desktop-l');
+    font-weight: map.get($list-illustration, 'value', 'font-weight');
+
+    .ecl-list-illustration--font-m & {
+      font: map.get($list-illustration, 'value', 'font-desktop-m');
+      font-weight: map.get($list-illustration, 'value', 'font-weight');
+    }
+  }
+}
+
 // Horizontal list
 .ecl-list-illustration--col-2,
 .ecl-list-illustration--col-3,
