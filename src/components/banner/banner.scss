@@ -148,6 +148,7 @@ $banner: null !default;
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
   font: map.get($banner, 'font', 'description', 'mobile-m');
+  font-weight: map.get($banner, 'font', 'description', 'font-weight');
   letter-spacing: map.get(
     $banner,
     'font',
@@ -181,6 +182,7 @@ $banner: null !default;
 
   .ecl-banner--font-l & {
     font: map.get($banner, 'font', 'description', 'mobile-l');
+    font-weight: map.get($banner, 'font', 'description', 'font-weight');
     letter-spacing: map.get(
       $banner,
       'font',
@@ -354,6 +356,7 @@ $banner: null !default;
   .ecl-banner__description,
   .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'tablet-m');
+    font-weight: map.get($banner, 'font', 'description', 'font-weight');
     letter-spacing: map.get(
       $banner,
       'font',
@@ -385,6 +388,7 @@ $banner: null !default;
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'description', 'tablet-l');
+      font-weight: map.get($banner, 'font', 'description', 'font-weight');
       letter-spacing: map.get(
         $banner,
         'font',
