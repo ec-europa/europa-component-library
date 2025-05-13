@@ -10,6 +10,7 @@
   - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
   - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
   - "see_all_label": (string) (default: ''): Label for the "view all" link
+  - "featured_priority": (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible in desktop 
   - "items": (array) (default: []): The menu items - format: [
     {
       "label": (string) (default: '')
@@ -35,7 +36,22 @@
           "path": (string) (default: '')
           "external": (boolean),
           "sr_external" (string) (default: '') Additional label for the external icon
+          "featured" (oject) (optional) {
+          - "title": (string) Title of the featured panel
+          - "content": (string) Top content of the featured panel
+          - "items": (associative array) (optional) Array of items with image, link and description
           "see_all" (boolean) controls visibility of "View All" button
+          "children": (associative array) (optional): [
+            {
+              "label": (string) (default: '')
+              "path": (string) (default: '')
+              "external": (boolean),
+              "sr_external" (string) (default: '') Additional label for the external icon
+              "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+                - "name" (string) Attribute name, eg. 'data-test'
+                - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+            }
+          ]
           "see_all_label" (string)
           "see_all_attributes" (optional) (array) (default: [])
             - "name" (string) Attribute name, eg. 'data-test'
@@ -63,11 +79,16 @@
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
 {% set _items = items|default([{}]) %}
+{% set _featured_priority = _featured_priority|default('secondary') %}
 {% set _see_all_label = see_all_label|default('') %}
 {% set _css_class = 'ecl-mega-menu' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _featured_priority == 'primary' %}
+  {% set _css_class = _css_class ~ ' ecl-mega-menu--featured--primary' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

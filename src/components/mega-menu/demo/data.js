@@ -37,11 +37,48 @@ module.exports = {
           },
         },
       },
+      featured: {
+        items: [
+          {
+            picture: {
+              img: {
+                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                alt: 'Jean Monnet banner',
+              },
+            },
+          },
+          {
+            label: 'I belong to news and media',
+            path: exampleLink,
+            description:
+              'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            external: true,
+            sr_external: 'this is an external link',
+            extra_attributes: [
+              { name: 'an-extra-attribute-for-the-featured-link' },
+            ],
+          },
+        ],
+      },
       children: [
         {
           label: 'Item 2.1',
           path: exampleLink,
           sublink_id: 'item-2-1-id',
+          children: [
+            {
+              label: 'Item 2.1 subitem 2',
+              path: exampleLink,
+              external: true,
+              sr_external: 'Link to an external domain',
+            },
+            { label: 'Item 2.1 subitem 3', path: exampleLink },
+            { label: 'Item 2.1 subitem 4', path: exampleLink },
+            { label: 'Item 2.1 subitem 5', path: exampleLink },
+            { label: 'Item 2.1 subitem 6', path: exampleLink },
+            { label: 'Item 2.1 subitem 7', path: exampleLink },
+            { label: 'Item 2.1 subitem 8', path: exampleLink },
+          ],
           featured: {
             items: [
               {

@@ -15,6 +15,7 @@ npm install --save @ecl/mega-menu
 - **"second_level_aria_label"** (string): (default: ''): Second level list aria label
 - **"third_level_aria_label"** (string): (default: ''): Third level list aria label
 - **"back_label"** (string): (default: ''): Back button label
+- **featured_priority"** (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible in desktop
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
@@ -25,6 +26,7 @@ npm install --save @ecl/mega-menu
   --ecl-mega-menu-item-promotional-hover-bg
   --ecl-mega-menu-item-promotional-outline-color
   --ecl-mega-menu-item-promotional-text-color
+  --ecl-mega-menu-item-promotional-hover-text-color
   "sr_external" (string) (default: '') Additional label for the external icon
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column

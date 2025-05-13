@@ -11,6 +11,7 @@
         --ecl-mega-menu-item-promotional-hover-bg
         --ecl-mega-menu-item-promotional-outline-color
         --ecl-mega-menu-item-promotional-text-color
+        --ecl-mega-menu-item-promotional-hover-text-color
     - "sr_external" (string) (default: '') Additional label for the external icon
     - "path" (string) Href of the menu link
     - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
@@ -79,6 +80,10 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup="true"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
+{% endif %}
+
+{% if _item.level|default(0) < 2 and _featured is not empty %}
+  {% set _mega_class = _mega_class ~ ' ecl-mega-menu__mega--has-featured' %}
 {% endif %}
 
 {% if _item.level == 2 %}
@@ -330,14 +335,14 @@
         data-ecl-mega-menu-featured
       >
         <div class="ecl-mega-menu__featured-scrollable">
-      {% if _featured.title is not empty %}
-        <span
-          class="ecl-mega-menu__featured-title"
-          id="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id }}"
-        >
-          {{-  _featured.title -}}
-        </span>
-      {% endif %}
+        {% if _featured.title is not empty %}
+          <span
+            class="ecl-mega-menu__featured-title"
+            id="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id }}"
+          >
+            {{-  _featured.title -}}
+          </span>
+        {% endif %}
         {%- if _featured.content is not empty -%}
           <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
         {%- endif -%}
@@ -353,10 +358,10 @@
         {%- endif -%}
         </div>
       </div>
+    {% endif %}
   {% if _item.level|default(0) < 2 %}
     </div>
   </div>
-  {% endif %}
   {% endif %}
 {% endif %}
 </li>

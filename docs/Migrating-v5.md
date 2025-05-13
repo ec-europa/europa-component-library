@@ -213,6 +213,7 @@ The related styles can be customized defining:
 --ecl-mega-menu-item-promotional-hover-bg
 --ecl-mega-menu-item-promotional-outline-color
 --ecl-mega-menu-item-promotional-text-color
+--ecl-mega-menu-item-promotional-hover-text-color
 
 ### Site header
 
