@@ -110,18 +110,11 @@ $banner-print: null !default;
   display: inline;
   font: map.get($banner-print, 'font', 'title', 'desktop-m');
   font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-desktop-m');
   margin: 0;
 
   .ecl-banner--font-l & {
     font: map.get($banner-print, 'font', 'title', 'desktop-l');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-desktop-l'
-    );
   }
 
   .ecl-banner--color-light & {
