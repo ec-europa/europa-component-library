@@ -15,17 +15,9 @@ $language-list: (
     inline-start: var(--s-l),
     inline-end: var(--s-l),
   ),
-  header-typography: (
-    'mobile': (
-      'size': var(--fs-p-l),
-      'line-height': var(--lh-l),
-    ),
-    'desktop': (
-      'size': var(--fs-p-xl),
-      'line-height': var(--lh-xl),
-    ),
-    'font-weight': map.get($font-weight, 'regular'),
-  ),
+  header-font-mobile: var(--f-p-l),
+  header-font-desktop: var(--f-p-xl),
+  header-font-weight: map.get($font-weight, 'regular'),
   content-margin-mobile: var(--s-s),
   content-margin-desktop: var(--s-s),
   title-padding-start: var(--s-s),

@@ -5,16 +5,15 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $breadcrumb: null !default;
 
 .ecl-breadcrumb {
+  font: map.get($breadcrumb, 'font-mobile');
+  line-height: map.get($breadcrumb, 'line-height');
   margin: 0;
-
-  @include mixins.responsive-font(map.get($breadcrumb, 'typography'));
 }
 
 .ecl-breadcrumb__container {
@@ -132,6 +131,14 @@ $breadcrumb: null !default;
 @include breakpoints.down('s') {
   .ecl-breadcrumb__segment--ellipsis {
     display: none;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-breadcrumb {
+    font: map.get($breadcrumb, 'font-desktop');
+    line-height: map.get($breadcrumb, 'line-height');
   }
 }
 

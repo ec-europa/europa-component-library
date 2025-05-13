@@ -4,6 +4,9 @@
 // stylelint-disable length-zero-no-unit
 $breadcrumb: (
   padding-vertical: var(--s-m),
+  font-mobile: var(--f-p-m),
+  font-desktop: var(--f-p-m),
+  line-height: map.get($line-height-prolonged, 'm'),
   last-link-color: var(--c-d-80),
   icon-color: var(--c-d-80),
   icon-spacing: var(--s-xs),
@@ -14,16 +17,6 @@ $breadcrumb: (
     font-weight: map.get($font-weight, 'bold'),
     offset-vertical: 0px,
     offset-horizontal: 0px,
-  ),
-  typography: (
-    'mobile': (
-      'size': var(--fs-p-m),
-      'line-height': var(--lh-m),
-    ),
-    'desktop': (
-      'size': var(--fs-s),
-      'line-height': var(--lh-s),
-    ),
   ),
 );
 // stylelint-enable length-zero-no-unit

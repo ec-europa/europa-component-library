@@ -7,7 +7,6 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -325,11 +324,10 @@ $menu: null !default;
   color: map.get($menu, 'mobile', 'item-color');
   display: inline-flex;
   flex-grow: 1;
+  font: map.get($menu, 'mobile', 'item-font');
   justify-content: space-between;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
-
-  @include mixins.responsive-font(map.get($menu, 'link-typography'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -494,6 +492,7 @@ $menu: null !default;
       box-shadow: none;
       color: map.get($menu, 'desktop', 'item-color');
       display: inline-flex;
+      font: map.get($menu, 'desktop', 'item-font');
       line-height: map.get($menu, 'desktop', 'link-line-height');
       padding: map.get($menu, 'desktop', 'link-padding');
       width: auto;

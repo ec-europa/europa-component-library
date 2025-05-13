@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -269,21 +268,9 @@ $language-list: null !default;
   background: var(--cm-surface-neutral-lowest);
   color: map.get($site-header, 'banner-text-color');
   display: block;
+  font: var(--f-2xl);
   min-height: 1.75rem;
   padding: var(--s-m) 0;
-
-  @include mixins.responsive-font(
-    (
-      'mobile': (
-        'size': var(--fs-2xl),
-        'line-height': var(--lh-2xl),
-      ),
-      'desktop': (
-        'size': var(--fs-3xl),
-        'line-height': var(--lh-3xl),
-      ),
-    )
-  );
 
   .ecl-container {
     display: flex;
@@ -544,6 +531,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
   .ecl-site-header__banner {
     box-shadow: none;
+    font: var(--f-3xl);
     min-height: 0;
     padding: 0;
 
