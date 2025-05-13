@@ -6,7 +6,7 @@ import logoEuMobile from '@ecl/resources-eu-logo/dist/condensed-version/positive
 import logoEuDesktop from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import dataCore from './demo/data-core--eu';
 import dataHarmonised from './demo/data-harmonised--eu';
-import footer from './site-footer.html.twig';
+import footer from './site-footer-eu.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
