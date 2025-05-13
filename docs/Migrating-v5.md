@@ -219,6 +219,25 @@ The related styles can be customized defining:
 
 New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
 
+### Social media follow
+
+- additional option to display the description inline with the links. Corresponding twig parameter: `description_inline`
+
+### Social media share
+
+This element is managed by Webtools, and has been removed from ECL showcase
+
+### Site footer
+
+Site footer EC has been completely revamped to accomodate new design (markup, css and data structure):
+
+- sections are now clearly identified
+- social media links are using the Social Media Follow component
+- data structure is less complex to use and maintain
+  See the component documentation and examples for more information
+
+EU footer hasn't changed, but is now using its own template file
+
 ## Js modifications
 
 ## Packages modifications
