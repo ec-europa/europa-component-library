@@ -367,7 +367,7 @@ $mega-menu: null !default;
   left: 0;
   padding: 0;
   top: 0;
-  width: calc(100vw - var(--s-m));
+  width: 100vw;
 }
 
 /*
@@ -418,6 +418,7 @@ $mega-menu: null !default;
   line-height: map.get($theme, 'line-height-ui', 'xs');
   padding: map.get($mega-menu, 'mobile', 'item-padding');
   position: relative;
+  text-align: left;
   width: 100%;
 
   > span {
