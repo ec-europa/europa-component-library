@@ -113,14 +113,16 @@ const getArgTypes = (data) => {
       name: 'font size',
       type: 'select',
       description: 'Change font size',
-      options: ['m', 'l'],
+      options: ['s', 'm', 'l'],
       control: {
         labels: {
+          s: 'small',
           m: 'medium',
           l: 'large',
         },
       },
       mapping: {
+        small: 's',
         medium: 'm',
         large: 'l',
       },
