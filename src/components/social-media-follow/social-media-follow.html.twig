@@ -4,6 +4,7 @@
   Parameters:
     - "variant" (string) (default: ''): can be 'vertical',
     - "description" (string) (default: ''),
+    - "description_inline" (boolean) (default: false) Should the description be displayed inline?
     - "position" (string) (default: 'left') Position (can be 'left', 'right')
     - "links" (array) (default: []): Array of links for social media, following ECL Link structure
     - "extra_classes" (string) (default: '')
@@ -20,6 +21,7 @@
 {% set _css_class = 'ecl-social-media-follow' %}
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
+{% set _description_inline = description_inline|default(false) %}
 {% set _position = position|default('left') %}
 {% set _links = links|default([]) %}
 {% set _variant = variant|default('') %}
@@ -32,6 +34,10 @@
 
 {% if _position is not empty %}
   {% set _css_class = _css_class ~ ' ecl-social-media-follow--' ~ _position %}
+{% endif %}
+
+{% if _description_inline %}
+  {% set _css_class = _css_class ~ ' ecl-social-media-follow--description_inline' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -54,7 +60,10 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <p class="ecl-social-media-follow__description">{{ _description }}</p>
+  {% if _description is not empty %}
+    <p class="ecl-social-media-follow__description">{{ _description }}</p>
+  {% endif %}
+
   {% if _links is not empty %}
     <ul class="ecl-social-media-follow__list">
     {% for link in _links %}

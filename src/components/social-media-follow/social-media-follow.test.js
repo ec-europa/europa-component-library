@@ -76,4 +76,17 @@ describe('Social Media Follow', () => {
       ).resolves.toMatchSnapshot();
     });
   });
+
+  describe('Description inline', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({
+          ...demoData,
+          description_inline: true,
+        }),
+      ).resolves.toMatchSnapshot();
+    });
+  });
 });

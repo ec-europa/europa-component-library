@@ -130,6 +130,12 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+### Banner
+
+- Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
+  Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
+- Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+
 ### Featured item
 
 - Variant `simple` has been removed (deprecated in v4)
@@ -210,6 +216,25 @@ The image will be clickable and will act as the associated link.
 ### Site header
 
 New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
+
+### Social media follow
+
+- additional option to display the description inline with the links. Corresponding twig parameter: `description_inline`
+
+### Social media share
+
+This element is managed by Webtools, and has been removed from ECL showcase
+
+### Site footer
+
+Site footer EC has been completely revamped to accomodate new design (markup, css and data structure):
+
+- sections are now clearly identified
+- social media links are using the Social Media Follow component
+- data structure is less complex to use and maintain
+  See the component documentation and examples for more information
+
+EU footer hasn't changed, but is now using its own template file
 
 ## Js modifications
 

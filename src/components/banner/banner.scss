@@ -41,29 +41,33 @@ $banner: null !default;
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($banner, 'font', 'credit');
-  padding-bottom: var(--s-2xs);
-  padding-top: var(--s-2xs);
+  font: map.get($banner, 'font', 'credit', 'mobile');
+  margin-block-end: calc(-1 * var(--s-xl));
+  padding-block-start: 1px;
   position: relative;
+  text-align: end;
   width: 100%;
   z-index: 1;
-
-  .ecl-banner & .ecl-container {
-    position: relative;
-  }
 }
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: var(--s-m);
-  padding-inline-end: var(--s-m);
+  padding-inline: map.get($banner, 'container-padding-inline', 'mobile');
 }
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: map.get($banner, 'container-padding-bottom', 'mobile');
-  padding-top: map.get($banner, 'container-padding-top', 'mobile');
+  padding-block: map.get($banner, 'container-padding-block', 'media', 'mobile');
   width: 100%;
+
+  .ecl-banner--no-media & {
+    padding-block: map.get(
+      $banner,
+      'container-padding-block',
+      'no-media',
+      'mobile'
+    );
+  }
 }
 
 .ecl-banner__content {
@@ -71,6 +75,7 @@ $banner: null !default;
   box-sizing: content-box;
   display: inline-flex;
   flex-direction: column;
+  max-width: map.get($banner, 'content-width', 'mobile');
 }
 
 .ecl-banner__image {
@@ -94,7 +99,6 @@ $banner: null !default;
 }
 
 .ecl-banner__info {
-  align-items: center;
   background-color: map.get($banner, 'background-color');
   display: flex;
   flex-grow: 1;
@@ -104,27 +108,67 @@ $banner: null !default;
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
   display: block;
-  font: map.get($banner, 'font', 'title', 'mobile');
+  font: map.get($banner, 'font', 'title', 'mobile-m');
   font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile');
+  line-height: map.get($banner, 'font', 'title', 'line-height-mobile-m');
   margin: 0;
+  width: 100%;
 
   &:hover,
   &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
+
+  .ecl-banner--font-s & {
+    font: map.get($banner, 'font', 'title', 'mobile-s');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-s');
+  }
+
+  .ecl-banner--font-l & {
+    font: map.get($banner, 'font', 'title', 'mobile-l');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-l');
+  }
+}
+
+.ecl-banner__description {
+  margin-block-start: map.get($banner, 'description-margin');
 }
 
 .ecl-banner__description,
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
-  font: map.get($banner, 'font', 'description', 'mobile');
-  margin-bottom: 0;
-  margin-top: map.get($banner, 'description-margin');
+  font: map.get($banner, 'font', 'description', 'mobile-m');
+  font-weight: map.get($banner, 'font', 'description', 'font-weight');
+  line-height: map.get($banner, 'font', 'description', 'line-height-mobile-m');
+  margin-block-end: 0;
+  width: 100%;
 
   &:hover,
   &:visited {
     color: map.get($banner, 'text-color', 'dark');
+  }
+
+  .ecl-banner--font-s & {
+    font: map.get($banner, 'font', 'description', 'mobile-s');
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-mobile-s'
+    );
+  }
+
+  .ecl-banner--font-l & {
+    font: map.get($banner, 'font', 'description', 'mobile-l');
+    font-weight: map.get($banner, 'font', 'description', 'font-weight');
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-mobile-l'
+    );
   }
 }
 
@@ -202,72 +246,105 @@ $banner: null !default;
   }
 }
 
-// Medium banner - ratio 4:1
-.ecl-banner,
-.ecl-banner--m {
-  .ecl-banner__image,
-  .ecl-banner__video,
-  &.ecl-banner--no-media {
-    aspect-ratio: 4/1;
+// Fixed ratio on mobile
+.ecl-banner__picture-container,
+.ecl-banner__video-container,
+.ecl-banner .ecl-banner__image,
+.ecl-banner .ecl-banner__video {
+  aspect-ratio: 3/2;
 
-    --css-aspect-ratio: 4/1;
-  }
-}
-
-// Extra small banner - ratio 6:1
-.ecl-banner--xs .ecl-banner__image,
-.ecl-banner--xs .ecl-banner__video,
-.ecl-banner--xs.ecl-banner--no-media {
-  aspect-ratio: 6/1;
-
-  --css-aspect-ratio: 6/1;
-}
-
-// Small banner - ratio 5:1
-.ecl-banner--s .ecl-banner__image,
-.ecl-banner--s .ecl-banner__video,
-.ecl-banner--s.ecl-banner--no-media {
-  aspect-ratio: 5/1;
-
-  --css-aspect-ratio: 5/1;
-}
-
-// Large banner - ratio 3:1
-.ecl-banner--l .ecl-banner__image,
-.ecl-banner--l .ecl-banner__video,
-.ecl-banner--l.ecl-banner--no-media {
-  aspect-ratio: 3/1;
-
-  --css-aspect-ratio: 3/1;
+  --css-aspect-ratio: 3/2;
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-banner .ecl-container {
-    padding-inline-start: map.get(
-      $banner,
-      'container-padding-horizontal',
-      'tablet'
-    );
-    padding-inline-end: map.get(
-      $banner,
-      'container-padding-horizontal',
-      'tablet'
-    );
+    padding-inline: map.get($banner, 'container-padding-inline', 'tablet');
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($banner, 'container-padding-bottom', 'tablet');
-    padding-top: map.get($banner, 'container-padding-top', 'tablet');
+    padding-block: map.get(
+      $banner,
+      'container-padding-block',
+      'media',
+      'tablet'
+    );
 
     .ecl-banner--no-media & {
-      padding-block: var(--s-l) var(--s-2xl);
+      padding-block: map.get(
+        $banner,
+        'container-padding-block',
+        'no-media',
+        'tablet'
+      );
+    }
+  }
+
+  // Fixed ratio on tablet
+  .ecl-banner__picture-container,
+  .ecl-banner__video-container,
+  .ecl-banner .ecl-banner__image,
+  .ecl-banner .ecl-banner__video {
+    aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
+  }
+
+  .ecl-banner__title,
+  .ecl-banner__title-link {
+    font: map.get($banner, 'font', 'title', 'tablet-m');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    line-height: map.get($banner, 'font', 'title', 'line-height-tablet-m');
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'title', 'tablet-s');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-s');
+    }
+
+    .ecl-banner--font-l & {
+      font: map.get($banner, 'font', 'title', 'tablet-l');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-l');
+    }
+  }
+
+  .ecl-banner__description,
+  .ecl-banner__description-link {
+    font: map.get($banner, 'font', 'description', 'tablet-m');
+    font-weight: map.get($banner, 'font', 'description', 'font-weight');
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-tablet-m'
+    );
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'description', 'tablet-s');
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-tablet-s'
+      );
+    }
+
+    .ecl-banner--font-l & {
+      font: map.get($banner, 'font', 'description', 'tablet-l');
+      font-weight: map.get($banner, 'font', 'description', 'font-weight');
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-tablet-l'
+      );
     }
   }
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-banner {
     aspect-ratio: 4/1;
     padding-bottom: var(--banner-footer-height);
@@ -300,9 +377,21 @@ $banner: null !default;
   }
 
   .ecl-banner .ecl-container {
-    padding-inline: map.get($banner, 'container-padding-horizontal', 'desktop');
+    padding-inline: map.get($banner, 'container-padding-inline', 'desktop');
     position: absolute;
     z-index: 1;
+  }
+
+  .ecl-banner__credit {
+    font: map.get($banner, 'font', 'credit', 'desktop');
+    margin-block-end: 0;
+    padding-block: var(--s-2xs);
+    position: absolute;
+    text-align: start;
+
+    .ecl-banner & .ecl-container {
+      position: relative;
+    }
   }
 
   // stylelint-disable-next-line plugin/selector-bem-pattern
@@ -312,16 +401,30 @@ $banner: null !default;
   }
 
   .ecl-banner__info {
+    align-items: center;
     background-color: transparent;
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($banner, 'container-padding-bottom', 'desktop');
-    padding-top: map.get($banner, 'container-padding-top', 'desktop');
+    padding-block: map.get(
+      $banner,
+      'container-padding-block',
+      'media',
+      'desktop'
+    );
+
+    .ecl-banner--no-media & {
+      padding-block: map.get(
+        $banner,
+        'container-padding-block',
+        'no-media',
+        'desktop'
+      );
+    }
 
     .ecl-banner--v-bottom & {
-      padding-bottom: calc(
-        #{map.get($banner, 'container-padding-bottom', 'desktop')} +
+      padding-block-end: calc(
+        #{map.get($banner, 'container-padding-block', 'media', 'desktop')} +
           var(--banner-footer-height)
       );
     }
@@ -330,7 +433,7 @@ $banner: null !default;
   .ecl-banner__content {
     background-color: map.get($banner, 'content-background');
     border-radius: map.get($banner, 'content-border-radius');
-    max-width: map.get($banner, 'content-width');
+    max-width: map.get($banner, 'content-width', 'desktop');
     padding: map.get($banner, 'content-padding');
 
     .ecl-banner--box-bg-none & {
@@ -344,10 +447,6 @@ $banner: null !default;
       background: var(--cm-surface-transparent-70, var(--c-ov-l));
       backdrop-filter: blur(2px);
     }
-  }
-
-  .ecl-banner__credit {
-    position: absolute;
   }
 
   .ecl-banner__play.ecl-button--icon-only,
@@ -366,22 +465,19 @@ $banner: null !default;
     display: inline;
     font: map.get($banner, 'font', 'title', 'desktop-m');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-desktop-m'
-    );
+    line-height: map.get($banner, 'font', 'title', 'line-height-desktop-m');
+    width: auto;
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'title', 'desktop-s');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-s');
+    }
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'desktop-l');
       font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      letter-spacing: map.get(
-        $banner,
-        'font',
-        'title',
-        'letter-spacing-desktop-l'
-      );
+      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-l');
     }
 
     .ecl-banner--color-light & {
@@ -392,9 +488,34 @@ $banner: null !default;
   .ecl-banner__description,
   .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'desktop-m');
+    font-weight: map.get($banner, 'font', 'description', 'font-weight');
+    line-height: map.get(
+      $banner,
+      'font',
+      'description',
+      'line-height-desktop-m'
+    );
+    width: auto;
+
+    .ecl-banner--font-s & {
+      font: map.get($banner, 'font', 'description', 'desktop-s');
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-desktop-s'
+      );
+    }
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'description', 'desktop-l');
+      font-weight: map.get($banner, 'font', 'description', 'font-weight');
+      line-height: map.get(
+        $banner,
+        'font',
+        'description',
+        'line-height-desktop-l'
+      );
     }
 
     .ecl-banner--color-light & {
@@ -404,6 +525,7 @@ $banner: null !default;
 
   .ecl-banner__picture-container,
   .ecl-banner__video-container {
+    aspect-ratio: auto;
     height: 100%;
     position: static;
   }
