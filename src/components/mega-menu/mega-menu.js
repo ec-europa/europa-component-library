@@ -866,11 +866,12 @@ export class MegaMenu {
             this.inner.style.top = `${bottomPosition}px`;
           }
           const item = queryOne('.ecl-mega-menu__item--expanded', this.element);
-          const hasFeatured = queryOne(
-            '.ecl-mega-menu__mega--has-featured',
-            item,
-          );
+
           if (item) {
+            const hasFeatured = queryOne(
+              '.ecl-mega-menu__mega--has-featured',
+              item,
+            );
             const info = queryOne('.ecl-mega-menu__info', item);
             if (info && this.openPanel.num === 1) {
               const bottomRect = info.getBoundingClientRect();
@@ -885,8 +886,13 @@ export class MegaMenu {
               hasFeatured.style.height = `${availableHeight}px`;
             } else {
               const subList = queryOne('.ecl-mega-menu__sublist', item);
-              if (subList && this.openPanel.num === 1 && info) {
+              if (subList && this.openPanel.num === 1) {
+                console.log('dovrei...');
+                const subListRect = subList.getBoundingClientRect();
+                const subListRectTop = subListRect.top;
                 subList.classList.add('ecl-mega-menu__sublist--scrollable');
+                availableHeight =
+                  availableHeight || window.innerHeight - subListRectTop;
                 subList.style.height = `${availableHeight}px`;
               } else if (subList) {
                 subList.classList.remove('ecl-mega-menu__sublist--scrollable');
@@ -1680,7 +1686,7 @@ export class MegaMenu {
       sublists.forEach((sublist) => {
         sublist.classList.remove(
           'ecl-mega-menu__sublist--no-border',
-          '.ecl-mega-menu__sublist--scrollable',
+          'ecl-mega-menu__sublist--scrollable',
         );
       });
     }

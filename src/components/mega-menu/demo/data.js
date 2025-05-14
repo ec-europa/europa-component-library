@@ -42,7 +42,7 @@ module.exports = {
           {
             picture: {
               img: {
-                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
                 alt: 'Jean Monnet banner',
               },
             },
@@ -133,6 +133,22 @@ module.exports = {
           },
         },
       },
+      featured: {
+        items: [
+          {
+            picture: {
+              img: {
+                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+                alt: 'Jean Monnet banner',
+              },
+            },
+          },
+          {
+            label: 'I belong to about the EU',
+            path: exampleLink,
+          },
+        ],
+      },
       children: [
         { label: 'Item 3.1', path: exampleLink },
         { label: 'Item 3.2', path: exampleLink },
@@ -151,6 +167,27 @@ module.exports = {
             label: 'Discover more',
           },
         },
+      },
+      featured: {
+        items: [
+          {
+            picture: {
+              img: {
+                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+                alt: 'Jean Monnet banner',
+              },
+            },
+          },
+          {
+            label: 'I belong to key priorities',
+            path: exampleLink,
+            description:
+              'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            extra_attributes: [
+              { name: 'an-extra-attribute-for-the-featured-link' },
+            ],
+          },
+        ],
       },
       children: [
         {
