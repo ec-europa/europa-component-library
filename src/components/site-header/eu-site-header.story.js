@@ -53,6 +53,7 @@ const getArgs = (data) => {
   }
   if (data.has_menu) {
     defaultArgs.show_menu = 'menu';
+    defaultArgs.featured_priority = 'secondary';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -139,6 +140,17 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+    };
+    argTypes.featured_priority = {
+      name: 'featued panel priority',
+      control: { type: 'select' },
+      description:
+        'in desktop, when two featured panels are present, you can choose which one to show',
+      options: ['secondary', 'primary'],
+      table: {
+        category: 'Optional',
+      },
+      if: { arg: 'show_menu', eq: 'mega-menu' },
     };
   }
   if (data.cta_link) {
@@ -327,6 +339,10 @@ const prepareData = (data, args) => {
     } else {
       clonedDataFull.notification.close = closeButton;
     }
+  }
+
+  if (args.featured_priority) {
+    data.mega_menu.featured_priority = args.featured_priority;
   }
 
   data.logged = args.logged;

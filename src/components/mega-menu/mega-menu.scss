@@ -1488,7 +1488,9 @@ $mega-menu: null !default;
       display: none !important;
     }
 
-    @at-root .ecl-mega-menu--has-secondary-featured
+    @at-root .ecl-mega-menu--has-secondary-featured:not(
+          .ecl-mega-menu--featured--primary
+        )
         &
         > .ecl-mega-menu__featured {
       display: none !important;

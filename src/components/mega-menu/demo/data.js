@@ -52,8 +52,6 @@ module.exports = {
             path: exampleLink,
             description:
               'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            external: true,
-            sr_external: 'this is an external link',
             extra_attributes: [
               { name: 'an-extra-attribute-for-the-featured-link' },
             ],
