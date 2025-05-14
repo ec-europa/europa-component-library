@@ -48,11 +48,6 @@ $mega-menu: null !default;
       'global',
       'promotional-item-focus-text-color'
     )};
-  --ecl-mega-menu-item-promotional-focus-border-color: #{map.get(
-      $mega-menu,
-      'global',
-      'promotional-item-focus-border-color'
-    )};
 }
 
 @mixin with-scrollbar {
@@ -480,10 +475,7 @@ $mega-menu: null !default;
 
   &:focus-visible {
     background: var(--ecl-mega-menu-item-promotional-focus-bg);
-    border: 1px solid var(--ecl-mega-menu-item-promotional-focus-border-color);
     color: var(--ecl-mega-menu-item-promotional-focus-text-color);
-    padding: calc(var(--s-m) - 1px) calc(var(--s-m) - 1px)
-      calc(var(--s-m) - 1px) calc(var(--s-l) - 1px);
     outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
     outline-offset: -4px;
   }
@@ -667,10 +659,7 @@ $mega-menu: null !default;
 
       &:focus-visible {
         background: var(--ecl-mega-menu-item-promotional-focus-bg);
-        border: 1px solid
-          var(--ecl-mega-menu-item-promotional-focus-border-color);
         color: var(--ecl-mega-menu-item-promotional-focus-text-color);
-        padding: calc(var(--s-s) - 1px) calc(var(--s-m) - 1px);
         outline-color: var(--ecl-mega-menu-item-promotional-outline-color);
       }
     }

@@ -29,7 +29,6 @@ npm install --save @ecl/mega-menu
   --ecl-mega-menu-item-promotional-text-color
   --ecl-mega-menu-item-promotional-hover-text-color
   --ecl-mega-menu-item-promotional-focus-text-color
-  --ecl-mega-menu-item-promotional-focus-border-color
   "sr_external" (string) (default: '') Additional label for the external icon
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column

@@ -216,7 +216,6 @@ The related styles can be customized defining:
 --ecl-mega-menu-item-promotional-text-color
 --ecl-mega-menu-item-promotional-hover-text-color
 --ecl-mega-menu-item-promotional-focus-text-color
---ecl-mega-menu-item-promotional-focus-border-color
 
 ### Site header
 
