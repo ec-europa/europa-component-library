@@ -112,6 +112,7 @@ $banner: null !default;
   font-weight: map.get($banner, 'font', 'title', 'font-weight');
   line-height: map.get($banner, 'font', 'title', 'line-height-mobile-m');
   margin: 0;
+  width: 100%;
 
   &:hover,
   &:visited {
@@ -131,14 +132,18 @@ $banner: null !default;
   }
 }
 
+.ecl-banner__description {
+  margin-block-start: map.get($banner, 'description-margin');
+}
+
 .ecl-banner__description,
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
   font: map.get($banner, 'font', 'description', 'mobile-m');
   font-weight: map.get($banner, 'font', 'description', 'font-weight');
   line-height: map.get($banner, 'font', 'description', 'line-height-mobile-m');
-  margin-bottom: 0;
-  margin-top: map.get($banner, 'description-margin');
+  margin-block-end: 0;
+  width: 100%;
 
   &:hover,
   &:visited {
@@ -461,6 +466,7 @@ $banner: null !default;
     font: map.get($banner, 'font', 'title', 'desktop-m');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
     line-height: map.get($banner, 'font', 'title', 'line-height-desktop-m');
+    width: auto;
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'title', 'desktop-s');
@@ -488,6 +494,7 @@ $banner: null !default;
       'description',
       'line-height-desktop-m'
     );
+    width: auto;
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'description', 'desktop-s');
