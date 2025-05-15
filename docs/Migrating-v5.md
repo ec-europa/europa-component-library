@@ -69,7 +69,7 @@ TODO
 
 Font family and scales have changed. The new font (Inter) is quite similar to Arial, but offers more flexibility.
 
-Font size and line height now goes from `10xl` to `xs`.
+Font size now goes from `10xl` to `2xs`, line height goes from `10xl` to `3xs`.
 
 **Important note**: default font size (`m`) is now 18px/1.125rem, instead of 16px/1rem. It makes all content displayed larger.
 
@@ -78,15 +78,11 @@ There are now 9 levels of font weight, from `thin` to `black`.
 A new very large typography has been added, called `display`.
 
 Font variant have been updated too. The variant `font-ui`, previously used to have larger line height, has been removed.
-Two new variants have been added:
-
-- `condensed` (smaller letter-spacing)
-- `extended` (larger letter-spacing)
 
 Corresponding css properties and utilities have been updated accordingly:
 
 - paragraph utilities now use the new font scale, and go from `ecl-u-type-paragraph-xs` to `ecl-u-type-paragraph-2xl` (previously existing utilities like `ecl-u-type-paragraph-lead` are still valid)
-- new utilities for compact and extended fonts: `ecl-u-type-compact-[size]` and `ecl-u-type-extended-[size]`
+- css properties are available to handle font-size and line-height directly
 
 ### [EC] Shadows
 
