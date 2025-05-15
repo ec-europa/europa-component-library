@@ -53,7 +53,7 @@ $font-breakpoints: (
   }
 
   // Font family
-  $font-family: var(--ff-d);
+  $font-family: map.get($typography, 'font-family');
 
   @if $font-family {
     font-family: $font-family;

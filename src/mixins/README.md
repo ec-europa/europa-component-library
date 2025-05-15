@@ -63,6 +63,8 @@ $typography: (
 ### Using a token string
 
 ```scss
+@use '@ecl/mixins-typography/mixins';
+
 .title {
   @include mixins.responsive-font('heading1');
 }
@@ -71,6 +73,8 @@ $typography: (
 ### Using a nested variant (e.g. `body-m`)
 
 ```scss
+@use '@ecl/mixins-typography/mixins';
+
 .article-text {
   @include mixins.responsive-font('body-m');
 }
@@ -79,6 +83,8 @@ $typography: (
 ### Using a direct map input
 
 ```scss
+@use '@ecl/mixins-typography/mixins';
+
 $custom-map: (
   mobile: (
     size: 1rem,
