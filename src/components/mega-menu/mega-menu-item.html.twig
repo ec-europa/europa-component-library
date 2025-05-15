@@ -347,6 +347,7 @@
           <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
         {%- endif -%}
         {%- if _featured.items is not empty and _featured.items is iterable -%}
+          {% set sublink_id = sublink_id ? sublink_id : _id %}
           <ul
             class="ecl-mega-menu__featured-list"
             aria-labelledby="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id }}"
