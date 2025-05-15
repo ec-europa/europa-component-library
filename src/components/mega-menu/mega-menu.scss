@@ -1108,7 +1108,6 @@ $mega-menu: null !default;
     .ecl-mega-menu__wrapper {
       padding-top: var(--s-m);
       min-height: 200px !important;
-      width: 100vw;
 
       &::before {
         background: var(--cm-border-neutral, '#e3e3e3');
@@ -1163,8 +1162,7 @@ $mega-menu: null !default;
       .ecl-container
       > .ecl-mega-menu__info {
       margin-bottom: var(--s-m);
-      margin-inline-start: calc(-1 * var(--s-m));
-      padding: 0 0 var(--s-m) var(--s-m);
+      padding: 0 0 var(--s-m);
       position: static;
       width: auto;
 
@@ -1244,6 +1242,14 @@ $mega-menu: null !default;
       > .ecl-mega-menu__info {
         box-sizing: border-box;
         box-shadow: 0px 4px 10px 0px rgb(224, 229, 245, 0.42);
+        margin-inline-start: calc(
+          -1 * map.get($mega-menu, 'desktop', 'container-padding-horizontal')
+        );
+        padding-inline-start: map.get(
+          $mega-menu,
+          'desktop',
+          'container-padding-horizontal'
+        );
       }
 
       .ecl-mega-menu__mega:not(.ecl-mega-menu__mega--level-2)
@@ -1504,6 +1510,14 @@ $mega-menu: null !default;
       .ecl-mega-menu--forced-mobile,
       .ecl-mega-menu--forced-close
     ) {
+    .ecl-container {
+      padding-inline: map.get(
+        $mega-menu,
+        'desktop',
+        'container-extra-large-padding-horizontal'
+      );
+    }
+
     .ecl-mega-menu__item.ecl-mega-menu__item--expanded
       > .ecl-mega-menu__wrapper
       > .ecl-container {
@@ -1512,12 +1526,13 @@ $mega-menu: null !default;
         border-radius: 0px 4px 4px 0px;
         left: map.get(
           $mega-menu,
-          'global',
+          'desktop',
           'container-extra-large-padding-horizontal'
         );
         margin-bottom: 0;
-        padding-inline-start: var(--s-m);
-        padding-inline-end: var(--s-xl);
+        margin-inline-start: 0;
+        padding-inline-start: 0;
+        padding-inline-end: 1.5rem;
         position: absolute;
         width: 15.875rem;
         z-index: 16;
@@ -1526,7 +1541,7 @@ $mega-menu: null !default;
           content: '';
           position: absolute;
           top: 0;
-          right: 0;
+          right: 10px;
           bottom: 0;
           width: 10px;
           box-shadow: 4px 0px 10px 0px rgb(224, 229, 245, 0.5);
@@ -1554,7 +1569,7 @@ $mega-menu: null !default;
       }
 
       > .ecl-mega-menu__mega {
-        left: calc(15.875rem + var(--s-xl));
+        left: 18rem;
       }
     }
 
@@ -1598,6 +1613,11 @@ $mega-menu: null !default;
       .ecl-mega-menu--forced-mobile,
       .ecl-mega-menu--forced-close
     ) {
+    .ecl-mega-menu__mega:not(.ecl-mega-menu__mega--level-2)
+      > .ecl-mega-menu__featured {
+      margin-inline-start: 20.68rem !important;
+    }
+
     .ecl-mega-menu__item.ecl-mega-menu__item--expanded
       > .ecl-mega-menu__wrapper
       > .ecl-container {
@@ -1611,15 +1631,23 @@ $mega-menu: null !default;
 
       > {
         .ecl-mega-menu__info {
-          padding-inline-start: var(--s-xs);
-          width: 19.375rem;
+          padding-inline-start: 0;
+          width: 18.875rem;
         }
 
         .ecl-mega-menu__mega {
-          left: calc(19.375rem + var(--s-3xl));
-          width: 20.68rem;
+          left: 22rem;
+          width: 20.93rem;
         }
       }
+    }
+
+    &.ecl-mega-menu--rtl
+      .ecl-mega-menu__item--expanded
+      > .ecl-mega-menu__wrapper
+      > .ecl-container
+      > .ecl-mega-menu__mega {
+      right: 22.65rem;
     }
   }
 }

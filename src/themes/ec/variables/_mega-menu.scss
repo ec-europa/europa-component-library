@@ -8,7 +8,6 @@ $mega-menu: (
     greysh-background: var(--cm-surface-neutral-lowest),
     shadow: none,
     font: var(--f-s),
-    container-extra-large-padding-horizontal: var(--s-3xl),
     featured-description-font: var(--f-xs),
     promotional-item-bg: var(--c-in-400),
     promotional-item-bg-hover: map.get($color-palette, 'purple-300'),
@@ -47,7 +46,9 @@ $mega-menu: (
     subitem-padding: var(--s-m) var(--s-m) var(--s-m) var(--s-l),
   ),
   desktop: (
-    container-padding-horizontal: var(--s-2xl),
+    container-padding-horizontal: var(--s-xl),
+    container-large-padding-horizontal: var(--s-2xl),
+    container-extra-large-padding-horizontal: var(--s-3xl),
     item-background: var(--cm-surface-brand),
     menu-background: var(--cm-surface-brand),
     menu-border: none,
