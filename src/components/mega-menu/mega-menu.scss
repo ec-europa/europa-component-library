@@ -1257,7 +1257,12 @@ $mega-menu: null !default;
         .ecl-mega-menu__featured-list__item .ecl-link {
           border-bottom: none;
           margin: 0;
-          padding: var(--s-2xs) var(--s-2xl) var(--s-2xs) var(--s-s);
+          padding-inline: var(--s-s) 0;
+          padding-block: var(--s-2xs);
+        }
+
+        .ecl-mega-menu__featured-list__item .ecl-link > .ecl-picture {
+          margin-block-start: calc(-1 * var(--s-2xs));
         }
       }
 
@@ -1275,7 +1280,8 @@ $mega-menu: null !default;
         .ecl-mega-menu__featured-list__item .ecl-link {
           border-bottom: none;
           margin: 0;
-          padding: var(--s-2xs) var(--s-2xl) var(--s-2xs) var(--s-s);
+          padding-inline: var(--s-s) 0;
+          padding-block: var(--s-2xs);
         }
       }
     }
