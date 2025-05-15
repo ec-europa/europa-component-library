@@ -1602,18 +1602,22 @@ $mega-menu: null !default;
       > .ecl-mega-menu__wrapper
       > .ecl-container {
       .ecl-mega-menu__featured {
-        width: 19.75rem;
+        width: 17.875rem;
+      }
+
+      .ecl-mega-menu__mega {
+        width: 20.68rem;
       }
 
       > {
         .ecl-mega-menu__info {
           padding-inline-start: var(--s-xs);
-          width: 19.75rem;
+          width: 19.375rem;
         }
 
         .ecl-mega-menu__mega {
-          left: calc(19.75rem + var(--s-xl));
-          width: 22rem;
+          left: calc(19.375rem + var(--s-3xl));
+          width: 20.68rem;
         }
       }
     }
