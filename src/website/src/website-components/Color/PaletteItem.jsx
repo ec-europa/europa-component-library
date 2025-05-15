@@ -20,14 +20,14 @@ class PaletteItem extends PureComponent {
     };
   }
 
-  getCode = (alias, parentRef) => {
+  getCode = (alias, paletteRef) => {
     if (!alias) return '';
 
     let hex = '';
     // Try getting the computed style from the parent ol element
-    if (parentRef?.current) {
+    if (paletteRef?.current) {
       hex = window
-        .getComputedStyle(parentRef.current)
+        .getComputedStyle(paletteRef.current)
         .getPropertyValue(`--${alias}`)
         .trim();
     }
@@ -60,14 +60,14 @@ class PaletteItem extends PureComponent {
   };
 
   render() {
-    const { name, id, value, alias, main, parentRef } = this.props;
+    const { name, id, value, alias, main, paletteRef } = this.props;
     const { tooltipVisible } = this.state;
 
     let code = value.toUpperCase();
 
     // Get color code from alias, trying parent first, then fallback to body
     if (alias && typeof window !== 'undefined') {
-      code = this.getCode(alias, parentRef);
+      code = this.getCode(alias, paletteRef);
     }
 
     return (
@@ -108,7 +108,7 @@ PaletteItem.propTypes = {
   value: PropTypes.string,
   alias: PropTypes.string,
   main: PropTypes.bool,
-  parentRef: PropTypes.shape({
+  paletteRef: PropTypes.shape({
     current: PropTypes.any,
   }),
 };
@@ -118,7 +118,7 @@ PaletteItem.defaultProps = {
   value: '',
   alias: '',
   main: false,
-  parentRef: null,
+  paletteRef: null,
 };
 
 export default PaletteItem;
