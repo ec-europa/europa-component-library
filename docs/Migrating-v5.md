@@ -219,8 +219,8 @@ The related styles can be customized defining:
 --ecl-mega-menu-item-promotional-hover-text-color
 --ecl-mega-menu-item-promotional-focus-text-color
 
-The featured panel can now be associated also to the first level items, if set it will be visible in all the children items as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown in desktop, in mobile the two are one on top of the other.
-A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed in `primary`.
+The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
+A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
 
 ### Site header
 

@@ -15,7 +15,7 @@ npm install --save @ecl/mega-menu
 - **"second_level_aria_label"** (string): (default: ''): Second level list aria label
 - **"third_level_aria_label"** (string): (default: ''): Third level list aria label
 - **"back_label"** (string): (default: ''): Back button label
-- **featured_priority"** (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible in desktop
+- **featured_priority"** (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
