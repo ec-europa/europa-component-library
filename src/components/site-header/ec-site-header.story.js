@@ -158,7 +158,7 @@ const getArgTypes = (data) => {
       },
     };
     argTypes.featured_priority = {
-      name: 'featued panel priority',
+      name: 'featured panel priority',
       control: { type: 'select' },
       description:
         'in desktop, when two featured panels are present, you can choose which one to show',
