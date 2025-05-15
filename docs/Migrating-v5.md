@@ -130,6 +130,12 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+### Banner
+
+- Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
+  Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
+- Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+
 ### Featured item
 
 - Variant `simple` has been removed (deprecated in v4)

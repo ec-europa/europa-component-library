@@ -4,7 +4,7 @@
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
-  - "font_size" (string) (default: 'm') Size of the title and description (can be 'm', 'l')
+  - "font_size" (string) (default: 'm') Size of the title and description (can be 's', 'm', 'l')
   - "font_color" (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
   - "box_background" (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
   - "title" (string or Link) (default: '') Title of banner
@@ -207,6 +207,7 @@
             {%- if _title.link is defined -%}
               {% set _title_extra_classes = (_title.extra_classes is not empty ? _title.extra_classes ~ ' ' : '') ~ 'ecl-banner__title-link' %}
               {% include '@ecl/link/link.html.twig' with _title|merge({
+                link: _title.link|merge({type: 'standalone'}),
                 extra_classes: _title_extra_classes,
               }) only %}
             {%- else -%}
@@ -221,6 +222,7 @@
             {%- if _description.link is defined -%}
               {% set _description_extra_classes = (_description.extra_classes is not empty ? _description.extra_classes ~ ' ' : '') ~ 'ecl-banner__description-link' %}
               {% include '@ecl/link/link.html.twig' with _description|merge({
+                link: _description.link|merge({type: 'standalone'}),
                 extra_classes: _description_extra_classes,
               }) only %}
             {%- else -%}

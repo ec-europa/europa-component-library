@@ -570,7 +570,7 @@ export class Carousel {
 
     // We set 250ms delay which is higher than the 200ms delay in the banner.
     this.resizeTimer = setTimeout(() => {
-      if (vw >= 998) {
+      if (vw >= 1140) {
         this.intervalId = setInterval(this.checkBannerHeights, 100);
       } else {
         this.resetBannerHeights();
