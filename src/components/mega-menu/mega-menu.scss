@@ -221,6 +221,7 @@ $mega-menu: null !default;
   display: flex;
   flex-flow: row-reverse;
   height: map.get($mega-menu, 'mobile', 'header-height');
+  padding-block-end: var(--s-xs);
 }
 
 .ecl-mega-menu__title {
@@ -958,16 +959,26 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu__sublist--scrollable,
-.ecl-mega-menu__mega--has-featured,
-.ecl-mega-menu__mega--level-2 {
-  @include with-scrollbar;
-}
+.ecl-mega-menu__mega--has-featured {
+  @at-root .ecl-mega-menu--featured--primary
+      .ecl-mega-menu__subitem--current
+      .ecl-mega-menu__featured {
+    display: none !important;
+  }
 
-.ecl-mega-menu__mega--has-featured
-  > .ecl-mega-menu__featured
+  @at-root .ecl-mega-menu--has-secondary-featured:not(
+        .ecl-mega-menu--featured--primary
+      )
+      &
+      > .ecl-mega-menu__featured {
+    display: none !important;
+  }
+
   .ecl-mega-menu__featured-list__item:last-child {
-  padding-block-end: var(--s-m);
+    padding-block-end: var(--s-m);
+  }
+
+  @include with-scrollbar;
 }
 
 .ecl-mega-menu__mega--level-2 {
@@ -1073,7 +1084,6 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__mega:not(.ecl-mega-menu__mega--level-2)
   > .ecl-mega-menu__featured {
-  height: 100vh;
   margin-inline: var(--s-xs);
   margin-block-start: calc(-1 * var(--s-m));
   padding-block: 0;
@@ -1480,20 +1490,6 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__mega--has-featured {
     overflow-y: unset;
-
-    @at-root .ecl-mega-menu--featured--primary
-        .ecl-mega-menu__subitem--current
-        .ecl-mega-menu__featured {
-      display: none !important;
-    }
-
-    @at-root .ecl-mega-menu--has-secondary-featured:not(
-          .ecl-mega-menu--featured--primary
-        )
-        &
-        > .ecl-mega-menu__featured {
-      display: none !important;
-    }
   }
 }
 

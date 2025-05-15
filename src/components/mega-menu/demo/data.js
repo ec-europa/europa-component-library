@@ -46,8 +46,6 @@ module.exports = {
                 alt: 'Jean Monnet banner',
               },
             },
-          },
-          {
             label: 'I belong to news & media',
             path: exampleLink,
             description:
@@ -177,8 +175,6 @@ module.exports = {
                 alt: 'Jean Monnet banner',
               },
             },
-          },
-          {
             label: 'I belong to key priorities',
             path: exampleLink,
             description:
