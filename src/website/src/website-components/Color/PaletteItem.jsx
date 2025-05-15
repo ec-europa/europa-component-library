@@ -1,37 +1,8 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 import styles from './PaletteItem.module.scss';
-
-const getCode = (alias, parentRef) => {
-  if (!alias) return '';
-
-  let hex = '';
-  // Try getting the computed style from the parent ol element
-  if (parentRef?.current) {
-    hex = window
-      .getComputedStyle(parentRef.current)
-      .getPropertyValue(`--${alias}`)
-      .trim();
-  }
-
-  // If not found, fallback to document.body
-  if (!hex) {
-    hex = window
-      .getComputedStyle(document.body)
-      .getPropertyValue(`--${alias}`)
-      .trim();
-  }
-
-  // Handle transparent color-mix cases
-  if (hex.includes('color-mix')) {
-    // Transparent color, we get the hex code and transparency
-    [, hex] = hex.split(',');
-  }
-
-  return hex.toUpperCase();
-};
 
 class PaletteItem extends PureComponent {
   constructor(props) {
@@ -48,6 +19,35 @@ class PaletteItem extends PureComponent {
       tooltipVisible: false,
     };
   }
+
+  getCode = (alias, parentRef) => {
+    if (!alias) return '';
+
+    let hex = '';
+    // Try getting the computed style from the parent ol element
+    if (parentRef?.current) {
+      hex = window
+        .getComputedStyle(parentRef.current)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
+
+    // If not found, fallback to document.body
+    if (!hex) {
+      hex = window
+        .getComputedStyle(document.body)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
+
+    // Handle transparent color-mix cases
+    if (hex.includes('color-mix')) {
+      // Transparent color, we get the hex code and transparency
+      [, hex] = hex.split(',');
+    }
+
+    return hex.toUpperCase();
+  };
 
   handleCopy = (text) => {
     navigator.clipboard.writeText(text);
@@ -67,7 +67,7 @@ class PaletteItem extends PureComponent {
 
     // Get color code from alias, trying parent first, then fallback to body
     if (alias && typeof window !== 'undefined') {
-      code = getCode(alias, parentRef);
+      code = this.getCode(alias, parentRef);
     }
 
     return (
