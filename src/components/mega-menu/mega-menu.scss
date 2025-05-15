@@ -1157,6 +1157,11 @@ $mega-menu: null !default;
       z-index: map.get($theme, 'z-index', 'dropdown');
     }
 
+    @at-root .ecl-mega-menu--rtl .ecl-mega-menu__info::after {
+      right: auto !important;
+      left: 10px !important;
+    }
+
     .ecl-mega-menu__item
       > .ecl-mega-menu__wrapper
       .ecl-container
@@ -1573,6 +1578,15 @@ $mega-menu: null !default;
       }
     }
 
+    &.ecl-mega-menu--rtl .ecl-mega-menu__info {
+      left: auto !important;
+      right: map.get(
+        $mega-menu,
+        'desktop',
+        'container-extra-large-padding-horizontal'
+      ) !important;
+    }
+
     &.ecl-mega-menu--rtl
       .ecl-mega-menu__item--expanded
       > .ecl-mega-menu__wrapper
@@ -1647,7 +1661,7 @@ $mega-menu: null !default;
       > .ecl-mega-menu__wrapper
       > .ecl-container
       > .ecl-mega-menu__mega {
-      right: 22.65rem;
+      right: 20.93rem;
     }
   }
 }
