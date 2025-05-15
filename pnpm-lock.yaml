@@ -395,6 +395,9 @@ importers:
       '@ecl/media-container':
         specifier: 5.0.0-alpha.10
         version: link:../media-container
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.10
+        version: link:../../mixins/typography
       '@ecl/picture':
         specifier: 5.0.0-alpha.10
         version: link:../picture
@@ -935,6 +938,12 @@ importers:
 
   src/layout/grid: {}
 
+  src/mixins/typography:
+    dependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-alpha.10
+        version: link:../../layout/grid
+
   src/page-example/page-fact-sheet:
     dependencies:
       '@ecl/banner':
@@ -1458,6 +1467,9 @@ importers:
       '@ecl/menu':
         specifier: 5.0.0-alpha.10
         version: link:../../components/menu
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.10
+        version: link:../../mixins/typography
       '@ecl/modal':
         specifier: 5.0.0-alpha.10
         version: link:../../components/modal
@@ -1726,6 +1738,9 @@ importers:
       '@ecl/menu':
         specifier: 5.0.0-alpha.10
         version: link:../../components/menu
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.10
+        version: link:../../mixins/typography
       '@ecl/modal':
         specifier: 5.0.0-alpha.10
         version: link:../../components/modal

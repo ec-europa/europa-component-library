@@ -9,8 +9,13 @@ $featured-item: (
   max-width: var(--max-w),
   title: (
     color: var(--c-d-140),
-    font: var(--f-p-l),
-    font-weight: map.get($font-weight, 'bold'),
+    typography: (
+      'mobile': (
+        'size': var(--fs-l),
+        'line-height': var(--lh-l),
+      ),
+      'font-weight': map.get($font-weight, 'bold'),
+    ),
   ),
   description: (
     color: var(--c-d-80),
