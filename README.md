@@ -34,8 +34,9 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/styles/optional/ecl-ec-default.css"
-    integrity="sha256-yUeVT1+0N+bNhF+l4hW57STNXHSRpcr1wqmfb8qWo0s= sha384-LGnsd71WAib+vVmwdTXVqYCMYbt0df0wN4i1Ha0waMpoevx6mTKYnZEdg8rq4ntF sha512-dYGk27LVqhqA/bOLHkW1jJqFjjRKCJ5Daf/nqC82WYwK+vYXed0RWB/+wDwLrDuv6YueUP2twpFqA3PFVYMosA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/styles/optional/ecl-ec-default.css"
+    integrity="sha256-wMn2/tFxvEzzlgj1FY7RxLn7RTGH2tCqP2HAqm7pq1A= sha384-EtTHV0z7hxu+BnwldjvOoTDTlYXln5zpeu2fGMVgvHGX5RJvAbRuAICdTfGJGPXQ
+    sha512-28jSK3/+Tl0R6AmN48WcL9V5nEUUPKNpc/nPAnds1+fpQW8xDMPTpBIwxLmyB/nHVPUttvSEaOjYP5X3pmmOsA"
     crossorigin="anonymous"
     media="screen"
   />
@@ -44,8 +45,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/styles/optional/ecl-reset.css"
-    integrity="sha256-lhC8rlv8g+8MvjHQIToYpFdTKj/+QIaQRAOkOlB3I4g= sha384-9BVI7lxy5kHUF38RS0gQysaRu8uw8ffZZEcXf6HXsiSJ3M+SKyRWlam+sQLqKhC3 sha512-HJJZt9O9PNDwqXYyvYPWnhQRehhr2o9zrlzZ/WE/5KGWIkev5m7AjF6lN/W/QhDvVquCK2/wxz8DEu5CQDq0Cg=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/styles/optional/ecl-reset.css"
+    integrity="sha256-NVuclxj+hlTrwJ/uLzqgxevoQboAfWGAPi+twznWPJw= sha384-6ZJC7FssuLKACC7mw4knQDgIm5iI40rA3bcLJoa5WM7I60TI19vip6I62nSPwwLC sha512-ssIxYs6j710N/sNNgCcx8rZZm34NnraEtWgFUcfPkkLXEsFHocaMIRRyZRNnB15iEp6VO/nbQeK9N+CG6IrRGw=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -54,8 +55,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/styles/ecl-ec.css"
-    integrity="sha256-SD21V0QzlFvdM9lSZd0b74tSVY09Hab42DySv29E6qQ= sha384-EwxbqQUFnh8AD4QzoWs9v3lT1kYCuGTBAPLoo2S/ZbtoSo2ZBC38m1Y2he+GQOO6 sha512-LU16VZ8H1zUr8m2wd9IOW2pK7A76nvy5DoENoEQfGzQw9JidCFA8xwJSdctll3gkQHJt0B7KrFVr1A0vWoJ2ug=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/styles/ecl-ec.css"
+    integrity="sha256-nH4mAb1DbxyO5i+Yps1fHN1IDV/YDsDzj3E/okTBmsA= sha384-69XbCDlnvkybPcX6+f/9kj3u+u+q5kTOuZ3eerElkE5Ga6aTPX9NNaMQj4YVm0iM sha512-Mmo3SW6qJiliXchHzk4JvEfkDOMmJiy35+bwGmhdLYVqb/hob5gje7364LeM0Jzl6PVOKA65x9BT051+27G7Qw=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -64,8 +65,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/styles/ecl-ec-utilities.css"
-    integrity="sha256-1+IVvONuzscTtq2sG265++XrU2CxqB5qKiwz8qiBh74= sha384-ZT/jxSo4I7uV6wN4h9o1a/3rqHjVr+X4/X7rhq0j1Gm2DEb0RhB29olbjY7WHMuN sha512-WSvN8wiEuv08ZcLkmJh6wfeyZmyieouveUPaFI+kq84Nx28XMf2N9QrvDHMZwsL7yLDEqiW4r12x6zEf9xLaog=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/styles/ecl-ec-utilities.css"
+    integrity="sha256-uIcLuGP9TlcxBw1m8BQ8H9rUuEhc3iv739UusAXvzzs= sha384-pJkfcGxpo6cCROTel3jPzCL7kAhwpoUUxyhaDdOmOuHj63FDowzbxYdatZa8Sz9V sha512-Btk+5U1tvaja6if5p6iOnz+SH0EvL1m+9VZ8FqqWrdbKfxvs1SEErn3aTiOiXiAN9EjLj8Knl6wi0NIPnePLuQ=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -74,8 +75,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/styles/ecl-ec-print.css"
-    integrity="sha256-devm6VVpws/AlFsINQZz3CHS+DS80K3ZHW8GFM6z1KI= sha384-77krioPk1pMCUg3BRclYspZVD18bnBHQvL4ffWyrbIgER6Za+zHtyiVZKuV45/sz sha512-iu9kBvEq0UiJrGBebnPf7+eHuJ9OmyK/NnlgbyjOCnBWcWb0doUrk6DLf9iK8rYPBK99jldeva57VHBgib2ygg=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/styles/ecl-ec-print.css"
+    integrity="sha256-Vb6ese/VnuyRNY9WFxh0VcmD/8tKsB1/KDIhOFsM7LE= sha384-+73EvQIw6DZQyTZQf0QaPt3bDCm6oE/j1YL4yjrGlyeD8HaxQ5frTX69+WC8NhBh sha512-S9JPxg0H2NNixJsRgxlqPRZoFt+Cf308uTLuUHn60vmNet31/PQ3zhg6F8WzhwD8crtZZtLIqgbOS/lQ+8hjzg=="
     crossorigin="anonymous"
     media="print"
   />
@@ -84,9 +85,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/styles/optional/ecl-ec-default-print.css"
-    integrity="sha256-MeTkUChWecWvkWfRuiZMqRSNqaKy2rA4WBxiHePHUB4= sha384-KHnepQ977tDwHDOH92M+aQmXa5a2Ait9FpO/oz5EDAMmTXRXqZmVcoPAERVl1DrY
-    sha512-SGi4T+vaNWAZ+SXBma3MaZwznDDJpg1aAliyeqw5jj84gcZUHrnbsqNjaUQl+ndr+Lty7wHImNecFatODiIfPA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/styles/optional/ecl-ec-default-print.css"
+    integrity="sha256-YSlmYOHMmQOvSeTyQ6iBBZiVMZkHaT9NWjk+2yZ+k2U= sha384-wvLKU4AN1p/n/3PmLEnGVcMQGamzp8q5xRxEkNDU4HesmLsroyRnTM8Dy8OEfce6 sha512-QtK4z36E9W5hcPHkEdAsFbvUqI2t84pjSClsJnNKKwpTsJlXc33O2NKAzZVom8kQStPhOr0Ud/25bZ0uTcb0uA=="
     crossorigin="anonymous"
     media="print"
   />
@@ -94,8 +94,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 
   ```html
   <script
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.10/ec/scripts/ecl-ec.js"
-    integrity="sha256-CTUF/3Z46zhARqr2j8//URRMSfCdbFe2qHIcOPAg+LU= sha384-MV2xvSyT2AvXjoNIP8HDbRJJJY4038ONJ6cDNgeSg0Wdp3fzF/nw4ZB2BNfwmPz9 sha512-r+SlnPgG3p+BfwAmSOmLq7KYmPj3FDJ6GjiCUwmfqMTFaTios/tURoOCoPHSKwWHO36YuxUH0ens7CdnSM4AiA=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.11/ec/scripts/ecl-ec.js"
+    integrity="sha256-6P2rQ4kOebJvm/hEVSmr0S+HdGavKaNEiz5g7KPne9s= sha384-qlr0a0zQQt+p/BEERd9ALBwBU2h1TtZlOUdJww4sTDsNL5GZkTRKpXWMP0d5yX1E sha512-L5iXImatIFtC5uLUcmCj4sdkJtGh+lc/4KArxPXUUnRXn5KYbs2mjHPQvkl8yStzjdzIE6tMJEVOXekZKHdZ5g=="
     crossorigin="anonymous"
   ></script>
   ```
