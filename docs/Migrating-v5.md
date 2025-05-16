@@ -173,7 +173,7 @@ Extra attention points:
 
 ### Mega menu
 
-The featured panel has changed in order to present a list of elements including images, links with images only, textual links instead of an img and then a list of links.
+The featured panel has changed in order to present a list of elements including images, description, links with images only, textual links instead of an img and then a list of links.
 A new template has been added in the `@ecl/mega-menu` package, it's named: `ecl-mega-menu-featured-item.html.twig`
 The expected data for the featured panel looks like this:
 
@@ -208,6 +208,19 @@ featured: {
 }`
 
 The image will be clickable and will act as the associated link.
+
+It is now possible to highlight a menu link (first level) associated to a special event or page passing the "promotional" paramter as part of the item's data.
+The related styles can be customized defining:
+--ecl-mega-menu-item-promotional-bg
+--ecl-mega-menu-item-promotional-hover-bg
+--ecl-mega-menu-item-promotional-focus-bg
+--ecl-mega-menu-item-promotional-outline-color
+--ecl-mega-menu-item-promotional-text-color
+--ecl-mega-menu-item-promotional-hover-text-color
+--ecl-mega-menu-item-promotional-focus-text-color
+
+The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
+A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
 
 ### Site header
 
