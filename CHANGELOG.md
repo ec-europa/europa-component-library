@@ -1,5 +1,65 @@
 # Changelog
 
+# 5.0.0-alpha.11
+
+#### :rocket: New Feature
+
+- [#3890](https://github.com/ec-europa/europa-component-library/pull/3890) feat(icon): use webtools icons (ECL5) - FRONT-4688 ([@emeryro](https://github.com/emeryro))
+- [#3950](https://github.com/ec-europa/europa-component-library/pull/3950) feat(playground): Storybook plugin to enable/disable stylesheets on the fly - FRONT-4867 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3966](https://github.com/ec-europa/europa-component-library/pull/3966) fix(featured-item): Fixing text color when using the default css and markup inside the description - FRONT-4887 ([@planctus](https://github.com/planctus))
+- [#3952](https://github.com/ec-europa/europa-component-library/pull/3952) fix(fonts): Fixing fallback on local font for Inter family - FRONT-4875 ([@planctus](https://github.com/planctus))
+- [#3954](https://github.com/ec-europa/europa-component-library/pull/3954) fix(safari): Icon size in navigation list - FRONT-4877 ([@planctus](https://github.com/planctus))
+- [#3951](https://github.com/ec-europa/europa-component-library/pull/3951) fix(featured-item): fix description color - FRONT-4869 ([@emeryro](https://github.com/emeryro))
+- [#3948](https://github.com/ec-europa/europa-component-library/pull/3948) fix(menu): fix current item - FRONT-4868 ([@emeryro](https://github.com/emeryro))
+- [#3941](https://github.com/ec-europa/europa-component-library/pull/3941) fix(mega-menu): mega menu html validation - FRONT-4859 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3972](https://github.com/ec-europa/europa-component-library/pull/3972) feat(mega-menu): New iteration - FRONT-4883 ([@planctus](https://github.com/planctus))
+- [#3985](https://github.com/ec-europa/europa-component-library/pull/3985) feat(color): update highlight color ([@emeryro](https://github.com/emeryro))
+- [#3983](https://github.com/ec-europa/europa-component-library/pull/3983) feat(typography): remove negative letter spacing - FRONT-4874 ([@emeryro](https://github.com/emeryro))
+- [#3968](https://github.com/ec-europa/europa-component-library/pull/3968) feat(typography): Changed to responsive-font approach. - FRONT-4870 ([@tibi2303](https://github.com/tibi2303))
+- [#3976](https://github.com/ec-europa/europa-component-library/pull/3976) feat(banner): mobile and tablet display - FRONT-4892 ([@emeryro](https://github.com/emeryro))
+- [#3967](https://github.com/ec-europa/europa-component-library/pull/3967) feat(footer): new EC footer standardised/harmonised - FRONT-4851 ([@emeryro](https://github.com/emeryro))
+- [#3980](https://github.com/ec-europa/europa-component-library/pull/3980) feat(typography): Updating letter spacing scale in EC - FRONT-4896 ([@planctus](https://github.com/planctus))
+- [#3978](https://github.com/ec-europa/europa-component-library/pull/3978) feat(typography): Adding values for tablet font styles - FRONT-4895 ([@planctus](https://github.com/planctus))
+- [#3977](https://github.com/ec-europa/europa-component-library/pull/3977) feat(typography): Added new tokens - FRONT-4894 ([@tibi2303](https://github.com/tibi2303))
+- [#3970](https://github.com/ec-europa/europa-component-library/pull/3970) feat(colors): Changed surface color. - FRONT-4885 ([@tibi2303](https://github.com/tibi2303))
+- [#3959](https://github.com/ec-europa/europa-component-library/pull/3959) feat(content-block): update font - FRONT-4872 ([@emeryro](https://github.com/emeryro))
+- [#3956](https://github.com/ec-europa/europa-component-library/pull/3956) feat(site-footer): small design changes - FRONT-4876 ([@emeryro](https://github.com/emeryro))
+- [#3961](https://github.com/ec-europa/europa-component-library/pull/3961) chore(grid): Extending viewport width of xl breakpoint - FRONT-4881 ([@planctus](https://github.com/planctus))
+- [#3962](https://github.com/ec-europa/europa-component-library/pull/3962) feat(video): Always plays inline - FRONT-4880 ([@planctus](https://github.com/planctus))
+- [#3957](https://github.com/ec-europa/europa-component-library/pull/3957) feat(social-media-follow): update spacing - FRONT-4873 ([@emeryro](https://github.com/emeryro))
+- [#3955](https://github.com/ec-europa/europa-component-library/pull/3955) fix(video): Fixing autoplay in iphones - FRONT-4878 ([@planctus](https://github.com/planctus))
+- [#3938](https://github.com/ec-europa/europa-component-library/pull/3938) feat(typography): Responsive font. - FRONT-4861 ([@tibi2303](https://github.com/tibi2303))
+- [#3914](https://github.com/ec-europa/europa-component-library/pull/3914) feat(spacing): New spacing scale in EC - FRONT-4850 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3982](https://github.com/ec-europa/europa-component-library/pull/3982) chore(deps): Updates 12-05-25 ([@planctus](https://github.com/planctus))
+- [#3979](https://github.com/ec-europa/europa-component-library/pull/3979) chore(deps): Updates 07-05-25 ([@planctus](https://github.com/planctus))
+- [#3975](https://github.com/ec-europa/europa-component-library/pull/3975) chore(deps): Updates 05-05-25 ([@planctus](https://github.com/planctus))
+- [#3974](https://github.com/ec-europa/europa-component-library/pull/3974) chore(eslint): Upgrading to eslint 9 - FRONT-4893 ([@planctus](https://github.com/planctus))
+- [#3973](https://github.com/ec-europa/europa-component-library/pull/3973) chore(deps): Updates 02-05-25 ([@planctus](https://github.com/planctus))
+- [#3969](https://github.com/ec-europa/europa-component-library/pull/3969) chore(pnpm): Updating to 10.9.0 - FRONT-4891 ([@planctus](https://github.com/planctus))
+- [#3960](https://github.com/ec-europa/europa-component-library/pull/3960) fix(website): String replacement in getting started page - FRONT-4871 ([@planctus](https://github.com/planctus))
+- [#3964](https://github.com/ec-europa/europa-component-library/pull/3964) chore(deps): Updates - 28-04-25 ([@planctus](https://github.com/planctus))
+- [#3958](https://github.com/ec-europa/europa-component-library/pull/3958) feat(cleanup): Removing patch-package and patches - FRONT-4879 ([@planctus](https://github.com/planctus))
+- [#3963](https://github.com/ec-europa/europa-component-library/pull/3963) chore(deps): Updates 25-04-25 ([@planctus](https://github.com/planctus))
+- [#3953](https://github.com/ec-europa/europa-component-library/pull/3953) chore(deps): Updates - 22-04-25 ([@planctus](https://github.com/planctus))
+- [#3906](https://github.com/ec-europa/europa-component-library/pull/3906) chore(website): Migrate to vite and vike (SSR), upgrading to react 19 and react-router 7 ([@planctus](https://github.com/planctus))
+- [#3949](https://github.com/ec-europa/europa-component-library/pull/3949) chore(deps): Updates 15-04-25 ([@planctus](https://github.com/planctus))
+- [#3937](https://github.com/ec-europa/europa-component-library/pull/3937) chore(deps): Updates - 07-04-25 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.10
 
 #### :bug: Bug Fix
