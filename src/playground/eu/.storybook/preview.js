@@ -23,12 +23,6 @@ const styleSheets = [
   },
   { id: 'ecl-eu', href: './styles/ecl-eu.css', picked: true, group: 'screen' },
   {
-    id: 'ecl-eu-color-modes',
-    href: './styles/ecl-eu-color-modes.css',
-    picked: true,
-    group: 'others',
-  },
-  {
     id: 'ecl-eu-utilities',
     href: './styles/optional/ecl-eu-utilities.css',
     picked: true,
