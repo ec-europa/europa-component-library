@@ -15,8 +15,17 @@ $language-list: (
     inline-start: var(--s-l),
     inline-end: var(--s-l),
   ),
-  header-font-mobile: var(--f-p-l),
-  header-font-desktop: var(--f-p-xl),
+  header-typography: (
+    'font-weight': map.get($font-weight, 'regular'),
+    'mobile': (
+      'size': var(--fs-l),
+      'line-height': var(--lh-l),
+    ),
+    'tablet': (
+      'size': var(--fs-xl),
+      'line-height': var(--lh-xl),
+    ),
+  ),
   header-font-weight: map.get($font-weight, 'regular'),
   content-margin-mobile: var(--s-s),
   content-margin-desktop: var(--s-s),

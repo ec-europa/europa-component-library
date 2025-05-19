@@ -44,47 +44,66 @@ $banner: (
   ),
   // TODO: use the mixin here when ready
   font: (
-      'title': (
-        'font-weight': map.get($font-weight, 'regular'),
-        'mobile-s': var(--f-2xl),
-        'line-height-mobile-s': var(--lh-2xl),
-        'mobile-m': var(--f-2xl),
-        'line-height-mobile-m': var(--lh-2xl),
-        'mobile-l': var(--f-2xl),
-        'line-height-mobile-l': var(--lh-2xl),
-        'tablet-s': var(--f-2xl),
-        'line-height-tablet-s': var(--lh-2xl),
-        'tablet-m': var(--f-2xl),
-        'line-height-tablet-m': var(--lh-2xl),
-        'tablet-l': var(--f-2xl),
-        'line-height-tablet-l': var(--lh-2xl),
-        'desktop-s': var(--f-4xl),
-        'line-height-desktop-s': var(--lh-4xl),
-        'desktop-m': var(--f-4xl),
-        'line-height-desktop-m': var(--lh-4xl),
-        'desktop-l': var(--f-5xl),
-        'line-height-desktop-l': var(--lh-5xl),
+      'title-s': (
+        'mobile': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+        'desktop': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-4xl),
+        ),
       ),
-      'description': (
+      'title-m': (
         'font-weight': map.get($font-weight, 'regular'),
-        'mobile-s': var(--f-xl),
-        'line-height-mobile-s': var(--lh-xl),
-        'mobile-m': var(--f-xl),
-        'line-height-mobile-m': var(--lh-xl),
-        'mobile-l': var(--f-xl),
-        'line-height-mobile-l': var(--lh-xl),
-        'tablet-s': var(--f-xl),
-        'line-height-tablet-s': var(--lh-xl),
-        'tablet-m': var(--f-xl),
-        'line-height-tablet-m': var(--lh-xl),
-        'tablet-l': var(--f-xl),
-        'line-height-tablet-l': var(--lh-xl),
-        'desktop-s': var(--f-2xl),
-        'line-height-desktop-s': var(--lh-2xl),
-        'desktop-m': var(--f-2xl),
-        'line-height-desktop-m': var(--lh-2xl),
-        'desktop-l': var(--f-4xl),
-        'line-height-desktop-l': var(--lh-4xl),
+        'mobile': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+        'desktop': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-4xl),
+        ),
+      ),
+      'title-l': (
+        'mobile': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+        'desktop': (
+          'size': var(--fs-5xl),
+          'line-height': var(--lh-5xl),
+        ),
+      ),
+      'description-s': (
+        'mobile': (
+          'size': var(--fs-xl),
+          'line-height': var(--lh-xl),
+        ),
+        'desktop': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+      ),
+      'description-m': (
+        'mobile': (
+          'size': var(--fs-xl),
+          'line-height': var(--lh-xl),
+        ),
+        'desktop': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+      ),
+      'description-l': (
+        'mobile': (
+          'size': var(--fs-xl),
+          'line-height': var(--lh-xl),
+        ),
+        'desktop': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-4xl),
+        ),
       ),
       'credit': (
         'mobile': var(--f-s),

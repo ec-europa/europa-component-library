@@ -44,47 +44,91 @@ $banner: (
   ),
   // TODO: use the mixin here when ready
   font: (
-      'title': (
-        'font-weight': map.get($font-weight, 'light'),
-        'mobile-s': var(--f-6xl),
-        'line-height-mobile-s': var(--lh-3xl),
-        'mobile-m': var(--f-6xl),
-        'line-height-mobile-m': var(--lh-3xl),
-        'mobile-l': var(--f-6xl),
-        'line-height-mobile-l': var(--lh-3xl),
-        'tablet-s': var(--f-7xl),
-        'line-height-tablet-s': var(--lh-6xl),
-        'tablet-m': var(--f-7xl),
-        'line-height-tablet-m': var(--lh-6xl),
-        'tablet-l': var(--f-7xl),
-        'line-height-tablet-l': var(--lh-6xl),
-        'desktop-s': var(--f-8xl),
-        'line-height-desktop-s': var(--lh-8xl),
-        'desktop-m': var(--f-8xl),
-        'line-height-desktop-m': var(--lh-8xl),
-        'desktop-l': var(--f-10xl),
-        'line-height-desktop-l': var(--lh-10xl),
+      'title-s': (
+        'mobile': (
+          'size': var(--fs-6xl),
+          'line-height': var(--lh-3xl),
+        ),
+        'tablet': (
+          'size': var(--fs-7xl),
+          'line-height': var(--lh-6xl),
+        ),
+        'desktop': (
+          'size': var(--fs-8xl),
+          'line-height': var(--lh-8xl),
+        ),
       ),
-      'description': (
+      'title-m': (
         'font-weight': map.get($font-weight, 'light'),
-        'mobile-s': var(--f-xl),
-        'line-height-mobile-s': var(--lh-l),
-        'mobile-m': var(--f-4xl),
-        'line-height-mobile-m': var(--lh-xl),
-        'mobile-l': var(--f-4xl),
-        'line-height-mobile-l': var(--lh-xl),
-        'tablet-s': var(--f-2xl),
-        'line-height-tablet-s': var(--lh-xl),
-        'tablet-m': var(--f-5xl),
-        'line-height-tablet-m': var(--lh-3xl),
-        'tablet-l': var(--f-5xl),
-        'line-height-tablet-l': var(--lh-3xl),
-        'desktop-s': var(--f-2xl),
-        'line-height-desktop-s': var(--lh-xl),
-        'desktop-m': var(--f-6xl),
-        'line-height-desktop-m': var(--lh-4xl),
-        'desktop-l': var(--f-6xl),
-        'line-height-desktop-l': var(--lh-4xl),
+        'mobile': (
+          'size': var(--fs-6xl),
+          'line-height': var(--lh-3xl),
+        ),
+        'tablet': (
+          'size': var(--fs-7xl),
+          'line-height': var(--lh-6xl),
+        ),
+        'desktop': (
+          'size': var(--fs-8xl),
+          'line-height': var(--lh-8xl),
+        ),
+      ),
+      'title-l': (
+        'mobile': (
+          'size': var(--fs-6xl),
+          'line-height': var(--lh-3xl),
+        ),
+        'tablet': (
+          'size': var(--fs-7xl),
+          'line-height': var(--lh-6xl),
+        ),
+        'desktop': (
+          'size': var(--fs-10xl),
+          'line-height': var(--lh-10xl),
+        ),
+      ),
+      'description-s': (
+        'mobile': (
+          'size': var(--fs-xl),
+          'line-height': var(--lh-l),
+        ),
+        'tablet': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-xl),
+        ),
+        'desktop': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-xl),
+        ),
+      ),
+      'description-m': (
+        'font-weight': map.get($font-weight, 'light'),
+        'mobile': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-xl),
+        ),
+        'tablet': (
+          'size': var(--fs-5xl),
+          'line-height': var(--lh-3xl),
+        ),
+        'desktop': (
+          'size': var(--fs-6xl),
+          'line-height': var(--lh-4xl),
+        ),
+      ),
+      'description-l': (
+        'mobile': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-xl),
+        ),
+        'tablet': (
+          'size': var(--fs-5xl),
+          'line-height': var(--lh-3xl),
+        ),
+        'desktop': (
+          'size': var(--fs-6xl),
+          'line-height': var(--lh-4xl),
+        ),
       ),
       'credit': (
         'mobile': var(--f-2xs),

@@ -4,6 +4,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -50,205 +51,43 @@ $typography: null !default;
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading1', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading1', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading1',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading1', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading1',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading1', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading1',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading1');
 }
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading2', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading2', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading2',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading2', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading2',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading2', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading2',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading2');
 }
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading3', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading3', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading3',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading3', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading3',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading3', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading3',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading3');
 }
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading4', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading4', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading4',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading4', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading4',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading4', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading4',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading4');
 }
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading5', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading5', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading5',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading5', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading5',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading5', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading5',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading5');
 }
 
 .ecl-u-type-heading-6,
 %ecl-heading-6 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading6', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading6', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading6',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading6', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading6',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading6', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading6',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading6');
 }
 
 %ecl-heading-1,

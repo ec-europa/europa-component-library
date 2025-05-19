@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -61,7 +62,8 @@ $language-list: null !default;
 }
 
 .ecl-splash-page__language-title {
-  font: map.get($language-list, 'header-font-mobile');
+  @include mixins.responsive-font(map.get($language-list, 'header-typography'));
+
   margin: 0;
   padding-inline-start: calc(
     #{map.get($language-list, 'title-padding-start')} +
@@ -201,7 +203,6 @@ $language-list: null !default;
   }
 
   .ecl-splash-page__language-title {
-    font: map.get($language-list, 'header-font-desktop');
     font-weight: map.get($language-list, 'header-font-weight');
   }
 

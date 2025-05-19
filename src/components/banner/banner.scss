@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -108,9 +109,9 @@ $banner: null !default;
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
   display: block;
-  font: map.get($banner, 'font', 'title', 'mobile-m');
-  font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  line-height: map.get($banner, 'font', 'title', 'line-height-mobile-m');
+
+  @include mixins.responsive-font(map.get($banner, 'font', 'title-m'));
+
   margin: 0;
   width: 100%;
 
@@ -120,15 +121,11 @@ $banner: null !default;
   }
 
   .ecl-banner--font-s & {
-    font: map.get($banner, 'font', 'title', 'mobile-s');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-s');
+    @include mixins.responsive-font(map.get($banner, 'font', 'title-s'));
   }
 
   .ecl-banner--font-l & {
-    font: map.get($banner, 'font', 'title', 'mobile-l');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-l');
+    @include mixins.responsive-font(map.get($banner, 'font', 'title-l'));
   }
 }
 
@@ -139,9 +136,9 @@ $banner: null !default;
 .ecl-banner__description,
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
-  font: map.get($banner, 'font', 'description', 'mobile-m');
-  font-weight: map.get($banner, 'font', 'description', 'font-weight');
-  line-height: map.get($banner, 'font', 'description', 'line-height-mobile-m');
+
+  @include mixins.responsive-font(map.get($banner, 'font', 'description-m'));
+
   margin-block-end: 0;
   width: 100%;
 
@@ -151,24 +148,11 @@ $banner: null !default;
   }
 
   .ecl-banner--font-s & {
-    font: map.get($banner, 'font', 'description', 'mobile-s');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-mobile-s'
-    );
+    @include mixins.responsive-font(map.get($banner, 'font', 'description-s'));
   }
 
   .ecl-banner--font-l & {
-    font: map.get($banner, 'font', 'description', 'mobile-l');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-mobile-l'
-    );
+    @include mixins.responsive-font(map.get($banner, 'font', 'description-l'));
   }
 }
 
@@ -288,58 +272,6 @@ $banner: null !default;
     aspect-ratio: 3/1;
 
     --css-aspect-ratio: 3/1;
-  }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link {
-    font: map.get($banner, 'font', 'title', 'tablet-m');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-tablet-m');
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'title', 'tablet-s');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-s');
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'title', 'tablet-l');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-l');
-    }
-  }
-
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'tablet-m');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-tablet-m'
-    );
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'description', 'tablet-s');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-tablet-s'
-      );
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'description', 'tablet-l');
-      font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-tablet-l'
-      );
-    }
   }
 }
 
@@ -463,22 +395,7 @@ $banner: null !default;
   .ecl-banner__title,
   .ecl-banner__title-link {
     display: inline;
-    font: map.get($banner, 'font', 'title', 'desktop-m');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-desktop-m');
     width: auto;
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'title', 'desktop-s');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-s');
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'title', 'desktop-l');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-l');
-    }
 
     .ecl-banner--color-light & {
       color: map.get($banner, 'text-color', 'light');
@@ -487,36 +404,7 @@ $banner: null !default;
 
   .ecl-banner__description,
   .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'desktop-m');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-desktop-m'
-    );
     width: auto;
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'description', 'desktop-s');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-desktop-s'
-      );
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'description', 'desktop-l');
-      font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-desktop-l'
-      );
-    }
 
     .ecl-banner--color-light & {
       color: map.get($banner, 'text-color', 'light');

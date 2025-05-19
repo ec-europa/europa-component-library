@@ -6,6 +6,11 @@
 @use '@ecl/grid/mixins/breakpoints' with (
   $theme: theme.$theme
 );
+
+// Typography Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $typography: var.$typography
+);
 @use '@ecl/blockquote/blockquote' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote
