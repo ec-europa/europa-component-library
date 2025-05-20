@@ -13,12 +13,14 @@ Notice: Don't use stacks when the layout you're aiming for depends on the grid, 
 To start using the stack utilities, make sure the container has `display: flex` or `display: inline-flex`. You can use the `.ecl-u-d-flex` or `.ecl-u-d-inline-flex` classes for this.
 
 <Playground>
-  <div className="demo-container ecl-u-d-flex">Flex container</div>
+  <div className="demo-container ecl-u-d-flex">
+    <span>Flex container</span>
+  </div>
 </Playground>
 
 <Playground>
   <div className="demo-container ecl-u-d-inline-flex">
-    Inline flex container
+    <span>Inline flex container</span>
   </div>
 </Playground>
 
@@ -396,14 +398,18 @@ In the example below, we use `.ecl-u-flex-shrink-0` on the second item:
 <Playground>
   <div className="demo-container ecl-u-d-flex">
     <div className="demo-box">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam.
+      <span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam.
+      </span>
     </div>
     <div className="demo-box ecl-u-flex-shrink-0">
-      Item 2: it doesn't shrink
+      <span>Item 2: it doesn't shrink</span>
     </div>
-    <div className="demo-box">Item 3: this one shrinks too</div>
+    <div className="demo-box">
+      <span>Item 3: this one shrinks too</span>
+    </div>
   </div>
 </Playground>
 
@@ -417,11 +423,17 @@ Change the order of the items with the `order` utilities:
 
 <Playground>
   <div className="demo-container ecl-u-d-flex">
-    <div className="demo-box ecl-u-order-last">Item 1 (but I appear last!)</div>
-    <div className="demo-box">Item 2</div>
-    <div className="demo-box ecl-u-order-first">
-      Item 3 (and I appear first!)
+    <div className="demo-box ecl-u-order-last">
+      <span>Item 1 (but I appear last!)</span>
     </div>
-    <div className="demo-box">Item 4</div>
+    <div className="demo-box">
+      <span>Item 2</span>
+    </div>
+    <div className="demo-box ecl-u-order-first">
+      <span>Item 3 (and I appear first!)</span>
+    </div>
+    <div className="demo-box">
+      <span>Item 4</span>
+    </div>
   </div>
 </Playground>
