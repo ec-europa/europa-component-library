@@ -19,7 +19,7 @@ class Skeleton extends Component {
           : Math.max(
               document.documentElement.clientWidth,
               window.innerWidth || 0,
-            ) > 1140,
+            ) > 996,
       forceRefresh: false,
     };
     this.toggleSidebar = this.toggleSidebar.bind(this);
