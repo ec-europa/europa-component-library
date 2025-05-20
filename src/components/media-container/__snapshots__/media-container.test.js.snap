@@ -179,6 +179,7 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
           loop=""
           muted=""
           playsinline=""
+          poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
         >
           <source
             src="https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4"
@@ -194,6 +195,12 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
             class="ecl-button__container"
           >
             <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Play
+            </span>
+            <span
               class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
               data-ecl-icon=""
             />
@@ -208,12 +215,23 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
             class="ecl-button__container"
           >
             <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Pause
+            </span>
+            <span
               class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
               data-ecl-icon=""
             />
           </span>
         </button>
       </div>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+      </figcaption>
     </figure>
   </div>
 </jest>
@@ -281,41 +299,6 @@ exports[`Media Container video with embedded media renders correctly 1`] = `
         class="ecl-media-container__caption"
       >
         The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
-      </figcaption>
-    </figure>
-  </div>
-</jest>
-`;
-
-exports[`Media Container video with old data renders correctly 1`] = `
-<jest>
-  <div
-    class="ecl-media-container"
-  >
-    <figure
-      class="ecl-media-container__figure"
-    >
-      <div
-        class="ecl-media-container__video-wrapper"
-      >
-        <video
-          aria-label="Visit the European Commission - Video player"
-          class="ecl-video ecl-media-container__media"
-          controls=""
-          data-ecl-media-container-video=""
-          playsinline=""
-          poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
-        >
-          <source
-            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-      <figcaption
-        class="ecl-media-container__caption"
-      >
-        The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
       </figcaption>
     </figure>
   </div>

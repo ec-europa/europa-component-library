@@ -65,7 +65,7 @@ describe('Media Container', () => {
 
     test('as autoplay renders correctly', () => {
       const dataVideo = {
-        ...demoContentVideo.video,
+        ...demoContentVideo,
         autoplay: true,
       };
 
