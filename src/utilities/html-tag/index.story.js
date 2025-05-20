@@ -18,7 +18,7 @@ export const Default = () => `
   <h2 class="ecl-u-type-heading-2">HTML tag styling</h2>
   <p class="ecl-u-type-paragraph">To see the following HTML tags styled with ECL, just activate the optional "ecl-${getSystem()}-default" or "ecl-${getSystem()}-default-print" css file in the "CSS resources" tab.</p>
   <details>
-    <summary><strong>Link and button</strong></summary>
+    <summary class="ecl-u-type-s">Link and button</summary>
     <br>
     <div class="ecl">
       <a href="${exampleLink}">Link</a><br><br>
@@ -27,7 +27,7 @@ export const Default = () => `
   </details>
   <br>
   <details>
-    <summary><strong>Typography</strong></summary>
+    <summary class="ecl-u-type-s">Typography</summary>
     <div class="ecl">
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
@@ -40,7 +40,7 @@ export const Default = () => `
   </details>
   <br>
   <details>
-    <summary><strong>Lists</strong></summary>
+    <summary class="ecl-u-type-s">Lists</summary>
     <br>
     <div class="ecl">
       <ul>
@@ -72,7 +72,7 @@ export const Default = () => `
   </details>
   <br>
   <details>
-    <summary><strong>Blockquote</strong></summary>
+    <summary class="ecl-u-type-s">Blockquote</summary>
     <br>
     <div class="ecl">
       <blockquote>
@@ -83,7 +83,7 @@ export const Default = () => `
   </details>
   <br>
   <details>
-    <summary><strong>Table</strong></summary>
+    <summary class="ecl-u-type-s">Table</summary>
     <br>
     <div class="ecl">
       <table>

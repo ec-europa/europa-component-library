@@ -108,6 +108,7 @@ const styleBox = {
 const styleImage = {
   width: '12rem',
   height: '12rem',
+  maxWidth: 'var(--max-w)',
 };
 
 export default {
