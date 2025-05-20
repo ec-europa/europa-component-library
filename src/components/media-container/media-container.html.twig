@@ -26,12 +26,6 @@
     - "embedded_media"
 #}
 
-{# DEPRECATED 
-  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
-  - "sources" (array) (default: [])
-  - "tracks" (array) (default: [])
-  - "image" (string) (default: ''): Image to be used as the video placeholder 
-#}
 
 {# Internal properties #}
 
@@ -39,7 +33,6 @@
 {% set _expandable_class = 'ecl-media-container__expandable' %}
 {% set _embed_class = 'ecl-media-container__media' %}
 {% set _figure_class = 'ecl-media-container__figure' %}
-{% set _image = image|default('') %}
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
 {% set _title = title|default('') %}
@@ -51,41 +44,14 @@
 {% set _autoplay = autoplay|default(false) %}
 {% set _video = video|default({}) %}
 {% set _picture = picture|default({}) %}
-{% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
+{% set _extra_attributes = (embedded_media or (autoplay and video)) ? [
   'data-ecl-media-container="true"',
   'data-ecl-auto-init="MediaContainer"'
 ]|join(' ') : '' %}
 {% set _ratio = ratio|default('') %}
 {% set _expandable = expandable|default({}) %}
 
-{# DEPRECATED #}
-{% set _sr_video_label = sr_video_label|default('') %}
-{% if _sr_video_player is empty and _sr_video_label is not empty %}
-  {% set _sr_video_player = _sr_video_label %}
-{% endif %}
-
 {# Internal logic - Process properties #}
-
-{% if _picture.img is empty and _image is not empty %}
-  {% set _picture = {
-      img: {
-        src: _image,
-      },
-    }
-  %}
-{% endif %}
-
-{% if _video.sources is empty and sources is not empty %}
-  {% set _video = {
-    sources,
-    tracks,
-    poster: _image,
-    title: _title,
-    sr_video_label: _sr_video_label,
-    sr_video_audio: _sr_video_audio,
-    sr_video_player: _sr_video_player,
-  } %}
-{% endif %}
 
 {% if _full_width %}
   {% set _figure_class = _figure_class ~ ' ecl-media-container--full-width' %}
