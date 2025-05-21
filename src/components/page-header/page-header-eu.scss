@@ -121,24 +121,3 @@ $page-header: null !default;
     padding-inline-end: var(--s-m);
   }
 }
-
-// DEPRECATED
-.ecl-page-header--overlay-dark {
-  .ecl-page-header__background-container::before {
-    background-color: rgba(map.get($theme, 'color', 'black'), 0.5);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-}
-
-.ecl-page-header--overlay-light {
-  .ecl-page-header__background-container::before {
-    background-color: rgba(map.get($theme, 'color', 'black'), 0.3);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-}

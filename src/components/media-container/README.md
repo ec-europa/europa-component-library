@@ -29,20 +29,6 @@ npm install --save @ecl/media-container
 
 - **"embedded_media"** (optional) (string) (default: '') A block where to set an embed code
 
-### Deprecated:
-
-- **"sources"** (array) (default: []) Array of Video sources with this structure:
-  - "src" (string) (default: ''),
-  - "type" (string) (default: ''),
-- **"tracks"** (array) (default: []): Array of Video tracks with this structure:
-  - "src" (string) (default: ''),
-  - "kind" (string) (default: ''),
-  - "src_lang" (string) (default: ''),
-  - "label" (string) (default: ''),
-  - "description" (string) (default: ''),
-- **"image"** (string) (default: ''): Image to be used as the video placeholder.
-- **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
-
 ### Example for media container image:
 
 <!-- prettier-ignore -->

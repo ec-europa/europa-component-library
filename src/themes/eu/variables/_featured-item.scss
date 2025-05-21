@@ -19,7 +19,7 @@ $featured-item: (
   ),
   description: (
     color: var(--c-d-80),
-    font: var(--f-p-m),
+    font: var(--f-m),
     spacing: var(--s-s),
   ),
   link: (
@@ -67,10 +67,10 @@ $featured-item-print: (
   gap-vertical: map.get($spacing-print, 'm'),
   padding: 0,
   title: (
-    font: map.get($font-prolonged-print, 'l'),
+    font: map.get($font-print, 'l'),
   ),
   description: (
-    font: map.get($font-prolonged-print, 'm'),
+    font: map.get($font-print, 'm'),
     spacing: map.get($spacing-print, 's'),
   ),
   link: (

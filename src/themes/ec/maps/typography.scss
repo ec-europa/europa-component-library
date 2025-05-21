@@ -55,7 +55,7 @@ $line-height: (
   '3xs': 0.875rem,
 ) !default;
 $font: (
-  // deprecated
+  // deprecated, to be removed when all components are using the new system (separated font-width and line-height)
   '10xl': #{map.get($font-size, '10xl') + '/' + map.get($line-height, '10xl')}
     #{map.get($font-family, 'default')},
   '9xl': #{map.get($font-size, '9xl') + '/' + map.get($line-height, '9xl')}

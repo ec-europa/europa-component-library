@@ -10,9 +10,9 @@ $notification: (
   padding-end-mobile: var(--s-xl),
   padding-start-mobile: var(--s-s),
   border-width: 1px,
-  font: var(--f-p-m),
+  font: var(--f-m),
   color: var(--c-d),
-  title-font: var(--f-p-l),
+  title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'normal'),
   title-spacing: 0,
   icon-offset-top: 0,
@@ -54,8 +54,8 @@ $notification: (
 $notification-print: (
   padding: map.get($spacing-print, 'l') map.get($spacing-print, 'xs')
     map.get($spacing-print, 'l') map.get($spacing-print, 'l'),
-  font: map.get($font-prolonged-print, 'm'),
-  title-font: map.get($font-prolonged-print, 'm'),
+  font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, 'm'),
   title-spacing: map.get($spacing-print, 'xs'),
   icon-offset-top: 0,
 );

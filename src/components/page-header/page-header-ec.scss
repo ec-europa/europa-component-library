@@ -108,24 +108,3 @@ $page-header: null !default;
     width: 100%;
   }
 }
-
-// DEPRECATED
-.ecl-page-header--overlay-dark {
-  .ecl-page-header__background-container::before {
-    background-color: rgb(0, 0, 0, 0.5);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-}
-
-.ecl-page-header--overlay-light {
-  .ecl-page-header__background-container::before {
-    background-color: rgb(0, 0, 0, 0.3);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-}

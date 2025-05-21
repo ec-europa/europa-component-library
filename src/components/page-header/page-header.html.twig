@@ -17,11 +17,6 @@
       ],
 #}
 
-{# DEPRECATED
-  - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
-#}
-{% set _overlay = overlay|default('') %}
-
 {# Internal properties #}
 
 {% set _title = title|default('') %}
@@ -40,11 +35,6 @@
 
 {% if _picture_background.img is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
-
-  {# DEPRECATED #}
-  {% if _overlay is not empty %}
-    {% set _css_class = _css_class ~ ' ecl-page-header--overlay-' ~ _overlay %}
-  {% endif %}
 {% endif %}
 
 {% if (_title is empty or _hide_title) and _meta is empty %}

@@ -39,16 +39,6 @@ $link: null !default;
   }
 }
 
-// DEPRECATED
-.ecl-link--no-visited:visited {
-  color: map.get($link, 'color');
-
-  &:hover,
-  &:focus-visible {
-    color: map.get($link, 'color-hover');
-  }
-}
-
 .ecl-link--icon {
   display: inline;
   text-decoration: none;
@@ -149,17 +139,6 @@ $link: null !default;
     &:hover,
     &:visited {
       color: map.get($link, 'inverted', 'color');
-    }
-  }
-
-  // DEPRECATED
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  &.ecl-link--no-visited:visited {
-    color: map.get($link, 'inverted', 'color');
-
-    /* stylelint-disable-next-line */
-    &:hover {
-      color: map.get($link, 'inverted', 'color-hover');
     }
   }
 }
