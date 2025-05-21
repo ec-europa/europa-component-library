@@ -87,7 +87,7 @@
 
   {% set _as_image = true %}
 
-  {% set _link = _link|merge({ 
+  {% set _link = _link|merge({
     icon_position: _link.icon_position|default('after'),
   }) %}
 {% else %}
@@ -143,34 +143,34 @@
 
 {# Define icon macro #}
 
-{% macro icon_macro(_icons, _link, _as_image) %}{% apply spaceless %}
+{% macro icon_macro(icons, link, as_image) %}{% apply spaceless %}
   {% import _self as link_macro %}
 
-  {% for icon in _icons %}
+  {% for icon in icons %}
     {%- if icon.name is not empty -%}
       {% set _icon_extra_classes = 'ecl-link__icon' %}
       {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
         {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
       {%- endif -%}
 
-      {% if _link.indicator is not empty %}
+      {% if link.indicator is not empty %}
         <span class="ecl-link__icon-container">
           {%- include '@ecl/icon/icon.html.twig' with icon|merge({
             icon: icon|default({}),
             extra_classes: _icon_extra_classes,
             extra_accessibility: _extra_accessibility,
-            as_image: _as_image,
+            as_image: as_image,
           }) only -%}
-          {% include '@ecl/indicator/indicator.html.twig' with _link.indicator only %}
+          {% include '@ecl/indicator/indicator.html.twig' with link.indicator only %}
         </span>
       {% else %}
         {%- include '@ecl/icon/icon.html.twig' with icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
           extra_accessibility: _extra_accessibility,
-          as_image: _as_image,
+          as_image: as_image,
         }) only -%}
-      {% endif %}  
+      {% endif %}
     {%- endif -%}
   {% endfor %}
 
@@ -187,7 +187,7 @@
     {{ link_macro.icon_macro(_icons, _link, _as_image) }}
   {%- endif -%}
   {%- if (_icons is defined and _icons is not empty) -%}
-    <span 
+    <span
       class="ecl-link__label"
     {%- if _label_id is defined %}
       id="{{ _label_id }}"

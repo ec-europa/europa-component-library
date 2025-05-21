@@ -92,10 +92,10 @@
 
 {# Define icon macro #}
 
-{% macro icon(_icons, _indicator, _indicator_content) %}{% apply spaceless %}
+{% macro icon(icons, indicator, indicator_content) %}{% apply spaceless %}
   {% import _self as button %}
 
-  {% for icon in _icons %}
+  {% for icon in icons %}
     {% set _icon_extra_classes = 'ecl-button__icon' %}
     {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
       {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
@@ -107,7 +107,7 @@
       {% set _icon_image = true %}
     {%- endif -%}
 
-    {% if _indicator is not empty %}
+    {% if indicator is not empty %}
       <span class="ecl-button__icon-container">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: icon,
@@ -118,7 +118,7 @@
             { name: 'data-ecl-icon' }
           ],
         } only %}
-        {% include '@ecl/indicator/indicator.html.twig' with _indicator only %}
+        {% include '@ecl/indicator/indicator.html.twig' with indicator only %}
       </span>
     {% else %}
       {% include '@ecl/icon/icon.html.twig' with {
@@ -130,7 +130,7 @@
           { name: 'data-ecl-icon' }
         ],
       } only %}
-    {% endif %}    
+    {% endif %}
   {% endfor %}
 
 {% endapply %}{% endmacro %}
