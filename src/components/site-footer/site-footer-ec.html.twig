@@ -3,7 +3,7 @@
 {#
   Parameters:
   - "section_xx" (object) (default: {}): Specific section of the footer, all using the same structure
-    Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related", "section_custom1", "section_custom2", and "section_common"
+    Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related" and "section_common"
     - "title" (optional) (string or object): Section title; can be a simple string or a link using the ECL Link structure
     - "logo" (optional) (object): Logo image
       - "picture" (object): Images(s) used for the logo, using the ECL Picture structure
@@ -13,6 +13,7 @@
     - "links_inline" (optional) (boolean) (default: false): Should the links be displayed inline?
     - "social_media" (optional) (object): List of social media links, using the ECL Social Media Follow structure
     - "extra_links" (optional) (array of object): Extra links, at the end of the social media, using the ECL Link structure
+  - "sections_custom" (array) (default: []): Additional custom sections, following the structure ahead
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the footer
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the footer
     - "name" (string) Attribute name, eg. 'data-test'
@@ -28,8 +29,7 @@
 {% set _section_about = section_about|default({}) %}
 {% set _section_more = section_more|default({}) %}
 {% set _section_related = section_related|default({}) %}
-{% set _section_custom1 = section_custom1|default({}) %}
-{% set _section_custom2 = section_custom2|default({}) %}
+{% set _sections_custom = sections_custom|default([]) %}
 {% set _css_class = 'ecl-site-footer' %}
 {% set _extra_attributes = '' %}
 
@@ -123,27 +123,20 @@
         </div>
         {%- endif -%}
 
-        {%- if _section_custom1 is not empty or _section_custom2 is not empty -%}
-        <div class="ecl-site-footer__row">
-          {# Custom 1 #}
-          {%- if _section_custom1 is not empty -%}
-            {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-              section: _section_custom1|merge({ name: 'custom1' }),
-              extra_classes: _section_custom1.extra_classes|default(''),
-              extra_attributes: _section_custom2.extra_attributes|default([])
-            } only %}
-          {%- endif -%}
-
-          {# Custom 2 #}
-          {%- if _section_custom2 is not empty -%}
-            {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-              section: _section_custom2|merge({ name: 'custom2' }),
-              extra_classes: _section_custom2.extra_classes|default(''),
-              extra_attributes: _section_custom2.extra_attributes|default([])
-            } only %}
-          {%- endif -%}
-        </div>
-        {%- endif -%}
+        {# Custom sections #}
+        {%- if _sections_custom is not empty -%}
+          {% for key, pair in _sections_custom|batch(2) %}
+            <div class="ecl-site-footer__row">
+              {% for custom in pair %}
+                {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+                  section: custom|merge({ name: 'custom-' + ((key * 2) + loop.index) }),
+                  extra_classes: custom.extra_classes|default(''),
+                  extra_attributes: custom.extra_attributes|default([])
+                } only %}
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
       {%- endif -%}
 
