@@ -199,20 +199,60 @@ $typography: (
   ),
   microcopy: (
     '2xs': (
-      'size': var(--fs-2xs),
-      'line-height': var(--lh-3xs),
+      'mobile': (
+        'size': var(--fs-2xs),
+        'line-height': var(--lh-3xs),
+      ),
+      'tablet': (
+        'size': var(--fs-2xs),
+        'line-height': var(--lh-3xs),
+      ),
+      'desktop': (
+        'size': var(--fs-2xs),
+        'line-height': var(--lh-3xs),
+      ),
     ),
     'xs': (
-      'size': var(--fs-xs),
-      'line-height': var(--lh-xs),
+      'mobile': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
+      ),
+      'tablet': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
+      ),
+      'desktop': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
+      ),
     ),
     's': (
-      'size': var(--fs-s),
-      'line-height': var(--lh-s),
+      'mobile': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-xs),
+      ),
+      'tablet': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-xs),
+      ),
+      'desktop': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-xs),
+      ),
     ),
     'm': (
-      'size': var(--fs-m),
-      'line-height': var(--lh-m),
+      'mobile': (
+        'size': var(--fs-m),
+        'line-height': var(--lh-s),
+      ),
+      'tablet': (
+        'size': var(--fs-m),
+        'line-height': var(--lh-s),
+      ),
+      'desktop': (
+        'size': var(--fs-m),
+        'line-height': var(--lh-s),
+      ),
     ),
   ),
   paragraph: (

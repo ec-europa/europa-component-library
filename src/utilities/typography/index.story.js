@@ -416,3 +416,21 @@ export const TextStyle = (args) => `
 TextStyle.storyName = 'text style';
 TextStyle.args = getArgs(demoContentParagraph, 'text-style');
 TextStyle.argTypes = getArgTypes('text-style');
+
+export const Microcopy = (args) => {
+  if (system === 'ec') {
+    return `
+    <div class="ecl-u-type-microcopy-m">Microcopy M. ${args.content}</div>
+    <div class="ecl-u-type-microcopy-s ecl-u-mt-m">Microcopy S. ${args.content}</div>
+    <div class="ecl-u-type-microcopy-xs ecl-u-mt-m">Microcopy XS. ${args.content}</div>
+    <div class="ecl-u-type-microcopy-2xs ecl-u-mt-m">Microcopy 2XS. ${args.content}</div>
+  `;
+  }
+
+  return `
+    No microcopy style available in EU
+  `;
+};
+Microcopy.storyName = 'microcopy';
+Microcopy.args = getArgs(demoContentParagraph, 'microcopy');
+Microcopy.argTypes = getArgTypes('microcopy');
