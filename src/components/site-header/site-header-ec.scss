@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -265,12 +266,14 @@ $language-list: null !default;
 }
 
 .ecl-site-header__banner {
-  background: var(--cm-surface-neutral-lowest);
+  align-items: center;
+  background: var(--cm-surface-brand);
   color: map.get($site-header, 'banner-text-color');
   display: block;
-  font: var(--f-2xl);
   min-height: 1.75rem;
-  padding: var(--s-m) 0;
+  padding: var(--s-2xs) 0;
+
+  @include mixins.responsive-font(map.get($site-header, 'banner-text-font'));
 
   .ecl-container {
     display: flex;
@@ -348,6 +351,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.up('m') {
+  .ecl-site-header__banner {
+    padding: var(--s-xs) 0;
+  }
+
   .ecl-site-header__logo-link {
     margin-top: 0;
   }
@@ -530,6 +537,8 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__banner {
+    background: map.get($site-header, 'banner-background-desktop');
+    color: map.get($site-header, 'banner-text-color-desktop');
     box-shadow: none;
     font: var(--f-3xl);
     min-height: 0;

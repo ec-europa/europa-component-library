@@ -3,7 +3,23 @@
 
 $site-header: (
   background-color: var(--cm-surface-inverted),
-  banner-text-color: var(--cm-on-surface-brand),
+  banner-text-font: (
+    mobile: (
+      'size': var(--fs-s),
+      'line-height': var(--lh-xs),
+    ),
+    tablet: (
+      'size': var(--fs-m),
+      'line-height': var(--lh-s),
+    ),
+    desktop: (
+      'size': var(--fs-l),
+      'line-height': var(--lh-m),
+    ),
+  ),
+  banner-background-desktop: var(--cm-surface-neutral-lowest),
+  banner-text-color: var(--cm-on-surface-inverted),
+  banner-text-color-desktop: var(--cm-on-surface-brand),
   logo-height-xs: 2.75rem,
   logo-height-lg-s: 2.75rem,
   logo-height-lg-m: 3.5rem,
