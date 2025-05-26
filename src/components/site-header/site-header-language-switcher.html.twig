@@ -106,7 +106,7 @@
           {{- _language_selector.eu_category -}}
         </div>
         {% endif %}
-        <ul class="ecl-site-header__language-list">
+        <ul class="ecl-site-header__language-list" translate="no">
           {% for _item in _language_selector.overlay.items %}
           <li class="ecl-site-header__language-item">
             {% set _link_label %}
@@ -142,7 +142,7 @@
           {{- _language_selector.non_eu_category -}}
         </div>
         {% endif %}
-        <ul class="ecl-site-header__language-list">
+        <ul class="ecl-site-header__language-list" translate="no">
           {% for _item in _language_selector.overlay.non_eu_items %}
           <li class="ecl-site-header__language-item">
           {% set _link_label %}
