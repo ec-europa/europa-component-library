@@ -93,7 +93,7 @@ $mega-menu: null !default;
   display: flex;
   flex-direction: column;
   font: var(--f-xs);
-  margin-inline-start: var(--s-xs);
+  margin-inline-start: map.get($mega-menu, 'mobile', 'open-button-margin');
   order: 2;
   padding: map.get($mega-menu, 'mobile', 'open-padding');
   text-decoration: none;
@@ -112,7 +112,7 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
-    outline-offset: -2px;
+    outline-offset: map.get($mega-menu, 'mobile', 'open-button-offset');
   }
 
   .ecl-icon:last-of-type {

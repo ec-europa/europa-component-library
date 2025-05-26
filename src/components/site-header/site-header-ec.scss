@@ -69,8 +69,8 @@ $language-list: null !default;
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
-  padding-bottom: var(--s-m);
-  padding-top: var(--s-m);
+  padding-block-end: var(--s-m);
+  padding-block-start: var(--s-s);
   position: static;
 }
 
@@ -114,7 +114,7 @@ $language-list: null !default;
 
   .ecl-button {
     box-sizing: border-box;
-    margin-inline-start: var(--s-2xs);
+    margin-inline-start: var(--s-3xs);
   }
 
   > :first-child .ecl-button,
@@ -124,7 +124,7 @@ $language-list: null !default;
 
   .ecl-site-header--has-menu &,
   .ecl-site-header--has-mega-menu & {
-    margin-inline-end: calc(44px + var(--s-2xs));
+    margin-inline-end: calc(44px + var(--s-3xs));
   }
 }
 
@@ -250,7 +250,7 @@ $language-list: null !default;
 
   .ecl-notification {
     background: var(--cm-surface-inverted);
-    margin: 0 0 var(--s-xl);
+    margin: 0 0 var(--s-l);
   }
 
   .ecl-notification__description,
@@ -261,15 +261,16 @@ $language-list: null !default;
 
 .ecl-site-header__banner-top {
   border-top: 1px solid var(--cm-border-neutral);
-  font: var(--f-s);
   padding: var(--s-xs) 0;
+
+  @include mixins.responsive-font(map.get($site-header, 'class-name-font'));
 }
 
 .ecl-site-header__banner {
   align-items: center;
   background: var(--cm-surface-brand);
   color: map.get($site-header, 'banner-text-color');
-  display: block;
+  display: flex;
   min-height: 1.75rem;
   padding: var(--s-2xs) 0;
 
@@ -300,7 +301,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 .ecl-site-header .ecl-mega-menu {
-  right: calc(-1 * var(--s-xs));
+  right: calc(-1 * var(--s-3xs));
 }
 
 .ecl-site-header .ecl-mega-menu--rtl,
@@ -403,12 +404,16 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     .ecl-mega-menu__inner {
       top: 0;
     }
+
+    .ecl-site-header__notification .ecl-notification {
+      margin-block-end: var(--s-2xl);
+    }
   }
 
   .ecl-site-header__container {
     align-items: flex-end;
     flex-direction: row;
-    padding-bottom: var(--s-xl);
+    padding-bottom: var(--s-2xl);
     padding-top: var(--s-2xl);
   }
 
@@ -420,7 +425,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     align-self: center;
     flex-grow: 1;
     margin-inline-end: 0;
-    padding: var(--s-m) 0;
+    padding: var(--s-xs) 0;
   }
 
   .ecl-site-header__site-name--mobile-only {
@@ -540,7 +545,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     background: map.get($site-header, 'banner-background-desktop');
     color: map.get($site-header, 'banner-text-color-desktop');
     box-shadow: none;
-    font: var(--f-3xl);
     min-height: 0;
     padding: 0;
 
