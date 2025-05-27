@@ -129,7 +129,7 @@
             <div class="ecl-site-footer__row">
               {% for custom in pair %}
                 {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-                  section: custom|merge({ name: 'custom-' + ((key * 2) + loop.index) }),
+                  section: custom|merge({ name: 'custom-' ~ ((key * 2) + loop.index) }),
                   extra_classes: custom.extra_classes|default(''),
                   extra_attributes: custom.extra_attributes|default([])
                 } only %}
