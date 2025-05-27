@@ -250,7 +250,7 @@ $language-list: null !default;
 
   .ecl-notification {
     background: var(--cm-surface-inverted);
-    margin: 0 0 var(--s-l);
+    margin: 0 0 var(--s-m);
   }
 
   .ecl-notification__description,
@@ -297,7 +297,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   position: absolute;
   right: 0;
   top: 2.5rem;
-  width: calc(44px + var(--s-m) * 2);
+  width: calc(44px + var(--s-s) * 2);
 }
 
 .ecl-site-header .ecl-mega-menu {
@@ -325,6 +325,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header .ecl-mega-menu__open,
   .ecl-site-header .ecl-menu__open {
     top: calc(-1 * var(--s-s));
+  }
+
+  .ecl-site-header__notification .ecl-notification {
+    margin-block-end: var(--s-l);
   }
 }
 
@@ -361,6 +365,11 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .ecl-site-header {
+    .ecl-menu,
+    .ecl-mega-menu {
+      width: calc(44px + var(--s-m) * 2);
+    }
+
     .ecl-search-form__text-input {
       width: map.get($site-header, 'search-width');
     }
