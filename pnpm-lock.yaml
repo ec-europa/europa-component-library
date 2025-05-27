@@ -2034,12 +2034,12 @@ importers:
       cssnano:
         specifier: 7.0.7
         version: 7.0.7(postcss@8.5.3)
+      fs-extra:
+        specifier: 11.3.0
+        version: 11.3.0
       globby:
-        specifier: 11.0.4
-        version: 11.0.4
-      ncp:
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 14.1.0
+        version: 14.1.0
       postcss:
         specifier: '>=8.4.31'
         version: 8.5.3
@@ -7363,10 +7363,6 @@ packages:
   globalthis@1.0.4:
     resolution: {integrity: sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ==}
     engines: {node: '>= 0.4'}
-
-  globby@11.0.4:
-    resolution: {integrity: sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==}
-    engines: {node: '>=10'}
 
   globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
@@ -17315,15 +17311,6 @@ snapshots:
       define-properties: 1.2.1
       gopd: 1.2.0
 
-  globby@11.0.4:
-    dependencies:
-      array-union: 2.1.0
-      dir-glob: 3.0.1
-      fast-glob: 3.3.3
-      ignore: 5.3.2
-      merge2: 1.4.1
-      slash: 3.0.0
-
   globby@11.1.0:
     dependencies:
       array-union: 2.1.0
@@ -20675,7 +20662,7 @@ snapshots:
       find-up: 5.0.0
       fork-ts-checker-webpack-plugin: 6.5.3(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)(webpack@5.99.8)
       global-modules: 2.0.0
-      globby: 11.0.4
+      globby: 11.1.0
       gzip-size: 6.0.0
       immer: 10.1.1
       is-root: 2.1.0
