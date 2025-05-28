@@ -38,6 +38,7 @@ dataFile.id = 'file-id';
 const system = getSystem();
 
 const data = {
+  system,
   icon_path: '/icons.svg',
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
