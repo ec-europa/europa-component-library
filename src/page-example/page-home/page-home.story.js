@@ -22,7 +22,7 @@ const prepareData = (data) => {
     data.site_header.logo.src_desktop = logoEU;
     data.site_header.logo.src_mobile = logoMobileEU;
     data.site_header.logo.size = 'm';
-    data.site_footer.logo.src_desktop = logoEU;
+    data.site_footer.rows[1][0][0].logo.src_desktop = logoEU;
     data.site_footer.rows[1][0][0].logo.src_mobile = logoMobileEU;
   } else {
     data.site_header.logo.src_desktop = logoEC;
