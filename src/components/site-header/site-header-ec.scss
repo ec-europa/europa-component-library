@@ -318,6 +318,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.up('s') {
+  .ecl-site-header__banner {
+    padding: var(--s-xs) 0;
+  }
+
   .ecl-site-header__logo-image {
     height: map.get($site-header, 'logo-height-lg-m');
   }
