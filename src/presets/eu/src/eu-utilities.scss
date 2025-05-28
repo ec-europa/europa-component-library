@@ -4,6 +4,11 @@
   $theme: theme.$theme
 );
 
+// Typography Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $typography: var.$typography
+);
+
 // Utilities
 @use '@ecl/utility-background/background' with (
   $theme: theme.$theme
