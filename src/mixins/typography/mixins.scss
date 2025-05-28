@@ -71,6 +71,8 @@ $font-breakpoints: (
   // Base (mobile)
   @if map.has-key($token-map, 'mobile') {
     @include responsive-font-emit(map.get($token-map, 'mobile'));
+  } @else {
+    @include responsive-font-emit($token-map);
   }
 
   // Responsive breakpoints

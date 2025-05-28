@@ -19,6 +19,7 @@ npm install --save @ecl/site-footer
   - **"links_inline"** (optional) (boolean) (default: false): Should the links be displayed inline?
   - **"social_media"** (optional) (object): List of social media links, using the ECL Social Media Follow structure
   - **"extra_links"** (optional) (array of object): Extra links, at the end of the social media, using the ECL Link structure
+- **"sections_custom"** (array) (default: []): Additional custom sections, following the structure ahead
 - **"extra_classes"** (string) (default: '') Extra classes (space separated) for the footer
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the footer
   - "name" (string) Attribute name, eg. 'data-test'
