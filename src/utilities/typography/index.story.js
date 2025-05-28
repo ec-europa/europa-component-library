@@ -326,6 +326,32 @@ export default {
   },
 };
 
+export const Heading = (args) => {
+  if (system === 'ec') {
+    return `
+    <div class="ecl-u-type-display">Display. ${args.content}</div>
+    <h1 class="ecl-u-type-heading-1">H1. ${args.content}</h1>
+    <h2 class="ecl-u-type-heading-2">H2. ${args.content}</h2>
+    <h3 class="ecl-u-type-heading-3">H3. ${args.content}</h3>
+    <h4 class="ecl-u-type-heading-4">H4. ${args.content}</h4>
+    <h5 class="ecl-u-type-heading-5">H5. ${args.content}</h5>
+    <h6 class="ecl-u-type-heading-6">H6. ${args.content}</h6>
+  `;
+  }
+
+  return `
+    <h1 class="ecl-u-type-heading-1">H1. ${args.content}</h1>
+    <h2 class="ecl-u-type-heading-2">H2. ${args.content}</h2>
+    <h3 class="ecl-u-type-heading-3">H3. ${args.content}</h3>
+    <h4 class="ecl-u-type-heading-4">H4. ${args.content}</h4>
+    <h5 class="ecl-u-type-heading-5">H5. ${args.content}</h5>
+    <h6 class="ecl-u-type-heading-6">H6. ${args.content}</h6>
+  `;
+};
+Heading.storyName = 'heading';
+Heading.args = getArgs(demoContentHeading, 'heading');
+Heading.argTypes = getArgTypes('heading');
+
 export const Paragraph = (args) => {
   if (system === 'ec') {
     return `
@@ -360,31 +386,23 @@ Paragraph.storyName = 'paragraph';
 Paragraph.args = getArgs(demoContentParagraph, 'paragraph');
 Paragraph.argTypes = getArgTypes('paragraph');
 
-export const Heading = (args) => {
+export const Microcopy = (args) => {
   if (system === 'ec') {
     return `
-    <div class="ecl-u-type-display">Display. ${args.content}</div>
-    <h1 class="ecl-u-type-heading-1">H1. ${args.content}</h1>
-    <h2 class="ecl-u-type-heading-2">H2. ${args.content}</h2>
-    <h3 class="ecl-u-type-heading-3">H3. ${args.content}</h3>
-    <h4 class="ecl-u-type-heading-4">H4. ${args.content}</h4>
-    <h5 class="ecl-u-type-heading-5">H5. ${args.content}</h5>
-    <h6 class="ecl-u-type-heading-6">H6. ${args.content}</h6>
+    <div class="ecl-u-type-microcopy-m">Microcopy M. ${args.content}</div>
+    <div class="ecl-u-type-microcopy-s ecl-u-mt-m">Microcopy S. ${args.content}</div>
+    <div class="ecl-u-type-microcopy-xs ecl-u-mt-m">Microcopy XS. ${args.content}</div>
+    <div class="ecl-u-type-microcopy-2xs ecl-u-mt-m">Microcopy 2XS. ${args.content}</div>
   `;
   }
 
   return `
-    <h1 class="ecl-u-type-heading-1">H1. ${args.content}</h1>
-    <h2 class="ecl-u-type-heading-2">H2. ${args.content}</h2>
-    <h3 class="ecl-u-type-heading-3">H3. ${args.content}</h3>
-    <h4 class="ecl-u-type-heading-4">H4. ${args.content}</h4>
-    <h5 class="ecl-u-type-heading-5">H5. ${args.content}</h5>
-    <h6 class="ecl-u-type-heading-6">H6. ${args.content}</h6>
+    No microcopy style available in EU
   `;
 };
-Heading.storyName = 'heading';
-Heading.args = getArgs(demoContentHeading, 'heading');
-Heading.argTypes = getArgTypes('heading');
+Microcopy.storyName = 'microcopy';
+Microcopy.args = getArgs(demoContentParagraph, 'microcopy');
+Microcopy.argTypes = getArgTypes('microcopy');
 
 export const TextColour = (args) => `
     <p class="${classnames('ecl-u-type-paragraph-m', args.colour, {
