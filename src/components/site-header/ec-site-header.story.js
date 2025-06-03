@@ -175,6 +175,7 @@ const getArgTypes = (data) => {
       type: { name: 'boolean' },
       description: 'Show the call to action link',
       table: {
+        disable: true,
         category: 'Optional',
       },
     };

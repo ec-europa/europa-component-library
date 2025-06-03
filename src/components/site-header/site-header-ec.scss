@@ -25,10 +25,6 @@ $language-list: null !default;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
 
-  .ecl-site-header__inner {
-    box-shadow: var(--sh-2);
-  }
-
   .ecl-menu,
   .ecl-mega-menu {
     bottom: 0;
@@ -317,6 +313,12 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   top: $menu-top;
 }
 
+@media (width <= 375px) {
+  .ecl-site-header__banner-top {
+    display: none;
+  }
+}
+
 @include breakpoints.up('s') {
   .ecl-site-header__banner {
     padding: var(--s-xs) 0;
@@ -427,7 +429,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     align-items: flex-end;
     flex-direction: row;
     padding-bottom: var(--s-xl);
-    padding-top: var(--s-2xl);
+    padding-top: var(--s-3xl);
   }
 
   .ecl-site-header__header {
@@ -451,6 +453,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
   .ecl-site-header__action {
     align-items: center;
+    padding-bottom: var(--s-3xs);
 
     .ecl-button--icon-only .ecl-button__icon {
       height: map.get($theme, 'icon', 'xs');
