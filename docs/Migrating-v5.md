@@ -245,6 +245,10 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
 
 EU footer hasn't changed, but is now using its own template file
 
+### Timeline
+
+TODO
+
 ## Js modifications
 
 ## Packages modifications

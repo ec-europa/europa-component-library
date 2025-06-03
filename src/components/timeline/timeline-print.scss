@@ -16,8 +16,8 @@ $timeline-print: null !default;
   margin-bottom: 0;
   margin-inline-start: calc(
     #{map.get($theme, 'spacing-print', 'l')} +
-      #{map.get($timeline, 'bullet-size')} / 2 +
-      map.get($timeline, 'bullet-border-width')
+      #{map.get($timeline, 'bullet', 'size')} / 2 +
+      map.get($timeline, 'bullet', 'border-width')
   );
   margin-top: 0;
   padding-inline-start: 0;
@@ -31,9 +31,10 @@ $timeline-print: null !default;
   max-width: var(--max-w);
   padding-bottom: map.get($theme, 'spacing-print', 'xl');
   padding-inline-start: calc(
-    #{map.get($theme, 'spacing-print', 'm')} +
-      (map.get($timeline, 'bullet-size') * 0.5) +
-      map.get($timeline, 'bullet-border-width')
+    #{map.get($timeline-print, 'item-padding-left')} +
+      (map.get($timeline, 'bullet', 'size') * 0.5) +
+      map.get($timeline, 'bullet', 'border-width') -
+      (map.get($timeline, 'border-width') * 0.5)
   );
   position: relative;
 
@@ -51,23 +52,23 @@ $timeline-print: null !default;
 
   // Bullet
   &::after {
-    background-color: map.get($timeline, 'bullet-fill-color');
-    border: map.get($timeline, 'bullet-border-width') solid
-      map.get($timeline, 'bullet-border-color');
+    background-color: map.get($timeline, 'bullet', 'fill-color');
+    border: map.get($timeline, 'bullet', 'border-width') solid
+      map.get($timeline, 'bullet', 'border-color');
     border-radius: 50%;
-    box-shadow: map.get($timeline, 'bullet-shadow');
+    box-shadow: map.get($timeline, 'bullet', 'shadow');
     box-sizing: border-box;
     content: '';
-    height: map.get($timeline, 'bullet-size') +
-      (map.get($timeline, 'bullet-border-width') * 2);
+    height: map.get($timeline, 'bullet', 'size') +
+      (map.get($timeline, 'bullet', 'border-width') * 2);
     left: -(
-        #{calc(map.get($timeline, 'bullet-size') / 2) +
-          map.get($timeline, 'bullet-border-width')}
+        #{calc(map.get($timeline, 'bullet', 'size') / 2) +
+          map.get($timeline, 'bullet', 'border-width')}
       );
     position: absolute;
-    top: map.get($timeline, 'bullet-top-position');
-    width: map.get($timeline, 'bullet-size') +
-      (map.get($timeline, 'bullet-border-width') * 2);
+    top: map.get($timeline, 'bullet', 'top-position');
+    width: map.get($timeline, 'bullet', 'size') +
+      (map.get($timeline, 'bullet', 'border-width') * 2);
   }
 }
 
@@ -88,33 +89,37 @@ $timeline-print: null !default;
 
 // Timeline data
 .ecl-timeline__title {
-  color: map.get($timeline, 'title-color');
+  color: map.get($timeline, 'title', 'color');
   font: map.get($timeline-print, 'title-font');
-  font-weight: map.get($timeline, 'title-font-weight');
+  font-weight: map.get($timeline, 'title', 'font-weight');
   margin-bottom: map.get($timeline-print, 'title-margin');
 }
 
 .ecl-timeline__label {
-  color: map.get($timeline, 'label-color');
+  color: map.get($timeline, 'label', 'color');
   font: map.get($timeline-print, 'label-font');
-  font-weight: map.get($timeline, 'label-font-weight');
-  left: calc(
-    -1 *
-      (
-        #{map.get($timeline, 'left-spacing')} +
-          #{map.get($theme, 'spacing-print', 'm')} +
-          #{map.get($timeline, 'bullet-size')} / 2 +
-          map.get($timeline, 'bullet-border-width')
-      )
-  );
+  font-weight: map.get($timeline, 'label', 'font-weight');
   margin-bottom: map.get($timeline-print, 'label-margin');
-  position: map.get($timeline, 'label-layout');
-  text-align: map.get($timeline, 'label-alignment');
-  width: map.get($timeline, 'left-spacing');
+  position: map.get($timeline, 'label', 'layout');
+  text-align: map.get($timeline, 'label', 'alignment');
+
+  @if map.has-key($timeline, 'left-spacing-desktop') {
+    left: calc(
+      -1 *
+        (
+          #{map.get($timeline, 'left-spacing-desktop')} +
+            #{map.get($theme, 'spacing-print', 'm')} +
+            #{map.get($timeline, 'bullet', 'size')} /
+            2 +
+            map.get($timeline, 'bullet', 'border-width')
+        )
+    );
+    width: map.get($timeline, 'left-spacing-desktop');
+  }
 }
 
 .ecl-timeline__content {
-  color: map.get($timeline, 'content-color');
+  color: map.get($timeline, 'content', 'color');
   font: map.get($timeline-print, 'content-font');
 
   > *:first-child {

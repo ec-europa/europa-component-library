@@ -13,6 +13,10 @@ Parameters:
     - "label": (string) (default: '')
     - "title": (string) (default: '')
     - "content": (block) (default: '')
+  - "headline" (object) (default: {}): Highlighted item at the top of the timeline
+    - "label": (string) (default: '')
+    - "title": (string) (default: '')
+    - "content": (block) (default: '')
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format:
     - "name" (string) (default: '')
@@ -25,6 +29,7 @@ Parameters:
 {% set _css_class = 'ecl-timeline' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Timeline" data-ecl-timeline' %}
 {% set _items = items|default([]) %}
+{% set _headline = headline|default({}) %}
 {% set _toggle_collapsed = toggle_collapsed|default('') %}
 {% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
@@ -36,7 +41,7 @@ Parameters:
 {% set _hide_amount = 0 %}
 {% set _bottom_amount = 0 %}
 
-{% if _hide_from > 0 %}
+{% if _hide_from >= 0 %}
   {% if _hide_to > 0 %}
     {% set _bottom_amount = _display_amount - _hide_to %}
   {% else %}
@@ -70,6 +75,24 @@ Parameters:
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
+  {# Headline #}
+  {% if _headline is not empty %}
+    <li class="ecl-timeline__item ecl-timeline__item--headline">
+      <div class="ecl-timeline__tooltip">
+        <div class="ecl-timeline__tooltip-arrow"></div>
+        {% if _headline.label is not empty %}
+          <div class="ecl-timeline__label">{{ _headline.label }}</div>
+        {% endif %}
+        {% if _headline.title is not empty %}
+          <div class="ecl-timeline__title">{{ _headline.title }}</div>
+        {% endif %}
+        {% if _headline.content is not empty %}
+          <div class="ecl-timeline__content">{{ _headline.content }}</div>
+        {% endif %}
+      </div>
+    </li>
+  {% endif %}
+
   {% if _items is not empty %}
     {% for _item in _items %}
       {# Decide on per item if it should display. #}
