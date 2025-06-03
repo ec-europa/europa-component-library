@@ -27,7 +27,7 @@ const prepareData = (data) => {
   } else {
     data.site_header.logo.src_desktop = logoEC;
     data.site_header.logo.src_mobile = logoMobileEC;
-    data.site_footer.rows[2][0][0].logo.src_desktop = logoNegativeEC;
+    data.site_footer.section_common.logo.src_desktop = logoNegativeEC;
   }
 
   return data;
