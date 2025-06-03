@@ -172,6 +172,59 @@ module.exports = {
       },
     ],
   },
+  sections_custom: [
+    {
+      title: 'Custom links',
+      links: [
+        {
+          link: {
+            label: 'Custom link',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Custom link',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      title: 'Custom links',
+      links: [
+        {
+          link: {
+            label: 'Custom link',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Custom link',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      title: 'Custom links',
+      links: [
+        {
+          link: {
+            label: 'Custom link',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Custom link',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+  ],
   section_common: {
     logo: {
       picture: {

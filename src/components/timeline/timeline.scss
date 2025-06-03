@@ -27,7 +27,7 @@ $timeline: null !default;
 
 .ecl-timeline__item {
   max-width: var(--max-w);
-  padding-block: map.get($timeline, 'item-padding-top') var(--s-xl);
+  padding-block: map.get($timeline, 'item-padding-top-mobile') var(--s-xl);
   padding-inline-start: map.get($timeline, 'item-padding-left');
   position: relative;
 
@@ -73,6 +73,10 @@ $timeline: null !default;
         #{map.get($timeline, 'left-spacing-tablet')} + var(--s-2xl)
       );
     }
+  }
+
+  .ecl-timeline__item {
+    padding-block-start: map.get($timeline, 'item-padding-top-tablet');
   }
 }
 
@@ -122,11 +126,6 @@ $timeline: null !default;
 }
 
 // Border adjustment
-.ecl-timeline__item:first-child::before {
-  height: map.get($timeline, 'first-item-height');
-  top: map.get($timeline, 'first-item-offset');
-}
-
 .ecl-timeline__item:last-child::before {
   height: map.get($timeline, 'last-item-height');
 }
