@@ -41,7 +41,7 @@ Parameters:
 {% set _hide_amount = 0 %}
 {% set _bottom_amount = 0 %}
 
-{% if _hide_from >= 0 %}
+{% if _hide_from > 0 or (_hide_from == 0 and _headline is not empty) %}
   {% if _hide_to > 0 %}
     {% set _bottom_amount = _display_amount - _hide_to %}
   {% else %}
