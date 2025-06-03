@@ -14,6 +14,7 @@ const getArgs = () => {
     show_about: true,
     show_more: true,
     show_related: true,
+    show_custom: false,
     social_vertical: false,
   };
 
@@ -58,6 +59,15 @@ const getArgTypes = () => {
     },
   };
 
+  argTypes.show_custom = {
+    name: 'custom links',
+    type: { name: 'boolean' },
+    description: 'Show "Custom links" sections',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
   argTypes.social_vertical = {
     name: 'social vertical',
     type: { name: 'boolean' },
@@ -85,6 +95,9 @@ const prepareData = (data, args) => {
   }
   if (!args.show_related) {
     delete clone.section_related;
+  }
+  if (!args.show_custom) {
+    delete clone.sections_custom;
   }
 
   if (args.social_vertical) {
