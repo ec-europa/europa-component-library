@@ -66,7 +66,7 @@ $timeline-print: null !default;
           map.get($timeline, 'bullet', 'border-width')}
       );
     position: absolute;
-    top: map.get($timeline, 'bullet', 'top-position');
+    top: map.get($timeline-print, 'bullet-top-position');
     width: map.get($timeline, 'bullet', 'size') +
       (map.get($timeline, 'bullet', 'border-width') * 2);
   }
@@ -75,16 +75,6 @@ $timeline-print: null !default;
 // Toggle button
 .ecl-timeline__item--toggle {
   display: none;
-}
-
-// Border adjustment
-.ecl-timeline__item:first-child::before {
-  height: map.get($timeline, 'first-item-height');
-  top: map.get($timeline, 'first-item-offset');
-}
-
-.ecl-timeline__item:last-child::before {
-  height: map.get($timeline, 'last-item-height');
 }
 
 // Timeline data
@@ -128,6 +118,20 @@ $timeline-print: null !default;
 
   > *:last-child {
     margin-block-end: 0;
+  }
+}
+
+// Headline
+.ecl-timeline__item--headline {
+  padding-block-start: map.get($theme, 'spacing-print', 'm');
+
+  .ecl-timeline__label {
+    font: map.get($timeline-print, 'headline-font');
+    font-weight: map.get($timeline, 'label', 'font-weight');
+  }
+
+  &::after {
+    top: map.get($timeline-print, 'headline-bullet-top-position');
   }
 }
 

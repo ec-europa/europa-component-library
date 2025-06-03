@@ -125,11 +125,6 @@ $timeline: null !default;
   transform: rotate(0deg);
 }
 
-// Border adjustment
-.ecl-timeline__item:last-child::before {
-  height: map.get($timeline, 'last-item-height');
-}
-
 // Timeline data
 .ecl-timeline__title {
   color: map.get($timeline, 'title', 'color');

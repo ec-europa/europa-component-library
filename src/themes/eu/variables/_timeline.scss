@@ -6,7 +6,6 @@ $timeline: (
   border-width: 0.125rem,
   item-padding-top-mobile: 0,
   item-padding-top-tablet: 0,
-  last-item-height: 1.5rem,
   tooltip: true,
   toggle-spacing: true,
   timeline-margin-left: var(--s-l),
@@ -65,5 +64,8 @@ $timeline-print: (
   label-font: map.get($font-print, 'xl'),
   label-margin: map.get($spacing-print, 's'),
   content-font: map.get($font-print, 'm'),
+  headline-font: map.get($font-print, 'xl'),
   item-padding-left: map.get($spacing-print, 'm'),
+  bullet-top-position: 8%,
+  headline-bullet-top-position: 8%,
 );

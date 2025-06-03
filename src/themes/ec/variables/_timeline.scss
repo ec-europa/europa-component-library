@@ -9,7 +9,6 @@ $timeline: (
   left-spacing-tablet: 9.75rem,
   left-spacing-desktop: 11.875rem,
   timeline-margin-left: 0px,
-  last-item-height: var(--s-2xl),
   item-padding-left: var(--s-2xl),
   bullet: (
     border-color: var(--cm-on-surface-variant-1),
@@ -65,8 +64,11 @@ $timeline-print: (
   label-font: map.get($font-print, 'm'),
   label-margin: 0,
   content-font: map.get($font-print, 'm'),
+  headline-font: map.get($font-print, 'l'),
   timeline-margin-left: calc(
       #{map.get($spacing-print, 'xs')} + 14rem + #{map.get($spacing-print, 'm')}
     ),
   item-padding-left: map.get($spacing-print, 'l'),
+  bullet-top-position: 8px,
+  headline-bullet-top-position: 24px,
 );
