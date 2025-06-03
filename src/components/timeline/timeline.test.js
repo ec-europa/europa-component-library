@@ -11,6 +11,9 @@ import demoDataSet from './demo/data--set';
 demoData.items.forEach((item, index) => {
   item.id = `timeline-item-${index}`;
 });
+demoDataSet.items[0].items.forEach((item, index) => {
+  item.id = `timeline-item-${index}`;
+});
 
 expect.extend(toHaveNoViolations);
 
