@@ -368,11 +368,12 @@ $select: null !default;
     display: none;
     left: var(--s-m);
     position: absolute;
-    top: 10%;
+    top: 50%;
+    transform: translateY(-50%);
 
     * {
       align-items: center;
-      background-color: map.get($select, 'multiple_counter_background');
+      background-color: map.get($select, 'multiple-counter-background');
       border-radius: 0.75rem;
       color: map.get($select, 'counter-color');
       display: inline-flex;
@@ -381,7 +382,7 @@ $select: null !default;
       justify-content: center;
       position: relative;
       min-width: 1rem;
-      padding: var(--s-2xs);
+      padding: map.get($select, 'multiple-counter-padding');
       text-align: center;
       width: 100%;
 
