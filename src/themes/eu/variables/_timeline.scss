@@ -4,12 +4,14 @@
 $timeline: (
   border-color: var(--c-p),
   border-width: 0.125rem,
-  item-padding-top-mobile: 0,
-  item-padding-top-tablet: 0,
+  item-padding-top-mobile: 0px,
+  item-padding-top-tablet: 0px,
   tooltip: true,
   toggle-spacing: true,
   timeline-margin-left: var(--s-l),
-  item-padding-left: calc(var(--s-l) + 0.125rem),
+  item-padding-left-mobile: calc(var(--s-l) + 0.125rem),
+  item-padding-left-tablet: calc(var(--s-l) + 0.125rem),
+  set-spacing: var(--s-2xl),
   bullet: (
     border-color: var(--c-p),
     border-width: 0.125rem,
@@ -43,7 +45,7 @@ $timeline: (
     font: var(--f-m),
   ),
   headline: (
-    padding-top: 0,
+    padding-top: 0px,
     spacing-adjustment: 0px,
     label: (
       font: var(--f-2xl),

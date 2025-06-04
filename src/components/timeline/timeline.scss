@@ -21,14 +21,17 @@ $timeline: null !default;
       #{map.get($timeline, 'bullet', 'size')} / 2 +
       map.get($timeline, 'bullet', 'border-width')
   );
-  margin-top: 0;
+  margin-block-start: 0;
   padding-inline-start: 0;
 }
 
 .ecl-timeline__item {
   max-width: var(--max-w);
   padding-block: map.get($timeline, 'item-padding-top-mobile') var(--s-xl);
-  padding-inline-start: map.get($timeline, 'item-padding-left');
+  padding-inline-start: calc(
+    #{map.get($timeline, 'item-padding-left-mobile')} +
+      (#{map.get($timeline, 'border-width')} / 2)
+  );
   position: relative;
 
   // Border
@@ -70,13 +73,19 @@ $timeline: null !default;
   .ecl-timeline {
     @if map.has-key($timeline, 'left-spacing-tablet') {
       margin-inline-start: calc(
-        #{map.get($timeline, 'left-spacing-tablet')} + var(--s-2xl)
+        #{map.get($timeline, 'left-spacing-tablet')} +
+          var(--s-2xl) +
+          (#{map.get($timeline, 'border-width')} / 2)
       );
     }
   }
 
   .ecl-timeline__item {
     padding-block-start: map.get($timeline, 'item-padding-top-tablet');
+    padding-inline-start: calc(
+      #{map.get($timeline, 'item-padding-left-tablet')} +
+        (#{map.get($timeline, 'border-width')} / 2)
+    );
   }
 }
 
@@ -92,7 +101,7 @@ $timeline: null !default;
 
 // Toggle button
 .ecl-timeline__item--toggle {
-  padding-top: 0;
+  padding-block-start: 0;
 
   &::before {
     border-inline-start-style: dashed;
@@ -128,7 +137,7 @@ $timeline: null !default;
 // Timeline data
 .ecl-timeline__title {
   color: map.get($timeline, 'title', 'color');
-  margin-bottom: map.get($timeline, 'title', 'margin');
+  margin-block-end: map.get($timeline, 'title', 'margin');
 
   @include mixins.responsive-font(
     map.get($timeline, 'title', 'font'),
@@ -138,7 +147,7 @@ $timeline: null !default;
 
 .ecl-timeline__label {
   color: map.get($timeline, 'label', 'color');
-  margin-bottom: map.get($timeline, 'label', 'margin');
+  margin-block-end: map.get($timeline, 'label', 'margin');
 
   @include mixins.responsive-font(
     map.get($timeline, 'label', 'font'),
@@ -158,6 +167,10 @@ $timeline: null !default;
   > *:last-child {
     margin-block-end: 0;
   }
+}
+
+.ecl-timeline__tooltip > *:last-child {
+  margin-block-end: 0;
 }
 
 // Headline
@@ -196,8 +209,14 @@ $timeline: null !default;
   @if map.has-key($timeline, 'left-spacing-tablet') {
     .ecl-timeline__label {
       left: calc(
-        -1 * (#{map.get($timeline, 'left-spacing-tablet')} + var(--s-2xl))
+        -1 *
+          (
+            #{map.get($timeline, 'left-spacing-tablet')} +
+              var(--s-2xl) +
+              (#{map.get($timeline, 'border-width')} / 2)
+          )
       );
+      margin-block-end: 0;
       position: map.get($timeline, 'label', 'layout');
       text-align: map.get($timeline, 'label', 'alignment');
       width: map.get($timeline, 'left-spacing-tablet');
@@ -216,7 +235,12 @@ $timeline: null !default;
   @if map.has-key($timeline, 'left-spacing-desktop') {
     .ecl-timeline__label {
       left: calc(
-        -1 * (#{map.get($timeline, 'left-spacing-desktop')} + var(--s-2xl))
+        -1 *
+          (
+            #{map.get($timeline, 'left-spacing-desktop')} +
+              var(--s-2xl) +
+              (#{map.get($timeline, 'border-width')} / 2)
+          )
       );
       width: map.get($timeline, 'left-spacing-desktop');
     }
@@ -278,6 +302,62 @@ $timeline: null !default;
       top: 0;
       transform: translateX(-50%) translateY(-50%) rotate(45deg);
       width: 10px;
+    }
+  }
+}
+
+// Timeline set
+.ecl-timeline-set {
+  .ecl-timeline
+    + .ecl-timeline
+    > .ecl-timeline__item:first-of-type:not(.ecl-timeline__item--headline) {
+    padding-block-start: calc(
+      #{map.get($timeline, 'item-padding-top-mobile')} +
+        #{map.get($timeline, 'set-spacing')}
+    );
+
+    &::after {
+      top: calc(
+        #{map.get($timeline, 'bullet', 'top-position')} +
+          #{map.get($timeline, 'set-spacing')}
+      );
+    }
+  }
+
+  .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
+    padding-block-start: calc(
+      #{map.get($timeline, 'headline', 'padding-top')} +
+        #{map.get($timeline, 'set-spacing')}
+    );
+
+    &::after {
+      top: calc(
+        #{map.get($timeline, 'headline', 'bullet', 'top-position')} +
+          #{map.get($timeline, 'set-spacing')}
+      );
+    }
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-timeline-set {
+    .ecl-timeline
+      + .ecl-timeline
+      > .ecl-timeline__item:first-of-type:not(.ecl-timeline__item--headline) {
+      padding-block-start: calc(
+        #{map.get($timeline, 'item-padding-top-tablet')} +
+          #{map.get($timeline, 'set-spacing')}
+      );
+    }
+
+    .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
+      &::after {
+        top: calc(
+          #{map.get($timeline, 'headline', 'bullet', 'top-position')} +
+            #{map.get($timeline, 'headline', 'spacing-adjustment')} +
+            #{map.get($timeline, 'set-spacing')}
+        );
+      }
     }
   }
 }
