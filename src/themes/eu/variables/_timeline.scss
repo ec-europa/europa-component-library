@@ -13,12 +13,21 @@ $timeline: (
   item-padding-left-tablet: calc(var(--s-l) + 0.125rem),
   set-spacing: var(--s-2xl),
   bullet: (
-    border-color: var(--c-p),
-    border-width: 0.125rem,
     shadow: 0 0 0 2px map.get($color, 'white'),
-    top-position: 8%,
-    fill-color: map.get($color, 'white'),
-    size: 0.75rem,
+    small: (
+      border-color: var(--c-p),
+      border-width: 0.125rem,
+      fill-color: map.get($color, 'white'),
+      size: 0.75rem,
+      top-position: 8%,
+    ),
+    large: (
+      border-color: var(--c-p),
+      border-width: 0.125rem,
+      fill-color: map.get($color, 'white'),
+      size: 0.75rem,
+      top-position: 8%,
+    ),
     toggle: (
       border-color: var(--c-p-20),
       border-width: 0.125rem,
@@ -51,13 +60,7 @@ $timeline: (
       font: var(--f-2xl),
       font-weight: map.get($font-weight, 'regular'),
     ),
-    bullet: (
-      border-color: var(--c-p),
-      border-width: 0.125rem,
-      fill-color: map.get($color, 'white'),
-      size: 0.75rem,
-      top-position: 8%,
-    ),
+    bullet-top-position: 8%,
   ),
 );
 $timeline-print: (
@@ -68,6 +71,7 @@ $timeline-print: (
   content-font: map.get($font-print, 'm'),
   headline-font: map.get($font-print, 'xl'),
   item-padding-left: map.get($spacing-print, 'm'),
-  bullet-top-position: 8%,
-  headline-bullet-top-position: 8%,
+  bullet-small-top-position: 12px,
+  bullet-large-top-position: 12px,
+  headline-bullet-top-position: 12px,
 );

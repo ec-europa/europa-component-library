@@ -6,7 +6,7 @@ exports[`Timeline renders correctly in a set 1`] = `
     class="ecl-timeline-set"
   >
     <ol
-      class="ecl-timeline"
+      class="ecl-timeline ecl-timeline--has-headline"
       data-ecl-auto-init="Timeline"
       data-ecl-timeline=""
     >
@@ -118,9 +118,6 @@ exports[`Timeline renders correctly in a set 1`] = `
             class="ecl-timeline__tooltip-arrow"
           />
           <div
-            class="ecl-timeline__label"
-          />
-          <div
             class="ecl-timeline__title"
           >
             Item 4 title
@@ -146,9 +143,6 @@ exports[`Timeline renders correctly in a set 1`] = `
         >
           <div
             class="ecl-timeline__tooltip-arrow"
-          />
-          <div
-            class="ecl-timeline__label"
           />
           <div
             class="ecl-timeline__content"
@@ -411,7 +405,7 @@ exports[`Timeline renders correctly in a set 1`] = `
 exports[`Timeline renders correctly with extra attributes 1`] = `
 <jest>
   <ol
-    class="ecl-timeline custom-class custom-class--test"
+    class="ecl-timeline ecl-timeline--has-headline custom-class custom-class--test"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
     data-test="data-test-value"
@@ -525,9 +519,6 @@ exports[`Timeline renders correctly with extra attributes 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -553,9 +544,6 @@ exports[`Timeline renders correctly with extra attributes 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -817,7 +805,7 @@ exports[`Timeline renders correctly with extra attributes 1`] = `
 exports[`Timeline renders correctly with extra class names 1`] = `
 <jest>
   <ol
-    class="ecl-timeline custom-class custom-class--test"
+    class="ecl-timeline ecl-timeline--has-headline custom-class custom-class--test"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -929,9 +917,6 @@ exports[`Timeline renders correctly with extra class names 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -957,9 +942,6 @@ exports[`Timeline renders correctly with extra class names 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -1221,7 +1203,7 @@ exports[`Timeline renders correctly with extra class names 1`] = `
 exports[`Timeline renders correctly with hidden items 1`] = `
 <jest>
   <ol
-    class="ecl-timeline custom-class custom-class--test"
+    class="ecl-timeline ecl-timeline--has-headline custom-class custom-class--test"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -1333,9 +1315,6 @@ exports[`Timeline renders correctly with hidden items 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -1361,9 +1340,6 @@ exports[`Timeline renders correctly with hidden items 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -1625,7 +1601,7 @@ exports[`Timeline renders correctly with hidden items 1`] = `
 exports[`Timeline renders correctly with hidden items but no items after button 1`] = `
 <jest>
   <ol
-    class="ecl-timeline custom-class custom-class--test"
+    class="ecl-timeline ecl-timeline--has-headline custom-class custom-class--test"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -1737,9 +1713,6 @@ exports[`Timeline renders correctly with hidden items but no items after button 
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -1765,9 +1738,6 @@ exports[`Timeline renders correctly with hidden items but no items after button 
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -2029,7 +1999,7 @@ exports[`Timeline renders correctly with hidden items but no items after button 
 exports[`Timeline renders correctly with positive hide.to 1`] = `
 <jest>
   <ol
-    class="ecl-timeline custom-class custom-class--test"
+    class="ecl-timeline ecl-timeline--has-headline custom-class custom-class--test"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -2141,9 +2111,6 @@ exports[`Timeline renders correctly with positive hide.to 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -2169,9 +2136,6 @@ exports[`Timeline renders correctly with positive hide.to 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -2433,7 +2397,7 @@ exports[`Timeline renders correctly with positive hide.to 1`] = `
 exports[`Timeline renders correctly without hidden items 1`] = `
 <jest>
   <ol
-    class="ecl-timeline"
+    class="ecl-timeline ecl-timeline--has-headline"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -2545,9 +2509,6 @@ exports[`Timeline renders correctly without hidden items 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -2573,9 +2534,6 @@ exports[`Timeline renders correctly without hidden items 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -2837,7 +2795,7 @@ exports[`Timeline renders correctly without hidden items 1`] = `
 exports[`Timeline renders correctly without hide 1`] = `
 <jest>
   <ol
-    class="ecl-timeline"
+    class="ecl-timeline ecl-timeline--has-headline"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -2949,9 +2907,6 @@ exports[`Timeline renders correctly without hide 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -2977,9 +2932,6 @@ exports[`Timeline renders correctly without hide 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -3215,7 +3167,7 @@ exports[`Timeline renders correctly without hide 1`] = `
 exports[`Timeline renders correctly without hide.from or hide.to 1`] = `
 <jest>
   <ol
-    class="ecl-timeline"
+    class="ecl-timeline ecl-timeline--has-headline"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -3327,9 +3279,6 @@ exports[`Timeline renders correctly without hide.from or hide.to 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -3355,9 +3304,6 @@ exports[`Timeline renders correctly without hide.from or hide.to 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"
@@ -3619,7 +3565,7 @@ exports[`Timeline renders correctly without hide.from or hide.to 1`] = `
 exports[`Timeline renders correctly without hide.to 1`] = `
 <jest>
   <ol
-    class="ecl-timeline"
+    class="ecl-timeline ecl-timeline--has-headline"
     data-ecl-auto-init="Timeline"
     data-ecl-timeline=""
   >
@@ -3731,9 +3677,6 @@ exports[`Timeline renders correctly without hide.to 1`] = `
           class="ecl-timeline__tooltip-arrow"
         />
         <div
-          class="ecl-timeline__label"
-        />
-        <div
           class="ecl-timeline__title"
         >
           Item 4 title
@@ -3759,9 +3702,6 @@ exports[`Timeline renders correctly without hide.to 1`] = `
       >
         <div
           class="ecl-timeline__tooltip-arrow"
-        />
-        <div
-          class="ecl-timeline__label"
         />
         <div
           class="ecl-timeline__content"

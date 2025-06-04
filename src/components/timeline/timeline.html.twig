@@ -56,6 +56,10 @@ Parameters:
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
+{% if _headline is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-timeline--has-headline' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -101,11 +105,15 @@ Parameters:
       <li class="ecl-timeline__item{{ extra_class }}" id="{{ _item_id }}">
         <div class="ecl-timeline__tooltip">
           <div class="ecl-timeline__tooltip-arrow"></div>
-          <div class="ecl-timeline__label">{{ _item.label }}</div>
-          {% if _item.title is defined and _item.title is not empty %}
-          <div class="ecl-timeline__title">{{ _item.title }}</div>
+          {% if _item.label is not empty %}
+            <div class="ecl-timeline__label">{{ _item.label }}</div>
           {% endif %}
-          <div class="ecl-timeline__content">{{ _item.content|default('') }}</div>
+          {% if _item.title is not empty %}
+            <div class="ecl-timeline__title">{{ _item.title }}</div>
+          {% endif %}
+          {% if _item.content is not empty %}
+            <div class="ecl-timeline__content">{{ _item.content }}</div>
+          {% endif %}
         </div>
       </li>
       {# Display the show more button if required. #}

@@ -11,14 +11,23 @@ $timeline: (
   timeline-margin-left: 0px,
   item-padding-left-mobile: var(--s-xl),
   item-padding-left-tablet: var(--s-2xl),
-  set-spacing: var(--s-2xl),
+  set-spacing: var(--s-3xl),
   bullet: (
-    border-color: var(--cm-on-surface-variant-1),
-    border-width: 0rem,
     shadow: none,
-    top-position: 17px,
-    fill-color: var(--cm-on-surface-variant-1),
-    size: 0.875rem,
+    small: (
+      border-color: var(--cm-on-surface-variant-1),
+      border-width: 0rem,
+      fill-color: var(--cm-on-surface-variant-1),
+      size: 0.875rem,
+      top-position: 17px,
+    ),
+    large: (
+      border-color: var(--cm-on-surface-variant-1),
+      border-width: 0.25rem,
+      fill-color: var(--cm-on-surface-inverted),
+      size: 0.75rem,
+      top-position: 15px,
+    ),
     toggle: (
       border-color: var(--cm-on-surface-variant-2),
       border-width: 0.25rem,
@@ -51,13 +60,7 @@ $timeline: (
       font: 'heading2',
       font-weight: map.get($font-weight, 'regular'),
     ),
-    bullet: (
-      border-color: var(--cm-on-surface-variant-1),
-      border-width: 0.25rem,
-      fill-color: var(--cm-on-surface-inverted),
-      size: 0.75rem,
-      top-position: 24px,
-    ),
+    bullet-top-position: 24px,
   ),
 );
 $timeline-print: (
@@ -71,6 +74,7 @@ $timeline-print: (
       #{map.get($spacing-print, 'xs')} + 14rem + #{map.get($spacing-print, 'm')}
     ),
   item-padding-left: map.get($spacing-print, 'l'),
-  bullet-top-position: 8px,
-  headline-bullet-top-position: 24px,
+  bullet-small-top-position: 8px,
+  bullet-large-top-position: 6px,
+  headline-bullet-top-position: 22px,
 );
