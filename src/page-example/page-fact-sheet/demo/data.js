@@ -22,7 +22,6 @@ siteHeaderEC.mega_menu = dataMegaMenu;
 delete siteHeaderEC.cta_link;
 delete siteHeaderEC.banner_top;
 delete siteHeaderEC.notification;
-delete siteHeaderEC.site_name;
 
 const siteHeaderEU = JSON.parse(JSON.stringify(dataSiteHeaderEU));
 siteHeaderEU.mega_menu = dataMegaMenu;
