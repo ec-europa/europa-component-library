@@ -70,7 +70,7 @@ $list-illustration-print: null !default;
 .ecl-list-illustration__title {
   color: map.get($list-illustration, 'title', 'color');
   font: map.get($list-illustration-print, 'title', 'font');
-  font-weight: map.get($list-illustration, 'title', 'font-weight');
+  font-weight: map.get($list-illustration-print, 'title', 'font-weight');
 }
 
 .ecl-list-illustration__value + .ecl-list-illustration__title {

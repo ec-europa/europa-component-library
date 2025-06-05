@@ -28,7 +28,6 @@ siteHeaderEU.mega_menu = dataMegaMenu;
 delete siteHeaderEU.cta_link;
 delete siteHeaderEU.banner_top;
 delete siteHeaderEU.notification;
-delete siteHeaderEU.site_name;
 
 const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
 pageHeader.breadcrumb = dataBreadcrumb;
@@ -51,9 +50,8 @@ const illustrationListIcon = JSON.parse(
 illustrationListIcon.centered = true;
 illustrationListIcon.column = 4;
 illustrationListIcon.zebra = false;
-illustrationListIcon.font_size = 'm';
+illustrationListIcon.font_size = 'l';
 for (let i = 0; i < illustrationListIcon.items.length; i += 1) {
-  delete illustrationListIcon.items[i].value;
   delete illustrationListIcon.items[i].description;
 }
 

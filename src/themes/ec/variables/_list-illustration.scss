@@ -31,12 +31,13 @@ $list-illustration: (
 );
 $list-illustration-print: (
   value: (
-    font-desktop-m: map.get($font-print, '4xl'),
-    font-desktop-l: map.get($font-print, '6xl'),
+    font-desktop-m: map.get($font-print, 'l'),
+    font-desktop-l: map.get($font-print, 'xl'),
   ),
   title: (
-    font: map.get($font-print, '2xl'),
-    margin: 0,
+    font: map.get($font-print, 'm'),
+    font-weight: map.get($font-weight, 'bold'),
+    margin: map.get($spacing-print, 's'),
   ),
   description: (
     margin: map.get($spacing-print, 'xs'),
