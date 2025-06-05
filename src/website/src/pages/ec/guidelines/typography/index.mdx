@@ -31,7 +31,7 @@ Font weight is the thickness of a font's stroke, with various weights used to di
 
 ## Line height
 
-Line-height, relevant to the size of the typeface itself. Ideal line-height for standard copy uses 1:1.5 ratio. The exception to this rule are headings, which needs less spacing and therefore have a line-height ratio of 1:1.2. The line-height value is always divisible by 4 in order to support the grid.
+Line-height, relevant to the size of the typeface itself. Different set of font size / line height are used, based on the context (body text, headings, ...).
 
 ## Line length
 
@@ -43,99 +43,99 @@ Line-length is the number of characters displayed in a single line. Lines that a
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-9xl ecl-u-type-weight-regular">Display mobile</div>
-    <div className="ecl-u-type-10xl ecl-u-type-weight-regular ecl-u-mt-m">Display desktop</div>
+    <div className="ecl-u-type-display">Display - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
-|         | Font size                                  | Line height                                    | Font weight   |
-| ------- | ------------------------------------------ | ---------------------------------------------- | ------------- |
-| mobile  | 9XL - 4.5rem - <RemToPixels rem="4.5" />px | 9XL - 4.875rem - <RemToPixels rem="4.875" />px | 400 (regular) |
-| desktop | 10XL - 6rem - <RemToPixels rem="6" />px    | 10XL - 6.25rem - <RemToPixels rem="6.25" />px  | 400 (regular) |
+|         | Font size                                    | Line height                                   | Font weight |
+| ------- | -------------------------------------------- | --------------------------------------------- | ----------- |
+| mobile  | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 3XL - 2.75rem - <RemToPixels rem="2.75" />px  | 300 (light) |
+| tablet  | 7XL - 3.25rem - <RemToPixels rem="3.25" />px | 6XL - 3.5rem - <RemToPixels rem="3.5" />px    | 300 (light) |
+| desktop | 10XL - 6rem - <RemToPixels rem="6" />px      | 10XL - 6.25rem - <RemToPixels rem="6.25" />px | 300 (light) |
 
 ### Heading 1
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-7xl ecl-u-type-weight-light">Heading 1 mobile</div>
-    <div className="ecl-u-type-8xl ecl-u-type-weight-light ecl-u-mt-m">Heading 1 desktop</div>
+    <div className="ecl-u-type-heading-1">Heading 1 - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
 |         | Font size                                    | Line height                                  | Font weight |
 | ------- | -------------------------------------------- | -------------------------------------------- | ----------- |
-| mobile  | 7XL - 3.25rem - <RemToPixels rem="3.25" />px | 7XL - 3.75rem - <RemToPixels rem="3.75" />px | 300 (light) |
+| mobile  | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 3XL - 2.75rem - <RemToPixels rem="2.75" />px | 300 (light) |
+| tablet  | 7XL - 3.25rem - <RemToPixels rem="3.25" />px | 6XL - 3.5rem - <RemToPixels rem="3.5" />px   | 300 (light) |
 | desktop | 8XL - 3.75rem - <RemToPixels rem="3.75" />px | 8XL - 4.25rem - <RemToPixels rem="4.25" />px | 300 (light) |
 
 ### Heading 2
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-5xl ecl-u-type-weight-light">Heading 2 mobile</div>
-    <div className="ecl-u-type-6xl ecl-u-type-weight-light ecl-u-mt-m">Heading 2 desktop</div>
+    <div className="ecl-u-type-heading-2">Heading 2 - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
-|         | Font size                                    | Line height                            | Font weight |
-| ------- | -------------------------------------------- | -------------------------------------- | ----------- |
-| mobile  | 5XL - 2.25rem - <RemToPixels rem="2.25" />px | 4XL - 3rem - <RemToPixels rem="3" />px | 300 (light) |
-| desktop | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 4XL - 3rem - <RemToPixels rem="3" />px | 300 (light) |
+|         | Font size                                    | Line height                                  | Font weight |
+| ------- | -------------------------------------------- | -------------------------------------------- | ----------- |
+| mobile  | 4XL - 2rem - <RemToPixels rem="2" />px       | XL - 2.25rem - <RemToPixels rem="2.25" />px  | 300 (light) |
+| tablet  | 5XL - 2.25rem - <RemToPixels rem="2.25" />px | 3XL - 2.75rem - <RemToPixels rem="2.75" />px | 300 (light) |
+| desktop | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 4XL - 3rem - <RemToPixels rem="3" />px       | 300 (light) |
 
 ### Heading 3
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-2xl ecl-u-type-weight-light">Heading 3 mobile</div>
-    <div className="ecl-u-type-3xl ecl-u-type-weight-light ecl-u-mt-m">Heading 3 desktop</div>
+    <div className="ecl-u-type-heading-3">Heading 3 - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
 |         | Font size                                    | Line height                                 | Font weight |
 | ------- | -------------------------------------------- | ------------------------------------------- | ----------- |
-| mobile  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
+| mobile  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | L - 2rem - <RemToPixels rem="2" />px        | 300 (light) |
+| tablet  | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
 | desktop | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
 
 ### Heading 4
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-2xl ecl-u-type-weight-light">Heading 4 mobile</div>
-    <div className="ecl-u-type-2xl ecl-u-type-weight-light ecl-u-mt-m">Heading 4 desktop</div>
+    <div className="ecl-u-type-heading-4">Heading 4 - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
-|         | Font size                                  | Line height                                 | Font weight |
-| ------- | ------------------------------------------ | ------------------------------------------- | ----------- |
-| mobile  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
-| desktop | 2XL - 1.5rem - <RemToPixels rem="1.5" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
+|         | Font size                                    | Line height                                 | Font weight |
+| ------- | -------------------------------------------- | ------------------------------------------- | ----------- |
+| mobile  | M - 1.125rem - <RemToPixels rem="1.125" />px | M - 1.75rem - <RemToPixels rem="1.75" />px  | 300 (light) |
+| tablet  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
+| desktop | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
 
 ### Heading 5
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-xl ecl-u-type-weight-light">Heading 5 mobile</div>
-    <div className="ecl-u-type-xl ecl-u-type-weight-light ecl-u-mt-m">Heading 5 desktop</div>
+    <div className="ecl-u-type-heading-5">Heading 5 - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
-|         | Font size                                     | Line height                          | Font weight |
-| ------- | --------------------------------------------- | ------------------------------------ | ----------- |
-| mobile  | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px | 300 (light) |
-| desktop | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px | 300 (light) |
+|         | Font size                                     | Line height                              | Font weight |
+| ------- | --------------------------------------------- | ---------------------------------------- | ----------- |
+| mobile  | M - 1.125rem - <RemToPixels rem="1.125" />px  | S - 1.5rem - <RemToPixels rem="1.5" />px | 300 (light) |
+| tablet  | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px     | 300 (light) |
+| desktop | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px     | 300 (light) |
 
 ### Heading 6
 
 <Playground hideCode>
   <div className="ecl-u-ph-m ecl-u-pv-xl">
-    <div className="ecl-u-type-l ecl-u-type-weight-light">Heading 6 mobile</div>
-    <div className="ecl-u-type-l ecl-u-type-weight-light ecl-u-mt-m">Heading 6 desktop</div>
+    <div className="ecl-u-type-heading-6">Heading 6 - Lorem ipsum dolor sit amet</div>
   </div>
 </Playground>
 
-|         | Font size                                  | Line height                                | Font weight |
-| ------- | ------------------------------------------ | ------------------------------------------ | ----------- |
-| mobile  | L - 1.25rem - <RemToPixels rem="1.25" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
-| desktop | L - 1.25rem - <RemToPixels rem="1.25" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
+|         | Font size                                    | Line height                                | Font weight |
+| ------- | -------------------------------------------- | ------------------------------------------ | ----------- |
+| mobile  | M - 1.125rem - <RemToPixels rem="1.125" />px | S - 1.5rem - <RemToPixels rem="1.5" />px   | 300 (light) |
+| tablet  | L - 1.25rem - <RemToPixels rem="1.25" />px   | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
+| desktop | L - 1.25rem - <RemToPixels rem="1.25" />px   | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
 
 ## Paragraphs
 
@@ -147,9 +147,11 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|                  | Font size                                  | Line height                                 | Font weight   |
-| ---------------- | ------------------------------------------ | ------------------------------------------- | ------------- |
-| mobile & desktop | 2XL - 1.5rem - <RemToPixels rem="1.5" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 400 (regular) |
+|         | Font size                                     | Line height                                 | Font weight   |
+| ------- | --------------------------------------------- | ------------------------------------------- | ------------- |
+| mobile  | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px        | 400 (regular) |
+| tablet  | 2XL - 1.5rem - <RemToPixels rem="1.5" />px    | XL - 2.25rem - <RemToPixels rem="2.25" />px | 400 (regular) |
+| desktop | 2XL - 1.5rem - <RemToPixels rem="1.5" />px    | XL - 2.25rem - <RemToPixels rem="2.25" />px | 400 (regular) |
 
 ### XL paragraph (lead)
 
@@ -159,9 +161,11 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|                  | Font size                                     | Line height                          | Font weight   |
-| ---------------- | --------------------------------------------- | ------------------------------------ | ------------- |
-| mobile & desktop | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px | 400 (regular) |
+|         | Font size                                     | Line height                          | Font weight   |
+| ------- | --------------------------------------------- | ------------------------------------ | ------------- |
+| mobile  | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px | 400 (regular) |
+| tablet  | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px | 400 (regular) |
+| desktop | XL - 1.375rem - <RemToPixels rem="1.375" />px | L - 2rem - <RemToPixels rem="2" />px | 400 (regular) |
 
 ### L paragraph
 
@@ -171,9 +175,11 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|                  | Font size                                  | Line height                                | Font weight   |
-| ---------------- | ------------------------------------------ | ------------------------------------------ | ------------- |
-| mobile & desktop | L - 1.25rem - <RemToPixels rem="1.25" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
+|         | Font size                                  | Line height                                | Font weight   |
+| ------- | ------------------------------------------ | ------------------------------------------ | ------------- |
+| mobile  | L - 1.25rem - <RemToPixels rem="1.25" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
+| tablet  | L - 1.25rem - <RemToPixels rem="1.25" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
+| desktop | L - 1.25rem - <RemToPixels rem="1.25" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
 
 ### M paragraph (default)
 
@@ -183,9 +189,11 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|                  | Font size                                    | Line height                                | Font weight   |
-| ---------------- | -------------------------------------------- | ------------------------------------------ | ------------- |
-| mobile & desktop | M - 1.125rem - <RemToPixels rem="1.125" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
+|         | Font size                                    | Line height                                | Font weight   |
+| ------- | -------------------------------------------- | ------------------------------------------ | ------------- |
+| mobile  | S - 1rem - <RemToPixels rem="1" />px         | S - 1.5rem - <RemToPixels rem="1.5" />px   | 400 (regular) |
+| tablet  | M - 1.125rem - <RemToPixels rem="1.125" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
+| desktop | M - 1.125rem - <RemToPixels rem="1.125" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 400 (regular) |
 
 ### S paragraph
 
@@ -195,9 +203,11 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|                  | Font size                            | Line height                              | Font weight   |
-| ---------------- | ------------------------------------ | ---------------------------------------- | ------------- |
-| mobile & desktop | S - 1rem - <RemToPixels rem="1" />px | S - 1.5rem - <RemToPixels rem="1.5" />px | 400 (regular) |
+|         | Font size                            | Line height                              | Font weight   |
+| ------- | ------------------------------------ | ---------------------------------------- | ------------- |
+| mobile  | S - 1rem - <RemToPixels rem="1" />px | S - 1.5rem - <RemToPixels rem="1.5" />px | 400 (regular) |
+| tablet  | S - 1rem - <RemToPixels rem="1" />px | S - 1.5rem - <RemToPixels rem="1.5" />px | 400 (regular) |
+| desktop | S - 1rem - <RemToPixels rem="1" />px | S - 1.5rem - <RemToPixels rem="1.5" />px | 400 (regular) |
 
 ### XS paragraph
 
@@ -207,9 +217,11 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|                  | Font size                                     | Line height                                 | Font weight   |
-| ---------------- | --------------------------------------------- | ------------------------------------------- | ------------- |
-| mobile & desktop | XS - 0.875rem - <RemToPixels rem="0.875" />px | XS - 1.25rem - <RemToPixels rem="1.25" />px | 400 (regular) |
+|         | Font size                                     | Line height                                 | Font weight   |
+| ------- | --------------------------------------------- | ------------------------------------------- | ------------- |
+| mobile  | XS - 0.875rem - <RemToPixels rem="0.875" />px | XS - 1.25rem - <RemToPixels rem="1.25" />px | 400 (regular) |
+| tablet  | XS - 0.875rem - <RemToPixels rem="0.875" />px | XS - 1.25rem - <RemToPixels rem="1.25" />px | 400 (regular) |
+| desktop | XS - 0.875rem - <RemToPixels rem="0.875" />px | XS - 1.25rem - <RemToPixels rem="1.25" />px | 400 (regular) |
 
 ## Microcopy
 
