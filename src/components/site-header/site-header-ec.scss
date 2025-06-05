@@ -312,9 +312,17 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   top: $menu-top;
 }
 
+.ecl-site-header__site-name--mobile-only {
+  display: none;
+}
+
 @media (width <= 375px) {
   .ecl-site-header__banner-top {
     display: none;
+  }
+
+  .ecl-site-header__site-name--mobile-only {
+    display: block;
   }
 }
 
@@ -440,10 +448,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     flex-grow: 1;
     margin-inline-end: 0;
     padding: var(--s-xs) 0;
-  }
-
-  .ecl-site-header__site-name--mobile-only {
-    display: none;
   }
 
   .ecl-site-header__top {
