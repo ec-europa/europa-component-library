@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { addons, types, useGlobals } from '@storybook/manager-api';
+import { STORY_CHANGED } from '@storybook/core-events';
 import { TOGGLE_STYLE } from './index';
 
 const ADDON_ID = 'styles-toggle';
@@ -37,11 +38,26 @@ function StylePanel() {
 
   // Apply styles to DOM
   useEffect(() => {
-    if (Object.keys(styles).length === 0) return;
-    styleSheets.forEach((s) => {
-      const shouldBeEnabled = styles[s.id];
-      channel.emit(TOGGLE_STYLE, { key: s.id, enabled: shouldBeEnabled });
-    });
+    const applyStyles = () => {
+      if (Object.keys(styles).length === 0) return;
+      styleSheets.forEach((s) => {
+        const shouldBeEnabled = styles[s.id];
+        channel.emit(TOGGLE_STYLE, { key: s.id, enabled: shouldBeEnabled });
+      });
+    };
+
+    applyStyles();
+
+    // FRONT-4921 - Fix styles when switching stories
+    const onStoryChanged = () => {
+      applyStyles();
+    };
+
+    channel.on(STORY_CHANGED, onStoryChanged);
+
+    return () => {
+      channel.off(STORY_CHANGED, onStoryChanged);
+    };
   }, [styles, styleSheets]);
 
   const handleToggle = (id) => (e) => {
