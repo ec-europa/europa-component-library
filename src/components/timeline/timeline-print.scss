@@ -72,6 +72,24 @@ $timeline-print: null !default;
   }
 }
 
+// Border adjustment
+// stylelint-disable no-descending-specificity
+.ecl-timeline__item:not(.ecl-timeline-set *):first-child::before,
+.ecl-timeline-set
+  .ecl-timeline:first-child
+  .ecl-timeline__item:first-child::before {
+  height: map.get($timeline, 'first-item-height');
+  top: map.get($timeline, 'first-item-offset');
+}
+
+.ecl-timeline__item:not(.ecl-timeline-set *):last-child::before,
+.ecl-timeline-set
+  .ecl-timeline:last-child
+  .ecl-timeline__item:last-child::before {
+  height: map.get($timeline, 'last-item-height');
+}
+// stylelint-enable no-descending-specificity
+
 // Toggle button
 .ecl-timeline__item--toggle {
   display: none;
@@ -154,6 +172,13 @@ $timeline-print: null !default;
     width: map.get($timeline, 'bullet', 'small', 'size') +
       (map.get($timeline, 'bullet', 'small', 'border-width') * 2);
   }
+
+  @if map.has-key($timeline-print, 'label-small') {
+    .ecl-timeline__label {
+      font: map.get($timeline-print, 'label-small', 'font');
+      font-weight: map.get($timeline-print, 'label-small', 'font-weight');
+    }
+  }
 }
 
 @if map.has-key($timeline, 'tooltip') {
@@ -214,17 +239,15 @@ $timeline-print: null !default;
 
     &::after {
       top: calc(
-        #{map.get($timeline-print, 'bullet-small-top-position')} +
+        #{map.get($theme, 'spacing-print', 'm')} +
+          #{map.get($timeline-print, 'bullet-large-top-position')} +
           #{map.get($timeline, 'set-spacing')}
       );
     }
   }
 
   .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
-    padding-block-start: calc(
-      #{map.get($theme, 'spacing-print', 'm')} +
-        #{map.get($timeline, 'set-spacing')}
-    );
+    padding-block-start: map.get($timeline, 'set-spacing');
 
     &::after {
       top: calc(
