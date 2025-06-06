@@ -13,6 +13,7 @@ const PANEL_ID = `${ADDON_ID}/panel`;
 
 function StylePanel() {
   const [globals] = useGlobals();
+  const [, updateGlobals] = useGlobals();
   const styleSheets = useParameter('styleToggle')?.styleSheets || [];
   const panelDescription =
     globals.panelDescription || 'Toggle styles for this demo.';
@@ -20,24 +21,20 @@ function StylePanel() {
 
   // Initialize styles from URL params or defaults
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const screenEnabled = params.get('screen') === 'true';
-    const printEnabled = params.get('print') === 'true';
-
     const initialStyles = Object.fromEntries(
       styleSheets.map((s) => {
-        if (s.group === 'screen' && params.has('screen')) {
-          return [s.id, screenEnabled];
+        if (globals.screenEnabled !== undefined && s.group === 'screen') {
+          return [s.id, globals.screenEnabled];
         }
-        if (s.group === 'print' && params.has('print')) {
-          return [s.id, printEnabled];
+        if (globals.printEnabled !== undefined && s.group === 'print') {
+          return [s.id, globals.printEnabled];
         }
-        return [s.id, s.picked];
+        return [s.id, s.picked ?? false]; // Fallback to picked if no globals
       }),
     );
 
     setStyles(initialStyles);
-  }, [styleSheets]);
+  }, [styleSheets, globals.screenEnabled, globals.printEnabled]);
 
   const channel = addons.getChannel();
 
@@ -67,7 +64,14 @@ function StylePanel() {
 
   const handleToggle = (id) => (e) => {
     const enabled = e.target.checked;
-    setStyles((prev) => ({ ...prev, [id]: enabled }));
+    setStyles((prev) => {
+      const updated = { ...prev, [id]: enabled };
+      // Update globals for persistence
+      updateGlobals({
+        styleToggles: updated,
+      });
+      return updated;
+    });
     channel.emit(TOGGLE_STYLE, { key: id, enabled });
   };
 
@@ -98,14 +102,14 @@ function StylePanel() {
       });
 
     // Update URL params
-    const params = new URLSearchParams(window.location.search);
-    params.set(group, enabled.toString());
-    params.set(oppositeGroup, 'false');
-    window.history.replaceState(
-      {},
-      '',
-      `${window.location.pathname}?${params}`,
-    );
+    updateGlobals({
+      styleToggles: {
+        ...groupStyles,
+        ...oppositeStyles,
+      },
+      screenEnabled: group === 'screen' ? enabled : false,
+      printEnabled: group === 'print' ? enabled : false,
+    });
   };
 
   const groups = {

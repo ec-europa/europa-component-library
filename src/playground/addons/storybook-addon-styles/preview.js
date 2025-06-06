@@ -1,18 +1,23 @@
-import { useChannel } from '@storybook/preview-api';
+import { useChannel, useGlobals } from '@storybook/preview-api';
 import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
 export const decorators = [
   (story, context) => {
     const styleSheets = context.parameters?.styleToggle?.styleSheets ?? [];
 
+    const [globals] = useGlobals();
+    const toggledStyles = globals?.styleToggles || {};
+
     useChannel({
       [TOGGLE_STYLE]: ({ key, enabled }) =>
         toggleStyle(key, enabled, styleSheets),
     });
 
-    // Initial load
+    // Apply toggles from globals (from addon UI)
     styleSheets.forEach(({ id, picked }) => {
-      if (picked && !document.getElementById(`style-${id}`)) {
+      const enabled =
+        typeof toggledStyles[id] === 'boolean' ? toggledStyles[id] : picked;
+      if (enabled && !document.getElementById(`style-${id}`)) {
         toggleStyle(id, true, styleSheets);
       }
     });
