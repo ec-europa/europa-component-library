@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { addons, types, useGlobals } from '@storybook/manager-api';
+import {
+  addons,
+  types,
+  useGlobals,
+  useParameter,
+} from '@storybook/manager-api';
 import { STORY_CHANGED } from '@storybook/core-events';
 import { TOGGLE_STYLE } from './index';
 
@@ -8,7 +13,7 @@ const PANEL_ID = `${ADDON_ID}/panel`;
 
 function StylePanel() {
   const [globals] = useGlobals();
-  const styleSheets = globals.styleSheets || [];
+  const styleSheets = useParameter('styleToggle')?.styleSheets || [];
   const panelDescription =
     globals.panelDescription || 'Toggle styles for this demo.';
   const [styles, setStyles] = useState({});

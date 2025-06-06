@@ -1,85 +1,70 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
-import { useChannel } from '@storybook/preview-api';
-import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
 import './ECL';
 
 global.Buffer = Buffer;
 
-const styleSheets = [
-  {
-    id: 'ecl-reset',
-    href: './styles/optional/ecl-reset.css',
-    picked: true,
-    group: 'others',
-  },
-  {
-    id: 'ecl-ec-default',
-    href: './styles/optional/ecl-ec-default.css',
-    picked: true,
-    group: 'screen',
-  },
-  { id: 'ecl-ec', href: './styles/ecl-ec.css', picked: true, group: 'screen' },
-  {
-    id: 'ecl-ec-color-modes',
-    href: './styles/ecl-ec-color-modes.css',
-    picked: true,
-    group: 'others',
-  },
-  {
-    id: 'ecl-ec-utilities',
-    href: './styles/optional/ecl-ec-utilities.css',
-    picked: true,
-    group: 'others',
-  },
-  {
-    id: 'ecl-rtl',
-    href: './styles/optional/ecl-rtl.css',
-    picked: false,
-    group: 'others',
-  },
-  {
-    id: 'ecl-ec-default-print',
-    href: './styles/optional/ecl-ec-default-print.css',
-    picked: false,
-    group: 'print',
-  },
-  {
-    id: 'ecl-ec-print',
-    href: './styles/ecl-ec-print.css',
-    picked: false,
-    group: 'print',
-  },
-];
-
 export const initialGlobals = {
-  styleSheets,
   panelDescription:
     'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
   panelTitle: 'ECL styles',
 };
 
-export const decorators = [
-  (story) => {
-    useChannel({
-      [TOGGLE_STYLE]: ({ key, enabled }) =>
-        toggleStyle(key, enabled, styleSheets),
-    });
-
-    // Initial load
-    styleSheets.forEach(({ id, picked }) => {
-      if (picked && !document.getElementById(`style-${id}`)) {
-        toggleStyle(id, true, styleSheets);
-      }
-    });
-
-    return story();
-  },
-];
-
 export const parameters = {
+  styleToggle: {
+    styleSheets: [
+      {
+        id: 'ecl-reset',
+        href: './styles/optional/ecl-reset.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-default',
+        href: './styles/optional/ecl-ec-default.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-ec',
+        href: './styles/ecl-ec.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-ec-color-modes',
+        href: './styles/ecl-ec-color-modes.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-utilities',
+        href: './styles/optional/ecl-ec-utilities.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-rtl',
+        href: './styles/optional/ecl-rtl.css',
+        picked: false,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-default-print',
+        href: './styles/optional/ecl-ec-default-print.css',
+        picked: false,
+        group: 'print',
+      },
+      {
+        id: 'ecl-ec-print',
+        href: './styles/ecl-ec-print.css',
+        picked: false,
+        group: 'print',
+      },
+    ],
+  },
   options: {
     storySort: (a, b) => {
       return a.title.localeCompare(b.title, undefined);
