@@ -12,29 +12,29 @@ const ADDON_ID = 'styles-toggle';
 const PANEL_ID = `${ADDON_ID}/panel`;
 
 function StylePanel() {
-  const [globals] = useGlobals();
-  const [, updateGlobals] = useGlobals();
+  const [globals, updateGlobals] = useGlobals();
   const styleSheets = useParameter('styleToggle')?.styleSheets || [];
   const panelDescription =
     globals.panelDescription || 'Toggle styles for this demo.';
   const [styles, setStyles] = useState({});
-
+  const toggledStyles = globals?.styleToggles || {};
   // Initialize styles from URL params or defaults
   useEffect(() => {
     const initialStyles = Object.fromEntries(
       styleSheets.map((s) => {
-        if (globals.screenEnabled !== undefined && s.group === 'screen') {
-          return [s.id, globals.screenEnabled];
+        if (typeof toggledStyles.screen === 'boolean' && s.group === 'screen') {
+          return [s.id, toggledStyles.screen];
         }
-        if (globals.printEnabled !== undefined && s.group === 'print') {
-          return [s.id, globals.printEnabled];
+        if (typeof toggledStyles.print === 'boolean' && s.group === 'print') {
+          return [s.id, toggledStyles.print];
         }
+
         return [s.id, s.picked ?? false]; // Fallback to picked if no globals
       }),
     );
 
     setStyles(initialStyles);
-  }, [styleSheets, globals.screenEnabled, globals.printEnabled]);
+  }, [styleSheets]);
 
   const channel = addons.getChannel();
 
@@ -64,52 +64,92 @@ function StylePanel() {
 
   const handleToggle = (id) => (e) => {
     const enabled = e.target.checked;
-    setStyles((prev) => {
-      const updated = { ...prev, [id]: enabled };
-      // Update globals for persistence
-      updateGlobals({
-        styleToggles: updated,
-      });
-      return updated;
-    });
+    const group = styleSheets.find((s) => s.id === id)?.group;
+    const oppositeGroup = group === 'screen' ? 'print' : 'screen';
+
+    // Compute the updated styles *before* setting them
+    const updatedStyles = {
+      ...styles,
+      [id]: enabled,
+    };
+
+    setStyles(updatedStyles);
     channel.emit(TOGGLE_STYLE, { key: id, enabled });
+
+    if (!enabled) {
+      // Removing the group key from globals when a child gets disabled
+      const updated = Object.fromEntries(
+        Object.entries(toggledStyles).filter(([key]) => key !== group),
+      );
+      updateGlobals({ styleToggles: updated });
+    } else {
+      // Recompute whether the whole group is now active
+      const groupFullyChecked = styleSheets
+        .filter((s) => s.group === group)
+        .every((s) => updatedStyles[s.id]);
+
+      if (groupFullyChecked) {
+        updateGlobals({
+          styleToggles: {
+            [group]: true,
+            [oppositeGroup]: false,
+          },
+        });
+      }
+    }
   };
 
   const handleGroupToggle = (group) => (e) => {
     const enabled = e.target.checked;
     const oppositeGroup = group === 'screen' ? 'print' : 'screen';
 
-    // Set styles for the toggled group and reset the opposite group
     const groupStyles = styleSheets
       .filter((s) => s.group === group)
       .reduce((acc, s) => ({ ...acc, [s.id]: enabled }), {});
-    const oppositeStyles = styleSheets
-      .filter((s) => s.group === oppositeGroup)
-      .reduce((acc, s) => ({ ...acc, [s.id]: false }), {});
 
-    setStyles((prev) => ({ ...prev, ...groupStyles, ...oppositeStyles }));
+    const oppositeStyles = enabled
+      ? styleSheets
+          .filter((s) => s.group === oppositeGroup)
+          .reduce((acc, s) => ({ ...acc, [s.id]: false }), {})
+      : {};
 
-    // Emit TOGGLE_STYLE for both groups
+    // Emit toggles
     styleSheets
       .filter((s) => s.group === group)
       .forEach((s) => {
         channel.emit(TOGGLE_STYLE, { key: s.id, enabled });
       });
-    styleSheets
-      .filter((s) => s.group === oppositeGroup)
-      .forEach((s) => {
-        channel.emit(TOGGLE_STYLE, { key: s.id, enabled: false });
-      });
 
-    // Update URL params
-    updateGlobals({
-      styleToggles: {
-        ...groupStyles,
-        ...oppositeStyles,
-      },
-      screenEnabled: group === 'screen' ? enabled : false,
-      printEnabled: group === 'print' ? enabled : false,
-    });
+    if (enabled) {
+      // Disable the other group
+      styleSheets
+        .filter((s) => s.group === oppositeGroup)
+        .forEach((s) => {
+          channel.emit(TOGGLE_STYLE, { key: s.id, enabled: false });
+        });
+
+      updateGlobals({
+        styleToggles: {
+          [group]: true,
+          [oppositeGroup]: false,
+        },
+      });
+    } else {
+      // Set the group toggle to false in globals
+      updateGlobals({
+        styleToggles: {
+          ...(globals.styleToggles || {}),
+          [group]: false,
+        },
+      });
+    }
+
+    // Update the state with correct booleans
+    setStyles((prev) => ({
+      ...prev,
+      ...groupStyles,
+      ...oppositeStyles,
+    }));
   };
 
   const groups = {
