@@ -59,11 +59,11 @@ $list-illustration-print: null !default;
 .ecl-list-illustration__value {
   color: map.get($list-illustration, 'value', 'color');
   font: map.get($list-illustration-print, 'value', 'font-desktop-l');
-  font-weight: map.get($list-illustration, 'value', 'font-weight');
+  font-weight: map.get($list-illustration-print, 'value', 'font-weight');
 
   .ecl-list-illustration--font-m & {
     font: map.get($list-illustration-print, 'value', 'font-desktop-m');
-    font-weight: map.get($list-illustration, 'value', 'font-weight');
+    font-weight: map.get($list-illustration-print, 'value', 'font-weight');
   }
 }
 

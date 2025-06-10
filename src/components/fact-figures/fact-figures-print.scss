@@ -8,6 +8,7 @@
 // Exposed variables
 $theme: null !default;
 $fact-figures: null !default;
+$fact-figures-print: null !default;
 
 .ecl-fact-figures {
   margin: 0;
@@ -30,20 +31,22 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__value {
-  font: map.get($theme, 'font-print', 'xl');
+  font: map.get($fact-figures-print, 'value-font-l');
   font-family: var(--ecl-font-family-print-alt);
+  font-weight: map.get($fact-figures-print, 'value-font-weight');
 
   .ecl-fact-figures--font-m & {
-    font: map.get($theme, 'font-print', 'l');
+    font: map.get($fact-figures-print, 'value-font-m');
     font-family: var(--ecl-font-family-print-alt);
+    font-weight: map.get($fact-figures-print, 'value-font-weight');
   }
 }
 
 .ecl-fact-figures__title {
   clear: left;
-  font: map.get($theme, 'font-print', 'm');
+  font: map.get($fact-figures-print, 'title-font');
   font-family: var(--ecl-font-family-print-alt);
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($fact-figures-print, 'title-font-weight');
   margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 

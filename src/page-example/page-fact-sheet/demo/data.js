@@ -14,6 +14,7 @@ import dataBlockquote from '@ecl/blockquote/demo/data';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
 import dataTable from '@ecl/table/demo/data--multi';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
+import dataOrderedList from '@ecl/ordered-list/demo/data--text';
 import dataFactFigures from '@ecl/fact-figures/demo/data';
 import dataTimeline from '@ecl/timeline/demo/data';
 
@@ -122,6 +123,7 @@ const data = {
   featured_item_highlight: featuredItemHighlight,
   table: dataTable,
   unordered_list: dataUnorderedList,
+  ordered_list: dataOrderedList,
   fact_figures: factFigures,
   timeline,
 };
