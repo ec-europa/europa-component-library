@@ -798,11 +798,20 @@ export class MegaMenu {
         const containerBottom = containerBounding.bottom;
         // By requirements, limit the height to the 70% of the available space.
         const availableHeight = (window.innerHeight - containerBottom) * 0.7;
+        const minHeight =
+          parseFloat(
+            window.getComputedStyle(queryOne('.ecl-mega-menu__wrapper'))
+              .minHeight,
+          ) || 0;
 
         if (maxHeight > availableHeight) {
           height = availableHeight;
         } else {
           height = maxHeight;
+        }
+
+        if (height < minHeight) {
+          height = minHeight;
         }
 
         const wrapper = queryOne('.ecl-mega-menu__wrapper', menuItem);
@@ -1533,6 +1542,12 @@ export class MegaMenu {
         if (infoPanel) {
           infoPanel.style.top = '';
         }
+
+        this.positionMenuOverlay();
+        this.checkDropdownHeight(
+          menuItem.closest('.ecl-mega-menu__item'),
+          false,
+        );
         break;
 
       default:
