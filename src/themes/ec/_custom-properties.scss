@@ -387,7 +387,11 @@
   --cm-surface-status-info: var(--c-in-500);
 
   // on surface
-  --cm-on-surface-brand-medium: #{map.get($color-palette, 'blue-navy-800')};
+  --cm-on-surface-brand-medium: color-mix(
+    in srgb,
+    var(--c-d-900) 70%,
+    transparent
+  );
   --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-on-surface-inverted: #fff;
   --cm-on-surface-swap-1: #fff;
