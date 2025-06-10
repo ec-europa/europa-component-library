@@ -1,5 +1,33 @@
 # Changelog
 
+# 5.0.0-alpha.12
+
+#### :rocket: New Feature
+
+- [#3992](https://github.com/ec-europa/europa-component-library/pull/3992) feat(footer): add custom sections - FRONT-4904 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4000](https://github.com/ec-europa/europa-component-library/pull/4000) fix(select): Fixing position of the multiple select counter - FRONT-4915 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3996](https://github.com/ec-europa/europa-component-library/pull/3996) feat(typography): update microcopy token and utilities - FRONT-4905 ([@emeryro](https://github.com/emeryro))
+- [#3991](https://github.com/ec-europa/europa-component-library/pull/3991) feat(language-switcher): add translate=no - FRONT-4903 ([@emeryro](https://github.com/emeryro))
+- [#3984](https://github.com/ec-europa/europa-component-library/pull/3984) feat(website): update container size - FRONT-4898 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3999](https://github.com/ec-europa/europa-component-library/pull/3999) chore(page-examples): Fixing rendering - FRONT-4912 ([@planctus](https://github.com/planctus))
+- [#3998](https://github.com/ec-europa/europa-component-library/pull/3998) chore(deps): Updates 27-05-25 ([@planctus](https://github.com/planctus))
+- [#3995](https://github.com/ec-europa/europa-component-library/pull/3995) chore(deps): updates - 22-05-25 ([@planctus](https://github.com/planctus))
+- [#3987](https://github.com/ec-europa/europa-component-library/pull/3987) chore(deps): Updates 16-05-25 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.11
 
 #### :rocket: New Feature

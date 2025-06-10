@@ -110,6 +110,7 @@ factFigures.items.splice(-2, 2);
 const system = getSystem();
 
 const data = {
+  system,
   icon_path: '/icons.svg',
   site_header: system === 'eu' ? siteHeaderEU : siteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
