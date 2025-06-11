@@ -173,6 +173,7 @@ $banner: null !default;
 }
 
 .ecl-banner__cta {
+  display: none;
   margin-top: var(--s-m);
 }
 
@@ -380,6 +381,10 @@ $banner: null !default;
     padding-inline: map.get($banner, 'container-padding-inline', 'desktop');
     position: absolute;
     z-index: 1;
+  }
+
+  .ecl-banner__cta {
+    display: block;
   }
 
   .ecl-banner__credit {
