@@ -11,73 +11,81 @@
 
     <p class="ecl-u-type-paragraph ecl-u-print-only">Publication date: 00/00/0000</p>
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Donec nec ex condimentum</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Donec nec ex condimentum</h2>
 
     <!-- Paragraph -->
+    <div class="ecl">
+      <p>Quisque ullamcorper tortor purus. Proin vehicula ligula non ex vulputate imperdiet.</p>
+      <p>Donec auctor purus eros, ac accumsan odio porttitor non. Donec eu pharetra risus. Vivamus pretium at erat sed porta. Morbi consectetur lectus nunc, vitae euismod leo mattis a. Nulla sagittis venenatis libero nec iaculis. Nam velit arcu, molestie id leo cursus, blandit efficitur nunc.</p>
+    </div>
     <p class="ecl-u-type-paragraph">
       Ut maximus euismod velit, et mollis nibh gravida suscipit. Curabitur faucibus ex eu enim consectetur posuere et vitae nisl. Ut rutrum, mauris eget dictum ornare, orci velit elementum nunc, quis ornare urna velit et neque. Integer et ultrices mi. Nullam posuere gravida justo, ornare aliquam sapien interdum vel. Aenean at congue mauris. Vestibulum fermentum nisi bibendum dolor fermentum volutpat.
     </p>
 
     <!-- List with illustration image small -->
-    <div class="ecl-u-mt-6xl">
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
       {% include '@ecl/list-illustration/list-illustration.html.twig' with list_illustration_image_small %}
     </div>
 
     <!-- Blockquote -->
-    <div class="ecl-u-mt-6xl">
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
       {% include '@ecl/blockquote/blockquote.html.twig' with blockquote %}
     </div>
 
     <!-- List with illustration image large -->
-    <div class="ecl-u-mt-6xl">
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
       {% include '@ecl/list-illustration/list-illustration.html.twig' with list_illustration_image_large %}
     </div>
 
     <!-- List with illustration icon -->
-    <div class="ecl-u-mt-6xl">
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
       {% include '@ecl/list-illustration/list-illustration.html.twig' with list_illustration_icon %}
     </div>
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Mauris aliquam nibh enim, at tincidunt odio</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Mauris aliquam nibh enim, at tincidunt odio</h2>
 
     <!-- Featured item -->
     {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_left %}
-    {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_right %}
-    {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_left %}
+    {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_right|merge({
+      extra_classes: 'ecl-u-mt-xl',
+    }) %}
+    {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_left|merge({
+      extra_classes: 'ecl-u-mt-xl',
+    }) %}
 
-    <!-- Separator -->
-    <div class=" ecl-u-mt-6xl">
-      {% include '@ecl/separator/separator.html.twig' %}
-    </div>
-
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Maecenas molestie lorem vel consectetur porttitor</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Maecenas molestie lorem vel consectetur porttitor</h2>
 
     <!-- Unordered list -->
     {% include '@ecl/unordered-list/unordered-list.html.twig' with unordered_list %}
 
     <!-- Fact and figures -->
-    <div class="ecl-u-mt-6xl">
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
       {% include '@ecl/fact-figures/fact-figures.html.twig' with fact_figures %}
     </div>
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Nunc placerat maximus</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Nunc placerat maximus</h2>
 
     <!-- Table -->
     {% include '@ecl/table/table.html.twig' with table %}  
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Phasellus accumsan, nulla eget gravida dignissim</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Phasellus accumsan, nulla eget gravida dignissim</h2>
 
     <!-- Timeline -->
     {% include '@ecl/timeline/timeline.html.twig' with timeline %}
 
     <!-- Featured item highlight -->
-    <div class="ecl-u-mt-6xl">
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
       {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_highlight %}
     </div>
     
-    <p class="ecl-u-type-paragraph">
-      Contact information: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim, sapien eleifend pellentesque pellentesque, nisi sapien facilisis augue, ac semper urna nunc laoreet turpis. Nunc tempor tempor risus sit amet eleifend. Aenean at erat ac erat laoreet tempor. Ut ac felis nunc.
-    </p>
+    <div class="ecl-u-mt-4xl ecl-u-mt-6xl">
+      <p class="ecl-u-type-paragraph">
+        Contact information: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim, sapien eleifend pellentesque pellentesque, nisi sapien facilisis augue, ac semper urna nunc laoreet turpis. Nunc tempor tempor risus sit amet eleifend. Aenean at erat ac erat laoreet tempor. Ut ac felis nunc.
+      </p>
+      
+      <!-- Ordered list -->
+      {% include '@ecl/ordered-list/ordered-list.html.twig' with ordered_list %}
+    </div>
   </div>
 </main>
 

@@ -8,14 +8,16 @@
 // Exposed variables
 $theme: null !default;
 $list: null !default;
+$list-print: null !default;
 
 .ecl-ordered-list,
 %ecl-ordered-list {
   color: map.get($list, 'text-color');
-  font-family: var(--ecl-font-family-print-default);
-  list-style-position: inside;
+  font: map.get($theme, 'font-print', 'm');
+  list-style-position: outside;
   margin: 0;
   padding: 0;
+  padding-inline-start: map.get($list-print, 'ordered', 'padding-start');
 }
 
 .ecl-ordered-list__item,

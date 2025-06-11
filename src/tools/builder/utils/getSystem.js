@@ -26,4 +26,4 @@ const getSystem = () => {
   return null;
 };
 
-module.exports = getSystem;
+export default getSystem;
