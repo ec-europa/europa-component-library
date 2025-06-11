@@ -16,7 +16,7 @@ $timeline: (
   label-alignment: right,
   label-color: var(--cm-on-surface-brand),
   label-font: var(--f-l),
-  label-font-weight: map.get($font-weight, 'bold'),
+  label-font-weight: map.get($font-weight, 'semi-bold'),
   label-layout: absolute,
   label-margin: 0,
   left-spacing: 14rem,
@@ -38,6 +38,6 @@ $timeline-print: (
   label-margin: 0,
   content-font: map.get($font-print, 'm'),
   timeline-margin-left: calc(
-      #{map.get($spacing-print, 'xs')} + 14rem + #{map.get($spacing-print, 'm')}
+      #{map.get($spacing-print, 'xs')} + 12rem + #{map.get($spacing-print, 'm')}
     ),
 );
