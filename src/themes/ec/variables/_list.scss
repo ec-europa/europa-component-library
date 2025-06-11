@@ -25,3 +25,11 @@ $list: (
   text-color: var(--cm-on-surface-brand),
   divider-color: var(--cm-border-neutral),
 );
+$list-print: (
+  unordered: (
+    padding-start: map.get($spacing-print, 'xl'),
+  ),
+  ordered: (
+    padding-start: map.get($spacing-print, 'xl'),
+  ),
+);

@@ -110,7 +110,8 @@
 );
 @use '@ecl/fact-figures/fact-figures-print' with (
   $theme: theme.$theme,
-  $fact-figures: var.$fact-figures
+  $fact-figures: var.$fact-figures,
+  $fact-figures-print: var.$fact-figures-print
 );
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
@@ -129,11 +130,13 @@
 );
 @use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
-  $list: var.$list
+  $list: var.$list,
+  $list-print: var.$list-print
 );
 @use '@ecl/unordered-list/unordered-list-print' with (
   $theme: theme.$theme,
-  $list: var.$list
+  $list: var.$list,
+  $list-print: var.$list-print
 );
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';
@@ -220,6 +223,30 @@
 @use '@ecl/utility-z-index/z-index' with (
   $theme: theme.$theme
 );
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+      format('woff2'),
+    url('../fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
+      format('woff2'),
+    url('../fonts/InterVariable-Italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
 
 html {
   font-family: #{map.get(theme.$font-family-print, 'default')};
