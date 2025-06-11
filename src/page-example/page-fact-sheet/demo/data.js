@@ -14,6 +14,7 @@ import dataBlockquote from '@ecl/blockquote/demo/data';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
 import dataTable from '@ecl/table/demo/data--multi';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
+import dataOrderedList from '@ecl/ordered-list/demo/data--text';
 import dataFactFigures from '@ecl/fact-figures/demo/data';
 import dataTimeline from '@ecl/timeline/demo/data';
 
@@ -22,14 +23,12 @@ siteHeaderEC.mega_menu = dataMegaMenu;
 delete siteHeaderEC.cta_link;
 delete siteHeaderEC.banner_top;
 delete siteHeaderEC.notification;
-delete siteHeaderEC.site_name;
 
 const siteHeaderEU = JSON.parse(JSON.stringify(dataSiteHeaderEU));
 siteHeaderEU.mega_menu = dataMegaMenu;
 delete siteHeaderEU.cta_link;
 delete siteHeaderEU.banner_top;
 delete siteHeaderEU.notification;
-delete siteHeaderEU.site_name;
 
 const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
 pageHeader.breadcrumb = dataBreadcrumb;
@@ -52,9 +51,8 @@ const illustrationListIcon = JSON.parse(
 illustrationListIcon.centered = true;
 illustrationListIcon.column = 4;
 illustrationListIcon.zebra = false;
-illustrationListIcon.font_size = 'm';
+illustrationListIcon.font_size = 'l';
 for (let i = 0; i < illustrationListIcon.items.length; i += 1) {
-  delete illustrationListIcon.items[i].value;
   delete illustrationListIcon.items[i].description;
 }
 
@@ -125,6 +123,7 @@ const data = {
   featured_item_highlight: featuredItemHighlight,
   table: dataTable,
   unordered_list: dataUnorderedList,
+  ordered_list: dataOrderedList,
   fact_figures: factFigures,
   timeline,
 };
