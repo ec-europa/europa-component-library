@@ -1,8 +1,8 @@
-const { spawn } = require('child_process');
-const browsersync = require('browser-sync');
+import { spawn } from 'node:child_process';
+import browserSync from 'browser-sync';
 
-module.exports = (options) => {
-  const bs = browsersync.create(options.create);
+export default (options) => {
+  const bs = browserSync.create(options.create);
 
   options.handlers.forEach((handler) => {
     bs.watch(handler.pattern, (event, file) => {
@@ -26,5 +26,5 @@ module.exports = (options) => {
     });
   });
 
-  bs.init({ ...{ open: false, ...options.init } });
+  bs.init({ open: false, ...options.init });
 };
