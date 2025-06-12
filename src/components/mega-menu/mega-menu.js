@@ -1307,6 +1307,7 @@ export class MegaMenu {
         'ecl-mega-menu--start-panel',
       );
       this.element.classList.add('ecl-mega-menu--one-panel');
+      this.element.classList.remove('ecl-mega-menu--has-secondary-featured');
       level2.setAttribute('aria-expanded', 'false');
       level2.classList.remove(
         'ecl-mega-menu__subitem--expanded',
