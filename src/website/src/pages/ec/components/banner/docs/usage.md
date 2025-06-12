@@ -6,7 +6,7 @@ Banners are a component that score highly in the visual hierarchy, used to conve
 
 ## Do's
 
-- ensure that the size follows the aspect ratio of 3:1 (large), 4:1 (medium) and 5:1 (small)
+- ensure that the size follows the aspect ratio of 3:1 (large), 4:1 (medium), 5:1 (small) and 6:1 (extra small)
 - ensure that the component is optimised for different devices
 - use and indicate appropriate file formats (jpg, png), if restrictions are applied
 - keep in mind the file size as it may affect page loading time
