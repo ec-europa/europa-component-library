@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-Banners are a component that score highly in the visual hierarchy, used to convey a message to the user.. They typically consist of an image, with heading, additional information and CTA. The 4 variants are designed with the user experience and accessibility in mind, controlling for various degrees of image exposure and text-to-image contrast ratio. The sizes cover multiple aspect ratios, specifically 3:1 (large), 4:1 (medium) and 5:1 (small).
+Banners are a component that score highly in the visual hierarchy, used to convey a message to the user.. They typically consist of an image, with heading, additional information and CTA. The 4 variants are designed with the user experience and accessibility in mind, controlling for various degrees of image exposure and text-to-image contrast ratio. The sizes cover multiple aspect ratios, specifically 3:1 (large), 4:1 (medium), 5:1 (small) and 6:1 (extra small).
 
 ## Do's
 
