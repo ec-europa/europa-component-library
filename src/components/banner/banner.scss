@@ -152,6 +152,7 @@ $banner: null !default;
 
   .ecl-banner--font-s & {
     font: map.get($banner, 'font', 'description', 'mobile-s');
+    font-weight: map.get($banner, 'font', 'description', 'font-weight');
     line-height: map.get(
       $banner,
       'font',
@@ -322,6 +323,7 @@ $banner: null !default;
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'description', 'tablet-s');
+      font-weight: map.get($banner, 'font', 'description', 'font-weight');
       line-height: map.get(
         $banner,
         'font',
@@ -499,6 +501,7 @@ $banner: null !default;
 
     .ecl-banner--font-s & {
       font: map.get($banner, 'font', 'description', 'desktop-s');
+      font-weight: map.get($banner, 'font', 'description', 'font-weight');
       line-height: map.get(
         $banner,
         'font',
