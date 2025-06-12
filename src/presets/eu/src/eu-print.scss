@@ -116,6 +116,10 @@
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
 );
+@use '@ecl/highlight/highlight-print' with (
+  $theme: theme.$theme,
+  $highlight: var.$highlight
+);
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (
   $theme: theme.$theme,

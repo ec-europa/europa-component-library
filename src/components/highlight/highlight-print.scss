@@ -1,0 +1,14 @@
+/**
+ * Highlight print
+ * @define highlight
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$highlight: null !default;
+
+.ecl-highlight {
+  background-color: map.get($highlight, 'background-color');
+}
