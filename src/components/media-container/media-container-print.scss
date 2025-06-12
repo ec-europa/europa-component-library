@@ -26,7 +26,7 @@ $media-container-print: null !default;
 .ecl-media-container__caption {
   color: map.get($media-container, 'caption-color');
   font: map.get($media-container-print, 'caption-font');
-  margin-top: map.get($theme, 'spacing-print', 's');
+  margin-top: map.get($theme, 'spacing-print', '2xs');
   max-width: var(--max-w);
 }
 

@@ -6,6 +6,13 @@
 @use '@ecl/grid/mixins/breakpoints' with (
   $theme: theme.$theme
 );
+
+// Typography Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $typography: var.$typography
+);
+
+// Components
 @use '@ecl/blockquote/blockquote-print' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote,
@@ -26,7 +33,8 @@
 );
 @use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
-  $list: var.$list
+  $list: var.$list,
+  $list-print: var.$list-print
 );
 @use '@ecl/separator/separator-print' with (
   $theme: theme.$theme,
@@ -38,7 +46,8 @@
 );
 @use '@ecl/unordered-list/unordered-list-print' with (
   $theme: theme.$theme,
-  $list: var.$list
+  $list: var.$list,
+  $list-print: var.$list-print
 );
 @use '@ecl/utility-typography/typography-print' with (
   $theme: theme.$theme,
@@ -101,11 +110,27 @@ html {
 .ecl p:not([class*='ecl-'], [class*='wt-']),
 .ecl p:is([class*='ecl-u-']) {
   @extend %ecl-paragraph;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  &:last-child {
+    margin-block-end: 0;
+  }
 }
 
 .ecl ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  &:last-child {
+    margin-block-end: 0;
+  }
 }
 
 .ecl ul ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),

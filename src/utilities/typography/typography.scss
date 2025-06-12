@@ -4,6 +4,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -292,6 +293,20 @@ $typography: null !default;
 @if map.has-key($typography, 'paragraph', 'xl') {
   .ecl-u-type-paragraph-lead {
     font: map.get($typography, 'paragraph', 'xl') !important;
+  }
+}
+
+/*
+* Microcopy
+*/
+@if map.has-key($typography, 'microcopy') {
+  @each $key, $value in map.get($typography, 'microcopy') {
+    .ecl-u-type-microcopy-#{$key} {
+      color: map.get($typography, 'text-color') !important;
+      max-width: var(--max-w) !important;
+
+      @include mixins.responsive-font('microcopy-' + $key);
+    }
   }
 }
 

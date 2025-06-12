@@ -36,7 +36,6 @@ $typography: (
       line-height: var(--lh-8xl),
     ),
     font-weight: 300,
-    letter-spacing-compact: -0.01em,
   ),
 
   body: (
