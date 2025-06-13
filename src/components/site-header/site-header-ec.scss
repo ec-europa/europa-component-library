@@ -312,21 +312,12 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   top: $menu-top;
 }
 
-.ecl-site-header__site-name--mobile-only {
+.ecl-site-header__site-name--mobile-only,
+.ecl-site-header__banner-top {
   display: none;
 }
 
-@media (width <= 375px) {
-  .ecl-site-header__banner-top {
-    display: none;
-  }
-
-  .ecl-site-header__site-name--mobile-only {
-    display: block;
-  }
-}
-
-@include breakpoints.up('s') {
+@media (width >= 415px) {
   .ecl-site-header__banner {
     padding: var(--s-xs) 0;
   }
@@ -342,6 +333,11 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
   .ecl-site-header__notification .ecl-notification {
     margin-block-end: var(--s-l);
+  }
+
+  .ecl-site-header__site-name--mobile-only,
+  .ecl-site-header__banner-top {
+    display: block;
   }
 }
 

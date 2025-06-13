@@ -61,7 +61,7 @@
   {% if _picture.sources is not empty and _picture.sources is iterable %}
     {% for _source in _picture.sources %}
       {% if _source.media == 'xs' %}
-        {% set _source = _source|merge({'media': '(min-width: 375px)'}) %}
+        {% set _source = _source|merge({'media': '(min-width: 415px)'}) %}
       {% elseif _source.media == 's' %}
         {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
       {% elseif _source.media == 'm' %}
