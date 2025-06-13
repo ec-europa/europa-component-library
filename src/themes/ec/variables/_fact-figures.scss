@@ -28,3 +28,10 @@ $fact-figures: (
   icon-color: var(--cm-on-surface),
   icon-margin: var(--s-xs),
 );
+$fact-figures-print: (
+  title-font: map.get($font-print, '4xl'),
+  title-font-weight: map.get($font-weight, 'light'),
+  value-font-m: map.get($font-print, '4xl'),
+  value-font-l: map.get($font-print, '5xl'),
+  value-font-weight: map.get($font-weight, 'light'),
+);

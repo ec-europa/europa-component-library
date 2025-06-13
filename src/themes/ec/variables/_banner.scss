@@ -32,7 +32,7 @@ $banner: (
     'banner': 0,
     'content': 0,
   ),
-  box-shadow: var(--sh-2),
+  box-shadow: none,
   border-width: (
     'left': 0,
     'bottom': 0,
@@ -96,8 +96,8 @@ $banner: (
 $banner-print: (
   font: (
     'title': (
-      'desktop-m': map.get($font-print, 'xl'),
-      'desktop-l': map.get($font-print, '2xl'),
+      'desktop-m': map.get($font-print, '6xl'),
+      'desktop-l': map.get($font-print, '7xl'),
     ),
     'description': (
       'desktop-m': map.get($font-print, 'm'),
@@ -110,4 +110,5 @@ $banner-print: (
   container-padding-horizontal: map.get($spacing-print, '2xl'),
   content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
     map.get($spacing-print, 'l'),
+  content-width: 10cm,
 );

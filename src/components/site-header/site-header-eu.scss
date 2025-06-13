@@ -78,6 +78,14 @@ $language-list: null !default;
     }
   }
 
+  .ecl-menu__inner-header {
+    flex-flow: row;
+
+    .ecl-menu__close {
+      display: none;
+    }
+  }
+
   /* stylelint-disable no-descending-specificity */
   .ecl-menu__open,
   .ecl-mega-menu__open,
