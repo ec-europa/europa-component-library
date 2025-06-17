@@ -31,4 +31,10 @@ $checkbox: (
     background-color: var(--cm-surface-status-error),
     border-color: var(--cm-border-status-error),
   ),
+  required: (
+    color: var(--cm-on-surface-status-error),
+    font: 'body-s',
+    font-weight: map.get($font-weight, 'semi-bold'),
+    margin-inline: var(--s-3xs) 0,
+  ),
 );

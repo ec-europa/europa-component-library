@@ -92,31 +92,34 @@ $checkbox: null !default;
 
 // Required
 .ecl-checkbox__required {
-  color: var(--cm-on-surface-status-error, var(--c-er));
-  font: var(--f-xl);
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  padding-inline-start: var(--s-2xs);
+  color: map.get($checkbox, 'required', 'color');
+  margin-inline: map.get($checkbox, 'required', 'margin-inline');
+
+  @include mixins.responsive-font(
+    map.get($checkbox, 'required', 'font'),
+    $font-weight: map.get($checkbox, 'required', 'font-weight')
+  );
 }
 
 // Checked and indeterminate
 // stylelint-disable no-descending-specificity
-.ecl-checkbox__input:checked {
-  ~ .ecl-checkbox__label .ecl-checkbox__box {
+.ecl-checkbox__input:checked ~ .ecl-checkbox__label {
+  .ecl-checkbox__box {
     background: map.get($checkbox, 'checked', 'background-color');
     border-color: map.get($checkbox, 'checked', 'border-color');
   }
 
-  ~ .ecl-checkbox__label:hover .ecl-checkbox__box {
+  &:hover .ecl-checkbox__box {
     background: map.get($checkbox, 'checked', 'background-color-hover');
     border-color: map.get($checkbox, 'checked', 'background-color-hover');
   }
 
-  ~ .ecl-checkbox__label .ecl-checkbox__box--invalid {
+  .ecl-checkbox__box--invalid {
     background: map.get($checkbox, 'invalid', 'background-color');
     border-color: map.get($checkbox, 'invalid', 'border-color');
   }
 
-  ~ .ecl-checkbox__label .ecl-checkbox__icon {
+  .ecl-checkbox__icon {
     visibility: visible;
   }
 }

@@ -27,6 +27,12 @@ $checkbox: (
     background-color: var(--c-er),
     border-color: var(--c-er),
   ),
+  required: (
+    color: var(--c-er),
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
+    margin-inline: var(--s-2xs) 0,
+  ),
   hover-circle: (
     height: 2.5rem,
     width: 2.5rem,
