@@ -2,14 +2,33 @@
 @use '../index' as *;
 
 $form-group: (
-  color-label: var(--cm-on-surface-brand),
-  color-help: var(--cm-on-surface-brand),
-  color-invalid: var(--cm-on-surface-status-error),
-  font-label: var(--f-m),
-  font-help: var(--f-s),
-  font-invalid: var(--f-s),
-  margin-first-element: var(--s-s),
-  margin-help: var(--s-2xs),
-  margin-invalid: var(--s-2xs),
-  margin-icon: var(--s-2xs),
+  margin-icon: var(--s-3xs),
+  margin-no-helper: var(--s-3xs),
+  label: (
+    color: var(--cm-on-surface-brand),
+    font: 'body-s',
+    font-weight: map.get($font-weight, 'semi-bold'),
+  ),
+  optional: (
+    color: var(--cm-on-surface-primary),
+    font: 'body-s',
+    font-weight: map.get($font-weight, 'regular'),
+    margin-inline: var(--s-3xs) 0,
+  ),
+  required: (
+    color: var(--cm-on-surface-status-error),
+    font: 'body-s',
+    font-weight: map.get($font-weight, 'semi-bold'),
+    margin-inline: var(--s-3xs) 0,
+  ),
+  help: (
+    color: var(--cm-on-surface-brand-medium),
+    font: 'microcopy-xs',
+    margin-block: var(--s-3xs) var(--s-xs),
+  ),
+  invalid: (
+    color: var(--cm-on-surface-status-error),
+    font: 'microcopy-xs',
+    margin-block: var(--s-xs) 0,
+  ),
 );

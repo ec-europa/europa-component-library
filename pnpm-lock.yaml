@@ -303,6 +303,10 @@ importers:
       '@ecl/icon':
         specifier: 5.0.0-alpha.13
         version: link:../icon
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/content-block:
     dependencies:
@@ -462,6 +466,13 @@ importers:
       '@ecl/text-input':
         specifier: 5.0.0-alpha.13
         version: link:../text-input
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.13
+        version: link:../../utilities/screen-reader
 
   src/components/gallery:
     dependencies:
@@ -894,9 +905,23 @@ importers:
         specifier: 5.0.0-alpha.13
         version: link:../icon
 
-  src/components/text-area: {}
+  src/components/text-area:
+    devDependencies:
+      '@ecl/layout-form':
+        specifier: 5.0.0-alpha.13
+        version: link:../../layout/form
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
-  src/components/text-input: {}
+  src/components/text-input:
+    devDependencies:
+      '@ecl/layout-form':
+        specifier: 5.0.0-alpha.13
+        version: link:../../layout/form
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/timeline:
     dependencies:
@@ -1251,7 +1276,7 @@ importers:
         version: 8.6.14(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       '@storybook/builder-webpack5':
         specifier: 8.6.14
-        version: 8.6.14(esbuild@0.24.2)(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
+        version: 8.6.14(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
       '@storybook/cli':
         specifier: 8.6.14
         version: 8.6.14(@babel/preset-env@7.27.2(@babel/core@7.27.1))(prettier@3.5.3)
@@ -1260,10 +1285,10 @@ importers:
         version: 8.6.14(storybook@8.6.14(prettier@3.5.3))
       '@storybook/html-webpack5':
         specifier: 8.6.14
-        version: 8.6.14(esbuild@0.24.2)(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
+        version: 8.6.14(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
       babel-loader:
         specifier: 10.0.0
-        version: 10.0.0(@babel/core@7.27.1)(webpack@5.99.8(esbuild@0.24.2))
+        version: 10.0.0(@babel/core@7.27.1)(webpack@5.99.8)
       browser-update:
         specifier: 3.3.55
         version: 3.3.55
@@ -1320,7 +1345,7 @@ importers:
         version: 8.6.14(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       '@storybook/builder-webpack5':
         specifier: 8.6.14
-        version: 8.6.14(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
+        version: 8.6.14(esbuild@0.24.2)(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
       '@storybook/cli':
         specifier: 8.6.14
         version: 8.6.14(@babel/preset-env@7.27.2(@babel/core@7.27.1))(prettier@3.5.3)
@@ -1329,10 +1354,10 @@ importers:
         version: 8.6.14(storybook@8.6.14(prettier@3.5.3))
       '@storybook/html-webpack5':
         specifier: 8.6.14
-        version: 8.6.14(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
+        version: 8.6.14(esbuild@0.24.2)(storybook@8.6.14(prettier@3.5.3))(typescript@5.8.3)
       babel-loader:
         specifier: 10.0.0
-        version: 10.0.0(@babel/core@7.27.1)(webpack@5.99.8)
+        version: 10.0.0(@babel/core@7.27.1)(webpack@5.99.8(esbuild@0.24.2))
       browser-update:
         specifier: 3.3.55
         version: 3.3.55

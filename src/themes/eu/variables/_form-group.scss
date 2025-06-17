@@ -2,14 +2,33 @@
 @use '../index' as *;
 
 $form-group: (
-  color-label: var(--c-d-140),
-  color-help: var(--c-d),
-  color-invalid: var(--c-er),
-  font-label: var(--f-m),
-  font-help: var(--f-s),
-  font-invalid: var(--f-s),
-  margin-first-element: var(--s-m),
-  margin-help: var(--s-xs),
-  margin-invalid: var(--s-2xs),
   margin-icon: var(--s-2xs),
+  margin-no-helper: var(--s-xs),
+  label: (
+    color: var(--c-d-140),
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
+  ),
+  optional: (
+    color: var(--c-p),
+    font: var(--f-s),
+    font-weight: map.get($font-weight, 'regular'),
+    margin-inline: var(--s-2xs) 0,
+  ),
+  required: (
+    color: var(--c-er),
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
+    margin-inline: var(--s-2xs) 0,
+  ),
+  help: (
+    color: var(--c-d-80),
+    font: var(--f-s),
+    margin-block: var(--s-2xs) var(--s-xs),
+  ),
+  invalid: (
+    color: var(--c-er),
+    font: var(--f-s),
+    margin-block: var(--s-xs) 0,
+  ),
 );

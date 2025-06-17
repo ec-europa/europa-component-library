@@ -2,27 +2,33 @@
 @use '../index' as *;
 
 $checkbox: (
+  checkbox-fill: var(--cm-surface-inverted),
   border-color: var(--cm-border-brand),
   background: var(--cm-surface-inverted),
-  box-background-checked-hover: color-mix(
-      in srgb,
-      var(--cm-surface-primary) 50%,
-      var(--cm-surface-dark)
-    ),
   box-size: 1.5rem,
-  box-margin-top: 0,
-  help-text-color: var(--cm-on-surface-brand),
-  help-text-font: var(--f-s),
-  invalid-border-color: var(--cm-border-status-error),
-  invalid-border-color-hover: color-mix(
-      in srgb,
-      var(--cm-border-status-error) 50%,
-      var(--cm-surface-dark)
-    ),
-  label-color: var(--cm-on-surface-brand),
-  box-border-color-checked: var(--cm-border-primary),
-  box-background-checked: var(--cm-surface-primary),
   border-width: 1px,
   border-radius: map.get($border-radius, 's'),
-  checkbox-fill: var(--cm-surface-inverted),
+  item-spacing: var(--s-s),
+  label: (
+    font: 'microcopy-m',
+    color: var(--cm-on-surface-brand),
+  ),
+  checked: (
+    background-color: var(--cm-surface-primary),
+    border-color: var(--cm-border-primary),
+    background-color-hover: color-mix(
+        in srgb,
+        var(--cm-surface-primary) 50%,
+        var(--cm-surface-dark)
+      ),
+  ),
+  help: (
+    color: var(--cm-on-surface-brand-medium),
+    font: 'microcopy-xs',
+    margin-block: var(--s-xs) 0,
+  ),
+  invalid: (
+    background-color: var(--cm-surface-status-error),
+    border-color: var(--cm-border-status-error),
+  ),
 );

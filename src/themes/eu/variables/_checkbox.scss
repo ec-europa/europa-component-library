@@ -2,21 +2,31 @@
 @use '../index' as *;
 
 $checkbox: (
+  checkbox-fill: map.get($color, 'white'),
   border-color: var(--c-d-80),
   background: map.get($color, 'white'),
-  box-background-checked-hover: var(--c-p),
   box-size: 1.5rem,
-  box-margin-top: 0,
-  help-text-color: var(--c-d),
-  help-text-font: var(--f-s),
-  invalid-border-color: var(--c-er),
-  invalid-border-color-hover: var(--c-er-80),
-  label-color: var(--c-d-140),
-  box-border-color-checked: var(--c-p),
-  box-background-checked: var(--c-p),
   border-width: 1px,
   border-radius: 4px,
-  checkbox-fill: map.get($color, 'white'),
+  item-spacing: var(--s-s),
+  label: (
+    font: var(--f-m),
+    color: var(--c-d-140),
+  ),
+  checked: (
+    background-color: var(--c-p),
+    border-color: var(--c-p),
+    background-color-hover: var(--c-p),
+  ),
+  help: (
+    color: var(--c-d-80),
+    font: var(--f-s),
+    margin-block: var(--s-xs) 0,
+  ),
+  invalid: (
+    background-color: var(--c-er),
+    border-color: var(--c-er),
+  ),
   hover-circle: (
     height: 2.5rem,
     width: 2.5rem,
