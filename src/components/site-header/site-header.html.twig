@@ -483,13 +483,14 @@
 
   {# Site name and call to action (banner) #}
   {% if _site_name is not empty or _cta_link is not empty %}
-    <div class="ecl-site-header__banner">
+    {% set _banner_class = 'ecl-site-header__banner' %}
+    {% if _site_name_mobile_only %}
+      {% set _banner_class = _banner_class ~ ' ecl-site-header__site-name--mobile-only' %}
+    {% endif %}
+    <div class="{{ _banner_class }}">
       <div class="ecl-container">
         {% if _site_name is not empty %}
           {% set _site_name_class = 'ecl-site-header__site-name' %}
-          {% if _site_name_mobile_only %}
-            {% set _site_name_class = _site_name_class ~ ' ecl-site-header__site-name--mobile-only' %}
-          {% endif %}
         <div class="{{ _site_name_class }}">
           {{- _site_name -}}
         </div>
