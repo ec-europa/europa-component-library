@@ -15,7 +15,6 @@ $checkbox: null !default;
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding-block: map.get($checkbox, 'item-spacing');
   position: relative;
 }
 
@@ -31,6 +30,7 @@ $checkbox: null !default;
   color: map.get($checkbox, 'label', 'color');
   display: inline-flex;
   max-width: var(--max-w);
+  padding-block: map.get($checkbox, 'item-spacing');
   white-space: pre-wrap;
 
   @include mixins.responsive-font(map.get($checkbox, 'label', 'font'));

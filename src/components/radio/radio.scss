@@ -15,7 +15,6 @@ $radio: null !default;
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding-block: map.get($radio, 'item-spacing');
   position: relative;
 }
 
@@ -31,6 +30,7 @@ $radio: null !default;
   color: map.get($radio, 'label', 'color');
   display: inline-flex;
   max-width: var(--max-w);
+  padding-block: map.get($radio, 'item-spacing');
   white-space: pre-wrap;
 
   @include mixins.responsive-font(map.get($radio, 'label', 'font'));
