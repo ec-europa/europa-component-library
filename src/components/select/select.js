@@ -369,7 +369,10 @@ export class Select {
 
       // Add accessibility attributes
       if (this.label) {
-        this.input.setAttribute('aria-labelledby', this.label.id);
+        this.input.setAttribute(
+          'aria-labelledby',
+          this.label.id + ' ' + this.input.id,
+        );
       }
       let describedby = '';
       if (this.helper) {
