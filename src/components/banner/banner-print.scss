@@ -84,7 +84,7 @@ $banner-print: null !default;
   box-sizing: content-box;
   display: inline-flex;
   flex-direction: column;
-  max-width: map.get($banner, 'content-width');
+  max-width: map.get($banner-print, 'content-width');
   padding: map.get($banner-print, 'content-padding');
 
   .ecl-banner--box-bg-none & {
@@ -110,18 +110,11 @@ $banner-print: null !default;
   display: inline;
   font: map.get($banner-print, 'font', 'title', 'desktop-m');
   font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-desktop-m');
   margin: 0;
 
   .ecl-banner--font-l & {
     font: map.get($banner-print, 'font', 'title', 'desktop-l');
     font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    letter-spacing: map.get(
-      $banner,
-      'font',
-      'title',
-      'letter-spacing-desktop-l'
-    );
   }
 
   .ecl-banner--color-light & {

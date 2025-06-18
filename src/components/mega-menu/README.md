@@ -15,11 +15,20 @@ npm install --save @ecl/mega-menu
 - **"second_level_aria_label"** (string): (default: ''): Second level list aria label
 - **"third_level_aria_label"** (string): (default: ''): Third level list aria label
 - **"back_label"** (string): (default: ''): Back button label
+- **featured_priority"** (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
   "path": (string) (default: '')
   "external": (boolean) (optional)
+  "promotional" (boolean) (default: false) Promotional menu item, styles can be custommized defining:
+  --ecl-mega-menu-item-promotional-bg
+  --ecl-mega-menu-item-promotional-hover-bg
+  --ecl-mega-menu-item-promotional-focus-bg
+  --ecl-mega-menu-item-promotional-outline-color
+  --ecl-mega-menu-item-promotional-text-color
+  --ecl-mega-menu-item-promotional-hover-text-color
+  --ecl-mega-menu-item-promotional-focus-text-color
   "sr_external" (string) (default: '') Additional label for the external icon
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column
@@ -29,7 +38,7 @@ npm install --save @ecl/mega-menu
   "featured" (object) (optional) {
   "title": (string)
   "content": (string)
-  "items": (associative array) Array of items with image and link
+  "items": (associative array) Array of items with image, link and description
   },
   "children": (associative array) (optional): [
   {

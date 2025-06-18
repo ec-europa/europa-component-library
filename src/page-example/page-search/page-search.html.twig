@@ -7,7 +7,7 @@
   <div class="ecl-container">
     <div class="ecl-row">
       <div class="ecl-col-12 ecl-col-l-3">
-        <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl">Filters</h2>
+        <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl">Filters</h2>
 
         <form>
           {%- include '@ecl/form-group/form-group.html.twig' with text_input|merge({
@@ -29,7 +29,7 @@
         </form>
       </div>
       <div class="ecl-col-12 ecl-col-l-9">
-        <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl">Search results</h2>
+        <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl">Search results</h2>
         <h3 class="ecl-u-type-heading-3">Showing results 30 to 40</h2>
 
         {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
@@ -70,4 +70,8 @@
 </main>
 
 <!-- Footer -->
-{% include '@ecl/site-footer/site-footer.html.twig' with site_footer %}
+{% if system == 'ec' %}
+  {%- include '@ecl/site-footer/site-footer-ec.html.twig' with site_footer -%}
+{% else %}
+  {%- include '@ecl/site-footer/site-footer-eu.html.twig' with site_footer -%}
+{% endif %}

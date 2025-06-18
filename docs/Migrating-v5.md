@@ -15,20 +15,15 @@ Typography has also changed quite drastically in EC.
 
 ### Grid
 
-A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
-All the responsive utilities have been updated to include also the new breakpoint.
+- A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
+  All the responsive utilities have been updated to include also the new breakpoint.
+- Main container width has been updated on large breakpoints; now it uses available sace more efficiently
+- Grid gutters are now changing based on the breakpoints
 
 ### [EC] Color scales
 
 Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
 Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
-
-TODO
-
-- update the components to use the new color properties instead of the v4 ones
-- remove old colors
-- update utilities
-- update documentation
 
 ### [EC] Color modes
 
@@ -36,7 +31,7 @@ A color mode is a set of color, applied to different elements, and giving a dist
 
 Every color mode is defined in a new file, called `ecl-ec-color-modes.css`. If this file is omitted, the default EC display is used.
 
-Components can use on mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components taking benefits of it (not all the components are affected by color modes).
+Components can use one mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components taking benefits of it (not all the components are affected by color modes).
 
 How it works:
 
@@ -49,17 +44,21 @@ Here is the list of variables used in the color modes:
 | Name | CSS custom property | Utilities |
 | ---------------------- | --------------------------- | ------------------------ |
 | surface | --cm-surface | _-surface |
+| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
+| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
 | surface medium | --cm-surface-medium | _-surface-medium |
-| surface low | --cm-surface-low | _-surface-low |
+| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
+| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
 | surface lowest | --cm-surface-lowest | _-surface-lowest |
 | surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
 | on surface | --cm-on-surface | _-on-surface |
-| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
 | on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
 | on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
+| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
+| on surface swap 1 | --cm-on-surface-swap-1 | _-on-surface-swap-1 |
+| on surface swap-2 | --cm-on-surface-swap-2 | _-on-surface-swap-2 |
 | border | --cm-border | _-border |
-| border medium | --cm-border-medium | _-border-medium |
-| border medium low | --cm-border-low | _-border-low |
+| border low | --cm-border-low | _-border-low |
 
 TODO
 
@@ -69,7 +68,7 @@ TODO
 
 Font family and scales have changed. The new font (Inter) is quite similar to Arial, but offers more flexibility.
 
-Font size and line height now goes from `10xl` to `xs`.
+Font size now goes from `10xl` to `2xs`, line height goes from `10xl` to `3xs`.
 
 **Important note**: default font size (`m`) is now 18px/1.125rem, instead of 16px/1rem. It makes all content displayed larger.
 
@@ -78,15 +77,11 @@ There are now 9 levels of font weight, from `thin` to `black`.
 A new very large typography has been added, called `display`.
 
 Font variant have been updated too. The variant `font-ui`, previously used to have larger line height, has been removed.
-Two new variants have been added:
-
-- `condensed` (smaller letter-spacing)
-- `extended` (larger letter-spacing)
 
 Corresponding css properties and utilities have been updated accordingly:
 
 - paragraph utilities now use the new font scale, and go from `ecl-u-type-paragraph-xs` to `ecl-u-type-paragraph-2xl` (previously existing utilities like `ecl-u-type-paragraph-lead` are still valid)
-- new utilities for compact and extended fonts: `ecl-u-type-compact-[size]` and `ecl-u-type-extended-[size]`
+- css properties are available to handle font-size and line-height directly
 
 ### [EC] Shadows
 
@@ -116,7 +111,7 @@ Utilities have been added for the color modes. They are available for background
 Here are a few examples:
 
 - `ecl-u-bg-surface`
-- `ecl-u-border-color-border-medium`
+- `ecl-u-border-color-border-low`
 
 Other modification for the utilities:
 
@@ -129,6 +124,12 @@ Other modification for the utilities:
 Markup of accordion title has been updated to use a simple div instead of a heading.
 
 Corresponding twig parameter `level` has been removed.
+
+### Banner
+
+- Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
+  Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
+- Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
 ### Featured item
 
@@ -171,7 +172,7 @@ Extra attention points:
 
 ### Mega menu
 
-The featured panel has changed in order to present a list of elements including images, links with images only, textual links instead of an img and then a list of links.
+The featured panel has changed in order to present a list of elements including images, description, links with images only, textual links instead of an img and then a list of links.
 A new template has been added in the `@ecl/mega-menu` package, it's named: `ecl-mega-menu-featured-item.html.twig`
 The expected data for the featured panel looks like this:
 
@@ -207,9 +208,41 @@ featured: {
 
 The image will be clickable and will act as the associated link.
 
+It is now possible to highlight a menu link (first level) associated to a special event or page passing the "promotional" paramter as part of the item's data.
+The related styles can be customized defining:
+--ecl-mega-menu-item-promotional-bg
+--ecl-mega-menu-item-promotional-hover-bg
+--ecl-mega-menu-item-promotional-focus-bg
+--ecl-mega-menu-item-promotional-outline-color
+--ecl-mega-menu-item-promotional-text-color
+--ecl-mega-menu-item-promotional-hover-text-color
+--ecl-mega-menu-item-promotional-focus-text-color
+
+The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
+A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
+
 ### Site header
 
 New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
+
+### Social media follow
+
+- additional option to display the description inline with the links. Corresponding twig parameter: `description_inline`
+
+### Social media share
+
+This element is managed by Webtools, and has been removed from ECL showcase
+
+### Site footer
+
+Site footer EC has been completely revamped to accomodate new design (markup, css and data structure):
+
+- sections are now clearly identified
+- social media links are using the Social Media Follow component
+- data structure is less complex to use and maintain
+  See the component documentation and examples for more information
+
+EU footer hasn't changed, but is now using its own template file
 
 ## Js modifications
 

@@ -1,37 +1,8 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 import styles from './PaletteItem.module.scss';
-
-const getCode = (alias, parentRef) => {
-  if (!alias) return '';
-
-  let hex = '';
-  // Try getting the computed style from the parent ol element
-  if (parentRef?.current) {
-    hex = window
-      .getComputedStyle(parentRef.current)
-      .getPropertyValue(`--${alias}`)
-      .trim();
-  }
-
-  // If not found, fallback to document.body
-  if (!hex) {
-    hex = window
-      .getComputedStyle(document.body)
-      .getPropertyValue(`--${alias}`)
-      .trim();
-  }
-
-  // Handle transparent color-mix cases
-  if (hex.includes('color-mix')) {
-    // Transparent color, we get the hex code and transparency
-    [, hex] = hex.split(',');
-  }
-
-  return hex.toUpperCase();
-};
 
 class PaletteItem extends PureComponent {
   constructor(props) {
@@ -49,6 +20,35 @@ class PaletteItem extends PureComponent {
     };
   }
 
+  getCode = (alias, paletteRef) => {
+    if (!alias) return '';
+
+    let hex = '';
+    // Try getting the computed style from the parent ol element
+    if (paletteRef?.current) {
+      hex = window
+        .getComputedStyle(paletteRef.current)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
+
+    // If not found, fallback to document.body
+    if (!hex) {
+      hex = window
+        .getComputedStyle(document.body)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
+
+    // Handle transparent color-mix cases
+    if (hex.includes('color-mix')) {
+      // Transparent color, we get the hex code and transparency
+      [, hex] = hex.split(',');
+    }
+
+    return hex.toUpperCase();
+  };
+
   handleCopy = (text) => {
     navigator.clipboard.writeText(text);
     this.setState({ tooltipVisible: true });
@@ -60,14 +60,14 @@ class PaletteItem extends PureComponent {
   };
 
   render() {
-    const { name, id, value, alias, main, parentRef } = this.props;
+    const { name, id, value, alias, main, paletteRef } = this.props;
     const { tooltipVisible } = this.state;
 
     let code = value.toUpperCase();
 
     // Get color code from alias, trying parent first, then fallback to body
     if (alias && typeof window !== 'undefined') {
-      code = getCode(alias, parentRef);
+      code = this.getCode(alias, paletteRef);
     }
 
     return (
@@ -108,7 +108,7 @@ PaletteItem.propTypes = {
   value: PropTypes.string,
   alias: PropTypes.string,
   main: PropTypes.bool,
-  parentRef: PropTypes.shape({
+  paletteRef: PropTypes.shape({
     current: PropTypes.any,
   }),
 };
@@ -118,7 +118,7 @@ PaletteItem.defaultProps = {
   value: '',
   alias: '',
   main: false,
-  parentRef: null,
+  paletteRef: null,
 };
 
 export default PaletteItem;

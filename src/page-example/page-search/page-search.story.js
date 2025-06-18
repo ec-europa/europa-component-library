@@ -27,7 +27,7 @@ const prepareData = (data) => {
   } else {
     data.site_header.logo.src_desktop = logoEC;
     data.site_header.logo.src_mobile = logoMobileEC;
-    data.site_footer.rows[2][0][0].logo.src_desktop = logoNegativeEC;
+    data.site_footer.section_common.logo.src_desktop = logoNegativeEC;
   }
 
   return data;
@@ -35,38 +35,7 @@ const prepareData = (data) => {
 
 export default {
   title: 'Page examples/Search',
-  decorators: [
-    withNotes,
-    withCode,
-    (story) => {
-      function createLink(href, media) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = href;
-        link.media = media || 'all';
-        return link;
-      }
-      const head = document.head || document.getElementsByTagName('head')[0];
-      head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
-      head.appendChild(
-        createLink(`./styles/optional/ecl-${system}-default.css`, 'screen'),
-      );
-      head.appendChild(createLink(`./styles/ecl-${system}.css`, 'screen'));
-      head.appendChild(
-        createLink(`./styles/optional/ecl-${system}-utilities.css`, 'screen'),
-      );
-      head.appendChild(createLink(`./styles/ecl-${system}-print.css`, 'print'));
-      head.appendChild(
-        createLink(
-          `./styles/optional/ecl-${system}-default-print.css`,
-          'print',
-        ),
-      );
-
-      return story();
-    },
-  ],
+  decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
     EclNotes: { disable: true },

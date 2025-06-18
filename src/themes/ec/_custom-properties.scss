@@ -360,7 +360,7 @@
     transparent
   );
   --cm-surface-transparent-01: color-mix(in srgb, #fff 0.1%, transparent);
-  --cm-surface-lowest: var(--c-l-50);
+  --cm-surface-lowest: var(--c-p-50);
   --cm-surface-lowest-variant: color-mix(
     in srgb,
     #{map.get($color-palette, 'warm-grey-50')} 70%,
@@ -387,7 +387,11 @@
   --cm-surface-status-info: var(--c-in-500);
 
   // on surface
-  --cm-on-surface-brand-medium: #{map.get($color-palette, 'blue-navy-600')};
+  --cm-on-surface-brand-medium: color-mix(
+    in srgb,
+    var(--c-d-900) 70%,
+    transparent
+  );
   --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-on-surface-inverted: #fff;
   --cm-on-surface-swap-1: #fff;
@@ -395,7 +399,7 @@
   --cm-on-surface: var(--c-d-500);
   --cm-on-surface-variant-1: var(--c-s-500);
   --cm-on-surface-variant-2: var(--c-l-300);
-  --cm-on-surface-highlight: var(--c-s-300);
+  --cm-on-surface-highlight: var(--c-s-100);
   --cm-on-surface-primary: var(--c-p-500);
   --cm-on-surface-primary-highest: var(--c-p-900);
   --cm-on-surface-secondary-medium: var(--c-s-200);

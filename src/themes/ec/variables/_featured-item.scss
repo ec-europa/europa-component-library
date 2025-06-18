@@ -9,8 +9,7 @@ $featured-item: (
   max-width: 918px,
   title: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-3xl),
-    font-weight: map.get($font-weight, 'light'),
+    typography: 'heading3',
   ),
   description: (
     color: var(--cm-on-surface-brand),
@@ -62,7 +61,7 @@ $featured-item-print: (
   gap-vertical: map.get($spacing-print, 'xs'),
   padding: map.get($spacing-print, 'xl'),
   title: (
-    font: map.get($font-print, '4xl'),
+    font: map.get($font-print, '2xl'),
   ),
   description: (
     font: map.get($font-print, 'm'),
@@ -78,8 +77,8 @@ $featured-item-print: (
       padding-block: 0,
     ),
     item: (
-      padding-inline: map.get($spacing-print, '3xl'),
-      padding-block: map.get($spacing-print, '3xl'),
+      padding-inline: map.get($spacing-print, 'xl'),
+      padding-block: map.get($spacing-print, 'xl'),
     ),
     link: (
       spacing: map.get($spacing-print, 'l'),

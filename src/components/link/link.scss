@@ -68,6 +68,7 @@ $link: null !default;
     )
     .ecl-link__label {
     text-decoration: underline;
+    text-decoration-thickness: from-font;
   }
 }
 
@@ -117,6 +118,7 @@ $link: null !default;
   &:hover {
     color: map.get($link, 'color');
     text-decoration: underline;
+    text-decoration-thickness: from-font;
   }
 }
 

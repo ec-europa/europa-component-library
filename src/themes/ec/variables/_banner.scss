@@ -3,22 +3,28 @@
 
 $banner: (
   background-color: var(--cm-surface-lowest),
-  content-width: 42.5rem,
+  content-width: (
+    'mobile': 50rem,
+    'desktop': 42.5rem,
+  ),
   content-background: var(--cm-surface-inverted),
   content-border-radius: 0,
   content-padding: var(--s-l) var(--s-xl) var(--s-xl),
-  container-padding-bottom: (
-    'mobile': var(--s-xl),
-    'tablet': var(--s-2xl),
-    'desktop': var(--s-4xl),
+  container-padding-block: (
+    'media': (
+      'mobile': var(--s-l) var(--s-xl),
+      'tablet': var(--s-xl) var(--s-2xl),
+      'desktop': var(--s-4xl),
+    ),
+    'no-media': (
+      'mobile': var(--s-xl) var(--s-2xl),
+      'tablet': var(--s-2xl),
+      'desktop': var(--s-4xl),
+    ),
   ),
-  container-padding-top: (
+  container-padding-inline: (
     'mobile': var(--s-m),
-    'tablet': var(--s-m),
-    'desktop': var(--s-4xl),
-  ),
-  container-padding-horizontal: (
-    'tablet': var(--s-2xl),
+    'tablet': var(--s-xl),
     'desktop': var(--s-2xl),
   ),
   border-color: transparent,
@@ -26,7 +32,7 @@ $banner: (
     'banner': 0,
     'content': 0,
   ),
-  box-shadow: var(--sh-2),
+  box-shadow: none,
   border-width: (
     'left': 0,
     'bottom': 0,
@@ -36,30 +42,62 @@ $banner: (
     'light': #fff,
     'inverted': #fff,
   ),
+  // TODO: use the mixin here when ready
   font: (
-    'title': (
-      'font-weight': map.get($font-weight, 'light'),
-      'mobile': var(--f-7xl),
-      'letter-spacing-mobile': map.get($letter-spacing, 'xs'),
-      'desktop-m': var(--f-8xl),
-      'letter-spacing-desktop-m': map.get($letter-spacing, 'xs'),
-      'desktop-l': var(--f-10xl),
-      'letter-spacing-desktop-l': map.get($letter-spacing, 'xs'),
+      'title': (
+        'font-weight': map.get($font-weight, 'light'),
+        'mobile-s': var(--f-6xl),
+        'line-height-mobile-s': var(--lh-3xl),
+        'mobile-m': var(--f-6xl),
+        'line-height-mobile-m': var(--lh-3xl),
+        'mobile-l': var(--f-6xl),
+        'line-height-mobile-l': var(--lh-3xl),
+        'tablet-s': var(--f-7xl),
+        'line-height-tablet-s': var(--lh-6xl),
+        'tablet-m': var(--f-7xl),
+        'line-height-tablet-m': var(--lh-6xl),
+        'tablet-l': var(--f-7xl),
+        'line-height-tablet-l': var(--lh-6xl),
+        'desktop-s': var(--f-8xl),
+        'line-height-desktop-s': var(--lh-8xl),
+        'desktop-m': var(--f-8xl),
+        'line-height-desktop-m': var(--lh-8xl),
+        'desktop-l': var(--f-10xl),
+        'line-height-desktop-l': var(--lh-10xl),
+      ),
+      'description': (
+        'font-weight': map.get($font-weight, 'light'),
+        'mobile-s': var(--f-xl),
+        'line-height-mobile-s': var(--lh-l),
+        'mobile-m': var(--f-4xl),
+        'line-height-mobile-m': var(--lh-xl),
+        'mobile-l': var(--f-4xl),
+        'line-height-mobile-l': var(--lh-xl),
+        'tablet-s': var(--f-2xl),
+        'line-height-tablet-s': var(--lh-xl),
+        'tablet-m': var(--f-5xl),
+        'line-height-tablet-m': var(--lh-3xl),
+        'tablet-l': var(--f-5xl),
+        'line-height-tablet-l': var(--lh-3xl),
+        'desktop-s': var(--f-2xl),
+        'line-height-desktop-s': var(--lh-xl),
+        'desktop-m': var(--f-6xl),
+        'line-height-desktop-m': var(--lh-4xl),
+        'desktop-l': var(--f-6xl),
+        'line-height-desktop-l': var(--lh-4xl),
+      ),
+      'credit': (
+        'mobile': var(--f-2xs),
+        'desktop': var(--f-xs),
+      ),
     ),
-    'description': (
-      'mobile': var(--f-2xl),
-      'desktop-m': var(--f-6xl),
-      'desktop-l': var(--f-6xl),
-    ),
-    'credit': var(--f-xs),
-  ),
   description-margin: var(--s-s),
 );
 $banner-print: (
   font: (
     'title': (
-      'desktop-m': map.get($font-print, 'xl'),
-      'desktop-l': map.get($font-print, '2xl'),
+      'desktop-m': map.get($font-print, '6xl'),
+      'desktop-l': map.get($font-print, '7xl'),
     ),
     'description': (
       'desktop-m': map.get($font-print, 'm'),
@@ -72,4 +110,5 @@ $banner-print: (
   container-padding-horizontal: map.get($spacing-print, '2xl'),
   content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
     map.get($spacing-print, 'l'),
+  content-width: 10cm,
 );

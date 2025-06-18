@@ -13,57 +13,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.js"
   crossorigin="anonymous"
 ></script>
-<script>
-  function inIframe() {
-    try {
-      return window.self !== window.top;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function createLink(href, media) {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = href;
-    link.media = media || 'all';
-    return link;
-  }
-
-  if (
-    inIframe() &&
-    window.frameElement &&
-    window.frameElement.id === 'storybook-preview-iframe'
-  ) {
-    // Let CSS Resources inject the styles
-
-    // Re-initialize component from the parent frame when changing #ecl-rtl CSS resource checkbox
-    window.parent.document.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('id') === 'ecl-rtl') {
-        const dir = e.target.checked ? 'rtl' : 'ltr';
-        document.body.setAttribute('dir', dir);
-        ECL.autoInit().destroy();
-        ECL.autoInit();
-      }
-    });
-  } else {
-    // Manually inject styles
-    var head = document.head || document.getElementsByTagName('head')[0];
-    head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
-    head.appendChild(
-      createLink('./styles/optional/ecl-eu-default.css', 'screen'),
-    );
-    head.appendChild(createLink('./styles/ecl-eu.css', 'screen'));
-    head.appendChild(
-      createLink('./styles/optional/ecl-eu-utilities.css', 'screen'),
-    );
-    head.appendChild(
-      createLink('./styles/optional/ecl-eu-default-print.css', 'print'),
-    );
-    head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
-  }
-</script>
 <script type="module" src="./scripts/ecl-esm-eu.js"></script>
 <script
   defer

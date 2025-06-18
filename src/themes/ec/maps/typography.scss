@@ -95,55 +95,55 @@ $letter-spacing: (
   'xl': 1px,
   'l': 0.5px,
   'm': 0px,
-  's': -0.5px,
-  'xs': -1px,
-  '2xs': -1.5px,
-  '3xs': -2px,
-  '4xs': -2.5px,
 ) !default;
 
 // Print
 $font-family-print: (
   'default': (
+    'Inter',
     verdana,
     sans-serif,
   ),
   'alt': (
+    'Inter',
     arial,
     sans-serif,
   ),
 ) !default;
 $font-size-print: (
-  '10xl': 72pt,
-  '9xl': 54pt,
-  '8xl': 45pt,
-  '7xl': 39pt,
-  '6xl': 30pt,
-  '5xl': 27pt,
-  '4xl': 24pt,
-  '3xl': 21pt,
-  '2xl': 18pt,
-  'xl': 16.5pt,
-  'l': 15pt,
-  'm': 13.5pt,
-  's': 12pt,
-  'xs': 10.5pt,
+  '10xl': 54pt,
+  '9xl': 45pt,
+  '8xl': 39pt,
+  '7xl': 30pt,
+  '6xl': 27pt,
+  '5xl': 24pt,
+  '4xl': 21pt,
+  '3xl': 18pt,
+  '2xl': 16.5pt,
+  'xl': 15pt,
+  'l': 13.5pt,
+  'm': 12pt,
+  's': 10.5pt,
+  'xs': 9pt,
+  '2s': 7.5pt,
 ) !default;
 $line-height-print: (
-  '10xl': 75pt,
-  '9xl': 58.5pt,
-  '8xl': 51pt,
-  '7xl': 45pt,
-  '6xl': 42pt,
-  '5xl': 39pt,
-  '4xl': 36pt,
-  '3xl': 33pt,
-  '2xl': 30pt,
-  'xl': 27pt,
-  'l': 24pt,
-  'm': 21pt,
-  's': 18pt,
-  'xs': 15pt,
+  '10xl': 58.5pt,
+  '9xl': 51pt,
+  '8xl': 45pt,
+  '7xl': 42pt,
+  '6xl': 39pt,
+  '5xl': 36pt,
+  '4xl': 33pt,
+  '3xl': 30pt,
+  '2xl': 27pt,
+  'xl': 24pt,
+  'l': 21pt,
+  'm': 18pt,
+  's': 15pt,
+  'xs': 12pt,
+  '2xs': 9pt,
+  '3xs': 6pt,
 ) !default;
 $font-print: (
   '10xl': #{map.get($font-size-print, '10xl') + '/' +
@@ -181,4 +181,7 @@ $font-print: (
     map.get($line-height-print, 's')} #{map.get($font-family-print, 'default')},
   'xs': #{map.get($font-size-print, 'xs') + '/' +
     map.get($line-height-print, 'xs')} #{map.get($font-family-print, 'default')},
+  '2xs': #{map.get($font-size-print, '2xs') + '/' +
+    map.get($line-height-print, '2xs')}
+    #{map.get($font-family-print, 'default')},
 ) !default;

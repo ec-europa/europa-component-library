@@ -13,6 +13,11 @@
   $theme: theme.$theme
 );
 
+// Typography Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $typography: var.$typography
+);
+
 // Forms
 @use '@ecl/form-group/form-group-print';
 @use '@ecl/checkbox/checkbox-print';
@@ -105,7 +110,8 @@
 );
 @use '@ecl/fact-figures/fact-figures-print' with (
   $theme: theme.$theme,
-  $fact-figures: var.$fact-figures
+  $fact-figures: var.$fact-figures,
+  $fact-figures-print: var.$fact-figures-print
 );
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
@@ -124,11 +130,13 @@
 );
 @use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
-  $list: var.$list
+  $list: var.$list,
+  $list-print: var.$list-print
 );
 @use '@ecl/unordered-list/unordered-list-print' with (
   $theme: theme.$theme,
-  $list: var.$list
+  $list: var.$list,
+  $list-print: var.$list-print
 );
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';

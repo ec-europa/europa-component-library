@@ -2,21 +2,20 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import logoEc from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
 import dataCore from './demo/data-core--ec';
 import dataStandardised from './demo/data-standardised--ec';
 import dataHarmonised from './demo/data-harmonised--ec';
-import footer from './site-footer.html.twig';
+import footer from './site-footer-ec.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
   const args = {
     show_contact: true,
-    show_follow: true,
-    show_relate_site: true,
-    show_logo: true,
     show_about: true,
-    show_class_names: true,
+    show_more: true,
+    show_related: true,
+    show_custom: false,
+    social_vertical: false,
   };
 
   return args;
@@ -33,24 +32,6 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.show_logo = {
-    name: 'logo',
-    type: { name: 'boolean' },
-    description: 'Show logo',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
-  argTypes.show_follow = {
-    name: 'follow us',
-    type: { name: 'boolean' },
-    description: 'Show "Follow us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
-
   argTypes.show_about = {
     name: 'about us',
     type: { name: 'boolean' },
@@ -60,21 +41,39 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.show_relate_site = {
-    name: 'related sites',
+  argTypes.show_more = {
+    name: 'more information',
     type: { name: 'boolean' },
-    description: 'Show "Related sites" section',
+    description: 'Show "More information" section',
     table: {
       category: 'Optional sections',
     },
   };
 
-  argTypes.show_class_names = {
-    name: 'class names',
+  argTypes.show_related = {
+    name: 'related links',
     type: { name: 'boolean' },
-    description: 'Show "Class names" section',
+    description: 'Show "Related links" section',
     table: {
       category: 'Optional sections',
+    },
+  };
+
+  argTypes.show_custom = {
+    name: 'custom links',
+    type: { name: 'boolean' },
+    description: 'Show "Custom links" sections',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+
+  argTypes.social_vertical = {
+    name: 'social vertical',
+    type: { name: 'boolean' },
+    description: 'Display social media vertically',
+    table: {
+      category: 'Display',
     },
   };
 
@@ -83,42 +82,39 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   correctPaths(data);
-  const res = JSON.parse(JSON.stringify(data));
-  if (res.split_columns) {
-    res.rows[0][0][0].logo.src_desktop = logoEc;
-    return res;
-  }
+  const clone = JSON.parse(JSON.stringify(data));
 
-  res.rows[2][0][0].logo.src_desktop = logoEc;
-  if (!args.show_logo && res.rows[1][0][0].logo) {
-    delete res.rows[1][0][0].logo;
-  }
-  if (!args.show_logo && res.rows[2]) {
-    delete res.rows[2][0][0].logo;
-  }
   if (!args.show_contact) {
-    res.rows[0][1].splice(0, 1);
-  }
-  if (!args.show_follow) {
-    res.rows[0][1].splice(1, 1);
-  }
-  if (!args.show_relate_site) {
-    res.rows[0][2].splice(1, 1);
+    delete clone.section_contact;
   }
   if (!args.show_about) {
-    res.rows[0][2].splice(0, 1);
+    delete clone.section_about;
   }
-  if (!args.show_class_names) {
-    res.rows.splice(1, 1);
+  if (!args.show_more) {
+    delete clone.section_more;
   }
-  if (!args.show_about && !args.show_relate_site) {
-    res.rows[0].splice(2, 1);
+  if (!args.show_related) {
+    delete clone.section_related;
   }
-  if (!args.show_contact && !args.show_follow) {
-    res.rows[0].splice(1, 1);
+  if (!args.show_custom) {
+    delete clone.sections_custom;
   }
 
-  return res;
+  if (args.social_vertical) {
+    clone.section_site_info.social_media.variant = 'vertical';
+    clone.section_site_info.social_media.links.forEach((element) => {
+      element.link.hide_label = false;
+    });
+
+    // Example with twice the same network, when displayed vertically
+    clone.section_site_info.social_media.links[2].link.label =
+      'Linkedin - link 1';
+    clone.section_site_info.social_media.links[3].link.label =
+      'Linkedin - link 2';
+    clone.section_site_info.social_media.links[3].icon.name = 'linkedin';
+  }
+
+  return Object.assign(clone, args);
 };
 
 export default {

@@ -4,6 +4,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -35,7 +36,7 @@ $typography: null !default;
       ) !important;
     }
 
-    @include breakpoints.up('l') {
+    @include breakpoints.up('xl') {
       font-size: map.get($typography, 'display', 'desktop', 'size') !important;
       line-height: map.get(
         $typography,
@@ -70,7 +71,7 @@ $typography: null !default;
     ) !important;
   }
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('xl') {
     font-size: map.get($typography, 'heading1', 'desktop', 'size') !important;
     line-height: map.get(
       $typography,
@@ -104,7 +105,7 @@ $typography: null !default;
     ) !important;
   }
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('xl') {
     font-size: map.get($typography, 'heading2', 'desktop', 'size') !important;
     line-height: map.get(
       $typography,
@@ -138,7 +139,7 @@ $typography: null !default;
     ) !important;
   }
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('xl') {
     font-size: map.get($typography, 'heading3', 'desktop', 'size') !important;
     line-height: map.get(
       $typography,
@@ -172,7 +173,7 @@ $typography: null !default;
     ) !important;
   }
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('xl') {
     font-size: map.get($typography, 'heading4', 'desktop', 'size') !important;
     line-height: map.get(
       $typography,
@@ -189,8 +190,14 @@ $typography: null !default;
   font-family: map.get($typography, 'font-family') !important;
   font-size: map.get($typography, 'heading5', 'mobile', 'size') !important;
   font-weight: map.get($typography, 'heading5', 'font-weight') !important;
+  line-height: map.get(
+    $typography,
+    'heading5',
+    'mobile',
+    'line-height'
+  ) !important;
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('m') {
     font-size: map.get($typography, 'heading5', 'tablet', 'size') !important;
     line-height: map.get(
       $typography,
@@ -200,7 +207,7 @@ $typography: null !default;
     ) !important;
   }
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('xl') {
     font-size: map.get($typography, 'heading5', 'desktop', 'size') !important;
     line-height: map.get(
       $typography,
@@ -234,7 +241,7 @@ $typography: null !default;
     ) !important;
   }
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('xl') {
     font-size: map.get($typography, 'heading6', 'desktop', 'size') !important;
     line-height: map.get(
       $typography,
@@ -286,6 +293,20 @@ $typography: null !default;
 @if map.has-key($typography, 'paragraph', 'xl') {
   .ecl-u-type-paragraph-lead {
     font: map.get($typography, 'paragraph', 'xl') !important;
+  }
+}
+
+/*
+* Microcopy
+*/
+@if map.has-key($typography, 'microcopy') {
+  @each $key, $value in map.get($typography, 'microcopy') {
+    .ecl-u-type-microcopy-#{$key} {
+      color: map.get($typography, 'text-color') !important;
+      max-width: var(--max-w) !important;
+
+      @include mixins.responsive-font('microcopy-' + $key);
+    }
   }
 }
 
