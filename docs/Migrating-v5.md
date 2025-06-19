@@ -221,6 +221,10 @@ The related styles can be customized defining:
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
 
+### Radio
+
+To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+
 ### Site header
 
 New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
