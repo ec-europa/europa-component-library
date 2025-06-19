@@ -61,6 +61,7 @@ $form-group: null !default;
 }
 
 .ecl-form-label__optional {
+  align-self: center;
   color: map.get($form-group, 'optional', 'color');
   margin-inline: map.get($form-group, 'optional', 'margin-inline');
 
@@ -71,6 +72,7 @@ $form-group: null !default;
 }
 
 .ecl-form-label__required {
+  align-self: center;
   color: map.get($form-group, 'required', 'color');
   margin-inline: map.get($form-group, 'required', 'margin-inline');
 
