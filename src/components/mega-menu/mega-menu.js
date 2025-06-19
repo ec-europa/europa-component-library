@@ -610,10 +610,10 @@ export class MegaMenu {
 
     if (viewport === 'desktop' && this.header) {
       if (this.headerBanner) {
-        this.headerBanner.style.display = 'flex';
+        this.headerBanner.style.display = '';
       }
       if (this.headerNotification) {
-        this.headerNotification.style.display = 'flex';
+        this.headerNotification.style.display = '';
       }
     }
   }
@@ -1333,10 +1333,10 @@ export class MegaMenu {
     } else {
       if (this.header) {
         if (this.headerBanner) {
-          this.headerBanner.style.display = 'flex';
+          this.headerBanner.style.display = '';
         }
         if (this.headerNotification) {
-          this.headerNotification.style.display = 'flex';
+          this.headerNotification.style.display = '';
         }
       }
       // Remove expanded class from inner menu
@@ -1642,10 +1642,10 @@ export class MegaMenu {
         'ecl-site-header--open-menu-start',
       );
       if (this.headerBanner) {
-        this.headerBanner.style.display = 'flex';
+        this.headerBanner.style.display = '';
       }
       if (this.headerNotification) {
-        this.headerNotification.style.display = 'flex';
+        this.headerNotification.style.display = '';
       }
     }
     this.enableScroll();
