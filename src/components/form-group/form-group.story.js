@@ -97,6 +97,153 @@ const getArgTypes = (data, type) => ({
     : {}),
 });
 
+const withDuet = (Story) => {
+  const container = document.createElement('div');
+
+  // Load assets only once
+  if (!document.querySelector('link[href*="duet/themes/default.css"]')) {
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href =
+      'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/themes/default.css';
+    document.head.appendChild(style);
+
+    const scriptModule = document.createElement('script');
+    scriptModule.type = 'module';
+    scriptModule.src =
+      'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js';
+    document.head.appendChild(scriptModule);
+
+    const scriptNoModule = document.createElement('script');
+    scriptNoModule.setAttribute('nomodule', '');
+    scriptNoModule.src =
+      'https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js';
+    document.head.appendChild(scriptNoModule);
+  }
+
+  // Inject styles
+  const styleTag = document.createElement('style');
+  styleTag.textContent = `
+    :root {
+      --duet-font: Inter, sans-serif;
+    }
+
+    .duet-date__day,
+    .duet-date__day:hover::before,
+    .duet-date__day.is-today::before {
+      border-radius: 0;
+    }
+
+    .duet-date__dialog.is-left {
+      width: 100%;
+    }
+
+    .duet-date__header > div {
+      flex-grow: 1;
+    }
+
+    .duet-date__dialog-content {
+      margin-inline-start: 0;
+      max-width: 100%;
+    }
+
+    .duet-date__select {
+      border: 1px solid var(--c-d);
+      border-radius: 0;
+      height: 3rem;
+      width: 47%;
+    }
+
+    .duet-date__select:last-child {
+      margin-inline-start: var(--s-m);
+    }
+
+    .duet-date__nav {
+      display: none;
+    }
+  `;
+  document.head.appendChild(styleTag);
+
+  // Render the story content
+  const storyResult = Story();
+
+  // Handle string or Node
+  if (typeof storyResult === 'string') {
+    container.innerHTML = storyResult;
+  } else if (storyResult instanceof Node) {
+    container.appendChild(storyResult);
+  }
+
+  // Setup date-picker once rendered
+  const DATE_FORMAT_EU = /^(\d{2})-(\d{2})-(\d{4})$/;
+
+  const applyCustomizations = () => {
+    const picker = container.querySelector('duet-date-picker');
+    if (!picker) return;
+
+    picker.localization = {
+      dayNames: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+      ],
+      monthNames: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
+      monthNamesShort: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
+      placeholder: 'DD-MM-YYYY',
+    };
+
+    picker.direction = 'left';
+
+    picker.dateAdapter = {
+      parse(value = '', createDate) {
+        const matches = value.match(DATE_FORMAT_EU);
+        if (matches) {
+          return createDate(matches[3], matches[2], matches[1]);
+        }
+      },
+      format(date) {
+        const pad = (n) => String(n).padStart(2, '0');
+        return `${pad(date.getDate())}-${pad(date.getMonth() + 1)}-${date.getFullYear()}`;
+      },
+    };
+  };
+
+  // Wait a tick then apply (can also wrap in MutationObserver if needed)
+  setTimeout(applyCustomizations, 50);
+
+  return container;
+};
+
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
   Object.assign(clone, args);
@@ -198,6 +345,86 @@ Checkbox.storyName = 'Checkbox group';
 Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
 Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
+
+export const Date = (_, { loaded: { component } }) => component;
+
+Date.render = async () => {
+  const renderedDate = await formGroup({
+    label: 'Select a date',
+    helper_text:
+      'You can type the date or select it from the datepicker, if available',
+    input: { input_type: 'date' },
+  });
+  return renderedDate;
+};
+Date.storyName = 'Date input field';
+
+export const DateDuet = (_, { loaded: { component } }) => component;
+
+DateDuet.render = async () => {
+  const renderedDateDuet = await formGroup({
+    label: 'Select a date',
+    helper_text: 'You can type the date or select it from the datepicker',
+    input: { input_type: 'duet' },
+  });
+  return renderedDateDuet;
+};
+DateDuet.storyName = 'Duet datepicker';
+DateDuet.decorators = [withDuet];
+DateDuet.parameters = {
+  styleToggle: {
+    styleSheets: [
+      {
+        id: 'ecl-reset',
+        href: './styles/optional/ecl-reset.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-default',
+        href: './styles/optional/ecl-ec-default.css',
+        picked: false,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-ec',
+        href: './styles/ecl-ec.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-ec-color-modes',
+        href: './styles/ecl-ec-color-modes.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-utilities',
+        href: './styles/optional/ecl-ec-utilities.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-rtl',
+        href: './styles/optional/ecl-rtl.css',
+        picked: false,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-default-print',
+        href: './styles/optional/ecl-ec-default-print.css',
+        picked: false,
+        group: 'print',
+      },
+      {
+        id: 'ecl-ec-print',
+        href: './styles/ecl-ec-print.css',
+        picked: false,
+        group: 'print',
+      },
+    ],
+  },
+};
 
 export const Datepicker = (_, { loaded: { component } }) => component;
 

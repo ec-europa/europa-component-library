@@ -216,6 +216,16 @@
     </div>
   {% endif %}
 
+  {%- if _input.input_type == 'date' %}
+    <input class="ecl-text-input ecl-text-input--m" type="date"></input>
+  {% endif %} 
+
+  {%- if _input.input_type == 'duet' %}
+    <div style="width: 350px">
+      <duet-date-picker identifier="date"></duet-date-picker>
+    </div>
+  {% endif %} 
+
   {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
     {% include '@ecl/text-input/text-input.html.twig' with _input|merge({
       type: _input.input_type,
