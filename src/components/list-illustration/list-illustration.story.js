@@ -372,7 +372,7 @@ const prepareDataItem = (data, args) => {
     clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
       clone.icon.name = args.icon_flag;
-      clone.icon.family = 'flag';
+      clone.icon.family = 'flags';
     }
     if (args.icon === 'none') {
       delete clone.icon;
