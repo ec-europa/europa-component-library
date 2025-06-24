@@ -9,7 +9,6 @@ import { Link, Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-forms"
   selectedStory="file-upload"
-  showFrame
 ></Playground>
 
 ## Multiple uploads
@@ -17,9 +16,7 @@ import { Link, Playground } from '@ecl/website-components';
 <Playground
   system="ec"
   selectedKind="components-forms"
-  selectedStory="file-upload"
-  selectedArgs="input.multiple:true"
-  showFrame
+  selectedStory="file-upload-multiple"
 ></Playground>
 
 ## Disabled
@@ -28,8 +25,7 @@ import { Link, Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-forms"
   selectedStory="file-upload"
-  selectedArgs="disabled:true"
-  showFrame
+  selectedArgs="disabled:!true"
 ></Playground>
 
 ## With error
@@ -38,8 +34,7 @@ import { Link, Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-forms"
   selectedStory="file-upload"
-  selectedArgs="invalid:true"
-  showFrame
+  selectedArgs="invalid:!true"
 ></Playground>
 
 ## Optional
@@ -49,5 +44,4 @@ import { Link, Playground } from '@ecl/website-components';
   selectedKind="components-forms"
   selectedStory="file-upload"
   selectedArgs="required:!false"
-  showFrame
 ></Playground>
