@@ -1,5 +1,47 @@
 # Changelog
 
+# 5.0.0-alpha.14
+
+#### :bug: Bug Fix
+
+- [#4018](https://github.com/ec-europa/europa-component-library/pull/4018) fix(mega-menu): Fixing unwanted hiding of the featured panel when clicking on back - FRONT-4930 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4024](https://github.com/ec-europa/europa-component-library/pull/4024) feat(print): class name and timeline tweaks - FRONT-4942 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 5.0.0-alpha.13
+
+#### :rocket: New Feature
+
+- [#4010](https://github.com/ec-europa/europa-component-library/pull/4010) feat(logos): Adding logos for Greenland in EC and EU - FRONT-4914 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4004](https://github.com/ec-europa/europa-component-library/pull/4004) feat(print): improve print - FRONT-4920 ([@emeryro](https://github.com/emeryro))
+- [#4009](https://github.com/ec-europa/europa-component-library/pull/4009) feat(site-header): Hiding menu close button in EU - FRONT-4919 ([@planctus](https://github.com/planctus))
+- [#4003](https://github.com/ec-europa/europa-component-library/pull/4003) feat(typography): update H5 font - FRONT-4917 ([@emeryro](https://github.com/emeryro))
+- [#4006](https://github.com/ec-europa/europa-component-library/pull/4006) fix(mega-menu): Taking into account the minHeight, recalculating also on collapse - FRONT-4922 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3989](https://github.com/ec-europa/europa-component-library/pull/3989) feat(docs): update website content - FRONT-4899 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4007](https://github.com/ec-europa/europa-component-library/pull/4007) feat(styles-addon): Persisting styles when opening in a new tab - FRONT-4923 ([@planctus](https://github.com/planctus))
+- [#4005](https://github.com/ec-europa/europa-component-library/pull/4005) chore(addon-styles): Fixing styles when switching stories - FRONT-4921 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.12
 
 #### :rocket: New Feature
