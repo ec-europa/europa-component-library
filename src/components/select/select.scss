@@ -55,7 +55,6 @@ $outline-width: 2px;
   &:focus-visible,
   &:active,
   &--active {
-    box-shadow: map.get($select, 'shadow-hover');
     outline: $outline-width solid var(--cm-border-primary, var(--c-p));
     outline-offset: -#{$outline-width};
   }
