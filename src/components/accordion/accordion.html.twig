@@ -64,7 +64,13 @@
 >
   {% if _items is not empty %}
     {% for _item in _items %}
-      <div class="ecl-accordion__item">
+      {% set _item_class = 'ecl-accordion__item' %}
+      {% if loop.first %}
+        {% set _item_class = _item_class ~ ' is-first'  %}
+      {% elseif loop.last %}
+        {% set _item_class = _item_class ~ ' is-last' %}
+      {% endif %}
+      <div class="{{ _item_class }}">
         <div class="ecl-accordion__title" id="{{ _item.id }}-title">
           <button
             type="button"
