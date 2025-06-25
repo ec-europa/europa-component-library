@@ -4,7 +4,8 @@
  */
 
 @use 'sass:map';
-@use '@ecl/layout-form/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -22,47 +23,42 @@ $textarea: null !default;
   box-sizing: border-box;
   color: map.get($textarea, 'color-input');
   display: block;
-  font: map.get($textarea, 'font');
   margin: 0;
   max-width: 100%;
-  padding: calc(
-      #{map.get($textarea, 'padding-vertical')} -
-        #{map.get($textarea, 'border-width')}
-    )
-    calc(
-      #{map.get($textarea, 'padding-horizontal')} -
-        #{map.get($textarea, 'border-width')}
-    );
+  padding-block: map.get($textarea, 'padding-block');
+  padding-inline: map.get($textarea, 'padding-inline');
+
+  @include mixins.responsive-font(map.get($textarea, 'font'));
 
   &::placeholder {
     color: map.get($textarea, 'color-placeholder');
     opacity: 1;
+
+    @include mixins.responsive-font(map.get($textarea, 'font'));
   }
 
   &:hover {
     border-color: map.get($textarea, 'border-color-hover');
     box-shadow: map.get($textarea, 'shadow-hover');
-    cursor: pointer;
   }
 
   &:focus-visible,
   &:active {
-    box-shadow: map.get($textarea, 'shadow-hover');
     outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -2px;
   }
 }
 
 .ecl-text-area--s {
-  @include mixins.form-width('s');
+  @include mixins-form.form-width('s');
 }
 
 .ecl-text-area--m {
-  @include mixins.form-width('m');
+  @include mixins-form.form-width('m');
 }
 
 .ecl-text-area--l {
-  @include mixins.form-width('l');
+  @include mixins-form.form-width('l');
 }
 
 .ecl-text-area[disabled],
@@ -88,7 +84,7 @@ $textarea: null !default;
     box-shadow: map.get($textarea, 'shadow');
   }
 
-  &:focus,
+  &:focus-visible,
   &:active {
     border-color: rgba(map.get($textarea, 'border-color'), 0.5);
     border-width: map.get($textarea, 'border-width');
@@ -98,12 +94,13 @@ $textarea: null !default;
 .ecl-text-area--invalid {
   border-color: map.get($textarea, 'border-color-invalid');
 
-  &:active,
   &:hover {
     border-color: map.get($textarea, 'border-color-invalid-hover');
   }
 
+  &:active,
   &:focus-visible {
-    border-color: map.get($textarea, 'border-color-focus');
+    border-color: map.get($textarea, 'border-color-invalid-focus');
+    outline-color: map.get($textarea, 'border-color-invalid-focus');
   }
 }
