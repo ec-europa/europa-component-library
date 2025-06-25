@@ -118,7 +118,7 @@ export const getIconControls = (icons, mapping) => {
       'flip-vertical',
     ],
     mapping: {
-      none: 'none',
+      none: '',
       '90° rotation': 'rotate-90',
       '180° rotation': 'rotate-180',
       '270° rotation': 'rotate-270',
