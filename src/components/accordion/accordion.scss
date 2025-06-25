@@ -60,7 +60,7 @@ $accordion: null !default;
   border-bottom: map.get($accordion, 'separator');
   position: relative;
 
-  &:first-child {
+  &.is-first {
     @if map.has-key($accordion, 'yellow-bar') {
       &::before {
         background-color: var(--cm-surface-secondary, var(--c-s));
@@ -82,7 +82,7 @@ $accordion: null !default;
     }
   }
 
-  &:last-child {
+  &.is-last {
     border-bottom-width: 0;
 
     .ecl-accordion__toggle {
