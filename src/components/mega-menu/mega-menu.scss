@@ -93,7 +93,7 @@ $mega-menu: null !default;
   display: flex;
   flex-direction: column;
   font: var(--f-xs);
-  margin-inline-start: var(--s-xs);
+  margin-inline-start: map.get($mega-menu, 'mobile', 'open-button-margin');
   order: 2;
   padding: map.get($mega-menu, 'mobile', 'open-padding');
   text-decoration: none;
@@ -112,7 +112,7 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
-    outline-offset: -2px;
+    outline-offset: map.get($mega-menu, 'mobile', 'open-button-offset');
   }
 
   .ecl-icon:last-of-type {
@@ -151,7 +151,7 @@ $mega-menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
     background: map.get($mega-menu, 'desktop', 'menu-background');
     padding-bottom: 0;
@@ -334,7 +334,7 @@ $mega-menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
     .ecl-mega-menu__overlay {
       background-color: map.get($mega-menu, 'desktop', 'overlay-background');
@@ -345,7 +345,6 @@ $mega-menu: null !default;
       background-color: transparent;
       box-shadow: none;
       display: block;
-      margin-inline-start: calc(-1 * var(--s-m));
       overflow-y: visible;
       position: static;
       transition: none;
@@ -572,12 +571,13 @@ $mega-menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
     border-top: map.get($mega-menu, 'desktop', 'menu-border');
 
     .ecl-mega-menu__inner {
       border-top: none;
+      margin-inline-start: calc(-1 * var(--s-xs));
     }
 
     .ecl-mega-menu__list {
@@ -779,7 +779,7 @@ $mega-menu: null !default;
   display: none;
 }
 
-@include breakpoints.down('m') {
+@include breakpoints.down('l') {
   .ecl-mega-menu--one-panel {
     .ecl-mega-menu__item--expanded > .ecl-mega-menu__link {
       font: var(--f-l);
@@ -1100,7 +1100,7 @@ $mega-menu: null !default;
   }
 }
 
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-mega-menu:not(
       .ecl-mega-menu--forced-mobile,
       .ecl-mega-menu--forced-close
@@ -1510,7 +1510,7 @@ $mega-menu: null !default;
   }
 }
 
-@include breakpoints.up('xl') {
+@include breakpoints.up('xxl') {
   .ecl-mega-menu:not(
       .ecl-mega-menu--forced-mobile,
       .ecl-mega-menu--forced-close
@@ -1521,6 +1521,10 @@ $mega-menu: null !default;
         'desktop',
         'container-extra-large-padding-horizontal'
       );
+    }
+
+    .ecl-mega-menu__inner {
+      margin-inline-start: calc(-1 * var(--s-m));
     }
 
     .ecl-mega-menu__item.ecl-mega-menu__item--expanded

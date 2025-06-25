@@ -146,7 +146,7 @@ export class Menu {
     this.lastVisibleItem = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointL = 996;
+    this.breakpointL = 1140;
     this.windowWidth = null;
     this.ignorehover = false;
 

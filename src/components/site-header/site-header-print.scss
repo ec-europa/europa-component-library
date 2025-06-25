@@ -29,21 +29,12 @@ $site-header: null !default;
   display: none;
 }
 
-.ecl-site-header__banner-top {
-  color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($theme, 'font-print', 'm');
-
-  .ecl-link {
-    color: var(--cm-on-surface-brand, var(--c-d));
-  }
-
-  .ecl-link::after {
-    display: none;
-  }
-}
-
 .ecl-site-header__banner {
   display: none !important;
+}
+
+.ecl-site-header__banner-top {
+  display: none;
 }
 
 .ecl-site-header__logo-link::after {

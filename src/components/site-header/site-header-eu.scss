@@ -266,7 +266,7 @@ $language-list: null !default;
   display: flex;
   margin-top: var(--s-m);
 
-  @include breakpoints.down('m') {
+  @include breakpoints.down('l') {
     &::before {
       @include site-header-dropdown.arrow-up;
 
@@ -332,7 +332,7 @@ $language-list: null !default;
 }
 // stylelint-enable plugin/selector-bem-pattern
 
-@include breakpoints.down('m') {
+@include breakpoints.down('l') {
   .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
@@ -374,7 +374,7 @@ $language-list: null !default;
   }
 }
 
-@include breakpoints.up('m') {
+@include breakpoints.up('l') {
   .ecl-site-header__logo-link {
     margin-top: 0;
   }
@@ -384,7 +384,7 @@ $language-list: null !default;
   }
 }
 
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-site-header {
     .ecl-site-header__cta {
       align-self: center;
@@ -550,7 +550,7 @@ $language-list: null !default;
   // stylelint-enable plugin/selector-bem-pattern
 }
 
-@include breakpoints.up('xl') {
+@include breakpoints.up('xxl') {
   .ecl-site-header__action .ecl-form-group {
     width: map.get($site-header, 'search-width-xl');
   }

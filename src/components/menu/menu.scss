@@ -94,7 +94,7 @@ $menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     background: map.get($menu, 'desktop', 'menu-background');
     padding-bottom: 0;
@@ -269,7 +269,7 @@ $menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     .ecl-menu__inner {
       background-color: transparent;
@@ -409,7 +409,7 @@ $menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     border-top: map.get($menu, 'desktop', 'menu-border');
 
@@ -777,7 +777,7 @@ $menu: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__mega {
       background-color: #fff;
@@ -881,7 +881,7 @@ $menu: null !default;
   transition: right 375ms;
 }
 
-@include breakpoints.up('l') {
+@include breakpoints.up('xl') {
   .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
     .ecl-menu__item,
     .ecl-menu__item::before,
