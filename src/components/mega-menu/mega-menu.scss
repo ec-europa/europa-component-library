@@ -494,8 +494,13 @@ $mega-menu: null !default;
   }
 
   .ecl-mega-menu__featured-list__item-description {
-    font: map.get($mega-menu, 'global', 'featured-description-font');
     margin-inline-start: var(--s-l);
+  }
+
+  .ecl-mega-menu__featured-list__item-description,
+  .ecl-mega-menu__featured-list__item-description p {
+    font: map.get($mega-menu, 'global', 'featured-description-font');
+    margin-block: 0;
   }
 }
 
