@@ -148,7 +148,10 @@ $banner: null !default;
   }
 
   .ecl-banner--font-s & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'description-s'));
+    @include mixins.responsive-font(
+      map.get($banner, 'font', 'description-s'),
+      map.get($banner, 'font', 'description-s-font-weight')
+    );
   }
 
   .ecl-banner--font-l & {

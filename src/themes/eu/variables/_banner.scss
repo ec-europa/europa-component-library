@@ -44,8 +44,27 @@ $banner: (
   ),
   // TODO: use the mixin here when ready
   font: (
-      'title-s': 'heading1',
-      'title-m': 'heading1',
+      'title-s': (
+        'mobile': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+        'desktop': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-4xl),
+        ),
+      ),
+      'title-m': (
+        'font-weight': map.get($font-weight, 'regular'),
+        'mobile': (
+          'size': var(--fs-2xl),
+          'line-height': var(--lh-2xl),
+        ),
+        'desktop': (
+          'size': var(--fs-4xl),
+          'line-height': var(--lh-4xl),
+        ),
+      ),
       'title-l': (
         'mobile': (
           'size': var(--fs-2xl),
@@ -56,8 +75,9 @@ $banner: (
           'line-height': var(--lh-5xl),
         ),
       ),
-      'description-s': 'heading2',
-      'description-m': 'heading2',
+      'description-s': 'heading4',
+      'description-s-font-weight': map.get($font-weight, 'regular'),
+      'description-m': 'heading4',
       'description-l': (
         'mobile': (
           'size': var(--fs-xl),

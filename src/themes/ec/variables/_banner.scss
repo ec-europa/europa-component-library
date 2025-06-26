@@ -44,65 +44,13 @@ $banner: (
   ),
   // TODO: use the mixin here when ready
   font: (
-      'title-s': (
-        'mobile': (
-          'size': var(--fs-6xl),
-          'line-height': var(--lh-3xl),
-        ),
-        'tablet': (
-          'size': var(--fs-7xl),
-          'line-height': var(--lh-6xl),
-        ),
-        'desktop': (
-          'size': var(--fs-8xl),
-          'line-height': var(--lh-8xl),
-        ),
-      ),
+      'title-s': 'heading1',
       'title-m': 'heading1',
-      'title-l': (
-        'mobile': (
-          'size': var(--fs-6xl),
-          'line-height': var(--lh-3xl),
-        ),
-        'tablet': (
-          'size': var(--fs-7xl),
-          'line-height': var(--lh-6xl),
-        ),
-        'desktop': (
-          'size': var(--fs-10xl),
-          'line-height': var(--lh-10xl),
-        ),
-      ),
-      'description-s': (
-        'font-weight': map.get($font-weight, 'regular'),
-        'mobile': (
-          'size': var(--fs-xl),
-          'line-height': var(--lh-l),
-        ),
-        'tablet': (
-          'size': var(--fs-2xl),
-          'line-height': var(--lh-xl),
-        ),
-        'desktop': (
-          'size': var(--fs-2xl),
-          'line-height': var(--lh-xl),
-        ),
-      ),
+      'title-l': 'display',
+      'description-s': 'body-2xl',
+      'description-s-font-weight': map.get($font-weight, 'regular'),
       'description-m': 'heading2',
-      'description-l': (
-        'mobile': (
-          'size': var(--fs-4xl),
-          'line-height': var(--lh-xl),
-        ),
-        'tablet': (
-          'size': var(--fs-5xl),
-          'line-height': var(--lh-3xl),
-        ),
-        'desktop': (
-          'size': var(--fs-6xl),
-          'line-height': var(--lh-4xl),
-        ),
-      ),
+      'description-l': 'heading2',
       'credit': (
         'mobile': var(--f-2xs),
         'desktop': var(--f-xs),
