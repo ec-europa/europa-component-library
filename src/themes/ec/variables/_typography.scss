@@ -88,11 +88,11 @@ $typography: (
     ),
     'tablet': (
       'size': var(--fs-xl),
-      'line-height': var(--lh-l),
+      'line-height': var(--lh-m),
     ),
     'desktop': (
       'size': var(--fs-xl),
-      'line-height': var(--lh-l),
+      'line-height': var(--lh-m),
     ),
     'font-weight': map.get($font-weight, 'light'),
   ),
@@ -204,15 +204,15 @@ $typography: (
     ),
     'xs': (
       'size': var(--fs-xs),
-      'line-height': var(--lh-xs),
+      'line-height': var(--lh-2xs),
     ),
     's': (
       'size': var(--fs-s),
-      'line-height': var(--lh-s),
+      'line-height': var(--lh-xs),
     ),
     'm': (
       'size': var(--fs-m),
-      'line-height': var(--lh-m),
+      'line-height': var(--lh-s),
     ),
   ),
   paragraph: (

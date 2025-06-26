@@ -11,7 +11,7 @@ module.exports = {
   label_aria_required: 'required',
   disabled: false,
   invalid: false,
-  required_text: '*',
+  required_text: '(required)',
   optional_text: '(optional)',
   input: {
     input_type: 'textarea',

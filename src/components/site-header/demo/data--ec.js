@@ -4,7 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   logo: {
     alt: 'European Commission',
-    breakpoint: 's',
+    breakpoint: 'xs',
     path: exampleLink,
     language: 'en',
     src_desktop: '/logo-ec--en.svg',
@@ -264,7 +264,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'European Commission',
+  site_name: 'News, policies, information and services',
   cta_link: {
     link: {
       label: 'CTA link',

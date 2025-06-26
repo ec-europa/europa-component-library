@@ -6,7 +6,7 @@
     <!-- Banner -->
     {%- include '@ecl/banner/banner.html.twig' with banner -%}
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Maecenas sagittis est</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Maecenas sagittis est</h2>
 
     <!-- Cards -->
     <div class="ecl-row">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Orci varius natoque penatibus</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Orci varius natoque penatibus</h2>
 
     <!-- Content item -->
     <div class="ecl-row">
@@ -56,12 +56,12 @@
       },
     } -%}
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Vivamus et eros</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Vivamus et eros</h2>
 
     <!-- Featured item -->
     {%- include '@ecl/featured-item/featured-item.html.twig' with featured_item -%}
 
-    <h2 class="ecl-u-type-heading-2 ecl-u-mt-6xl ecl-u-mb-l">Aliquam massa est, facilisis eget eleifend ut</h2>
+    <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l">Aliquam massa est, facilisis eget eleifend ut</h2>
 
     <!-- Navigation list -->
     {%- include '@ecl/navigation-list/navigation-list.html.twig' with navigation_list -%}
@@ -70,4 +70,9 @@
 </main>
 
 <!-- Footer -->
-{%- include '@ecl/site-footer/site-footer.html.twig' with site_footer -%}
+{% if system == 'ec' %}
+  {%- include '@ecl/site-footer/site-footer-ec.html.twig' with site_footer -%}
+{% else %}
+  {%- include '@ecl/site-footer/site-footer-eu.html.twig' with site_footer -%}
+{% endif %}
+

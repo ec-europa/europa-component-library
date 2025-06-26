@@ -351,7 +351,6 @@
 
   // Default color mode
   // surface
-  --cm-surface-dark: var(--c-d-900);
   --cm-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-inverted: #fff;
   --cm-surface-transparent-70: color-mix(
@@ -387,7 +386,11 @@
   --cm-surface-status-info: var(--c-in-500);
 
   // on surface
-  --cm-on-surface-brand-medium: #{map.get($color-palette, 'blue-navy-600')};
+  --cm-on-surface-brand-medium: color-mix(
+    in srgb,
+    var(--c-d-900) 70%,
+    transparent
+  );
   --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-on-surface-inverted: #fff;
   --cm-on-surface-swap-1: #fff;
@@ -401,6 +404,7 @@
   --cm-on-surface-secondary-medium: var(--c-s-200);
   --cm-on-surface-neutral-low: var(--c-l-300);
   --cm-on-surface-neutral-medium: var(--c-d-300);
+  --cm-on-surface-neutral-highest: var(--c-d-900);
   --cm-on-surface-status-error: var(--c-er-600);
   --cm-on-surface-status-warning: var(--c-wa-500);
   --cm-on-surface-status-success: var(--c-su-700);

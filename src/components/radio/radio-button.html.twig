@@ -52,6 +52,7 @@
 {% endif %}
 
 {% if _invalid %}
+  {% set _css_class = _css_class ~ ' ecl-radio--invalid' %}
   {% set _box_css_class = _box_css_class ~ ' ecl-radio__box--invalid' %}
 {% endif %}
 

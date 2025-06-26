@@ -1,23 +1,19 @@
-const fs = require('fs');
-const path = require('path');
-const { promisify } = require('util');
-const { ncp } = require('ncp');
-const globby = require('globby');
+import fs from 'node:fs';
+import path from 'node:path';
+import { copy } from 'fs-extra';
+import { globby } from 'globby';
 
-const copy = promisify(ncp);
+export default async (patterns, from, to) => {
+  const paths = await globby(patterns, {
+    nodir: true,
+    cwd: from,
+    followSymbolicLinks: true, // Matches globby 11.0.4 behavior
+  });
 
-module.exports = (patterns, from, to) => {
-  const executor = async () => {
-    const paths = await globby(patterns, { nodir: true, cwd: from });
-
-    paths.map(async (file) => {
-      const input = path.resolve(from, file);
-      const dest = path.resolve(to, file);
-
-      fs.mkdirSync(path.dirname(dest), { recursive: true });
-      await copy(input, dest);
-    });
-  };
-
-  executor();
+  for (const file of paths) {
+    const input = path.resolve(from, file);
+    const dest = path.resolve(to, file);
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    await copy(input, dest);
+  }
 };

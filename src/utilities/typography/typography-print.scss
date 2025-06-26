@@ -3,6 +3,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -99,6 +100,19 @@ $typography-print: null !default;
 .ecl-u-type-paragraph-lead {
   color: map.get($typography, 'text-color');
   font: map.get($theme, 'font-print', 'xl') !important;
+}
+
+/*
+* Microcopy
+*/
+@if map.has-key($typography, 'microcopy') {
+  @each $key, $value in map.get($typography, 'microcopy') {
+    .ecl-u-type-microcopy-#{$key} {
+      color: map.get($typography, 'text-color') !important;
+
+      @include mixins.responsive-font('microcopy-' + $key);
+    }
+  }
 }
 
 /*

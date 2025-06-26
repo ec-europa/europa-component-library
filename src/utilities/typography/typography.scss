@@ -135,6 +135,20 @@ $typography: null !default;
 }
 
 /*
+* Microcopy
+*/
+@if map.has-key($typography, 'microcopy') {
+  @each $key, $value in map.get($typography, 'microcopy') {
+    .ecl-u-type-microcopy-#{$key} {
+      color: map.get($typography, 'text-color') !important;
+      max-width: var(--max-w) !important;
+
+      @include mixins.responsive-font('microcopy-' + $key);
+    }
+  }
+}
+
+/*
 * Fonts
 */
 @each $key, $value in map.get($theme, 'font') {

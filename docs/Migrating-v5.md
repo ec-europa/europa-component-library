@@ -15,20 +15,15 @@ Typography has also changed quite drastically in EC.
 
 ### Grid
 
-A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
-All the responsive utilities have been updated to include also the new breakpoint.
+- A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
+  All the responsive utilities have been updated to include also the new breakpoint.
+- Main container width has been updated on large breakpoints; now it uses available sace more efficiently
+- Grid gutters are now changing based on the breakpoints
 
 ### [EC] Color scales
 
 Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
 Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
-
-TODO
-
-- update the components to use the new color properties instead of the v4 ones
-- remove old colors
-- update utilities
-- update documentation
 
 ### [EC] Color modes
 
@@ -36,7 +31,7 @@ A color mode is a set of color, applied to different elements, and giving a dist
 
 Every color mode is defined in a new file, called `ecl-ec-color-modes.css`. If this file is omitted, the default EC display is used.
 
-Components can use on mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components taking benefits of it (not all the components are affected by color modes).
+Components can use one mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components taking benefits of it (not all the components are affected by color modes).
 
 How it works:
 
@@ -49,17 +44,21 @@ Here is the list of variables used in the color modes:
 | Name | CSS custom property | Utilities |
 | ---------------------- | --------------------------- | ------------------------ |
 | surface | --cm-surface | _-surface |
+| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
+| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
 | surface medium | --cm-surface-medium | _-surface-medium |
-| surface low | --cm-surface-low | _-surface-low |
+| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
+| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
 | surface lowest | --cm-surface-lowest | _-surface-lowest |
 | surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
 | on surface | --cm-on-surface | _-on-surface |
-| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
 | on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
 | on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
+| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
+| on surface swap 1 | --cm-on-surface-swap-1 | _-on-surface-swap-1 |
+| on surface swap-2 | --cm-on-surface-swap-2 | _-on-surface-swap-2 |
 | border | --cm-border | _-border |
-| border medium | --cm-border-medium | _-border-medium |
-| border medium low | --cm-border-low | _-border-low |
+| border low | --cm-border-low | _-border-low |
 
 TODO
 
@@ -112,7 +111,7 @@ Utilities have been added for the color modes. They are available for background
 Here are a few examples:
 
 - `ecl-u-bg-surface`
-- `ecl-u-border-color-border-medium`
+- `ecl-u-border-color-border-low`
 
 Other modification for the utilities:
 
@@ -125,6 +124,8 @@ Other modification for the utilities:
 Markup of accordion title has been updated to use a simple div instead of a heading.
 
 Corresponding twig parameter `level` has been removed.
+
+A selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
 
 ### Banner
 
@@ -221,6 +222,10 @@ The related styles can be customized defining:
 
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
+
+### Radio
+
+To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
 
 ### Site header
 
