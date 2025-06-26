@@ -4,12 +4,13 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $range: null !default;
 
-@use '@ecl/layout-form/mixins' with (
+@use '@ecl/layout-form/mixins' as mixins-form with (
   $theme: $theme
 );
 
@@ -74,7 +75,8 @@ $range: null !default;
   box-sizing: border-box;
   color: map.get($range, 'value-color');
   display: inline-flex;
-  font: map.get($range, 'value-font');
+
+  @include mixins.responsive-font(map.get($range, 'value-font'));
 }
 
 .ecl-form-group .ecl-range__value {
@@ -94,7 +96,7 @@ $range: null !default;
 .ecl-range::range-thumb {
   appearance: none;
   border: none;
-  background-color: var(--cm-on-surface-primary, var(--c-p));
+  background-color: map.get($range, 'slider-color');
   border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
@@ -126,12 +128,13 @@ $range: null !default;
 .ecl-range__bubble {
   background-color: var(--cm-surface-transparent-70, var(--c-ov-d));
   border-radius: map.get($theme, 'border-radius', 's');
-  color: var(--cm-on-surface-inverted);
+  color: map.get($range, 'bubble-color');
   display: none;
-  font: map.get($range, 'bubble-font');
   margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));
   padding: var(--s-2xs) var(--s-xs);
   position: absolute;
+
+  @include mixins.responsive-font(map.get($range, 'bubble-font'));
 
   &::before {
     content: '';
@@ -161,15 +164,15 @@ $range: null !default;
 
 // Width
 .ecl-range--s {
-  @include mixins.form-width('s');
+  @include mixins-form.form-width('s');
 }
 
 .ecl-range--m {
-  @include mixins.form-width('m');
+  @include mixins-form.form-width('m');
 }
 
 .ecl-range--l {
-  @include mixins.form-width('l');
+  @include mixins-form.form-width('l');
 }
 
 // Disabled
