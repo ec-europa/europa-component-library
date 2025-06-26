@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -26,13 +27,14 @@ $file-upload: null !default;
 
 .ecl-file-upload__list {
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: var(--f-m);
   list-style: none;
   margin-bottom: 0;
   margin-top: var(--s-m);
   max-width: var(--max-w);
   padding-inline-start: 0;
   width: 100%;
+
+  @include mixins.responsive-font(map.get($file-upload, 'list-font'));
 
   .no-js &,
   &:empty {

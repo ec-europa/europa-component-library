@@ -3,7 +3,8 @@
 
 $search-form: (
   button-border-color: var(--c-d-80),
-  button-padding-vertical-mobile: calc(var(--s-xs) + 2px),
-  button-padding-vertical-desktop: var(--s-xs),
+  button-height: 2.875rem,
   separator-color: transparent,
+  icon-size-mobile: map.get($icon, 'm'),
+  icon-size-desktop: map.get($icon, 'xs'),
 );

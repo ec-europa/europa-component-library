@@ -35,51 +35,86 @@ $font-breakpoints: (
   'desktop': 'xl',
 );
 
-@mixin responsive-font($token) {
+@mixin responsive-font($token, $font-weight: '') {
   $token-map: null;
 
   @if meta.type-of($token) == 'map' {
     $token-map: $token;
   } @else if meta.type-of($token) == 'string' {
-    $hyphen: string.index($token, '-');
-    $base-token: if($hyphen, string.slice($token, 1, $hyphen - 1), $token);
-    $variant: if($hyphen, string.slice($token, $hyphen + 1), null);
+    // Check if it is a full font variable
+    $variable: string.index($token, '--f-');
 
-    @if $variant {
-      $token-map: map-deep-get($typography, $base-token, $variant);
+    @if $variable {
+      // It is a full font (EU), just display it
+      font: $token;
+
+      @if $font-weight != '' {
+        font-weight: $font-weight;
+      }
     } @else {
-      $token-map: map.get($typography, $base-token);
+      // It is not a font, handle it
+      $hyphen: string.index($token, '-');
+      $base-token: if($hyphen, string.slice($token, 1, $hyphen - 1), $token);
+      $variant: if($hyphen, string.slice($token, $hyphen + 1), null);
+
+      @if $variant {
+        $token-map: map-deep-get($typography, $base-token, $variant);
+      } @else {
+        $token-map: map.get($typography, $base-token);
+      }
     }
   }
 
-  // Font family
-  $font-family: map.get($typography, 'font-family');
+  @if $token-map {
+    // Font family
+    $font-family: map.get($typography, 'font-family');
 
-  @if $font-family {
-    font-family: $font-family;
-  }
-
-  // Font weight
-  @if map.has-key($token-map, 'font-weight') {
-    $fw: map.get($token-map, 'font-weight');
-
-    @if $fw {
-      font-weight: $fw;
+    @if $font-family {
+      font-family: $font-family;
     }
-  }
 
-  // Base (mobile)
-  @if map.has-key($token-map, 'mobile') {
-    @include responsive-font-emit(map.get($token-map, 'mobile'));
-  } @else {
-    @include responsive-font-emit($token-map);
-  }
+    // Font weight
+    @if $font-weight != '' {
+      font-weight: $font-weight;
+    } @else if map.has-key($token-map, 'font-weight') {
+      $fw: map.get($token-map, 'font-weight');
 
-  // Responsive breakpoints
-  @each $tier, $bp-name in $font-breakpoints {
-    @if map.has-key($token-map, $tier) {
-      @include breakpoints.up($bp-name) {
-        @include responsive-font-emit(map.get($token-map, $tier));
+      @if $fw {
+        font-weight: $fw;
+      }
+    }
+
+    // Base (mobile)
+    @if map.has-key($token-map, 'mobile') {
+      @include responsive-font-emit(map.get($token-map, 'mobile'));
+    } @else {
+      @include responsive-font-emit($token-map);
+    }
+
+    // Responsive breakpoints
+    @each $tier, $bp-name in $font-breakpoints {
+      @if map.has-key($token-map, $tier) {
+        // Check if there is a need to generate css (different from previous breakpoint)
+        @if (
+          (
+              $tier ==
+                'tablet' and
+                map.has-key($token-map, 'mobile') and
+                map.get($token-map, $tier) !=
+                map.get($token-map, 'mobile')
+            ) or
+            (
+              $tier ==
+                'desktop' and
+                map.has-key($token-map, 'tablet') and
+                map.get($token-map, $tier) !=
+                map.get($token-map, 'tablet')
+            )
+        ) {
+          @include breakpoints.up($bp-name) {
+            @include responsive-font-emit(map.get($token-map, $tier));
+          }
+        }
       }
     }
   }

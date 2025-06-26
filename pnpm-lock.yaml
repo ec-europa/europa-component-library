@@ -264,9 +264,15 @@ importers:
         specifier: 5.0.0-alpha.13
         version: link:../indicator
     devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
       '@ecl/resources-icons':
         specifier: 5.0.0-alpha.13
         version: link:../../resources/icons
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.13
+        version: link:../../utilities/screen-reader
 
   src/components/card:
     dependencies:
@@ -303,6 +309,10 @@ importers:
       '@ecl/icon':
         specifier: 5.0.0-alpha.13
         version: link:../icon
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/content-block:
     dependencies:
@@ -344,6 +354,10 @@ importers:
       pikaday:
         specifier: 1.8.2
         version: 1.8.2
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/description-list:
     dependencies:
@@ -429,6 +443,13 @@ importers:
       '@ecl/event-manager':
         specifier: 5.0.0-alpha.13
         version: link:../../tools/event-manager
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.13
+        version: link:../../utilities/screen-reader
 
   src/components/form-group:
     dependencies:
@@ -462,6 +483,13 @@ importers:
       '@ecl/text-input':
         specifier: 5.0.0-alpha.13
         version: link:../text-input
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.13
+        version: link:../../utilities/screen-reader
 
   src/components/gallery:
     dependencies:
@@ -711,7 +739,11 @@ importers:
         specifier: 5.0.0-alpha.13
         version: link:../link
 
-  src/components/radio: {}
+  src/components/radio:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/range:
     dependencies:
@@ -721,6 +753,10 @@ importers:
       '@ecl/layout-form':
         specifier: 5.0.0-alpha.13
         version: link:../../layout/form
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/rating-field:
     dependencies:
@@ -754,6 +790,10 @@ importers:
       '@ecl/layout-form':
         specifier: 5.0.0-alpha.13
         version: link:../../layout/form
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/separator: {}
 
@@ -894,9 +934,23 @@ importers:
         specifier: 5.0.0-alpha.13
         version: link:../icon
 
-  src/components/text-area: {}
+  src/components/text-area:
+    devDependencies:
+      '@ecl/layout-form':
+        specifier: 5.0.0-alpha.13
+        version: link:../../layout/form
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
-  src/components/text-input: {}
+  src/components/text-input:
+    devDependencies:
+      '@ecl/layout-form':
+        specifier: 5.0.0-alpha.13
+        version: link:../../layout/form
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.13
+        version: link:../../mixins/typography
 
   src/components/timeline:
     dependencies:

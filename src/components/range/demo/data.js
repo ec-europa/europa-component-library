@@ -19,5 +19,5 @@ module.exports = {
   optional_text: '(optional)',
   required: false,
   label_aria_required: 'required',
-  required_text: '*',
+  required_text: '(required)',
 };
