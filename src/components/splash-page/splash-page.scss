@@ -62,7 +62,10 @@ $language-list: null !default;
 }
 
 .ecl-splash-page__language-title {
-  @include mixins.responsive-font(map.get($language-list, 'header-typography'));
+  @include mixins.responsive-font(
+    map.get($language-list, 'header-typography'),
+    map.get($language-list, 'header-typography-font-weight')
+  );
 
   margin: 0;
   padding-inline-start: calc(
