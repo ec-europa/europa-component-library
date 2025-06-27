@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -93,11 +94,14 @@ $inpage-navigation: null !default;
 }
 
 .ecl-inpage-navigation__trigger-current {
-  font: map.get($inpage-navigation, 'trigger', 'font');
   font-weight: map.get($inpage-navigation, 'trigger', 'font-weight');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @include mixins.responsive-font(
+    map.get($inpage-navigation, 'trigger', 'font')
+  );
 }
 
 .ecl-inpage-navigation__trigger-icon {
@@ -113,16 +117,26 @@ $inpage-navigation: null !default;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
+    align-items: center;
     background-color: map.get($inpage-navigation, 'title', 'background');
     border-radius: map.get($inpage-navigation, 'border-radius')
       map.get($inpage-navigation, 'border-radius') 0 0;
     color: map.get($inpage-navigation, 'title', 'color');
-    display: block;
-    font: map.get($inpage-navigation, 'title', 'font');
+    display: flex;
+    font-weight: map.get($inpage-navigation, 'title', 'font-weight');
     letter-spacing: map.get($inpage-navigation, 'title', 'letter-spacing');
     padding: map.get($inpage-navigation, 'title', 'padding');
     text-align: map.get($inpage-navigation, 'align');
     text-transform: map.get($inpage-navigation, 'title', 'text-transform');
+
+    @include mixins.responsive-font(
+      map.get($inpage-navigation, 'title', 'font')
+    );
+
+    .ecl-inpage-navigation__title-icon {
+      display: map.get($inpage-navigation, 'title', 'icon-display');
+      margin-inline-end: var(--s-3xs);
+    }
   }
 }
 
@@ -209,10 +223,11 @@ $inpage-navigation: null !default;
   );
   color: map.get($inpage-navigation, 'item', 'color', 's');
   display: block;
-  font: var(--f-m);
   font-weight: map.get($inpage-navigation, 'item', 'font-weight', 's');
   padding: map.get($inpage-navigation, 'item', 'padding', 'default', 's');
   text-decoration: none;
+
+  @include mixins.responsive-font(map.get($inpage-navigation, 'item', 'font'));
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
