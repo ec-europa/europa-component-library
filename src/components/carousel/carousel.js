@@ -373,11 +373,11 @@ export class Carousel {
    */
   dragStart(e) {
     e = e || window.event;
-
     this.posInitial = this.slidesContainer.offsetLeft;
 
     if (e.type === 'touchstart') {
       this.posX1 = e.touches[0].clientX;
+      this.posY1 = e.touches[0].clientY;
     }
   }
 
@@ -389,9 +389,14 @@ export class Carousel {
     e = e || window.event;
 
     if (e.type === 'touchmove') {
-      e.preventDefault();
-      this.posX2 = this.posX1 - e.touches[0].clientX;
-      this.posX1 = e.touches[0].clientX;
+      const deltaX = this.posX1 - e.touches[0].clientX;
+      const deltaY = this.posY1 - e.touches[0].clientY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        e.preventDefault(); // Prevent vertical scroll only if horizontal movement is prevalent FRONT-4951
+        this.posX2 = deltaX;
+        this.posX1 = e.touches[0].clientX;
+      }
     }
 
     this.slidesContainer.style.left = `${
