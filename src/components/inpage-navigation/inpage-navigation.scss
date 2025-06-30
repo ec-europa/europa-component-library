@@ -159,26 +159,9 @@ $inpage-navigation: null !default;
     border-top-width: 0;
     box-shadow: map.get($inpage-navigation, 'list', 'shadow', 'l');
     display: block;
-
-    @if map.get($inpage-navigation, 'list', 'scrollbar') == 'left' {
-      direction: rtl; // To move the scrollbar on the left
-    } @else {
-      direction: ltr;
-    }
-
     overflow-x: hidden;
     text-align: map.get($inpage-navigation, 'align');
     width: auto;
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-inpage-navigation--rtl .ecl-inpage-navigation__list {
-    @if map.get($inpage-navigation, 'list', 'scrollbar') == 'left' {
-      direction: ltr;
-    } @else {
-      direction: rtl;
-    }
   }
 }
 
