@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -57,10 +58,13 @@ $content-block: null !default;
 
 .ecl-content-block__title {
   color: map.get($content-block, 'text-color');
-  font: map.get($content-block, 'title-font');
-  font-weight: map.get($content-block, 'title-font-weight');
   margin: map.get($content-block, 'title-margin');
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(
+    map.get($content-block, 'title-font'),
+    map.get($theme, 'font-weight', 'regular')
+  );
 
   // FRONT-4557 - Fixing webtools widget placement
   .ecl-link {
