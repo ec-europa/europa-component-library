@@ -52,14 +52,13 @@ const getArgTypes = () => {
       name: 'color mode border',
       type: 'select',
       description: 'Select a color mode border',
-      options: ['border', 'border-medium', 'border-low'],
+      options: ['border', 'border-low'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
       mapping: {
         border: 'border',
-        'border-medium': 'border-medium',
         'border-low': 'border-low',
       },
       if: { arg: 'show_color_mode' },
@@ -75,8 +74,8 @@ const getArgTypes = () => {
         ? [
             'ecl-u-border-color-primary',
             'ecl-u-border-color-secondary',
-            'ecl-u-border-color-neutral-dark',
-            'ecl-u-border-color-neutral-light',
+            'ecl-u-border-color-neutral',
+            'ecl-u-border-color-warm-grey',
             'ecl-u-border-color-success',
             'ecl-u-border-color-error',
           ]
@@ -97,8 +96,8 @@ const getArgTypes = () => {
           ? {
               'ecl-u-border-color-primary': 'primary',
               'ecl-u-border-color-secondary': 'secondary',
-              'ecl-u-border-color-neutral-dark': 'neutral dark',
-              'ecl-u-border-color-neutral-light': 'neutral light',
+              'ecl-u-border-color-neutral': 'neutral',
+              'ecl-u-border-color-warm-grey': 'warm grey',
               'ecl-u-border-color-success': 'success',
               'ecl-u-border-color-error': 'error',
             }
@@ -115,8 +114,8 @@ const getArgTypes = () => {
         ? {
             primary: 'ecl-u-border-color-primary',
             secondary: 'ecl-u-border-color-secondary',
-            'neutral-dark': 'ecl-u-border-color-neutral-dark',
-            'neutral-light': 'ecl-u-border-color-neutral-light',
+            neutral: 'ecl-u-border-color-neutral',
+            'wam-grey': 'ecl-u-border-color-warm-grey',
             success: 'ecl-u-border-color-success',
             error: 'ecl-u-border-color-error',
           }

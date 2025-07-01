@@ -17,7 +17,7 @@ const getArgs = (data, story) => {
       args.type_color_mode = 'on-surface';
     }
 
-    args.colour = 'ecl-u-type-color-neutral-dark';
+    args.colour = 'ecl-u-type-color-primary';
   }
   if (story === 'text-style') {
     args.size = 'ecl-u-type-m';
@@ -88,20 +88,18 @@ const getArgTypes = (story) => {
       description: 'Choose different colors',
       type: 'select',
       options: [
-        'ecl-u-type-color-neutral-dark',
-        'ecl-u-type-color-white ecl-u-bg-dark',
+        'ecl-u-type-color-white ecl-u-bg-black',
         'ecl-u-type-color-primary',
-        'ecl-u-type-color-secondary ecl-u-bg-dark',
+        'ecl-u-type-color-secondary ecl-u-bg-black',
         'ecl-u-type-color-success',
         'ecl-u-type-color-error',
       ],
       control: {
         type: 'select',
         labels: {
-          'ecl-u-type-color-neutral-dark': 'neutral-dark',
-          'ecl-u-type-color-white ecl-u-bg-dark': 'white',
+          'ecl-u-type-color-white ecl-u-bg-black': 'white',
           'ecl-u-type-color-primary': 'primary',
-          'ecl-u-type-color-secondary ecl-u-bg-dark': 'secondary',
+          'ecl-u-type-color-secondary ecl-u-bg-black': 'secondary',
           'ecl-u-type-color-success': 'success',
           'ecl-u-type-color-error': 'error',
         },
@@ -112,10 +110,9 @@ const getArgTypes = (story) => {
         defaultValue: { summary: '' },
       },
       mapping: {
-        'neutral-dark': 'ecl-u-type-color-neutral-dark',
-        white: 'ecl-u-type-color-white ecl-u-bg-dark',
+        white: 'ecl-u-type-color-white ecl-u-bg-black',
         primary: 'ecl-u-type-color-primary',
-        secondary: 'ecl-u-type-color-secondary ecl-u-bg-dark',
+        secondary: 'ecl-u-type-color-secondary ecl-u-bg-black',
         success: 'ecl-u-type-color-success',
         error: 'ecl-u-type-color-error',
       },
