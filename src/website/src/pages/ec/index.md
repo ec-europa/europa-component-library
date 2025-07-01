@@ -23,4 +23,4 @@ To ensure a coherent visual identity for the Commission’s web presence, owners
 
 The release of ECL v5 began with version `5.0.0-alpha.x` to reflect its planned lifecycle. This major version introduces new foundational features and will progressively undergo a full revamp of all components. As a result, **breaking changes are expected over an extended period**. The use of the `alpha` label does not imply instability in the library itself, but rather indicates that it should not yet be considered stable from a **semantic versioning** perspective.
 
-**Were you looking for ECL version 4? Follow this [link](https://ec.europa.eu/component-library/v4.11.0/ec) to reach its latest version.**
+**Were you looking for ECL version 4? Follow this [link](https://ec.europa.eu/component-library/v4.10.0/ec) to reach its latest version.**
