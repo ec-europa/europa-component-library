@@ -87,6 +87,10 @@ $timeline-print: null !default;
   .ecl-timeline:last-child
   .ecl-timeline__item:last-child::before {
   height: map.get($timeline, 'last-item-height');
+
+  .ecl-timeline--has-headline & {
+    height: map.get($timeline, 'last-item-height-headline');
+  }
 }
 // stylelint-enable no-descending-specificity
 
@@ -145,7 +149,7 @@ $timeline-print: null !default;
 
   .ecl-timeline__label {
     font: map.get($timeline-print, 'headline-font');
-    font-weight: map.get($timeline, 'label', 'font-weight');
+    font-weight: map.get($timeline, 'headline', 'label', 'font-weight');
   }
 
   &::after {
@@ -234,26 +238,25 @@ $timeline-print: null !default;
     > .ecl-timeline__item:first-of-type:not(.ecl-timeline__item--headline) {
     padding-block-start: calc(
       #{map.get($theme, 'spacing-print', 'm')} +
-        #{map.get($timeline, 'set-spacing')}
+        #{map.get($timeline, 'set-spacing-tablet')}
     );
 
     &::after {
       top: calc(
         #{map.get($theme, 'spacing-print', 'm')} +
           #{map.get($timeline-print, 'bullet-large-top-position')} +
-          #{map.get($timeline, 'set-spacing')}
+          #{map.get($timeline, 'set-spacing-tablet')}
       );
     }
   }
 
   .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
-    padding-block-start: map.get($timeline, 'set-spacing');
+    padding-block-start: map.get($timeline, 'set-spacing-tablet');
 
     &::after {
       top: calc(
-        #{map.get($timeline-print, 'bullet-large-top-position')} +
-          #{map.get($timeline, 'headline', 'spacing-adjustment')} +
-          #{map.get($timeline, 'set-spacing')}
+        #{map.get($timeline, 'headline', 'spacing-adjustment')} +
+          #{map.get($timeline, 'set-spacing-tablet')}
       );
     }
   }

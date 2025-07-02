@@ -75,7 +75,8 @@ module.exports = {
     },
     {
       label: 'Item 15 label',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros est, sodales eu eleifend sit amet, luctus eu arcu. Aenean tincidunt nulla at ante mollis, ut vulputate purus volutpat.',
     },
   ],
 };

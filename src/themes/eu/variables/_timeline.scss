@@ -4,17 +4,28 @@
 $timeline: (
   border-color: var(--c-p),
   border-width: 0.125rem,
-  item-padding-top-mobile: 0px,
-  item-padding-top-tablet: 0px,
   tooltip: true,
   toggle-spacing: true,
   timeline-margin-left: var(--s-l),
-  item-padding-left-mobile: calc(var(--s-l) + 0.125rem),
-  item-padding-left-tablet: calc(var(--s-l) + 0.125rem),
   first-item-offset: 2rem,
   first-item-height: calc(100% - var(--s-xs)),
-  last-item-height: 1.5rem,
-  set-spacing: var(--s-2xl),
+  last-item-height: 2rem,
+  last-item-height-headline: 1.5rem,
+  set-spacing-mobile: var(--s-xl),
+  set-spacing-tablet: var(--s-xl),
+  item: (
+    mobile: (
+      padding-top-small: 0px,
+      padding-top-large: 0px,
+      padding-bottom: var(--s-xl),
+      padding-left: calc(var(--s-l) + 0.125rem),
+    ),
+    tablet: (
+      padding-top-small: 0px,
+      padding-top-large: 0px,
+      padding-left: calc(var(--s-l) + 0.125rem),
+    ),
+  ),
   bullet: (
     shadow: 0 0 0 2px map.get($color, 'white'),
     small: (
@@ -28,8 +39,8 @@ $timeline: (
       border-color: var(--c-p),
       border-width: 0.125rem,
       fill-color: map.get($color, 'white'),
-      size: 1rem,
-      top-position: 10px,
+      size: 0.875rem,
+      top-position: 12px,
     ),
     toggle: (
       border-color: var(--c-p-20),
@@ -61,13 +72,15 @@ $timeline: (
     font: var(--f-m),
   ),
   headline: (
-    padding-top: 0px,
+    padding-top-mobile: 0px,
+    padding-top-tablet: 0px,
     spacing-adjustment: 0px,
     label: (
       font: var(--f-3xl),
       font-weight: map.get($font-weight, 'regular'),
     ),
-    bullet-top-position: 10px,
+    bullet-top-position-mobile: 10px,
+    bullet-top-position-tablet: 10px,
   ),
 );
 $timeline-print: (
@@ -80,7 +93,7 @@ $timeline-print: (
   ),
   label-margin: map.get($spacing-print, 's'),
   content-font: map.get($font-print, 'm'),
-  headline-font: map.get($font-print, '2xl'),
+  headline-font: map.get($font-print, '4xl'),
   item-padding-left: map.get($spacing-print, 'm'),
   bullet-small-top-position: 12px,
   bullet-large-top-position: 10px,

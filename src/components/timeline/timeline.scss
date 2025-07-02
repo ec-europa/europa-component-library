@@ -27,9 +27,10 @@ $timeline: null !default;
 
 .ecl-timeline__item {
   max-width: var(--max-w);
-  padding-block: map.get($timeline, 'item-padding-top-mobile') var(--s-xl);
+  padding-block: map.get($timeline, 'item', 'mobile', 'padding-top-large')
+    map.get($timeline, 'item', 'mobile', 'padding-bottom');
   padding-inline-start: calc(
-    #{map.get($timeline, 'item-padding-left-mobile')} +
+    #{map.get($timeline, 'item', 'mobile', 'padding-left')} +
       #{map.get($timeline, 'border-width')}
   );
   position: relative;
@@ -81,9 +82,14 @@ $timeline: null !default;
   }
 
   .ecl-timeline__item {
-    padding-block-start: map.get($timeline, 'item-padding-top-tablet');
+    padding-block-start: map.get(
+      $timeline,
+      'item',
+      'tablet',
+      'padding-top-large'
+    );
     padding-inline-start: calc(
-      #{map.get($timeline, 'item-padding-left-tablet')} +
+      #{map.get($timeline, 'item', 'tablet', 'padding-left')} +
         #{map.get($timeline, 'border-width')}
     );
   }
@@ -114,6 +120,10 @@ $timeline: null !default;
   .ecl-timeline:last-child
   .ecl-timeline__item:last-child::before {
   height: map.get($timeline, 'last-item-height');
+
+  .ecl-timeline--has-headline & {
+    height: map.get($timeline, 'last-item-height-headline');
+  }
 }
 // stylelint-enable no-descending-specificity
 
@@ -132,6 +142,7 @@ $timeline: null !default;
     border: map.get($timeline, 'bullet', 'toggle', 'border-width') solid
       map.get($timeline, 'bullet', 'toggle', 'border-color');
     box-sizing: border-box;
+    box-shadow: none;
     height: map.get($timeline, 'bullet', 'toggle', 'size') +
       (map.get($timeline, 'bullet', 'toggle', 'border-width') * 2);
     left: -(
@@ -193,7 +204,7 @@ $timeline: null !default;
 
 // Headline
 .ecl-timeline__item--headline {
-  padding-block-start: map.get($timeline, 'headline', 'padding-top');
+  padding-block-start: map.get($timeline, 'headline', 'padding-top-mobile');
 
   .ecl-timeline__label {
     margin-block-start: calc(
@@ -216,7 +227,7 @@ $timeline: null !default;
         #{calc(map.get($timeline, 'bullet', 'large', 'size') / 2) +
           map.get($timeline, 'bullet', 'large', 'border-width')}
       );
-    top: map.get($timeline, 'headline', 'bullet-top-position');
+    top: map.get($timeline, 'headline', 'bullet-top-position-mobile');
     width: map.get($timeline, 'bullet', 'large', 'size') +
       (map.get($timeline, 'bullet', 'large', 'border-width') * 2);
   }
@@ -227,6 +238,13 @@ $timeline: null !default;
     .ecl-timeline__item--headline,
     .ecl-timeline__item--toggle
   ) {
+  padding-block-start: map.get(
+    $timeline,
+    'item',
+    'mobile',
+    'padding-top-small'
+  );
+
   &::after {
     background-color: map.get($timeline, 'bullet', 'small', 'fill-color');
     border: map.get($timeline, 'bullet', 'small', 'border-width') solid
@@ -269,10 +287,27 @@ $timeline: null !default;
     }
   }
 
-  .ecl-timeline__item--headline::after {
-    top: calc(
-      #{map.get($timeline, 'headline', 'bullet-top-position')} +
-        #{map.get($timeline, 'headline', 'spacing-adjustment')}
+  .ecl-timeline__item--headline {
+    padding-block-start: map.get($timeline, 'headline', 'padding-top-tablet');
+
+    &::after {
+      top: calc(
+        #{map.get($timeline, 'headline', 'bullet-top-position-tablet')} +
+          #{map.get($timeline, 'headline', 'spacing-adjustment')}
+      );
+    }
+  }
+
+  .ecl-timeline--has-headline
+    .ecl-timeline__item:not(
+      .ecl-timeline__item--headline,
+      .ecl-timeline__item--toggle
+    ) {
+    padding-block-start: map.get(
+      $timeline,
+      'item',
+      'tablet',
+      'padding-top-small'
     );
   }
 }
@@ -358,28 +393,28 @@ $timeline: null !default;
     + .ecl-timeline
     > .ecl-timeline__item:first-of-type:not(.ecl-timeline__item--headline) {
     padding-block-start: calc(
-      #{map.get($timeline, 'item-padding-top-mobile')} +
-        #{map.get($timeline, 'set-spacing')}
+      #{map.get($timeline, 'item', 'mobile', 'padding-top-small')} +
+        #{map.get($timeline, 'set-spacing-mobile')}
     );
 
     &::after {
       top: calc(
         #{map.get($timeline, 'bullet', 'large', 'top-position')} +
-          #{map.get($timeline, 'set-spacing')}
+          #{map.get($timeline, 'set-spacing-mobile')}
       );
     }
   }
 
   .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
     padding-block-start: calc(
-      #{map.get($timeline, 'headline', 'padding-top')} +
-        #{map.get($timeline, 'set-spacing')}
+      #{map.get($timeline, 'headline', 'padding-top-mobile')} +
+        #{map.get($timeline, 'set-spacing-mobile')}
     );
 
     &::after {
       top: calc(
-        #{map.get($timeline, 'headline', 'bullet-top-position')} +
-          #{map.get($timeline, 'set-spacing')}
+        #{map.get($timeline, 'headline', 'bullet-top-position-mobile')} +
+          #{map.get($timeline, 'set-spacing-mobile')}
       );
     }
   }
@@ -391,17 +426,28 @@ $timeline: null !default;
       + .ecl-timeline
       > .ecl-timeline__item:first-of-type:not(.ecl-timeline__item--headline) {
       padding-block-start: calc(
-        #{map.get($timeline, 'item-padding-top-tablet')} +
-          #{map.get($timeline, 'set-spacing')}
+        #{map.get($timeline, 'headline', 'padding-top-tablet')} +
+          #{map.get($timeline, 'set-spacing-tablet')}
       );
+
+      &::after {
+        top: calc(
+          #{map.get($timeline, 'bullet', 'large', 'top-position')} +
+            #{map.get($timeline, 'set-spacing-tablet')}
+        );
+      }
     }
 
     .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
+      padding-block-start: calc(
+        #{map.get($timeline, 'headline', 'padding-top-mobile')} +
+          #{map.get($timeline, 'set-spacing-tablet')}
+      );
+
       &::after {
         top: calc(
-          #{map.get($timeline, 'headline', 'bullet-top-position')} +
-            #{map.get($timeline, 'headline', 'spacing-adjustment')} +
-            #{map.get($timeline, 'set-spacing')}
+          #{map.get($timeline, 'headline', 'bullet-top-position-tablet')} +
+            #{map.get($timeline, 'set-spacing-tablet')}
         );
       }
     }
