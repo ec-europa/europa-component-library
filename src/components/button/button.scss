@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -19,11 +20,12 @@ $button: null !default;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font: map.get($button, 'font');
   margin: 0;
   min-height: map.get($button, 'min-height');
   min-width: map.get($button, 'min-width');
   text-decoration: none;
+
+  @include mixins.responsive-font(map.get($button, 'font'));
 
   &:hover {
     box-shadow: map.get($button, 'shadow');

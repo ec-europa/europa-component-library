@@ -23,6 +23,7 @@ $table: null !default;
 %ecl-table__header {
   border-inline-end: map.get($table, 'cell-separator');
   border-inline-start: map.get($table, 'cell-separator');
+  font-weight: map.get($table, 'header', 'font-weight');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'xl') map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'm');

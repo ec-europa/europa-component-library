@@ -9,7 +9,7 @@
       - "sources" (array) (default: []): format: [
         {
           "src" (string) (default: ''): Path to the source image
-          "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
+          "media" (string) (default: ''): Media condition to use this source. Can be a breakpoint (xs, s, m, l, xl, xxl) or a free string.
           "type" (string) (default: ''): Type of this source
         },
         ...
@@ -60,7 +60,9 @@
 >
   {% if _picture.sources is not empty and _picture.sources is iterable %}
     {% for _source in _picture.sources %}
-      {% if _source.media == 's' %}
+      {% if _source.media == 'xs' %}
+        {% set _source = _source|merge({'media': '(min-width: 415px)'}) %}
+      {% elseif _source.media == 's' %}
         {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
       {% elseif _source.media == 'm' %}
         {% set _source = _source|merge({'media': '(min-width: 768px)'}) %}
@@ -68,6 +70,8 @@
         {% set _source = _source|merge({'media': '(min-width: 996px)'}) %}
       {% elseif _source.media == 'xl' %}
         {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
+      {% elseif _source.media == 'xxl' %}
+        {% set _source = _source|merge({'media': '(min-width: 1368px)'}) %}
       {% endif %}
       <source 
         {% if _source.src is not empty %}

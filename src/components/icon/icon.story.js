@@ -22,7 +22,7 @@ const getArgs = (data) => ({
   description: '',
 });
 
-const getArgTypes = (data, icons) => getIconControls(data, icons, iconMapping);
+const getArgTypes = (icons) => getIconControls(icons, iconMapping);
 
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
@@ -64,5 +64,5 @@ All.render = async (args) => {
 };
 All.storyName = 'all icons';
 All.args = getArgs(dataAll);
-All.argTypes = getArgTypes(dataAll, iconsAll, iconMapping);
+All.argTypes = getArgTypes(iconsAll, iconMapping);
 All.parameters = { notes: { markdown: notes, json: dataAll } };

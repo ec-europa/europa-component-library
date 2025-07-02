@@ -9,8 +9,9 @@ import { Playground } from '@ecl/website-components';
 
 <Playground
   system="ec"
-  selectedKind="components-forms--text"
-  selectedStory="default"
+  selectedKind="components-forms"
+  selectedStory="text"
+  selectedArgs="required:!false"
 ></Playground>
 
 ## Disabled text field
@@ -19,7 +20,7 @@ import { Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-forms"
   selectedStory="text"
-  selectedArgs="disabled:true"
+  selectedArgs="disabled:!true"
 ></Playground>
 
 ## Invalid text field
@@ -28,7 +29,7 @@ import { Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-forms"
   selectedStory="text"
-  selectedArgs="invalid:true"
+  selectedArgs="invalid:!true"
 ></Playground>
 
 ## Required text field
@@ -37,5 +38,5 @@ import { Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-forms"
   selectedStory="text"
-  selectedArgs="required:true"
+  selectedArgs="required:!true"
 ></Playground>

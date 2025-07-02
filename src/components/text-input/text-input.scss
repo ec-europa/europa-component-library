@@ -4,7 +4,8 @@
  */
 
 @use 'sass:map';
-@use '@ecl/layout-form/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -23,17 +24,18 @@ $outline-width: 2px;
   box-sizing: border-box;
   color: map.get($text-input, 'color-input');
   display: block;
-  font: map.get($text-input, 'font');
   margin: 0;
-  height: 2.75rem;
   max-width: 100%;
-  padding: calc(#{map.get($text-input, 'padding-vertical')} - #{$border-width})
-    calc(#{map.get($text-input, 'padding-horizontal')} - #{$border-width});
+  padding-block: map.get($text-input, 'padding-block');
+  padding-inline: map.get($text-input, 'padding-inline');
+
+  @include mixins.responsive-font(map.get($text-input, 'font'));
 
   &::placeholder {
     color: map.get($text-input, 'color-placeholder');
-    font: var(--f-ui-m, var(--f-m));
     opacity: 1;
+
+    @include mixins.responsive-font(map.get($text-input, 'font'));
   }
 
   &:hover {
@@ -43,7 +45,6 @@ $outline-width: 2px;
 
   &:focus-visible,
   &:active {
-    box-shadow: map.get($text-input, 'shadow-hover');
     outline: $outline-width solid var(--cm-border-primary, var(--c-p));
     outline-offset: -#{$outline-width};
   }
@@ -61,24 +62,25 @@ $outline-width: 2px;
 .ecl-text-input--invalid {
   border-color: map.get($text-input, 'border-color-invalid');
 
-  &:active,
   &:hover {
     border-color: map.get($text-input, 'border-color-invalid-hover');
   }
 
+  &:active,
   &:focus-visible {
-    border-color: map.get($text-input, 'border-color-focus');
+    border-color: map.get($text-input, 'border-color-invalid-focus');
+    outline-color: map.get($text-input, 'border-color-invalid-focus');
   }
 }
 
 .ecl-text-input--s {
-  @include mixins.form-width(s);
+  @include mixins-form.form-width(s);
 }
 
 .ecl-text-input--m {
-  @include mixins.form-width(m);
+  @include mixins-form.form-width(m);
 }
 
 .ecl-text-input--l {
-  @include mixins.form-width(l);
+  @include mixins-form.form-width(l);
 }

@@ -13,7 +13,7 @@
         {
           "title": (string) (default: ''): Logo title attribute.
           "alt": (string) (default: ''): Logo alt attribute.
-          "breakpoint": (string) (default: 's') Breakpoint where to switch the logo displayed. Expected value in EU is "l"
+          "breakpoint": (string) (default: 'xs', 415px) Breakpoint where to switch the logo displayed. Expected value in EU is "l"
           "href": (string) (default: ''): Logo URL.
           "src_desktop": (string) (default: ''): Desktop logo image file path
           "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
@@ -236,7 +236,7 @@
           {# Logo #}
           {% if _logo is not empty and _logo.src_desktop is not empty %}
             {% set _label %}
-              {% set _picture = { sources: [{ src: _logo.src_desktop, media: _logo.breakpoint|default('s') }] } %}
+              {% set _picture = { sources: [{ src: _logo.src_desktop, media: _logo.breakpoint|default('xs') }] } %}
               {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
                 {% set _picture = _picture|merge({
                   img: {
@@ -468,28 +468,29 @@
 
   {# Banner top #}
   {% if banner_top is defined and banner_top is not empty %}
-    <div class="ecl-site-header__banner-top">
-      <div class="ecl-container">
-      {%- if banner_top.link is defined and banner_top.link is not empty %}
-        {% include '@ecl/link/link.html.twig' with banner_top|merge({
-          link: banner_top.link|merge({ type: 'standalone', no_visited: true}),
-        }) only %}
-      {% else %}
-        {{ banner_top }}
-      {% endif -%}
+    <div class="ecl-container">
+      <div class="ecl-site-header__banner-top">
+        {%- if banner_top.link is defined and banner_top.link is not empty %}
+          {% include '@ecl/link/link.html.twig' with banner_top|merge({
+            link: banner_top.link|merge({ type: 'standalone', no_visited: true}),
+          }) only %}
+        {% else %}
+          {{ banner_top }}
+        {% endif -%}
       </div>
     </div>
   {% endif %}
 
   {# Site name and call to action (banner) #}
   {% if _site_name is not empty or _cta_link is not empty %}
-    <div class="ecl-site-header__banner">
+    {% set _banner_class = 'ecl-site-header__banner' %}
+    {% if _site_name_mobile_only %}
+      {% set _banner_class = _banner_class ~ ' ecl-site-header__site-name--mobile-only' %}
+    {% endif %}
+    <div class="{{ _banner_class }}">
       <div class="ecl-container">
         {% if _site_name is not empty %}
           {% set _site_name_class = 'ecl-site-header__site-name' %}
-          {% if _site_name_mobile_only %}
-            {% set _site_name_class = _site_name_class ~ ' ecl-site-header__site-name--mobile-only' %}
-          {% endif %}
         <div class="{{ _site_name_class }}">
           {{- _site_name -}}
         </div>

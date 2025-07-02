@@ -16,7 +16,7 @@ npm install --save @ecl/picture
   - **"sources"** (array) (default: []): format: [
     {
     "src" (string) (default: ''): Path to the source image
-    "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
+    "media" (string) (default: ''): Media condition to use this source. Can be a breakpoint (xs, s, m, l, xl, xxl) or a free string.
     "type" (string) (default: ''): Type of this source
     },
     ...

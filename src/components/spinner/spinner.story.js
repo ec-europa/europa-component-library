@@ -83,7 +83,7 @@ const getArgTypes = () => ({
 const withInverted = (story) => {
   const demo = story();
 
-  return `<div class="ecl-u-bg-dark ecl-u-width-100 ecl-u-height-100" style="position: absolute;">${demo}</div>`;
+  return `<div class="ecl-u-bg-neutral-dark ecl-u-bg-dark ecl-u-width-100 ecl-u-height-100" style="position: absolute;">${demo}</div>`;
 };
 
 const prepareData = (data, args) => {

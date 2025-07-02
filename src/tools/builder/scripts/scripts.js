@@ -1,16 +1,20 @@
-const babelPresetEnv = require('@babel/preset-env');
-const rollup = require('rollup');
-const babel = require('@rollup/plugin-babel');
-const replace = require('@rollup/plugin-replace');
-const resolve = require('@rollup/plugin-node-resolve');
-const externalGlobals = require('rollup-plugin-external-globals');
-const commonjs = require('@rollup/plugin-commonjs');
-const terser = require('@rollup/plugin-terser');
-const svg = require('rollup-plugin-svg');
-const getSystem = require('../utils/getSystem');
-const pkg = require('../package.json');
+import { rollup } from 'rollup';
+import babelPresetEnv from '@babel/preset-env';
+import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
+import svg from 'rollup-plugin-svg';
+import externalGlobals from 'rollup-plugin-external-globals';
+import { promises as fs } from 'node:fs';
+import getSystem from '../utils/getSystem.js';
 
-module.exports = (input, dest, options) => {
+const pkg = JSON.parse(
+  await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'),
+);
+
+export default async (input, dest, options) => {
   const minifyCode =
     options.uglify === true ||
     (options.uglify !== false && process.env.NODE_ENV === 'production');
@@ -67,5 +71,6 @@ module.exports = (input, dest, options) => {
     inputOptions.plugins.push(externalGlobals({ ECL: 'ECL' }));
   }
 
-  rollup.rollup(inputOptions).then((bundle) => bundle.write(outputOptions));
+  const bundle = await rollup(inputOptions);
+  await bundle.write(outputOptions);
 };

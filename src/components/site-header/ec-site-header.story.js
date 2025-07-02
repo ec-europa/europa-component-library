@@ -161,7 +161,7 @@ const getArgTypes = (data) => {
       name: 'featured panel priority',
       control: { type: 'select' },
       description:
-        'in desktop, when two featured panels are present, you can choose which one to show',
+        'When two featured panels are present, you can choose which one to show',
       options: ['secondary', 'primary'],
       table: {
         category: 'Optional',
@@ -175,6 +175,7 @@ const getArgTypes = (data) => {
       type: { name: 'boolean' },
       description: 'Show the call to action link',
       table: {
+        disable: true,
         category: 'Optional',
       },
     };
