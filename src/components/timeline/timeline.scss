@@ -440,14 +440,14 @@ $timeline: null !default;
 
     .ecl-timeline + .ecl-timeline > .ecl-timeline__item--headline {
       padding-block-start: calc(
-        #{map.get($timeline, 'headline', 'padding-top-mobile')} +
+        #{map.get($timeline, 'headline', 'padding-top-tablet')} +
           #{map.get($timeline, 'set-spacing-tablet')}
       );
 
       &::after {
         top: calc(
-          #{map.get($timeline, 'headline', 'bullet-top-position-tablet')} +
-            #{map.get($timeline, 'set-spacing-tablet')}
+          #{map.get($timeline, 'bullet', 'large', 'top-position')} +
+            #{map.get($timeline, 'set-spacing-tablet')} + 2px
         );
       }
     }
