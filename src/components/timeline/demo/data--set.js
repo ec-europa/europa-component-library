@@ -8,10 +8,10 @@ module.exports = {
       toggle_expanded: 'Hide %d items',
       hide: {
         from: 5,
-        to: -2,
+        to: 0,
       },
       headline: {
-        label: 'Headline',
+        label: '2025',
         title: 'Headline title',
         content:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus risus.',
@@ -24,10 +24,12 @@ module.exports = {
         },
         {
           label: 'Item 2 label',
+          title: 'Item 2 title',
           content: 'Etiam tempus augue mi, in tincidunt dolor tincidunt id',
         },
         {
           label: 'Item 3 label',
+          title: 'Item 3 title',
           content:
             'Suspendisse venenatis condimentum turpis, in lobortis ante finibus nec. Morbi consequat purus in nulla facilisis lacinia.',
         },
@@ -36,6 +38,7 @@ module.exports = {
           content: `<a href="${exampleLink}" class="ecl-link">Nulla finibus eleifend felis</a>`,
         },
         {
+          title: 'Item 5 title',
           content:
             'Suspendisse varius neque at nunc auctor, vel dictum purus pellentesque. Etiam ac ex mi. Fusce sed posuere ligula, sed malesuada nisl. Nulla elementum condimentum nunc at bibendum',
         },
@@ -44,39 +47,45 @@ module.exports = {
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
-          label: 'Item 7 label',
+          title: 'Item 7 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
-          label: 'Item 8 label',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 9 label',
+          title: 'Item 9 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 10 label',
+          title: 'Item 10 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 11 label',
+          title: 'Item 11 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 12 label',
+          title: 'Item 12 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 13 label',
+          title: 'Item 13 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 14 label',
+          title: 'Item 14 title',
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 15 label',
+          title: 'Item 15 title',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros est, sodales eu eleifend sit amet, luctus eu arcu. Aenean tincidunt nulla at ante mollis, ut vulputate purus volutpat.',
         },

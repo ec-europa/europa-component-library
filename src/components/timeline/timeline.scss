@@ -129,7 +129,7 @@ $timeline: null !default;
 
 // Toggle button
 .ecl-timeline__item--toggle {
-  padding-block-start: 0;
+  padding-block-start: var(--s-3xs);
 
   &::before {
     border-inline-start-style: dashed;
@@ -149,7 +149,7 @@ $timeline: null !default;
         #{calc(map.get($timeline, 'bullet', 'toggle', 'size') / 2) +
           map.get($timeline, 'bullet', 'toggle', 'border-width')}
       );
-    top: calc(var(--s-2xs) + var(--s-xs));
+    top: map.get($timeline, 'bullet', 'toggle', 'top-position');
     width: map.get($timeline, 'bullet', 'toggle', 'size') +
       (map.get($timeline, 'bullet', 'toggle', 'border-width') * 2);
   }
