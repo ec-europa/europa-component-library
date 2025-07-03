@@ -129,7 +129,7 @@ const indexPageContent = `
     <style>
       body {
         padding: 1rem;
-        max-width: 1200px;
+        max-width: 1368px;
         margin: o auto;
       }
       .ecl-apis-header h1 {

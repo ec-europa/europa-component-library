@@ -550,7 +550,7 @@ $language-list: null !default;
   // stylelint-enable plugin/selector-bem-pattern
 }
 
-@include breakpoints.up('xxl') {
+@media (width >= 1368px) {
   .ecl-site-header__action .ecl-form-group {
     width: map.get($site-header, 'search-width-xl');
   }
