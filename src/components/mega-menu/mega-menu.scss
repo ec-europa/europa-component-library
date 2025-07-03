@@ -727,9 +727,9 @@ $mega-menu: null !default;
   }
 
   .ecl-mega-menu:not(
-      .ecl-mega-menu--forced-mobile,
-      .ecl-mega-menu--forced-close
-    ) {
+    .ecl-mega-menu--forced-mobile,
+    .ecl-mega-menu--forced-close
+  ) {
     .ecl-mega-menu__item {
       &.ecl-mega-menu__item--expanded > .ecl-button .ecl-icon {
         transform: rotate(0);
@@ -1107,9 +1107,9 @@ $mega-menu: null !default;
 
 @include breakpoints.up('xl') {
   .ecl-mega-menu:not(
-      .ecl-mega-menu--forced-mobile,
-      .ecl-mega-menu--forced-close
-    ) {
+    .ecl-mega-menu--forced-mobile,
+    .ecl-mega-menu--forced-close
+  ) {
     .ecl-mega-menu__wrapper {
       padding-top: var(--s-m);
       min-height: 200px !important;
@@ -1517,9 +1517,9 @@ $mega-menu: null !default;
 
 @include breakpoints.up('xxl') {
   .ecl-mega-menu:not(
-      .ecl-mega-menu--forced-mobile,
-      .ecl-mega-menu--forced-close
-    ) {
+    .ecl-mega-menu--forced-mobile,
+    .ecl-mega-menu--forced-close
+  ) {
     .ecl-container {
       padding-inline: map.get(
         $mega-menu,
@@ -1608,9 +1608,9 @@ $mega-menu: null !default;
 
 @include breakpoints.up('xl') {
   .ecl-mega-menu:not(
-      .ecl-mega-menu--forced-mobile,
-      .ecl-mega-menu--forced-close
-    ) {
+    .ecl-mega-menu--forced-mobile,
+    .ecl-mega-menu--forced-close
+  ) {
     .ecl-container {
       padding-inline: map.get(
         $mega-menu,
@@ -1633,9 +1633,9 @@ $mega-menu: null !default;
 
 @include breakpoints.up('xxl') {
   .ecl-mega-menu:not(
-      .ecl-mega-menu--forced-mobile,
-      .ecl-mega-menu--forced-close
-    ) {
+    .ecl-mega-menu--forced-mobile,
+    .ecl-mega-menu--forced-close
+  ) {
     .ecl-mega-menu__mega:not(.ecl-mega-menu__mega--level-2)
       > .ecl-mega-menu__featured {
       margin-inline-start: 20.68rem !important;
