@@ -33,7 +33,7 @@ export const parameters = {
         group: 'screen',
       },
       {
-        id: 'ecl-ec',
+        id: 'ecl-eu',
         href: './styles/ecl-eu.css',
         picked: true,
         group: 'screen',
