@@ -31,6 +31,7 @@ $typography: null !default;
 }
 
 $font-breakpoints: (
+  'mobile': 's',
   'tablet': 'm',
   'desktop': 'xl',
 );
@@ -84,9 +85,9 @@ $font-breakpoints: (
       }
     }
 
-    // Base (mobile)
-    @if map.has-key($token-map, 'mobile') {
-      @include responsive-font-emit(map.get($token-map, 'mobile'));
+    // Base (mobile-xs)
+    @if map.has-key($token-map, 'mobile-xs') {
+      @include responsive-font-emit(map.get($token-map, 'mobile-xs'));
     } @else {
       @include responsive-font-emit($token-map);
     }
@@ -97,6 +98,13 @@ $font-breakpoints: (
         // Check if there is a need to generate css (different from previous breakpoint)
         @if (
           (
+              $tier ==
+                'mobile' and
+                map.has-key($token-map, 'mobile-xs') and
+                map.get($token-map, $tier) !=
+                map.get($token-map, 'mobile-xs')
+            ) or
+            (
               $tier ==
                 'tablet' and
                 map.has-key($token-map, 'mobile') and
