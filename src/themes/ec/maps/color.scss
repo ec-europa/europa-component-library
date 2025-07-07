@@ -45,19 +45,19 @@ $color-default: (
   'neutral-900': #313c5e,
   'neutral-950': #26324b,
 
-  'warm-grey-25': #fdfdfc,
-  'warm-grey-50': #fbfafa,
-  'warm-grey-75': #f1efee,
-  'warm-grey-100': #ddd8d6,
-  'warm-grey-200': #d1cbc8,
-  'warm-grey-300': #c4bcb8,
-  'warm-grey-400': #b7ada8,
-  'warm-grey-500': #ab9f99,
-  'warm-grey-600': #9e908a,
-  'warm-grey-700': #92827b,
-  'warm-grey-800': #726660,
-  'warm-grey-900': #584f4a,
-  'warm-grey-950': #433c39,
+  'grey-25': #fafafb,
+  'grey-50': #f6f6f8,
+  'grey-75': #ededf0,
+  'grey-100': #e1e1e7,
+  'grey-200': #d4d4dc,
+  'grey-300': #b9b9c5,
+  'grey-400': #a0a0b1,
+  'grey-500': #84849b,
+  'grey-600': #696984,
+  'grey-700': #505070,
+  'grey-800': #353559,
+  'grey-900': #1c1c45,
+  'grey-950': #00002e,
 
   // Status
   'info-25': #eef6fc,
@@ -312,17 +312,16 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'blue-200'),
     '--cm-surface-medium': map.get($color-palette, 'blue-300'),
     '--cm-surface': map.get($color-palette, 'blue-500'),
-    '--cm-surface-high': map.get($color-palette, 'blue-700'),
     '--cm-surface-variant-1': map.get($color-palette, 'blue-navy-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'blue-navy-700'),
     // on surface
+    '--cm-on-surface-swap-1': #fff,
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'blue-700'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'blue-500'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'green-lemon-500'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'blue-500'),
     '--cm-on-surface-highlight': map.get($color-palette, 'blue-100'),
-    '--cm-on-surface-swap-1': #fff,
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'blue-200'),
     '--cm-border': map.get($color-palette, 'blue-500'),
@@ -343,17 +342,16 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'green-dark-200'),
     '--cm-surface-medium': map.get($color-palette, 'green-dark-300'),
     '--cm-surface': map.get($color-palette, 'green-dark-900'),
-    '--cm-surface-high': map.get($color-palette, 'green-dark-600'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-lemon-300'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-dark-900'),
     // on surface
+    '--cm-on-surface-swap-1': #fff,
+    '--cm-on-surface-swap-2': var(--c-g-950),
     '--cm-on-surface': map.get($color-palette, 'green-dark-600'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'green-dark-500'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'green-lemon-500'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'green-dark-500'),
     '--cm-on-surface-highlight': map.get($color-palette, 'green-dark-100'),
-    '--cm-on-surface-swap-1': #fff,
-    '--cm-on-surface-swap-2': #{map.get($color-palette, 'blue-navy-900')},
-
     // border
     '--cm-border-low': map.get($color-palette, 'green-dark-200'),
     '--cm-border': map.get($color-palette, 'green-dark-500'),
@@ -374,21 +372,20 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'orange-200'),
     '--cm-surface-medium': map.get($color-palette, 'orange-300'),
     '--cm-surface': map.get($color-palette, 'orange-400'),
-    '--cm-surface-high': map.get($color-palette, 'orange-800'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-pine-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-700'),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'orange-800'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'orange-500'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-ocean-400'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'orange-500'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
         map.get($color-palette, 'orange-100') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'orange-200'),
     '--cm-border': map.get($color-palette, 'orange-500'),
@@ -402,24 +399,23 @@ $color-modes: (
       ),
     '--cm-surface-lowest-variant': color-mix(
         in srgb,
-        map.get($color-default, 'warm-grey-50') 70%,
+        map.get($color-palette, 'warm-grey-50') 70%,
         transparent
       ),
     '--cm-surface-low-1': map.get($color-palette, 'green-100'),
     '--cm-surface-low-2': map.get($color-palette, 'green-200'),
     '--cm-surface-medium': map.get($color-palette, 'green-300'),
     '--cm-surface': map.get($color-palette, 'green-500'),
-    '--cm-surface-high': map.get($color-palette, 'green-900'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-dark-900'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-dark-900'),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'green-900'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'green-500'),
-    '--cm-on-surface-variant-2': map.get($color-default, 'warm-grey-300'),
+    '--cm-on-surface-variant-2': map.get($color-palette, 'warm-grey-300'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'green-500'),
     '--cm-on-surface-highlight': map.get($color-palette, 'green-100'),
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'green-400'),
     '--cm-border': map.get($color-palette, 'green-500'),
@@ -433,28 +429,27 @@ $color-modes: (
       ),
     '--cm-surface-lowest-variant': color-mix(
         in srgb,
-        map.get($color-default, 'warm-grey-50') 70%,
+        map.get($color-palette, 'warm-grey-50') 50%,
         transparent
       ),
     '--cm-surface-low-1': map.get($color-palette, 'purple-100'),
     '--cm-surface-low-2': map.get($color-palette, 'purple-200'),
     '--cm-surface-medium': map.get($color-palette, 'purple-300'),
     '--cm-surface': map.get($color-palette, 'purple-500'),
-    '--cm-surface-high': map.get($color-palette, 'purple-700'),
     '--cm-surface-variant-1': map.get($color-palette, 'blue-navy-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'blue-navy-700'),
     // on surface
+    '--cm-on-surface-swap-1': #fff,
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'purple-700'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'purple-500'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'green-lemon-500'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'purple-500'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
         map.get($color-palette, 'purple-100') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #fff,
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'purple-200'),
     '--cm-border': map.get($color-palette, 'purple-500'),
@@ -475,21 +470,20 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'blue-navy-300'),
     '--cm-surface-medium': map.get($color-palette, 'blue-navy-400'),
     '--cm-surface': map.get($color-palette, 'blue-navy-800'),
-    '--cm-surface-high': map.get($color-palette, 'blue-navy-800'),
     '--cm-surface-variant-1': map.get($color-palette, 'blue-ocean-400'),
     '--cm-surface-variant-2': map.get($color-palette, 'blue-navy-800'),
     // on surface
+    '--cm-on-surface-swap-1': #fff,
+    '--cm-on-surface-swap-2': var(--c-g-950),
     '--cm-on-surface': map.get($color-palette, 'blue-navy-800'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'blue-navy-700'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-ocean-400'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'blue-navy-700'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
         map.get($color-palette, 'blue-navy-200') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #fff,
-    '--cm-on-surface-swap-2': #{map.get($color-palette, 'blue-navy-900')},
-
     // border
     '--cm-border-low': map.get($color-palette, 'blue-navy-200'),
     '--cm-border': map.get($color-palette, 'blue-navy-800'),
@@ -503,24 +497,23 @@ $color-modes: (
       ),
     '--cm-surface-lowest-variant': color-mix(
         in srgb,
-        map.get($color-default, 'warm-grey-50') 70%,
+        map.get($color-palette, 'warm-grey-50') 70%,
         transparent
       ),
     '--cm-surface-low-1': map.get($color-palette, 'blue-electric-100'),
     '--cm-surface-low-2': map.get($color-palette, 'blue-electric-200'),
     '--cm-surface-medium': map.get($color-palette, 'blue-electric-300'),
     '--cm-surface': map.get($color-palette, 'blue-electric-400'),
-    '--cm-surface-high': map.get($color-palette, 'blue-electric-700'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-pine-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-700'),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'blue-electric-700'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'blue-electric-400'),
-    '--cm-on-surface-variant-2': map.get($color-default, 'warm-grey-300'),
+    '--cm-on-surface-variant-2': map.get($color-palette, 'warm-grey-300'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'blue-electric-400'),
     '--cm-on-surface-highlight': map.get($color-palette, 'blue-electric-100'),
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'blue-electric-300'),
     '--cm-border': map.get($color-palette, 'blue-electric-400'),
@@ -534,23 +527,23 @@ $color-modes: (
       ),
     '--cm-surface-lowest-variant': color-mix(
         in srgb,
-        map.get($color-default, 'warm-grey-50') 70%,
+        map.get($color-palette, 'warm-grey-50') 70%,
         transparent
       ),
     '--cm-surface-low-1': map.get($color-palette, 'blue-ocean-100'),
     '--cm-surface-low-2': map.get($color-palette, 'blue-ocean-200'),
     '--cm-surface-medium': map.get($color-palette, 'blue-ocean-300'),
     '--cm-surface': map.get($color-palette, 'blue-ocean-400'),
-    '--cm-surface-high': map.get($color-palette, 'blue-ocean-800'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-pine-800'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-800'),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'blue-ocean-800'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'blue-ocean-400'),
-    '--cm-on-surface-variant-2': map.get($color-default, 'warm-grey-300'),
+    '--cm-on-surface-variant-2': map.get($color-palette, 'warm-grey-300'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'blue-ocean-400'),
     '--cm-on-surface-highlight': #{map.get($color-palette, 'blue-ocean-100')},
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
 
     // border
     '--cm-border-low': map.get($color-palette, 'blue-ocean-300'),
@@ -572,16 +565,16 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'green-lemon-300'),
     '--cm-surface-medium': map.get($color-palette, 'green-lemon-400'),
     '--cm-surface': map.get($color-palette, 'green-lemon-400'),
-    '--cm-surface-high': map.get($color-palette, 'green-lemon-900'),
-    '--cm-surface-variant-1': map.get($color-default, 'neutral-900'),
-    '--cm-surface-variant-2': map.get($color-default, 'neutral-900'),
+    '--cm-surface-variant-1': var(--c-n-900),
+    '--cm-surface-variant-2': var(--c-n-900),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'green-lemon-900'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'green-lemon-400'),
-    '--cm-on-surface-variant-2': map.get($color-default, 'neutral-900'),
+    '--cm-on-surface-variant-2': var(--c-n-900),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'green-lemon-400'),
     '--cm-on-surface-highlight': #{map.get($color-palette, 'green-lemon-200')},
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
 
     // border
     '--cm-border-low': map.get($color-palette, 'green-lemon-400'),
@@ -603,16 +596,16 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'green-pine-200'),
     '--cm-surface-medium': map.get($color-palette, 'green-pine-300'),
     '--cm-surface': map.get($color-palette, 'green-pine-600'),
-    '--cm-surface-high': map.get($color-palette, 'green-pine-600'),
     '--cm-surface-variant-1': map.get($color-palette, 'purple-violet-200'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-700'),
     // on surface
+    '--cm-on-surface-swap-1': #fff,
+    '--cm-on-surface-swap-2': var(--c-g-950),
     '--cm-on-surface': map.get($color-palette, 'green-pine-600'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'green-pine-600'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'green-lemon-400'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'green-pine-600'),
     '--cm-on-surface-highlight': #{map.get($color-palette, 'green-pine-100')},
-    '--cm-on-surface-swap-1': #fff,
-    '--cm-on-surface-swap-2': #{map.get($color-palette, 'blue-navy-900')},
 
     // border
     '--cm-border-low': map.get($color-palette, 'green-pine-200'),
@@ -622,7 +615,7 @@ $color-modes: (
     // surface
     '--cm-surface-lowest': color-mix(
         in srgb,
-        map.get($color-default, 'warm-grey-50') 70%,
+        map.get($color-palette, 'warm-grey-50') 70%,
         transparent
       ),
     '--cm-surface-lowest-variant': color-mix(
@@ -630,28 +623,27 @@ $color-modes: (
         map.get($color-palette, 'blue-electric-50') 50%,
         transparent
       ),
-    '--cm-surface-low-1': map.get($color-default, 'warm-grey-100'),
-    '--cm-surface-low-2': map.get($color-default, 'warm-grey-200'),
-    '--cm-surface-medium': map.get($color-default, 'warm-grey-300'),
-    '--cm-surface': map.get($color-default, 'warm-grey-300'),
-    '--cm-surface-high': map.get($color-default, 'warm-grey-700'),
+    '--cm-surface-low-1': map.get($color-palette, 'warm-grey-100'),
+    '--cm-surface-low-2': map.get($color-palette, 'warm-grey-200'),
+    '--cm-surface-medium': map.get($color-palette, 'warm-grey-300'),
+    '--cm-surface': map.get($color-palette, 'warm-grey-300'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-pine-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-700'),
     // on surface
-    '--cm-on-surface': map.get($color-default, 'warm-grey-700'),
-    '--cm-on-surface-variant-1': map.get($color-default, 'warm-grey-400'),
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
+    '--cm-on-surface': map.get($color-palette, 'warm-grey-700'),
+    '--cm-on-surface-variant-1': map.get($color-palette, 'warm-grey-400'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-electric-400'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'warm-grey-400'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
-        map.get($color-default, 'warm-grey-100') 60%,
+        map.get($color-palette, 'warm-grey-100') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
-
     // border
-    '--cm-border-low': map.get($color-default, 'warm-grey-200'),
-    '--cm-border': map.get($color-default, 'warm-grey-400'),
+    '--cm-border-low': map.get($color-palette, 'warm-grey-200'),
+    '--cm-border': map.get($color-palette, 'warm-grey-400'),
   ),
   'red-crayola': (
     // surface
@@ -660,26 +652,25 @@ $color-modes: (
         map.get($color-palette, 'red-crayola-50') 50%,
         transparent
       ),
-    '--cm-surface-lowest-variant': map.get($color-default, 'neutral-50'),
+    '--cm-surface-lowest-variant': var(--c-p-50),
     '--cm-surface-low-1': map.get($color-palette, 'red-crayola-100'),
     '--cm-surface-low-2': map.get($color-palette, 'red-crayola-200'),
     '--cm-surface-medium': map.get($color-palette, 'red-crayola-300'),
     '--cm-surface': map.get($color-palette, 'red-crayola-500'),
-    '--cm-surface-high': map.get($color-palette, 'red-crayola-700'),
     '--cm-surface-variant-1': map.get($color-palette, 'blue-navy-900'),
     '--cm-surface-variant-2': map.get($color-palette, 'blue-navy-900'),
     // on surface
+    '--cm-on-surface-swap-1': #fff,
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'red-crayola-700'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'red-crayola-400'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-navy-900'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'red-crayola-400'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
         map.get($color-palette, 'red-crayola-100') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #fff,
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'red-crayola-200'),
     '--cm-border': map.get($color-palette, 'red-crayola-400'),
@@ -700,16 +691,16 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'yellow-gold-200'),
     '--cm-surface-medium': map.get($color-palette, 'yellow-gold-300'),
     '--cm-surface': map.get($color-palette, 'yellow-gold-300'),
-    '--cm-surface-high': map.get($color-palette, 'yellow-gold-800'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-pine-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-700'),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'yellow-gold-800'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'yellow-gold-300'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-electric-500'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'yellow-gold-300'),
     '--cm-on-surface-highlight': #{map.get($color-palette, 'yellow-gold-100')},
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
 
     // border
     '--cm-border-low': map.get($color-palette, 'yellow-gold-300'),
@@ -731,21 +722,20 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'purple-violet-200'),
     '--cm-surface-medium': map.get($color-palette, 'purple-violet-300'),
     '--cm-surface': map.get($color-palette, 'purple-violet-300'),
-    '--cm-surface-high': map.get($color-palette, 'purple-violet-700'),
     '--cm-surface-variant-1': map.get($color-palette, 'blue-navy-800'),
     '--cm-surface-variant-2': map.get($color-palette, 'blue-navy-800'),
     // on surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'purple-violet-700'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'purple-violet-300'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-navy-800'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'purple-violet-300'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
         map.get($color-palette, 'purple-violet-100') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'purple-violet-200'),
     '--cm-border': map.get($color-palette, 'purple-violet-300'),
@@ -766,21 +756,20 @@ $color-modes: (
     '--cm-surface-low-2': map.get($color-palette, 'red-tomato-200'),
     '--cm-surface-medium': map.get($color-palette, 'red-tomato-300'),
     '--cm-surface': map.get($color-palette, 'red-tomato-500'),
-    '--cm-surface-high': map.get($color-palette, 'red-tomato-700'),
     '--cm-surface-variant-1': map.get($color-palette, 'green-pine-700'),
     '--cm-surface-variant-2': map.get($color-palette, 'green-pine-700'),
     // on-surface
+    '--cm-on-surface-swap-1': var(--c-g-950),
+    '--cm-on-surface-swap-2': #fff,
     '--cm-on-surface': map.get($color-palette, 'red-tomato-700'),
     '--cm-on-surface-variant-1': map.get($color-palette, 'red-tomato-500'),
     '--cm-on-surface-variant-2': map.get($color-palette, 'blue-ocean-300'),
+    '--cm-on-surface-variant-3': map.get($color-palette, 'red-tomato-500'),
     '--cm-on-surface-highlight': color-mix(
         in srgb,
         map.get($color-palette, 'red-tomato-100') 60%,
         transparent
       ),
-    '--cm-on-surface-swap-1': #{map.get($color-palette, 'blue-navy-900')},
-    '--cm-on-surface-swap-2': #fff,
-
     // border
     '--cm-border-low': map.get($color-palette, 'red-tomato-200'),
     '--cm-border': map.get($color-palette, 'red-tomato-500'),
