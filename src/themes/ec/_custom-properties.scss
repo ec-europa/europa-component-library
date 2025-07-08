@@ -410,14 +410,14 @@
   --cm-surface-lowest: var(--c-p-50);
   --cm-surface-lowest-variant: color-mix(
     in srgb,
-    map.get($color-palette, 'warm-grey-50') 50%,
+    #{map.get($color-palette, 'warm-grey-50')} 50%,
     transparent
   );
   --cm-surface-low-1: var(--c-p-50);
   --cm-surface-low-2: var(--c-p-100);
   --cm-surface-medium: var(--c-p-200);
   --cm-surface: var(--c-g-950);
-  --cm-surface-variant-1: map.get($color-palette, 'warm-grey-100');
+  --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-100')};
   --cm-surface-variant-2: var(--c-g-950);
   --cm-surface-primary: var(--c-p-600);
   --cm-surface-primary-high: var(--c-p-700);
