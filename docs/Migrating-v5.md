@@ -247,6 +247,11 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
 
 EU footer hasn't changed, but is now using its own template file
 
+### Timeline
+
+- new section available to add headline (larger first item). Corresponding twig parameter is `headline`
+- new way to group multiple timeline, in a timeline set. This is a separated template, just using an array of timelines.
+
 ## Js modifications
 
 ## Packages modifications

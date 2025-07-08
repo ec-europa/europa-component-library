@@ -4,12 +4,17 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import demoData from './demo/data';
+import demoDataSet from './demo/data--set';
 import timeline from './timeline.html.twig';
+import timelineSet from './timeline-set.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    show_headline: true,
+    items_before: data.hide.from,
+    items_after: -1 * data.hide.to,
+    nb_timeline: 1,
     title: data.items[0].title,
     label: data.items[0].label,
     content: data.items[0].content,
@@ -25,6 +30,44 @@ const getArgs = (data) => {
 
 const getArgTypes = () => ({
   ...getColorModeControls(),
+  show_headline: {
+    name: 'headline',
+    type: { name: 'boolean' },
+    description: 'Show the headline',
+    table: {
+      category: 'Optional',
+    },
+  },
+  items_before: {
+    name: 'items before',
+    description:
+      'Items before the toggle<br /> (toggle counter is not refreshed in the showcase)',
+    control: { type: 'range', min: 0, max: 5, step: 1 },
+    table: {
+      type: { summary: 'string' },
+      category: 'Display',
+    },
+  },
+  items_after: {
+    name: 'items after',
+    description:
+      'Items after the toggle<br /> (toggle counter is not refreshed in the showcase)',
+    control: { type: 'range', min: 0, max: 5, step: 1 },
+    table: {
+      type: { summary: 'string' },
+      category: 'Display',
+    },
+  },
+  nb_timeline: {
+    name: 'number of timelines',
+    description:
+      'Number of timeline displayed<br /> (grouped with timeline set)',
+    control: { type: 'range', min: 1, max: 3, step: 1 },
+    table: {
+      type: { summary: 'string' },
+      category: 'Display',
+    },
+  },
   title: {
     type: { name: 'string' },
     description: 'Title of the timeline item',
@@ -67,29 +110,55 @@ const getArgTypes = () => ({
 
 // Prepare data for the navigation.
 const prepareData = (data, args) => {
-  data.color_mode = args.color_mode;
-  data.items[0].title = args.title;
-  data.items[0].label = args.label;
-  data.items[0].content = args.content;
+  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
 
-  const { from, to } = data.hide;
+  if (!args.show_headline) {
+    delete clone.headline;
+  }
+
+  clone.items[0].title = args.title;
+  clone.items[0].label = args.label;
+  clone.items[0].content = args.content;
+
+  const { from, to } = clone.hide;
   let hiddenCount = 0;
   if (to > 0) {
     hiddenCount = to - from;
   } else {
-    hiddenCount = data.items.length + to - from;
+    hiddenCount = clone.items.length + to - from;
   }
-  data.toggle_collapsed = `Show ${hiddenCount} more items`;
-  data.toggle_expanded = `Hide ${hiddenCount} items`;
+  clone.toggle_collapsed = `Show ${hiddenCount} more items`;
+  clone.toggle_expanded = `Hide ${hiddenCount} items`;
 
-  correctPaths(data);
+  clone.hide.from = args.items_before;
+  clone.hide.to = -1 * args.items_after;
 
-  return data;
+  return Object.assign(clone, args);
+};
+
+const prepareDataSet = (data, args) => {
+  const clone = JSON.parse(JSON.stringify(data));
+
+  // Duplicate timeline to showcase a set
+  for (let i = 1; i < args.nb_timeline; i += 1) {
+    clone.items.push(clone.items[0]);
+  }
+
+  for (let i = 0; i < clone.items.length; i += 1) {
+    clone.items[i] = prepareData(clone.items[i], args);
+  }
+
+  return clone;
 };
 
 // Prepare dummy Html for the main content.
 const prepareHtmlContent = async (args) => {
-  let story = await timeline(prepareData(demoData, args));
+  let story =
+    args.nb_timeline > 1
+      ? await timelineSet(prepareDataSet(demoDataSet, args))
+      : await timeline(prepareData(demoDataSet.items[0], args));
+
   if (args.showDummyContent) {
     story += `<p class="ecl-u-type-paragraph-m ecl-u-mt-none">${loremIpsum({
       count: 25,
@@ -110,7 +179,7 @@ Default.render = async (args) => {
   return renderedTimeline;
 };
 Default.storyName = 'default';
-Default.args = getArgs(demoData);
+Default.args = getArgs(demoDataSet.items[0]);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = { notes: { markdown: notes, json: demoDataSet } };
 Default.decorators = [withCode, withNotes];
