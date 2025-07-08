@@ -116,10 +116,6 @@
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/highlight/highlight-print' with (
-  $theme: theme.$theme,
-  $highlight: var.$highlight
-);
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (
   $theme: theme.$theme,
@@ -207,6 +203,10 @@
 @use '@ecl/utility-disablescroll/disablescroll';
 @use '@ecl/utility-display/display' with (
   $theme: theme.$theme
+);
+@use '@ecl/utility-highlight/highlight-print' with (
+  $theme: theme.$theme,
+  $highlight: var.$highlight
 );
 @use '@ecl/utility-media/media' with (
   $theme: theme.$theme

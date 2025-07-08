@@ -3,6 +3,6 @@ title: Highlight
 defaultTab: usage
 status: ready
 playground:
-  system: ec
-  path: /story/components-highlight--default
+  system: eu
+  path: /story/utilities-highlight--highlight
 ---
