@@ -2,17 +2,18 @@
 @use '../index' as *;
 
 $textarea: (
-  font: var(--f-m),
+  font: 'body-s',
   background: var(--cm-surface-inverted),
   border-color: var(--cm-border-brand),
   border-color-hover: var(--cm-border-brand),
   border-color-invalid: var(--cm-border-status-error),
   border-color-invalid-hover: var(--cm-border-status-error),
+  border-color-invalid-focus: var(--cm-border-status-error),
   border-width: 1px,
   color-input: var(--cm-on-surface-brand),
   color-placeholder: var(--cm-on-surface-neutral-medium),
   shadow: none,
-  shadow-hover: none,
-  padding-horizontal: var(--s-m),
-  padding-vertical: var(--s-xs),
+  shadow-hover: var(--sh-1),
+  padding-block: var(--s-xs),
+  padding-inline: var(--s-s) var(--s-m),
 );

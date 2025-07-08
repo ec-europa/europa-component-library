@@ -373,11 +373,12 @@ export class Carousel {
    */
   dragStart(e) {
     e = e || window.event;
-
     this.posInitial = this.slidesContainer.offsetLeft;
 
     if (e.type === 'touchstart') {
       this.posX1 = e.touches[0].clientX;
+      this.posY1 = e.touches[0].clientY;
+      this.allowShift = false; // reset on start
     }
   }
 
@@ -389,21 +390,34 @@ export class Carousel {
     e = e || window.event;
 
     if (e.type === 'touchmove') {
-      e.preventDefault();
-      this.posX2 = this.posX1 - e.touches[0].clientX;
-      this.posX1 = e.touches[0].clientX;
-    }
+      const deltaX = e.touches[0].clientX - this.posX1;
+      const deltaY = e.touches[0].clientY - this.posY1;
 
-    this.slidesContainer.style.left = `${
-      this.slidesContainer.offsetLeft - this.posX2
-    }px`;
+      // Enable shift only when horizontal movement is dominant
+      if (!this.allowShift && Math.abs(deltaX) > Math.abs(deltaY)) {
+        this.allowShift = true;
+      }
+
+      if (this.allowShift) {
+        e.preventDefault();
+        this.posX2 = this.posX1 - e.touches[0].clientX;
+        this.posX1 = e.touches[0].clientX;
+
+        this.slidesContainer.style.left = `${
+          this.slidesContainer.offsetLeft - this.posX2
+        }px`;
+      }
+    }
   }
 
   /**
    * TouchEnd handler.
    */
   dragEnd() {
+    if (!this.allowShift) return;
+
     this.posFinal = this.slidesContainer.offsetLeft;
+
     if (this.posFinal - this.posInitial < -this.threshold) {
       this.shiftSlide('next', true);
     } else if (this.posFinal - this.posInitial > this.threshold) {
@@ -411,6 +425,8 @@ export class Carousel {
     } else {
       this.slidesContainer.style.left = `${this.posInitial}px`;
     }
+
+    this.allowShift = false;
   }
 
   /**

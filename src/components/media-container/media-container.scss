@@ -116,7 +116,7 @@ $media-container: null !default;
 .ecl-media-container__play.ecl-button--icon-only,
 .ecl-media-container__pause.ecl-button--icon-only {
   align-items: center;
-  background-color: var(--cm-surface-dark, var(--c-d));
+  background-color: var(--cm-on-surface-neutral-highest, var(--c-d));
   border: none;
   border-radius: 50%;
   color: var(--cm-on-surface-inverted, '#fff');
@@ -134,8 +134,8 @@ $media-container: null !default;
   &:active {
     background-color: #fff;
     border: none;
-    color: var(--cm-surface-dark, var(--c-d));
-    outline-color: var(--cm-surface-dark, var(--c-d));
+    color: var(--cm-on-surface-neutral-highest, var(--c-d));
+    outline-color: var(--cm-on-surface-neutral-highest, var(--c-d));
     padding: 0;
   }
 

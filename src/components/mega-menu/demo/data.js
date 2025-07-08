@@ -49,7 +49,7 @@ module.exports = {
             label: 'I belong to news & media',
             path: exampleLink,
             description:
-              'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              '<p>Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
             extra_attributes: [
               { name: 'an-extra-attribute-for-the-featured-link' },
             ],
