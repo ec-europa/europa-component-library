@@ -8,75 +8,75 @@ module.exports = {
     from: 5,
     to: -2,
   },
+  headline: {
+    label: 'Headline',
+    title: 'Headline title',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu metus risus.',
+  },
   items: [
     {
-      label: '1995 - 1996',
-      title: 'Item title',
-      content: "President Juncker's State of the Union speech",
+      label: 'Item 1 label',
+      title: 'Item 1 title',
+      content: 'Nulla vel mattis justo',
     },
     {
-      label: '1996 - 1997',
-      content: 'Informal Digital Summit, Tallinn',
+      label: 'Item 2 label',
+      content: 'Etiam tempus augue mi, in tincidunt dolor tincidunt id',
     },
     {
-      label: '1997 - 1998',
+      label: 'Item 3 label',
       content:
-        "Strengthening European identity through education and culture: European Commission's contribution to the Leaders' meeting, Gothenburg, Sweden",
+        'Suspendisse venenatis condimentum turpis, in lobortis ante finibus nec. Morbi consequat purus in nulla facilisis lacinia.',
     },
     {
-      label: '1998 - 1999',
-      content: `<a href="${exampleLink}" class="ecl-link">Social Summit in Gothenburg, Sweden</a>`,
+      title: 'Item 4 title',
+      content: `<a href="${exampleLink}" class="ecl-link">Nulla finibus eleifend felis</a>`,
     },
     {
-      label: '1999 - 2000',
-      content: 'Economic and Monetary Union package of proposals',
-    },
-    {
-      label: '2000 - 2001',
-      content: "EU Leaders' meeting on migration, Brussels",
-    },
-    {
-      label: '2001 - 2002',
-      content: `<a href="${exampleLink}" class="ecl-link">Euro Summit</a>`,
-    },
-    {
-      label: '2002 - 2003',
-      content: 'EU-Western Balkans Strategy',
-    },
-    {
-      label: '2003 - 2004',
       content:
-        'Multiannual Financial Framework and institutional issues enhancing efficiency at the helm of the European Union',
+        'Suspendisse varius neque at nunc auctor, vel dictum purus pellentesque. Etiam ac ex mi. Fusce sed posuere ligula, sed malesuada nisl. Nulla elementum condimentum nunc at bibendum',
     },
     {
-      label: '2004 - 2005',
-      content: 'Informal European Council',
+      label: 'Item 6 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     },
     {
-      label: '2005 - 2006',
-      content: 'European Council',
+      label: 'Item 7 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     },
     {
-      label: '2006 - 2007',
-      content: `<a href="${exampleLink}" class="ecl-link">Commission proposal: Long-term budget post-2020</a>`,
+      label: 'Item 8 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     },
     {
-      label: '2007 - 2008',
+      label: 'Item 9 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      label: 'Item 10 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      label: 'Item 11 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      label: 'Item 12 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      label: 'Item 13 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      label: 'Item 14 label',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      label: 'Item 15 label',
       content:
-        "European Commission’s contribution to the Informal Leaders' meeting, Sofia, Bulgaria (16 May 2018)",
-    },
-    {
-      label: '2008 - 2009',
-      content: 'EU-Western Balkans Summit (Sofia, Bulgaria)',
-    },
-    {
-      label: '2009 - 2010',
-      content: `Progress by Member States in meeting the conditions for adopting the euro - <a href="${exampleLink}" class="ecl-link">reports</a> by the European Commission and ECB`,
-    },
-    {
-      label: '2010 -2011',
-      content:
-        'European Semester: European Commission publishes economic policy guidance for Member States',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros est, sodales eu eleifend sit amet, luctus eu arcu. Aenean tincidunt nulla at ante mollis, ut vulputate purus volutpat.',
     },
   ],
 };

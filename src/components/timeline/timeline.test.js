@@ -6,8 +6,12 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from './demo/data';
+import demoDataSet from './demo/data--set';
 
 demoData.items.forEach((item, index) => {
+  item.id = `timeline-item-${index}`;
+});
+demoDataSet.items[0].items.forEach((item, index) => {
   item.id = `timeline-item-${index}`;
 });
 
@@ -15,7 +19,9 @@ expect.extend(toHaveNoViolations);
 
 describe('Timeline', () => {
   const template = '@ecl/timeline/timeline.html.twig';
+  const templateSet = '@ecl/timeline/timeline-set.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
+  const renderSet = (params) => renderTwigFileAsNode(templateSet, params);
 
   test('renders correctly without hidden items', () => {
     expect.assertions(1);
@@ -93,6 +99,12 @@ describe('Timeline', () => {
     });
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly in a set', () => {
+    expect.assertions(1);
+
+    return expect(renderSet(demoDataSet)).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with extra class names', () => {
