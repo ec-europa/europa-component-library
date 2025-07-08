@@ -1,15 +1,15 @@
-const getSystem = () => {
+const getSystem = (pathnameOverride) => {
   let system = null;
 
   // The following sources are ordered by priority.
-  if (
-    typeof window !== 'undefined' && // important for node/browser compatibility
-    window.location &&
-    window.location.pathname
-  ) {
-    system = window.location.pathname
-      .split('/')
-      .find((part) => part === 'ec' || part === 'eu');
+  const pathname =
+    pathnameOverride ||
+    (typeof window !== 'undefined' &&
+      window.location &&
+      window.location.pathname);
+
+  if (pathname) {
+    system = pathname.split('/').find((part) => part === 'ec' || part === 'eu');
     if (system && ['ec', 'eu'].includes(system)) return system;
   }
 

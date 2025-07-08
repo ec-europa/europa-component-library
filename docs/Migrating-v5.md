@@ -155,7 +155,6 @@ If you don't use the templates, this would have to be done manually:
 - keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
 
   Examples:
-
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
     - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
 
@@ -249,6 +248,11 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
   See the component documentation and examples for more information
 
 EU footer hasn't changed, but is now using its own template file
+
+### Timeline
+
+- new section available to add headline (larger first item). Corresponding twig parameter is `headline`
+- new way to group multiple timeline, in a timeline set. This is a separated template, just using an array of timelines.
 
 ## Js modifications
 

@@ -2,18 +2,18 @@
 
 {#
   Parameters:
-   - "color_mode" (string) The color mode name
-   - "id" (string) (default: random)
-   - "title" (string) (default: '')
-   - "trigger_aria_label": (default: '')
-   - "links" (array) (default: predefined structure): format: [
+    - "color_mode" (string) The color mode name
+    - "id" (string) (default: random)
+    - "title" (string) (default: '')
+    - "trigger_aria_label": (default: '')
+    - "links" (array) (default: predefined structure): format: [
       {
         href: (string) (default: ''),
         label: (string) (default: '')
       },
       ...
       ]
-    - "icon_size" (string) (default: 'xs') EC: xs, EU: s
+    - "icon_size" (string) (default: '2xs') EC: 2xs, EU: s
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -61,7 +61,17 @@
   data-ecl-inpage-navigation="true"
   aria-labelledby="{{ _id }}"
 >
-  <div class="ecl-inpage-navigation__title" id="{{ _id }}">{{ _title }}</div>
+  <div class="ecl-inpage-navigation__title" id="{{ _id }}">
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: {
+        name: 'list',
+        size: 's',
+      },
+      as_image: true,
+      extra_classes: 'ecl-inpage-navigation__title-icon',
+    } only %}
+    {{ _title }}
+  </div>
   {% set _button_attributes = '
       type="button"
       class="ecl-inpage-navigation__trigger"

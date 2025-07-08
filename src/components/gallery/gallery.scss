@@ -182,7 +182,7 @@ $_description-height-desktop: 108px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1140px;
+  max-width: map.get($theme, 'container', 'xxl');
   padding-top: var(--s-xs);
 }
 
