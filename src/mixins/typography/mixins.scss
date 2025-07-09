@@ -30,6 +30,14 @@ $typography: null !default;
   }
 }
 
+@function get-font-size($value) {
+  @if meta.type-of($value) == 'map' {
+    @return map.get($value, 'size');
+  }
+
+  @return $value;
+}
+
 @function map-deep-get($map, $keys...) {
   $v: $map;
 
@@ -118,22 +126,22 @@ $font-breakpoints: (
               $tier ==
                 'mobile' and
                 map.has-key($token-map, 'mobile-xs') and
-                map.get($token-map, $tier) !=
-                map.get($token-map, 'mobile-xs')
+                get-font-size(map.get($token-map, $tier)) !=
+                get-font-size(map.get($token-map, 'mobile-xs'))
             ) or
             (
               $tier ==
                 'tablet' and
                 map.has-key($token-map, 'mobile') and
-                map.get($token-map, $tier) !=
-                map.get($token-map, 'mobile')
+                get-font-size(map.get($token-map, $tier)) !=
+                get-font-size(map.get($token-map, 'mobile'))
             ) or
             (
               $tier ==
                 'desktop' and
                 map.has-key($token-map, 'tablet') and
-                map.get($token-map, $tier) !=
-                map.get($token-map, 'tablet')
+                get-font-size(map.get($token-map, $tier)) !=
+                get-font-size(map.get($token-map, 'tablet'))
             )
         ) {
           @include breakpoints.up($bp-name) {
