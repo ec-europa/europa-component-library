@@ -7,8 +7,13 @@ $typography: null !default;
 
 @mixin responsive-font-emit($tier-map) {
   @if meta.type-of($tier-map) == 'map' {
+    $font: map.get($tier-map, 'font');
     $size: map.get($tier-map, 'size');
     $lh: map.get($tier-map, 'line-height');
+
+    @if $font {
+      font: $font;
+    }
 
     @if $size {
       font-size: $size;
