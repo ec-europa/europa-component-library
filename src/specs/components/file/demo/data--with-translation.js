@@ -15,8 +15,10 @@ module.exports = {
       label: 'Download',
       path: exampleLink,
     },
+    extra_attributes: [{ name: 'extra-download-attribute' }],
     icon: {
       path: '/icons.svg',
+      extra_attributes: [{ name: 'extra-download-icon-attribute' }],
     },
   },
   translation: {
@@ -51,8 +53,12 @@ module.exports = {
             label: 'Download',
             path: '/example#es',
           },
+          extra_attributes: [{ name: 'extra-translation-item-attribute' }],
           icon: {
             path: '/icons.svg',
+            extra_attributes: [
+              { name: 'extra-translation-item-icon-attribute' },
+            ],
           },
         },
         download_attribute: true,
