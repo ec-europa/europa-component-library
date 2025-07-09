@@ -16,35 +16,8 @@ $typography: null !default;
 @if map.has-key($typography, 'display') {
   .ecl-u-type-display {
     color: map.get($typography, 'heading-color');
-    font-family: map.get($typography, 'font-family') !important;
-    font-size: map.get($typography, 'display', 'mobile', 'size') !important;
-    font-weight: map.get($typography, 'display', 'font-weight') !important;
-    line-height: map.get(
-      $typography,
-      'display',
-      'mobile',
-      'line-height'
-    ) !important;
 
-    @include breakpoints.up('m') {
-      font-size: map.get($typography, 'display', 'tablet', 'size') !important;
-      line-height: map.get(
-        $typography,
-        'display',
-        'tablet',
-        'line-height'
-      ) !important;
-    }
-
-    @include breakpoints.up('xl') {
-      font-size: map.get($typography, 'display', 'desktop', 'size') !important;
-      line-height: map.get(
-        $typography,
-        'display',
-        'desktop',
-        'line-height'
-      ) !important;
-    }
+    @include mixins.responsive-font('display', $important: true);
   }
 }
 
@@ -52,42 +25,42 @@ $typography: null !default;
 %ecl-heading-1 {
   color: map.get($typography, 'heading-color');
 
-  @include mixins.responsive-font('heading1');
+  @include mixins.responsive-font('heading1', $important: true);
 }
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
   color: map.get($typography, 'heading-color');
 
-  @include mixins.responsive-font('heading2');
+  @include mixins.responsive-font('heading2', $important: true);
 }
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
   color: map.get($typography, 'heading-color');
 
-  @include mixins.responsive-font('heading3');
+  @include mixins.responsive-font('heading3', $important: true);
 }
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
   color: map.get($typography, 'heading-color');
 
-  @include mixins.responsive-font('heading4');
+  @include mixins.responsive-font('heading4', $important: true);
 }
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
   color: map.get($typography, 'heading-color');
 
-  @include mixins.responsive-font('heading5');
+  @include mixins.responsive-font('heading5', $important: true);
 }
 
 .ecl-u-type-heading-6,
 %ecl-heading-6 {
   color: map.get($typography, 'heading-color');
 
-  @include mixins.responsive-font('heading6');
+  @include mixins.responsive-font('heading6', $important: true);
 }
 
 %ecl-heading-1,
@@ -105,32 +78,45 @@ $typography: null !default;
 @each $key, $value in map.get($typography, 'paragraph') {
   .ecl-u-type-paragraph-#{$key} {
     color: map.get($typography, 'text-color') !important;
-    font: $value !important;
     max-width: var(--max-w) !important;
+
+    @include mixins.responsive-font($value, $important: true);
   }
 }
 
 .ecl-u-type-paragraph {
   color: map.get($typography, 'text-color') !important;
-  font: map.get($typography, 'paragraph', 'm') !important;
   max-width: var(--max-w) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'paragraph', 'm'),
+    $important: true
+  );
 }
 
 %ecl-paragraph {
   color: map.get($typography, 'text-color');
-  font: map.get($typography, 'paragraph', 'm');
   max-width: var(--max-w) !important;
+
+  @include mixins.responsive-font(map.get($typography, 'paragraph', 'm'));
 }
 
 .ecl-u-type-paragraph-lead {
   color: map.get($typography, 'text-color');
-  font: map.get($typography, 'paragraph', 'l') !important;
   max-width: var(--max-w) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'paragraph', 'l'),
+    $important: true
+  );
 }
 
 @if map.has-key($typography, 'paragraph', 'xl') {
   .ecl-u-type-paragraph-lead {
-    font: map.get($typography, 'paragraph', 'xl') !important;
+    @include mixins.responsive-font(
+      map.get($typography, 'paragraph', 'xl'),
+      $important: true
+    );
   }
 }
 
@@ -143,7 +129,7 @@ $typography: null !default;
       color: map.get($typography, 'text-color') !important;
       max-width: var(--max-w) !important;
 
-      @include mixins.responsive-font('microcopy-' + $key);
+      @include mixins.responsive-font('microcopy-' + $key, $important: true);
     }
   }
 }
@@ -153,7 +139,7 @@ $typography: null !default;
 */
 @each $key, $value in map.get($theme, 'font') {
   .ecl-u-type-#{$key} {
-    font: var(--f-#{$key}) !important;
+    @include mixins.responsive-font('body-' + $key, $important: true);
   }
 }
 
