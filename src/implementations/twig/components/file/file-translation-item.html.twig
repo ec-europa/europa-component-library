@@ -58,12 +58,13 @@
         ]) %}
       {% endif %}
 
-      {% set _download_link_classes = 'ecl-file__translation-download' %}
-      {% if _download.extra_classes is not empty %}
-        {% set _download_link_classes = _download_link_classes ~ ' ' ~ _download.extra_classes %}
-      {% endif %}
-
-      {% include '@ecl/link/link.html.twig' with _download|merge({
+      {#{% include '@ecl/link/link.html.twig' with _download|merge({#}
+      {% set download_attributes = create_attribute()
+                                  .setAttribute('download', true)
+                                  .setAttribute('target', '_blank')
+                                  .addClass(['ecl-file__translation-download', _download.extra_classes|default('')])
+      %}
+      {% set _download_item = _download|merge({
         link: _download.link|default(_download.link|default({}))|merge({
           type: 'standalone',
           icon_position: 'after'
@@ -71,10 +72,10 @@
         icon: _download.icon|default(_download.icon|default({}))|merge({
           name: 'download',
           size: 'fluid'
-        }),
-        extra_classes: _download_link_classes,
-        extra_attributes: _download_link_attributes,
-      }) only %}
+        }|merge(_download.icon|default({})),
+        extra_attributes: download_attributes.merge(_download.extra_attributes|default(create_attribute()))
+      }) %}
+      {% include '@ecl/link/link.html.twig' with _download_item only %}
     </div>
   </li>
 
