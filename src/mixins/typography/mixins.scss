@@ -5,10 +5,10 @@
 
 $typography: null !default;
 
-@mixin responsive-font-emit($tier-value, $important: false) {
-  @if meta.type-of($tier-value) == 'map' {
-    $size: map.get($tier-value, 'size');
-    $lh: map.get($tier-value, 'line-height');
+@mixin responsive-font-emit($tier-map, $important: false) {
+  @if meta.type-of($tier-map) == 'map' {
+    $size: map.get($tier-map, 'size');
+    $lh: map.get($tier-map, 'line-height');
 
     @if $size {
       @if $important {
@@ -25,17 +25,7 @@ $typography: null !default;
         line-height: $lh;
       }
     }
-  } @else if meta.type-of($tier-value) == 'string' {
-    font: $tier-value;
   }
-}
-
-@function get-font-size($value) {
-  @if meta.type-of($value) == 'map' {
-    @return map.get($value, 'size');
-  }
-
-  @return $value;
 }
 
 @function map-deep-get($map, $keys...) {
@@ -126,22 +116,22 @@ $font-breakpoints: (
               $tier ==
                 'mobile' and
                 map.has-key($token-map, 'mobile-xs') and
-                get-font-size(map.get($token-map, $tier)) !=
-                get-font-size(map.get($token-map, 'mobile-xs'))
+                map.get($token-map, $tier) !=
+                map.get($token-map, 'mobile-xs')
             ) or
             (
               $tier ==
                 'tablet' and
                 map.has-key($token-map, 'mobile') and
-                get-font-size(map.get($token-map, $tier)) !=
-                get-font-size(map.get($token-map, 'mobile'))
+                map.get($token-map, $tier) !=
+                map.get($token-map, 'mobile')
             ) or
             (
               $tier ==
                 'desktop' and
                 map.has-key($token-map, 'tablet') and
-                get-font-size(map.get($token-map, $tier)) !=
-                get-font-size(map.get($token-map, 'tablet'))
+                map.get($token-map, $tier) !=
+                map.get($token-map, 'tablet')
             )
         ) {
           @include breakpoints.up($bp-name) {
