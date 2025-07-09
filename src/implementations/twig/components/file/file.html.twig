@@ -171,12 +171,14 @@
     <div class="ecl-file__meta">{{ _meta }}</div>
   {% endif %}
     <div class="ecl-file__action">
-      {% set _download_attributes = create_attribute()
-                                    .setAttribute('id', _download_id)
-                                    .setAttribute('aria-labelledby', _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id)
-                                    .setAttribute('target', '_blank')
-                                    .setAttribute('download', 'true')
-                                    .addClass(['ecl-file__download']) %}
+      {% set _download_attributes = [
+        { name: 'id', value: _download_id },
+        { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+        { name: 'target', value: '_blank'},
+        { name: 'download', value: 'true'}
+      ] %}
+      {% set _download_link_classes = 'ecl-file__download' ~ (_download.extra_classes ? ' ' ~ _download.extra_classes : '') %}
+
       {% set _download = _download|merge({
         link: {
           type: 'standalone',
@@ -186,8 +188,8 @@
           name: 'download',
           size: 'fluid'
         }|merge(_download.icon|default({})),
-        extra_attributes: _download_attributes.merge(_download.extra_attributes|default(create_attribute())),
-      })
+        extra_attributes: _download_attributes|merge(_download.extra_attributes|default([])),
+      }) %}
       {% include '@ecl/link/link.html.twig' with _download only %}
     </div>
   </div>

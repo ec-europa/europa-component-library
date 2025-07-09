@@ -58,12 +58,12 @@
         ]) %}
       {% endif %}
 
-      {#{% include '@ecl/link/link.html.twig' with _download|merge({#}
-      {% set download_attributes = create_attribute()
-                                  .setAttribute('download', true)
-                                  .setAttribute('target', '_blank')
-                                  .addClass(['ecl-file__translation-download', _download.extra_classes|default('')])
-      %}
+      {% set download_attributes = [
+        {name: 'download', value: true},
+        {name: 'target', value: '_blank'}
+      ] %}
+      {% set _download_link_classes = _download_link_classes ~ (_download.extra_classes ? ' ' ~ _download.extra_classes : '') %}
+
       {% set _download_item = _download|merge({
         link: _download.link|default(_download.link|default({}))|merge({
           type: 'standalone',
@@ -73,7 +73,8 @@
           name: 'download',
           size: 'fluid'
         }|merge(_download.icon|default({})),
-        extra_attributes: download_attributes.merge(_download.extra_attributes|default(create_attribute()))
+        extra_classes: _download_link_classes,
+        extra_attributes: download_attributes|merge(_download.extra_attributes|default())
       }) %}
       {% include '@ecl/link/link.html.twig' with _download_item only %}
     </div>
