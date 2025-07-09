@@ -17,6 +17,12 @@ $typography: null !default;
     @if $lh {
       line-height: $lh;
     }
+  } @else if meta.type-of($tier-map) == 'string' {
+    @if string.index($tier-map, '--f-') {
+      font: $tier-map;
+    } @else {
+      font-size: $tier-map;
+    }
   }
 }
 
