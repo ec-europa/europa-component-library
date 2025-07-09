@@ -8,7 +8,7 @@ module.exports = {
   sr_invalid_icon: 'Error',
   helper_text:
     'Only <strong>txt doc docx pdf odt rtf</strong> files. Maximum size is <strong>5 MB</strong>.<br />Encrypted documents and those containing macros are not accepted.',
-  required_text: '*',
+  required_text: '(required)',
   optional_text: '(optional)',
   required: true,
   label_aria_required: 'required',

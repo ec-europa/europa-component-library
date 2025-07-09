@@ -8,6 +8,7 @@ $inpage-navigation: (
   title: (
     'background': var(--c-p),
     'color': map.get($color, 'white'),
+    'icon-display': none,
     'text-transform': none,
     'padding': var(--s-s),
     'font': var(--f-m),
@@ -34,6 +35,7 @@ $inpage-navigation: (
         'hover': none,
       ),
     ),
+    'font': var(--f-m),
     'min-height': 3rem,
     'separator': (
       's': 1px solid var(--c-p-10),
@@ -75,7 +77,6 @@ $inpage-navigation: (
     'width': 100%,
   ),
   list: (
-    'scrollbar': right,
     'background': (
       's': transparent,
       'l': transparent,

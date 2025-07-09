@@ -62,14 +62,52 @@ class Playground extends Component {
     if (
       parsedData &&
       parsedData.key === 'storybook-channel' &&
-      parsedData.event &&
-      parsedData.event.type === 'storybook/docs/snippet-rendered'
+      parsedData.event?.type === 'storybook/docs/snippet-rendered'
     ) {
       const [payload] = parsedData.event.args || [];
-
       const story = `${this.props.selectedKind}--${this.props.selectedStory}`;
 
-      if (payload?.id === story) {
+      if (!payload?.id || payload.id !== story) return;
+
+      const selectedArgs = this.props.selectedArgs;
+
+      // If there are no selected args, assume it's a match and accept the payload
+      if (!selectedArgs) {
+        this.setState({ iframeHtml: payload.source });
+        return;
+      }
+
+      // Parse the selectedArgs string into key-value pairs, converting to correct types
+      const expectedArgs = selectedArgs.split(';').reduce((acc, pair) => {
+        const [key, ...rest] = pair.split(':');
+        if (!key) return acc;
+
+        const rawValue = rest.join(':'); // allows colons inside values
+        let normalizedValue;
+
+        if (rawValue === '!true') {
+          normalizedValue = true;
+        } else if (rawValue === '!false') {
+          normalizedValue = false;
+        } else if (rawValue === '') {
+          normalizedValue = ''; // explicitly handle empty string
+        } else if (!isNaN(rawValue)) {
+          normalizedValue = Number(rawValue);
+        } else {
+          normalizedValue = rawValue;
+        }
+
+        acc[key] = normalizedValue;
+        return acc;
+      }, {});
+
+      const payloadArgs = payload.args || {};
+
+      const allArgsMatch = Object.entries(expectedArgs).every(
+        ([key, value]) => payloadArgs[key] === value,
+      );
+
+      if (allArgsMatch) {
         this.setState({ iframeHtml: payload.source });
       }
     }

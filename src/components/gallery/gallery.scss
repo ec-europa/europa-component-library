@@ -53,7 +53,11 @@ $_description-height-desktop: 108px;
 .ecl-gallery__item-icon-wrapper {
   background: var(--cm-on-surface-dark, var(--c-d));
   box-shadow: 0 0 15px 6px
-    color-mix(in srgb, var(--cm-surface-dark, var(--c-d-80)) 55%, transparent);
+    color-mix(
+      in srgb,
+      var(--cm-on-surface-neutral-highest, var(--c-d-80)) 55%,
+      transparent
+    );
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -178,7 +182,7 @@ $_description-height-desktop: 108px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1140px;
+  max-width: map.get($theme, 'container', 'xxl');
   padding-top: var(--s-xs);
 }
 

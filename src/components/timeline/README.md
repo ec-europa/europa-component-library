@@ -19,6 +19,10 @@ npm install --save @ecl/timeline
   - "label": (string) (default: '')
   - "title": (string) (default: '')
   - "content": (block) (default: '')
+- **"headline"** (object) (default: {}): Highlighted item at the top of the timeline
+  - "label": (string) (default: '')
+  - "title": (string) (default: '')
+  - "content": (block) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
