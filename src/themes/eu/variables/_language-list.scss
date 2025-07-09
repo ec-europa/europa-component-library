@@ -17,14 +17,8 @@ $language-list: (
   ),
   header-typography-font-weight: map.get($font-weight, 'regular'),
   header-typography: (
-    'mobile': (
-      'size': var(--fs-l),
-      'line-height': var(--lh-l),
-    ),
-    'tablet': (
-      'size': var(--fs-xl),
-      'line-height': var(--lh-xl),
-    ),
+    'mobile-xs': var(--f-l),
+    'tablet': var(--f-xl),
   ),
   header-font-weight: map.get($font-weight, 'regular'),
   content-margin-mobile: var(--s-s),
