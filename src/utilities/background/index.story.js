@@ -135,7 +135,7 @@ export const Custom = (args) => {
   if (args.show_color_mode) {
     classes = `ecl-u-bg-${args.background_color_mode}`;
 
-    if (args.color_mode !== 'default') {
+    if (args.color_mode !== '') {
       classes += ` ecl-color-mode--${args.color_mode}`;
     }
   } else {
