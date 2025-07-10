@@ -137,9 +137,20 @@ $typography: null !default;
 /*
 * Fonts
 */
-@each $key, $value in map.get($theme, 'font') {
-  .ecl-u-type-#{$key} {
-    @include mixins.responsive-font('body-' + $key, $important: true);
+// Used only on EU
+@if map.has-key($theme, 'font') {
+  @each $key, $value in map.get($theme, 'font') {
+    .ecl-u-type-#{$key} {
+      font: $value;
+    }
+  }
+}
+
+@if map.has-key($typography, 'body') {
+  @each $key, $value in map.get($typography, 'body') {
+    .ecl-u-type-#{$key} {
+      @include mixins.responsive-font('body-' + $key, $important: true);
+    }
   }
 }
 
