@@ -28,8 +28,8 @@ $theme: null !default;
   $semantic-color: (
     'primary',
     'secondary',
-    'neutral-dark',
-    'neutral-light',
+    'neutral',
+    'grey',
     'info',
     'success',
     'error',
@@ -45,15 +45,30 @@ $theme: null !default;
 
 @if map.has-key($theme, 'color-modes') {
   $background-mode: (
-    'surface',
-    'surface-medium',
-    'surface-low',
+    'surface-brand',
+    'surface-inverted',
     'surface-lowest',
     'surface-lowest-variant',
-    'on-surface',
-    'on-surface-highlight',
-    'on-surface-variant-1',
-    'on-surface-variant-2'
+    'surface-low-1',
+    'surface-low-2',
+    'surface-medium',
+    'surface',
+    'surface-variant-1',
+    'surface-variant-2',
+    'surface-primary',
+    'surface-primary-high',
+    'surface-primary-highest',
+    'surface-secondary',
+    'surface-secondary-high',
+    'surface-secondary-highest',
+    'surface-neutral-lowest',
+    'surface-neutral-low',
+    'surface-neutral-medium',
+    'surface-status-error',
+    'surface-status-warning',
+    'surface-status-success',
+    'surface-status-info',
+    'on-surface-highlight'
   );
 
   @each $key in $background-mode {

@@ -17,7 +17,7 @@ const getArgs = (data, story) => {
       args.type_color_mode = 'on-surface';
     }
 
-    args.colour = 'ecl-u-type-color-neutral-dark';
+    args.colour = 'ecl-u-type-color-primary';
   } else if (story === 'text-style') {
     args.size = 'ecl-u-type-m';
     args.weight = 'ecl-u-type-weight-regular';
@@ -68,20 +68,54 @@ const getArgTypes = (story) => {
         type: 'select',
         description: 'Select a color mode typography',
         options: [
+          'on-surface-brand',
+          'on-surface-inverted',
+          'on-surface-swap-1',
+          'on-surface-swap-2',
           'on-surface',
-          'on-surface-highlight',
           'on-surface-variant-1',
           'on-surface-variant-2',
+          'on-surface-variant-3',
+          'on-surface-highlight',
+          'on-surface-primary',
+          'on-surface-primary-highest',
+          'on-surface-secondary-medium',
+          'on-surface-neutral-low',
+          'on-surface-neutral-medium',
+          'on-surface-neutral-highest',
+          'on-surface-grey-medium',
+          'on-surface-grey',
+          'on-surface-status-error',
+          'on-surface-status-warning',
+          'on-surface-status-success',
+          'on-surface-status-info',
         ],
         table: {
           type: { summary: 'string' },
           defaultValue: { summary: '' },
         },
         mapping: {
+          'on-surface-brand': 'on-surface-brand',
+          'on-surface-inverted': 'on-surface-inverted',
+          'on-surface-swap-1': 'on-surface-swap-1',
+          'on-surface-swap-2': 'on-surface-swap-2',
           'on-surface': 'on-surface',
-          'on-surface-highlight': 'on-surface-highlight',
           'on-surface-variant-1': 'on-surface-variant-1',
           'on-surface-variant-2': 'on-surface-variant-2',
+          'on-surface-variant-3': 'on-surface-variant-3',
+          'on-surface-highlight': 'on-surface-highlight',
+          'on-surface-primary': 'on-surface-primary',
+          'on-surface-primary-highest': 'on-surface-primary-highest',
+          'on-surface-secondary-medium': 'on-surface-secondary-medium',
+          'on-surface-neutral-low': 'on-surface-neutral-low',
+          'on-surface-neutral-medium': 'on-surface-neutral-medium',
+          'on-surface-neutral-highest': 'on-surface-neutral-highest',
+          'on-surface-grey-medium': 'on-surface-grey-medium',
+          'on-surface-grey': 'on-surface-grey',
+          'on-surface-status-error': 'on-surface-status-error',
+          'on-surface-status-warning': 'on-surface-status-warning',
+          'on-surface-status-success': 'on-surface-status-success',
+          'on-surface-status-info': 'on-surface-status-info',
         },
         if: { arg: 'show_color_mode' },
       };
@@ -92,20 +126,18 @@ const getArgTypes = (story) => {
       description: 'Choose different colors',
       type: 'select',
       options: [
-        'ecl-u-type-color-neutral-dark',
-        'ecl-u-type-color-white ecl-u-bg-dark',
+        'ecl-u-type-color-white ecl-u-bg-black',
         'ecl-u-type-color-primary',
-        'ecl-u-type-color-secondary ecl-u-bg-dark',
+        'ecl-u-type-color-secondary ecl-u-bg-black',
         'ecl-u-type-color-success',
         'ecl-u-type-color-error',
       ],
       control: {
         type: 'select',
         labels: {
-          'ecl-u-type-color-neutral-dark': 'neutral-dark',
-          'ecl-u-type-color-white ecl-u-bg-dark': 'white',
+          'ecl-u-type-color-white ecl-u-bg-black': 'white',
           'ecl-u-type-color-primary': 'primary',
-          'ecl-u-type-color-secondary ecl-u-bg-dark': 'secondary',
+          'ecl-u-type-color-secondary ecl-u-bg-black': 'secondary',
           'ecl-u-type-color-success': 'success',
           'ecl-u-type-color-error': 'error',
         },
@@ -116,10 +148,9 @@ const getArgTypes = (story) => {
         defaultValue: { summary: '' },
       },
       mapping: {
-        'neutral-dark': 'ecl-u-type-color-neutral-dark',
-        white: 'ecl-u-type-color-white ecl-u-bg-dark',
+        white: 'ecl-u-type-color-white ecl-u-bg-black',
         primary: 'ecl-u-type-color-primary',
-        secondary: 'ecl-u-type-color-secondary ecl-u-bg-dark',
+        secondary: 'ecl-u-type-color-secondary ecl-u-bg-black',
         success: 'ecl-u-type-color-success',
         error: 'ecl-u-type-color-error',
       },
