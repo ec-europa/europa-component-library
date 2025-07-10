@@ -18,12 +18,16 @@ const getArgs = (data, story) => {
     }
 
     args.colour = 'ecl-u-type-color-primary';
-  }
-  if (story === 'text-style') {
+  } else if (story === 'text-style') {
     args.size = 'ecl-u-type-m';
     args.weight = 'ecl-u-type-weight-regular';
     args.style = 'ecl-u-type-none';
     args.alignment = 'ecl-u-type-align-left';
+  } else if (story === 'text-highlight') {
+    if (system === 'ec') {
+      args.show_color_mode = true;
+      args.color_mode = 'default';
+    }
   }
 
   args.content = data.content;
@@ -344,6 +348,18 @@ const getArgTypes = (story) => {
         center: 'ecl-u-type-align-center',
       },
     };
+  } else if (story === 'text-highlight') {
+    if (system === 'ec') {
+      argTypes.show_color_mode = {
+        name: 'use color modes',
+        type: 'boolean',
+        description: 'Switch to color mode colors',
+        table: {
+          type: { summary: 'boolean' },
+          defaultValue: { summary: true },
+        },
+      };
+    }
   }
 
   return argTypes;
@@ -465,3 +481,15 @@ export const TextStyle = (args) => `
 TextStyle.storyName = 'text style';
 TextStyle.args = getArgs(demoContentParagraph, 'text-style');
 TextStyle.argTypes = getArgTypes('text-style');
+
+export const Highlight = (args) => {
+  let containerClasses = 'ecl-u-type-paragraph';
+  if (args.show_color_mode && args.color_mode !== '') {
+    containerClasses += ` ecl-color-mode--${args.color_mode}`;
+  }
+
+  return `<p class="${containerClasses}"><span class="ecl-u-type-highlight">${args.content}</span></p>`;
+};
+Highlight.storyName = 'highlighted';
+Highlight.args = getArgs(demoContentParagraph, 'text-highlight');
+Highlight.argTypes = getArgTypes('text-highlight');

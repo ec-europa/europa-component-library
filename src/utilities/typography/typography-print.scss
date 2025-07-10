@@ -272,3 +272,10 @@ $typography-print: null !default;
 .ecl-u-type-align-center {
   text-align: center !important;
 }
+
+/*
+* Text highlight
+*/
+.ecl-u-type-highlight {
+  background-color: map.get($typography, 'highlight-color');
+}
