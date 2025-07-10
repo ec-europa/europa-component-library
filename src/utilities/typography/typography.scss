@@ -141,7 +141,7 @@ $typography: null !default;
 @if map.has-key($theme, 'font') {
   @each $key, $value in map.get($theme, 'font') {
     .ecl-u-type-#{$key} {
-      font: $value;
+      font: $value !important;
     }
   }
 }
@@ -296,7 +296,7 @@ $typography: null !default;
 * Text highlight
 */
 .ecl-u-type-highlight {
-  background-color: map.get($typography, 'highlight-color');
+  background-color: map.get($typography, 'highlight-color') !important;
 }
 
 .ecl-u-type-enhance {
@@ -305,14 +305,20 @@ $typography: null !default;
     'enhance',
     'default',
     'background-color'
-  );
-  border-inline-start: map.get($typography, 'enhance', 'default', 'border');
-  color: map.get($typography, 'enhance', 'default', 'color');
-  padding: map.get($typography, 'enhance', 'default', 'padding');
+  ) !important;
+  border-inline-start: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'border'
+  ) !important;
+  color: map.get($typography, 'enhance', 'default', 'color') !important;
+  padding: map.get($typography, 'enhance', 'default', 'padding') !important;
 
   @include mixins.responsive-font(
     map.get($typography, 'enhance', 'font'),
-    $font-weight: map.get($typography, 'enhance', 'font-weight')
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
   );
 }
 
@@ -322,13 +328,14 @@ $typography: null !default;
     'enhance',
     'strong',
     'background-color'
-  );
-  color: map.get($typography, 'enhance', 'strong', 'color');
-  padding: map.get($typography, 'enhance', 'strong', 'padding');
+  ) !important;
+  color: map.get($typography, 'enhance', 'strong', 'color') !important;
+  padding: map.get($typography, 'enhance', 'strong', 'padding') !important;
 
   @include mixins.responsive-font(
     map.get($typography, 'enhance', 'font'),
-    $font-weight: map.get($typography, 'enhance', 'font-weight')
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
   );
 }
 
@@ -338,13 +345,24 @@ $typography: null !default;
     'enhance',
     'light',
     'background-color'
-  );
-  border-inline-start: map.get($typography, 'enhance', 'light', 'border');
-  color: map.get($typography, 'enhance', 'light', 'color');
-  padding-inline-start: map.get($typography, 'enhance', 'light', 'padding');
+  ) !important;
+  border-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'border'
+  ) !important;
+  color: map.get($typography, 'enhance', 'light', 'color') !important;
+  padding-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'padding'
+  ) !important;
 
   @include mixins.responsive-font(
     map.get($typography, 'enhance', 'font'),
-    $font-weight: map.get($typography, 'enhance', 'font-weight')
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
   );
 }
