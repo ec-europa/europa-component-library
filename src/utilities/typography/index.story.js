@@ -23,7 +23,7 @@ const getArgs = (data, story) => {
     args.weight = 'ecl-u-type-weight-regular';
     args.style = 'ecl-u-type-none';
     args.alignment = 'ecl-u-type-align-left';
-  } else if (story === 'text-highlight') {
+  } else if (story === 'text-highlight' || story === 'text-enhance') {
     if (system === 'ec') {
       args.show_color_mode = true;
       args.color_mode = 'default';
@@ -317,7 +317,7 @@ const getArgTypes = (story) => {
         center: 'ecl-u-type-align-center',
       },
     };
-  } else if (story === 'text-highlight') {
+  } else if (story === 'text-highlight' || story === 'text-enhance') {
     if (system === 'ec') {
       argTypes.show_color_mode = {
         name: 'use color modes',
@@ -462,3 +462,27 @@ export const Highlight = (args) => {
 Highlight.storyName = 'highlighted';
 Highlight.args = getArgs(demoContentParagraph, 'text-highlight');
 Highlight.argTypes = getArgTypes('text-highlight');
+
+export const Enhance = (args) => {
+  let containerClasses = 'ecl-u-type-paragraph';
+  if (args.show_color_mode && args.color_mode !== '') {
+    containerClasses += ` ecl-color-mode--${args.color_mode}`;
+  }
+
+  return `<h3 class="ecl-u-type-heading-3">Enhanced</h3>
+  <div class="${containerClasses}">
+    <div class="ecl-u-type-enhance">${args.content}</div>
+  </div>
+  <h3 class="ecl-u-type-heading-3">Enhanced (strong)</h3>
+  <div class="${containerClasses}">
+    <div class="ecl-u-type-enhance-strong">${args.content}</div>
+  </div>
+  <h3 class="ecl-u-type-heading-3">Enhanced (light)</h3>
+  <div class="${containerClasses}">
+    <div class="ecl-u-type-enhance-light">${args.content}</div>
+  </div>
+  `;
+};
+Enhance.storyName = 'enhanced';
+Enhance.args = getArgs(demoContentParagraph, 'text-enhance');
+Enhance.argTypes = getArgTypes('text-enhance');

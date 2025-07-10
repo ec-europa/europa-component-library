@@ -276,6 +276,27 @@ $typography: (
     'xs': 'body-xs',
   ),
   highlight-color: var(--cm-on-surface-highlight),
+  enhance: (
+    font: 'body-2xl',
+    font-weight: map.get($font-weight, 'light'),
+    default: (
+      background-color: var(--cm-surface-low-1),
+      border: 4px solid var(--cm-border),
+      color: var(--cm-on-surface-brand),
+      padding: var(--s-3xl),
+    ),
+    strong: (
+      background-color: var(--cm-surface),
+      color: var(--cm-on-surface-swap-1),
+      padding: var(--s-3xl),
+    ),
+    light: (
+      background-color: transparent,
+      border: 4px solid var(--cm-border),
+      color: var(--cm-on-surface-brand),
+      padding: var(--s-3xl),
+    ),
+  ),
 );
 $typography-print: (
   heading-margin: map.get($spacing-print, '3xl') 0 map.get($spacing-print, 'm'),
@@ -286,4 +307,5 @@ $typography-print: (
   heading4: map.get($font-print, '2xl'),
   heading5: map.get($font-print, 'xl'),
   heading6: map.get($font-print, 'l'),
+  enhance-font: map.get($font-print, '2xl'),
 );
