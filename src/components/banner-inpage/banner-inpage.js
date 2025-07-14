@@ -5,7 +5,6 @@ import EventManager from '@ecl/event-manager';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.bannerContainer Selector for the banner content
- * @param {String} options.bannerFooter Selector for the banner footer
  * @param {String} options.bannerVPadding Optional additional padding
  * @param {String} options.bannerPicture Selector for the banner picture
  * @param {String} options.bannerVideo Selector for the banner video
@@ -35,23 +34,21 @@ export class BannerInpage {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event BannerInpage#onCtaClick
    * @event BannerInpage#onPlayClick
    * @event BannerInpage#onPauseClick
    * @memberof BannerInpage
    */
-  supportedEvents = ['onCtaClick', 'onPlayClick', 'onPauseClick'];
+  supportedEvents = ['onPlayClick', 'onPauseClick'];
 
   constructor(
     element,
     {
-      bannerContainer = '[data-ecl-banner-container]',
-      bannerFooter = '[data-ecl-banner-footer]',
+      bannerContainer = '[data-ecl-banner-inpage-container]',
       bannerVPadding = '8',
-      bannerPicture = '[data-ecl-banner-image]',
-      bannerVideo = '[data-ecl-banner-video]',
-      bannerPlay = '[data-ecl-banner-play]',
-      bannerPause = '[data-ecl-banner-pause]',
+      bannerPicture = '[data-ecl-banner-inpage-image]',
+      bannerVideo = '[data-ecl-banner-inpage-video]',
+      bannerPlay = '[data-ecl-banner-inpage-play]',
+      bannerPause = '[data-ecl-banner-inpage-pause]',
       breakpoint = '996',
       attachResizeListener = true,
       maxIterations = 10,
@@ -70,16 +67,12 @@ export class BannerInpage {
     this.bannerVPadding = bannerVPadding;
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
-    this.bannerFooter = queryOne(bannerFooter, this.element);
     this.bannerPicture = queryOne(bannerPicture, this.element);
     this.bannerVideo = queryOne(bannerVideo, this.element);
     this.bannerPlay = queryOne(bannerPlay, this.element);
     this.bannerPause = queryOne(bannerPause, this.element);
     this.bannerImage = this.bannerPicture
       ? queryOne('img', this.bannerPicture)
-      : false;
-    this.bannerCTA = this.bannerPicture
-      ? queryOne('.ecl-banner__cta', this.element)
       : false;
     this.breakpoint = breakpoint;
     this.attachResizeListener = attachResizeListener;
@@ -105,15 +98,6 @@ export class BannerInpage {
     ECL.components = ECL.components || new Map();
 
     this.defaultRatio = () => {
-      if (this.element.classList.contains('ecl-banner--xs')) {
-        return '6/1';
-      }
-      if (this.element.classList.contains('ecl-banner--s')) {
-        return '5/1';
-      }
-      if (this.element.classList.contains('ecl-banner--l')) {
-        return '3/1';
-      }
       return '4/1';
     };
 
@@ -121,9 +105,6 @@ export class BannerInpage {
       window.addEventListener('resize', this.handleResize);
     }
 
-    if (this.bannerCTA) {
-      this.bannerCTA.addEventListener('click', (e) => this.handleCtaClick(e));
-    }
     if (this.bannerPlay) {
       this.bannerPlay.addEventListener('click', (e) => this.handlePlayClick(e));
       this.bannerPlay.style.display = 'none';
@@ -150,9 +131,9 @@ export class BannerInpage {
    * @instance
    *
    * @example
-   * // Registering a callback for the 'onCtaClick' event
-   * bannerInpage.on('onCtaClick', (event) => {
-   *   console.log('The cta was clicked', event);
+   * // Registering a callback for the 'onPlayClick' event
+   * bannerInpage.on('onPlayClick', (event) => {
+   *   console.log('The play button was clicked', event);
    * });
    */
   on(eventName, callback) {
@@ -213,15 +194,6 @@ export class BannerInpage {
         this.resetBannerHeight();
       }
     }
-
-    // Add margin to the banner container when there is a footer
-    // This is needed to keep the vertical alignment
-    if (this.bannerFooter) {
-      this.element.style.setProperty(
-        '--banner-footer-height',
-        `${this.bannerFooter.offsetHeight}px`,
-      );
-    }
   }
 
   /**
@@ -241,13 +213,6 @@ export class BannerInpage {
   resetBannerHeight() {
     this.element.style.removeProperty('aspect-ratio');
     this.element.style.height = 'auto';
-
-    if (this.bannerFooter) {
-      this.element.style.setProperty(
-        '--banner-footer-height',
-        `${this.bannerFooter.offsetHeight}px`,
-      );
-    }
   }
 
   /**
@@ -270,23 +235,6 @@ export class BannerInpage {
     this.resizeTimer = setTimeout(() => {
       this.checkViewport();
     }, 200);
-  }
-
-  /**
-   * Triggers a custom event when clicking on the cta.
-   *
-   * @param {e} Event
-   * @fires BannerInpage#onCtaClick
-   */
-  handleCtaClick(e) {
-    let href = null;
-    const anchor = e.target.closest('a');
-    if (anchor) {
-      href = anchor.getAttribute('href');
-    }
-
-    const eventData = { item: this.bannerCTA, target: href || e.target };
-    this.trigger('onCtaClick', eventData);
   }
 
   /**
@@ -340,9 +288,6 @@ export class BannerInpage {
     ECL.components.delete(this.element);
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
-    }
-    if (this.bannerCTA) {
-      this.bannerCTA.removeEventListener('click', this.handleCtaClick);
     }
     if (this.bannerPlay) {
       this.bannerPlay.removeEventListener('click', this.handlePlayClick);

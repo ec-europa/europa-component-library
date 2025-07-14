@@ -1,0 +1,116 @@
+/*
+ * Banner Inpage print
+ * @define banner-inpage
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$banner-inpage: null !default;
+$banner-inpage-print: null !default;
+
+.ecl-banner-inpage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-inline-end: 0;
+  margin-top: 0;
+  position: relative;
+}
+
+.ecl-banner-inpage__picture-container {
+  height: 100%;
+  margin: 0;
+  position: static;
+  width: 100%;
+}
+
+.ecl-banner-inpage__video-container {
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  position: static;
+  width: 100%;
+}
+
+.ecl-banner-inpage__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: relative;
+  width: 100%;
+}
+
+.ecl-banner-inpage__video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  width: 100%;
+}
+
+.ecl-banner-inpage .ecl-container {
+  padding-inline: map.get($banner-inpage-print, 'container-padding-horizontal');
+  position: absolute;
+  z-index: 1;
+}
+
+.ecl-banner-inpage__container {
+  display: flex;
+  padding-bottom: map.get($banner-inpage-print, 'container-padding-bottom');
+  padding-top: map.get($banner-inpage-print, 'container-padding-top');
+  width: 100%;
+}
+
+.ecl-banner-inpage__title,
+.ecl-banner-inpage__title .ecl-banner-inpage__title-link {
+  color: map.get($banner-inpage, 'text-color', 'dark');
+  display: inline;
+  font: map.get($banner-inpage-print, 'font', 'title', 'desktop-m');
+  font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
+  margin: 0;
+
+  .ecl-banner-inpage--font-l & {
+    font: map.get($banner-inpage-print, 'font', 'title', 'desktop-l');
+    font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
+  }
+
+  &:visited {
+    color: map.get($banner-inpage, 'text-color', 'dark');
+  }
+}
+
+.ecl-banner-inpage__credit {
+  color: var(--cm-on-surface-brand, var(--c-d));
+  font: map.get($banner-inpage-print, 'font', 'credit');
+  padding-bottom: map.get($theme, 'spacing-print', '2xs');
+  padding-top: map.get($theme, 'spacing-print', '2xs');
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  .ecl-banner-inpage & .ecl-container {
+    position: relative;
+  }
+}
+
+// No full width banner on print
+.ecl-banner-inpage--full-width {
+  border-radius: 0;
+  left: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+}
+
+// Medium banner - ratio 4:1
+.ecl-banner-inpage .ecl-banner-inpage__image,
+.ecl-banner-inpage .ecl-banner-inpage__video {
+  aspect-ratio: 4/1;
+
+  --css-aspect-ratio: 4/1;
+}

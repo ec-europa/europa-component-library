@@ -1,0 +1,169 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
+  - "font_size" (string) (default: 'm') Size of the title (can be 's', 'm', 'l')
+  - "title" (string or Link) (default: '') Title of banner
+  - "picture" (object) (default: {}): Image for the banner, following ECL Picture structure
+  - "video" (object) (default: {}): Video for the banner
+    - "poster" (string) (default: ''): Image to be used as the video placeholder 
+    - "sources" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''),
+        "type" (string) (default: ''),
+      },
+      ...
+    ],
+    - "tracks" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''),
+        "kind" (string) (default: ''),
+        "src_lang" (string) (default: ''),
+        "label" (string) (default: ''),
+      },
+      ...
+    ],
+  - "sr_play" (string) (default: '') screen reader label for the play button
+  - "sr_pause" (string) (default: '') screen reader label for the pause button
+  - "credit" (string) (default: '') Credit for the image
+  - "full_width": (bool) (default: false) Full width banner (inside the grid)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-banner-inpage' %}
+{% set _extra_attributes = 'data-ecl-banner-inpage data-ecl-auto-init="Banner"' %}
+{% set _color_mode = color_mode|default('') %}
+{% set _picture = picture|default({}) %}
+{% set _video = video|default({}) %}
+{% set _font_size = font_size|default('m') %}
+{% set _full_width = full_width|default(false) %}
+{% set _title = title|default('') %}
+{% set _credit = credit|default('') %}
+{% set _sr_play = sr_play|default('') %}
+{% set _sr_pause = sr_pause|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _font_size is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner-inpage--font-' ~ _font_size %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-banner-inpage--full-width' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<section
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {# Media #}
+  {% if _picture.img is not empty %}
+    {# Image #}
+    <figure class="ecl-banner-inpage__picture-container">
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        extra_classes: 'ecl-banner-inpage__picture',
+        extra_image_classes: 'ecl-banner-inpage__image',
+        extra_attributes: [{ name: 'data-ecl-banner-inpage-image' }],
+      } only %}
+    </figure>
+  {% elseif _video is not empty %}
+    {# Video #}
+    <div class="ecl-banner-inpage__video-container">
+      {% set video_classes = 'ecl-banner-inpage__video' ~ (_video.extra_classes ? ' ' ~ _video.extra_classes : '') %}
+      {% include '@ecl/video/video.html.twig' with _video|merge({
+        controls: false,
+        autoplay: true,
+        muted: true,
+        loop: true,
+        extra_classes: video_classes,
+        extra_attributes: video.extra_attributes|default([])|merge([{ name: 'data-ecl-banner-inpage-video' }]),
+      }) only %}
+
+      {# Video controls #}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _sr_play,
+        type: 'button',
+        variant: 'tertiary',
+        extra_classes: 'ecl-banner-inpage__play',
+        extra_attributes: [{ name: 'data-ecl-banner-inpage-play' }],
+        icon: {
+          name: 'play-outline',
+          size: 'm',
+        },
+      } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _sr_pause,
+        type: 'button',
+        variant: 'tertiary',
+        extra_classes: 'ecl-banner-inpage__pause',
+        extra_attributes: [{ name: 'data-ecl-banner-inpage-pause' }],
+        icon: {
+          name: 'pause-outline',
+          size: 'm',
+        },
+      } only %}
+    </div>
+  {% endif %}
+
+  {# Content box #}
+  {% if _title is not empty %}
+    <div
+      class="ecl-banner-inpage__container"
+      data-ecl-banner-inpage-container
+    >
+      {% if _title is not empty %}
+        <div class="ecl-banner-inpage__title">
+          <span class="ecl-banner-inpage__title-text">
+          {%- if _title.link is defined -%}
+            {% set _title_extra_classes = (_title.extra_classes is not empty ? _title.extra_classes ~ ' ' : '') ~ 'ecl-banner-inpage__title-link' %}
+            {% include '@ecl/link/link.html.twig' with _title|merge({
+              link: _title.link|merge({type: 'standalone'}),
+              extra_classes: _title_extra_classes,
+            }) only %}
+          {%- else -%}
+            {{- _title -}}
+          {%- endif -%}
+          </span>
+        </div>
+      {% endif %}
+
+      {% if _credit is not empty %}
+        <footer class="ecl-banner-inpage__credit">
+          <div class="ecl-container">{{ _credit }}</div>
+        </footer>
+      {% endif %}
+    </div>
+
+  {% endif %}
+</section>
+
+{% endapply %}

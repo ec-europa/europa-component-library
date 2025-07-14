@@ -24,15 +24,13 @@ describe('Banner inpage', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly without title, description and link', () => {
+    test('renders correctly without title', () => {
       expect.assertions(1);
 
-      const dataNoDescNoTitle = JSON.parse(JSON.stringify(bannerDataImage));
-      delete dataNoDescNoTitle.title;
-      delete dataNoDescNoTitle.description;
-      delete dataNoDescNoTitle.link;
+      const dataNoTitle = JSON.parse(JSON.stringify(bannerDataImage));
+      delete dataNoTitle.title;
 
-      return expect(render(dataNoDescNoTitle)).resolves.toMatchSnapshot();
+      return expect(render(dataNoTitle)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -62,15 +60,6 @@ describe('Banner inpage', () => {
       expect.assertions(1);
 
       dataClone.title.extra_classes = 'custom-title-link-class';
-
-      return expect(render(dataClone)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra classes for the description link', () => {
-      expect.assertions(1);
-
-      dataClone.description.extra_classes = 'custom-description-link-class';
-      dataClone.title.extra_classes = '';
 
       return expect(render(dataClone)).resolves.toMatchSnapshot();
     });
