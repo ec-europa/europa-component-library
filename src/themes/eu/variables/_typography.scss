@@ -133,6 +133,33 @@ $typography: (
     'l': var(--f-l),
   ),
   highlight-color: var(--c-s-20),
+  enhance: (
+    font: var(--f-l),
+    font-weight: map.get($font-weight, 'regular'),
+    default: (
+      background-color: var(--c-p-10),
+      border: 4px solid var(--c-p),
+      color: var(--c-d),
+      padding-mobile: var(--s-m),
+      padding-tablet: var(--s-l),
+      padding-desktop: var(--s-l),
+    ),
+    strong: (
+      background-color: var(--c-p-180),
+      color: #fff,
+      padding-mobile: var(--s-m),
+      padding-tablet: var(--s-l),
+      padding-desktop: var(--s-xl),
+    ),
+    light: (
+      background-color: transparent,
+      border: 4px solid var(--c-p),
+      color: var(--c-d),
+      padding-mobile: var(--s-m),
+      padding-tablet: var(--s-l),
+      padding-desktop: var(--s-l),
+    ),
+  ),
 );
 $typography-print: (
   heading-margin: map.get($spacing-print, '2xl') 0 map.get($spacing-print, 'm'),
@@ -142,4 +169,5 @@ $typography-print: (
   heading4: map.get($font-print, 'xl'),
   heading5: map.get($font-print, 'l'),
   heading6: map.get($font-print, 'm'),
+  enhance-font: map.get($font-print, 'l'),
 );
