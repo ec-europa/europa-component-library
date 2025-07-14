@@ -403,7 +403,7 @@ $typography: null !default;
     $typography,
     'enhance',
     'light',
-    'padding-start'
+    'padding-mobile'
   ) !important;
 
   @include mixins.responsive-font(
@@ -411,4 +411,22 @@ $typography: null !default;
     $font-weight: map.get($typography, 'enhance', 'font-weight'),
     $important: true
   );
+
+  @include breakpoints.up('m') {
+    padding-inline-start: map.get(
+      $typography,
+      'enhance',
+      'light',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding-inline-start: map.get(
+      $typography,
+      'enhance',
+      'light',
+      'padding-desktop'
+    ) !important;
+  }
 }
