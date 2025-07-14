@@ -495,21 +495,17 @@ Highlight.args = getArgs(demoContentParagraph, 'text-highlight');
 Highlight.argTypes = getArgTypes('text-highlight');
 
 export const Enhance = (args) => {
-  let containerClasses = 'ecl-u-type-paragraph';
-  if (args.show_color_mode && args.color_mode !== '') {
-    containerClasses += ` ecl-color-mode--${args.color_mode}`;
-  }
+  const containerClasses =
+    args.show_color_mode && args.color_mode !== ''
+      ? `ecl-color-mode--${args.color_mode}`
+      : '';
 
-  return `<h3 class="ecl-u-type-heading-3">Enhanced</h3>
-  <div class="${containerClasses}">
+  return `<div${containerClasses !== '' ? ` class="${containerClasses}"` : ''}>
+    <h3 class="ecl-u-type-heading-3">Enhanced</h3>
     <div class="ecl-u-type-enhance">${args.content}</div>
-  </div>
-  <h3 class="ecl-u-type-heading-3">Enhanced (strong)</h3>
-  <div class="${containerClasses}">
+    <h3 class="ecl-u-type-heading-3">Enhanced (strong)</h3>
     <div class="ecl-u-type-enhance-strong">${args.content}</div>
-  </div>
-  <h3 class="ecl-u-type-heading-3">Enhanced (light)</h3>
-  <div class="${containerClasses}">
+    <h3 class="ecl-u-type-heading-3">Enhanced (light)</h3>
     <div class="ecl-u-type-enhance-light">${args.content}</div>
   </div>
   `;

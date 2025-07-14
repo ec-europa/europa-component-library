@@ -291,7 +291,7 @@ $typography-print: null !default;
   color: map.get($typography, 'enhance', 'default', 'color');
   font: map.get($typography-print, 'enhance', 'font');
   font-weight: map.get($typography, 'enhance', 'font-weight');
-  padding: map.get($typography, 'enhance', 'default', 'padding');
+  padding: map.get($typography, 'enhance', 'default', 'padding-desktop');
 }
 
 .ecl-u-type-enhance-strong {
@@ -304,7 +304,7 @@ $typography-print: null !default;
   color: map.get($typography, 'enhance', 'strong', 'color');
   font: map.get($typography-print, 'enhance', 'font');
   font-weight: map.get($typography, 'enhance', 'font-weight');
-  padding: map.get($typography, 'enhance', 'strong', 'padding');
+  padding: map.get($typography, 'enhance', 'strong', 'padding-desktop');
 }
 
 .ecl-u-type-enhance-light {
@@ -318,5 +318,10 @@ $typography-print: null !default;
   color: map.get($typography, 'enhance', 'light', 'color');
   font: map.get($typography-print, 'enhance', 'font');
   font-weight: map.get($typography, 'enhance', 'font-weight');
-  padding: map.get($typography, 'enhance', 'light', 'padding');
+  padding-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'padding-start'
+  );
 }

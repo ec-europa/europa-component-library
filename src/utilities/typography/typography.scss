@@ -313,13 +313,36 @@ $typography: null !default;
     'border'
   ) !important;
   color: map.get($typography, 'enhance', 'default', 'color') !important;
-  padding: map.get($typography, 'enhance', 'default', 'padding') !important;
+  padding: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'padding-mobile'
+  ) !important;
 
   @include mixins.responsive-font(
     map.get($typography, 'enhance', 'font'),
     $font-weight: map.get($typography, 'enhance', 'font-weight'),
     $important: true
   );
+
+  @include breakpoints.up('m') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'default',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'default',
+      'padding-desktop'
+    ) !important;
+  }
 }
 
 .ecl-u-type-enhance-strong {
@@ -330,13 +353,36 @@ $typography: null !default;
     'background-color'
   ) !important;
   color: map.get($typography, 'enhance', 'strong', 'color') !important;
-  padding: map.get($typography, 'enhance', 'strong', 'padding') !important;
+  padding: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'padding-mobile'
+  ) !important;
 
   @include mixins.responsive-font(
     map.get($typography, 'enhance', 'font'),
     $font-weight: map.get($typography, 'enhance', 'font-weight'),
     $important: true
   );
+
+  @include breakpoints.up('m') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'strong',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'strong',
+      'padding-desktop'
+    ) !important;
+  }
 }
 
 .ecl-u-type-enhance-light {
@@ -357,7 +403,7 @@ $typography: null !default;
     $typography,
     'enhance',
     'light',
-    'padding'
+    'padding-start'
   ) !important;
 
   @include mixins.responsive-font(
