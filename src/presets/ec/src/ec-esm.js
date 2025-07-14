@@ -3,6 +3,7 @@ import '@ecl/dom-utils/polyfills';
 import Accordion from '@ecl/accordion';
 import autoInit from '@ecl/dom-utils/autoinit';
 import Banner from '@ecl/banner';
+import BannerInpage from '@ecl/banner-inpage';
 import Carousel from '@ecl/carousel';
 import CategoryFilter from '@ecl/category-filter';
 import Datepicker from '@ecl/datepicker';
@@ -33,6 +34,7 @@ const ECL = {
   autoInit,
   Accordion,
   Banner,
+  BannerInpage,
   Carousel,
   CategoryFilter,
   Datepicker,

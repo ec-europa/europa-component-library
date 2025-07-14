@@ -78,6 +78,11 @@
   $banner: var.$banner,
   $banner-print: var.$banner-print
 );
+@use '@ecl/banner-inpage/banner-inpage-print' with (
+  $theme: theme.$theme,
+  $banner-inpage: var.$banner-inpage,
+  $banner-inpage-print: var.$banner-inpage-print
+);
 @use '@ecl/description-list/description-list-print' with (
   $theme: theme.$theme,
   $description-list: var.$description-list,

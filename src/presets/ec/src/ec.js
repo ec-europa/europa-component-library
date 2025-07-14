@@ -3,6 +3,7 @@ import '@ecl/dom-utils/polyfills';
 export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/accordion';
 export * from '@ecl/banner';
+export * from '@ecl/banner-inpage';
 export * from '@ecl/carousel';
 export * from '@ecl/category-filter';
 export * from '@ecl/datepicker';
