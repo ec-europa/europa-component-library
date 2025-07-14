@@ -49,8 +49,8 @@ $theme: null !default;
   $semantic-color: (
     'primary',
     'secondary',
-    'neutral-dark',
-    'neutral-light',
+    'neutral',
+    'grey',
     'info',
     'success',
     'error',
@@ -65,7 +65,19 @@ $theme: null !default;
 }
 
 @if map.has-key($theme, 'color-modes') {
-  $border-mode: ('border', 'border-medium', 'border-low');
+  $border-mode: (
+    'border-brand',
+    'border-on-brand',
+    'border-inverted',
+    'border-low',
+    'border',
+    'border-primary',
+    'border-neutral',
+    'border-status-error',
+    'border-status-warning',
+    'border-status-success',
+    'border-status-info'
+  );
 
   @each $key in $border-mode {
     .ecl-u-border-color-#{$key} {

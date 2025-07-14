@@ -43,26 +43,23 @@ How it works:
 Here is the list of variables used in the color modes:
 | Name | CSS custom property | Utilities |
 | ---------------------- | --------------------------- | ------------------------ |
-| surface | --cm-surface | _-surface |
-| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
-| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
-| surface medium | --cm-surface-medium | _-surface-medium |
-| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
-| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
 | surface lowest | --cm-surface-lowest | _-surface-lowest |
 | surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
+| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
+| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
+| surface medium | --cm-surface-medium | _-surface-medium |
+| surface | --cm-surface | _-surface |
+| surface-high | --cm-surface-high | _-surface-high |
+| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
+| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
 | on surface | --cm-on-surface | _-on-surface |
 | on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
 | on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
 | on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
 | on surface swap 1 | --cm-on-surface-swap-1 | _-on-surface-swap-1 |
 | on surface swap-2 | --cm-on-surface-swap-2 | _-on-surface-swap-2 |
-| border | --cm-border | _-border |
 | border low | --cm-border-low | _-border-low |
-
-TODO
-
-- when we have the default values for EU, add them to the EU css. The fallback in component could then be removed
+| border | --cm-border | \_-border |
 
 ### [EC] Typography
 
@@ -155,7 +152,6 @@ If you don't use the templates, this would have to be done manually:
 - keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
 
   Examples:
-
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
     - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
 
@@ -249,6 +245,11 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
   See the component documentation and examples for more information
 
 EU footer hasn't changed, but is now using its own template file
+
+### Timeline
+
+- new section available to add headline (larger first item). Corresponding twig parameter is `headline`
+- new way to group multiple timeline, in a timeline set. This is a separated template, just using an array of timelines.
 
 ## Js modifications
 

@@ -509,6 +509,32 @@ $menu: null !default;
       }
     }
 
+    .ecl-menu__item--current {
+      background-color: map.get($menu, 'desktop', 'item-current-background');
+      box-shadow: map.get($menu, 'desktop', 'item-current-shadow');
+      color: map.get($menu, 'desktop', 'item-current-color');
+      margin-top: map.get($menu, 'desktop', 'item-current-margin');
+
+      &:focus-within {
+        background-color: map.get(
+          $menu,
+          'desktop',
+          'item-current-background-focus'
+        );
+      }
+    }
+
+    .ecl-menu__item--current .ecl-menu__link {
+      font-weight: map.get($menu, 'desktop', 'item-current-font-weight');
+    }
+
+    .ecl-menu__item--current .ecl-menu__link,
+    .ecl-menu__item--current .ecl-menu__button-caret,
+    .ecl-menu__link:active {
+      background-color: transparent;
+      color: currentcolor;
+    }
+
     // Previous / Next items
     .ecl-menu__items-previous {
       border-radius: map.get($menu, 'global', 'border-radius') 0 0
@@ -623,32 +649,6 @@ $menu: null !default;
           fill: currentcolor;
         }
       }
-    }
-
-    .ecl-menu__item--current {
-      background-color: map.get($menu, 'desktop', 'item-current-background');
-      box-shadow: map.get($menu, 'desktop', 'item-current-shadow');
-      color: map.get($menu, 'desktop', 'item-current-color');
-      margin-top: map.get($menu, 'desktop', 'item-current-margin');
-
-      &:focus-within {
-        background-color: map.get(
-          $menu,
-          'desktop',
-          'item-current-background-focus'
-        );
-      }
-    }
-
-    .ecl-menu__item--current .ecl-menu__link {
-      font-weight: map.get($menu, 'desktop', 'item-current-font-weight');
-    }
-
-    .ecl-menu__item--current .ecl-menu__link,
-    .ecl-menu__item--current .ecl-menu__button-caret,
-    .ecl-menu__link:active {
-      background-color: transparent;
-      color: currentcolor;
     }
   }
 

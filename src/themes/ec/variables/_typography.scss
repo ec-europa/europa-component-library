@@ -7,13 +7,17 @@ $typography: (
   heading-color: var(--cm-on-surface-brand),
   text-color: var(--cm-on-surface-brand),
   display: (
-    'mobile': (
+    'mobile-xs': (
       'size': var(--fs-6xl),
       'line-height': var(--lh-3xl),
     ),
-    'tablet': (
+    'mobile': (
       'size': var(--fs-7xl),
-      'line-height': var(--lh-6xl),
+      'line-height': var(--lh-7xl),
+    ),
+    'tablet': (
+      'size': var(--fs-9xl),
+      'line-height': var(--lh-9xl),
     ),
     'desktop': (
       'size': var(--fs-10xl),
@@ -22,6 +26,10 @@ $typography: (
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading1: (
+    'mobile-xs': (
+      'size': var(--fs-4xl),
+      'line-height': var(--lh-xl),
+    ),
     'mobile': (
       'size': var(--fs-6xl),
       'line-height': var(--lh-3xl),
@@ -37,6 +45,10 @@ $typography: (
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading2: (
+    'mobile-xs': (
+      'size': var(--fs-2xl),
+      'line-height': var(--lh-l),
+    ),
     'mobile': (
       'size': var(--fs-4xl),
       'line-height': var(--lh-xl),
@@ -52,6 +64,10 @@ $typography: (
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading3: (
+    'mobile-xs': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-m),
+    ),
     'mobile': (
       'size': var(--fs-2xl),
       'line-height': var(--lh-l),
@@ -67,6 +83,10 @@ $typography: (
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading4: (
+    'mobile-xs': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-m),
+    ),
     'mobile': (
       'size': var(--fs-m),
       'line-height': var(--lh-m),
@@ -82,6 +102,10 @@ $typography: (
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading5: (
+    'mobile-xs': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-s),
+    ),
     'mobile': (
       'size': var(--fs-m),
       'line-height': var(--lh-s),
@@ -97,6 +121,10 @@ $typography: (
     'font-weight': map.get($font-weight, 'light'),
   ),
   heading6: (
+    'mobile-xs': (
+      'size': var(--fs-m),
+      'line-height': var(--lh-s),
+    ),
     'mobile': (
       'size': var(--fs-m),
       'line-height': var(--lh-s),
@@ -113,6 +141,10 @@ $typography: (
   ),
   body: (
     'xs': (
+      'mobile-xs': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-xs),
+      ),
       'mobile': (
         'size': var(--fs-xs),
         'line-height': var(--lh-xs),
@@ -127,6 +159,10 @@ $typography: (
       ),
     ),
     's': (
+      'mobile-xs': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-s),
+      ),
       'mobile': (
         'size': var(--fs-s),
         'line-height': var(--lh-s),
@@ -141,6 +177,10 @@ $typography: (
       ),
     ),
     'm': (
+      'mobile-xs': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-s),
+      ),
       'mobile': (
         'size': var(--fs-s),
         'line-height': var(--lh-s),
@@ -155,6 +195,10 @@ $typography: (
       ),
     ),
     'l': (
+      'mobile-xs': (
+        'size': var(--fs-l),
+        'line-height': var(--lh-m),
+      ),
       'mobile': (
         'size': var(--fs-l),
         'line-height': var(--lh-m),
@@ -169,6 +213,10 @@ $typography: (
       ),
     ),
     'xl': (
+      'mobile-xs': (
+        'size': var(--fs-xl),
+        'line-height': var(--lh-l),
+      ),
       'mobile': (
         'size': var(--fs-xl),
         'line-height': var(--lh-l),
@@ -183,13 +231,17 @@ $typography: (
       ),
     ),
     '2xl': (
+      'mobile-xs': (
+        'size': var(--fs-xl),
+        'line-height': var(--lh-l),
+      ),
       'mobile': (
         'size': var(--fs-xl),
         'line-height': var(--lh-l),
       ),
       'tablet': (
-        'size': var(--fs-2xl),
-        'line-height': var(--lh-xl),
+        'size': var(--fs-xl),
+        'line-height': var(--lh-l),
       ),
       'desktop': (
         'size': var(--fs-2xl),
@@ -216,13 +268,14 @@ $typography: (
     ),
   ),
   paragraph: (
-    '2xl': var(--f-2xl),
-    'xl': var(--f-xl),
-    'l': var(--f-l),
-    'm': var(--f-m),
-    's': var(--f-s),
-    'xs': var(--f-xs),
+    '2xl': 'body-2xl',
+    'xl': 'body-xl',
+    'l': 'body-l',
+    'm': 'body-m',
+    's': 'body-s',
+    'xs': 'body-xs',
   ),
+  highlight-color: var(--cm-on-surface-highlight),
 );
 $typography-print: (
   heading-margin: map.get($spacing-print, '3xl') 0 map.get($spacing-print, 'm'),
