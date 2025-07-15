@@ -1,5 +1,101 @@
 # Changelog
 
+# 5.0.0-alpha.15
+
+#### :rocket: New Feature
+
+- [#4047](https://github.com/ec-europa/europa-component-library/pull/4047) feat(typography): add enhanced utilities - FRONT-4966 ([@emeryro](https://github.com/emeryro))
+- [#4035](https://github.com/ec-europa/europa-component-library/pull/4035) feat(colors): extended color palettes - FRONT-4946 ([@emeryro](https://github.com/emeryro))
+- [#4014](https://github.com/ec-europa/europa-component-library/pull/4014) feat(highlight): add utilities - FRONT-4916 ([@emeryro](https://github.com/emeryro))
+- [#4001](https://github.com/ec-europa/europa-component-library/pull/4001) feat(timeline): headline and timeline set - FRONT-4908 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4044](https://github.com/ec-europa/europa-component-library/pull/4044) chore(logos): Using kl as the language code for greelandic - FRONT-4968 ([@planctus](https://github.com/planctus))
+- [#4041](https://github.com/ec-europa/europa-component-library/pull/4041) fix(menu): Fixing background for prev arrow in overflow menu - FRONT-4911 ([@planctus](https://github.com/planctus))
+- [#4038](https://github.com/ec-europa/europa-component-library/pull/4038) fix(site-header): fix search form height - FRONT-4960 ([@emeryro](https://github.com/emeryro))
+- [#4029](https://github.com/ec-europa/europa-component-library/pull/4029) fix(carousel): Not preventing vertical scroll when swiping vertically - FRONT-4951 ([@planctus](https://github.com/planctus))
+- [#4033](https://github.com/ec-europa/europa-component-library/pull/4033) fix(gallery): Using container XXL as max-width for the footer - FRONT-4953 ([@planctus](https://github.com/planctus))
+- [#4026](https://github.com/ec-europa/europa-component-library/pull/4026) fix(website): Fixing html source in showcase when using args from storybook - FRONT-4945 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4048](https://github.com/ec-europa/europa-component-library/pull/4048) feat(form): update color - FRONT-4964 ([@emeryro](https://github.com/emeryro))
+- [#4042](https://github.com/ec-europa/europa-component-library/pull/4042) feat(typography): add mobile-xs fonts- FRONT-4963 ([@emeryro](https://github.com/emeryro))
+- [#4040](https://github.com/ec-europa/europa-component-library/pull/4040) fix(accordion): Setting by default aria-expanded to false - FRONT-4965 ([@planctus](https://github.com/planctus))
+- [#4032](https://github.com/ec-europa/europa-component-library/pull/4032) feat(content-block): Font styles - FRONT-4950 ([@planctus](https://github.com/planctus))
+- [#4030](https://github.com/ec-europa/europa-component-library/pull/4030) feat(inpage): Styles iteration - FRONT-4948 ([@planctus](https://github.com/planctus))
+- [#4028](https://github.com/ec-europa/europa-component-library/pull/4028) fix(mega-menu): overriding paragraph styles in featured panel description - FRONT-4949 ([@planctus](https://github.com/planctus))
+- [#4027](https://github.com/ec-europa/europa-component-library/pull/4027) feat(site footer EU): add arrow to site name - FRONT-4947 ([@emeryro](https://github.com/emeryro))
+- [#4019](https://github.com/ec-europa/europa-component-library/pull/4019) feat(form): update form element display - FRONT-4924 ([@emeryro](https://github.com/emeryro))
+- [#4021](https://github.com/ec-europa/europa-component-library/pull/4021) feat(accordion): Minimal tweaks to simplify the webcomponent implementation - FRONT-4937 ([@planctus](https://github.com/planctus))
+- [#3997](https://github.com/ec-europa/europa-component-library/pull/3997) feat(site header): Styles iteration - FRONT-4906 ([@planctus](https://github.com/planctus))
+- [#4024](https://github.com/ec-europa/europa-component-library/pull/4024) feat(print): class name and timeline tweaks - FRONT-4942 ([@emeryro](https://github.com/emeryro))
+- [#3981](https://github.com/ec-europa/europa-component-library/pull/3981) fix(select): Fixing accessibility report - FRONT-4897 ([@planctus](https://github.com/planctus))
+- [#4013](https://github.com/ec-europa/europa-component-library/pull/4013) feat(banner): remove shadow, update font - FRONT-4925 ([@emeryro](https://github.com/emeryro))
+- [#4008](https://github.com/ec-europa/europa-component-library/pull/4008) feat(builder): Migrate builder to ESM - FRONT-4910 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#4031](https://github.com/ec-europa/europa-component-library/pull/4031) chore(website): Adding paragraph in EC and EU entry pages about the v5 versioning - FRONT-4943 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#4050](https://github.com/ec-europa/europa-component-library/pull/4050) chore(deps): Updates 14-07-25 ([@planctus](https://github.com/planctus))
+- [#4043](https://github.com/ec-europa/europa-component-library/pull/4043) chore(deps): udpates 08-07-25 ([@planctus](https://github.com/planctus))
+- [#4039](https://github.com/ec-europa/europa-component-library/pull/4039) chore(deps): Updates 07-07-25 ([@planctus](https://github.com/planctus))
+- [#4034](https://github.com/ec-europa/europa-component-library/pull/4034) chore(deps): updates 01-07-25 ([@planctus](https://github.com/planctus))
+- [#4022](https://github.com/ec-europa/europa-component-library/pull/4022) fix(icon): fix flag icon display - FRONT-4931 ([@emeryro](https://github.com/emeryro))
+- [#4020](https://github.com/ec-europa/europa-component-library/pull/4020) chore(deps): Updates 18-06-25 ([@planctus](https://github.com/planctus))
+- [#4017](https://github.com/ec-europa/europa-component-library/pull/4017) fix(website): fix usage page config - FRONT-4929 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 5.0.0-alpha.14
+
+#### :bug: Bug Fix
+
+- [#4018](https://github.com/ec-europa/europa-component-library/pull/4018) fix(mega-menu): Fixing unwanted hiding of the featured panel when clicking on back - FRONT-4930 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4024](https://github.com/ec-europa/europa-component-library/pull/4024) feat(print): class name and timeline tweaks - FRONT-4942 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 5.0.0-alpha.13
+
+#### :rocket: New Feature
+
+- [#4010](https://github.com/ec-europa/europa-component-library/pull/4010) feat(logos): Adding logos for Greenland in EC and EU - FRONT-4914 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4004](https://github.com/ec-europa/europa-component-library/pull/4004) feat(print): improve print - FRONT-4920 ([@emeryro](https://github.com/emeryro))
+- [#4009](https://github.com/ec-europa/europa-component-library/pull/4009) feat(site-header): Hiding menu close button in EU - FRONT-4919 ([@planctus](https://github.com/planctus))
+- [#4003](https://github.com/ec-europa/europa-component-library/pull/4003) feat(typography): update H5 font - FRONT-4917 ([@emeryro](https://github.com/emeryro))
+- [#4006](https://github.com/ec-europa/europa-component-library/pull/4006) fix(mega-menu): Taking into account the minHeight, recalculating also on collapse - FRONT-4922 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3989](https://github.com/ec-europa/europa-component-library/pull/3989) feat(docs): update website content - FRONT-4899 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4007](https://github.com/ec-europa/europa-component-library/pull/4007) feat(styles-addon): Persisting styles when opening in a new tab - FRONT-4923 ([@planctus](https://github.com/planctus))
+- [#4005](https://github.com/ec-europa/europa-component-library/pull/4005) chore(addon-styles): Fixing styles when switching stories - FRONT-4921 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.12
 
 #### :rocket: New Feature
