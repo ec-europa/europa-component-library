@@ -21,7 +21,7 @@ $social-media-follow: null !default;
   color: map.get($social-media-follow, 'title-color');
   font: var(--f-m);
   font-weight: map.get($social-media-follow, 'title-font-weight');
-  margin-bottom: var(--s-xs);
+  margin-bottom: map.get($social-media-follow, 'title-margin');
   margin-top: 0;
 }
 
