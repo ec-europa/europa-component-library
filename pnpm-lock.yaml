@@ -354,9 +354,9 @@ importers:
       '@ecl/icon':
         specifier: 5.0.0-alpha.15
         version: link:../icon
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
+      '@proreact/wcag-pikaday':
+        specifier: 1.9.6
+        version: 1.9.6
     devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.15
@@ -1300,6 +1300,9 @@ importers:
       '@iframe-resizer/child':
         specifier: 5.4.7
         version: 5.4.7
+      '@proreact/wcag-pikaday':
+        specifier: 1.9.6
+        version: 1.9.6
       '@storybook/addon-a11y':
         specifier: 8.6.14
         version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
@@ -1369,6 +1372,9 @@ importers:
       '@iframe-resizer/child':
         specifier: 5.4.7
         version: 5.4.7
+      '@proreact/wcag-pikaday':
+        specifier: 1.9.6
+        version: 1.9.6
       '@storybook/addon-a11y':
         specifier: 8.6.14
         version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
@@ -1660,12 +1666,12 @@ importers:
       '@ecl/video':
         specifier: 5.0.0-alpha.15
         version: link:../../components/video
+      '@proreact/wcag-pikaday':
+        specifier: 1.9.6
+        version: 1.9.6
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
     devDependencies:
       '@ecl/builder':
         specifier: 5.0.0-alpha.15
@@ -1931,12 +1937,12 @@ importers:
       '@ecl/video':
         specifier: 5.0.0-alpha.15
         version: link:../../components/video
+      '@proreact/wcag-pikaday':
+        specifier: 1.9.6
+        version: 1.9.6
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
     devDependencies:
       '@ecl/builder':
         specifier: 5.0.0-alpha.15
@@ -4473,6 +4479,9 @@ packages:
     resolution: {integrity: sha512-/UyNlHfkuLXG6Ed85KB0WBF283xn2yavR+UtRibBRUcvEJId2DSLdGXwJ/cDa1X++SWDPzq3+GSFniHjkNy7yg==}
     peerDependencies:
       prettier: ^3.0.0
+
+  '@proreact/wcag-pikaday@1.9.6':
+    resolution: {integrity: sha512-KrbTDNyfjLZTNepn6VS3pSN93UX+BsUf5Vd6aV3R1BCEMNBBu6O4zW0bX2LH9ErgslAhT/yf/GYYQLWcgl9MCQ==}
 
   '@puppeteer/browsers@2.10.5':
     resolution: {integrity: sha512-eifa0o+i8dERnngJwKrfp3dEq7ia5XFyoqB17S4gK8GhsQE4/P8nxOfQSE0zQHxzzLo/cmF+7+ywEQ7wK7Fb+w==}
@@ -9708,9 +9717,6 @@ packages:
     resolution: {integrity: sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==}
     engines: {node: '>=10'}
 
-  pikaday@1.8.2:
-    resolution: {integrity: sha512-TNtsE+34BIax3WtkB/qqu5uepV1McKYEgvL3kWzU7aqPCpMEN6rBF3AOwu4WCwAealWlBGobXny/9kJb49C1ew==}
-
   pirates@4.0.7:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==}
     engines: {node: '>= 6'}
@@ -13947,6 +13953,8 @@ snapshots:
     dependencies:
       '@xml-tools/parser': 1.0.11
       prettier: 3.6.2
+
+  '@proreact/wcag-pikaday@1.9.6': {}
 
   '@puppeteer/browsers@2.10.5':
     dependencies:
@@ -20503,8 +20511,6 @@ snapshots:
   pify@4.0.1: {}
 
   pify@5.0.0: {}
-
-  pikaday@1.8.2: {}
 
   pirates@4.0.7: {}
 
