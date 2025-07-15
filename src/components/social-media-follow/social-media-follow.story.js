@@ -13,7 +13,6 @@ const dataVertical = { ...specs, variant: 'vertical' };
 const getArgs = (data) => ({
   show_other: true,
   show_label: true,
-  vertical: false,
   position: 'left',
   description: data.description,
   description_inline: false,
@@ -34,15 +33,6 @@ const getArgTypes = () => ({
     description: 'toggle the visibility of the "other social networks" link',
     table: {
       category: 'Optional',
-    },
-  },
-  vertical: {
-    type: { name: 'boolean' },
-    description: 'Component variant',
-    table: {
-      category: 'Display',
-      type: 'string',
-      defaultValue: { summary: '' },
     },
   },
   position: {
@@ -100,10 +90,6 @@ const prepareData = (data, args) => {
     clone.links.forEach((element) => {
       element.link.hide_label = true;
     });
-  }
-
-  if (args.vertical) {
-    clone.variant = 'vertical';
   }
 
   return Object.assign(clone, args);
