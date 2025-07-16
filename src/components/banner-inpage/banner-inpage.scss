@@ -20,7 +20,7 @@ $banner-inpage: null !default;
   background-color: map.get($banner-inpage, 'header', 'background');
   color: map.get($banner-inpage, 'header', 'color');
   letter-spacing: map.get($theme, 'letter-spacing', '3xl');
-  padding: map.get($banner-inpage, 'header', 'padding');
+  padding-block: map.get($banner-inpage, 'header', 'padding-block-mobile');
   text-transform: uppercase;
 
   @include mixins.responsive-font(
@@ -66,7 +66,7 @@ $banner-inpage: null !default;
 .ecl-banner-inpage__title {
   color: map.get($banner-inpage, 'title', 'color');
   display: block;
-  padding-block: map.get($banner-inpage, 'title', 'padding-block');
+  padding-block: map.get($banner-inpage, 'title', 'padding-block-mobile');
 
   @include mixins.responsive-font(
     map.get($banner-inpage, 'title', 'font-m'),
@@ -121,6 +121,11 @@ $banner-inpage: null !default;
 @include breakpoints.up('l') {
   .ecl-banner-inpage__title {
     max-width: 750px;
+    padding-block: map.get($banner-inpage, 'title', 'padding-block-tablet');
+  }
+
+  .ecl-banner-inpage__header {
+    padding-block: map.get($banner-inpage, 'header', 'padding-block-tablet');
   }
 
   .ecl-banner-inpage__anchor {
@@ -149,7 +154,12 @@ $banner-inpage: null !default;
 
     .ecl-banner-inpage__title {
       max-width: 950px;
+      padding-block: map.get($banner-inpage, 'title', 'padding-block-desktop');
     }
+  }
+
+  .ecl-banner-inpage__header {
+    padding-block: map.get($banner-inpage, 'header', 'padding-block-desktop');
   }
 
   .ecl-banner-inpage__anchor {

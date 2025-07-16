@@ -185,13 +185,13 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Image = (_, { loaded: { component } }) => component;
+export const Default = (_, { loaded: { component } }) => component;
 
-Image.render = async (args) => {
+Default.render = async (args) => {
   const renderedBannerImage = await renderStory(bannerDataImage, args);
   return renderedBannerImage;
 };
-Image.storyName = 'image';
-Image.args = getArgs(bannerDataImage);
-Image.argTypes = getArgTypes(bannerDataImage);
-Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
+Default.storyName = 'default';
+Default.args = getArgs(bannerDataImage);
+Default.argTypes = getArgTypes(bannerDataImage);
+Default.parameters = { notes: { markdown: notes, json: bannerDataImage } };

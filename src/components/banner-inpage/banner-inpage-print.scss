@@ -21,7 +21,7 @@ $banner-inpage-print: null !default;
   font: map.get($banner-inpage-print, 'header-font');
   font-weight: map.get($banner-inpage, 'header', 'font-weight');
   letter-spacing: map.get($theme, 'letter-spacing', '3xl');
-  padding: map.get($banner-inpage, 'header', 'padding');
+  padding-block: map.get($banner-inpage, 'header', 'padding-block-desktop');
   text-transform: uppercase;
 }
 
@@ -58,7 +58,7 @@ $banner-inpage-print: null !default;
   font: map.get($banner-inpage-print, 'title-font-m');
   font-weight: map.get($banner-inpage, 'title', 'font-weight');
   max-width: 750px;
-  padding-block: map.get($banner-inpage, 'title', 'padding-block');
+  padding-block: map.get($banner-inpage, 'title', 'padding-block-desktop');
 
   .ecl-banner-inpage--font-l & {
     font: map.get($banner-inpage-print, 'title-font-l');

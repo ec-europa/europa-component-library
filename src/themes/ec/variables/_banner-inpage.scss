@@ -14,7 +14,9 @@ $banner-inpage: (
   header: (
     background: var(--cm-surface),
     color: var(--cm-on-surface-inverted),
-    padding: var(--s-xs) var(--s-m),
+    padding-block-mobile: var(--s-xs),
+    padding-block-tablet: var(--s-s),
+    padding-block-desktop: var(--s-s),
     font: 'microcopy-s',
     font-weight: map.get($font-weight, 'bold'),
   ),
@@ -26,7 +28,9 @@ $banner-inpage: (
   ),
   title: (
     color: var(--cm-on-surface-inverted),
-    padding-block: var(--s-3xl),
+    padding-block-mobile: var(--s-3xl),
+    padding-block-tablet: var(--s-4xl),
+    padding-block-desktop: var(--s-4xl),
     font-l: 'display',
     font-m: 'heading1',
     font-weight: map.get($font-weight, 'light'),
