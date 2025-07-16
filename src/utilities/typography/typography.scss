@@ -137,9 +137,20 @@ $typography: null !default;
 /*
 * Fonts
 */
-@each $key, $value in map.get($theme, 'font') {
-  .ecl-u-type-#{$key} {
-    @include mixins.responsive-font('body-' + $key, $important: true);
+// Used only on EU
+@if map.has-key($theme, 'font') {
+  @each $key, $value in map.get($theme, 'font') {
+    .ecl-u-type-#{$key} {
+      font: $value !important;
+    }
+  }
+}
+
+@if map.has-key($typography, 'body') {
+  @each $key, $value in map.get($typography, 'body') {
+    .ecl-u-type-#{$key} {
+      @include mixins.responsive-font('body-' + $key, $important: true);
+    }
   }
 }
 
@@ -285,5 +296,140 @@ $typography: null !default;
 * Text highlight
 */
 .ecl-u-type-highlight {
-  background-color: map.get($typography, 'highlight-color');
+  background-color: map.get($typography, 'highlight-color') !important;
+}
+
+.ecl-u-type-enhance {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'background-color'
+  ) !important;
+  border-inline-start: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'border'
+  ) !important;
+  color: map.get($typography, 'enhance', 'default', 'color') !important;
+  display: block !important;
+  padding: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'padding-mobile'
+  ) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'enhance', 'font'),
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
+  );
+
+  @include breakpoints.up('m') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'default',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'default',
+      'padding-desktop'
+    ) !important;
+  }
+}
+
+.ecl-u-type-enhance-strong {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'background-color'
+  ) !important;
+  color: map.get($typography, 'enhance', 'strong', 'color') !important;
+  display: block !important;
+  padding: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'padding-mobile'
+  ) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'enhance', 'font'),
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
+  );
+
+  @include breakpoints.up('m') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'strong',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'strong',
+      'padding-desktop'
+    ) !important;
+  }
+}
+
+.ecl-u-type-enhance-light {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'background-color'
+  ) !important;
+  border-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'border'
+  ) !important;
+  color: map.get($typography, 'enhance', 'light', 'color') !important;
+  display: block !important;
+  padding-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'padding-mobile'
+  ) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'enhance', 'font'),
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
+  );
+
+  @include breakpoints.up('m') {
+    padding-inline-start: map.get(
+      $typography,
+      'enhance',
+      'light',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding-inline-start: map.get(
+      $typography,
+      'enhance',
+      'light',
+      'padding-desktop'
+    ) !important;
+  }
 }

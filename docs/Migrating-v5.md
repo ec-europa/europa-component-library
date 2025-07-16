@@ -130,6 +130,11 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Fact & figures
+
+- A selector is added to the first item in the list, `.is-first`.
+- The selector used to reduce the font-size has changed, it's `.ecl-fact-figures__item--font-m` now and it's applied to each item instead of the root element.
+
 ### Featured item
 
 - Variant `simple` has been removed (deprecated in v4)
