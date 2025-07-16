@@ -3,9 +3,12 @@
 {#
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
-  - "font_size" (string) (default: 'm') Size of the title (can be 's', 'm', 'l')
-  - "title" (string or Link) (default: '') Title of banner
+  - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
+  - "title" (string) (default: '') Title of banner
+  - "path" (string) (default: '') Link url
+  - "header" (string) (default: '') Header over the banner
   - "picture" (object) (default: {}): Image for the banner, following ECL Picture structure
+  - "has_anchor" (boolean) (default: true): Should the visual anchor be displayed?
   - "video" (object) (default: {}): Video for the banner
     - "poster" (string) (default: ''): Image to be used as the video placeholder 
     - "sources" (array) (default: []): format: [
@@ -27,7 +30,7 @@
   - "sr_play" (string) (default: '') screen reader label for the play button
   - "sr_pause" (string) (default: '') screen reader label for the pause button
   - "credit" (string) (default: '') Credit for the image
-  - "full_width": (bool) (default: false) Full width banner (inside the grid)
+  - "full_width" (boolean) (default: false) Full width banner (extend outside the grid)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -37,14 +40,17 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-banner-inpage' %}
-{% set _extra_attributes = 'data-ecl-banner-inpage data-ecl-auto-init="Banner"' %}
+{% set _extra_attributes = '' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _video = video|default({}) %}
 {% set _font_size = font_size|default('m') %}
 {% set _full_width = full_width|default(false) %}
+{% set _header = header|default('') %}
 {% set _title = title|default('') %}
+{% set _path = path|default('') %}
 {% set _credit = credit|default('') %}
+{% set _has_anchor = has_anchor|default(true) %}
 {% set _sr_play = sr_play|default('') %}
 {% set _sr_pause = sr_pause|default('') %}
 
@@ -82,87 +88,58 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  {# Media #}
-  {% if _picture.img is not empty %}
-    {# Image #}
-    <figure class="ecl-banner-inpage__picture-container">
-      {% include '@ecl/picture/picture.html.twig' with {
-        picture: _picture,
-        extra_classes: 'ecl-banner-inpage__picture',
-        extra_image_classes: 'ecl-banner-inpage__image',
-        extra_attributes: [{ name: 'data-ecl-banner-inpage-image' }],
-      } only %}
-    </figure>
-  {% elseif _video is not empty %}
-    {# Video #}
-    <div class="ecl-banner-inpage__video-container">
-      {% set video_classes = 'ecl-banner-inpage__video' ~ (_video.extra_classes ? ' ' ~ _video.extra_classes : '') %}
-      {% include '@ecl/video/video.html.twig' with _video|merge({
-        controls: false,
-        autoplay: true,
-        muted: true,
-        loop: true,
-        extra_classes: video_classes,
-        extra_attributes: video.extra_attributes|default([])|merge([{ name: 'data-ecl-banner-inpage-video' }]),
-      }) only %}
-
-      {# Video controls #}
-      {% include '@ecl/button/button.html.twig' with {
-        hide_label: true,
-        label: _sr_play,
-        type: 'button',
-        variant: 'tertiary',
-        extra_classes: 'ecl-banner-inpage__play',
-        extra_attributes: [{ name: 'data-ecl-banner-inpage-play' }],
-        icon: {
-          name: 'play-outline',
-          size: 'm',
-        },
-      } only %}
-      {% include '@ecl/button/button.html.twig' with {
-        hide_label: true,
-        label: _sr_pause,
-        type: 'button',
-        variant: 'tertiary',
-        extra_classes: 'ecl-banner-inpage__pause',
-        extra_attributes: [{ name: 'data-ecl-banner-inpage-pause' }],
-        icon: {
-          name: 'pause-outline',
-          size: 'm',
-        },
-      } only %}
+  {# Header #}
+  {% if _header is not empty %}
+    <div class="ecl-banner-inpage__header">
+      <div class="ecl-container">
+        {{- _header -}}
+      </div>
     </div>
   {% endif %}
 
-  {# Content box #}
-  {% if _title is not empty %}
-    <div
-      class="ecl-banner-inpage__container"
-      data-ecl-banner-inpage-container
-    >
-      {% if _title is not empty %}
-        <div class="ecl-banner-inpage__title">
-          <span class="ecl-banner-inpage__title-text">
-          {%- if _title.link is defined -%}
-            {% set _title_extra_classes = (_title.extra_classes is not empty ? _title.extra_classes ~ ' ' : '') ~ 'ecl-banner-inpage__title-link' %}
-            {% include '@ecl/link/link.html.twig' with _title|merge({
-              link: _title.link|merge({type: 'standalone'}),
-              extra_classes: _title_extra_classes,
-            }) only %}
-          {%- else -%}
-            {{- _title -}}
-          {%- endif -%}
-          </span>
+  {# Link #}
+  {% if _path is not empty %}
+  <a href="{{ _path }}" class="ecl-banner-inpage__link">
+  {% endif %}
+
+    {# Image #}
+    {% if _picture.img is not empty %}
+      <figure class="ecl-banner-inpage__picture-container">
+        {% include '@ecl/picture/picture.html.twig' with {
+          picture: _picture,
+          extra_classes: 'ecl-banner-inpage__picture',
+          extra_image_classes: 'ecl-banner-inpage__image',
+          extra_attributes: [{ name: 'data-ecl-banner-inpage-image' }],
+        } only %}
+      </figure>
+    {% endif %}
+
+    {# Content box #}
+    {% if _title is not empty or _has_anchor or _credit is not empty %}
+      <div
+        class="ecl-banner-inpage__container"
+        data-ecl-banner-inpage-container
+      >
+        <div class="ecl-container">
+          {% if _title is not empty %}
+            <div class="ecl-banner-inpage__title">{{ _title }}</div>
+          {% endif %}
+
+          {% if _has_anchor %}
+            <div class="ecl-banner-inpage__anchor" aria-hidden="true"></div>
+          {% endif %}
+
+          {% if _credit is not empty %}
+            <footer class="ecl-banner-inpage__credit">
+              {{- _credit -}}
+            </footer>
+          {% endif %}
         </div>
-      {% endif %}
+      </div>
+    {% endif %}
 
-      {% if _credit is not empty %}
-        <footer class="ecl-banner-inpage__credit">
-          <div class="ecl-container">{{ _credit }}</div>
-        </footer>
-      {% endif %}
-    </div>
-
+  {% if _path is not empty %}
+  </a>
   {% endif %}
 </section>
 

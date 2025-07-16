@@ -5,17 +5,19 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
 import bannerDataImage from './demo/data--image';
-import bannerDataVideo from './demo/data--video';
+// import bannerDataVideo from './demo/data--video';
 import bannerInpage from './banner-inpage.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
-    show_title: true,
+    show_header: true,
+    show_anchor: true,
     show_credit: true,
-    credit: data.credit || '',
     font_size: 'm',
-    title: data.title.link.label,
+    header: data.header,
+    title: data.title,
+    credit: data.credit,
     full_width: true,
     gridContent: false,
   };
@@ -32,10 +34,18 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   const argTypes = {
     ...getColorModeControls(),
-    show_title: {
-      name: 'title',
+    show_header: {
+      name: 'header',
       type: { name: 'boolean' },
-      description: 'Show the title',
+      description: 'Show the header',
+      table: {
+        category: 'Optional',
+      },
+    },
+    show_anchor: {
+      name: 'anchor',
+      type: { name: 'boolean' },
+      description: 'Show the visual anchor',
       table: {
         category: 'Optional',
       },
@@ -52,16 +62,14 @@ const getArgTypes = (data) => {
       name: 'font size',
       type: 'select',
       description: 'Change font size',
-      options: ['s', 'm', 'l'],
+      options: ['m', 'l'],
       control: {
         labels: {
-          s: 'small',
           m: 'medium',
           l: 'large',
         },
       },
       mapping: {
-        small: 's',
         medium: 'm',
         large: 'l',
       },
@@ -85,15 +93,24 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    title: {
+    header: {
       type: 'string',
-      description: 'Heading of the banner',
+      description: 'Header of the banner',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
       },
-      if: { arg: 'show_title' },
+      if: { arg: 'show_header' },
+    },
+    title: {
+      type: 'string',
+      description: 'Title of the banner',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
     },
     credit: {
       type: 'string',
@@ -135,14 +152,13 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  const { show_title: showTitle, show_credit: showCredit } = args;
-
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
   Object.assign(clone, args);
 
-  if (!showTitle) delete clone.title;
-  if (!showCredit) delete clone.credit;
+  if (!args.show_header) delete clone.header;
+  if (!args.show_anchor) clone.has_anchor = false;
+  if (!args.show_credit) delete clone.credit;
 
   if (clone.picture) {
     clone.picture.img.src = args.image;
@@ -179,14 +195,3 @@ Image.storyName = 'image';
 Image.args = getArgs(bannerDataImage);
 Image.argTypes = getArgTypes(bannerDataImage);
 Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
-
-export const Video = (_, { loaded: { component } }) => component;
-
-Video.render = async (args) => {
-  const renderedBannerVideo = await renderStory(bannerDataVideo, args);
-  return renderedBannerVideo;
-};
-Video.storyName = 'video';
-Video.args = getArgs(bannerDataVideo);
-Video.argTypes = getArgTypes(bannerDataVideo);
-Video.parameters = { notes: { markdown: notes, json: bannerDataVideo } };

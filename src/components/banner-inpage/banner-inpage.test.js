@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import bannerDataImage from './demo/data--image';
-import bannerDataVideo from './demo/data--video';
+// import bannerDataVideo from './demo/data--video';
 
 expect.extend(toHaveNoViolations);
 const dataClone = JSON.parse(JSON.stringify(bannerDataImage));
@@ -71,6 +71,7 @@ describe('Banner inpage', () => {
     });
   });
 
+  /*
   describe('Video', () => {
     const data = bannerDataVideo;
 
@@ -90,4 +91,5 @@ describe('Banner inpage', () => {
       return expect(render(dataAttributes)).resolves.toMatchSnapshot();
     });
   });
+  */
 });

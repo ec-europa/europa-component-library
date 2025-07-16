@@ -2,132 +2,44 @@
 @use '../index' as *;
 
 $banner-inpage: (
-  background-color: var(--c-p-5),
-  content-width: (
-    'mobile': 50rem,
-    'desktop': 42.5rem,
-  ),
-  content-background: map.get($color, 'white'),
-  content-border-radius: map.get($border-radius, 'm'),
-  content-padding: var(--s-l) var(--s-l),
-  container-padding-block: (
-    'media': (
-      'mobile': var(--s-l),
-      'tablet': var(--s-xl),
-      'desktop': var(--s-3xl),
+  gradient: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 25%,
+      color-mix(in srgb, var(--c-d-140) 25%, transparent) 50%,
+      color-mix(in srgb, var(--c-d-140) 35%, transparent) 75%,
+      color-mix(in srgb, var(--c-d-140) 50%, transparent) 100%
     ),
-    'no-media': (
-      'mobile': var(--s-l),
-      'tablet': var(--s-xl),
-      'desktop': var(--s-3xl),
-    ),
+  gradient-height-mobile: 241px,
+  header: (
+    background: var(--c-d-140),
+    color: #fff,
+    padding: var(--s-xs) var(--s-m),
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
   ),
-  container-padding-inline: (
-    'mobile': var(--s-m),
-    'tablet': var(--s-xl),
-    'desktop': var(--s-m),
+  credit: (
+    color: #fff,
+    padding-block: var(--s-3xs),
+    padding-inline: var(--s-xs),
+    font: var(--f-xs),
   ),
-  border-color: var(--c-s),
-  border-radius: (
-    'banner': 8px,
-    'content': 4px,
+  title: (
+    color: #fff,
+    padding-block: var(--s-xl),
+    font-l: var(--f-2xl),
+    font-m: var(--f-xl),
+    font-weight: map.get($font-weight, 'regular'),
   ),
-  box-shadow: var(--sh-2),
-  border-width: (
-    'left': 4px,
-    'bottom': 0,
+  anchor: (
+    color: #fff,
+    padding-block: var(--s-5xl),
+    padding-inline: var(--s-3xl),
   ),
-  text-color: (
-    'dark': var(--c-d-140),
-    'light': map.get($color, 'white'),
-    'inverted': map.get($color, 'white'),
-  ),
-  // TODO: use the mixin here when ready
-  font: (
-      'title': (
-        'font-weight': map.get($font-weight, 'regular'),
-        'mobile-s': var(--f-2xl),
-        'line-height-mobile-s': var(--lh-2xl),
-        'mobile-m': var(--f-2xl),
-        'line-height-mobile-m': var(--lh-2xl),
-        'mobile-l': var(--f-2xl),
-        'line-height-mobile-l': var(--lh-2xl),
-        'tablet-s': var(--f-2xl),
-        'line-height-tablet-s': var(--lh-2xl),
-        'tablet-m': var(--f-2xl),
-        'line-height-tablet-m': var(--lh-2xl),
-        'tablet-l': var(--f-2xl),
-        'line-height-tablet-l': var(--lh-2xl),
-        'desktop-s': var(--f-4xl),
-        'line-height-desktop-s': var(--lh-4xl),
-        'desktop-m': var(--f-4xl),
-        'line-height-desktop-m': var(--lh-4xl),
-        'desktop-l': var(--f-5xl),
-        'line-height-desktop-l': var(--lh-5xl),
-      ),
-      'description': (
-        'font-weight': map.get($font-weight, 'regular'),
-        'mobile-s': var(--f-xl),
-        'line-height-mobile-s': var(--lh-xl),
-        'mobile-m': var(--f-xl),
-        'line-height-mobile-m': var(--lh-xl),
-        'mobile-l': var(--f-xl),
-        'line-height-mobile-l': var(--lh-xl),
-        'tablet-s': var(--f-xl),
-        'line-height-tablet-s': var(--lh-xl),
-        'tablet-m': var(--f-xl),
-        'line-height-tablet-m': var(--lh-xl),
-        'tablet-l': var(--f-xl),
-        'line-height-tablet-l': var(--lh-xl),
-        'desktop-s': var(--f-2xl),
-        'line-height-desktop-s': var(--lh-2xl),
-        'desktop-m': var(--f-2xl),
-        'line-height-desktop-m': var(--lh-2xl),
-        'desktop-l': var(--f-4xl),
-        'line-height-desktop-l': var(--lh-4xl),
-      ),
-      'credit': (
-        'mobile': var(--f-s),
-        'desktop': var(--f-s),
-      ),
-    ),
-  description-margin: var(--s-s),
-  // DEPRECATED
-  background: (
-      'plain-background': linear-gradient(
-          to right,
-          var(--c-p-140) 0%,
-          var(--c-p) 100%
-        ),
-      'text-box-mobile': map.get($color, 'white'),
-      'text-box-desktop': rgb(255, 255, 255, 0.9),
-      'image-overlay': linear-gradient(
-          to right,
-          var(--c-p-140) 0%,
-          var(--c-p) 100%
-        ),
-      'text-highlight': linear-gradient(
-          to right,
-          var(--c-p-140) 0%,
-          var(--c-p) 100%
-        ),
-    ),
 );
 $banner-inpage-print: (
-  font: (
-    'title': (
-      'desktop-m': map.get($font-print, '2xl'),
-      'desktop-l': map.get($font-print, '3xl'),
-    ),
-    'description': (
-      'desktop-m': map.get($font-print, 'l'),
-      'desktop-l': map.get($font-print, '2xl'),
-    ),
-    'credit': map.get($font-print, 's'),
-  ),
-  container-padding-bottom: map.get($spacing-print, '3xl'),
-  container-padding-top: map.get($spacing-print, '3xl'),
-  container-padding-horizontal: map.get($spacing-print, 'm'),
-  content-padding: map.get($spacing-print, 'm'),
-  content-width: 10cm,
+  credit-font: map.get($font-print, 'xs'),
+  title-font-l: map.get($font-print, '2xl'),
+  title-font-m: map.get($font-print, 'xl'),
+  header-font: map.get($font-print, 's'),
 );

@@ -5,54 +5,34 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $banner-inpage: null !default;
 
 .ecl-banner-inpage {
-  align-items: center;
-  border-radius: map.get($banner-inpage, 'border-radius', 'banner');
-  box-shadow: map.get($banner-inpage, 'box-shadow');
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 0;
-  margin-inline-end: 0;
-  margin-top: 0;
+  margin: 0;
   position: relative;
+}
+
+.ecl-banner-inpage__header {
+  background-color: map.get($banner-inpage, 'header', 'background');
+  color: map.get($banner-inpage, 'header', 'color');
+  letter-spacing: map.get($theme, 'letter-spacing', '3xl');
+  padding: map.get($banner-inpage, 'header', 'padding');
+  text-transform: uppercase;
+
+  @include mixins.responsive-font(
+    map.get($banner-inpage, 'header', 'font'),
+    $font-weight: map.get($banner-inpage, 'header', 'font-weight')
+  );
 }
 
 .ecl-banner-inpage__picture-container {
   margin: 0;
   position: relative;
   width: 100%;
-}
-
-.ecl-banner-inpage__video-container {
-  object-fit: cover;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.ecl-banner-inpage__container {
-  background-color: red;
-  bottom: 0;
-  height: 241px; // var
-  position: absolute;
-  width: 100%;
-}
-
-.ecl-banner-inpage__credit {
-  color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($banner-inpage, 'font', 'credit', 'mobile');
-  margin-block-end: calc(-1 * var(--s-xl));
-  padding-block-start: 1px;
-  position: relative;
-  text-align: end;
-  width: 100%;
-  z-index: 1;
 }
 
 .ecl-banner-inpage__image {
@@ -65,89 +45,60 @@ $banner-inpage: null !default;
   width: 100%;
 }
 
-.ecl-banner-inpage__video {
-  display: block;
-  height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-position: center;
-  position: relative;
+.ecl-banner-inpage__picture-container,
+.ecl-banner-inpage .ecl-banner-inpage__image {
+  aspect-ratio: 1/1;
+
+  --css-aspect-ratio: 1/1;
+}
+
+.ecl-banner-inpage__container {
+  background: map.get($banner-inpage, 'gradient');
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: map.get($banner-inpage, 'gradient-height-mobile');
+  justify-content: flex-end;
+  position: absolute;
   width: 100%;
 }
 
-.ecl-banner-inpage__title,
-.ecl-banner-inpage__title-link {
-  color: #fff; // var
+.ecl-banner-inpage__title {
+  color: map.get($banner-inpage, 'title', 'color');
   display: block;
-  font: map.get($banner-inpage, 'font', 'title', 'mobile-m');
-  font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-  line-height: map.get($banner-inpage, 'font', 'title', 'line-height-mobile-m');
-  padding: var(--s-xl) var(--s-l); // var
+  padding-block: map.get($banner-inpage, 'title', 'padding-block');
 
-  &:hover,
-  &:visited {
-    color: #fff; // var
-  }
-
-  .ecl-banner-inpage--font-s & {
-    font: map.get($banner-inpage, 'font', 'title', 'mobile-s');
-    font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-    line-height: map.get(
-      $banner-inpage,
-      'font',
-      'title',
-      'line-height-mobile-s'
-    );
-  }
+  @include mixins.responsive-font(
+    map.get($banner-inpage, 'title', 'font-m'),
+    $font-weight: map.get($banner-inpage, 'title', 'font-weight')
+  );
 
   .ecl-banner-inpage--font-l & {
-    font: map.get($banner-inpage, 'font', 'title', 'mobile-l');
-    font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-    line-height: map.get(
-      $banner-inpage,
-      'font',
-      'title',
-      'line-height-mobile-l'
+    @include mixins.responsive-font(
+      map.get($banner-inpage, 'title', 'font-l'),
+      $font-weight: map.get($banner-inpage, 'title', 'font-weight')
     );
   }
 }
 
-.ecl-banner-inpage__play.ecl-button--icon-only,
-.ecl-banner-inpage__pause.ecl-button--icon-only {
-  align-items: center;
-  background-color: var(--cm-on-surface-brand, var(--c-d));
-  border: none;
-  border-radius: 50%;
-  bottom: var(--s-m);
-  color: #fff;
-  justify-content: center;
-  min-height: 32px;
-  min-width: 32px;
-  outline: #fff;
-  outline-offset: -4px;
+.ecl-banner-inpage__link:hover .ecl-banner-inpage__title {
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+}
+
+.ecl-banner-inpage__credit {
+  align-self: flex-end;
+  color: map.get($banner-inpage, 'credit', 'color');
+  justify-self: flex-end;
+  padding-block-end: map.get($banner-inpage, 'credit', 'padding-block');
+  padding-inline-end: map.get($banner-inpage, 'credit', 'padding-inline');
   position: absolute;
-  right: var(--s-m);
-  z-index: 2;
 
-  &:hover,
-  &:active,
-  &:focus-visible {
-    background-color: #fff;
-    border: none;
-    color: var(--cm-on-surface-brand, var(--c-d));
-    outline-color: var(--cm-on-surface-brand, var(--c-d));
-    padding: 0;
-  }
+  @include mixins.responsive-font(map.get($banner-inpage, 'credit', 'font'));
+}
 
-  .ecl-button__container {
-    height: 32px;
-    width: 32px;
-  }
-
-  .ecl-button__icon {
-    height: 100%;
-    width: 100%;
-  }
+.ecl-banner-inpage__anchor {
+  display: none;
 }
 
 // Full width
@@ -158,166 +109,52 @@ $banner-inpage: null !default;
   width: 100vw;
 }
 
-// Fixed ratio on mobile
-.ecl-banner-inpage__picture-container,
-.ecl-banner-inpage__video-container,
-.ecl-banner-inpage .ecl-banner-inpage__image,
-.ecl-banner-inpage .ecl-banner-inpage__video {
-  aspect-ratio: 3/2;
-
-  --css-aspect-ratio: 3/2;
-}
-
-/* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-banner-inpage .ecl-container {
-    padding-inline: map.get(
-      $banner-inpage,
-      'container-padding-inline',
-      'tablet'
-    );
-  }
-
-  // Fixed ratio on tablet
   .ecl-banner-inpage__picture-container,
-  .ecl-banner-inpage__video-container,
-  .ecl-banner-inpage .ecl-banner-inpage__image,
-  .ecl-banner-inpage .ecl-banner-inpage__video {
-    aspect-ratio: 3/1;
+  .ecl-banner-inpage .ecl-banner-inpage__image {
+    aspect-ratio: 2/1;
 
-    --css-aspect-ratio: 3/1;
-  }
-
-  .ecl-banner-inpage__title,
-  .ecl-banner-inpage__title-link {
-    font: map.get($banner-inpage, 'font', 'title', 'tablet-m');
-    font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-    line-height: map.get(
-      $banner-inpage,
-      'font',
-      'title',
-      'line-height-tablet-m'
-    );
-
-    .ecl-banner-inpage--font-s & {
-      font: map.get($banner-inpage, 'font', 'title', 'tablet-s');
-      font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-      line-height: map.get(
-        $banner-inpage,
-        'font',
-        'title',
-        'line-height-tablet-s'
-      );
-    }
-
-    .ecl-banner-inpage--font-l & {
-      font: map.get($banner-inpage, 'font', 'title', 'tablet-l');
-      font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-      line-height: map.get(
-        $banner-inpage,
-        'font',
-        'title',
-        'line-height-tablet-l'
-      );
-    }
+    --css-aspect-ratio: 2/1;
   }
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('xl') {
-  .ecl-banner-inpage {
-    aspect-ratio: 4/1;
-
-    --css-aspect-ratio: 4/1;
+@include breakpoints.up('l') {
+  .ecl-banner-inpage__title {
+    max-width: 750px;
   }
 
-  .ecl-banner-inpage .ecl-container {
-    padding-inline: map.get(
-      $banner-inpage,
-      'container-padding-inline',
-      'desktop'
-    );
-    position: absolute;
-    z-index: 1;
-  }
-
-  .ecl-banner-inpage__credit {
-    font: map.get($banner-inpage, 'font', 'credit', 'desktop');
-    margin-block-end: 0;
-    padding-block: var(--s-2xs);
-    position: absolute;
-    text-align: start;
-
-    .ecl-banner-inpage & .ecl-container {
-      position: relative;
-    }
-  }
-
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  .ecl-container
-    .ecl-banner-inpage:not(.ecl-banner-inpage--full-width)
-    .ecl-container {
-    padding-inline-start: var(--s-2xl);
-    padding-inline-end: var(--s-2xl);
-  }
-
-  .ecl-banner-inpage__play.ecl-button--icon-only,
-  .ecl-banner-inpage__pause.ecl-button--icon-only {
-    min-height: 40px;
-    min-width: 40px;
-
-    .ecl-button__container {
-      height: 40px;
-      width: 40px;
-    }
-  }
-
-  .ecl-banner-inpage__title,
-  .ecl-banner-inpage__title-link {
-    display: inline;
-    font: map.get($banner-inpage, 'font', 'title', 'desktop-m');
-    font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-    line-height: map.get(
-      $banner-inpage,
-      'font',
-      'title',
-      'line-height-desktop-m'
-    );
-    width: auto;
-
-    .ecl-banner-inpage--font-s & {
-      font: map.get($banner-inpage, 'font', 'title', 'desktop-s');
-      font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-      line-height: map.get(
-        $banner-inpage,
-        'font',
-        'title',
-        'line-height-desktop-s'
-      );
-    }
-
-    .ecl-banner-inpage--font-l & {
-      font: map.get($banner-inpage, 'font', 'title', 'desktop-l');
-      font-weight: map.get($banner-inpage, 'font', 'title', 'font-weight');
-      line-height: map.get(
-        $banner-inpage,
-        'font',
-        'title',
-        'line-height-desktop-l'
-      );
-    }
-  }
-
-  .ecl-banner-inpage__picture-container,
-  .ecl-banner-inpage__video-container {
-    aspect-ratio: auto;
-    height: 100%;
-    position: static;
-  }
-
-  .ecl-banner-inpage__picture {
+  .ecl-banner-inpage__anchor {
+    align-self: flex-end;
+    background-color: map.get($banner-inpage, 'anchor', 'color');
     display: block;
-    height: 100%;
-    position: relative;
+    height: 73px;
+    justify-self: flex-end;
+    mask-image: url("data:image/svg+xml;utf8,<svg width='161' height='73' viewBox='0 0 161 73' xmlns='http://www.w3.org/2000/svg'><path d='M147.353 50.6247L0.389648 62.8649V67.9293V72.9936L160.999 62.8649L159.447 0.709961H149.526L147.353 50.6247Z' fill-rule='evenodd' /></svg>");
+    mask-repeat: no-repeat;
+    padding-block-end: map.get($banner-inpage, 'anchor', 'padding-block');
+    padding-inline-end: map.get($banner-inpage, 'anchor', 'padding-inline');
+    position: absolute;
+    width: 161px;
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-banner-inpage--full-width {
+    .ecl-banner-inpage__picture-container,
+    .ecl-banner-inpage .ecl-banner-inpage__image {
+      aspect-ratio: 3/1;
+
+      --css-aspect-ratio: 3/1;
+    }
+
+    .ecl-banner-inpage__title {
+      max-width: 950px;
+    }
+  }
+
+  .ecl-banner-inpage__anchor {
+    mask-image: url("data:image/svg+xml;utf8,<svg width='232' height='122' viewBox='0 0 232 122' xmlns='http://www.w3.org/2000/svg'><path d='M212.327 84.3105L0.469702 104.936V113.47V122.004L232 104.936L229.761 0.200012H215.46L212.327 84.3105Z' /></svg>");
+    height: 122px;
+    width: 232px;
   }
 }
