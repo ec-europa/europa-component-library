@@ -6,10 +6,8 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import bannerDataImage from './demo/data--image';
-// import bannerDataVideo from './demo/data--video';
 
 expect.extend(toHaveNoViolations);
-const dataClone = JSON.parse(JSON.stringify(bannerDataImage));
 
 describe('Banner inpage', () => {
   const template = '@ecl/banner-inpage/banner-inpage.html.twig';
@@ -24,13 +22,22 @@ describe('Banner inpage', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly without title', () => {
+    test('renders correctly without header', () => {
       expect.assertions(1);
 
-      const dataNoTitle = JSON.parse(JSON.stringify(bannerDataImage));
-      delete dataNoTitle.title;
+      const dataNoHeader = JSON.parse(JSON.stringify(bannerDataImage));
+      delete dataNoHeader.header;
 
-      return expect(render(dataNoTitle)).resolves.toMatchSnapshot();
+      return expect(render(dataNoHeader)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly without credit', () => {
+      expect.assertions(1);
+
+      const dataNoCredit = JSON.parse(JSON.stringify(bannerDataImage));
+      delete dataNoCredit.credit;
+
+      return expect(render(dataNoCredit)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -56,40 +63,10 @@ describe('Banner inpage', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with extra classes for the title link', () => {
-      expect.assertions(1);
-
-      dataClone.title.extra_classes = 'custom-title-link-class';
-
-      return expect(render(dataClone)).resolves.toMatchSnapshot();
-    });
-
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();
     });
   });
-
-  /*
-  describe('Video', () => {
-    const data = bannerDataVideo;
-
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(data)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra attributes for the video', () => {
-      expect.assertions(1);
-      const dataVideo = {
-        ...data.video,
-        extra_attributes: [{ name: 'data-test-extra-attribute' }],
-      };
-      const dataAttributes = { ...data, video: dataVideo };
-      return expect(render(dataAttributes)).resolves.toMatchSnapshot();
-    });
-  });
-  */
 });
