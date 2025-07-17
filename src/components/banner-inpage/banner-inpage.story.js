@@ -157,7 +157,7 @@ const prepareData = (data, args) => {
   Object.assign(clone, args);
 
   if (!args.show_header) delete clone.header;
-  if (!args.show_anchor) clone.has_anchor = false;
+  if (!args.show_anchor) clone.has_anchor = 0;
   if (!args.show_credit) delete clone.credit;
 
   if (clone.picture) {
