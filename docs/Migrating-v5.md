@@ -130,6 +130,11 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Fact & figures
+
+- A selector is added to the first item in the list, `.is-first`.
+- The selector used to reduce the font-size has changed, it's `.ecl-fact-figures__item--font-m` now and it's applied to each item instead of the root element.
+
 ### Featured item
 
 - Variant `simple` has been removed (deprecated in v4)
@@ -152,7 +157,6 @@ If you don't use the templates, this would have to be done manually:
 - keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
 
   Examples:
-
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
     - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
 
