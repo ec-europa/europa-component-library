@@ -151,15 +151,10 @@ const withDuet = (Story) => {
       border: 1px solid var(--c-d);
       border-radius: 0;
       height: 3rem;
-      width: 47%;
     }
 
     .duet-date__select:last-child {
       margin-inline-start: var(--s-m);
-    }
-
-    .duet-date__nav {
-      display: none;
     }
   `;
   document.head.appendChild(styleTag);
@@ -364,7 +359,7 @@ export const DateDuet = (_, { loaded: { component } }) => component;
 DateDuet.render = async () => {
   const renderedDateDuet = await formGroup({
     label: 'Select a date',
-    helper_text: 'You can type the date or select it from the datepicker',
+    helper_text: 'Format: dd-mm-yyyy',
     input: { input_type: 'duet' },
   });
   return renderedDateDuet;
