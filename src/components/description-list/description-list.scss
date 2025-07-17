@@ -48,7 +48,7 @@ $description-list: null !default;
 
 .ecl-description-list__see_more {
   display: block;
-  margin-top: var(--s-xs);
+  margin-top: map.get($description-list, 'see-more-spacing');
 }
 
 // Links
@@ -58,7 +58,7 @@ $description-list: null !default;
   flex-direction: column;
 
   .ecl-description-list__see_more {
-    margin-top: var(--s-xs);
+    margin-top: map.get($description-list, 'see-more-spacing');
   }
 }
 
