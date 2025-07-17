@@ -306,8 +306,8 @@ module.exports = {
     sr_overlay_label: 'Gallery overlay',
   },
   disable_overlay: false,
-  view_all_label: 'See all',
-  view_all_expanded_label: 'Collapse',
+  view_all_label: 'Show more items',
+  view_all_expanded_label: 'Show less',
   footer: {
     link: {
       path: exampleLink,
