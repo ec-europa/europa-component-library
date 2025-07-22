@@ -78,7 +78,7 @@ module.exports = {
   lists: [
     {
       visible_items: 2,
-      more_label: 'See all items',
+      more_label: 'Show more items',
       items: [
         {
           term: 'Taxonomy list',
