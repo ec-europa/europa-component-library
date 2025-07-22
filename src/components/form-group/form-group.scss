@@ -4,6 +4,7 @@
 
 @use 'sass:map';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -20,12 +21,13 @@ $form-group: null !default;
 .ecl-feedback-message {
   align-items: center;
   box-sizing: border-box;
-  color: map.get($form-group, 'color-invalid');
+  color: map.get($form-group, 'invalid', 'color');
   display: flex;
-  font: map.get($form-group, 'font-invalid');
-  margin-top: var(--s-xs);
+  margin-block: map.get($form-group, 'invalid', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
+
+  @include mixins.responsive-font(map.get($form-group, 'invalid', 'font'));
 }
 
 .ecl-feedback-message__icon {
@@ -34,38 +36,50 @@ $form-group: null !default;
 
 .ecl-help-block {
   box-sizing: border-box;
-  color: map.get($form-group, 'color-help');
+  color: map.get($form-group, 'help', 'color');
   display: block;
-  font: map.get($form-group, 'font-help');
-  margin: var(--s-2xs) 0 var(--s-xs);
+  margin-block: map.get($form-group, 'help', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
+
+  @include mixins.responsive-font(map.get($form-group, 'help', 'font'));
 }
 
 .ecl-form-label {
   box-sizing: border-box;
-  color: map.get($form-group, 'color-label');
+  color: map.get($form-group, 'label', 'color');
   display: block;
-  font: map.get($form-group, 'font-label');
   margin: 0;
   max-width: var(--max-w);
   padding: 0;
   white-space: pre-wrap;
-}
 
-.ecl-form-label__optional,
-.ecl-form-label__required {
-  vertical-align: text-bottom;
-  font: var(--f-s);
-  margin-inline-start: var(--s-2xs);
+  @include mixins.responsive-font(
+    map.get($form-group, 'label', 'font'),
+    $font-weight: map.get($form-group, 'label', 'font-weight')
+  );
 }
 
 .ecl-form-label__optional {
-  color: var(--cm-on-surface-primary, var(--c-p));
+  align-self: center;
+  color: map.get($form-group, 'optional', 'color');
+  margin-inline: map.get($form-group, 'optional', 'margin-inline');
+
+  @include mixins.responsive-font(
+    map.get($form-group, 'optional', 'font'),
+    $font-weight: map.get($form-group, 'optional', 'font-weight')
+  );
 }
 
 .ecl-form-label__required {
-  color: var(--cm-on-surface-status-error, var(--c-er));
+  align-self: center;
+  color: map.get($form-group, 'required', 'color');
+  margin-inline: map.get($form-group, 'required', 'margin-inline');
+
+  @include mixins.responsive-font(
+    map.get($form-group, 'required', 'font'),
+    $font-weight: map.get($form-group, 'required', 'font-weight')
+  );
 }
 
 .ecl-form-label--hidden {
@@ -78,5 +92,5 @@ $form-group: null !default;
 
 .ecl-form-label:not(.ecl-form-label--hidden)
   + *:not(.ecl-help-block, .ecl-feedback-message) {
-  margin-top: var(--s-xs);
+  margin-block-start: map.get($form-group, 'margin-no-helper');
 }

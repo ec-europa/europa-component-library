@@ -49,7 +49,7 @@ module.exports = {
             label: 'I belong to news & media',
             path: exampleLink,
             description:
-              'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              '<p>Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
             extra_attributes: [
               { name: 'an-extra-attribute-for-the-featured-link' },
             ],
@@ -105,7 +105,7 @@ module.exports = {
           label: 'Item 2.3 that has a very long label',
           path: exampleLink,
           see_all: true,
-          see_all_label: 'See all',
+          see_all_label: 'See all pages',
           sublink_id: 'item-2.3-that-has-a-very-long-label-id',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
@@ -198,7 +198,7 @@ module.exports = {
           label: 'Research and innovation',
           path: exampleLink,
           see_all: true,
-          see_all_label: 'See all items',
+          see_all_label: 'See all pages',
           sublink_id: 'research-and-innovation-id',
           featured: {
             title: 'Featured items',

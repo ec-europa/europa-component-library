@@ -4,13 +4,14 @@
 $description-list: (
   term-color: var(--cm-on-surface-brand),
   term-font-weight: map.get($font-weight, 'semi-bold'),
-  term-margin-bottom: var(--s-2xs),
+  term-margin-bottom: var(--s-3xs),
   term-margin-top: var(--s-xl),
   definition-color: var(--cm-on-surface-brand),
-  definition-spacing: var(--s-s),
+  definition-spacing: var(--s-3xs),
   separator-color: var(--cm-on-surface-primary),
   taxonomy-color: var(--cm-on-surface-brand),
   term-width: 200px,
+  see-more-spacing: var(--s-3xs),
 );
 $description-list-print: (
   definition-font: map.get($font-print, 'm'),

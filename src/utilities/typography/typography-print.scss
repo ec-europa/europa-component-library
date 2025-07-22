@@ -148,8 +148,8 @@ $typography-print: null !default;
   $semantic-color: (
     'primary',
     'secondary',
-    'neutral-dark',
-    'neutral-light',
+    'neutral',
+    'grey',
     'info',
     'success',
     'error',
@@ -164,10 +164,27 @@ $typography-print: null !default;
 
   @if map.has-key($theme, 'color-modes') {
     $type-mode: (
+      'on-surface-brand',
+      'on-surface-inverted',
+      'on-surface-swap-1',
+      'on-surface-swap-2',
       'on-surface',
-      'on-surface-highlight',
       'on-surface-variant-1',
-      'on-surface-variant-2'
+      'on-surface-variant-2',
+      'on-surface-variant-3',
+      'on-surface-highlight',
+      'on-surface-primary',
+      'on-surface-primary-highest',
+      'on-surface-secondary-medium',
+      'on-surface-neutral-low',
+      'on-surface-neutral-medium',
+      'on-surface-neutral-highest',
+      'on-surface-grey-medium',
+      'on-surface-grey',
+      'on-surface-status-error',
+      'on-surface-status-warning',
+      'on-surface-status-success',
+      'on-surface-status-info'
     );
 
     @each $key in $type-mode {
@@ -254,4 +271,57 @@ $typography-print: null !default;
 
 .ecl-u-type-align-center {
   text-align: center !important;
+}
+
+/*
+* Text highlight
+*/
+.ecl-u-type-highlight {
+  background-color: map.get($typography, 'highlight-color');
+}
+
+.ecl-u-type-enhance {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'background-color'
+  );
+  border-inline-start: map.get($typography, 'enhance', 'default', 'border');
+  color: map.get($typography, 'enhance', 'default', 'color');
+  font: map.get($typography-print, 'enhance', 'font');
+  font-weight: map.get($typography, 'enhance', 'font-weight');
+  padding: map.get($typography, 'enhance', 'default', 'padding-desktop');
+}
+
+.ecl-u-type-enhance-strong {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'background-color'
+  );
+  color: map.get($typography, 'enhance', 'strong', 'color');
+  font: map.get($typography-print, 'enhance', 'font');
+  font-weight: map.get($typography, 'enhance', 'font-weight');
+  padding: map.get($typography, 'enhance', 'strong', 'padding-desktop');
+}
+
+.ecl-u-type-enhance-light {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'background-color'
+  );
+  border-inline-start: map.get($typography, 'enhance', 'light', 'border');
+  color: map.get($typography, 'enhance', 'light', 'color');
+  font: map.get($typography-print, 'enhance', 'font');
+  font-weight: map.get($typography, 'enhance', 'font-weight');
+  padding-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'padding-start'
+  );
 }

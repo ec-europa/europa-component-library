@@ -306,17 +306,7 @@ Textarea.render = async (args) => {
 };
 Textarea.storyName = 'Textarea';
 Textarea.args = { ...getArgs(dataTextarea), width: 'm' };
-Textarea.argTypes = getArgTypes(
-  {
-    ...dataTextarea,
-    width: {
-      type: 'select',
-      options: ['s', 'm', 'l'],
-      description: 'Width of the element',
-    },
-  },
-  'element',
-);
+Textarea.argTypes = getArgTypes(dataTextarea, 'element');
 Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
 
 export const StandaloneCheckbox = (_, { loaded: { component } }) => component;

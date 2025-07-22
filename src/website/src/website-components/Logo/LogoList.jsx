@@ -56,7 +56,7 @@ function GetLanguageId(key) {
 function GetLogos(logos, serie) {
   return logos.filter((key) => {
     const languageId = GetLanguageId(key);
-    if (languageId === 'jp') return false;
+    if (languageId === 'jp' || languageId === 'gl') return false;
     if (serie === 'muted') return key.includes('mute');
     if (serie === 'official') return officialLanguages.includes(languageId);
     return !officialLanguages.includes(languageId) && languageId !== 'muted';

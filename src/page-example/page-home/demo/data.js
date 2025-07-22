@@ -5,7 +5,7 @@ import dataSiteFooterEC from '@ecl/site-footer/demo/data-harmonised--ec';
 import dataSiteHeaderEU from '@ecl/site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
-import dataBannerVideo from '@ecl/banner/demo/data--video';
+import dataCarousel from '@ecl/carousel/demo/data';
 import dataCard from '@ecl/card/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--event';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
@@ -17,15 +17,13 @@ delete dataSiteHeaderEC.banner_top;
 delete dataSiteHeaderEC.notification;
 delete dataSiteHeaderEC.site_name;
 
+dataCarousel.full_width = true;
+
 dataSiteHeaderEU.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEU.cta_link;
 delete dataSiteHeaderEU.banner_top;
 delete dataSiteHeaderEU.notification;
 delete dataSiteHeaderEU.site_name;
-
-dataBannerVideo.description = dataBannerVideo.description.link.label;
-dataBannerVideo.full_width = true;
-delete dataBannerVideo.link;
 
 delete dataCard.description;
 delete dataCard.primary_meta;
@@ -53,7 +51,7 @@ const data = {
   icon_path: '/icons.svg',
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
-  banner: dataBannerVideo,
+  carousel: dataCarousel,
   card: dataCard,
   content_item: dataContentItem,
   featured_item: dataFeaturedItem,

@@ -2,7 +2,8 @@
 @use 'index' as *;
 
 :root {
-  --ecl-color-primary: #{map.get($color-default, 'primary-500')};
+  --ecl-color-primary: #{map.get($color-default, 'primary-600')};
+  --ecl-color-primary-950: #{map.get($color-default, 'primary-950')};
   --ecl-color-primary-900: #{map.get($color-default, 'primary-900')};
   --ecl-color-primary-800: #{map.get($color-default, 'primary-800')};
   --ecl-color-primary-700: #{map.get($color-default, 'primary-700')};
@@ -12,8 +13,11 @@
   --ecl-color-primary-300: #{map.get($color-default, 'primary-300')};
   --ecl-color-primary-200: #{map.get($color-default, 'primary-200')};
   --ecl-color-primary-100: #{map.get($color-default, 'primary-100')};
+  --ecl-color-primary-75: #{map.get($color-default, 'primary-75')};
   --ecl-color-primary-50: #{map.get($color-default, 'primary-50')};
-  --ecl-color-secondary: #{map.get($color-default, 'secondary-300')};
+  --ecl-color-primary-25: #{map.get($color-default, 'primary-25')};
+  --ecl-color-secondary: #{map.get($color-default, 'secondary-400')};
+  --ecl-color-secondary-950: #{map.get($color-default, 'secondary-950')};
   --ecl-color-secondary-900: #{map.get($color-default, 'secondary-900')};
   --ecl-color-secondary-800: #{map.get($color-default, 'secondary-800')};
   --ecl-color-secondary-700: #{map.get($color-default, 'secondary-700')};
@@ -23,30 +27,39 @@
   --ecl-color-secondary-300: #{map.get($color-default, 'secondary-300')};
   --ecl-color-secondary-200: #{map.get($color-default, 'secondary-200')};
   --ecl-color-secondary-100: #{map.get($color-default, 'secondary-100')};
+  --ecl-color-secondary-75: #{map.get($color-default, 'secondary-75')};
   --ecl-color-secondary-50: #{map.get($color-default, 'secondary-50')};
-  --ecl-color-neutral-dark: #{map.get($color-default, 'neutral-dark-900')};
-  --ecl-color-neutral-dark-900: #{map.get($color-default, 'neutral-dark-900')};
-  --ecl-color-neutral-dark-800: #{map.get($color-default, 'neutral-dark-800')};
-  --ecl-color-neutral-dark-700: #{map.get($color-default, 'neutral-dark-700')};
-  --ecl-color-neutral-dark-600: #{map.get($color-default, 'neutral-dark-600')};
-  --ecl-color-neutral-dark-500: #{map.get($color-default, 'neutral-dark-500')};
-  --ecl-color-neutral-dark-400: #{map.get($color-default, 'neutral-dark-400')};
-  --ecl-color-neutral-dark-300: #{map.get($color-default, 'neutral-dark-300')};
-  --ecl-color-neutral-dark-200: #{map.get($color-default, 'neutral-dark-200')};
-  --ecl-color-neutral-dark-100: #{map.get($color-default, 'neutral-dark-100')};
-  --ecl-color-neutral-dark-50: #{map.get($color-default, 'neutral-dark-50')};
-  --ecl-color-neutral-light: #{map.get($color-default, 'neutral-light-900')};
-  --ecl-color-neutral-light-900: #{map.get($color-default, 'neutral-light-900')};
-  --ecl-color-neutral-light-800: #{map.get($color-default, 'neutral-light-800')};
-  --ecl-color-neutral-light-700: #{map.get($color-default, 'neutral-light-700')};
-  --ecl-color-neutral-light-600: #{map.get($color-default, 'neutral-light-600')};
-  --ecl-color-neutral-light-500: #{map.get($color-default, 'neutral-light-500')};
-  --ecl-color-neutral-light-400: #{map.get($color-default, 'neutral-light-400')};
-  --ecl-color-neutral-light-300: #{map.get($color-default, 'neutral-light-300')};
-  --ecl-color-neutral-light-200: #{map.get($color-default, 'neutral-light-200')};
-  --ecl-color-neutral-light-100: #{map.get($color-default, 'neutral-light-100')};
-  --ecl-color-neutral-light-50: #{map.get($color-default, 'neutral-light-50')};
-  --ecl-color-info: #{map.get($color-default, 'info-500')};
+  --ecl-color-secondary-25: #{map.get($color-default, 'secondary-25')};
+  --ecl-color-neutral: #{map.get($color-default, 'neutral-600')};
+  --ecl-color-neutral-950: #{map.get($color-default, 'neutral-950')};
+  --ecl-color-neutral-900: #{map.get($color-default, 'neutral-900')};
+  --ecl-color-neutral-800: #{map.get($color-default, 'neutral-800')};
+  --ecl-color-neutral-700: #{map.get($color-default, 'neutral-700')};
+  --ecl-color-neutral-600: #{map.get($color-default, 'neutral-600')};
+  --ecl-color-neutral-500: #{map.get($color-default, 'neutral-500')};
+  --ecl-color-neutral-400: #{map.get($color-default, 'neutral-400')};
+  --ecl-color-neutral-300: #{map.get($color-default, 'neutral-300')};
+  --ecl-color-neutral-200: #{map.get($color-default, 'neutral-200')};
+  --ecl-color-neutral-100: #{map.get($color-default, 'neutral-100')};
+  --ecl-color-neutral-75: #{map.get($color-default, 'neutral-75')};
+  --ecl-color-neutral-50: #{map.get($color-default, 'neutral-50')};
+  --ecl-color-neutral-25: #{map.get($color-default, 'neutral-25')};
+  --ecl-color-grey: #{map.get($color-default, 'grey-950')};
+  --ecl-color-grey-950: #{map.get($color-default, 'grey-950')};
+  --ecl-color-grey-900: #{map.get($color-default, 'grey-900')};
+  --ecl-color-grey-800: #{map.get($color-default, 'grey-800')};
+  --ecl-color-grey-700: #{map.get($color-default, 'grey-700')};
+  --ecl-color-grey-600: #{map.get($color-default, 'grey-600')};
+  --ecl-color-grey-500: #{map.get($color-default, 'grey-500')};
+  --ecl-color-grey-400: #{map.get($color-default, 'grey-400')};
+  --ecl-color-grey-300: #{map.get($color-default, 'grey-300')};
+  --ecl-color-grey-200: #{map.get($color-default, 'grey-200')};
+  --ecl-color-grey-100: #{map.get($color-default, 'grey-100')};
+  --ecl-color-grey-75: #{map.get($color-default, 'grey-75')};
+  --ecl-color-grey-50: #{map.get($color-default, 'grey-50')};
+  --ecl-color-grey-25: #{map.get($color-default, 'grey-25')};
+  --ecl-color-info: #{map.get($color-default, 'info-600')};
+  --ecl-color-info-950: #{map.get($color-default, 'info-950')};
   --ecl-color-info-900: #{map.get($color-default, 'info-900')};
   --ecl-color-info-800: #{map.get($color-default, 'info-800')};
   --ecl-color-info-700: #{map.get($color-default, 'info-700')};
@@ -56,8 +69,11 @@
   --ecl-color-info-300: #{map.get($color-default, 'info-300')};
   --ecl-color-info-200: #{map.get($color-default, 'info-200')};
   --ecl-color-info-100: #{map.get($color-default, 'info-100')};
+  --ecl-color-info-75: #{map.get($color-default, 'info-75')};
   --ecl-color-info-50: #{map.get($color-default, 'info-50')};
-  --ecl-color-success: #{map.get($color-default, 'success-500')};
+  --ecl-color-info-25: #{map.get($color-default, 'info-25')};
+  --ecl-color-success: #{map.get($color-default, 'success-700')};
+  --ecl-color-success-950: #{map.get($color-default, 'success-950')};
   --ecl-color-success-900: #{map.get($color-default, 'success-900')};
   --ecl-color-success-800: #{map.get($color-default, 'success-800')};
   --ecl-color-success-700: #{map.get($color-default, 'success-700')};
@@ -67,8 +83,11 @@
   --ecl-color-success-300: #{map.get($color-default, 'success-300')};
   --ecl-color-success-200: #{map.get($color-default, 'success-200')};
   --ecl-color-success-100: #{map.get($color-default, 'success-100')};
+  --ecl-color-success-75: #{map.get($color-default, 'success-75')};
   --ecl-color-success-50: #{map.get($color-default, 'success-50')};
-  --ecl-color-error: #{map.get($color-default, 'error-500')};
+  --ecl-color-success-25: #{map.get($color-default, 'success-25')};
+  --ecl-color-error: #{map.get($color-default, 'error-600')};
+  --ecl-color-error-950: #{map.get($color-default, 'error-950')};
   --ecl-color-error-900: #{map.get($color-default, 'error-900')};
   --ecl-color-error-800: #{map.get($color-default, 'error-800')};
   --ecl-color-error-700: #{map.get($color-default, 'error-700')};
@@ -78,8 +97,11 @@
   --ecl-color-error-300: #{map.get($color-default, 'error-300')};
   --ecl-color-error-200: #{map.get($color-default, 'error-200')};
   --ecl-color-error-100: #{map.get($color-default, 'error-100')};
+  --ecl-color-error-75: #{map.get($color-default, 'error-75')};
   --ecl-color-error-50: #{map.get($color-default, 'error-50')};
+  --ecl-color-error-25: #{map.get($color-default, 'error-25')};
   --ecl-color-warning: #{map.get($color-default, 'warning-500')};
+  --ecl-color-warning-950: #{map.get($color-default, 'warning-950')};
   --ecl-color-warning-900: #{map.get($color-default, 'warning-900')};
   --ecl-color-warning-800: #{map.get($color-default, 'warning-800')};
   --ecl-color-warning-700: #{map.get($color-default, 'warning-700')};
@@ -89,7 +111,9 @@
   --ecl-color-warning-300: #{map.get($color-default, 'warning-300')};
   --ecl-color-warning-200: #{map.get($color-default, 'warning-200')};
   --ecl-color-warning-100: #{map.get($color-default, 'warning-100')};
+  --ecl-color-warning-75: #{map.get($color-default, 'warning-75')};
   --ecl-color-warning-50: #{map.get($color-default, 'warning-50')};
+  --ecl-color-warning-25: #{map.get($color-default, 'warning-25')};
 
   // font
   --ecl-font-family-default: #{map.get($font-family, 'default')};
@@ -178,6 +202,7 @@
 
   // Aliases (internal use)
   --c-p: var(--ecl-color-primary);
+  --c-p-950: var(--ecl-color-primary-950);
   --c-p-900: var(--ecl-color-primary-900);
   --c-p-800: var(--ecl-color-primary-800);
   --c-p-700: var(--ecl-color-primary-700);
@@ -187,8 +212,11 @@
   --c-p-300: var(--ecl-color-primary-300);
   --c-p-200: var(--ecl-color-primary-200);
   --c-p-100: var(--ecl-color-primary-100);
+  --c-p-75: var(--ecl-color-primary-75);
   --c-p-50: var(--ecl-color-primary-50);
+  --c-p-25: var(--ecl-color-primary-25);
   --c-s: var(--ecl-color-secondary);
+  --c-s-950: var(--ecl-color-secondary-950);
   --c-s-900: var(--ecl-color-secondary-900);
   --c-s-800: var(--ecl-color-secondary-800);
   --c-s-700: var(--ecl-color-secondary-700);
@@ -198,30 +226,39 @@
   --c-s-300: var(--ecl-color-secondary-300);
   --c-s-200: var(--ecl-color-secondary-200);
   --c-s-100: var(--ecl-color-secondary-100);
+  --c-s-75: var(--ecl-color-secondary-75);
   --c-s-50: var(--ecl-color-secondary-50);
-  --c-d: var(--ecl-color-neutral-dark);
-  --c-d-900: var(--ecl-color-neutral-dark-900);
-  --c-d-800: var(--ecl-color-neutral-dark-800);
-  --c-d-700: var(--ecl-color-neutral-dark-700);
-  --c-d-600: var(--ecl-color-neutral-dark-600);
-  --c-d-500: var(--ecl-color-neutral-dark-500);
-  --c-d-400: var(--ecl-color-neutral-dark-400);
-  --c-d-300: var(--ecl-color-neutral-dark-300);
-  --c-d-200: var(--ecl-color-neutral-dark-200);
-  --c-d-100: var(--ecl-color-neutral-dark-100);
-  --c-d-50: var(--ecl-color-neutral-dark-50);
-  --c-l: var(--ecl-color-neutral-light);
-  --c-l-900: var(--ecl-color-neutral-light-900);
-  --c-l-800: var(--ecl-color-neutral-light-800);
-  --c-l-700: var(--ecl-color-neutral-light-700);
-  --c-l-600: var(--ecl-color-neutral-light-600);
-  --c-l-500: var(--ecl-color-neutral-light-500);
-  --c-l-400: var(--ecl-color-neutral-light-400);
-  --c-l-300: var(--ecl-color-neutral-light-300);
-  --c-l-200: var(--ecl-color-neutral-light-200);
-  --c-l-100: var(--ecl-color-neutral-light-100);
-  --c-l-50: var(--ecl-color-neutral-light-50);
+  --c-s-25: var(--ecl-color-secondary-25);
+  --c-n: var(--ecl-color-neutral);
+  --c-n-950: var(--ecl-color-neutral-950);
+  --c-n-900: var(--ecl-color-neutral-900);
+  --c-n-800: var(--ecl-color-neutral-800);
+  --c-n-700: var(--ecl-color-neutral-700);
+  --c-n-600: var(--ecl-color-neutral-600);
+  --c-n-500: var(--ecl-color-neutral-500);
+  --c-n-400: var(--ecl-color-neutral-400);
+  --c-n-300: var(--ecl-color-neutral-300);
+  --c-n-200: var(--ecl-color-neutral-200);
+  --c-n-100: var(--ecl-color-neutral-100);
+  --c-n-75: var(--ecl-color-neutral-75);
+  --c-n-50: var(--ecl-color-neutral-50);
+  --c-n-25: var(--ecl-color-neutral-25);
+  --c-g: var(--ecl-color-grey);
+  --c-g-950: var(--ecl-color-grey-950);
+  --c-g-900: var(--ecl-color-grey-900);
+  --c-g-800: var(--ecl-color-grey-800);
+  --c-g-700: var(--ecl-color-grey-700);
+  --c-g-600: var(--ecl-color-grey-600);
+  --c-g-500: var(--ecl-color-grey-500);
+  --c-g-400: var(--ecl-color-grey-400);
+  --c-g-300: var(--ecl-color-grey-300);
+  --c-g-200: var(--ecl-color-grey-200);
+  --c-g-100: var(--ecl-color-grey-100);
+  --c-g-75: var(--ecl-color-grey-75);
+  --c-g-50: var(--ecl-color-grey-50);
+  --c-g-25: var(--ecl-color-grey-25);
   --c-in: var(--ecl-color-info);
+  --c-in-950: var(--ecl-color-info-950);
   --c-in-900: var(--ecl-color-info-900);
   --c-in-800: var(--ecl-color-info-800);
   --c-in-700: var(--ecl-color-info-700);
@@ -231,8 +268,11 @@
   --c-in-300: var(--ecl-color-info-300);
   --c-in-200: var(--ecl-color-info-200);
   --c-in-100: var(--ecl-color-info-100);
+  --c-in-75: var(--ecl-color-info-75);
   --c-in-50: var(--ecl-color-info-50);
+  --c-in-25: var(--ecl-color-info-25);
   --c-su: var(--ecl-color-success);
+  --c-su-950: var(--ecl-color-success-950);
   --c-su-900: var(--ecl-color-success-900);
   --c-su-800: var(--ecl-color-success-800);
   --c-su-700: var(--ecl-color-success-700);
@@ -242,8 +282,11 @@
   --c-su-300: var(--ecl-color-success-300);
   --c-su-200: var(--ecl-color-success-200);
   --c-su-100: var(--ecl-color-success-100);
+  --c-su-75: var(--ecl-color-success-75);
   --c-su-50: var(--ecl-color-success-50);
+  --c-su-25: var(--ecl-color-success-25);
   --c-er: var(--ecl-color-error);
+  --c-er-950: var(--ecl-color-error-950);
   --c-er-900: var(--ecl-color-error-900);
   --c-er-800: var(--ecl-color-error-800);
   --c-er-700: var(--ecl-color-error-700);
@@ -253,8 +296,11 @@
   --c-er-300: var(--ecl-color-error-300);
   --c-er-200: var(--ecl-color-error-200);
   --c-er-100: var(--ecl-color-error-100);
+  --c-er-75: var(--ecl-color-error-75);
   --c-er-50: var(--ecl-color-error-50);
+  --c-er-25: var(--ecl-color-error-25);
   --c-wa: var(--ecl-color-warning);
+  --c-wa-950: var(--ecl-color-warning-950);
   --c-wa-900: var(--ecl-color-warning-900);
   --c-wa-800: var(--ecl-color-warning-800);
   --c-wa-700: var(--ecl-color-warning-700);
@@ -264,7 +310,9 @@
   --c-wa-300: var(--ecl-color-warning-300);
   --c-wa-200: var(--ecl-color-warning-200);
   --c-wa-100: var(--ecl-color-warning-100);
+  --c-wa-75: var(--ecl-color-warning-75);
   --c-wa-50: var(--ecl-color-warning-50);
+  --c-wa-25: var(--ecl-color-warning-25);
 
   // font
   --ff-d: var(--ecl-font-family-default);
@@ -351,75 +399,73 @@
 
   // Default color mode
   // surface
-  --cm-surface-dark: var(--c-d-900);
-  --cm-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
+  --cm-surface-brand: var(--c-g-950);
   --cm-surface-inverted: #fff;
   --cm-surface-transparent-70: color-mix(
     in srgb,
-    var(--c-d-900) 70%,
+    var(--c-n-950) 70%,
     transparent
   );
   --cm-surface-transparent-01: color-mix(in srgb, #fff 0.1%, transparent);
   --cm-surface-lowest: var(--c-p-50);
   --cm-surface-lowest-variant: color-mix(
     in srgb,
-    #{map.get($color-palette, 'warm-grey-50')} 70%,
+    #{map.get($color-palette, 'warm-grey-50')} 50%,
     transparent
   );
-  --cm-surface-low-1: var(--c-l-100);
-  --cm-surface-low-2: var(--c-l-300);
-  --cm-surface-medium: var(--c-l-400);
-  --cm-surface: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-200')};
-  --cm-surface-variant-2: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-surface-primary: var(--c-p-500);
+  --cm-surface-low-1: var(--c-p-50);
+  --cm-surface-low-2: var(--c-p-100);
+  --cm-surface-medium: var(--c-p-200);
+  --cm-surface: var(--c-g-950);
+  --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-100')};
+  --cm-surface-variant-2: var(--c-g-950);
+  --cm-surface-primary: var(--c-p-600);
   --cm-surface-primary-high: var(--c-p-700);
-  --cm-surface-primary-highest: var(--c-p-900);
-  --cm-surface-secondary: var(--c-s-500);
-  --cm-surface-secondary-high: var(--c-s-600);
-  --cm-surface-secondary-highest: var(--c-s-700);
-  --cm-surface-neutral-lowest: var(--c-l-100);
-  --cm-surface-neutral-low: var(--c-l-300);
-  --cm-surface-neutral-medium: var(--c-l-500);
+  --cm-surface-primary-highest: var(--c-p-800);
+  --cm-surface-secondary: var(--c-s-400);
+  --cm-surface-secondary-high: var(--c-s-500);
+  --cm-surface-secondary-highest: var(--c-s-600);
+  --cm-surface-neutral-lowest: var(--c-n-50);
+  --cm-surface-neutral-low: var(--c-n-75);
+  --cm-surface-neutral-medium: var(--c-n-200);
   --cm-surface-status-error: var(--c-er-600);
   --cm-surface-status-warning: var(--c-wa-500);
   --cm-surface-status-success: var(--c-su-700);
-  --cm-surface-status-info: var(--c-in-500);
+  --cm-surface-status-info: var(--c-in-950);
 
   // on surface
-  --cm-on-surface-brand-medium: color-mix(
-    in srgb,
-    var(--c-d-900) 70%,
-    transparent
-  );
-  --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
+  --cm-on-surface-brand: var(--c-g-950);
   --cm-on-surface-inverted: #fff;
   --cm-on-surface-swap-1: #fff;
-  --cm-on-surface-swap-2: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-on-surface: var(--c-d-500);
-  --cm-on-surface-variant-1: var(--c-s-500);
-  --cm-on-surface-variant-2: var(--c-l-300);
-  --cm-on-surface-highlight: var(--c-s-100);
-  --cm-on-surface-primary: var(--c-p-500);
-  --cm-on-surface-primary-highest: var(--c-p-900);
-  --cm-on-surface-secondary-medium: var(--c-s-200);
-  --cm-on-surface-neutral-low: var(--c-l-300);
-  --cm-on-surface-neutral-medium: var(--c-d-300);
+  --cm-on-surface-swap-2: var(--c-g-950);
+  --cm-on-surface: var(--c-p-600);
+  --cm-on-surface-variant-1: var(--c-s-400);
+  --cm-on-surface-variant-2: var(--c-p-300);
+  --cm-on-surface-variant-3: #fff;
+  --cm-on-surface-highlight: var(--c-s-75);
+  --cm-on-surface-primary: var(--c-p-600);
+  --cm-on-surface-primary-highest: var(--c-p-800);
+  --cm-on-surface-secondary-medium: var(--c-s-100);
+  --cm-on-surface-neutral-low: var(--c-n-75);
+  --cm-on-surface-neutral-medium: var(--c-n-300);
+  --cm-on-surface-neutral-highest: var(--c-n-950);
+  --cm-on-surface-grey-medium: var(--c-g-300);
+  --cm-on-surface-grey: var(--c-g-600);
   --cm-on-surface-status-error: var(--c-er-600);
   --cm-on-surface-status-warning: var(--c-wa-500);
   --cm-on-surface-status-success: var(--c-su-700);
-  --cm-on-surface-status-info: var(--c-in-500);
+  --cm-on-surface-status-info: var(--c-in-950);
 
   // border
-  --cm-border-brand: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-border-on-brand: color-mix(in srgb, var(--c-l-300) 60%, transparent);
+  --cm-border-brand: var(--c-g-950);
+  --cm-border-on-brand: color-mix(in srgb, var(--c-n-75) 60%, transparent);
   --cm-border-inverted: #fff;
-  --cm-border-low: var(--c-l-300);
-  --cm-border: var(--c-l-600);
-  --cm-border-primary: var(--c-p-500);
-  --cm-border-neutral: var(--c-l-300);
+  --cm-border-low: var(--c-p-200);
+  --cm-border: var(--c-p-600);
+  --cm-border-primary: var(--c-p-600);
+  --cm-border-neutral: var(--c-n-75);
   --cm-border-status-error: var(--c-er-600);
   --cm-border-status-warning: var(--c-wa-500);
   --cm-border-status-success: var(--c-su-700);
-  --cm-border-status-info: var(--c-in-500);
+  --cm-border-status-info: var(--c-in-950);
 }

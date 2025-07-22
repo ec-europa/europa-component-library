@@ -136,7 +136,7 @@ export class MegaMenu {
     this.menuOverlay = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointL = 996;
+    this.breakpointL = 1140;
     this.openPanel = { num: 0, item: {} };
     this.infoLinks = null;
     this.seeAllLinks = null;
@@ -610,10 +610,10 @@ export class MegaMenu {
 
     if (viewport === 'desktop' && this.header) {
       if (this.headerBanner) {
-        this.headerBanner.style.display = 'flex';
+        this.headerBanner.style.display = '';
       }
       if (this.headerNotification) {
-        this.headerNotification.style.display = 'flex';
+        this.headerNotification.style.display = '';
       }
     }
   }
@@ -639,12 +639,12 @@ export class MegaMenu {
             screenWidth > this.breakpointL ? 'desktop' : 'mobile',
           );
         }
-        if (this.prevScreenWidth >= 1140 && screenWidth >= 996) {
+        if (this.prevScreenWidth >= 1368 && screenWidth >= 1140) {
           this.resetStyles('desktop', true);
         }
       }
       this.isDesktop = this.useDesktopDisplay();
-      this.isLarge = window.innerWidth >= 1140;
+      this.isLarge = window.innerWidth >= 1368;
       // Update previous screen width
       this.prevScreenWidth = screenWidth;
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
@@ -1333,10 +1333,10 @@ export class MegaMenu {
     } else {
       if (this.header) {
         if (this.headerBanner) {
-          this.headerBanner.style.display = 'flex';
+          this.headerBanner.style.display = '';
         }
         if (this.headerNotification) {
-          this.headerNotification.style.display = 'flex';
+          this.headerNotification.style.display = '';
         }
       }
       // Remove expanded class from inner menu
@@ -1642,10 +1642,10 @@ export class MegaMenu {
         'ecl-site-header--open-menu-start',
       );
       if (this.headerBanner) {
-        this.headerBanner.style.display = 'flex';
+        this.headerBanner.style.display = '';
       }
       if (this.headerNotification) {
-        this.headerNotification.style.display = 'flex';
+        this.headerNotification.style.display = '';
       }
     }
     this.enableScroll();

@@ -43,26 +43,23 @@ How it works:
 Here is the list of variables used in the color modes:
 | Name | CSS custom property | Utilities |
 | ---------------------- | --------------------------- | ------------------------ |
-| surface | --cm-surface | _-surface |
-| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
-| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
-| surface medium | --cm-surface-medium | _-surface-medium |
-| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
-| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
 | surface lowest | --cm-surface-lowest | _-surface-lowest |
 | surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
+| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
+| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
+| surface medium | --cm-surface-medium | _-surface-medium |
+| surface | --cm-surface | _-surface |
+| surface-high | --cm-surface-high | _-surface-high |
+| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
+| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
 | on surface | --cm-on-surface | _-on-surface |
 | on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
 | on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
 | on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
 | on surface swap 1 | --cm-on-surface-swap-1 | _-on-surface-swap-1 |
 | on surface swap-2 | --cm-on-surface-swap-2 | _-on-surface-swap-2 |
-| border | --cm-border | _-border |
 | border low | --cm-border-low | _-border-low |
-
-TODO
-
-- when we have the default values for EU, add them to the EU css. The fallback in component could then be removed
+| border | --cm-border | \_-border |
 
 ### [EC] Typography
 
@@ -125,11 +122,18 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+A selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
+
 ### Banner
 
 - Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+
+### Fact & figures
+
+- A selector is added to the first item in the list, `.is-first`.
+- The selector used to reduce the font-size has changed, it's `.ecl-fact-figures__item--font-m` now and it's applied to each item instead of the root element.
 
 ### Featured item
 
@@ -153,7 +157,6 @@ If you don't use the templates, this would have to be done manually:
 - keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
 
   Examples:
-
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
     - `ecl-icon ecl-icon--m ecl-icon--facebook-inverted` (v4) should become `wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--m ecl-icon--facebook`
 
@@ -221,6 +224,10 @@ The related styles can be customized defining:
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
 
+### Radio
+
+To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+
 ### Site header
 
 New twig parameter added to hide the site name on desktop (still visible on mobile), with a corresponding css class `ecl-site-header__site-name--mobile-only`
@@ -243,6 +250,11 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
   See the component documentation and examples for more information
 
 EU footer hasn't changed, but is now using its own template file
+
+### Timeline
+
+- new section available to add headline (larger first item). Corresponding twig parameter is `headline`
+- new way to group multiple timeline, in a timeline set. This is a separated template, just using an array of timelines.
 
 ## Js modifications
 

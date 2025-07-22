@@ -6,7 +6,7 @@ import styles from './IconCard.module.scss';
 function IconCard({ name, label, set }) {
   const cardClass = styles.card;
   let family = '';
-  if (set === 'flag' || set === 'flag-non-members') family = '-flag';
+  if (set === 'flag' || set === 'flag-non-members') family = '-flags';
   if (set === 'social-media') family = '-networks';
 
   let iconLabel = name;

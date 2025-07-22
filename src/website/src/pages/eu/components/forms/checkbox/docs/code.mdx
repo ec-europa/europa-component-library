@@ -11,8 +11,7 @@ import { Playground } from '@ecl/website-components';
   selectedKind="components-forms"
   selectedStory="checkbox"
   system="eu"
-  showFrame
-  selectedArgs="required:!true"
+  selectedArgs="required:!true;invalid:!false"
 ></Playground>
 
 ## Invalid checkbox group
@@ -21,8 +20,7 @@ import { Playground } from '@ecl/website-components';
   selectedKind="components-forms"
   selectedStory="checkbox"
   system="eu"
-  selectedArgs="invalid:true"
-  showFrame
+  selectedArgs="invalid:!true;required:!true"
 ></Playground>
 
 ## Optional checkbox group
@@ -31,8 +29,7 @@ import { Playground } from '@ecl/website-components';
   selectedKind="components-forms"
   selectedStory="checkbox"
   system="eu"
-  selectedArgs="required:!false"
-  showFrame
+  selectedArgs="required:!false;invalid:!false"
 ></Playground>
 
 ## Standalone checkbox
@@ -41,5 +38,4 @@ import { Playground } from '@ecl/website-components';
   selectedKind="components-forms"
   selectedStory="standalone-checkbox"
   system="eu"
-  showFrame
 ></Playground>
