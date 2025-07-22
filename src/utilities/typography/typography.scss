@@ -16,240 +16,51 @@ $typography: null !default;
 @if map.has-key($typography, 'display') {
   .ecl-u-type-display {
     color: map.get($typography, 'heading-color');
-    font-family: map.get($typography, 'font-family') !important;
-    font-size: map.get($typography, 'display', 'mobile', 'size') !important;
-    font-weight: map.get($typography, 'display', 'font-weight') !important;
-    line-height: map.get(
-      $typography,
-      'display',
-      'mobile',
-      'line-height'
-    ) !important;
 
-    @include breakpoints.up('m') {
-      font-size: map.get($typography, 'display', 'tablet', 'size') !important;
-      line-height: map.get(
-        $typography,
-        'display',
-        'tablet',
-        'line-height'
-      ) !important;
-    }
-
-    @include breakpoints.up('xl') {
-      font-size: map.get($typography, 'display', 'desktop', 'size') !important;
-      line-height: map.get(
-        $typography,
-        'display',
-        'desktop',
-        'line-height'
-      ) !important;
-    }
+    @include mixins.responsive-font('display', $important: true);
   }
 }
 
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading1', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading1', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading1',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading1', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading1',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading1', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading1',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading1', $important: true);
 }
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading2', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading2', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading2',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading2', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading2',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading2', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading2',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading2', $important: true);
 }
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading3', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading3', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading3',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading3', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading3',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading3', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading3',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading3', $important: true);
 }
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading4', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading4', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading4',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading4', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading4',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading4', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading4',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading4', $important: true);
 }
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading5', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading5', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading5',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading5', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading5',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading5', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading5',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading5', $important: true);
 }
 
 .ecl-u-type-heading-6,
 %ecl-heading-6 {
   color: map.get($typography, 'heading-color');
-  font-family: map.get($typography, 'font-family') !important;
-  font-size: map.get($typography, 'heading6', 'mobile', 'size') !important;
-  font-weight: map.get($typography, 'heading6', 'font-weight') !important;
-  line-height: map.get(
-    $typography,
-    'heading6',
-    'mobile',
-    'line-height'
-  ) !important;
 
-  @include breakpoints.up('m') {
-    font-size: map.get($typography, 'heading6', 'tablet', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading6',
-      'tablet',
-      'line-height'
-    ) !important;
-  }
-
-  @include breakpoints.up('xl') {
-    font-size: map.get($typography, 'heading6', 'desktop', 'size') !important;
-    line-height: map.get(
-      $typography,
-      'heading6',
-      'desktop',
-      'line-height'
-    ) !important;
-  }
+  @include mixins.responsive-font('heading6', $important: true);
 }
 
 %ecl-heading-1,
@@ -267,32 +78,45 @@ $typography: null !default;
 @each $key, $value in map.get($typography, 'paragraph') {
   .ecl-u-type-paragraph-#{$key} {
     color: map.get($typography, 'text-color') !important;
-    font: $value !important;
     max-width: var(--max-w) !important;
+
+    @include mixins.responsive-font($value, $important: true);
   }
 }
 
 .ecl-u-type-paragraph {
   color: map.get($typography, 'text-color') !important;
-  font: map.get($typography, 'paragraph', 'm') !important;
   max-width: var(--max-w) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'paragraph', 'm'),
+    $important: true
+  );
 }
 
 %ecl-paragraph {
   color: map.get($typography, 'text-color');
-  font: map.get($typography, 'paragraph', 'm');
   max-width: var(--max-w) !important;
+
+  @include mixins.responsive-font(map.get($typography, 'paragraph', 'm'));
 }
 
 .ecl-u-type-paragraph-lead {
   color: map.get($typography, 'text-color');
-  font: map.get($typography, 'paragraph', 'l') !important;
   max-width: var(--max-w) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'paragraph', 'l'),
+    $important: true
+  );
 }
 
 @if map.has-key($typography, 'paragraph', 'xl') {
   .ecl-u-type-paragraph-lead {
-    font: map.get($typography, 'paragraph', 'xl') !important;
+    @include mixins.responsive-font(
+      map.get($typography, 'paragraph', 'xl'),
+      $important: true
+    );
   }
 }
 
@@ -305,7 +129,7 @@ $typography: null !default;
       color: map.get($typography, 'text-color') !important;
       max-width: var(--max-w) !important;
 
-      @include mixins.responsive-font('microcopy-' + $key);
+      @include mixins.responsive-font('microcopy-' + $key, $important: true);
     }
   }
 }
@@ -313,9 +137,20 @@ $typography: null !default;
 /*
 * Fonts
 */
-@each $key, $value in map.get($theme, 'font') {
-  .ecl-u-type-#{$key} {
-    font: var(--f-#{$key}) !important;
+// Used only on EU
+@if map.has-key($theme, 'font') {
+  @each $key, $value in map.get($theme, 'font') {
+    .ecl-u-type-#{$key} {
+      font: $value !important;
+    }
+  }
+}
+
+@if map.has-key($typography, 'body') {
+  @each $key, $value in map.get($typography, 'body') {
+    .ecl-u-type-#{$key} {
+      @include mixins.responsive-font('body-' + $key, $important: true);
+    }
   }
 }
 
@@ -343,8 +178,8 @@ $typography: null !default;
   $semantic-color: (
     'primary',
     'secondary',
-    'neutral-dark',
-    'neutral-light',
+    'neutral',
+    'grey',
     'info',
     'success',
     'error',
@@ -359,10 +194,27 @@ $typography: null !default;
 
   @if map.has-key($theme, 'color-modes') {
     $type-mode: (
+      'on-surface-brand',
+      'on-surface-inverted',
+      'on-surface-swap-1',
+      'on-surface-swap-2',
       'on-surface',
-      'on-surface-highlight',
       'on-surface-variant-1',
-      'on-surface-variant-2'
+      'on-surface-variant-2',
+      'on-surface-variant-3',
+      'on-surface-highlight',
+      'on-surface-primary',
+      'on-surface-primary-highest',
+      'on-surface-secondary-medium',
+      'on-surface-neutral-low',
+      'on-surface-neutral-medium',
+      'on-surface-neutral-highest',
+      'on-surface-grey-medium',
+      'on-surface-grey',
+      'on-surface-status-error',
+      'on-surface-status-warning',
+      'on-surface-status-success',
+      'on-surface-status-info'
     );
 
     @each $key in $type-mode {
@@ -438,4 +290,146 @@ $typography: null !default;
 
 .ecl-u-type-align-center {
   text-align: center !important;
+}
+
+/*
+* Text highlight
+*/
+.ecl-u-type-highlight {
+  background-color: map.get($typography, 'highlight-color') !important;
+}
+
+.ecl-u-type-enhance {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'background-color'
+  ) !important;
+  border-inline-start: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'border'
+  ) !important;
+  color: map.get($typography, 'enhance', 'default', 'color') !important;
+  display: block !important;
+  padding: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'padding-mobile'
+  ) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'enhance', 'font'),
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
+  );
+
+  @include breakpoints.up('m') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'default',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'default',
+      'padding-desktop'
+    ) !important;
+  }
+}
+
+.ecl-u-type-enhance-strong {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'background-color'
+  ) !important;
+  color: map.get($typography, 'enhance', 'strong', 'color') !important;
+  display: block !important;
+  padding: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'padding-mobile'
+  ) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'enhance', 'font'),
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
+  );
+
+  @include breakpoints.up('m') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'strong',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding: map.get(
+      $typography,
+      'enhance',
+      'strong',
+      'padding-desktop'
+    ) !important;
+  }
+}
+
+.ecl-u-type-enhance-light {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'background-color'
+  ) !important;
+  border-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'border'
+  ) !important;
+  color: map.get($typography, 'enhance', 'light', 'color') !important;
+  display: block !important;
+  padding-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'padding-mobile'
+  ) !important;
+
+  @include mixins.responsive-font(
+    map.get($typography, 'enhance', 'font'),
+    $font-weight: map.get($typography, 'enhance', 'font-weight'),
+    $important: true
+  );
+
+  @include breakpoints.up('m') {
+    padding-inline-start: map.get(
+      $typography,
+      'enhance',
+      'light',
+      'padding-tablet'
+    ) !important;
+  }
+
+  @include breakpoints.up('xl') {
+    padding-inline-start: map.get(
+      $typography,
+      'enhance',
+      'light',
+      'padding-desktop'
+    ) !important;
+  }
 }

@@ -75,10 +75,6 @@ $textarea: null !default;
   box-shadow: map.get($textarea, 'shadow');
   cursor: not-allowed;
 
-  &::placeholder {
-    color: rgba(map.get($textarea, 'color-placeholder'), 0.5);
-  }
-
   &:hover {
     border-color: rgba(map.get($textarea, 'border-color'), 0.5);
     box-shadow: map.get($textarea, 'shadow');

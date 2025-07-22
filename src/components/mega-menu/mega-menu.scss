@@ -1515,7 +1515,7 @@ $mega-menu: null !default;
   }
 }
 
-@include breakpoints.up('xxl') {
+@media (width >= 1368px) {
   .ecl-mega-menu:not(
     .ecl-mega-menu--forced-mobile,
     .ecl-mega-menu--forced-close
@@ -1631,7 +1631,7 @@ $mega-menu: null !default;
   }
 }
 
-@include breakpoints.up('xxl') {
+@media (width >= 1368px) {
   .ecl-mega-menu:not(
     .ecl-mega-menu--forced-mobile,
     .ecl-mega-menu--forced-close
