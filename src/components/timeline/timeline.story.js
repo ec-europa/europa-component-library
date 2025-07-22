@@ -129,7 +129,7 @@ const prepareData = (data, args) => {
     hiddenCount = clone.items.length + to - from;
   }
   clone.toggle_collapsed = `Show ${hiddenCount} more items`;
-  clone.toggle_expanded = `Hide ${hiddenCount} items`;
+  clone.toggle_expanded = 'Show less';
 
   clone.hide.from = args.items_before;
   clone.hide.to = -1 * args.items_after;
