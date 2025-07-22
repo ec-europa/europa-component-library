@@ -177,6 +177,14 @@ const withDuet = (Story) => {
     if (!picker) return;
 
     picker.localization = {
+      prevMonthLabel: 'Previous month',
+      nextMonthLabel: 'Next month',
+      monthSelectLabel: 'Month',
+      yearSelectLabel: 'Year',
+      closeLabel: 'Close window',
+      calendarHeading: 'Choose a date',
+      selectedDateMessage: 'Selected date is',
+      buttonLabel: 'Choose date',
       dayNames: [
         'Sunday',
         'Monday',
