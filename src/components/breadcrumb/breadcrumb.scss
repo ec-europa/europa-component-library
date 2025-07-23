@@ -12,9 +12,9 @@ $theme: null !default;
 $breadcrumb: null !default;
 
 .ecl-breadcrumb {
-  @include mixins.responsive-font(map.get($breadcrumb, 'typography'));
-
   margin: 0;
+
+  @include mixins.responsive-font(map.get($breadcrumb, 'typography'));
 }
 
 .ecl-breadcrumb__container {
