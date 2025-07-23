@@ -14,8 +14,8 @@ We use 5 breakpoints, of which 3 of them are native to Bootstrap.
 | Extra small | Any                |                            |
 | Small       | Bigger than 479px  | @media (min-width: 480px)  |
 | Medium      | Bigger than 767px  | @media (min-width: 768px)  |
-| Large       | Bigger than 991px  | @media (min-width: 992px)  |
-| Extra large | Bigger than 1199px | @media (min-width: 1200px) |
+| Large       | Bigger than 995px  | @media (min-width: 996px)  |
+| Extra large | Bigger than 1139px | @media (min-width: 1140px) |
 
 Bootstrap includes a responsive, mobile first fluid grid system that
 appropriately scales up to 12 columns as the device or viewport size increases.

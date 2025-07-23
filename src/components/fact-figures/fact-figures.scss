@@ -23,7 +23,7 @@ $fact-figures: null !default;
   flex-direction: column;
   margin-top: map.get($fact-figures, 'margin-vertical');
 
-  &:first-of-type {
+  &.is-first {
     margin-top: 0;
   }
 }
@@ -52,7 +52,7 @@ $fact-figures: null !default;
   font: map.get($fact-figures, 'value-font-mobile-l');
   font-weight: map.get($fact-figures, 'value-font-weight');
 
-  .ecl-fact-figures--font-m & {
+  .ecl-fact-figures__item--font-m & {
     font: map.get($fact-figures, 'value-font-mobile-m');
   }
 }
@@ -114,7 +114,7 @@ $fact-figures: null !default;
   .ecl-fact-figures__value {
     font: map.get($fact-figures, 'value-font-desktop-l');
 
-    .ecl-fact-figures--font-m & {
+    .ecl-fact-figures__item--font-m & {
       font: map.get($fact-figures, 'value-font-desktop-m');
     }
   }
