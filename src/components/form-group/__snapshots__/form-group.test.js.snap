@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Form group  with Checkbox renders correctly 1`] = `
 <jest>
@@ -155,7 +155,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
 exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper checkbox-default-invalid"
+    aria-describedby="checkbox-default-helper"
     aria-invalid="true"
     class="ecl-form-group"
   >
@@ -171,6 +171,11 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </legend>
     <div
       class="ecl-help-block"
@@ -302,6 +307,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="checkbox-default-invalid"
     >
@@ -1824,7 +1830,7 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
 exports[`Form group  with Radio renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper radio-default-invalid"
+    aria-describedby="radio-default-helper"
     aria-invalid="true"
     aria-required="true"
     class="ecl-form-group"
@@ -1842,6 +1848,11 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </legend>
     <div
       class="ecl-help-block"
@@ -1973,6 +1984,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="radio-default-invalid"
     >
@@ -3125,7 +3137,7 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper rating-field-invalid"
+    aria-describedby="rating-field-helper"
     aria-invalid="true"
     class="ecl-form-group"
   >
@@ -3141,6 +3153,11 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </legend>
     <div
       class="ecl-help-block"
@@ -3273,6 +3290,7 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="rating-field-invalid"
     >
