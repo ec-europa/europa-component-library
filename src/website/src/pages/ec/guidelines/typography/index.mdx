@@ -7,6 +7,199 @@ import Playground from '@ecl/website-components/Playground';
 import { RemToPixels } from '@ecl/website-components';
 import '@ecl/preset-ec/dist/styles/optional/ecl-ec-utilities.css';
 
+export const typography = {
+  // TODO: get these values from sass/css
+  display: {
+    'mobile-xs': {
+      'size-token': '6XL',
+      'size': 2.5,
+      'line-height-token': '3XL',
+      'line-height': 2.75,
+    },
+    'mobile': {
+      'size-token': '7XL',
+      'size': 3.25,
+      'line-height-token': '7XL',
+      'line-height': 3.75,
+    },
+    'tablet': {
+      'size-token': '9XL',
+      'size': 4.5,
+      'line-height-token': '9XL',
+      'line-height': 4.875,
+    },
+    'desktop': {
+      'size-token': '10XL',
+      'size': 6,
+      'line-height-token': '10XL',
+      'line-height': 6.25,
+    },
+    'font-weight': '300 (light)',
+  },
+  heading1: {
+    'mobile-xs': {
+      'size-token': '4XL',
+      'size': 2,
+      'line-height-token': 'XL',
+      'line-height': 2.5,
+    },
+    'mobile': {
+      'size-token': '6XL',
+      'size': 2.5,
+      'line-height-token': '3XL',
+      'line-height': 2.75,
+    },
+    'tablet': {
+      'size-token': '7XL',
+      'size': 3.25,
+      'line-height-token': '6XL',
+      'line-height': 3.5,
+    },
+    'desktop': {
+      'size-token': '8XL',
+      'size': 3.75,
+      'line-height-token': '8XL',
+      'line-height': 4.25,
+    },
+    'font-weight': '300 (light)',
+  },
+  heading2: {
+    'mobile-xs': {
+      'size-token': '2XL',
+      'size': 1.5,
+      'line-height-token': 'L',
+      'line-height': 2,
+    },
+    'mobile': {
+      'size-token': '4XL',
+      'size': 2,
+      'line-height-token': 'XL',
+      'line-height': 2.25,
+    },
+    'tablet': {
+      'size-token': '5XL',
+      'size': 2.25,
+      'line-height-token': '3XL',
+      'line-height': 2.75,
+    },
+    'desktop': {
+      'size-token': '6XL',
+      'size': 2.5,
+      'line-height-token': '4XL',
+      'line-height': 3,
+    },
+    'font-weight': '300 (light)',
+  },
+  heading3: {
+    'mobile-xs': {
+      'size-token': '2XL',
+      'size': 1.5,
+      'line-height-token': 'L',
+      'line-height': 2,
+    },
+    'mobile': {
+      'size-token': '2XL',
+      'size': 1.5,
+      'line-height-token': 'L',
+      'line-height': 2,
+    },
+    'tablet': {
+      'size-token': '3XL',
+      'size': 1.75,
+      'line-height-token': 'XL',
+      'line-height': 2.25,
+    },
+    'desktop': {
+      'size-token': '3XL',
+      'size': 1.75,
+      'line-height-token': 'XL',
+      'line-height': 2.25,
+    },
+    'font-weight': '300 (light)',
+  },
+  heading4: {
+    'mobile-xs': {
+      'size-token': 'M',
+      'size': 1.125,
+      'line-height-token': 'M',
+      'line-height': 1.75,
+    },
+    'mobile': {
+      'size-token': 'M',
+      'size': 1.125,
+      'line-height-token': 'M',
+      'line-height': 1.75,
+    },
+    'tablet': {
+      'size-token': '2XL',
+      'size': 1.5,
+      'line-height-token': 'XL',
+      'line-height': 2.25,
+    },
+    'desktop': {
+      'size-token': '2XL',
+      'size': 1.5,
+      'line-height-token': 'XL',
+      'line-height': 2.25,
+    },
+    'font-weight': '300 (light)',
+  },
+  heading5: {
+    'mobile-xs': {
+      'size-token': 'M',
+      'size': 1.125,
+      'line-height-token': 'S',
+      'line-height': 1.5,
+    },
+    'mobile': {
+      'size-token': 'M',
+      'size': 1.125,
+      'line-height-token': 'S',
+      'line-height': 1.5,
+    },
+    'tablet': {
+      'size-token': 'XL',
+      'size': 1.375,
+      'line-height-token': 'M',
+      'line-height': 1.75,
+    },
+    'desktop': {
+      'size-token': 'XL',
+      'size': 1.375,
+      'line-height-token': 'M',
+      'line-height': 1.75,
+    },
+    'font-weight': '300 (light)',
+  },
+  heading6: {
+    'mobile-xs': {
+      'size-token': 'M',
+      'size': 1.125,
+      'line-height-token': 'S',
+      'line-height': 1.5,
+    },
+    'mobile': {
+      'size-token': 'M',
+      'size': 1.125,
+      'line-height-token': 'S',
+      'line-height': 1.5,
+    },
+    'tablet': {
+      'size-token': 'L',
+      'size': 1.25,
+      'line-height-token': 'M',
+      'line-height': 1.75,
+    },
+    'desktop': {
+      'size-token': 'L',
+      'size': 1.25,
+      'line-height-token': 'M',
+      'line-height': 1.75,
+    },
+    'font-weight': '300 (light)',
+  },
+}
+
 Note: all values expressed in pixels are in fact dynamically converted from rem values. The conversion depends on the settings of your browser.
 
 ## Typeface
@@ -47,12 +240,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                    | Line height                                    | Font weight |
-| --------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| mobile-xs | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 3XL - 2.75rem - <RemToPixels rem="2.75" />px   | 300 (light) |
-| mobile    | 7XL - 3.25rem - <RemToPixels rem="3.25" />px | 7XL - 3.75rem - <RemToPixels rem="3.75" />px   | 300 (light) |
-| tablet    | 9XL - 4.5rem - <RemToPixels rem="4.5" />px   | 9XL - 4.875rem - <RemToPixels rem="4.875" />px | 300 (light) |
-| desktop   | 10XL - 6rem - <RemToPixels rem="6" />px      | 10XL - 6.25rem - <RemToPixels rem="6.25" />px  | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.display['mobile-xs']['size-token']} - {typography.display['mobile-xs']['size']}rem - <RemToPixels rem={typography.display['mobile-xs']['size']} />px | {typography.display['mobile-xs']['line-height-token']} - {typography.display['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.display['mobile-xs']['line-height']} />px | {typography.display['font-weight']} |
+| mobile | {typography.display['mobile']['size-token']} - {typography.display['mobile']['size']}rem - <RemToPixels rem={typography.display['mobile']['size']} />px | {typography.display['mobile']['line-height-token']} - {typography.display['mobile']['line-height']}rem - <RemToPixels rem={typography.display['mobile']['line-height']} />px | {typography.display['font-weight']} |
+| tablet | {typography.display['tablet']['size-token']} - {typography.display['tablet']['size']}rem - <RemToPixels rem={typography.display['tablet']['size']} />px | {typography.display['tablet']['line-height-token']} - {typography.display['tablet']['line-height']}rem - <RemToPixels rem={typography.display['tablet']['line-height']} />px | {typography.display['font-weight']} |
+| desktop | {typography.display['desktop']['size-token']} - {typography.display['desktop']['size']}rem - <RemToPixels rem={typography.display['desktop']['size']} />px | {typography.display['desktop']['line-height-token']} - {typography.display['desktop']['line-height']}rem - <RemToPixels rem={typography.display['desktop']['line-height']} />px | {typography.display['font-weight']} |
 
 ### Heading 1
 
@@ -62,12 +255,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                    | Line height                                  | Font weight |
-| --------- | -------------------------------------------- | -------------------------------------------- | ----------- |
-| mobile-xs | 4XL - 2rem - <RemToPixels rem="2" />px       | XL - 2.5rem - <RemToPixels rem="2.5" />px    | 300 (light) |
-| mobile    | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 3XL - 2.75rem - <RemToPixels rem="2.75" />px | 300 (light) |
-| tablet    | 7XL - 3.25rem - <RemToPixels rem="3.25" />px | 6XL - 3.5rem - <RemToPixels rem="3.5" />px   | 300 (light) |
-| desktop   | 8XL - 3.75rem - <RemToPixels rem="3.75" />px | 8XL - 4.25rem - <RemToPixels rem="4.25" />px | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.heading1['mobile-xs']['size-token']} - {typography.heading1['mobile-xs']['size']}rem - <RemToPixels rem={typography.heading1['mobile-xs']['size']} />px | {typography.heading1['mobile-xs']['line-height-token']} - {typography.heading1['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.heading1['mobile-xs']['line-height']} />px | {typography.heading1['font-weight']} |
+| mobile | {typography.heading1['mobile']['size-token']} - {typography.heading1['mobile']['size']}rem - <RemToPixels rem={typography.heading1['mobile']['size']} />px | {typography.heading1['mobile']['line-height-token']} - {typography.heading1['mobile']['line-height']}rem - <RemToPixels rem={typography.heading1['mobile']['line-height']} />px | {typography.heading1['font-weight']} |
+| tablet | {typography.heading1['tablet']['size-token']} - {typography.heading1['tablet']['size']}rem - <RemToPixels rem={typography.heading1['tablet']['size']} />px | {typography.heading1['tablet']['line-height-token']} - {typography.heading1['tablet']['line-height']}rem - <RemToPixels rem={typography.heading1['tablet']['line-height']} />px | {typography.heading1['font-weight']} |
+| desktop | {typography.heading1['desktop']['size-token']} - {typography.heading1['desktop']['size']}rem - <RemToPixels rem={typography.heading1['desktop']['size']} />px | {typography.heading1['desktop']['line-height-token']} - {typography.heading1['desktop']['line-height']}rem - <RemToPixels rem={typography.heading1['desktop']['line-height']} />px | {typography.heading1['font-weight']} |
 
 ### Heading 2
 
@@ -77,12 +270,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                    | Line height                                  | Font weight |
-| --------- | -------------------------------------------- | -------------------------------------------- | ----------- |
-| mobile-xs | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | L - 2rem - <RemToPixels rem="2" />px         | 300 (light) |
-| mobile    | 4XL - 2rem - <RemToPixels rem="2" />px       | XL - 2.25rem - <RemToPixels rem="2.25" />px  | 300 (light) |
-| tablet    | 5XL - 2.25rem - <RemToPixels rem="2.25" />px | 3XL - 2.75rem - <RemToPixels rem="2.75" />px | 300 (light) |
-| desktop   | 6XL - 2.5rem - <RemToPixels rem="2.5" />px   | 4XL - 3rem - <RemToPixels rem="3" />px       | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.heading2['mobile-xs']['size-token']} - {typography.heading2['mobile-xs']['size']}rem - <RemToPixels rem={typography.heading2['mobile-xs']['size']} />px | {typography.heading2['mobile-xs']['line-height-token']} - {typography.heading2['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.heading2['mobile-xs']['line-height']} />px | {typography.heading2['font-weight']} |
+| mobile | {typography.heading2['mobile']['size-token']} - {typography.heading2['mobile']['size']}rem - <RemToPixels rem={typography.heading2['mobile']['size']} />px | {typography.heading2['mobile']['line-height-token']} - {typography.heading2['mobile']['line-height']}rem - <RemToPixels rem={typography.heading2['mobile']['line-height']} />px | {typography.heading2['font-weight']} |
+| tablet | {typography.heading2['tablet']['size-token']} - {typography.heading2['tablet']['size']}rem - <RemToPixels rem={typography.heading2['tablet']['size']} />px | {typography.heading2['tablet']['line-height-token']} - {typography.heading2['tablet']['line-height']}rem - <RemToPixels rem={typography.heading2['tablet']['line-height']} />px | {typography.heading2['font-weight']} |
+| desktop | {typography.heading2['desktop']['size-token']} - {typography.heading2['desktop']['size']}rem - <RemToPixels rem={typography.heading2['desktop']['size']} />px | {typography.heading2['desktop']['line-height-token']} - {typography.heading2['desktop']['line-height']}rem - <RemToPixels rem={typography.heading2['desktop']['line-height']} />px | {typography.heading2['font-weight']} |
 
 ### Heading 3
 
@@ -92,12 +285,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                    | Line height                                 | Font weight |
-| --------- | -------------------------------------------- | ------------------------------------------- | ----------- |
-| mobile-xs | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | L - 2rem - <RemToPixels rem="2" />px        | 300 (light) |
-| mobile    | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | L - 2rem - <RemToPixels rem="2" />px        | 300 (light) |
-| tablet    | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
-| desktop   | 3XL - 1.75rem - <RemToPixels rem="1.75" />px | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.heading3['mobile-xs']['size-token']} - {typography.heading3['mobile-xs']['size']}rem - <RemToPixels rem={typography.heading3['mobile-xs']['size']} />px | {typography.heading3['mobile-xs']['line-height-token']} - {typography.heading3['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.heading3['mobile-xs']['line-height']} />px | {typography.heading3['font-weight']} |
+| mobile | {typography.heading3['mobile']['size-token']} - {typography.heading3['mobile']['size']}rem - <RemToPixels rem={typography.heading3['mobile']['size']} />px | {typography.heading3['mobile']['line-height-token']} - {typography.heading3['mobile']['line-height']}rem - <RemToPixels rem={typography.heading3['mobile']['line-height']} />px | {typography.heading3['font-weight']} |
+| tablet | {typography.heading3['tablet']['size-token']} - {typography.heading3['tablet']['size']}rem - <RemToPixels rem={typography.heading3['tablet']['size']} />px | {typography.heading3['tablet']['line-height-token']} - {typography.heading3['tablet']['line-height']}rem - <RemToPixels rem={typography.heading3['tablet']['line-height']} />px | {typography.heading3['font-weight']} |
+| desktop | {typography.heading3['desktop']['size-token']} - {typography.heading3['desktop']['size']}rem - <RemToPixels rem={typography.heading3['desktop']['size']} />px | {typography.heading3['desktop']['line-height-token']} - {typography.heading3['desktop']['line-height']}rem - <RemToPixels rem={typography.heading3['desktop']['line-height']} />px | {typography.heading3['font-weight']} |
 
 ### Heading 4
 
@@ -107,12 +300,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                    | Line height                                 | Font weight |
-| --------- | -------------------------------------------- | ------------------------------------------- | ----------- |
-| mobile-xs | M - 1.125rem - <RemToPixels rem="1.125" />px | M - 1.75rem - <RemToPixels rem="1.75" />px  | 300 (light) |
-| mobile    | M - 1.125rem - <RemToPixels rem="1.125" />px | M - 1.75rem - <RemToPixels rem="1.75" />px  | 300 (light) |
-| tablet    | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
-| desktop   | 2XL - 1.5rem - <RemToPixels rem="1.5" />px   | XL - 2.25rem - <RemToPixels rem="2.25" />px | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.heading4['mobile-xs']['size-token']} - {typography.heading4['mobile-xs']['size']}rem - <RemToPixels rem={typography.heading4['mobile-xs']['size']} />px | {typography.heading4['mobile-xs']['line-height-token']} - {typography.heading4['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.heading4['mobile-xs']['line-height']} />px | {typography.heading4['font-weight']} |
+| mobile | {typography.heading4['mobile']['size-token']} - {typography.heading4['mobile']['size']}rem - <RemToPixels rem={typography.heading4['mobile']['size']} />px | {typography.heading4['mobile']['line-height-token']} - {typography.heading4['mobile']['line-height']}rem - <RemToPixels rem={typography.heading4['mobile']['line-height']} />px | {typography.heading4['font-weight']} |
+| tablet | {typography.heading4['tablet']['size-token']} - {typography.heading4['tablet']['size']}rem - <RemToPixels rem={typography.heading4['tablet']['size']} />px | {typography.heading4['tablet']['line-height-token']} - {typography.heading4['tablet']['line-height']}rem - <RemToPixels rem={typography.heading4['tablet']['line-height']} />px | {typography.heading4['font-weight']} |
+| desktop | {typography.heading4['desktop']['size-token']} - {typography.heading4['desktop']['size']}rem - <RemToPixels rem={typography.heading4['desktop']['size']} />px | {typography.heading4['desktop']['line-height-token']} - {typography.heading4['desktop']['line-height']}rem - <RemToPixels rem={typography.heading4['desktop']['line-height']} />px | {typography.heading4['font-weight']} |
 
 ### Heading 5
 
@@ -122,12 +315,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                     | Line height                                | Font weight |
-| --------- | --------------------------------------------- | ------------------------------------------ | ----------- |
-| mobile-xs | M - 1.125rem - <RemToPixels rem="1.125" />px  | S - 1.5rem - <RemToPixels rem="1.5" />px   | 300 (light) |
-| mobile    | M - 1.125rem - <RemToPixels rem="1.125" />px  | S - 1.5rem - <RemToPixels rem="1.5" />px   | 300 (light) |
-| tablet    | XL - 1.375rem - <RemToPixels rem="1.375" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
-| desktop   | XL - 1.375rem - <RemToPixels rem="1.375" />px | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.heading5['mobile-xs']['size-token']} - {typography.heading5['mobile-xs']['size']}rem - <RemToPixels rem={typography.heading5['mobile-xs']['size']} />px | {typography.heading5['mobile-xs']['line-height-token']} - {typography.heading5['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.heading5['mobile-xs']['line-height']} />px | {typography.heading5['font-weight']} |
+| mobile | {typography.heading5['mobile']['size-token']} - {typography.heading5['mobile']['size']}rem - <RemToPixels rem={typography.heading5['mobile']['size']} />px | {typography.heading5['mobile']['line-height-token']} - {typography.heading5['mobile']['line-height']}rem - <RemToPixels rem={typography.heading5['mobile']['line-height']} />px | {typography.heading5['font-weight']} |
+| tablet | {typography.heading5['tablet']['size-token']} - {typography.heading5['tablet']['size']}rem - <RemToPixels rem={typography.heading5['tablet']['size']} />px | {typography.heading5['tablet']['line-height-token']} - {typography.heading5['tablet']['line-height']}rem - <RemToPixels rem={typography.heading5['tablet']['line-height']} />px | {typography.heading5['font-weight']} |
+| desktop | {typography.heading5['desktop']['size-token']} - {typography.heading5['desktop']['size']}rem - <RemToPixels rem={typography.heading5['desktop']['size']} />px | {typography.heading5['desktop']['line-height-token']} - {typography.heading5['desktop']['line-height']}rem - <RemToPixels rem={typography.heading5['desktop']['line-height']} />px | {typography.heading5['font-weight']} |
 
 ### Heading 6
 
@@ -137,12 +330,12 @@ Line-length is the number of characters displayed in a single line. Lines that a
   </div>
 </Playground>
 
-|           | Font size                                    | Line height                                | Font weight |
-| --------- | -------------------------------------------- | ------------------------------------------ | ----------- |
-| mobile-xs | M - 1.125rem - <RemToPixels rem="1.125" />px | S - 1.5rem - <RemToPixels rem="1.5" />px   | 300 (light) |
-| mobile    | M - 1.125rem - <RemToPixels rem="1.125" />px | S - 1.5rem - <RemToPixels rem="1.5" />px   | 300 (light) |
-| tablet    | L - 1.25rem - <RemToPixels rem="1.25" />px   | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
-| desktop   | L - 1.25rem - <RemToPixels rem="1.25" />px   | M - 1.75rem - <RemToPixels rem="1.75" />px | 300 (light) |
+| | Font size | Line height | Font weight |
+| --- | --- | --- | --- |
+| mobile-xs | {typography.heading6['mobile-xs']['size-token']} - {typography.heading6['mobile-xs']['size']}rem - <RemToPixels rem={typography.heading6['mobile-xs']['size']} />px | {typography.heading6['mobile-xs']['line-height-token']} - {typography.heading6['mobile-xs']['line-height']}rem - <RemToPixels rem={typography.heading6['mobile-xs']['line-height']} />px | {typography.heading6['font-weight']} |
+| mobile | {typography.heading6['mobile']['size-token']} - {typography.heading6['mobile']['size']}rem - <RemToPixels rem={typography.heading6['mobile']['size']} />px | {typography.heading6['mobile']['line-height-token']} - {typography.heading6['mobile']['line-height']}rem - <RemToPixels rem={typography.heading6['mobile']['line-height']} />px | {typography.heading6['font-weight']} |
+| tablet | {typography.heading6['tablet']['size-token']} - {typography.heading6['tablet']['size']}rem - <RemToPixels rem={typography.heading6['tablet']['size']} />px | {typography.heading6['tablet']['line-height-token']} - {typography.heading6['tablet']['line-height']}rem - <RemToPixels rem={typography.heading6['tablet']['line-height']} />px | {typography.heading6['font-weight']} |
+| desktop | {typography.heading6['desktop']['size-token']} - {typography.heading6['desktop']['size']}rem - <RemToPixels rem={typography.heading6['desktop']['size']} />px | {typography.heading6['desktop']['line-height-token']} - {typography.heading6['desktop']['line-height']}rem - <RemToPixels rem={typography.heading6['desktop']['line-height']} />px | {typography.heading6['font-weight']} |
 
 ## Paragraphs
 
