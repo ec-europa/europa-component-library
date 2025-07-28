@@ -879,12 +879,16 @@ importers:
 
   src/components/social-media-follow:
     dependencies:
-      '@ecl/grid':
-        specifier: 5.0.0-alpha.15
-        version: link:../../layout/grid
       '@ecl/link':
         specifier: 5.0.0-alpha.15
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-alpha.15
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/typography
 
   src/components/spinner: {}
 
