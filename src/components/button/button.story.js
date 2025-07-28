@@ -24,7 +24,7 @@ iconsAll.unshift('none');
 
 const withInverted = (story) => {
   const demo = story();
-  return `<div class="ecl-u-bg-dark ecl-u-bg-neutral-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
+  return `<div class="ecl-u-bg-dark ecl-u-bg-grey ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
 };
 
 const getArgs = (data) => ({
