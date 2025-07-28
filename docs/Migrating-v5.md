@@ -144,7 +144,9 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 
 ### Icon
 
-ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools
+ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools.
+Please make sure to check the documentation, as addition configuration or files may be needed to make the icons work.
+
 Here is the official documentation: https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_use
 
 Twig templates have been updated to deliver the new markup for the icon, so this is mostly transparent, except for a few new parameters:
