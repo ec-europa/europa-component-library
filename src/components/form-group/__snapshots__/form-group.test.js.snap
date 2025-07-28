@@ -3,7 +3,6 @@
 exports[`Form group  with Checkbox renders correctly 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -18,8 +17,14 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
@@ -155,7 +160,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
 exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     aria-invalid="true"
     class="ecl-form-group"
   >
@@ -172,12 +176,18 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         (required)
       </span>
       <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
+      <div
         class="ecl-feedback-message--hidden"
       >
         Invalid text
       </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
@@ -325,7 +335,6 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 exports[`Form group  with Checkbox renders correctly when required 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -340,8 +349,14 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
@@ -477,7 +492,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
 exports[`Form group  with Checkbox renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -494,8 +508,14 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
@@ -631,7 +651,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
 exports[`Form group  with Checkbox renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -646,8 +665,14 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
@@ -1522,7 +1547,6 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
 exports[`Form group  with Radio renders correctly 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     role="radiogroup"
@@ -1539,8 +1563,14 @@ exports[`Form group  with Radio renders correctly 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
@@ -1676,7 +1706,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
 exports[`Form group  with Radio renders correctly when disabled 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     role="radiogroup"
@@ -1693,8 +1722,14 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block ecl-help-block--disabled"
       id="radio-default-helper"
     >
@@ -1830,7 +1865,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
 exports[`Form group  with Radio renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-invalid="true"
     aria-required="true"
     class="ecl-form-group"
@@ -1849,12 +1883,18 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         (required)
       </span>
       <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
+      <div
         class="ecl-feedback-message--hidden"
       >
         Invalid text
       </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
@@ -2002,7 +2042,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
 exports[`Form group  with Radio renders correctly when required 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     role="radiogroup"
@@ -2019,8 +2058,14 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
@@ -2156,7 +2201,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
 exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     data-test="data-test-value"
@@ -2175,8 +2219,14 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
@@ -2312,7 +2362,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 exports[`Form group  with Radio renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group custom-class custom-class--test"
     role="radiogroup"
@@ -2329,8 +2378,14 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Helper text for the group
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
@@ -2826,7 +2881,6 @@ exports[`Form group  with Range field renders correctly with extra class names 1
 exports[`Form group  with Rating field renders correctly 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
@@ -2841,8 +2895,14 @@ exports[`Form group  with Rating field renders correctly 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        This is the group's helper text.
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
@@ -2979,7 +3039,6 @@ exports[`Form group  with Rating field renders correctly 1`] = `
 exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
@@ -2994,8 +3053,14 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        This is the group's helper text.
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block ecl-help-block--disabled"
       id="rating-field-helper"
     >
@@ -3137,7 +3202,6 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     aria-invalid="true"
     class="ecl-form-group"
   >
@@ -3154,12 +3218,18 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         (required)
       </span>
       <div
+        class="ecl-help-block--hidden"
+      >
+        This is the group's helper text.
+      </div>
+      <div
         class="ecl-feedback-message--hidden"
       >
         Invalid text
       </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
@@ -3308,7 +3378,6 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 exports[`Form group  with Rating field renders correctly when required 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
@@ -3323,8 +3392,14 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        This is the group's helper text.
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
@@ -3461,7 +3536,6 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
 exports[`Form group  with Rating field renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -3478,8 +3552,14 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        This is the group's helper text.
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
@@ -3616,7 +3696,6 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
 exports[`Form group  with Rating field renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -3631,8 +3710,14 @@ exports[`Form group  with Rating field renders correctly with extra class names 
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        This is the group's helper text.
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
