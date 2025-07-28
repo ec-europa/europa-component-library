@@ -144,7 +144,7 @@ $news-ticker: null !default;
     background: map.get($news-ticker, 'container-background');
     border-inline-end: map.get($news-ticker, 'border');
     height: map.get($news-ticker, 'desktop-only-height');
-    padding: var(--s-s) var(--s-6xl) var(--s-s) var(--s-m);
+    padding: map.get($news-ticker, 'container-padding-desktop');
   }
 
   .ecl-news-ticker__controls {
