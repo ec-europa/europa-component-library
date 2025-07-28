@@ -3,7 +3,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   header: 'In focus',
-  title: 'Lorem ipsum dolor sit amet, adipiscing justo',
+  title: 'Proin molestie sapien ut blandit',
   path: exampleLink,
   picture: {
     img: {

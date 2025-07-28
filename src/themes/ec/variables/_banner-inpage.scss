@@ -12,7 +12,7 @@ $banner-inpage: (
     ),
   gradient-height-mobile: 241px,
   header: (
-    background: var(--cm-surface),
+    background: var(--cm-surface-brand),
     color: var(--cm-on-surface-inverted),
     padding-block-mobile: var(--s-xs),
     padding-block-tablet: var(--s-s),
@@ -28,9 +28,9 @@ $banner-inpage: (
   ),
   title: (
     color: var(--cm-on-surface-inverted),
-    padding-block-mobile: var(--s-3xl),
-    padding-block-tablet: var(--s-4xl),
-    padding-block-desktop: var(--s-4xl),
+    padding-block-mobile: 0 var(--s-3xl),
+    padding-block-tablet: 0 var(--s-4xl),
+    padding-block-desktop: 0 var(--s-4xl),
     font-l: 'display',
     font-m: 'heading1',
     font-weight: map.get($font-weight, 'light'),
@@ -38,7 +38,7 @@ $banner-inpage: (
   anchor: (
     color: var(--cm-on-surface-variant-3),
     padding-block: var(--s-5xl),
-    padding-inline: var(--s-3xl),
+    padding-inline: 0,
   ),
 );
 $banner-inpage-print: (
