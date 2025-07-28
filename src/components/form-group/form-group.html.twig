@@ -95,13 +95,8 @@
   }) %}
 {% endif %}
 
-{# calculate aria-describedby. It could contain label and/or helper text and/or invalid text #}
 {% if _input.input_type == 'file' %}
   {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-label' : _id ~ '-label' %}
-{% endif %}
-
-{% if _helper_text and _id %}
-  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-helper' : _id ~ '-helper' %}
 {% endif %}
 
 {# aria-describedby is added to the wrapper for group input, and to the input for the others #}
@@ -136,6 +131,10 @@
 
 {% else %}
   {# single input, uses input.extra_attributes #}
+  {% if _helper_text and _id %}
+    {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-helper' : _id ~ '-helper' %}
+  {% endif %}
+
   {% if _invalid %}
     {% set _input_extra_attributes = _input_extra_attributes|merge([
       { name: 'aria-invalid', value: 'true' }
@@ -204,8 +203,13 @@
         >{{ _optional_text }}</span>
       {%- endif -%}
 
-      {%- if _label_tag == 'legend' and _invalid and _invalid_text is not empty -%}
-        <div class="ecl-feedback-message--hidden">{{ _invalid_text }}</div>
+      {%- if _label_tag == 'legend' -%}
+        {%- if _helper_text is not empty -%}
+          <div class="ecl-help-block--hidden">{{ _helper_text }}</div>
+        {%- endif -%}
+        {%- if _invalid and _invalid_text is not empty -%}
+          <div class="ecl-feedback-message--hidden">{{ _invalid_text }}</div>
+        {%- endif -%}
       {%- endif -%}
 
     </{{ _label_tag }}>
@@ -215,6 +219,9 @@
     <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
       {% if _id %}
         id="{{ _id }}-helper"
+      {% endif %}
+      {% if _label_tag == 'legend' %}
+        aria-hidden="true"
       {% endif %}
     >
       {%- block helper_text _helper_text -%}
