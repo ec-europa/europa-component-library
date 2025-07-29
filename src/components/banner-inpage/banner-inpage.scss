@@ -12,6 +12,8 @@ $theme: null !default;
 $banner-inpage: null !default;
 
 .ecl-banner-inpage {
+  container-name: spotlight;
+  container-type: inline-size;
   margin: 0;
   position: relative;
 }
@@ -116,7 +118,7 @@ $banner-inpage: null !default;
   width: 100vw;
 }
 
-@include breakpoints.up('m') {
+@container spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-banner-inpage__picture-container,
   .ecl-banner-inpage .ecl-banner-inpage__image {
     aspect-ratio: 2/1;
@@ -125,7 +127,7 @@ $banner-inpage: null !default;
   }
 }
 
-@include breakpoints.up('l') {
+@container spotlight (width >= #{map.get($theme, 'breakpoint', 'l')}) {
   .ecl-banner-inpage__title {
     max-width: 750px;
     padding-block: map.get($banner-inpage, 'title', 'padding-block-tablet');
@@ -150,7 +152,7 @@ $banner-inpage: null !default;
   }
 }
 
-@include breakpoints.up('xl') {
+@container spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
   .ecl-banner-inpage--full-width {
     .ecl-banner-inpage__picture-container,
     .ecl-banner-inpage .ecl-banner-inpage__image {

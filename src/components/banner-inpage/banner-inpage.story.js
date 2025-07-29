@@ -19,6 +19,7 @@ const getArgs = (data) => {
     title: data.title,
     credit: data.credit,
     full_width: true,
+    sidebarContent: false,
     gridContent: false,
   };
   if (data.picture) {
@@ -122,6 +123,18 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_credit' },
     },
+    sidebarContent: {
+      name: 'demo sidebar content',
+      type: { name: 'boolean' },
+      description:
+        'Inject a test content block in the sidebar, to see the display',
+      table: {
+        category: 'Test content',
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
     gridContent: {
       name: 'demo grid content',
       type: { name: 'boolean' },
@@ -164,16 +177,24 @@ const prepareData = (data, args) => {
     clone.picture.img.src = args.image;
   }
 
+  if (args.sidebarContent) {
+    clone.full_width = false;
+  }
+
   return clone;
 };
 
 const renderStory = async (data, args) => {
   let story = await bannerInpage(prepareData(data, args));
-  story = `<div class="ecl-container">${story}</div>`;
 
   if (args.gridContent) {
-    story +=
-      '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
+    story += '<p class="ecl-u-type-paragraph">Content inside the grid</p>';
+  }
+
+  if (args.sidebarContent) {
+    story = `<div class="ecl-container"><div class="ecl-row"><div class="ecl-col-3"><p class="ecl-u-type-paragraph">Sidebar</p></div><div class="ecl-col-9">${story}</div></div></div>`;
+  } else {
+    story = `<div class="ecl-container">${story}</div>`;
   }
 
   return story;
