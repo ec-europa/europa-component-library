@@ -13,7 +13,7 @@ const getArgs = (data) => {
     show_header: true,
     show_anchor: true,
     show_credit: true,
-    font_size: 'm',
+    font_size: 'l',
     header: data.header,
     title: data.title,
     credit: data.credit,

@@ -9,7 +9,7 @@ npm install --save @ecl/spotlight
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"font_size"** (string) (default: 'm') Size of the title (can be 'm', 'l')
+- **"font_size"** (string) (default: 'l') Size of the title (can be 'm', 'l')
 - **"title"** (string) (default: '') Title of the spotlight
 - **"path"** (string) (default: '') Link url
 - **"header"** (string) (default: '') Header over the spotlight
