@@ -4,12 +4,12 @@
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
   - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
-  - "title" (string) (default: '') Title of banner
+  - "title" (string) (default: '') Title of the spotlight
   - "path" (string) (default: '') Link url
-  - "header" (string) (default: '') Header over the banner
-  - "picture" (object) (default: {}): Image for the banner, following ECL Picture structure
+  - "header" (string) (default: '') Header over the spotlight
+  - "picture" (object) (default: {}): Image for the spotlight, following ECL Picture structure
   - "has_anchor" (boolean) (default: true): Should the visual anchor be displayed?
-  - "video" (object) (default: {}): Video for the banner
+  - "video" (object) (default: {}): Video for the spotlight
     - "poster" (string) (default: ''): Image to be used as the video placeholder 
     - "sources" (array) (default: []): format: [
       {
@@ -30,7 +30,7 @@
   - "sr_play" (string) (default: '') screen reader label for the play button
   - "sr_pause" (string) (default: '') screen reader label for the pause button
   - "credit" (string) (default: '') Credit for the image
-  - "full_width" (boolean) (default: false) Full width banner (extend outside the grid)
+  - "full_width" (boolean) (default: false) Full width spotlight (extend outside the grid)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -39,7 +39,7 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-banner-inpage' %}
+{% set _css_class = 'ecl-spotlight' %}
 {% set _extra_attributes = '' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _picture = picture|default({}) %}
@@ -61,11 +61,11 @@
 {% endif %}
 
 {% if _font_size is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-banner-inpage--font-' ~ _font_size %}
+  {% set _css_class = _css_class ~ ' ecl-spotlight--font-' ~ _font_size %}
 {% endif %}
 
 {% if _full_width %}
-  {% set _css_class = _css_class ~ ' ecl-banner-inpage--full-width' %}
+  {% set _css_class = _css_class ~ ' ecl-spotlight--full-width' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -90,7 +90,7 @@
 >
   {# Header #}
   {% if _header is not empty %}
-    <div class="ecl-banner-inpage__header">
+    <div class="ecl-spotlight__header">
       <div class="ecl-container">
         {{- _header -}}
       </div>
@@ -99,17 +99,17 @@
 
   {# Link #}
   {% if _path is not empty %}
-  <a href="{{ _path }}" class="ecl-banner-inpage__link">
+  <a href="{{ _path }}" class="ecl-spotlight__link">
   {% endif %}
 
     {# Image #}
     {% if _picture.img is not empty %}
-      <figure class="ecl-banner-inpage__picture-container">
+      <figure class="ecl-spotlight__picture-container">
         {% include '@ecl/picture/picture.html.twig' with {
           picture: _picture,
-          extra_classes: 'ecl-banner-inpage__picture',
-          extra_image_classes: 'ecl-banner-inpage__image',
-          extra_attributes: [{ name: 'data-ecl-banner-inpage-image' }],
+          extra_classes: 'ecl-spotlight__picture',
+          extra_image_classes: 'ecl-spotlight__image',
+          extra_attributes: [{ name: 'data-ecl-spotlight-image' }],
         } only %}
       </figure>
     {% endif %}
@@ -117,21 +117,21 @@
     {# Content box #}
     {% if _title is not empty or _has_anchor or _credit is not empty %}
       <div
-        class="ecl-banner-inpage__container"
-        data-ecl-banner-inpage-container
+        class="ecl-spotlight__container"
+        data-ecl-spotlight-container
       >
         <div class="ecl-container">
           {%- if _title is not empty -%}
-            <div class="ecl-banner-inpage__title">{{ _title }}</div>
+            <div class="ecl-spotlight__title">{{ _title }}</div>
           {%- endif -%}
 
           {%- if _has_anchor -%}
-            <div class="ecl-banner-inpage__anchor" aria-hidden="true"></div>
+            <div class="ecl-spotlight__anchor" aria-hidden="true"></div>
           {%- endif -%}
         </div>
 
         {%- if _credit is not empty -%}
-          <footer class="ecl-banner-inpage__credit">
+          <footer class="ecl-spotlight__credit">
             {{- _credit -}}
           </footer>
         {%- endif -%}

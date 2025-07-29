@@ -10,7 +10,7 @@ import bannerDataImage from './demo/data--image';
 expect.extend(toHaveNoViolations);
 
 describe('Banner inpage', () => {
-  const template = '@ecl/banner-inpage/banner-inpage.html.twig';
+  const template = '@ecl/spotlight/spotlight.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Image', () => {

@@ -1,22 +1,22 @@
-# ECL Banner Inpage
+# ECL Spotlight
 
-npm package: `@ecl/banner-inpage`
+npm package: `@ecl/spotlight`
 
 ```shell
-npm install --save @ecl/banner-inpage
+npm install --save @ecl/spotlight
 ```
 
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"font_size"** (string) (default: 'm') Size of the title (can be 'm', 'l')
-- **"title"** (string) (default: '') Title of banner
+- **"title"** (string) (default: '') Title of the spotlight
 - **"path"** (string) (default: '') Link url
-- **"header"** (string) (default: '') Header over the banner
-- **"picture"** (object) (default: {}): Image for the banner, following ECL Picture structure
+- **"header"** (string) (default: '') Header over the spotlight
+- **"picture"** (object) (default: {}): Image for the spotlight, following ECL Picture structure
 - **"has_anchor"** (boolean) (default: true): Should the visual anchor be displayed?
 - **"credit"** (string) (default: '') Credit for the image
-- **"full_width"** (boolean) (default: false) Full width banner (extend outside the grid)
+- **"full_width"** (boolean) (default: false) Full width spotlight (extend outside the grid)
 - **"extra_classes"** (string) (default: '')
 - **"extra_attributes"** (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
@@ -26,7 +26,7 @@ npm install --save @ecl/banner-inpage
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/banner/banner.html.twig' with {
+{% include '@ecl/spotlight/spotlight.html.twig' with {
   header: 'In focus',
   title: 'Lorem ipsum dolor sit amet, adipiscing justo',
   path: #example,

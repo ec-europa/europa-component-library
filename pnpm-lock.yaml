@@ -237,18 +237,6 @@ importers:
         specifier: 5.0.0-alpha.15
         version: link:../video
 
-  src/components/banner-inpage:
-    dependencies:
-      '@ecl/grid':
-        specifier: 5.0.0-alpha.15
-        version: link:../../layout/grid
-      '@ecl/mixins-typography':
-        specifier: 5.0.0-alpha.15
-        version: link:../../mixins/typography
-      '@ecl/picture':
-        specifier: 5.0.0-alpha.15
-        version: link:../picture
-
   src/components/blockquote:
     dependencies:
       '@ecl/picture':
@@ -923,6 +911,18 @@ importers:
         specifier: 5.0.0-alpha.15
         version: link:../../resources/logo-eu
 
+  src/components/spotlight:
+    dependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-alpha.15
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/typography
+      '@ecl/picture':
+        specifier: 5.0.0-alpha.15
+        version: link:../picture
+
   src/components/table:
     dependencies:
       '@ecl/builder':
@@ -1438,9 +1438,6 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0-alpha.15
         version: link:../../components/banner
-      '@ecl/banner-inpage':
-        specifier: 5.0.0-alpha.15
-        version: link:../../components/banner-inpage
       '@ecl/blockquote':
         specifier: 5.0.0-alpha.15
         version: link:../../components/blockquote
@@ -1603,6 +1600,9 @@ importers:
       '@ecl/splash-page':
         specifier: 5.0.0-alpha.15
         version: link:../../components/splash-page
+      '@ecl/spotlight':
+        specifier: 5.0.0-alpha.15
+        version: link:../../components/spotlight
       '@ecl/table':
         specifier: 5.0.0-alpha.15
         version: link:../../components/table
@@ -1715,9 +1715,6 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0-alpha.15
         version: link:../../components/banner
-      '@ecl/banner-inpage':
-        specifier: 5.0.0-alpha.15
-        version: link:../../components/banner-inpage
       '@ecl/blockquote':
         specifier: 5.0.0-alpha.15
         version: link:../../components/blockquote
@@ -1877,6 +1874,9 @@ importers:
       '@ecl/splash-page':
         specifier: 5.0.0-alpha.15
         version: link:../../components/splash-page
+      '@ecl/spotlight':
+        specifier: 5.0.0-alpha.15
+        version: link:../../components/spotlight
       '@ecl/table':
         specifier: 5.0.0-alpha.15
         version: link:../../components/table
@@ -2156,9 +2156,6 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0-alpha.15
         version: link:../components/banner
-      '@ecl/banner-inpage':
-        specifier: 5.0.0-alpha.15
-        version: link:../components/banner-inpage
       '@ecl/blockquote':
         specifier: 5.0.0-alpha.15
         version: link:../components/blockquote
@@ -2300,6 +2297,9 @@ importers:
       '@ecl/splash-page':
         specifier: 5.0.0-alpha.15
         version: link:../components/splash-page
+      '@ecl/spotlight':
+        specifier: 5.0.0-alpha.15
+        version: link:../components/spotlight
       '@ecl/table':
         specifier: 5.0.0-alpha.15
         version: link:../components/table

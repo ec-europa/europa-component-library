@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use '../index' as *;
 
-$banner-inpage: (
+$spotlight: (
   gradient: linear-gradient(
       180deg,
       transparent 0%,
@@ -55,7 +55,7 @@ $banner-inpage: (
     padding-inline: 0,
   ),
 );
-$banner-inpage-print: (
+$spotlight-print: (
   credit-font: map.get($font-print, '2xs'),
   title-font-l: map.get($font-print, '10xl'),
   title-font-m: map.get($font-print, '8xl'),

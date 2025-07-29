@@ -4,9 +4,8 @@ import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import bannerDataImage from './demo/data--image';
-// import bannerDataVideo from './demo/data--video';
-import bannerInpage from './banner-inpage.html.twig';
+import spotlightDataImage from './demo/data--image';
+import spotlight from './spotlight.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
@@ -96,7 +95,7 @@ const getArgTypes = (data) => {
     },
     header: {
       type: 'string',
-      description: 'Header of the banner',
+      description: 'Header of the spotlight',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -106,7 +105,7 @@ const getArgTypes = (data) => {
     },
     title: {
       type: 'string',
-      description: 'Title of the banner',
+      description: 'Title of the spotlight',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -185,14 +184,14 @@ const prepareData = (data, args) => {
 };
 
 const renderStory = async (data, args) => {
-  let story = await bannerInpage(prepareData(data, args));
+  let story = await spotlight(prepareData(data, args));
 
   if (args.gridContent) {
     story += '<p class="ecl-u-type-paragraph">Content inside the grid</p>';
   }
 
   if (args.sidebarContent) {
-    story = `<div class="ecl-container"><div class="ecl-row"><div class="ecl-col-3"><p class="ecl-u-type-paragraph">Sidebar</p></div><div class="ecl-col-9">${story}</div></div></div>`;
+    story = `<div class="ecl-container"><div class="ecl-row"><div class="ecl-col-12 ecl-col-m-3"><p class="ecl-u-type-paragraph">Sidebar</p></div><div class="ecl-col-12 ecl-col-m-9">${story}</div></div></div>`;
   } else {
     story = `<div class="ecl-container">${story}</div>`;
   }
@@ -201,7 +200,7 @@ const renderStory = async (data, args) => {
 };
 
 export default {
-  title: 'Components/Banner inpage',
+  title: 'Components/Spotlight',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
@@ -209,10 +208,10 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedBannerImage = await renderStory(bannerDataImage, args);
-  return renderedBannerImage;
+  const renderedSpotlight = await renderStory(spotlightDataImage, args);
+  return renderedSpotlight;
 };
 Default.storyName = 'default';
-Default.args = getArgs(bannerDataImage);
-Default.argTypes = getArgTypes(bannerDataImage);
-Default.parameters = { notes: { markdown: notes, json: bannerDataImage } };
+Default.args = getArgs(spotlightDataImage);
+Default.argTypes = getArgTypes(spotlightDataImage);
+Default.parameters = { notes: { markdown: notes, json: spotlightDataImage } };
