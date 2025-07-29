@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Modal Collapsed information, renders correctly 1`] = `
 <jest>
@@ -20,6 +20,7 @@ exports[`Modal Collapsed information, renders correctly 1`] = `
           class="ecl-modal__header"
         >
           <span
+            aria-hidden="false"
             class="wt-icon--information ecl-icon ecl-icon--l ecl-modal__icon ecl-icon--information"
             role="img"
             title="Information"
@@ -45,6 +46,7 @@ exports[`Modal Collapsed information, renders correctly 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -174,6 +176,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -305,6 +308,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -434,6 +438,7 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
