@@ -121,20 +121,20 @@
         data-ecl-banner-inpage-container
       >
         <div class="ecl-container">
-          {% if _title is not empty %}
+          {%- if _title is not empty -%}
             <div class="ecl-banner-inpage__title">{{ _title }}</div>
-          {% endif %}
+          {%- endif -%}
 
-          {% if _has_anchor %}
+          {%- if _has_anchor -%}
             <div class="ecl-banner-inpage__anchor" aria-hidden="true"></div>
-          {% endif %}
-
-          {% if _credit is not empty %}
-            <footer class="ecl-banner-inpage__credit">
-              {{- _credit -}}
-            </footer>
-          {% endif %}
+          {%- endif -%}
         </div>
+
+        {%- if _credit is not empty -%}
+          <footer class="ecl-banner-inpage__credit">
+            {{- _credit -}}
+          </footer>
+        {%- endif -%}
       </div>
     {% endif %}
 

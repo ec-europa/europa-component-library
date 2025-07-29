@@ -17,16 +17,22 @@ $banner-inpage: null !default;
 }
 
 .ecl-banner-inpage__header {
+  align-items: center;
   background-color: map.get($banner-inpage, 'header', 'background');
   color: map.get($banner-inpage, 'header', 'color');
+  display: flex;
+  height: map.get($banner-inpage, 'header', 'height-mobile');
   letter-spacing: map.get($theme, 'letter-spacing', '3xl');
-  padding-block: map.get($banner-inpage, 'header', 'padding-block-mobile');
   text-transform: uppercase;
 
   @include mixins.responsive-font(
     map.get($banner-inpage, 'header', 'font'),
     $font-weight: map.get($banner-inpage, 'header', 'font-weight')
   );
+
+  .ecl-container {
+    padding-block-start: map.get($banner-inpage, 'header', 'padding-block');
+  }
 }
 
 .ecl-banner-inpage__picture-container {
@@ -126,7 +132,7 @@ $banner-inpage: null !default;
   }
 
   .ecl-banner-inpage__header {
-    padding-block: map.get($banner-inpage, 'header', 'padding-block-tablet');
+    height: map.get($banner-inpage, 'header', 'height-tablet');
   }
 
   .ecl-banner-inpage__anchor {
@@ -160,7 +166,7 @@ $banner-inpage: null !default;
   }
 
   .ecl-banner-inpage__header {
-    padding-block: map.get($banner-inpage, 'header', 'padding-block-desktop');
+    height: map.get($banner-inpage, 'header', 'height-desktop');
   }
 
   .ecl-banner-inpage__anchor {

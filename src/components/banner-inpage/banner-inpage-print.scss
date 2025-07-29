@@ -20,9 +20,13 @@ $banner-inpage-print: null !default;
   color: map.get($banner-inpage, 'header', 'color');
   font: map.get($banner-inpage-print, 'header-font');
   font-weight: map.get($banner-inpage, 'header', 'font-weight');
+  height: map.get($banner-inpage, 'header', 'height-desktop');
   letter-spacing: map.get($theme, 'letter-spacing', '3xl');
-  padding-block: map.get($banner-inpage, 'header', 'padding-block-desktop');
   text-transform: uppercase;
+
+  .ecl-container {
+    padding-block-start: map.get($banner-inpage, 'header', 'padding-block');
+  }
 }
 
 .ecl-banner-inpage__picture-container {

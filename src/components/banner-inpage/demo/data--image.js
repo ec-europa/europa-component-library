@@ -11,5 +11,5 @@ module.exports = {
       alt: 'alternative text',
     },
   },
-  credit: '© Copyright',
+  credit: 'Copyright',
 };
