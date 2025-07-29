@@ -76,7 +76,7 @@ $carousel: null !default;
 .ecl-carousel__slides .ecl-banner {
   // stylelint-disable-next-line no-descending-specificity
   .ecl-container {
-    max-width: 1140px;
+    max-width: 1368px;
     width: 100%;
   }
 }
@@ -144,6 +144,12 @@ $carousel: null !default;
   .ecl-carousel__slide .ecl-banner__credit {
     margin-inline-end: 0;
     width: 100%;
+  }
+
+  .ecl-carousel--full-width .ecl-carousel__slide .ecl-banner__credit {
+    left: 0;
+    right: 0;
+    width: 100vw;
   }
 
   .ecl-carousel__slide .ecl-banner__picture-container {
