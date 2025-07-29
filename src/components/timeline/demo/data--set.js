@@ -5,7 +5,7 @@ module.exports = {
   items: [
     {
       toggle_collapsed: 'Show %d more items',
-      toggle_expanded: 'Hide %d items',
+      toggle_expanded: 'Show less',
       hide: {
         from: 5,
         to: 0,
