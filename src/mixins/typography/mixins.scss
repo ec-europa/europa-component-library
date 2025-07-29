@@ -3,6 +3,7 @@
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
 
+$theme: null !default;
 $typography: null !default;
 
 @mixin responsive-font-emit($tier, $important: false) {
@@ -46,7 +47,12 @@ $font-breakpoints: (
   'desktop': 'xl',
 );
 
-@mixin responsive-font($token, $font-weight: '', $important: false) {
+@mixin responsive-font(
+  $token,
+  $font-weight: '',
+  $important: false,
+  $container: ''
+) {
   $token-map: null;
 
   @if meta.type-of($token) == 'map' {
@@ -121,11 +127,21 @@ $font-breakpoints: (
         );
 
         @if $current != $previous {
-          @include breakpoints.up($bp-name) {
-            @include responsive-font-emit(
-              map.get($token-map, $tier),
-              $important
-            );
+          @if $container != '' {
+            // stylelint-disable-next-line container-name-pattern
+            @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
+              @include responsive-font-emit(
+                map.get($token-map, $tier),
+                $important
+              );
+            }
+          } @else {
+            @include breakpoints.up($bp-name) {
+              @include responsive-font-emit(
+                map.get($token-map, $tier),
+                $important
+              );
+            }
           }
         }
 

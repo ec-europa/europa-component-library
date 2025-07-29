@@ -12,7 +12,7 @@ $theme: null !default;
 $banner-inpage: null !default;
 
 .ecl-banner-inpage {
-  container-name: spotlight;
+  container-name: ecl-spotlight;
   container-type: inline-size;
   margin: 0;
   position: relative;
@@ -29,7 +29,8 @@ $banner-inpage: null !default;
 
   @include mixins.responsive-font(
     map.get($banner-inpage, 'header', 'font'),
-    $font-weight: map.get($banner-inpage, 'header', 'font-weight')
+    $font-weight: map.get($banner-inpage, 'header', 'font-weight'),
+    $container: 'ecl-spotlight'
   );
 
   .ecl-container {
@@ -78,13 +79,15 @@ $banner-inpage: null !default;
 
   @include mixins.responsive-font(
     map.get($banner-inpage, 'title', 'font-m'),
-    $font-weight: map.get($banner-inpage, 'title', 'font-weight')
+    $font-weight: map.get($banner-inpage, 'title', 'font-weight'),
+    $container: 'ecl-spotlight'
   );
 
   .ecl-banner-inpage--font-l & {
     @include mixins.responsive-font(
       map.get($banner-inpage, 'title', 'font-l'),
-      $font-weight: map.get($banner-inpage, 'title', 'font-weight')
+      $font-weight: map.get($banner-inpage, 'title', 'font-weight'),
+      $container: 'ecl-spotlight'
     );
   }
 }
@@ -103,7 +106,10 @@ $banner-inpage: null !default;
   padding-inline-end: map.get($banner-inpage, 'credit', 'padding-inline');
   position: absolute;
 
-  @include mixins.responsive-font(map.get($banner-inpage, 'credit', 'font'));
+  @include mixins.responsive-font(
+    map.get($banner-inpage, 'credit', 'font'),
+    $container: 'ecl-spotlight'
+  );
 }
 
 .ecl-banner-inpage__anchor {
@@ -118,16 +124,14 @@ $banner-inpage: null !default;
   width: 100vw;
 }
 
-@container spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
+@container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-banner-inpage__picture-container,
   .ecl-banner-inpage .ecl-banner-inpage__image {
     aspect-ratio: 2/1;
 
     --css-aspect-ratio: 2/1;
   }
-}
 
-@container spotlight (width >= #{map.get($theme, 'breakpoint', 'l')}) {
   .ecl-banner-inpage__title {
     max-width: 750px;
     padding-block: map.get($banner-inpage, 'title', 'padding-block-tablet');
@@ -152,7 +156,7 @@ $banner-inpage: null !default;
   }
 }
 
-@container spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
+@container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
   .ecl-banner-inpage--full-width {
     .ecl-banner-inpage__picture-container,
     .ecl-banner-inpage .ecl-banner-inpage__image {
