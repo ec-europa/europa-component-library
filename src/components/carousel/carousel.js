@@ -283,7 +283,8 @@ export class Carousel {
       const height = parseInt(banner.style.height, 10);
       const totalHeight = height + padding;
       if (banner.style.height === 'auto') {
-        return 0;
+        // FRONT-4970 - Always handle banner heights, even when set to auto
+        return banner.offsetHeight;
       }
       if (Number.isNaN(height) || height === 100) {
         return 1;
@@ -297,40 +298,37 @@ export class Carousel {
     );
 
     const tallestElementHeight = Math.max(...elementHeights);
-    // We stop checking the heights of the banner if we know that all the slides
-    // have height: auto; or if a banner with an height that is not 100% or undefined is found.
+
     if (
-      (elementHeights.length === this.slides.length &&
-        tallestElementHeight === 0) ||
+      elementHeights.length === this.slides.length &&
       tallestElementHeight > 1
     ) {
       clearInterval(this.intervalId);
 
-      if (tallestElementHeight > 0) {
-        this.executionCount = 0;
-        this.slides.forEach((slide) => {
-          let bannerImage = null;
-          let bannerVideo = null;
-          const banner = queryOne('.ecl-banner', slide);
-          if (banner) {
-            bannerImage = queryOne('img', banner);
-            bannerVideo = queryOne('video', banner);
-            const footerHeight =
-              parseInt(
-                banner.style.getPropertyValue('--banner-footer-height'),
-                10,
-              ) || 0;
-            const newHeight = tallestElementHeight - footerHeight;
-            banner.style.height = `${newHeight}px`;
-          }
-          if (bannerImage) {
-            bannerImage.style.aspectRatio = 'auto';
-          }
-          if (bannerVideo) {
-            bannerVideo.style.aspectRatio = 'auto';
-          }
-        });
-      }
+      this.executionCount = 0;
+      this.slides.forEach((slide) => {
+        let bannerImage = null;
+        let bannerVideo = null;
+        const banner = queryOne('.ecl-banner', slide);
+        if (banner) {
+          bannerImage = queryOne('img', banner);
+          bannerVideo = queryOne('video', banner);
+          const footerHeight =
+            parseInt(
+              banner.style.getPropertyValue('--banner-footer-height'),
+              10,
+            ) || 0;
+          const newHeight = tallestElementHeight - footerHeight;
+          banner.style.height = `${newHeight}px`;
+          banner.style.aspectRatio = 'auto';
+        }
+        if (bannerImage) {
+          bannerImage.style.aspectRatio = 'auto';
+        }
+        if (bannerVideo) {
+          bannerVideo.style.aspectRatio = 'auto';
+        }
+      });
     }
   }
 
