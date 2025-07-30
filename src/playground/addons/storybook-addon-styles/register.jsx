@@ -18,7 +18,7 @@ function StylePanel() {
     globals.panelDescription || 'Toggle styles for this demo.';
   const [styles, setStyles] = useState({});
   const toggledStyles = globals?.styleToggles || {};
-  // Initialize styles from URL params or defaults
+
   useEffect(() => {
     const initialStyles = Object.fromEntries(
       styleSheets.map((s) => {
@@ -29,7 +29,7 @@ function StylePanel() {
           return [s.id, toggledStyles.print];
         }
 
-        return [s.id, s.picked ?? false]; // Fallback to picked if no globals
+        return [s.id, s.picked ?? false];
       }),
     );
 
@@ -38,7 +38,6 @@ function StylePanel() {
 
   const channel = addons.getChannel();
 
-  // Apply styles to DOM
   useEffect(() => {
     const applyStyles = () => {
       if (Object.keys(styles).length === 0) return;
@@ -50,13 +49,11 @@ function StylePanel() {
 
     applyStyles();
 
-    // FRONT-4921 - Fix styles when switching stories
     const onStoryChanged = () => {
       applyStyles();
     };
 
     channel.on(STORY_CHANGED, onStoryChanged);
-
     return () => {
       channel.off(STORY_CHANGED, onStoryChanged);
     };
@@ -65,9 +62,9 @@ function StylePanel() {
   const handleToggle = (id) => (e) => {
     const enabled = e.target.checked;
     const group = styleSheets.find((s) => s.id === id)?.group;
-    const oppositeGroup = group === 'screen' ? 'print' : 'screen';
+    const oppositeGroup =
+      group === 'screen' ? 'print' : group === 'print' ? 'screen' : null;
 
-    // Compute the updated styles *before* setting them
     const updatedStyles = {
       ...styles,
       [id]: enabled,
@@ -76,14 +73,14 @@ function StylePanel() {
     setStyles(updatedStyles);
     channel.emit(TOGGLE_STYLE, { key: id, enabled });
 
+    if (!['screen', 'print'].includes(group)) return; // Skip updating globals for others
+
     if (!enabled) {
-      // Removing the group key from globals when a child gets disabled
       const updated = Object.fromEntries(
         Object.entries(toggledStyles).filter(([key]) => key !== group),
       );
       updateGlobals({ styleToggles: updated });
     } else {
-      // Recompute whether the whole group is now active
       const groupFullyChecked = styleSheets
         .filter((s) => s.group === group)
         .every((s) => updatedStyles[s.id]);
@@ -101,7 +98,8 @@ function StylePanel() {
 
   const handleGroupToggle = (group) => (e) => {
     const enabled = e.target.checked;
-    const oppositeGroup = group === 'screen' ? 'print' : 'screen';
+    const oppositeGroup =
+      group === 'screen' ? 'print' : group === 'print' ? 'screen' : null;
 
     const groupStyles = styleSheets
       .filter((s) => s.group === group)
@@ -113,7 +111,6 @@ function StylePanel() {
           .reduce((acc, s) => ({ ...acc, [s.id]: false }), {})
       : {};
 
-    // Emit toggles
     styleSheets
       .filter((s) => s.group === group)
       .forEach((s) => {
@@ -121,21 +118,21 @@ function StylePanel() {
       });
 
     if (enabled) {
-      // Disable the other group
       styleSheets
         .filter((s) => s.group === oppositeGroup)
         .forEach((s) => {
           channel.emit(TOGGLE_STYLE, { key: s.id, enabled: false });
         });
 
-      updateGlobals({
-        styleToggles: {
-          [group]: true,
-          [oppositeGroup]: false,
-        },
-      });
-    } else {
-      // Set the group toggle to false in globals
+      if (['screen', 'print'].includes(group)) {
+        updateGlobals({
+          styleToggles: {
+            [group]: true,
+            [oppositeGroup]: false,
+          },
+        });
+      }
+    } else if (['screen', 'print'].includes(group)) {
       updateGlobals({
         styleToggles: {
           ...(globals.styleToggles || {}),
@@ -144,7 +141,6 @@ function StylePanel() {
       });
     }
 
-    // Update the state with correct booleans
     setStyles((prev) => ({
       ...prev,
       ...groupStyles,
