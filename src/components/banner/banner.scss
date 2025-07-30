@@ -124,6 +124,8 @@ $banner: null !default;
   }
 
   .ecl-banner--font-l & {
+    letter-spacing: map.get($banner, 'font', 'title-l-letter-spacing');
+
     @include mixins.responsive-font(map.get($banner, 'font', 'title-l'));
   }
 }

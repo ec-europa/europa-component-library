@@ -16,6 +16,7 @@ $typography: null !default;
 @if map.has-key($typography, 'display') {
   .ecl-u-type-display {
     color: map.get($typography, 'heading-color');
+    letter-spacing: map.get($theme, 'letter-spacing', '3xl') !important;
 
     @include mixins.responsive-font('display', $important: true);
   }

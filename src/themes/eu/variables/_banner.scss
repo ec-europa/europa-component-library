@@ -42,33 +42,33 @@ $banner: (
     'light': map.get($color, 'white'),
     'inverted': map.get($color, 'white'),
   ),
-  // TODO: use the mixin here when ready
   font: (
-      'title-s': (
-        'mobile-xs': var(--f-2xl),
-        'desktop': var(--f-4xl),
-      ),
-      'title-m': (
-        'font-weight': map.get($font-weight, 'regular'),
-        'mobile-xs': var(--f-2xl),
-        'desktop': var(--f-4xl),
-      ),
-      'title-l': (
-        'mobile-xs': var(--f-2xl),
-        'desktop': var(--f-5xl),
-      ),
-      'description-s': 'heading4',
-      'description-s-font-weight': map.get($font-weight, 'regular'),
-      'description-m': 'heading4',
-      'description-l': (
-        'mobile-xs': var(--f-xl),
-        'desktop': var(--f-4xl),
-      ),
-      'credit': (
-        'mobile': var(--f-s),
-        'desktop': var(--f-s),
-      ),
+    'title-s': (
+      'mobile-xs': var(--f-2xl),
+      'desktop': var(--f-4xl),
     ),
+    'title-m': (
+      'font-weight': map.get($font-weight, 'regular'),
+      'mobile-xs': var(--f-2xl),
+      'desktop': var(--f-4xl),
+    ),
+    'title-l': (
+      'mobile-xs': var(--f-2xl),
+      'desktop': var(--f-5xl),
+    ),
+    'title-l-letter-spacing': 0,
+    'description-s': 'heading4',
+    'description-s-font-weight': map.get($font-weight, 'regular'),
+    'description-m': 'heading4',
+    'description-l': (
+      'mobile-xs': var(--f-xl),
+      'desktop': var(--f-4xl),
+    ),
+    'credit': (
+      'mobile': var(--f-s),
+      'desktop': var(--f-s),
+    ),
+  ),
   description-margin: var(--s-s),
   // DEPRECATED
   background: (
