@@ -50,7 +50,7 @@
 {% set _title = title|default('') %}
 {% set _path = path|default('') %}
 {% set _credit = credit|default('') %}
-{% set _has_anchor = has_anchor|default(true) %}
+{% set _has_anchor = has_anchor ?? true %}
 {% set _sr_play = sr_play|default('') %}
 {% set _sr_pause = sr_pause|default('') %}
 
