@@ -124,6 +124,11 @@ $spotlight: null !default;
   left: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }
 
 @container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {

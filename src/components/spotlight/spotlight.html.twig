@@ -9,26 +9,6 @@
   - "header" (string) (default: '') Header over the spotlight
   - "picture" (object) (default: {}): Image for the spotlight, following ECL Picture structure
   - "has_anchor" (boolean) (default: true): Should the visual anchor be displayed?
-  - "video" (object) (default: {}): Video for the spotlight
-    - "poster" (string) (default: ''): Image to be used as the video placeholder 
-    - "sources" (array) (default: []): format: [
-      {
-        "src" (string) (default: ''),
-        "type" (string) (default: ''),
-      },
-      ...
-    ],
-    - "tracks" (array) (default: []): format: [
-      {
-        "src" (string) (default: ''),
-        "kind" (string) (default: ''),
-        "src_lang" (string) (default: ''),
-        "label" (string) (default: ''),
-      },
-      ...
-    ],
-  - "sr_play" (string) (default: '') screen reader label for the play button
-  - "sr_pause" (string) (default: '') screen reader label for the pause button
   - "credit" (string) (default: '') Credit for the image
   - "full_width" (boolean) (default: false) Full width spotlight (extend outside the grid)
   - "extra_classes" (string) (default: '')
@@ -43,7 +23,6 @@
 {% set _extra_attributes = '' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _picture = picture|default({}) %}
-{% set _video = video|default({}) %}
 {% set _font_size = font_size|default('m') %}
 {% set _full_width = full_width|default(false) %}
 {% set _header = header|default('') %}
@@ -51,8 +30,6 @@
 {% set _path = path|default('') %}
 {% set _credit = credit|default('') %}
 {% set _has_anchor = has_anchor|default(true) %}
-{% set _sr_play = sr_play|default('') %}
-{% set _sr_pause = sr_pause|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -60,7 +37,7 @@
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
-{% if _font_size is not empty %}
+{% if _font_size != 'm' %}
   {% set _css_class = _css_class ~ ' ecl-spotlight--font-' ~ _font_size %}
 {% endif %}
 
