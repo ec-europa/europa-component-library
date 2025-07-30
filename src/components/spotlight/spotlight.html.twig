@@ -29,7 +29,7 @@
 {% set _title = title|default('') %}
 {% set _path = path|default('') %}
 {% set _credit = credit|default('') %}
-{% set _has_anchor = has_anchor|default(true) %}
+{% set _has_anchor = has_anchor ?? true %}
 
 {# Internal logic - Process properties #}
 
