@@ -83,6 +83,8 @@ $spotlight: null !default;
   );
 
   .ecl-spotlight--font-l & {
+    letter-spacing: map.get($spotlight, 'title', 'letter-spacing-l');
+
     @include mixins.responsive-font(
       map.get($spotlight, 'title', 'font-l'),
       $font-weight: map.get($spotlight, 'title', 'font-weight'),
