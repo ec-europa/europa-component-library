@@ -5,16 +5,16 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import bannerDataImage from './demo/data--image';
+import spotlightData from './demo/data--image';
 
 expect.extend(toHaveNoViolations);
 
-describe('Banner inpage', () => {
+describe('Spotlight', () => {
   const template = '@ecl/spotlight/spotlight.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Image', () => {
-    const data = bannerDataImage;
+    const data = spotlightData;
 
     test('renders correctly', () => {
       expect.assertions(1);
@@ -25,7 +25,7 @@ describe('Banner inpage', () => {
     test('renders correctly without header', () => {
       expect.assertions(1);
 
-      const dataNoHeader = JSON.parse(JSON.stringify(bannerDataImage));
+      const dataNoHeader = JSON.parse(JSON.stringify(spotlightData));
       delete dataNoHeader.header;
 
       return expect(render(dataNoHeader)).resolves.toMatchSnapshot();
@@ -34,7 +34,7 @@ describe('Banner inpage', () => {
     test('renders correctly without credit', () => {
       expect.assertions(1);
 
-      const dataNoCredit = JSON.parse(JSON.stringify(bannerDataImage));
+      const dataNoCredit = JSON.parse(JSON.stringify(spotlightData));
       delete dataNoCredit.credit;
 
       return expect(render(dataNoCredit)).resolves.toMatchSnapshot();

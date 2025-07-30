@@ -31,7 +31,7 @@ const getArgs = (data) => {
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = () => {
   const argTypes = {
     ...getColorModeControls(),
     show_header: {
@@ -92,6 +92,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'false' },
         category: 'Display',
       },
+      if: { arg: 'sidebarContent', eq: false },
     },
     header: {
       type: 'string',
@@ -147,18 +148,78 @@ const getArgTypes = (data) => {
       },
     },
   };
-
-  if (data.picture) {
-    argTypes.image = {
-      type: 'string',
-      description: 'Path or Url of the background image',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+  argTypes.image = {
+    name: 'example image',
+    type: 'select',
+    description: 'Sample images',
+    options: [
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
+    ],
+    control: {
+      labels: {
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg':
+          'image 1',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg':
+          'image 2',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg':
+          'image 3',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg':
+          'image 4',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg':
+          'image 5',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg':
+          'image 6',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg':
+          'image 7',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg':
+          'image 8',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg':
+          'image 9',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg':
+          'image 10',
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg':
+          'image 11',
       },
-    };
-  }
+    },
+    mapping: {
+      'image 1':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      'image 2':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+      'image 3':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+      'image 4':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+      'image 5':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+      'image 6':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+      'image 7':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+      'image 8':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+      'image 9':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
+      'image 10':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+      'image 11':
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
+    },
+    table: {
+      type: 'string',
+      category: 'Content',
+    },
+  };
 
   return argTypes;
 };
@@ -213,5 +274,5 @@ Default.render = async (args) => {
 };
 Default.storyName = 'default';
 Default.args = getArgs(spotlightDataImage);
-Default.argTypes = getArgTypes(spotlightDataImage);
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: spotlightDataImage } };

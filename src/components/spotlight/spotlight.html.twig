@@ -61,6 +61,7 @@
 
 {# Print the result #}
 
+{% if _picture is not empty %}
 <section
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
@@ -119,5 +120,6 @@
   </a>
   {% endif %}
 </section>
+{% endif %}
 
 {% endapply %}
