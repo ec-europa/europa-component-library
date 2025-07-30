@@ -121,6 +121,10 @@ $spotlight: null !default;
 
 .ecl-spotlight__anchor {
   display: none;
+
+  &:dir(rtl) {
+    transform: scale(-1, 1);
+  }
 }
 
 // Full width

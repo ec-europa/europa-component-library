@@ -69,6 +69,11 @@ $spotlight: null !default;
   justify-content: flex-end;
   position: absolute;
   width: 100%;
+
+  .ecl-container {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .ecl-spotlight__title {
@@ -109,6 +114,10 @@ $spotlight: null !default;
 
 .ecl-spotlight__anchor {
   display: none;
+
+  &:dir(rtl) {
+    transform: scale(-1, 1);
+  }
 }
 
 // Full width
@@ -117,6 +126,11 @@ $spotlight: null !default;
   left: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }
 
 @container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
@@ -140,13 +154,12 @@ $spotlight: null !default;
     align-self: flex-end;
     background-color: map.get($spotlight, 'anchor', 'color');
     display: block;
+    flex-shrink: 0;
     height: 73px;
-    justify-self: flex-end;
     mask-image: url("data:image/svg+xml;utf8,<svg width='161' height='73' viewBox='0 0 161 73' xmlns='http://www.w3.org/2000/svg'><path d='M147.353 50.6247L0.389648 62.8649V67.9293V72.9936L160.999 62.8649L159.447 0.709961H149.526L147.353 50.6247Z' fill-rule='evenodd' /></svg>");
     mask-repeat: no-repeat;
     padding-block-end: map.get($spotlight, 'anchor', 'padding-block');
     padding-inline-end: map.get($spotlight, 'anchor', 'padding-inline');
-    position: absolute;
     width: 161px;
   }
 }
