@@ -895,7 +895,6 @@ export class MegaMenu {
             } else {
               const subList = queryOne('.ecl-mega-menu__sublist', item);
               if (subList && this.openPanel.num === 1) {
-                console.log('dovrei...');
                 const subListRect = subList.getBoundingClientRect();
                 const subListRectTop = subListRect.top;
                 subList.classList.add('ecl-mega-menu__sublist--scrollable');
