@@ -10,6 +10,7 @@ $typography: null !default;
   @if meta.type-of($tier) == 'map' {
     $size: map.get($tier, 'size');
     $lh: map.get($tier, 'line-height');
+    $ls: map.get($tier, 'letter-spacing');
 
     @if $size {
       font-size: if($important, $size !important, $size);
@@ -17,6 +18,10 @@ $typography: null !default;
 
     @if $lh {
       line-height: if($important, $lh !important, $lh);
+    }
+
+    @if $ls {
+      letter-spacing: if($important, $ls !important, $ls);
     }
   } @else if meta.type-of($tier) == 'string' and string.index($tier, '--f-') {
     font: if($important, $tier !important, $tier);

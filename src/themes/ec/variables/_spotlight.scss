@@ -11,6 +11,7 @@ $spotlight: (
       color-mix(in srgb, var(--cm-on-surface-brand) 50%, transparent) 100%
     ),
   gradient-height-mobile: 241px,
+  gradient-height-tablet: 374px,
   header: (
     background: var(--cm-surface-brand),
     color: var(--cm-on-surface-inverted),
@@ -30,9 +31,10 @@ $spotlight: (
       desktop: (
         size: var(--fs-2xl),
         line-height: var(--lh-s),
+        letter-spacing: map.get($letter-spacing, '5xl'),
       ),
     ),
-    font-weight: map.get($font-weight, 'bold'),
+    font-weight: map.get($font-weight, 'semi-bold'),
   ),
   credit: (
     color: var(--cm-on-surface-inverted),
@@ -48,7 +50,6 @@ $spotlight: (
     font-l: 'display',
     font-m: 'heading1',
     font-weight: map.get($font-weight, 'light'),
-    letter-spacing-l: map.get($letter-spacing, '3xl'),
   ),
   anchor: (
     color: var(--cm-on-surface-variant-3),

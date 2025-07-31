@@ -7,7 +7,7 @@ module.exports = {
   path: exampleLink,
   picture: {
     img: {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       alt: 'alternative text',
     },
   },

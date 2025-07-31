@@ -88,8 +88,6 @@ $spotlight: null !default;
   );
 
   .ecl-spotlight--font-l & {
-    letter-spacing: map.get($spotlight, 'title', 'letter-spacing-l');
-
     @include mixins.responsive-font(
       map.get($spotlight, 'title', 'font-l'),
       $font-weight: map.get($spotlight, 'title', 'font-weight'),
@@ -134,6 +132,10 @@ $spotlight: null !default;
 }
 
 @container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-spotlight__container {
+    height: map.get($spotlight, 'gradient-height-tablet');
+  }
+
   .ecl-spotlight__picture-container,
   .ecl-spotlight .ecl-spotlight__image {
     aspect-ratio: 2/1;
