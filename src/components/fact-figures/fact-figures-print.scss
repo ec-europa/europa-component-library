@@ -61,8 +61,8 @@ $fact-figures-print: null !default;
 
 .ecl-fact-figures__items {
   display: grid;
-  grid-column-gap: map.get($theme, 'spacing-print', 'xl');
-  grid-row-gap: map.get($theme, 'spacing-print', 'xl');
+  column-gap: map.get($theme, 'spacing-print', 'xl');
+  row-gap: map.get($theme, 'spacing-print', 'xl');
 
   .ecl-fact-figures--col-2 & {
     grid-template-columns: repeat(2, 1fr);

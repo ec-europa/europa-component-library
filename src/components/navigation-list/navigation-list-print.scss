@@ -20,8 +20,8 @@ $navigation-list-print: null !default;
 .ecl-navigation-list--col-3 {
   display: grid;
   grid-auto-rows: auto;
-  grid-column-gap: map.get($theme, 'grid', 'gutter-print');
-  grid-row-gap: map.get($theme, 'spacing-print', 'xl');
+  column-gap: map.get($theme, 'grid', 'gutter-print');
+  row-gap: map.get($theme, 'spacing-print', 'xl');
   width: 100%;
 }
 

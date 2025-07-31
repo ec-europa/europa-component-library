@@ -76,14 +76,13 @@ export class ContentBlock {
       return;
     }
 
-    this.title = queryOne(this.titleSelector, this.element);
-    this.linkEl = this.title ? queryOne('a', this.title) : false;
-    if (this.linkEl) {
+    this.titleLink = queryOne(this.titleSelector, this.element);
+    if (this.titleLink) {
       this.picture.style.cursor = 'pointer';
       const img = queryOne('img', this.picture);
       if (img && this.withTitleAttr) {
         img.title = this.constructor.convertToFullURL(
-          this.linkEl.getAttribute('href'),
+          this.titleLink.getAttribute('href'),
         );
       }
 
@@ -100,9 +99,9 @@ export class ContentBlock {
    * Redirect the user to the desired url.
    */
   linkTo() {
-    if (this.linkEl) {
+    if (this.titleLink) {
       // Click the linking element.
-      this.linkEl.click();
+      this.titleLink.click();
     }
   }
 

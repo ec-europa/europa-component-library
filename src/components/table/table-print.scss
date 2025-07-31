@@ -15,7 +15,7 @@ $table: null !default;
   color: map.get($table, 'table-color');
   font: map.get($theme, 'font-print', 'm');
   margin: 0;
-  page-break-inside: avoid;
+  break-inside: avoid;
   width: 100%;
 }
 
