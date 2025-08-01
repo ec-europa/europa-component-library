@@ -373,10 +373,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
       width: calc(44px + var(--s-xl) * 2);
     }
 
-    .ecl-search-form__text-input {
-      width: map.get($site-header, 'search-width');
-    }
-
     .ecl-search-form {
       max-width: 100%;
     }
@@ -528,7 +524,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     margin-inline-start: var(--s-xl);
 
     .ecl-search-form__button {
-      min-width: 100px;
       color: map.get($site-header, 'toggle-color');
     }
 
