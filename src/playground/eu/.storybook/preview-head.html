@@ -22,19 +22,7 @@
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
-    document.body.setAttribute('dir', 'ltr');
     ECL.autoInit();
-  }
-
-  if (window.parent) {
-    window.parent.document.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('id') === 'style-ecl-rtl') {
-        const dir = e.target.checked ? 'rtl' : 'ltr';
-        document.body.setAttribute('dir', dir);
-        ECL.autoInit().destroy();
-        ECL.autoInit();
-      }
-    });
   }
 
   document.onreadystatechange = () => {
