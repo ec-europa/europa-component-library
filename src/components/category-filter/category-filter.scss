@@ -131,7 +131,7 @@ $category-filter: null !default;
   padding-inline-start: calc(
     var(--s-m) + #{$level - 1} * #{map.get($category-filter, 'subitem-spacing')}
   );
-
+  // stylelint-disable-next-line nesting-selector-no-missing-scoping-root
   &.ecl-category-filter__item--has-children {
     padding-inline-start: calc(
       var(--s-m) + #{$level - 2} *

@@ -93,8 +93,8 @@ $list-illustration-print: null !default;
 .ecl-list-illustration--col-4 {
   display: grid;
   grid-auto-rows: auto;
-  grid-column-gap: map.get($theme, 'grid', 'gutter-print');
-  grid-row-gap: map.get($theme, 'spacing-print', '3xl');
+  column-gap: map.get($theme, 'grid', 'gutter-print');
+  row-gap: map.get($theme, 'spacing-print', '3xl');
   width: 100%;
 
   .ecl-list-illustration__item {

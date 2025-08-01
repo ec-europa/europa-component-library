@@ -10,6 +10,7 @@
 $theme: null !default;
 $pagination: null !default;
 
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin item-styles {
   align-items: center;
   justify-content: center;
@@ -38,6 +39,7 @@ $pagination: null !default;
     color: map.get($pagination, 'current-text-color-desktop');
   }
 }
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
 
 .ecl-pagination {
   border-top: 1px solid map.get($pagination, 'border-color');
