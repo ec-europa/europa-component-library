@@ -859,7 +859,6 @@ export class MegaMenu {
    * Dinamically set the position of the menu overlay
    */
   positionMenuOverlay() {
-    console.log('aoh');
     let availableHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
@@ -886,7 +885,6 @@ export class MegaMenu {
               const bottomRect = info.getBoundingClientRect();
               const bottomInfo = bottomRect.bottom;
               availableHeight = window.innerHeight - bottomInfo - 16;
-              console.log(availableHeight);
             }
             if (hasFeatured) {
               const hasFeaturedRect = hasFeatured.getBoundingClientRect();
