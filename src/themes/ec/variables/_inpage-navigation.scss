@@ -25,16 +25,18 @@ $inpage-navigation: (
         'default': none,
         'hover': none,
         'active': none,
+        'focus': none,
       ),
       'start': (
         'default': (
-          'l': 4px solid var(--cm-border-neutral),
+          'l': 4px solid var(--cm-border-grey-lowest),
           's': 4px solid transparent,
         ),
         'active': (
-          'l': 4px solid var(--cm-border-primary),
-          's': 4px solid var(--cm-border-primary),
+          'l': 4px solid var(--cm-border),
+          's': 4px solid var(--cm-border),
         ),
+        'focus': 4px solid var(--cm-border-primary),
         'hover': none,
       ),
     ),
@@ -63,7 +65,7 @@ $inpage-navigation: (
   ),
   trigger: (
     'background': var(--cm-on-surface-inverted),
-    'border': 1px solid var(--cm-border-brand),
+    'border': 1px solid var(--cm-border-grey),
     'border-radius': 4px,
     'color': var(--cm-on-surface-brand),
     'font': 'body-m',
