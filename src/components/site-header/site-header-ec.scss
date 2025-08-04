@@ -148,6 +148,11 @@ $language-list: null !default;
   &[aria-expanded='true'] {
     background-color: var(--cm-surface-neutral-low);
   }
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-icon {
+    height: map.get($theme, 'icon', 'm');
+    width: map.get($theme, 'icon', 'm');
+  }
 }
 
 .ecl-site-header__custom-action-toggle {
@@ -443,11 +448,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__action {
     align-items: center;
     padding-bottom: var(--s-3xs);
-
-    .ecl-button--icon-only .ecl-button__icon {
-      height: map.get($theme, 'icon', 'xs');
-      width: map.get($theme, 'icon', 'xs');
-    }
   }
 
   .ecl-site-header--has-menu,

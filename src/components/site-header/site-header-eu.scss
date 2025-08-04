@@ -241,6 +241,11 @@ $language-list: null !default;
       margin: 0;
     }
   }
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-icon {
+    height: map.get($theme, 'icon', 'm');
+    width: map.get($theme, 'icon', 'm');
+  }
 
   &:active,
   &[aria-expanded='true'] {
