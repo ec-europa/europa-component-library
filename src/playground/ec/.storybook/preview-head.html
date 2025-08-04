@@ -25,17 +25,6 @@
     ECL.autoInit();
   }
 
-  if (window.parent) {
-    window.parent.document.addEventListener('click', (e) => {
-      if (e.target && e.target.getAttribute('id') === 'style-ecl-rtl') {
-        const dir = e.target.checked ? 'rtl' : 'ltr';
-        document.body.setAttribute('dir', dir);
-        ECL.autoInit().destroy();
-        ECL.autoInit();
-      }
-    });
-  }
-
   document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
       runOnPageChange();
