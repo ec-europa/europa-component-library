@@ -175,7 +175,7 @@ const withDuet = (Story) => {
   const applyCustomizations = () => {
     const picker = container.querySelector('duet-date-picker');
     if (!picker) return;
-
+    picker.identifier = 'duet-ecl-datepicker-example';
     picker.localization = {
       prevMonthLabel: 'Previous month',
       nextMonthLabel: 'Next month',
@@ -241,7 +241,6 @@ const withDuet = (Story) => {
     };
   };
 
-  // Wait a tick then apply (can also wrap in MutationObserver if needed)
   setTimeout(applyCustomizations, 50);
 
   return container;
@@ -358,7 +357,7 @@ DateDuet.render = async () => {
   const renderedDateDuet = await formGroup({
     label: 'Select a date',
     helper_text: 'Format: dd-mm-yyyy',
-    input: { input_type: 'duet' },
+    input: { input_type: 'duet', id: 'duet-ecl-datepicker-example' },
   });
   return renderedDateDuet;
 };
