@@ -249,7 +249,9 @@ export class NewsTicker {
    */
   moveSlides(transition) {
     const newOffset = this.slides[this.index].offsetTop;
-    const newHeight = this.slides[this.index].offsetHeight;
+    const newHeight = Math.floor(
+      this.slides[this.index].getBoundingClientRect().height,
+    );
     this.content.style.height = `${newHeight}px`;
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '1ms';
     this.slidesContainer.style.transform = `translate3d(0px, -${newOffset}px, 0px)`;

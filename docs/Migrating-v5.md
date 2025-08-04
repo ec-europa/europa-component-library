@@ -130,6 +130,14 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Checkbox
+
+- To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
+
+### Content block
+
+The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.
@@ -144,7 +152,9 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 
 ### Icon
 
-ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools
+ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools.
+Please make sure to check the documentation, as addition configuration or files may be needed to make the icons work.
+
 Here is the official documentation: https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_use
 
 Twig templates have been updated to deliver the new markup for the icon, so this is mostly transparent, except for a few new parameters:
@@ -226,7 +236,8 @@ A parameter has been added in the twig template `featured_priority` so that this
 
 ### Radio
 
-To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+- To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+- To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Site header
 

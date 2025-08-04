@@ -11,7 +11,7 @@ $accordion-print: null !default;
 
 .ecl-accordion__item {
   margin-top: map.get($theme, 'spacing-print', 'l');
-  page-break-inside: avoid;
+  break-inside: avoid;
 
   &:first-of-type {
     margin-top: 0;
@@ -26,7 +26,7 @@ $accordion-print: null !default;
   font: map.get($accordion-print, 'toggle-font');
   margin: 0;
   max-width: var(--max-w);
-  page-break-after: avoid;
+  break-after: avoid;
 }
 
 .ecl-accordion__toggle {
@@ -46,5 +46,5 @@ $accordion-print: null !default;
   font: map.get($accordion-print, 'content-font');
   margin-top: map.get($theme, 'spacing-print', 'm');
   max-width: var(--max-w);
-  page-break-inside: avoid;
+  break-inside: avoid;
 }

@@ -82,7 +82,9 @@ $form-group: null !default;
   );
 }
 
-.ecl-form-label--hidden {
+.ecl-form-label--hidden,
+.ecl-feedback-message--hidden,
+.ecl-help-block--hidden {
   @include screen-reader.sr-only;
 }
 

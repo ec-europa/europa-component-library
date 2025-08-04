@@ -36,7 +36,6 @@
 {% set _links = links|default([]) %}
 {% set _lists = lists|default([]) %}
 {% set _css_class = 'ecl-content-block' %}
-{% set _title_attrs = '' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -88,12 +87,11 @@
   {% endif %}
 
   {% if _title is not empty %}
+    <div class="ecl-content-block__title">
     {%- if _title.link is defined -%}
-      {% set _title_attrs = 'data-ecl-title-link' %}
-    {%- endif -%}
-    <div class="ecl-content-block__title" {{ _title_attrs }}>
-    {%- if _title.link is defined -%}
-      {% include '@ecl/link/link.html.twig' with _title only %}
+      {% include '@ecl/link/link.html.twig' with _title|merge({
+          extra_attributes: _title.extra_attributes|default([])|merge([{ name: 'data-ecl-title-link' }]),
+      }) only %}
     {%- else -%}
       {{- _title -}}
     {%- endif -%}

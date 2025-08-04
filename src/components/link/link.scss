@@ -167,6 +167,7 @@ $link: null !default;
 /**
 * Link button
 */
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin link-button($variant: null) {
   background-color: map.get($link, #{$variant}, 'background');
   border: map.get($link, 'button', 'border-width') solid
@@ -217,6 +218,7 @@ $link: null !default;
     outline-width: 0;
   }
 }
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
 
 .ecl-link--primary {
   @include link-button(primary);

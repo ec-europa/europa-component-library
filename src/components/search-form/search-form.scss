@@ -70,11 +70,6 @@ $button-border-width: 1px;
   }
 }
 
-.ecl-search-form__button .ecl-button__label {
-  display: none;
-  margin-inline-start: 0;
-}
-
 .ecl-search-form__button .ecl-button__icon {
   display: block;
   fill: currentcolor;
@@ -83,12 +78,16 @@ $button-border-width: 1px;
   width: map.get($search-form, 'icon-size-mobile');
 }
 
+@include breakpoints.down('m') {
+  .ecl-search-form__button .ecl-button__label {
+    margin-inline-start: 0;
+
+    @include screen-reader.sr-only;
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-search-form__button .ecl-button__label {
-    display: block;
-  }
-
   .ecl-search-form__button .ecl-button__icon {
     height: map.get($search-form, 'icon-size-desktop');
     margin-inline-end: var(--s-xs);

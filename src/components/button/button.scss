@@ -98,6 +98,7 @@ $button: null !default;
 /**
 * Button styles
 */
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin button($variant: null) {
   background-color: map.get($button, #{$variant}, 'background');
   border: map.get($button, #{$variant}, 'border-width') solid
@@ -133,6 +134,7 @@ $button: null !default;
     color: map.get($button, #{$variant}, 'color-active');
   }
 }
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
 
 .ecl-button--primary {
   @include button(primary);
