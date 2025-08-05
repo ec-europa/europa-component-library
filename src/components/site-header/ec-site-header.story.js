@@ -6,7 +6,18 @@ import withCode from '@ecl/storybook-addon-code';
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
 import enDataMenu from '@ecl/menu/demo/data--ec-long';
-import enDataMegaMenu from '@ecl/mega-menu/demo/data';
+import {
+  data1,
+  data2,
+  data3,
+  data4,
+  data5,
+  data6,
+  data7,
+  data8,
+  data9,
+  data10,
+} from '@ecl/mega-menu/demo';
 import dataFullEC from './demo/data--ec';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
@@ -15,8 +26,9 @@ import notes from './README.md';
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
-const enMegaMenu = { ...enDataMegaMenu };
 const closeButton = { ...dataFull.notification.close };
+
+console.log(data1);
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -37,6 +49,7 @@ dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
   const defaultArgs = {
+    dataSet: 1,
     logo_size: 'large',
     show_language_selector: true,
     show_custom_action: false,
@@ -73,9 +86,31 @@ const getArgs = (data) => {
   return defaultArgs;
 };
 
+const dataMap = {
+  1: data1,
+  2: data2,
+  3: data3,
+  4: data4,
+  5: data5,
+  6: data6,
+  7: data7,
+  8: data8,
+  9: data9,
+  10: data10,
+};
+
 const getArgTypes = (data) => {
   const argTypes = {};
-
+  argTypes.dataSet = {
+    name: 'data set',
+    control: {
+      type: 'number',
+      min: 1,
+      max: 10,
+    },
+    description: 'test the component with different data',
+    if: { arg: 'show_menu', eq: 'mega-menu' },
+  };
   if (data.login_box) {
     argTypes.show_login = {
       name: 'login',
@@ -281,7 +316,7 @@ const prepareData = (data, args) => {
     delete data.mega_menu;
   }
   if (args.show_menu === 'mega-menu' && !data.mega_menu) {
-    data.mega_menu = enMegaMenu;
+    data.mega_menu = dataMap[args.dataSet];
     delete data.menu;
   }
 

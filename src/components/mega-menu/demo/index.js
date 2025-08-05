@@ -1,0 +1,10 @@
+export { default as data1 } from './data-1.js';
+export { default as data2 } from './data-2.js';
+export { default as data3 } from './data-3.js';
+export { default as data4 } from './data-4.js';
+export { default as data5 } from './data-5.js';
+export { default as data6 } from './data-6.js';
+export { default as data7 } from './data-7.js';
+export { default as data8 } from './data-8.js';
+export { default as data9 } from './data-9.js';
+export { default as data10 } from './data-10.js';

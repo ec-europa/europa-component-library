@@ -6,7 +6,7 @@ import withCode from '@ecl/storybook-addon-code';
 import enLogoDesktopEU from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import enLogoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
 import enDataMenu from '@ecl/menu/demo/data--eu';
-import enDataMegaMenu from '@ecl/mega-menu/demo/data';
+import enDataMegaMenu from '@ecl/mega-menu/demo/data-1';
 import dataFullEU from './demo/data--eu';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
