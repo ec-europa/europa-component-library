@@ -1,3 +1,4 @@
+export { default as data } from './data.js';
 export { default as data1 } from './data-1.js';
 export { default as data2 } from './data-2.js';
 export { default as data3 } from './data-3.js';

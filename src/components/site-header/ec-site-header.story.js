@@ -7,6 +7,7 @@ import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
 import enDataMenu from '@ecl/menu/demo/data--ec-long';
 import {
+  data,
   data1,
   data2,
   data3,
@@ -22,13 +23,13 @@ import dataFullEC from './demo/data--ec';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
+console.log(data);
+
 // Preserve original data.
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
 const closeButton = { ...dataFull.notification.close };
-
-console.log(data1);
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -49,7 +50,7 @@ dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
   const defaultArgs = {
-    dataSet: 1,
+    dataSet: 0,
     logo_size: 'large',
     show_language_selector: true,
     show_custom_action: false,
@@ -87,6 +88,7 @@ const getArgs = (data) => {
 };
 
 const dataMap = {
+  0: data,
   1: data1,
   2: data2,
   3: data3,
@@ -105,7 +107,7 @@ const getArgTypes = (data) => {
     name: 'data set',
     control: {
       type: 'number',
-      min: 1,
+      min: 0,
       max: 10,
     },
     description: 'test the component with different data',
