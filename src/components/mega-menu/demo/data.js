@@ -131,26 +131,19 @@ module.exports = {
           },
         },
       },
-      featured: {
-        items: [
-          {
-            picture: {
-              img: {
-                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
-                alt: 'Jean Monnet banner',
-              },
-            },
-          },
-          {
-            label: 'I belong to about the EU',
-            path: exampleLink,
-          },
-        ],
-      },
       children: [
         { label: 'Item 3.1', path: exampleLink },
         { label: 'Item 3.2', path: exampleLink },
         { label: 'Item 3.3', path: exampleLink },
+        { label: 'Item 3.4', path: exampleLink },
+        { label: 'Item 3.5', path: exampleLink },
+        { label: 'Item 3.6', path: exampleLink },
+        { label: 'Item 3.7', path: exampleLink },
+        { label: 'Item 3.8', path: exampleLink },
+        { label: 'Item 3.9', path: exampleLink },
+        { label: 'Item 3.10', path: exampleLink },
+        { label: 'Item 3.11', path: exampleLink },
+        { label: 'Item 3.12', path: exampleLink },
       ],
     },
     {
