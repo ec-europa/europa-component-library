@@ -23,8 +23,6 @@ import dataFullEC from './demo/data--ec';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
-console.log(data);
-
 // Preserve original data.
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
