@@ -175,18 +175,16 @@ $spotlight: null !default;
 }
 
 @container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
-  .ecl-spotlight--full-width {
-    .ecl-spotlight__picture-container,
-    .ecl-spotlight .ecl-spotlight__image {
-      aspect-ratio: 3/1;
+  .ecl-spotlight__picture-container,
+  .ecl-spotlight .ecl-spotlight__image {
+    aspect-ratio: 3/1;
 
-      --css-aspect-ratio: 3/1;
-    }
+    --css-aspect-ratio: 3/1;
+  }
 
-    .ecl-spotlight__title {
-      max-width: 950px;
-      padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
-    }
+  .ecl-spotlight__title {
+    max-width: 950px;
+    padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
   }
 
   .ecl-spotlight__header {

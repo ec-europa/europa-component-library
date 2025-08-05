@@ -24,7 +24,7 @@
 {% set _color_mode = color_mode|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _font_size = font_size|default('m') %}
-{% set _full_width = full_width|default(false) %}
+{% set _full_width = full_width ?? false %}
 {% set _header = header|default('') %}
 {% set _title = title|default('') %}
 {% set _path = path|default('') %}

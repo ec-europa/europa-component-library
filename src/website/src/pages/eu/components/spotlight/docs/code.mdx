@@ -15,10 +15,4 @@ import { Playground } from '@ecl/website-components';
 
 ## Spotlight width
 
-Spotlight placed inside a grid container (`.ecl-container`) will expand to this container width.
-
-To have a full width spotlight, the recommanded way is to place it outside of the grid container.
-
-However, if there is a need to have a full width spotlight inside the grid container, the css class `.ecl-spotlight--fullwidth` can be used (just put it at the same level as `.ecl-spotlight`).
-
-**Caution**: if you plan to use full width spotlight using this fullwidth css class, we recommend to include the optional `ecl-reset.css`, as some global rules here would improve the display (`overflow-x: hidden`).
+Spotlight component will take the width of its container. It is taking benefits from container queries to adapt its display based on the situation (outside the main container, in the grid, with a sidebar, ...)

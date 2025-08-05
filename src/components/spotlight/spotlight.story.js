@@ -17,7 +17,6 @@ const getArgs = (data) => {
     header: data.header,
     title: data.title,
     credit: data.credit,
-    full_width: true,
     sidebarContent: false,
     gridContent: false,
   };
@@ -78,21 +77,6 @@ const getArgTypes = () => {
         defaultValue: { summary: 'm' },
         category: 'Display',
       },
-    },
-    full_width: {
-      name: 'full width',
-      type: 'boolean',
-      description: 'Take the full width of the viewport when in a container',
-      mapping: {
-        0: false,
-        1: true,
-      },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Display',
-      },
-      if: { arg: 'sidebarContent', eq: false },
     },
     header: {
       type: 'string',
@@ -237,10 +221,6 @@ const prepareData = (data, args) => {
     clone.picture.img.src = args.image;
   }
 
-  if (args.sidebarContent) {
-    clone.full_width = false;
-  }
-
   return clone;
 };
 
@@ -248,13 +228,16 @@ const renderStory = async (data, args) => {
   let story = await spotlight(prepareData(data, args));
 
   if (args.gridContent) {
-    story += '<p class="ecl-u-type-paragraph">Content inside the grid</p>';
+    if (args.sidebarContent) {
+      story += '<p class="ecl-u-type-paragraph">Content inside the grid</p>';
+    } else {
+      story +=
+        '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
+    }
   }
 
   if (args.sidebarContent) {
     story = `<div class="ecl-container"><div class="ecl-row"><div class="ecl-col-12 ecl-col-m-3"><p class="ecl-u-type-paragraph">Sidebar</p></div><div class="ecl-col-12 ecl-col-m-9">${story}</div></div></div>`;
-  } else {
-    story = `<div class="ecl-container">${story}</div>`;
   }
 
   return story;
