@@ -127,7 +127,7 @@ $range: null !default;
 // Bubble
 .ecl-range__bubble {
   background-color: var(--cm-surface-transparent-70, var(--c-ov-d));
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   color: map.get($range, 'bubble-color');
   display: none;
   margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));

@@ -1,26 +1,16 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import dataInfoEc from './demo/data--info-ec';
-import dataSuccessEc from './demo/data--success-ec';
-import dataErrorEc from './demo/data--error-ec';
-import dataWarningEc from './demo/data--warning-ec';
-import dataInfoEu from './demo/data--info-eu';
-import dataSuccessEu from './demo/data--success-eu';
-import dataErrorEu from './demo/data--error-eu';
-import dataWarningEu from './demo/data--warning-eu';
+import dataInfo from './demo/data--info';
+import dataSuccess from './demo/data--success';
+import dataError from './demo/data--error';
+import dataWarning from './demo/data--warning';
 
 import notification from './notification.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-const dataInfo = system === 'eu' ? dataInfoEu : dataInfoEc;
-const dataSuccess = system === 'eu' ? dataSuccessEu : dataSuccessEc;
-const dataError = system === 'eu' ? dataErrorEu : dataErrorEc;
-const dataWarning = system === 'eu' ? dataWarningEu : dataWarningEc;
 const dataLinks = [...dataInfo.links];
 
 const getArgs = (data) => ({

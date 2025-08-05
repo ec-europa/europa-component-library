@@ -58,9 +58,6 @@
   role="alert"
   {{ _extra_attributes|raw }}
 >
-{% if _variant == 'warning' and _icon is not empty and _icon.name is defined and _icon.name == 'warning' %}
-  <span class="ecl-notification__icon-background"></span>
-{% endif %}
   {% include '@ecl/icon/icon.html.twig' with {
     icon: _icon,
     as_image: true,

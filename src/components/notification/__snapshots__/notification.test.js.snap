@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`EC Notification Error renders correctly 1`] = `
+exports[`Notification Error renders correctly 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--error"
@@ -10,7 +10,7 @@ exports[`EC Notification Error renders correctly 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--error ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--error"
+      class="wt-icon--error-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--error-outline"
       role="img"
       title="Error"
     />
@@ -53,7 +53,7 @@ exports[`EC Notification Error renders correctly 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Info renders correctly 1`] = `
+exports[`Notification Info renders correctly 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--info"
@@ -63,7 +63,7 @@ exports[`EC Notification Info renders correctly 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
+      class="wt-icon--information-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information-outline"
       role="img"
       title="Information"
     />
@@ -126,7 +126,7 @@ exports[`EC Notification Info renders correctly 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Info renders correctly with extra attributes 1`] = `
+exports[`Notification Info renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--info"
@@ -138,7 +138,7 @@ exports[`EC Notification Info renders correctly with extra attributes 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
+      class="wt-icon--information-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information-outline"
       role="img"
       title="Information"
     />
@@ -201,7 +201,7 @@ exports[`EC Notification Info renders correctly with extra attributes 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Info renders correctly with extra class names 1`] = `
+exports[`Notification Info renders correctly with extra class names 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--info custom-button custom-button--test"
@@ -211,7 +211,7 @@ exports[`EC Notification Info renders correctly with extra class names 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
+      class="wt-icon--information-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information-outline"
       role="img"
       title="Information"
     />
@@ -274,7 +274,7 @@ exports[`EC Notification Info renders correctly with extra class names 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Info renders correctly without description 1`] = `
+exports[`Notification Info renders correctly without description 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--info"
@@ -284,7 +284,7 @@ exports[`EC Notification Info renders correctly without description 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
+      class="wt-icon--information-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information-outline"
       role="img"
       title="Information"
     />
@@ -342,7 +342,7 @@ exports[`EC Notification Info renders correctly without description 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Info renders correctly without title 1`] = `
+exports[`Notification Info renders correctly without title 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--info"
@@ -352,7 +352,7 @@ exports[`EC Notification Info renders correctly without title 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
+      class="wt-icon--information-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information-outline"
       role="img"
       title="Information"
     />
@@ -410,7 +410,7 @@ exports[`EC Notification Info renders correctly without title 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Success renders correctly 1`] = `
+exports[`Notification Success renders correctly 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--success"
@@ -420,7 +420,7 @@ exports[`EC Notification Success renders correctly 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--check-filled ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--check-filled"
+      class="wt-icon--check-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--check-outline"
       role="img"
       title="Success"
     />
@@ -463,7 +463,7 @@ exports[`EC Notification Success renders correctly 1`] = `
 </jest>
 `;
 
-exports[`EC Notification Warning renders correctly 1`] = `
+exports[`Notification Warning renders correctly 1`] = `
 <jest>
   <div
     class="ecl-notification ecl-notification--warning"
@@ -472,11 +472,8 @@ exports[`EC Notification Warning renders correctly 1`] = `
     role="alert"
   >
     <span
-      class="ecl-notification__icon-background"
-    />
-    <span
       aria-hidden="false"
-      class="wt-icon--warning ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--warning"
+      class="wt-icon--warning-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--warning-outline"
       role="img"
       title="Warning"
     />
@@ -500,525 +497,6 @@ exports[`EC Notification Warning renders correctly 1`] = `
           <span
             aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Warning notification
-      </div>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Error renders correctly 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--error"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--error ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--error"
-      role="img"
-      title="Error"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Error notification
-      </div>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Info renders correctly 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--info"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--information"
-      role="img"
-      title="Information"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Information notification
-      </div>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Lorem ipsum
-        </a>
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Nullam accumsan semper lorem
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Info renders correctly with extra attributes 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--info"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--information"
-      role="img"
-      title="Information"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Information notification
-      </div>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Lorem ipsum
-        </a>
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Nullam accumsan semper lorem
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Info renders correctly with extra class names 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--info custom-button custom-button--test"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--information"
-      role="img"
-      title="Information"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Information notification
-      </div>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Lorem ipsum
-        </a>
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Nullam accumsan semper lorem
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Info renders correctly without description 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--info"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--information"
-      role="img"
-      title="Information"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Information notification
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Lorem ipsum
-        </a>
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Nullam accumsan semper lorem
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Info renders correctly without title 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--info"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--information ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--information"
-      role="img"
-      title="Information"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Lorem ipsum
-        </a>
-      </div>
-      <div
-        class="ecl-notification__link"
-      >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Nullam accumsan semper lorem
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Success renders correctly 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--success"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      aria-hidden="false"
-      class="wt-icon--check-filled ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--check-filled"
-      role="img"
-      title="Success"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <div
-        class="ecl-notification__title"
-      >
-        Success notification
-      </div>
-      <div
-        class="ecl-notification__description"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`EU Notification Warning renders correctly 1`] = `
-<jest>
-  <div
-    class="ecl-notification ecl-notification--warning"
-    data-ecl-auto-init="Notification"
-    data-ecl-notification=""
-    role="alert"
-  >
-    <span
-      class="ecl-notification__icon-background"
-    />
-    <span
-      aria-hidden="false"
-      class="wt-icon--warning ecl-icon ecl-icon--m ecl-notification__icon ecl-icon--warning"
-      role="img"
-      title="Warning"
-    />
-    <div
-      class="ecl-notification__content"
-    >
-      <button
-        class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
-        data-ecl-notification-close=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Close
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
         </span>

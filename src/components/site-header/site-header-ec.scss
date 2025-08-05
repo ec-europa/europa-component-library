@@ -190,7 +190,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__login-box {
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   box-sizing: border-box;
   left: 0;
   width: 100%;
@@ -245,6 +245,8 @@ $language-list: null !default;
 
   .ecl-notification {
     background: var(--cm-surface-inverted);
+    border-block: 1px solid var(--cm-border-neutral);
+    border-inline-end: 1px solid var(--cm-border-neutral);
     margin: 0 0 var(--s-m);
   }
 
