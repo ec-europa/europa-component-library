@@ -148,6 +148,11 @@ $language-list: null !default;
   &[aria-expanded='true'] {
     background-color: var(--cm-surface-neutral-low);
   }
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-icon {
+    height: map.get($theme, 'icon', 'm');
+    width: map.get($theme, 'icon', 'm');
+  }
 }
 
 .ecl-site-header__custom-action-toggle {
@@ -357,11 +362,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     .ecl-link__icon-container {
       margin-inline-start: 0;
     }
-
-    .ecl-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
   }
 }
 
@@ -378,10 +378,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     .ecl-mega-menu,
     .ecl-menu {
       width: calc(44px + var(--s-xl) * 2);
-    }
-
-    .ecl-search-form__text-input {
-      width: map.get($site-header, 'search-width');
     }
 
     .ecl-search-form {
@@ -454,11 +450,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__action {
     align-items: center;
     padding-bottom: var(--s-3xs);
-
-    .ecl-button--icon-only .ecl-button__icon {
-      height: map.get($theme, 'icon', 'xs');
-      width: map.get($theme, 'icon', 'xs');
-    }
   }
 
   .ecl-site-header--has-menu,
@@ -515,9 +506,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
     .ecl-site-header__icon {
       flex-shrink: 0;
-      height: 1rem;
       margin-inline-end: var(--s-xs);
-      width: 1rem;
     }
   }
 
@@ -537,7 +526,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     margin-inline-start: var(--s-xl);
 
     .ecl-search-form__button {
-      min-width: 100px;
       color: map.get($site-header, 'toggle-color');
     }
 
