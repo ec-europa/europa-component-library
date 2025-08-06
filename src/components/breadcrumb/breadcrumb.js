@@ -184,7 +184,7 @@ export class Breadcrumb {
     if (this.onPartialExpand) {
       this.onPartialExpand(isItemVisible);
     } else {
-      if (Math.floor(this.element.getBoundingClientRect().width) > 767) {
+      if (Math.floor(this.element.getBoundingClientRect().width) > 1139) {
         const ellipsis = queryOne(this.ellipsisSelector, this.element);
         if (ellipsis) {
           ellipsis.setAttribute('aria-hidden', 'false');
