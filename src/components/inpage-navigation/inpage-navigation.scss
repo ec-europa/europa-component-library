@@ -259,8 +259,7 @@ $inpage-navigation: null !default;
       'item',
       'border',
       'start',
-      'active',
-      's'
+      'focus'
     );
     border-radius: 0;
     color: map.get($inpage-navigation, 'item', 'color', 's');
@@ -274,15 +273,14 @@ $inpage-navigation: null !default;
         'item',
         'border',
         'start',
-        'active',
-        'l'
+        'focus'
       );
       border-inline-end: map.get(
         $inpage-navigation,
         'item',
         'border',
         'end',
-        'active'
+        'focus'
       );
       color: map.get($inpage-navigation, 'item', 'color', 'l');
       outline-color: var(--cm-border-primary, var(--c-p));
@@ -314,6 +312,13 @@ $inpage-navigation: null !default;
     color: map.get($inpage-navigation, 'item', 'color-active');
 
     &:focus-visible {
+      border-inline-start: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'start',
+        'focus'
+      );
       outline-color: map.get($inpage-navigation, 'outline', 'color-active');
       outline-offset: -2px;
     }

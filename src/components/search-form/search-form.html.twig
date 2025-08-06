@@ -62,9 +62,10 @@
   {% endif %}
   {% if _button is not empty %}
     {% include '@ecl/button/button.html.twig' with _button|merge({
+      hide_label: true,
       icon: {
         name: 'search',
-        size: 'xs',
+        size: 'm',
       },
       extra_classes: 'ecl-search-form__button' ~ ( _button.extra_classes ? ' ' ~ _button.extra_classes : ''),
       }) only %}
