@@ -168,18 +168,9 @@ $spotlight: null !default;
 }
 
 @container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
-  .ecl-spotlight--full-width {
-    .ecl-spotlight__picture-container,
-    .ecl-spotlight .ecl-spotlight__image {
-      aspect-ratio: 3/1;
-
-      --css-aspect-ratio: 3/1;
-    }
-
-    .ecl-spotlight__title {
-      max-width: 950px;
-      padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
-    }
+  .ecl-spotlight__title {
+    max-width: 950px;
+    padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
   }
 
   .ecl-spotlight__header {
@@ -190,5 +181,14 @@ $spotlight: null !default;
     mask-image: url("data:image/svg+xml;utf8,<svg width='232' height='122' viewBox='0 0 232 122' xmlns='http://www.w3.org/2000/svg'><path d='M212.327 84.3105L0.469702 104.936V113.47V122.004L232 104.936L229.761 0.200012H215.46L212.327 84.3105Z' /></svg>");
     height: 122px;
     width: 232px;
+  }
+}
+
+@container ecl-spotlight (width >= #{map.get($theme, 'container', 'xl')}) {
+  .ecl-spotlight__picture-container,
+  .ecl-spotlight .ecl-spotlight__image {
+    aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
   }
 }
