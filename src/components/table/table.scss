@@ -216,6 +216,10 @@ $table: null !default;
       }
     }
 
+    .ecl-table__row:last-of-type .ecl-table__cell:last-of-type {
+      margin-block-end: 0;
+    }
+
     .ecl-table__cell[data-ecl-table-header-group] {
       display: grid;
       grid-template-columns:
@@ -249,6 +253,7 @@ $table: null !default;
       background-color: transparent;
     }
 
+    // stylelint-disable-next-line no-descending-specificity
     .ecl-table__cell:nth-of-type(even) {
       background-color: map.get($table, 'zebra-background');
     }
