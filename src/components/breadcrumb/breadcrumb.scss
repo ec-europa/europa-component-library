@@ -124,7 +124,7 @@ $breadcrumb: null !default;
 }
 
 // Alter some element on mobile when collapsed
-@include breakpoints.down('m') {
+@include breakpoints.down('s') {
   .ecl-breadcrumb--collapsed {
     .ecl-breadcrumb__icon {
       transform: rotateZ(270deg);
@@ -140,16 +140,14 @@ $breadcrumb: null !default;
       margin-inline-start: 0;
     }
   }
-}
 
-@include breakpoints.down('s') {
   .ecl-breadcrumb__segment--ellipsis {
     display: none;
   }
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('m') {
   .ecl-breadcrumb__icon {
     transform: rotateZ(90deg);
   }
