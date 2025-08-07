@@ -68,6 +68,7 @@ export class Breadcrumb {
     this.staticElements = null;
     this.expandableElements = null;
     this.resizeTimer = null;
+    this.breakpoint = 995;
 
     // Bind `this` for use in callbacks
     this.handleClickOnEllipsis = this.handleClickOnEllipsis.bind(this);
@@ -130,7 +131,7 @@ export class Breadcrumb {
   }
 
   /**
-   * Invoke event listener attached on the elipsis. Traslates to a full expand.
+   * Invoke event listener attached on the elipsis. Translates to a full expand.
    */
   handleClickOnEllipsis() {
     return this.handleFullExpand();
@@ -143,7 +144,10 @@ export class Breadcrumb {
     const visibilityMap = await this.computeVisibilityMap();
     if (!visibilityMap) return;
 
-    if (visibilityMap.expanded === true) {
+    if (
+      visibilityMap.expanded === true &&
+      Math.floor(this.element.getBoundingClientRect().width) > this.breakpoint
+    ) {
       this.handleFullExpand();
     } else {
       this.handlePartialExpand(visibilityMap);
@@ -174,6 +178,15 @@ export class Breadcrumb {
    * @param {Object} visibilityMap
    */
   handlePartialExpand(visibilityMap) {
+    if (
+      Math.floor(this.element.getBoundingClientRect().width) <= this.breakpoint
+    ) {
+      this.expandableElements.forEach((item) => {
+        item.setAttribute('aria-hidden', 'true');
+      });
+      return;
+    }
+
     if (!visibilityMap) return;
 
     this.element.classList.add('ecl-breadcrumb--collapsed');
@@ -184,22 +197,16 @@ export class Breadcrumb {
     if (this.onPartialExpand) {
       this.onPartialExpand(isItemVisible);
     } else {
-      if (Math.floor(this.element.getBoundingClientRect().width) > 995) {
-        const ellipsis = queryOne(this.ellipsisSelector, this.element);
-        if (ellipsis) {
-          ellipsis.setAttribute('aria-hidden', 'false');
-        }
-        this.expandableElements.forEach((item, index) => {
-          item.setAttribute(
-            'aria-hidden',
-            isItemVisible[index] ? 'false' : 'true',
-          );
-        });
-      } else {
-        this.expandableElements.forEach((item) => {
-          item.setAttribute('aria-hidden', 'true');
-        });
+      const ellipsis = queryOne(this.ellipsisSelector, this.element);
+      if (ellipsis) {
+        ellipsis.setAttribute('aria-hidden', 'false');
       }
+      this.expandableElements.forEach((item, index) => {
+        item.setAttribute(
+          'aria-hidden',
+          isItemVisible[index] ? 'false' : 'true',
+        );
+      });
     }
   }
 
