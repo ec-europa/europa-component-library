@@ -5,16 +5,16 @@ $modal: (
   overlay: var(--cm-surface-lowest-variant),
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-4),
-  font: var(--f-m),
+  font: 'body-m',
   header: (
-    font: var(--f-2xl),
-    font-weight: map.get($font-weight, 'light'),
+    font: 'heading4',
+    font-weight: map.get($font-weight, 'regular'),
     padding-mobile: var(--s-5xl) var(--s-5xl) var(--s-xl) var(--s-5xl),
     padding-desktop: var(--s-5xl) var(--s-5xl) var(--s-xl) var(--s-5xl),
   ),
   close: (
-    margin-top: calc(-1 * var(--s-xl)),
-    margin-end: calc(-1 * var(--s-xl)),
+    margin-top: -2.25rem,
+    margin-end: -2.375rem,
   ),
   body: (
     container-spacing-top: var(--s-5xl),

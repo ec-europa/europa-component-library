@@ -11,7 +11,7 @@ npm install --save @ecl/modal
 - **"id"** (string) (default: random) id of the modal
 - **"toggle_id"** (string) (default: random) id of the element to toggle the modal
 - **"variant"** (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
-- **"size"** (string) (default: 'l'): Size of the modal. Could be 's' or 'l'
+- **"size"** (string) (default: 'l'): Size of the modal. Could be 's', 'm', 'l' or 'full'
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
 - **"close"** (object of type "button") (default: {}): close button; label has to be provided for screen reader
 - **"buttons"** (array) (default: {}) Array of ECL Button, displayed in the modal footer
