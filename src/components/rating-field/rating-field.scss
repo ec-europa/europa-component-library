@@ -9,6 +9,7 @@
 // Exposed variables
 $theme: null !default;
 $rating-field: null !default;
+$stroke-width: 4px;
 
 .ecl-rating-field {
   display: inline-flex;
@@ -58,7 +59,7 @@ $rating-field: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-rating-field__input {
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip-path: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   height: 1px;
   margin: -1px;
@@ -85,7 +86,11 @@ $rating-field: null !default;
   bottom: 1px;
   display: none;
   fill: map.get($rating-field, 'checked-color');
+  height: calc(2rem - #{$stroke-width});
   position: relative;
+  stroke: map.get($rating-field, 'stroke-color');
+  stroke-width: $stroke-width;
+  width: calc(2rem - #{$stroke-width});
 }
 
 // stylelint-disable-next-line no-descending-specificity
@@ -97,10 +102,14 @@ $rating-field: null !default;
 
 @include breakpoints.up('m') {
   .ecl-rating-field {
-    .ecl-rating-field__icon-filled,
     .ecl-rating-field__icon-outline {
       width: 1.5rem;
       height: 1.5rem;
+    }
+
+    .ecl-rating-field__icon-filled {
+      width: calc(1.5rem - #{$stroke-width});
+      height: calc(1.5rem - #{$stroke-width});
     }
   }
 

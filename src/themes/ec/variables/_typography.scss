@@ -22,6 +22,7 @@ $typography: (
     'desktop': (
       'size': var(--fs-10xl),
       'line-height': var(--lh-10xl),
+      'letter-spacing': map.get($letter-spacing, '3xl'),
     ),
     'font-weight': map.get($font-weight, 'light'),
   ),

@@ -279,6 +279,7 @@
             <div class="ecl-site-header__custom-action" aria-live="polite">
               {% set is_overlay = _custom_action.overlay is defined and _custom_action.overlay is not empty %}
               {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
+              {% set has_hidden_label = _custom_action.link.hide_label is defined and _custom_action.link.hide_label is not empty %}
 
               {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
               {% set link_extra_attributes = link_extra_attributes|merge([
@@ -293,25 +294,27 @@
               {% endif %}
 
               {% if has_icon %}
-                {% set icon_extra_classes = _custom_action.icon.extra_classes|default('') %}
-                {% set icon_extra_classes = icon_extra_classes ~ ' ecl-site-header__icon' %}
                 {% set icon = _custom_action.icon|merge({
-                  extra_classes: icon_extra_classes
+                  extra_classes: (_custom_action.icon.extra_classes|default('')) ~ ' ecl-site-header__icon'
                 }) %}
               {% else %}
                 {% set icon = null %}
               {% endif %}
 
+              {% set base_classes = 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary' %}
+              {% if has_icon and has_hidden_label %}
+                {% set base_classes = base_classes ~ ' ecl-button--icon-only' %}
+              {% endif %}
+              {% set user_classes = _custom_action.link.extra_classes|default('') %}
+              {% set full_classes = (user_classes ? user_classes ~ ' ' : '') ~ base_classes %}
+
               {% set custom_action_link = {
-                link: _custom_action.link|merge({ type: "standalone" }),
+                link: _custom_action.link|merge({ type: 'standalone' }),
                 icon: icon,
                 extra_attributes: link_extra_attributes,
-                extra_classes: (
-                  _custom_action.link.extra_classes is defined and _custom_action.link.extra_classes is not empty
-                    ? _custom_action.link.extra_classes ~ ' ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
-                    : 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary'
-                )
+                extra_classes: full_classes
               } %}
+
               {% include '@ecl/link/link.html.twig' with custom_action_link only %}
 
               {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
@@ -360,7 +363,7 @@
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
                     name: 'logged-in',
-                    size: 's'
+                    size: 'm'
                   },
                   as_image: true,
                   extra_classes: 'ecl-site-header__icon',
@@ -397,7 +400,7 @@
                   icon: {
                     path: _icon_path,
                     name: 'log-in',
-                    size: 's'
+                    size: 'm'
                   },
                   as_image: true,
                   extra_classes: 'ecl-site-header__icon',
@@ -434,7 +437,7 @@
                 icon: {
                   name: 'search',
                   path: _icon_path,
-                  size: 's',
+                  size: 'm',
                 },
                 as_image: true,
                 extra_classes: 'ecl-site-header__icon',
