@@ -4,7 +4,13 @@
 // stylelint-disable length-zero-no-unit
 $breadcrumb: (
   padding-vertical: var(--s-m),
-  typography: 'heading6',
+  typography: (
+    'mobile-xs': var(--f-m),
+    'tablet': var(--f-s),
+  ),
+  link-color: var(--c-p),
+  link-color-hover: var(--c-p-160),
+  link-style: none,
   last-link-color: var(--c-d-80),
   icon-color: var(--c-d-80),
   icon-spacing: var(--s-xs),

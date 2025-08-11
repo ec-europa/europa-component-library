@@ -1,22 +1,17 @@
 {
-  "name": "@ecl/menu",
+  "name": "@ecl/spotlight",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "5.0.0-alpha.15",
-  "description": "ECL Menu",
+  "description": "ECL Spotlight",
+  "style": "spotlight.scss",
+  "dependencies": {
+    "@ecl/grid": "5.0.0-alpha.15",
+    "@ecl/mixins-typography": "5.0.0-alpha.15",
+    "@ecl/picture": "5.0.0-alpha.15"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "main": "menu.js",
-  "module": "menu.js",
-  "style": "menu.scss",
-  "dependencies": {
-    "@ecl/button": "5.0.0-alpha.15",
-    "@ecl/dom-utils": "5.0.0-alpha.15",
-    "@ecl/event-manager": "5.0.0-alpha.15",
-    "@ecl/link": "5.0.0-alpha.15",
-    "bowser": "2.12.0",
-    "focus-trap": "7.6.5"
   },
   "repository": {
     "type": "git",
@@ -29,7 +24,6 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system",
-    "twig"
+    "design-system"
   ]
 }
