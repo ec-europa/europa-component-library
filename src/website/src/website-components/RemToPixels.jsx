@@ -8,11 +8,7 @@ function RemToPixels({ rem }) {
     const baseFontSize = parseFloat(
       getComputedStyle(document.documentElement).fontSize,
     );
-    if (typeof rem === 'string') {
-      setPixels(rem.replace('rem', '') * baseFontSize);
-    } else {
-      setPixels(rem * baseFontSize);
-    }
+    setPixels(rem * baseFontSize);
   }, [rem]);
 
   return <>{pixels}</>;
