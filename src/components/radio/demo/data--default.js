@@ -11,7 +11,7 @@ module.exports = {
   label: 'Select your country',
   invalid_text: 'This is the error message',
   invalid_icon: {
-    name: 'error',
+    name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
   helper_text: 'Helper text for the group',

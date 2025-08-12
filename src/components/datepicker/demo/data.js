@@ -2,7 +2,7 @@ module.exports = {
   label: 'Label',
   helper_text: "This is the input's helper text.",
   invalid_icon: {
-    name: 'error',
+    name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
   invalid_text: 'This is the error message',

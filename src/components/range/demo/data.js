@@ -12,7 +12,7 @@ module.exports = {
   label: 'Range slider',
   invalid_text: 'This is the error message',
   invalid_icon: {
-    name: 'error',
+    name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
   helper_text: "This is the input's helper text.",
