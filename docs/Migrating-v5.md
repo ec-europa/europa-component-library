@@ -149,6 +149,7 @@ The `data-ecl-title-link` attribute used by the js script to identify titles con
 - Featured item footer has been removed, as it is no longer in use.
 - Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
+- New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
 
 ### Form
 
