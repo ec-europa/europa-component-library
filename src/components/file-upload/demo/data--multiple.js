@@ -11,7 +11,6 @@ module.exports = {
   required_text: '(required)',
   optional_text: '(optional)',
   required: true,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   input: {
@@ -21,6 +20,5 @@ module.exports = {
     button_choose_label: 'Choose files',
     button_replace_label: 'Replace files',
     multiple: true,
-    required: true,
   },
 };

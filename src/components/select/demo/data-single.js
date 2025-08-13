@@ -9,13 +9,11 @@ module.exports = {
   required_text: '(required)',
   optional_text: '(optional)',
   required: true,
-  label_aria_required: 'required',
   input: {
     input_type: 'select',
     width: 'm',
     name: 'country',
     id: 'select-default',
-    required: true,
     options: [
       {
         optgroup: {
