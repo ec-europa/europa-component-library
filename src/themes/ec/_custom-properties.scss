@@ -189,6 +189,9 @@
   --ecl-spacing-8xl: #{map.get($spacing, '8xl')};
   --ecl-spacing-9xl: #{map.get($spacing, '9xl')};
   --ecl-spacing-10xl: #{map.get($spacing, '10xl')};
+  --ecl-spacing-11xl: #{map.get($spacing, '11xl')};
+  --ecl-spacing-12xl: #{map.get($spacing, '12xl')};
+  --ecl-spacing-13xl: #{map.get($spacing, '13xl')};
 
   // shadow
   --ecl-shadow-1: #{map.get($shadow, '1')};
@@ -386,6 +389,9 @@
   --s-8xl: var(--ecl-spacing-8xl);
   --s-9xl: var(--ecl-spacing-9xl);
   --s-10xl: var(--ecl-spacing-10xl);
+  --s-11xl: var(--ecl-spacing-11xl);
+  --s-12xl: var(--ecl-spacing-12xl);
+  --s-13xl: var(--ecl-spacing-13xl);
 
   // shadow
   --sh-1: var(--ecl-shadow-1);
@@ -428,9 +434,14 @@
   --cm-surface-neutral-lowest: var(--c-n-50);
   --cm-surface-neutral-low: var(--c-n-75);
   --cm-surface-neutral-medium: var(--c-n-200);
+  --cm-surface-grey-low: var(--c-g-50);
+  --cm-surface-status-error-lowest: var(--c-er-50);
   --cm-surface-status-error: var(--c-er-600);
+  --cm-surface-status-warning-lowest: var(--c-wa-50);
   --cm-surface-status-warning: var(--c-wa-500);
+  --cm-surface-status-success-lowest: var(--c-su-50);
   --cm-surface-status-success: var(--c-su-700);
+  --cm-surface-status-info-lowest: var(--c-in-25);
   --cm-surface-status-info: var(--c-in-950);
 
   // on surface
@@ -449,7 +460,7 @@
   --cm-on-surface-neutral-low: var(--c-n-75);
   --cm-on-surface-neutral-medium: var(--c-n-300);
   --cm-on-surface-neutral-highest: var(--c-n-950);
-  --cm-on-surface-grey-medium: var(--c-g-300);
+  --cm-on-surface-grey-medium: var(--c-g-500);
   --cm-on-surface-grey: var(--c-g-600);
   --cm-on-surface-status-error: var(--c-er-600);
   --cm-on-surface-status-warning: var(--c-wa-500);
@@ -465,8 +476,8 @@
   --cm-border-primary: var(--c-p-600);
   --cm-border-neutral: var(--c-n-75);
   --cm-border-grey-lowest: var(--c-g-100);
-  --cm-border-grey-medium: var(--c-g-300);
-  --cm-border-grey: var(--c-g-400);
+  --cm-border-grey-medium: var(--c-g-500);
+  --cm-border-grey: var(--c-g-600);
   --cm-border-status-error: var(--c-er-600);
   --cm-border-status-warning: var(--c-wa-500);
   --cm-border-status-success: var(--c-su-700);
