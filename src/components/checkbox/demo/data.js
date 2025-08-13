@@ -10,7 +10,6 @@ module.exports = {
   invalid: false,
   required_text: '(required)',
   required: true,
-  label_aria_required: 'required',
   name: 'checkbox-default',
   invalid_icon: {
     name: 'error',

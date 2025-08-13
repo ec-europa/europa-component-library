@@ -2,7 +2,6 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   label: 'Do you need help?',
@@ -17,7 +16,6 @@ module.exports = {
     input_type: 'radio',
     name: 'radio-group-1',
     binary: true,
-    required: true,
     items: [
       {
         id: 'radio-binary-1',

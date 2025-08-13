@@ -8,7 +8,6 @@ module.exports = {
   sr_invalid_icon: 'Error',
   helper_text: "This is the input's helper text.",
   required: false,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   required_text: '(required)',
