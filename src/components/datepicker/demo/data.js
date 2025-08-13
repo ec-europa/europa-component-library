@@ -9,7 +9,6 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   input: {
@@ -18,7 +17,6 @@ module.exports = {
     input_type: 'datepicker',
     placeholder: 'DD-MM-YYYY',
     autoinit: true,
-    required: true,
     default_value: '03-10-2023',
   },
 };
