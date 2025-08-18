@@ -2,6 +2,7 @@
 {#
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
+  - "id" (string) (default: random)
   - "type" (optional) (can be 'highlight'),
   - "title" (string) (default: ''),
   - "description" (string) (default: ''),
@@ -21,6 +22,7 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('ecl-featured-item-' ~ random()) %}
 {% set _css_class = 'ecl-featured-item' %}
 {% set _css_container_class = 'ecl-featured-item__container' %}
 {% set _color_mode = color_mode|default('') %}
@@ -84,14 +86,22 @@
 
     <div class="ecl-featured-item__item">
     {% if _title is not empty %}
-      <div class="ecl-featured-item__title">{{- _title -}}</div>
+      <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
     {% endif %}
     {% if _description is not empty %}
       <div class="ecl-featured-item__description">{{ _description }}</div>
     {% endif %}
     {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
+      {% set _link_attributes = _link.extra_attributes|default({}) %}
+      {% if _title is not empty %}
+        {% set _link_attributes = _link_attributes|merge([
+          { name: 'aria-describedby', value: _id ~ '-title' },
+          ])
+        %}
+      {% endif %}
       {% include '@ecl/link/link.html.twig' with _link|merge({
         extra_classes: 'ecl-featured-item__link',
+        extra_attributes: _link_attributes,
       }) only %}
     {% endif %}
     </div>

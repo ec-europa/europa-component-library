@@ -5,7 +5,6 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   label: 'Select your country',
@@ -19,7 +18,6 @@ module.exports = {
     id: 'radio-default',
     input_type: 'radio',
     name: 'radio-group-1',
-    required: true,
     items: [
       {
         id: 'radio-default-1',

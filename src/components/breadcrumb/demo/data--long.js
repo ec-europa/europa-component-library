@@ -9,6 +9,7 @@ module.exports = {
     { label: 'Parent Page label', path: exampleLink },
     { label: 'Parent Page label', path: exampleLink },
     { label: 'Parent Page label', path: exampleLink },
+    { label: 'Parent Page label', path: exampleLink },
     { label: 'Current Page Label' },
   ],
   navigation_text: 'You are here:',
