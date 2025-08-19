@@ -16,6 +16,7 @@ npm install --save @ecl/datepicker
 - **"id"** (string) (default: random)
 - **"min"** (string) (default: '')
 - **"max"** (string) (default: '')
+- **"first_day_of_week"** (string) (default: 1)
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker

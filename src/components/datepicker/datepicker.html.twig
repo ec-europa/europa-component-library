@@ -9,6 +9,7 @@
     - "disabled" (boolean) (default: false)
     - "min" (string: YYYY-MM-DD) (default: '')
     - "max" (string: YYYY-MM-DD) (default: '')
+    - "first_day_of_week": (string) (default: 1)
     - "invalid" (boolean) (default: false)
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
@@ -28,6 +29,7 @@
 {% set _id = id|default('ecl-datepicker-' ~ random()) %}
 {% set _min = min|default('') %}
 {% set _max = max|default('') %}
+{% set _first_day_of_week = first_day_of_week|default(1) %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _extra_attributes = '' %}
 
@@ -76,6 +78,7 @@
   >
     <duet-date-picker
       identifier="{{ _id }}"
+      first-day-of-week="{{  _first_day_of_week }}"
     {% if _min %}
       min="{{ _min }}"
     {% endif %}
