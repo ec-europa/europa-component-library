@@ -224,13 +224,11 @@ Default.render = async (args) => {
   return renderedCard;
 };
 Default.render = async (args) => {
-  const renderedCard = `<div class="ecl-container">
-    <div class="ecl-row">
+  const renderedCard = `<div class="ecl-row">
       <div class="ecl-col-12 ecl-col-m-6 ecl-col-xl-4">
         ${await card(prepareData(dataCard, args))}
       </div>
-    </div>
-  </div>`;
+    </div>`;
 
   return renderedCard;
 };
