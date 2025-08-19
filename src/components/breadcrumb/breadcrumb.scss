@@ -116,8 +116,7 @@ $breadcrumb: null !default;
 .ecl-breadcrumb__icon {
   fill: map.get($breadcrumb, 'icon-color');
   flex-shrink: 0;
-  margin-inline-start: map.get($breadcrumb, 'icon-spacing');
-  margin-inline-end: map.get($breadcrumb, 'icon-spacing');
+  margin-inline: map.get($breadcrumb, 'icon-spacing-mobile');
   transform: rotateZ(270deg);
   vertical-align: text-bottom;
 }
@@ -135,6 +134,7 @@ $breadcrumb: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-breadcrumb__icon {
+    margin-inline: map.get($breadcrumb, 'icon-spacing-desktop');
     transform: rotateZ(90deg);
   }
 
