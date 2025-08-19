@@ -138,6 +138,17 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 
 The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
 
+### Datepicker
+
+ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
+
+`<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+or
+`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+
+The markup is now using the custom element defined by duet js:
+`<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
+
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.

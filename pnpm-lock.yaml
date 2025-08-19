@@ -356,14 +356,10 @@ importers:
   src/components/date-block: {}
 
   src/components/datepicker:
-    dependencies:
-      '@ecl/icon':
-        specifier: 5.0.0-alpha.15
-        version: link:../icon
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
     devDependencies:
+      '@duetds/date-picker':
+        specifier: 1.4.0
+        version: 1.4.0
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.15
         version: link:../../mixins/typography
@@ -3572,6 +3568,10 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
+  '@duetds/date-picker@1.4.0':
+    resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
+    engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
+
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
 
@@ -4753,6 +4753,11 @@ packages:
 
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
+
+  '@stencil/core@2.22.3':
+    resolution: {integrity: sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng==}
+    engines: {node: '>=12.10.0', npm: '>=6.0.0'}
+    hasBin: true
 
   '@storybook/addon-a11y@8.6.14':
     resolution: {integrity: sha512-fozv6enO9IgpWq2U8qqS8MZ21Nt+MVHiRQe3CjnCpBOejTyo/ATm690PeYYRVHVG6M/15TVePb0h3ngKQbrrzQ==}
@@ -12842,6 +12847,10 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
+  '@duetds/date-picker@1.4.0':
+    dependencies:
+      '@stencil/core': 2.22.3
+
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 
   '@ecl/resources-flag-icons@5.0.0-alpha.10': {}
@@ -14233,6 +14242,8 @@ snapshots:
       - webpack-cli
 
   '@socket.io/component-emitter@3.1.2': {}
+
+  '@stencil/core@2.22.3': {}
 
   '@storybook/addon-a11y@8.6.14(storybook@8.6.14(prettier@3.6.2))':
     dependencies:

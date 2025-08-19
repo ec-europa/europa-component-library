@@ -1,9 +1,7 @@
-/* global moment */
-
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.datepickerFormat Format for dates
+ * @param {String} options.format dateAdapter object with functions
  */
 export class Datepicker {
   /**
@@ -25,13 +23,18 @@ export class Datepicker {
     element,
     {
       format = '',
-      theme = 'ecl-datepicker-theme',
-      yearRange = 40,
-      reposition = false,
-      attachResizeListener = true,
-      i18n = {
+      localization = {
         previousMonth: 'Previous Month',
         nextMonth: 'Next Month',
+        dayNames: [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ],
         months: [
           'January',
           'February',
@@ -56,9 +59,44 @@ export class Datepicker {
           'Saturday',
         ],
         weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        monthNames: [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ],
+        monthNamesShort: [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ],
+        placeholder: 'DD-MM-YYYY',
+        prevMonthLabel: 'Previous month',
+        nextMonthLabel: 'Next month',
+        monthSelectLabel: 'Month',
+        yearSelectLabel: 'Year',
+        closeLabel: 'Close window',
+        calendarHeading: 'Choose a date',
+        selectedDateMessage: 'Selected date is',
+        buttonLabel: 'Choose date',
       },
-      showDaysInNextAndPreviousMonths = true,
-      enableSelectionDaysInNextAndPreviousMonths = true,
     } = {},
   ) {
     // Check element
@@ -72,30 +110,18 @@ export class Datepicker {
 
     // Options
     this.picker = null;
-    this.resizeTimer = null;
-    this.pikadayEl = null;
     this.format = format;
-    this.theme = theme;
-    this.yearRange = yearRange;
-    this.i18n = i18n;
-    this.showDaysInNextAndPreviousMonths = showDaysInNextAndPreviousMonths;
-    this.enableSelectionDaysInNextAndPreviousMonths =
-      enableSelectionDaysInNextAndPreviousMonths;
-    this.reposition = reposition;
+    this.localization = localization;
     this.direction = 'ltr';
-    this.attachResizeListener = attachResizeListener;
-
-    // Bindings
-    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
    * Initialise component.
    */
   init() {
-    if (typeof window.Pikaday === 'undefined') {
+    if (!customElements.get('duet-date-picker')) {
       throw new TypeError(
-        'Pikaday is not available. Make sure to include Pikaday in your project if you want to use the ECL datepicker',
+        'Duet datepicker is not available. Make sure to include the duet datepicker js in your project if you want to use the ECL datepicker',
       );
     }
     if (!ECL) {
@@ -103,94 +129,40 @@ export class Datepicker {
     }
     ECL.components = ECL.components || new Map();
 
-    this.direction = getComputedStyle(this.element).direction;
+    Datepicker.applyCustomizations = () => {
+      this.picker = this.element.querySelector('duet-date-picker');
 
-    if (this.attachResizeListener) {
-      window.addEventListener('resize', this.handleResize);
-    }
-
-    /**
-     * Resize logic.
-     *
-     * @param {HTMLElement} el - The pikaday dropdown.
-     */
-    Datepicker.resizeLogic = (el) => {
-      this.pikadayEl = el;
-      const vw = Math.max(
-        document.documentElement.clientWidth || 0,
-        window.innerWidth || 0,
-      );
-      const { direction } = getComputedStyle(el);
-      const elRect = el.getBoundingClientRect();
-
-      if (direction === 'rtl') {
-        const pickerMargin = vw - elRect.right;
-        if (vw < 768) {
-          el.style.left = `${pickerMargin}px`;
-        } else {
-          el.style.left = 'auto';
-        }
-      } else {
-        const pickerMargin = elRect.left;
-        if (vw < 768) {
-          el.style.right = `${pickerMargin}px`;
-        } else {
-          el.style.right = 'auto';
-        }
-      }
-    };
-
-    const options = {
-      field: this.element,
-      yearRange: this.yearRange,
-      firstDay: 1,
-      i18n: this.i18n,
-      theme: this.theme,
-      reposition: this.reposition,
-      isRTL: this.direction === 'rtl',
-      position: this.direction === 'rtl' ? 'bottom right' : 'bottom left',
-      showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
-      enableSelectionDaysInNextAndPreviousMonths:
-        this.enableSelectionDaysInNextAndPreviousMonths,
-    };
-
-    if (this.format !== '') {
-      options.format = this.format;
-    } else {
-      options.toString = (date) => {
-        const day = `0${date.getDate()}`.slice(-2);
-        const month = `0${date.getMonth() + 1}`.slice(-2);
-        const year = date.getFullYear();
-
-        return `${day}-${month}-${year}`;
-      };
-    }
-    // eslint-disable-next-line no-undef
-    this.picker = new Pikaday({
-      ...options,
-      parse(input, format) {
-        if (!options.format) {
-          // Here we are using the default DD-MM-YYYY
-          const [day, month, year] = input.split('-').map(Number);
-          const fullYear = year < 100 ? 2000 + year : year;
-          return new Date(fullYear, month - 1, day);
-        }
-        // If we have a custom format we rely on moment.js
-        if (typeof moment !== 'undefined' && input !== '') {
-          const parsedDate = moment(input, format, false);
-
-          if (parsedDate.isValid()) {
-            return parsedDate.toDate();
+      const DEFAULT_DATE_ADAPTER = {
+        parse(value = '', createDate) {
+          const DATE_FORMAT_EU = /^(\d{2})-(\d{2})-(\d{4})$/;
+          const matches = value.match(DATE_FORMAT_EU);
+          if (matches) {
+            return createDate(matches[3], matches[2], matches[1]);
           }
-        }
+        },
+        format(date) {
+          const pad = (n) => String(n).padStart(2, '0');
+          return `${pad(date.getDate())}-${pad(date.getMonth() + 1)}-${date.getFullYear()}`;
+        },
+      };
 
-        return input;
-      },
-      onOpen() {
-        // Call the static method to check styles.
-        Datepicker.resizeLogic(this.el);
-      },
-    });
+      this.direction = getComputedStyle(this.element).direction;
+
+      if (!this.picker) return;
+
+      if (!this.picker.identifier) {
+        this.picker.identifier = `ecl-datepicker-${Math.random().toString(36).substr(2, length)}`;
+      }
+      if (this.element.dataset.value) {
+        this.picker.value = this.element.dataset.value;
+      }
+
+      this.picker.direction = this.direction === 'ltr' ? 'right' : 'left';
+      this.picker.localization = this.localization;
+      this.picker.dateAdapter = this.format || DEFAULT_DATE_ADAPTER;
+    };
+
+    setTimeout(Datepicker.applyCustomizations, 50);
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -203,30 +175,10 @@ export class Datepicker {
    * Destroy component.
    */
   destroy() {
-    if (this.picker) {
-      this.picker.destroy();
-      this.picker = null;
-    }
-    if (this.attachResizeListener) {
-      window.removeEventListener('resize', this.handleResize);
-    }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
-  }
-
-  /**
-   * Instance method to handle resizing with debouncing
-   */
-  handleResize() {
-    clearTimeout(this.resizeTimer);
-
-    this.resizeTimer = setTimeout(() => {
-      if (this.pikadayEl) {
-        Datepicker.resizeLogic(this.pikadayEl);
-      }
-    }, 150);
   }
 }
 

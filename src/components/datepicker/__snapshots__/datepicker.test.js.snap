@@ -4,22 +4,14 @@ exports[`Date picker Disabled renders correctly 1`] = `
 <jest>
   <div
     class="ecl-datepicker"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
+    <duet-date-picker
       disabled=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -29,21 +21,14 @@ exports[`Date picker Invalid renders correctly 1`] = `
 <jest>
   <div
     class="ecl-datepicker ecl-datepicker--invalid"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
+    invalid=""
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+    <duet-date-picker
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -53,21 +38,13 @@ exports[`Date picker Optional renders correctly 1`] = `
 <jest>
   <div
     class="ecl-datepicker"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+    <duet-date-picker
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -77,23 +54,15 @@ exports[`Date picker Optional renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-datepicker"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      data-test="data-test-value"
-      data-test-1="data-test-value-1"
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+    <duet-date-picker
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -103,21 +72,13 @@ exports[`Date picker Optional renders correctly with extra class names 1`] = `
 <jest>
   <div
     class="ecl-datepicker custom-class custom-class--test"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+    <duet-date-picker
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -127,21 +88,13 @@ exports[`Date picker Optional renders correctly with extra group class names 1`]
 <jest>
   <div
     class="ecl-datepicker"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+    <duet-date-picker
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -151,21 +104,13 @@ exports[`Date picker Optional renders correctly with extra label class names 1`]
 <jest>
   <div
     class="ecl-datepicker"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
+    <duet-date-picker
+      identifier="example-input-id-1"
     />
   </div>
 </jest>
@@ -175,22 +120,14 @@ exports[`Date picker Required renders correctly 1`] = `
 <jest>
   <div
     class="ecl-datepicker"
+    data-ecl-auto-init="Datepicker"
+    data-ecl-datepicker-toggle=""
+    data-placeholder="DD-MM-YYYY"
+    data-value="2025-08-30"
   >
-    <input
-      autocomplete="off"
-      class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-      data-ecl-auto-init="Datepicker"
-      data-ecl-datepicker-toggle=""
-      id="example-input-id-1"
-      name="example-input-id-1"
-      placeholder="DD-MM-YYYY"
+    <duet-date-picker
+      identifier="example-input-id-1"
       required=""
-      type="text"
-      value="03-10-2023"
-    />
-    <span
-      aria-hidden="true"
-      class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
     />
   </div>
 </jest>

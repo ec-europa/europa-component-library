@@ -1,6 +1,6 @@
 module.exports = {
   label: 'Label',
-  helper_text: "This is the input's helper text.",
+  helper_text: 'Format: dd-mm-yyyy',
   invalid_icon: {
     name: 'error',
   },
@@ -17,6 +17,6 @@ module.exports = {
     input_type: 'datepicker',
     placeholder: 'DD-MM-YYYY',
     autoinit: true,
-    default_value: '03-10-2023',
+    default_value: '2025-08-30',
   },
 };

@@ -9,7 +9,6 @@
     - "required" (boolean) (default: false)
     - "disabled" (boolean) (default: false)
     - "invalid" (boolean) (default: false)
-    - "type" (string) (default: 'text')
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []) Extra attributes for the datepicker
@@ -21,15 +20,12 @@
 
 {% set _autoinit = autoinit|default(false) %}
 {% set _css_class = 'ecl-datepicker' %}
-{% set _default_value = default_value|default('') %}
-{% set _input_class = 'ecl-datepicker__field ecl-text-input ecl-text-input--s' %}
-{% set _id = id|default('ecl-datepicker-' ~ random()) %}
-{% set _name = name|default('') %}
-{% set _type = type|default('text') %}
-{% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _invalid = invalid|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
+{% set _default_value = default_value|default('') %} {# YYYY-MM-DD #}
+{% set _id = id|default('ecl-datepicker-' ~ random()) %}
+{% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -58,45 +54,32 @@
   {% endfor %}
 {% endif %}
 
-  <div class="{{ _css_class }}">
-    <input
-      autocomplete="off"
-      data-ecl-datepicker-toggle
-    {% if _autoinit %}
-      data-ecl-auto-init="Datepicker"
-    {% endif %}
-    {% if _id is not empty %}
-      id="{{ id }}"
-    {% endif %}
-    {% if _name is not empty %}
-      name="{{ _name }}"
-    {% endif %}
-    {% if _type is not empty %}
-      type={{ _type }}
-    {% endif %}
-      class="{{ _input_class }}"
+  <div 
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  {% if _autoinit %}
+    data-ecl-auto-init="Datepicker"
+  {% endif %}
+  {% if _invalid %}
+    invalid
+  {% endif %}
+  {% if _default_value is not empty %}
+    data-value="{{ _default_value }}"
+  {% endif %}
+  {% if _placeholder is not empty %}
+    data-placeholder="{{ _placeholder }}"
+  {% endif %}
+    data-ecl-datepicker-toggle
+  >
+    <duet-date-picker
+      identifier="{{ _id }}"
     {% if _disabled %}
       disabled
     {% endif %}
     {% if _required %}
       required
     {% endif %}
-    {% if _placeholder is not empty %}
-      placeholder="{{ _placeholder }}"
-    {% endif %}
-    {% if _default_value is not empty %}
-      value="{{ _default_value }}"
-    {% endif %}
-    {{ _extra_attributes|raw }}
-    />
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: {
-        name: 'calendar',
-        size: 'xs',
-      },
-      extra_classes: 'ecl-datepicker__icon',
-    } only %}
+    ></duet-date-picker>
   </div>
-
 
 {% endapply %}
