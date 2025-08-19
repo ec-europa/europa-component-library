@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -14,9 +15,10 @@ $table: null !default;
 %ecl-table {
   border-collapse: collapse;
   color: map.get($table, 'table', 'color');
-  font: map.get($table, 'table', 'font');
   margin: 0;
   width: 100%;
+
+  @include mixins.responsive-font(map.get($table, 'table', 'font'));
 }
 
 .ecl-table-responsive {
@@ -25,7 +27,7 @@ $table: null !default;
 
 .ecl-table__head,
 %ecl-table__head {
-  border-bottom: map.get($table, 'head', 'border');
+  border-block-end: map.get($table, 'head', 'border');
   border-inline-end: 1px solid map.get($table, 'head', 'background');
   background-color: map.get($table, 'head', 'background');
   display: table-header-group;
@@ -51,25 +53,25 @@ $table: null !default;
 
 .ecl-table__row,
 %ecl-table__row {
-  border-bottom: map.get($table, 'row-border');
-  border-top-width: 0;
+  border-block-end: map.get($table, 'row-border');
+  border-block-start-width: 0;
 
   &:first-child {
-    border-top: map.get($table, 'row-border');
+    border-block-start: map.get($table, 'row-border');
   }
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-table__head + .ecl-table__body &:first-child {
-    border-top-width: 0;
+    border-block-start-width: 0;
   }
 }
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-table__head .ecl-table__row:first-child {
-  border-bottom: map.get($table, 'header', 'border');
+  border-block-end: map.get($table, 'header', 'border');
 
   .ecl-table__header {
-    padding-top: var(--s-m);
+    padding-block-start: var(--s-m);
   }
 }
 
@@ -87,9 +89,10 @@ $table: null !default;
 .ecl-table__caption {
   caption-side: bottom;
   color: map.get($table, 'caption', 'color');
-  font: map.get($table, 'caption', 'font');
-  margin-top: var(--s-xs);
+  margin-block-start: var(--s-xs);
   text-align: start;
+
+  @include mixins.responsive-font(map.get($table, 'caption', 'font'));
 }
 
 // Zebra
@@ -104,14 +107,14 @@ $table: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-table__head .ecl-table__row:not(:first-child) {
   background-color: map.get($table, 'multi-head', 'background-empty');
-  border-bottom-width: 0;
+  border-block-end-width: 0;
 }
 
 .ecl-table__head
   .ecl-table__row:not(:first-child)
   .ecl-table__header:not(:empty) {
   background-color: map.get($table, 'multi-head', 'background');
-  border-top: map.get($table, 'header', 'separator-desktop');
+  border-block-start: map.get($table, 'header', 'separator-desktop');
 
   &:last-child {
     border-inline-end: none;
@@ -152,7 +155,7 @@ $table: null !default;
 }
 
 .ecl-table__icon-down {
-  margin-top: map.get($table, 'sort', 'icon-spacing');
+  margin-block-start: map.get($table, 'sort', 'icon-spacing');
   transform: rotate(180deg);
 }
 
@@ -177,40 +180,44 @@ $table: null !default;
     }
 
     .ecl-table__row {
-      border-bottom: none;
+      border-block-end: none;
     }
 
     .ecl-table__cell {
       border-inline-end: map.get($table, 'cell', 'separator');
-      border-top: map.get($table, 'row-border');
+      border-block-start: map.get($table, 'row-border');
       display: flex;
       padding: map.get($table, 'cell', 'padding-mobile');
 
       &::before {
         background-color: map.get($table, 'head', 'background');
         border-inline-end: map.get($table, 'header', 'separator-mobile');
-        border-bottom: map.get($table, 'header', 'separator-desktop');
+        border-block-end: map.get($table, 'header', 'separator-desktop');
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
         flex-grow: 0;
         flex-shrink: 0;
         font-weight: map.get($table, 'header', 'font-weight');
-        margin-bottom: map.get($table, 'cell', 'margin-mobile', 'bottom');
+        margin-block-end: map.get($table, 'cell', 'margin-mobile', 'bottom');
         margin-inline-end: map.get($table, 'cell', 'margin-mobile', 'end');
         margin-inline-start: map.get($table, 'cell', 'margin-mobile', 'start');
-        margin-top: map.get($table, 'cell', 'margin-mobile', 'top');
+        margin-block-start: map.get($table, 'cell', 'margin-mobile', 'top');
         padding: map.get($table, 'cell', 'padding-mobile');
       }
 
       &:last-of-type {
-        border-bottom: map.get($table, 'row-border');
-        margin-bottom: var(--s-l);
+        border-block-end: map.get($table, 'row-border');
+        margin-block-end: var(--s-l);
 
         &::before {
-          border-bottom: none;
+          border-block-end: none;
         }
       }
+    }
+
+    .ecl-table__row:last-of-type .ecl-table__cell:last-of-type {
+      margin-block-end: 0;
     }
 
     .ecl-table__cell[data-ecl-table-header-group] {
@@ -223,14 +230,14 @@ $table: null !default;
 
       &::after {
         background-color: map.get($table, 'head', 'background');
-        border-bottom: map.get($table, 'header', 'group-separator');
-        border-top: map.get($table, 'header', 'group-separator');
+        border-block-end: map.get($table, 'header', 'group-separator');
+        border-block-start: map.get($table, 'header', 'group-separator');
         content: attr(data-ecl-table-header-group);
         display: block;
         font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
         left: calc(-1 * #{map.get($table, 'multi-head', 'position')});
-        margin-bottom: -1px;
+        margin-block-end: -1px;
         order: -1;
         padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
@@ -246,6 +253,7 @@ $table: null !default;
       background-color: transparent;
     }
 
+    // stylelint-disable-next-line no-descending-specificity
     .ecl-table__cell:nth-of-type(even) {
       background-color: map.get($table, 'zebra-background');
     }
