@@ -381,3 +381,53 @@ $featured-item: null !default;
     }
   }
 }
+
+.ecl-featured-item--header {
+  .ecl-media-container__caption {
+    color: #fff;
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+  }
+
+  .ecl-featured-item__container {
+    display: flex;
+    flex-wrap: wrap;
+    container-name: header;
+    container-type: inline-size;
+  }
+
+  .ecl-media-container__media {
+    aspect-ratio: 3/1;
+  }
+}
+
+@container header (max-width: 768px) {
+  .ecl-media-container__media {
+    aspect-ratio: 3/2 !important;
+  }
+}
+
+@container header (max-width: 1140px) {
+  .ecl-featured-item__item {
+    flex: 1 1 100%;
+  }
+}
+
+@container header (min-width: 1140px) {
+  .ecl-media-container__media {
+    aspect-ratio: auto !important;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-featured-item--header {
+    .ecl-featured-item__item:last-child {
+      justify-content: center;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

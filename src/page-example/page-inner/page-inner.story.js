@@ -1,4 +1,4 @@
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
@@ -14,8 +14,12 @@ import inner from './page-inner.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const prepareData = (data) => {
+const prepareData = (data, args) => {
   correctPaths(data);
+  console.log(data.page_header);
+  data.page_header.media_container.description = '@copyright';
+  data.page_header.extra_classes = 'ecl-featured-item--header';
+  delete data.page_header.link;
 
   // Logo path; to be done after correctPaths
   if (system === 'eu') {
@@ -29,6 +33,7 @@ const prepareData = (data) => {
     data.site_header.logo.src_mobile = logoMobileEC;
     data.site_footer.section_common.logo.src_desktop = logoNegativeEC;
   }
+  data.color_mode = args.color_mode;
 
   return data;
 };
@@ -37,7 +42,6 @@ export default {
   title: 'Page examples/Inner',
   decorators: [withNotes, withCode],
   parameters: {
-    controls: { disable: true },
     EclNotes: { disable: true },
     layout: 'fullscreen',
   },
@@ -45,10 +49,14 @@ export default {
 
 export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async () => {
-  const renderedInner = await inner(prepareData(dataInner));
+Default.render = async (args) => {
+  const renderedInner = await inner(prepareData(dataInner, args));
   return renderedInner;
 };
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };
 Default.tags = ['!dev'];
+Default.args = {
+  color_mode: 'blue-ocean',
+};
+Default.argTypes = getColorModeControls();

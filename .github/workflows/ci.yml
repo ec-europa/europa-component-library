@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - '*-dev'
+      - 'FRONT-5028-Page-header-with-featured'
 
 jobs:
   semantic:
@@ -94,7 +95,7 @@ jobs:
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && endsWith(github.ref, '-dev')
+    if: github.event_name == 'push' && (endsWith(github.ref, '-dev') || startsWith(github.ref, 'refs/heads/FRONT-5028'))
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
