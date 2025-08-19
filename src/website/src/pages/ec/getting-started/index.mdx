@@ -142,6 +142,14 @@ There are several optional CSS files, located in `ec/styles/optional`, which can
 - `ecl-ec-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements. A corresponding print css `ecl-ec-default-print` is also provided.
 - `ecl-ec-color-modes.css`: contains css definition for the color modes. See the <Link to="/ec/guidelines/colours/" label="Colours documentation" /> for more information
 
+### Right to left display
+
+For a number of languages, content is displayed right to left. ECL components are designed to take this into consideration, but need some information to know what direction to use.
+
+The detection is based on the standard HTML attribute `dir`. When using a right to left language, make sur to set `dir="rtl"` anywhere at upper level on the page (it could be the html or body tag for instance).
+
+If not done, some elements may be misplaced when using right to left display.
+
 ## JavaScript
 
 You can either initalise JS components manually or automatically. Here, we will focus on the automatic initialisation. If you want to know more about the manual initialisation, please check the component's documentation.
