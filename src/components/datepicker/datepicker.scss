@@ -61,6 +61,10 @@ $text-input: null !default;
   }
 }
 
+.duet-date__input:focus-visible {
+  outline: 2px solid #{map.get($text-input, 'outline-color')};
+}
+
 .ecl-datepicker[invalid] .duet-date__input {
   border-color: var(--ecl-color-error);
 }
