@@ -4,10 +4,11 @@
   Parameters:
     - "autoinit" (boolean) (default: false)
     - "id" (string) (default: randomized string)
-    - "name" (string) (default: '')
     - "default_value" (default: '')
     - "required" (boolean) (default: false)
     - "disabled" (boolean) (default: false)
+    - "min" (string: YYYY-MM-DD) (default: '')
+    - "max" (string: YYYY-MM-DD) (default: '')
     - "invalid" (boolean) (default: false)
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
@@ -25,6 +26,8 @@
 {% set _required = required|default(false) %}
 {% set _default_value = default_value|default('') %} {# YYYY-MM-DD #}
 {% set _id = id|default('ecl-datepicker-' ~ random()) %}
+{% set _min = min|default('') %}
+{% set _max = max|default('') %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _extra_attributes = '' %}
 
@@ -73,6 +76,12 @@
   >
     <duet-date-picker
       identifier="{{ _id }}"
+    {% if _min %}
+      min="{{ _min }}"
+    {% endif %}
+    {% if _max %}
+      max="{{ _max }}"
+    {% endif %}
     {% if _disabled %}
       disabled
     {% endif %}
