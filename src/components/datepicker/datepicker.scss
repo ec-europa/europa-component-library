@@ -202,12 +202,13 @@ $text-input: null !default;
         &::before {
           background-color: map.get($datepicker, 'picker', 'day-today-color');
           border-radius: 2px;
-          bottom: 4px;
           left: calc(50% - 10px);
           content: '';
           display: block;
           height: 2px;
+          opacity: 1;
           position: absolute;
+          top: 85%;
           width: 20px;
         }
 
