@@ -3,12 +3,17 @@
 
 $textarea: (
   font: var(--f-ui-m),
+  radius: 4px,
   background: map.get($color, 'white'),
   border-color: var(--c-d-80),
   border-color-hover: var(--c-d-80),
   border-color-invalid: var(--c-er),
   border-color-invalid-hover: var(--c-er-80),
   border-color-invalid-focus: var(--c-er),
+  border-color-disabled: var(--c-d-80),
+  background-disabled: #fff,
+  opacity-disabled: 0.5,
+  color-disabled: var(--c-d-140),
   border-width: 1px,
   color-input: var(--c-d-140),
   color-placeholder: var(--c-d-40),
