@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -13,18 +14,11 @@ $label: null !default;
   border-radius: map.get($label, 'radius');
   border: map.get($label, 'border-width') solid transparent;
   display: inline-block;
-  font: map.get($label, 'font');
-  letter-spacing: map.get($label, 'letter-spacing');
   margin: 0;
-  padding: calc(
-      #{map.get($label, 'padding-vertical')} -
-        #{map.get($label, 'border-width')}
-    )
-    calc(
-      #{map.get($label, 'padding-horizontal')} -
-        #{map.get($label, 'border-width')}
-    );
-  text-transform: uppercase;
+  padding: map.get($label, 'padding');
+  text-transform: map.get($label, 'text-transform');
+
+  @include mixins.responsive-font(map.get($label, 'font'));
 }
 
 @mixin label($variant: null) {
