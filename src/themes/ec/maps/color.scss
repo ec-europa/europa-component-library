@@ -324,7 +324,9 @@ $color-modes: (
     '--cm-on-surface-highlight': map.get($color-palette, 'blue-100'),
     // border
     '--cm-border-low': map.get($color-palette, 'blue-200'),
-    '--cm-border': map.get($color-palette, 'blue-500'),
+    '--cm-border-medium': map.get($color-palette, 'blue-500'),
+    '--cm-border': map.get($color-palette, 'blue-600'),
+    '--cm-border-high': map.get($color-palette, 'blue-700'),
   ),
   'green-dark': (
     // surface
@@ -354,7 +356,9 @@ $color-modes: (
     '--cm-on-surface-highlight': map.get($color-palette, 'green-dark-100'),
     // border
     '--cm-border-low': map.get($color-palette, 'green-dark-200'),
+    '--cm-border-medium': map.get($color-palette, 'green-dark-500'),
     '--cm-border': map.get($color-palette, 'green-dark-500'),
+    '--cm-border-high': map.get($color-palette, 'green-dark-600'),
   ),
   'orange': (
     // surface
@@ -388,7 +392,9 @@ $color-modes: (
       ),
     // border
     '--cm-border-low': map.get($color-palette, 'orange-200'),
+    '--cm-border-medium': map.get($color-palette, 'orange-500'),
     '--cm-border': map.get($color-palette, 'orange-500'),
+    '--cm-border-high': map.get($color-palette, 'orange-600'),
   ),
   'green': (
     // surface
