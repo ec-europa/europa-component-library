@@ -2,8 +2,8 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  helper_text: 'Helper text for the group',
-  invalid_text: 'Error message for the group',
+  helper_text: 'Optional help text',
+  invalid_text: 'Error text',
   label: 'Select your preferred destinations',
   optional_text: '(optional)',
   disabled: false,
@@ -19,7 +19,7 @@ module.exports = {
     id: 'checkbox-default',
     input_type: 'checkbox',
     name: 'checkbox-default',
-    invalid_text: 'Error message for the group',
+    invalid_text: 'Error text',
     invalid_icon: {
       name: 'error-outline',
     },

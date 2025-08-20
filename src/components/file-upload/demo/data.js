@@ -1,7 +1,7 @@
 // Simple content for demo
 module.exports = {
   label: 'Label',
-  invalid_text: 'This is the error message',
+  invalid_text: 'Error text',
   invalid_icon: {
     name: 'error-outline',
   },

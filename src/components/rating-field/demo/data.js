@@ -3,8 +3,8 @@ module.exports = {
   required_text: '(required)',
   required: true,
   label: 'Please Rate',
-  helper_text: "This is the group's helper text.",
-  invalid_text: 'This is the error message',
+  helper_text: 'Optional help text',
+  invalid_text: 'Error text',
   invalid_icon: {
     name: 'error-outline',
   },

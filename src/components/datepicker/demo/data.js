@@ -1,11 +1,11 @@
 module.exports = {
   label: 'Label',
-  helper_text: "This is the input's helper text.",
+  helper_text: 'Optional help text',
   invalid_icon: {
     name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
-  invalid_text: 'This is the error message',
+  invalid_text: 'Error text',
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
