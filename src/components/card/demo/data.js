@@ -21,7 +21,7 @@ module.exports = {
   },
   labels: [
     { label: 'highlight', variant: 'highlight' },
-    { label: 'high importance', variant: 'high' },
+    { label: 'high', variant: 'high' },
   ],
   labels_aria: 'Labels',
   secondary_meta: [
@@ -49,14 +49,14 @@ module.exports = {
           definition: [
             {
               link: {
-                label: 'Lorem ipsum dolor sit amet',
+                label: 'Lorem ipsum dolor',
                 path: exampleLink,
                 icon_position: 'before',
               },
             },
             {
               link: {
-                label: 'Lorem ipsum dolor sit amet',
+                label: 'Lorem ipsum dolor',
                 path: exampleLink,
                 icon_position: 'before',
               },
@@ -73,13 +73,13 @@ module.exports = {
           definition: [
             {
               link: {
-                label: 'Lorem ipsum dolor sit amet',
+                label: 'Lorem ipsum dolor',
                 path: exampleLink,
               },
             },
             {
               link: {
-                label: 'Lorem ipsum dolor sit amet',
+                label: 'Lorem ipsum dolor',
                 path: exampleLink,
               },
             },

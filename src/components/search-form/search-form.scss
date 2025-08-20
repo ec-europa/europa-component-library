@@ -55,6 +55,14 @@ $button-border-width: 1px;
   width: map.get($search-form, 'button-height');
   position: relative;
 
+  &:hover {
+    border-color: map.get($search-form, 'button-border-color-hover');
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+
   &.ecl-button--ghost:not(:hover, :focus-visible) {
     background-color: #fff;
   }

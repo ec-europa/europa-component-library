@@ -562,7 +562,11 @@ importers:
         specifier: 2.0.8
         version: 2.0.8
 
-  src/components/label: {}
+  src/components/label:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/typography
 
   src/components/link:
     dependencies:

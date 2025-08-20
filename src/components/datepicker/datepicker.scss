@@ -70,7 +70,11 @@ $text-input: null !default;
 }
 
 .duet-date__input[disabled] {
-  opacity: 0.6;
+  border-color: map.get($text-input, 'border-color-disabled');
+  background-color: map.get($text-input, 'background-disabled');
+  color: map.get($text-input, 'color-disabled');
+  cursor: not-allowed;
+  opacity: map.get($text-input, 'opacity-disabled');
 }
 
 .duet-date__dialog-content {
