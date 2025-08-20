@@ -77,6 +77,10 @@ $text-input: null !default;
   opacity: map.get($text-input, 'opacity-disabled');
 }
 
+.duet-date__dialog {
+  min-width: 360px;
+}
+
 .duet-date__dialog-content {
   background-color: map.get($datepicker, 'picker', 'background-color');
   border-radius: map.get($datepicker, 'picker', 'border-radius');
