@@ -55,6 +55,12 @@ $overflow-height: 2rem;
   position: relative;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'modal');
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 // Sizes

@@ -159,6 +159,11 @@ $description-list: null !default;
     width: 4px;
   }
 
+  &:dir(rtl)::before {
+    left: auto;
+    right: -2px;
+  }
+
   &:first-child {
     padding-inline-start: 0;
   }

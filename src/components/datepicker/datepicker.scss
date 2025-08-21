@@ -32,6 +32,11 @@ $datepicker: null !default;
   position: absolute;
   right: 0;
   top: 0;
+
+  &:dir(rtl) {
+    right: auto;
+    left: 0;
+  }
 }
 
 .ecl-datepicker__field[disabled] + .ecl-datepicker__icon {
