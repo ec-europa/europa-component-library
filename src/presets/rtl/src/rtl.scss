@@ -5,44 +5,6 @@ html {
   direction: rtl;
 }
 
-// Accordion
-.ecl-accordion__item:first-child::before {
-  left: auto;
-  right: map.get(theme.$spacing, 'l');
-}
-
-// Banner
-.ecl-banner--full-width {
-  left: auto;
-  right: 50%;
-}
-
-.ecl-banner__credit {
-  left: 0;
-  right: auto;
-}
-
-// Carousel
-.ecl-carousel__next {
-  left: 0;
-  right: auto;
-}
-
-.ecl-carousel__prev {
-  left: auto;
-  right: 0;
-}
-
-.ecl-carousel__slide::before {
-  left: auto;
-  right: -#{map.get(theme.$spacing, '2xs')};
-}
-
-.ecl-carousel--full-width {
-  left: auto;
-  right: 50%;
-}
-
 // Category filter
 .ecl-category-filter__list-item[aria-expanded='true'],
 .ecl-category-filter__list-item:hover,
