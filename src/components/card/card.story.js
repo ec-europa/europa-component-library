@@ -223,12 +223,18 @@ Default.render = async (args) => {
   const renderedCard = await card(prepareData(dataCard, args));
   return renderedCard;
 };
+Default.render = async (args) => {
+  const renderedCard = `<div class="ecl-row">
+      <div class="ecl-col-12 ecl-col-m-6 ecl-col-xl-4">
+        ${await card(prepareData(dataCard, args))}
+      </div>
+    </div>`;
+
+  return renderedCard;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataCard);
 Default.argTypes = getArgTypes(dataCard);
 Default.parameters = {
   notes: { markdown: notes, json: dataCard },
-  viewport: {
-    defaultViewport: 'pixel',
-  },
 };

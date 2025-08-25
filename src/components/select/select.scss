@@ -84,9 +84,11 @@ $outline-width: 2px;
   margin-top: 0 !important;
 
   .ecl-select {
+    border: none;
     clip-path: rect(1px, 1px, 1px, 1px);
     height: 1px;
     overflow: hidden;
+    padding: 0;
     position: absolute !important;
     width: 1px;
   }
@@ -133,29 +135,12 @@ $outline-width: 2px;
 }
 
 // Disabled
-.ecl-select__container--disabled {
-  opacity: 0.75;
-  background-color: var(--cm-surface-inverted, #fff);
-
-  // stylelint-disable-next-line no-descending-specificity
-  .ecl-select__icon,
-  .ecl-select:hover ~ .ecl-select__icon,
-  .ecl-select:focus ~ .ecl-select__icon {
-    opacity: 0.75;
-  }
-
-  .ecl-select {
-    cursor: not-allowed;
-
-    &::placeholder {
-      opacity: 0.75;
-    }
-  }
-
-  .ecl-select:hover {
-    border-color: map.get($select, 'border-color-disabled');
-    box-shadow: map.get($select, 'shadow');
-  }
+.ecl-select__container--disabled .ecl-select {
+  border-color: map.get($select, 'border-color-disabled');
+  background-color: map.get($select, 'background-disabled');
+  color: map.get($select, 'color-disabled');
+  opacity: map.get($select, 'opacity-disabled');
+  cursor: not-allowed;
 }
 
 // Invalid
@@ -174,16 +159,18 @@ $outline-width: 2px;
   }
 
   // stylelint-disable-next-line no-descending-specificity
-  .ecl-select:not(:focus-visible) {
+  .ecl-select {
     border-color: map.get($select, 'border-color-invalid');
-  }
 
-  .ecl-select:hover {
-    border-color: map.get($select, 'border-color-invalid-hover');
-  }
+    &:hover {
+      border-color: map.get($select, 'border-color-invalid-hover');
+    }
 
-  .ecl-select:focus {
-    border-color: map.get($select, 'border-color-focus');
+    &:active,
+    &:focus-visible {
+      border-color: map.get($select, 'border-color-invalid-focus');
+      outline-color: map.get($select, 'border-color-invalid-focus');
+    }
   }
 }
 

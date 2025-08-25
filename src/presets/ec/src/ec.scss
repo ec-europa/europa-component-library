@@ -14,6 +14,7 @@
 
 // Typography Mixins
 @use '@ecl/mixins-typography/mixins' with (
+  $theme: theme.$theme,
   $typography: var.$typography
 );
 
@@ -116,6 +117,10 @@
 @use '@ecl/banner/banner' with (
   $theme: theme.$theme,
   $banner: var.$banner
+);
+@use '@ecl/spotlight/spotlight' with (
+  $theme: theme.$theme,
+  $spotlight: var.$spotlight
 );
 @use '@ecl/description-list/description-list' with (
   $theme: theme.$theme,
