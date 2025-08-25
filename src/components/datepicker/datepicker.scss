@@ -17,6 +17,7 @@ $text-input: null !default;
   --duet-color-surface: var(--cm-surface-inverted, #fff);
   --duet-color-border: #{map.get($text-input, 'border-color')};
   --duet-color-text: #{map.get($text-input, 'color-input')};
+  --duet-font-normal: #{map.get($theme, 'font-weight', 'regular')};
   --duet-radius: #{map.get($text-input, 'radius')};
   --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
 }
@@ -49,36 +50,54 @@ $text-input: null !default;
 /*
   * duet styling
   */
-.duet-date__toggle,
-.ecl button.duet-date__toggle {
-  color: map.get($text-input, 'color-input');
-  border: none;
-  box-shadow: none;
+.duet-date__input {
+  padding-block: map.get($text-input, 'padding-block');
+
+  @include mixins.responsive-font(map.get($text-input, 'font'));
 
   &:hover {
-    background: transparent;
-    color: map.get($text-input, 'color-input');
+    border-color: map.get($text-input, 'border-color-hover');
+    box-shadow: map.get($text-input, 'shadow-hover');
   }
-}
 
-.duet-date__input:focus-visible {
-  outline: 2px solid #{map.get($text-input, 'outline-color')};
+  &:focus-visible {
+    outline: 2px solid #{map.get($text-input, 'outline-color')};
+  }
+
+  &[disabled] {
+    border-color: map.get($text-input, 'border-color-disabled');
+    background-color: map.get($text-input, 'background-disabled');
+    color: map.get($text-input, 'color-disabled');
+    cursor: not-allowed;
+    opacity: map.get($text-input, 'opacity-disabled');
+  }
 }
 
 .ecl-datepicker[invalid] .duet-date__input {
   border-color: var(--ecl-color-error);
 }
 
-.duet-date__input[disabled] {
-  border-color: map.get($text-input, 'border-color-disabled');
-  background-color: map.get($text-input, 'background-disabled');
-  color: map.get($text-input, 'color-disabled');
-  cursor: not-allowed;
-  opacity: map.get($text-input, 'opacity-disabled');
+.duet-date__toggle,
+.ecl button.duet-date__toggle {
+  color: map.get($text-input, 'color-input');
+  border: none;
+  box-shadow: none;
+  min-height: auto;
+
+  &:hover,
+  &:focus-visible {
+    background: transparent;
+    color: map.get($text-input, 'color-input');
+    outline-offset: -2px;
+  }
+}
+
+.duet-date__toggle-icon svg {
+  width: map.get($theme, 'icon', 's');
 }
 
 .duet-date__dialog {
-  min-width: 360px;
+  min-width: 350px;
 }
 
 .duet-date__dialog-content {
@@ -89,9 +108,10 @@ $text-input: null !default;
   color: map.get($datepicker, 'picker', 'theme-color');
   margin-top: map.get($datepicker, 'picker', 'margin-top');
   margin-inline-start: 0;
-  min-width: 360px;
+  max-width: auto;
+  min-width: 350px;
   overflow: hidden;
-  padding: map.get($datepicker, 'picker', 'padding');
+  padding: map.get($text-input, 'picker', 'padding');
   width: auto;
 
   @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
@@ -111,13 +131,16 @@ $text-input: null !default;
     flex-basis: 30%;
     flex-grow: 1;
     justify-content: space-between;
+    margin-block-start: 0;
     margin-inline-end: var(--s-xs);
     padding: var(--s-xs) var(--s-m);
 
-    @include mixins.responsive-font(
-      map.get($datepicker, 'picker', 'font'),
-      $font-weight: map.get($theme, 'font-weight', 'regular')
-    );
+    * {
+      @include mixins.responsive-font(
+        map.get($datepicker, 'picker', 'font'),
+        $font-weight: map.get($theme, 'font-weight', 'regular')
+      );
+    }
 
     &:last-of-type {
       margin-inline-end: 0;
@@ -127,15 +150,32 @@ $text-input: null !default;
   button.duet-date__prev,
   button.duet-date__next {
     align-items: center;
-    border: none;
+    border-color: transparent;
+    border-radius: 0;
+    color: var(--cm-on-surface-primary, var(--c-p));
+    display: flex;
+    margin-inline-start: var(--s-xs);
+    min-width: auto;
+    min-height: auto;
+    padding: 0;
 
     &:hover {
       background: none;
+      border-color: transparent;
       color: var(--duet-color-text);
     }
 
-    * {
+    &:focus-visible {
+      background: none;
+      color: var(--duet-color-text);
+      outline-color: var(--cm-on-surface-primary, var(--c-p));
+      outline-offset: -2px;
+    }
+
+    svg {
+      height: map.get($theme, 'icon', 's');
       vertical-align: middle;
+      width: map.get($theme, 'icon', 's');
     }
   }
 
@@ -186,6 +226,8 @@ $text-input: null !default;
       border-width: 0;
       color: map.get($datepicker, 'picker', 'theme-color');
       padding: calc(var(--s-xs) + 2px) var(--s-xs);
+      min-height: 2.75rem;
+      min-width: 2.75rem;
       text-align: center;
 
       @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
