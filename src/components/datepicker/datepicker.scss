@@ -71,6 +71,7 @@ $text-input: null !default;
   &:hover,
   &:focus-visible {
     background: transparent;
+    box-shadow: none;
     color: map.get($text-input, 'color-input');
     outline-offset: -2px;
   }
@@ -81,7 +82,7 @@ $text-input: null !default;
 }
 
 .duet-date__dialog {
-  min-width: 350px;
+  min-width: 360px;
 }
 
 .duet-date__dialog-content {
@@ -93,9 +94,9 @@ $text-input: null !default;
   margin-top: map.get($datepicker, 'picker', 'margin-top');
   margin-inline-start: 0;
   max-width: none;
-  min-width: 350px;
+  min-width: 360px;
   overflow: hidden;
-  padding: map.get($text-input, 'picker', 'padding');
+  padding: map.get($datepicker, 'picker', 'padding');
   width: auto;
 
   @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
