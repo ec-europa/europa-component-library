@@ -46,7 +46,7 @@ export const parameters = {
       },
       {
         id: 'ecl-rtl',
-        href: './styles/optional/ecl-rtl.css',
+        href: '',
         picked: false,
         group: 'others',
       },
