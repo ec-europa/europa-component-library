@@ -12,6 +12,7 @@ import dataCall from './demo/data--call';
 import dataGhost from './demo/data--ghost';
 import dataGhostInverted from './demo/data--ghost-inverted';
 import dataTertiary from './demo/data--tertiary';
+import dataOutline from './demo/data--outline';
 
 expect.extend(toHaveNoViolations);
 
@@ -57,6 +58,20 @@ describe('Button', () => {
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataTertiary)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Outline', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataOutline)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataOutline)),
       ).toHaveNoViolations();
     });
   });

@@ -10,6 +10,7 @@ import dataCall from './demo/data--call';
 import dataGhost from './demo/data--ghost';
 import dataGhostInverted from './demo/data--ghost-inverted';
 import dataTertiary from './demo/data--tertiary';
+import dataOutline from './demo/data--outline';
 
 import button from './button.html.twig';
 import notes from './README.md';
@@ -281,4 +282,16 @@ GhostInverted.storyName = 'ghost inverted';
 GhostInverted.decorators = [withNotes, withCode, withInverted];
 GhostInverted.parameters = {
   notes: { markdown: notes, json: dataGhostInverted },
+};
+
+export const Outline = (_, { loaded: { component } }) => component;
+
+Outline.render = async (args) => {
+  const renderedButton = await button(prepareData(dataOutline, args));
+  return renderedButton;
+};
+Outline.args = getArgs(dataOutline);
+Outline.storyName = 'outline';
+Outline.parameters = {
+  notes: { markdown: notes, json: dataOutline },
 };
