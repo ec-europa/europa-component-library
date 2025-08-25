@@ -5,14 +5,11 @@
 
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
 
 // Exposed variables
 $theme: null !default;
 $range: null !default;
-
-@use '@ecl/layout-form/mixins' as mixins-form with (
-  $theme: $theme
-);
 
 @mixin range-track {
   background-color: map.get($range, 'bar-color');

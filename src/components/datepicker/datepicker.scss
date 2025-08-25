@@ -4,13 +4,16 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $datepicker: null !default;
 $text-input: null !default;
+
+@use '@ecl/layout-form/mixins' as mixins-form with (
+  $theme: $theme
+);
 
 :root {
   --duet-font: #{map.get($theme, 'font-family', 'default')};
@@ -25,26 +28,6 @@ $text-input: null !default;
 .ecl-datepicker {
   display: flex;
   margin: 0;
-  position: relative;
-  width: 100%;
-}
-
-@include breakpoints.up('m') {
-  .ecl-datepicker {
-    width: map.get($theme, 'form-width', 's', 'breakpoint-m');
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-datepicker {
-    width: map.get($theme, 'form-width', 's', 'breakpoint-l');
-  }
-}
-
-@include breakpoints.up('xl') {
-  .ecl-datepicker {
-    width: map.get($theme, 'form-width', 's', 'breakpoint-xl');
-  }
 }
 
 /*
@@ -54,6 +37,7 @@ $text-input: null !default;
   padding-block: map.get($text-input, 'padding-block');
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
+  @include mixins-form.form-width(m);
 
   &:hover {
     border-color: map.get($text-input, 'border-color-hover');
@@ -108,7 +92,7 @@ $text-input: null !default;
   color: map.get($datepicker, 'picker', 'theme-color');
   margin-top: map.get($datepicker, 'picker', 'margin-top');
   margin-inline-start: 0;
-  max-width: auto;
+  max-width: none;
   min-width: 350px;
   overflow: hidden;
   padding: map.get($text-input, 'picker', 'padding');
@@ -148,7 +132,8 @@ $text-input: null !default;
   }
 
   button.duet-date__prev,
-  button.duet-date__next {
+  button.duet-date__next,
+  button.duet-date__close {
     align-items: center;
     border-color: transparent;
     border-radius: 0;
