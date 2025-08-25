@@ -1,22 +1,20 @@
 module.exports = {
   label: 'Select a country',
-  invalid_text: 'This is the error message',
+  invalid_text: 'Error text',
   invalid_icon: {
-    name: 'error',
+    name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
   name: 'country',
-  helper_text: 'This is the helper text.',
+  helper_text: 'Optional help text',
   required_text: '(required)',
   optional_text: '(optional)',
   required: true,
-  label_aria_required: 'required',
   input: {
     input_type: 'select',
     width: 'm',
     id: 'select-multiple',
     name: 'country',
-    required: true,
     options: [
       {
         optgroup: {

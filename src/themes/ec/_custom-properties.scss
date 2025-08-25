@@ -189,6 +189,9 @@
   --ecl-spacing-8xl: #{map.get($spacing, '8xl')};
   --ecl-spacing-9xl: #{map.get($spacing, '9xl')};
   --ecl-spacing-10xl: #{map.get($spacing, '10xl')};
+  --ecl-spacing-11xl: #{map.get($spacing, '11xl')};
+  --ecl-spacing-12xl: #{map.get($spacing, '12xl')};
+  --ecl-spacing-13xl: #{map.get($spacing, '13xl')};
 
   // shadow
   --ecl-shadow-1: #{map.get($shadow, '1')};
@@ -386,6 +389,9 @@
   --s-8xl: var(--ecl-spacing-8xl);
   --s-9xl: var(--ecl-spacing-9xl);
   --s-10xl: var(--ecl-spacing-10xl);
+  --s-11xl: var(--ecl-spacing-11xl);
+  --s-12xl: var(--ecl-spacing-12xl);
+  --s-13xl: var(--ecl-spacing-13xl);
 
   // shadow
   --sh-1: var(--ecl-shadow-1);
@@ -419,15 +425,19 @@
   --cm-surface: var(--c-g-950);
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-100')};
   --cm-surface-variant-2: var(--c-g-950);
+  --cm-surface-primary-medium: var(--c-p-300);
   --cm-surface-primary: var(--c-p-600);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-800);
+  --cm-surface-secondary-low: var(--c-s-100);
   --cm-surface-secondary: var(--c-s-400);
   --cm-surface-secondary-high: var(--c-s-500);
   --cm-surface-secondary-highest: var(--c-s-600);
   --cm-surface-neutral-lowest: var(--c-n-50);
   --cm-surface-neutral-low: var(--c-n-75);
   --cm-surface-neutral-medium: var(--c-n-200);
+  --cm-surface-grey-low: var(--c-g-50);
+  --cm-surface-grey-low-1: var(--c-g-75);
   --cm-surface-status-error-lowest: var(--c-er-50);
   --cm-surface-status-error: var(--c-er-600);
   --cm-surface-status-warning-lowest: var(--c-wa-50);
@@ -450,10 +460,11 @@
   --cm-on-surface-primary: var(--c-p-600);
   --cm-on-surface-primary-highest: var(--c-p-800);
   --cm-on-surface-secondary-medium: var(--c-s-100);
+  --cm-on-surface-secondary-highest: var(--c-s-950);
   --cm-on-surface-neutral-low: var(--c-n-75);
   --cm-on-surface-neutral-medium: var(--c-n-300);
   --cm-on-surface-neutral-highest: var(--c-n-950);
-  --cm-on-surface-grey-medium: var(--c-g-300);
+  --cm-on-surface-grey-medium: var(--c-g-500);
   --cm-on-surface-grey: var(--c-g-600);
   --cm-on-surface-status-error: var(--c-er-600);
   --cm-on-surface-status-warning: var(--c-wa-500);
@@ -465,12 +476,14 @@
   --cm-border-on-brand: color-mix(in srgb, var(--c-n-75) 60%, transparent);
   --cm-border-inverted: #fff;
   --cm-border-low: var(--c-p-200);
+  --cm-border-medium: var(--c-p-500);
   --cm-border: var(--c-p-600);
+  --cm-border-high: var(--c-p-700);
   --cm-border-primary: var(--c-p-600);
   --cm-border-neutral: var(--c-n-75);
   --cm-border-grey-lowest: var(--c-g-100);
-  --cm-border-grey-medium: var(--c-g-300);
-  --cm-border-grey: var(--c-g-400);
+  --cm-border-grey-medium: var(--c-g-500);
+  --cm-border-grey: var(--c-g-600);
   --cm-border-status-error: var(--c-er-600);
   --cm-border-status-warning: var(--c-wa-500);
   --cm-border-status-success: var(--c-su-700);

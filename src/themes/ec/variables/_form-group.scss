@@ -3,7 +3,7 @@
 
 $form-group: (
   margin-icon: var(--s-3xs),
-  margin-no-helper: var(--s-3xs),
+  margin-no-helper: calc(var(--s-3xs) + 2px),
   label: (
     color: var(--cm-on-surface-brand),
     font: 'body-s',
@@ -24,7 +24,7 @@ $form-group: (
   help: (
     color: var(--cm-on-surface-grey),
     font: 'microcopy-xs',
-    margin-block: var(--s-3xs) var(--s-xs),
+    margin-block: var(--s-3xs) calc(var(--s-xs) + 2px),
   ),
   invalid: (
     color: var(--cm-on-surface-status-error),

@@ -3,8 +3,8 @@
 
 $card: (
   background: var(--cm-surface-inverted),
-  border-radius: 0 0 map.get($border-radius, 'xs') map.get($border-radius, 'xs'),
+  border-radius: map.get($border-radius, 'm'),
   shadow: var(--sh-1),
-  border-bottom: 4px solid var(--cm-border),
+  border-bottom: 4px solid var(--cm-border-medium),
   body-padding: var(--s-xl),
 );

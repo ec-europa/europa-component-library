@@ -1,15 +1,14 @@
 module.exports = {
   label: 'Label',
-  helper_text: "This is the input's helper text.",
+  helper_text: 'Optional help text',
   invalid_icon: {
-    name: 'error',
+    name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
-  invalid_text: 'This is the error message',
+  invalid_text: 'Error text',
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   input: {
@@ -18,7 +17,6 @@ module.exports = {
     input_type: 'datepicker',
     placeholder: 'DD-MM-YYYY',
     autoinit: true,
-    required: true,
     default_value: '03-10-2023',
   },
 };

@@ -9,6 +9,7 @@ npm install --save @ecl/featured-item
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
+- **"id"** (string) (default: random)
 - **"type"** (string) (default: '') - Featured item type (can be 'highlight'),
 - **"title"** (string) (default: '') - Title of the content opposite the media container,
 - **"description"** (string) (default: '') - Description of the content opposite the media container,
