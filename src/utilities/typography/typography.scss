@@ -127,7 +127,6 @@ $typography: null !default;
   @each $key, $value in map.get($typography, 'microcopy') {
     .ecl-u-type-microcopy-#{$key} {
       color: map.get($typography, 'text-color') !important;
-      max-width: var(--max-w) !important;
 
       @include mixins.responsive-font('microcopy-' + $key, $important: true);
     }
@@ -194,28 +193,12 @@ $typography: null !default;
 
   @if map.has-key($theme, 'color-modes') {
     $type-mode: (
-      'on-surface-brand',
-      'on-surface-inverted',
-      'on-surface-swap-1',
-      'on-surface-swap-2',
       'on-surface',
       'on-surface-variant-1',
       'on-surface-variant-2',
       'on-surface-variant-3',
-      'on-surface-highlight',
-      'on-surface-primary',
-      'on-surface-primary-highest',
-      'on-surface-secondary-medium',
-      'on-surface-secondary-highest',
-      'on-surface-neutral-low',
-      'on-surface-neutral-medium',
-      'on-surface-neutral-highest',
-      'on-surface-grey-medium',
-      'on-surface-grey',
-      'on-surface-status-error',
-      'on-surface-status-warning',
-      'on-surface-status-success',
-      'on-surface-status-info'
+      'on-surface-swap-1',
+      'on-surface-swap-2'
     );
 
     @each $key in $type-mode {

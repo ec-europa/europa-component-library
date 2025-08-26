@@ -65,24 +65,7 @@ $theme: null !default;
 }
 
 @if map.has-key($theme, 'color-modes') {
-  $border-mode: (
-    'border-brand',
-    'border-on-brand',
-    'border-inverted',
-    'border-low',
-    'border-medium',
-    'border',
-    'border-high',
-    'border-primary',
-    'border-neutral',
-    'border-grey-lowest',
-    'border-grey-medium',
-    'border-grey',
-    'border-status-error',
-    'border-status-warning',
-    'border-status-success',
-    'border-status-info'
-  );
+  $border-mode: ('border-low', 'border-medium', 'border', 'border-high');
 
   @each $key in $border-mode {
     .ecl-u-border-color-#{$key} {
