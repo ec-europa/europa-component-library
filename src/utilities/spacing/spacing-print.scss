@@ -57,34 +57,30 @@ $theme: null !default;
 
 /* stylelint-disable max-nesting-depth */
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
-  @if $breakpoint != 'xs' {
-    @include breakpoints.up($breakpoint) {
-      $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-      // Generate margin utilities for each spacing value
-      @each $key, $value in map.get($theme, 'spacing-print') {
-        @include generate-spacing-set(margin, 'm', $infix, $key, $value);
-      }
-
-      // Generate margin utilities for none and auto
-      @include generate-spacing-set(margin, 'm', $infix, 'none', 0);
-      @include generate-spacing-set(margin, 'm', $infix, 'auto', auto);
+    // Generate margin utilities for each spacing value
+    @each $key, $value in map.get($theme, 'spacing-print') {
+      @include generate-spacing-set(margin, 'm', $infix, $key, $value);
     }
+
+    // Generate margin utilities for none and auto
+    @include generate-spacing-set(margin, 'm', $infix, 'none', 0);
+    @include generate-spacing-set(margin, 'm', $infix, 'auto', auto);
   }
 }
 
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
-  @if $breakpoint != 'xs' {
-    @include breakpoints.up($breakpoint) {
-      $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-      // Generate padding utilities for each spacing value
-      @each $key, $value in map.get($theme, 'spacing-print') {
-        @include generate-spacing-set(padding, 'p', $infix, $key, $value);
-      }
-
-      // Generate padding utilities for none
-      @include generate-spacing-set(padding, 'p', $infix, 'none', 0);
+    // Generate padding utilities for each spacing value
+    @each $key, $value in map.get($theme, 'spacing-print') {
+      @include generate-spacing-set(padding, 'p', $infix, $key, $value);
     }
+
+    // Generate padding utilities for none
+    @include generate-spacing-set(padding, 'p', $infix, 'none', 0);
   }
 }
