@@ -124,14 +124,6 @@ $_arrow-size: 1rem;
   transform: translateY(-50%);
   top: 50%;
 
-  .ecl-popover__scrollable {
-    direction: rtl;
-
-    .ecl-popover__content {
-      direction: ltr;
-    }
-  }
-
   &::before {
     top: var(--ecl-popover-position, 50%);
     left: 100%;
