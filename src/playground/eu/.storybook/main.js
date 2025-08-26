@@ -29,7 +29,6 @@ const addons = [
 let staticDirs = [
   path.resolve(__dirname, '../../../presets/eu', outputFolder),
   path.resolve(__dirname, '../../../presets/reset', outputFolder),
-  path.resolve(__dirname, '../../../presets/rtl', outputFolder),
   path.resolve(__dirname, '../public'),
 ];
 

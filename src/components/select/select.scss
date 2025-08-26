@@ -107,6 +107,11 @@ $outline-width: 2px;
   top: 0;
   width: map.get($select, 'arrow-width');
   z-index: 0;
+
+  &:dir(rtl) {
+    left: 0;
+    right: auto;
+  }
 }
 
 .ecl-select:hover ~ .ecl-select__icon {

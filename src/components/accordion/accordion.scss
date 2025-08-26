@@ -74,6 +74,11 @@ $accordion: null !default;
         width: 32px;
         z-index: 1;
       }
+
+      &:dir(rtl)::before {
+        left: auto;
+        right: var(--s-l);
+      }
     }
 
     .ecl-accordion__toggle {
