@@ -46,16 +46,6 @@ function StylePanel() {
         const shouldBeEnabled = styles[s.id];
         channel.emit(TOGGLE_STYLE, { key: s.id, enabled: shouldBeEnabled });
       });
-
-      const iframe = document.querySelector('iframe');
-      const iframeBody = iframe?.contentDocument?.body;
-      if (!iframeBody) return;
-
-      if (styles['ecl-rtl']) {
-        iframeBody.setAttribute('dir', 'rtl');
-      } else {
-        iframeBody.removeAttribute('dir');
-      }
     };
 
     applyStyles();

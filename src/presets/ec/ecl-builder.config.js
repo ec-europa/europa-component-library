@@ -124,15 +124,6 @@ export default {
         sourceMap: false,
       },
     },
-    {
-      entry: path.resolve('../rtl', 'src/rtl.scss'),
-      dest: path.resolve(outputFolder, 'styles/optional/ecl-rtl.css'),
-      options: {
-        banner,
-        includePaths,
-        sourceMap: false,
-      },
-    },
   ],
   copy: [
     {
@@ -150,7 +141,7 @@ export default {
     },
     handlers: [
       {
-        pattern: `${path.resolve(__dirname, '..')}/(dev|ec|reset|rtl)/src/*.scss`,
+        pattern: `${path.resolve(__dirname, '..')}/(dev|ec|reset)/src/*.scss`,
         events: [
           {
             on: 'change',
