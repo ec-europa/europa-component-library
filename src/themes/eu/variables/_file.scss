@@ -22,9 +22,10 @@ $file: (
   file-action-separator: var(--s-l),
   file-footer-border: 0,
   file-footer-flex-direction: row,
-  file-footer-margin: 0,
-  file-footer-padding: var(--s-2xs) var(--s-xl) var(--s-xl)
-    calc(var(--s-l) + #{map.get($icon, 'l')}),
+  file-footer-margin-inline: 0,
+  file-footer-padding-block: var(--s-2xs) var(--s-xl),
+  file-footer-padding-inline: calc(var(--s-l) + #{map.get($icon, 'l')})
+    var(--s-xl),
   file-icon-align-self: flex-start,
   file-image-margin-left: 0,
   file-image-margin-right: var(--s-xl),

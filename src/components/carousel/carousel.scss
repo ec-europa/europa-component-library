@@ -135,10 +135,6 @@ $carousel: null !default;
 
   .ecl-carousel__slide {
     position: relative;
-
-    &::before {
-      content: none;
-    }
   }
 
   .ecl-carousel__slide .ecl-banner__credit {
@@ -171,4 +167,9 @@ $carousel: null !default;
   left: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }

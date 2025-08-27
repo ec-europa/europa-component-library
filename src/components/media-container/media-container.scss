@@ -91,6 +91,11 @@ $media-container: null !default;
     -50vw + (#{map.get($media-container, 'scrollbar-width')} / 2)
   );
   width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }
 
 @if map.has-key($media-container, 'caption-before') {
@@ -105,6 +110,11 @@ $media-container: null !default;
       position: absolute;
       top: 0;
       width: 32px;
+    }
+
+    &:dir(rtl)::before {
+      left: auto;
+      right: var(--s-l);
     }
   }
 }

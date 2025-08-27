@@ -130,6 +130,11 @@ $button-width: 44px;
   right: 0;
   bottom: 0;
 
+  &:dir(rtl) {
+    left: 0;
+    right: auto;
+  }
+
   &:hover {
     box-shadow: none;
   }
@@ -186,6 +191,11 @@ $button-width: 44px;
   text-align: start;
   top: calc(100% + map.get($tabs, 'separator-width'));
   width: 100%;
+
+  &:dir(rtl) {
+    left: 0;
+    right: auto;
+  }
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-tabs__link {
@@ -245,6 +255,16 @@ $button-width: 44px;
   &:focus-visible {
     background: var(--cm-on-surface-inverted, #fff);
   }
+}
+
+.ecl-tabs__next:dir(rtl) {
+  left: 0;
+  right: auto;
+}
+
+.ecl-tabs__prev:dir(rtl) {
+  left: auto;
+  right: 0;
 }
 
 /* stylelint-disable-next-line order/order */
