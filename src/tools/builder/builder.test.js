@@ -90,7 +90,7 @@ describe('ECL Builder', () => {
       const plugins = getPlugins();
       expect(plugins.length).toBe(2);
       expect(JSON.stringify(plugins, replacer)).toEqual(
-        '[{"info":"infofn()","options":{"grid":"no-autoplace"},"postcssPlugin":"autoprefixer","prepare":"preparefn()"},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
+        '[{"browsers":["> 1%","not dead","not ie <= 11","not safari < 14"],"info":"infofn()","options":{"grid":"no-autoplace","overrideBrowserslist":["> 1%","not dead","not ie <= 11","not safari < 14"]},"postcssPlugin":"autoprefixer","prepare":"preparefn()"},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
       );
     });
 
