@@ -3,6 +3,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-color/mixins' as color;
 
 // Exposed variables
 $theme: null !default;
@@ -21,7 +22,8 @@ $theme: null !default;
 @if map.has-key($theme, 'color-default') {
   @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-bg-#{$key} {
-      background-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      background-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
@@ -38,7 +40,8 @@ $theme: null !default;
 
   @each $key in $semantic-color {
     .ecl-u-bg-#{$key} {
-      background-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      background-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 }

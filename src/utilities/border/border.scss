@@ -3,6 +3,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-color/mixins' as color;
 
 // Exposed variables
 $theme: null !default;
@@ -42,7 +43,8 @@ $theme: null !default;
 @if map.has-key($theme, 'color-default') {
   @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-border-color-#{$key} {
-      border-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      border-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
@@ -59,7 +61,8 @@ $theme: null !default;
 
   @each $key in $semantic-color {
     .ecl-u-border-color-#{$key} {
-      border-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      border-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 }
