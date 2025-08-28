@@ -301,6 +301,11 @@ $timeline: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   @if map.has-key($timeline, 'left-spacing-tablet') {
+    // Ensure minimum height for item to prevent overlapping
+    .ecl-timeline__item {
+      min-height: var(--ecl-timeline-label-height, 0);
+    }
+
     .ecl-timeline__label {
       left: calc(
         -1 *
