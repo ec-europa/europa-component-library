@@ -3,11 +3,11 @@
 
 $form-group: (
   margin-icon: var(--s-2xs),
-  margin-no-helper: var(--s-xs),
   label: (
     color: var(--c-d-140),
     font: var(--f-m),
     font-weight: map.get($font-weight, 'bold'),
+    margin-block: 0 var(--s-xs),
   ),
   optional: (
     color: var(--c-d-80),
@@ -26,9 +26,12 @@ $form-group: (
     font: var(--f-s),
     margin-block: var(--s-2xs) var(--s-xs),
   ),
-  invalid: (
-    color: var(--c-er),
+  feedback: (
+    color-error: var(--c-er),
+    color-warning: var(--c-wa),
+    color-success: var(--c-su),
     font: var(--f-s),
     margin-block: var(--s-xs) 0,
+    margin-block-with-helper: var(--s-xs) 0,
   ),
 );

@@ -5,9 +5,9 @@
   - "input" (object) default({}) Object of type input
   - "disabled" (boolean) (default: false)
   - "hide_label" (bool) (default: false): hide form element label, for screen reader only
-  - "invalid" (boolean) (default: false)
-  - "invalid_icon" (object of type "icon") (default: {})
-  - "sr_invalid_icon" (string) (default: ''): additional label for the invalid icon; for screen readers
+  - "feedback_type" (string) (default: ''): type of feedback message; can be "error", "success", "warning"
+  - "feedback_icon" (object of type "icon") (default: {}): icon for the feedback message
+  - "sr_feedback_icon" (string) (default: ''): additional label for the feedback icon; for screen readers
   - "required" (boolean) (default: false)
   - "label_aria_required" (string) (default: ''): aria text for the required field label; if the required label is not explicit
   - "label_aria_optional" (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
@@ -18,7 +18,7 @@
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   Blocks:
   - "helper_text"
-  - "invalid_text"
+  - "feedback_text"
   - "required_text"
   - "optional_text"
   - "label"
@@ -29,16 +29,16 @@
 {% set _label = label|default('') %}
 {% set _hide_label = hide_label|default(false) %}
 {% set _disabled = disabled|default(false) %}
-{% set _invalid = invalid|default(false) %}
+{% set _feedback_type = feedback_type|default('') %}
+{% set _feedback_icon = feedback_icon|default({}) %}
+{% set _sr_feedback_icon = sr_feedback_icon|default('') %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label_aria_required = label_aria_required|default('') %}
 {% set _label_aria_optional = label_aria_optional|default('') %}
-{% set _invalid_icon = invalid_icon|default({}) %}
-{% set _sr_invalid_icon = sr_invalid_icon|default('') %}
 {% set _helper_text = helper_text|default('') %}
-{% set _invalid_text = invalid_text|default('') %}
+{% set _feedback_text = feedback_text|default('') %}
 {% set _label_class = 'ecl-form-label' %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
@@ -52,6 +52,10 @@
 
 {% set _group_tag = 'div' %}
 {% set _label_tag = 'label' %}
+
+{% if _feedback_type is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-form-group--' ~ _feedback_type %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -83,7 +87,7 @@
   }) %}
 {% endif %}
 
-{% if _invalid %}
+{% if _feedback_type == 'error' %}
   {% set _input = _input|merge({
     invalid: true,
   }) %}
@@ -111,7 +115,7 @@
     ]) %}
   {% endif %}
 
-  {% if _invalid %}
+  {% if _feedback_type == 'error' %}
     {% set extra_attributes = extra_attributes|default([])|merge([
       { name: 'aria-invalid', value: 'true' },
     ]) %}
@@ -135,13 +139,13 @@
     {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-helper' : _id ~ '-helper' %}
   {% endif %}
 
-  {% if _invalid %}
+  {% if _feedback_type == 'error' %}
     {% set _input_extra_attributes = _input_extra_attributes|merge([
       { name: 'aria-invalid', value: 'true' }
     ]) %}
 
     {% if _id %}
-      {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-invalid' : _id ~ '-invalid' %}
+      {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-feedback' : _id ~ '-feedback' %}
     {% endif %}
   {% endif %}
 
@@ -156,6 +160,21 @@
       extra_attributes: _input_extra_attributes,
     }) %}
   {% endif %}
+{% endif %}
+
+{# default feedback icon #}
+{% if _feedback_type == 'error' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('error-outline') 
+  }) %}
+{% elseif _feedback_type == 'warning' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('warning-outline') 
+  }) %}
+{% elseif _feedback_type == 'success' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('success-outline') 
+  }) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -181,7 +200,6 @@
     {% endif %}
       class="{{- _label_class -}}
       {{- _hide_label ? ' ecl-form-label--hidden' -}}
-      {{- _invalid ? ' ecl-form-label--invalid' -}}
       {{- _disabled ? ' ecl-form-label--disabled' -}}"
     >
       {%- block label _label -%}
@@ -207,25 +225,12 @@
         {%- if _helper_text is not empty -%}
           <div class="ecl-help-block--hidden">{{ _helper_text }}</div>
         {%- endif -%}
-        {%- if _invalid and _invalid_text is not empty -%}
-          <div class="ecl-feedback-message--hidden">{{ _invalid_text }}</div>
+        {%- if _feedback_text is not empty -%}
+          <div class="ecl-feedback-message--hidden">{{ _feedback_text }}</div>
         {%- endif -%}
       {%- endif -%}
 
     </{{ _label_tag }}>
-  {% endif %}
-
-  {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
-      {% if _id %}
-        id="{{ _id }}-helper"
-      {% endif %}
-      {% if _label_tag == 'legend' %}
-        aria-hidden="true"
-      {% endif %}
-    >
-      {%- block helper_text _helper_text -%}
-    </div>
   {% endif %}
 
   {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
@@ -235,7 +240,7 @@
   {%- endif -%}
   
   {%- if _input.input_type == 'select' -%}
-    <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
+    <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _feedback_type == 'error' ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
     {% include '@ecl/select/select.html.twig' with _input only %}
     </div>
@@ -255,9 +260,9 @@
 
   {%- if _input.input_type == 'checkbox' -%}
     {% include '@ecl/checkbox/checkbox-group.html.twig' with _input|merge({
-      invalid_text: _invalid_text,
-      invalid_icon: _invalid_icon,
-      sr_invalid_icon: _sr_invalid_icon
+      feedback_text: _feedback_text,
+      feedback_icon: _feedback_icon,
+      sr_feedback_icon: _sr_feedback_icon
     }) only %}
   {%- endif -%}
 
@@ -273,29 +278,42 @@
     {% include '@ecl/file-upload/file-upload.html.twig' with _input only %}
   {%- endif -%}
 
-  {% if _invalid and _invalid_text is not empty %}
-    {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}
-    <div class="ecl-feedback-message"
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
       {% if _id %}
-        id="{{ _id }}-invalid"
+        id="{{ _id }}-helper"
       {% endif %}
       {% if _label_tag == 'legend' %}
         aria-hidden="true"
       {% endif %}
     >
-      {%- if _invalid_icon is not empty -%}
+      {%- block helper_text _helper_text -%}
+    </div>
+  {% endif %}
+
+  {% if _feedback_text is not empty %}
+    {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}
+    <div class="ecl-feedback-message"
+      {% if _id %}
+        id="{{ _id }}-feedback"
+      {% endif %}
+      {% if _label_tag == 'legend' %}
+        aria-hidden="true"
+      {% endif %}
+    >
+      {%- if _feedback_icon is not empty -%}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: _invalid_icon|merge({
+        icon: _feedback_icon|merge({
           size: 'xs',
         }),
         as_image: true,
-        extra_accessibility: not _sr_invalid_icon ? {} : {
-          title: _sr_invalid_icon,
+        extra_accessibility: not _sr_feedback_icon ? {} : {
+          title: _sr_feedback_icon,
         },
         extra_classes: 'ecl-feedback-message__icon',
       } only %}
       {%- endif -%}
-      {%- block invalid_text _invalid_text -%}
+      {%- block feedback_text _feedback_text -%}
     </div>
     {% endif %}
   {% endif %}
