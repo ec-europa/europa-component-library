@@ -223,7 +223,7 @@ describe('Link', () => {
         icon_position: 'after',
       },
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
         transform: 'rotate-90',
       },
@@ -247,7 +247,7 @@ describe('Link', () => {
         },
       },
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
         transform: 'rotate-90',
       },

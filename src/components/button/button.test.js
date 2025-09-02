@@ -108,7 +108,7 @@ describe('Button', () => {
       label: 'CTA Button with icon only',
       variant: 'cta',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
       hide_label: true,
@@ -132,7 +132,7 @@ describe('Button', () => {
       label: 'CTA Button with indicator',
       variant: 'cta',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
       hide_label: true,
@@ -160,7 +160,7 @@ describe('Button', () => {
       variant: 'cta',
       icon_position: 'before',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
     };
@@ -183,7 +183,7 @@ describe('Button', () => {
       label: 'CTA Button with icon after',
       variant: 'cta',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
     };

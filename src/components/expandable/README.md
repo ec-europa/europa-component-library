@@ -32,7 +32,7 @@ npm install --save @ecl/expandable
     label: 'Collapsed button', 
     variant: 'secondary', 
     icon: { 
-      name: 'corner-arrow', 
+      name: 'corner-arrow-up', 
       transform: 'rotate-180', 
       size: 'fluid', 
     }, 

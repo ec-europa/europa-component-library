@@ -276,7 +276,7 @@ module.exports = {
       variant: 'tertiary',
       label: 'Previous',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 's',
         transform: 'rotate-270',
       },
@@ -286,7 +286,7 @@ module.exports = {
       variant: 'tertiary',
       label: 'Next',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 's',
         transform: 'rotate-90',
       },

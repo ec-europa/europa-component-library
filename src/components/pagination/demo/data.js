@@ -16,7 +16,7 @@ module.exports = {
           hide_label: true,
         },
         icon: {
-          name: 'corner-arrow',
+          name: 'corner-arrow-up',
           size: 'xs',
           transform: 'rotate-270',
         },
@@ -107,7 +107,7 @@ module.exports = {
           hide_label: true,
         },
         icon: {
-          name: 'corner-arrow',
+          name: 'corner-arrow-up',
           size: 'xs',
           transform: 'rotate-90',
         },

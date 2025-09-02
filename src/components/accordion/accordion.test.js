@@ -31,7 +31,7 @@ describe('Accordion', () => {
   test('renders correctly with a single icon', () => {
     expect.assertions(1);
 
-    oldData.icon[0].name = 'corner-arrow';
+    oldData.icon[0].name = 'corner-arrow-up';
 
     return expect(render(oldData)).resolves.toMatchSnapshot();
   });

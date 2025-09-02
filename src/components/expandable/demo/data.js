@@ -4,7 +4,7 @@ module.exports = {
   button: {
     label: 'Collapsed',
     icon: {
-      name: 'corner-arrow',
+      name: 'corner-arrow-up',
       transform: 'rotate-180',
       size: 'fluid',
     },

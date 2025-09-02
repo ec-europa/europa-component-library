@@ -61,7 +61,7 @@ npm install --save @ecl/file
     toggle: {
       label: 'Other languages (3)',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
         transform: 'rotate-180',
       },

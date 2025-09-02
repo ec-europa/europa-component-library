@@ -36,7 +36,7 @@ npm install --save @ecl/pagination
           icon_position: 'before', 
         } 
         icon: { 
-          name: 'corner-arrow', 
+          name: 'corner-arrow-up', 
           size: 'xs', 
           transform: 'rotate-270', 
         }, 
@@ -69,7 +69,7 @@ npm install --save @ecl/pagination
         } 
         icon: { 
           type: 'ui', 
-          name: 'corner-arrow', 
+          name: 'corner-arrow-up', 
           size: 'xs', 
           transform: 'rotate-90', 
         }, 

@@ -125,7 +125,7 @@ npm install --save @ecl/gallery
       variant: 'ghost', 
       label: 'Previous', 
       icon: { 
-        name: 'corner-arrow', 
+        name: 'corner-arrow-up', 
         transform: 'rotate-270', 
         size: 'l', 
       }, 
@@ -135,7 +135,7 @@ npm install --save @ecl/gallery
       variant: 'ghost', 
       label: 'Next', 
       icon: { 
-        name: 'corner-arrow', 
+        name: 'corner-arrow-up', 
         transform: 'rotate-90', 
         size: 'l', 
       }, 

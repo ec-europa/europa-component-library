@@ -102,7 +102,7 @@
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
   {% set _can_be_external = false %}
   {% set _icon = [{
-    name: 'corner-arrow',
+    name: 'corner-arrow-up',
     transform: 'rotate-90',
     size: '2xs',
   },
@@ -236,7 +236,7 @@
 
           {% set _can_be_external = false %}
           {% set _icon = {
-            name: 'corner-arrow',
+            name: 'corner-arrow-up',
             transform: 'rotate-90',
             size: '2xs',
           } %}

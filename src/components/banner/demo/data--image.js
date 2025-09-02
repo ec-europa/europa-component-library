@@ -22,7 +22,7 @@ module.exports = {
       icon_position: 'after',
     },
     icon: {
-      name: 'corner-arrow',
+      name: 'corner-arrow-up',
       size: 'xs',
       transform: 'rotate-90',
     },
