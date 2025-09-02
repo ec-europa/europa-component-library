@@ -9,7 +9,7 @@
           transform: '' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
           color: '' (available options: 'default', 'inverted', 'primary')
           title: '' (additional title for the icon; shortcut for extra accessibility title)
-          family (string) (default: ''): icon family
+          family (string) (default: 'ecl'): icon family
           style: (string) (default: ''): icon style; mostly used for social networks icons, can be 'primary', 'monochrome', 'inverted'
         }
     - "as_image": false,
@@ -37,7 +37,7 @@
   transform: '',
   color: '',
   title: '',
-  family: '',
+  family: 'ecl',
   style: '',
 }|merge(icon|default({})) %}
 
@@ -108,7 +108,9 @@
   {% set _full_name = _full_name ~ '--' ~ _icon.name %}
 {% endif %}
 {% set _wt_classes = 'wt-icon' ~ _full_name %}
-{% set _css_class = _css_class  ~ ' ecl-icon' ~ _full_name %}
+
+{% set _processed_name = _full_name starts with '-ecl' ? _full_name[4:] : _full_name %}
+{% set _css_class = _css_class  ~ ' ecl-icon' ~ _processed_name %}
 
 {% if _icon.style is not empty %}
   {% set _wt_classes = _wt_classes ~ ' wt-icon--' ~ _icon.style %}

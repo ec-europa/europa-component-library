@@ -173,12 +173,12 @@ Here is the official documentation: https://webtools.europa.eu/showcase/demo/?co
 
 Twig templates have been updated to deliver the new markup for the icon, so this is mostly transparent, except for a few new parameters:
 
-- `family`, to specify the icon family when needed (social media and flags currently)
+- `family`, to specify the icon family when needed. By default, all the ECL icons are in the `ecl` family. Other families are `social media` and `flags`
 - `style`, if the icon has to be displayed in a specific style (primary, inverted, ...). This is only used for social media currently
 
 If you don't use the templates, this would have to be done manually:
 
-- keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
+- keep the existing ECL classes, and prepend the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
 
   Examples:
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
@@ -191,9 +191,11 @@ As the data structure of icons is slightly different on Webtools, here are a few
 - in the site footer, icon names have been changed for the social media icons: the icon family and style have to be passed as data.
   For instance, `instagram-inverted` (v4) is now `instagram`, with family `networks` and style `inverted`
 - Twitter and X now are 2 different icons. So whenever you were using `twitter` icon, it has to be changed to `x`
+- status icons have changed a little, both in terms of name and display. Make sure to check the icon list
 
 Extra attention points:
 
+- Webtools should be the first classes on the icon, before ecl classes or any other classes
 - flags are now names with the country code istead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
 
