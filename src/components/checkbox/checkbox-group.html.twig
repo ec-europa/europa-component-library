@@ -4,27 +4,27 @@
   Parameters:
   - "items" (array) (default: []): array of checkbox_button
   - "name" (string) (default: '')
-  - "invalid" (boolean) (default: false)
-  - "invalid_icon" (object of type "icon") (default: {})
-  - "sr_invalid_icon" (string) (default: ''): additional label for the invalid icon; for screen readers
+  - "feedback_type" (string) (default: ''): type of feedback message; can be "error", "success", "warning"
+  - "feedback_icon" (object of type "icon") (default: {}): icon for the feedback message
+  - "sr_feedback_icon" (string) (default: ''): additional label for the feedback icon; for screen readers
   - "required" (boolean) (default: false)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   Blocks:
-  - "invalid_text"
+  - "feedback_text"
 #}
 
 {# Internal properties #}
 
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
-{% set _invalid = invalid|default(false) %}
-{% set _invalid_icon = invalid_icon|default({}) %}
-{% set _sr_invalid_icon = sr_invalid_icon|default('') %}
+{% set _feedback_type = feedback_type|default('') %}
+{% set _feedback_icon = feedback_icon|default({}) %}
+{% set _sr_feedback_icon = sr_feedback_icon|default('') %}
 {% set _required = required|default(false) %}
-{% set _invalid_text = invalid_text|default('') %}
+{% set _feedback_text = feedback_text|default('') %}
 {% set _extra_attributes = extra_attributes|default([{}]) %}
 
 {# Internal logic - Process properties #}
@@ -33,21 +33,36 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% set _invalid_block  %}
+{# default feedback icon #}
+{% if _feedback_type == 'error' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('error-outline') 
+  }) %}
+{% elseif _feedback_type == 'warning' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('warning-outline') 
+  }) %}
+{% elseif _feedback_type == 'success' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('success-outline') 
+  }) %}
+{% endif %}
+
+{% set _feedback_block  %}
   <div class="ecl-feedback-message">
-  {% if _invalid_icon is not empty and _invalid_text is not empty %}
+  {% if _feedback_text is not empty %}
     {% include '@ecl/icon/icon.html.twig' with {
-      icon: _invalid_icon|merge({
+      icon: _feedback_icon|merge({
         size: 's',
       }),
       as_image: true,
-      extra_accessibility: not _sr_invalid_icon ? {} : {
-        title: _sr_invalid_icon,
+      extra_accessibility: not _sr_feedback_icon ? {} : {
+        title: _sr_feedback_icon,
       },
       extra_classes: 'ecl-feedback-message__icon',
     } only %}
   {% endif %}
-   {%- block invalid_text _invalid_text -%}
+   {%- block feedback_text _feedback_text -%}
   </div>
 {% endset %}
 
@@ -61,17 +76,15 @@
   {%- for _item in _items %}
     {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
       name: _name,
-      invalid: _item.invalid|default(_invalid),
+      feedback_type: _item.feedback_type|default(_feedback_type),
       required: _item.required|default(_required),
       required_text: _item_required_text,
       extra_classes: _item.extra_classes|default(_item_extra_classes|default('')),
       extra_attributes: _item.extra_attributes|default(_extra_attributes),
     }) only %}
   {% endfor -%}
-  {% if _items|length == 1 and
-    _invalid and
-    (_invalid_text is not empty or _invalid_icon is not empty) %}
-    {{ _invalid_block }}
+  {% if _items|length == 1 and _feedback_text is not empty %}
+    {{ _feedback_block }}
   {% endif %}
 {% endif %}
 

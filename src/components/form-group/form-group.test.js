@@ -70,8 +70,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataText, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
@@ -133,8 +132,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataDefault, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
@@ -196,8 +194,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataSingle, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
@@ -257,8 +254,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataFile, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
@@ -320,8 +316,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataRatingField, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });
@@ -384,8 +379,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataRange, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
 
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
@@ -450,8 +444,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataTextarea, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
 
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
@@ -507,8 +500,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataCheckbox, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
 
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
@@ -573,8 +565,7 @@ describe('Form group ', () => {
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataDatepicker, {
-        invalid: true,
-        invalid_text: 'Invalid text',
+        feedback_type: 'error',
       });
 
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();

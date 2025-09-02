@@ -57,6 +57,21 @@
   {% set _css_class = _css_class ~ ' ecl-form-group--' ~ _feedback_type %}
 {% endif %}
 
+{# default feedback icon #}
+{% if _feedback_type == 'error' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('error-outline') 
+  }) %}
+{% elseif _feedback_type == 'warning' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('warning-outline') 
+  }) %}
+{% elseif _feedback_type == 'success' %}
+  {% set _feedback_icon = _feedback_icon|merge({
+    name: _feedback_icon.name|default('success-outline') 
+  }) %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -162,21 +177,6 @@
   {% endif %}
 {% endif %}
 
-{# default feedback icon #}
-{% if _feedback_type == 'error' %}
-  {% set _feedback_icon = _feedback_icon|merge({
-    name: _feedback_icon.name|default('error-outline') 
-  }) %}
-{% elseif _feedback_type == 'warning' %}
-  {% set _feedback_icon = _feedback_icon|merge({
-    name: _feedback_icon.name|default('warning-outline') 
-  }) %}
-{% elseif _feedback_type == 'success' %}
-  {% set _feedback_icon = _feedback_icon|merge({
-    name: _feedback_icon.name|default('success-outline') 
-  }) %}
-{% endif %}
-
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
@@ -260,6 +260,7 @@
 
   {%- if _input.input_type == 'checkbox' -%}
     {% include '@ecl/checkbox/checkbox-group.html.twig' with _input|merge({
+      feedback_type: _feedback_type,
       feedback_text: _feedback_text,
       feedback_icon: _feedback_icon,
       sr_feedback_icon: _sr_feedback_icon

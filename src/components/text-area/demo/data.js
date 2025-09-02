@@ -1,15 +1,11 @@
 // Simple content for demo
 module.exports = {
   label: 'Label',
-  invalid_text: 'Error text',
-  invalid_icon: {
-    name: 'error-outline',
-  },
-  sr_invalid_icon: 'Error',
+  feedback_text: 'Feedback text',
+  sr_feedback_icon: 'Error',
   helper_text: 'Optional help text',
-  required: false,
+  required: true,
   disabled: false,
-  invalid: false,
   required_text: '(required)',
   optional_text: '(optional)',
   input: {

@@ -31,8 +31,8 @@ const getArgs = (data) => {
   const args = {
     hide_label: false,
     show_helper: true,
-    show_feedback: true,
-    feedback_type: data.feedback_type || '',
+    show_feedback: false,
+    feedback_type: data.feedback_type || 'error',
     disabled: data.disabled || false,
     required: data.required || false,
     label: data.label || '',

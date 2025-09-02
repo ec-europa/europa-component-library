@@ -5,7 +5,7 @@ module.exports = {
   sr_feedback_icon: 'Error',
   helper_text: 'Optional help text',
   optional_text: '(optional)',
-  required: false,
+  required: true,
   disabled: false,
   required_text: '(required)',
   input: {
