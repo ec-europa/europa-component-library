@@ -199,6 +199,21 @@ Extra attention points:
 - flags are now names with the country code istead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
 
+Attention points for some icons:
+
+- corner-arrow: renamed to corner-arrow-up
+- error: renamed to error-filled
+- information-round: removed
+- information: renamed to information-filled
+- notification-active: removed
+- solid-arrow: renamed to solid-arrow-up
+- sort-carets: removed
+- spinner: removed
+- success-filled: new icon
+- success-outline: new icon
+- warning-round: removed
+- warning: renamed to warning-filled
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of elements including images, description, links with images only, textual links instead of an img and then a list of links.
