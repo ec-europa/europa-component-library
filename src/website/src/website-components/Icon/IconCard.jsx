@@ -14,7 +14,16 @@ function IconCard({ name, label, set }) {
 
   return (
     <li className={cardClass}>
-      <span className={`wt-icon${family}--${name} ${styles.icon}`} />
+      {set === 'social-media' ? (
+        <span className={styles['icon-social']}>
+          <span className={`wt-icon${family}--${name} ${styles.icon}`} />
+          <span
+            className={`wt-icon${family}--${name} wt-icon--inverted ${styles.icon}`}
+          />
+        </span>
+      ) : (
+        <span className={`wt-icon${family}--${name} ${styles.icon}`} />
+      )}
       <div className={styles.title}>{iconLabel}</div>
     </li>
   );

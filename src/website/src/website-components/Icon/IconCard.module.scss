@@ -72,3 +72,19 @@
   height: 3rem;
   width: 3rem;
 }
+
+.card .icon-social {
+  & > :last-child {
+    display: none;
+  }
+}
+
+.card:hover .icon-social {
+  & > :first-child {
+    display: none;
+  }
+
+  & > :last-child {
+    display: inline-block;
+  }
+}
