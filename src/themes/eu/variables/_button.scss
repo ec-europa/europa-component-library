@@ -4,7 +4,7 @@
 @use '../index' as *;
 
 $button: (
-  radius: 4px,
+  radius: map.get($border-radius, 's'),
   font: var(--f-ui-m),
   shadow: var(--sh-1),
   min-height: 2.75rem,

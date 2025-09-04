@@ -377,14 +377,17 @@ $timeline: null !default;
   }
 
   .ecl-timeline__tooltip {
-    border-radius: 8px;
+    border-radius: map.get($theme, 'border-radius', 'm');
     box-shadow: var(--sh-1);
     padding: var(--s-l);
     position: relative;
 
     &::before {
       background: var(--cm-surface-secondary, var(--c-s));
-      border-radius: 0 0 2px 2px;
+      border-radius: 0
+        0
+        map.get($theme, 'border-radius', 'xs')
+        map.get($theme, 'border-radius', 'xs');
       content: '';
       display: block;
       height: 0.25rem;

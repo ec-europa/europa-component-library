@@ -206,7 +206,7 @@ $datepicker: null !default;
 
     &::before {
       background-color: map.get($datepicker, 'picker', 'day-today-color');
-      border-radius: 2px;
+      border-radius: map.get($theme, 'border-radius', 'xs');
       bottom: 4px;
       left: calc(50% - 10px);
       content: '';
