@@ -46,12 +46,6 @@ export const parameters = {
         group: 'others',
       },
       {
-        id: 'ecl-rtl',
-        href: './styles/optional/ecl-rtl.css',
-        picked: false,
-        group: 'others',
-      },
-      {
         id: 'ecl-ec-default-print',
         href: './styles/optional/ecl-ec-default-print.css',
         picked: false,

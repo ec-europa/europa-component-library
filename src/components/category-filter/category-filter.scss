@@ -108,6 +108,11 @@ $category-filter: null !default;
     z-index: 1;
   }
 
+  &:dir(rtl)::before {
+    left: auto;
+    right: 0;
+  }
+
   // stylelint-disable-next-line no-descending-specificity
   .ecl-category-filter__item {
     border-bottom: 0;

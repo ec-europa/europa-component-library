@@ -126,7 +126,6 @@ export class Carousel {
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
-    this.direction = getComputedStyle(this.element).direction;
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
@@ -456,6 +455,7 @@ export class Carousel {
     const newOffset = this.slideWidth * this.index;
 
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
+    this.direction = getComputedStyle(this.element).direction;
     if (this.direction === 'rtl') {
       this.slidesContainer.style.right = `-${newOffset}px`;
     } else {
