@@ -131,7 +131,13 @@ $timeline-print: null !default;
   position: map.get($timeline, 'label', 'layout');
   text-align: map.get($timeline, 'label', 'alignment');
 
-  @if map.has-key($timeline, 'left-spacing-desktop') {
+  &:dir(rtl) {
+    transform: scaleX(-1);
+  }
+}
+
+@if map.has-key($timeline, 'left-spacing-desktop') {
+  .ecl-timeline__label {
     left: calc(
       -1 *
         (
@@ -145,8 +151,9 @@ $timeline-print: null !default;
     width: map.get($timeline, 'left-spacing-desktop');
   }
 
-  &:dir(rtl) {
-    transform: scaleX(-1);
+  // Ensure minimum height for item to prevent overlapping
+  .ecl-timeline__item {
+    min-height: var(--ecl-timeline-label-height, 0);
   }
 }
 
