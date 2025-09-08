@@ -8,7 +8,7 @@ $banner: (
     'desktop': 42.5rem,
   ),
   content-background: map.get($color, 'white'),
-  content-border-radius: map.get($border-radius, 'm'),
+  content-border-radius: map.get($border-radius, 's'),
   content-padding: var(--s-l) var(--s-l),
   container-padding-block: (
     'media': (
@@ -29,8 +29,8 @@ $banner: (
   ),
   border-color: var(--c-s),
   border-radius: (
-    'banner': 8px,
-    'content': 4px,
+    'banner': map.get($border-radius, 'm'),
+    'content': map.get($border-radius, 's'),
   ),
   box-shadow: var(--sh-2),
   border-width: (

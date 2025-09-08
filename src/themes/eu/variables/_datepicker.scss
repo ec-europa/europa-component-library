@@ -7,7 +7,7 @@ $datepicker: (
   picker: (
     font: var(--f-m),
     font-th: var(--f-xs),
-    border-radius: 4px,
+    border-radius: map.get($border-radius, 's'),
     shadow: var(--sh-2),
     theme-color: var(--c-d-140),
     margin-top: var(--s-m),
