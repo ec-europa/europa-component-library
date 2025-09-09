@@ -7,7 +7,7 @@ module.exports = {
     placeholder: 'Placeholder text',
   },
   button: {
-    variant: 'ghost',
+    variant: 'tertiary',
     label: 'Search',
     icon_position: 'before',
   },

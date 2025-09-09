@@ -23,7 +23,7 @@ iconsAll.unshift('none');
 
 const getArgs = (data) => ({
   label: data.label,
-  size: 'm',
+  size: 'l',
   style: '',
   icon_name: 'none',
   icon_position: 'after',
@@ -87,7 +87,7 @@ const getArgTypes = (variant) => {
     },
     table: {
       type: 'string',
-      defaultValue: { summary: 'm' },
+      defaultValue: { summary: 'l' },
       category: 'Display',
     },
   };

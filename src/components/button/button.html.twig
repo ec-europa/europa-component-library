@@ -4,7 +4,7 @@
 {#
   Parameters:
     - "label" (string) (default: '')
-    - "size" (string) (default: 'm'): button size
+    - "size" (string) (default: 'l'): button size
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'tertiary'
     - "style" (string) (default: ''): can be 'highlight', 'neutral', 'inverted'. Not all styles are available for all variants
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
@@ -45,7 +45,7 @@
 {% set _css_class = 'ecl-button' %}
 {% set _extra_attributes = '' %}
 {% set _label = label|default('') %}
-{% set _size = size|default('m') %}
+{% set _size = size|default('l') %}
 {% set _variant = variant|default('primary') %}
 {% set _style = style|default('') %}
 {% set _type = type|default('submit') %}

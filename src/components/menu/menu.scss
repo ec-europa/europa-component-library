@@ -203,6 +203,7 @@ $menu: null !default;
 
 .ecl-menu__back {
   border-radius: map.get($menu, 'global', 'border-radius');
+  border-color: transparent;
   cursor: pointer;
   color: currentcolor;
   display: none;
@@ -347,19 +348,7 @@ $menu: null !default;
   box-shadow: inset 4px 0 0 0 map.get($menu, 'mobile', 'item-active-border');
 }
 
-.ecl-menu__item--current .ecl-menu__button-caret {
-  background-color: map.get($menu, 'mobile', 'caret-active-background');
-
-  &:focus-visible {
-    background-color: map.get($menu, 'mobile', 'caret-active-background');
-  }
-
-  &:hover {
-    background-color: map.get($menu, 'mobile', 'caret-active-background-hover');
-  }
-}
-
-.ecl-menu__button-caret {
+.ecl-menu__item .ecl-menu__button-caret {
   align-self: stretch;
   background-color: map.get($menu, 'mobile', 'caret-background');
   border-radius: 0;
@@ -390,6 +379,18 @@ $menu: null !default;
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-background');
     color: map.get($menu, 'mobile', 'caret-color');
+  }
+}
+
+.ecl-menu__item--current .ecl-menu__button-caret {
+  background-color: map.get($menu, 'mobile', 'caret-active-background');
+
+  &:focus-visible {
+    background-color: map.get($menu, 'mobile', 'caret-active-background');
+  }
+
+  &:hover {
+    background-color: map.get($menu, 'mobile', 'caret-active-background-hover');
   }
 }
 

@@ -101,9 +101,10 @@
             aria-hidden="true"
             >
               {% include '@ecl/button/button.html.twig' with {
-                variant: 'ghost',
+                variant: 'tertiary',
                 label: _ellipsis_text,
                 type: 'button',
+                size: 'm',
                 extra_classes: 'ecl-breadcrumb__ellipsis',
                 extra_attributes: [
                   { name: 'data-ecl-breadcrumb-ellipsis-button' },

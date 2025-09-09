@@ -86,8 +86,8 @@ $button: null !default;
   }
 
   .ecl-button__icon {
-    height: map.get($button, 'medium', 'icon-only-size');
-    width: map.get($button, 'medium', 'icon-only-size');
+    height: map.get($button, 'large', 'icon-only-size');
+    width: map.get($button, 'large', 'icon-only-size');
   }
 
   &.ecl-button--s .ecl-button__icon {
@@ -95,9 +95,9 @@ $button: null !default;
     width: map.get($button, 'small', 'icon-only-size');
   }
 
-  &.ecl-button--l .ecl-button__icon {
-    height: map.get($button, 'large', 'icon-only-size');
-    width: map.get($button, 'large', 'icon-only-size');
+  &.ecl-button--m .ecl-button__icon {
+    height: map.get($button, 'medium', 'icon-only-size');
+    width: map.get($button, 'medium', 'icon-only-size');
   }
 }
 
@@ -108,18 +108,18 @@ $button: null !default;
   border: map.get($button, #{$variant}, 'border-width') solid
     map.get($button, #{$variant}, 'border-color');
   color: map.get($button, #{$variant}, 'color');
-  min-height: map.get($button, 'medium', 'size');
-  min-width: map.get($button, 'medium', 'size');
+  min-height: map.get($button, 'large', 'size');
+  min-width: map.get($button, 'large', 'size');
   padding: calc(
-      #{map.get($button, 'medium', 'padding-vertical')} -
+      #{map.get($button, 'large', 'padding-vertical')} -
         #{map.get($button, #{$variant}, 'border-width')}
     )
     calc(
-      #{map.get($button, 'medium', 'padding-horizontal')} -
+      #{map.get($button, 'large', 'padding-horizontal')} -
         #{map.get($button, #{$variant}, 'border-width')}
     );
 
-  @include mixins.responsive-font(map.get($button, 'medium', 'font'));
+  @include mixins.responsive-font(map.get($button, 'large', 'font'));
 
   &.ecl-button--s {
     min-height: map.get($button, 'small', 'size');
@@ -136,19 +136,19 @@ $button: null !default;
     @include mixins.responsive-font(map.get($button, 'small', 'font'));
   }
 
-  &.ecl-button--l {
-    min-height: map.get($button, 'large', 'size');
-    min-width: map.get($button, 'large', 'size');
+  &.ecl-button--m {
+    min-height: map.get($button, 'medium', 'size');
+    min-width: map.get($button, 'medium', 'size');
     padding: calc(
-        #{map.get($button, 'large', 'padding-vertical')} -
+        #{map.get($button, 'medium', 'padding-vertical')} -
           #{map.get($button, #{$variant}, 'border-width')}
       )
       calc(
-        #{map.get($button, 'large', 'padding-horizontal')} -
+        #{map.get($button, 'medium', 'padding-horizontal')} -
           #{map.get($button, #{$variant}, 'border-width')}
       );
 
-    @include mixins.responsive-font(map.get($button, 'large', 'font'));
+    @include mixins.responsive-font(map.get($button, 'medium', 'font'));
   }
 
   &:hover {

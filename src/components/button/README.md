@@ -9,7 +9,7 @@ npm install --save @ecl/button
 ### Parameters
 
 - **"label"** (string) (default: '')
-- **"size"** (string) (default: 'm'): button size
+- **"size"** (string) (default: 'l'): button size
 - **"variant"** (string) (default: 'primary'): can be 'primary', 'secondary', 'tertiary'
 - **"style"** (string) (default: ''): can be 'highlight', 'neutral', 'inverted'. Not all styles are available for all variants
 - **"type"** (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
