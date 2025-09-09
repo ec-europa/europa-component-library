@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $accordion: (
-  radius: var(--s-xs),
+  radius: map.get($border-radius, 'm'),
   shadow: var(--sh-1),
   separator: 2px solid var(--c-p-20),
   title-text-color: var(--c-d-80),

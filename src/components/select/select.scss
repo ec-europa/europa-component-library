@@ -347,7 +347,7 @@ $outline-width: 2px;
     * {
       align-items: center;
       background-color: map.get($select, 'multiple', 'counter-background');
-      border-radius: 0.75rem;
+      border-radius: map.get($theme, 'border-radius', 'l');
       color: map.get($select, 'multiple', 'counter-color');
       display: inline-flex;
       height: auto;

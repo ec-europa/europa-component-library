@@ -201,6 +201,7 @@ const getArgTypes = () => {
       'ecl-u-border-radius-2',
       'ecl-u-border-radius-4',
       'ecl-u-border-radius-8',
+      'ecl-u-border-radius-12',
     ],
     control: {
       type: 'select',
@@ -209,6 +210,7 @@ const getArgTypes = () => {
         'ecl-u-border-radius-2': '2px',
         'ecl-u-border-radius-4': '4px',
         'ecl-u-border-radius-8': '8px',
+        'ecl-u-border-radius-12': '12px',
       },
     },
     mapping: {
@@ -216,6 +218,7 @@ const getArgTypes = () => {
       '2px': 'ecl-u-border-radius-2',
       '4px': 'ecl-u-border-radius-4',
       '8px': 'ecl-u-border-radius-8',
+      '12px': 'ecl-u-border-radius-12',
     },
   };
 
