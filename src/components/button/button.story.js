@@ -4,16 +4,14 @@ import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
-import dataPrimary from './demo/data--primary';
-import dataSecondary from './demo/data--secondary';
-import dataCall from './demo/data--call';
-import dataGhost from './demo/data--ghost';
-import dataGhostInverted from './demo/data--ghost-inverted';
-import dataTertiary from './demo/data--tertiary';
-import dataOutline from './demo/data--outline';
+import dataButton from './demo/data';
 
 import button from './button.html.twig';
 import notes from './README.md';
+
+const dataButtonPrimary = { ...dataButton, variant: 'primary' };
+const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
+const dataButtonTertiary = { ...dataButton, variant: 'tertiary' };
 
 const iconMapping = iconsAll.reduce((mapping, icon) => {
   mapping[icon] = icon;
@@ -23,13 +21,10 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 // Create 'none' option.
 iconsAll.unshift('none');
 
-const withInverted = (story) => {
-  const demo = story();
-  return `<div class="ecl-u-bg-dark ecl-u-bg-grey ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
-};
-
 const getArgs = (data) => ({
   label: data.label,
+  size: 'm',
+  style: '',
   icon_name: 'none',
   icon_position: 'after',
   icon_title: '',
@@ -39,8 +34,73 @@ const getArgs = (data) => ({
   indicator_value: '',
 });
 
-const getArgTypes = () => {
+const stylePrimary = {
+  options: ['', 'highlight', 'inverted'],
+  control: {
+    labels: {
+      '': 'default',
+      highlight: 'highlight',
+      inverted: 'inverted',
+    },
+  },
+  mapping: {
+    default: '',
+    highlight: 'highlight',
+    inverted: 'inverted',
+  },
+};
+
+const styleSecondary = {
+  options: ['', 'neutral', 'inverted'],
+  control: {
+    labels: {
+      '': 'default',
+      neutral: 'neutral',
+      inverted: 'inverted',
+    },
+  },
+  mapping: {
+    default: '',
+    neutral: 'neutral',
+    inverted: 'inverted',
+  },
+};
+
+const getArgTypes = (variant) => {
   const argTypes = {};
+  argTypes.size = {
+    name: 'size',
+    type: 'select',
+    description: 'Button size',
+    options: ['s', 'm', 'l'],
+    control: {
+      labels: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
+      },
+    },
+    mapping: {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'm' },
+      category: 'Display',
+    },
+  };
+  argTypes.style = {
+    ...(variant === 'primary' ? stylePrimary : styleSecondary),
+    name: 'style',
+    type: 'select',
+    description: 'Button style',
+    table: {
+      type: 'string',
+      category: 'Display',
+    },
+  };
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
@@ -180,6 +240,8 @@ const getArgTypes = () => {
 };
 
 const prepareData = (data, args) => {
+  data.size = args.size;
+  data.style = args.style;
   data.label = args.label;
   data.disabled = args.disabled;
   data.hide_label = args.hide_label;
@@ -204,94 +266,56 @@ const prepareData = (data, args) => {
   return data;
 };
 
+const renderStory = async (data, args) => {
+  let story = await button(prepareData(data, args));
+
+  if (args.style === 'inverted') {
+    story = `<div class="ecl-u-bg-black ecl-u-pa-m">${story}</div>`;
+  }
+
+  return story;
+};
+
 export default {
   title: 'Components/Button',
-  argTypes: getArgTypes(),
   decorators: [withCode, withNotes],
 };
+
 export const Primary = (_, { loaded: { component } }) => component;
 
 Primary.render = async (args) => {
-  const renderedButton = await button(prepareData(dataPrimary, args));
+  const renderedButton = await renderStory(dataButtonPrimary, args);
   return renderedButton;
 };
-Primary.args = getArgs(dataPrimary);
+Primary.args = getArgs(dataButtonPrimary);
 Primary.storyName = 'primary';
+Primary.argTypes = getArgTypes('primary');
 Primary.parameters = {
-  notes: { markdown: notes, json: dataPrimary },
+  notes: { markdown: notes, json: dataButtonPrimary },
 };
 
 export const Secondary = (_, { loaded: { component } }) => component;
 
 Secondary.render = async (args) => {
-  const renderedButtonSecondary = await button(
-    prepareData(dataSecondary, args),
-  );
-  return renderedButtonSecondary;
+  const renderedButton = await renderStory(dataButtonSecondary, args);
+  return renderedButton;
 };
-Secondary.args = getArgs(dataSecondary);
+Secondary.args = getArgs(dataButtonSecondary);
 Secondary.storyName = 'secondary';
+Secondary.argTypes = getArgTypes('secondary');
 Secondary.parameters = {
-  notes: { markdown: notes, json: dataSecondary },
+  notes: { markdown: notes, json: dataButtonSecondary },
 };
 
 export const Tertiary = (_, { loaded: { component } }) => component;
 
 Tertiary.render = async (args) => {
-  const renderedCta = await button(prepareData(dataTertiary, args));
-  return renderedCta;
-};
-Tertiary.args = getArgs(dataTertiary);
-Tertiary.storyName = 'tertiary';
-Tertiary.parameters = {
-  notes: { markdown: notes, json: dataTertiary },
-};
-
-export const CallToAction = (_, { loaded: { component } }) => component;
-
-CallToAction.render = async (args) => {
-  const renderedCta = await button(prepareData(dataCall, args));
-  return renderedCta;
-};
-CallToAction.args = getArgs(dataCall);
-CallToAction.storyName = 'call to action';
-CallToAction.parameters = {
-  notes: { markdown: notes, json: dataCall },
-};
-
-export const Ghost = (_, { loaded: { component } }) => component;
-
-Ghost.render = async (args) => {
-  const renderedCta = await button(prepareData(dataGhost, args));
-  return renderedCta;
-};
-Ghost.args = getArgs(dataGhost);
-Ghost.storyName = 'ghost';
-Ghost.parameters = {
-  notes: { markdown: notes, json: dataGhost },
-};
-
-export const GhostInverted = (_, { loaded: { component } }) => component;
-
-GhostInverted.render = async (args) => {
-  const renderedCta = await button(prepareData(dataGhostInverted, args));
-  return renderedCta;
-};
-GhostInverted.args = getArgs(dataGhostInverted);
-GhostInverted.storyName = 'ghost inverted';
-GhostInverted.decorators = [withNotes, withCode, withInverted];
-GhostInverted.parameters = {
-  notes: { markdown: notes, json: dataGhostInverted },
-};
-
-export const Outline = (_, { loaded: { component } }) => component;
-
-Outline.render = async (args) => {
-  const renderedButton = await button(prepareData(dataOutline, args));
+  const renderedButton = await renderStory(dataButtonTertiary, args);
   return renderedButton;
 };
-Outline.args = getArgs(dataOutline);
-Outline.storyName = 'outline';
-Outline.parameters = {
-  notes: { markdown: notes, json: dataOutline },
+Tertiary.args = getArgs(dataButtonTertiary);
+Tertiary.storyName = 'tertiary';
+Tertiary.argTypes = getArgTypes('tertiary');
+Tertiary.parameters = {
+  notes: { markdown: notes, json: dataButtonTertiary },
 };
