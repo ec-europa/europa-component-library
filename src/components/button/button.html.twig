@@ -62,7 +62,10 @@
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class ~ ' ecl-button--' ~ _variant %}
-{% set _css_class = _css_class ~ ' ecl-button--' ~ _size %}
+
+{% if _size != 'l' %}
+  {% set _css_class = _css_class ~ ' ecl-button--' ~ _size %}
+{% endif %}
 
 {% if _style is not empty %}
   {% set _css_class = _css_class ~ ' ecl-button--' ~ _style %}
