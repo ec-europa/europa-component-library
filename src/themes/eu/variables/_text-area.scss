@@ -3,7 +3,7 @@
 
 $textarea: (
   font: var(--f-ui-m),
-  radius: 4px,
+  radius: map.get($border-radius, 's'),
   background: map.get($color, 'white'),
   border-color: var(--c-d-80),
   border-color-hover: var(--c-d-80),

@@ -45,8 +45,7 @@ $language-list: null !default;
     right: 0;
     width: calc(44px + var(--s-m) * 2);
 
-    &.ecl-mega-menu--rtl,
-    &.ecl-menu--rtl {
+    &:dir(rtl) {
       left: 0;
       right: auto;
     }
@@ -201,7 +200,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__login-box {
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   box-sizing: border-box;
   left: 0;
   margin-top: var(--s-m);
@@ -231,7 +230,7 @@ $language-list: null !default;
 
   &.ecl-link {
     color: var(--c-d);
-    border-radius: 4px;
+    border-radius: map.get($theme, 'border-radius', 's');
     text-decoration: none;
 
     &:focus-visible {

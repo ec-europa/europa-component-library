@@ -52,7 +52,6 @@ export default defineConfig(({ command }) => {
     ECL_EU_JS: (sri['ecl-eu.js'] || []).join(' ') || 'n/a',
     ECL_ESM_EU_JS: (sri['ecl-esm-eu.js'] || []).join(' ') || 'n/a',
     ECL_RESET_CSS: (sri['ecl-reset.css'] || []).join(' ') || 'n/a',
-    ECL_RTL_CSS: (sri['ecl-rtl.css'] || []).join(' ') || 'n/a',
   };
 
   return {

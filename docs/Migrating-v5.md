@@ -114,6 +114,14 @@ Other modification for the utilities:
 
 - `ecl-u-border-radius-1` has been removed, as it was barely visible
 
+### Right to left
+
+The way ECL handles right to left has been updated. Previously, we were delivering an optional css for that, now the corresponding css has been integrated directly in the components.
+
+To have the correct right to left display, you should make sure that the html `dir` attribute is correctly set on the page (it could be on the `html` or `body` tag for instance).
+
+If not specificed, the default reading direction remains left to right.
+
 ## Component modifications
 
 ### Accordion

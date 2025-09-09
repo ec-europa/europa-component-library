@@ -133,6 +133,11 @@ $menu: null !default;
   width: 100%;
   z-index: map.get($theme, 'z-index', 'modal') + 3;
 
+  &:dir(rtl) {
+    left: -100%;
+    right: auto;
+  }
+
   /* Force display if JS is disabled */
   .no-js & {
     display: flex;
@@ -143,6 +148,11 @@ $menu: null !default;
 .ecl-menu[data-expanded] .ecl-menu__inner {
   display: block;
   right: 0;
+
+  &:dir(rtl) {
+    left: 0;
+    right: auto;
+  }
 }
 
 .ecl-menu__inner-header {
@@ -211,6 +221,10 @@ $menu: null !default;
   text-decoration: none;
   width: 100%;
 
+  &:dir(rtl) .ecl-icon {
+    transform: rotate(90deg);
+  }
+
   &:hover {
     background-color: map.get($menu, 'mobile', 'header-background-hover');
     border-color: map.get($menu, 'mobile', 'header-border-hover');
@@ -249,6 +263,11 @@ $menu: null !default;
   .ecl-menu__inner {
     right: -25rem;
     width: 25rem;
+
+    &:dir(rtl) {
+      left: -25rem;
+      right: auto;
+    }
   }
 
   .ecl-menu__overlay {
@@ -282,6 +301,11 @@ $menu: null !default;
       transition: none;
       width: 100%;
       z-index: map.get($theme, 'z-index', 'modal');
+
+      &:dir(rtl) {
+        left: 0;
+        right: auto;
+      }
     }
 
     .ecl-menu__inner--has-overflow {
@@ -346,6 +370,10 @@ $menu: null !default;
 .ecl-menu__item--current .ecl-menu__link {
   background-color: map.get($menu, 'mobile', 'item-active-background');
   box-shadow: inset 4px 0 0 0 map.get($menu, 'mobile', 'item-active-border');
+
+  &:dir(rtl) {
+    box-shadow: inset -4px 0 0 0 map.get($menu, 'mobile', 'item-active-border');
+  }
 }
 
 .ecl-menu__item .ecl-menu__button-caret {
@@ -357,6 +385,10 @@ $menu: null !default;
   display: inline-flex;
   margin-inline-start: 2px;
   z-index: 0;
+
+  &:dir(rtl) {
+    transform: rotate(180deg);
+  }
 
   .ecl-button__container {
     align-self: center;
@@ -620,6 +652,16 @@ $menu: null !default;
       }
     }
 
+    &:dir(rtl) .ecl-menu__items-previous {
+      left: auto;
+      right: 0;
+    }
+
+    &:dir(rtl) .ecl-menu__items-next {
+      left: 0;
+      right: auto;
+    }
+
     .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
       padding-right: var(--s-xs);
     }
@@ -718,10 +760,6 @@ $menu: null !default;
 }
 
 .ecl-menu__inner--expanded .ecl-menu__item:not(.ecl-menu__item--expanded) {
-  display: none;
-}
-
-.ecl-menu__inner--expanded .ecl-menu__link-icon {
   display: none;
 }
 
@@ -880,6 +918,10 @@ $menu: null !default;
 // Hack to prevent transition issue on page load on chrome
 .ecl-menu--transition .ecl-menu__inner {
   transition: right 375ms;
+
+  &:dir(rtl) {
+    transition: left 375ms;
+  }
 }
 
 @include breakpoints.up('xl') {
