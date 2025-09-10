@@ -69,15 +69,15 @@ $outline-width: 2px;
 }
 
 .ecl-select__container--s {
-  @include mixins-form.form-width(s);
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-select__container--m {
-  @include mixins-form.form-width(m);
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-select__container--l {
-  @include mixins-form.form-width(l);
+  @include mixins-form.form-width('l', $theme);
 }
 
 .ecl-select__container--hidden {
@@ -343,7 +343,7 @@ $outline-width: 2px;
     * {
       align-items: center;
       background-color: map.get($select, 'multiple', 'counter-background');
-      border-radius: 0.75rem;
+      border-radius: map.get($theme, 'border-radius', 'l');
       color: map.get($select, 'multiple', 'counter-color');
       display: inline-flex;
       height: auto;

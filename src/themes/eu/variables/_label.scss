@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $label: (
-  radius: 4px,
+  radius: map.get($border-radius, 's'),
   border-width: 2px,
   padding: calc(var(--s-2xs) - 2px) calc(var(--s-s) - 2px),
   font: var(--f-ui-s),

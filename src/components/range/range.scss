@@ -5,14 +5,11 @@
 
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
 
 // Exposed variables
 $theme: null !default;
 $range: null !default;
-
-@use '@ecl/layout-form/mixins' as mixins-form with (
-  $theme: $theme
-);
 
 @mixin range-track {
   background-color: map.get($range, 'bar-color');
@@ -27,7 +24,7 @@ $range: null !default;
 .ecl-range {
   appearance: none;
   background-color: transparent;
-  border-radius: 2px;
+  border-radius: map.get($theme, 'border-radius', 'xs');
   display: block;
   height: map.get($range, 'range-size');
   outline: none;
@@ -127,7 +124,7 @@ $range: null !default;
 // Bubble
 .ecl-range__bubble {
   background-color: var(--cm-surface-transparent-70, var(--c-ov-d));
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   color: map.get($range, 'bubble-color');
   display: none;
   margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));
@@ -164,15 +161,15 @@ $range: null !default;
 
 // Width
 .ecl-range--s {
-  @include mixins-form.form-width('s');
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-range--m {
-  @include mixins-form.form-width('m');
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-range--l {
-  @include mixins-form.form-width('l');
+  @include mixins-form.form-width('l', $theme);
 }
 
 // Disabled

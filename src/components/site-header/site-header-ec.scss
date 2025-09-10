@@ -62,11 +62,6 @@ $language-list: null !default;
   }
 }
 
-.ecl-site-header__header {
-  position: relative;
-  z-index: 54;
-}
-
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
@@ -201,7 +196,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__login-box {
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   box-sizing: border-box;
   left: 0;
   width: 100%;

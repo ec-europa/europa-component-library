@@ -131,7 +131,13 @@ $timeline-print: null !default;
   position: map.get($timeline, 'label', 'layout');
   text-align: map.get($timeline, 'label', 'alignment');
 
-  @if map.has-key($timeline, 'left-spacing-desktop') {
+  &:dir(rtl) {
+    transform: scaleX(-1);
+  }
+}
+
+@if map.has-key($timeline, 'left-spacing-desktop') {
+  .ecl-timeline__label {
     left: calc(
       -1 *
         (
@@ -145,8 +151,9 @@ $timeline-print: null !default;
     width: map.get($timeline, 'left-spacing-desktop');
   }
 
-  &:dir(rtl) {
-    transform: scaleX(-1);
+  // Ensure minimum height for item to prevent overlapping
+  .ecl-timeline__item {
+    min-height: var(--ecl-timeline-label-height, 0);
   }
 }
 
@@ -215,14 +222,17 @@ $timeline-print: null !default;
   }
 
   .ecl-timeline__tooltip {
-    border-radius: 8px;
+    border-radius: map.get($theme, 'border-radius', 'm');
     box-shadow: var(--sh-1);
     padding: var(--s-l);
     position: relative;
 
     &::before {
       background: var(--cm-surface-secondary, var(--c-s));
-      border-radius: 0 0 2px 2px;
+      border-radius: 0
+        0
+        map.get($theme, 'border-radius', 'xs')
+        map.get($theme, 'border-radius', 'xs');
       content: '';
       display: block;
       height: 0.25rem;
