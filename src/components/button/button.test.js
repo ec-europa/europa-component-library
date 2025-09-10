@@ -6,13 +6,11 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import dataPrimary from './demo/data--primary';
-import dataSecondary from './demo/data--secondary';
-import dataCall from './demo/data--call';
-import dataGhost from './demo/data--ghost';
-import dataGhostInverted from './demo/data--ghost-inverted';
-import dataTertiary from './demo/data--tertiary';
-import dataOutline from './demo/data--outline';
+import dataButton from './demo/data';
+
+const dataButtonPrimary = { ...dataButton, variant: 'primary' };
+const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
+const dataButtonTertiary = { ...dataButton, variant: 'tertiary' };
 
 expect.extend(toHaveNoViolations);
 
@@ -24,13 +22,36 @@ describe('Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(dataPrimary)).resolves.toMatchSnapshot();
+      return expect(render(dataButtonPrimary)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataPrimary)),
+        await axe(await renderTwigFileAsHtml(template, dataButtonPrimary)),
       ).toHaveNoViolations();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(dataButtonPrimary, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(dataButtonPrimary, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
@@ -38,12 +59,12 @@ describe('Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(dataSecondary)).resolves.toMatchSnapshot();
+      return expect(render(dataButtonSecondary)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataSecondary)),
+        await axe(await renderTwigFileAsHtml(template, dataButtonSecondary)),
       ).toHaveNoViolations();
     });
   });
@@ -52,78 +73,22 @@ describe('Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(dataTertiary)).resolves.toMatchSnapshot();
+      return expect(render(dataButtonTertiary)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataTertiary)),
+        await axe(await renderTwigFileAsHtml(template, dataButtonTertiary)),
       ).toHaveNoViolations();
     });
   });
 
-  describe('Outline', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(dataOutline)).resolves.toMatchSnapshot();
-    });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(await renderTwigFileAsHtml(template, dataOutline)),
-      ).toHaveNoViolations();
-    });
-  });
-
-  describe('CTA', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(dataCall)).resolves.toMatchSnapshot();
-    });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall, true)),
-      ).toHaveNoViolations();
-    });
-  });
-
-  describe('Ghost', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(dataGhost)).resolves.toMatchSnapshot();
-    });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(await renderTwigFileAsHtml(template, dataGhost)),
-      ).toHaveNoViolations();
-    });
-  });
-
-  describe('Ghost inverted', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(dataGhostInverted)).resolves.toMatchSnapshot();
-    });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(await renderTwigFileAsHtml(template, dataGhostInverted)),
-      ).toHaveNoViolations();
-    });
-  });
-
-  describe('CTA button - icon only', () => {
+  describe('Primary button highlight - icon only', () => {
     const buttonData = {
-      label: 'CTA Button with icon only',
-      variant: 'cta',
+      ...dataButtonPrimary,
+      style: 'highlight',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
       hide_label: true,
@@ -137,17 +102,17 @@ describe('Button', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall)),
+        await axe(await renderTwigFileAsHtml(template, buttonData)),
       ).toHaveNoViolations();
     });
   });
 
-  describe('CTA button - with indicator', () => {
+  describe('Secondary button neutral - with indicator', () => {
     const buttonData = {
-      label: 'CTA Button with indicator',
-      variant: 'cta',
+      ...dataButtonSecondary,
+      style: 'neutral',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
       hide_label: true,
@@ -164,18 +129,18 @@ describe('Button', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall)),
+        await axe(await renderTwigFileAsHtml(template, buttonData)),
       ).toHaveNoViolations();
     });
   });
 
-  describe('CTA button - icon before', () => {
+  describe('Tertiary button neutral - icon before', () => {
     const buttonData = {
-      label: 'CTA Button with icon before',
-      variant: 'cta',
+      ...dataButtonTertiary,
+      style: 'neutral',
       icon_position: 'before',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
     };
@@ -188,17 +153,17 @@ describe('Button', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall)),
+        await axe(await renderTwigFileAsHtml(template, buttonData)),
       ).toHaveNoViolations();
     });
   });
 
-  describe('CTA button - icon after', () => {
+  describe('Primary button inverted - icon after', () => {
     const buttonData = {
-      label: 'CTA Button with icon after',
-      variant: 'cta',
+      ...dataButtonPrimary,
+      style: 'inverted',
       icon: {
-        name: 'corner-arrow',
+        name: 'corner-arrow-up',
         size: 'fluid',
       },
     };
@@ -209,27 +174,10 @@ describe('Button', () => {
       return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with extra class names', () => {
-      expect.assertions(1);
-
-      const withExtraClasses = merge(buttonData, {
-        extra_classes: 'custom-class custom-class--test',
-      });
-
-      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra attributes', () => {
-      expect.assertions(1);
-
-      const withExtraAttributes = merge(buttonData, {
-        extra_attributes: [
-          { name: 'data-test', value: 'data-test-value' },
-          { name: 'data-test-1', value: 'data-test-value-1' },
-        ],
-      });
-
-      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, buttonData)),
+      ).toHaveNoViolations();
     });
   });
 });

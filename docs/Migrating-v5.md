@@ -130,6 +130,22 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Button
+
+- Button variant have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
+- On top of the variants different styles are available: `highlight`, `neutral` and `inverted`
+
+Depending on your usage, you may have to update the button classes to match the new ones.
+
+Here is the mapping to the new variant / style:
+
+- primary -> primary
+- secondary -> secondary
+- tertiary -> tertiary / neutral
+- cta -> primary / highlight
+- ghost -> tertiary
+- ghost-inverted -> tertiary / inverted
+
 ### Checkbox
 
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
