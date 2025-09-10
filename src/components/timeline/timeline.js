@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/dom-utils';
+import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -8,6 +8,7 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {String} options.labelExpanded
  * @param {String} options.labelCollapsed
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class Timeline {
   /**
@@ -33,6 +34,7 @@ export class Timeline {
       labelExpanded = 'data-ecl-label-expanded',
       labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
+      attachResizeListener = true,
     } = {},
   ) {
     // Check element
@@ -50,13 +52,17 @@ export class Timeline {
     this.labelExpanded = labelExpanded;
     this.labelCollapsed = labelCollapsed;
     this.attachClickListener = attachClickListener;
+    this.attachResizeListener = attachResizeListener;
 
     // Private variables
     this.button = null;
     this.label = null;
+    this.timelineItems = null;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnButton = this.handleClickOnButton.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
@@ -69,6 +75,7 @@ export class Timeline {
     ECL.components = ECL.components || new Map();
     // Query elements
     this.button = queryOne(this.buttonSelector, this.element);
+    this.timelineItems = queryAll('.ecl-timeline__item', this.element);
 
     // Get label, if any
     this.label = queryOne(this.labelSelector, this.element);
@@ -77,6 +84,16 @@ export class Timeline {
     if (this.attachClickListener && this.button) {
       this.button.addEventListener('click', this.handleClickOnButton);
     }
+
+    // Bind resize event
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
+
+    // Initial height adjustment
+    setTimeout(() => {
+      this.adjustLabelHeights();
+    }, 100);
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -89,6 +106,12 @@ export class Timeline {
   destroy() {
     if (this.attachClickListener && this.button) {
       this.button.removeEventListener('click', this.handleClickOnButton);
+    }
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.resizeTimer) {
+      clearTimeout(this.resizeTimer);
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -137,7 +160,47 @@ export class Timeline {
       this.label.innerHTML = this.button.getAttribute(this.labelCollapsed);
     }
 
+    this.adjustLabelHeights();
+
     return this;
+  }
+
+  /**
+   * Handle resize events with debounce.
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+
+    this.resizeTimer = setTimeout(() => {
+      this.adjustLabelHeights();
+    }, 250);
+  }
+
+  /**
+   * Adjust timeline item heights to accommodate absolutely positioned labels.
+   */
+  adjustLabelHeights() {
+    if (!this.timelineItems) return;
+
+    this.timelineItems.forEach((item) => {
+      const label = queryOne('.ecl-timeline__label', item);
+      const title = queryOne('.ecl-timeline__title', item);
+      const content = queryOne('.ecl-timeline__content', item);
+
+      // Reset CSS variable to get accurate measurements
+      item.style.removeProperty('--ecl-timeline-label-height');
+
+      // Only adjust height for items with labels but no title/content
+      if (label && !title && !content) {
+        const labelHeight = label.getBoundingClientRect().height;
+
+        // Set CSS variable with the measured label height
+        item.style.setProperty(
+          '--ecl-timeline-label-height',
+          `${labelHeight}px`,
+        );
+      }
+    });
   }
 }
 

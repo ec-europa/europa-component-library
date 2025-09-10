@@ -3,7 +3,7 @@
 
 $fact-figures: (
   background: var(--c-p-5),
-  border-radius: 8px,
+  border-radius: map.get($border-radius, 'm'),
   padding-mobile: var(--s-m),
   padding-desktop: var(--s-xl),
   margin-vertical: var(--s-xl),

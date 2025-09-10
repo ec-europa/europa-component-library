@@ -10,5 +10,5 @@ $expandable: (
   toggle-background-active: var(--cm-surface-primary-low),
   toggle-border-active: var(--cm-border-primary-highest),
   toggle-color-active: var(--cm-on-surface-primary-highest),
-  toggle-radius: 2px,
+  toggle-radius: map.get($border-radius, 'xs'),
 );

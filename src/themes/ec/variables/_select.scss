@@ -43,7 +43,7 @@ $select: (
     dropdown-border: none,
     dropdown-separator-color: transparent,
     dropdown-toolbar-separator-color: transparent,
-    dropdown-border-radius: 2px,
+    dropdown-border-radius: map.get($border-radius, 'xs'),
     dropdown-shadow: var(--sh-2),
     dropdown-margin: var(--s-2xs),
     dropdown-input-margin: var(--s-m) var(--s-m) var(--s-s),

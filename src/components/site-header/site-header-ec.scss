@@ -32,6 +32,11 @@ $language-list: null !default;
     position: absolute;
     right: 0;
     width: 100%;
+
+    &:dir(rtl) {
+      left: 0;
+      right: auto;
+    }
   }
 
   .ecl-menu__open,
@@ -55,11 +60,6 @@ $language-list: null !default;
   .ecl-site-header__cta:only-child {
     margin-top: 0;
   }
-}
-
-.ecl-site-header__header {
-  position: relative;
-  z-index: 54;
 }
 
 .ecl-site-header__container {
@@ -173,7 +173,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__login-box {
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   box-sizing: border-box;
   left: 0;
   width: 100%;
@@ -268,6 +268,7 @@ $language-list: null !default;
 // Menu display and position
 $menu-top: calc(44px + 2 * var(--s-xs));
 
+// stylelint-disable no-descending-specificity
 // stylelint-disable-next-line no-duplicate-selectors
 .ecl-site-header .ecl-menu,
 .ecl-site-header .ecl-mega-menu {
@@ -281,7 +282,13 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
 .ecl-site-header .ecl-mega-menu {
   right: calc(-1 * var(--s-l));
+
+  &:dir(rtl) {
+    left: calc(-1 * var(--s-l));
+    right: auto;
+  }
 }
+// stylelint-enable no-descending-specificity
 
 .ecl-site-header .ecl-mega-menu--rtl,
 .ecl-site-header .ecl-menu--rtl {

@@ -32,6 +32,11 @@ $datepicker: null !default;
   position: absolute;
   right: 0;
   top: 0;
+
+  &:dir(rtl) {
+    right: auto;
+    left: 0;
+  }
 }
 
 .ecl-datepicker__field[disabled] + .ecl-datepicker__icon {
@@ -201,7 +206,7 @@ $datepicker: null !default;
 
     &::before {
       background-color: map.get($datepicker, 'picker', 'day-today-color');
-      border-radius: 2px;
+      border-radius: map.get($theme, 'border-radius', 'xs');
       bottom: 4px;
       left: calc(50% - 10px);
       content: '';

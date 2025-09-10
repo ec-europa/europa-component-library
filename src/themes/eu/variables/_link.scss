@@ -23,7 +23,7 @@ $link: (
     font: var(--f-ui-m),
     radius: 4px,
     shadow: var(--sh-1),
-    border-width: 2px,
+    border-width: map.get($border-radius, 's'),
     outline-width: 1px,
     outline-offset: -3px,
     padding-horizontal: var(--s-m),
