@@ -20,11 +20,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-checkbox"
@@ -160,13 +155,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
     >
       Optional help text
     </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="checkbox-default-feedback"
-    >
-      Feedback text
-    </div>
   </fieldset>
 </jest>
 `;
@@ -174,8 +162,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
 exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-invalid="true"
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
@@ -192,14 +179,9 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
-      class="ecl-checkbox ecl-checkbox--invalid"
+      class="ecl-checkbox"
     >
       <input
         checked=""
@@ -215,7 +197,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-1"
       >
         <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
+          class="ecl-checkbox__box"
         >
           <span
             aria-hidden="true"
@@ -230,7 +212,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
-      class="ecl-checkbox ecl-checkbox--invalid"
+      class="ecl-checkbox"
     >
       <input
         class="ecl-checkbox__input"
@@ -245,7 +227,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-2"
       >
         <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
+          class="ecl-checkbox__box"
         >
           <span
             aria-hidden="true"
@@ -260,7 +242,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
-      class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
+      class="ecl-checkbox ecl-checkbox--disabled"
     >
       <input
         class="ecl-checkbox__input"
@@ -276,7 +258,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-3"
       >
         <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
+          class="ecl-checkbox__box ecl-checkbox__box--disabled"
         >
           <span
             aria-hidden="true"
@@ -291,7 +273,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
-      class="ecl-checkbox ecl-checkbox--invalid"
+      class="ecl-checkbox"
     >
       <input
         class="ecl-checkbox__input"
@@ -306,7 +288,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-4"
       >
         <span
-          class="ecl-checkbox__box ecl-checkbox__box--invalid"
+          class="ecl-checkbox__box"
         >
           <span
             aria-hidden="true"
@@ -331,19 +313,6 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       id="checkbox-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="checkbox-default-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -369,11 +338,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-checkbox"
@@ -508,13 +472,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
       id="checkbox-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="checkbox-default-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -542,11 +499,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-checkbox"
@@ -681,13 +633,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
       id="checkbox-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="checkbox-default-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -713,11 +658,6 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-checkbox"
@@ -852,13 +792,6 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
       id="checkbox-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="checkbox-default-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -907,12 +840,6 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -963,12 +890,6 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -976,7 +897,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
 exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
 <jest>
   <div
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
   >
     <label
       class="ecl-form-label"
@@ -991,13 +912,12 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       </span>
     </label>
     <div
-      class="ecl-datepicker ecl-datepicker--invalid"
+      class="ecl-datepicker"
     >
       <input
-        aria-describedby="example-input-id-1-helper example-input-id-1-feedback"
-        aria-invalid="true"
+        aria-describedby="example-input-id-1-helper"
         autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
         data-ecl-datepicker-toggle=""
         id="example-input-id-1"
@@ -1017,18 +937,6 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </div>
 </jest>
@@ -1077,12 +985,6 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -1134,12 +1036,6 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -1187,12 +1083,6 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -1260,12 +1150,6 @@ exports[`Form group  with File Upload renders correctly 1`] = `
       .
       <br />
       Encrypted documents and those containing macros are not accepted.
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -1336,12 +1220,6 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
       <br />
       Encrypted documents and those containing macros are not accepted.
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -1349,7 +1227,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
 exports[`Form group  with File Upload renders correctly when invalid 1`] = `
 <jest>
   <div
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
   >
@@ -1366,9 +1244,8 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
       </span>
     </div>
     <input
-      aria-describedby="example-input-id-1-label example-input-id-1-helper example-input-id-1-feedback"
-      aria-invalid="true"
-      class="ecl-file-upload ecl-file-upload--invalid"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper"
+      class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
       id="example-input-id-1"
@@ -1409,18 +1286,6 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
       .
       <br />
       Encrypted documents and those containing macros are not accepted.
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </div>
 </jest>
@@ -1488,12 +1353,6 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
       .
       <br />
       Encrypted documents and those containing macros are not accepted.
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -1564,12 +1423,6 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
       <br />
       Encrypted documents and those containing macros are not accepted.
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -1637,12 +1490,6 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
       <br />
       Encrypted documents and those containing macros are not accepted.
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -1668,11 +1515,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
         class="ecl-help-block--hidden"
       >
         Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
       </div>
     </legend>
     <div
@@ -1805,13 +1647,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
     >
       Optional help text
     </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="radio-default-feedback"
-    >
-      Feedback text
-    </div>
   </fieldset>
 </jest>
 `;
@@ -1837,11 +1672,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
         class="ecl-help-block--hidden"
       >
         Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
       </div>
     </legend>
     <div
@@ -1974,13 +1804,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="radio-default-feedback"
-    >
-      Feedback text
-    </div>
   </fieldset>
 </jest>
 `;
@@ -1988,9 +1811,8 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
 exports[`Form group  with Radio renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-invalid="true"
     aria-required="true"
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
     role="radiogroup"
   >
     <legend
@@ -2007,186 +1829,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         class="ecl-help-block--hidden"
       >
         Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
-    </legend>
-    <div
-      class="ecl-radio ecl-radio--invalid"
-    >
-      <input
-        class="ecl-radio__input"
-        id="radio-default-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lu"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-1"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Luxembourg
-        </span>
-      </label>
-    </div>
-    <div
-      class="ecl-radio ecl-radio--invalid"
-    >
-      <input
-        class="ecl-radio__input"
-        id="radio-default-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="be"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-2"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Belgium
-        </span>
-      </label>
-    </div>
-    <div
-      class="ecl-radio ecl-radio--disabled ecl-radio--invalid"
-    >
-      <input
-        class="ecl-radio__input"
-        disabled=""
-        id="radio-default-3"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="fr"
-      />
-      <label
-        class="ecl-radio__label ecl-radio__label--disabled"
-        for="radio-default-3"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--disabled ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-    </div>
-    <div
-      class="ecl-radio ecl-radio--invalid"
-    >
-      <input
-        class="ecl-radio__input"
-        id="radio-default-4"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lorem"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-4"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-help-block"
-      id="radio-default-helper"
-    >
-      Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="radio-default-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
-    </div>
-  </fieldset>
-</jest>
-`;
-
-exports[`Form group  with Radio renders correctly when required 1`] = `
-<jest>
-  <fieldset
-    aria-required="true"
-    class="ecl-form-group"
-    role="radiogroup"
-  >
-    <legend
-      class="ecl-form-label"
-      id="radio-default-label"
-    >
-      Select your country
-      <span
-        class="ecl-form-label__required"
-      >
-        *
-      </span>
-      <div
-        class="ecl-help-block--hidden"
-      >
-        Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
       </div>
     </legend>
     <div
@@ -2319,12 +1961,162 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
     >
       Optional help text
     </div>
+  </fieldset>
+</jest>
+`;
+
+exports[`Form group  with Radio renders correctly when required 1`] = `
+<jest>
+  <fieldset
+    aria-required="true"
+    class="ecl-form-group"
+    role="radiogroup"
+  >
+    <legend
+      class="ecl-form-label"
+      id="radio-default-label"
+    >
+      Select your country
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
+    </legend>
+    <div
+      class="ecl-radio"
+    >
+      <input
+        class="ecl-radio__input"
+        id="radio-default-1"
+        name="radio-group-1"
+        required=""
+        type="radio"
+        value="lu"
+      />
+      <label
+        class="ecl-radio__label"
+        for="radio-default-1"
+      >
+        <span
+          class="ecl-radio__box"
+        >
+          <span
+            class="ecl-radio__box-inner"
+          />
+        </span>
+        <span
+          class="ecl-radio__text"
+        >
+          Luxembourg
+        </span>
+      </label>
+    </div>
+    <div
+      class="ecl-radio"
+    >
+      <input
+        class="ecl-radio__input"
+        id="radio-default-2"
+        name="radio-group-1"
+        required=""
+        type="radio"
+        value="be"
+      />
+      <label
+        class="ecl-radio__label"
+        for="radio-default-2"
+      >
+        <span
+          class="ecl-radio__box"
+        >
+          <span
+            class="ecl-radio__box-inner"
+          />
+        </span>
+        <span
+          class="ecl-radio__text"
+        >
+          Belgium
+        </span>
+      </label>
+    </div>
+    <div
+      class="ecl-radio ecl-radio--disabled"
+    >
+      <input
+        class="ecl-radio__input"
+        disabled=""
+        id="radio-default-3"
+        name="radio-group-1"
+        required=""
+        type="radio"
+        value="fr"
+      />
+      <label
+        class="ecl-radio__label ecl-radio__label--disabled"
+        for="radio-default-3"
+      >
+        <span
+          class="ecl-radio__box ecl-radio__box--disabled"
+        >
+          <span
+            class="ecl-radio__box-inner"
+          />
+        </span>
+        <span
+          class="ecl-radio__text"
+        >
+          France (disabled)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ecl-radio"
+    >
+      <input
+        class="ecl-radio__input"
+        id="radio-default-4"
+        name="radio-group-1"
+        required=""
+        type="radio"
+        value="lorem"
+      />
+      <label
+        class="ecl-radio__label"
+        for="radio-default-4"
+      >
+        <span
+          class="ecl-radio__box"
+        >
+          <span
+            class="ecl-radio__box-inner"
+          />
+        </span>
+        <span
+          class="ecl-radio__text"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            href="/example"
+          >
+            consectetur adipiscing elit
+          </a>
+          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+        </span>
+      </label>
+    </div>
     <div
       aria-hidden="true"
-      class="ecl-feedback-message"
-      id="radio-default-feedback"
+      class="ecl-help-block"
+      id="radio-default-helper"
     >
-      Feedback text
+      Optional help text
     </div>
   </fieldset>
 </jest>
@@ -2354,11 +2146,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-radio"
@@ -2489,13 +2276,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       id="radio-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="radio-default-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -2523,11 +2303,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-radio"
@@ -2658,13 +2433,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       id="radio-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="radio-default-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -2723,12 +2491,6 @@ exports[`Form group  with Range field renders correctly 1`] = `
       id="example-range-id-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-range-id-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -2789,12 +2551,6 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-range-id-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -2802,7 +2558,7 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
 exports[`Form group  with Range field renders correctly when invalid 1`] = `
 <jest>
   <div
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
     data-ecl-auto-init="Range"
     data-ecl-range="true"
   >
@@ -2819,9 +2575,8 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
       </span>
     </label>
     <input
-      aria-describedby="example-range-id-helper example-range-id-feedback example-range-id-value"
-      aria-invalid="true"
-      class="ecl-range ecl-range--invalid ecl-range--m"
+      aria-describedby="example-range-id-helper example-range-id-value"
+      class="ecl-range ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"
       max="30"
@@ -2853,18 +2608,6 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
       id="example-range-id-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-range-id-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </div>
 </jest>
@@ -2923,12 +2666,6 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
       id="example-range-id-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-range-id-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -2990,12 +2727,6 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-range-id-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -3054,12 +2785,6 @@ exports[`Form group  with Range field renders correctly with extra class names 1
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-range-id-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -3083,11 +2808,6 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         class="ecl-help-block--hidden"
       >
         Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
       </div>
     </legend>
     <div
@@ -3231,13 +2951,6 @@ exports[`Form group  with Rating field renders correctly 1`] = `
     >
       Optional help text
     </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="rating-field-feedback"
-    >
-      Feedback text
-    </div>
   </fieldset>
 </jest>
 `;
@@ -3261,11 +2974,6 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         class="ecl-help-block--hidden"
       >
         Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
       </div>
     </legend>
     <div
@@ -3414,13 +3122,6 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="rating-field-feedback"
-    >
-      Feedback text
-    </div>
   </fieldset>
 </jest>
 `;
@@ -3428,8 +3129,7 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-invalid="true"
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
@@ -3445,11 +3145,6 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         class="ecl-help-block--hidden"
       >
         Optional help text
-      </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
       </div>
     </legend>
     <div
@@ -3592,19 +3287,6 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
       id="rating-field-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="rating-field-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -3630,11 +3312,6 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-rating-field"
@@ -3776,13 +3453,6 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
       id="rating-field-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="rating-field-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -3810,11 +3480,6 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-rating-field"
@@ -3956,13 +3621,6 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
       id="rating-field-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="rating-field-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -3988,11 +3646,6 @@ exports[`Form group  with Rating field renders correctly with extra class names 
       >
         Optional help text
       </div>
-      <div
-        class="ecl-feedback-message--hidden"
-      >
-        Feedback text
-      </div>
     </legend>
     <div
       class="ecl-rating-field"
@@ -4134,13 +3787,6 @@ exports[`Form group  with Rating field renders correctly with extra class names 
       id="rating-field-helper"
     >
       Optional help text
-    </div>
-    <div
-      aria-hidden="true"
-      class="ecl-feedback-message"
-      id="rating-field-feedback"
-    >
-      Feedback text
     </div>
   </fieldset>
 </jest>
@@ -4276,12 +3922,6 @@ exports[`Form group  with Select renders correctly 1`] = `
       id="select-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="select-default-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -4420,12 +4060,6 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="select-default-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -4433,7 +4067,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
 exports[`Form group  with Select renders correctly when invalid 1`] = `
 <jest>
   <div
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
   >
     <label
       class="ecl-form-label"
@@ -4448,11 +4082,10 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       </span>
     </label>
     <div
-      class="ecl-select__container ecl-select__container--invalid ecl-select__container--m"
+      class="ecl-select__container ecl-select__container--m"
     >
       <select
-        aria-describedby="select-default-helper select-default-feedback"
-        aria-invalid="true"
+        aria-describedby="select-default-helper"
         class="ecl-select"
         data-ecl-auto-init="Select"
         id="select-default"
@@ -4561,18 +4194,6 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       id="select-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="select-default-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </div>
 </jest>
@@ -4708,12 +4329,6 @@ exports[`Form group  with Select renders correctly when required 1`] = `
       id="select-default-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="select-default-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -4852,12 +4467,6 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="select-default-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -4993,12 +4602,6 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="select-default-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -5033,12 +4636,6 @@ exports[`Form group  with Text field renders correctly 1`] = `
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feeback text
     </div>
   </div>
 </jest>
@@ -5076,12 +4673,6 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feeback text
-    </div>
   </div>
 </jest>
 `;
@@ -5089,7 +4680,7 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
 exports[`Form group  with Text field renders correctly when invalid 1`] = `
 <jest>
   <div
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
   >
     <label
       class="ecl-form-label"
@@ -5104,9 +4695,8 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
       </span>
     </label>
     <input
-      aria-describedby="example-input-id-1-helper example-input-id-1-feedback"
-      aria-invalid="true"
-      class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+      aria-describedby="example-input-id-1-helper"
+      class="ecl-text-input ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
       required=""
@@ -5117,18 +4707,6 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feeback text
     </div>
   </div>
 </jest>
@@ -5164,12 +4742,6 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
       id="example-input-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feeback text
     </div>
   </div>
 </jest>
@@ -5208,12 +4780,6 @@ exports[`Form group  with Text field renders correctly with extra attributes 1`]
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feeback text
-    </div>
   </div>
 </jest>
 `;
@@ -5249,12 +4815,6 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-input-id-1-feedback"
-    >
-      Feeback text
-    </div>
   </div>
 </jest>
 `;
@@ -5289,12 +4849,6 @@ exports[`Form group  with Textarea renders correctly 1`] = `
       id="example-textarea-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-textarea-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -5332,12 +4886,6 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-textarea-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -5345,7 +4893,7 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
 exports[`Form group  with Textarea renders correctly when invalid 1`] = `
 <jest>
   <div
-    class="ecl-form-group ecl-form-group--error"
+    class="ecl-form-group"
   >
     <label
       class="ecl-form-label"
@@ -5360,9 +4908,8 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
       </span>
     </label>
     <textarea
-      aria-describedby="example-textarea-id-1-helper example-textarea-id-1-feedback"
-      aria-invalid="true"
-      class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
+      aria-describedby="example-textarea-id-1-helper"
+      class="ecl-text-area ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
       required=""
@@ -5373,18 +4920,6 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
       id="example-textarea-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-textarea-id-1-feedback"
-    >
-      <span
-        aria-hidden="false"
-        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
-        role="img"
-        title="Error"
-      />
-      Feedback text
     </div>
   </div>
 </jest>
@@ -5420,12 +4955,6 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
       id="example-textarea-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-textarea-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>
@@ -5464,12 +4993,6 @@ exports[`Form group  with Textarea renders correctly with extra attributes 1`] =
     >
       Optional help text
     </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-textarea-id-1-feedback"
-    >
-      Feedback text
-    </div>
   </div>
 </jest>
 `;
@@ -5504,12 +5027,6 @@ exports[`Form group  with Textarea renders correctly with extra class names 1`] 
       id="example-textarea-id-1-helper"
     >
       Optional help text
-    </div>
-    <div
-      class="ecl-feedback-message"
-      id="example-textarea-id-1-feedback"
-    >
-      Feedback text
     </div>
   </div>
 </jest>

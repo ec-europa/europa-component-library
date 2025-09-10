@@ -5,7 +5,8 @@
   - "input" (object) default({}) Object of type input
   - "disabled" (boolean) (default: false)
   - "hide_label" (bool) (default: false): hide form element label, for screen reader only
-  - "feedback_type" (string) (default: ''): type of feedback message; can be "error", "success", "warning"
+  - "has_feedback" (bool) (default: false'): should the feedback message be displayed?
+  - "feedback_type" (string) (default: 'error'): type of feedback message; can be "error", "success", "warning"
   - "feedback_icon" (object of type "icon") (default: {}): icon for the feedback message
   - "sr_feedback_icon" (string) (default: ''): additional label for the feedback icon; for screen readers
   - "required" (boolean) (default: false)
@@ -29,7 +30,8 @@
 {% set _label = label|default('') %}
 {% set _hide_label = hide_label|default(false) %}
 {% set _disabled = disabled|default(false) %}
-{% set _feedback_type = feedback_type|default('') %}
+{% set _has_feedback = has_feedback|default(false) %}
+{% set _feedback_type = feedback_type|default('error') %}
 {% set _feedback_icon = feedback_icon|default({}) %}
 {% set _sr_feedback_icon = sr_feedback_icon|default('') %}
 {% set _required = required|default(false) %}
@@ -53,7 +55,7 @@
 {% set _group_tag = 'div' %}
 {% set _label_tag = 'label' %}
 
-{% if _feedback_type is not empty %}
+{% if _has_feedback and _feedback_type is not empty %}
   {% set _css_class = _css_class ~ ' ecl-form-group--' ~ _feedback_type %}
 {% endif %}
 
@@ -102,7 +104,7 @@
   }) %}
 {% endif %}
 
-{% if _feedback_type == 'error' %}
+{% if _has_feedback and _feedback_type == 'error' %}
   {% set _input = _input|merge({
     invalid: true,
   }) %}
@@ -130,7 +132,7 @@
     ]) %}
   {% endif %}
 
-  {% if _feedback_type == 'error' %}
+  {% if _has_feedback and _feedback_type == 'error' %}
     {% set extra_attributes = extra_attributes|default([])|merge([
       { name: 'aria-invalid', value: 'true' },
     ]) %}
@@ -154,7 +156,7 @@
     {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-helper' : _id ~ '-helper' %}
   {% endif %}
 
-  {% if _feedback_type == 'error' %}
+  {% if _has_feedback and _feedback_type == 'error' %}
     {% set _input_extra_attributes = _input_extra_attributes|merge([
       { name: 'aria-invalid', value: 'true' }
     ]) %}
@@ -225,7 +227,7 @@
         {%- if _helper_text is not empty -%}
           <div class="ecl-help-block--hidden">{{ _helper_text }}</div>
         {%- endif -%}
-        {%- if _feedback_text is not empty -%}
+        {%- if _has_feedback and _feedback_text is not empty -%}
           <div class="ecl-feedback-message--hidden">{{ _feedback_text }}</div>
         {%- endif -%}
       {%- endif -%}
@@ -240,7 +242,7 @@
   {%- endif -%}
   
   {%- if _input.input_type == 'select' -%}
-    <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _feedback_type == 'error' ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
+    <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _has_feedback and _feedback_type == 'error' ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
     {% include '@ecl/select/select.html.twig' with _input only %}
     </div>
@@ -260,6 +262,7 @@
 
   {%- if _input.input_type == 'checkbox' -%}
     {% include '@ecl/checkbox/checkbox-group.html.twig' with _input|merge({
+      has_feedback: _has_feedback,
       feedback_type: _feedback_type,
       feedback_text: _feedback_text,
       feedback_icon: _feedback_icon,
@@ -292,7 +295,7 @@
     </div>
   {% endif %}
 
-  {% if _feedback_text is not empty %}
+  {% if _has_feedback and _feedback_text is not empty %}
     {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}
     <div class="ecl-feedback-message"
       {% if _id %}

@@ -10,8 +10,8 @@ import specs from './demo/data';
 
 const data = specs.input;
 
-const dataSingle = { ...data, items: [data.items[0]], feedback_type: 'error' };
-const dataInvalid = { ...data, feedback_type: 'error' };
+const dataSingle = { ...data, items: [data.items[0]] };
+const dataInvalid = { ...data, has_feedback: true };
 
 expect.extend(toHaveNoViolations);
 

@@ -14,7 +14,8 @@ npm install --save @ecl/form-group
   }) - Object of type input
 - **"disabled"** (boolean) (default: false)
 - **"hide_label"** (bool) (default: false): hide form element label, for screen reader only
-- **"feedback_type"** (string) (default: ''): type of feedback message; can be "error", "success", "warning"
+- **"has_feedback"** (bool) (default: false'): should the feedback message be displayed?
+- **"feedback_type"** (string) (default: 'error'): type of feedback message; can be "error", "success", "warning"
 - **"feedback_icon"** (object of type "icon") (default: {}): icon for the feedback message
 - **"sr_feedback_icon"** (string) (default: ''): additional label for the feedback icon; for screen readers
 - **"required"** (boolean) (default: false)

@@ -18,6 +18,7 @@ npm install --save @ecl/checkbox
   - "label" (block) (default: '')
   - "item_required_text" (string) (default: '')
 - **"name"** (string) (default: '')
+- **"has_feedback"** (bool) (default: false'): should the feedback message be displayed?
 - **"feedback_type"** (string) (default: ''): type of feedback message; can be "error", "success", "warning"
 - **"feedback_icon"** (object of type "icon") (default: {}): icon for the feedback message
 - **"sr_feedback_icon"** (string) (default: ''): additional label for the feedback icon; for screen readers

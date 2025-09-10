@@ -4,6 +4,7 @@
   Parameters:
   - "items" (array) (default: []): array of checkbox_button
   - "name" (string) (default: '')
+  - "has_feedback" (bool) (default: false'): should the feedback message be displayed?
   - "feedback_type" (string) (default: ''): type of feedback message; can be "error", "success", "warning"
   - "feedback_icon" (object of type "icon") (default: {}): icon for the feedback message
   - "sr_feedback_icon" (string) (default: ''): additional label for the feedback icon; for screen readers
@@ -20,6 +21,7 @@
 
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
+{% set _has_feedback = has_feedback|default(false) %}
 {% set _feedback_type = feedback_type|default('') %}
 {% set _feedback_icon = feedback_icon|default({}) %}
 {% set _sr_feedback_icon = sr_feedback_icon|default('') %}
@@ -76,6 +78,7 @@
   {%- for _item in _items %}
     {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
       name: _name,
+      has_feedback: _item.has_feedback|default(_has_feedback),
       feedback_type: _item.feedback_type|default(_feedback_type),
       required: _item.required|default(_required),
       required_text: _item_required_text,
@@ -83,7 +86,7 @@
       extra_attributes: _item.extra_attributes|default(_extra_attributes),
     }) only %}
   {% endfor -%}
-  {% if _items|length == 1 and _feedback_text is not empty %}
+  {% if _items|length == 1 and _has_feedback and _feedback_text is not empty %}
     {{ _feedback_block }}
   {% endif %}
 {% endif %}

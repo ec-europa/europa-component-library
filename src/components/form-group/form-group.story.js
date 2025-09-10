@@ -102,6 +102,7 @@ const prepareData = (data, args) => {
   Object.assign(clone, args);
   correctPaths(clone);
 
+  clone.has_feedback = args.show_feedback;
   if (!args.show_feedback) {
     clone.feedback_text = '';
     clone.feedback_type = '';

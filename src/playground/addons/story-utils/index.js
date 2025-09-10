@@ -209,7 +209,7 @@ export const getFormControls = (data, type) => {
     description: 'Type of feedback message',
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: '' },
+      defaultValue: { summary: 'error' },
       category: 'States',
     },
     options: ['error', 'warning', 'success'],
