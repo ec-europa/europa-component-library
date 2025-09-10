@@ -5,14 +5,11 @@
 
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
 
 // Exposed variables
 $theme: null !default;
 $range: null !default;
-
-@use '@ecl/layout-form/mixins' as mixins-form with (
-  $theme: $theme
-);
 
 @mixin range-track {
   background-color: map.get($range, 'bar-color');
@@ -164,15 +161,15 @@ $range: null !default;
 
 // Width
 .ecl-range--s {
-  @include mixins-form.form-width('s');
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-range--m {
-  @include mixins-form.form-width('m');
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-range--l {
-  @include mixins-form.form-width('l');
+  @include mixins-form.form-width('l', $theme);
 }
 
 // Disabled
