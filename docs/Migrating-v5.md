@@ -213,6 +213,10 @@ Extra attention points:
 - flags are now names with the country code istead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
 
+### Link
+
+- following the button updates, type `cta` has ben renamed to `primary-highlight`
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of elements including images, description, links with images only, textual links instead of an img and then a list of links.

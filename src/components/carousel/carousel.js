@@ -492,7 +492,7 @@ export class Carousel {
     // Update slides
     if (this.slides) {
       this.slides.forEach((slide, index) => {
-        const cta = queryOne('.ecl-link--cta', slide);
+        const cta = queryOne('.ecl-link--primary-highlight', slide);
         if (this.index === index) {
           slide.removeAttribute('inert', 'true');
           if (cta) {
