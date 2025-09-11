@@ -35,6 +35,10 @@
 
 {# Internal logic - Process properties #}
 
+{% if _icon %}
+  {% set _css_class = _css_class ~ ' ' ~ ' ecl-list-illustration__item--with-icon' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -74,15 +78,15 @@
       extra_image_classes: _image_class,
     } only %}
   {% endif %}
+  {% if _icon is not empty %}
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _icon|merge({ size: _icon_size }),
+      extra_classes: 'ecl-list-illustration__icon',
+    } only %}
+  {% endif %}
   <div class="ecl-list-illustration__detail">
-  {% if _title is not empty or _icon is not empty or _value is not empty %}
+  {% if _title is not empty or _value is not empty %}
     <div class="ecl-list-illustration__title-container">
-    {% if _icon is not empty %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: _icon|merge({ size: _icon_size }),
-        extra_classes: 'ecl-list-illustration__icon',
-      } only %}
-    {% endif %}
     {% if _value is not empty %}
       <div class="ecl-list-illustration__value">{{ _value }}</div>
     {% endif %}
@@ -96,5 +100,9 @@
   {% endif %}
   </div>
 </li>
-
+{% if divider and not last %}
+  <li class="ecl-list-illustration__divider">
+    {% include '@ecl/separator/separator.html.twig'%}
+  </li> 
+{% endif %}
 {% endapply %}

@@ -7,6 +7,7 @@ import iconsAll from '@ecl/resources-icons/list.json';
 import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
+import dataListIllustrationIconList from './demo/data--icon-list';
 
 import listIllustration from './list-illustration.html.twig';
 import notes from './README.md';
@@ -440,6 +441,18 @@ const prepareDataList = (data, args) => {
   return data;
 };
 
+const prepareIconList = (data, args) => {
+  data.items.forEach((item) => {
+    item.description = args.description;
+    item.title = args.title;
+    item.value = args.value;
+  });
+
+  data.divider = args.divider;
+
+  return data;
+};
+
 export default {
   title: 'Components/List with illustration',
   decorators: [withNotes, withCode],
@@ -512,4 +525,37 @@ VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
+};
+
+export const IconList = (_, { loaded: { component } }) => component;
+
+IconList.render = async (args) => {
+  const renderedListIconList = await listIllustration(
+    prepareIconList(dataListIllustrationIconList, args),
+  );
+  return renderedListIconList;
+};
+IconList.storyName = 'icon list';
+IconList.args = {
+  title: '',
+  description: dataListIllustrationIconList.items[0].description,
+  value: '',
+  divider: true,
+};
+IconList.argTypes = {
+  title: {
+    control: { type: 'text' },
+  },
+  description: {
+    control: { type: 'text' },
+  },
+  value: {
+    control: { type: 'text' },
+  },
+  divider: {
+    control: { type: 'boolean' },
+  },
+};
+IconList.parameters = {
+  notes: { markdown: notes, json: dataListIllustrationIconList },
 };

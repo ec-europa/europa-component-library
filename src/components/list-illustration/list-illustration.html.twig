@@ -6,6 +6,8 @@
     - "items" (array) (default: []): array of list_illustration_item
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: false): use alternate background display for vertical list
+    - "icon_list" (boolean) (default: false) renders as icon list
+    - "divider" (boolean) (default: false): Item separator, in the icon list
     - "centered" (bool) (default: false) Define if the items should be centered
     - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
     - "extra_classes" (string) (default: '')
@@ -26,6 +28,8 @@
 {% set _font_size = font_size|default('l') %}
 {% set _column = column|default(1) %}
 {% set _css_class = 'ecl-list-illustration' %}
+{% set _icon_list = icon_list|default(false) %}
+{% set _divider = divider|default(false) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -36,6 +40,10 @@
 
 {% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--zebra' %}
+{% endif %}
+
+{% if _icon_list %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--icon-list' %}
 {% endif %}
 
 {% if _centered %}
@@ -72,7 +80,11 @@
   {{ _extra_attributes|raw }}
 >
   {%- for _item in _items %}
-    {% include '@ecl/list-illustration/list-illustration-item.html.twig' with _item only %}
+    {% include '@ecl/list-illustration/list-illustration-item.html.twig' 
+      with (_item|merge({
+        divider: _divider,
+        last: loop.last
+      })) only %}
   {% endfor -%}
 </ul>
 {% endif %}
