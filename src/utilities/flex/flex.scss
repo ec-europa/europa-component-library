@@ -9,7 +9,7 @@
 $theme: null !default;
 
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
-  @if $breakpoint != '2xl' && $breakpoint != '3xl' {
+  @if $breakpoint != '2xl' and $breakpoint != '3xl' {
     @include breakpoints.up($breakpoint) {
       $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
