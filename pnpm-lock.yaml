@@ -571,10 +571,16 @@ importers:
 
   src/components/link:
     dependencies:
+      '@ecl/button':
+        specifier: 5.0.0-alpha.15
+        version: link:../button
       '@ecl/icon':
         specifier: 5.0.0-alpha.15
         version: link:../icon
     devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/typography
       '@ecl/resources-icons':
         specifier: 5.0.0-alpha.15
         version: link:../../resources/icons
