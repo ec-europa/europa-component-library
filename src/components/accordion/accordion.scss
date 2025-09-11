@@ -64,8 +64,8 @@ $accordion: null !default;
     @if map.has-key($accordion, 'yellow-bar') {
       &::before {
         background-color: var(--cm-surface-secondary, var(--c-s));
-        border-end-start-radius: 2px;
-        border-end-end-radius: 2px;
+        border-end-start-radius: map.get($theme, 'border-radius', 'xs');
+        border-end-end-radius: map.get($theme, 'border-radius', 'xs');
         content: '';
         height: 4px;
         left: var(--s-l);

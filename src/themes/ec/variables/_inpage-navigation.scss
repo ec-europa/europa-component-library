@@ -66,7 +66,7 @@ $inpage-navigation: (
   trigger: (
     'background': var(--cm-on-surface-inverted),
     'border': 1px solid var(--cm-border-grey-medium),
-    'border-radius': 4px,
+    'border-radius': map.get($border-radius, 's'),
     'color': var(--cm-on-surface-brand),
     'font': 'body-m',
     'font-weight': map.get($font-weight, 'regular'),
