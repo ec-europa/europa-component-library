@@ -8,6 +8,7 @@ import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
 import dataListIllustrationIconList from './demo/data--icon-list';
+import dataListIllustrationNumberList from './demo/data--number-list';
 
 import listIllustration from './list-illustration.html.twig';
 import notes from './README.md';
@@ -540,7 +541,7 @@ IconList.args = {
   title: '',
   description: dataListIllustrationIconList.items[0].description,
   value: '',
-  divider: true,
+  divider: false,
 };
 IconList.argTypes = {
   title: {
@@ -558,4 +559,33 @@ IconList.argTypes = {
 };
 IconList.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIconList },
+};
+
+export const NumberList = (_, { loaded: { component } }) => component;
+
+NumberList.render = async (args) => {
+  const renderedListNumberList = await listIllustration(
+    prepareIconList(dataListIllustrationNumberList, args),
+  );
+  return renderedListNumberList;
+};
+NumberList.storyName = 'number list';
+NumberList.args = {
+  title: '',
+  description: dataListIllustrationNumberList.items[0].description,
+  value: '',
+};
+NumberList.argTypes = {
+  title: {
+    control: { type: 'text' },
+  },
+  description: {
+    control: { type: 'text' },
+  },
+  value: {
+    control: { type: 'text' },
+  },
+};
+NumberList.parameters = {
+  notes: { markdown: notes, json: dataListIllustrationNumberList },
 };
