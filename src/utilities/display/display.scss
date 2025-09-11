@@ -9,43 +9,45 @@
 $theme: null !default;
 
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
-  @include breakpoints.up($breakpoint) {
-    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+  @if $breakpoint != '2xl' && $breakpoint != '3xl' {
+    @include breakpoints.up($breakpoint) {
+      $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-    .ecl-u-d#{$infix}-none {
-      display: none !important;
-    }
+      .ecl-u-d#{$infix}-none {
+        display: none !important;
+      }
 
-    .ecl-u-d#{$infix}-inline {
-      display: inline !important;
-    }
+      .ecl-u-d#{$infix}-inline {
+        display: inline !important;
+      }
 
-    .ecl-u-d#{$infix}-inline-block {
-      display: inline-block !important;
-    }
+      .ecl-u-d#{$infix}-inline-block {
+        display: inline-block !important;
+      }
 
-    .ecl-u-d#{$infix}-block {
-      display: block !important;
-    }
+      .ecl-u-d#{$infix}-block {
+        display: block !important;
+      }
 
-    .ecl-u-d#{$infix}-table {
-      display: table !important;
-    }
+      .ecl-u-d#{$infix}-table {
+        display: table !important;
+      }
 
-    .ecl-u-d#{$infix}-table-cell {
-      display: table-cell !important;
-    }
+      .ecl-u-d#{$infix}-table-cell {
+        display: table-cell !important;
+      }
 
-    .ecl-u-d#{$infix}-flex {
-      display: flex !important;
-    }
+      .ecl-u-d#{$infix}-flex {
+        display: flex !important;
+      }
 
-    .ecl-u-d#{$infix}-inline-flex {
-      display: inline-flex !important;
-    }
+      .ecl-u-d#{$infix}-inline-flex {
+        display: inline-flex !important;
+      }
 
-    .ecl-u-d#{$infix}-grid {
-      display: grid !important;
+      .ecl-u-d#{$infix}-grid {
+        display: grid !important;
+      }
     }
   }
 }

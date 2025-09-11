@@ -24,170 +24,174 @@ $theme: null !default;
 
 /* stylelint-disable max-nesting-depth */
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
-  @include breakpoints.up($breakpoint) {
-    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+  @if $breakpoint != '2xl' && $breakpoint != '3xl' {
+    @include breakpoints.up($breakpoint) {
+      $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-    @each $key, $value in map.get($theme, 'spacing') {
-      .ecl-u-ma#{$infix}-#{$key} {
-        margin: var(--s-#{$key}) !important;
+      @each $key, $value in map.get($theme, 'spacing') {
+        .ecl-u-ma#{$infix}-#{$key} {
+          margin: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-mh#{$infix}-#{$key} {
+          margin-inline-start: var(--s-#{$key}) !important;
+          margin-inline-end: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-mv#{$infix}-#{$key} {
+          margin-block-end: var(--s-#{$key}) !important;
+          margin-block-start: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-mt#{$infix}-#{$key} {
+          margin-block-start: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-mr#{$infix}-#{$key} {
+          margin-inline-end: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-mb#{$infix}-#{$key} {
+          margin-block-end: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-ml#{$infix}-#{$key} {
+          margin-inline-start: var(--s-#{$key}) !important;
+        }
       }
 
-      .ecl-u-mh#{$infix}-#{$key} {
-        margin-inline-start: var(--s-#{$key}) !important;
-        margin-inline-end: var(--s-#{$key}) !important;
+      // Margin none
+      .ecl-u-ma#{$infix}-none {
+        margin: 0 !important;
       }
 
-      .ecl-u-mv#{$infix}-#{$key} {
-        margin-block-end: var(--s-#{$key}) !important;
-        margin-block-start: var(--s-#{$key}) !important;
+      .ecl-u-mh#{$infix}-none {
+        margin-inline-start: 0 !important;
+        margin-inline-end: 0 !important;
       }
 
-      .ecl-u-mt#{$infix}-#{$key} {
-        margin-block-start: var(--s-#{$key}) !important;
+      .ecl-u-mv#{$infix}-none {
+        margin-block-end: 0 !important;
+        margin-block-start: 0 !important;
       }
 
-      .ecl-u-mr#{$infix}-#{$key} {
-        margin-inline-end: var(--s-#{$key}) !important;
+      .ecl-u-mt#{$infix}-none {
+        margin-block-start: 0 !important;
       }
 
-      .ecl-u-mb#{$infix}-#{$key} {
-        margin-block-end: var(--s-#{$key}) !important;
+      .ecl-u-mr#{$infix}-none {
+        margin-inline-end: 0 !important;
       }
 
-      .ecl-u-ml#{$infix}-#{$key} {
-        margin-inline-start: var(--s-#{$key}) !important;
+      .ecl-u-mb#{$infix}-none {
+        margin-block-end: 0 !important;
       }
-    }
 
-    // Margin none
-    .ecl-u-ma#{$infix}-none {
-      margin: 0 !important;
-    }
+      .ecl-u-ml#{$infix}-none {
+        margin-inline-start: 0 !important;
+      }
 
-    .ecl-u-mh#{$infix}-none {
-      margin-inline-start: 0 !important;
-      margin-inline-end: 0 !important;
-    }
+      // Margin auto
+      .ecl-u-ma#{$infix}-auto {
+        margin: auto !important;
+      }
 
-    .ecl-u-mv#{$infix}-none {
-      margin-block-end: 0 !important;
-      margin-block-start: 0 !important;
-    }
+      .ecl-u-mh#{$infix}-auto {
+        margin-inline-start: auto !important;
+        margin-inline-end: auto !important;
+      }
 
-    .ecl-u-mt#{$infix}-none {
-      margin-block-start: 0 !important;
-    }
+      .ecl-u-mv#{$infix}-auto {
+        margin-block-end: auto !important;
+        margin-block-start: auto !important;
+      }
 
-    .ecl-u-mr#{$infix}-none {
-      margin-inline-end: 0 !important;
-    }
+      .ecl-u-mb#{$infix}-auto {
+        margin-block-end: auto !important;
+      }
 
-    .ecl-u-mb#{$infix}-none {
-      margin-block-end: 0 !important;
-    }
+      .ecl-u-mt#{$infix}-auto {
+        margin-block-start: auto !important;
+      }
 
-    .ecl-u-ml#{$infix}-none {
-      margin-inline-start: 0 !important;
-    }
+      .ecl-u-mr#{$infix}-auto {
+        margin-inline-end: auto !important;
+      }
 
-    // Margin auto
-    .ecl-u-ma#{$infix}-auto {
-      margin: auto !important;
-    }
-
-    .ecl-u-mh#{$infix}-auto {
-      margin-inline-start: auto !important;
-      margin-inline-end: auto !important;
-    }
-
-    .ecl-u-mv#{$infix}-auto {
-      margin-block-end: auto !important;
-      margin-block-start: auto !important;
-    }
-
-    .ecl-u-mb#{$infix}-auto {
-      margin-block-end: auto !important;
-    }
-
-    .ecl-u-mt#{$infix}-auto {
-      margin-block-start: auto !important;
-    }
-
-    .ecl-u-mr#{$infix}-auto {
-      margin-inline-end: auto !important;
-    }
-
-    .ecl-u-ml#{$infix}-auto {
-      margin-inline-start: auto !important;
+      .ecl-u-ml#{$infix}-auto {
+        margin-inline-start: auto !important;
+      }
     }
   }
 }
 
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
-  @include breakpoints.up($breakpoint) {
-    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+  @if $breakpoint != '2xl' && $breakpoint != '3xl' {
+    @include breakpoints.up($breakpoint) {
+      $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-    @each $key, $value in map.get($theme, 'spacing') {
-      .ecl-u-pa#{$infix}-#{$key} {
-        padding: var(--s-#{$key}) !important;
+      @each $key, $value in map.get($theme, 'spacing') {
+        .ecl-u-pa#{$infix}-#{$key} {
+          padding: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-ph#{$infix}-#{$key} {
+          padding-inline-start: var(--s-#{$key}) !important;
+          padding-inline-end: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-pv#{$infix}-#{$key} {
+          padding-block-end: var(--s-#{$key}) !important;
+          padding-block-start: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-pt#{$infix}-#{$key} {
+          padding-block-start: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-pr#{$infix}-#{$key} {
+          padding-inline-end: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-pb#{$infix}-#{$key} {
+          padding-block-end: var(--s-#{$key}) !important;
+        }
+
+        .ecl-u-pl#{$infix}-#{$key} {
+          padding-inline-start: var(--s-#{$key}) !important;
+        }
       }
 
-      .ecl-u-ph#{$infix}-#{$key} {
-        padding-inline-start: var(--s-#{$key}) !important;
-        padding-inline-end: var(--s-#{$key}) !important;
+      // Padding none
+      .ecl-u-pa#{$infix}-none {
+        padding: 0 !important;
       }
 
-      .ecl-u-pv#{$infix}-#{$key} {
-        padding-block-end: var(--s-#{$key}) !important;
-        padding-block-start: var(--s-#{$key}) !important;
+      .ecl-u-ph#{$infix}-none {
+        padding-inline-start: 0 !important;
+        padding-inline-end: 0 !important;
       }
 
-      .ecl-u-pt#{$infix}-#{$key} {
-        padding-block-start: var(--s-#{$key}) !important;
+      .ecl-u-pv#{$infix}-none {
+        padding-block-end: 0 !important;
+        padding-block-start: 0 !important;
       }
 
-      .ecl-u-pr#{$infix}-#{$key} {
-        padding-inline-end: var(--s-#{$key}) !important;
+      .ecl-u-pt#{$infix}-none {
+        padding-block-start: 0 !important;
       }
 
-      .ecl-u-pb#{$infix}-#{$key} {
-        padding-block-end: var(--s-#{$key}) !important;
+      .ecl-u-pr#{$infix}-none {
+        padding-inline-end: 0 !important;
       }
 
-      .ecl-u-pl#{$infix}-#{$key} {
-        padding-inline-start: var(--s-#{$key}) !important;
+      .ecl-u-pb#{$infix}-none {
+        padding-block-end: 0 !important;
       }
-    }
 
-    // Padding none
-    .ecl-u-pa#{$infix}-none {
-      padding: 0 !important;
-    }
-
-    .ecl-u-ph#{$infix}-none {
-      padding-inline-start: 0 !important;
-      padding-inline-end: 0 !important;
-    }
-
-    .ecl-u-pv#{$infix}-none {
-      padding-block-end: 0 !important;
-      padding-block-start: 0 !important;
-    }
-
-    .ecl-u-pt#{$infix}-none {
-      padding-block-start: 0 !important;
-    }
-
-    .ecl-u-pr#{$infix}-none {
-      padding-inline-end: 0 !important;
-    }
-
-    .ecl-u-pb#{$infix}-none {
-      padding-block-end: 0 !important;
-    }
-
-    .ecl-u-pl#{$infix}-none {
-      padding-inline-start: 0 !important;
+      .ecl-u-pl#{$infix}-none {
+        padding-inline-start: 0 !important;
+      }
     }
   }
 }
