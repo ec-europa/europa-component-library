@@ -93,8 +93,11 @@ $list-illustration: null !default;
 
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description', 'color');
-  font: var(--f-m);
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(
+    map.get($list-illustration, 'description', 'font')
+  );
 }
 
 .ecl-list-illustration__title-container + .ecl-list-illustration__description {
@@ -302,7 +305,19 @@ $list-illustration: null !default;
 
   .ecl-separator {
     max-width: 60rem;
-    padding-block-end: var(--s-xl);
+    padding-block-end: var(--s-s);
+  }
+
+  @include breakpoints.up('m') {
+    .ecl-separator {
+      padding-block-end: var(--s-m);
+    }
+  }
+
+  @include breakpoints.up('xl') {
+    .ecl-separator {
+      padding-block-end: var(--s-xl);
+    }
   }
 }
 
@@ -311,15 +326,42 @@ $list-illustration: null !default;
   /* stylelint-disable no-descending-specificity */
   .ecl-list-illustration__item {
     flex-direction: row;
-    padding-block-end: var(--s-xl);
+    padding-block-end: var(--s-s);
 
     &:last-child {
       padding-block-end: 0;
     }
+  }
+
+  .ecl-list-illustration__icon {
+    fill: map.get($list-illustration, 'icon-color');
+    height: map.get($theme, 'icon', 'm');
+    width: map.get($theme, 'icon', 'm');
+    margin-inline-end: var(--s-xs);
+    flex-shrink: 0;
+  }
+
+  @include breakpoints.up('m') {
+    .ecl-list-illustration__item {
+      padding-block-end: var(--s-m);
+    }
 
     .ecl-list-illustration__icon {
+      height: map.get($theme, 'icon', 'l');
+      width: map.get($theme, 'icon', 'l');
+      margin-inline-end: var(--s-m);
+    }
+  }
+
+  @include breakpoints.up('xl') {
+    .ecl-list-illustration__item {
+      padding-block-end: var(--s-xl);
+    }
+
+    .ecl-list-illustration__icon {
+      height: 2.25rem;
+      width: 2.25rem;
       margin-inline-end: var(--s-l);
-      flex-shrink: 0;
     }
   }
 }
@@ -333,13 +375,13 @@ $list-illustration: null !default;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: var(--s-s);
-    padding-block-end: var(--s-xl);
+    gap: var(--s-xs);
+    padding-block-end: var(--s-s);
 
     &::before {
       content: counter(item-counter, decimal-leading-zero);
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border: 4px solid var(--cm-border-low);
       border-radius: 50%;
       display: flex;
@@ -353,6 +395,36 @@ $list-illustration: null !default;
       flex-shrink: 0;
 
       @include mixins.responsive-font('body-l');
+    }
+
+    .ecl-list-illustration__description {
+      @include mixins.responsive-font(
+        map.get($list-illustration, 'number-list', 'font')
+      );
+    }
+  }
+
+  @include breakpoints.up('m') {
+    .ecl-list-illustration__item {
+      gap: var(--s-s);
+      padding-block-end: var(--s-m);
+
+      &::before {
+        border-width: 6px;
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  @include breakpoints.up('xl') {
+    .ecl-list-illustration__item {
+      padding-block-end: var(--s-xl);
+
+      &::before {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
     }
   }
 }

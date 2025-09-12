@@ -344,6 +344,33 @@ const getArgTypes = (data, variant) => {
   return argTypes;
 };
 
+const getVariantArgs = (data) => {
+  const args = {};
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+  args.title = '';
+  args.description = data.items[0].description;
+  args.value = '';
+
+  return args;
+};
+
+const getVariantArgTypes = () => {
+  return {
+    ...getColorModeControls(),
+    title: {
+      control: { type: 'text' },
+    },
+    description: {
+      control: { type: 'text' },
+    },
+    value: {
+      control: { type: 'text' },
+    },
+  };
+};
+
 const prepareDataItem = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
@@ -447,8 +474,13 @@ const prepareIconList = (data, args) => {
     item.description = args.description;
     item.title = args.title;
     item.value = args.value;
+
+    if (args.icon) {
+      item.icon.name = args.icon;
+    }
   });
 
+  data.color_mode = args.color_mode;
   data.divider = args.divider;
 
   return data;
@@ -538,20 +570,17 @@ IconList.render = async (args) => {
 };
 IconList.storyName = 'icon list';
 IconList.args = {
-  title: '',
-  description: dataListIllustrationIconList.items[0].description,
-  value: '',
+  ...getVariantArgs(dataListIllustrationIconList),
+  icon: 'check',
   divider: false,
 };
 IconList.argTypes = {
-  title: {
-    control: { type: 'text' },
-  },
-  description: {
-    control: { type: 'text' },
-  },
-  value: {
-    control: { type: 'text' },
+  ...getVariantArgTypes(),
+  icon: {
+    control: {
+      type: 'select',
+    },
+    options: ['check', 'arrow-right', 'close'],
   },
   divider: {
     control: { type: 'boolean' },
@@ -570,22 +599,8 @@ NumberList.render = async (args) => {
   return renderedListNumberList;
 };
 NumberList.storyName = 'number list';
-NumberList.args = {
-  title: '',
-  description: dataListIllustrationNumberList.items[0].description,
-  value: '',
-};
-NumberList.argTypes = {
-  title: {
-    control: { type: 'text' },
-  },
-  description: {
-    control: { type: 'text' },
-  },
-  value: {
-    control: { type: 'text' },
-  },
-};
+NumberList.args = getVariantArgs(dataListIllustrationNumberList);
+NumberList.argTypes = getVariantArgTypes();
 NumberList.parameters = {
   notes: { markdown: notes, json: dataListIllustrationNumberList },
 };
