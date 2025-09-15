@@ -255,6 +255,7 @@ module.exports = {
     },
     button: {
       variant: 'tertiary',
+      style: 'neutral',
       label: 'Search',
     },
     extra_attributes: [

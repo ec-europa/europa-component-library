@@ -8,6 +8,7 @@ module.exports = {
   },
   button: {
     variant: 'tertiary',
+    style: 'neutral',
     label: 'Search',
     icon_position: 'before',
   },
