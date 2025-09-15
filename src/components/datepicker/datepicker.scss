@@ -73,6 +73,7 @@ $text-input: null !default;
     background: transparent;
     box-shadow: none;
     color: map.get($text-input, 'color-input');
+    outline: 2px solid var(--c-p);
     outline-offset: -2px;
   }
 }
@@ -110,15 +111,29 @@ $text-input: null !default;
     background-color: map.get($datepicker, 'picker', 'select-background-color');
     border: map.get($datepicker, 'picker', 'select-border');
     border-radius: map.get($datepicker, 'picker', 'border-radius');
-    box-shadow: map.get($datepicker, 'picker', 'select-shadow');
     color: map.get($datepicker, 'picker', 'theme-color');
     display: flex;
-    flex-basis: 30%;
-    flex-grow: 1;
+    width: 170px;
     justify-content: space-between;
     margin-block-start: 0;
     margin-inline-end: var(--s-xs);
-    padding: var(--s-xs) var(--s-m);
+    padding: var(--s-xs) 0;
+    position: relative;
+
+    .duet-date__select-label {
+      flex: 1;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      svg {
+        flex-shrink: 0;
+        position: absolute;
+        right: 5px;
+      }
+    }
 
     * {
       @include mixins.responsive-font(
@@ -129,6 +144,11 @@ $text-input: null !default;
 
     &:last-of-type {
       margin-inline-end: 0;
+      width: 75px;
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--c-p);
     }
   }
 
@@ -146,9 +166,9 @@ $text-input: null !default;
     padding: 0;
 
     &:hover {
-      background: none;
-      border-color: transparent;
-      color: var(--duet-color-text);
+      background-color: var(--cm-surface-neutral-lowest, var(--c-p-20));
+      border-color: var(--cm-border-brand, var(--c-d));
+      color: var(--cm-on-surface-brand, var(--c-d));
     }
 
     &:focus-visible {
@@ -158,6 +178,7 @@ $text-input: null !default;
       outline-offset: -2px;
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     svg {
       height: map.get($theme, 'icon', 's');
       vertical-align: middle;
@@ -224,6 +245,7 @@ $text-input: null !default;
           'picker',
           'day-hover-background'
         );
+        border-color: var(--cm-on-surface-brand, var(--c-d));
         border-radius: map.get($datepicker, 'picker', 'border-radius');
         box-shadow: map.get($datepicker, 'picker', 'day-hover-shadow');
         color: map.get($datepicker, 'picker', 'theme-color');
@@ -257,7 +279,7 @@ $text-input: null !default;
         }
       }
 
-      &[aria-pressed='true'] {
+      &[aria-pressed='true']:not(:hover) {
         background-color: map.get(
           $datepicker,
           'picker',
@@ -267,10 +289,6 @@ $text-input: null !default;
         box-shadow: none;
         color: var(--cm-on-surface-inverted, #fff);
         font-weight: map.get($datepicker, 'picker', 'day-selected-weight');
-
-        &:hover {
-          color: var(--cm-on-surface-inverted, #fff);
-        }
 
         &::before {
           background-color: var(--cm-surface-inverted, #fff);
