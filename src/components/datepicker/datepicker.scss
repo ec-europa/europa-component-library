@@ -7,6 +7,7 @@
 @use '@ecl/grid/mixins/breakpoints';
 @use 'pikaday/scss/pikaday';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
 
 // Exposed variables
 $theme: null !default;
@@ -17,6 +18,8 @@ $datepicker: null !default;
   margin: 0;
   position: relative;
   width: 100%;
+
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-datepicker__field.ecl-text-input {
@@ -32,28 +35,15 @@ $datepicker: null !default;
   position: absolute;
   right: 0;
   top: 0;
+
+  &:dir(rtl) {
+    right: auto;
+    left: 0;
+  }
 }
 
 .ecl-datepicker__field[disabled] + .ecl-datepicker__icon {
   opacity: 0.5;
-}
-
-@include breakpoints.up('m') {
-  .ecl-datepicker {
-    width: map.get($theme, 'form-width', 's', 'breakpoint-m');
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-datepicker {
-    width: map.get($theme, 'form-width', 's', 'breakpoint-l');
-  }
-}
-
-@include breakpoints.up('xl') {
-  .ecl-datepicker {
-    width: map.get($theme, 'form-width', 's', 'breakpoint-xl');
-  }
 }
 
 /*
@@ -201,7 +191,7 @@ $datepicker: null !default;
 
     &::before {
       background-color: map.get($datepicker, 'picker', 'day-today-color');
-      border-radius: 2px;
+      border-radius: map.get($theme, 'border-radius', 'xs');
       bottom: 4px;
       left: calc(50% - 10px);
       content: '';

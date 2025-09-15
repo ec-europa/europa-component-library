@@ -5,7 +5,7 @@ $news-ticker: (
   height: 3.75rem,
   desktop-only-height: 5.375rem,
   border: 1px solid var(--c-p-20),
-  border-radius: 4px,
+  border-radius: map.get($border-radius, 's'),
   box-shadow: map.get($shadow, '4'),
   padding-container-desktop: var(--s-s) var(--s-xl) var(--s-s) var(--s-m),
   padding-horizontal: var(--s-xs),

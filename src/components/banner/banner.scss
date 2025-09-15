@@ -211,6 +211,11 @@ $banner: null !default;
   left: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }
 
 // No media
@@ -241,6 +246,15 @@ $banner: null !default;
   aspect-ratio: 3/2;
 
   --css-aspect-ratio: 3/2;
+}
+
+// Underline on hover
+.ecl-banner:hover {
+  .ecl-banner__title-link,
+  .ecl-banner__description-link {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+  }
 }
 
 /* stylelint-disable-next-line order/order */

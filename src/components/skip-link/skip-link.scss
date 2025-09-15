@@ -14,6 +14,11 @@ $theme: null !default;
   left: var(--s-l);
   top: var(--s-l);
   z-index: calc(map.get($theme, 'z-index', 'modal') + 1);
+
+  &:dir(rtl) {
+    left: auto;
+    right: var(--s-l);
+  }
 }
 
 .ecl-skip-link:not(:active, :focus-visible) {

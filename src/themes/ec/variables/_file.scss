@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $file: (
-  border-radius: map.get($border-radius, 's'),
+  border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-1),
   container-spacing: var(--s-xl) var(--s-xl) 0,
   container-spacing-last: var(--s-xl),
@@ -20,9 +20,10 @@ $file: (
   file-action-position: absolute,
   file-footer-border: 1px solid var(--cm-border-neutral),
   file-footer-flex-direction: column,
-  file-footer-padding: var(--s-m) 0,
-  file-footer-margin: 0 var(--s-xl) 0
-    calc(var(--s-xl) * 2 + #{map.get($icon, '2xl')}),
+  file-footer-padding-block: var(--s-m),
+  file-footer-padding-inline: 0,
+  file-footer-margin-inline: calc(var(--s-xl) * 2 + #{map.get($icon, '2xl')})
+    var(--s-xl),
   file-thumbnail-footer-padding: var(--s-m) 0,
   file-picture-order-desktop: 1,
   file-picture-order-mobile: 1,

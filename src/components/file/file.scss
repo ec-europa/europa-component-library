@@ -55,8 +55,9 @@ $file: null !default;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin: map.get($file, 'file-footer-margin');
-  padding: map.get($file, 'file-footer-padding');
+  margin-inline: map.get($file, 'file-footer-margin-inline');
+  padding-block: map.get($file, 'file-footer-padding-block');
+  padding-inline: map.get($file, 'file-footer-padding-inline');
 }
 
 .ecl-file__language {
