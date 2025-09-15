@@ -48,15 +48,12 @@ module.exports = {
         },
         {
           title: 'Item 7 title',
-          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 9 label',
-          title: 'Item 9 title',
-          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           label: 'Item 10 label',

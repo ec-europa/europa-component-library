@@ -1,9 +1,7 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 
-$theme: null !default;
-
-@mixin form-width($variant: null) {
+@mixin form-width($variant: null, $theme: null) {
   width: map.get(map.get($theme, 'form-width'), #{$variant}, 'breakpoint-xs');
 
   @include breakpoints.up('s') {

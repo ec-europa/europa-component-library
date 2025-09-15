@@ -76,13 +76,13 @@ $outline-width: 2px;
 }
 
 .ecl-text-input--s {
-  @include mixins-form.form-width(s);
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-text-input--m {
-  @include mixins-form.form-width(m);
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-text-input--l {
-  @include mixins-form.form-width(l);
+  @include mixins-form.form-width('l', $theme);
 }
