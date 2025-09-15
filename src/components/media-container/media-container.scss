@@ -91,20 +91,30 @@ $media-container: null !default;
     -50vw + (#{map.get($media-container, 'scrollbar-width')} / 2)
   );
   width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }
 
 @if map.has-key($media-container, 'caption-before') {
   .ecl-media-container__caption {
     &::before {
       background-color: var(--cm-surface-secondary, var(--c-s));
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: map.get($theme, 'border-radius', 'xs');
+      border-bottom-right-radius: map.get($theme, 'border-radius', 'xs');
       content: '';
       height: 4px;
       left: var(--s-l);
       position: absolute;
       top: 0;
       width: 32px;
+    }
+
+    &:dir(rtl)::before {
+      left: auto;
+      right: var(--s-l);
     }
   }
 }

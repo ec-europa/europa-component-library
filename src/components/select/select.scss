@@ -69,15 +69,15 @@ $outline-width: 2px;
 }
 
 .ecl-select__container--s {
-  @include mixins-form.form-width(s);
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-select__container--m {
-  @include mixins-form.form-width(m);
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-select__container--l {
-  @include mixins-form.form-width(l);
+  @include mixins-form.form-width('l', $theme);
 }
 
 .ecl-select__container--hidden {
@@ -107,6 +107,11 @@ $outline-width: 2px;
   top: 0;
   width: map.get($select, 'arrow-width');
   z-index: 0;
+
+  &:dir(rtl) {
+    left: 0;
+    right: auto;
+  }
 }
 
 .ecl-select:hover ~ .ecl-select__icon {
@@ -342,7 +347,7 @@ $outline-width: 2px;
     * {
       align-items: center;
       background-color: map.get($select, 'multiple', 'counter-background');
-      border-radius: 0.75rem;
+      border-radius: map.get($theme, 'border-radius', 'l');
       color: map.get($select, 'multiple', 'counter-color');
       display: inline-flex;
       height: auto;

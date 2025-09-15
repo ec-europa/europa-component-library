@@ -7,7 +7,7 @@ $checkbox: (
   background: map.get($color, 'white'),
   box-size: 1.5rem,
   border-width: 1px,
-  border-radius: 4px,
+  border-radius: map.get($border-radius, 's'),
   item-spacing: var(--s-s),
   label: (
     font: var(--f-m),

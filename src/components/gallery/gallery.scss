@@ -125,10 +125,6 @@ $_description-height-desktop: 108px;
   }
 }
 
-.ecl-gallery__image-icon {
-  display: none;
-}
-
 .ecl-gallery__description {
   align-items: center;
   bottom: 0;
@@ -221,16 +217,6 @@ $_description-height-desktop: 108px;
 
   .ecl-gallery__image {
     margin: 0 auto;
-  }
-
-  .ecl-gallery__image-icon {
-    background-color: map.get($gallery, 'description-background');
-    bottom: 0;
-    display: block;
-    fill: $_description-color;
-    padding: var(--s-s);
-    position: absolute;
-    right: 0;
   }
 
   .ecl-gallery__footer {
