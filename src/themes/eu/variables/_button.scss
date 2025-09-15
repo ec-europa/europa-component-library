@@ -12,6 +12,8 @@ $button: (
     padding-vertical: 4px,
     font: var(--f-ui-s),
     icon-only-size: map.get($icon, 's'),
+    icon-spacing: var(--s-2xs),
+    icon-size: map.get($icon, '2xs'),
   ),
   medium: (
     size: 2.5rem,
@@ -19,6 +21,8 @@ $button: (
     padding-vertical: 6px,
     font: var(--f-ui-m),
     icon-only-size: map.get($icon, 'm'),
+    icon-spacing: var(--s-xs),
+    icon-size: map.get($icon, 'xs'),
   ),
   large: (
     size: 2.75rem,
@@ -26,6 +30,8 @@ $button: (
     padding-vertical: 4px,
     font: var(--f-ui-m),
     icon-only-size: map.get($icon, 'm'),
+    icon-spacing: var(--s-xs),
+    icon-size: map.get($icon, 'xs'),
   ),
   primary: (
     background: var(--c-p),

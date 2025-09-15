@@ -35,6 +35,18 @@ $button: null !default;
 
 .ecl-button__icon {
   flex-shrink: 0;
+  height: map.get($button, 'large', 'icon-size');
+  width: map.get($button, 'large', 'icon-size');
+
+  .ecl-button--s & {
+    height: map.get($button, 'small', 'icon-size');
+    width: map.get($button, 'small', 'icon-size');
+  }
+
+  .ecl-button--m & {
+    height: map.get($button, 'medium', 'icon-size');
+    width: map.get($button, 'medium', 'icon-size');
+  }
 }
 
 .ecl-button__icon-container {
@@ -46,13 +58,6 @@ $button: null !default;
   display: none;
 }
 
-.ecl-button__icon ~ .ecl-button__label,
-.ecl-button__icon-container ~ .ecl-button__label,
-.ecl-button__label ~ .ecl-button__icon,
-.ecl-button__label ~ .ecl-button__icon-container {
-  margin-inline-start: var(--s-xs);
-}
-
 // Icon only
 .ecl-button--icon-only {
   align-items: center;
@@ -62,11 +67,6 @@ $button: null !default;
 
   .ecl-button__label {
     display: none;
-  }
-
-  .ecl-button__icon,
-  .ecl-button__icon-container {
-    margin: 0;
   }
 
   .ecl-button__icon {
@@ -82,6 +82,23 @@ $button: null !default;
   &.ecl-button--m .ecl-button__icon {
     height: map.get($button, 'medium', 'icon-only-size');
     width: map.get($button, 'medium', 'icon-only-size');
+  }
+}
+
+.ecl-button:not(.ecl-button--icon-only) {
+  .ecl-button__icon ~ .ecl-button__label,
+  .ecl-button__icon-container ~ .ecl-button__label,
+  .ecl-button__label ~ .ecl-button__icon,
+  .ecl-button__label ~ .ecl-button__icon-container {
+    margin-inline-start: map.get($button, 'large', 'icon-spacing');
+
+    .ecl-button--s & {
+      margin-inline-start: map.get($button, 'small', 'icon-spacing');
+    }
+
+    .ecl-button--m & {
+      margin-inline-start: map.get($button, 'medium', 'icon-spacing');
+    }
   }
 }
 

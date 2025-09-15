@@ -94,30 +94,20 @@ $button: null !default;
     color: map.get($button, #{$variant}, 'color');
   }
 
-  &:hover {
-    background-color: map.get($button, #{$variant}, 'background-hover');
-    border-color: map.get($button, #{$variant}, 'border-color-hover');
-    box-shadow: map.get($button, 'shadow');
-    color: map.get($button, #{$variant}, 'color-hover');
-  }
-
-  &:focus-visible {
-    background-color: map.get($button, #{$variant}, 'background-focus');
-    border-color: map.get($button, #{$variant}, 'border-color-focus');
-    color: map.get($button, #{$variant}, 'color-focus');
-    outline: #{map.get($button, #{$variant}, 'outline-width')} solid
-      #{map.get($button, #{$variant}, 'outline-color')};
-    outline-offset: map.get($button, #{$variant}, 'outline-offset');
-
-    @if map.has-key($button, #{$variant}, 'shadow-focus') {
-      box-shadow: map.get($button, #{$variant}, 'shadow-focus');
+  &.ecl-link--icon-only {
+    .ecl-link__icon {
+      height: map.get($button, 'large', 'icon-only-size');
+      width: map.get($button, 'large', 'icon-only-size');
     }
   }
 
-  &:active {
-    background-color: map.get($button, #{$variant}, 'background-active');
-    border-color: map.get($button, #{$variant}, 'border-color-active');
-    color: map.get($button, #{$variant}, 'color-active');
+  &:not(.ecl-link--icon-only) {
+    .ecl-link__icon ~ .ecl-link__label,
+    .ecl-link__icon-container ~ .ecl-link__label,
+    .ecl-link__label ~ .ecl-link__icon,
+    .ecl-link__label ~ .ecl-link__icon-container {
+      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    }
   }
 }
 /* stylelint-enable nesting-selector-no-missing-scoping-root */
@@ -128,10 +118,6 @@ $button: null !default;
 
 .ecl-link--secondary {
   @include link-button(secondary);
-
-  &:focus-visible {
-    box-shadow: map.get($link, 'secondary', 'focus-shadow');
-  }
 }
 
 .ecl-link--primary-highlight {
