@@ -304,7 +304,7 @@ $list-illustration: null !default;
   margin: 0;
 
   .ecl-separator {
-    max-width: 60rem;
+    max-width: map.get($list-illustration, 'divider-max-width');
     padding-block-end: var(--s-s);
   }
 
@@ -316,7 +316,10 @@ $list-illustration: null !default;
 
   @include breakpoints.up('xl') {
     .ecl-separator {
-      padding-block-end: var(--s-xl);
+      padding-block-end: map.get(
+        $list-illustration,
+        'item-padding-desktop-variant'
+      );
     }
   }
 }
@@ -327,6 +330,7 @@ $list-illustration: null !default;
   .ecl-list-illustration__item {
     flex-direction: row;
     padding-block-end: var(--s-s);
+    padding-block-start: 0;
 
     &:last-child {
       padding-block-end: 0;
@@ -355,13 +359,16 @@ $list-illustration: null !default;
 
   @include breakpoints.up('xl') {
     .ecl-list-illustration__item {
-      padding-block-end: var(--s-xl);
+      padding-block-end: map.get(
+        $list-illustration,
+        'item-padding-desktop-variant'
+      );
     }
 
     .ecl-list-illustration__icon {
       height: 2.25rem;
       width: 2.25rem;
-      margin-inline-end: var(--s-l);
+      margin-inline-end: map.get($list-illustration, 'icon-spacing-desktop');
     }
   }
 }
@@ -377,24 +384,27 @@ $list-illustration: null !default;
     align-items: flex-start;
     gap: var(--s-xs);
     padding-block-end: var(--s-s);
+    padding-block-start: 0;
 
     &::before {
       content: counter(item-counter, decimal-leading-zero);
       width: 2.5rem;
       height: 2.5rem;
-      border: 4px solid var(--cm-border-low);
+      border: 4px solid var(--cm-border-low, var(--c-p-20));
       border-radius: 50%;
       display: flex;
       align-items: center;
       margin-block-start: var(--s-2xs);
       justify-content: center;
-      font-weight: map.get($theme, 'font-weight', 'bold');
+      font-weight: map.get($theme, 'font-weight', 'bold') !important;
       background-color: transparent;
-      color: var(--cm-on-surface-brand);
+      color: var(--cm-on-surface-brand, var(--c-d));
       box-sizing: border-box;
       flex-shrink: 0;
 
-      @include mixins.responsive-font('body-l');
+      @include mixins.responsive-font(
+        map.get($list-illustration, 'counter-font')
+      );
     }
 
     .ecl-list-illustration__description {
@@ -419,7 +429,10 @@ $list-illustration: null !default;
 
   @include breakpoints.up('xl') {
     .ecl-list-illustration__item {
-      padding-block-end: var(--s-xl);
+      padding-block-end: map.get(
+        $list-illustration,
+        'item-padding-desktop-variant'
+      );
 
       &::before {
         width: 3.5rem;
