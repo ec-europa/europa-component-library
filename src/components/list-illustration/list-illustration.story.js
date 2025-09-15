@@ -571,7 +571,7 @@ IconList.render = async (args) => {
 IconList.storyName = 'icon list';
 IconList.args = {
   ...getVariantArgs(dataListIllustrationIconList),
-  icon: 'check',
+  icon: 'check-bold',
   divider: false,
 };
 IconList.argTypes = {
@@ -580,7 +580,7 @@ IconList.argTypes = {
     control: {
       type: 'select',
     },
-    options: ['check', 'arrow-right', 'close'],
+    options: ['check-bold', 'arrow-right-bold', 'close-bold'],
   },
   divider: {
     control: { type: 'boolean' },
