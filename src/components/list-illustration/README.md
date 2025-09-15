@@ -20,7 +20,7 @@ npm install --save @ecl/list-illustration
 - **"column"** (number) (default: 1): number of columns (1 column means vertical display)
 - **"icon_list"** (boolean) (default: false) Renders as icon list
 - **"number_list"** (boolean) (default: false) Renders as number list
-- **"divider"** (boolean) (default: false) Seprator for items of an icon list
+- **"divider"** (boolean) (default: false) Separator for items of an icon list
 - **"zebra"** (optional) (boolean) (default: false) use alternate background display for vertical list
 - **"centered"** (bool) (default: false) Define if the items should be centered
 - **"font_size"** (string) (default: 'l') Size of the value (can be 'm', 'l')
