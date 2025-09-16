@@ -13,7 +13,7 @@ $list-illustration: null !default;
 
 // Intiialize the counter
 body {
-  counter-reset: item-counter;
+  counter-reset: ecl-list-illustration-counter;
 }
 
 .ecl-list-illustration {
@@ -405,11 +405,12 @@ body {
 // number list
 .ecl-list-illustration--number-list {
   &.ecl-list-illustration--number-list-reset {
-    counter-reset: item-counter #{var(--ecl-list-illustration-counter-start, 0)};
+    counter-reset: ecl-list-illustration-counter
+      #{var(--ecl-list-illustration-counter-start, 0)};
   }
 
   .ecl-list-illustration__item {
-    counter-increment: item-counter;
+    counter-increment: ecl-list-illustration-counter;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -418,7 +419,7 @@ body {
     padding-block-start: 0;
 
     &::before {
-      content: counter(item-counter, decimal-leading-zero);
+      content: counter(ecl-list-illustration-counter, decimal-leading-zero);
       width: 2.5rem;
       height: 2.5rem;
       border: 4px solid var(--cm-border-low, var(--c-p-20));
