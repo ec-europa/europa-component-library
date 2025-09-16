@@ -110,10 +110,7 @@ body {
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description', 'color');
   max-width: var(--max-w);
-
-  @include mixins.responsive-font(
-    map.get($list-illustration, 'description', 'font')
-  );
+  font: var(--f-m);
 }
 
 .ecl-list-illustration__title-container + .ecl-list-illustration__description {
@@ -369,6 +366,12 @@ body {
     width: map.get($theme, 'icon', 'm');
     margin-inline-end: var(--s-xs);
     flex-shrink: 0;
+  }
+
+  .ecl-list-illustration__description {
+    @include mixins.responsive-font(
+      map.get($list-illustration, 'description', 'font')
+    );
   }
 
   @include breakpoints.up('m') {
