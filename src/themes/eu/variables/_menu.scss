@@ -4,7 +4,7 @@
 // stylelint-disable length-zero-no-unit
 $menu: (
   global: (
-    border-radius: 4px,
+    border-radius: map.get($border-radius, 's'),
     shadow: var(--sh-2),
     color-outline: map.get($color, 'white'),
   ),
