@@ -12,10 +12,6 @@ $theme: null !default;
 $datepicker: null !default;
 $text-input: null !default;
 
-@use '@ecl/layout-form/mixins' as mixins-form with (
-  $theme: $theme
-);
-
 :root {
   --duet-font: #{map.get($theme, 'font-family', 'default')};
   --duet-color-surface: var(--cm-surface-inverted, #fff);
@@ -38,7 +34,7 @@ $text-input: null !default;
   padding-block: map.get($text-input, 'padding-block');
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
-  @include mixins-form.form-width(m);
+  @include mixins-form.form-width('m', $theme);
 
   &:hover {
     border-color: map.get($text-input, 'border-color-hover');
