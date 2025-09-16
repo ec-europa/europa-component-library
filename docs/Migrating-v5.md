@@ -197,6 +197,25 @@ Extra attention points:
 - flags are now names with the country code istead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
 
+### List with illustration
+
+Two new variants have been added:
+
+- icon list (twig param: `icon_list`)
+- number list (twig param: `number_list`)
+
+For the number list additional parameter are available:
+
+- `counter_reset` (default: true) Resets the counter of the list
+- `counter_start` (default: 0) Starting number of the counter when counter_reset is true
+
+These variants are supposed to be used with a description only and in a layout with a single column or two columns maximum
+
+An additional param has been added to place the icon on the left and not on top:
+
+- `icon_inline`
+  This cannot be used in combnation with the `centered` variant
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of elements including images, description, links with images only, textual links instead of an img and then a list of links.

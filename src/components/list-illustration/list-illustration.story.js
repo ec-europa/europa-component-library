@@ -72,6 +72,7 @@ const getArgs = (data, variant) => {
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
     args.icon_size = 'l';
+    args.icon_inline = false;
   }
 
   if (variant.includes('horizontal')) {
@@ -339,6 +340,17 @@ const getArgTypes = (data, variant) => {
       },
       if: { arg: 'show_icon' },
     };
+    argTypes.icon_inline = {
+      name: 'icon inline',
+      type: { name: 'boolean' },
+      description: 'Place the icon on the left',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Icon',
+      },
+      if: { arg: 'show_icon' },
+    };
   }
 
   return argTypes;
@@ -349,9 +361,8 @@ const getVariantArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
-  args.title = '';
   args.description = data.items[0].description;
-  args.value = '';
+  args.column = 1;
 
   return args;
 };
@@ -359,14 +370,12 @@ const getVariantArgs = (data) => {
 const getVariantArgTypes = () => {
   return {
     ...getColorModeControls(),
-    title: {
-      control: { type: 'text' },
-    },
     description: {
       control: { type: 'text' },
     },
-    value: {
-      control: { type: 'text' },
+    column: {
+      name: 'number of columns',
+      control: { type: 'range', min: 1, max: 2, step: 1 },
     },
   };
 };
@@ -434,6 +443,7 @@ const prepareDataList = (data, args) => {
       data.items[i].icon = iconDefault;
       data.items[i].media_size = args.icon_size;
     }
+    data.icon_inline = args.icon_inline;
   } else {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].icon = {};
@@ -472,8 +482,6 @@ const prepareDataList = (data, args) => {
 const prepareIconList = (data, args) => {
   data.items.forEach((item) => {
     item.description = args.description;
-    item.title = args.title;
-    item.value = args.value;
 
     if (args.icon) {
       item.icon.name = args.icon;
@@ -482,6 +490,8 @@ const prepareIconList = (data, args) => {
 
   data.color_mode = args.color_mode;
   data.divider = args.divider;
+  data.column = args.column;
+  data.counter_start = args.counter_start;
 
   return data;
 };
@@ -596,11 +606,21 @@ NumberList.render = async (args) => {
   const renderedListNumberList = await listIllustration(
     prepareIconList(dataListIllustrationNumberList, args),
   );
+
   return renderedListNumberList;
 };
 NumberList.storyName = 'number list';
-NumberList.args = getVariantArgs(dataListIllustrationNumberList);
-NumberList.argTypes = getVariantArgTypes();
+NumberList.args = {
+  ...getVariantArgs(dataListIllustrationNumberList),
+  counter_start: 0,
+};
+NumberList.argTypes = {
+  ...getVariantArgTypes(),
+  counter_start: {
+    name: 'counter start',
+    control: { type: 'range', min: 0, max: 20, step: 1 },
+  },
+};
 NumberList.parameters = {
   notes: { markdown: notes, json: dataListIllustrationNumberList },
 };

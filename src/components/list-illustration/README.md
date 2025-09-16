@@ -18,8 +18,11 @@ npm install --save @ecl/list-illustration
   - "icon" (associative array) (default: {}): predefined structure for Icon component
   - "media_size" (string) (default: 'm'): size of the media (square picture or icon). Could be 's', 'm' or 'l'
 - **"column"** (number) (default: 1): number of columns (1 column means vertical display)
+- **"icon_inline"** (boolean) (default: false) Renders the icon on the left of the item
 - **"icon_list"** (boolean) (default: false) Renders as icon list
 - **"number_list"** (boolean) (default: false) Renders as number list
+- **"counter_reset"** (boolean) (default: true) Resets the counter so that it starts from zero
+- **"counter_start"** (number) (default: 0) Number to start the counter from, if counter_reset is true
 - **"divider"** (boolean) (default: false) Separator for items of an icon list
 - **"zebra"** (optional) (boolean) (default: false) use alternate background display for vertical list
 - **"centered"** (bool) (default: false) Define if the items should be centered
