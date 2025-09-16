@@ -110,7 +110,7 @@ $text-input: null !default;
     border-radius: map.get($datepicker, 'picker', 'border-radius');
     color: map.get($datepicker, 'picker', 'theme-color');
     display: flex;
-    width: 170px;
+    width: 160px;
     justify-content: space-between;
     margin-block-start: 0;
     margin-inline-end: var(--s-xs);
@@ -158,8 +158,8 @@ $text-input: null !default;
     color: var(--cm-on-surface-primary, var(--c-p));
     display: flex;
     margin-inline-start: var(--s-xs);
-    min-width: auto;
-    min-height: auto;
+    min-width: 38px;
+    min-height: 38px;
     padding: 0;
 
     &:hover {
@@ -180,6 +180,20 @@ $text-input: null !default;
       height: map.get($theme, 'icon', 's');
       vertical-align: middle;
       width: map.get($theme, 'icon', 's');
+    }
+  }
+
+  @media (width >= 36em) {
+    .duet-date__mobile {
+      right: 0;
+      top: 0;
+    }
+
+    button.duet-date__close {
+      min-width: 1rem;
+      min-height: 1rem;
+      height: 1rem;
+      width: 1rem;
     }
   }
 
@@ -265,6 +279,14 @@ $text-input: null !default;
           position: absolute;
           top: 85%;
           width: 20px;
+        }
+
+        &:focus-visible {
+          color: var(--cm-on-surface-inverted, #fff);
+
+          &::before {
+            background: var(--cm-on-surface-inverted, #fff);
+          }
         }
 
         &:hover {
