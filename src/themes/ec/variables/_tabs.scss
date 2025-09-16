@@ -31,9 +31,9 @@ $tabs: (
     highlight-width: 0,
     highlight-color: transparent,
     active-separator-color: var(--cm-border-primary),
-    color-open: var(--cm-on-surface-brand),
-    border-color-open: var(--cm-border-brand),
-    background-open: var(--cm-surface-grey-low-1),
+    color-open: var(--cm-on-surface-primary-highest),
+    border-color-open: var(--cm-border-primary-highest),
+    background-open: var(--cm-surface-primary-low),
   ),
   dropdown: (
     shadow: var(--sh-2),
@@ -41,8 +41,8 @@ $tabs: (
     list-margin: calc(-1 * var(--s-xs)) calc(-1 * var(--s-m)),
     item-padding: var(--s-xs) var(--s-m),
     item-color: var(--cm-on-surface-brand),
-    item-active-background: var(--cm-surface-grey-low-1),
-    item-active-color: var(--cm-on-surface-brand),
+    item-active-background: var(--cm-surface-primary-low),
+    item-active-color: var(--cm-on-surface-primary-highest),
     font-weight: map.get($font-weight, 'regular'),
   ),
 );
