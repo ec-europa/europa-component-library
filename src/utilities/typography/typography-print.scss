@@ -4,6 +4,7 @@
 
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/mixins-color/mixins' as color;
 
 // Exposed variables
 $theme: null !default;
@@ -141,7 +142,8 @@ $typography-print: null !default;
 @if map.has-key($theme, 'color-default') {
   @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-type-color-#{$key} {
-      color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
@@ -158,33 +160,19 @@ $typography-print: null !default;
 
   @each $key in $semantic-color {
     .ecl-u-type-color-#{$key} {
-      color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
   @if map.has-key($theme, 'color-modes') {
     $type-mode: (
-      'on-surface-brand',
-      'on-surface-inverted',
-      'on-surface-swap-1',
-      'on-surface-swap-2',
       'on-surface',
       'on-surface-variant-1',
       'on-surface-variant-2',
       'on-surface-variant-3',
-      'on-surface-highlight',
-      'on-surface-primary',
-      'on-surface-primary-highest',
-      'on-surface-secondary-medium',
-      'on-surface-neutral-low',
-      'on-surface-neutral-medium',
-      'on-surface-neutral-highest',
-      'on-surface-grey-medium',
-      'on-surface-grey',
-      'on-surface-status-error',
-      'on-surface-status-warning',
-      'on-surface-status-success',
-      'on-surface-status-info'
+      'on-surface-swap-1',
+      'on-surface-swap-2'
     );
 
     @each $key in $type-mode {
@@ -245,17 +233,6 @@ $typography-print: null !default;
 
 .ecl-u-type-none {
   text-decoration: none !important;
-}
-
-/*
-* Font family
-*/
-.ecl-u-type-family {
-  font-family: #{map.get($theme, 'font-family-print', 'default')} !important;
-}
-
-.ecl-u-type-family-alt {
-  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
 }
 
 /*

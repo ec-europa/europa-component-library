@@ -11,7 +11,17 @@ import getSystem from '../utils/getSystem.js';
 const getPlugins = (options = {}) => {
   const plugins = [];
 
-  plugins.push(autoprefixer({ grid: 'no-autoplace' }));
+  plugins.push(
+    autoprefixer({
+      grid: 'no-autoplace',
+      overrideBrowserslist: [
+        '> 1%',
+        'not dead',
+        'not ie <= 11',
+        'not safari < 14',
+      ],
+    }),
+  );
   plugins.push(rangePlugin());
 
   if (process.env.NODE_ENV === 'production') {
