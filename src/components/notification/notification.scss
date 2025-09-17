@@ -33,8 +33,6 @@ $notification: null !default;
 }
 
 .ecl-notification__content {
-  display: grid;
-  grid-template-columns: auto max-content;
   width: 100%;
 }
 
@@ -60,17 +58,19 @@ $notification: null !default;
 }
 
 .ecl-notification__close {
-  align-self: self-start;
   color: map.get($notification, 'close-color');
   font: var(--f-m);
-  grid-column-start: 2;
-  grid-row-end: span 2;
-  grid-row-start: 1;
-  margin-inline-end: map.get($notification, 'close-offset-end');
-  margin-top: map.get($notification, 'close-offset-top');
+  right: map.get($notification, 'close-offset-end');
+  top: map.get($notification, 'close-offset-top');
+  position: absolute;
 
   .no-js & {
     display: none;
+  }
+
+  &:dir(rtl) {
+    left: map.get($notification, 'close-offset-end');
+    right: auto;
   }
 }
 

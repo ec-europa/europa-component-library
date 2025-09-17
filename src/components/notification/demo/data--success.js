@@ -2,7 +2,7 @@
 module.exports = {
   variant: 'success',
   icon: {
-    name: 'check-outline',
+    name: 'check-filled',
     size: 'l',
   },
   sr_icon: 'Success',

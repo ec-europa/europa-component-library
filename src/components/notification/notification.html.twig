@@ -70,6 +70,7 @@
   {% if _close is not empty %}
     {% include '@ecl/button/button.html.twig' with _close|merge({
       type: 'button',
+      size: 'm',
       variant: 'tertiary',
       extra_classes: 'ecl-notification__close',
       extra_attributes: [{
