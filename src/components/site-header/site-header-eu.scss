@@ -123,6 +123,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__header {
+  background-color: map.get($site-header, 'background-color');
   position: relative;
   z-index: 54;
 
