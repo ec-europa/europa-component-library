@@ -362,7 +362,6 @@ const getVariantArgs = (data) => {
     args.color_mode = 'default';
   }
   args.description = data.items[0].description;
-  args.column = 1;
 
   return args;
 };
@@ -372,10 +371,6 @@ const getVariantArgTypes = () => {
     ...getColorModeControls(),
     description: {
       control: { type: 'text' },
-    },
-    column: {
-      name: 'number of columns',
-      control: { type: 'range', min: 1, max: 2, step: 1 },
     },
   };
 };
@@ -583,6 +578,7 @@ IconList.args = {
   ...getVariantArgs(dataListIllustrationIconList),
   icon: 'check-bold',
   divider: false,
+  column: 1,
 };
 IconList.argTypes = {
   ...getVariantArgTypes(),
@@ -594,6 +590,10 @@ IconList.argTypes = {
   },
   divider: {
     control: { type: 'boolean' },
+  },
+  column: {
+    name: 'number of columns',
+    control: { type: 'range', min: 1, max: 2, step: 1 },
   },
 };
 IconList.parameters = {
