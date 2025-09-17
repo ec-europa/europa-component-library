@@ -360,6 +360,11 @@ body {
     flex-direction: row;
   }
 
+  .ecl-list-illustration__detail {
+    display: flex;
+    align-self: center;
+  }
+
   .ecl-list-illustration__icon {
     fill: map.get($list-illustration, 'icon-color');
     height: map.get($theme, 'icon', 'm');
@@ -437,6 +442,11 @@ body {
       @include mixins.responsive-font(
         map.get($list-illustration, 'counter-font')
       );
+    }
+
+    .ecl-list-illustration__item-content {
+      display: flex;
+      align-self: center;
     }
 
     .ecl-list-illustration__description {
