@@ -80,6 +80,7 @@
           label: _sr_play,
           type: 'button',
           variant: 'tertiary',
+          style: 'neutral',
           extra_classes: 'ecl-carousel__play',
           icon: {
             name: 'play-outline',
@@ -92,6 +93,7 @@
           label: _sr_pause,
           type: 'button',
           variant: 'tertiary',
+          style: 'neutral',
           extra_classes: 'ecl-carousel__pause',
           icon: {
             name: 'pause-outline',
@@ -102,7 +104,7 @@
       </div>
       <div class="ecl-carousel__navigation" role="tablist">
         {% for item in _items %}
-          <button class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item" role="tab">
+          <button class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item" role="tab">
             {{ loop.index }}
           </button>
         {% endfor %}

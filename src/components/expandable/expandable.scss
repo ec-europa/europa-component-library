@@ -18,7 +18,7 @@ $expandable: null !default;
 }
 
 .ecl-expandable__toggle[aria-expanded='true'] {
-  &.ecl-button--ghost:not(:hover, :focus-visible) {
+  &.ecl-button--tertiary:not(:hover, :focus-visible) {
     background-color: map.get($expandable, 'toggle-background-active');
     border-color: map.get($expandable, 'toggle-border-active');
     color: map.get($expandable, 'toggle-color-active');

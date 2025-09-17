@@ -5,9 +5,11 @@
 
 @use 'sass:map';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
+$button: null !default;
 $link: null !default;
 
 .ecl-link,
@@ -62,7 +64,7 @@ $link: null !default;
 
   &:not(
       .ecl-link--standalone,
-      .ecl-link--cta,
+      .ecl-link--primary-highlight,
       .ecl-link--primary,
       .ecl-link--secondary
     )
@@ -169,53 +171,77 @@ $link: null !default;
 */
 /* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin link-button($variant: null) {
-  background-color: map.get($link, #{$variant}, 'background');
-  border: map.get($link, 'button', 'border-width') solid
-    map.get($link, #{$variant}, 'border-color');
-  border-radius: map.get($link, 'button', 'radius');
+  align-items: center;
+  background-color: map.get($button, #{$variant}, 'background');
+  border: map.get($button, #{$variant}, 'border-width') solid
+    map.get($button, #{$variant}, 'border-color');
+  border-radius: map.get($button, 'radius');
   box-sizing: border-box;
-  color: map.get($link, #{$variant}, 'color');
-  display: inline-block;
-  font: map.get($link, 'button', 'font');
-  min-height: map.get($link, 'button', 'min-height');
-  min-width: map.get($link, 'button', 'min-width');
+  color: map.get($button, #{$variant}, 'color');
+  display: inline-flex;
+  min-height: map.get($button, 'large', 'size');
+  min-width: map.get($button, 'large', 'size');
   padding: calc(
-      #{map.get($link, 'button', 'padding-vertical')} -
-        #{map.get($link, 'button', 'border-width')}
+      #{map.get($button, 'large', 'padding-vertical')} -
+        #{map.get($button, #{$variant}, 'border-width')}
     )
     calc(
-      #{map.get($link, 'button', 'padding-horizontal')} -
-        #{map.get($link, 'button', 'border-width')}
+      #{map.get($button, 'large', 'padding-horizontal')} -
+        #{map.get($button, #{$variant}, 'border-width')}
     );
   text-decoration: none;
 
+  @include mixins.responsive-font(map.get($button, 'large', 'font'));
+
   &:visited {
-    color: map.get($link, #{$variant}, 'color');
+    color: map.get($button, #{$variant}, 'color');
   }
 
   &:hover {
-    background-color: map.get($link, #{$variant}, 'background-hover');
-    border-color: map.get($link, #{$variant}, 'border-color-hover');
-    box-shadow: map.get($link, 'button', 'shadow');
-    color: map.get($link, #{$variant}, 'color-hover');
+    background-color: map.get($button, #{$variant}, 'background-hover');
+    border-color: map.get($button, #{$variant}, 'border-color-hover');
+    box-shadow: map.get($button, 'shadow');
+    color: map.get($button, #{$variant}, 'color-hover');
   }
 
   &:focus-visible {
-    background-color: map.get($link, #{$variant}, 'background-focus');
-    border-color: map.get($link, #{$variant}, 'border-color-focus');
-    border-radius: map.get($link, 'button', 'radius');
-    color: map.get($link, #{$variant}, 'color-focus');
-    outline: map.get($link, 'button', 'outline-width') solid
-      map.get($link, #{$variant}, 'outline-color');
-    outline-offset: map.get($link, 'button', 'outline-offset');
-    text-decoration: none;
+    background-color: map.get($button, #{$variant}, 'background-focus');
+    border-color: map.get($button, #{$variant}, 'border-color-focus');
+    color: map.get($button, #{$variant}, 'color-focus');
+    outline: #{map.get($button, #{$variant}, 'outline-width')} solid
+      #{map.get($button, #{$variant}, 'outline-color')};
+    outline-offset: map.get($button, #{$variant}, 'outline-offset');
+
+    @if map.has-key($button, #{$variant}, 'shadow-focus') {
+      box-shadow: map.get($button, #{$variant}, 'shadow-focus');
+    }
   }
 
   &:active {
-    background-color: map.get($link, #{$variant}, 'background-active');
-    border-color: map.get($link, #{$variant}, 'border-color-active');
-    color: map.get($link, #{$variant}, 'color-active');
-    outline-width: 0;
+    background-color: map.get($button, #{$variant}, 'background-active');
+    border-color: map.get($button, #{$variant}, 'border-color-active');
+    color: map.get($button, #{$variant}, 'color-active');
+  }
+
+  &.ecl-link--icon-only {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0 !important;
+
+    .ecl-link__icon {
+      height: map.get($button, 'large', 'icon-only-size');
+      width: map.get($button, 'large', 'icon-only-size');
+    }
+  }
+
+  &:not(.ecl-link--icon-only) {
+    .ecl-link__icon ~ .ecl-link__label,
+    .ecl-link__icon-container ~ .ecl-link__label,
+    .ecl-link__label ~ .ecl-link__icon,
+    .ecl-link__label ~ .ecl-link__icon-container {
+      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    }
   }
 }
 /* stylelint-enable nesting-selector-no-missing-scoping-root */
@@ -226,12 +252,8 @@ $link: null !default;
 
 .ecl-link--secondary {
   @include link-button(secondary);
-
-  &:focus-visible {
-    box-shadow: map.get($link, 'secondary', 'focus-shadow');
-  }
 }
 
-.ecl-link--cta {
-  @include link-button(cta);
+.ecl-link--primary-highlight {
+  @include link-button(primary-highlight);
 }

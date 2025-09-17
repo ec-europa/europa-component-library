@@ -22,104 +22,52 @@ $theme: null !default;
     l = left
 */
 
+// Mixin to generate spacing utilities with exact class names
+@mixin generate-spacing-set($property, $prefix, $infix, $suffix, $value) {
+  .ecl-u-#{$prefix}a#{$infix}-#{$suffix} {
+    #{$property}: $value !important;
+  }
+
+  .ecl-u-#{$prefix}h#{$infix}-#{$suffix} {
+    #{$property}-inline-start: $value !important;
+    #{$property}-inline-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}v#{$infix}-#{$suffix} {
+    #{$property}-block-start: $value !important;
+    #{$property}-block-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}t#{$infix}-#{$suffix} {
+    #{$property}-block-start: $value !important;
+  }
+
+  .ecl-u-#{$prefix}r#{$infix}-#{$suffix} {
+    #{$property}-inline-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}b#{$infix}-#{$suffix} {
+    #{$property}-block-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}l#{$infix}-#{$suffix} {
+    #{$property}-inline-start: $value !important;
+  }
+}
+
 /* stylelint-disable max-nesting-depth */
 @each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
   @include breakpoints.up($breakpoint) {
     $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
+    // Generate margin utilities for each spacing value
     @each $key, $value in map.get($theme, 'spacing-print') {
-      .ecl-u-ma#{$infix}-#{$key} {
-        margin: $value !important;
-      }
-
-      .ecl-u-mh#{$infix}-#{$key} {
-        margin-inline-start: $value !important;
-        margin-inline-end: $value !important;
-      }
-
-      .ecl-u-mv#{$infix}-#{$key} {
-        margin-block-end: $value !important;
-        margin-block-start: $value !important;
-      }
-
-      .ecl-u-mt#{$infix}-#{$key} {
-        margin-block-start: $value !important;
-      }
-
-      .ecl-u-mr#{$infix}-#{$key} {
-        margin-inline-end: $value !important;
-      }
-
-      .ecl-u-mb#{$infix}-#{$key} {
-        margin-block-end: $value !important;
-      }
-
-      .ecl-u-ml#{$infix}-#{$key} {
-        margin-inline-start: $value !important;
-      }
+      @include generate-spacing-set(margin, 'm', $infix, $key, $value);
     }
 
-    // Margin none
-    .ecl-u-ma#{$infix}-none {
-      margin: 0 !important;
-    }
-
-    .ecl-u-mh#{$infix}-none {
-      margin-inline-start: 0 !important;
-      margin-inline-end: 0 !important;
-    }
-
-    .ecl-u-mv#{$infix}-none {
-      margin-block-end: 0 !important;
-      margin-block-start: 0 !important;
-    }
-
-    .ecl-u-mt#{$infix}-none {
-      margin-block-start: 0 !important;
-    }
-
-    .ecl-u-mr#{$infix}-none {
-      margin-inline-end: 0 !important;
-    }
-
-    .ecl-u-mb#{$infix}-none {
-      margin-block-end: 0 !important;
-    }
-
-    .ecl-u-ml#{$infix}-none {
-      margin-inline-start: 0 !important;
-    }
-
-    // Margin auto
-    .ecl-u-ma#{$infix}-auto {
-      margin: auto !important;
-    }
-
-    .ecl-u-mh#{$infix}-auto {
-      margin-inline-start: auto !important;
-      margin-inline-end: auto !important;
-    }
-
-    .ecl-u-mv#{$infix}-auto {
-      margin-block-end: auto !important;
-      margin-block-start: auto !important;
-    }
-
-    .ecl-u-mb#{$infix}-auto {
-      margin-block-end: auto !important;
-    }
-
-    .ecl-u-mt#{$infix}-auto {
-      margin-block-start: auto !important;
-    }
-
-    .ecl-u-mr#{$infix}-auto {
-      margin-inline-end: auto !important;
-    }
-
-    .ecl-u-ml#{$infix}-auto {
-      margin-inline-start: auto !important;
-    }
+    // Generate margin utilities for none and auto
+    @include generate-spacing-set(margin, 'm', $infix, 'none', 0);
+    @include generate-spacing-set(margin, 'm', $infix, 'auto', auto);
   }
 }
 
@@ -127,67 +75,12 @@ $theme: null !default;
   @include breakpoints.up($breakpoint) {
     $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
+    // Generate padding utilities for each spacing value
     @each $key, $value in map.get($theme, 'spacing-print') {
-      .ecl-u-pa#{$infix}-#{$key} {
-        padding: $value !important;
-      }
-
-      .ecl-u-ph#{$infix}-#{$key} {
-        padding-inline-start: $value !important;
-        padding-inline-end: $value !important;
-      }
-
-      .ecl-u-pv#{$infix}-#{$key} {
-        padding-block-end: $value !important;
-        padding-block-start: $value !important;
-      }
-
-      .ecl-u-pt#{$infix}-#{$key} {
-        padding-block-start: $value !important;
-      }
-
-      .ecl-u-pr#{$infix}-#{$key} {
-        padding-inline-end: $value !important;
-      }
-
-      .ecl-u-pb#{$infix}-#{$key} {
-        padding-block-end: $value !important;
-      }
-
-      .ecl-u-pl#{$infix}-#{$key} {
-        padding-inline-start: $value !important;
-      }
+      @include generate-spacing-set(padding, 'p', $infix, $key, $value);
     }
 
-    // Padding none
-    .ecl-u-pa#{$infix}-none {
-      padding: 0 !important;
-    }
-
-    .ecl-u-ph#{$infix}-none {
-      padding-inline-start: 0 !important;
-      padding-inline-end: 0 !important;
-    }
-
-    .ecl-u-pv#{$infix}-none {
-      padding-block-end: 0 !important;
-      padding-block-start: 0 !important;
-    }
-
-    .ecl-u-pt#{$infix}-none {
-      padding-block-start: 0 !important;
-    }
-
-    .ecl-u-pr#{$infix}-none {
-      padding-inline-end: 0 !important;
-    }
-
-    .ecl-u-pb#{$infix}-none {
-      padding-block-end: 0 !important;
-    }
-
-    .ecl-u-pl#{$infix}-none {
-      padding-inline-start: 0 !important;
-    }
+    // Generate padding utilities for none
+    @include generate-spacing-set(padding, 'p', $infix, 'none', 0);
   }
 }
