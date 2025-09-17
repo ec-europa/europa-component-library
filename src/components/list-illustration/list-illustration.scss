@@ -364,6 +364,7 @@ body {
     fill: map.get($list-illustration, 'icon-color');
     height: map.get($theme, 'icon', 'm');
     width: map.get($theme, 'icon', 'm');
+    margin-block-end: 0;
     margin-inline-end: var(--s-xs);
     flex-shrink: 0;
   }
@@ -426,7 +427,6 @@ body {
       border-radius: 50%;
       display: flex;
       align-items: center;
-      margin-block-start: var(--s-2xs);
       justify-content: center;
       font-weight: map.get($theme, 'font-weight', 'bold') !important;
       background-color: transparent;
@@ -441,7 +441,7 @@ body {
 
     .ecl-list-illustration__description {
       @include mixins.responsive-font(
-        map.get($list-illustration, 'number-list', 'font')
+        map.get($list-illustration, 'description', 'number-list-font')
       );
     }
   }
