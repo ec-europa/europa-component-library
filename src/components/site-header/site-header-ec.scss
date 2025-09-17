@@ -86,23 +86,6 @@ $language-list: null !default;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
 }
 
-.ecl-search-form__button {
-  color: map.get($site-header, 'toggle-color');
-
-  &:hover {
-    border-left: none;
-    color: var(--cm-on-surface-brand);
-  }
-
-  &:focus-visible {
-    color: var(--cm-on-surface-brand);
-  }
-
-  &:active {
-    background-color: var(--cm-on-surface-neutral-medium);
-  }
-}
-
 .ecl-site-header__action {
   align-items: center;
   align-self: flex-end;
@@ -134,20 +117,14 @@ $language-list: null !default;
 .ecl-site-header__language-selector {
   align-items: center;
   box-sizing: border-box;
-  color: map.get($site-header, 'toggle-color');
   display: flex;
   flex-direction: column;
   margin-inline-start: var(--s-xs);
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
 
-  &:focus-visible {
-    color: map.get($site-header, 'toggle-color');
-  }
-
-  &:active,
   &[aria-expanded='true'] {
-    background-color: var(--cm-surface-neutral-low);
+    background-color: var(--cm-surface-grey-low-1);
   }
   // stylelint-disable-next-line no-descending-specificity
   .ecl-icon {
@@ -360,10 +337,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__language-selector {
     align-items: center;
     display: flex;
-    font-size: 0;
+    font-size: 0 !important;
     justify-content: center;
-    line-height: 0;
-    padding: var(--s-xs) 0;
+    line-height: 0 !important;
+    padding: var(--s-xs) 0 !important;
 
     .ecl-link__icon-container {
       margin-inline-start: 0;

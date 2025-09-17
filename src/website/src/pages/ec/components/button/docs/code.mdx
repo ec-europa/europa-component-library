@@ -11,6 +11,22 @@ import { Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-button"
   selectedStory="primary"
+>
+  test
+</Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="style:highlight"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="style:inverted"
 ></Playground>
 
 ## Secondary
@@ -19,7 +35,20 @@ import { Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-button"
   selectedStory="secondary"
-  selectedArgs="hide_label:!false"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+  selectedArgs="style:neutral"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+  selectedArgs="style:inverted"
 ></Playground>
 
 ## Tertiary
@@ -30,28 +59,18 @@ import { Playground } from '@ecl/website-components';
   selectedStory="tertiary"
 ></Playground>
 
-## Call to action
-
 <Playground
   system="ec"
   selectedKind="components-button"
-  selectedStory="call-to-action"
+  selectedStory="tertiary"
+  selectedArgs="style:neutral"
 ></Playground>
 
-## Ghost
-
 <Playground
   system="ec"
   selectedKind="components-button"
-  selectedStory="ghost"
-></Playground>
-
-## Ghost inverted
-
-<Playground
-  system="ec"
-  selectedKind="components-button"
-  selectedStory="ghost-inverted"
+  selectedStory="tertiary"
+  selectedArgs="style:inverted"
 ></Playground>
 
 ## Button with icon only
@@ -67,4 +86,15 @@ Spacing of icon only button is adapted to make it square.
   selectedKind="components-button"
   selectedStory="secondary"
   selectedArgs="icon_name:logged-in;hide_label:!true"
+></Playground>
+
+## Button size
+
+ECL button are available in 3 sizes: `s`, `m` and `l` (default)
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="size:s"
 ></Playground>

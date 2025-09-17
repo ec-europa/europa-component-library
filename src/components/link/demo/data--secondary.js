@@ -5,7 +5,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   link: {
     type: 'secondary',
-    label: 'Secondary link',
+    label: 'Link button',
     path: exampleLink,
     sr_external: 'Link to an external domain',
   },
