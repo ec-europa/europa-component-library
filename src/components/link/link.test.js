@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataDefault from './demo/data--default';
-import dataCta from './demo/data--cta';
+import dataPrimaryHighlight from './demo/data--primary-highlight';
 import dataStandalone from './demo/data--standalone';
 
 expect.extend(toHaveNoViolations);
@@ -216,8 +216,8 @@ describe('Link', () => {
     });
   });
 
-  describe('Cta variant with icon', () => {
-    const options = merge(dataCta, {
+  describe('Primary highlight variant with icon', () => {
+    const options = merge(dataPrimaryHighlight, {
       link: {
         label: 'Call to action link',
         icon_position: 'after',
@@ -237,7 +237,7 @@ describe('Link', () => {
   });
 
   describe('with indicator', () => {
-    const options = merge(dataCta, {
+    const options = merge(dataPrimaryHighlight, {
       link: {
         label: 'Call to action link',
         icon_position: 'after',
