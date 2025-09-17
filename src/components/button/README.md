@@ -9,7 +9,9 @@ npm install --save @ecl/button
 ### Parameters
 
 - **"label"** (string) (default: '')
-- **"variant"** (string) (default: 'primary'): variant of button (can be 'primary', 'secondary', 'cta', 'ghost', 'ghost-inverted', 'tertiary')
+- **"size"** (string) (default: 'l'): button size
+- **"variant"** (string) (default: 'primary'): can be 'primary', 'secondary', 'tertiary'
+- **"style"** (string) (default: ''): can be 'highlight', 'neutral', 'inverted'. Not all styles are available for all variants
 - **"type"** (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
 - **"disabled"** (bool) (default: false): define if button should be disabled (HTML disabled attribute)
 - **"hide_label"** (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined

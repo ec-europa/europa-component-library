@@ -1,6 +1,6 @@
 // Simple content for demo
 module.exports = {
-  label: 'Ghost button',
-  variant: 'ghost',
+  label: 'Button label',
+  variant: 'primary',
   type: 'button',
 };

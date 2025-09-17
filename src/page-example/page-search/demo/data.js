@@ -12,8 +12,10 @@ import dataPagination from '@ecl/pagination/demo/data';
 import dataSelectMultiple from '@ecl/select/demo/data-multiple';
 import dataTextInput from '@ecl/text-input/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
-import dataButtonPrimary from '@ecl/button/demo/data--primary';
-import dataButtonSecondary from '@ecl/button/demo/data--secondary';
+import dataButton from '@ecl/button/demo/data';
+
+const dataButtonPrimary = { ...dataButton, variant: 'primary' };
+const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;

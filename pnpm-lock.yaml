@@ -239,6 +239,9 @@ importers:
 
   src/components/blockquote:
     dependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/typography
       '@ecl/picture':
         specifier: 5.0.0-alpha.15
         version: link:../picture
@@ -571,10 +574,16 @@ importers:
 
   src/components/link:
     dependencies:
+      '@ecl/button':
+        specifier: 5.0.0-alpha.15
+        version: link:../button
       '@ecl/icon':
         specifier: 5.0.0-alpha.15
         version: link:../icon
     devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/typography
       '@ecl/resources-icons':
         specifier: 5.0.0-alpha.15
         version: link:../../resources/icons
@@ -1031,6 +1040,8 @@ importers:
         version: link:../grid
 
   src/layout/grid: {}
+
+  src/mixins/color: {}
 
   src/mixins/typography:
     dependencies:
@@ -1557,6 +1568,9 @@ importers:
       '@ecl/menu':
         specifier: 5.0.0-alpha.15
         version: link:../../components/menu
+      '@ecl/mixins-color':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/color
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.15
         version: link:../../mixins/typography
@@ -1828,6 +1842,9 @@ importers:
       '@ecl/menu':
         specifier: 5.0.0-alpha.15
         version: link:../../components/menu
+      '@ecl/mixins-color':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/color
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.15
         version: link:../../mixins/typography
@@ -2327,13 +2344,20 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
 
-  src/utilities/background: {}
+  src/utilities/background:
+    dependencies:
+      '@ecl/mixins-color':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/color
 
   src/utilities/border:
     dependencies:
       '@ecl/grid':
         specifier: 5.0.0-alpha.15
         version: link:../../layout/grid
+      '@ecl/mixins-color':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/color
 
   src/utilities/clearfix: {}
 
@@ -2378,6 +2402,9 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0-alpha.15
         version: link:../../layout/grid
+      '@ecl/mixins-color':
+        specifier: 5.0.0-alpha.15
+        version: link:../../mixins/color
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.15
         version: link:../../mixins/typography
