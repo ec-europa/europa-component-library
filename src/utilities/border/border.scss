@@ -3,6 +3,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-color/mixins' as color;
 
 // Exposed variables
 $theme: null !default;
@@ -42,7 +43,8 @@ $theme: null !default;
 @if map.has-key($theme, 'color-default') {
   @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-border-color-#{$key} {
-      border-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      border-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
@@ -59,31 +61,14 @@ $theme: null !default;
 
   @each $key in $semantic-color {
     .ecl-u-border-color-#{$key} {
-      border-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      border-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 }
 
 @if map.has-key($theme, 'color-modes') {
-  $border-mode: (
-    'border-brand',
-    'border-on-brand',
-    'border-inverted',
-    'border-low',
-    'border-medium',
-    'border',
-    'border-high',
-    'border-primary',
-    'border-primary-highest',
-    'border-neutral',
-    'border-grey-lowest',
-    'border-grey-medium',
-    'border-grey',
-    'border-status-error',
-    'border-status-warning',
-    'border-status-success',
-    'border-status-info'
-  );
+  $border-mode: ('border-low', 'border-medium', 'border', 'border-high');
 
   @each $key in $border-mode {
     .ecl-u-border-color-#{$key} {
