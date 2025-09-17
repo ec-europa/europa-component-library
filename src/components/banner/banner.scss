@@ -172,8 +172,6 @@ $banner: null !default;
   bottom: calc(var(--s-m) + var(--banner-footer-height));
   color: #fff;
   justify-content: center;
-  min-height: 32px;
-  min-width: 32px;
   outline: #fff;
   outline-offset: -4px;
   position: absolute;
@@ -190,14 +188,9 @@ $banner: null !default;
     padding: 0;
   }
 
-  .ecl-button__container {
-    height: 32px;
-    width: 32px;
-  }
-
   .ecl-button__icon {
-    height: 100%;
-    width: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 
@@ -395,17 +388,6 @@ $banner: null !default;
       box-decoration-break: clone;
       background: var(--cm-surface-transparent-70, var(--c-ov-l));
       backdrop-filter: blur(2px);
-    }
-  }
-
-  .ecl-banner__play.ecl-button--icon-only,
-  .ecl-banner__pause.ecl-button--icon-only {
-    min-height: 40px;
-    min-width: 40px;
-
-    .ecl-button__container {
-      height: 40px;
-      width: 40px;
     }
   }
 

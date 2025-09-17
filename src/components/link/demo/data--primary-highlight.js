@@ -4,8 +4,8 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   link: {
-    type: 'cta',
-    label: 'Call to action link',
+    type: 'primary-highlight',
+    label: 'Link button',
     path: exampleLink,
     sr_external: 'Link to an external domain',
   },

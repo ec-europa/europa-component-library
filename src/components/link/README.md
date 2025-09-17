@@ -9,7 +9,7 @@ npm install --save @ecl/link
 ### Parameters
 
 - **"link"** (associative array) (default: 'predefined structure below')
-  - "type" (string) (default: '') - type of link. Available types are '', 'standalone', 'cta', 'primary', 'secondary'
+  - "type" (string) (default: '') - type of link. Available types are '', 'standalone', 'primary', 'primary-highlight', 'secondary'
   - "inverted" (boolean) (default: false) - Is the link inverted (displayed on dark background) or not
   - "no_visited" (boolean) (default: false) - Prevent color change for visited links
   - "label" (string) (default: '') - Content of link

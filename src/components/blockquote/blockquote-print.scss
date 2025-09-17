@@ -18,14 +18,13 @@ $blockquote-print: null !default;
   flex-direction: row;
   justify-content: flex-start;
   margin: 0;
-  padding: map.get($blockquote-print, 'padding');
+  padding: map.get($blockquote, 'padding-desktop');
 }
 
 .ecl-blockquote__citation,
 %ecl-blockquote {
   color: map.get($blockquote, 'quote', 'color');
   font: map.get($blockquote-print, 'quote-font');
-  font-style: italic;
   margin: 0;
   quotes: '‘' '’';
   max-width: var(--max-w);

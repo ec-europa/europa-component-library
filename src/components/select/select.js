@@ -254,7 +254,7 @@ export class Select {
     const button = document.createElement('button');
     button.classList.add(
       'ecl-button',
-      'ecl-button--ghost',
+      'ecl-button--tertiary',
       'ecl-button--icon-only',
     );
     button.setAttribute('tabindex', '-1');
