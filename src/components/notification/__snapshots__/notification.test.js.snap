@@ -18,7 +18,7 @@ exports[`Notification Error renders correctly 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -71,7 +71,7 @@ exports[`Notification Info renders correctly 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -105,7 +105,7 @@ exports[`Notification Info renders correctly 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Lorem ipsum
@@ -115,7 +115,7 @@ exports[`Notification Info renders correctly 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Nullam accumsan semper lorem
@@ -146,7 +146,7 @@ exports[`Notification Info renders correctly with extra attributes 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -180,7 +180,7 @@ exports[`Notification Info renders correctly with extra attributes 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Lorem ipsum
@@ -190,7 +190,7 @@ exports[`Notification Info renders correctly with extra attributes 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Nullam accumsan semper lorem
@@ -219,7 +219,7 @@ exports[`Notification Info renders correctly with extra class names 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -253,7 +253,7 @@ exports[`Notification Info renders correctly with extra class names 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Lorem ipsum
@@ -263,7 +263,7 @@ exports[`Notification Info renders correctly with extra class names 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Nullam accumsan semper lorem
@@ -292,7 +292,7 @@ exports[`Notification Info renders correctly without description 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -321,7 +321,7 @@ exports[`Notification Info renders correctly without description 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Lorem ipsum
@@ -331,7 +331,7 @@ exports[`Notification Info renders correctly without description 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Nullam accumsan semper lorem
@@ -360,7 +360,7 @@ exports[`Notification Info renders correctly without title 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -389,7 +389,7 @@ exports[`Notification Info renders correctly without title 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Lorem ipsum
@@ -399,7 +399,7 @@ exports[`Notification Info renders correctly without title 1`] = `
         class="ecl-notification__link"
       >
         <a
-          class="ecl-link"
+          class="ecl-link  ecl-notification__link-item"
           href="/example"
         >
           Nullam accumsan semper lorem
@@ -420,7 +420,7 @@ exports[`Notification Success renders correctly 1`] = `
   >
     <span
       aria-hidden="false"
-      class="wt-icon--check-outline ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--check-outline"
+      class="wt-icon--check-filled ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--check-filled"
       role="img"
       title="Success"
     />
@@ -428,7 +428,7 @@ exports[`Notification Success renders correctly 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >
@@ -481,7 +481,7 @@ exports[`Notification Warning renders correctly 1`] = `
       class="ecl-notification__content"
     >
       <button
-        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-notification__close ecl-button--icon-only"
         data-ecl-notification-close=""
         type="button"
       >

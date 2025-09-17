@@ -88,7 +88,9 @@
   {% if _links is not empty and _links is iterable %}
     {% for _link in _links %}
     <div class="ecl-notification__link">
-      {% include '@ecl/link/link.html.twig' with _link only %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        extra_classes: _link.extra_classes|default('') ~ ' ecl-notification__link-item',
+      }) only %}
     </div>
     {% endfor %}
   {% endif %}
