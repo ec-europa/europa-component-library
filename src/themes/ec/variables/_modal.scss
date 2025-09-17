@@ -6,6 +6,7 @@ $modal: (
   border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-4),
   font: 'body-m',
+  icon-size: map.get($icon, 'xl'),
   header: (
     font: 'heading4',
     font-weight: map.get($font-weight, 'regular'),
@@ -13,8 +14,8 @@ $modal: (
     padding-desktop: var(--s-5xl) var(--s-5xl) var(--s-xl) var(--s-5xl),
   ),
   close: (
-    margin-top: -2.25rem,
-    margin-end: -2.375rem,
+    margin-top: -1.75rem,
+    margin-end: -1.75rem,
   ),
   body: (
     container-spacing-top: var(--s-5xl),

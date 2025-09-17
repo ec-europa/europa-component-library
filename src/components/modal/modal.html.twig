@@ -47,7 +47,7 @@
   {% if _variant == 'information' %}
     {% set _header_icon = 'information-outline' %}
   {% elseif _variant == 'success' %}
-    {% set _header_icon = 'check-outline' %}
+    {% set _header_icon = 'check-filled' %}
   {% elseif _variant == 'warning' %}
     {% set _header_icon = 'warning-outline' %}
   {% elseif _variant == 'error' %}
@@ -124,6 +124,7 @@
             type: 'button',
             variant: 'tertiary',
             style: 'neutral',
+            size: 'm',
             hide_label: true,
             extra_classes: 'ecl-modal__close',
             extra_attributes: [{

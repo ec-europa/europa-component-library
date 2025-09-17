@@ -57,7 +57,7 @@ $overflow-height: 2rem;
   z-index: map.get($theme, 'z-index', 'modal');
 
   @include mixins.responsive-font(map.get($modal, 'font'));
-  
+
   &:dir(rtl) {
     left: auto;
     right: 50%;
@@ -97,8 +97,10 @@ $overflow-height: 2rem;
 
 .ecl-modal__icon {
   flex-shrink: 0;
+  height: map.get($modal, 'icon-size');
   margin-inline-end: var(--s-xs);
   position: relative;
+  width: map.get($modal, 'icon-size');
   z-index: 2;
 
   .ecl-modal--information & {
