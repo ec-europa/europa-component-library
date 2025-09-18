@@ -5,6 +5,22 @@ module.exports = {
     name: 'error-outline',
     size: 'l',
   },
+  links: [
+    {
+      link: {
+        label: 'Lorem ipsum',
+        path: '/example',
+        external: true,
+      },
+    },
+    {
+      link: {
+        label: 'Nullam accumsan semper lorem',
+        path: '/example',
+        external: true,
+      },
+    },
+  ],
   sr_icon: 'Error',
   title: 'Error notification',
   description:

@@ -572,8 +572,6 @@ importers:
         specifier: 5.0.0-alpha.16
         version: link:../../mixins/typography
 
-  src/components/layout: {}
-
   src/components/link:
     dependencies:
       '@ecl/button':
@@ -725,7 +723,7 @@ importers:
     devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.15
-        version: link:../../mixins/typography
+        version: 5.0.0-alpha.15
 
   src/components/ordered-list: {}
 
@@ -3612,6 +3610,12 @@ packages:
 
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
+
+  '@ecl/grid@5.0.0-alpha.15':
+    resolution: {integrity: sha512-z1kgc+YriX3U4VRjGibM/NBMzp22NFBdK2QHLVXgNm2ZZ5GT+x/gOI17Sh3ZjTrRuKlGlVImjy+Sz1bI7mg+Ag==}
+
+  '@ecl/mixins-typography@5.0.0-alpha.15':
+    resolution: {integrity: sha512-wvgFHvQQAIJEwuQSyWXsqBjL4wY/63M+G/Q3kf6mkpBtMyMja+n6gKG5M8yBrBEgjvmuks8Yrb0HNC0WFdR5kA==}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
@@ -12944,6 +12948,12 @@ snapshots:
       kuler: 2.0.0
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
+
+  '@ecl/grid@5.0.0-alpha.15': {}
+
+  '@ecl/mixins-typography@5.0.0-alpha.15':
+    dependencies:
+      '@ecl/grid': 5.0.0-alpha.15
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 

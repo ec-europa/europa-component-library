@@ -5,6 +5,22 @@ module.exports = {
     name: 'check-filled',
     size: 'l',
   },
+  links: [
+    {
+      link: {
+        label: 'Lorem ipsum',
+        path: '/example',
+        external: true,
+      },
+    },
+    {
+      link: {
+        label: 'Nullam accumsan semper lorem',
+        path: '/example',
+        external: true,
+      },
+    },
+  ],
   sr_icon: 'Success',
   title: 'Success notification',
   description:
