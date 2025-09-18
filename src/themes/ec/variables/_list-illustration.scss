@@ -4,9 +4,12 @@
 $list-illustration: (
   background-color: var(--cm-surface-low-1),
   column-gap: var(--s-5xl),
+  counter-font: 'body-l',
   icon-color: var(--cm-on-surface),
+  icon-spacing-desktop: var(--s-l),
   item-padding-mobile: 0 0 var(--s-6xl),
   item-padding-desktop: 0 0 var(--s-5xl),
+  item-padding-desktop-variant: var(--s-xl),
   item-padding-zebra-mobile: var(--s-5xl) var(--s-xl),
   item-padding-zebra-desktop: var(--s-5xl),
   item-margin-mobile: var(--s-6xl),
@@ -25,6 +28,8 @@ $list-illustration: (
     margin: 0,
   ),
   description: (
+    number-list-font: 'body-l',
+    font: 'body-m',
     color: var(--cm-on-surface-brand),
     margin: var(--s-xs),
   ),

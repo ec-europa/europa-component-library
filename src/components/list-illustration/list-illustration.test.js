@@ -7,6 +7,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
+import dataListIllustrationIconList from './demo/data--icon-list';
+import dataListIllustrationNumberList from './demo/data--number-list';
 
 expect.extend(toHaveNoViolations);
 
@@ -87,6 +89,58 @@ describe('List with illustration', () => {
       expect(
         await axe(
           await renderTwigFileAsHtml(template, dataListIllustrationIcon, true),
+        ),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('icon list', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render(dataListIllustrationIconList),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with a divider', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataListIllustrationIconList, divider: true }),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(
+          await renderTwigFileAsHtml(
+            template,
+            dataListIllustrationIconList,
+            true,
+          ),
+        ),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('number list', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render(dataListIllustrationNumberList),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(
+          await renderTwigFileAsHtml(
+            template,
+            dataListIllustrationNumberList,
+            true,
+          ),
         ),
       ).toHaveNoViolations();
     });
