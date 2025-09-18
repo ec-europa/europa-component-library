@@ -96,26 +96,28 @@
   <div class="ecl-modal__container">
     <div class="ecl-modal__content ecl-container">
       <header class="ecl-modal__header">
-        {% if _header_icon is not empty %}
-          {% if _variant == 'warning' and _header_icon == 'warning' %}
-            <span class="ecl-modal__icon-background"></span>
-          {% endif %}
-          {% include '@ecl/icon/icon.html.twig' with {
-            icon: {
-              name: _header_icon,
-              size: 'l',
-            },
-            as_image: true,
-            extra_accessibility: not _sr_icon ? {} : {
-              title: _sr_icon,
-            },
-            extra_classes: 'ecl-modal__icon',
-          } only %}
-        {% endif %}
-
-        {% if _header is not empty or block('header') is not empty %}
+        {% if _header_icon is not empty or _header is not empty or block('header') is not empty %} 
           <div class="ecl-modal__header-content" id="{{ _id }}-header">
+          {%- if _header_icon is not empty -%}
+            {% if _variant == 'warning' and _header_icon == 'warning' %}
+              <span class="ecl-modal__icon-background"></span>
+            {% endif %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                name: _header_icon,
+                size: 'l',
+              },
+              as_image: true,
+              extra_accessibility: not _sr_icon ? {} : {
+                title: _sr_icon,
+              },
+              extra_classes: 'ecl-modal__icon',
+            } only %}
+          {%- endif -%}
+
+          {%- if _header is not empty or block('header') is not empty -%}
             {%- block header %}{{ _header }}{% endblock -%}
+          {%- endif -%}
           </div>
         {% endif %}
 
