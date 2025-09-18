@@ -7,6 +7,8 @@ import iconsAll from '@ecl/resources-icons/list.json';
 import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
+import dataListIllustrationIconList from './demo/data--icon-list';
+import dataListIllustrationNumberList from './demo/data--number-list';
 
 import listIllustration from './list-illustration.html.twig';
 import notes from './README.md';
@@ -70,6 +72,7 @@ const getArgs = (data, variant) => {
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
     args.icon_size = 'l';
+    args.icon_inline = false;
   }
 
   if (variant.includes('horizontal')) {
@@ -337,9 +340,39 @@ const getArgTypes = (data, variant) => {
       },
       if: { arg: 'show_icon' },
     };
+    argTypes.icon_inline = {
+      name: 'icon inline',
+      type: { name: 'boolean' },
+      description: 'Place the icon on the left',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Icon',
+      },
+      if: { arg: 'show_icon' },
+    };
   }
 
   return argTypes;
+};
+
+const getVariantArgs = (data) => {
+  const args = {};
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+  args.description = data.items[0].description;
+
+  return args;
+};
+
+const getVariantArgTypes = () => {
+  return {
+    ...getColorModeControls(),
+    description: {
+      control: { type: 'text' },
+    },
+  };
 };
 
 const prepareDataItem = (data, args) => {
@@ -405,6 +438,7 @@ const prepareDataList = (data, args) => {
       data.items[i].icon = iconDefault;
       data.items[i].media_size = args.icon_size;
     }
+    data.icon_inline = args.icon_inline;
   } else {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].icon = {};
@@ -436,6 +470,23 @@ const prepareDataList = (data, args) => {
   data.column = args.column;
 
   correctPaths(data);
+
+  return data;
+};
+
+const prepareIconList = (data, args) => {
+  data.items.forEach((item) => {
+    item.description = args.description;
+
+    if (args.icon) {
+      item.icon.name = args.icon;
+    }
+  });
+
+  data.color_mode = args.color_mode;
+  data.divider = args.divider;
+  data.column = args.column;
+  data.counter_start = args.counter_start;
 
   return data;
 };
@@ -512,4 +563,64 @@ VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
+};
+
+export const IconList = (_, { loaded: { component } }) => component;
+
+IconList.render = async (args) => {
+  const renderedListIconList = await listIllustration(
+    prepareIconList(dataListIllustrationIconList, args),
+  );
+  return renderedListIconList;
+};
+IconList.storyName = 'icon list';
+IconList.args = {
+  ...getVariantArgs(dataListIllustrationIconList),
+  icon: 'check-bold',
+  divider: false,
+  column: 1,
+};
+IconList.argTypes = {
+  ...getVariantArgTypes(),
+  icon: {
+    control: {
+      type: 'select',
+    },
+    options: ['check-bold', 'arrow-right-bold', 'close-bold'],
+  },
+  divider: {
+    control: { type: 'boolean' },
+  },
+  column: {
+    name: 'number of columns',
+    control: { type: 'range', min: 1, max: 2, step: 1 },
+  },
+};
+IconList.parameters = {
+  notes: { markdown: notes, json: dataListIllustrationIconList },
+};
+
+export const NumberList = (_, { loaded: { component } }) => component;
+
+NumberList.render = async (args) => {
+  const renderedListNumberList = await listIllustration(
+    prepareIconList(dataListIllustrationNumberList, args),
+  );
+
+  return renderedListNumberList;
+};
+NumberList.storyName = 'number list';
+NumberList.args = {
+  ...getVariantArgs(dataListIllustrationNumberList),
+  counter_start: 0,
+};
+NumberList.argTypes = {
+  ...getVariantArgTypes(),
+  counter_start: {
+    name: 'counter start',
+    control: { type: 'range', min: 0, max: 20, step: 1 },
+  },
+};
+NumberList.parameters = {
+  notes: { markdown: notes, json: dataListIllustrationNumberList },
 };

@@ -6,6 +6,12 @@
     - "items" (array) (default: []): array of list_illustration_item
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: false): use alternate background display for vertical list
+    - "icon_inline" (boolean) (default: false) Place the icon on the left of the item
+    - "icon_list" (boolean) (default: false) renders as icon list
+    - "number_list" (boolean) (default: false) renders as number list
+    - "divider" (boolean) (default: false): Item separator, in the icon list
+    - "counter_reset": (boolean) (default: true) In a number list, resets the counter so that it starts from counter_start
+    - "counter_start": (string) (default: '') An arbistrary number to start the counter from, depends on counter_reset
     - "centered" (bool) (default: false) Define if the items should be centered
     - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
     - "extra_classes" (string) (default: '')
@@ -26,6 +32,12 @@
 {% set _font_size = font_size|default('l') %}
 {% set _column = column|default(1) %}
 {% set _css_class = 'ecl-list-illustration' %}
+{% set _icon_inline = icon_inline|default(false) %}
+{% set _icon_list = icon_list|default(false) %}
+{% set _number_list = number_list|default(false) %}
+{% set _divider = divider|default(false) %}
+{% set _counter_reset = counter_reset ?? true %}
+{% set _counter_start = counter_start|default(0) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -36,6 +48,22 @@
 
 {% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--zebra' %}
+{% endif %}
+
+{% if _icon_inline %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--icon-inline' %}
+{% endif %}
+
+{% if _icon_list %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--icon-list' %}
+{% endif %}
+
+{% if _number_list %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--number-list' %}
+{% endif %}
+
+{% if _number_list and  _counter_reset %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--number-list-reset' %}
 {% endif %}
 
 {% if _centered %}
@@ -70,9 +98,18 @@
 <ul
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
+  {% if _number_list and _counter_reset %}
+    style="--ecl-list-illustration-counter-start: {{ _counter_start|e('html_attr') }};"
+  {% endif %}
 >
   {%- for _item in _items %}
-    {% include '@ecl/list-illustration/list-illustration-item.html.twig' with _item only %}
+    {% set cutoff = _items|length - (_items|length % _column == 0 ? _column : items|length % _column) %}
+    {% include '@ecl/list-illustration/list-illustration-item.html.twig' 
+      with (_item|merge({
+        column: _column,
+        divider: _divider,
+        last: loop.index0 >= cutoff,
+      })) only %}
   {% endfor -%}
 </ul>
 {% endif %}
