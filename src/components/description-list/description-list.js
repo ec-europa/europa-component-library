@@ -1,4 +1,4 @@
-import { queryAll } from '@ecl/dom-utils';
+import { queryAll, queryOne } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -152,16 +152,30 @@ export class DescriptionList {
 
     const listItem = e.target.parentNode;
     const list = listItem.parentNode;
+    let firstItem = null;
     if (this.element.contains(list)) {
       const parentChildren = Array.from(list.children);
-      parentChildren.forEach((item) => {
+      parentChildren.forEach((item, index) => {
         item.classList.remove('ecl-description-list__definition-item--hidden');
         item.classList.remove(
           'ecl-description-list__definition-item--last-visible',
         );
+
+        if (index === 0) {
+          firstItem = item;
+        }
       });
       // Remove the button
       listItem.remove();
+
+      // Put focus on the first link
+      if (firstItem !== null) {
+        const link = queryOne('.ecl-link', firstItem);
+
+        if (link !== null) {
+          link.focus();
+        }
+      }
     }
   }
 }
