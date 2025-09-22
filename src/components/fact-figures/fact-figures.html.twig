@@ -95,9 +95,10 @@
       </div>
     {% endif %}
     {% if item.title is defined and item.title is not empty %}
-      <div class="ecl-fact-figures__title">
+      {# span used for accessibility. see https://citnet.tech.ec.europa.eu/CITnet/jira/browse/FRONT-5074 #}
+      <span class="ecl-fact-figures__title">
         {{- item.title -}}
-      </div>
+      </span>
     {% endif %}
     {% if item.description is defined and item.description is not empty %}
       <div class="ecl-fact-figures__description">
