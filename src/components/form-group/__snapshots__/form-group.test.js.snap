@@ -1,9 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Form group  with Checkbox renders correctly 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -12,18 +11,22 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
     >
       Select your preferred destinations
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-checkbox"
@@ -45,6 +48,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -74,6 +78,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -104,6 +109,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           class="ecl-checkbox__box ecl-checkbox__box--disabled"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -133,6 +139,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -155,7 +162,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
 exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper checkbox-default-invalid"
     aria-invalid="true"
     class="ecl-form-group"
   >
@@ -165,18 +171,27 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
     >
       Select your preferred destinations
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--invalid"
@@ -198,6 +213,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           class="ecl-checkbox__box ecl-checkbox__box--invalid"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -227,6 +243,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           class="ecl-checkbox__box ecl-checkbox__box--invalid"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -257,6 +274,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -286,6 +304,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           class="ecl-checkbox__box ecl-checkbox__box--invalid"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -302,11 +321,13 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="checkbox-default-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -319,7 +340,6 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 exports[`Form group  with Checkbox renders correctly when required 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -328,18 +348,22 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
     >
       Select your preferred destinations
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-checkbox"
@@ -361,6 +385,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -390,6 +415,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -420,6 +446,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           class="ecl-checkbox__box ecl-checkbox__box--disabled"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -449,6 +476,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -471,7 +499,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
 exports[`Form group  with Checkbox renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -482,18 +509,22 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
     >
       Select your preferred destinations
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-checkbox"
@@ -515,6 +546,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -544,6 +576,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -574,6 +607,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           class="ecl-checkbox__box ecl-checkbox__box--disabled"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -603,6 +637,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -625,7 +660,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
 exports[`Form group  with Checkbox renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
-    aria-describedby="checkbox-default-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -634,18 +668,22 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
     >
       Select your preferred destinations
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="checkbox-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-checkbox"
@@ -667,6 +705,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -696,6 +735,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -726,6 +766,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           class="ecl-checkbox__box ecl-checkbox__box--disabled"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -755,6 +796,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           class="ecl-checkbox__box"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--check ecl-icon ecl-icon--xs ecl-checkbox__icon ecl-icon--check"
           />
         </span>
@@ -786,9 +828,7 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -797,7 +837,7 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-datepicker"
@@ -816,6 +856,7 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
         value="03-10-2023"
       />
       <span
+        aria-hidden="true"
         class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
@@ -835,9 +876,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -846,7 +885,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
       class="ecl-help-block ecl-help-block--disabled"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-datepicker"
@@ -866,6 +905,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
         value="03-10-2023"
       />
       <span
+        aria-hidden="true"
         class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
@@ -885,9 +925,7 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -896,7 +934,7 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-datepicker ecl-datepicker--invalid"
@@ -916,6 +954,7 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
         value="03-10-2023"
       />
       <span
+        aria-hidden="true"
         class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
@@ -924,7 +963,8 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       id="example-input-id-1-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -946,9 +986,7 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
@@ -957,7 +995,7 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-datepicker"
@@ -976,6 +1014,7 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
         value="03-10-2023"
       />
       <span
+        aria-hidden="true"
         class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
@@ -997,9 +1036,7 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1008,7 +1045,7 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-datepicker"
@@ -1027,6 +1064,7 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
         value="03-10-2023"
       />
       <span
+        aria-hidden="true"
         class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
@@ -1046,9 +1084,7 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1057,7 +1093,7 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-datepicker"
@@ -1076,6 +1112,7 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
         value="03-10-2023"
       />
       <span
+        aria-hidden="true"
         class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
@@ -1097,9 +1134,7 @@ exports[`Form group  with File Upload renders correctly 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1166,9 +1201,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1237,9 +1270,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1294,7 +1325,8 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
       id="example-input-id-1-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -1318,9 +1350,7 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
@@ -1389,9 +1419,7 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1458,9 +1486,7 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -1516,7 +1542,6 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
 exports[`Form group  with Radio renders correctly 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     role="radiogroup"
@@ -1527,18 +1552,22 @@ exports[`Form group  with Radio renders correctly 1`] = `
     >
       Select your country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-radio"
@@ -1670,7 +1699,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
 exports[`Form group  with Radio renders correctly when disabled 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     role="radiogroup"
@@ -1681,18 +1709,22 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
     >
       Select your country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block ecl-help-block--disabled"
       id="radio-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-radio"
@@ -1824,7 +1856,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
 exports[`Form group  with Radio renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper radio-default-invalid"
     aria-invalid="true"
     aria-required="true"
     class="ecl-form-group"
@@ -1836,18 +1867,27 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
     >
       Select your country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-radio ecl-radio--invalid"
@@ -1973,11 +2013,13 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       </label>
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="radio-default-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -1990,7 +2032,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
 exports[`Form group  with Radio renders correctly when required 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     role="radiogroup"
@@ -2001,18 +2042,22 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
     >
       Select your country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-radio"
@@ -2144,7 +2189,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
 exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group"
     data-test="data-test-value"
@@ -2157,18 +2201,22 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
     >
       Select your country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-radio"
@@ -2300,7 +2348,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 exports[`Form group  with Radio renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
-    aria-describedby="radio-default-helper"
     aria-required="true"
     class="ecl-form-group custom-class custom-class--test"
     role="radiogroup"
@@ -2311,18 +2358,22 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
     >
       Select your country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="radio-default-helper"
     >
-      Helper text for the group
+      Optional help text
     </div>
     <div
       class="ecl-radio"
@@ -2474,7 +2525,7 @@ exports[`Form group  with Range field renders correctly 1`] = `
       class="ecl-help-block"
       id="example-range-id-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-value"
@@ -2531,7 +2582,7 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
       class="ecl-help-block ecl-help-block--disabled"
       id="example-range-id-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-value"
@@ -2589,7 +2640,7 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
       class="ecl-help-block"
       id="example-range-id-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-invalid example-range-id-value"
@@ -2625,7 +2676,8 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
       id="example-range-id-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -2649,9 +2701,7 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
     >
       Range slider
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
@@ -2660,7 +2710,7 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
       class="ecl-help-block"
       id="example-range-id-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-value"
@@ -2720,7 +2770,7 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
       class="ecl-help-block"
       id="example-range-id-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-value"
@@ -2777,7 +2827,7 @@ exports[`Form group  with Range field renders correctly with extra class names 1
       class="ecl-help-block"
       id="example-range-id-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-value"
@@ -2814,7 +2864,6 @@ exports[`Form group  with Range field renders correctly with extra class names 1
 exports[`Form group  with Rating field renders correctly 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
@@ -2823,18 +2872,22 @@ exports[`Form group  with Rating field renders correctly 1`] = `
     >
       Please Rate
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
-      This is the group's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-rating-field"
@@ -2852,14 +2905,16 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         for="rating-field-5"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           5 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -2876,14 +2931,16 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         for="rating-field-4"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           4 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -2900,14 +2957,16 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         for="rating-field-3"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           3 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -2924,14 +2983,16 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         for="rating-field-2"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           2 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -2948,14 +3009,16 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         for="rating-field-1"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           1 star
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -2967,7 +3030,6 @@ exports[`Form group  with Rating field renders correctly 1`] = `
 exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
@@ -2976,18 +3038,22 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
     >
       Please Rate
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block ecl-help-block--disabled"
       id="rating-field-helper"
     >
-      This is the group's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-rating-field ecl-rating-field--disabled"
@@ -3006,14 +3072,16 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         for="rating-field-5"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           5 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3031,14 +3099,16 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         for="rating-field-4"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           4 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3056,14 +3126,16 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         for="rating-field-3"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           3 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3081,14 +3153,16 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         for="rating-field-2"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           2 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3106,14 +3180,16 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         for="rating-field-1"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           1 star
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3125,7 +3201,6 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper rating-field-invalid"
     aria-invalid="true"
     class="ecl-form-group"
   >
@@ -3135,18 +3210,27 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
     >
       Please Rate
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
-      This is the group's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-rating-field"
@@ -3164,14 +3248,16 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         for="rating-field-5"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           5 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3188,14 +3274,16 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         for="rating-field-4"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           4 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3212,14 +3300,16 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         for="rating-field-3"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           3 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3236,14 +3326,16 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         for="rating-field-2"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           2 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3260,24 +3352,28 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         for="rating-field-1"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           1 star
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="rating-field-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -3290,7 +3386,6 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 exports[`Form group  with Rating field renders correctly when required 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
@@ -3299,18 +3394,22 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
     >
       Please Rate
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
-      This is the group's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-rating-field"
@@ -3328,14 +3427,16 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
         for="rating-field-5"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           5 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3352,14 +3453,16 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
         for="rating-field-4"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           4 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3376,14 +3479,16 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
         for="rating-field-3"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           3 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3400,14 +3505,16 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
         for="rating-field-2"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           2 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3424,14 +3531,16 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
         for="rating-field-1"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           1 star
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3443,7 +3552,6 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
 exports[`Form group  with Rating field renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -3454,18 +3562,22 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
     >
       Please Rate
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
-      This is the group's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-rating-field"
@@ -3483,14 +3595,16 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
         for="rating-field-5"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           5 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3507,14 +3621,16 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
         for="rating-field-4"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           4 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3531,14 +3647,16 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
         for="rating-field-3"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           3 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3555,14 +3673,16 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
         for="rating-field-2"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           2 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3579,14 +3699,16 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
         for="rating-field-1"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           1 star
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3598,7 +3720,6 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
 exports[`Form group  with Rating field renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
-    aria-describedby="rating-field-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -3607,18 +3728,22 @@ exports[`Form group  with Rating field renders correctly with extra class names 
     >
       Please Rate
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Optional help text
+      </div>
     </legend>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="rating-field-helper"
     >
-      This is the group's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-rating-field"
@@ -3636,14 +3761,16 @@ exports[`Form group  with Rating field renders correctly with extra class names 
         for="rating-field-5"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           5 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3660,14 +3787,16 @@ exports[`Form group  with Rating field renders correctly with extra class names 
         for="rating-field-4"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           4 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3684,14 +3813,16 @@ exports[`Form group  with Rating field renders correctly with extra class names 
         for="rating-field-3"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           3 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3708,14 +3839,16 @@ exports[`Form group  with Rating field renders correctly with extra class names 
         for="rating-field-2"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           2 stars
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3732,14 +3865,16 @@ exports[`Form group  with Rating field renders correctly with extra class names 
         for="rating-field-1"
       >
         <span
-          class="ecl-u-sr-only"
+          class="ecl-rating-field__sr-label"
         >
           1 star
         </span>
         <span
+          aria-hidden="true"
           class="wt-icon--star-filled ecl-icon ecl-icon--l ecl-rating-field__icon-filled ecl-icon--star-filled"
         />
         <span
+          aria-hidden="true"
           class="wt-icon--star-outline ecl-icon ecl-icon--l ecl-rating-field__icon-outline ecl-icon--star-outline"
         />
       </label>
@@ -3760,9 +3895,7 @@ exports[`Form group  with Select renders correctly 1`] = `
     >
       Select a country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -3771,7 +3904,7 @@ exports[`Form group  with Select renders correctly 1`] = `
       class="ecl-help-block"
       id="select-default-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-select__container ecl-select__container--m"
@@ -3859,7 +3992,7 @@ exports[`Form group  with Select renders correctly 1`] = `
         class="ecl-select__icon"
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--icon-only"
           tabindex="-1"
           type="button"
         >
@@ -3873,6 +4006,7 @@ exports[`Form group  with Select renders correctly 1`] = `
               Toggle dropdown
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
               data-ecl-icon=""
             />
@@ -3896,9 +4030,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
     >
       Select a country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -3907,7 +4039,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
       class="ecl-help-block ecl-help-block--disabled"
       id="select-default-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-select__container ecl-select__container--disabled ecl-select__container--m"
@@ -3996,7 +4128,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
         class="ecl-select__icon"
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--icon-only"
           disabled=""
           tabindex="-1"
           type="button"
@@ -4011,6 +4143,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
               Toggle dropdown
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
               data-ecl-icon=""
             />
@@ -4034,9 +4167,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
     >
       Select a country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -4045,7 +4176,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       class="ecl-help-block"
       id="select-default-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-select__container ecl-select__container--invalid ecl-select__container--m"
@@ -4134,7 +4265,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
         class="ecl-select__icon"
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--icon-only"
           tabindex="-1"
           type="button"
         >
@@ -4148,6 +4279,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
               Toggle dropdown
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
               data-ecl-icon=""
             />
@@ -4160,7 +4292,8 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       id="select-default-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -4182,9 +4315,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
     >
       Select a country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
@@ -4193,7 +4324,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
       class="ecl-help-block"
       id="select-default-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-select__container ecl-select__container--m"
@@ -4281,7 +4412,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
         class="ecl-select__icon"
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--icon-only"
           tabindex="-1"
           type="button"
         >
@@ -4295,6 +4426,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
               Toggle dropdown
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
               data-ecl-icon=""
             />
@@ -4320,9 +4452,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
     >
       Select a country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -4331,7 +4461,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
       class="ecl-help-block"
       id="select-default-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-select__container ecl-select__container--m"
@@ -4419,7 +4549,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
         class="ecl-select__icon"
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--icon-only"
           tabindex="-1"
           type="button"
         >
@@ -4433,6 +4563,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
               Toggle dropdown
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
               data-ecl-icon=""
             />
@@ -4456,9 +4587,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
     >
       Select a country
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         (required)
       </span>
@@ -4467,7 +4596,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
       class="ecl-help-block"
       id="select-default-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <div
       class="ecl-select__container ecl-select__container--m"
@@ -4555,7 +4684,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
         class="ecl-select__icon"
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--icon-only"
           tabindex="-1"
           type="button"
         >
@@ -4569,6 +4698,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
               Toggle dropdown
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
               data-ecl-icon=""
             />
@@ -4601,7 +4731,7 @@ exports[`Form group  with Text field renders correctly 1`] = `
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-input-id-1-helper"
@@ -4635,7 +4765,7 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
       class="ecl-help-block ecl-help-block--disabled"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-input-id-1-helper"
@@ -4670,7 +4800,7 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
@@ -4685,7 +4815,8 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
       id="example-input-id-1-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -4707,9 +4838,7 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
@@ -4718,7 +4847,7 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-input-id-1-helper"
@@ -4755,7 +4884,7 @@ exports[`Form group  with Text field renders correctly with extra attributes 1`]
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-input-id-1-helper"
@@ -4789,7 +4918,7 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <input
       aria-describedby="example-input-id-1-helper"
@@ -4823,7 +4952,7 @@ exports[`Form group  with Textarea renders correctly 1`] = `
       class="ecl-help-block"
       id="example-textarea-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper"
@@ -4857,7 +4986,7 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
       class="ecl-help-block ecl-help-block--disabled"
       id="example-textarea-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper"
@@ -4892,7 +5021,7 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
       class="ecl-help-block"
       id="example-textarea-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper example-textarea-id-1-invalid"
@@ -4907,7 +5036,8 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
       id="example-textarea-id-1-invalid"
     >
       <span
-        class="wt-icon--error ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error"
+        aria-hidden="false"
+        class="wt-icon--error-outline ecl-icon ecl-icon--xs ecl-feedback-message__icon ecl-icon--error-outline"
         role="img"
         title="Error"
       />
@@ -4929,9 +5059,7 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
     >
       Label
       <span
-        aria-label="required"
         class="ecl-form-label__required"
-        role="note"
       >
         *
       </span>
@@ -4940,7 +5068,7 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
       class="ecl-help-block"
       id="example-textarea-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper"
@@ -4977,7 +5105,7 @@ exports[`Form group  with Textarea renders correctly with extra attributes 1`] =
       class="ecl-help-block"
       id="example-textarea-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper"
@@ -5011,7 +5139,7 @@ exports[`Form group  with Textarea renders correctly with extra class names 1`] 
       class="ecl-help-block"
       id="example-textarea-id-1-helper"
     >
-      This is the input's helper text.
+      Optional help text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper"

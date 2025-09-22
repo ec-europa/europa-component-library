@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  id: 'banner-example-image',
   title: {
     link: {
       label: 'Lorem ipsum',
@@ -11,7 +12,7 @@ module.exports = {
   description: {
     link: {
       label:
-        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.',
       path: exampleLink,
     },
   },

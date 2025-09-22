@@ -40,7 +40,7 @@ const prepareData = (data, args) => {
   clone.icon.color = args.color;
   clone.extra_classes =
     clone.icon.color === 'inverted'
-      ? `ecl-u-bg-dark ${clone.extra_classes}`
+      ? `ecl-u-bg-dark ecl-u-bg-grey ${clone.extra_classes}`
       : clone.extra_classes;
   clone.icon.transform = args.transform;
   clone.extra_accessibility = {

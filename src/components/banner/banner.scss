@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -51,7 +52,9 @@ $banner: null !default;
 }
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
-.ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
+.ecl-container
+  .ecl-banner:not(.ecl-banner--full-width, .ecl-carousel--full-width *)
+  .ecl-container {
   padding-inline: map.get($banner, 'container-padding-inline', 'mobile');
 }
 
@@ -108,9 +111,6 @@ $banner: null !default;
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
   display: block;
-  font: map.get($banner, 'font', 'title', 'mobile-m');
-  font-weight: map.get($banner, 'font', 'title', 'font-weight');
-  line-height: map.get($banner, 'font', 'title', 'line-height-mobile-m');
   margin: 0;
   width: 100%;
 
@@ -119,16 +119,14 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'dark');
   }
 
+  @include mixins.responsive-font(map.get($banner, 'font', 'title-m'));
+
   .ecl-banner--font-s & {
-    font: map.get($banner, 'font', 'title', 'mobile-s');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-s');
+    @include mixins.responsive-font(map.get($banner, 'font', 'title-s'));
   }
 
   .ecl-banner--font-l & {
-    font: map.get($banner, 'font', 'title', 'mobile-l');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-mobile-l');
+    @include mixins.responsive-font(map.get($banner, 'font', 'title-l'));
   }
 }
 
@@ -139,9 +137,6 @@ $banner: null !default;
 .ecl-banner__description,
 .ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
-  font: map.get($banner, 'font', 'description', 'mobile-m');
-  font-weight: map.get($banner, 'font', 'description', 'font-weight');
-  line-height: map.get($banner, 'font', 'description', 'line-height-mobile-m');
   margin-block-end: 0;
   width: 100%;
 
@@ -150,26 +145,17 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'dark');
   }
 
+  @include mixins.responsive-font(map.get($banner, 'font', 'description-m'));
+
   .ecl-banner--font-s & {
-    font: map.get($banner, 'font', 'description', 'mobile-s');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-mobile-s'
+    @include mixins.responsive-font(
+      map.get($banner, 'font', 'description-s'),
+      map.get($banner, 'font', 'description-s-font-weight')
     );
   }
 
   .ecl-banner--font-l & {
-    font: map.get($banner, 'font', 'description', 'mobile-l');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-mobile-l'
-    );
+    @include mixins.responsive-font(map.get($banner, 'font', 'description-l'));
   }
 }
 
@@ -186,8 +172,6 @@ $banner: null !default;
   bottom: calc(var(--s-m) + var(--banner-footer-height));
   color: #fff;
   justify-content: center;
-  min-height: 32px;
-  min-width: 32px;
   outline: #fff;
   outline-offset: -4px;
   position: absolute;
@@ -204,14 +188,9 @@ $banner: null !default;
     padding: 0;
   }
 
-  .ecl-button__container {
-    height: 32px;
-    width: 32px;
-  }
-
   .ecl-button__icon {
-    height: 100%;
-    width: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 
@@ -225,6 +204,11 @@ $banner: null !default;
   left: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
 }
 
 // No media
@@ -255,6 +239,15 @@ $banner: null !default;
   aspect-ratio: 3/2;
 
   --css-aspect-ratio: 3/2;
+}
+
+// Underline on hover
+.ecl-banner:hover {
+  .ecl-banner__title-link,
+  .ecl-banner__description-link {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -289,59 +282,6 @@ $banner: null !default;
     aspect-ratio: 3/1;
 
     --css-aspect-ratio: 3/1;
-  }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link {
-    font: map.get($banner, 'font', 'title', 'tablet-m');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-tablet-m');
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'title', 'tablet-s');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-s');
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'title', 'tablet-l');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-tablet-l');
-    }
-  }
-
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'tablet-m');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-tablet-m'
-    );
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'description', 'tablet-s');
-      font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-tablet-s'
-      );
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'description', 'tablet-l');
-      font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-tablet-l'
-      );
-    }
   }
 }
 
@@ -451,36 +391,10 @@ $banner: null !default;
     }
   }
 
-  .ecl-banner__play.ecl-button--icon-only,
-  .ecl-banner__pause.ecl-button--icon-only {
-    min-height: 40px;
-    min-width: 40px;
-
-    .ecl-button__container {
-      height: 40px;
-      width: 40px;
-    }
-  }
-
   .ecl-banner__title,
   .ecl-banner__title-link {
     display: inline;
-    font: map.get($banner, 'font', 'title', 'desktop-m');
-    font-weight: map.get($banner, 'font', 'title', 'font-weight');
-    line-height: map.get($banner, 'font', 'title', 'line-height-desktop-m');
     width: auto;
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'title', 'desktop-s');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-s');
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'title', 'desktop-l');
-      font-weight: map.get($banner, 'font', 'title', 'font-weight');
-      line-height: map.get($banner, 'font', 'title', 'line-height-desktop-l');
-    }
 
     .ecl-banner--color-light & {
       color: map.get($banner, 'text-color', 'light');
@@ -489,37 +403,7 @@ $banner: null !default;
 
   .ecl-banner__description,
   .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'desktop-m');
-    font-weight: map.get($banner, 'font', 'description', 'font-weight');
-    line-height: map.get(
-      $banner,
-      'font',
-      'description',
-      'line-height-desktop-m'
-    );
     width: auto;
-
-    .ecl-banner--font-s & {
-      font: map.get($banner, 'font', 'description', 'desktop-s');
-      font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-desktop-s'
-      );
-    }
-
-    .ecl-banner--font-l & {
-      font: map.get($banner, 'font', 'description', 'desktop-l');
-      font-weight: map.get($banner, 'font', 'description', 'font-weight');
-      line-height: map.get(
-        $banner,
-        'font',
-        'description',
-        'line-height-desktop-l'
-      );
-    }
 
     .ecl-banner--color-light & {
       color: map.get($banner, 'text-color', 'light');

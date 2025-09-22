@@ -114,7 +114,8 @@ $page-header: null !default;
 
   .ecl-breadcrumb__container {
     background-color: map.get($theme, 'color', 'white');
-    border-radius: 4px 4px 0 0;
+    border-radius: map.get($theme, 'border-radius', 's')
+      map.get($theme, 'border-radius', 's') 0 0;
     display: inline-flex;
     max-width: 100%;
     padding-inline-start: var(--s-m);

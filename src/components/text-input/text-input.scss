@@ -54,9 +54,11 @@ $outline-width: 2px;
 .ecl-text-input--disabled,
 .ecl-text-input[readonly],
 .ecl-text-input--readonly {
-  background-color: var(--cm-surface-inverted, #fff);
+  border-color: map.get($text-input, 'border-color-disabled');
+  background-color: map.get($text-input, 'background-disabled');
+  color: map.get($text-input, 'color-disabled');
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: map.get($text-input, 'opacity-disabled');
 }
 
 .ecl-text-input--invalid {
@@ -74,13 +76,13 @@ $outline-width: 2px;
 }
 
 .ecl-text-input--s {
-  @include mixins-form.form-width(s);
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-text-input--m {
-  @include mixins-form.form-width(m);
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-text-input--l {
-  @include mixins-form.form-width(l);
+  @include mixins-form.form-width('l', $theme);
 }

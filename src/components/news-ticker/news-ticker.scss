@@ -90,6 +90,7 @@ $news-ticker: null !default;
   -webkit-line-clamp: 2;
   // stylelint-disable-next-line property-no-unknown
   line-clamp: 2;
+  // stylelint-disable-next-line property-no-deprecated
   -webkit-box-orient: vertical;
 }
 
@@ -107,11 +108,6 @@ $news-ticker: null !default;
   display: flex;
   flex-direction: row;
   order: 3;
-
-  .ecl-button {
-    align-items: center;
-    height: 44px;
-  }
 }
 
 .ecl-news-ticker__counter {
@@ -144,7 +140,7 @@ $news-ticker: null !default;
     background: map.get($news-ticker, 'container-background');
     border-inline-end: map.get($news-ticker, 'border');
     height: map.get($news-ticker, 'desktop-only-height');
-    padding: var(--s-s) var(--s-6xl) var(--s-s) var(--s-m);
+    padding: map.get($news-ticker, 'padding-container-desktop');
   }
 
   .ecl-news-ticker__controls {

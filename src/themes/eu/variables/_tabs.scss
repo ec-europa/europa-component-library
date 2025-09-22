@@ -6,7 +6,7 @@ $tabs: (
   separator-width: 1px,
   separator-color: var(--c-d-20),
   item: (
-    border-radius: 4px 4px 0 0,
+    border-radius: map.get($border-radius, 's') map.get($border-radius, 's') 0 0,
     color: var(--c-d-80),
     font: var(--f-ui-m),
     margin-end: var(--s-2xs),
@@ -32,6 +32,7 @@ $tabs: (
     highlight-color: var(--c-p),
     active-separator-color: map.get($color, 'white'),
     color-open: var(--c-d),
+    border-color-open: transparent,
     background-open: var(--c-p-20),
   ),
   dropdown: (

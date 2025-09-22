@@ -52,35 +52,16 @@ const getArgTypes = () => {
       name: 'color mode border',
       type: 'select',
       description: 'Select a color mode border',
-      options: [
-        'border-brand',
-        'border-on-brand',
-        'border-inverted',
-        'border-low',
-        'border',
-        'border-primary',
-        'border-neutral',
-        'border-status-error',
-        'border-status-warning',
-        'border-status-success',
-        'border-status-info',
-      ],
+      options: ['border-low', 'border-medium', 'border', 'border-high'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
       },
       mapping: {
-        'border-brand': 'border-brand',
-        'border-on-brand': 'border-on-brand',
-        'border-inverted': 'border-inverted',
         'border-low': 'border-low',
+        'border-medium': 'border-medium',
         border: 'border',
-        'border-primary': 'border-primary',
-        'border-neutral': 'border-neutral',
-        'border-status-error': 'border-status-error',
-        'border-status-warning': 'border-status-warning',
-        'border-status-success': 'border-status-success',
-        'border-status-info': 'border-status-info',
+        'border-high': 'border-high',
       },
       if: { arg: 'show_color_mode' },
     };
@@ -220,6 +201,7 @@ const getArgTypes = () => {
       'ecl-u-border-radius-2',
       'ecl-u-border-radius-4',
       'ecl-u-border-radius-8',
+      'ecl-u-border-radius-12',
     ],
     control: {
       type: 'select',
@@ -228,6 +210,7 @@ const getArgTypes = () => {
         'ecl-u-border-radius-2': '2px',
         'ecl-u-border-radius-4': '4px',
         'ecl-u-border-radius-8': '8px',
+        'ecl-u-border-radius-12': '12px',
       },
     },
     mapping: {
@@ -235,6 +218,7 @@ const getArgTypes = () => {
       '2px': 'ecl-u-border-radius-2',
       '4px': 'ecl-u-border-radius-4',
       '8px': 'ecl-u-border-radius-8',
+      '12px': 'ecl-u-border-radius-12',
     },
   };
 

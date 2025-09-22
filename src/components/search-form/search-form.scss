@@ -41,7 +41,7 @@ $button-border-width: 1px;
   width: 100%;
 }
 
-.ecl-search-form__button {
+.ecl-search-form .ecl-search-form__button {
   border-bottom: $button-border-width solid
     map.get($search-form, 'button-border-color');
   border-end-start-radius: 0;
@@ -52,10 +52,15 @@ $button-border-width: 1px;
     map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
   height: map.get($search-form, 'button-height');
+  width: map.get($search-form, 'button-height');
   position: relative;
 
-  &.ecl-button--ghost:not(:hover, :focus-visible) {
-    background-color: #fff;
+  &:hover {
+    border-color: map.get($search-form, 'button-border-color-hover');
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
   }
 
   &::before {
@@ -70,28 +75,8 @@ $button-border-width: 1px;
   }
 }
 
-.ecl-search-form__button .ecl-button__label {
-  display: none;
-  margin-inline-start: 0;
-}
-
 .ecl-search-form__button .ecl-button__icon {
   display: block;
   fill: currentcolor;
-  height: map.get($search-form, 'icon-size-mobile');
   margin: 0;
-  width: map.get($search-form, 'icon-size-mobile');
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-search-form__button .ecl-button__label {
-    display: block;
-  }
-
-  .ecl-search-form__button .ecl-button__icon {
-    height: map.get($search-form, 'icon-size-desktop');
-    margin-inline-end: var(--s-xs);
-    width: map.get($search-form, 'icon-size-desktop');
-  }
 }

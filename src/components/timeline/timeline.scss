@@ -23,6 +23,10 @@ $timeline: null !default;
   );
   margin-block-start: 0;
   padding-inline-start: 0;
+
+  &:dir(rtl) {
+    transform: scaleX(-1);
+  }
 }
 
 .ecl-timeline__item {
@@ -34,6 +38,14 @@ $timeline: null !default;
       #{map.get($timeline, 'border-width')}
   );
   position: relative;
+
+  &:dir(rtl) {
+    padding-inline-end: calc(
+      #{map.get($timeline, 'item', 'mobile', 'padding-left')} +
+        #{map.get($timeline, 'border-width')}
+    );
+    padding-inline-start: 0;
+  }
 
   // Border
   &::before {
@@ -159,6 +171,12 @@ $timeline: null !default;
   }
 }
 
+.ecl-timeline__toggle:dir(rtl) {
+  display: flex;
+  justify-self: flex-end;
+  transform: scaleX(-1);
+}
+
 .ecl-timeline__toggle[aria-expanded='true'] .ecl-icon {
   transform: rotate(0deg);
 }
@@ -172,6 +190,10 @@ $timeline: null !default;
     map.get($timeline, 'title', 'font'),
     $font-weight: map.get($timeline, 'title', 'font-weight')
   );
+
+  &:dir(rtl) {
+    transform: scaleX(-1);
+  }
 }
 
 .ecl-timeline__label {
@@ -182,6 +204,10 @@ $timeline: null !default;
     map.get($timeline, 'label', 'font'),
     $font-weight: map.get($timeline, 'label', 'font-weight')
   );
+
+  &:dir(rtl) {
+    transform: scaleX(-1);
+  }
 }
 
 .ecl-timeline__content {
@@ -195,6 +221,10 @@ $timeline: null !default;
 
   > *:last-child {
     margin-block-end: 0;
+  }
+
+  &:dir(rtl) {
+    transform: scaleX(-1);
   }
 }
 
@@ -271,6 +301,11 @@ $timeline: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   @if map.has-key($timeline, 'left-spacing-tablet') {
+    // Ensure minimum height for item to prevent overlapping
+    .ecl-timeline__item {
+      min-height: var(--ecl-timeline-label-height, 0);
+    }
+
     .ecl-timeline__label {
       left: calc(
         -1 *
@@ -347,14 +382,17 @@ $timeline: null !default;
   }
 
   .ecl-timeline__tooltip {
-    border-radius: 8px;
+    border-radius: map.get($theme, 'border-radius', 'm');
     box-shadow: var(--sh-1);
     padding: var(--s-l);
     position: relative;
 
     &::before {
       background: var(--cm-surface-secondary, var(--c-s));
-      border-radius: 0 0 2px 2px;
+      border-radius: 0
+        0
+        map.get($theme, 'border-radius', 'xs')
+        map.get($theme, 'border-radius', 'xs');
       content: '';
       display: block;
       height: 0.25rem;

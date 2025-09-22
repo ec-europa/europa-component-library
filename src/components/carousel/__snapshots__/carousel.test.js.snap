@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Carousel Default renders correctly 1`] = `
 <jest>
@@ -18,7 +18,7 @@ exports[`Carousel Default renders correctly 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__play ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__play ecl-button--icon-only"
             type="button"
           >
             <span
@@ -31,13 +31,14 @@ exports[`Carousel Default renders correctly 1`] = `
                 Play carousel
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--play-outline"
                 data-ecl-icon=""
               />
             </span>
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__pause ecl-button--icon-only"
             type="button"
           >
             <span
@@ -50,6 +51,7 @@ exports[`Carousel Default renders correctly 1`] = `
                 Pause carousel
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--pause-outline"
                 data-ecl-icon=""
               />
@@ -61,7 +63,7 @@ exports[`Carousel Default renders correctly 1`] = `
           role="tablist"
         >
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -69,7 +71,7 @@ exports[`Carousel Default renders correctly 1`] = `
           
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -77,7 +79,7 @@ exports[`Carousel Default renders correctly 1`] = `
           
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -103,6 +105,7 @@ exports[`Carousel Default renders correctly 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-1"
           >
             <figure
               class="ecl-banner__picture-container"
@@ -130,6 +133,7 @@ exports[`Carousel Default renders correctly 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-1-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -139,6 +143,7 @@ exports[`Carousel Default renders correctly 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-1-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -150,7 +155,8 @@ exports[`Carousel Default renders correctly 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-1-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -159,6 +165,7 @@ exports[`Carousel Default renders correctly 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -178,6 +185,7 @@ exports[`Carousel Default renders correctly 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-2"
           >
             <figure
               class="ecl-banner__picture-container"
@@ -215,6 +223,7 @@ exports[`Carousel Default renders correctly 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-2-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -224,6 +233,7 @@ exports[`Carousel Default renders correctly 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-2-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -235,7 +245,8 @@ exports[`Carousel Default renders correctly 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-2-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -244,6 +255,7 @@ exports[`Carousel Default renders correctly 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -263,6 +275,7 @@ exports[`Carousel Default renders correctly 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-3"
           >
             <div
               class="ecl-banner__video-container"
@@ -277,12 +290,12 @@ exports[`Carousel Default renders correctly 1`] = `
                 poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
               >
                 <source
-                  src="https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4"
+                  src="https://vod.prd.commavservices.eu/01/275521/019813ec-13ce-7136-ac0d-d7e24fec64c0/1080p-qaa.mp4"
                   type="video/mp4"
                 />
               </video>
               <button
-                class="ecl-button ecl-button--tertiary ecl-banner__play ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__play ecl-button--icon-only"
                 data-ecl-banner-play=""
                 type="button"
               >
@@ -296,13 +309,14 @@ exports[`Carousel Default renders correctly 1`] = `
                     Play
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
                     data-ecl-icon=""
                   />
                 </span>
               </button>
               <button
-                class="ecl-button ecl-button--tertiary ecl-banner__pause ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__pause ecl-button--icon-only"
                 data-ecl-banner-pause=""
                 type="button"
               >
@@ -316,6 +330,7 @@ exports[`Carousel Default renders correctly 1`] = `
                     Pause
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
                     data-ecl-icon=""
                   />
@@ -334,6 +349,7 @@ exports[`Carousel Default renders correctly 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-3-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -343,6 +359,7 @@ exports[`Carousel Default renders correctly 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-3-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -354,7 +371,8 @@ exports[`Carousel Default renders correctly 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-3-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -363,6 +381,7 @@ exports[`Carousel Default renders correctly 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -398,7 +417,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__play ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__play ecl-button--icon-only"
             type="button"
           >
             <span
@@ -411,13 +430,14 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 Play carousel
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--play-outline"
                 data-ecl-icon=""
               />
             </span>
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__pause ecl-button--icon-only"
             type="button"
           >
             <span
@@ -430,6 +450,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 Pause carousel
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--pause-outline"
                 data-ecl-icon=""
               />
@@ -441,7 +462,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           role="tablist"
         >
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -449,7 +470,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -457,7 +478,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -483,6 +504,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-1"
           >
             <figure
               class="ecl-banner__picture-container"
@@ -510,6 +532,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-1-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -519,6 +542,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-1-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -530,7 +554,8 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-1-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -539,6 +564,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -558,6 +584,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-2"
           >
             <figure
               class="ecl-banner__picture-container"
@@ -595,6 +622,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-2-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -604,6 +632,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-2-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -615,7 +644,8 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-2-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -624,6 +654,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -643,6 +674,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-3"
           >
             <div
               class="ecl-banner__video-container"
@@ -657,12 +689,12 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
               >
                 <source
-                  src="https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4"
+                  src="https://vod.prd.commavservices.eu/01/275521/019813ec-13ce-7136-ac0d-d7e24fec64c0/1080p-qaa.mp4"
                   type="video/mp4"
                 />
               </video>
               <button
-                class="ecl-button ecl-button--tertiary ecl-banner__play ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__play ecl-button--icon-only"
                 data-ecl-banner-play=""
                 type="button"
               >
@@ -676,13 +708,14 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     Play
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
                     data-ecl-icon=""
                   />
                 </span>
               </button>
               <button
-                class="ecl-button ecl-button--tertiary ecl-banner__pause ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__pause ecl-button--icon-only"
                 data-ecl-banner-pause=""
                 type="button"
               >
@@ -696,6 +729,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     Pause
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
                     data-ecl-icon=""
                   />
@@ -714,6 +748,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-3-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -723,6 +758,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-3-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -734,7 +770,8 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-3-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -743,6 +780,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -776,7 +814,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__play ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__play ecl-button--icon-only"
             type="button"
           >
             <span
@@ -789,13 +827,14 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 Play carousel
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--play-outline"
                 data-ecl-icon=""
               />
             </span>
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__pause ecl-button--icon-only"
             type="button"
           >
             <span
@@ -808,6 +847,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 Pause carousel
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--pause-outline"
                 data-ecl-icon=""
               />
@@ -819,7 +859,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           role="tablist"
         >
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -827,7 +867,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -835,7 +875,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           
           </button>
           <button
-            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item"
             role="tab"
           >
             
@@ -861,6 +901,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-1"
           >
             <figure
               class="ecl-banner__picture-container"
@@ -888,6 +929,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-1-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -897,6 +939,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-1-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -908,7 +951,8 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-1-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -917,6 +961,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -936,6 +981,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-2"
           >
             <figure
               class="ecl-banner__picture-container"
@@ -973,6 +1019,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-2-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -982,6 +1029,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-2-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -993,7 +1041,8 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-2-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -1002,6 +1051,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>
@@ -1021,6 +1071,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
             class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
             data-ecl-auto-init="Banner"
             data-ecl-banner=""
+            id="carousel-example-3"
           >
             <div
               class="ecl-banner__video-container"
@@ -1035,12 +1086,12 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
               >
                 <source
-                  src="https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4"
+                  src="https://vod.prd.commavservices.eu/01/275521/019813ec-13ce-7136-ac0d-d7e24fec64c0/1080p-qaa.mp4"
                   type="video/mp4"
                 />
               </video>
               <button
-                class="ecl-button ecl-button--tertiary ecl-banner__play ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__play ecl-button--icon-only"
                 data-ecl-banner-play=""
                 type="button"
               >
@@ -1054,13 +1105,14 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     Play
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
                     data-ecl-icon=""
                   />
                 </span>
               </button>
               <button
-                class="ecl-button ecl-button--tertiary ecl-banner__pause ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__pause ecl-button--icon-only"
                 data-ecl-banner-pause=""
                 type="button"
               >
@@ -1074,6 +1126,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     Pause
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
                     data-ecl-icon=""
                   />
@@ -1092,6 +1145,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 >
                   <div
                     class="ecl-banner__title"
+                    id="carousel-example-3-title"
                   >
                     <span
                       class="ecl-banner__title-text"
@@ -1101,6 +1155,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                   </div>
                   <p
                     class="ecl-banner__description"
+                    id="carousel-example-3-description"
                   >
                     <span
                       class="ecl-banner__description-text"
@@ -1112,7 +1167,8 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     class="ecl-banner__cta"
                   >
                     <a
-                      class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+                      aria-describedby="carousel-example-3-title"
+                      class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-banner__link-cta"
                       href="/example"
                     >
                       <span
@@ -1121,6 +1177,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                         Subscribe
                       </span>
                       <span
+                        aria-hidden="true"
                         class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
                       />
                     </a>

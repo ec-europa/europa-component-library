@@ -114,6 +114,14 @@ Other modification for the utilities:
 
 - `ecl-u-border-radius-1` has been removed, as it was barely visible
 
+### Right to left
+
+The way ECL handles right to left has been updated. Previously, we were delivering an optional css for that, now the corresponding css has been integrated directly in the components.
+
+To have the correct right to left display, you should make sure that the html `dir` attribute is correctly set on the page (it could be on the `html` or `body` tag for instance).
+
+If not specificed, the default reading direction remains left to right.
+
 ## Component modifications
 
 ### Accordion
@@ -130,6 +138,30 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Button
+
+- Button variant have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
+- On top of the variants different styles are available: `highlight`, `neutral` and `inverted`
+
+Depending on your usage, you may have to update the button classes to match the new ones.
+
+Here is the mapping to the new variant / style:
+
+- primary -> primary
+- secondary -> secondary
+- tertiary -> tertiary / neutral
+- cta -> primary / highlight
+- ghost -> tertiary
+- ghost-inverted -> tertiary / inverted
+
+### Checkbox
+
+- To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
+
+### Content block
+
+The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.
@@ -141,10 +173,18 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 - Featured item footer has been removed, as it is no longer in use.
 - Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
+- New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
+
+### Form
+
+- Icon for the invalid text has been changed to the outline one
+- The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo example have been updated in that sense. The parameter is still available in twig template, but left empy by default.
 
 ### Icon
 
-ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools
+ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools.
+Please make sure to check the documentation, as addition configuration or files may be needed to make the icons work.
+
 Here is the official documentation: https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_use
 
 Twig templates have been updated to deliver the new markup for the icon, so this is mostly transparent, except for a few new parameters:
@@ -172,6 +212,29 @@ Extra attention points:
 
 - flags are now names with the country code istead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
+
+### Link
+
+- following the button updates, type `cta` has ben renamed to `primary-highlight`
+
+### List with illustration
+
+Two new variants have been added:
+
+- icon list (twig param: `icon_list`)
+- number list (twig param: `number_list`)
+
+For the number list additional parameter are available:
+
+- `counter_reset` (default: true) Resets the counter of the list
+- `counter_start` (default: 0) Starting number of the counter when counter_reset is true
+
+These variants are supposed to be used with a description only and in a layout with a single column or two columns maximum
+
+An additional param has been added to place the icon on the left and not on top:
+
+- `icon_inline`
+  This cannot be used in combnation with the `centered` variant
 
 ### Mega menu
 
@@ -226,7 +289,8 @@ A parameter has been added in the twig template `featured_priority` so that this
 
 ### Radio
 
-To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+- To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+- To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Site header
 

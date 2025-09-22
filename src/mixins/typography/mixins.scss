@@ -3,28 +3,28 @@
 @use 'sass:string';
 @use '@ecl/grid/mixins/breakpoints';
 
+$theme: null !default;
 $typography: null !default;
 
-@mixin responsive-font-emit($tier-map, $important: false) {
-  @if meta.type-of($tier-map) == 'map' {
-    $size: map.get($tier-map, 'size');
-    $lh: map.get($tier-map, 'line-height');
+@mixin responsive-font-emit($tier, $important: false) {
+  @if meta.type-of($tier) == 'map' {
+    $size: map.get($tier, 'size');
+    $lh: map.get($tier, 'line-height');
+    $ls: map.get($tier, 'letter-spacing');
 
     @if $size {
-      @if $important {
-        font-size: $size !important;
-      } @else {
-        font-size: $size;
-      }
+      font-size: if($important, $size !important, $size);
     }
 
     @if $lh {
-      @if $important {
-        line-height: $lh !important;
-      } @else {
-        line-height: $lh;
-      }
+      line-height: if($important, $lh !important, $lh);
     }
+
+    @if $ls {
+      letter-spacing: if($important, $ls !important, $ls);
+    }
+  } @else if meta.type-of($tier) == 'string' and string.index($tier, '--f-') {
+    font: if($important, $tier !important, $tier);
   }
 }
 
@@ -38,13 +38,26 @@ $typography: null !default;
   @return $v;
 }
 
+@function font-size-value($v) {
+  @if meta.type-of($v) == 'map' {
+    @return map.get($v, 'size');
+  }
+
+  @return $v;
+}
+
 $font-breakpoints: (
   'mobile': 's',
   'tablet': 'm',
   'desktop': 'xl',
 );
 
-@mixin responsive-font($token, $font-weight: '', $important: false) {
+@mixin responsive-font(
+  $token,
+  $font-weight: '',
+  $important: false,
+  $container: ''
+) {
   $token-map: null;
 
   @if meta.type-of($token) == 'map' {
@@ -107,40 +120,37 @@ $font-breakpoints: (
       @include responsive-font-emit($token-map, $important);
     }
 
-    // Responsive breakpoints
+    $prev-tier: 'mobile-xs';
+
     @each $tier, $bp-name in $font-breakpoints {
       @if map.has-key($token-map, $tier) {
-        // Check if there is a need to generate css (different from previous breakpoint)
-        @if (
-          (
-              $tier ==
-                'mobile' and
-                map.has-key($token-map, 'mobile-xs') and
-                map.get($token-map, $tier) !=
-                map.get($token-map, 'mobile-xs')
-            ) or
-            (
-              $tier ==
-                'tablet' and
-                map.has-key($token-map, 'mobile') and
-                map.get($token-map, $tier) !=
-                map.get($token-map, 'mobile')
-            ) or
-            (
-              $tier ==
-                'desktop' and
-                map.has-key($token-map, 'tablet') and
-                map.get($token-map, $tier) !=
-                map.get($token-map, 'tablet')
-            )
-        ) {
-          @include breakpoints.up($bp-name) {
-            @include responsive-font-emit(
-              map.get($token-map, $tier),
-              $important
-            );
+        $current: font-size-value(map.get($token-map, $tier));
+        $previous: if(
+          map.has-key($token-map, $prev-tier),
+          font-size-value(map.get($token-map, $prev-tier)),
+          null
+        );
+
+        @if $current != $previous {
+          @if $container != '' {
+            // stylelint-disable-next-line container-name-pattern
+            @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
+              @include responsive-font-emit(
+                map.get($token-map, $tier),
+                $important
+              );
+            }
+          } @else {
+            @include breakpoints.up($bp-name) {
+              @include responsive-font-emit(
+                map.get($token-map, $tier),
+                $important
+              );
+            }
           }
         }
+
+        $prev-tier: $tier;
       }
     }
   }

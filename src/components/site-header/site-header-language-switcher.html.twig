@@ -48,7 +48,7 @@
 
 <div class="ecl-site-header__language">
   <a
-    class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
+    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
     href="{{ _language_selector.href|default('') }}"
     data-ecl-language-selector
     role="button"
@@ -61,7 +61,7 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           name: 'global',
-          size: 's'
+          size: 'm'
         },
         as_image: true,
         extra_classes: 'ecl-site-header__icon',
@@ -86,6 +86,7 @@
       {% if _language_selector.overlay.close is not empty %}
         {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
           variant: 'tertiary',
+          style: 'neutral',
           extra_classes: 'ecl-site-header__language-close',
           extra_attributes: [{
             name: 'data-ecl-language-list-close',

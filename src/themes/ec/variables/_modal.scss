@@ -3,7 +3,7 @@
 
 $modal: (
   overlay: var(--cm-surface-lowest-variant),
-  border-radius: map.get($border-radius, 's'),
+  border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-4),
   font: var(--f-m),
   header: (
@@ -33,7 +33,7 @@ $modal: (
     icon-background-width: var(--s-xs),
     icon-background-top: calc(var(--s-5xl) + var(--s-s)),
     icon-background-left: calc(
-        var(--s-5xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)
+        var(--s-5xl) + (map.get($icon, 'l') / 2) - var(--s-2xs) + 2px
       ),
   ),
 );

@@ -1,8 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Modal Collapsed information, renders correctly 1`] = `
 <jest>
   <dialog
+    aria-describedby="modal-example-body-scroll"
     aria-labelledby="modal-example-header"
     aria-modal="true"
     class="ecl-modal ecl-modal--information ecl-modal--l"
@@ -19,19 +20,20 @@ exports[`Modal Collapsed information, renders correctly 1`] = `
         <header
           class="ecl-modal__header"
         >
-          <span
-            class="wt-icon--information ecl-icon ecl-icon--l ecl-modal__icon ecl-icon--information"
-            role="img"
-            title="Information"
-          />
           <div
             class="ecl-modal__header-content"
             id="modal-example-header"
           >
+            <span
+              aria-hidden="false"
+              class="wt-icon--information ecl-icon ecl-icon--l ecl-modal__icon ecl-icon--information"
+              role="img"
+              title="Information"
+            />
             Modal title
           </div>
           <button
-            class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-modal__close ecl-button--icon-only"
             data-ecl-modal-close=""
             type="button"
           >
@@ -45,6 +47,7 @@ exports[`Modal Collapsed information, renders correctly 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -57,6 +60,7 @@ exports[`Modal Collapsed information, renders correctly 1`] = `
           <div
             class="ecl-modal__body-scroll"
             data-ecl-modal-scroll=""
+            id="modal-example-body-scroll"
           >
             Scrollable content: 
             <br />
@@ -137,6 +141,7 @@ exports[`Modal Collapsed information, renders correctly 1`] = `
 exports[`Modal Collapsed renders correctly 1`] = `
 <jest>
   <dialog
+    aria-describedby="modal-example-body-scroll"
     aria-labelledby="modal-example-header"
     aria-modal="true"
     class="ecl-modal ecl-modal--l"
@@ -160,7 +165,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
             Modal title
           </div>
           <button
-            class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-modal__close ecl-button--icon-only"
             data-ecl-modal-close=""
             type="button"
           >
@@ -174,6 +179,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -186,6 +192,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
           <div
             class="ecl-modal__body-scroll"
             data-ecl-modal-scroll=""
+            id="modal-example-body-scroll"
           >
             Scrollable content: 
             <br />
@@ -266,6 +273,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
 exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 <jest>
   <dialog
+    aria-describedby="modal-example-body-scroll"
     aria-labelledby="modal-example-header"
     aria-modal="true"
     class="ecl-modal ecl-modal--l"
@@ -291,7 +299,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
             Modal title
           </div>
           <button
-            class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-modal__close ecl-button--icon-only"
             data-ecl-modal-close=""
             type="button"
           >
@@ -305,6 +313,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -317,6 +326,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
           <div
             class="ecl-modal__body-scroll"
             data-ecl-modal-scroll=""
+            id="modal-example-body-scroll"
           >
             Scrollable content: 
             <br />
@@ -397,6 +407,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 exports[`Modal Collapsed renders correctly with extra class names 1`] = `
 <jest>
   <dialog
+    aria-describedby="modal-example-body-scroll"
     aria-labelledby="modal-example-header"
     aria-modal="true"
     class="ecl-modal ecl-modal--l custom-class custom-class--test"
@@ -420,7 +431,7 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
             Modal title
           </div>
           <button
-            class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-modal__close ecl-button--icon-only"
             data-ecl-modal-close=""
             type="button"
           >
@@ -434,6 +445,7 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
                 Close
               </span>
               <span
+                aria-hidden="true"
                 class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                 data-ecl-icon=""
               />
@@ -446,6 +458,7 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
           <div
             class="ecl-modal__body-scroll"
             data-ecl-modal-scroll=""
+            id="modal-example-body-scroll"
           >
             Scrollable content: 
             <br />

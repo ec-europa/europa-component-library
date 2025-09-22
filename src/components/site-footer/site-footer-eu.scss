@@ -133,9 +133,8 @@ $site-footer: null !default;
   }
 
   .ecl-site-footer__row {
-    column-gap: map.get($site-footer, 'column-gap');
     display: grid;
-    grid-gap: 0 map.get($site-footer, 'column-gap');
+    gap: 0 map.get($site-footer, 'column-gap');
     grid-template-columns: repeat(3, 1fr);
     padding-bottom: var(--s-3xl);
     padding-top: var(--s-3xl);

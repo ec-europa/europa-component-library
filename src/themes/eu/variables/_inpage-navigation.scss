@@ -3,7 +3,7 @@
 
 $inpage-toggle-width: calc(var(--s-s) + #{map.get($icon, 's')} + var(--s-s));
 $inpage-navigation: (
-  border-radius: 8px,
+  border-radius: map.get($border-radius, 'm'),
   shadow: var(--sh-1),
   title: (
     'background': var(--c-p),
@@ -28,11 +28,13 @@ $inpage-navigation: (
           's': 4px solid var(--c-p),
           'l': 4px solid var(--c-p),
         ),
+        'focus': 4px solid var(--c-p),
         'hover': none,
       ),
       'end': (
         'active': none,
         'hover': none,
+        'focus': none,
       ),
     ),
     'font': var(--f-m),
@@ -62,7 +64,8 @@ $inpage-navigation: (
     'background': var(--c-p),
     'background-wrapper': transparent,
     'border': none,
-    'border-radius': 0 0 var(--s-xs) var(--s-xs),
+    'border-radius': 0 0 map.get($border-radius, 's')
+      map.get($border-radius, 's'),
     'color': map.get($color, 'white'),
     'font': var(--f-m),
     'font-weight': map.get($font-weight, 'bold'),

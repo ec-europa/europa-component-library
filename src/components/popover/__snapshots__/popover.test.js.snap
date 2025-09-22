@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Popover Collapsed renders correctly 1`] = `
 <jest>
@@ -9,7 +9,7 @@ exports[`Popover Collapsed renders correctly 1`] = `
     <button
       aria-controls="popover-example"
       aria-expanded="false"
-      class="ecl-button ecl-button--ghost ecl-popover__toggle"
+      class="ecl-button ecl-button--tertiary ecl-popover__toggle"
       data-ecl-popover-toggle=""
       type="button"
     >
@@ -17,15 +17,16 @@ exports[`Popover Collapsed renders correctly 1`] = `
         class="ecl-button__container"
       >
         <span
-          class="wt-icon--share ecl-icon ecl-icon--m ecl-button__icon ecl-icon--share"
-          data-ecl-icon=""
-        />
-        <span
           class="ecl-button__label"
           data-ecl-label="true"
         >
           Popover
         </span>
+        <span
+          aria-hidden="true"
+          class="wt-icon--information-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--information-outline"
+          data-ecl-icon=""
+        />
       </span>
     </button>
     <div
@@ -37,7 +38,7 @@ exports[`Popover Collapsed renders correctly 1`] = `
         class="ecl-popover__scrollable"
       >
         <button
-          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
           data-ecl-popover-close=""
           type="button"
         >
@@ -51,6 +52,7 @@ exports[`Popover Collapsed renders correctly 1`] = `
               Close
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
               data-ecl-icon=""
             />
@@ -79,7 +81,7 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
     <button
       aria-controls="popover-example"
       aria-expanded="false"
-      class="ecl-button ecl-button--ghost ecl-popover__toggle"
+      class="ecl-button ecl-button--tertiary ecl-popover__toggle"
       data-ecl-popover-toggle=""
       type="button"
     >
@@ -87,15 +89,16 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
         class="ecl-button__container"
       >
         <span
-          class="wt-icon--share ecl-icon ecl-icon--m ecl-button__icon ecl-icon--share"
-          data-ecl-icon=""
-        />
-        <span
           class="ecl-button__label"
           data-ecl-label="true"
         >
           Popover
         </span>
+        <span
+          aria-hidden="true"
+          class="wt-icon--information-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--information-outline"
+          data-ecl-icon=""
+        />
       </span>
     </button>
     <div
@@ -107,7 +110,7 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
         class="ecl-popover__scrollable"
       >
         <button
-          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
           data-ecl-popover-close=""
           type="button"
         >
@@ -121,6 +124,7 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
               Close
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
               data-ecl-icon=""
             />
@@ -147,7 +151,7 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
     <button
       aria-controls="popover-example"
       aria-expanded="false"
-      class="ecl-button ecl-button--ghost ecl-popover__toggle"
+      class="ecl-button ecl-button--tertiary ecl-popover__toggle"
       data-ecl-popover-toggle=""
       type="button"
     >
@@ -155,15 +159,16 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
         class="ecl-button__container"
       >
         <span
-          class="wt-icon--share ecl-icon ecl-icon--m ecl-button__icon ecl-icon--share"
-          data-ecl-icon=""
-        />
-        <span
           class="ecl-button__label"
           data-ecl-label="true"
         >
           Popover
         </span>
+        <span
+          aria-hidden="true"
+          class="wt-icon--information-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--information-outline"
+          data-ecl-icon=""
+        />
       </span>
     </button>
     <div
@@ -175,7 +180,7 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
         class="ecl-popover__scrollable"
       >
         <button
-          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
           data-ecl-popover-close=""
           type="button"
         >
@@ -189,6 +194,7 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
               Close
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
               data-ecl-icon=""
             />
@@ -231,7 +237,7 @@ exports[`Popover Collapsed renders correctly with links as the trigger 1`] = `
         class="ecl-popover__scrollable"
       >
         <button
-          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
           data-ecl-popover-close=""
           type="button"
         >
@@ -245,6 +251,7 @@ exports[`Popover Collapsed renders correctly with links as the trigger 1`] = `
               Close
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
               data-ecl-icon=""
             />

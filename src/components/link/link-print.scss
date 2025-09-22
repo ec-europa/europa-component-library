@@ -4,15 +4,17 @@
 */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $link: null !default;
+$button: null !default;
 
 .ecl-link,
 %ecl-link {
   color: map.get($link, 'color');
-  page-break-inside: avoid;
+  break-inside: avoid;
   text-decoration: none;
 }
 
@@ -33,7 +35,7 @@ $link: null !default;
 
   &:not(
       .ecl-link--standalone,
-      .ecl-link--cta,
+      .ecl-link--primary-highlight,
       .ecl-link--primary,
       .ecl-link--secondary
     )
@@ -63,10 +65,61 @@ $link: null !default;
 }
 
 /**
-* CTA display
+* Link button
 */
-.ecl-link--cta,
-.ecl-link--primary,
-.ecl-link--secondary {
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
+@mixin link-button($variant: null) {
+  background-color: map.get($button, #{$variant}, 'background');
+  border: map.get($button, #{$variant}, 'border-width') solid
+    map.get($button, #{$variant}, 'border-color');
+  border-radius: map.get($button, 'radius');
+  box-sizing: border-box;
+  color: map.get($button, #{$variant}, 'color');
   display: inline-block;
+  min-height: map.get($button, 'large', 'size');
+  min-width: map.get($button, 'large', 'size');
+  padding: calc(
+      #{map.get($button, 'large', 'padding-vertical')} -
+        #{map.get($button, #{$variant}, 'border-width')}
+    )
+    calc(
+      #{map.get($button, 'large', 'padding-horizontal')} -
+        #{map.get($button, #{$variant}, 'border-width')}
+    );
+  text-decoration: none;
+
+  @include mixins.responsive-font(map.get($button, 'large', 'font'));
+
+  &:visited {
+    color: map.get($button, #{$variant}, 'color');
+  }
+
+  &.ecl-link--icon-only {
+    .ecl-link__icon {
+      height: map.get($button, 'large', 'icon-only-size');
+      width: map.get($button, 'large', 'icon-only-size');
+    }
+  }
+
+  &:not(.ecl-link--icon-only) {
+    .ecl-link__icon ~ .ecl-link__label,
+    .ecl-link__icon-container ~ .ecl-link__label,
+    .ecl-link__label ~ .ecl-link__icon,
+    .ecl-link__label ~ .ecl-link__icon-container {
+      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    }
+  }
+}
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
+
+.ecl-link--primary {
+  @include link-button(primary);
+}
+
+.ecl-link--secondary {
+  @include link-button(secondary);
+}
+
+.ecl-link--primary-highlight {
+  @include link-button(primary-highlight);
 }

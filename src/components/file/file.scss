@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -14,6 +13,8 @@ $file: null !default;
   background-color: map.get($file, 'container-background');
   border-radius: map.get($file, 'border-radius');
   box-shadow: map.get($file, 'shadow');
+  container-name: ecl-file;
+  container-type: inline-size;
   margin: 0;
   max-width: 823px;
   overflow: hidden;
@@ -55,8 +56,9 @@ $file: null !default;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin: map.get($file, 'file-footer-margin');
-  padding: map.get($file, 'file-footer-padding');
+  margin-inline: map.get($file, 'file-footer-margin-inline');
+  padding-block: map.get($file, 'file-footer-padding-block');
+  padding-inline: map.get($file, 'file-footer-padding-inline');
 }
 
 .ecl-file__language {
@@ -240,8 +242,9 @@ $file: null !default;
 }
 
 .ecl-file__translation-toggle[aria-expanded='true'] {
-  background: map.get($file, 'file-translation-toggle-background');
-  color: var(--cm-on-surface-brand, var(--c-p));
+  background: map.get($file, 'translation-toggle-open-background');
+  border-color: map.get($file, 'translation-toggle-open-border-color');
+  color: map.get($file, 'translation-toggle-open-color');
 
   .ecl-button__icon {
     transform: rotate(0);
@@ -252,8 +255,7 @@ $file: null !default;
   }
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
+@container ecl-file (width >= #{map.get($theme, 'breakpoint', 's')}) {
   .ecl-file__translation-action {
     margin-top: 0;
   }
@@ -263,8 +265,8 @@ $file: null !default;
     max-width: 100%;
   }
 }
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+
+@container ecl-file (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-file__detail {
     flex-direction: map.get($file, 'file-detail-flex-direction');
   }
@@ -374,7 +376,7 @@ $file: null !default;
   }
 }
 
-@include breakpoints.up('m') {
+@container ecl-file (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-file--thumbnail .ecl-file__container {
     flex-direction: row;
   }

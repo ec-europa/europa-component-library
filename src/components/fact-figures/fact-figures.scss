@@ -58,6 +58,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__title {
+  display: block;
   font: map.get($fact-figures, 'title-font');
   font-weight: map.get($fact-figures, 'title-font-weight');
   margin-top: map.get($fact-figures, 'title-margin');
@@ -90,8 +91,8 @@ $fact-figures: null !default;
 
   .ecl-fact-figures__items {
     display: grid;
-    grid-column-gap: map.get($fact-figures, 'margin-horizontal');
-    grid-row-gap: map.get($fact-figures, 'margin-vertical');
+    column-gap: map.get($fact-figures, 'margin-horizontal');
+    row-gap: map.get($fact-figures, 'margin-vertical');
 
     .ecl-fact-figures--col-2 & {
       grid-template-columns: repeat(2, 1fr);

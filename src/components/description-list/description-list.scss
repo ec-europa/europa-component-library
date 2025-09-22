@@ -48,7 +48,7 @@ $description-list: null !default;
 
 .ecl-description-list__see_more {
   display: block;
-  margin-top: var(--s-xs);
+  margin-top: map.get($description-list, 'see-more-spacing');
 }
 
 // Links
@@ -58,7 +58,7 @@ $description-list: null !default;
   flex-direction: column;
 
   .ecl-description-list__see_more {
-    margin-top: var(--s-xs);
+    margin-top: map.get($description-list, 'see-more-spacing');
   }
 }
 
@@ -157,6 +157,11 @@ $description-list: null !default;
     position: absolute;
     top: 7px;
     width: 4px;
+  }
+
+  &:dir(rtl)::before {
+    left: auto;
+    right: -2px;
   }
 
   &:first-child {

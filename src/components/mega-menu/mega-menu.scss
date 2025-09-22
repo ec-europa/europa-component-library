@@ -986,6 +986,10 @@ $mega-menu: null !default;
   @include with-scrollbar;
 }
 
+.ecl-mega-menu__sublist--scrollable {
+  @include with-scrollbar;
+}
+
 .ecl-mega-menu__mega--level-2 {
   margin-top: map.get($mega-menu, 'mobile', 'spacing-top-level-2');
 
@@ -1537,7 +1541,8 @@ $mega-menu: null !default;
       > .ecl-container {
       > .ecl-mega-menu__info {
         box-shadow: none;
-        border-radius: 0px 4px 4px 0px;
+        border-radius: 0px map.get($theme, 'border-radius', 's')
+          map.get($theme, 'border-radius', 's') 0px;
         left: map.get(
           $mega-menu,
           'desktop',

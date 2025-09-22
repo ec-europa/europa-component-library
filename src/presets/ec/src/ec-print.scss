@@ -13,8 +13,9 @@
   $theme: theme.$theme
 );
 
-// Typography Mixins
+// Functions and Mixins
 @use '@ecl/mixins-typography/mixins' with (
+  $theme: theme.$theme,
   $typography: var.$typography
 );
 
@@ -46,11 +47,11 @@
 @use '@ecl/indicator/indicator-print';
 @use '@ecl/label/label-print' with (
   $theme: theme.$theme,
-  $label: var.$label,
-  $label-print: var.$label-print
+  $label: var.$label
 );
 @use '@ecl/link/link-print' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $link: var.$link
 );
 @use '@ecl/news-ticker/news-ticker-print';
@@ -77,6 +78,10 @@
   $theme: theme.$theme,
   $banner: var.$banner,
   $banner-print: var.$banner-print
+);
+@use '@ecl/spotlight/spotlight-print' with (
+  $theme: theme.$theme,
+  $spotlight: var.$spotlight
 );
 @use '@ecl/description-list/description-list-print' with (
   $theme: theme.$theme,

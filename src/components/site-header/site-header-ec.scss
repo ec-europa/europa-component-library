@@ -20,6 +20,7 @@ $language-list: null !default;
 
 .ecl-site-header {
   background-color: map.get($site-header, 'background-color');
+  background-image: url('https://d2o9p5vky89u4e.cloudfront.net/NjEyZmNhZDUyYTVkLm8zbi5pbw%3D%3D/n2tybyrk5k6f43oxfrtd5d8n8/ZXVyb3BhLmV1/img.gif');
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -31,6 +32,11 @@ $language-list: null !default;
     position: absolute;
     right: 0;
     width: 100%;
+
+    &:dir(rtl) {
+      left: 0;
+      right: auto;
+    }
   }
 
   .ecl-menu__open,
@@ -56,11 +62,6 @@ $language-list: null !default;
   }
 }
 
-.ecl-site-header__header {
-  position: relative;
-  z-index: 54;
-}
-
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
@@ -83,23 +84,6 @@ $language-list: null !default;
 
 .ecl-site-header__logo-link {
   z-index: map.get($theme, 'z-index', 'modal') + 2;
-}
-
-.ecl-search-form__button {
-  color: map.get($site-header, 'toggle-color');
-
-  &:hover {
-    border-left: none;
-    color: var(--cm-on-surface-brand);
-  }
-
-  &:focus-visible {
-    color: var(--cm-on-surface-brand);
-  }
-
-  &:active {
-    background-color: var(--cm-on-surface-neutral-medium);
-  }
 }
 
 .ecl-site-header__action {
@@ -133,20 +117,19 @@ $language-list: null !default;
 .ecl-site-header__language-selector {
   align-items: center;
   box-sizing: border-box;
-  color: map.get($site-header, 'toggle-color');
   display: flex;
   flex-direction: column;
   margin-inline-start: var(--s-xs);
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
 
-  &:focus-visible {
-    color: map.get($site-header, 'toggle-color');
-  }
-
-  &:active,
   &[aria-expanded='true'] {
-    background-color: var(--cm-surface-neutral-low);
+    background-color: var(--cm-surface-grey-low-1);
+  }
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-icon {
+    height: map.get($theme, 'icon', 'm');
+    width: map.get($theme, 'icon', 'm');
   }
 }
 
@@ -190,7 +173,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__login-box {
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   box-sizing: border-box;
   left: 0;
   width: 100%;
@@ -285,6 +268,7 @@ $language-list: null !default;
 // Menu display and position
 $menu-top: calc(44px + 2 * var(--s-xs));
 
+// stylelint-disable no-descending-specificity
 // stylelint-disable-next-line no-duplicate-selectors
 .ecl-site-header .ecl-menu,
 .ecl-site-header .ecl-mega-menu {
@@ -298,7 +282,13 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
 .ecl-site-header .ecl-mega-menu {
   right: calc(-1 * var(--s-l));
+
+  &:dir(rtl) {
+    left: calc(-1 * var(--s-l));
+    right: auto;
+  }
 }
+// stylelint-enable no-descending-specificity
 
 .ecl-site-header .ecl-mega-menu--rtl,
 .ecl-site-header .ecl-menu--rtl {
@@ -347,18 +337,13 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__language-selector {
     align-items: center;
     display: flex;
-    font-size: 0;
+    font-size: 0 !important;
     justify-content: center;
-    line-height: 0;
-    padding: var(--s-xs) 0;
+    line-height: 0 !important;
+    padding: var(--s-xs) 0 !important;
 
     .ecl-link__icon-container {
       margin-inline-start: 0;
-    }
-
-    .ecl-icon {
-      width: 1.5rem;
-      height: 1.5rem;
     }
   }
 }
@@ -376,10 +361,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     .ecl-mega-menu,
     .ecl-menu {
       width: calc(44px + var(--s-xl) * 2);
-    }
-
-    .ecl-search-form__text-input {
-      width: map.get($site-header, 'search-width');
     }
 
     .ecl-search-form {
@@ -435,6 +416,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__header {
+    background-color: map.get($site-header, 'background-color');
     box-shadow: none;
   }
 
@@ -452,11 +434,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__action {
     align-items: center;
     padding-bottom: var(--s-3xs);
-
-    .ecl-button--icon-only .ecl-button__icon {
-      height: map.get($theme, 'icon', 'xs');
-      width: map.get($theme, 'icon', 'xs');
-    }
   }
 
   .ecl-site-header--has-menu,
@@ -513,9 +490,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
     .ecl-site-header__icon {
       flex-shrink: 0;
-      height: 1rem;
       margin-inline-end: var(--s-xs);
-      width: 1rem;
     }
   }
 
@@ -535,7 +510,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     margin-inline-start: var(--s-xl);
 
     .ecl-search-form__button {
-      min-width: 100px;
       color: map.get($site-header, 'toggle-color');
     }
 

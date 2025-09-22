@@ -6,11 +6,11 @@ $table: (
   zebra-background: var(--cm-surface-low-1),
   table: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-m),
+    font: 'body-m',
   ),
   head: (
     background: var(--cm-surface-low-2),
-    border: 1px solid var(--cm-border),
+    border: 1px solid var(--cm-border-low),
   ),
   header: (
     border: none,
@@ -38,13 +38,13 @@ $table: (
   ),
   sort: (
     icon-color: var(--cm-on-surface-brand),
-    icon-color-active: var(--cm-on-surface),
+    icon-color-active: var(--cm-on-surface-grey-medium),
     icon-spacing: -8px,
     arrow-top: calc(var(--s-m) + 3px),
     arrow-left: var(--s-m),
   ),
   caption: (
-    font: var(--f-xs),
-    color: var(--cm-on-surface-grey-medium),
+    font: 'microcopy-xs',
+    color: var(--cm-on-surface-grey),
   ),
 );

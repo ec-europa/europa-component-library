@@ -16,9 +16,7 @@ $textarea: null !default;
   background-color: map.get($textarea, 'background');
   border: map.get($textarea, 'border-width') solid
     map.get($textarea, 'border-color');
-
-  // FRONT-4785 - Blurry text when in an overlay
-  border-radius: 0;
+  border-radius: map.get($textarea, 'radius');
   box-shadow: map.get($textarea, 'shadow');
   box-sizing: border-box;
   color: map.get($textarea, 'color-input');
@@ -50,15 +48,15 @@ $textarea: null !default;
 }
 
 .ecl-text-area--s {
-  @include mixins-form.form-width('s');
+  @include mixins-form.form-width('s', $theme);
 }
 
 .ecl-text-area--m {
-  @include mixins-form.form-width('m');
+  @include mixins-form.form-width('m', $theme);
 }
 
 .ecl-text-area--l {
-  @include mixins-form.form-width('l');
+  @include mixins-form.form-width('l', $theme);
 }
 
 .ecl-text-area[disabled],
@@ -70,21 +68,11 @@ $textarea: null !default;
 .ecl-text-area--disabled,
 .ecl-text-area[readonly],
 .ecl-text-area--readonly {
-  background-color: map.get($textarea, 'background');
-  border-color: rgba(map.get($textarea, 'border-color'), 0.5);
-  box-shadow: map.get($textarea, 'shadow');
+  border-color: map.get($textarea, 'border-color-disabled');
+  background-color: map.get($textarea, 'background-disabled');
+  color: map.get($textarea, 'color-disabled');
   cursor: not-allowed;
-
-  &:hover {
-    border-color: rgba(map.get($textarea, 'border-color'), 0.5);
-    box-shadow: map.get($textarea, 'shadow');
-  }
-
-  &:focus-visible,
-  &:active {
-    border-color: rgba(map.get($textarea, 'border-color'), 0.5);
-    border-width: map.get($textarea, 'border-width');
-  }
+  opacity: map.get($textarea, 'opacity-disabled');
 }
 
 .ecl-text-area--invalid {

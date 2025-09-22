@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Media Container generic tests renders correctly with extra attributes 1`] = `
 <jest>
@@ -123,7 +123,7 @@ exports[`Media Container infographic renders correctly 1`] = `
       <button
         aria-controls="expandable-example-content"
         aria-expanded="false"
-        class="ecl-button ecl-button--ghost ecl-expandable__toggle"
+        class="ecl-button ecl-button--tertiary ecl-expandable__toggle"
         data-ecl-expandable-toggle=""
         data-ecl-label-collapsed="Collapsed"
         data-ecl-label-expanded="Expanded"
@@ -139,6 +139,7 @@ exports[`Media Container infographic renders correctly 1`] = `
             Collapsed
           </span>
           <span
+            aria-hidden="true"
             class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
             data-ecl-icon=""
           />
@@ -182,12 +183,12 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
           poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
         >
           <source
-            src="https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4"
+            src="https://vod.prd.commavservices.eu/01/275521/019813ec-13ce-7136-ac0d-d7e24fec64c0/1080p-qaa.mp4"
             type="video/mp4"
           />
         </video>
         <button
-          class="ecl-button ecl-button--tertiary ecl-media-container__play ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-media-container__play ecl-button--icon-only"
           data-ecl-media-container-play=""
           type="button"
         >
@@ -201,13 +202,14 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
               Play
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
               data-ecl-icon=""
             />
           </span>
         </button>
         <button
-          class="ecl-button ecl-button--tertiary ecl-media-container__pause ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-media-container__pause ecl-button--icon-only"
           data-ecl-media-container-pause=""
           type="button"
         >
@@ -221,6 +223,7 @@ exports[`Media Container video as autoplay renders correctly 1`] = `
               Pause
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
               data-ecl-icon=""
             />
@@ -257,7 +260,7 @@ exports[`Media Container video renders correctly 1`] = `
           poster="https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg"
         >
           <source
-            src="https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4"
+            src="https://vod.prd.commavservices.eu/01/275521/019813ec-13ce-7136-ac0d-d7e24fec64c0/1080p-qaa.mp4"
             type="video/mp4"
           />
         </video>

@@ -22,7 +22,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -30,10 +30,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -61,6 +63,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -114,10 +117,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -177,6 +182,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -205,6 +211,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -323,6 +330,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -372,6 +380,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -442,6 +451,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -470,6 +480,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -545,10 +556,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -581,7 +594,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -617,11 +630,119 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -645,49 +766,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -716,10 +800,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -779,6 +865,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -864,6 +951,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -934,6 +1022,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -1068,6 +1157,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -1141,10 +1231,12 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -1219,7 +1311,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -1227,10 +1319,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -1258,6 +1352,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -1311,10 +1406,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -1374,6 +1471,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -1402,6 +1500,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -1520,6 +1619,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -1569,6 +1669,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -1639,6 +1740,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -1667,6 +1769,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -1742,10 +1845,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -1778,7 +1883,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -1814,11 +1919,119 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -1842,49 +2055,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1913,10 +2089,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -1976,6 +2154,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -2061,6 +2240,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -2131,6 +2311,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -2265,6 +2446,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -2338,10 +2520,12 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -2418,7 +2602,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -2426,10 +2610,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -2457,6 +2643,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -2510,10 +2697,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -2573,6 +2762,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -2601,6 +2791,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -2719,6 +2910,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -2768,6 +2960,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -2838,6 +3031,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -2866,6 +3060,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -2941,10 +3136,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -2977,7 +3174,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -3013,11 +3210,119 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -3041,49 +3346,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -3112,10 +3380,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -3175,6 +3445,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -3260,6 +3531,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -3330,6 +3602,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -3464,6 +3737,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -3537,10 +3811,12 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -3615,7 +3891,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -3623,10 +3899,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -3654,6 +3932,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -3707,10 +3986,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -3770,6 +4051,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -3798,6 +4080,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -3916,6 +4199,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -3965,6 +4249,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -4035,6 +4320,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -4063,6 +4349,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -4138,10 +4425,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -4174,7 +4463,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -4210,11 +4499,119 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -4238,49 +4635,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -4309,10 +4669,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -4372,6 +4734,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -4457,6 +4820,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -4527,6 +4891,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -4661,6 +5026,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -4734,10 +5100,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -4812,7 +5180,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -4820,10 +5188,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -4851,6 +5221,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -4905,10 +5276,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -4968,6 +5341,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -4996,6 +5370,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -5114,6 +5489,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -5163,6 +5539,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -5233,6 +5610,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -5261,6 +5639,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -5336,10 +5715,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -5372,7 +5753,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -5408,11 +5789,119 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -5436,49 +5925,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -5507,10 +5959,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -5570,6 +6024,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -5655,6 +6110,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -5725,6 +6181,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -5859,6 +6316,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -5932,10 +6390,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -6010,7 +6470,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -6018,10 +6478,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -6049,6 +6511,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -6102,10 +6565,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -6165,6 +6630,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -6193,6 +6659,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -6311,6 +6778,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -6360,6 +6828,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -6430,6 +6899,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -6459,6 +6929,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -6534,10 +7005,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -6570,7 +7043,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -6606,11 +7079,119 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -6634,49 +7215,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -6705,10 +7249,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -6768,6 +7314,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -6853,6 +7400,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -6923,6 +7471,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -7057,6 +7606,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -7130,10 +7680,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the info 
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -7208,7 +7760,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -7216,10 +7768,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -7247,6 +7801,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -7300,10 +7855,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -7364,6 +7921,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -7392,6 +7950,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -7510,6 +8069,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -7559,6 +8119,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -7629,6 +8190,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -7657,6 +8219,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -7732,10 +8295,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -7768,7 +8333,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -7804,11 +8369,119 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -7832,49 +8505,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -7903,10 +8539,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -7966,6 +8604,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -8051,6 +8690,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -8121,6 +8761,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -8255,6 +8896,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -8328,10 +8970,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -8406,7 +9050,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -8414,10 +9058,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -8445,6 +9091,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -8498,10 +9145,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -8561,6 +9210,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -8589,6 +9239,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -8707,6 +9358,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -8756,6 +9408,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -8826,6 +9479,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -8854,6 +9508,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -8929,10 +9584,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -8965,7 +9622,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -9001,11 +9658,119 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -9029,49 +9794,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -9100,10 +9828,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -9163,6 +9893,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -9248,6 +9979,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -9318,6 +10050,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -9452,6 +10185,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -9525,10 +10259,12 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -9603,7 +10339,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
     >
       <button
         aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
         type="button"
       >
@@ -9611,10 +10347,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
           class="ecl-button__container"
         >
           <span
+            aria-hidden="true"
             class="wt-icon--hamburger ecl-icon ecl-icon--m ecl-button__icon ecl-icon--hamburger"
             data-ecl-icon=""
           />
           <span
+            aria-hidden="true"
             class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
             data-ecl-icon=""
           />
@@ -9642,6 +10380,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
               class="ecl-button__container"
             >
               <span
+                aria-hidden="true"
                 class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
                 data-ecl-icon=""
               />
@@ -9695,10 +10434,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   News and media
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -9758,6 +10499,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             Item 2.1
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -9786,6 +10528,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 Item 2.1 subitem 2
                               </span>
                               <span
+                                aria-hidden="false"
                                 class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                 role="img"
                                 title="Link to an external domain"
@@ -9904,6 +10647,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                     Featured link 1
                                   </span>
                                   <span
+                                    aria-hidden="false"
                                     class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
                                     role="img"
                                     title="this is an external link"
@@ -9953,6 +10697,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             Item 2.3 that has a very long label
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -10023,6 +10768,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -10051,6 +10797,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -10126,10 +10873,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   About the European Commission
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -10162,7 +10911,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ecl-mega-menu__mega ecl-mega-menu__mega--has-featured"
+                  class="ecl-mega-menu__mega"
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
@@ -10198,11 +10947,119 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       data-ecl-mega-menu-subitem=""
                     >
                       <a
-                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
                         href="/example"
                       >
                         Item 3.3
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.5
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.6
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.7
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.8
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.9
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.10
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.11
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-mega-menu__subitem"
+                      data-ecl-mega-menu-subitem=""
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-mega-menu__sublink ecl-mega-menu__sublink--last"
+                        data-ecl-mega-menu-sublink=""
+                        href="/example"
+                      >
+                        Item 3.12
                       </a>
                     </li>
                     <li
@@ -10226,49 +11083,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
                     </li>
                   </ul>
-                  <div
-                    class="ecl-mega-menu__featured"
-                    data-ecl-mega-menu-featured=""
-                  >
-                    <div
-                      class="ecl-mega-menu__featured-scrollable"
-                    >
-                      <ul
-                        aria-labelledby="ecl-mega-menu-featured-title-ecl-mega-menu-item-demo-2 ecl-mega-menu-item-demo-2"
-                        class="ecl-mega-menu__featured-list"
-                      >
-                        <li
-                          class="ecl-mega-menu__featured-list__item ecl-mega-menu__featured-list__item--image-only"
-                        >
-                          <picture
-                            class="ecl-picture ecl-mega-menu__featured-picture"
-                          >
-                            <img
-                              alt="Jean Monnet banner"
-                              class="ecl-mega-menu__featured-image"
-                              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-                            />
-                          </picture>
-                        </li>
-                        <li
-                          class="ecl-mega-menu__featured-list__item"
-                        >
-                          <a
-                            class="ecl-link ecl-link--standalone ecl-mega-menu__featured-link"
-                            data-ecl-mega-menu-featured-link=""
-                            href="/example"
-                          >
-                            I belong to about the EU
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -10297,10 +11117,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   Key priorities
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />
@@ -10360,6 +11182,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             Aid, Development cooperation, Fundamental rights
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -10445,6 +11268,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             Research and innovation
                           </span>
                           <span
+                            aria-hidden="true"
                             class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                             data-ecl-icon=""
                           />
@@ -10515,6 +11339,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                                 See all pages
                               </span>
                               <span
+                                aria-hidden="true"
                                 class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon ecl-icon--arrow-left"
                               />
                             </a>
@@ -10649,6 +11474,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                           Discover more
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--arrow-left ecl-icon ecl-icon--xs ecl-icon--flip-horizontal ecl-link__icon ecl-icon--arrow-left"
                         />
                       </a>
@@ -10722,10 +11548,12 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   Engage
                 </span>
                 <span
+                  aria-hidden="true"
                   class="wt-icon--corner-arrow ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
                   data-ecl-icon=""
                 />
                 <span
+                  aria-hidden="true"
                   class="wt-icon--arrow-left ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon ecl-icon--arrow-left"
                   data-ecl-icon=""
                 />

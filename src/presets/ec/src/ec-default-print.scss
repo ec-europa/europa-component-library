@@ -9,6 +9,7 @@
 
 // Typography Mixins
 @use '@ecl/mixins-typography/mixins' with (
+  $theme: theme.$theme,
   $typography: var.$typography
 );
 
@@ -29,6 +30,7 @@
 );
 @use '@ecl/link/link-print' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $link: var.$link
 );
 @use '@ecl/ordered-list/ordered-list-print' with (

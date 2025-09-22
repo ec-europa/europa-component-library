@@ -68,6 +68,10 @@ $theme: null !default;
 
 .ecl-icon--rotate-90 {
   transform: rotateZ(90deg);
+
+  &:dir(rtl) {
+    transform: rotateZ(270deg);
+  }
 }
 
 .ecl-icon--rotate-180 {
@@ -76,6 +80,10 @@ $theme: null !default;
 
 .ecl-icon--rotate-270 {
   transform: rotateZ(270deg);
+
+  &:dir(rtl) {
+    transform: rotateZ(90deg);
+  }
 }
 
 .ecl-icon--flip-horizontal {

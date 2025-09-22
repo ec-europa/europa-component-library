@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $file: (
-  border-radius: map.get($border-radius, 's'),
+  border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-1),
   container-spacing: var(--s-xl) var(--s-xl) 0,
   container-spacing-last: var(--s-xl),
@@ -20,9 +20,10 @@ $file: (
   file-action-position: absolute,
   file-footer-border: 1px solid var(--cm-border-neutral),
   file-footer-flex-direction: column,
-  file-footer-padding: var(--s-m) 0,
-  file-footer-margin: 0 var(--s-xl) 0
-    calc(var(--s-xl) * 2 + #{map.get($icon, '2xl')}),
+  file-footer-padding-block: var(--s-m),
+  file-footer-padding-inline: 0,
+  file-footer-margin-inline: calc(var(--s-xl) * 2 + #{map.get($icon, '2xl')})
+    var(--s-xl),
   file-thumbnail-footer-padding: var(--s-m) 0,
   file-picture-order-desktop: 1,
   file-picture-order-mobile: 1,
@@ -50,7 +51,6 @@ $file: (
   file-translation-first-item-border: 1px,
   file-translation-first-item-padding: 1rem,
   file-translation-item-margin: 0,
-  file-translation-toggle-background: var(--cm-surface-neutral-low),
   file-translation-toggle-border: 0,
   file-image-margin-left: var(--s-xl),
   file-image-margin-right: 0,
@@ -62,4 +62,7 @@ $file: (
   image-width: 13.125rem,
   title-font: var(--f-2xl),
   title-font-weight: map.get($font-weight, 'light'),
+  translation-toggle-open-background: var(--cm-surface-grey-low-1),
+  translation-toggle-open-border-color: var(--cm-border-brand),
+  translation-toggle-open-color: var(--cm-on-surface-brand),
 );

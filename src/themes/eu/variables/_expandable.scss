@@ -7,8 +7,8 @@ $expandable: (
   content-margin: var(--s-m),
   content-padding: var(--s-m),
   content-spacing-bottom: 0,
-  toggle-background-active: transparent,
+  toggle-background-active: var(--c-p-20),
   toggle-border-active: transparent,
-  toggle-color-active: var(--c-p),
-  toggle-radius: 4px,
+  toggle-color-active: var(--c-d),
+  toggle-radius: map.get($border-radius, 's'),
 );

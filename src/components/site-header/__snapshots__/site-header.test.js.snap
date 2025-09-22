@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Site Header EC renders correctly 1`] = `
 <jest>
@@ -48,7 +48,7 @@ exports[`Site Header EC renders correctly 1`] = `
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
                   aria-label="Custom aria label"
-                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral ecl-button--icon-only ecl-link--icon-only"
                   data-ecl-custom-action=""
                   href="/example"
                   role="button"
@@ -62,6 +62,7 @@ exports[`Site Header EC renders correctly 1`] = `
                     class="ecl-link__icon-container"
                   >
                     <span
+                      aria-hidden="true"
                       class="wt-icon--brochure ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon ecl-icon--brochure"
                     />
                     <span
@@ -93,7 +94,7 @@ exports[`Site Header EC renders correctly 1`] = `
                     
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-close ecl-button--icon-only"
                       data-ecl-custom-action-close=""
                       type="submit"
                     >
@@ -107,6 +108,7 @@ exports[`Site Header EC renders correctly 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -134,12 +136,13 @@ exports[`Site Header EC renders correctly 1`] = `
                 class="ecl-site-header__login-container"
               >
                 <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
                 >
                   <span
-                    class="wt-icon--log-in ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--log-in"
+                    aria-hidden="false"
+                    class="wt-icon--log-in ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--log-in"
                     role="img"
                     title="Log in"
                   />
@@ -152,7 +155,7 @@ exports[`Site Header EC renders correctly 1`] = `
                 <a
                   aria-controls="language-list-overlay"
                   aria-label="Change language, current language is English - EN"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
                   href="/example"
                   role="button"
@@ -161,7 +164,8 @@ exports[`Site Header EC renders correctly 1`] = `
                     class="ecl-site-header__language-icon"
                   >
                     <span
-                      class="wt-icon--global ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--global"
+                      aria-hidden="false"
+                      class="wt-icon--global ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--global"
                       role="img"
                       title="EN"
                     />
@@ -186,7 +190,7 @@ exports[`Site Header EC renders correctly 1`] = `
                       Select your language
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__language-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-close ecl-button--icon-only"
                       data-ecl-language-list-close=""
                       type="submit"
                     >
@@ -200,6 +204,7 @@ exports[`Site Header EC renders correctly 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -964,12 +969,13 @@ exports[`Site Header EC renders correctly 1`] = `
                 <a
                   aria-controls="search-form-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
                   href="/example"
                 >
                   <span
-                    class="wt-icon--search ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--search"
+                    aria-hidden="false"
+                    class="wt-icon--search ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--search"
                     role="img"
                     title="Search"
                   />
@@ -999,14 +1005,15 @@ exports[`Site Header EC renders correctly 1`] = `
                     />
                   </div>
                   <button
-                    class="ecl-button ecl-button--ghost ecl-search-form__button"
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
                     type="submit"
                   >
                     <span
                       class="ecl-button__container"
                     >
                       <span
-                        class="wt-icon--search ecl-icon ecl-icon--xs ecl-button__icon ecl-icon--search"
+                        aria-hidden="true"
+                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
                         data-ecl-icon=""
                       />
                       <span
@@ -1037,13 +1044,14 @@ exports[`Site Header EC renders correctly 1`] = `
             role="alert"
           >
             <span
+              aria-hidden="false"
               class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
             />
             <div
               class="ecl-notification__content"
             >
               <button
-                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
                 data-ecl-notification-close=""
                 type="button"
               >
@@ -1057,6 +1065,7 @@ exports[`Site Header EC renders correctly 1`] = `
                     Close
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                     data-ecl-icon=""
                   />
@@ -1126,6 +1135,7 @@ exports[`Site Header EC renders correctly 1`] = `
               CTA link
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
             />
           </a>
@@ -1184,7 +1194,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
                   aria-label="Custom aria label"
-                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral ecl-button--icon-only ecl-link--icon-only"
                   data-ecl-custom-action=""
                   href="/example"
                   role="button"
@@ -1198,6 +1208,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     class="ecl-link__icon-container"
                   >
                     <span
+                      aria-hidden="true"
                       class="wt-icon--brochure ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon ecl-icon--brochure"
                     />
                     <span
@@ -1229,7 +1240,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-close ecl-button--icon-only"
                       data-ecl-custom-action-close=""
                       type="submit"
                     >
@@ -1243,6 +1254,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -1272,12 +1284,13 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 <a
                   aria-controls="login-box-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
                 >
                   <span
-                    class="wt-icon--logged-in ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--logged-in"
+                    aria-hidden="false"
+                    class="wt-icon--logged-in ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--logged-in"
                     role="img"
                     title="Logged in"
                   />
@@ -1310,7 +1323,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 <a
                   aria-controls="language-list-overlay"
                   aria-label="Change language, current language is English - EN"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
                   href="/example"
                   role="button"
@@ -1319,7 +1332,8 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     class="ecl-site-header__language-icon"
                   >
                     <span
-                      class="wt-icon--global ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--global"
+                      aria-hidden="false"
+                      class="wt-icon--global ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--global"
                       role="img"
                       title="EN"
                     />
@@ -1344,7 +1358,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                       Select your language
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__language-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-close ecl-button--icon-only"
                       data-ecl-language-list-close=""
                       type="submit"
                     >
@@ -1358,6 +1372,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -2122,12 +2137,13 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 <a
                   aria-controls="search-form-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
                   href="/example"
                 >
                   <span
-                    class="wt-icon--search ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--search"
+                    aria-hidden="false"
+                    class="wt-icon--search ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--search"
                     role="img"
                     title="Search"
                   />
@@ -2157,14 +2173,15 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     />
                   </div>
                   <button
-                    class="ecl-button ecl-button--ghost ecl-search-form__button"
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
                     type="submit"
                   >
                     <span
                       class="ecl-button__container"
                     >
                       <span
-                        class="wt-icon--search ecl-icon ecl-icon--xs ecl-button__icon ecl-icon--search"
+                        aria-hidden="true"
+                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
                         data-ecl-icon=""
                       />
                       <span
@@ -2195,13 +2212,14 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
             role="alert"
           >
             <span
+              aria-hidden="false"
               class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
             />
             <div
               class="ecl-notification__content"
             >
               <button
-                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
                 data-ecl-notification-close=""
                 type="button"
               >
@@ -2215,6 +2233,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     Close
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                     data-ecl-icon=""
                   />
@@ -2284,6 +2303,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
               CTA link
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
             />
           </a>
@@ -2344,7 +2364,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
                   aria-label="Custom aria label"
-                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral ecl-button--icon-only ecl-link--icon-only"
                   data-ecl-custom-action=""
                   href="/example"
                   role="button"
@@ -2358,6 +2378,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     class="ecl-link__icon-container"
                   >
                     <span
+                      aria-hidden="true"
                       class="wt-icon--brochure ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon ecl-icon--brochure"
                     />
                     <span
@@ -2389,7 +2410,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-close ecl-button--icon-only"
                       data-ecl-custom-action-close=""
                       type="submit"
                     >
@@ -2403,6 +2424,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -2430,12 +2452,13 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                 class="ecl-site-header__login-container"
               >
                 <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
                 >
                   <span
-                    class="wt-icon--log-in ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--log-in"
+                    aria-hidden="false"
+                    class="wt-icon--log-in ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--log-in"
                     role="img"
                     title="Log in"
                   />
@@ -2448,7 +2471,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                 <a
                   aria-controls="language-list-overlay"
                   aria-label="Change language, current language is English - EN"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
                   href="/example"
                   role="button"
@@ -2457,7 +2480,8 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     class="ecl-site-header__language-icon"
                   >
                     <span
-                      class="wt-icon--global ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--global"
+                      aria-hidden="false"
+                      class="wt-icon--global ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--global"
                       role="img"
                       title="EN"
                     />
@@ -2482,7 +2506,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                       Select your language
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__language-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-close ecl-button--icon-only"
                       data-ecl-language-list-close=""
                       type="submit"
                     >
@@ -2496,6 +2520,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -3260,12 +3285,13 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                 <a
                   aria-controls="search-form-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
                   href="/example"
                 >
                   <span
-                    class="wt-icon--search ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--search"
+                    aria-hidden="false"
+                    class="wt-icon--search ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--search"
                     role="img"
                     title="Search"
                   />
@@ -3295,14 +3321,15 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     />
                   </div>
                   <button
-                    class="ecl-button ecl-button--ghost ecl-search-form__button"
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
                     type="submit"
                   >
                     <span
                       class="ecl-button__container"
                     >
                       <span
-                        class="wt-icon--search ecl-icon ecl-icon--xs ecl-button__icon ecl-icon--search"
+                        aria-hidden="true"
+                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
                         data-ecl-icon=""
                       />
                       <span
@@ -3333,13 +3360,14 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
             role="alert"
           >
             <span
+              aria-hidden="false"
               class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
             />
             <div
               class="ecl-notification__content"
             >
               <button
-                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
                 data-ecl-notification-close=""
                 type="button"
               >
@@ -3353,6 +3381,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     Close
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                     data-ecl-icon=""
                   />
@@ -3422,6 +3451,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
               CTA link
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
             />
           </a>
@@ -3480,7 +3510,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
                   aria-label="Custom aria label"
-                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral ecl-button--icon-only ecl-link--icon-only"
                   data-ecl-custom-action=""
                   href="/example"
                   role="button"
@@ -3494,6 +3524,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     class="ecl-link__icon-container"
                   >
                     <span
+                      aria-hidden="true"
                       class="wt-icon--brochure ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon ecl-icon--brochure"
                     />
                     <span
@@ -3525,7 +3556,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-close ecl-button--icon-only"
                       data-ecl-custom-action-close=""
                       type="submit"
                     >
@@ -3539,6 +3570,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -3566,12 +3598,13 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                 class="ecl-site-header__login-container"
               >
                 <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
                 >
                   <span
-                    class="wt-icon--log-in ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--log-in"
+                    aria-hidden="false"
+                    class="wt-icon--log-in ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--log-in"
                     role="img"
                     title="Log in"
                   />
@@ -3584,7 +3617,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                 <a
                   aria-controls="language-list-overlay"
                   aria-label="Change language, current language is English - EN"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
                   href="/example"
                   role="button"
@@ -3593,7 +3626,8 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     class="ecl-site-header__language-icon"
                   >
                     <span
-                      class="wt-icon--global ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--global"
+                      aria-hidden="false"
+                      class="wt-icon--global ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--global"
                       role="img"
                       title="EN"
                     />
@@ -3618,7 +3652,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                       Select your language
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__language-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-close ecl-button--icon-only"
                       data-ecl-language-list-close=""
                       type="submit"
                     >
@@ -3632,6 +3666,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -4396,12 +4431,13 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                 <a
                   aria-controls="search-form-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
                   href="/example"
                 >
                   <span
-                    class="wt-icon--search ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--search"
+                    aria-hidden="false"
+                    class="wt-icon--search ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--search"
                     role="img"
                     title="Search"
                   />
@@ -4431,14 +4467,15 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     />
                   </div>
                   <button
-                    class="ecl-button ecl-button--ghost ecl-search-form__button"
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
                     type="submit"
                   >
                     <span
                       class="ecl-button__container"
                     >
                       <span
-                        class="wt-icon--search ecl-icon ecl-icon--xs ecl-button__icon ecl-icon--search"
+                        aria-hidden="true"
+                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
                         data-ecl-icon=""
                       />
                       <span
@@ -4469,13 +4506,14 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
             role="alert"
           >
             <span
+              aria-hidden="false"
               class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
             />
             <div
               class="ecl-notification__content"
             >
               <button
-                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
                 data-ecl-notification-close=""
                 type="button"
               >
@@ -4489,6 +4527,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     Close
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                     data-ecl-icon=""
                   />
@@ -4558,6 +4597,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
               CTA link
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
             />
           </a>
@@ -4616,7 +4656,7 @@ exports[`Site Header EU renders correctly 1`] = `
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
                   aria-label="Custom aria label"
-                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-link--icon-only"
+                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral ecl-button--icon-only ecl-link--icon-only"
                   data-ecl-custom-action=""
                   href="/example"
                   role="button"
@@ -4630,6 +4670,7 @@ exports[`Site Header EU renders correctly 1`] = `
                     class="ecl-link__icon-container"
                   >
                     <span
+                      aria-hidden="true"
                       class="wt-icon--brochure ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon ecl-icon--brochure"
                     />
                     <span
@@ -4661,7 +4702,7 @@ exports[`Site Header EU renders correctly 1`] = `
                     
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__custom-action-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-close ecl-button--icon-only"
                       data-ecl-custom-action-close=""
                       type="submit"
                     >
@@ -4675,6 +4716,7 @@ exports[`Site Header EU renders correctly 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -4702,12 +4744,13 @@ exports[`Site Header EU renders correctly 1`] = `
                 class="ecl-site-header__login-container"
               >
                 <a
-                  class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
                 >
                   <span
-                    class="wt-icon--log-in ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--log-in"
+                    aria-hidden="false"
+                    class="wt-icon--log-in ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--log-in"
                     role="img"
                     title="Log in"
                   />
@@ -4720,7 +4763,7 @@ exports[`Site Header EU renders correctly 1`] = `
                 <a
                   aria-controls="language-list-overlay"
                   aria-label="Change language, current language is English - EN"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
                   href="/example"
                   role="button"
@@ -4729,7 +4772,8 @@ exports[`Site Header EU renders correctly 1`] = `
                     class="ecl-site-header__language-icon"
                   >
                     <span
-                      class="wt-icon--global ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--global"
+                      aria-hidden="false"
+                      class="wt-icon--global ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--global"
                       role="img"
                       title="EN"
                     />
@@ -4754,7 +4798,7 @@ exports[`Site Header EU renders correctly 1`] = `
                       Select your language
                     </div>
                     <button
-                      class="ecl-button ecl-button--tertiary ecl-site-header__language-close ecl-button--icon-only"
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-close ecl-button--icon-only"
                       data-ecl-language-list-close=""
                       type="submit"
                     >
@@ -4768,6 +4812,7 @@ exports[`Site Header EU renders correctly 1`] = `
                           Close
                         </span>
                         <span
+                          aria-hidden="true"
                           class="wt-icon--close ecl-icon ecl-icon--s ecl-button__icon ecl-icon--close"
                           data-ecl-icon=""
                         />
@@ -5532,12 +5577,13 @@ exports[`Site Header EU renders correctly 1`] = `
                 <a
                   aria-controls="search-form-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
                   data-ecl-search-toggle="true"
                   href="/example"
                 >
                   <span
-                    class="wt-icon--search ecl-icon ecl-icon--s ecl-site-header__icon ecl-icon--search"
+                    aria-hidden="false"
+                    class="wt-icon--search ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--search"
                     role="img"
                     title="Search"
                   />
@@ -5567,14 +5613,15 @@ exports[`Site Header EU renders correctly 1`] = `
                     />
                   </div>
                   <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button"
+                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
                     type="submit"
                   >
                     <span
                       class="ecl-button__container"
                     >
                       <span
-                        class="wt-icon--search ecl-icon ecl-icon--xs ecl-button__icon ecl-icon--search"
+                        aria-hidden="true"
+                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
                         data-ecl-icon=""
                       />
                       <span
@@ -5605,13 +5652,14 @@ exports[`Site Header EU renders correctly 1`] = `
             role="alert"
           >
             <span
+              aria-hidden="false"
               class="wt-icon--information ecl-icon ecl-icon--l ecl-notification__icon ecl-icon--information"
             />
             <div
               class="ecl-notification__content"
             >
               <button
-                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-notification__close ecl-button--icon-only"
                 data-ecl-notification-close=""
                 type="button"
               >
@@ -5625,6 +5673,7 @@ exports[`Site Header EU renders correctly 1`] = `
                     Close
                   </span>
                   <span
+                    aria-hidden="true"
                     class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
                     data-ecl-icon=""
                   />
@@ -5694,6 +5743,7 @@ exports[`Site Header EU renders correctly 1`] = `
               CTA link
             </span>
             <span
+              aria-hidden="true"
               class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
             />
           </a>

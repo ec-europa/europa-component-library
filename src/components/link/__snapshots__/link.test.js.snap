@@ -1,22 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Link Cta variant with icon renders correctly 1`] = `
-<jest>
-  <a
-    class="ecl-link ecl-link--cta ecl-link--icon"
-    href="/example"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Call to action link
-    </span>
-    <span
-      class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
-    />
-  </a>
-</jest>
-`;
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Link Default renders correctly 1`] = `
 <jest>
@@ -41,9 +23,29 @@ exports[`Link External renders correctly 1`] = `
       Standalone link
     </span>
     <span
+      aria-hidden="false"
       class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
       role="img"
       title="Links to an external url"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link Primary highlight variant with icon renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--primary-highlight ecl-link--icon"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Call to action link
+    </span>
+    <span
+      aria-hidden="true"
+      class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
     />
   </a>
 </jest>
@@ -83,6 +85,7 @@ exports[`Link With icon after renders correctly 1`] = `
       Standalone link with icon
     </span>
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
     />
   </a>
@@ -103,6 +106,7 @@ exports[`Link With icon after renders correctly with extra attributes 1`] = `
       Standalone link with icon
     </span>
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
     />
   </a>
@@ -121,6 +125,7 @@ exports[`Link With icon after renders correctly with extra class names 1`] = `
       Standalone link with icon
     </span>
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
     />
   </a>
@@ -134,6 +139,7 @@ exports[`Link With icon before renders correctly 1`] = `
     href="/example"
   >
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
     />
     <span
@@ -157,9 +163,11 @@ exports[`Link With two icons after renders correctly 1`] = `
       Standalone link with icon
     </span>
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
     />
     <span
+      aria-hidden="true"
       class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
     />
   </a>
@@ -184,9 +192,11 @@ exports[`Link With two icons before renders correctly 1`] = `
     href="/example"
   >
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
     />
     <span
+      aria-hidden="true"
       class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
     />
     <span
@@ -205,9 +215,11 @@ exports[`Link With two icons before renders correctly with extra class names 1`]
     href="/example"
   >
     <span
+      aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
     />
     <span
+      aria-hidden="true"
       class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
     />
     <span
@@ -222,7 +234,7 @@ exports[`Link With two icons before renders correctly with extra class names 1`]
 exports[`Link with indicator renders correctly 1`] = `
 <jest>
   <a
-    class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-only"
+    class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-link--icon-only"
     href="/example"
   >
     <span
@@ -234,6 +246,7 @@ exports[`Link with indicator renders correctly 1`] = `
       class="ecl-link__icon-container"
     >
       <span
+        aria-hidden="true"
         class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
       />
       <span

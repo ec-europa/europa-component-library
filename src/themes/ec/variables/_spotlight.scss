@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$spotlight: (
+  gradient: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 25%,
+      color-mix(in srgb, var(--cm-on-surface-brand) 25%, transparent) 50%,
+      color-mix(in srgb, var(--cm-on-surface-brand) 35%, transparent) 75%,
+      color-mix(in srgb, var(--cm-on-surface-brand) 50%, transparent) 100%
+    ),
+  gradient-height-mobile: 241px,
+  gradient-height-tablet: 374px,
+  header: (
+    background: var(--cm-surface-brand),
+    color: var(--cm-on-surface-inverted),
+    height-mobile: 32px,
+    height-tablet: 40px,
+    height-desktop: 44px,
+    padding-block: var(--s-4xs),
+    font: (
+      mobile-xs: (
+        size: var(--fs-s),
+        line-height: var(--lh-2xs),
+      ),
+      tablet: (
+        size: var(--fs-l),
+        line-height: var(--lh-xs),
+      ),
+      desktop: (
+        size: var(--fs-2xl),
+        line-height: var(--lh-s),
+        letter-spacing: map.get($letter-spacing, '5xl'),
+      ),
+    ),
+    font-weight: map.get($font-weight, 'semi-bold'),
+  ),
+  credit: (
+    color: var(--cm-on-surface-inverted),
+    padding-block: var(--s-3xs),
+    padding-inline: var(--s-xs),
+    font: 'microcopy-2xs',
+  ),
+  title: (
+    color: var(--cm-on-surface-inverted),
+    padding-block-mobile: 0 var(--s-3xl),
+    padding-block-tablet: 0 var(--s-4xl),
+    padding-block-desktop: 0 var(--s-4xl),
+    font-l: 'display',
+    font-m: 'heading1',
+    font-weight: map.get($font-weight, 'light'),
+  ),
+  anchor: (
+    color: var(--cm-on-surface-variant-3),
+    padding-block: var(--s-5xl),
+    padding-inline: 0,
+  ),
+);

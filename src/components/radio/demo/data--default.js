@@ -5,21 +5,19 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
-  label_aria_required: 'required',
   disabled: false,
   invalid: false,
   label: 'Select your country',
-  invalid_text: 'This is the error message',
+  invalid_text: 'Error text',
   invalid_icon: {
-    name: 'error',
+    name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
-  helper_text: 'Helper text for the group',
+  helper_text: 'Optional help text',
   input: {
     id: 'radio-default',
     input_type: 'radio',
     name: 'radio-group-1',
-    required: true,
     items: [
       {
         id: 'radio-default-1',

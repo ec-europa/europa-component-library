@@ -10,10 +10,11 @@
 $theme: null !default;
 $pagination: null !default;
 
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin item-styles {
   align-items: center;
   justify-content: center;
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'xs');
   box-sizing: border-box;
   display: flex;
   margin-inline-end: map.get($pagination, 'item-margin-end');
@@ -38,6 +39,7 @@ $pagination: null !default;
     color: map.get($pagination, 'current-text-color-desktop');
   }
 }
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
 
 .ecl-pagination {
   border-top: 1px solid map.get($pagination, 'border-color');

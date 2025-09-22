@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $notification: (
-  radius: 4px,
+  radius: map.get($border-radius, 's'),
   padding: var(--s-l),
   padding-mobile: var(--s-m),
   padding-end: var(--s-2xl),

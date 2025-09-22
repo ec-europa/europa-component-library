@@ -1,0 +1,34 @@
+/**
+ * Color mixins and functions
+ */
+
+@use 'sass:string';
+@use 'sass:list';
+
+// Function to get short color name
+@function get-color-short-name($color) {
+  $one-char: ('primary', 'secondary', 'neutral', 'grey');
+  $two-char: ('info', 'success', 'error', 'warning');
+  $color-parts: string.split($color, '-');
+  $color-name: list.nth($color-parts, 1);
+
+  @if list.index($one-char, $color-name) {
+    $short-name: string.slice($color-name, 1, 1);
+
+    @if list.length($color-parts) > 1 {
+      @return $short-name + '-' + list.nth($color-parts, 2);
+    }
+
+    @return $short-name;
+  } @else if list.index($two-char, $color-name) {
+    $short-name: string.slice($color-name, 1, 2);
+
+    @if list.length($color-parts) > 1 {
+      @return $short-name + '-' + list.nth($color-parts, 2);
+    }
+
+    @return $short-name;
+  }
+
+  @return $color;
+}

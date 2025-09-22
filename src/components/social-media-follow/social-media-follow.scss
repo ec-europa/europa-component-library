@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -21,7 +22,7 @@ $social-media-follow: null !default;
   color: map.get($social-media-follow, 'title-color');
   font: var(--f-m);
   font-weight: map.get($social-media-follow, 'title-font-weight');
-  margin-bottom: var(--s-xs);
+  margin-bottom: map.get($social-media-follow, 'title-margin');
   margin-top: 0;
 }
 
@@ -48,8 +49,9 @@ $social-media-follow: null !default;
 .ecl-social-media-follow__link {
   align-items: center;
   display: flex;
-  font: var(--f-s);
   overflow: hidden; /* Improve rendering on IE */
+
+  @include mixins.responsive-font(map.get($social-media-follow, 'link-font'));
 }
 
 // Icon

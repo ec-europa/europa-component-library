@@ -15,7 +15,7 @@ $table: null !default;
   color: map.get($table, 'table-color');
   font: map.get($theme, 'font-print', 'm');
   margin: 0;
-  page-break-inside: avoid;
+  break-inside: avoid;
   width: 100%;
 }
 
@@ -67,7 +67,7 @@ $table: null !default;
 
 .ecl-table__caption {
   caption-side: bottom;
-  color: var(--cm-on-surface-grey-medium, var(--c-d-80));
+  color: map.get($table, 'caption', 'color');
   font: map.get($theme, 'font-print', 's');
   margin-top: map.get($theme, 'spacing-print', 'xs');
   text-align: left;

@@ -5,7 +5,7 @@ import { correctPaths } from '@ecl/story-utils';
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
 import dataDefault from './demo/data--default';
-import dataCta from './demo/data--cta';
+import dataPrimaryHighlight from './demo/data--primary-highlight';
 import dataPrimary from './demo/data--primary';
 import dataSecondary from './demo/data--secondary';
 import dataStandalone from './demo/data--standalone';
@@ -39,7 +39,7 @@ const withParagraph = (story) => {
 
 const withInverted = (story) => {
   const demo = story();
-  return `<div class="ecl-u-bg-neutral-dark ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
+  return `<div class="ecl-u-bg-grey ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
 };
 
 const getArgs = (data) => ({
@@ -244,39 +244,6 @@ Standalone.args = getArgs(dataStandalone);
 Standalone.argTypes = getArgTypes();
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
-export const Cta = (_, { loaded: { component } }) => component;
-
-Cta.render = async (args) => {
-  const renderedLinkCta = await link(prepareData(dataCta, args));
-  return renderedLinkCta;
-};
-Cta.storyName = 'call to action';
-Cta.args = getArgs(dataCta);
-Cta.argTypes = getArgTypes();
-Cta.parameters = { notes: { markdown: notes, json: dataCta } };
-
-export const Primary = (_, { loaded: { component } }) => component;
-
-Primary.render = async (args) => {
-  const renderedLinkCta = await link(prepareData(dataPrimary, args));
-  return renderedLinkCta;
-};
-Primary.storyName = 'primary';
-Primary.args = getArgs(dataPrimary);
-Primary.argTypes = getArgTypes();
-Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
-
-export const Secondary = (_, { loaded: { component } }) => component;
-
-Secondary.render = async (args) => {
-  const renderedLinkSecondary = await link(prepareData(dataSecondary, args));
-  return renderedLinkSecondary;
-};
-Secondary.storyName = 'secondary';
-Secondary.args = getArgs(dataSecondary);
-Secondary.argTypes = getArgTypes();
-Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
-
 export const Inverted = (_, { loaded: { component } }) => component;
 
 Inverted.render = async (args) => {
@@ -304,3 +271,40 @@ InvertedStandalone.argTypes = getArgTypes();
 InvertedStandalone.parameters = {
   notes: { markdown: notes, json: dataInvertedStandalone },
 };
+
+export const Primary = (_, { loaded: { component } }) => component;
+
+Primary.render = async (args) => {
+  const renderedLinkPrimary = await link(prepareData(dataPrimary, args));
+  return renderedLinkPrimary;
+};
+Primary.storyName = 'primary';
+Primary.args = getArgs(dataPrimary);
+Primary.argTypes = getArgTypes();
+Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
+
+export const PrimaryHighlight = (_, { loaded: { component } }) => component;
+
+PrimaryHighlight.render = async (args) => {
+  const renderedLinkPrimaryHighlight = await link(
+    prepareData(dataPrimaryHighlight, args),
+  );
+  return renderedLinkPrimaryHighlight;
+};
+PrimaryHighlight.storyName = 'primary highlight';
+PrimaryHighlight.args = getArgs(dataPrimaryHighlight);
+PrimaryHighlight.argTypes = getArgTypes();
+PrimaryHighlight.parameters = {
+  notes: { markdown: notes, json: dataPrimaryHighlight },
+};
+
+export const Secondary = (_, { loaded: { component } }) => component;
+
+Secondary.render = async (args) => {
+  const renderedLinkSecondary = await link(prepareData(dataSecondary, args));
+  return renderedLinkSecondary;
+};
+Secondary.storyName = 'secondary';
+Secondary.args = getArgs(dataSecondary);
+Secondary.argTypes = getArgTypes();
+Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };

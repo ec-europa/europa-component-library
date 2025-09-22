@@ -4,12 +4,17 @@
 // stylelint-disable length-zero-no-unit
 $breadcrumb: (
   padding-vertical: var(--s-m),
-  font-mobile: var(--f-m),
-  font-desktop: var(--f-m),
-  line-height: var(--lh-m),
+  typography: (
+    'mobile-xs': var(--f-m),
+    'tablet': var(--f-s),
+  ),
+  link-color: var(--c-p),
+  link-color-hover: var(--c-p-160),
+  link-style: none,
   last-link-color: var(--c-d-80),
   icon-color: var(--c-d-80),
-  icon-spacing: var(--s-xs),
+  icon-spacing-mobile: var(--s-xs),
+  icon-spacing-desktop: var(--s-xs),
   ghost-override: true,
   ellipsis: (
     background: var(--c-p-5),

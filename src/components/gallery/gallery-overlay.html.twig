@@ -24,7 +24,6 @@
 {% set _css_media_class = 'ecl-gallery__slider-media-container' %}
 {% set _extra_attributes = '' %}
 {% set _button_type = 'button' %}
-{% set _button_variant = 'ghost' %}
 {% set _overlay = overlay|default({}) %}
 {% set _item = item|default({}) %}
 
@@ -57,7 +56,8 @@
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
     {% include '@ecl/button/button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
-      variant: _button_variant,
+      variant: 'tertiary',
+      style: 'inverted',
       type: 'submit',
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
