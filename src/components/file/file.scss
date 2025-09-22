@@ -242,8 +242,9 @@ $file: null !default;
 }
 
 .ecl-file__translation-toggle[aria-expanded='true'] {
-  background: map.get($file, 'file-translation-toggle-background');
-  color: var(--cm-on-surface-brand, var(--c-p));
+  background: map.get($file, 'translation-toggle-open-background');
+  border-color: map.get($file, 'translation-toggle-open-border-color');
+  color: map.get($file, 'translation-toggle-open-color');
 
   .ecl-button__icon {
     transform: rotate(0);

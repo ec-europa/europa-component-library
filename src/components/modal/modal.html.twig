@@ -63,6 +63,12 @@
   ]) %}
 {% endif %}
 
+{% if _body is not empty or block('body') is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'aria-describedby', value: _id ~ '-body-scroll'}
+  ]) %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -117,6 +123,7 @@
           {% include '@ecl/button/button.html.twig' with _close|merge({
             type: 'button',
             variant: 'tertiary',
+            style: 'neutral',
             hide_label: true,
             extra_classes: 'ecl-modal__close',
             extra_attributes: [{
@@ -129,7 +136,7 @@
       {% if _body is not empty or block('body') is not empty or _body_fixed is not empty or block('body_fixed') is not empty %}
       <div class="ecl-modal__body">
         {% if _body is not empty or block('body') is not empty %}
-        <div class="ecl-modal__body-scroll" data-ecl-modal-scroll>
+        <div class="ecl-modal__body-scroll" id="{{ _id }}-body-scroll" data-ecl-modal-scroll>
           {%- block body %}{{ _body }}{% endblock -%}
         </div>
         <div class="ecl-modal__body-overflow" aria-hidden="true"></div>
