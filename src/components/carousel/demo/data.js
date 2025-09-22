@@ -5,6 +5,7 @@ module.exports = {
   sr_description: 'Carousel description here',
   items: [
     {
+      id: 'carousel-example-1',
       title: 'Lorem ipsum dolor sit amet',
       description:
         'Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
@@ -28,6 +29,7 @@ module.exports = {
       },
     },
     {
+      id: 'carousel-example-2',
       title: 'Duis vitae pulvinar turpis',
       description:
         'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
@@ -53,6 +55,7 @@ module.exports = {
       box_background: 'dark',
     },
     {
+      id: 'carousel-example-3',
       title: 'Donec maximus pharetra ex a ultricies',
       description:
         'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
