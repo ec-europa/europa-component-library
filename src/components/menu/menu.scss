@@ -7,6 +7,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -46,7 +47,6 @@ $menu: null !default;
   color: map.get($menu, 'mobile', 'hamburger-color');
   display: flex;
   flex-direction: column;
-  font: var(--f-xs);
   margin-inline-start: auto;
   order: 2;
   padding: map.get($menu, 'mobile', 'open-padding');
@@ -170,8 +170,9 @@ $menu: null !default;
 }
 
 .ecl-menu__title {
-  font: map.get($menu, 'mobile', 'header-font');
   padding-inline-start: var(--s-m);
+
+  @include mixins.responsive-font(map.get($menu, 'mobile', 'header-font'));
 }
 
 .ecl-menu__close {
@@ -181,7 +182,6 @@ $menu: null !default;
   color: currentcolor;
   display: flex;
   flex-direction: column;
-  font: var(--f-xs);
   margin-inline-start: auto;
   order: 0;
   text-decoration: none;
@@ -217,9 +217,10 @@ $menu: null !default;
   cursor: pointer;
   color: currentcolor;
   display: none;
-  font: map.get($menu, 'mobile', 'header-font');
   text-decoration: none;
   width: 100%;
+
+  @include mixins.responsive-font(map.get($menu, 'mobile', 'header-font'));
 
   &:dir(rtl) .ecl-icon {
     transform: rotate(90deg);
@@ -349,10 +350,11 @@ $menu: null !default;
   color: map.get($menu, 'mobile', 'item-color');
   display: inline-flex;
   flex-grow: 1;
-  font: map.get($menu, 'mobile', 'item-font');
   justify-content: space-between;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
+
+  @include mixins.responsive-font(map.get($menu, 'mobile', 'item-font'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -459,10 +461,15 @@ $menu: null !default;
       border-top-width: 0;
       color: map.get($menu, 'desktop', 'item-color');
       margin-inline-start: -1px;
+      padding-block: map.get($menu, 'desktop', 'item-padding-block');
       padding-inline-end: 1px;
 
       &:first-of-type {
         margin-inline-start: 0;
+
+        .ecl-menu__link {
+          padding-inline-start: 0;
+        }
       }
 
       &:last-of-type {
@@ -512,6 +519,7 @@ $menu: null !default;
     .ecl-menu__item:focus-within:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:focus-within
       + .ecl-menu__item:not(.ecl-menu__items-next)::before,
+    .ecl-menu__item:first-child::before,
     .ecl-menu__item:last-child:hover::after {
       background-color: transparent;
     }
@@ -525,11 +533,12 @@ $menu: null !default;
       box-shadow: none;
       color: map.get($menu, 'desktop', 'item-color');
       display: inline-flex;
-      font: map.get($menu, 'desktop', 'item-font');
-      line-height: map.get($menu, 'desktop', 'link-line-height');
-      padding: map.get($menu, 'desktop', 'link-padding');
+      padding-block: map.get($menu, 'desktop', 'link-padding-block');
+      padding-inline: map.get($menu, 'desktop', 'link-padding-inline');
       width: auto;
       z-index: 0;
+
+      @include mixins.responsive-font(map.get($menu, 'desktop', 'item-font'));
 
       &:hover {
         color: map.get($menu, 'desktop', 'item-color-hover');
@@ -707,7 +716,16 @@ $menu: null !default;
         .ecl-menu__link {
           background-color: #fff;
           margin-bottom: -2px;
-          padding: map.get($menu, 'desktop', 'link-expanded-padding');
+          padding-block: map.get(
+            $menu,
+            'desktop',
+            'link-expanded-padding-block'
+          );
+          padding-inline: map.get(
+            $menu,
+            'desktop',
+            'link-expanded-padding-inline'
+          );
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
 
@@ -750,8 +768,11 @@ $menu: null !default;
     background-color: transparent;
     border-bottom: map.get($menu, 'mobile', 'subtitle-border');
     box-shadow: none;
-    font: map.get($menu, 'mobile', 'subtitle-font');
-    font-weight: map.get($menu, 'mobile', 'subtitle-font-weight');
+
+    @include mixins.responsive-font(
+      map.get($menu, 'mobile', 'subtitle-font'),
+      $font-weight: map.get($menu, 'mobile', 'subtitle-font-weight')
+    );
   }
 }
 
@@ -789,9 +810,10 @@ $menu: null !default;
 .ecl-menu__sublink {
   color: map.get($menu, 'mobile', 'item-color');
   display: block;
-  font: map.get($menu, 'mobile', 'item-font');
   padding: map.get($menu, 'mobile', 'subitem-padding');
   position: relative;
+
+  @include mixins.responsive-font(map.get($menu, 'mobile', 'item-font'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -897,11 +919,12 @@ $menu: null !default;
 
     .ecl-menu__sublink {
       break-inside: avoid-column;
-      font: map.get($menu, 'desktop', 'item-font');
       margin: 0;
       padding: map.get($menu, 'desktop', 'sublink-padding');
       white-space: normal;
       width: 100%;
+
+      @include mixins.responsive-font(map.get($menu, 'desktop', 'item-font'));
     }
 
     .ecl-menu__subitem--current .ecl-menu__sublink {

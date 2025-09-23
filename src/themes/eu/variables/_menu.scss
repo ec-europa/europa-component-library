@@ -49,6 +49,7 @@ $menu: (
   desktop: (
     menu-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     menu-border: none,
+    item-padding-block: 0,
     item-font: var(--f-m),
     item-background-hover: map.get($color, 'white'),
     item-background-focus: map.get($color, 'white'),
@@ -65,11 +66,11 @@ $menu: (
     item-current-margin: 0,
     item-current-font-weight: map.get($font-weight, 'regular'),
     separator-color: var(--c-p-60),
-    link-padding: calc(var(--s-s) + var(--s-2xs)) var(--s-2xs)
-      calc(var(--s-s) + var(--s-2xs)) var(--s-xs),
-    link-expanded-padding: calc(var(--s-s) + var(--s-2xs)) var(--s-2xs)
-      calc(var(--s-s) + var(--s-2xs) + 2px) var(--s-xs),
-    link-line-height: map.get($line-height, 'm'),
+    link-padding-block: calc(var(--s-s) + var(--s-2xs)),
+    link-padding-inline: var(--s-xs) var(--s-2xs),
+    link-expanded-padding-block: calc(var(--s-s) + var(--s-2xs))
+      calc(var(--s-s) + var(--s-2xs) + 2px),
+    link-expanded-padding-inline: var(--s-xs) var(--s-2xs),
     caret-padding: 0 var(--s-s),
     caret-focus-outline: var(--c-p),
     overflow-separator-width: 4px,
