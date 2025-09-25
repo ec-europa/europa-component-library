@@ -419,14 +419,17 @@
     #{map.get($color-palette, 'warm-grey-50')} 50%,
     transparent
   );
-  --cm-surface-low-1: var(--c-p-50);
-  --cm-surface-low-2: var(--c-p-100);
-  --cm-surface-medium: var(--c-p-200);
-  --cm-surface: var(--c-g-950);
+  --cm-surface-low-0: var(--c-p-50);
+  --cm-surface-low-1: var(--c-p-100);
+  --cm-surface-low-2: var(--c-p-200);
+  --cm-surface-medium-0: var(--c-p-200);
+  --cm-surface-medium-1: var(--c-p-300);
+  --cm-surface-0: var(--c-g-950);
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-100')};
   --cm-surface-variant-2: var(--c-g-950);
   --cm-surface-primary-lowest: var(--c-p-50);
-  --cm-surface-primary-low: var(--c-p-100);
+  --cm-surface-primary-low-0: var(--c-p-100);
+  --cm-surface-primary-low-1: var(--c-p-200);
   --cm-surface-primary-medium: var(--c-p-300);
   --cm-surface-primary: var(--c-p-600);
   --cm-surface-primary-high: var(--c-p-700);
@@ -438,7 +441,13 @@
   --cm-surface-neutral-lowest: var(--c-n-50);
   --cm-surface-neutral-low: var(--c-n-75);
   --cm-surface-neutral-medium: var(--c-n-200);
-  --cm-surface-grey-low: var(--c-g-50);
+  --cm-surface-neutral: var(--c-n-700);
+  --cm-surface-grey-low-0-transparent: color-mix(
+    in srgb,
+    var(--c-g-50) 50%,
+    transparent
+  );
+  --cm-surface-grey-low-0: var(--c-g-50);
   --cm-surface-grey-low-1: var(--c-g-75);
   --cm-surface-status-error-lowest: var(--c-er-50);
   --cm-surface-status-error: var(--c-er-600);
@@ -452,12 +461,12 @@
   // on surface
   --cm-on-surface-brand: var(--c-g-950);
   --cm-on-surface-inverted: #fff;
-  --cm-on-surface-swap-1: #fff;
-  --cm-on-surface-swap-2: var(--c-g-950);
+  --cm-on-surface-swap-0: #fff;
+  --cm-on-surface-swap-1: var(--c-g-950);
   --cm-on-surface: var(--c-p-600);
-  --cm-on-surface-variant-1: var(--c-s-400);
-  --cm-on-surface-variant-2: var(--c-p-300);
-  --cm-on-surface-variant-3: #fff;
+  --cm-on-surface-1: var(--c-s-400);
+  --cm-on-surface-2: var(--c-p-300);
+  --cm-on-surface-3: #fff;
   --cm-on-surface-highlight: var(--c-s-75);
   --cm-on-surface-primary: var(--c-p-600);
   --cm-on-surface-primary-highest: var(--c-p-800);
@@ -481,6 +490,7 @@
   --cm-border-medium: var(--c-p-500);
   --cm-border: var(--c-p-600);
   --cm-border-high: var(--c-p-700);
+  --cm-border-primary-medium: var(--c-p-300);
   --cm-border-primary: var(--c-p-600);
   --cm-border-primary-highest: var(--c-p-800);
   --cm-border-neutral: var(--c-n-75);
