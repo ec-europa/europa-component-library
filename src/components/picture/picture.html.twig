@@ -73,15 +73,23 @@
       {% elseif _source.media == 'xxl' %}
         {% set _source = _source|merge({'media': '(min-width: 1368px)'}) %}
       {% endif %}
-      <source 
+      <source
         {% if _source.src is not empty %}
-          srcset="{{ _source.src }}"
+          {% if _source['data-container-width'] is not empty %}
+            data-src="{{ _source.src }}"
+            data-container-width="{{ _source['data-container-width'] }}"
+          {% else %}
+            srcset="{{ _source.src }}"
+          {% endif %}
         {% endif %}
         {% if _source.media is not empty %}
           media="{{ _source.media }}"
         {% endif %}
         {% if _source.type is not empty %}
           type="{{ _source.type }}"
+        {% endif %}
+        {% if _source.sizes is not empty %}
+          sizes="{{ _source.sizes }}"
         {% endif %}
       >
     {% endfor %}

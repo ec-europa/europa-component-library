@@ -25,6 +25,7 @@ import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
 import SiteHeader from '@ecl/site-header';
+import Spotlight from '@ecl/spotlight';
 import Table from '@ecl/table';
 import Tabs from '@ecl/tabs';
 import Timeline from '@ecl/timeline';
@@ -55,6 +56,7 @@ const ECL = {
   Range,
   Select,
   SiteHeader,
+  Spotlight,
   Tabs,
   Table,
   Timeline,
