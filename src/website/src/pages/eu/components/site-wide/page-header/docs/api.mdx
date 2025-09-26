@@ -6,6 +6,42 @@ order: 3
 import React from 'react';
 import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
+## Setup
+
+This api refers to an optional element used in the page header, the `political advertisement`.
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="PoliticalAdv"` attribute to component's markup:
+
+```html
+<div class="ecl-political-adv" data-ecl-auto-init="PoliticalAdv">...</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with a class `ecl-political-adv` on the page:
+
+```js
+var elt = document.querySelector('.ecl-political-adv');
+var politicalAdv = new ECL.PoliticalAdv(elt);
+politicalAdv.init();
+```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('.ecl-popular-adv');
+var instance = ECL.components.get(elt);
+```
+
 ## API
 
 <Iframe url="../../../../../apis/PoliticalAdv.html" />
