@@ -64,10 +64,14 @@ const componentNames = [];
 
 files.forEach((file) => {
   const inputFile = path.resolve(dir, file);
-  const namespace = () =>
-    path.basename(file, '.js') === 'file'
-      ? 'FileDownload'
-      : capitalizeFirstLetter(path.basename(file, '.js'));
+  const namespace = () => {
+    const base = path.basename(file, '.js');
+
+    if (base === 'file') return 'FileDownload';
+    if (base === 'political-advertisement') return 'PoliticalAdv';
+
+    return capitalizeFirstLetter(base);
+  };
   const outputFile = path.resolve(outputDir, `${namespace()}.html`);
 
   try {

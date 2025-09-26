@@ -163,7 +163,7 @@ const prepareData = (data, args) => {
   } else {
     clone.picture_background = {};
   }
-  console.log(clone);
+
   correctPaths(clone);
 
   return clone;

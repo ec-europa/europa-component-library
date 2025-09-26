@@ -18,6 +18,7 @@ module.exports = {
     },
   },
   political_adv: {
+    panel_id: 'political-adv-panel-demo',
     title: 'POLITICAL ADVERTISEMENT',
     description: 'The sponsor is Business Name',
     note: 'More info:',

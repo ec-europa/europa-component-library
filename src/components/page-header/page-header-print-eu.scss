@@ -84,16 +84,18 @@ $page-header-print: null !default;
 .ecl-political-adv {
   background-color: var(--c-p-10);
   color: var(--cm-on-surface-brand);
-  padding-inline: map.get($theme, 'spacing-print', 'm');
 }
 
-.ecl-political-adv__expandable {
+.ecl-political-adv__header {
   background-color: var(--c-p-20);
   display: flex;
   font: map.get($theme, 'font-print', 'm');
-  margin-inline: calc(-1 * map.get($theme, 'spacing-print', 'm'));
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', '2xl');
+
+  .ecl-political-adv__title {
+    font-weight: 600;
+  }
 
   * {
     display: inline-flex;
@@ -102,13 +104,9 @@ $page-header-print: null !default;
   .ecl-political-adv__link {
     display: inline-block;
   }
-
-  &::-webkit-details-marker {
-    display: none;
-  }
 }
 
-.ecl-political-adv__expandable-icon {
+.ecl-political-adv__toggle {
   display: none;
 }
 

@@ -5,14 +5,16 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
   <div
     class="ecl-page-header ecl-page-header--image"
   >
-    <details
+    <div
       class="ecl-political-adv"
+      data-ecl-auto-init="PoliticalAdv"
     >
-      <summary
-        class="ecl-political-adv__expandable"
+      <div
+        class="ecl-political-adv__header"
+        data-ecl-political-adv-header=""
       >
         <span
-          class="ecl-political-adv__expandable-text"
+          class="ecl-political-adv__header-text"
         >
           <span
             class="ecl-political-adv__title"
@@ -31,6 +33,7 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           </span>
           <a
             class="ecl-link ecl-link--icon ecl-political-adv__link"
+            data-ecl-political-adv-header-link=""
             href="/example"
           >
             <span
@@ -44,66 +47,83 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
             />
           </a>
         </span>
-        <span
-          aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-political-adv__expandable-icon ecl-icon--corner-arrow"
-        />
-      </summary>
-      <div
-        class="ecl-political-adv__content"
-      >
-        <div
-          class="ecl-political-adv__list"
+        <button
+          aria-controls="political-adv-panel-demo"
+          aria-expanded="false"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-political-adv__toggle ecl-button--icon-only"
+          data-ecl-political-adv-toggle=""
+          type="submit"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list"
+          <span
+            class="ecl-button__container"
           >
-            <li
-              class="ecl-list-illustration__item"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+              expandable button
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-button__icon ecl-icon--corner-arrow"
+              data-ecl-icon=""
+            />
+          </span>
+        </button>
       </div>
-    </details>
+      <div
+        class="ecl-political-adv__panel"
+        hidden=""
+        id="political-adv-panel-demo"
+      >
+        <ul
+          class="ecl-list-illustration ecl-list-illustration--icon-list ecl-political-adv__list "
+        >
+          <li
+            class="ecl-list-illustration__item"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div
       aria-hidden="true"
       class="ecl-page-header__background-container"
@@ -228,14 +248,16 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
   <div
     class="ecl-page-header"
   >
-    <details
+    <div
       class="ecl-political-adv"
+      data-ecl-auto-init="PoliticalAdv"
     >
-      <summary
-        class="ecl-political-adv__expandable"
+      <div
+        class="ecl-political-adv__header"
+        data-ecl-political-adv-header=""
       >
         <span
-          class="ecl-political-adv__expandable-text"
+          class="ecl-political-adv__header-text"
         >
           <span
             class="ecl-political-adv__title"
@@ -254,6 +276,7 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
           </span>
           <a
             class="ecl-link ecl-link--icon ecl-political-adv__link"
+            data-ecl-political-adv-header-link=""
             href="/example"
           >
             <span
@@ -267,66 +290,83 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
             />
           </a>
         </span>
-        <span
-          aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-political-adv__expandable-icon ecl-icon--corner-arrow"
-        />
-      </summary>
-      <div
-        class="ecl-political-adv__content"
-      >
-        <div
-          class="ecl-political-adv__list"
+        <button
+          aria-controls="political-adv-panel-demo"
+          aria-expanded="false"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-political-adv__toggle ecl-button--icon-only"
+          data-ecl-political-adv-toggle=""
+          type="submit"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list"
+          <span
+            class="ecl-button__container"
           >
-            <li
-              class="ecl-list-illustration__item"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+              expandable button
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-button__icon ecl-icon--corner-arrow"
+              data-ecl-icon=""
+            />
+          </span>
+        </button>
       </div>
-    </details>
+      <div
+        class="ecl-political-adv__panel"
+        hidden=""
+        id="political-adv-panel-demo"
+      >
+        <ul
+          class="ecl-list-illustration ecl-list-illustration--icon-list ecl-political-adv__list "
+        >
+          <li
+            class="ecl-list-illustration__item"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div
       class="ecl-container"
     >
@@ -428,14 +468,16 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
   <div
     class="ecl-page-header"
   >
-    <details
+    <div
       class="ecl-political-adv"
+      data-ecl-auto-init="PoliticalAdv"
     >
-      <summary
-        class="ecl-political-adv__expandable"
+      <div
+        class="ecl-political-adv__header"
+        data-ecl-political-adv-header=""
       >
         <span
-          class="ecl-political-adv__expandable-text"
+          class="ecl-political-adv__header-text"
         >
           <span
             class="ecl-political-adv__title"
@@ -454,6 +496,7 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
           </span>
           <a
             class="ecl-link ecl-link--icon ecl-political-adv__link"
+            data-ecl-political-adv-header-link=""
             href="/example"
           >
             <span
@@ -467,66 +510,83 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
             />
           </a>
         </span>
-        <span
-          aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-political-adv__expandable-icon ecl-icon--corner-arrow"
-        />
-      </summary>
-      <div
-        class="ecl-political-adv__content"
-      >
-        <div
-          class="ecl-political-adv__list"
+        <button
+          aria-controls="political-adv-panel-demo"
+          aria-expanded="false"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-political-adv__toggle ecl-button--icon-only"
+          data-ecl-political-adv-toggle=""
+          type="submit"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list"
+          <span
+            class="ecl-button__container"
           >
-            <li
-              class="ecl-list-illustration__item"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+              expandable button
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-button__icon ecl-icon--corner-arrow"
+              data-ecl-icon=""
+            />
+          </span>
+        </button>
       </div>
-    </details>
+      <div
+        class="ecl-political-adv__panel"
+        hidden=""
+        id="political-adv-panel-demo"
+      >
+        <ul
+          class="ecl-list-illustration ecl-list-illustration--icon-list ecl-political-adv__list "
+        >
+          <li
+            class="ecl-list-illustration__item"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div
       class="ecl-container"
     >
@@ -616,14 +676,16 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <details
+    <div
       class="ecl-political-adv"
+      data-ecl-auto-init="PoliticalAdv"
     >
-      <summary
-        class="ecl-political-adv__expandable"
+      <div
+        class="ecl-political-adv__header"
+        data-ecl-political-adv-header=""
       >
         <span
-          class="ecl-political-adv__expandable-text"
+          class="ecl-political-adv__header-text"
         >
           <span
             class="ecl-political-adv__title"
@@ -642,6 +704,7 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
           </span>
           <a
             class="ecl-link ecl-link--icon ecl-political-adv__link"
+            data-ecl-political-adv-header-link=""
             href="/example"
           >
             <span
@@ -655,66 +718,83 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
             />
           </a>
         </span>
-        <span
-          aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-political-adv__expandable-icon ecl-icon--corner-arrow"
-        />
-      </summary>
-      <div
-        class="ecl-political-adv__content"
-      >
-        <div
-          class="ecl-political-adv__list"
+        <button
+          aria-controls="political-adv-panel-demo"
+          aria-expanded="false"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-political-adv__toggle ecl-button--icon-only"
+          data-ecl-political-adv-toggle=""
+          type="submit"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list"
+          <span
+            class="ecl-button__container"
           >
-            <li
-              class="ecl-list-illustration__item"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+              expandable button
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-button__icon ecl-icon--corner-arrow"
+              data-ecl-icon=""
+            />
+          </span>
+        </button>
       </div>
-    </details>
+      <div
+        class="ecl-political-adv__panel"
+        hidden=""
+        id="political-adv-panel-demo"
+      >
+        <ul
+          class="ecl-list-illustration ecl-list-illustration--icon-list ecl-political-adv__list "
+        >
+          <li
+            class="ecl-list-illustration__item"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div
       class="ecl-container"
     >
@@ -816,14 +896,16 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
   <div
     class="ecl-page-header custom-class custom-class--test"
   >
-    <details
+    <div
       class="ecl-political-adv"
+      data-ecl-auto-init="PoliticalAdv"
     >
-      <summary
-        class="ecl-political-adv__expandable"
+      <div
+        class="ecl-political-adv__header"
+        data-ecl-political-adv-header=""
       >
         <span
-          class="ecl-political-adv__expandable-text"
+          class="ecl-political-adv__header-text"
         >
           <span
             class="ecl-political-adv__title"
@@ -842,6 +924,7 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
           </span>
           <a
             class="ecl-link ecl-link--icon ecl-political-adv__link"
+            data-ecl-political-adv-header-link=""
             href="/example"
           >
             <span
@@ -855,66 +938,83 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
             />
           </a>
         </span>
-        <span
-          aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-political-adv__expandable-icon ecl-icon--corner-arrow"
-        />
-      </summary>
-      <div
-        class="ecl-political-adv__content"
-      >
-        <div
-          class="ecl-political-adv__list"
+        <button
+          aria-controls="political-adv-panel-demo"
+          aria-expanded="false"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-political-adv__toggle ecl-button--icon-only"
+          data-ecl-political-adv-toggle=""
+          type="submit"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list"
+          <span
+            class="ecl-button__container"
           >
-            <li
-              class="ecl-list-illustration__item"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+              expandable button
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-button__icon ecl-icon--corner-arrow"
+              data-ecl-icon=""
+            />
+          </span>
+        </button>
       </div>
-    </details>
+      <div
+        class="ecl-political-adv__panel"
+        hidden=""
+        id="political-adv-panel-demo"
+      >
+        <ul
+          class="ecl-list-illustration ecl-list-illustration--icon-list ecl-political-adv__list "
+        >
+          <li
+            class="ecl-list-illustration__item"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
+          >
+            <div
+              class="ecl-list-illustration__item-content"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
+              />
+              <div
+                class="ecl-list-illustration__detail"
+              >
+                <div
+                  class="ecl-list-illustration__description"
+                >
+                  (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div
       class="ecl-container"
     >
