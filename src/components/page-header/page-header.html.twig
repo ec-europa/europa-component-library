@@ -4,6 +4,13 @@
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of header
+    - "political_adv" (associative array) Political advertisement {
+        "title" (string)
+        "description" (string)
+        "note" (string)
+        "link" (object of type ECL link)
+        "lists" (array of list with illustration list objects)
+      }
     - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
     - "meta" (array) (default: []) Meta of header
@@ -33,6 +40,7 @@
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
 {% set _info_classes = 'ecl-page-header__info' %}
+{% set _political_adv = political_adv|default({}) %}
 
 {% set _extra_attributes = '' %}
 
@@ -71,6 +79,10 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
+{% if _political_adv is not empty %}
+  {% include '@ecl/page-header/political-advertisement.html.twig' with _political_adv only %}
+{% endif %}
+
   {% if _picture_background.img is not empty %}
     <div class="ecl-page-header__background-container" aria-hidden="true">
       {% include '@ecl/picture/picture.html.twig' with {

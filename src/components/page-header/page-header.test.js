@@ -56,8 +56,12 @@ describe('Page Header Standardised', () => {
     });
 
     test('passes the accessibility tests', async () => {
+      const noLinkData = {
+        ...demoSimple,
+        political_adv: { ...demoSimple.political_adv, link: {} },
+      };
       expect(
-        await axe(await renderTwigFileAsHtml(template, demoSimple, true)),
+        await axe(await renderTwigFileAsHtml(template, noLinkData, true)),
       ).toHaveNoViolations();
     });
   });

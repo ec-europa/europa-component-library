@@ -12,6 +12,7 @@ const getArgs = (data) => {
   const args = {
     show_breadcrumb: true,
     show_thumbnail: false,
+    show_political_adv: true,
     hide_title: false,
   };
 
@@ -49,6 +50,17 @@ const getArgTypes = (data) => {
     name: 'thumbnail',
     type: 'boolean',
     description: 'Toggle thumbnail visibility',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '{}' },
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_political_adv = {
+    name: 'political advertisement',
+    type: 'boolean',
+    description: 'Toggle element visibility',
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
@@ -130,6 +142,11 @@ const prepareData = (data, args) => {
   } else if (args.show_thumbnail && !clone.show_thumbnail) {
     clone.picture_thumbnail = demoContent.picture_thumbnail;
   }
+  if (!args.show_political_adv) {
+    delete clone.political_adv;
+  } else if (args.show_political_adv && !clone.show_political_adv) {
+    clone.political_adv = demoContent.political_adv;
+  }
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
@@ -146,7 +163,7 @@ const prepareData = (data, args) => {
   } else {
     clone.picture_background = {};
   }
-
+  console.log(clone);
   correctPaths(clone);
 
   return clone;

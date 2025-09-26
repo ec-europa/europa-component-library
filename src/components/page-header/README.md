@@ -13,6 +13,7 @@ npm install --save @ecl/page-header
 - **"description"** (string) (default: '') Description of header
 - **"picture_thumbnail"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
 - **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
+- **"political_adv"** (associative array) Political advertisement
 - **"meta"** (array) (default: []) Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

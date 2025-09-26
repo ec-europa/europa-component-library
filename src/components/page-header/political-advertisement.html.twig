@@ -1,0 +1,88 @@
+{% apply spaceless %}
+{#
+  Parameters:
+    - "title" (string) (default: '') Title of the expandable
+    - "description" (string) (default: '') Description of header
+    - "note" (string) (default: '')
+    - "lists" (array) (default: []) array of list with illustration objects
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('') %}
+{% set _description = description|default('') %}
+{% set _note = note|default('') %}
+{% set _link = link|default({}) %}
+{% set _lists = lists|default([]) %}
+{% set _content = content|default('') %}
+{% set _extra_attributes = '' %}
+{% set _css_class = "ecl-political-adv" %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<details
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <summary class="ecl-political-adv__expandable">
+    <span class="ecl-political-adv__expandable-text">
+    {% if _title is not empty %}
+      <span  class="ecl-political-adv__title">{{ _title }}</span>
+    {% endif %}
+    {% if _description is not empty %}
+      <span class="ecl-political-adv__description">{{ _description }}</span>
+    {% endif %}
+    {% if _note is not empty %}
+      <span class="ecl-political-adv__note">{{ _note }}</span>
+    {% endif %}
+    {% if _link is not empty %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        extra_classes: _link.extra_classes|default('') ~ 'ecl-political-adv__link',
+      }) only %}
+    {% endif %}
+    </span>
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: {
+        name: 'corner-arrow',
+        transform: 'flip-vertical',
+        size: 'm',
+      },
+      extra_classes: 'ecl-political-adv__expandable-icon' 
+    } only %}
+  </summary>
+  <div class="ecl-political-adv__content">
+    {% if _lists is not empty %}
+      {% for _list in _lists %}
+      <div class="ecl-political-adv__list">
+        {% include '@ecl/list-illustration/list-illustration.html.twig' with _list only %}
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% block content _content %}
+  </div>
+</details>
+
+{% endapply %}
