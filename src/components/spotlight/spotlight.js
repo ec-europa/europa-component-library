@@ -52,6 +52,10 @@ export class Spotlight {
     this.attachResizeListener = attachResizeListener;
     this.resizeTimer = null;
 
+    // Private variables
+    this.picture = null;
+    this.img = null;
+
     // Bind `this` for use in callbacks
     this.handleResize = this.handleResize.bind(this);
     this.updateImageSources = this.updateImageSources.bind(this);
@@ -70,13 +74,15 @@ export class Spotlight {
       window.addEventListener('resize', this.handleResize);
     }
 
-    // Initial setup - use requestAnimationFrame to ensure element is rendered
-    requestAnimationFrame(() => {
-      const picture = queryOne(this.pictureSelector, this.element);
-      if (picture) {
-        this.updateImageSources(picture, this.element.offsetWidth);
-      }
-    });
+    // Initial setup - hide image first, and use requestAnimationFrame to ensure element is rendered
+    this.picture = queryOne(this.pictureSelector, this.element);
+    this.img = this.picture.querySelector('img');
+    if (this.picture && this.img) {
+      this.img.classList.add('ecl-spotlight__image--hidden');
+      requestAnimationFrame(() => {
+        this.updateImageSources(this.element.offsetWidth);
+      });
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -123,7 +129,7 @@ export class Spotlight {
     this.resizeTimer = setTimeout(() => {
       const picture = queryOne(this.pictureSelector, this.element);
       if (picture) {
-        this.updateImageSources(picture, this.element.offsetWidth);
+        this.updateImageSources(this.element.offsetWidth);
       }
     }, 200);
   }
@@ -131,19 +137,18 @@ export class Spotlight {
   /**
    * Update image sources based on container width
    *
-   * @param {HTMLElement} picture - Picture element
    * @param {number} containerWidth - Container width in pixels
    * @fires Spotlight#onImageChange
    */
-  updateImageSources(picture, containerWidth) {
-    const sources = picture.querySelectorAll('source[data-container-width]');
-    const img = picture.querySelector('img');
-
-    if (!img) return;
+  updateImageSources(containerWidth) {
+    const sources = this.picture.querySelectorAll(
+      'source[data-container-width]',
+    );
+    if (!this.img) return;
 
     // Store the original src if not already stored
-    if (!img.dataset.originalSrc) {
-      img.dataset.originalSrc = img.src;
+    if (!this.img.dataset.originalSrc) {
+      this.img.dataset.originalSrc = this.img.src;
     }
 
     // Sort sources by container width (descending)
@@ -155,7 +160,7 @@ export class Spotlight {
 
     // Find the appropriate source based on container width
     let selectedSource = null;
-    let newSrc = img.dataset.originalSrc; // Default to original src
+    let newSrc = this.img.dataset.originalSrc; // Default to original src
 
     for (const source of sortedSources) {
       const minWidth = parseInt(source.dataset.containerWidth, 10);
@@ -167,17 +172,28 @@ export class Spotlight {
     }
 
     // Update the img src if it's different
-    if (img.src !== newSrc) {
-      const oldSrc = img.src;
-      img.src = newSrc;
+    if (this.img.src !== newSrc) {
+      const oldSrc = this.img.src;
+
+      // Wait for the new image to load before showing it
+      // eslint-disable-next-line no-undef
+      const tempImg = new Image();
+      tempImg.onload = () => {
+        this.img.src = newSrc;
+        this.img.classList.remove('ecl-spotlight__image--hidden');
+      };
+      tempImg.src = newSrc;
 
       const eventData = {
-        element: img,
+        element: this.img,
         oldSrc,
         newSrc,
         containerWidth,
       };
       this.trigger('onImageChange', eventData);
+    } else {
+      // If src is the same, just remove the hidden class
+      this.img.classList.remove('ecl-spotlight__image--hidden');
     }
   }
 
