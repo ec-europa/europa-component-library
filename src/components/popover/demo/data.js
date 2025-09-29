@@ -13,9 +13,8 @@ module.exports = {
     label: 'Popover',
     type: 'button',
     variant: 'tertiary',
-    icon_position: 'before',
     icon: {
-      name: 'share',
+      name: 'information-outline',
       size: 'm',
     },
   },
