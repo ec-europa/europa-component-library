@@ -180,12 +180,6 @@ export class DescriptionList {
       // Put focus on the first hidden item
       if (firstHiddenItem !== null) {
         firstHiddenItem.focus();
-
-        /* const link = queryOne('.ecl-link', firstItem);
-
-        if (link !== null) {
-          link.focus();
-        } */
       }
     }
   }
