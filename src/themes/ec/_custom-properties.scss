@@ -439,7 +439,12 @@
   --cm-surface-neutral-lowest: var(--c-n-50);
   --cm-surface-neutral-low: var(--c-n-75);
   --cm-surface-neutral-medium: var(--c-n-200);
-  --cm-surface-grey-low: var(--c-g-50);
+  --cm-surface-grey-low-0-transparent: color-mix(
+    in srgb,
+    var(--c-g-50) 50%,
+    transparent
+  );
+  --cm-surface-grey-low-0: var(--c-g-50);
   --cm-surface-grey-low-1: var(--c-g-75);
   --cm-surface-status-error-lowest: var(--c-er-50);
   --cm-surface-status-error: var(--c-er-600);
