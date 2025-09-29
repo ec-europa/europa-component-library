@@ -203,7 +203,7 @@ $page-header: null !default;
 
 .ecl-political-adv__more-link {
   color: var(--c-d);
-  font-weight: 500;
+  font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
 .ecl-political-adv__list {
