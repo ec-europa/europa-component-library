@@ -63,54 +63,58 @@
     class="ecl-political-adv__header"
     data-ecl-political-adv-header
   >
-    <div class="ecl-political-adv__header-text" style="--ecl-political-adv-separator: '{{ _separator }}'">
-    {% if _title is not empty %}
-      <span  class="ecl-political-adv__title">{{ _title }}</span>
-    {% endif %}
-    {% if _sponsor is not empty %}
-      <span class="ecl-political-adv__sponsor">{{ _sponsor }}</span>
-    {% endif %}
-    {% if _more is not empty %}
-      <span class="ecl-political-adv__more">{{ _more }}</span>
-    {% endif %}
-    {% if _more_link is not empty %}
-      {% include '@ecl/link/link.html.twig' with _more_link|merge({
-        extra_classes: _link.extra_classes|default('') ~ 'ecl-political-adv__more-link',
-        extra_attributes: _link.extra_attributes|default([])|merge([{
-          name: 'data-ecl-political-adv-header-link'
-        }]),
-      }) only %}
-    {% endif %}
-      {% block header_content _header_content %}
+    <div class="ecl-container">
+      <div class="ecl-political-adv__header-text" style="--ecl-political-adv-separator: '{{ _separator }}'">
+      {% if _title is not empty %}
+        <span  class="ecl-political-adv__title">{{ _title }}</span>
+      {% endif %}
+      {% if _sponsor is not empty %}
+        <span class="ecl-political-adv__sponsor">{{ _sponsor }}</span>
+      {% endif %}
+      {% if _more is not empty %}
+        <span class="ecl-political-adv__more">{{ _more }}</span>
+      {% endif %}
+      {% if _more_link is not empty %}
+        {% include '@ecl/link/link.html.twig' with _more_link|merge({
+          extra_classes: _link.extra_classes|default('') ~ 'ecl-political-adv__more-link',
+          extra_attributes: _link.extra_attributes|default([])|merge([{
+            name: 'data-ecl-political-adv-header-link'
+          }]),
+        }) only %}
+      {% endif %}
+        {% block header_content _header_content %}
+      </div>
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _toggle_label,
+        variant: 'tertiary',
+        style: 'neutral',
+        size: 'l',
+        icon: {
+          name: 'corner-arrow',
+          transform: 'flip-vertical',
+          size: 'm',
+        },
+        extra_classes: 'ecl-political-adv__toggle',
+        extra_attributes: [
+          { name: 'aria-controls', value: _panel_id },
+          { name: 'aria-expanded', value: 'false' },
+          { name: 'data-ecl-political-adv-toggle' },
+        ],
+      } only %}
     </div>
-    {% include '@ecl/button/button.html.twig' with {
-      hide_label: true,
-      label: _toggle_label,
-      variant: 'tertiary',
-      style: 'neutral',
-      size: 'l',
-      icon: {
-        name: 'corner-arrow',
-        transform: 'flip-vertical',
-        size: 'm',
-      },
-      extra_classes: 'ecl-political-adv__toggle',
-      extra_attributes: [
-        { name: 'aria-controls', value: _panel_id },
-        { name: 'aria-expanded', value: 'false' },
-        { name: 'data-ecl-political-adv-toggle' },
-      ],
-    } only %}
   </div>
   <div class="ecl-political-adv__panel" id="{{ _panel_id }}" hidden>
-    {% if _lists is not empty %}
-      {% for _list in _lists %}
-        {% include '@ecl/list-illustration/list-illustration.html.twig' with _list|merge({
-          extra_classes: 'ecl-political-adv__list ' ~ (_list.extra_classes ? _list.extra_classes : ''),
-        }) only %}
-      {% endfor %}
-    {% endif %}
-    {% block panel_content _panel_content %}
+    <div class="ecl-container">
+      {% if _lists is not empty %}
+        {% for _list in _lists %}
+          {% include '@ecl/list-illustration/list-illustration.html.twig' with _list|merge({
+            extra_classes: 'ecl-political-adv__list ' ~ (_list.extra_classes ? _list.extra_classes : ''),
+          }) only %}
+        {% endfor %}
+      {% endif %}
+      {% block panel_content _panel_content %}
+    </div>
   </div>
 </div>
 
