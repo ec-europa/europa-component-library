@@ -19,10 +19,10 @@ module.exports = {
   },
   political_adv: {
     panel_id: 'political-adv-panel-demo',
-    title: 'POLITICAL ADVERTISEMENT',
-    description: 'The sponsor is Business Name',
-    note: 'More info:',
-    link: {
+    title: 'political advertisement',
+    sponsor: 'The sponsor is Business Name',
+    more: 'More info:',
+    more_link: {
       link: {
         label: 'webpage link',
         path: '/example',
@@ -30,6 +30,7 @@ module.exports = {
       },
     },
     toggle_label: 'expandable button',
+    separator: '–',
     lists: [
       {
         icon_list: true,

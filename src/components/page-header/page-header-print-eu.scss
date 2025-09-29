@@ -101,7 +101,7 @@ $page-header-print: null !default;
     display: inline-flex;
   }
 
-  .ecl-political-adv__link {
+  .ecl-political-adv__more-link {
     display: inline-block;
   }
 }
@@ -110,12 +110,12 @@ $page-header-print: null !default;
   display: none;
 }
 
-.ecl-political-adv__note {
+.ecl-political-adv__more {
   margin-inline-end: map.get($theme, 'spacing-print', 'xs');
 }
 
-.ecl-political-adv__title::after,
-.ecl-political-adv__description::after {
-  content: '–';
+.ecl-political-adv__more::before,
+.ecl-political-adv__sponsor::before {
+  content: var(--ecl-political-adv-separator);
   margin-inline: map.get($theme, 'spacing-print', 'xs');
 }
