@@ -8,6 +8,7 @@ npm install --save @ecl/banner
 
 ### Parameters
 
+- **"id"** (string) (default: random): unique id of the banner
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"font_size"** (string) (default: 'm') Size of the title and description (can be 's', 'm', 'l')
