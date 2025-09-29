@@ -69,12 +69,12 @@ const getArgTypes = (story) => {
         description: 'Select a color mode typography',
         options: [
           'on-surface',
-          'on-surface-variant-1',
-          'on-surface-variant-2',
-          'on-surface-variant-3',
+          'on-surface-1',
+          'on-surface-2',
+          'on-surface-3',
           'on-surface-highlight',
+          'on-surface-swap-0',
           'on-surface-swap-1',
-          'on-surface-swap-2',
         ],
         table: {
           type: { summary: 'string' },
@@ -82,12 +82,12 @@ const getArgTypes = (story) => {
         },
         mapping: {
           'on-surface': 'on-surface',
-          'on-surface-variant-1': 'on-surface-variant-1',
-          'on-surface-variant-2': 'on-surface-variant-2',
-          'on-surface-variant-3': 'on-surface-variant-3',
+          'on-surface-1': 'on-surface-1',
+          'on-surface-2': 'on-surface-2',
+          'on-surface-3': 'on-surface-3',
           'on-surface-highlight': 'on-surface-highlight',
+          'on-surface-swap-0': 'on-surface-swap-0',
           'on-surface-swap-1': 'on-surface-swap-1',
-          'on-surface-swap-2': 'on-surface-swap-2',
         },
         if: { arg: 'show_color_mode' },
       };
