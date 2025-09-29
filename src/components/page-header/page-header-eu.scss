@@ -216,8 +216,17 @@ $page-header: null !default;
 }
 
 .ecl-political-adv__list {
+  + .ecl-political-adv__list {
+    margin-block-start: var(--s-xs);
+  }
+
+  .ecl-list-illustration__divider,
   .ecl-list-illustration__item {
     padding-block-end: var(--s-xs);
+  }
+
+  &.ecl-list-illustration--col-2 .ecl-list-illustration__item {
+    margin-block-end: var(--s-xs);
   }
 
   .ecl-list-illustration__sponsor {
