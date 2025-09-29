@@ -221,6 +221,10 @@ $page-header: null !default;
     width: var(--s-s);
     margin-inline-end: var(--s-2xs);
   }
+
+  .ecl-list-illustration__description {
+    font: var(--f-s);
+  }
 }
 
 @include breakpoints.up('s') {
@@ -249,10 +253,6 @@ $page-header: null !default;
   .ecl-political-adv__more::before {
     content: var(--ecl-political-adv-separator);
     margin-inline: var(--s-2xs);
-  }
-
-  .ecl-political-adv__list .ecl-list-illustration__description {
-    font: var(--f-s);
   }
 }
 
