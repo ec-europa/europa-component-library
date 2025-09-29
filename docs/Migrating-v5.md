@@ -289,7 +289,7 @@ A parameter has been added in the twig template `featured_priority` so that this
 
 ### Notification
 
-The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed, but the default one should be updated.
+The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
 
 ### Radio
 

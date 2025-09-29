@@ -36,6 +36,17 @@
   {% set _css_class = _css_class ~ ' ecl-notification--' ~ _variant %}
 {% endif %}
 
+{% if _variant == 'info' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('information-outline')}) %}
+{% elseif _variant == 'success' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('success-outline')}) %}
+{% elseif _variant == 'warning' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('warning-outline')}) %}
+{% elseif _variant == 'error' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('error-outline')}) %}
+{% endif %}
+{% set _icon = _icon|merge({ size: _icon.size|default('l')}) %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
