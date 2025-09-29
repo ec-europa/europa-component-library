@@ -47,7 +47,7 @@
   {% if _variant == 'information' %}
     {% set _header_icon = 'information-outline' %}
   {% elseif _variant == 'success' %}
-    {% set _header_icon = 'check-filled' %}
+    {% set _header_icon = 'success-outline' %}
   {% elseif _variant == 'warning' %}
     {% set _header_icon = 'warning-outline' %}
   {% elseif _variant == 'error' %}
@@ -99,9 +99,6 @@
         {% if _header_icon is not empty or _header is not empty or block('header') is not empty %} 
           <div class="ecl-modal__header-content" id="{{ _id }}-header">
           {%- if _header_icon is not empty -%}
-            {% if _variant == 'warning' and _header_icon == 'warning' %}
-              <span class="ecl-modal__icon-background"></span>
-            {% endif %}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 name: _header_icon,
