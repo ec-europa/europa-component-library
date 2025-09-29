@@ -63,7 +63,7 @@
     class="ecl-political-adv__header"
     data-ecl-political-adv-header
   >
-    <span class="ecl-political-adv__header-text" style="--ecl-political-adv-separator: '{{ _separator }}'">
+    <div class="ecl-political-adv__header-text" style="--ecl-political-adv-separator: '{{ _separator }}'">
     {% if _title is not empty %}
       <span  class="ecl-political-adv__title">{{ _title }}</span>
     {% endif %}
@@ -81,7 +81,8 @@
         }]),
       }) only %}
     {% endif %}
-    </span>
+      {% block header_content _header_content %}
+    </div>
     {% include '@ecl/button/button.html.twig' with {
       hide_label: true,
       label: _toggle_label,
@@ -100,7 +101,6 @@
         { name: 'data-ecl-political-adv-toggle' },
       ],
     } only %}
-    {% block header_content _header_content %}
   </div>
   <div class="ecl-political-adv__panel" id="{{ _panel_id }}" hidden>
     {% if _lists is not empty %}
