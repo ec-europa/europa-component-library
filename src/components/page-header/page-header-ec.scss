@@ -161,7 +161,10 @@ $page-header: null !default;
 .ecl-political-adv__title {
   display: block;
   font-weight: map.get($theme, 'font-weight', 'semi-bold');
+  letter-spacing: map.get($theme, 'letter-spacing', 'l');
   text-transform: uppercase;
+
+  @include mixins.responsive-font('body-m');
 }
 
 .ecl-political-adv__sponsor {
@@ -210,6 +213,10 @@ $page-header: null !default;
   .ecl-list-illustration__divider,
   .ecl-list-illustration__item {
     padding-block-end: var(--s-2xs);
+
+    .ecl-list-illustration__description {
+      max-width: 900px;
+    }
   }
 
   &.ecl-list-illustration--col-2 .ecl-list-illustration__item {
@@ -269,7 +276,17 @@ $page-header: null !default;
     margin-inline: var(--s-3xs);
   }
 
-  .ecl-political-adv__list .ecl-icon {
-    margin-inline-end: var(--s-xs);
+  .ecl-political-adv__panel {
+    padding-block: var(--s-m);
+  }
+
+  .ecl-political-adv__list {
+    .ecl-list-illustration__item {
+      padding-block-end: var(--s-3xs);
+    }
+
+    .ecl-icon {
+      margin-inline-end: var(--s-xs);
+    }
   }
 }

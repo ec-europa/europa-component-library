@@ -22,6 +22,7 @@ npm install --save @ecl/page-header
   - "lists" (default: [])
   - "more_link" (default: {})
   - "toggle_label" (default: '')
+  - "toggle_extra_attributes" (default: '')
   - "separator" (default: '')
   - "header_content" (default: '') if a link is provided the attribute data-ecl-political-adv-header-link needs to be added to it.
   - "panel_content" (default: '')

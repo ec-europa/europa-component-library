@@ -9,7 +9,9 @@
     - "lists" (array) (default: []) array of list with illustration objects
     - "separator" (string) (default: "–" )
     - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format: [
+    - "toggle_extra_attributes" (array) (default: []) Custom attributes for the toggle button 
+    - "extra_attributes" (array) (default: [])
+      format: [
         {
           "name" (string) (default: ''),
           "value" (optional) (string)
@@ -35,6 +37,7 @@
 {% set _panel_content = panel_content|default('') %}
 {% set _separator = separator|e('html_attr')|default('–') %}
 {% set _extra_attributes = '' %}
+{% set _toggle_extra_attributes = toggle_extra_attributes|default([]) %}
 {% set _css_class = "ecl-political-adv" %}
 
 {# Internal logic - Process properties #}
@@ -97,11 +100,11 @@
           size: 'm',
         },
         extra_classes: 'ecl-political-adv__toggle',
-        extra_attributes: [
+        extra_attributes: _toggle_extra_attributes|merge([
           { name: 'aria-controls', value: _panel_id },
           { name: 'aria-expanded', value: 'false' },
           { name: 'data-ecl-political-adv-toggle' },
-        ],
+        ]),
       } only %}
     </div>
   </div>

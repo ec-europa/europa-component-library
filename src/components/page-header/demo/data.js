@@ -30,6 +30,7 @@ module.exports = {
       },
     },
     toggle_label: 'expandable button',
+    toggle_extra_attributes: [{ name: 'data-test-custom-toggle-attribute' }],
     separator: '–',
     lists: [
       {
