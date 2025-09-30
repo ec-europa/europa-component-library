@@ -24,22 +24,26 @@ $notification: (
   link-color-hover: var(--cm-on-surface-grey),
   info: (
     background: var(--cm-surface-status-info-lowest),
-    color: var(--cm-border-status-info),
+    color: var(--cm-on-surface-status-info),
+    border-start-color: var(--cm-border-status-info),
     border-color: transparent,
   ),
   success: (
     background: var(--cm-surface-status-success-lowest),
-    color: var(--cm-border-status-success),
+    color: var(--cm-on-surface-status-success),
+    border-start-color: var(--cm-border-status-success),
     border-color: transparent,
   ),
   warning: (
     background: var(--cm-surface-status-warning-lowest),
-    color: var(--cm-border-status-warning),
+    color: var(--cm-on-surface-status-warning),
+    border-start-color: var(--cm-border-status-warning),
     border-color: transparent,
   ),
   error: (
     background: var(--cm-surface-status-error-lowest),
-    color: var(--cm-border-status-error),
+    color: var(--cm-on-surface-status-error),
+    border-start-color: var(--cm-border-status-error),
     border-color: transparent,
   ),
 );

@@ -99,7 +99,8 @@ $notification: null !default;
 .ecl-notification--info {
   background: map.get($notification, 'info', 'background');
   border-color: map.get($notification, 'info', 'border-color');
-  border-inline-start: 4px solid map.get($notification, 'info', 'color');
+  border-inline-start: 4px solid
+    map.get($notification, 'info', 'border-start-color');
 
   .ecl-notification__icon {
     fill: map.get($notification, 'info', 'color');
@@ -110,7 +111,8 @@ $notification: null !default;
 .ecl-notification--success {
   background: map.get($notification, 'success', 'background');
   border-color: map.get($notification, 'success', 'border-color');
-  border-inline-start: 4px solid map.get($notification, 'success', 'color');
+  border-inline-start: 4px solid
+    map.get($notification, 'success', 'border-start-color');
 
   .ecl-notification__icon {
     fill: map.get($notification, 'success', 'color');
@@ -121,22 +123,11 @@ $notification: null !default;
 .ecl-notification--warning {
   background: map.get($notification, 'warning', 'background');
   border-color: map.get($notification, 'warning', 'border-color');
-  border-inline-start: 4px solid map.get($notification, 'warning', 'color');
+  border-inline-start: 4px solid
+    map.get($notification, 'warning', 'border-start-color');
 
   .ecl-notification__icon {
     fill: map.get($notification, 'warning', 'color');
-  }
-}
-
-@include breakpoints.up('m') {
-  .ecl-notification--warning .ecl-notification__icon-background {
-    left: map.get($notification, 'warning', 'icon-background-left');
-    top: map.get($notification, 'warning', 'icon-background-top');
-
-    &:dir(rtl) {
-      left: auto;
-      right: map.get($notification, 'warning', 'icon-background-left');
-    }
   }
 }
 
@@ -144,7 +135,8 @@ $notification: null !default;
 .ecl-notification--error {
   background: map.get($notification, 'error', 'background');
   border-color: map.get($notification, 'error', 'border-color');
-  border-inline-start: 4px solid map.get($notification, 'error', 'color');
+  border-inline-start: 4px solid
+    map.get($notification, 'error', 'border-start-color');
 
   .ecl-notification__icon {
     fill: map.get($notification, 'error', 'color');
