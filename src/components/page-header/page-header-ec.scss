@@ -153,6 +153,7 @@ $page-header: null !default;
   padding-block: var(--s-s);
 
   * {
+    color: var(--cm-on-surface-brand);
     max-width: var(--max-w);
   }
 }
@@ -192,6 +193,7 @@ $page-header: null !default;
 }
 
 .ecl-political-adv__panel {
+  font-family: map.get($theme, 'font-family', 'default');
   padding-block: var(--s-s);
 }
 

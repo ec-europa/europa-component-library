@@ -170,6 +170,11 @@ $page-header: null !default;
 .ecl-political-adv__header-text {
   flex-grow: 1;
   padding-block: var(--s-s);
+
+  * {
+    color: var(--c-d);
+    max-width: var(--max-w);
+  }
 }
 
 .ecl-political-adv__title {
@@ -207,6 +212,7 @@ $page-header: null !default;
 }
 
 .ecl-political-adv__panel {
+  font-family: map.get($theme, 'font-family', 'default');
   padding-block: var(--s-xs);
 }
 
