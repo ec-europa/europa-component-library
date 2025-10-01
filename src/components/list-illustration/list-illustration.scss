@@ -348,9 +348,13 @@ body {
     padding-block-end: var(--s-s);
     padding-block-start: 0;
 
-    &:last-child .ecl-list-illustration__item-content {
-      border-block-end: none;
+    &:last-child {
       padding-block-end: 0;
+
+      .ecl-list-illustration__item-content {
+        border-block-end: none;
+        padding-block-end: 0;
+      }
     }
   }
 
@@ -383,10 +387,6 @@ body {
 
   .ecl-list-illustration__description {
     margin: 0;
-
-    @include mixins.responsive-font(
-      map.get($list-illustration, 'description', 'font')
-    );
   }
 
   @include breakpoints.up('m') {
@@ -397,7 +397,7 @@ body {
     .ecl-list-illustration__icon {
       height: map.get($theme, 'icon', 'l');
       width: map.get($theme, 'icon', 'l');
-      margin-inline-end: var(--s-m);
+      margin-inline-end: var(--s-s);
     }
   }
 
@@ -430,6 +430,7 @@ body {
 
         .ecl-list-illustration__divider {
           border-block-end: none;
+          padding-block-end: 0;
         }
       }
     }
@@ -483,7 +484,6 @@ body {
 
     .ecl-list-illustration__item-content {
       display: flex;
-      align-self: center;
       padding-inline-start: calc(
         var(--ecl-list-illustration-counter-size) +
           var(--ecl-list-illustration-counter-spacing)
@@ -492,7 +492,7 @@ body {
 
     .ecl-list-illustration__divider {
       padding-block-end: var(--s-xl);
-      margin-block-end: var(--s-xs);
+      margin-block-end: var(--s-s);
     }
 
     .ecl-list-illustration__title {
@@ -533,6 +533,10 @@ body {
       &::before {
         font: map.get($list-illustration, 'counter', 'font-desktop');
       }
+
+      .ecl-list-illustration__divider {
+        margin-block-end: 0;
+      }
     }
   }
 
@@ -550,6 +554,7 @@ body {
 
         .ecl-list-illustration__divider {
           border-block-end: none;
+          padding-block-end: 0;
         }
       }
     }

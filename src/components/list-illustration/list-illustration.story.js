@@ -485,6 +485,7 @@ const prepareDataList = (data, args) => {
 const prepareIconList = (data, args) => {
   data.items.forEach((item) => {
     item.description = args.description;
+    item.title = args.title;
 
     if (args.icon) {
       item.icon.name = args.icon;
