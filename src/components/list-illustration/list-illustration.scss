@@ -458,9 +458,13 @@ body {
     padding-block-start: 0;
     position: relative;
 
-    &:last-child .ecl-list-illustration__item-content {
-      border-block-end: none;
+    &:last-child {
       padding-block-end: 0;
+
+      .ecl-list-illustration__item-content {
+        border-block-end: none;
+        padding-block-end: 0;
+      }
     }
 
     &::before {
