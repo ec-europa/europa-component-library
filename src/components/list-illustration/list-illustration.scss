@@ -439,7 +439,7 @@ body {
 
 // number list
 .ecl-list-illustration--number-list {
-  --ecl-list-illustration-counter-size: 2rem;
+  --ecl-list-illustration-counter-size: 1.75rem;
   --ecl-list-illustration-counter-spacing: var(--s-2xs);
 
   &.ecl-list-illustration--number-list-reset {
@@ -471,7 +471,7 @@ body {
       content: counter(ecl-list-illustration-counter, decimal-leading-zero);
       width: var(--ecl-list-illustration-counter-size);
       height: var(--ecl-list-illustration-counter-size);
-      border: 2px solid var(--cm-border-low, var(--c-p-20));
+      border: 2px solid var(--cm-border-medium, var(--c-p-20));
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -512,21 +512,26 @@ body {
   }
 
   @include breakpoints.up('m') {
-    --ecl-list-illustration-counter-size: 3rem;
+    --ecl-list-illustration-counter-size: 2.75rem;
     --ecl-list-illustration-counter-spacing: var(--s-s);
 
     .ecl-list-illustration__item {
       padding-block-end: var(--s-m);
 
       &::before {
+        border-color: var(--cm-border-low, var(--c-p-20));
         border-width: 4px;
         font: map.get($list-illustration, 'counter', 'font-tablet');
+      }
+
+      .ecl-list-illustration__divider {
+        margin-block-end: var(--s-xs);
       }
     }
   }
 
   @include breakpoints.up('xl') {
-    --ecl-list-illustration-counter-size: 3.25rem;
+    --ecl-list-illustration-counter-size: 3rem;
 
     .ecl-list-illustration__item {
       padding-block-end: map.get(
@@ -535,6 +540,7 @@ body {
       );
 
       &::before {
+        border-color: var(--cm-border-low, var(--c-p-20));
         font: map.get($list-illustration, 'counter', 'font-desktop');
       }
 
