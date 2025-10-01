@@ -20,7 +20,7 @@
 
   Blocks:
     - header_content (default: '') Content of the header
-      if a link is provided the attribute data-ecl-political-adv-header-link needs to be added to it.
+      if a link is provided the attribute data-ecl-page-header-expandable-header-link needs to be added to it.
     - panel_content (default: '') Content of the hidden panel
 #}
 
@@ -32,13 +32,13 @@
 {% set _more_link = more_link|default({}) %}
 {% set _toggle_label = toggle_label|default('') %}
 {% set _lists = lists|default([]) %}
-{% set _panel_id = panel_id|default('ecl-political-adv-panel-' ~ random()) %}
+{% set _panel_id = panel_id|default('ecl-page-header-expandable-panel-' ~ random()) %}
 {% set _header_content = header_content|default('') %}
 {% set _panel_content = panel_content|default('') %}
 {% set _separator = separator|e('html_attr')|default('–') %}
 {% set _extra_attributes = '' %}
 {% set _toggle_extra_attributes = toggle_extra_attributes|default([]) %}
-{% set _css_class = "ecl-political-adv" %}
+{% set _css_class = "ecl-page-header-expandable" %}
 
 {# Internal logic - Process properties #}
 
@@ -61,28 +61,28 @@
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
-  data-ecl-auto-init="PoliticalAdv"
+  data-ecl-auto-init="PageHeaderExpandable"
 >
   <div
-    class="ecl-political-adv__header"
-    data-ecl-political-adv-header
+    class="ecl-page-header-expandable__header"
+    data-ecl-page-header-expandable-header
   >
     <div class="ecl-container">
-      <div class="ecl-political-adv__header-text" style="--ecl-political-adv-separator: '{{ _separator }}'">
+      <div class="ecl-page-header-expandable__header-text" style="--ecl-page-header-expandable-separator: '{{ _separator }}'">
       {% if _title is not empty %}
-        <span  class="ecl-political-adv__title">{{ _title }}</span>
+        <span  class="ecl-page-header-expandable__title">{{ _title }}</span>
       {% endif %}
       {% if _sponsor is not empty %}
-        <span class="ecl-political-adv__sponsor">{{ _sponsor }}</span>
+        <span class="ecl-page-header-expandable__sponsor">{{ _sponsor }}</span>
       {% endif %}
       {% if _more is not empty %}
-        <span class="ecl-political-adv__more">{{ _more }}</span>
+        <span class="ecl-page-header-expandable__more">{{ _more }}</span>
       {% endif %}
       {% if _more_link is not empty %}
         {% include '@ecl/link/link.html.twig' with _more_link|merge({
-          extra_classes: _link.extra_classes|default('') ~ 'ecl-political-adv__more-link',
+          extra_classes: _link.extra_classes|default('') ~ 'ecl-page-header-expandable__more-link',
           extra_attributes: _link.extra_attributes|default([])|merge([{
-            name: 'data-ecl-political-adv-header-link'
+            name: 'data-ecl-page-header-expandable-header-link'
           }]),
         }) only %}
       {% endif %}
@@ -99,21 +99,21 @@
           transform: 'flip-vertical',
           size: 'm',
         },
-        extra_classes: 'ecl-political-adv__toggle',
+        extra_classes: 'ecl-page-header-expandable__toggle',
         extra_attributes: _toggle_extra_attributes|merge([
           { name: 'aria-controls', value: _panel_id },
           { name: 'aria-expanded', value: 'false' },
-          { name: 'data-ecl-political-adv-toggle' },
+          { name: 'data-ecl-page-header-expandable-toggle' },
         ]),
       } only %}
     </div>
   </div>
-  <div class="ecl-political-adv__panel" id="{{ _panel_id }}" hidden>
+  <div class="ecl-page-header-expandable__panel" id="{{ _panel_id }}" hidden>
     <div class="ecl-container">
       {% if _lists is not empty %}
         {% for _list in _lists %}
           {% include '@ecl/list-illustration/list-illustration.html.twig' with _list|merge({
-            extra_classes: 'ecl-political-adv__list ' ~ (_list.extra_classes ? _list.extra_classes : ''),
+            extra_classes: 'ecl-page-header-expandable__list ' ~ (_list.extra_classes ? _list.extra_classes : ''),
           }) only %}
         {% endfor %}
       {% endif %}

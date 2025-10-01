@@ -17,8 +17,8 @@ module.exports = {
       alt: 'Europe map',
     },
   },
-  political_adv: {
-    panel_id: 'political-adv-panel-demo',
+  expandable: {
+    panel_id: 'page-header-expandable-panel-demo',
     title: 'political advertisement',
     sponsor: 'The sponsor is Business Name',
     more: 'More info:',
