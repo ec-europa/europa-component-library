@@ -79,3 +79,43 @@ $page-header-print: null !default;
     width: 100%;
   }
 }
+
+// Political advertisement
+.ecl-political-adv {
+  background-color: var(--c-p-10);
+  color: var(--cm-on-surface-brand);
+}
+
+.ecl-political-adv__header {
+  background-color: var(--c-p-20);
+  display: flex;
+  font: map.get($theme, 'font-print', 'm');
+  padding: map.get($theme, 'spacing-print', 's')
+    map.get($theme, 'spacing-print', '2xl');
+
+  .ecl-political-adv__title {
+    font-weight: 600;
+  }
+
+  * {
+    display: inline-flex;
+  }
+
+  .ecl-political-adv__more-link {
+    display: inline-block;
+  }
+}
+
+.ecl-political-adv__toggle {
+  display: none;
+}
+
+.ecl-political-adv__more {
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-political-adv__more::before,
+.ecl-political-adv__sponsor::before {
+  content: var(--ecl-political-adv-separator);
+  margin-inline: map.get($theme, 'spacing-print', 'xs');
+}
