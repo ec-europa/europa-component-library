@@ -731,9 +731,25 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0-alpha.16
         version: link:../../layout/grid
+      '@ecl/link':
+        specifier: 5.0.0-alpha.16
+        version: link:../link
+      '@ecl/list-illustration':
+        specifier: 5.0.0-alpha.16
+        version: link:../list-illustration
       '@ecl/picture':
         specifier: 5.0.0-alpha.16
         version: link:../picture
+    devDependencies:
+      '@ecl/dom-utils':
+        specifier: 5.0.0-alpha.16
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 5.0.0-alpha.16
+        version: link:../../tools/event-manager
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.16
+        version: link:../../mixins/typography
 
   src/components/pagination:
     dependencies:
