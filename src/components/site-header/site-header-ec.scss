@@ -227,15 +227,7 @@ $language-list: null !default;
   display: flex;
 
   .ecl-notification {
-    background: var(--cm-surface-inverted);
-    border-block: 1px solid var(--cm-border-neutral);
-    border-inline-end: 1px solid var(--cm-border-neutral);
     margin: 0 0 var(--s-m);
-  }
-
-  .ecl-notification__description,
-  .ecl-notification__link {
-    font: var(--f-s);
   }
 }
 
@@ -371,6 +363,12 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 }
 
+@include breakpoints.up('l') {
+  .ecl-site-header__notification .ecl-notification {
+    margin-block-end: var(--s-2xl);
+  }
+}
+
 @include breakpoints.up('xl') {
   .ecl-site-header {
     .ecl-site-header__cta {
@@ -403,10 +401,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     .ecl-mega-menu__overlay,
     .ecl-mega-menu__inner {
       top: 0;
-    }
-
-    .ecl-site-header__notification .ecl-notification {
-      margin-block-end: var(--s-2xl);
     }
   }
 
