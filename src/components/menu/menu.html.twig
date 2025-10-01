@@ -107,6 +107,7 @@
       {% include '@ecl/button/button.html.twig' with _toggle|merge({
         type: 'button',
         variant: 'tertiary',
+        style: 'neutral',
         icon_position: 'before',
         icon: _toggle_icon,
         hide_label: true,
@@ -123,7 +124,7 @@
         {% if _close is not empty %}
           {% include '@ecl/button/button.html.twig' with _close|merge({
             type: 'submit',
-            variant: 'ghost',
+            variant: 'tertiary',
             extra_classes: 'ecl-menu__close',
             extra_attributes: [{
               name: 'data-ecl-menu-close',
@@ -136,7 +137,7 @@
         {% if _back_label is not empty %}
           {% include '@ecl/button/button.html.twig' with ({
             type: 'submit',
-            variant: 'ghost',
+            variant: 'tertiary',
             label: _back_label,
             icon: {
               name: 'corner-arrow',
@@ -154,7 +155,7 @@
 
       {% include '@ecl/button/button.html.twig' with {
         type: 'button',
-        variant: 'ghost',
+        variant: 'tertiary',
         icon_position: 'before',
         icon: {
           size: 's',
@@ -172,7 +173,7 @@
 
       {% include '@ecl/button/button.html.twig' with {
         type: 'button',
-        variant: 'ghost',
+        variant: 'tertiary',
         icon_position: 'before',
         icon: {
           size: 's',

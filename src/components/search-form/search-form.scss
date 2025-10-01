@@ -41,7 +41,7 @@ $button-border-width: 1px;
   width: 100%;
 }
 
-.ecl-search-form__button {
+.ecl-search-form .ecl-search-form__button {
   border-bottom: $button-border-width solid
     map.get($search-form, 'button-border-color');
   border-end-start-radius: 0;
@@ -61,10 +61,6 @@ $button-border-width: 1px;
 
   &:focus-visible {
     outline-offset: -2px;
-  }
-
-  &.ecl-button--ghost:not(:hover, :focus-visible) {
-    background-color: #fff;
   }
 
   &::before {

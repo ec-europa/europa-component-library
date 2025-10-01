@@ -254,7 +254,8 @@ module.exports = {
       placeholder: 'Placeholder text',
     },
     button: {
-      variant: 'ghost',
+      variant: 'tertiary',
+      style: 'neutral',
       label: 'Search',
     },
     extra_attributes: [
@@ -285,7 +286,7 @@ module.exports = {
   notification: {
     variant: 'info',
     icon: {
-      name: 'information',
+      name: 'information-outline',
       size: 'l',
     },
     close: {

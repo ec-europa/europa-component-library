@@ -1,12 +1,28 @@
 // Simple content for demo
 module.exports = {
-  variant: 'error',
+  variant: 'warning',
   icon: {
-    name: 'error',
+    name: 'warning-outline',
     size: 'l',
   },
-  sr_icon: 'Error',
-  title: 'Error notification',
+  links: [
+    {
+      link: {
+        label: 'Lorem ipsum',
+        path: '/example',
+        external: true,
+      },
+    },
+    {
+      link: {
+        label: 'Nullam accumsan semper lorem',
+        path: '/example',
+        external: true,
+      },
+    },
+  ],
+  sr_icon: 'Warning',
+  title: 'Warning notification',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
   close: {

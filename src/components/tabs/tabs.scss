@@ -141,6 +141,7 @@ $button-width: 44px;
   // stylelint-disable plugin/selector-bem-pattern
   &[aria-expanded='true'] {
     background-color: map.get($tabs, 'more', 'background-open');
+    border-color: map.get($tabs, 'more', 'border-color-open');
     color: map.get($tabs, 'more', 'color-open');
 
     .ecl-button__icon {

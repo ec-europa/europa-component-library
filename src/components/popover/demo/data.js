@@ -12,10 +12,9 @@ module.exports = {
   toggle: {
     label: 'Popover',
     type: 'button',
-    variant: 'ghost',
-    icon_position: 'before',
+    variant: 'tertiary',
     icon: {
-      name: 'share',
+      name: 'information-outline',
       size: 'm',
     },
   },

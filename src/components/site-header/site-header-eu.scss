@@ -123,6 +123,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__header {
+  background-color: map.get($site-header, 'background-color');
   position: relative;
   z-index: 54;
 
@@ -341,9 +342,9 @@ $language-list: null !default;
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
-    font-size: 0;
-    line-height: 0;
-    padding: calc(var(--s-xs) - 1px) 0;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: calc(var(--s-xs) - 1px) 0 !important;
 
     &.ecl-link {
       .ecl-link__label {
