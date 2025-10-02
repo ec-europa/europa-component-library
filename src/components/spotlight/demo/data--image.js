@@ -8,24 +8,24 @@ module.exports = {
   picture: {
     sources: [
       {
-        src: 'https://placehold.co/1920x640',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
         media: 'all and (min-width: 1368px)',
       },
       {
-        src: 'https://placehold.co/1368x684',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
         media: 'all and (min-width: 1140px)',
       },
       {
-        src: 'https://placehold.co/996x498',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
         media: 'all and (min-width: 996px)',
       },
       {
-        src: 'https://placehold.co/996x498',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
         media: 'all and (min-width: 768px)',
       },
     ],
     img: {
-      src: 'https://placehold.co/768x768',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       alt: 'alternative text',
     },
   },
