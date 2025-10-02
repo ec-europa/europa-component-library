@@ -533,7 +533,11 @@ importers:
         specifier: 5.0.0-alpha.16
         version: link:../../resources/icons
 
-  src/components/indicator: {}
+  src/components/indicator:
+    devDependencies:
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.16
+        version: link:../../utilities/screen-reader
 
   src/components/inpage-navigation:
     dependencies:
