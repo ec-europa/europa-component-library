@@ -17,4 +17,42 @@ module.exports = {
       alt: 'Europe map',
     },
   },
+  expandable: {
+    panel_id: 'page-header-expandable-panel-demo',
+    title: 'political advertisement',
+    sponsor: 'The sponsor is Business Name',
+    more: 'More info:',
+    more_link: {
+      link: {
+        label: 'webpage link',
+        path: '/example',
+        external: true,
+      },
+    },
+    toggle_label: 'expandable button',
+    toggle_extra_attributes: [{ name: 'data-test-custom-toggle-attribute' }],
+    separator: '–',
+    lists: [
+      {
+        icon_list: true,
+        divider: false,
+        items: [
+          {
+            icon: {
+              name: 'check-bold',
+            },
+            description:
+              '(The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])',
+          },
+          {
+            icon: {
+              name: 'check-bold',
+            },
+            description:
+              '(The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])',
+          },
+        ],
+      },
+    ],
+  },
 };
