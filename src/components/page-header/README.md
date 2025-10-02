@@ -15,7 +15,7 @@ npm install --save @ecl/page-header
 - **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
 - **"meta"** (array) (default: []) Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
-- **"political_adv"** (associative array) Political advertisement
+- **"expandable"** (associative array) Page header expandable
   - "title" (default: '')
   - "sponsor" (default: '')
   - "more" (default: '')
@@ -24,7 +24,7 @@ npm install --save @ecl/page-header
   - "toggle_label" (default: '')
   - "toggle_extra_attributes" (default: '')
   - "separator" (default: '')
-  - "header_content" (default: '') if a link is provided the attribute data-ecl-political-adv-header-link needs to be added to it.
+  - "header_content" (default: '') if a link is provided the attribute data-ecl-page-header-expandable-header-link needs to be added to it.
   - "panel_content" (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

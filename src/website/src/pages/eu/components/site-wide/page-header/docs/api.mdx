@@ -8,15 +8,20 @@ import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
-This api refers to an optional element used in the page header, the `political advertisement`.
+This api refers to an optional element used in the page header, the `page header expandable`.
 There are 2 ways to initialise the component.
 
 ### Automatic
 
-Add `data-ecl-auto-init="PoliticalAdv"` attribute to component's markup:
+Add `data-ecl-auto-init="PageHeaderExpandable"` attribute to component's markup:
 
 ```html
-<div class="ecl-political-adv" data-ecl-auto-init="PoliticalAdv">...</div>
+<div
+  class="ecl-page-header-expandable"
+  data-ecl-auto-init="PageHeaderExpandable"
+>
+  ...
+</div>
 ```
 
 Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
@@ -25,12 +30,12 @@ Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready 
 
 Get target element, create an instance and invoke `init()`.
 
-Given you have 1 element with a class `ecl-political-adv` on the page:
+Given you have 1 element with a class `ecl-page-header-expandable` on the page:
 
 ```js
-var elt = document.querySelector('.ecl-political-adv');
-var politicalAdv = new ECL.PoliticalAdv(elt);
-politicalAdv.init();
+var elt = document.querySelector('.ecl-page-header-expandable');
+var PageHeaderExpandable = new ECL.PageHeaderExpandable(elt);
+PageHeaderExpandable.init();
 ```
 
 ### Retrieve an existing instance
@@ -38,10 +43,10 @@ politicalAdv.init();
 If an existing instance needs to be updated, it can be retrieved this way:
 
 ```js
-var elt = document.querySelector('.ecl-political-adv');
+var elt = document.querySelector('.ecl-page-header-expandable');
 var instance = ECL.components.get(elt);
 ```
 
 ## API
 
-<Iframe url="../../../../../apis/PoliticalAdv.html" />
+<Iframe url="../../../../../apis/PageHeaderExpandable.html" />

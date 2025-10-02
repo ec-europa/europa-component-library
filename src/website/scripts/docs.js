@@ -68,7 +68,6 @@ files.forEach((file) => {
     const base = path.basename(file, '.js');
 
     if (base === 'file') return 'FileDownload';
-    if (base === 'political-advertisement') return 'PoliticalAdv';
 
     return capitalizeFirstLetter(base);
   };
