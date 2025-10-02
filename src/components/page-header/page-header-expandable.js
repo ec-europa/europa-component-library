@@ -29,8 +29,8 @@ export class PageHeaderExpandable {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event PoliticalAdv#onToggle
-   * @memberof PoliticalAdv
+   * @event PageHeaderExpandable#onToggle
+   * @memberof PageHeaderExpandable
    */
   supportedEvents = ['onToggle'];
 
@@ -108,12 +108,12 @@ export class PageHeaderExpandable {
    * @param {string} eventName - The name of the event to listen for.
    * @param {Function} callback - The callback function to be invoked when the event occurs.
    * @returns {void}
-   * @memberof PoliticalAdv
+   * @memberof PageHeaderExpandable
    * @instance
    *
    * @example
    * // Registering a callback for the 'toggle' event
-   * politicalAdv.on('onToggle', (event) => {
+   * pageHeaderExpandable.on('onToggle', (event) => {
    *   console.log('Toggle event occurred!', event);
    * });
    */
@@ -127,7 +127,7 @@ export class PageHeaderExpandable {
    * @param {string} eventName - The name of the event to trigger.
    * @param {any} eventData - Data associated with the event.
    *
-   * @memberof PoliticalAdv
+   * @memberof PageHeaderExpandable
    */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
@@ -168,7 +168,7 @@ export class PageHeaderExpandable {
    *
    * @param {Event} e
    *
-   * @fires PoliticalAdv#onToggle
+   * @fires PageHeaderExpandable#onToggle
    */
   handleClickOnToggle(e) {
     // Get current status
