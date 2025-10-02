@@ -4,6 +4,17 @@
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of header
+    - "expandable" (associative array) {
+        "title" (string)
+        "sponsor" (string)
+        "more" (string)
+        "more_link" (object of type ECL link
+        "toggle_label" (string)
+        "separator" (string)
+        "lists" (array of list with illustration list objects)
+        "header_content" (string)
+        "panel_content" (string)
+      }
     - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
     - "meta" (array) (default: []) Meta of header
@@ -33,6 +44,7 @@
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
 {% set _info_classes = 'ecl-page-header__info' %}
+{% set _expandable = expandable|default({}) %}
 
 {% set _extra_attributes = '' %}
 
@@ -71,6 +83,10 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
+{% if _expandable is not empty %}
+  {% include '@ecl/page-header/page-header-expandable.html.twig' with _expandable only %}
+{% endif %}
+
   {% if _picture_background.img is not empty %}
     <div class="ecl-page-header__background-container" aria-hidden="true">
       {% include '@ecl/picture/picture.html.twig' with {

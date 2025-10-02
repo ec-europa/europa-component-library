@@ -18,11 +18,17 @@ $page-header: null !default;
     margin-bottom: 0;
   }
 
-  .ecl-container > div:first-of-type:not(.ecl-page-header__info--no-margin),
+  .ecl-container
+    > div:first-of-type:not(
+      .ecl-page-header__info--no-margin,
+      .ecl-page-header-expandable__header-text
+    ),
   .ecl-container
     > :first-child:not(
       .ecl-page-header__breadcrumb,
-      .ecl-page-header__info--no-margin
+      .ecl-page-header__info--no-margin,
+      .ecl-page-header-expandable__list,
+      .ecl-page-header-expandable__header-text
     ) {
     margin-top: 0;
     padding-top: var(--s-xl);
@@ -141,5 +147,173 @@ $page-header: null !default;
     height: 100%;
     position: absolute;
     width: 100%;
+  }
+}
+
+// Expandable
+.ecl-page-header-expandable {
+  background-color: var(--c-p-10);
+  color: var(--c-d);
+}
+
+.ecl-page-header-expandable__header {
+  background-color: var(--c-p-20);
+  cursor: pointer;
+  display: flex;
+  font: var(--f-s);
+
+  .ecl-container {
+    display: flex;
+  }
+}
+
+.ecl-page-header-expandable__header-text {
+  flex-grow: 1;
+  padding-block: var(--s-s);
+
+  * {
+    color: var(--c-d);
+    max-width: var(--max-w);
+  }
+}
+
+.ecl-page-header-expandable__title {
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.ecl-page-header-expandable__sponsor {
+  display: block;
+}
+
+.ecl-page-header-expandable__more {
+  margin-inline-end: var(--s-2xs);
+}
+
+.ecl-page-header-expandable__toggle {
+  align-self: start;
+  height: 2.75rem;
+  margin-block-start: var(--s-2xs);
+  margin-inline-start: var(--s-xs);
+
+  .ecl-icon {
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+  }
+
+  &[aria-expanded='true'] .ecl-icon {
+    transform: rotate(0);
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
+}
+
+.ecl-page-header-expandable__panel {
+  font-family: map.get($theme, 'font-family', 'default');
+  padding-block: var(--s-xs);
+}
+
+.ecl-page-header-expandable__more-link {
+  color: var(--c-d);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+}
+
+.ecl-page-header-expandable__list {
+  + .ecl-page-header-expandable__list {
+    margin-block-start: var(--s-xs);
+  }
+
+  .ecl-list-illustration__divider,
+  .ecl-list-illustration__item {
+    padding-block-end: var(--s-xs);
+  }
+
+  &.ecl-list-illustration--col-2 .ecl-list-illustration__item {
+    margin-block-end: var(--s-xs);
+  }
+
+  .ecl-list-illustration__sponsor {
+    font: var(--f-s);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-icon {
+    fill: var(--c-d);
+    height: var(--s-s);
+    width: var(--s-s);
+    margin-inline-end: 0.125rem;
+  }
+
+  .ecl-list-illustration__description {
+    font: var(--f-s);
+  }
+}
+
+@include breakpoints.up('s') {
+  .ecl-page-header-expandable__header {
+    font: var(--f-m);
+  }
+
+  .ecl-page-header-expandable__panel {
+    padding-block: var(--s-s);
+  }
+
+  .ecl-page-header-expandable__list .ecl-icon {
+    height: var(--s-m);
+    width: var(--s-m);
+    margin-inline-end: var(--s-2xs);
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-page-header-expandable__sponsor,
+  .ecl-page-header-expandable__more {
+    display: inline-flex;
+  }
+
+  .ecl-page-header-expandable__more::before {
+    content: var(--ecl-page-header-expandable-separator);
+    margin-inline: var(--s-2xs);
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-page-header-expandable__panel {
+    padding-block: var(--s-m);
+  }
+
+  .ecl-page-header-expandable__header {
+    font: var(--f-m);
+
+    .ecl-page-header-expandable__header-text * {
+      display: inline-flex;
+    }
+
+    .ecl-page-header-expandable__title {
+      font-size: 1.125rem;
+    }
+
+    .ecl-page-header-expandable__toggle {
+      align-self: center;
+      margin-block-start: 0;
+    }
+
+    .ecl-page-header-expandable__more-link {
+      display: inline-block;
+    }
+  }
+
+  .ecl-page-header-expandable__sponsor::before {
+    content: var(--ecl-page-header-expandable-separator);
+    margin-inline: var(--s-2xs);
+  }
+
+  .ecl-page-header-expandable__list {
+    .ecl-icon {
+      margin-inline-end: var(--s-xs);
+    }
   }
 }
