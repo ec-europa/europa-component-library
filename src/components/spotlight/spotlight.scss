@@ -139,7 +139,7 @@ $spotlight: null !default;
   }
 }
 
-@container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
+@include breakpoints.up('m') {
   .ecl-spotlight__container {
     height: map.get($spotlight, 'gradient-height-tablet');
   }
@@ -174,7 +174,7 @@ $spotlight: null !default;
   }
 }
 
-@container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
+@include breakpoints.up('xl') {
   .ecl-spotlight__title {
     max-width: 950px;
     padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
@@ -191,7 +191,7 @@ $spotlight: null !default;
   }
 }
 
-@container ecl-spotlight (width >= #{map.get($theme, 'container', 'xl')}) {
+@media (min-width: map.get($theme, 'container', 'xl')) {
   .ecl-spotlight__picture-container,
   .ecl-spotlight .ecl-spotlight__image {
     aspect-ratio: 3/1;
