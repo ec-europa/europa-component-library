@@ -8,42 +8,42 @@ import demoContent from './demo/data';
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const politicalAdvArgs = (data) => {
+const expandableArgs = (data) => {
   return {
-    adv_title: data.political_adv.title,
-    sponsor: data.political_adv.sponsor,
-    more: data.political_adv.more,
-    more_link: data.political_adv.more_link,
-    toggle_label: data.political_adv.toggle_label,
-    lists: data.political_adv.lists,
-    separator: data.political_adv.separator,
+    expandable_title: data.expandable.title,
+    sponsor: data.expandable.sponsor,
+    more: data.expandable.more,
+    more_link: data.expandable.more_link,
+    toggle_label: data.expandable.toggle_label,
+    lists: data.expandable.lists,
+    separator: data.expandable.separator,
     header_content: '',
     panel_content: '',
   };
 };
 
-const politicalAdvArgTypes = () => {
+const expandableArgTypes = () => {
   return {
-    adv_title: {
+    expandable_title: {
       name: 'title',
       type: { name: 'string' },
-      description: 'The political advertisement title',
+      description: 'The page header expandable title',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     sponsor: {
       type: { name: 'string' },
-      description: 'The political advertisement sponsor',
+      description: 'The page header expandable sponsor',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     more: {
       type: { name: 'string' },
@@ -51,9 +51,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     more_link: {
       name: 'more link',
@@ -62,9 +62,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'object' },
         defaultValue: { summary: '{}' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     toggle_label: {
       name: 'toggle button label',
@@ -73,9 +73,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     lists: {
       type: { name: 'array' },
@@ -83,9 +83,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'array' },
         defaultValue: { summary: '[]' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     separator: {
       type: { name: 'string' },
@@ -93,9 +93,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     header_content: {
       name: 'content of the header (additional)',
@@ -104,9 +104,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
     panel_content: {
       name: 'content of the panel (additional)',
@@ -115,9 +115,9 @@ const politicalAdvArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Political advertisement',
+        category: 'page header expandable',
       },
-      if: { arg: 'show_political_adv' },
+      if: { arg: 'show_page_header_expandable' },
     },
   };
 };
@@ -126,7 +126,7 @@ const getArgs = (data) => {
   let args = {
     show_breadcrumb: true,
     show_thumbnail: false,
-    show_political_adv: true,
+    show_page_header_expandable: false,
     hide_title: false,
   };
 
@@ -145,7 +145,7 @@ const getArgs = (data) => {
 
   args = {
     ...args,
-    ...politicalAdvArgs(data),
+    ...expandableArgs(data),
   };
 
   return args;
@@ -153,7 +153,7 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {
-    ...politicalAdvArgTypes(),
+    ...expandableArgTypes(),
   };
 
   argTypes.show_breadcrumb = {
@@ -178,8 +178,8 @@ const getArgTypes = (data) => {
     },
   };
 
-  argTypes.show_political_adv = {
-    name: 'political advertisement',
+  argTypes.show_page_header_expandable = {
+    name: 'page header expandable',
     type: 'boolean',
     description: 'Toggle element visibility',
     table: {
@@ -251,8 +251,8 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.political_adv = {
-    title: args.adv_title,
+  data.expandable = {
+    title: args.expandable_title,
     sponsor: args.sponsor,
     lists: args.lists,
     more: args.more,
@@ -275,10 +275,13 @@ const prepareData = (data, args) => {
   } else if (args.show_thumbnail && !clone.show_thumbnail) {
     clone.picture_thumbnail = demoContent.picture_thumbnail;
   }
-  if (!args.show_political_adv) {
-    delete clone.political_adv;
-  } else if (args.show_political_adv && !clone.show_political_adv) {
-    clone.political_adv = demoContent.political_adv;
+  if (!args.show_page_header_expandable) {
+    delete clone.expandable;
+  } else if (
+    args.show_page_header_expandable &&
+    !clone.show_page_header_expandable
+  ) {
+    clone.expandable = demoContent.expandable;
   }
 
   clone.title = args.title;
