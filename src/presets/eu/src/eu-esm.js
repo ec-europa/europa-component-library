@@ -21,6 +21,7 @@ import Menu from '@ecl/menu';
 import Modal from '@ecl/modal';
 import NewsTicker from '@ecl/news-ticker';
 import Notification from '@ecl/notification';
+import PageHeaderExpandable from '@ecl/page-header';
 import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
@@ -51,6 +52,7 @@ const ECL = {
   Modal,
   NewsTicker,
   Notification,
+  PageHeaderExpandable,
   Popover,
   Range,
   Select,

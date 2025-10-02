@@ -285,7 +285,7 @@ module.exports = {
   notification: {
     variant: 'info',
     icon: {
-      name: 'information',
+      name: 'information-outline',
       size: 'l',
     },
     close: {

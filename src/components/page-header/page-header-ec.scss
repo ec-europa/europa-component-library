@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -127,5 +128,184 @@ $page-header: null !default;
     height: 100%;
     position: absolute;
     width: 100%;
+  }
+}
+
+// Expandable
+.ecl-page-header-expandable {
+  background-color: var(--cm-surface-primary-low);
+  color: var(--cm-on-surface-brand);
+}
+
+.ecl-page-header-expandable__header {
+  background: var(--cm-surface-primary-low-1);
+  cursor: pointer;
+
+  @include mixins.responsive-font('body-s');
+
+  .ecl-container {
+    display: flex;
+  }
+}
+
+.ecl-page-header-expandable__header-text {
+  flex-grow: 1;
+  padding-block: var(--s-s);
+
+  * {
+    color: var(--cm-on-surface-brand);
+    max-width: var(--max-w);
+  }
+}
+
+.ecl-page-header-expandable__title {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: map.get($theme, 'font-weight', 'semi-bold');
+  letter-spacing: map.get($theme, 'letter-spacing', 'l');
+  line-height: map.get($theme, 'line-height', 'xs');
+  text-transform: uppercase;
+
+  // @include mixins.responsive-font('body-m');
+}
+
+.ecl-page-header-expandable__sponsor {
+  display: block;
+}
+
+.ecl-page-header-expandable__more {
+  margin-inline-end: var(--s-3xs);
+}
+
+.ecl-page-header-expandable__toggle {
+  align-self: start;
+  height: 2.75rem;
+  margin-block-start: var(--s-2xs);
+  margin-inline-start: var(--s-xs);
+
+  .ecl-icon {
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+  }
+
+  &[aria-expanded='true'] .ecl-icon {
+    transform: rotate(0);
+  }
+
+  &:focus-visible {
+    outline-offset: 0 !important;
+  }
+}
+
+.ecl-page-header-expandable__panel {
+  font-family: map.get($theme, 'font-family', 'default');
+  padding-block: var(--s-s);
+}
+
+.ecl-page-header-expandable__more-link {
+  color: var(--cm-on-surface-brand);
+  font-weight: map.get($theme, 'font-weight', 'medium');
+}
+
+.ecl-page-header-expandable__list {
+  + .ecl-page-header-expandable__list {
+    margin-block-start: var(--s-2xs);
+  }
+
+  .ecl-list-illustration__divider,
+  .ecl-list-illustration__item {
+    padding-block-end: var(--s-xs);
+
+    .ecl-list-illustration__description {
+      max-width: 900px;
+    }
+  }
+
+  &.ecl-list-illustration--col-2 .ecl-list-illustration__item {
+    margin-block-end: var(--s-2xs);
+  }
+
+  .ecl-list-illustration__description {
+    @include mixins.responsive-font('body-xs');
+  }
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-icon {
+    fill: var(--cm-on-surface-brand);
+    height: var(--s-s);
+    width: var(--s-s);
+    margin-inline-end: var(--s-4xs);
+  }
+}
+
+@include breakpoints.up('s') {
+  .ecl-page-header-expandable__title {
+    font-size: var(--fs-s);
+    line-height: map.get($theme, 'line-height', 's');
+  }
+
+  .ecl-page-header-expandable__list .ecl-icon {
+    height: var(--s-m);
+    width: var(--s-m);
+    margin-inline-end: var(--s-3xs);
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-page-header-expandable__sponsor,
+  .ecl-page-header-expandable__note {
+    display: inline-flex;
+  }
+
+  .ecl-page-header-expandable__more::before {
+    content: var(--ecl-page-header-expandable-separator);
+    margin-inline: var(--s-3xs);
+  }
+
+  .ecl-page-header-expandable__list {
+    .ecl-list-illustration__divider,
+    .ecl-list-illustration__item {
+      padding-block-end: var(--s-2xs);
+    }
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-page-header-expandable__header {
+    .ecl-page-header-expandable__header-text * {
+      display: inline-flex;
+    }
+
+    .ecl-page-header-expandable__more-link {
+      display: inline-block;
+    }
+
+    .ecl-page-header-expandable__toggle {
+      align-self: center;
+      margin-block-start: 0;
+    }
+  }
+
+  .ecl-page-header-expandable__title {
+    font-size: var(--fs-m);
+    line-height: map.get($theme, 'line-height', 'm');
+  }
+
+  .ecl-page-header-expandable__sponsor::before {
+    content: var(--ecl-page-header-expandable-separator);
+    margin-inline: var(--s-3xs);
+  }
+
+  .ecl-page-header-expandable__panel {
+    padding-block: var(--s-m);
+  }
+
+  .ecl-page-header-expandable__list {
+    .ecl-list-illustration__item {
+      padding-block-end: var(--s-3xs);
+    }
+
+    .ecl-icon {
+      margin-inline-end: var(--s-xs);
+    }
   }
 }
