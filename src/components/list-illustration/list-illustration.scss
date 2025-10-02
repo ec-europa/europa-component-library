@@ -110,7 +110,10 @@ body {
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description', 'color');
   max-width: var(--max-w);
-  font: var(--f-m);
+
+  @include mixins.responsive-font(
+    map.get($list-illustration, 'description', 'font')
+  );
 }
 
 .ecl-list-illustration__title-container + .ecl-list-illustration__description {
@@ -340,18 +343,18 @@ body {
 /* stylelint-disable no-descending-specificity */
 // icon-list
 .ecl-list-illustration--icon-list {
-  &.ecl-list-illustration--col-2,
-  &.ecl-list-illustration--col-3,
-  &.ecl-list-illustration--col-4 {
-    row-gap: 0;
-  }
-
   .ecl-list-illustration__item {
+    margin-block-end: 0;
     padding-block-end: var(--s-s);
     padding-block-start: 0;
 
-    &.ecl-list-illustration__item--is-last {
+    &:last-child {
       padding-block-end: 0;
+
+      .ecl-list-illustration__item-content {
+        border-block-end: none;
+        padding-block-end: 0;
+      }
     }
   }
 
@@ -363,6 +366,7 @@ body {
   .ecl-list-illustration__detail {
     display: flex;
     align-self: center;
+    flex-direction: column;
   }
 
   .ecl-list-illustration__icon {
@@ -374,10 +378,15 @@ body {
     flex-shrink: 0;
   }
 
-  .ecl-list-illustration__description {
+  .ecl-list-illustration__title {
     @include mixins.responsive-font(
-      map.get($list-illustration, 'description', 'font')
+      map.get($list-illustration, 'title', 'number-list-font'),
+      map.get($list-illustration, 'title', 'number-list-font-weight')
     );
+  }
+
+  .ecl-list-illustration__description {
+    margin: 0;
   }
 
   @include breakpoints.up('m') {
@@ -388,7 +397,7 @@ body {
     .ecl-list-illustration__icon {
       height: map.get($theme, 'icon', 'l');
       width: map.get($theme, 'icon', 'l');
-      margin-inline-end: var(--s-m);
+      margin-inline-end: var(--s-s);
     }
   }
 
@@ -406,10 +415,33 @@ body {
       margin-inline-end: map.get($list-illustration, 'icon-spacing-desktop');
     }
   }
+
+  &.ecl-list-illustration--col-2 {
+    display: block;
+
+    @include breakpoints.up('xl') {
+      display: grid;
+      grid-auto-rows: auto;
+      row-gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+
+      .ecl-list-illustration__item.ecl-list-illustration__item--is-last {
+        padding-block-end: 0;
+
+        .ecl-list-illustration__divider {
+          border-block-end: none;
+          padding-block-end: 0;
+        }
+      }
+    }
+  }
 }
 
 // number list
 .ecl-list-illustration--number-list {
+  --ecl-list-illustration-counter-size: 1.75rem;
+  --ecl-list-illustration-counter-spacing: var(--s-2xs);
+
   &.ecl-list-illustration--number-list-reset {
     counter-reset: ecl-list-illustration-counter
       #{var(--ecl-list-illustration-counter-start, 0)};
@@ -421,55 +453,86 @@ body {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--s-xs);
+    margin-block-end: 0;
     padding-block-end: var(--s-s);
     padding-block-start: 0;
+    position: relative;
+
+    &:last-child {
+      padding-block-end: 0;
+
+      .ecl-list-illustration__item-content {
+        border-block-end: none;
+        padding-block-end: 0;
+      }
+    }
 
     &::before {
       content: counter(ecl-list-illustration-counter, decimal-leading-zero);
-      width: 2.5rem;
-      height: 2.5rem;
-      border: 4px solid var(--cm-border-low, var(--c-p-20));
+      width: var(--ecl-list-illustration-counter-size);
+      height: var(--ecl-list-illustration-counter-size);
+      border: 2px solid var(--cm-border-medium, var(--c-p-20));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font: map.get($list-illustration, 'counter', 'font-mobile');
       font-weight: map.get($theme, 'font-weight', 'bold') !important;
       background-color: transparent;
       color: var(--cm-on-surface-brand, var(--c-d));
       box-sizing: border-box;
       flex-shrink: 0;
-
-      @include mixins.responsive-font(
-        map.get($list-illustration, 'counter-font')
-      );
+      position: absolute;
+      left: 0;
     }
 
     .ecl-list-illustration__item-content {
       display: flex;
-      align-self: center;
+      padding-inline-start: calc(
+        var(--ecl-list-illustration-counter-size) +
+          var(--ecl-list-illustration-counter-spacing)
+      );
+    }
+
+    .ecl-list-illustration__divider {
+      padding-block-end: var(--s-xl);
+      margin-block-end: var(--s-s);
+    }
+
+    .ecl-list-illustration__title {
+      @include mixins.responsive-font(
+        map.get($list-illustration, 'title', 'number-list-font'),
+        map.get($list-illustration, 'title', 'number-list-font-weight')
+      );
     }
 
     .ecl-list-illustration__description {
-      @include mixins.responsive-font(
-        map.get($list-illustration, 'description', 'number-list-font')
-      );
+      margin: 0;
     }
   }
 
   @include breakpoints.up('m') {
+    --ecl-list-illustration-counter-size: 2.75rem;
+    --ecl-list-illustration-counter-spacing: var(--s-s);
+
     .ecl-list-illustration__item {
-      gap: var(--s-s);
       padding-block-end: var(--s-m);
 
       &::before {
-        border-width: 6px;
-        width: 3rem;
-        height: 3rem;
+        border-color: var(--cm-border-low, var(--c-p-20));
+        border-width: 4px;
+        font: map.get($list-illustration, 'counter', 'font-tablet');
+      }
+
+      .ecl-list-illustration__divider {
+        margin-block-end: var(--s-xs);
       }
     }
   }
 
   @include breakpoints.up('xl') {
+    --ecl-list-illustration-counter-size: 3rem;
+
     .ecl-list-illustration__item {
       padding-block-end: map.get(
         $list-illustration,
@@ -477,8 +540,32 @@ body {
       );
 
       &::before {
-        width: 3.5rem;
-        height: 3.5rem;
+        border-color: var(--cm-border-low, var(--c-p-20));
+        font: map.get($list-illustration, 'counter', 'font-desktop');
+      }
+
+      .ecl-list-illustration__divider {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  &.ecl-list-illustration--col-2 {
+    display: block;
+
+    @include breakpoints.up('xl') {
+      display: grid;
+      grid-auto-rows: auto;
+      row-gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+
+      .ecl-list-illustration__item.ecl-list-illustration__item--is-last {
+        padding-block-end: 0;
+
+        .ecl-list-illustration__divider {
+          border-block-end: none;
+          padding-block-end: 0;
+        }
       }
     }
   }

@@ -80,20 +80,20 @@ $page-header-print: null !default;
   }
 }
 
-// Political advertisement
-.ecl-political-adv {
+// Expandable
+.ecl-page-header-expandable {
   background-color: var(--c-p-10);
   color: var(--cm-on-surface-brand);
 }
 
-.ecl-political-adv__header {
+.ecl-page-header-expandable__header {
   background-color: var(--c-p-20);
   display: flex;
   font: map.get($theme, 'font-print', 'm');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', '2xl');
 
-  .ecl-political-adv__title {
+  .ecl-page-header-expandable__title {
     font-weight: 600;
   }
 
@@ -101,21 +101,21 @@ $page-header-print: null !default;
     display: inline-flex;
   }
 
-  .ecl-political-adv__more-link {
+  .ecl-page-header-expandable__more-link {
     display: inline-block;
   }
 }
 
-.ecl-political-adv__toggle {
+.ecl-page-header-expandable__toggle {
   display: none;
 }
 
-.ecl-political-adv__more {
+.ecl-page-header-expandable__more {
   margin-inline-end: map.get($theme, 'spacing-print', 'xs');
 }
 
-.ecl-political-adv__more::before,
-.ecl-political-adv__sponsor::before {
-  content: var(--ecl-political-adv-separator);
+.ecl-page-header-expandable__more::before,
+.ecl-page-header-expandable__sponsor::before {
+  content: var(--ecl-page-header-expandable-separator);
   margin-inline: map.get($theme, 'spacing-print', 'xs');
 }
