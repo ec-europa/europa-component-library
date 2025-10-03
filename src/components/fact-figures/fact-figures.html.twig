@@ -4,6 +4,7 @@
   Parameters:
   - "color_mode" (string)
   - "column" (integer) (default: 3): Number of columns (1 to 4)
+  - "sorting" (string) (default: row) Flow of the items in a multi column layout (row or column)
   - "centered" (boolean) (default: false)
   - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
   - "items" (array) (default: []):
@@ -31,8 +32,10 @@
 
 {% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-fact-figures' %}
+{% set _items_class = 'ecl-fact-figures__items' %}
 {% set _extra_attributes = '' %}
 {% set _columns = column|default(3) %}
+{% set _sorting = sorting|default('row') %}
 {% set _font_size = font_size|default('l') %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _icon_size = icon_size|default('l') %}
@@ -42,6 +45,12 @@
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+
+{% if _sorting == 'column' and items is not empty %}
+  {% set _rows = (items|length / _columns)|round(ceil) %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
+  {% set _items_class = _items_class ~ ' ecl-vertical-flow__items' %}
+{% endif %}
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
@@ -71,7 +80,7 @@
 >
 
 {% if items is defined and items is not empty and items is iterable %}
-  <div class="ecl-fact-figures__items">
+  <div class="{{ _items_class }}">
   {% for item in items %}
     {% set _item_class = 'ecl-fact-figures__item' %}
     {% if _font_size != 'l' %}

@@ -4,6 +4,7 @@
   Parameters:
     - "color_mode" (string) The color mode name
     - "items" (array) (default: []): array of list_illustration_item
+    - "sorting" (string) (default: row) Row or Column
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: false): use alternate background display for vertical list
     - "icon_inline" (boolean) (default: false) Place the icon on the left of the item
@@ -37,6 +38,7 @@
 {% set _number_list = number_list|default(false) %}
 {% set _divider = divider|default(false) %}
 {% set _counter_reset = counter_reset ?? true %}
+{% set _sorting = sorting|default('row') %}
 {% set _counter_start = counter_start|default(0) %}
 {% set _extra_attributes = '' %}
 
@@ -76,6 +78,10 @@
 
 {% if _column and _column > 1 and _column < 5 %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--col-' ~ _column %}
+  {% if _sorting == 'column' and _items is not empty %}
+    {% set _rows = (_items|length / _column)|round(ceil) %}
+    {% set _css_class = _css_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
+  {% endif %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

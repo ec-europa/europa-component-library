@@ -20,6 +20,7 @@ const getArgs = (data) => {
     show_view_all: true,
     show_icons: true,
     column: 3,
+    sorting: 'row',
     font_size: 'l',
     icon: data.items[0].icon.name,
     icon_size: 'medium',
@@ -73,6 +74,17 @@ const getArgTypes = () => {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '3' },
+      category: 'Layout',
+    },
+  };
+  argTypes.sorting = {
+    name: 'items flow',
+    control: { type: 'select' },
+    options: ['row', 'column'],
+    description: 'Sort the items by row or column',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'row' },
       category: 'Layout',
     },
   };
@@ -168,6 +180,7 @@ const prepareData = (data, args) => {
 
   // Column display
   clone.column = args.column;
+  clone.sorting = args.sorting;
 
   // Other controls
   clone.color_mode = args.color_mode;

@@ -77,6 +77,7 @@ const getArgs = (data, variant) => {
 
   if (variant.includes('horizontal')) {
     args.column = 2;
+    args.sorting = 'row';
   }
   if (variant !== 'vertical-image') {
     args.centered = false;
@@ -140,6 +141,18 @@ const getArgTypes = (data, variant) => {
         type: { summary: 'number' },
         defaultValue: { summary: 2 },
         category: 'Layout',
+      },
+    };
+
+    argTypes.sorting = {
+      name: 'items flow',
+      control: { type: 'select' },
+      options: ['row', 'column'],
+      description: 'Sort the items by row or column',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'row' },
+        category: 'Sorting',
       },
     };
   }
@@ -476,6 +489,7 @@ const prepareDataList = (data, args) => {
   data.zebra = args.zebra;
   data.centered = args.centered;
   data.column = args.column;
+  data.sorting = args.sorting;
 
   correctPaths(data);
 

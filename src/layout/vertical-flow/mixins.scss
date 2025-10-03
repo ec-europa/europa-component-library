@@ -1,0 +1,15 @@
+@mixin vertical-flow($items: false) {
+  @for $i from 1 to 10 {
+    @if $items {
+      .ecl-vertical-flow--row-#{$i} .ecl-vertical-flow__items {
+        grid-auto-flow: column;
+        grid-template-rows: repeat(#{$i}, 1fr);
+      }
+    } @else {
+      .ecl-vertical-flow--row-#{$i} {
+        grid-auto-flow: column;
+        grid-template-rows: repeat(#{$i}, 1fr);
+      }
+    }
+  }
+}
