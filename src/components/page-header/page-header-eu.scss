@@ -158,9 +158,12 @@ $page-header: null !default;
 
 .ecl-page-header-expandable__header {
   background-color: var(--c-p-20);
-  cursor: pointer;
   display: flex;
   font: var(--f-s);
+
+  :not(.ecl-page-header-not-expandable) > & {
+    cursor: pointer;
+  }
 
   .ecl-container {
     display: flex;

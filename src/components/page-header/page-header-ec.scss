@@ -133,13 +133,16 @@ $page-header: null !default;
 
 // Expandable
 .ecl-page-header-expandable {
-  background-color: var(--cm-surface-primary-low);
+  background-color: var(--cm-surface-primary-low-0);
   color: var(--cm-on-surface-brand);
 }
 
 .ecl-page-header-expandable__header {
   background: var(--cm-surface-primary-low-1);
-  cursor: pointer;
+
+  :not(.ecl-page-header-not-expandable) > & {
+    cursor: pointer;
+  }
 
   @include mixins.responsive-font('body-s');
 
@@ -165,8 +168,6 @@ $page-header: null !default;
   letter-spacing: map.get($theme, 'letter-spacing', 'l');
   line-height: map.get($theme, 'line-height', 'xs');
   text-transform: uppercase;
-
-  // @include mixins.responsive-font('body-m');
 }
 
 .ecl-page-header-expandable__sponsor {

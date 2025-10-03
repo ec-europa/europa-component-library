@@ -10,6 +10,7 @@ import notes from './README.md';
 
 const expandableArgs = (data) => {
   return {
+    expandable: true,
     expandable_title: data.expandable.title,
     sponsor: data.expandable.sponsor,
     more: data.expandable.more,
@@ -24,6 +25,16 @@ const expandableArgs = (data) => {
 
 const expandableArgTypes = () => {
   return {
+    expandable: {
+      type: { name: 'boolean' },
+      description: 'It will be a simple header, otherwise',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'true' },
+        category: 'page header expandable',
+      },
+      if: { arg: 'show_page_header_expandable' },
+    },
     expandable_title: {
       name: 'title',
       type: { name: 'string' },
@@ -282,6 +293,13 @@ const prepareData = (data, args) => {
     !clone.show_page_header_expandable
   ) {
     clone.expandable = demoContent.expandable;
+  }
+
+  if (!args.expandable && clone.expandable) {
+    clone.expandable.lists = [];
+    clone.expandable.panel_content = '';
+  } else if (args.expandable && !clone.expandable.lists) {
+    clone.expandable.lists = demoContent.lists;
   }
 
   clone.title = args.title;
