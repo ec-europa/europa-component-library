@@ -413,6 +413,7 @@ $menu: null !default;
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-background');
     color: map.get($menu, 'mobile', 'caret-color');
+    outline-offset: -2px;
   }
 }
 
@@ -448,6 +449,13 @@ $menu: null !default;
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     border-top: map.get($menu, 'desktop', 'menu-border');
 
+    .ecl-menu__container {
+      padding-inline-start: calc(
+        #{map.get($theme, 'grid-gutter-width', 'xl')} -
+          #{map.get($menu, 'desktop', 'container-offset')}
+      );
+    }
+
     .ecl-menu__list {
       flex-direction: row;
       left: 0;
@@ -461,15 +469,10 @@ $menu: null !default;
       border-top-width: 0;
       color: map.get($menu, 'desktop', 'item-color');
       margin-inline-start: -1px;
-      padding-block: map.get($menu, 'desktop', 'item-padding-block');
       padding-inline-end: 1px;
 
       &:first-of-type {
         margin-inline-start: 0;
-
-        .ecl-menu__link {
-          padding-inline-start: 0;
-        }
       }
 
       &:last-of-type {
@@ -480,18 +483,35 @@ $menu: null !default;
           .ecl-menu__item--current,
           .ecl-menu__items-previous,
           .ecl-menu__items-next
-        ):hover,
-      &:not(.ecl-menu__item--current):focus-within {
+        ):hover {
         background-color: map.get($menu, 'desktop', 'item-background-hover');
         box-shadow: map.get($menu, 'desktop', 'item-shadow-hover');
         color: map.get($menu, 'desktop', 'item-color-hover');
       }
 
+      &:not(.ecl-menu__item--current):focus-within {
+        background-color: map.get($menu, 'desktop', 'item-background-focus');
+        color: map.get($menu, 'desktop', 'item-color-focus');
+      }
+
       &:hover .ecl-menu__link,
-      &:hover .ecl-menu__button-caret,
+      &:hover .ecl-menu__button-caret {
+        background-color: map.get(
+          $menu,
+          'desktop',
+          'item-background-color-hover'
+        );
+        color: map.get($menu, 'desktop', 'item-color-hover');
+      }
+
       &:focus-within .ecl-menu__link,
       &:focus-within .ecl-menu__button-caret {
-        color: map.get($menu, 'desktop', 'item-color-hover');
+        background-color: map.get(
+          $menu,
+          'desktop',
+          'item-background-color-focus'
+        );
+        color: map.get($menu, 'desktop', 'item-color-focus');
       }
     }
 
@@ -533,6 +553,7 @@ $menu: null !default;
       box-shadow: none;
       color: map.get($menu, 'desktop', 'item-color');
       display: inline-flex;
+      min-height: map.get($menu, 'desktop', 'link-min-height');
       padding-block: map.get($menu, 'desktop', 'link-padding-block');
       padding-inline: map.get($menu, 'desktop', 'link-padding-inline');
       width: auto;
@@ -549,6 +570,10 @@ $menu: null !default;
         color: map.get($menu, 'desktop', 'item-color-focus');
         outline-offset: -4px;
       }
+    }
+
+    .ecl-menu__item--has-children .ecl-menu__link {
+      padding-inline: map.get($menu, 'desktop', 'link-children-padding-inline');
     }
 
     .ecl-menu__item--current {
@@ -671,10 +696,6 @@ $menu: null !default;
       right: auto;
     }
 
-    .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
-      padding-right: var(--s-xs);
-    }
-
     .ecl-menu__button-caret {
       background: transparent;
       border-width: 0;
@@ -724,7 +745,7 @@ $menu: null !default;
           padding-inline: map.get(
             $menu,
             'desktop',
-            'link-expanded-padding-inline'
+            'link-children-padding-inline'
           );
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
@@ -739,7 +760,7 @@ $menu: null !default;
 
       &.ecl-menu__item--current {
         .ecl-menu__link:hover {
-          background-color: map.get($menu, 'desktop', 'item-background-hover');
+          background-color: #fff;
         }
 
         &:focus-within {
@@ -924,7 +945,9 @@ $menu: null !default;
       white-space: normal;
       width: 100%;
 
-      @include mixins.responsive-font(map.get($menu, 'desktop', 'item-font'));
+      @include mixins.responsive-font(
+        map.get($menu, 'desktop', 'subitem-font')
+      );
     }
 
     .ecl-menu__subitem--current .ecl-menu__sublink {
