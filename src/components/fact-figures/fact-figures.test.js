@@ -98,4 +98,15 @@ describe('Fact and figures', () => {
       return expect(render(demo4Col)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('without value', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      const withoutValue = JSON.parse(JSON.stringify(demo1Col));
+      delete withoutValue.items[0].value;
+
+      return expect(render(withoutValue)).resolves.toMatchSnapshot();
+    });
+  });
 });
