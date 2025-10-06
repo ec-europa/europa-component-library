@@ -4,7 +4,6 @@
 $list-illustration: (
   background-color: var(--cm-surface-low-1),
   column-gap: var(--s-5xl),
-  counter-font: 'body-l',
   icon-color: var(--cm-on-surface),
   icon-spacing-desktop: var(--s-l),
   item-padding-mobile: 0 0 var(--s-6xl),
@@ -13,6 +12,11 @@ $list-illustration: (
   item-padding-zebra-mobile: var(--s-5xl) var(--s-xl),
   item-padding-zebra-desktop: var(--s-5xl),
   item-margin-mobile: var(--s-6xl),
+  counter: (
+    font-mobile: var(--f-xs),
+    font-tablet: var(--f-m),
+    font-desktop: var(--f-l),
+  ),
   value: (
     color: var(--cm-on-surface-brand),
     font-mobile-m: var(--f-2xl),
@@ -26,9 +30,10 @@ $list-illustration: (
     font: var(--f-2xl),
     font-weight: map.get($font-weight, 'light'),
     margin: 0,
+    number-list-font: 'heading6',
+    number-list-font-weight: map.get($font-weight, 'semi-bold'),
   ),
   description: (
-    number-list-font: 'body-l',
     font: 'body-m',
     color: var(--cm-on-surface-brand),
     margin: var(--s-xs),

@@ -58,6 +58,20 @@
   --ecl-color-grey-75: #{map.get($color-default, 'grey-75')};
   --ecl-color-grey-50: #{map.get($color-default, 'grey-50')};
   --ecl-color-grey-25: #{map.get($color-default, 'grey-25')};
+  --ecl-color-monochrome: #{map.get($color-default, 'monochrome-500')};
+  --ecl-color-monochrome-950: #{map.get($color-default, 'monochrome-950')};
+  --ecl-color-monochrome-900: #{map.get($color-default, 'monochrome-900')};
+  --ecl-color-monochrome-800: #{map.get($color-default, 'monochrome-800')};
+  --ecl-color-monochrome-700: #{map.get($color-default, 'monochrome-700')};
+  --ecl-color-monochrome-600: #{map.get($color-default, 'monochrome-600')};
+  --ecl-color-monochrome-500: #{map.get($color-default, 'monochrome-500')};
+  --ecl-color-monochrome-400: #{map.get($color-default, 'monochrome-400')};
+  --ecl-color-monochrome-300: #{map.get($color-default, 'monochrome-300')};
+  --ecl-color-monochrome-200: #{map.get($color-default, 'monochrome-200')};
+  --ecl-color-monochrome-100: #{map.get($color-default, 'monochrome-100')};
+  --ecl-color-monochrome-75: #{map.get($color-default, 'monochrome-75')};
+  --ecl-color-monochrome-50: #{map.get($color-default, 'monochrome-50')};
+  --ecl-color-monochrome-25: #{map.get($color-default, 'monochrome-25')};
   --ecl-color-info: #{map.get($color-default, 'info-600')};
   --ecl-color-info-950: #{map.get($color-default, 'info-950')};
   --ecl-color-info-900: #{map.get($color-default, 'info-900')};
@@ -260,6 +274,20 @@
   --c-g-75: var(--ecl-color-grey-75);
   --c-g-50: var(--ecl-color-grey-50);
   --c-g-25: var(--ecl-color-grey-25);
+  --c-m: var(--ecl-color-monochrome);
+  --c-m-950: var(--ecl-color-monochrome-950);
+  --c-m-900: var(--ecl-color-monochrome-900);
+  --c-m-800: var(--ecl-color-monochrome-800);
+  --c-m-700: var(--ecl-color-monochrome-700);
+  --c-m-600: var(--ecl-color-monochrome-600);
+  --c-m-500: var(--ecl-color-monochrome-500);
+  --c-m-400: var(--ecl-color-monochrome-400);
+  --c-m-300: var(--ecl-color-monochrome-300);
+  --c-m-200: var(--ecl-color-monochrome-200);
+  --c-m-100: var(--ecl-color-monochrome-100);
+  --c-m-75: var(--ecl-color-monochrome-75);
+  --c-m-50: var(--ecl-color-monochrome-50);
+  --c-m-25: var(--ecl-color-monochrome-25);
   --c-in: var(--ecl-color-info);
   --c-in-950: var(--ecl-color-info-950);
   --c-in-900: var(--ecl-color-info-900);
@@ -419,14 +447,17 @@
     #{map.get($color-palette, 'warm-grey-50')} 50%,
     transparent
   );
-  --cm-surface-low-1: var(--c-p-50);
-  --cm-surface-low-2: var(--c-p-100);
-  --cm-surface-medium: var(--c-p-200);
-  --cm-surface: var(--c-g-950);
+  --cm-surface-low-0: var(--c-p-50);
+  --cm-surface-low-1: var(--c-p-100);
+  --cm-surface-low-2: var(--c-p-200);
+  --cm-surface-medium-0: var(--c-p-200);
+  --cm-surface-medium-1: var(--c-p-300);
+  --cm-surface-0: var(--c-g-950);
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-100')};
   --cm-surface-variant-2: var(--c-g-950);
   --cm-surface-primary-lowest: var(--c-p-50);
-  --cm-surface-primary-low: var(--c-p-100);
+  --cm-surface-primary-low-0: var(--c-p-100);
+  --cm-surface-primary-low-1: var(--c-p-200);
   --cm-surface-primary-medium: var(--c-p-300);
   --cm-surface-primary: var(--c-p-600);
   --cm-surface-primary-high: var(--c-p-700);
@@ -438,7 +469,13 @@
   --cm-surface-neutral-lowest: var(--c-n-50);
   --cm-surface-neutral-low: var(--c-n-75);
   --cm-surface-neutral-medium: var(--c-n-200);
-  --cm-surface-grey-low: var(--c-g-50);
+  --cm-surface-neutral: var(--c-n-700);
+  --cm-surface-grey-low-0-transparent: color-mix(
+    in srgb,
+    var(--c-g-50) 50%,
+    transparent
+  );
+  --cm-surface-grey-low-0: var(--c-g-50);
   --cm-surface-grey-low-1: var(--c-g-75);
   --cm-surface-status-error-lowest: var(--c-er-50);
   --cm-surface-status-error: var(--c-er-600);
@@ -452,12 +489,12 @@
   // on surface
   --cm-on-surface-brand: var(--c-g-950);
   --cm-on-surface-inverted: #fff;
-  --cm-on-surface-swap-1: #fff;
-  --cm-on-surface-swap-2: var(--c-g-950);
+  --cm-on-surface-swap-0: #fff;
+  --cm-on-surface-swap-1: var(--c-g-950);
   --cm-on-surface: var(--c-p-600);
-  --cm-on-surface-variant-1: var(--c-s-400);
-  --cm-on-surface-variant-2: var(--c-p-300);
-  --cm-on-surface-variant-3: #fff;
+  --cm-on-surface-1: var(--c-s-400);
+  --cm-on-surface-2: var(--c-p-300);
+  --cm-on-surface-3: #fff;
   --cm-on-surface-highlight: var(--c-s-75);
   --cm-on-surface-primary: var(--c-p-600);
   --cm-on-surface-primary-highest: var(--c-p-800);
@@ -481,10 +518,13 @@
   --cm-border-medium: var(--c-p-500);
   --cm-border: var(--c-p-600);
   --cm-border-high: var(--c-p-700);
+  --cm-border-primary-medium: var(--c-p-300);
   --cm-border-primary: var(--c-p-600);
   --cm-border-primary-highest: var(--c-p-800);
+  --cm-border-neutral-low: var(--c-n-50);
   --cm-border-neutral: var(--c-n-75);
-  --cm-border-grey-lowest: var(--c-g-100);
+  --cm-border-grey-lowest: var(--c-g-75);
+  --cm-border-grey-low: var(--c-g-100);
   --cm-border-grey-medium: var(--c-g-500);
   --cm-border-grey: var(--c-g-600);
   --cm-border-status-error: var(--c-er-600);

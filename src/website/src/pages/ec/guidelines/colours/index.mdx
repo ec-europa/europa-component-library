@@ -13,7 +13,7 @@ The colour palette is designed to support a flexible, modular visual style that 
 
 ## Main colours
 
-<ColorLayout cols="12 m-3">
+<ColorLayout cols="12 m-4">
   <ColorPalette>
     <ColorPaletteItem alias="c-p-25" name="Primary-25" />
     <ColorPaletteItem alias="c-p-50" name="Primary-50" />
@@ -44,6 +44,8 @@ The colour palette is designed to support a flexible, modular visual style that 
     <ColorPaletteItem alias="c-s-900" name="Secondary-900" />
     <ColorPaletteItem alias="c-s-950" name="Secondary-950" />
   </ColorPalette>
+</ColorLayout>
+<ColorLayout cols="12 m-4">
   <ColorPalette>
     <ColorPaletteItem alias="c-n-25" name="Neutral-25" />
     <ColorPaletteItem alias="c-n-50" name="Neutral-50" />
@@ -73,6 +75,21 @@ The colour palette is designed to support a flexible, modular visual style that 
     <ColorPaletteItem alias="c-g-800" name="Grey-800" />
     <ColorPaletteItem alias="c-g-900" name="Grey-900" />
     <ColorPaletteItem alias="c-g-950" name="Grey-950" />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorPaletteItem alias="c-m-25" name="Monochrome-25" />
+    <ColorPaletteItem alias="c-m-50" name="Monochrome-50" />
+    <ColorPaletteItem alias="c-m-75" name="Monochrome-75" />
+    <ColorPaletteItem alias="c-m-100" name="Monochrome-100" />
+    <ColorPaletteItem alias="c-m-200" name="Monochrome-200" />
+    <ColorPaletteItem alias="c-m-300" name="Monochrome-300" />
+    <ColorPaletteItem alias="c-m-400" name="Monochrome-400" />
+    <ColorPaletteItem alias="c-m-500" name="Monochrome-500" />
+    <ColorPaletteItem alias="c-m-600" name="Monochrome-600" />
+    <ColorPaletteItem alias="c-m-700" name="Monochrome-700" />
+    <ColorPaletteItem alias="c-m-800" name="Monochrome-800" />
+    <ColorPaletteItem alias="c-m-900" name="Monochrome-900" />
+    <ColorPaletteItem alias="c-m-950" name="Monochrome-950" />
   </ColorPalette>
 </ColorLayout>
 
@@ -158,33 +175,26 @@ Note: if a color in not defined in a color mode, it means that the default color
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -210,8 +220,12 @@ Note: if a color in not defined in a color mode, it means that the default color
         name="Surface-primary-lowest"
       />
       <ColorPaletteItem
-        alias="cm-surface-primary-low"
-        name="Surface-primary-low"
+        alias="cm-surface-primary-low-0"
+        name="Surface-primary-low-0"
+      />
+      <ColorPaletteItem
+        alias="cm-surface-primary-low-1"
+        name="Surface-primary-low-1"
       />
       <ColorPaletteItem
         alias="cm-surface-primary-medium"
@@ -251,7 +265,12 @@ Note: if a color in not defined in a color mode, it means that the default color
         alias="cm-surface-neutral-medium"
         name="Surface-neutral-medium"
       />
-      <ColorPaletteItem alias="cm-surface-grey-low" name="Surface-grey-low" />
+      <ColorPaletteItem
+        alias="cm-surface-neutral"
+        name="Surface-neutral"
+      />
+      <ColorPaletteItem alias="cm-surface-grey-low-0-transparent" name="Surface-grey-low-0-transparent" />
+      <ColorPaletteItem alias="cm-surface-grey-low-0" name="Surface-grey-low-0" />
       <ColorPaletteItem alias="cm-surface-grey-low-1" name="Surface-grey-low-1" />
       <ColorPaletteItem
         alias="cm-surface-status-error-lowest"
@@ -343,10 +362,13 @@ Note: if a color in not defined in a color mode, it means that the default color
       <ColorPaletteItem alias="cm-border-brand" name="Border-brand" />
       <ColorPaletteItem alias="cm-border-on-brand" name="Border-on-brand" />
       <ColorPaletteItem alias="cm-border-inverted" name="Border-inverted" />
+      <ColorPaletteItem alias="cm-border-primary-medium" name="Border-primary-medium" />
       <ColorPaletteItem alias="cm-border-primary" name="Border-primary" />
       <ColorPaletteItem alias="cm-border-primary-highest" name="Border-primary-highest" />
+      <ColorPaletteItem alias="cm-border-neutral-low" name="Border-neutral-low" />
       <ColorPaletteItem alias="cm-border-neutral" name="Border-neutral" />
       <ColorPaletteItem alias="cm-border-grey-lowest" name="Border-grey-lowest" />
+      <ColorPaletteItem alias="cm-border-grey-low" name="Border-grey-low" />
       <ColorPaletteItem alias="cm-border-grey-medium" name="Border-grey-medium" />
       <ColorPaletteItem alias="cm-border-grey" name="Border-grey" />
       <ColorPaletteItem
@@ -377,33 +399,26 @@ CSS class: `ecl-color-mode--blue`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="blue">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="blue">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -424,33 +439,26 @@ CSS class: `ecl-color-mode--green-dark`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="green-dark">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="green-dark">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -471,33 +479,26 @@ CSS class: `ecl-color-mode--orange`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="orange">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="orange">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -518,33 +519,26 @@ CSS class: `ecl-color-mode--green`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="green">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="green">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -563,33 +557,26 @@ CSS class: `ecl-color-mode--purple`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="purple">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="purple">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -608,33 +595,26 @@ CSS class: `ecl-color-mode--blue-navy`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="blue-navy">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="blue-navy">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -653,33 +633,26 @@ CSS class: `ecl-color-mode--blue-electric`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="blue-electric">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="blue-electric">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -698,33 +671,26 @@ CSS class: `ecl-color-mode--blue-ocean`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="blue-ocean">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="blue-ocean">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -743,33 +709,26 @@ CSS class: `ecl-color-mode--green-lemon`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="green-lemon">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="green-lemon">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -788,33 +747,26 @@ CSS class: `ecl-color-mode--green-pine`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="green-pine">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="green-pine">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -833,33 +785,26 @@ CSS class: `ecl-color-mode--warm-grey`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="warm-grey">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="warm-grey">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -878,33 +823,26 @@ CSS class: `ecl-color-mode--red-crayola`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="red-crayola">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="red-crayola">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -923,33 +861,26 @@ CSS class: `ecl-color-mode--yellow-gold`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="yellow-gold">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="yellow-gold">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -968,33 +899,26 @@ CSS class: `ecl-color-mode--purple-violet`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="purple-violet">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="purple-violet">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
@@ -1013,33 +937,26 @@ CSS class: `ecl-color-mode--red-tomato`
       alias="cm-surface-lowest-variant"
       name="Surface-lowest-variant"
     />
+    <ColorPaletteItem alias="cm-surface-low-0" name="Surface-low-0" />
     <ColorPaletteItem alias="cm-surface-low-1" name="Surface-low-1" />
     <ColorPaletteItem alias="cm-surface-low-2" name="Surface-low-2" />
-    <ColorPaletteItem alias="cm-surface-medium" name="Surface-medium" />
-    <ColorPaletteItem alias="cm-surface" name="Surface" />
+    <ColorPaletteItem alias="cm-surface-medium-0" name="Surface-medium-0" />
+    <ColorPaletteItem alias="cm-surface-medium-1" name="Surface-medium-1" />
+    <ColorPaletteItem alias="cm-surface-0" name="Surface-0" />
     <ColorPaletteItem alias="cm-surface-variant-1" name="Surface-variant-1" />
     <ColorPaletteItem alias="cm-surface-variant-2" name="Surface-variant-2" />
   </ColorPalette>
   <ColorPalette mode="red-tomato">
     <ColorPaletteItem alias="cm-on-surface" name="On-surface" />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-1"
-      name="On-surface-variant-1"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-2"
-      name="On-surface-variant-2"
-    />
-    <ColorPaletteItem
-      alias="cm-on-surface-variant-3"
-      name="On-surface-variant-3"
-    />
+    <ColorPaletteItem alias="cm-on-surface-1" name="On-surface-1" />
+    <ColorPaletteItem alias="cm-on-surface-2" name="On-surface-2" />
+    <ColorPaletteItem alias="cm-on-surface-3" name="On-surface-3" />
     <ColorPaletteItem
       alias="cm-on-surface-highlight"
       name="On-surface-highlight"
     />
+    <ColorPaletteItem alias="cm-on-surface-swap-0" name="On-surface-swap-0" />
     <ColorPaletteItem alias="cm-on-surface-swap-1" name="On-surface-swap-1" />
-    <ColorPaletteItem alias="cm-on-surface-swap-2" name="On-surface-swap-2" />
   </ColorPalette>
   <ColorPalette mode="red-tomato">
     <ColorPaletteItem alias="cm-border-low" name="Border-low" />
