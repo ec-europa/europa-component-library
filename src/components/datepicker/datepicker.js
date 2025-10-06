@@ -19,86 +19,7 @@ export class Datepicker {
     return datepicker;
   }
 
-  constructor(
-    element,
-    {
-      format = '',
-      localization = {
-        previousMonth: 'Previous Month',
-        nextMonth: 'Next Month',
-        dayNames: [
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-        ],
-        months: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ],
-        weekdays: [
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-        ],
-        weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-        monthNames: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ],
-        monthNamesShort: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ],
-        placeholder: 'DD-MM-YYYY',
-        prevMonthLabel: 'Previous month',
-        nextMonthLabel: 'Next month',
-        monthSelectLabel: 'Month',
-        yearSelectLabel: 'Year',
-        closeLabel: 'Close window',
-        calendarHeading: 'Choose a date',
-        selectedDateMessage: 'Selected date is',
-        buttonLabel: 'Choose date',
-      },
-    } = {},
-  ) {
+  constructor(element, { format = '', localization = {} } = {}) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
@@ -111,7 +32,10 @@ export class Datepicker {
     // Options
     this.picker = null;
     this.format = format;
-    this.localization = localization;
+    this.localization = {
+      ...Datepicker.defaults.localization,
+      ...localization,
+    };
     this.direction = 'ltr';
   }
 
@@ -181,5 +105,82 @@ export class Datepicker {
     }
   }
 }
+
+Datepicker.defaults = {
+  localization: {
+    previousMonth: 'Previous Month',
+    nextMonth: 'Next Month',
+    dayNames: [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ],
+    months: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    weekdays: [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ],
+    weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    monthNames: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    monthNamesShort: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    placeholder: 'DD-MM-YYYY',
+    prevMonthLabel: 'Previous month',
+    nextMonthLabel: 'Next month',
+    monthSelectLabel: 'Month',
+    yearSelectLabel: 'Year',
+    closeLabel: 'Close window',
+    calendarHeading: 'Choose a date',
+    selectedDateMessage: 'Selected date is',
+    buttonLabel: 'Choose date',
+  },
+};
 
 export default Datepicker;
