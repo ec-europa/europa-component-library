@@ -109,4 +109,15 @@ describe('Fact and figures', () => {
       return expect(render(withoutValue)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('without title', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      const withoutTitle = JSON.parse(JSON.stringify(demo1Col));
+      delete withoutTitle.items[0].title;
+
+      return expect(render(withoutTitle)).resolves.toMatchSnapshot();
+    });
+  });
 });
