@@ -9,37 +9,37 @@ import EventManager from '@ecl/event-manager';
  * @param {String} options.linkSelector Link inside the header of the component
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
-export class PoliticalAdv {
+export class PageHeaderExpandable {
   /**
    * @static
    * Shorthand for instance creation and initialisation.
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {PoliticalAdv} An instance of PoliticalAdv.
+   * @return {PageHeaderExpandable} An instance of PageHeaderExpandable.
    */
-  static autoInit(root, { POLITICALADV: defaultOptions = {} } = {}) {
-    const politicalAdv = new PoliticalAdv(root, defaultOptions);
-    politicalAdv.init();
-    root.ECLPoliticalAdv = politicalAdv;
-    return politicalAdv;
+  static autoInit(root, { PAGEHEADEREXPANDABLE: defaultOptions = {} } = {}) {
+    const pageHeaderExpandable = new PageHeaderExpandable(root, defaultOptions);
+    pageHeaderExpandable.init();
+    root.ECLPageHeaderExpandable = pageHeaderExpandable;
+    return pageHeaderExpandable;
   }
 
   /**
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event PoliticalAdv#onToggle
-   * @memberof PoliticalAdv
+   * @event PageHeaderExpandable#onToggle
+   * @memberof PageHeaderExpandable
    */
   supportedEvents = ['onToggle'];
 
   constructor(
     element,
     {
-      headerSelector = '[data-ecl-political-adv-header]',
-      toggleSelector = '[data-ecl-political-adv-toggle]',
-      linkSelector = '[data-ecl-political-adv-header-link]',
+      headerSelector = '[data-ecl-page-header-expandable-header]',
+      toggleSelector = '[data-ecl-page-header-expandable-toggle]',
+      linkSelector = '[data-ecl-page-header-expandable-header-link]',
       attachClickListener = true,
     } = {},
   ) {
@@ -108,12 +108,12 @@ export class PoliticalAdv {
    * @param {string} eventName - The name of the event to listen for.
    * @param {Function} callback - The callback function to be invoked when the event occurs.
    * @returns {void}
-   * @memberof PoliticalAdv
+   * @memberof PageHeaderExpandable
    * @instance
    *
    * @example
    * // Registering a callback for the 'toggle' event
-   * politicalAdv.on('onToggle', (event) => {
+   * pageHeaderExpandable.on('onToggle', (event) => {
    *   console.log('Toggle event occurred!', event);
    * });
    */
@@ -127,7 +127,7 @@ export class PoliticalAdv {
    * @param {string} eventName - The name of the event to trigger.
    * @param {any} eventData - Data associated with the event.
    *
-   * @memberof PoliticalAdv
+   * @memberof PageHeaderExpandable
    */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
@@ -168,7 +168,7 @@ export class PoliticalAdv {
    *
    * @param {Event} e
    *
-   * @fires PoliticalAdv#onToggle
+   * @fires PageHeaderExpandable#onToggle
    */
   handleClickOnToggle(e) {
     // Get current status
@@ -187,4 +187,4 @@ export class PoliticalAdv {
   }
 }
 
-export default PoliticalAdv;
+export default PageHeaderExpandable;

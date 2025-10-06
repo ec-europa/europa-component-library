@@ -131,13 +131,13 @@ $page-header: null !default;
   }
 }
 
-// Political advertisement
-.ecl-political-adv {
+// Expandable
+.ecl-page-header-expandable {
   background-color: var(--cm-surface-primary-low);
   color: var(--cm-on-surface-brand);
 }
 
-.ecl-political-adv__header {
+.ecl-page-header-expandable__header {
   background: var(--cm-surface-primary-low-1);
   cursor: pointer;
 
@@ -148,7 +148,7 @@ $page-header: null !default;
   }
 }
 
-.ecl-political-adv__header-text {
+.ecl-page-header-expandable__header-text {
   flex-grow: 1;
   padding-block: var(--s-s);
 
@@ -158,7 +158,7 @@ $page-header: null !default;
   }
 }
 
-.ecl-political-adv__title {
+.ecl-page-header-expandable__title {
   display: block;
   font-size: var(--fs-xs);
   font-weight: map.get($theme, 'font-weight', 'semi-bold');
@@ -169,15 +169,15 @@ $page-header: null !default;
   // @include mixins.responsive-font('body-m');
 }
 
-.ecl-political-adv__sponsor {
+.ecl-page-header-expandable__sponsor {
   display: block;
 }
 
-.ecl-political-adv__more {
+.ecl-page-header-expandable__more {
   margin-inline-end: var(--s-3xs);
 }
 
-.ecl-political-adv__toggle {
+.ecl-page-header-expandable__toggle {
   align-self: start;
   height: 2.75rem;
   margin-block-start: var(--s-2xs);
@@ -197,18 +197,18 @@ $page-header: null !default;
   }
 }
 
-.ecl-political-adv__panel {
+.ecl-page-header-expandable__panel {
   font-family: map.get($theme, 'font-family', 'default');
   padding-block: var(--s-s);
 }
 
-.ecl-political-adv__more-link {
+.ecl-page-header-expandable__more-link {
   color: var(--cm-on-surface-brand);
   font-weight: map.get($theme, 'font-weight', 'medium');
 }
 
-.ecl-political-adv__list {
-  + .ecl-political-adv__list {
+.ecl-page-header-expandable__list {
+  + .ecl-page-header-expandable__list {
     margin-block-start: var(--s-2xs);
   }
 
@@ -238,12 +238,12 @@ $page-header: null !default;
 }
 
 @include breakpoints.up('s') {
-  .ecl-political-adv__title {
+  .ecl-page-header-expandable__title {
     font-size: var(--fs-s);
     line-height: map.get($theme, 'line-height', 's');
   }
 
-  .ecl-political-adv__list .ecl-icon {
+  .ecl-page-header-expandable__list .ecl-icon {
     height: var(--s-m);
     width: var(--s-m);
     margin-inline-end: var(--s-3xs);
@@ -251,17 +251,17 @@ $page-header: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-political-adv__sponsor,
-  .ecl-political-adv__note {
+  .ecl-page-header-expandable__sponsor,
+  .ecl-page-header-expandable__note {
     display: inline-flex;
   }
 
-  .ecl-political-adv__more::before {
-    content: var(--ecl-political-adv-separator);
+  .ecl-page-header-expandable__more::before {
+    content: var(--ecl-page-header-expandable-separator);
     margin-inline: var(--s-3xs);
   }
 
-  .ecl-political-adv__list {
+  .ecl-page-header-expandable__list {
     .ecl-list-illustration__divider,
     .ecl-list-illustration__item {
       padding-block-end: var(--s-2xs);
@@ -270,36 +270,36 @@ $page-header: null !default;
 }
 
 @include breakpoints.up('xl') {
-  .ecl-political-adv__header {
-    .ecl-political-adv__header-text * {
+  .ecl-page-header-expandable__header {
+    .ecl-page-header-expandable__header-text * {
       display: inline-flex;
     }
 
-    .ecl-political-adv__more-link {
+    .ecl-page-header-expandable__more-link {
       display: inline-block;
     }
 
-    .ecl-political-adv__toggle {
+    .ecl-page-header-expandable__toggle {
       align-self: center;
       margin-block-start: 0;
     }
   }
 
-  .ecl-political-adv__title {
+  .ecl-page-header-expandable__title {
     font-size: var(--fs-m);
     line-height: map.get($theme, 'line-height', 'm');
   }
 
-  .ecl-political-adv__sponsor::before {
-    content: var(--ecl-political-adv-separator);
+  .ecl-page-header-expandable__sponsor::before {
+    content: var(--ecl-page-header-expandable-separator);
     margin-inline: var(--s-3xs);
   }
 
-  .ecl-political-adv__panel {
+  .ecl-page-header-expandable__panel {
     padding-block: var(--s-m);
   }
 
-  .ecl-political-adv__list {
+  .ecl-page-header-expandable__list {
     .ecl-list-illustration__item {
       padding-block-end: var(--s-3xs);
     }
