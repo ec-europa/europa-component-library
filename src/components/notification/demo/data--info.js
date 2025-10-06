@@ -2,7 +2,7 @@
 module.exports = {
   variant: 'info',
   icon: {
-    name: 'information',
+    name: 'information-outline',
     size: 'l',
   },
   links: [
@@ -10,12 +10,14 @@ module.exports = {
       link: {
         label: 'Lorem ipsum',
         path: '/example',
+        external: true,
       },
     },
     {
       link: {
         label: 'Nullam accumsan semper lorem',
         path: '/example',
+        external: true,
       },
     },
   ],

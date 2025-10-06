@@ -361,7 +361,9 @@ const getVariantArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
+  args.title = data.items[0].title;
   args.description = data.items[0].description;
+  args.divider = false;
 
   return args;
 };
@@ -371,6 +373,12 @@ const getVariantArgTypes = () => {
     ...getColorModeControls(),
     description: {
       control: { type: 'text' },
+    },
+    title: {
+      control: { type: 'text' },
+    },
+    divider: {
+      control: { type: 'boolean' },
     },
   };
 };
@@ -477,6 +485,7 @@ const prepareDataList = (data, args) => {
 const prepareIconList = (data, args) => {
   data.items.forEach((item) => {
     item.description = args.description;
+    item.title = args.title;
 
     if (args.icon) {
       item.icon.name = args.icon;
@@ -577,7 +586,6 @@ IconList.storyName = 'icon list';
 IconList.args = {
   ...getVariantArgs(dataListIllustrationIconList),
   icon: 'check-bold',
-  divider: false,
   column: 1,
 };
 IconList.argTypes = {
@@ -587,9 +595,6 @@ IconList.argTypes = {
       type: 'select',
     },
     options: ['check-bold', 'arrow-right-bold', 'close-bold'],
-  },
-  divider: {
-    control: { type: 'boolean' },
   },
   column: {
     name: 'number of columns',

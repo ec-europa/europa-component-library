@@ -124,10 +124,14 @@ $font-breakpoints: (
 
     @each $tier, $bp-name in $font-breakpoints {
       @if map.has-key($token-map, $tier) {
-        $current: font-size-value(map.get($token-map, $tier));
+        $current: if(
+          map.has-key($token-map, $tier),
+          map.get($token-map, $tier),
+          null
+        );
         $previous: if(
           map.has-key($token-map, $prev-tier),
-          font-size-value(map.get($token-map, $prev-tier)),
+          map.get($token-map, $prev-tier),
           null
         );
 
@@ -135,17 +139,11 @@ $font-breakpoints: (
           @if $container != '' {
             // stylelint-disable-next-line container-name-pattern
             @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
-              @include responsive-font-emit(
-                map.get($token-map, $tier),
-                $important
-              );
+              @include responsive-font-emit($current, $important);
             }
           } @else {
             @include breakpoints.up($bp-name) {
-              @include responsive-font-emit(
-                map.get($token-map, $tier),
-                $important
-              );
+              @include responsive-font-emit($current, $important);
             }
           }
         }

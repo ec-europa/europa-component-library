@@ -1,5 +1,33 @@
 # Changelog
 
+# 5.0.0-alpha.17
+
+#### :rocket: New Feature
+
+- [#4141](https://github.com/ec-europa/europa-component-library/pull/4141) feat(political-advertisement): Adding component as part of the page header - FRONT-5088 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4146](https://github.com/ec-europa/europa-component-library/pull/4146) feat(site-header): Some styles update - FRONT-5080 - FRONT-5096 ([@planctus](https://github.com/planctus))
+- [#4145](https://github.com/ec-europa/europa-component-library/pull/4145) feat(spotlight): use media queries - FRONT-5089 ([@emeryro](https://github.com/emeryro))
+- [#4143](https://github.com/ec-europa/europa-component-library/pull/4143) feat(list-illustration): Style iteration, adding divider in number list - FRONT-5094 ([@planctus](https://github.com/planctus))
+- [#4085](https://github.com/ec-europa/europa-component-library/pull/4085) feat(notification): update EC display - FRONT-5006 ([@emeryro](https://github.com/emeryro))
+- [#4138](https://github.com/ec-europa/europa-component-library/pull/4138) feat(button): update styles - FRONT-5082 ([@emeryro](https://github.com/emeryro))
+- [#4134](https://github.com/ec-europa/europa-component-library/pull/4134) feat(modal): put icon in header content - FRONT-5076 ([@emeryro](https://github.com/emeryro))
+- [#4132](https://github.com/ec-europa/europa-component-library/pull/4132) feat(banner): add aria-describedby on button - FRONT-5071 ([@emeryro](https://github.com/emeryro))
+- [#4133](https://github.com/ec-europa/europa-component-library/pull/4133) feat(fact-figures): use span for title - FRONT-5074 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4147](https://github.com/ec-europa/europa-component-library/pull/4147) chore(page-header): Rename political-advertisement to page-header-expandable - FRONT-5098 ([@planctus](https://github.com/planctus))
+- [#4137](https://github.com/ec-europa/europa-component-library/pull/4137) chore(deps): Updates 22-09-25 ([@planctus](https://github.com/planctus))
+- [#4136](https://github.com/ec-europa/europa-component-library/pull/4136) feat(popover): update demo - FRONT-5078 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.16
 
 #### :rocket: New Feature

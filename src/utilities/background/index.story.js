@@ -18,7 +18,7 @@ const getArgs = () => {
   if (system === 'ec') {
     args.show_color_mode = false;
     args.color_mode = 'default';
-    args.background_color_mode = 'surface';
+    args.background_color_mode = 'surface-0';
   }
 
   args.background = 'white';
@@ -47,10 +47,12 @@ const getArgTypes = () => {
       options: [
         'surface-lowest',
         'surface-lowest-variant',
+        'surface-low-0',
         'surface-low-1',
         'surface-low-2',
-        'surface-medium',
-        'surface',
+        'surface-medium-0',
+        'surface-medium-1',
+        'surface-0',
         'surface-variant-1',
         'surface-variant-2',
         'on-surface-highlight',
@@ -62,10 +64,12 @@ const getArgTypes = () => {
       mapping: {
         'surface-lowest': 'surface-lowest',
         'surface-lowest-variant': 'surface-lowest-variant',
+        'surface-low-0': 'surface-low-0',
         'surface-low-1': 'surface-low-1',
         'surface-low-2': 'surface-low-2',
-        'surface-medium': 'surface-medium',
-        surface: 'surface',
+        'surface-medium-0': 'surface-medium-0',
+        'surface-medium-1': 'surface-medium-1',
+        'surface-0': 'surface-0',
         'surface-variant-1': 'surface-variant-1',
         'surface-variant-2': 'surface-variant-2',
         'on-surface-highlight': 'on-surface-highlight',
