@@ -32,6 +32,7 @@ const getArgs = (data) => ({
   hide_label: false,
   indicator: false,
   indicator_value: '',
+  indicator_label: '',
 });
 
 const stylePrimary = {
@@ -235,6 +236,21 @@ const getArgTypes = (variant) => {
     },
     if: { arg: 'indicator', eq: true },
   };
+  argTypes.indicator_label = {
+    name: 'indicator_label',
+    type: { name: 'string' },
+    description:
+      'Meaning of the indicator, for screen reader users. Ex: "Items not read"',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'text',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
 
   return argTypes;
 };
@@ -245,9 +261,14 @@ const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
   data.hide_label = args.hide_label;
-  data.indicator = args.indicator ? { value: '' } : {};
-  if (args.indicator && args.indicator_value !== '') {
-    data.indicator.value = args.indicator_value;
+  data.indicator = args.indicator ? { value: '', sr_label: '' } : {};
+  if (args.indicator) {
+    if (args.indicator_value !== '') {
+      data.indicator.value = args.indicator_value;
+    }
+    if (args.indicator_label !== '') {
+      data.indicator.sr_label = args.indicator_label;
+    }
   }
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};

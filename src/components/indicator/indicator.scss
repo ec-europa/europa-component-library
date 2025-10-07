@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -29,4 +30,8 @@ $theme: null !default;
     top: -16px;
     width: 22px;
   }
+}
+
+.ecl-indicator__label {
+  @include screen-reader.sr-only;
 }
