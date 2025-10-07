@@ -53,10 +53,19 @@ Once you have the `preset-eu` you're ready to setup the ECL integration in your 
           cl.add('has-js');
       >
     </script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
-    ></script>
+    <!-- Preload Duet Date Picker scripts to improve loading performance -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
+      as="script"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet-date-picker.entry.js"
+      as="script"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="/styles/optional/ecl-reset.css"
@@ -69,6 +78,11 @@ Once you have the `preset-eu` you're ready to setup the ECL integration in your 
       media="screen"
     />
     <link rel="stylesheet" href="/styles/ecl-eu-print.css" media="print" />
+    <!-- Only needed if an ECL datepicker is present in the page -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
+    ></script>
   </head>
   <body>
     <!-- content of your page here -->

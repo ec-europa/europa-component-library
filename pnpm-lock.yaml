@@ -360,9 +360,6 @@ importers:
 
   src/components/datepicker:
     devDependencies:
-      '@duetds/date-picker':
-        specifier: 1.4.0
-        version: 1.4.0
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.17
         version: link:../../mixins/typography
@@ -3627,10 +3624,6 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
-  '@duetds/date-picker@1.4.0':
-    resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
-    engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
-
   '@ecl/grid@5.0.0-alpha.15':
     resolution: {integrity: sha512-z1kgc+YriX3U4VRjGibM/NBMzp22NFBdK2QHLVXgNm2ZZ5GT+x/gOI17Sh3ZjTrRuKlGlVImjy+Sz1bI7mg+Ag==}
 
@@ -4867,11 +4860,6 @@ packages:
 
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
-
-  '@stencil/core@2.22.3':
-    resolution: {integrity: sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng==}
-    engines: {node: '>=12.10.0', npm: '>=6.0.0'}
-    hasBin: true
 
   '@storybook/addon-a11y@8.6.14':
     resolution: {integrity: sha512-fozv6enO9IgpWq2U8qqS8MZ21Nt+MVHiRQe3CjnCpBOejTyo/ATm690PeYYRVHVG6M/15TVePb0h3ngKQbrrzQ==}
@@ -13083,10 +13071,6 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
-  '@duetds/date-picker@1.4.0':
-    dependencies:
-      '@stencil/core': 2.22.3
-
   '@ecl/grid@5.0.0-alpha.15': {}
 
   '@ecl/mixins-typography@5.0.0-alpha.15':
@@ -14550,8 +14534,6 @@ snapshots:
       - webpack-cli
 
   '@socket.io/component-emitter@3.1.2': {}
-
-  '@stencil/core@2.22.3': {}
 
   '@storybook/addon-a11y@8.6.14(storybook@8.6.14(prettier@3.6.2))':
     dependencies:
