@@ -83,3 +83,43 @@ $page-header-print: null !default;
     width: 100%;
   }
 }
+
+// Expandable
+.ecl-page-header-expandable {
+  background-color: var(--cm-surface-primary-low);
+  color: var(--cm-on-surface-brand);
+}
+
+.ecl-page-header-expandable__header {
+  background: var(--cm-surface-primary-low-1);
+  display: flex;
+  font: map.get($theme, 'font-print', 's');
+  padding: map.get($theme, 'spacing-print', 's')
+    map.get($theme, 'spacing-print', '2xl');
+
+  * {
+    display: inline-flex;
+  }
+
+  .ecl-page-header-expandable__title {
+    font-weight: map.get($theme, 'font-weight', 'semi-bold');
+  }
+
+  .ecl-page-header-expandable__more-link {
+    display: inline-block;
+  }
+}
+
+.ecl-page-header-expandable__toggle {
+  display: none;
+}
+
+.ecl-page-header-expandable__more {
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-page-header-expandable__more::before,
+.ecl-page-header-expandable__sponsor::before {
+  content: var(--ecl-page-header-expandable-separator);
+  margin-inline: map.get($theme, 'spacing-print', 'xs');
+}

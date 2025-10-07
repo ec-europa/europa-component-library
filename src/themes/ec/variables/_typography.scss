@@ -123,19 +123,19 @@ $typography: (
   ),
   heading6: (
     'mobile-xs': (
-      'size': var(--fs-m),
+      'size': var(--fs-s),
       'line-height': var(--lh-s),
     ),
     'mobile': (
-      'size': var(--fs-m),
+      'size': var(--fs-s),
       'line-height': var(--lh-s),
     ),
     'tablet': (
-      'size': var(--fs-l),
+      'size': var(--fs-m),
       'line-height': var(--lh-m),
     ),
     'desktop': (
-      'size': var(--fs-l),
+      'size': var(--fs-m),
       'line-height': var(--lh-m),
     ),
     'font-weight': map.get($font-weight, 'light'),
@@ -161,8 +161,8 @@ $typography: (
     ),
     's': (
       'mobile-xs': (
-        'size': var(--fs-s),
-        'line-height': var(--lh-s),
+        'size': var(--fs-xs),
+        'line-height': var(--lh-xs),
       ),
       'mobile': (
         'size': var(--fs-s),
@@ -188,7 +188,7 @@ $typography: (
       ),
       'tablet': (
         'size': var(--fs-m),
-        'line-height': var(--lh-s),
+        'line-height': var(--lh-m),
       ),
       'desktop': (
         'size': var(--fs-m),
@@ -289,8 +289,8 @@ $typography: (
       padding-desktop: var(--s-3xl),
     ),
     strong: (
-      background-color: var(--cm-surface),
-      color: var(--cm-on-surface-swap-1),
+      background-color: var(--cm-surface-0),
+      color: var(--cm-on-surface-swap-0),
       padding-mobile: var(--s-m),
       padding-tablet: var(--s-xl),
       padding-desktop: var(--s-3xl),

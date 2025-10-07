@@ -181,6 +181,7 @@ $typography: null !default;
     'secondary',
     'neutral',
     'grey',
+    'monochrome',
     'info',
     'success',
     'error',
@@ -197,11 +198,11 @@ $typography: null !default;
   @if map.has-key($theme, 'color-modes') {
     $type-mode: (
       'on-surface',
-      'on-surface-variant-1',
-      'on-surface-variant-2',
-      'on-surface-variant-3',
-      'on-surface-swap-1',
-      'on-surface-swap-2'
+      'on-surface-1',
+      'on-surface-2',
+      'on-surface-3',
+      'on-surface-swap-0',
+      'on-surface-swap-1'
     );
 
     @each $key in $type-mode {

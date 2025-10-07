@@ -291,6 +291,10 @@ A parameter has been added in the twig template `featured_priority` so that this
 
 The modal variants now use the outline version of the icons, instead of the filled one. This is part of the twig, but should be updated for users not relying on it.
 
+### Notification
+
+The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
+
 ### Radio
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
