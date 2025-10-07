@@ -1,6 +1,7 @@
 @use '@ecl/theme-eu/theme' as theme;
 @use '@ecl/theme-eu/custom-properties';
 @use '@ecl/theme-eu/variables' as var;
+@use '@ecl/vertical-flow/mixins' as flow;
 
 // Icons & Images
 @use '@ecl/icon/icon' with (
@@ -256,3 +257,4 @@
   $splash-page: var.$splash-page,
   $language-list: var.$language-list
 );
+@include flow.vertical-flow;

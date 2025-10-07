@@ -1,0 +1,18 @@
+{% set _sorting = sorting|default('') %}
+{% set _columns = columns|default(2) %}
+{% set _css_class = 'ecl-u-d-l-grid ecl-vertical-flow--column-' ~ _columns %}
+
+{% if _sorting == 'column' %}
+  {% set _rows = (items|length / _columns)|round(ceil) %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
+{% endif %}
+
+{% if items is not empty %}
+  <ul class="{{ _css_class }}" style="list-style: none;">
+  {% for item in items %}
+    <li>
+      {% include '@ecl/card/card.html.twig' with item only %}
+    </li>
+  {% endfor %}
+  </ul>
+{% endif %}

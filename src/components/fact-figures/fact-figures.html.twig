@@ -48,8 +48,7 @@
 
 {% if _sorting == 'column' and items is not empty %}
   {% set _rows = (items|length / _columns)|round(ceil) %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
-  {% set _items_class = _items_class ~ ' ecl-vertical-flow__items' %}
+  {% set _items_class = _items_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
 {% endif %}
 
 {% if _color_mode is not empty %}
