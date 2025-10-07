@@ -118,6 +118,7 @@ describe('Button', () => {
       hide_label: true,
       indicator: {
         value: 10,
+        sr_label: 'new items',
       },
     };
 
