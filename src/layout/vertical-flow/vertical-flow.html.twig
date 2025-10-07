@@ -1,18 +1,18 @@
-{% set _sorting = sorting|default('') %}
-{% set _columns = columns|default(2) %}
-{% set _css_class = 'ecl-u-d-l-grid ecl-vertical-flow--column-' ~ _columns %}
+{% macro get_class(items, columns, sorting, has_items) %}
+  {% apply spaceless %}
+  {% set _items = items|default([]) %}
+  {% set _columns = columns|default('') %}
+  {% set _has_items = has_items|default(false) %}
+  {% set _sorting = sorting|default('row') %}
+  {% set _classes = '' %}
 
-{% if _sorting == 'column' %}
-  {% set _rows = (items|length / _columns)|round(ceil) %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
-{% endif %}
-
-{% if items is not empty %}
-  <ul class="{{ _css_class }}" style="list-style: none;">
-  {% for item in items %}
-    <li>
-      {% include '@ecl/card/card.html.twig' with item only %}
-    </li>
-  {% endfor %}
-  </ul>
-{% endif %}
+  {%- if _sorting == 'column' and _columns > 1 and _items is not empty and _items|length / _columns > 1 -%}
+    {% set _rows = (items|length / _columns)|round(0, 'ceil') %}
+    {% set _classes = 'ecl-vertical-flow--row-' ~ _rows %}
+    {% if (_columns == 3 and _items|length == 4) or (_columns == 4 and (_items|length == 5 or _items|length == 6 or _items|length == 9)) %}
+      {% set _classes = _classes ~ ' ' ~ 'ecl-vertical-flow-empty-col-' ~ _columns %}
+    {%- endif  -%}
+  {% endif %}
+  {{- _classes -}}
+  {% endapply %}
+{% endmacro %}

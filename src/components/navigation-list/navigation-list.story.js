@@ -21,6 +21,7 @@ const getArgs = (data) => {
     args.color_mode = 'default';
   }
   args.column = 2;
+  args.sorting = 'row';
 
   return args;
 };
@@ -81,7 +82,17 @@ const getArgTypes = (data) => {
       category: 'Layout',
     },
   };
-
+  argTypes.sorting = {
+    name: 'items flow',
+    control: { type: 'select' },
+    options: ['row', 'column'],
+    description: 'Sort the items by row or column',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'row' },
+      category: 'Layout',
+    },
+  };
   argTypes.item_color_mode = {
     ...getColorModeControls().color_mode,
     name: 'first item color mode',
@@ -118,6 +129,7 @@ const prepareData = (data, args) => {
   // Other controls
   clone.border = 'show_border' in args ? args.show_border : true;
   clone.column = args.column;
+  clone.sorting = args.sorting;
   clone.color_mode = args.color_mode;
 
   return clone;

@@ -3,7 +3,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
 import data from './demo/data';
-import flow from './vertical-flow.html.twig';
+import flow from './vertical-flow-demo.html.twig';
 
 const prepareData = (data, args) => {
   data.sorting = args.sorting;

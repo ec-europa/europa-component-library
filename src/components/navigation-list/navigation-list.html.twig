@@ -15,13 +15,15 @@
       ],
 #}
 
-{# Internal properties #}
+{% import '@ecl/vertical-flow/vertical-flow.html.twig' as vertical_flow %}
 
+{# Internal properties #}
 {% set _items = items|default([]) %}
 {% set _column = column|default(2) %}
 {% set _css_class = 'ecl-navigation-list' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _border = border ?? true %}
+{% set _sorting = sorting|default('row') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -31,6 +33,10 @@
 
 {% if _column and _column > 1 and _column < 4 %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-navigation-list--col-' ~ _column %}
+{% endif %}
+
+{% if _sorting == 'column' %}
+  {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items, _column, _sorting, false) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

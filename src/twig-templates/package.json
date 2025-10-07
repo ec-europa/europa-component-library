@@ -65,12 +65,13 @@
     "@ecl/text-input": "5.0.0-alpha.17",
     "@ecl/timeline": "5.0.0-alpha.17",
     "@ecl/unordered-list": "5.0.0-alpha.17",
+    "@ecl/vertical-flow": "5.0.0-alpha.17",
     "copyfiles": "2.4.1",
     "rimraf": "6.0.1"
   },
   "scripts": {
     "clean": "rimraf templates",
-    "copy": "copyfiles -u 2 ./node_modules/**/*.twig templates/",
+    "copy": "copyfiles -u 2 -e \"./node_modules/**/*demo*\" ./node_modules/**/*.twig templates/",
     "prepublish": "npm run clean && npm run copy"
   },
   "repository": {

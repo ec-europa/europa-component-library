@@ -130,23 +130,5 @@ module.exports = {
       ],
       labels_aria: 'Labels',
     },
-    {
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra.',
-      primary_meta: ['PRIMARY META', 'DD Month Year'],
-      title: {
-        link: {
-          type: 'standalone',
-          label: 'Title 7',
-          path: exampleLink,
-        },
-      },
-      picture: {
-        img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
-          alt: 'card image',
-        },
-      },
-    },
   ],
 };

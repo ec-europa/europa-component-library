@@ -94,6 +94,8 @@ $fact-figures: null !default;
     column-gap: map.get($fact-figures, 'margin-horizontal');
     row-gap: map.get($fact-figures, 'margin-vertical');
 
+    --ecl-vertical-flow-grid-gap: #{map.get($fact-figures, 'margin-horizontal')};
+
     .ecl-fact-figures--col-2 & {
       grid-template-columns: repeat(2, 1fr);
     }

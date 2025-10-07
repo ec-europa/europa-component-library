@@ -152,7 +152,7 @@ const getArgTypes = (data, variant) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'row' },
-        category: 'Sorting',
+        category: 'Layout',
       },
     };
   }

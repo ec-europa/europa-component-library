@@ -28,6 +28,8 @@
       ],
 #}
 
+{% import '@ecl/vertical-flow/vertical-flow.html.twig' as vertical_flow %}
+
 {# Parameters #}
 
 {% set _color_mode = color_mode|default('') %}
@@ -47,8 +49,7 @@
 {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
 
 {% if _sorting == 'column' and items is not empty %}
-  {% set _rows = (items|length / _columns)|round(ceil) %}
-  {% set _items_class = _items_class ~ ' ' ~ 'ecl-vertical-flow--row-' ~ _rows %}
+  {% set _items_class = _items_class ~ ' ' ~ vertical_flow.get_class(items, _columns, _sorting, true) %}
 {% endif %}
 
 {% if _color_mode is not empty %}

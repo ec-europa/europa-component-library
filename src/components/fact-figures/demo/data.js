@@ -82,5 +82,14 @@ module.exports = {
       description:
         'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
     },
+    {
+      icon: {
+        name: 'calendar',
+      },
+      value: '00.0 million',
+      title: 'Aenean dapibus',
+      description:
+        'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
+    },
   ],
 };
