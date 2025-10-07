@@ -140,7 +140,7 @@ $page-header: null !default;
 .ecl-page-header-expandable__header {
   background: var(--cm-surface-primary-low-1);
 
-  :not(.ecl-page-header-not-expandable) > & {
+  :not(.ecl-page-header-no-toggle) > & {
     cursor: pointer;
   }
 
@@ -203,7 +203,8 @@ $page-header: null !default;
   padding-block: var(--s-s);
 }
 
-.ecl-page-header-expandable__more-link {
+.ecl-page-header-expandable__more-link,
+.ecl-page-header-expandable__more-link:visited {
   color: var(--cm-on-surface-brand);
   font-weight: map.get($theme, 'font-weight', 'medium');
 }

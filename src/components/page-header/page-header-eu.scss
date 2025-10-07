@@ -161,7 +161,7 @@ $page-header: null !default;
   display: flex;
   font: var(--f-s);
 
-  :not(.ecl-page-header-not-expandable) > & {
+  :not(.ecl-page-header-no-toggle) > & {
     cursor: pointer;
   }
 
@@ -219,7 +219,8 @@ $page-header: null !default;
   padding-block: var(--s-xs);
 }
 
-.ecl-page-header-expandable__more-link {
+.ecl-page-header-expandable__more-link,
+.ecl-page-header-expandable__more-link:visited {
   color: var(--c-d);
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
