@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "value" (string) (default: '') Indicator value
+  - "sr_label" (string) (default: '') Additional label for screen readers
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the indicator
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the indicator
     - "name" (string) Attribute name, eg. 'data-test'
@@ -12,6 +13,7 @@
 {# Internal properties #}
 
 {% set _value = value|default('') %}
+{% set _sr_label = sr_label|default('') %}
 {% set _css_class = 'ecl-indicator' %}
 {% set _extra_attributes = '' %}
 
@@ -41,6 +43,12 @@
 >
   {%- if _value is not empty -%}
     {{- _value -}}
+  {%- endif -%}
+
+  {%- if _sr_label is not empty -%}
+    <span class="ecl-indicator__label">
+      {{- _sr_label -}}
+    </span>
   {%- endif -%}
 </span>
 
