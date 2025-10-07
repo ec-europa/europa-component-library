@@ -44,6 +44,7 @@ $fact-figures-print: null !default;
 
 .ecl-fact-figures__title {
   clear: left;
+  display: block;
   font: map.get($fact-figures-print, 'title-font');
   font-family: var(--ecl-font-family-print-alt);
   font-weight: map.get($fact-figures-print, 'title-font-weight');
