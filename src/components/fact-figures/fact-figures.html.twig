@@ -92,13 +92,17 @@
     {% if item.value is defined and item.value is not empty %}
       <div class="ecl-fact-figures__value">
         {{- item.value -}}
+        {% if item.title is defined and item.title is not empty %}
+          {# span used for accessibility. see https://citnet.tech.ec.europa.eu/CITnet/jira/browse/FRONT-5074 #}
+          <span class="ecl-fact-figures__title">
+            {{- item.title -}}
+          </span>
+        {% endif %}
       </div>
-    {% endif %}
-    {% if item.title is defined and item.title is not empty %}
-      {# span used for accessibility. see https://citnet.tech.ec.europa.eu/CITnet/jira/browse/FRONT-5074 #}
-      <span class="ecl-fact-figures__title">
+    {% elseif item.title is defined and item.title is not empty %}
+      <div class="ecl-fact-figures__title">
         {{- item.title -}}
-      </span>
+      </div>    
     {% endif %}
     {% if item.description is defined and item.description is not empty %}
       <div class="ecl-fact-figures__description">
