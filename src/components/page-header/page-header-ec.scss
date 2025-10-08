@@ -170,7 +170,7 @@ $page-header: null !default;
   text-transform: uppercase;
 }
 
-.ecl-page-header-expandable__sponsor {
+.ecl-page-header-expandable__description {
   display: block;
 }
 
@@ -253,7 +253,7 @@ $page-header: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-page-header-expandable__sponsor,
+  .ecl-page-header-expandable__description,
   .ecl-page-header-expandable__note {
     display: inline-flex;
   }
@@ -292,7 +292,7 @@ $page-header: null !default;
     line-height: map.get($theme, 'line-height', 'm');
   }
 
-  .ecl-page-header-expandable__sponsor::before {
+  .ecl-page-header-expandable__description::before {
     content: var(--ecl-page-header-expandable-separator);
     margin-inline: var(--s-3xs);
   }
