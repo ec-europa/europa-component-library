@@ -12,7 +12,7 @@ const expandableArgs = (data) => {
   return {
     expandable: true,
     expandable_title: data.expandable.title,
-    description: data.expandable.description,
+    expandable_description: data.expandable.description,
     more: data.expandable.more,
     more_link: data.expandable.more_link,
     toggle_label: data.expandable.toggle_label,
@@ -47,6 +47,7 @@ const expandableArgTypes = () => {
       if: { arg: 'show_page_header_expandable' },
     },
     expandable_description: {
+      name: 'description',
       type: { name: 'string' },
       description: 'The page header expandable description',
       table: {
