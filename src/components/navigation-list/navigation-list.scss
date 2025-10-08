@@ -30,15 +30,11 @@ $navigation-list: null !default;
   .ecl-navigation-list--col-2 {
     grid-template-columns: repeat(2, 1fr);
     row-gap: map.get($navigation-list, 'grid-row-gap');
-
-    --ecl-vertical-flow-grid-gap: #{map.get($navigation-list, 'grid-row-gap')};
   }
 
   .ecl-navigation-list--col-3 {
     grid-template-columns: repeat(3, 1fr);
     row-gap: map.get($navigation-list, 'grid-row-gap');
-
-    --ecl-vertical-flow-grid-gap: #{map.get($navigation-list, 'grid-row-gap')};
   }
 }
 

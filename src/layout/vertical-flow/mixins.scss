@@ -2,7 +2,7 @@
   @for $i from 2 to 21 {
     .ecl-vertical-flow--row-#{$i} {
       grid-auto-flow: column;
-      grid-template-rows: repeat(#{$i}, 1fr);
+      grid-template-rows: repeat(#{$i}, auto);
       position: relative;
     }
   }
@@ -12,16 +12,4 @@
       grid-template-columns: repeat(#{$i}, 1fr);
     }
   }
-}
-
-.ecl-vertical-flow-empty-col-3 > :last-child {
-  position: absolute;
-  right: 0;
-  width: calc(33.3333% - var(--ecl-vertical-flow-grid-gap, 0));
-}
-
-.ecl-vertical-flow-empty-col-4 > :last-child {
-  position: absolute;
-  right: 0;
-  width: calc(25% - var(--ecl-vertical-flow-grid-gap, 0));
 }

@@ -6,7 +6,7 @@ module.exports = {
   items: [
     {
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus.',
       primary_meta: ['PRIMARY META', 'DD Month Year'],
       title: {
         link: {
@@ -85,8 +85,7 @@ module.exports = {
       labels_aria: 'Labels',
     },
     {
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       primary_meta: ['PRIMARY META', 'DD Month Year'],
       title: {
         link: {
@@ -108,13 +107,35 @@ module.exports = {
       labels_aria: 'Labels',
     },
     {
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       primary_meta: ['PRIMARY META', 'DD Month Year'],
       title: {
         link: {
           type: 'standalone',
           label: 'Title 6',
+          path: exampleLink,
+        },
+      },
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+          alt: 'card image',
+        },
+      },
+      labels: [
+        { label: 'highlight', variant: 'highlight' },
+        { label: 'high', variant: 'high' },
+      ],
+      labels_aria: 'Labels',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt',
+      primary_meta: ['PRIMARY META', 'DD Month Year'],
+      title: {
+        link: {
+          type: 'standalone',
+          label: 'Title 7',
           path: exampleLink,
         },
       },

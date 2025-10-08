@@ -26,7 +26,7 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedList = await flow(prepareData(data, args));
+  const renderedList = `<div class="ecl-container">${await flow(prepareData(data, args))}</div>`;
   return renderedList;
 };
 Default.storyName = 'Items flow in a listing';

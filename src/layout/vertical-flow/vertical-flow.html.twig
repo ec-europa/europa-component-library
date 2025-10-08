@@ -9,9 +9,6 @@
   {%- if _sorting == 'column' and _columns > 1 and _items is not empty and _items|length / _columns > 1 -%}
     {% set _rows = (items|length / _columns)|round(0, 'ceil') %}
     {% set _classes = 'ecl-vertical-flow--row-' ~ _rows %}
-    {% if (_columns == 3 and _items|length == 4) or (_columns == 4 and (_items|length == 5 or _items|length == 6 or _items|length == 9)) %}
-      {% set _classes = _classes ~ ' ' ~ 'ecl-vertical-flow-empty-col-' ~ _columns %}
-    {%- endif  -%}
   {% endif %}
   {{- _classes -}}
   {% endapply %}

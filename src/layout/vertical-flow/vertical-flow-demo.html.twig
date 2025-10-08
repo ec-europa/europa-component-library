@@ -10,7 +10,7 @@
 {% endif %}
 
 {% if _items is not empty %}
-  <ul class="{{ _css_class }}" style="list-style: none; gap: 2rem; --ecl-vertical-flow-grid-gap: 2rem;">
+  <ul class="{{ _css_class }}" style="list-style: none; gap: 1rem;">
   {% for item in items %}
     <li>
       {% include '@ecl/card/card.html.twig' with item only %}
