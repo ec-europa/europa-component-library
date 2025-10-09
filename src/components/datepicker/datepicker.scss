@@ -99,6 +99,10 @@ $text-input: null !default;
 
   @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
 
+  @media (width <= 35.9375em) {
+    padding-block-start: 0;
+  }
+
   .duet-date__header > div {
     display: flex;
   }
@@ -130,6 +134,11 @@ $text-input: null !default;
         flex-shrink: 0;
         position: absolute;
         right: 5px;
+      }
+
+      [dir='rtl'] & svg {
+        right: auto;
+        left: 5px;
       }
     }
 
@@ -178,10 +187,16 @@ $text-input: null !default;
 
     /* stylelint-disable-next-line no-descending-specificity */
     svg {
+      flex-shrink: 0;
       height: map.get($theme, 'icon', 's');
       vertical-align: middle;
       width: map.get($theme, 'icon', 's');
     }
+  }
+
+  .duet-date__mobile {
+    margin-left: -5%;
+    width: 110%;
   }
 
   @media (width >= 36em) {
@@ -264,6 +279,31 @@ $text-input: null !default;
         font-weight: map.get($datepicker, 'picker', 'day-hover-weight');
       }
 
+      &:not(.is-month) {
+        background-color: map.get(
+          $datepicker,
+          'picker',
+          'day-outside-background'
+        );
+        color: map.get($datepicker, 'picker', 'day-outside-color');
+        opacity: 1;
+
+        &:hover {
+          background-color: map.get(
+            $datepicker,
+            'picker',
+            'day-hover-background'
+          );
+          color: map.get($datepicker, 'picker', 'theme-color');
+        }
+      }
+
+      &:focus-visible:not(.is-today, [aria-pressed='true']) {
+        border: none;
+        color: var(--cm-on-surface-brand, var(--c-d));
+        outline-offset: -2px;
+      }
+
       &.is-today {
         color: map.get($datepicker, 'picker', 'day-today-color');
         font-weight: map.get($datepicker, 'picker', 'day-today-weight');
@@ -312,25 +352,6 @@ $text-input: null !default;
 
         &::before {
           background-color: var(--cm-surface-inverted, #fff);
-        }
-      }
-
-      &:not(.is-month) {
-        background-color: map.get(
-          $datepicker,
-          'picker',
-          'day-outside-background'
-        );
-        color: map.get($datepicker, 'picker', 'day-outside-color');
-        opacity: 1;
-
-        &:hover {
-          background-color: map.get(
-            $datepicker,
-            'picker',
-            'day-hover-background'
-          );
-          color: map.get($datepicker, 'picker', 'theme-color');
         }
       }
     }
