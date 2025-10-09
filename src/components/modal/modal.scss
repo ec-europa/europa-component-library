@@ -97,10 +97,10 @@ $overflow-height: 2rem;
 
 .ecl-modal__icon {
   flex-shrink: 0;
-  height: map.get($modal, 'icon-size');
-  margin-inline-end: var(--s-xs);
+  height: map.get($modal, 'header', 'icon-size');
+  margin-block-end: map.get($modal, 'header', 'icon-spacing');
   position: relative;
-  width: map.get($modal, 'icon-size');
+  width: map.get($modal, 'header', 'icon-size');
   z-index: 2;
 
   .ecl-modal--information & {
@@ -123,11 +123,8 @@ $overflow-height: 2rem;
 .ecl-modal__header-content {
   align-items: flex-start;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-
-  .ecl-modal__icon + & {
-    padding-block-start: 2px;
-  }
 }
 
 .ecl-modal__body {

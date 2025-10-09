@@ -6,10 +6,11 @@ $modal: (
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-4),
   font: var(--f-m),
-  icon-size: map.get($icon, 'l'),
   header: (
     font: var(--f-l),
     font-weight: map.get($font-weight, 'regular'),
+    icon-size: map.get($icon, 'l'),
+    icon-spacing: 0,
     padding-mobile: var(--s-l) var(--s-l) var(--s-m),
     padding-desktop: var(--s-l) var(--s-l) var(--s-m),
   ),
