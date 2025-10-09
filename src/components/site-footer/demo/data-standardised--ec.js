@@ -16,7 +16,7 @@ module.exports = {
       },
     },
     description:
-      'This site is managed by:<br />[name of the manager of the site]',
+      'This site is managed by:<span class="ecl-u-d-block">[name of the manager of the site]</span>',
     social_media: {
       links: [
         {
