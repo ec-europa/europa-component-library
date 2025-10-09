@@ -47,6 +47,10 @@ $site-footer: null !default;
   margin-block-start: var(--s-xs);
 }
 
+.ecl-site-footer__description-name {
+  display: block;
+}
+
 .ecl-site-footer__social-media {
   margin-block-start: map.get($site-footer, 'row-gap-large');
 
