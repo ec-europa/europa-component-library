@@ -10,8 +10,9 @@ const getArgs = (data) => ({
   header: data.header,
   variant: '',
   size: 'l',
-  body: data.body,
-  footer: 2,
+  body_scroll: data.body,
+  body_fixed: data.body_fixed,
+  button: 2,
 });
 
 const getArgTypes = () => ({
@@ -72,19 +73,29 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
-  body: {
-    name: 'body',
+  body_scroll: {
+    name: 'body (scrollable)',
     type: { name: 'string' },
-    description: 'Body of the modal',
+    description: 'Scrollable body of the modal',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Content',
     },
   },
-  footer: {
+  body_fixed: {
+    name: 'body (fixed)',
+    type: { name: 'string' },
+    description: 'Fixed body of the modal',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
+  button: {
     name: 'footer buttons',
-    control: { type: 'range', min: 0, max: 2, step: 1 },
+    control: { type: 'range', min: 0, max: 3, step: 1 },
     description: 'Button examples in the footer',
     table: {
       defaultValue: { summary: 2 },
@@ -99,13 +110,14 @@ const prepareData = (data, args) => {
   dataClone.variant = args.variant;
   dataClone.size = args.size;
   dataClone.header = args.header;
-  dataClone.body = args.body;
+  dataClone.body = args.body_scroll;
+  dataClone.body_fixed = args.body_fixed;
   dataClone.sr_icon = args.variant;
 
-  if (args.footer === 0) {
+  if (args.button === 0) {
     delete dataClone.buttons;
   } else {
-    dataClone.buttons = dataClone.buttons.slice(-args.footer);
+    dataClone.buttons = dataClone.buttons.slice(0, args.button);
   }
 
   correctPaths(dataClone);

@@ -163,6 +163,7 @@
                 {% set _button_extra_classes = _button_extra_classes ~ ' ' ~ _button.extra_classes %}
               {% endif %}
               {% include '@ecl/button/button.html.twig' with _button|merge({
+                size: _button.size|default('s'),
                 extra_classes: _button_extra_classes,
               }) only %}
             {% endfor %}

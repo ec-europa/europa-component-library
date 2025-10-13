@@ -15,15 +15,21 @@ module.exports = {
     '<div class="ecl-checkbox"><input type="checkbox" name="checkbox-default" class="ecl-checkbox__input" id="checkbox-default-1" value="1" /><label for="checkbox-default-1" class="ecl-checkbox__label"><span class="ecl-checkbox__box"><svg class="ecl-icon ecl-icon--m ecl-checkbox__icon" focusable="false" aria-hidden="true"><use xlink:href="/icons.svg#check"></use></svg></span><span class="ecl-checkbox__text">Option label</span></label></div>',
   buttons: [
     {
-      label: 'Close',
+      label: 'Primary',
+      type: 'submit',
+      variant: 'primary',
+    },
+    {
+      label: 'Secondary',
       type: 'button',
       variant: 'secondary',
       extra_attributes: [{ name: 'data-ecl-modal-close' }],
     },
     {
-      label: 'Submit',
-      type: 'submit',
-      variant: 'primary',
+      label: 'Tertiary',
+      type: 'button',
+      variant: 'tertiary',
+      style: 'neutral',
     },
   ],
 };

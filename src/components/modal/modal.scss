@@ -35,7 +35,7 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal__container {
-  margin: 0 var(--s-m);
+  margin-inline: map.get($modal, 'margin-inline-mobile');
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -51,7 +51,7 @@ $overflow-height: 2rem;
   overflow: hidden;
   margin: 0;
   max-height: 80vh;
-  padding: 0;
+  padding: map.get($modal, 'padding');
   position: relative;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'modal');
@@ -87,12 +87,16 @@ $overflow-height: 2rem;
 .ecl-modal__header {
   align-items: flex-start;
   display: flex;
-  padding: map.get($modal, 'header', 'padding-mobile');
+  margin-block-end: map.get($modal, 'header', 'margin-block-end');
 
   @include mixins.responsive-font(
     map.get($modal, 'header', 'font'),
     $font-weight: map.get($modal, 'header', 'font-weight')
   );
+
+  &:is(:last-child) {
+    margin-block-end: 0;
+  }
 }
 
 .ecl-modal__icon {
@@ -131,11 +135,12 @@ $overflow-height: 2rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin-block-end: map.get($modal, 'footer', 'margin-block-start');
   overflow: hidden;
-  padding: map.get($modal, 'body', 'padding-mobile');
 
-  &:is(:last-child) {
-    padding-block-end: map.get($modal, 'body', 'padding-last-child');
+  &:is(:last-child),
+  &:has(.ecl-modal__body-fixed) {
+    margin-block-end: 0;
   }
 }
 
@@ -156,13 +161,28 @@ $overflow-height: 2rem;
   width: 100%;
 }
 
-* + .ecl-modal__body-fixed {
-  margin-block-start: map.get($modal, 'body', 'margin-fixed');
+.ecl-modal__body-fixed {
+  border-block-start: map.get($modal, 'body', 'fixed-separator');
+  margin-block-end: map.get($modal, 'body', 'fixed-margin-block-end');
+  padding-block-start: map.get($modal, 'body', 'fixed-padding-block-start');
+
+  .ecl-modal__body-overflow + & {
+    margin-block-start: map.get($modal, 'body', 'scroll-margin-block-end');
+  }
+
+  &:is(:first-child) {
+    border-block-start: none;
+    padding-block-start: 0;
+  }
+}
+
+.ecl-modal__body:is(:last-child) .ecl-modal__body-fixed {
+  margin-block-end: 0;
 }
 
 .ecl-modal__footer {
-  border-block-start: map.get($modal, 'separator');
-  padding: map.get($modal, 'footer', 'padding-mobile');
+  border-block-start: map.get($modal, 'footer', 'separator');
+  padding-block-start: map.get($modal, 'footer', 'padding-block-start');
 }
 
 .ecl-modal__header + .ecl-modal__footer {
@@ -196,25 +216,13 @@ $overflow-height: 2rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-modal__container {
-    margin: 0 map.get($modal, 'body', 'container-spacing-top');
-  }
-
-  .ecl-modal__header {
-    padding: map.get($modal, 'header', 'padding-desktop');
-  }
-
-  .ecl-modal__body {
-    padding: map.get($modal, 'body', 'padding-desktop');
-  }
-
-  .ecl-modal__footer {
-    padding: map.get($modal, 'padding-desktop');
+    margin-inline: map.get($modal, 'margin-inline-desktop');
   }
 
   .ecl-modal--m,
   .ecl-modal--l {
     .ecl-modal__footer-content {
-      flex-direction: row;
+      flex-direction: row-reverse;
       justify-content: space-between;
     }
 
@@ -227,7 +235,7 @@ $overflow-height: 2rem;
       margin-inline-end: var(--s-m);
       margin-block-start: 0;
 
-      &:last-of-type {
+      &:first-of-type {
         margin-inline-end: 0;
       }
     }
@@ -235,7 +243,7 @@ $overflow-height: 2rem;
 
   .ecl-modal--full {
     .ecl-modal__footer-content {
-      flex-direction: row;
+      flex-direction: row-reverse;
       justify-content: flex-end;
     }
 
@@ -245,7 +253,7 @@ $overflow-height: 2rem;
       margin-inline-end: var(--s-m);
       margin-block-start: 0;
 
-      &:last-of-type {
+      &:first-of-type {
         margin-inline-end: 0;
       }
     }
