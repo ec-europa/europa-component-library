@@ -119,7 +119,7 @@ $page-header-print: null !default;
 }
 
 .ecl-page-header-expandable__more::before,
-.ecl-page-header-expandable__sponsor::before {
+.ecl-page-header-expandable__description::before {
   content: var(--ecl-page-header-expandable-separator);
   margin-inline: map.get($theme, 'spacing-print', 'xs');
 }

@@ -13,7 +13,7 @@ module.exports = {
       path: exampleLink,
     },
     description:
-      'This site is managed by:<br />[name of the manager of the site]',
+      'This site is managed by:<span class="ecl-site-footer__description-name">[name of the manager of the site]</span>',
   },
   section_core: {
     links: [

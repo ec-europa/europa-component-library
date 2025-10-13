@@ -20,7 +20,7 @@ module.exports = {
   expandable: {
     panel_id: 'page-header-expandable-panel-demo',
     title: 'political advertisement',
-    sponsor: 'The sponsor is Business Name',
+    description: 'The sponsor is Business Name',
     more: 'More info:',
     more_link: {
       link: {

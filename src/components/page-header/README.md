@@ -17,7 +17,7 @@ npm install --save @ecl/page-header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
 - **"expandable"** (associative array) Page header expandable
   - "title" (default: '')
-  - "sponsor" (default: '')
+  - "description" (default: '')
   - "more" (default: '')
   - "lists" (default: [])
   - "more_link" (default: {})
