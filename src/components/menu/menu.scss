@@ -172,7 +172,7 @@ $menu: null !default;
 .ecl-menu__title {
   padding-inline-start: var(--s-m);
 
-  @include mixins.responsive-font(map.get($menu, 'mobile', 'header-font'));
+  @include mixins.responsive-font(map.get($menu, 'global', 'header-font'));
 }
 
 .ecl-menu__close {
@@ -220,7 +220,7 @@ $menu: null !default;
   text-decoration: none;
   width: 100%;
 
-  @include mixins.responsive-font(map.get($menu, 'mobile', 'header-font'));
+  @include mixins.responsive-font(map.get($menu, 'global', 'header-font'));
 
   &:dir(rtl) .ecl-icon {
     transform: rotate(90deg);
@@ -354,7 +354,7 @@ $menu: null !default;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
 
-  @include mixins.responsive-font(map.get($menu, 'mobile', 'item-font'));
+  @include mixins.responsive-font(map.get($menu, 'global', 'item-font'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -559,8 +559,6 @@ $menu: null !default;
       width: auto;
       z-index: 0;
 
-      @include mixins.responsive-font(map.get($menu, 'desktop', 'item-font'));
-
       &:hover {
         color: map.get($menu, 'desktop', 'item-color-hover');
       }
@@ -592,7 +590,7 @@ $menu: null !default;
     }
 
     .ecl-menu__item--current .ecl-menu__link {
-      font-weight: map.get($menu, 'desktop', 'item-current-font-weight');
+      font-weight: map.get($menu, 'global', 'item-current-font-weight');
     }
 
     .ecl-menu__item--current .ecl-menu__link,
@@ -791,8 +789,8 @@ $menu: null !default;
     box-shadow: none;
 
     @include mixins.responsive-font(
-      map.get($menu, 'mobile', 'subtitle-font'),
-      $font-weight: map.get($menu, 'mobile', 'subtitle-font-weight')
+      map.get($menu, 'global', 'subtitle-font'),
+      $font-weight: map.get($menu, 'global', 'subtitle-font-weight')
     );
   }
 }
@@ -834,7 +832,7 @@ $menu: null !default;
   padding: map.get($menu, 'mobile', 'subitem-padding');
   position: relative;
 
-  @include mixins.responsive-font(map.get($menu, 'mobile', 'item-font'));
+  @include mixins.responsive-font(map.get($menu, 'global', 'subitem-font'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -944,10 +942,6 @@ $menu: null !default;
       padding: map.get($menu, 'desktop', 'sublink-padding');
       white-space: normal;
       width: 100%;
-
-      @include mixins.responsive-font(
-        map.get($menu, 'desktop', 'subitem-font')
-      );
     }
 
     .ecl-menu__subitem--current .ecl-menu__sublink {
