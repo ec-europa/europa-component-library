@@ -140,6 +140,7 @@ const getArgs = (data) => {
     show_thumbnail: false,
     show_page_header_expandable: false,
     hide_title: false,
+    font_size: 'm',
   };
 
   if (data.title) {
@@ -218,7 +219,29 @@ const getArgTypes = (data) => {
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
-      category: 'Optional',
+      category: 'Display',
+    },
+  };
+
+  argTypes.font_size = {
+    name: 'font size',
+    type: 'select',
+    description: 'Change title font size',
+    options: ['m', 'l'],
+    control: {
+      labels: {
+        m: 'medium',
+        l: 'large',
+      },
+    },
+    mapping: {
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'm' },
+      category: 'Display',
     },
   };
 
@@ -305,6 +328,7 @@ const prepareData = (data, args) => {
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
+  clone.font_size = args.font_size;
   clone.description = args.description;
   clone.meta = args.meta;
 

@@ -20,26 +20,28 @@ $page-header-print: null !default;
   display: inline-block;
   font: var(--f-ui-m);
   list-style: none;
-  margin: 0;
+  margin-block: map.get($theme, 'spacing-print', 'm') 0;
   padding: 0;
 }
 
 .ecl-page-header__meta-item {
-  border-inline-end: 1px solid var(--c-p);
   display: inline;
-  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
-  padding-inline-end: map.get($theme, 'spacing-print', 'xs');
   unicode-bidi: isolate;
 
-  &:first-of-type {
-    text-transform: uppercase;
+  &:not(:last-child)::after {
+    background-color: var(--c-d);
+    content: '';
+    display: inline-block;
+    height: 1px;
+    margin-block-start: -1px;
+    margin-inline: var(--s-xs);
+    vertical-align: middle;
+    width: 12px;
   }
+}
 
-  &:last-child {
-    border-inline-end-width: 0;
-    margin-inline-end: 0;
-    padding-inline-end: 0;
-  }
+.ecl-page-header__meta-icon {
+  margin-inline-end: var(--s-2xs);
 }
 
 .ecl-page-header__title {

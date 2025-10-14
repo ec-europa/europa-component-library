@@ -4,17 +4,17 @@
 $page-header: (
   title: (
     color: var(--cm-on-surface-brand),
-    font-mobile: var(--f-7xl),
-    font-desktop: var(--f-8xl),
+    font-m: 'heading1',
+    font-l: 'display',
     font-weight: map.get($font-weight, 'light'),
   ),
   description: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-m),
+    font: 'body-2xl',
   ),
   meta: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-m),
+    font: 'body-xs',
   ),
 );
 $page-header-print: (
@@ -22,9 +22,9 @@ $page-header-print: (
     font: map.get($font-print, '8xl'),
   ),
   description: (
-    font: map.get($font-print, 'm'),
+    font: map.get($font-print, '2xl'),
   ),
   meta: (
-    font: map.get($font-print, 'm'),
+    font: map.get($font-print, 'xs'),
   ),
 );

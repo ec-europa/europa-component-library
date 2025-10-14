@@ -6,128 +6,99 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
 $page-header: null !default;
 
-.ecl-page-header {
-  margin: 0;
-}
-
-.ecl-page-header__info {
-  margin-bottom: var(--s-m);
-  margin-top: calc(var(--s-m) + var(--s-s));
+.ecl-page-header__background {
+  display: block;
+  height: 10.875rem;
+  object-fit: cover;
+  object-position: 50% 0;
+  width: 100%;
 }
 
 .ecl-page-header__breadcrumb {
-  padding-top: var(--s-xs);
-
-  + .ecl-page-header__info {
-    margin-top: var(--s-l);
-  }
-}
-
-.ecl-page-header__meta {
-  color: map.get($page-header, 'meta', 'color');
-  display: inline-block;
-  font: map.get($page-header, 'meta', 'font');
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.ecl-page-header__meta-item {
-  border-inline-end: 1px solid var(--cm-surface-brand);
-  display: inline;
-  margin-inline-end: var(--s-xs);
-  padding-inline-end: var(--s-xs);
-  unicode-bidi: isolate;
-
-  &:first-of-type {
-    text-transform: uppercase;
-  }
-
-  &:last-child {
-    border-inline-end-width: 0;
-    margin-inline-end: 0;
-    padding-inline-end: 0;
-  }
+  padding-block: var(--s-s);
 }
 
 .ecl-page-header__title {
   color: map.get($page-header, 'title', 'color');
-  font: map.get($page-header, 'title', 'font-mobile');
-  font-weight: map.get($page-header, 'title', 'font-weight');
-  margin-bottom: 0;
+  margin-block: var(--s-l) 0;
+
+  @include mixins.responsive-font(
+    map.get($page-header, 'title', 'font-m'),
+    $font-weight: map.get($page-header, 'title', 'font-weight')
+  );
+
+  .ecl-page-header--font-l & {
+    @include mixins.responsive-font(
+      map.get($page-header, 'title', 'font-l'),
+      $font-weight: map.get($page-header, 'title', 'font-weight')
+    );
+  }
 }
 
-.ecl-page-header__meta + .ecl-page-header__title {
-  margin-top: var(--s-xs);
+.ecl-page-header__title--hidden {
+  @include screen-reader.sr-only;
 }
 
 .ecl-page-header__description-container {
   align-items: flex-start;
   display: flex;
-  margin-top: var(--s-s);
+  margin-block-start: var(--s-s);
 }
 
 .ecl-page-header__description-thumbnail {
-  margin-inline-end: var(--s-m);
+  margin-block-start: var(--s-xs);
+  margin-inline-end: var(--s-l);
   max-width: 120px;
 }
 
 .ecl-page-header__description {
   color: map.get($page-header, 'description', 'color');
-  font: map.get($page-header, 'description', 'font');
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-block: 0;
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(map.get($page-header, 'description', 'font'));
 }
 
-@include breakpoints.up('m') {
-  .ecl-page-header__title {
-    font: map.get($page-header, 'title', 'font-desktop');
-    font-weight: map.get($page-header, 'title', 'font-weight');
-    margin-bottom: 0;
-  }
+.ecl-page-header__meta {
+  color: map.get($page-header, 'meta', 'color');
+  display: inline-block;
+  list-style: none;
+  margin-block: var(--s-3xl) 0;
+  padding: 0;
+
+  @include mixins.responsive-font(map.get($page-header, 'meta', 'font'));
 }
 
-/*
- * background image variant
- */
-.ecl-page-header--image {
-  .ecl-page-header__background-container {
-    position: relative;
-  }
+.ecl-page-header__meta-item {
+  display: inline;
+  unicode-bidi: isolate;
 
-  .ecl-page-header__background {
-    display: block;
-    height: 10.875rem;
-    object-fit: cover;
-    object-position: 50% 0;
-    width: 100%;
-  }
-}
-
-// DEPRECATED
-.ecl-page-header--overlay-dark {
-  .ecl-page-header__background-container::before {
-    background-color: rgb(0, 0, 0, 0.5);
+  &:not(:last-child)::after {
+    background-color: var(--cm-on-surface-brand);
     content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
+    display: inline-block;
+    height: 1px;
+    margin-block-start: -1px;
+    margin-inline: var(--s-xs);
+    vertical-align: middle;
+    width: 12px;
   }
 }
 
-.ecl-page-header--overlay-light {
-  .ecl-page-header__background-container::before {
-    background-color: rgb(0, 0, 0, 0.3);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
+.ecl-page-header__meta-icon {
+  margin-inline-end: var(--s-3xs);
+  vertical-align: middle;
+}
+
+@include breakpoints.up('xl') {
+  .ecl-page-header__breadcrumb {
+    padding-block: var(--s-m);
   }
 }
 

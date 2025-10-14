@@ -4,11 +4,25 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   title: 'Page title',
   description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec ullamcorper mi. Morbi interdum fermentum tempus. Nam nec rhoncus risus, <a class="ecl-link" href="${exampleLink}">eget dictum elit</a>. Vestibulum gravida tincidunt venenatis.`,
-  meta: ['Meta info', 'DD Month YYYY'],
+  meta: [
+    '10 March 2025',
+    {
+      label: 'Brussels',
+      icon: {
+        name: 'location',
+      },
+    },
+    {
+      label: '1 minute read',
+      icon: {
+        name: 'clock',
+      },
+    },
+  ],
   picture_thumbnail: {
     img: {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-      alt: 'Europe map',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'Europe flag',
     },
   },
   picture_background: {
