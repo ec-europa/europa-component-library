@@ -8,6 +8,8 @@ import demoContent from './demo/data';
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
+const demoContentNews = { ...demoContent, variant: 'news' };
+
 const expandableArgs = (data) => {
   return {
     expandable: true,
@@ -365,4 +367,17 @@ Default.args = getArgs(demoContent);
 Default.argTypes = getArgTypes(demoContent);
 Default.parameters = {
   notes: { markdown: notes, json: demoContent },
+};
+
+export const News = (_, { loaded: { component } }) => component;
+
+News.render = async (args) => {
+  const renderedNews = await pageHeader(prepareData(demoContentNews, args));
+  return renderedNews;
+};
+News.storyName = 'news';
+News.args = getArgs(demoContentNews);
+News.argTypes = getArgTypes(demoContentNews);
+News.parameters = {
+  notes: { markdown: notes, json: demoContentNews },
 };

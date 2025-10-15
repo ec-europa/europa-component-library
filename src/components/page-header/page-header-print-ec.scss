@@ -64,6 +64,14 @@ $page-header-print: null !default;
   display: inline;
   unicode-bidi: isolate;
 
+  &:first-child {
+    display: block;
+    font-weight: map.get($page-header, 'meta', 'first-font-weight');
+    margin-block: map.get($page-header, 'meta', 'first-margin-block');
+    padding-block: map.get($page-header, 'meta', 'first-padding-block');
+    text-transform: uppercase;
+  }
+
   &:not(:last-child)::after {
     background-color: var(--cm-on-surface-brand);
     content: '';

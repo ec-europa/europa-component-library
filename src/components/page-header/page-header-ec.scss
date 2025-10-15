@@ -79,7 +79,15 @@ $page-header: null !default;
   display: inline;
   unicode-bidi: isolate;
 
-  &:not(:last-child)::after {
+  &:first-child {
+    display: block;
+    font-weight: map.get($page-header, 'meta', 'first-font-weight');
+    margin-block: map.get($page-header, 'meta', 'first-margin-block');
+    padding-block: map.get($page-header, 'meta', 'first-padding-block');
+    text-transform: uppercase;
+  }
+
+  &:not(:first-child, :last-child)::after {
     background-color: var(--cm-on-surface-brand);
     content: '';
     display: inline-block;

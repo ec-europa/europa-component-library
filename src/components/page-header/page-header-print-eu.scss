@@ -28,6 +28,12 @@ $page-header-print: null !default;
   display: inline;
   unicode-bidi: isolate;
 
+  &:first-child {
+    display: block;
+    font-weight: map.get($theme, 'font-weight', 'bold');
+    text-transform: uppercase;
+  }
+
   &:not(:last-child)::after {
     background-color: var(--c-d);
     content: '';

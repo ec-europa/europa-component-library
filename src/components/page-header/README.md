@@ -8,6 +8,7 @@ npm install --save @ecl/page-header
 
 ### Parameters
 
+- **"variant"** (string) (default: '') Page header variant; can be 'news', 'topic'
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
 - **"description"** (string) (default: '') Description of header

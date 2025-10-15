@@ -1,6 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
+    - "variant" (string) (default: '') Page header variant; can be 'news', 'topic'
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
@@ -31,6 +32,7 @@
 
 {# Internal properties #}
 
+{% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
 {% set _hide_title = hide_title|default(false) %}
 {% set _font_size = font_size|default('m') %}
@@ -45,6 +47,10 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--' ~ _variant %}
+{% endif %}
 
 {% if _picture_background.img is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
@@ -68,6 +74,81 @@
   {% endfor %}
 {% endif %}
 
+{# Markup elements #}
+
+{% set _breadcrumb_markup = '' %}
+{% if _breadcrumb is not empty %}
+  {% set _breadcrumb_markup %}
+    {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
+      extra_classes: 'ecl-page-header__breadcrumb',
+    }) only -%}
+  {% endset %}
+{% endif %}
+
+{% set _picture_markup = '' %}
+{% if _picture_background.img is not empty %}
+  {% set _picture_markup %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture_background,
+      extra_classes: "ecl-page-header__picture-background",
+      extra_image_classes: "ecl-page-header__background",
+    } only %}
+  {% endset %}
+{% endif %}
+
+{% set _title_markup = '' %}
+{% if _title is not empty %}
+  {% set _title_markup %}
+    {% set _title_class = 'ecl-page-header__title' %}
+    {% if _hide_title %}
+      {% set _title_class = _title_class ~ ' ecl-page-header__title--hidden' %}
+    {% endif %}
+
+    <h1 class="{{ _title_class }}">{{ _title }}</h1>
+  {% endset %}
+{% endif %}
+
+{% set _description_markup = '' %}
+{% if _description is not empty or _picture_thumbnail.img is not empty %}
+  {% set _description_markup %}
+    <div class="ecl-page-header__description-container">
+    {% if _picture_thumbnail.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture_thumbnail,
+        extra_classes: "ecl-page-header__picture-thumbnail",
+        extra_image_classes: "ecl-page-header__description-thumbnail",
+      } only %}
+    {% endif %}
+    {% if _description is not empty %}
+      <p class="ecl-page-header__description">{{ _description }}</p>
+    {% endif %}
+    </div>
+  {% endset %}
+{% endif %}
+
+{% set _meta_markup = '' %}
+{% if _meta is not empty %}
+  {% set _meta_markup %}
+    <ul class="ecl-page-header__meta">
+      {% for _item in _meta %}
+        {% if _item.label is defined %}
+          <li class="ecl-page-header__meta-item">
+            {%- if _item.icon is defined -%}
+              {%- include '@ecl/icon/icon.html.twig' with _item.icon|merge({
+                icon: _item.icon|merge({ size: '2xs' }),
+                extra_classes: 'ecl-page-header__meta-icon',
+              }) only -%}
+            {%- endif -%}
+            {{- _item.label -}}
+          </li>
+        {% else %}
+          <li class="ecl-page-header__meta-item">{{- _item -}}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endset %}
+{% endif %}
+
 {# Print the result #}
 
 <div
@@ -79,70 +160,28 @@
     {% include '@ecl/page-header/page-header-expandable.html.twig' with _expandable only %}
   {% endif %}
 
-  {# Picture #}
-  {% if _picture_background.img is not empty %}
-    {% include '@ecl/picture/picture.html.twig' with {
-      picture: _picture_background,
-      extra_classes: "ecl-page-header__picture-background",
-      extra_image_classes: "ecl-page-header__background",
-    } only %}
+  {# Variant: default #}
+  {% if _variant is empty %}
+
+    {{- _picture_markup -}}
+
+    <div class="ecl-container ecl-page-header__container">
+      {{- _breadcrumb_markup -}}
+
+      {{- _title_markup -}}
+
+      {{- _description_markup -}}
+
+      {{- _meta_markup -}}
+    </div>
+  
+  {# Variant: news #}
+  {% elseif _variant == 'news' %}
+    <div class="ecl-container ecl-page-header__container">
+      {{- _breadcrumb_markup -}}
+    </div>
+
   {% endif %}
-
-  <div class="ecl-container ecl-page-header__container">
-    {# Breadcrumb #}
-    {% if _breadcrumb is not empty %}
-      {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
-        extra_classes: 'ecl-page-header__breadcrumb',
-      }) only -%}
-    {% endif %}
-
-    {# Title #}
-    {% if _title is not empty %}
-      {% set _title_class = 'ecl-page-header__title' %}
-      {% if _hide_title %}
-        {% set _title_class = _title_class ~ ' ecl-page-header__title--hidden' %}
-      {% endif %}
-
-      <h1 class="{{ _title_class }}">{{ _title }}</h1>
-    {% endif %}
-
-    {# Description #}
-    {% if _description is not empty or _picture_thumbnail.img is not empty %}
-      <div class="ecl-page-header__description-container">
-      {% if _picture_thumbnail.img is not empty %}
-        {% include '@ecl/picture/picture.html.twig' with {
-          picture: _picture_thumbnail,
-          extra_classes: "ecl-page-header__picture-thumbnail",
-          extra_image_classes: "ecl-page-header__description-thumbnail",
-        } only %}
-      {% endif %}
-      {% if _description is not empty %}
-        <p class="ecl-page-header__description">{{ _description }}</p>
-      {% endif %}
-      </div>
-    {% endif %}
-
-    {# Meta #}
-    {% if _meta is not empty %}
-      <ul class="ecl-page-header__meta">
-        {% for _item in _meta %}
-          {% if _item.label is defined %}
-            <li class="ecl-page-header__meta-item">
-              {%- if _item.icon is defined -%}
-                {%- include '@ecl/icon/icon.html.twig' with _item.icon|merge({
-                  icon: _item.icon|merge({ size: '2xs' }),
-                  extra_classes: 'ecl-page-header__meta-icon',
-                }) only -%}
-              {%- endif -%}
-              {{- _item.label -}}
-            </li>
-          {% else %}
-            <li class="ecl-page-header__meta-item">{{- _item -}}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
 </div>
 
 {% endapply %}
