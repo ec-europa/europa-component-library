@@ -26,7 +26,8 @@ $page-header: null !default;
 
 .ecl-page-header__title {
   color: map.get($page-header, 'title', 'color');
-  margin-block: var(--s-l) 0;
+  margin-block: 0;
+  padding-block: var(--s-l) 0;
 
   @include mixins.responsive-font(
     map.get($page-header, 'title', 'font-m'),
@@ -48,11 +49,11 @@ $page-header: null !default;
 .ecl-page-header__description-container {
   align-items: flex-start;
   display: flex;
-  margin-block-start: var(--s-s);
+  padding-block-start: var(--s-s);
 }
 
 .ecl-page-header__description-thumbnail {
-  margin-block-start: var(--s-xs);
+  padding-block-start: var(--s-xs);
   margin-inline-end: var(--s-l);
   max-width: 120px;
 }
@@ -69,8 +70,9 @@ $page-header: null !default;
   color: map.get($page-header, 'meta', 'color');
   display: inline-block;
   list-style: none;
-  margin-block: var(--s-3xl) 0;
-  padding: 0;
+  margin: 0;
+  padding-block: var(--s-3xl) 0;
+  padding-inline: 0;
 
   @include mixins.responsive-font(map.get($page-header, 'meta', 'font'));
 }
@@ -287,6 +289,67 @@ $page-header: null !default;
 
     .ecl-icon {
       margin-inline-end: var(--s-xs);
+    }
+  }
+}
+
+// -------
+// Variant: news
+
+.ecl-page-header--news {
+  background-color: var(--cm-surface-low-2);
+
+  .ecl-page-header__title {
+    padding-block-start: var(--s-3xs);
+  }
+
+  .ecl-page-header__meta {
+    padding-block-start: var(--s-xl);
+  }
+
+  .ecl-page-header__background {
+    aspect-ratio: 3/2;
+    height: auto;
+    padding-block-start: var(--s-2xl);
+  }
+
+  .ecl-page-header__section-description {
+    background-color: var(--cm-surface-lowest);
+  }
+
+  .ecl-page-header__description-container {
+    margin: 0;
+    padding-block: var(--s-2xl);
+  }
+
+  .ecl-page-header__container
+    > *:last-child:not(.ecl-page-header__picture-background) {
+    padding-block-end: var(--s-2xl);
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-page-header--news {
+    .ecl-page-header__title {
+      padding-block-start: var(--s-l);
+    }
+
+    .ecl-page-header__meta {
+      padding-block-start: var(--s-3xl);
+    }
+
+    .ecl-page-header__background {
+      aspect-ratio: 3/1;
+      padding-block-start: var(--s-4xl);
+    }
+
+    .ecl-page-header__description-container {
+      padding-block: var(--s-6xl);
+    }
+
+    .ecl-page-header__container
+      > *:last-child:not(.ecl-page-header__picture-background) {
+      padding-block-end: var(--s-4xl);
     }
   }
 }

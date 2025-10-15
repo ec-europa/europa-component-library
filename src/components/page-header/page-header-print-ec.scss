@@ -24,7 +24,8 @@ $page-header-print: null !default;
   font: map.get($page-header-print, 'title', 'font');
   font-weight: map.get($page-header, 'title', 'font-weight');
   letter-spacing: map.get($page-header, 'title', 'letter-spacing-mobile');
-  margin-block: map.get($theme, 'spacing-print', '2xs') 0;
+  margin-block: 0;
+  padding-block: map.get($theme, 'spacing-print', '2xs') 0;
 }
 
 .ecl-page-header__title--hidden {
@@ -34,12 +35,12 @@ $page-header-print: null !default;
 .ecl-page-header__description-container {
   align-items: flex-start;
   display: flex;
-  margin-top: map.get($theme, 'spacing-print', 's');
+  padding-top: map.get($theme, 'spacing-print', 's');
 }
 
 .ecl-page-header__description-thumbnail {
   border: 1px solid var(--cm-border-neutral);
-  margin-block-start: map.get($theme, 'spacing-print', 'xs');
+  padding-block-start: map.get($theme, 'spacing-print', 'xs');
   margin-inline-end: map.get($theme, 'spacing-print', 'm');
   max-width: 120px;
 }
@@ -56,8 +57,9 @@ $page-header-print: null !default;
   display: inline-block;
   font: map.get($page-header-print, 'meta', 'font');
   list-style: none;
-  margin-block: map.get($theme, 'spacing-print', 'm') 0;
-  padding: 0;
+  margin: 0;
+  padding-block: map.get($theme, 'spacing-print', 'm') 0;
+  padding-inline: 0;
 }
 
 .ecl-page-header__meta-item {
@@ -72,7 +74,7 @@ $page-header-print: null !default;
     text-transform: uppercase;
   }
 
-  &:not(:last-child)::after {
+  &:not(:first-child, :last-child)::after {
     background-color: var(--cm-on-surface-brand);
     content: '';
     display: inline-block;

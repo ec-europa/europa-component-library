@@ -139,7 +139,10 @@ const expandableArgTypes = () => {
 const getArgs = (data) => {
   let args = {
     show_breadcrumb: true,
+    show_picture: true,
+    show_description: true,
     show_thumbnail: false,
+    show_meta: true,
     show_page_header_expandable: false,
     hide_title: false,
     font_size: 'm',
@@ -166,7 +169,7 @@ const getArgs = (data) => {
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = () => {
   const argTypes = {
     ...expandableArgTypes(),
   };
@@ -176,8 +179,6 @@ const getArgTypes = (data) => {
     type: 'boolean',
     description: 'Toggle breadcrumb visibility',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
       category: 'Optional',
     },
   };
@@ -187,19 +188,42 @@ const getArgTypes = (data) => {
     type: 'boolean',
     description: 'Toggle thumbnail visibility',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
       category: 'Optional',
     },
   };
 
   argTypes.show_page_header_expandable = {
-    name: 'page header expandable',
+    name: 'expandable',
     type: 'boolean',
     description: 'Toggle element visibility',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_description = {
+    name: 'description',
+    type: 'boolean',
+    description: 'Toggle description visibility',
+    table: {
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_meta = {
+    name: 'meta',
+    type: 'boolean',
+    description: 'Toggle meta visibility',
+    table: {
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_picture = {
+    name: 'picture',
+    type: 'boolean',
+    description: 'Toggle picture visibility',
+    table: {
       category: 'Optional',
     },
   };
@@ -247,42 +271,39 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.description) {
-    argTypes.description = {
-      type: 'string',
-      description: 'The page introduction',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.description = {
+    type: 'string',
+    description: 'The page introduction',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    if: { arg: 'show_description' },
+  };
 
-  if (data.meta) {
-    argTypes.meta = {
-      type: 'array',
-      description: 'The page meta',
-      table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: '[]' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.meta = {
+    type: 'array',
+    description: 'The page meta',
+    table: {
+      type: { summary: 'array' },
+      defaultValue: { summary: '[]' },
+      category: 'Content',
+    },
+    if: { arg: 'show_meta' },
+  };
 
-  if (data.picture_background.img.src) {
-    argTypes.background_image_url = {
-      name: 'background image',
-      type: 'string',
-      description: 'The background image url',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.background_image_url = {
+    name: 'background image',
+    type: 'string',
+    description: 'The background image url',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    if: { arg: 'show_picture' },
+  };
 
   return argTypes;
 };
@@ -301,6 +322,29 @@ const prepareData = (data, args) => {
   };
 
   const clone = JSON.parse(JSON.stringify(data));
+
+  if (!args.show_description) {
+    delete clone.description;
+  } else {
+    clone.description = args.description;
+  }
+
+  if (!args.show_picture) {
+    delete clone.picture_background;
+  } else if (args.background_image_url) {
+    clone.picture_background = {
+      img: {
+        src: args.background_image_url,
+        alt: clone.picture_background.img.alt || '',
+      },
+    };
+  }
+
+  if (!args.show_meta) {
+    delete clone.meta;
+  } else {
+    clone.meta = args.meta;
+  }
 
   if (!args.show_breadcrumb) {
     delete clone.breadcrumb;
@@ -331,19 +375,6 @@ const prepareData = (data, args) => {
   clone.title = args.title;
   clone.hide_title = args.hide_title;
   clone.font_size = args.font_size;
-  clone.description = args.description;
-  clone.meta = args.meta;
-
-  if (args.background_image_url) {
-    clone.picture_background = {
-      img: {
-        src: args.background_image_url,
-        alt: clone.picture_background.img.alt || '',
-      },
-    };
-  } else {
-    clone.picture_background = {};
-  }
 
   correctPaths(clone);
 
@@ -364,7 +395,7 @@ Default.render = async (args) => {
 };
 Default.storyName = 'default';
 Default.args = getArgs(demoContent);
-Default.argTypes = getArgTypes(demoContent);
+Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: { markdown: notes, json: demoContent },
 };
@@ -377,7 +408,7 @@ News.render = async (args) => {
 };
 News.storyName = 'news';
 News.args = getArgs(demoContentNews);
-News.argTypes = getArgTypes(demoContentNews);
+News.argTypes = getArgTypes();
 News.parameters = {
   notes: { markdown: notes, json: demoContentNews },
 };

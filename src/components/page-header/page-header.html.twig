@@ -179,6 +179,18 @@
   {% elseif _variant == 'news' %}
     <div class="ecl-container ecl-page-header__container">
       {{- _breadcrumb_markup -}}
+
+      {{- _title_markup -}}
+
+      {{- _meta_markup -}}
+
+      {{- _picture_markup -}}
+    </div>
+
+    <div class="ecl-page-header__section-description">
+      <div class="ecl-container">
+        {{- _description_markup -}}
+      </div>
     </div>
 
   {% endif %}

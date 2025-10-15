@@ -36,6 +36,14 @@ $page-header: null !default;
   }
 }
 
+.ecl-page-header__background {
+  display: block;
+  height: 10.875rem;
+  object-fit: cover;
+  object-position: 50% 0;
+  width: 100%;
+}
+
 .ecl-page-header__meta {
   color: var(--c-d);
   display: inline-block;
@@ -55,7 +63,7 @@ $page-header: null !default;
     text-transform: uppercase;
   }
 
-  &:not(:last-child)::after {
+  &:not(:first-child, :last-child)::after {
     background-color: var(--c-d);
     content: '';
     display: inline-block;
@@ -120,14 +128,6 @@ $page-header: null !default;
     position: relative;
   }
 
-  .ecl-page-header__background {
-    display: block;
-    height: 10.875rem;
-    object-fit: cover;
-    object-position: 50% 0;
-    width: 100%;
-  }
-
   .ecl-page-header__breadcrumb {
     background-color: transparent;
     margin-top: calc(-1 * var(--s-3xl) + var(--s-xs));
@@ -141,27 +141,6 @@ $page-header: null !default;
     max-width: 100%;
     padding-inline-start: var(--s-m);
     padding-inline-end: var(--s-m);
-  }
-}
-
-// DEPRECATED
-.ecl-page-header--overlay-dark {
-  .ecl-page-header__background-container::before {
-    background-color: rgba(map.get($theme, 'color', 'black'), 0.5);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-  }
-}
-
-.ecl-page-header--overlay-light {
-  .ecl-page-header__background-container::before {
-    background-color: rgba(map.get($theme, 'color', 'black'), 0.3);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
   }
 }
 

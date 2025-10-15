@@ -34,7 +34,7 @@ $page-header-print: null !default;
     text-transform: uppercase;
   }
 
-  &:not(:last-child)::after {
+  &:not(:first-child, :last-child)::after {
     background-color: var(--c-d);
     content: '';
     display: inline-block;
