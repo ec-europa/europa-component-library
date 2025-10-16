@@ -23,7 +23,7 @@ $page-header-print: null !default;
   color: map.get($page-header, 'title', 'color');
   font: map.get($page-header-print, 'title', 'font');
   font-weight: map.get($page-header, 'title', 'font-weight');
-  letter-spacing: map.get($page-header, 'title', 'letter-spacing-mobile');
+  letter-spacing: map.get($page-header, 'title', 'letter-spacing');
   margin-block: 0;
   padding-block: map.get($theme, 'spacing-print', '2xs') 0;
 }
@@ -164,5 +164,77 @@ $page-header-print: null !default;
   .ecl-page-header__container
     > *:last-child:not(.ecl-page-header__picture-background) {
     padding-block-end: var(--s-4xl);
+  }
+}
+
+// -------
+// Variant: 50-50
+
+.ecl-page-header--50-50 {
+  .ecl-page-header__container {
+    background-color: var(--cm-surface-medium-1);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .ecl-page-header__picture-background {
+    flex-basis: 50%;
+  }
+
+  .ecl-page-header__background {
+    aspect-ratio: 5/4;
+    height: auto;
+  }
+
+  .ecl-page-header__section-info {
+    display: flex;
+    flex-direction: column;
+    padding-block-end: var(--s-2xl);
+  }
+
+  &.ecl-page-header--image .ecl-page-header__section-info {
+    flex-basis: 50%;
+  }
+
+  .ecl-page-header__content-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .ecl-page-header__title {
+    padding-block-start: 0;
+  }
+
+  .ecl-page-header__meta {
+    padding-block-start: var(--s-xl);
+  }
+
+  .ecl-page-header__description-container {
+    padding-block-start: var(--s-s);
+  }
+
+  .ecl-page-header__description-info .ecl-page-header__description-container {
+    padding-block-start: var(--s-m);
+  }
+
+  .ecl-page-header__section-description {
+    background-color: var(--cm-surface-low-2);
+    display: none;
+  }
+
+  &.ecl-page-header--description-bottom {
+    .ecl-page-header__description-info {
+      display: none;
+    }
+
+    .ecl-page-header__section-description {
+      display: block;
+
+      .ecl-page-header__description-container {
+        padding-block: var(--s-6xl);
+      }
+    }
   }
 }

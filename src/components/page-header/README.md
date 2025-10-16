@@ -11,7 +11,8 @@ npm install --save @ecl/page-header
 - **"variant"** (string) (default: '') Page header variant; can be 'news', 'topic'
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
-- **"description"** (string) (default: '') Description of header
+- **"description"** (string) (default: '') Description of page header
+- **"description_position"** (string) (default: 'top') Position of the description; can be 'top' or 'bottom'. Only affects 50-50 variant
 - **"picture_thumbnail"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
 - **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
 - **"meta"** (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)

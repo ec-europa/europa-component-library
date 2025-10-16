@@ -26,6 +26,7 @@ $page-header: null !default;
 
 .ecl-page-header__title {
   color: map.get($page-header, 'title', 'color');
+  letter-spacing: map.get($page-header, 'title', 'letter-spacing');
   margin-block: 0;
   padding-block: var(--s-l) 0;
 
@@ -371,9 +372,36 @@ $page-header: null !default;
 // Variant: 50-50
 
 .ecl-page-header--50-50 {
+  .ecl-page-header__container {
+    background-color: var(--cm-surface-medium-1);
+    display: flex;
+    flex-direction: column;
+  }
+
   .ecl-page-header__background {
     aspect-ratio: 3/2;
     height: auto;
+  }
+
+  .ecl-page-header__section-info {
+    padding-block-end: var(--s-2xl);
+  }
+
+  .ecl-page-header__title {
+    padding-block-start: var(--s-3xs);
+  }
+
+  .ecl-page-header__meta {
+    padding-block-start: var(--s-xl);
+  }
+
+  .ecl-page-header__description-container {
+    padding-block-start: var(--s-s);
+  }
+
+  .ecl-page-header__section-description {
+    background-color: var(--cm-surface-low-2);
+    display: none;
   }
 }
 
@@ -382,13 +410,72 @@ $page-header: null !default;
     .ecl-page-header__background {
       aspect-ratio: 3/1;
     }
+
+    .ecl-page-header__title {
+      padding-block-start: var(--s-xs);
+    }
+
+    .ecl-page-header__meta {
+      padding-block-start: var(--s-3xl);
+    }
   }
 }
 
 @include breakpoints.up('xl') {
   .ecl-page-header--50-50 {
+    .ecl-page-header__container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .ecl-page-header__picture-background {
+      flex-basis: 50%;
+    }
+
     .ecl-page-header__background {
       aspect-ratio: 5/4;
+    }
+
+    .ecl-page-header__section-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.ecl-page-header--image .ecl-page-header__section-info {
+      flex-basis: 50%;
+    }
+
+    .ecl-page-header__content-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    .ecl-page-header__title {
+      padding-block-start: 0;
+    }
+
+    .ecl-page-header__meta {
+      padding-block-start: var(--s-xl);
+    }
+
+    .ecl-page-header__description-info .ecl-page-header__description-container {
+      padding-block-start: var(--s-m);
+    }
+
+    &.ecl-page-header--description-bottom {
+      .ecl-page-header__description-info {
+        display: none;
+      }
+
+      .ecl-page-header__section-description {
+        display: block;
+
+        .ecl-page-header__description-container {
+          padding-block: var(--s-6xl);
+        }
+      }
     }
   }
 }

@@ -157,6 +157,7 @@ const getArgs = (data) => {
   }
   if (data.description) {
     args.description = data.description;
+    args.description_position = 'top';
   }
   if (data.picture_background.img.src) {
     args.background_image_url = data.picture_background.img.src;
@@ -221,9 +222,9 @@ const getArgTypes = () => {
   };
 
   argTypes.show_picture = {
-    name: 'picture',
+    name: 'image',
     type: 'boolean',
-    description: 'Toggle picture visibility',
+    description: 'Toggle image visibility',
     table: {
       category: 'Optional',
     },
@@ -283,6 +284,29 @@ const getArgTypes = () => {
     if: { arg: 'show_description' },
   };
 
+  argTypes.description_position = {
+    name: 'description position',
+    type: 'select',
+    description: 'Change description position',
+    options: ['top', 'bottom'],
+    control: {
+      labels: {
+        top: 'top',
+        bottom: 'bottom',
+      },
+    },
+    mapping: {
+      top: 'top',
+      bottom: 'bottom',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'top' },
+      category: 'Display',
+    },
+    if: { arg: 'show_description' },
+  };
+
   argTypes.meta = {
     type: 'array',
     description: 'The page meta',
@@ -295,9 +319,9 @@ const getArgTypes = () => {
   };
 
   argTypes.background_image_url = {
-    name: 'background image',
+    name: 'image url',
     type: 'string',
-    description: 'The background image url',
+    description: 'The image url',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -328,6 +352,7 @@ const prepareData = (data, args) => {
     delete clone.description;
   } else {
     clone.description = args.description;
+    clone.description_position = args.description_position;
   }
 
   if (!args.show_picture) {

@@ -5,7 +5,8 @@
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
-    - "description" (string) (default: '') Description of header
+    - "description" (string) (default: '') Description of page header
+    - "description_position" (string) (default: 'top') Position of the description; can be 'top' or 'bottom'. Only affects 50-50 variant
     - "expandable" (associative array) {
         "title" (string)
         "description" (string)
@@ -38,6 +39,7 @@
 {% set _font_size = font_size|default('m') %}
 {% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
+{% set _description_position = description_position|default('top') %}
 {% set _picture_thumbnail = picture_thumbnail|default({}) %}
 {% set _picture_background = picture_background|default({}) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
@@ -58,6 +60,10 @@
 
 {% if _font_size is not empty and _font_size != 'm' %}
   {% set _css_class = _css_class ~ ' ecl-page-header--font-' ~ _font_size %}
+{% endif %}
+
+{% if _description_position == 'bottom' %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--description-bottom' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -183,13 +189,15 @@
   <div class="ecl-page-header__container">
     {{- _picture_markup -}}
 
-    <div class="ecl-page-header__section-info">
+    <div class="ecl-page-header__section-info ecl-container">
       {{- _breadcrumb_markup -}}
 
-      {{- _title_markup -}}
+      <div class="ecl-page-header__content-info">
+        {{- _title_markup -}}
 
-      <div class="ecl-page-header__description-info">
-        {{- _description_markup -}}
+        <div class="ecl-page-header__description-info">
+          {{- _description_markup -}}
+        </div>
       </div>
 
       {{- _meta_markup -}}

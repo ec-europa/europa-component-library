@@ -29,8 +29,8 @@ module.exports = {
   },
   picture_background: {
     img: {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-      alt: 'Europe map',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'Europe flag',
     },
   },
   expandable: {
