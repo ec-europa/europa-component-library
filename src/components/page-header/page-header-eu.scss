@@ -20,14 +20,10 @@ $page-header: null !default;
   }
 
   .ecl-container
-    > div:first-of-type:not(
-      .ecl-page-header__info--no-margin,
-      .ecl-page-header-expandable__header-text
-    ),
+    > div:first-of-type:not(.ecl-page-header-expandable__header-text),
   .ecl-container
     > :first-child:not(
       .ecl-page-header__breadcrumb,
-      .ecl-page-header__info--no-margin,
       .ecl-page-header-expandable__list,
       .ecl-page-header-expandable__header-text
     ) {

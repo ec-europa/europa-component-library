@@ -1,7 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
-    - "variant" (string) (default: '') Page header variant; can be 'news', 'topic'
+    - "variant" (string) (default: '') Page header variant; can be 'news', '50-50'
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
@@ -160,23 +160,8 @@
     {% include '@ecl/page-header/page-header-expandable.html.twig' with _expandable only %}
   {% endif %}
 
-  {# Variant: default #}
-  {% if _variant is empty %}
-
-    {{- _picture_markup -}}
-
-    <div class="ecl-container ecl-page-header__container">
-      {{- _breadcrumb_markup -}}
-
-      {{- _title_markup -}}
-
-      {{- _description_markup -}}
-
-      {{- _meta_markup -}}
-    </div>
-  
   {# Variant: news #}
-  {% elseif _variant == 'news' %}
+  {% if _variant == 'news' %}
     <div class="ecl-container ecl-page-header__container">
       {{- _breadcrumb_markup -}}
 
@@ -191,6 +176,44 @@
       <div class="ecl-container">
         {{- _description_markup -}}
       </div>
+    </div>
+
+  {# Variant: 50-50 #}
+  {% elseif _variant == '50-50' %}
+  <div class="ecl-page-header__container">
+    {{- _picture_markup -}}
+
+    <div class="ecl-page-header__section-info">
+      {{- _breadcrumb_markup -}}
+
+      {{- _title_markup -}}
+
+      <div class="ecl-page-header__description-info">
+        {{- _description_markup -}}
+      </div>
+
+      {{- _meta_markup -}}
+    </div>
+  </div>
+  <div class="ecl-page-header__section-description">
+    <div class="ecl-container">
+      {{- _description_markup -}}
+    </div>
+  </div>
+
+  {# Variant: default #}
+  {% else %}
+
+    {{- _picture_markup -}}
+
+    <div class="ecl-container ecl-page-header__container">
+      {{- _breadcrumb_markup -}}
+
+      {{- _title_markup -}}
+
+      {{- _description_markup -}}
+
+      {{- _meta_markup -}}
     </div>
 
   {% endif %}

@@ -9,6 +9,7 @@ import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
 const demoContentNews = { ...demoContent, variant: 'news' };
+const demoContentFifty = { ...demoContent, variant: '50-50' };
 
 const expandableArgs = (data) => {
   return {
@@ -411,4 +412,17 @@ News.args = getArgs(demoContentNews);
 News.argTypes = getArgTypes();
 News.parameters = {
   notes: { markdown: notes, json: demoContentNews },
+};
+
+export const Fifty = (_, { loaded: { component } }) => component;
+
+Fifty.render = async (args) => {
+  const renderedFifty = await pageHeader(prepareData(demoContentFifty, args));
+  return renderedFifty;
+};
+Fifty.storyName = '50/50';
+Fifty.args = getArgs(demoContentFifty);
+Fifty.argTypes = getArgTypes();
+Fifty.parameters = {
+  notes: { markdown: notes, json: demoContentFifty },
 };
