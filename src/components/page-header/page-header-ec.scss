@@ -84,8 +84,8 @@ $page-header: null !default;
   &:first-child {
     display: block;
     font-weight: map.get($page-header, 'meta', 'first-font-weight');
+    letter-spacing: map.get($page-header, 'meta', 'first-letter-spacing');
     margin-block: map.get($page-header, 'meta', 'first-margin-block');
-    padding-block: map.get($page-header, 'meta', 'first-padding-block');
     text-transform: uppercase;
   }
 
