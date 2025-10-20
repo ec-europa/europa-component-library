@@ -17,6 +17,7 @@ const addons = [
   '@ecl/storybook-addon-styles',
   '@ecl/storybook-addon-notes',
   '@ecl/storybook-addon-code',
+  '@ecl/storybook-addon-preview-width',
   '@storybook/addon-viewport',
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
