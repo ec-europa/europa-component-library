@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -12,12 +13,13 @@ $list: null !default;
 .ecl-ordered-list,
 %ecl-ordered-list {
   color: map.get($list, 'text-color');
-  font: var(--f-m);
   list-style-position: outside;
   list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
   padding-inline-start: map.get($list, 'ordered', 'padding-start');
   padding-top: var(--s-2xs);
+
+  @include mixins.responsive-font(map.get($list, 'ordered', 'font'));
 }
 
 .ecl-ordered-list .ecl-ordered-list,
