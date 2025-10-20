@@ -319,6 +319,10 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
 
 EU footer hasn't changed, but is now using its own template file
 
+### Table
+
+- parameter for aria label, in the sorting table (`label_sort`) has been split into `label_sort_ascending`, `label_sort_descending` and `label_sort_default`. It translates to `data-ecl-table-sort-label-asc`, `data-ecl-table-sort-label-desc` and `data-ecl-table-sort-label-default` in the markup. Current `label_sort` is used as fallback if the new elements are not provided.
+
 ### Timeline
 
 - new section available to add headline (larger first item). Corresponding twig parameter is `headline`
