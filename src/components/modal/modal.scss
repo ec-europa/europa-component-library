@@ -71,11 +71,11 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal--m .ecl-modal__content {
-  max-width: min(633px, 100%);
+  max-width: min(800px, 100%);
 }
 
 .ecl-modal--l .ecl-modal__content {
-  max-width: min(823px, 100%);
+  max-width: min(1008px, 100%);
 }
 
 .ecl-modal--full .ecl-modal__content {
@@ -220,34 +220,13 @@ $overflow-height: 2rem;
   }
 
   .ecl-modal--m,
-  .ecl-modal--l {
-    .ecl-modal__footer-content {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-    }
-
-    .ecl-modal__button {
-      align-items: center;
-      display: flex;
-      flex-basis: 50%;
-      flex-grow: 1;
-      justify-content: center;
-      margin-inline-end: var(--s-m);
-      margin-block-start: 0;
-
-      &:first-of-type {
-        margin-inline-end: 0;
-      }
-    }
-  }
-
+  .ecl-modal--l,
   .ecl-modal--full {
     .ecl-modal__footer-content {
       flex-direction: row-reverse;
-      justify-content: flex-end;
+      justify-content: flex-start;
     }
 
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-modal__button {
       flex-grow: 0;
       margin-inline-end: var(--s-m);
