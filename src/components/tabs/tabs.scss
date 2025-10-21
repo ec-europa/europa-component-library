@@ -151,7 +151,7 @@ $button-width: 44px;
 }
 
 .ecl-tabs__toggle--active {
-  border-bottom-color: map.get($tabs, 'more', 'active-separator-color');
+  border-bottom: map.get($tabs, 'more', 'active-separator');
 
   &::before {
     background-color: map.get($tabs, 'more', 'highlight-color');
