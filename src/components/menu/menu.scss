@@ -354,7 +354,10 @@ $menu: null !default;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
 
-  @include mixins.responsive-font(map.get($menu, 'global', 'item-font'));
+  @include mixins.responsive-font(
+    map.get($menu, 'global', 'item-font'),
+    $font-weight: map.get($menu, 'global', 'item-font-weight')
+  );
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -566,7 +569,7 @@ $menu: null !default;
       &:focus-visible {
         background-color: map.get($menu, 'desktop', 'item-background-focus');
         color: map.get($menu, 'desktop', 'item-color-focus');
-        outline-offset: -4px;
+        outline-offset: -2px;
       }
     }
 
@@ -699,7 +702,8 @@ $menu: null !default;
       border-width: 0;
       color: map.get($menu, 'desktop', 'item-color');
       margin-inline-start: 0;
-      padding: map.get($menu, 'desktop', 'caret-padding');
+      min-width: auto;
+      padding-inline: map.get($menu, 'desktop', 'caret-padding-inline');
 
       .ecl-button__icon {
         fill: currentcolor;
@@ -714,7 +718,7 @@ $menu: null !default;
         background-color: map.get($menu, 'desktop', 'item-background-focus');
         color: map.get($menu, 'desktop', 'item-color-focus');
         outline: 2px solid map.get($menu, 'desktop', 'caret-focus-outline');
-        outline-offset: -4px;
+        outline-offset: -2px;
 
         .ecl-button__icon {
           fill: currentcolor;
