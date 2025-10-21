@@ -2,7 +2,9 @@ module.exports = {
   id: 'table-id',
   sortable: true,
   caption: 'Table caption',
-  label_sort: 'Sort table',
+  label_sort_ascending: 'Sort ascending',
+  label_sort_descending: 'Sort descending',
+  label_sort_default: 'Sort default',
   headers: [
     [
       { label: 'Job title', rowspan: '2' },

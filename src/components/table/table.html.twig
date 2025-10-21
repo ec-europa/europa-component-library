@@ -6,7 +6,9 @@
   - "simple" (boolean) (default: false)
   - "sortable" (boolean) (default: false)
   - "caption" (string) (default: ''): optional caption for the table
-  - "label_sort" (string) (default: ''): label used for sorting buttons (screen reader only)
+  - "label_sort_ascending" (string) (default: ''): label used for sorting ascending (screen reader only)
+  - "label_sort_descending" (string) (default: ''): label used for sorting descending (screen reader only)
+  - "label_sort_default" (string) (default: ''): label used for sorting default (screen reader only)
   - "zebra" (boolean) (default: false))
   - "headers" (array) (default: []): format: [
       {
@@ -62,7 +64,9 @@
 {% set _simple = simple|default(false) %}
 {% set _sortable = sortable|default(false) %}
 {% set _caption = caption|default('') %}
-{% set _label_sort = label_sort|default('') %}
+{% set _label_sort_ascending = label_sort_ascending|default(label_sort|default('')) %}
+{% set _label_sort_descending = label_sort_descending|default(label_sort|default('')) %}
+{% set _label_sort_default = label_sort_default|default(label_sort|default('')) %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
 
@@ -76,7 +80,9 @@
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'data-ecl-table' },
     { name: 'data-ecl-auto-init', value: 'Table' },
-    { name: 'data-ecl-table-sort-label', value: _label_sort }
+    { name: 'data-ecl-table-sort-label-asc', value: _label_sort_ascending },
+    { name: 'data-ecl-table-sort-label-desc', value: _label_sort_descending },
+    { name: 'data-ecl-table-sort-label-default', value: _label_sort_default }
   ]) %}
 {% endif %}
 

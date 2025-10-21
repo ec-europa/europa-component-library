@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -18,12 +19,15 @@ $description-list: null !default;
 .ecl-description-list__term,
 %ecl-description-list__term {
   color: map.get($description-list, 'term-color');
-  font: var(--f-m);
-  font-weight: map.get($description-list, 'term-font-weight');
   margin-bottom: map.get($description-list, 'term-margin-bottom');
   margin-top: map.get($description-list, 'term-margin-top');
   max-width: var(--max-w);
   overflow-wrap: break-word;
+
+  @include mixins.responsive-font(
+    map.get($description-list, 'term-font'),
+    $font-weight: map.get($description-list, 'term-font-weight')
+  );
 
   &:first-child {
     margin-top: 0;
@@ -41,9 +45,12 @@ $description-list: null !default;
 .ecl-description-list__definition,
 %ecl-description-list__definition {
   color: map.get($description-list, 'definition-color');
-  font: var(--f-m);
   margin-inline-start: 0;
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(
+    map.get($description-list, 'definition-font')
+  );
 }
 
 .ecl-description-list__see_more {
