@@ -38,6 +38,10 @@ $description-list: null !default;
   display: none;
 }
 
+.ecl-description-list__definition-item:focus-visible {
+  outline: none;
+}
+
 .ecl-description-list__term + .ecl-description-list__term {
   margin-top: var(--s-2xs);
 }
