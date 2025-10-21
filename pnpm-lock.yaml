@@ -375,6 +375,10 @@ importers:
       '@ecl/tag':
         specifier: 5.0.0-alpha.17
         version: link:../tag
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
 
   src/components/expandable:
     dependencies:
@@ -722,7 +726,11 @@ importers:
         specifier: 5.0.0-alpha.15
         version: 5.0.0-alpha.15
 
-  src/components/ordered-list: {}
+  src/components/ordered-list:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
 
   src/components/page-header:
     dependencies:
@@ -1035,7 +1043,11 @@ importers:
         specifier: 5.0.0-alpha.17
         version: link:../../mixins/typography
 
-  src/components/unordered-list: {}
+  src/components/unordered-list:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
 
   src/components/video: {}
 
@@ -1287,6 +1299,24 @@ importers:
       prop-types:
         specifier: 15.8.1
         version: 15.8.1
+      react:
+        specifier: 19.2.0
+        version: 19.2.0
+      react-dom:
+        specifier: 19.2.0
+        version: 19.2.0(react@19.2.0)
+
+  src/playground/addons/storybook-addon-preview-width:
+    dependencies:
+      '@storybook/components':
+        specifier: 8.6.14
+        version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
+      '@storybook/manager-api':
+        specifier: 8.6.14
+        version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
+      '@storybook/preview-api':
+        specifier: 8.6.14
+        version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
       react:
         specifier: 19.2.0
         version: 19.2.0

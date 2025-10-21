@@ -8,7 +8,9 @@ const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.sortSelector Selector for toggling element
- * @param {String} options.sortLabelSelector Selector for sorting button label
+ * @param {String} options.sortLabelSelectorAsc Selector for sorting button label ascending
+ * @param {String} options.sortLabelSelectorDesc Selector for sorting button label descending
+ * @param {String} options.sortLabelSelectorDefault Selector for sorting button label default
  * @param {Boolean} options.attachClickListener
  */
 export class Table {
@@ -31,7 +33,9 @@ export class Table {
     element,
     {
       sortSelector = '[data-ecl-table-sort-toggle]',
-      sortLabelSelector = 'data-ecl-table-sort-label',
+      sortLabelSelectorAsc = 'data-ecl-table-sort-label-asc',
+      sortLabelSelectorDesc = 'data-ecl-table-sort-label-desc',
+      sortLabelSelectorDefault = 'data-ecl-table-sort-label-default',
     } = {},
   ) {
     // Check element
@@ -45,10 +49,15 @@ export class Table {
 
     // Options
     this.sortSelector = sortSelector;
-    this.sortLabelSelector = sortLabelSelector;
+    this.sortLabelSelectorAsc = sortLabelSelectorAsc;
+    this.sortLabelSelectorDesc = sortLabelSelectorDesc;
+    this.sortLabelSelectorDefault = sortLabelSelectorDefault;
 
     // Private variables
+    this.sortLabelAsc = '';
+    this.sortLabelDesc = '';
     this.sortHeadings = null;
+    this.sortButtons = [];
 
     // Bind `this` for use in callbacks
     this.handleClickOnSort = this.handleClickOnSort.bind(this);
@@ -78,21 +87,35 @@ export class Table {
 
     this.sortHeadings = queryAll(this.sortSelector, this.element);
 
+    // Get labels
+    if (this.element.hasAttribute(this.sortLabelSelectorAsc)) {
+      this.sortLabelAsc = this.element.getAttribute(this.sortLabelSelectorAsc);
+    }
+    if (this.element.hasAttribute(this.sortLabelSelectorDesc)) {
+      this.sortLabelDesc = this.element.getAttribute(
+        this.sortLabelSelectorDesc,
+      );
+    }
+    if (this.element.hasAttribute(this.sortLabelSelectorDefault)) {
+      this.sortLabelDefault = this.element.getAttribute(
+        this.sortLabelSelectorDefault,
+      );
+    }
+
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
         const sort = document.createElement('button');
         sort.classList.add('ecl-table__arrow');
-        if (this.element.hasAttribute(this.sortLabelSelector)) {
-          sort.setAttribute(
-            'aria-label',
-            this.element.getAttribute(this.sortLabelSelector),
-          );
+        if (this.sortLabelAsc) {
+          sort.setAttribute('aria-label', this.sortLabelAsc);
         }
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
         sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
         tr.appendChild(sort);
         tr.addEventListener('click', (e) => this.handleClickOnSort(tr)(e));
+
+        this.sortButtons.push(sort);
       });
     }
 
@@ -172,6 +195,28 @@ export class Table {
         th.setAttribute('aria-sort', order);
       } else {
         th.removeAttribute('aria-sort');
+      }
+    });
+
+    // Change aria label
+    let label = '';
+    this.sortButtons.forEach((button) => {
+      switch (order) {
+        case 'ascending':
+          label = this.sortLabelDesc ? this.sortLabelDesc : '';
+          break;
+
+        case 'descending':
+          label = this.sortLabelDefault ? this.sortLabelDefault : '';
+          break;
+
+        default:
+          label = this.sortLabelAsc ? this.sortLabelAsc : '';
+          break;
+      }
+
+      if (label) {
+        button.setAttribute('aria-label', label);
       }
     });
   };

@@ -108,6 +108,7 @@ export class DescriptionList {
 
       for (let i = 0; i < items.length; i += 1) {
         const el = items[i];
+        el.setAttribute('tabindex', -1);
 
         if (i < this.visibleItems) {
           el.classList.remove(hiddenClass);
@@ -152,16 +153,34 @@ export class DescriptionList {
 
     const listItem = e.target.parentNode;
     const list = listItem.parentNode;
+    let firstHiddenItem = null;
     if (this.element.contains(list)) {
       const parentChildren = Array.from(list.children);
       parentChildren.forEach((item) => {
-        item.classList.remove('ecl-description-list__definition-item--hidden');
+        if (
+          item.classList.contains(
+            'ecl-description-list__definition-item--hidden',
+          )
+        ) {
+          item.classList.remove(
+            'ecl-description-list__definition-item--hidden',
+          );
+
+          if (firstHiddenItem === null) {
+            firstHiddenItem = item;
+          }
+        }
         item.classList.remove(
           'ecl-description-list__definition-item--last-visible',
         );
       });
       // Remove the button
       listItem.remove();
+
+      // Put focus on the first hidden item
+      if (firstHiddenItem !== null) {
+        firstHiddenItem.focus();
+      }
     }
   }
 }
