@@ -832,32 +832,33 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Format: dd-mm-yyyy
+      </div>
     </label>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      Optional help text
+      Format: dd-mm-yyyy
     </div>
     <div
+      aria-describedby="example-input-id-1-helper"
       class="ecl-datepicker"
+      data-ecl-auto-init="Datepicker"
+      data-ecl-datepicker-toggle=""
+      data-placeholder="DD-MM-YYYY"
+      data-value="2025-08-30"
     >
-      <input
-        aria-describedby="example-input-id-1-helper"
-        autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-        data-ecl-auto-init="Datepicker"
-        data-ecl-datepicker-toggle=""
-        id="example-input-id-1"
-        name="example-input-id-1"
-        placeholder="DD-MM-YYYY"
+      <duet-date-picker
+        first-day-of-week="1"
+        identifier="example-input-id-1"
+        max="2026-08-30"
+        min="2024-06-15"
         required=""
-        type="text"
-        value="03-10-2023"
-      />
-      <span
-        aria-hidden="true"
-        class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
   </div>
@@ -880,33 +881,34 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Format: dd-mm-yyyy
+      </div>
     </label>
     <div
+      aria-hidden="true"
       class="ecl-help-block ecl-help-block--disabled"
       id="example-input-id-1-helper"
     >
-      Optional help text
+      Format: dd-mm-yyyy
     </div>
     <div
+      aria-describedby="example-input-id-1-helper"
       class="ecl-datepicker"
+      data-ecl-auto-init="Datepicker"
+      data-ecl-datepicker-toggle=""
+      data-placeholder="DD-MM-YYYY"
+      data-value="2025-08-30"
     >
-      <input
-        aria-describedby="example-input-id-1-helper"
-        autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-        data-ecl-auto-init="Datepicker"
-        data-ecl-datepicker-toggle=""
+      <duet-date-picker
         disabled=""
-        id="example-input-id-1"
-        name="example-input-id-1"
-        placeholder="DD-MM-YYYY"
+        first-day-of-week="1"
+        identifier="example-input-id-1"
+        max="2026-08-30"
+        min="2024-06-15"
         required=""
-        type="text"
-        value="03-10-2023"
-      />
-      <span
-        aria-hidden="true"
-        class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
   </div>
@@ -929,36 +931,44 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Format: dd-mm-yyyy
+      </div>
+      <div
+        class="ecl-feedback-message--hidden"
+      >
+        Invalid text
+      </div>
     </label>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      Optional help text
+      Format: dd-mm-yyyy
     </div>
     <div
+      aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
+      aria-invalid="true"
       class="ecl-datepicker ecl-datepicker--invalid"
+      data-ecl-auto-init="Datepicker"
+      data-ecl-datepicker-toggle=""
+      data-placeholder="DD-MM-YYYY"
+      data-value="2025-08-30"
+      invalid=""
     >
-      <input
-        aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
-        aria-invalid="true"
-        autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
-        data-ecl-auto-init="Datepicker"
-        data-ecl-datepicker-toggle=""
-        id="example-input-id-1"
-        name="example-input-id-1"
-        placeholder="DD-MM-YYYY"
+      <duet-date-picker
+        first-day-of-week="1"
+        identifier="example-input-id-1"
+        max="2026-08-30"
+        min="2024-06-15"
         required=""
-        type="text"
-        value="03-10-2023"
-      />
-      <span
-        aria-hidden="true"
-        class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
     <div
+      aria-hidden="true"
       class="ecl-feedback-message"
       id="example-input-id-1-invalid"
     >
@@ -990,32 +1000,33 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
       >
         *
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Format: dd-mm-yyyy
+      </div>
     </label>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      Optional help text
+      Format: dd-mm-yyyy
     </div>
     <div
+      aria-describedby="example-input-id-1-helper"
       class="ecl-datepicker"
+      data-ecl-auto-init="Datepicker"
+      data-ecl-datepicker-toggle=""
+      data-placeholder="DD-MM-YYYY"
+      data-value="2025-08-30"
     >
-      <input
-        aria-describedby="example-input-id-1-helper"
-        autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-        data-ecl-auto-init="Datepicker"
-        data-ecl-datepicker-toggle=""
-        id="example-input-id-1"
-        name="example-input-id-1"
-        placeholder="DD-MM-YYYY"
+      <duet-date-picker
+        first-day-of-week="1"
+        identifier="example-input-id-1"
+        max="2026-08-30"
+        min="2024-06-15"
         required=""
-        type="text"
-        value="03-10-2023"
-      />
-      <span
-        aria-hidden="true"
-        class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
   </div>
@@ -1040,32 +1051,33 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Format: dd-mm-yyyy
+      </div>
     </label>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      Optional help text
+      Format: dd-mm-yyyy
     </div>
     <div
+      aria-describedby="example-input-id-1-helper"
       class="ecl-datepicker"
+      data-ecl-auto-init="Datepicker"
+      data-ecl-datepicker-toggle=""
+      data-placeholder="DD-MM-YYYY"
+      data-value="2025-08-30"
     >
-      <input
-        aria-describedby="example-input-id-1-helper"
-        autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-        data-ecl-auto-init="Datepicker"
-        data-ecl-datepicker-toggle=""
-        id="example-input-id-1"
-        name="example-input-id-1"
-        placeholder="DD-MM-YYYY"
+      <duet-date-picker
+        first-day-of-week="1"
+        identifier="example-input-id-1"
+        max="2026-08-30"
+        min="2024-06-15"
         required=""
-        type="text"
-        value="03-10-2023"
-      />
-      <span
-        aria-hidden="true"
-        class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
   </div>
@@ -1088,32 +1100,33 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
       >
         (required)
       </span>
+      <div
+        class="ecl-help-block--hidden"
+      >
+        Format: dd-mm-yyyy
+      </div>
     </label>
     <div
+      aria-hidden="true"
       class="ecl-help-block"
       id="example-input-id-1-helper"
     >
-      Optional help text
+      Format: dd-mm-yyyy
     </div>
     <div
+      aria-describedby="example-input-id-1-helper"
       class="ecl-datepicker"
+      data-ecl-auto-init="Datepicker"
+      data-ecl-datepicker-toggle=""
+      data-placeholder="DD-MM-YYYY"
+      data-value="2025-08-30"
     >
-      <input
-        aria-describedby="example-input-id-1-helper"
-        autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
-        data-ecl-auto-init="Datepicker"
-        data-ecl-datepicker-toggle=""
-        id="example-input-id-1"
-        name="example-input-id-1"
-        placeholder="DD-MM-YYYY"
+      <duet-date-picker
+        first-day-of-week="1"
+        identifier="example-input-id-1"
+        max="2026-08-30"
+        min="2024-06-15"
         required=""
-        type="text"
-        value="03-10-2023"
-      />
-      <span
-        aria-hidden="true"
-        class="wt-icon--calendar ecl-icon ecl-icon--xs ecl-datepicker__icon ecl-icon--calendar"
       />
     </div>
   </div>
