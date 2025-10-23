@@ -8,8 +8,7 @@ import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
 ## Dependencies
 
-The ECL datepicker component uses the [Pikaday](https://github.com/Pikaday/Pikaday) under the hood. This library is not bundled in the ECL js anymore and needs to be loaded in the project before the ECL js.
-Additionally pikaday uses [moment.js](https://momentjs.com/) to handle the rendering of date formats and other things, although this is only an optional dependency and should be only loaded when the datepicker is initialised with a custom date format (default in ECL is `DD-MM-YYYY`).
+The ECL datepicker component uses the [Duet js](https://duetds.github.io/date-picker/). This library is not bundled in the ECL js and needs to be loaded in the project before the ECL js.
 
 ## Setup
 
@@ -20,8 +19,12 @@ There are 2 ways to initialise the component.
 Add `data-ecl-auto-init="Datepicker"` attribute to component's input markup:
 
 ```html
-<input class="ecl-datepicker__field ecl-text-input ecl-text-input--s" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle >
-  ...
+<div
+  class="ecl-datepicker"
+  data-ecl-auto-init="Datepicker"
+  data-ecl-datepicker-toggle=""
+>
+  <duet-date-picker identifier="example-input-id-1" />
 </div>
 ```
 

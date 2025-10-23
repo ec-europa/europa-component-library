@@ -132,11 +132,6 @@ $inpage-navigation: null !default;
     @include mixins.responsive-font(
       map.get($inpage-navigation, 'title', 'font')
     );
-
-    .ecl-inpage-navigation__title-icon {
-      display: map.get($inpage-navigation, 'title', 'icon-display');
-      margin-inline-end: var(--s-3xs);
-    }
   }
 }
 

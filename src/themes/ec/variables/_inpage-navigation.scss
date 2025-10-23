@@ -11,10 +11,9 @@ $inpage-navigation: (
     'color': var(--cm-on-surface-brand),
     'font': 'microcopy-s',
     'font-weight': map.get($font-weight, 'semi-bold'),
-    'icon-display': 'inline-flex',
     'letter-spacing': map.get($letter-spacing, 'm'),
     'text-transform': none,
-    'padding': var(--s-s) 0,
+    'padding': var(--s-s) 0 var(--s-xl),
   ),
   item: (
     'background': transparent,
