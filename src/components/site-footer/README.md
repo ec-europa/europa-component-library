@@ -30,6 +30,9 @@ npm install --save @ecl/site-footer
 
 ### EU footer parameters
 
+- **"co_owner"** (optional) (object) (default: ()): Banner on top of the footer
+  - "title" (string) (default: ''): Co-owner title
+  - "links" (array of objects): List of links, using the ECL Link structure
 - **"rows"** (array of objects) (default: [])
   - **"section_class_name"** (optional) (string) (default: '')
   - **"logo"**
