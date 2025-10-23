@@ -166,12 +166,12 @@
   @extend %ecl-description-list__definition;
 }
 
-.ecl table:not([class*='ecl-'], [class*='wt-']),
+.ecl table:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker table),
 .ecl table:is([class*='ecl-u-']) {
   @extend %ecl-table;
 }
 
-.ecl thead:not([class*='ecl-'], [class*='wt-']),
+.ecl thead:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker thead),
 .ecl thead:is([class*='ecl-u-']) {
   @extend %ecl-table__head;
 
@@ -180,17 +180,17 @@
   }
 }
 
-.ecl th:not([class*='ecl-'], [class*='wt-']),
+.ecl th:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker th),
 .ecl th:is([class*='ecl-u-']) {
   @extend %ecl-table__header;
 }
 
-.ecl tr:not([class*='ecl-'], [class*='wt-']),
+.ecl tr:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker tr),
 .ecl tr:is([class*='ecl-u-']) {
   @extend %ecl-table__row;
 }
 
-.ecl td:not([class*='ecl-'], [class*='wt-']),
+.ecl td:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker td),
 .ecl td:is([class*='ecl-u-']) {
   @extend %ecl-table__cell;
 }

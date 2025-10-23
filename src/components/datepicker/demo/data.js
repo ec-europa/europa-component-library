@@ -1,6 +1,6 @@
 module.exports = {
   label: 'Label',
-  helper_text: 'Optional help text',
+  helper_text: 'Format: dd-mm-yyyy',
   invalid_icon: {
     name: 'error-outline',
   },
@@ -16,7 +16,9 @@ module.exports = {
     name: 'example-input-id-1',
     input_type: 'datepicker',
     placeholder: 'DD-MM-YYYY',
+    min: '2024-06-15',
+    max: '2026-08-30',
     autoinit: true,
-    default_value: '03-10-2023',
+    default_value: '2025-08-30',
   },
 };
