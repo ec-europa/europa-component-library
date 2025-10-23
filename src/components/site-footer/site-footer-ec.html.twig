@@ -2,6 +2,9 @@
 
 {#
   Parameters:
+  - "co_owner" (optional) (object) (default: ()): Banner on top of the footer
+    - "title" (string) (default: ''): Co-owner title
+    - "links" (array of objects): List of links, using the ECL Link structure
   - "section_xx" (object) (default: {}): Specific section of the footer, all using the same structure
     Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related" and "section_common"
     - "title" (optional) (string or object): Section title; can be a simple string or a link using the ECL Link structure
@@ -22,6 +25,7 @@
 
 {# Internal properties #}
 
+{% set _co_owner = co_owner|default({}) %}
 {% set _section_site_info = section_site_info|default({}) %}
 {% set _section_common = section_common|default({}) %}
 {% set _section_core = section_core|default({}) %}
@@ -55,104 +59,131 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-container ecl-site-footer__container">
-    <div class="ecl-site-footer__row ecl-site-footer__row--specific">
-      {# Site info #}
-      {%- if _section_site_info is not empty -%}
-        {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-          section: _section_site_info|merge({ name: 'site-info' }),
-          extra_classes: _section_site_info.extra_classes|default(''),
-          extra_attributes: _section_site_info.extra_attributes|default([])
-        } only %}
+  {# Co owner #}
+  {%- if _co_owner is not empty -%}
+    <div class="ecl-site-footer__co-owner">
+      <div class="ecl-container ecl-site-footer__co-owner-container">
+        {%- if _co_owner.title is not empty -%}
+          <div class="ecl-site-footer__co-owner-title">
+            {{- _co_owner.title -}}
+          </div>
+        {%- endif -%}
+
+        {%- if _co_owner.links is not empty and _co_owner.links is iterable -%}
+          <ul class="ecl-site-footer__co-owner-list">
+            {%- for _item in _co_owner.links -%}
+              <li class="ecl-site-footer__co-owner-item">
+                {% include '@ecl/link/link.html.twig' with _item|merge({
+                  extra_classes: 'ecl-site-footer__co-owner-link',
+                }) only %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="ecl-site-footer__main">
+    <div class="ecl-container ecl-site-footer__container">
+      <div class="ecl-site-footer__row ecl-site-footer__row--specific">
+        {# Site info #}
+        {%- if _section_site_info is not empty -%}
+          {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+            section: _section_site_info|merge({ name: 'site-info' }),
+            extra_classes: _section_site_info.extra_classes|default(''),
+            extra_attributes: _section_site_info.extra_attributes|default([])
+          } only %}
+        {%- endif -%}
+
+        {%- if _section_core is not empty -%}
+
+          {# Core #}
+          {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+            section: _section_core|merge({ name: 'core' }),
+            extra_classes: _section_core.extra_classes|default(''),
+            extra_attributes: _section_core.extra_attributes|default([])
+          } only %}
+
+        {%- else -%}
+
+        {%- if _section_contact is not empty or _section_about is not empty or _section_more is not empty or _section_related is not empty -%}
+        <div class="ecl-site-footer__section ecl-site-footer__section--links">
+          {%- if _section_contact is not empty or _section_about is not empty -%}
+          <div class="ecl-site-footer__row">
+            {# Contact #}
+            {%- if _section_contact is not empty -%}
+              {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+                section: _section_contact|merge({ name: 'contact' }),
+                extra_classes: _section_contact.extra_classes|default(''),
+                extra_attributes: _section_contact.extra_attributes|default([])
+              } only %}
+            {%- endif -%}
+
+            {# About #}
+            {%- if _section_about is not empty -%}
+              {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+                section: _section_about|merge({ name: 'about' }),
+                extra_classes: _section_about.extra_classes|default(''),
+                extra_attributes: _section_about.extra_attributes|default([])
+              } only %}
+            {%- endif -%}
+          </div>
+          {%- endif -%}
+
+          {%- if _section_more is not empty or _section_related is not empty -%}
+          <div class="ecl-site-footer__row">
+            {# More #}
+            {%- if _section_more is not empty -%}
+              {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+                section: _section_more|merge({ name: 'more' }),
+                extra_classes: _section_more.extra_classes|default(''),
+                extra_attributes: _section_more.extra_attributes|default([])
+              } only %}
+            {%- endif -%}
+
+            {# Related #}
+            {%- if _section_related is not empty -%}
+              {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+                section: _section_related|merge({ name: 'related' }),
+                extra_classes: _section_related.extra_classes|default(''),
+                extra_attributes: _section_related.extra_attributes|default([])
+              } only %}
+            {%- endif -%}
+          </div>
+          {%- endif -%}
+
+          {# Custom sections #}
+          {%- if _sections_custom is not empty -%}
+            {% for key, pair in _sections_custom|batch(2) %}
+              <div class="ecl-site-footer__row">
+                {% for custom in pair %}
+                  {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+                    section: custom|merge({ name: 'custom-' ~ ((key * 2) + loop.index) }),
+                    extra_classes: custom.extra_classes|default(''),
+                    extra_attributes: custom.extra_attributes|default([])
+                  } only %}
+                {% endfor %}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        {%- endif -%}
+
       {%- endif -%}
+      </div>
 
-      {%- if _section_core is not empty -%}
-
-        {# Core #}
+      {%- if _section_common is not empty -%}
+      <div class="ecl-site-footer__row ecl-site-footer__row--common">
+        {# Common #}
         {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-          section: _section_core|merge({ name: 'core' }),
-          extra_classes: _section_core.extra_classes|default(''),
-          extra_attributes: _section_core.extra_attributes|default([])
+          section: _section_common|merge({ name: 'common' }),
+          extra_classes: _section_common.extra_classes|default(''),
+          extra_attributes: _section_common.extra_attributes|default([])
         } only %}
-
-      {%- else -%}
-
-      {%- if _section_contact is not empty or _section_about is not empty or _section_more is not empty or _section_related is not empty -%}
-      <div class="ecl-site-footer__section ecl-site-footer__section--links">
-        {%- if _section_contact is not empty or _section_about is not empty -%}
-        <div class="ecl-site-footer__row">
-          {# Contact #}
-          {%- if _section_contact is not empty -%}
-            {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-              section: _section_contact|merge({ name: 'contact' }),
-              extra_classes: _section_contact.extra_classes|default(''),
-              extra_attributes: _section_contact.extra_attributes|default([])
-            } only %}
-          {%- endif -%}
-
-          {# About #}
-          {%- if _section_about is not empty -%}
-            {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-              section: _section_about|merge({ name: 'about' }),
-              extra_classes: _section_about.extra_classes|default(''),
-              extra_attributes: _section_about.extra_attributes|default([])
-            } only %}
-          {%- endif -%}
-        </div>
-        {%- endif -%}
-
-        {%- if _section_more is not empty or _section_related is not empty -%}
-        <div class="ecl-site-footer__row">
-          {# More #}
-          {%- if _section_more is not empty -%}
-            {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-              section: _section_more|merge({ name: 'more' }),
-              extra_classes: _section_more.extra_classes|default(''),
-              extra_attributes: _section_more.extra_attributes|default([])
-            } only %}
-          {%- endif -%}
-
-          {# Related #}
-          {%- if _section_related is not empty -%}
-            {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-              section: _section_related|merge({ name: 'related' }),
-              extra_classes: _section_related.extra_classes|default(''),
-              extra_attributes: _section_related.extra_attributes|default([])
-            } only %}
-          {%- endif -%}
-        </div>
-        {%- endif -%}
-
-        {# Custom sections #}
-        {%- if _sections_custom is not empty -%}
-          {% for key, pair in _sections_custom|batch(2) %}
-            <div class="ecl-site-footer__row">
-              {% for custom in pair %}
-                {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-                  section: custom|merge({ name: 'custom-' ~ ((key * 2) + loop.index) }),
-                  extra_classes: custom.extra_classes|default(''),
-                  extra_attributes: custom.extra_attributes|default([])
-                } only %}
-              {% endfor %}
-            </div>
-          {% endfor %}
-        {% endif %}
       </div>
       {%- endif -%}
-
-    {%- endif -%}
     </div>
-
-    {%- if _section_common is not empty -%}
-    <div class="ecl-site-footer__row ecl-site-footer__row--common">
-      {# Common #}
-      {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
-        section: _section_common|merge({ name: 'common' }),
-        extra_classes: _section_common.extra_classes|default(''),
-        extra_attributes: _section_common.extra_attributes|default([])
-      } only %}
-    </div>
-    {%- endif -%}
   </div>
 </footer>
 
