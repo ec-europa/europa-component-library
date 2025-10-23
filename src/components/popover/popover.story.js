@@ -15,6 +15,7 @@ const getArgs = (data) => ({
   content: data.content,
   indicator: false,
   indicator_value: '',
+  indicator_label: '',
 });
 
 const getArgTypes = () => ({
@@ -65,6 +66,21 @@ const getArgTypes = () => ({
     },
     if: { arg: 'indicator', eq: true },
   },
+  indicator_label: {
+    name: 'indicator_label',
+    type: { name: 'string' },
+    description:
+      'Meaning of the indicator, for screen reader users. Ex: "Items not read"',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'text',
+    },
+    if: { arg: 'indicator', eq: true },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -77,10 +93,13 @@ const prepareData = (data, args) => {
   }
   if (args.indicator) {
     dataClone.toggle.hide_label = true;
-    dataClone.toggle.indicator = { value: '' };
+    dataClone.toggle.indicator = { value: '', sr_label: '' };
 
     if (args.indicator_value !== '') {
       dataClone.toggle.indicator.value = args.indicator_value;
+    }
+    if (args.indicator_label !== '') {
+      dataClone.toggle.indicator.sr_label = args.indicator_label;
     }
   }
 
