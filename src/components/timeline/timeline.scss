@@ -104,6 +104,10 @@ $timeline: null !default;
       #{map.get($timeline, 'item', 'tablet', 'padding-left')} +
         #{map.get($timeline, 'border-width')}
     );
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
 
