@@ -14,7 +14,7 @@ $featured-item: null !default;
 .ecl-featured-item__container {
   border-radius: map.get($featured-item, 'border-radius');
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .ecl-featured-item__item {
@@ -22,7 +22,7 @@ $featured-item: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
-  &:last-child {
+  &:first-child {
     margin-block-start: map.get($featured-item, 'gap-vertical');
     padding-bottom: map.get($featured-item, 'padding');
   }
@@ -69,18 +69,18 @@ $featured-item: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-featured-item__container {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     margin-block-start: 0;
     padding-inline: map.get($featured-item, 'gap-horizontal') 0;
   }
 
   .ecl-featured-item__container--right {
-    flex-direction: row-reverse;
+    flex-direction: row;
 
-    .ecl-featured-item__item:last-child {
+    .ecl-featured-item__item:first-child {
       padding-inline: 0 map.get($featured-item, 'gap-horizontal');
     }
   }
@@ -119,7 +119,7 @@ $featured-item: null !default;
     );
   }
 
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     background-color: map.get(
       $featured-item,
       'highlight',
@@ -274,7 +274,7 @@ $featured-item: null !default;
       );
     }
 
-    .ecl-featured-item__item:last-child {
+    .ecl-featured-item__item:first-child {
       padding-block: map.get(
         $featured-item,
         'highlight',
@@ -313,6 +313,7 @@ $featured-item: null !default;
         );
         position: absolute;
         width: 0;
+        z-index: 1;
       }
     }
 
@@ -340,7 +341,7 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__container--right {
-      .ecl-featured-item__item:last-child {
+      .ecl-featured-item__item:first-child {
         &::before {
           border-inline-start: map.get(
               $featured-item,
@@ -358,7 +359,7 @@ $featured-item: null !default;
       }
     }
 
-    .ecl-featured-item__item:last-child:only-child::before {
+    .ecl-featured-item__item:first-child:only-child::before {
       display: none;
     }
 
@@ -366,7 +367,7 @@ $featured-item: null !default;
       .ecl-featured-item__container--right
       .ecl-featured-item__link,
     &.ecl-featured-item--link-highlighted
-      .ecl-featured-item__item:last-child:only-child
+      .ecl-featured-item__item:first-child:only-child
       .ecl-featured-item__link {
       margin-inline-end: 0;
       margin-inline-start: calc(

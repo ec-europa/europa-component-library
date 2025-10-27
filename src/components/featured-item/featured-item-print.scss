@@ -13,7 +13,7 @@ $featured-item-print: null !default;
 .ecl-featured-item__container {
   border-radius: map.get($featured-item, 'border-radius');
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .ecl-featured-item__item {
@@ -21,7 +21,7 @@ $featured-item-print: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
-  &:last-child {
+  &:first-child {
     margin-block-start: 0;
     padding-inline: map.get($featured-item-print, 'gap-horizontal') 0;
   }
@@ -64,9 +64,9 @@ $featured-item-print: null !default;
 }
 
 .ecl-featured-item__container--right {
-  flex-direction: row-reverse;
+  flex-direction: row;
 
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     padding-inline: 0 map.get($featured-item-print, 'gap-horizontal');
   }
 }
@@ -105,7 +105,7 @@ $featured-item-print: null !default;
   }
 
   // stylelint-disable-next-line no-descending-specificity
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     background-color: map.get(
       $featured-item,
       'highlight',
@@ -152,6 +152,7 @@ $featured-item-print: null !default;
       );
       position: absolute;
       width: 0;
+      z-index: 1;
     }
   }
 
@@ -241,7 +242,7 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__container--right {
-    .ecl-featured-item__item:last-child {
+    .ecl-featured-item__item:first-child {
       &::before {
         border-inline-start: map.get($featured-item, 'highlight', 'arrow-width')
           solid map.get($featured-item, 'highlight', 'item', 'background-color');
@@ -254,7 +255,7 @@ $featured-item-print: null !default;
     }
   }
 
-  .ecl-featured-item__item:last-child:only-child::before {
+  .ecl-featured-item__item:first-child:only-child::before {
     display: none;
   }
 
@@ -262,7 +263,7 @@ $featured-item-print: null !default;
     .ecl-featured-item__container--right
     .ecl-featured-item__link,
   &.ecl-featured-item--link-highlighted
-    .ecl-featured-item__item:last-child:only-child
+    .ecl-featured-item__item:first-child:only-child
     .ecl-featured-item__link {
     margin-inline-end: 0;
     margin-inline-start: calc(
