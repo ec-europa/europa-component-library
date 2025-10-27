@@ -48,6 +48,10 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__item-link {
   text-decoration: none;
+
+  .ecl-gallery:not(.ecl-gallery--no-overlay):hover & {
+    cursor: zoom-in;
+  }
 }
 
 .ecl-gallery__item-icon-wrapper {
@@ -83,6 +87,7 @@ $_description-height-desktop: 108px;
   overflow: hidden;
 }
 
+// stylelint-disable-next-line no-descending-specificity
 .ecl-gallery__item-link:focus-visible {
   outline: none;
 
@@ -127,10 +132,9 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
-  bottom: 0;
+  bottom: -100%;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
-  display: none;
   font: map.get($gallery, 'description-font');
   left: 0;
   overflow: hidden;
@@ -148,14 +152,14 @@ $_description-height-desktop: 108px;
   .ecl-gallery__item-link:hover,
   .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
-      display: block;
+      bottom: 0;
     }
   }
 }
 
 .ecl-gallery__list .ecl-gallery__caption,
 .ecl-gallery__list .ecl-gallery__meta {
-  @include screen-reader.sr-only;
+  display: none;
 }
 
 .ecl-gallery__info {
