@@ -60,7 +60,7 @@
 } %}
 {% set _extra_accessibility = extra_accessibility|default({}) %}
 {% set _as_image = false %}
-
+{% set _label_id = '' %}
 {% set _icon = {
   name: '',
   size: '',
@@ -185,7 +185,7 @@
   {%- if (_icons is defined and _icons is not empty) -%}
     <span 
       class="ecl-link__label"
-    {%- if _label_id is defined %}
+    {%- if _label_id is not empty %}
       id="{{ _label_id }}"
     {%- endif -%}
     >
