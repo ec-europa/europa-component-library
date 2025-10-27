@@ -1,7 +1,7 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 
 import dataDefault from './demo/data';
 
@@ -19,6 +19,8 @@ const getArgs = (data) => ({
 });
 
 const getArgTypes = () => ({
+  ...getIndicatorControls(),
+
   label: {
     name: 'toggle label',
     type: { name: 'string', required: true },
@@ -38,48 +40,6 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
       category: 'Content',
     },
-  },
-  indicator: {
-    name: 'indicator',
-    type: { name: 'boolean' },
-    description: 'Display indicator. This only works if the label is hidden',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'boolean',
-    },
-  },
-  indicator_value: {
-    name: 'indicator_value',
-    type: { name: 'string' },
-    description: 'Indicator value',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'text',
-    },
-    if: { arg: 'indicator', eq: true },
-  },
-  indicator_label: {
-    name: 'indicator_label',
-    type: { name: 'string' },
-    description:
-      'Meaning of the indicator, for screen reader users. Ex: "Items not read"',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'text',
-    },
-    if: { arg: 'indicator', eq: true },
   },
 });
 
