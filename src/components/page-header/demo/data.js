@@ -22,7 +22,7 @@ module.exports = {
     toggle_label: 'expandable button',
     toggle_extra_attributes: [{ name: 'data-test-custom-toggle-attribute' }],
     header_content:
-      '<strong>LOREM IPSUM</strong> - dolor sit amet, consectetur <a class="ecl-link ecl-link--external" data-ecl-page-header-expandable-header-link href="/example">adipiscing<span aria-hidden="false" class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external" /></a> elit.',
+      '<strong>LOREM IPSUM</strong> - dolor sit amet, consectetur <a class="ecl-link" data-ecl-page-header-expandable-header-link href="/example">adipiscing</a> elit.',
     panel_content: `<ul>
       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
       <li>Morbi faucibus justo eget ante hendrerit sagittis
