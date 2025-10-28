@@ -50,8 +50,8 @@ const getArgs = (data) => ({
   external: false,
   hide_label: false,
   indicator: false,
-  indicator_value: '',
-  indicator_label: '',
+  indicator_value: '10',
+  indicator_label: 'Items not read',
 });
 
 const getArgTypes = () => ({

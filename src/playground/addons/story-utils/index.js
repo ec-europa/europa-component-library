@@ -436,8 +436,7 @@ export const getIndicatorControls = (condition = {}) => {
   argTypes.indicator_label = {
     name: 'indicator_label',
     type: { name: 'string' },
-    description:
-      'Meaning of the indicator, for screen reader users. Ex: "Items not read"',
+    description: 'Meaning of the indicator, for screen reader users',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },

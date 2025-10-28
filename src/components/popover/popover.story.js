@@ -14,8 +14,8 @@ const getArgs = (data) => ({
   label: data.toggle.label,
   content: data.content,
   indicator: false,
-  indicator_value: '',
-  indicator_label: '',
+  indicator_value: '10',
+  indicator_label: 'Items not read',
 });
 
 const getArgTypes = () => ({
