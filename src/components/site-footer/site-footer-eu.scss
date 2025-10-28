@@ -34,7 +34,7 @@ $site-footer: null !default;
   padding: 0;
 }
 
-.ecl-site-footer__co-owner-item:not(:first-of-type) {
+.ecl-site-footer__co-owner-item:not(.is-first) {
   margin-block-start: map.get($site-footer, 'co-owner', 'item-margin-mobile');
 }
 
@@ -54,7 +54,7 @@ $site-footer: null !default;
   .ecl-site-footer__co-owner-item {
     display: inline;
 
-    &:not(:first-of-type) {
+    &:not(.is-first) {
       border-inline-start: map.get($site-footer, 'co-owner', 'item-separator');
       margin-block-start: 0;
       margin-inline-start: map.get(
