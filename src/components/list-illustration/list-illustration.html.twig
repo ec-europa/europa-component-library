@@ -81,7 +81,7 @@
 {% if _column and _column > 1 and _column < 5 %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--col-' ~ _column %}
   {% if _sorting == 'column' and _items is not empty %}
-    {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items, _column, _sorting, false) %}
+    {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items, _column) %}
   {% endif  %}
 {% endif %}
 

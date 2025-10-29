@@ -122,6 +122,21 @@ To have the correct right to left display, you should make sure that the html `d
 
 If not specificed, the default reading direction remains left to right.
 
+### Vertical flow of the items in a multi column layout
+
+It was introduced a way to get a vertical flow, instead of the default horizontal one, of items into a multi column layout created using css grid.
+It is a css solution that supports layout with 2, 3 or 4 columns, it can be applied to an existing container with `display: grid` and it uses two selectors, one for the number of columns `.ecl-vertical-flow--column-{number of columns}` and a second for the number of rows `.ecl-vertical-flow--row-{number of columns}`.
+It can only be used knowing the number of items in a static html page, otherwise the number of rows can be easily calculated and the relative class dynamically applied.
+
+In our templates a twig macro has been created to centralize the logic needed to apply the needed selectors, it is in a package named `@ecl/vertical-flow` and it can be used like this:
+`{% import '@ecl/vertical-flow/vertical-flow.html.twig' as vertical_flow %}`
+
+then the selectors for the right number of rows can be retrieved doing this:
+
+`vertical_flow.get_class(items, columns)`
+
+where items is the number of items to distribute and columns the desired number of columns.
+
 ## Component modifications
 
 ### Accordion
@@ -177,6 +192,7 @@ The markup is now using the custom element defined by duet js:
 
 - A selector is added to the first item in the list, `.is-first`.
 - The selector used to reduce the font-size has changed, it's `.ecl-fact-figures__item--font-m` now and it's applied to each item instead of the root element.
+- The twig template supports vertical flow of the items using the parameter `sorting` with `vertical` as the value.
 
 ### Featured item
 
@@ -229,6 +245,8 @@ Extra attention points:
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
 
 ### List with illustration
+
+- The twig template supports vertical flow of the items using the parameter `sorting` with `vertical` as the value.
 
 Two new variants have been added:
 
@@ -297,6 +315,10 @@ The related styles can be customized defining:
 
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
+
+### Navigation list
+
+- The twig template supports vertical flow of the items using the parameter `sorting` with `vertical` as the value.
 
 ### Notification
 

@@ -1,12 +1,10 @@
-{% macro get_class(items, columns, sorting, has_items) %}
+{% macro get_class(items, columns) %}
   {% apply spaceless %}
-  {% set _items = items|default([]) %}
+  {% set _items = items|default('') %}
   {% set _columns = columns|default('') %}
-  {% set _has_items = has_items|default(false) %}
-  {% set _sorting = sorting|default('row') %}
   {% set _classes = '' %}
 
-  {%- if _sorting == 'column' and _columns > 1 and _items is not empty and _items|length / _columns > 1 -%}
+  {%- if _sorting == 'column' and _columns > 1 and _items is not empty and _items / _columns > 1 -%}
     {% set _rows = (items|length / _columns)|round(0, 'ceil') %}
     {% set _classes = 'ecl-vertical-flow--row-' ~ _rows %}
   {% endif %}

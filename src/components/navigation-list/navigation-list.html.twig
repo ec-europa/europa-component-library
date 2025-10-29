@@ -36,7 +36,7 @@
 {% endif %}
 
 {% if _sorting == 'column' %}
-  {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items, _column, _sorting, false) %}
+  {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items|length, _column) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

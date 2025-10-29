@@ -49,7 +49,7 @@
 {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
 
 {% if _sorting == 'column' and items is not empty %}
-  {% set _items_class = _items_class ~ ' ' ~ vertical_flow.get_class(items, _columns, _sorting, true) %}
+  {% set _items_class = _items_class ~ ' ' ~ vertical_flow.get_class(items|length, _columns) %}
 {% endif %}
 
 {% if _color_mode is not empty %}
