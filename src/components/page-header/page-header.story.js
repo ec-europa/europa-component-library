@@ -41,7 +41,7 @@ const expandableArgTypes = () => {
       if: { arg: 'show_page_header_expandable' },
     },
     header_content: {
-      name: 'content of the header (additional)',
+      name: 'content of the header',
       type: { name: 'string' },
       description: 'Alternative way to feed the header with content',
       table: {
@@ -52,7 +52,7 @@ const expandableArgTypes = () => {
       if: { arg: 'show_page_header_expandable' },
     },
     panel_content: {
-      name: 'content of the panel (additional)',
+      name: 'content of the panel',
       type: { name: 'string' },
       description: 'Alternative way to feed the panel with content',
       table: {
