@@ -34,8 +34,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/styles/optional/ecl-ec-default.css"
-    integrity="sha256-DBPCYX6u79mQwuwbWvWNOHtzbgXZyF3SMEPcZqQ+PIM= sha384-EKoYLbEi6THU1BnZBLmFhBVEwWkhLqR9z6nCtuMeNjZc5DOCshp81DvCZ/ahCWah sha512-eLsgPWw0PYPe0I+t5NM3eHC6cS0QUCs5d/dFWadVhg8QtEVV/EPDO0ZeocqOcgugfH8EKxjzdbi4HB0eX39uDg=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/styles/optional/ecl-ec-default.css"
+    integrity="sha256-VFI+5En/PK0MyKXI2QbHzcNFgSgeJR35omx/7614gj0= sha384-ESK/466shpA7wlGcgdwS5otW1zpiMiyf4XUMOKZQ8pKBqgD2KeRLbH2nHyEM1TRs sha512-cBoLPl0rQyvsYG21QzWj/vck+cvKc5jiTmkD65Z+qBYzD+uyYUFcxdmYbfE6PmeBsGiKq3myomqlpKAOg+BEbw=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -44,8 +44,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/styles/optional/ecl-reset.css"
-    integrity="sha256-KaQREm2P57OPjN3mXrKZcSbEmqrtwBeFJOeO01rDUII= sha384-e9SByQxIydghXg2g2jdNh+bc24j/Yh80xW6yG2XG1OAHuf1BEQY9VeCMLqQSSoAy sha512-oZqbZEcbZaj2NN3Sj3vH7zvG9f8p8EdMrmeZCxeLC1nES1YkZ6DbugRNqliqocJ7XbYo2BQ6TL9MDumKhE1faw=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/styles/optional/ecl-reset.css"
+    integrity="sha256-RQUtVfQKADCRuGIHZXHnIsCeySsAPdhg7i//DdVIiR8= sha384-mVShTAju9jgtfFMO6mWpLDSTtrmDfPUxHrYZQH/3QvLogW9NkHTvbHzEbz2/uPjn sha512-xPUeFRSlp5iLDjIqZqk0xkMGl2xN89sI4BThhNoE1FBEJSPFRTjKfWQFvh3E4vT1DdSkkUfggiu72q3rtzKsXQ=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -54,8 +54,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/styles/ecl-ec.css"
-    integrity="sha256-RAN4Tr+oGb/ORfbnODGOwAc/jNNdKy7dLIFLZDVUArw= sha384-S60XMlQYksAkjX5VFjb8AK0EMbLFc4zWzd+iaoYbrRH6sQzmtM76dihphmu9lyCb sha512-XyrSG0QE/PN5o/bsRH6PPgO1Q/51vpY0nlFhA1qEQycTgCWNNnQANyCBb4r1F0RImn+6VLMqXRnBhmDH/rZtMA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/styles/ecl-ec.css"
+    integrity="sha256-FvcQ+Ldjb9OTz07yZze5sElegB+wkbuOZ8EKPFj2Bp8= sha384-D0OkQwRnsXTWa3jhJuiJ1dWDv/3vIJH5iUhBz/8/haLzayZubZrwp5+zMtRnOKr6 sha512-OMQJJM0VW+Tic/Mt9IHyHGl6GSzkJz1SR7L4DAPOJnUgBArZjUSp4R591PIZGlLw44lwBdhVFUDSyI6EKDiqbQ=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -64,8 +64,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/styles/ecl-ec-utilities.css"
-    integrity="sha256-w/meEvj0d+FkNHX3ozBg1JmZgVuo16170qmjgCQecT4= sha384-6z9M+0GozY+XMuquk6hbSAB/N237ELkfpYQ5h6R4KCpYxshRUNViAT1RvNVOJkVm sha512-8TuonoI9SZZh1zElsjaCyJQIx3anxt8gVOgW/g94o21S0K9qAM1yZwit1d8RSG8FEXdrg5F26s2j5gnzCOx3zA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/styles/ecl-ec-utilities.css"
+    integrity="sha256-5T1Z0ciMoN0GuGhJrGDqBZo5Se3Pxt5YmqLfHBL4oJA= sha384-Z74xeclXM60TNGUWBJTj0P/F0RnaXHZsHaCaDkoRHYQg4eRppGh8iNWEdXSTVGYC sha512-Up/+y4mn2XqVH3bR9kQhm0KHzmFdKmNVaZX5LRq+Y6+vb4L0jj8MqiVWGyc36r+SBVAtBG4d8YGZABjVCToZRw=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -74,8 +74,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/styles/ecl-ec-print.css"
-    integrity="sha256-2oOvT1Xk6tNJY6bc0m/OzycCGGVh8APQRYnI5ABF6QY= sha384-ITNBQBy3sOqmnVLOIMzysn0DGC0as6W1CRS0g9Y+3Wv/3N7O8qei0eqsCzcJe/pc sha512-T0TnFgLjVamCfnW5ilgQRRQn02ZV1bf63wSBLYtkB3GjEDWrafCq3khv3z70tOX5lr3D24mzT9syHaoWul55Wg=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/styles/ecl-ec-print.css"
+    integrity="sha256-71MivTfYZ1EcwSWhry/S8aRbsytKd86lJMRFGOM8KQs= sha384-lSpgRCgA+8KROGq3f9nEB0LeYMXtPizUJbUcPJOirSwCu1AJMt4E20yqB2f/fsqK sha512-1GvU0ukV03gfo5bLAbhLXK0ofP4bST90KNQEhfeLPPccAb0NJA6DQCWk9yhVQ2XSTaJAlRHcToRbj3i4dm3V3g=="
     crossorigin="anonymous"
     media="print"
   />
@@ -84,8 +84,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/styles/optional/ecl-ec-default-print.css"
-    integrity="sha256-1OGMUkjlM+oXka/E3vjgd36QrEFjY8HmvR4qCF0pHV8= sha384-jD+gdlVV1kMU1uivzp+UNd+/UY/JFfLaWmjh3VSbg5uWIW1kfC0uzuppDIuxGN6p sha512-pFfkhoyf5rG49wBOOxz4xpEe4van4gsGsqDSp74UWmgJtbUyC8hp9BZH+7rq5bl/fA8HNNx+4bqgDpy6xlW+8g=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/styles/optional/ecl-ec-default-print.css"
+    integrity="sha256-RM4pGpORBqn4TjL3RXE4nLipyXJQNW3ETaImldT7jFs= sha384-ujRSi6X9tvWzF5WLEM5baN0W7uRQiNeQ7tlgWCk0cKeo52BEaQw350u6Me9vDt2/sha512-I3TU5rAjbd+BBko7t1yMGO5JfajQQHxlPuMfHoRwbtI2iQvpRlJ0iupg/CnUTEL79eYFTLbu6q1/2D2KQOJtVA=="
     crossorigin="anonymous"
     media="print"
   />
@@ -93,22 +93,20 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 
   ```html
   <script
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.17/ec/scripts/ecl-ec.js"
-    integrity="sha256-y4n6zJJiq4DtTZjriiBYuSxK8+sy7tItsm8qFvxxQhE= sha384-L37UMoYvHiM/yNqp3OHNSlUAF8sQ3Nd//5pDwgzXRFOU4OjSyd3XoJCezOBGA+pM sha512-Th3HrVtfIaU/9RWifB2v7xJn2J6lvqNhexMZWYFsrW9uw+8wUNnV+OkPu/onOf3gF3MgCPGgoAPWCIcO9U4GJg=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/scripts/ecl-ec.js"
+    integrity="sha256-6EFDQeOKBdLsjicpldhzbm/ccwl5weS8UMsazn2fuwY= sha384-5m4LoFwAKNAsfsaWG1np9reswVjYh+Zi74x/eZ4N00+u/n6sl26GK0GY++zSXG9q sha512-Y3qRbjYtsU+JNAeXkBE6YKefsAgUBqqFp7S1CiRmcrkdVrMKFQIXC+OliQl6CQ0UKKrqWp4DmIEBShwS/nvalQ=="
     crossorigin="anonymous"
   ></script>
   ```
 
-### :warning: pikaday
+### :warning: duet js
 
-ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled anymore by ECL.
-Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when a datepicker instance is present in a webpage.
-Additionally, when customising the date format used by the datepicker, in order to get a consistent output, [moment.js](https://momentjs.com/) is also needed.
-These scripts can be loaded from a CDN or fetched from the respective npm packages or websites for then hosting them locally.
+ECL uses [Duet datepicker](https://duetds.github.io/date-picker/) and this library is not bundled by ECL.
+Therefore **duet js needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when a datepicker instance is present in a webpage.
+This script can be loaded from a CDN or fetched from the respective npm packages or websites for then hosting them locally.
 The order of the scripts should be:
 
-- moment.js (https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js) (https://momentjs.com/)
-- pikaday (https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js) (https://pikaday.com/)
+- duet (https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js)
 - ecl.js
 
 ## Need help?

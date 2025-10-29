@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
@@ -50,10 +50,13 @@ const getArgs = (data) => ({
   external: false,
   hide_label: false,
   indicator: false,
-  indicator_value: '',
+  indicator_value: '10',
+  indicator_label: 'Items not read',
 });
 
 const getArgTypes = () => ({
+  ...getIndicatorControls({ arg: 'hide_label', eq: true }),
+
   label: {
     name: 'label',
     type: { name: 'string', required: true },
@@ -157,34 +160,6 @@ const getArgTypes = () => ({
       type: 'boolean',
     },
   },
-  indicator: {
-    name: 'indicator',
-    type: { name: 'boolean' },
-    description: 'Display indicator. This only works if the label is hidden',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'boolean',
-    },
-    if: { arg: 'hide_label', eq: true },
-  },
-  indicator_value: {
-    name: 'indicator_value',
-    type: { name: 'string' },
-    description: 'Indicator value',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'text',
-    },
-    if: { arg: 'indicator', eq: true },
-  },
 });
 
 const prepareData = (data, args) => {
@@ -192,9 +167,14 @@ const prepareData = (data, args) => {
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
-  data.link.indicator = args.indicator ? { value: '' } : {};
-  if (args.indicator && args.indicator_value !== '') {
-    data.link.indicator.value = args.indicator_value;
+  data.link.indicator = args.indicator ? { value: '', sr_label: '' } : {};
+  if (args.indicator) {
+    if (args.indicator_value !== '') {
+      data.link.indicator.value = args.indicator_value;
+    }
+    if (args.indicator_label !== '') {
+      data.link.indicator.sr_label = args.indicator_label;
+    }
   }
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};

@@ -1,6 +1,7 @@
 const js = require('@eslint/js');
 const babelParser = require('@babel/eslint-parser');
 const standard = require('eslint-config-standard');
+const globals = require('globals');
 
 const reactPlugin = require('eslint-plugin-react');
 const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
@@ -25,34 +26,9 @@ module.exports = [
         },
       },
       globals: {
+        ...globals.browser,
+        ...globals.node,
         ECL: 'writable',
-        document: 'readonly',
-        window: 'readonly',
-        Node: 'readonly',
-        Element: 'readonly',
-        getComputedStyle: 'readonly',
-        setTimeout: 'readonly',
-        clearTimeout: 'readonly',
-        localStorage: 'readonly',
-        sessionStorage: 'readonly',
-        clearInterval: 'readonly',
-        setInterval: 'readonly',
-        navigator: 'readonly',
-        process: 'readonly',
-        console: 'readonly',
-        require: 'readonly',
-        URL: 'readonly',
-        fetch: 'readonly',
-        location: 'readonly',
-        IntersectionObserver: 'readonly',
-        MutationObserver: 'readonly',
-        structuredClone: 'readonly',
-        requestAnimationFrame: 'readonly',
-        global: 'readonly',
-        __dirname: 'readonly',
-        URLSearchParams: 'readonly',
-        module: 'readonly',
-        __filename: 'readonly',
       },
     },
     plugins: {

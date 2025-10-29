@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -16,17 +17,22 @@ $theme: null !default;
   content: '';
   display: flex;
   font: var(--f-xs);
-  height: 12px;
+  height: 22px;
   justify-content: center;
+  overflow: hidden;
   position: absolute;
-  right: -8px;
-  top: -10px;
-  width: 12px;
+  right: -18px;
+  top: -16px;
+  width: 22px;
 
-  &:not(:empty) {
-    height: 22px;
-    right: -18px;
-    top: -16px;
-    width: 22px;
+  &:not(:has(.ecl-indicator__value)) {
+    height: 12px;
+    right: -8px;
+    top: -10px;
+    width: 12px;
   }
+}
+
+.ecl-indicator__label {
+  @include screen-reader.sr-only;
 }

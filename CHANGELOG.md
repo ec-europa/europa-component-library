@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.0-alpha.18 (2025-10-08)
+
+#### :nail_care: Enhancement
+
+- [#4153](https://github.com/ec-europa/europa-component-library/pull/4153) feat(page-header): Page header not expandable - FRONT-5099 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.17
 
 #### :rocket: New Feature
