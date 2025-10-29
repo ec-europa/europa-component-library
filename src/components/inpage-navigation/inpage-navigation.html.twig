@@ -62,14 +62,6 @@
   aria-labelledby="{{ _id }}"
 >
   <div class="ecl-inpage-navigation__title" id="{{ _id }}">
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: {
-        name: 'list',
-        size: 's',
-      },
-      as_image: true,
-      extra_classes: 'ecl-inpage-navigation__title-icon',
-    } only %}
     {{ _title }}
   </div>
   {% set _button_attributes = '
