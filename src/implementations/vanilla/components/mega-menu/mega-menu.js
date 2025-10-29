@@ -226,6 +226,9 @@ export class MegaMenu {
         if (this.attachKeyListener) {
           link.addEventListener('keyup', this.handleKeyboard);
         }
+        if (this.attachClickListener) {
+          link.addEventListener('click', this.handleClickOnClose);
+        }
       });
     }
 
