@@ -6,7 +6,6 @@ import data from './demo/data';
 import flow from './vertical-flow-demo.html.twig';
 
 const prepareData = (data, args) => {
-  data.sorting = args.sorting;
   data.columns = args.columns;
 
   correctPaths(data);
@@ -31,20 +30,9 @@ Default.render = async (args) => {
 };
 Default.storyName = 'Items flow in a listing';
 Default.args = {
-  sorting: 'column',
   columns: 2,
 };
 Default.argTypes = {
-  sorting: {
-    name: 'sorting',
-    control: { type: 'select' },
-    options: ['row', 'column'],
-    description: 'Sort the items by row or column',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'row' },
-    },
-  },
   columns: {
     name: 'number of columns',
     control: { type: 'range', min: 2, max: 4, step: 1 },

@@ -4,9 +4,9 @@
   {% set _columns = columns|default('') %}
   {% set _classes = '' %}
 
-  {%- if _sorting == 'column' and _columns > 1 and _items is not empty and _items / _columns > 1 -%}
-    {% set _rows = (items|length / _columns)|round(0, 'ceil') %}
-    {% set _classes = 'ecl-vertical-flow--row-' ~ _rows %}
+  {%- if _columns > 1 and _items is not empty and _items / _columns > 1 -%}
+    {%- set _rows = (_items / _columns)|round(0, 'ceil') -%}
+    {%- set _classes = 'ecl-vertical-flow--row-' ~ _rows -%}
   {% endif %}
   {{- _classes -}}
   {% endapply %}

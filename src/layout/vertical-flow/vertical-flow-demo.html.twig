@@ -1,12 +1,11 @@
 {% import '@ecl/vertical-flow/vertical-flow.html.twig' as vertical_flow %}
 
-{% set _sorting = sorting|default('row') %}
 {% set _columns = columns|default(2) %}
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-u-d-xl-grid ecl-u-pa-none ecl-vertical-flow--column-' ~ _columns  %}
 
-{% if _sorting == 'column' and _items is not empty %}
- {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items, _columns, _sorting, false) %}
+{% if _items is not empty %}
+ {% set _css_class = _css_class ~ ' ' ~ vertical_flow.get_class(_items|length, _columns) %}
 {% endif %}
 
 {% if _items is not empty %}
