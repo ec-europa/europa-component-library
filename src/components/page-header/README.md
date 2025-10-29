@@ -18,7 +18,7 @@ npm install --save @ecl/page-header
 - **"expandable"** (associative array) Page header expandable
   - "toggle_label" (default: '')
   - "toggle_extra_attributes" (default: '')
-  - "header_content" (default: '') if a link is provided the attribute data-ecl-page-header-expandable-header-link needs to be added to it.
+  - "header_content" (default: '')
   - "panel_content" (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

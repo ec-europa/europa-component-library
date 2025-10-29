@@ -6,7 +6,6 @@ import EventManager from '@ecl/event-manager';
  * @param {Object} options
  * @param {String} options.toggleSelector Element used to toggle the visibility of the panel
  * @param {String} options.headerSelector Element always visible
- * @param {String} options.linkSelector Link inside the header of the component
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
 export class PageHeaderExpandable {
@@ -39,7 +38,6 @@ export class PageHeaderExpandable {
     {
       headerSelector = '[data-ecl-page-header-expandable-header]',
       toggleSelector = '[data-ecl-page-header-expandable-toggle]',
-      linkSelector = '[data-ecl-page-header-expandable-header-link]',
       attachClickListener = true,
     } = {},
   ) {
@@ -56,7 +54,6 @@ export class PageHeaderExpandable {
     // Options
     this.toggleSelector = toggleSelector;
     this.headerSelector = headerSelector;
-    this.linkSelector = linkSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -141,7 +138,7 @@ export class PageHeaderExpandable {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
     if (this.attachClickListener && this.header) {
-      this.toggle.removeEventListener('click', this.handleClickOnHeader);
+      this.header.removeEventListener('click', this.handleClickOnHeader);
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -155,11 +152,15 @@ export class PageHeaderExpandable {
    * @param {Event} e
    */
   handleClickOnHeader(e) {
-    // If the click is not coming from the link or the button
-    if (e.target.closest(`${this.toggleSelector}, ${this.linkSelector}`)) {
+    // If the click is not coming from a link in the header or from the toggle itself click the toggle
+    if (
+      e.target.closest(
+        `${this.toggleSelector}, .ecl-page-header-expandable__header a`,
+      )
+    ) {
       return;
     }
-    // click the toggle
+
     this.handleClickOnToggle(e);
   }
 

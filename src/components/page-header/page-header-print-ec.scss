@@ -97,10 +97,9 @@ $page-header-print: null !default;
     map.get($theme, 'spacing-print', '2xl');
 }
 
-[data-ecl-page-header-expandable-header-link],
-[data-ecl-page-header-expandable-header-link]:visited,
 .ecl-page-header-expandable__header .ecl-link,
-.ecl-page-header-expandable__header .ecl-link:visited {
+.ecl-page-header-expandable__header .ecl-link:visited,
+.ecl-page-header-expandable__header .ecl-link:hover {
   color: var(--cm-on-surface-brand) !important;
   font-weight: map.get($theme, 'font-weight', 'medium');
 }
