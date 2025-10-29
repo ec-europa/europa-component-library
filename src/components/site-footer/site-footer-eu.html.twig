@@ -77,7 +77,12 @@
         {%- if _co_owner.links is not empty and _co_owner.links is iterable -%}
           <ul class="ecl-site-footer__co-owner-list">
             {%- for _item in _co_owner.links -%}
-              <li class="ecl-site-footer__co-owner-item">
+              {% set _item_class = 'ecl-site-footer__co-owner-item' %}
+              {% if loop.index == 1 %}
+                {% set _item_class = _item_class ~ ' is-first' %}
+              {% endif %}
+
+              <li class="{{ _item_class }}">
                 {% include '@ecl/link/link.html.twig' with _item|merge({
                   extra_classes: 'ecl-site-footer__co-owner-link',
                 }) only %}
