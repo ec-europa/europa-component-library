@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -27,9 +28,7 @@ $content-item: null !default;
 }
 
 .ecl-content-item__content-block {
-  font: var(--f-m);
   margin-inline-end: auto;
-  max-width: var(--max-w);
 }
 
 .ecl-content-item__date {
