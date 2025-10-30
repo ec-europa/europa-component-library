@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -21,12 +22,15 @@ $accordion: null !default;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: var(--f-m);
-  font-weight: map.get($accordion, 'title-font-weight');
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
   width: 100%;
+
+  @include mixins.responsive-font(
+    map.get($accordion, 'title-font'),
+    $font-weight: map.get($accordion, 'title-font-weight')
+  );
 
   &:hover {
     background-color: map.get($accordion, 'item-background-hover');
@@ -44,12 +48,13 @@ $accordion: null !default;
 
 .ecl-accordion__content {
   color: map.get($accordion, 'text-color');
-  font: var(--f-m);
   margin-inline-start: 0;
   max-width: var(--max-w);
   padding-inline-end: map.get($accordion, 'item-padding');
   padding-inline-start: map.get($accordion, 'item-padding');
   padding-bottom: var(--s-xl);
+
+  @include mixins.responsive-font(map.get($accordion, 'text-font'));
 }
 
 .no-js .ecl-accordion__content {
