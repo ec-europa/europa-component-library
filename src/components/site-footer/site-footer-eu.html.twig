@@ -84,6 +84,9 @@
 
               <li class="{{ _item_class }}">
                 {% include '@ecl/link/link.html.twig' with _item|merge({
+                  link: _item.link|merge({
+                    type: 'standalone',
+                  }),
                   extra_classes: 'ecl-site-footer__co-owner-link',
                 }) only %}
               </li>

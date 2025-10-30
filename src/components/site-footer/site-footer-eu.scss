@@ -74,9 +74,12 @@ $site-footer: null !default;
 // -------
 // Global rules
 
+.ecl-site-footer {
+  box-shadow: map.get($site-footer, 'shadow');
+}
+
 .ecl-site-footer__main {
   background-color: map.get($site-footer, 'background');
-  box-shadow: map.get($site-footer, 'shadow');
   color: map.get($site-footer, 'color');
   display: flex;
   font: var(--f-p-m);
