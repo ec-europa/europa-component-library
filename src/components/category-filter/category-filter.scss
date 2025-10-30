@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -28,12 +29,13 @@ $category-filter: null !default;
   box-sizing: border-box;
   color: var(--cm-on-surface-brand, var(--c-d));
   display: flex;
-  font: var(--f-s);
   justify-content: space-between;
   min-height: 44px;
   padding: var(--s-xs) var(--s-m);
   text-align: left;
   text-decoration: none;
+
+  @include mixins.responsive-font(map.get($category-filter, 'item-font'));
 
   &:hover {
     background-color: map.get($category-filter, 'background-hover');
@@ -85,7 +87,7 @@ $category-filter: null !default;
 }
 
 .ecl-category-filter__item[aria-current='true'] {
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($category-filter, 'current-font-weight');
 }
 
 // Toggle sub level
