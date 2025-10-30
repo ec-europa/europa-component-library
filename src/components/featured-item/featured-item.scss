@@ -64,6 +64,10 @@ $featured-item: null !default;
   .ecl-featured-item__description + & {
     margin-block-start: map.get($featured-item, 'link', 'spacing');
   }
+
+  &:dir(rtl) .ecl-icon {
+    transform: scaleX(1);
+  }
 }
 
 /* stylelint-disable-next-line order/order */
