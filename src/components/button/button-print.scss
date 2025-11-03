@@ -85,20 +85,24 @@ $button: null !default;
   }
 }
 
-.ecl-button:not(.ecl-button--icon-only) {
+@mixin icon-spacing($size) {
   .ecl-button__icon ~ .ecl-button__label,
   .ecl-button__icon-container ~ .ecl-button__label,
   .ecl-button__label ~ .ecl-button__icon,
   .ecl-button__label ~ .ecl-button__icon-container {
-    margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    margin-inline-start: map.get($button, $size, 'icon-spacing');
+  }
+}
 
-    .ecl-button--s & {
-      margin-inline-start: map.get($button, 'small', 'icon-spacing');
-    }
+.ecl-button:not(.ecl-button--icon-only) {
+  @include icon-spacing('large');
 
-    .ecl-button--m & {
-      margin-inline-start: map.get($button, 'medium', 'icon-spacing');
-    }
+  &.ecl-button--s {
+    @include icon-spacing('small');
+  }
+
+  &.ecl-button--m {
+    @include icon-spacing('medium');
   }
 }
 
