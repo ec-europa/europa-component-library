@@ -32,9 +32,10 @@ $text-input: null !default;
   */
 .duet-date__input {
   padding-block: map.get($text-input, 'padding-block');
+  max-width: 304px;
+  width: 100%;
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
-  @include mixins-form.form-width('m', $theme);
 
   &:hover {
     border-color: map.get($text-input, 'border-color-hover');
@@ -80,7 +81,11 @@ $text-input: null !default;
 }
 
 .duet-date__dialog {
-  min-width: 360px;
+  min-width: 304px;
+}
+
+.duet-date__mobile-heading {
+  margin-inline-start: var(--s-2xs);
 }
 
 .duet-date__dialog-content {
@@ -91,8 +96,7 @@ $text-input: null !default;
   color: map.get($datepicker, 'picker', 'theme-color');
   margin-top: map.get($datepicker, 'picker', 'margin-top');
   margin-inline-start: 0;
-  max-width: none;
-  min-width: 360px;
+  min-width: 304px;
   overflow: hidden;
   padding: map.get($datepicker, 'picker', 'padding');
   width: auto;
@@ -103,8 +107,14 @@ $text-input: null !default;
     padding-block-start: 0;
   }
 
-  .duet-date__header > div {
-    display: flex;
+  .duet-date__header {
+    margin-block-end: var(--s-xs);
+    margin-inline-end: var(--s-3xs, 0.25rem);
+    width: auto;
+
+    > div {
+      display: flex;
+    }
   }
 
   .duet-date__select {
@@ -114,16 +124,18 @@ $text-input: null !default;
     border-radius: map.get($datepicker, 'picker', 'border-radius');
     color: map.get($datepicker, 'picker', 'theme-color');
     display: flex;
-    height: 38px;
-    width: 160px;
+    height: 32px;
+    max-width: 125px;
     justify-content: space-between;
     margin-block-start: 0;
-    margin-inline-end: var(--s-xs);
-    padding: var(--s-xs) 0;
+    margin-inline-end: var(--s-3xs, 0.25rem);
+    padding: var(--s-2xs) 0;
     position: relative;
+    text-transform: uppercase;
 
     .duet-date__select-label {
       flex: 1;
+      padding-right: 0;
 
       span {
         overflow: hidden;
@@ -132,26 +144,21 @@ $text-input: null !default;
 
       svg {
         flex-shrink: 0;
-        position: absolute;
-        right: 5px;
-      }
-
-      [dir='rtl'] & svg {
-        right: auto;
-        left: 5px;
+        width: map.get($theme, 'icon', 'm');
+        height: map.get($theme, 'icon', 'm');
       }
     }
 
     * {
       @include mixins.responsive-font(
-        map.get($datepicker, 'picker', 'font'),
+        map.get($datepicker, 'picker', 'select-font'),
         $font-weight: map.get($theme, 'font-weight', 'regular')
       );
     }
 
     &:last-of-type {
       margin-inline-end: 0;
-      width: 75px;
+      width: 73px;
     }
 
     &:focus-within {
@@ -159,21 +166,25 @@ $text-input: null !default;
     }
   }
 
+  button.duet-date__next {
+    margin-inline-start: var(--s-xs);
+  }
+
   button.duet-date__prev,
   button.duet-date__next,
   button.duet-date__close {
     align-items: center;
     border-color: transparent;
-    border-radius: 0;
-    color: var(--cm-on-surface-primary, var(--c-p));
+    border-radius: map.get($theme, 'border-radius', 's');
+    border-width: 1px;
+    color: var(--cm-on-surface-brand, var(--c-d));
     display: flex;
-    margin-inline-start: var(--s-xs);
-    min-width: 38px;
-    min-height: 38px;
+    min-width: 32px;
+    min-height: 32px;
     padding: 0;
 
     &:hover {
-      background-color: var(--cm-surface-neutral-lowest, var(--c-p-20));
+      background-color: var(--cm-surface-grey-low-0, var(--c-p-20));
       border-color: var(--cm-border-brand, var(--c-d));
       color: var(--cm-on-surface-brand, var(--c-d));
     }
@@ -188,9 +199,9 @@ $text-input: null !default;
     /* stylelint-disable-next-line no-descending-specificity */
     svg {
       flex-shrink: 0;
-      height: map.get($theme, 'icon', 's');
+      height: map.get($theme, 'icon', 'm');
       vertical-align: middle;
-      width: map.get($theme, 'icon', 's');
+      width: map.get($theme, 'icon', 'm');
     }
   }
 
@@ -216,11 +227,25 @@ $text-input: null !default;
   .duet-date__table {
     background-color: map.get($datepicker, 'picker', 'background-color');
     border-collapse: initial;
-    border-spacing: 0;
+    border-spacing: map.get($datepicker, 'picker', 'table-spacing');
+    table-layout: fixed;
+
+    thead {
+      box-shadow: inset 0 -1px 0
+        rgb(from var(--c-g-600, var(--c-d-60)) r g b / 0.2);
+    }
+
+    .duet-date__table-header {
+      text-transform: capitalize;
+    }
+
+    tbody tr:first-child td {
+      padding-block-start: var(--s-xs);
+    }
 
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
-      padding-block: var(--s-s);
+      padding-block: var(--s-xs) var(--s-m);
       padding-inline: 0 map.get($datepicker, 'picker', 'table-spacing');
       text-transform: uppercase;
 
@@ -234,34 +259,20 @@ $text-input: null !default;
       }
     }
 
-    td {
-      padding-block-start: map.get($datepicker, 'picker', 'table-spacing');
-      padding-inline-end: map.get($datepicker, 'picker', 'table-spacing');
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
-    }
-
     abbr {
       text-decoration: none;
-    }
-
-    tbody::before {
-      background-color: transparent;
-      content: '';
-      display: block;
-      height: map.get($datepicker, 'picker', 'thead-margin');
     }
 
     .duet-date__day {
       background-color: var(--cm-surface-inverted, #fff);
       border-radius: map.get($datepicker, 'picker', 'border-radius');
-      border-width: 0;
+      border-width: 0 !important;
       color: map.get($datepicker, 'picker', 'theme-color');
-      padding: calc(var(--s-xs) + 2px) var(--s-xs);
-      min-height: 2.75rem;
-      min-width: 2.75rem;
+      min-height: 2rem;
+      min-width: 2rem;
+      height: 2rem;
+      width: 2rem;
+      padding: 0;
       text-align: center;
 
       @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
@@ -315,7 +326,7 @@ $text-input: null !default;
           left: calc(50% - 10px);
           content: '';
           display: block;
-          height: 2px;
+          height: 1px;
           opacity: 1;
           position: absolute;
           top: 85%;
