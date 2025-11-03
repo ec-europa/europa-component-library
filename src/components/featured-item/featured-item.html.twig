@@ -76,14 +76,6 @@
   {{ _extra_attributes|raw }}
 >
   <div class="{{ _css_container_class }}">
-    {% if _media_container is not empty %}
-      <div class="ecl-featured-item__item">
-      {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
-        extra_classes: 'ecl-featured-item__media_container',
-      }) only %}
-      </div>
-    {% endif %}
-
     <div class="ecl-featured-item__item">
     {% if _title is not empty %}
       <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
@@ -105,6 +97,14 @@
       }) only %}
     {% endif %}
     </div>
+
+    {% if _media_container is not empty %}
+      <div class="ecl-featured-item__item">
+      {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
+        extra_classes: 'ecl-featured-item__media_container',
+      }) only %}
+      </div>
+    {% endif %}
   </div>
 </article>
 {% endapply %}

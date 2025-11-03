@@ -502,7 +502,7 @@
         {% if _cta_link is not empty and _cta_link.link is not empty %}
         {% include '@ecl/link/link.html.twig' with _cta_link|merge({
           link: _cta_link.link|merge({
-            type: 'cta',
+            type: 'primary-highlight',
           }),
           extra_classes: 'ecl-site-header__cta',
         }) only %}
