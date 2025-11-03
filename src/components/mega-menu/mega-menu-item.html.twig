@@ -350,9 +350,12 @@
         {%- endif -%}
         {%- if _featured.items is not empty and _featured.items is iterable -%}
           {% set sublink_id = sublink_id ? sublink_id : _id %}
+          {% set labelled_by = _featured.title is not empty ? 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id : sublink_id %}
           <ul
             class="ecl-mega-menu__featured-list"
-            aria-labelledby="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id }}"
+            {% if labelled_by is not empty %}
+              aria-labelledby="{{ labelled_by }}"
+            {% endif %}
           >
             {% for item in _featured.items %}
               {% include '@ecl/mega-menu/mega-menu-featured-item.html.twig' with item only %}
