@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -49,33 +50,43 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__value {
-  font: map.get($fact-figures, 'value-font-mobile-l');
-  font-weight: map.get($fact-figures, 'value-font-weight');
+  @include mixins.responsive-font(
+    map.get($fact-figures, 'value-font-l'),
+    $font-weight: map.get($fact-figures, 'value-font-weight')
+  );
 
   .ecl-fact-figures__item--font-m & {
-    font: map.get($fact-figures, 'value-font-mobile-m');
+    @include mixins.responsive-font(
+      map.get($fact-figures, 'value-font-m'),
+      $font-weight: map.get($fact-figures, 'value-font-weight')
+    );
   }
 }
 
 .ecl-fact-figures__title {
   display: block;
-  font: map.get($fact-figures, 'title-font');
-  font-weight: map.get($fact-figures, 'title-font-weight');
   margin-top: map.get($fact-figures, 'title-margin');
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(
+    map.get($fact-figures, 'title-font'),
+    $font-weight: map.get($fact-figures, 'title-font-weight')
+  );
 }
 
 .ecl-fact-figures__description {
-  font: map.get($fact-figures, 'description-font');
   margin-top: map.get($fact-figures, 'description-margin');
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(map.get($fact-figures, 'description-font'));
 }
 
 .ecl-fact-figures__view-all {
   border-top: 1px solid map.get($fact-figures, 'view-all-border-color');
-  font: map.get($fact-figures, 'view-all-font');
   margin-top: map.get($fact-figures, 'view-all-margin');
   padding-top: map.get($fact-figures, 'view-all-padding-mobile');
+
+  @include mixins.responsive-font(map.get($fact-figures, 'view-all-font'));
 }
 
 .ecl-fact-figures__view-all-link,
@@ -110,14 +121,6 @@ $fact-figures: null !default;
   .ecl-fact-figures__item {
     margin-top: 0;
     max-width: var(--max-w);
-  }
-
-  .ecl-fact-figures__value {
-    font: map.get($fact-figures, 'value-font-desktop-l');
-
-    .ecl-fact-figures__item--font-m & {
-      font: map.get($fact-figures, 'value-font-desktop-m');
-    }
   }
 
   .ecl-fact-figures__view-all {

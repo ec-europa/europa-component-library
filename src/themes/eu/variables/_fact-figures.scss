@@ -9,10 +9,14 @@ $fact-figures: (
   margin-vertical: var(--s-xl),
   margin-horizontal: var(--s-xl),
   text-color: var(--c-d-80),
-  value-font-mobile-m: var(--f-2xl),
-  value-font-mobile-l: var(--f-3xl),
-  value-font-desktop-m: var(--f-3xl),
-  value-font-desktop-l: var(--f-4xl),
+  value-font-m: (
+    mobile-xs: var(--f-2xl),
+    tablet: var(--f-3xl),
+  ),
+  value-font-l: (
+    mobile-xs: var(--f-3xl),
+    tablet: var(--f-4xl),
+  ),
   value-font-weight: map.get($font-weight, 'regular'),
   title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'bold'),
