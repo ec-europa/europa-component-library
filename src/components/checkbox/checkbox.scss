@@ -81,6 +81,13 @@ $checkbox: null !default;
   visibility: hidden;
 }
 
+// Single
+.ecl-checkbox--single {
+  .ecl-checkbox__label {
+    padding-block: 0;
+  }
+}
+
 // Disabled.
 .ecl-checkbox--disabled {
   opacity: 0.5;

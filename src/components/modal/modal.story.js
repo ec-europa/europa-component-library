@@ -12,7 +12,7 @@ const getArgs = (data) => ({
   size: 'l',
   body_scroll: data.body,
   body_fixed: data.body_fixed,
-  button: 2,
+  button: 3,
 });
 
 const getArgTypes = () => ({

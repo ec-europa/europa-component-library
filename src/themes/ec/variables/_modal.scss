@@ -5,7 +5,7 @@ $modal: (
   overlay: var(--cm-surface-lowest-variant),
   border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-4),
-  font: 'body-m',
+  font: 'body-s',
   padding: var(--s-l) var(--s-2xl) var(--s-xl) var(--s-2xl),
   margin-inline-mobile: var(--s-m),
   margin-inline-desktop: var(--s-5xl),
@@ -13,7 +13,7 @@ $modal: (
     font: 'heading6',
     font-weight: map.get($font-weight, 'semi-bold'),
     icon-size: 1.75rem,
-    icon-spacing: var(--s-4xs),
+    icon-spacing: var(--s-3xs),
     margin-block-end: var(--s-4xs),
   ),
   close: (
@@ -23,8 +23,8 @@ $modal: (
   body: (
     scroll-margin-block-end: var(--s-xl),
     fixed-separator: 1px solid var(--cm-border-neutral),
-    fixed-margin-block-end: var(--s-s),
-    fixed-padding-block-start: var(--s-s),
+    fixed-margin-block-end: var(--s-4xs),
+    fixed-padding-block-start: var(--s-4xs),
   ),
   footer: (
     separator: 1px solid var(--cm-border-neutral),
