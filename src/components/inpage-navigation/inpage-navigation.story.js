@@ -104,7 +104,7 @@ const prepareHtmlContent = (data) =>
   data.links
     .map(
       ({ label }, index) => `
-    <h2 class="ecl-u-type-heading-2" id="inline-nav-${index + 1}">${label}</h2>
+    <h2 class="ecl-u-type-heading-2${index === 0 ? ' ecl-u-mt-none' : ''}" id="inline-nav-${index + 1}">${label}</h2>
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
     <p class="ecl-u-type-paragraph-m">${lorem}</p>`,
     )

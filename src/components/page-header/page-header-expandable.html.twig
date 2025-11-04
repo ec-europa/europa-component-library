@@ -1,13 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
-    - "title" (string) (default: '') Title of the expandable
-    - "description" (string) (default: '') descriptive text
-    - "more" (string) (default: '') Additional info
-    - "more_link" (associative array) Object of the ECL link
     - "toggle_label" (string) (default: '') Not visible, needed for accessibility
-    - "lists" (array) (default: []) array of list with illustration objects
-    - "separator" (string) (default: "–" )
     - "extra_classes" (string) (default: '')
     - "toggle_extra_attributes" (array) (default: []) Custom attributes for the toggle button 
     - "extra_attributes" (array) (default: [])
@@ -20,23 +14,16 @@
 
   Blocks:
     - header_content (default: '') Content of the header
-      if a link is provided the attribute data-ecl-page-header-expandable-header-link needs to be added to it.
     - panel_content (default: '') Content of the hidden panel
 #}
 
 {# Internal properties #}
 
-{% set _title = title|default('') %}
-{% set _description = description|default('') %}
-{% set _more = more|default('') %}
-{% set _more_link = more_link|default({}) %}
 {% set _toggle_label = toggle_label|default('') %}
-{% set _lists = lists|default([]) %}
 {% set _panel_id = panel_id|default('ecl-page-header-expandable-panel-' ~ random()) %}
 {% set _header_content = header_content|default('') %}
 {% set _panel_content = panel_content|default('') %}
 {% set _expandable = true %}
-{% set _separator = separator|e('html_attr')|default('–') %}
 {% set _extra_attributes = '' %}
 {% set _toggle_extra_attributes = toggle_extra_attributes|default([]) %}
 {% set _css_class = "ecl-page-header-expandable" %}
@@ -75,26 +62,9 @@
     class="ecl-page-header-expandable__header"
     data-ecl-page-header-expandable-header
   >
-    <div class="ecl-container">
-      <div class="ecl-page-header-expandable__header-text" style="--ecl-page-header-expandable-separator: '{{ _separator|raw }}'">
-      {% if _title is not empty %}
-        <span  class="ecl-page-header-expandable__title">{{ _title }}</span>
-      {% endif %}
-      {% if _description is not empty %}
-        <span class="ecl-page-header-expandable__description">{{ _description }}</span>
-      {% endif %}
-      {% if _more is not empty %}
-        <span class="ecl-page-header-expandable__more">{{ _more }}</span>
-      {% endif %}
-      {% if _more_link is not empty %}
-        {% include '@ecl/link/link.html.twig' with _more_link|merge({
-          extra_classes: _link.extra_classes|default('') ~ 'ecl-page-header-expandable__more-link',
-          extra_attributes: _link.extra_attributes|default([])|merge([{
-            name: 'data-ecl-page-header-expandable-header-link'
-          }]),
-        }) only %}
-      {% endif %}
-        {% block header_content _header_content %}
+    <div class="ecl-container ecl-page-header-expandable__container">
+      <div class="ecl-page-header-expandable__header-text">
+        {%- block header_content _header_content -%}
       </div>
     {% if _expandable %}
       {% include '@ecl/button/button.html.twig' with {
@@ -120,15 +90,8 @@
   </div>
 {% if _expandable %}
   <div class="ecl-page-header-expandable__panel" id="{{ _panel_id }}" hidden>
-    <div class="ecl-container">
-      {% if _lists is not empty %}
-        {% for _list in _lists %}
-          {% include '@ecl/list-illustration/list-illustration.html.twig' with _list|merge({
-            extra_classes: 'ecl-page-header-expandable__list ' ~ (_list.extra_classes ? _list.extra_classes : ''),
-          }) only %}
-        {% endfor %}
-      {% endif %}
-      {% block panel_content _panel_content %}
+    <div class="ecl-container ecl-page-header-expandable__container">
+      {%- block panel_content _panel_content -%}
     </div>
   </div>
 {% endif %}

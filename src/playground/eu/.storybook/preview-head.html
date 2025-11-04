@@ -1,3 +1,15 @@
+<link
+  rel="preload"
+  href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
+  as="script"
+  crossorigin="anonymous"
+/>
+<link
+  rel="preload"
+  href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet-date-picker.entry.js"
+  as="script"
+  crossorigin="anonymous"
+/>
 <style>
   .sb-show-nopreview {
     display: none;
@@ -10,8 +22,12 @@
   window.global = window;
 </script>
 <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.js"
-  crossorigin="anonymous"
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
+></script>
+<script
+  nomodule
+  src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"
 ></script>
 <script type="module" src="./scripts/ecl-esm-eu.js"></script>
 <script

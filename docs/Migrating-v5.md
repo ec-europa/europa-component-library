@@ -162,6 +162,17 @@ Here is the mapping to the new variant / style:
 
 The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
 
+### Datepicker
+
+ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
+
+`<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+or
+`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+
+The markup is now using the custom element defined by duet js:
+`<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
+
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.
@@ -322,6 +333,10 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
   See the component documentation and examples for more information
 
 EU footer hasn't changed, but is now using its own template file
+
+### Table
+
+- parameter for aria label, in the sorting table (`label_sort`) has been split into `label_sort_ascending`, `label_sort_descending` and `label_sort_default`. It translates to `data-ecl-table-sort-label-asc`, `data-ecl-table-sort-label-desc` and `data-ecl-table-sort-label-default` in the markup. Current `label_sort` is used as fallback if the new elements are not provided.
 
 ### Timeline
 

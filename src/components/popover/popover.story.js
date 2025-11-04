@@ -1,7 +1,7 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 
 import dataDefault from './demo/data';
 
@@ -14,10 +14,13 @@ const getArgs = (data) => ({
   label: data.toggle.label,
   content: data.content,
   indicator: false,
-  indicator_value: '',
+  indicator_value: '10',
+  indicator_label: 'Items not read',
 });
 
 const getArgTypes = () => ({
+  ...getIndicatorControls(),
+
   label: {
     name: 'toggle label',
     type: { name: 'string', required: true },
@@ -38,33 +41,6 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
-  indicator: {
-    name: 'indicator',
-    type: { name: 'boolean' },
-    description: 'Display indicator. This only works if the label is hidden',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'boolean',
-    },
-  },
-  indicator_value: {
-    name: 'indicator_value',
-    type: { name: 'string' },
-    description: 'Indicator value',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'text',
-    },
-    if: { arg: 'indicator', eq: true },
-  },
 });
 
 const prepareData = (data, args) => {
@@ -77,10 +53,13 @@ const prepareData = (data, args) => {
   }
   if (args.indicator) {
     dataClone.toggle.hide_label = true;
-    dataClone.toggle.indicator = { value: '' };
+    dataClone.toggle.indicator = { value: '', sr_label: '' };
 
     if (args.indicator_value !== '') {
       dataClone.toggle.indicator.value = args.indicator_value;
+    }
+    if (args.indicator_label !== '') {
+      dataClone.toggle.indicator.sr_label = args.indicator_label;
     }
   }
 
