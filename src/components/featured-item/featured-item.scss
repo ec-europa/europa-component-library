@@ -39,8 +39,11 @@ $featured-item: null !default;
 
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description', 'color');
-  font: map.get($featured-item, 'description', 'font');
   max-width: map.get($featured-item, 'max-width');
+
+  @include mixins.responsive-font(
+    map.get($featured-item, 'description', 'font')
+  );
 
   .ecl-featured-item__title + & {
     margin-block-start: map.get($featured-item, 'description', 'spacing');
@@ -57,8 +60,9 @@ $featured-item: null !default;
 }
 
 .ecl-featured-item__link {
-  font: map.get($featured-item, 'link', 'font');
   max-width: map.get($featured-item, 'max-width');
+
+  @include mixins.responsive-font(map.get($featured-item, 'link', 'font'));
 
   .ecl-featured-item__title + &,
   .ecl-featured-item__description + & {
