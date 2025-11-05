@@ -55,6 +55,7 @@ $checkbox: null !default;
   flex-shrink: 0;
   height: map.get($checkbox, 'box-size');
   justify-content: center;
+  margin-block-start: map.get($checkbox, 'box-offset');
   margin-inline-end: var(--s-xs);
   position: relative;
   user-select: none;
@@ -79,13 +80,6 @@ $checkbox: null !default;
 .ecl-checkbox__icon {
   fill: map.get($checkbox, 'checkbox-fill');
   visibility: hidden;
-}
-
-// Single
-.ecl-checkbox--single {
-  .ecl-checkbox__label {
-    padding-block: 0;
-  }
 }
 
 // Disabled.

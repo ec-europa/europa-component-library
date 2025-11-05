@@ -51,7 +51,8 @@ $overflow-height: 2rem;
   overflow: hidden;
   margin: 0;
   max-height: 80vh;
-  padding: map.get($modal, 'padding');
+  padding-block: map.get($modal, 'padding-block');
+  padding-inline: 0;
   position: relative;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'modal');
@@ -88,6 +89,7 @@ $overflow-height: 2rem;
   align-items: flex-start;
   display: flex;
   margin-block-end: map.get($modal, 'header', 'margin-block-end');
+  padding-inline: map.get($modal, 'padding-inline');
 
   @include mixins.responsive-font(
     map.get($modal, 'header', 'font'),
@@ -136,6 +138,7 @@ $overflow-height: 2rem;
   flex-direction: column;
   flex-grow: 1;
   margin-block-end: map.get($modal, 'footer', 'margin-block-start');
+  padding-inline: map.get($modal, 'padding-inline');
   overflow: hidden;
 
   &:is(:last-child),
@@ -183,6 +186,7 @@ $overflow-height: 2rem;
 .ecl-modal__footer {
   border-block-start: map.get($modal, 'footer', 'separator');
   padding-block-start: map.get($modal, 'footer', 'padding-block-start');
+  margin-inline: map.get($modal, 'padding-inline');
 }
 
 .ecl-modal__header + .ecl-modal__footer {
