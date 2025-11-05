@@ -1,0 +1,40 @@
+<!-- Site header -->
+{%- include '@ecl/site-header/site-header.html.twig' with site_header -%}
+
+<main class="ecl-u-pb-3xl">
+  <!-- Page header -->
+  {% include '@ecl/page-header/page-header.html.twig' with page_header %}
+
+  <div class="ecl-container ecl-u-mt-2xl">
+    <div class="ecl ecl-u-mb-2xl">
+      <h2>Heading 2</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">Vestibulum congue pharetra fermentum</a>. Phasellus vehicula ligula sed est rutrum, eu pulvinar turpis blandit. Nam tincidunt congue condimentum. Proin sit amet leo sit amet libero aliquam ultrices. Nam ac dolor pretium, laoreet nunc at, euismod ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
+
+    <div class="ecl ecl-u-mb-2xl">
+      <h2>Heading 2</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue pharetra fermentum. Phasellus vehicula ligula sed est rutrum, eu pulvinar turpis blandit. Nam tincidunt congue condimentum. Proin sit amet leo sit amet libero aliquam ultrices. Nam ac dolor pretium, laoreet nunc at, euismod ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
+
+    <div class="ecl ecl-u-mb-2xl">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue pharetra fermentum. Phasellus vehicula ligula sed est rutrum, eu pulvinar turpis blandit. Nam tincidunt congue condimentum. Proin sit amet leo sit amet libero aliquam ultrices. Nam ac dolor pretium, laoreet nunc at, euismod ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      <h3>Heading 3</h3>
+      <blockquote>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue pharetra fermentum.</p>
+        <cite>Someone</cite>
+      </blockquote>
+      <h3>Heading 3</h3>
+    </div>
+
+    <!-- Featured item -->
+    {% include '@ecl/featured-item/featured-item.html.twig' with featured_item %}
+  </div>
+</main>
+
+<!-- Footer -->
+{% if system == 'ec' %}
+  {%- include '@ecl/site-footer/site-footer-ec.html.twig' with site_footer -%}
+{% else %}
+  {%- include '@ecl/site-footer/site-footer-eu.html.twig' with site_footer -%}
+{% endif %}
+
