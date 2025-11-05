@@ -289,6 +289,11 @@ export class Tabs {
         item.addEventListener('keydown', this.handleKeyboardOnTabs);
       });
     }
+    if (this.hasContent) {
+      this.tabs.forEach((tab) => {
+        tab.removeEventListener('click', this.handleClickOnTabs);
+      });
+    }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
