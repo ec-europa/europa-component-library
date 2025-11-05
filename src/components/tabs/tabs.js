@@ -5,6 +5,7 @@ import EventManager from '@ecl/event-manager';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.containerSelector Selector for container element
+ * @param {String} options.contentSelector Selector for tabs with content
  * @param {String} options.listSelector Selector for list element
  * @param {String} options.listItemsSelector Selector for tabs element
  * @param {String} options.moreButtonSelector Selector for more button element
@@ -42,6 +43,7 @@ export class Tabs {
     element,
     {
       containerSelector = '.ecl-tabs__container',
+      contentSelector = 'data-ecl-tabs-with-content',
       listSelector = '.ecl-tabs__list',
       listItemsSelector = '.ecl-tabs__item:not(.ecl-tabs__item--more)',
       moreItemSelector = '.ecl-tabs__item--more',
@@ -49,6 +51,7 @@ export class Tabs {
       moreLabelSelector = '.ecl-tabs__toggle .ecl-button__label',
       prevSelector = '.ecl-tabs__prev',
       nextSelector = '.ecl-tabs__next',
+      activeSelector = 'ecl-tabs__link--active',
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -65,6 +68,7 @@ export class Tabs {
 
     // Options
     this.containerSelector = containerSelector;
+    this.contentSelector = contentSelector;
     this.listSelector = listSelector;
     this.listItemsSelector = listItemsSelector;
     this.moreItemSelector = moreItemSelector;
@@ -72,6 +76,7 @@ export class Tabs {
     this.moreLabelSelector = moreLabelSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
+    this.activeSelector = activeSelector;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -97,9 +102,11 @@ export class Tabs {
     this.direction = 'ltr';
     this.isMobile = false;
     this.resizeTimer = null;
+    this.tabs = [];
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleClickOnTabs = this.handleClickOnTabs.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.closeMoreDropdown = this.closeMoreDropdown.bind(this);
     this.shiftTabs = this.shiftTabs.bind(this);
@@ -119,6 +126,7 @@ export class Tabs {
     ECL.components = ECL.components || new Map();
 
     this.container = queryOne(this.containerSelector, this.element);
+    this.hasContent = this.element.hasAttribute(this.contentSelector);
     this.list = queryOne(this.listSelector, this.element);
     this.listItems = queryAll(this.listItemsSelector, this.element);
     this.moreItem = queryOne(this.moreItemSelector, this.element);
@@ -136,7 +144,9 @@ export class Tabs {
       this.dropdownList = document.createElement('div');
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
-        this.dropdownList.appendChild(item.cloneNode(true));
+        const clone = item.cloneNode(true);
+        clone.addEventListener('click', this.handleClickOnTabs);
+        this.dropdownList.appendChild(clone);
       });
       this.dropdown.appendChild(this.dropdownList);
       this.moreItem.appendChild(this.dropdown);
@@ -159,6 +169,46 @@ export class Tabs {
     if (this.attachClickListener && document && this.moreButton) {
       document.addEventListener('click', this.closeMoreDropdown);
     }
+
+    if (this.hasContent) {
+      this.listItems.forEach((tab) => {
+        const link = queryOne('.ecl-tabs__link', tab);
+        const url = new URL(link.href);
+
+        if (url.hash) {
+          const id = url.hash.slice(1);
+          const content = document.getElementById(id);
+          if (content) {
+            content.setAttribute('role', 'tabpanel');
+            link.setAttribute('aria-controls', id);
+
+            if (link.id) {
+              content.setAttribute('aria-labelledby', link.id);
+            }
+          }
+
+          this.tabs.push({ link, id, content });
+
+          tab.addEventListener('click', this.handleClickOnTabs);
+        }
+      });
+
+      const activeTab =
+        this.tabs.find((t) => t.link.classList.contains(this.activeSelector)) ||
+        this.tabs[0];
+
+      if (activeTab) {
+        activeTab.link.classList.add(this.activeSelector);
+        activeTab.link.setAttribute('aria-selected', 'true');
+      }
+
+      this.tabs.forEach((t) => {
+        if (t.content) {
+          t.content.style.display = t === activeTab ? 'block' : 'none';
+        }
+      });
+    }
+
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
@@ -328,6 +378,38 @@ export class Tabs {
    */
   get onToggle() {
     return this.onToggleCallback;
+  }
+
+  /**
+   * Hide and show content when clicking on a tab.
+   */
+  handleClickOnTabs(e) {
+    const tabUrl = new URL(e.target.href);
+    const tabId = tabUrl.hash ? tabUrl.hash.slice(1) : null;
+    if (!tabId) return;
+
+    e.preventDefault();
+
+    this.tabs.forEach((tab) => {
+      if (tab.content) {
+        tab.content.style.display = tab.id !== tabId ? 'none' : 'block';
+      }
+
+      tab.link.classList.remove(this.activeSelector);
+      tab.link.setAttribute('aria-selected', 'false');
+    });
+
+    if (this.moreButton) {
+      this.dropdownItems.forEach((item) => {
+        item.getElementsByTagName('a')[0].classList.remove(this.activeSelector);
+        item
+          .getElementsByTagName('a')[0]
+          .setAttribute('aria-selected', 'false');
+      });
+    }
+
+    e.target.classList.add(this.activeSelector);
+    e.target.setAttribute('aria-selected', 'true');
   }
 
   /**
