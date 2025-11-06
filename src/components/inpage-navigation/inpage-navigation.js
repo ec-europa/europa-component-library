@@ -367,7 +367,9 @@ export class InpageNavigation {
       this.toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
 
-    document.addEventListener('keydown', this.handleKeyboard);
+    if (this.attachKeyListener) {
+      this.element.addEventListener('keydown', this.handleKeyboard);
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -592,7 +594,7 @@ export class InpageNavigation {
       );
     }
     if (this.attachKeyListener) {
-      document.removeEventListener('keydown', this.handleKeyboard);
+      this.element.removeEventListener('keydown', this.handleKeyboard);
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
