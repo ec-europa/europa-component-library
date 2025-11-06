@@ -20,12 +20,6 @@ $button: null !default;
   display: inline-block;
   margin: 0;
   text-decoration: none;
-
-  &[disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-    text-decoration: none;
-  }
 }
 
 .ecl-button__container {
@@ -154,6 +148,14 @@ $button: null !default;
       );
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
+  }
+
+  &[disabled] {
+    background-color: map.get($button, #{$variant}, 'background-disabled');
+    border-color: map.get($button, #{$variant}, 'border-color-disabled');
+    color: map.get($button, #{$variant}, 'color-disabled');
+    cursor: not-allowed;
+    text-decoration: none;
   }
 }
 // stylelint-enable nesting-selector-no-missing-scoping-root

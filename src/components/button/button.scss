@@ -35,13 +35,6 @@ $button: null !default;
   &:active {
     outline-width: 0;
   }
-
-  &[disabled],
-  &[disabled]:hover {
-    cursor: not-allowed;
-    opacity: 0.5;
-    text-decoration: none;
-  }
 }
 
 .ecl-button__container {
@@ -231,6 +224,15 @@ $button: null !default;
     background-color: map.get($button, #{$variant}, 'background-active');
     border-color: map.get($button, #{$variant}, 'border-color-active');
     color: map.get($button, #{$variant}, 'color-active');
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: map.get($button, #{$variant}, 'background-disabled');
+    border-color: map.get($button, #{$variant}, 'border-color-disabled');
+    color: map.get($button, #{$variant}, 'color-disabled');
+    cursor: not-allowed;
+    text-decoration: none;
   }
 }
 // stylelint-enable nesting-selector-no-missing-scoping-root
