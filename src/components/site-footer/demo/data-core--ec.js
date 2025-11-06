@@ -2,6 +2,23 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  co_owner: {
+    title: 'This page is managed by:',
+    links: [
+      {
+        link: {
+          label: 'Directorate-General for [DG role]',
+          path: exampleLink,
+        },
+      },
+      {
+        link: {
+          label: 'Directorate-General for [DG role]',
+          path: exampleLink,
+        },
+      },
+    ],
+  },
   section_site_info: {
     logo: {
       picture: {
