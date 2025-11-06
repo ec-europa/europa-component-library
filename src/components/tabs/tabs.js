@@ -160,8 +160,6 @@ export class Tabs {
       this.buttonNextSize = this.btnNext.getBoundingClientRect().width;
     }
 
-    this.handleResize();
-
     // Bind events
     if (this.attachClickListener && this.moreButton) {
       this.moreButton.addEventListener('click', this.handleClickOnToggle);
@@ -225,6 +223,8 @@ export class Tabs {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    this.handleResize();
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -392,30 +392,49 @@ export class Tabs {
   handleClickOnTabs(e) {
     const tabUrl = new URL(e.target.href);
     const tabId = tabUrl.hash ? tabUrl.hash.slice(1) : null;
+    // We only handle hashes
     if (!tabId) return;
 
     e.preventDefault();
 
+    // Visible tabs
     this.tabs.forEach((tab) => {
+      // Toggle content visibility
       if (tab.content) {
         tab.content.style.display = tab.id !== tabId ? 'none' : 'block';
       }
-
-      tab.link.classList.remove(this.activeSelector);
-      tab.link.setAttribute('aria-selected', 'false');
+      // Toggle active styles and attributes
+      if (tab.id !== tabId) {
+        tab.link.classList.remove(this.activeSelector);
+        tab.link.setAttribute('aria-selected', 'false');
+      } else {
+        tab.link.classList.add(this.activeSelector);
+        tab.link.setAttribute('aria-selected', 'true');
+      }
     });
 
     if (this.moreButton) {
+      // Reset styles for the more button
+      this.moreButtonActive = false;
+      this.moreButton.classList.remove('ecl-tabs__toggle--active');
+      // Hidden tabs
       this.dropdownItems.forEach((item) => {
-        item.getElementsByTagName('a')[0].classList.remove(this.activeSelector);
-        item
-          .getElementsByTagName('a')[0]
-          .setAttribute('aria-selected', 'false');
+        const dropdownLink = item.getElementsByTagName('a')[0];
+        const dropdownUrl = new URL(dropdownLink);
+        const dropdownId = dropdownUrl.hash ? dropdownUrl.hash.slice(1) : null;
+        // Toggle active styles and attributes
+        if (dropdownId !== tabId) {
+          dropdownLink.classList.remove(this.activeSelector);
+          dropdownLink.setAttribute('aria-selected', 'false');
+        } else {
+          dropdownLink.classList.add(this.activeSelector);
+          dropdownLink.setAttribute('aria-selected', 'true');
+          this.moreButtonActive = true;
+          this.moreButton.classList.add('ecl-tabs__toggle--active');
+        }
       });
     }
-
-    e.target.classList.add(this.activeSelector);
-    e.target.setAttribute('aria-selected', 'true');
+    // Add the hash to the URL
     history.replaceState(null, '', `#${tabId}`);
   }
 
