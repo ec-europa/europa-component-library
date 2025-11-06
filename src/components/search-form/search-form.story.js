@@ -14,6 +14,7 @@ const dataSearch = system === 'eu' ? demoDataEu : demoDataEc;
 const getArgs = (data) => ({
   disabled: false,
   button_label: data.button.label || '',
+  form_label: data.label || '',
   placeholder: data.text_input.placeholder,
 });
 
@@ -22,6 +23,16 @@ const getArgTypes = () => ({
     name: 'button label',
     type: { name: 'string', required: true },
     description: 'Label of the search button',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
+  form_label: {
+    name: 'form label',
+    type: { name: 'string', required: true },
+    description: 'Label of the form (hidden, but accessible to screen readers)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -54,6 +65,7 @@ const prepareData = (data, args) => {
   data.text_input.disabled = args.disabled;
   data.text_input.placeholder = args.placeholder;
   data.button.label = args.button_label;
+  data.label = args.form_label;
   data.button.disabled = args.disabled;
 
   return correctPaths(data);

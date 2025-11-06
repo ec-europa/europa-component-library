@@ -90,6 +90,7 @@ const getArgTypes = (data) => {
   }
 
   argTypes.position = {
+    name: 'media position',
     type: { name: 'select' },
     description: 'Alignment inside featured item',
     options: ['left', 'right'],
