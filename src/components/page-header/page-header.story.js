@@ -68,7 +68,7 @@ const expandableArgTypes = () => {
   };
 };
 
-const getArgs = (data) => {
+const getArgs = (data, variant) => {
   let args = {
     show_breadcrumb: true,
     show_picture: true,
@@ -88,7 +88,9 @@ const getArgs = (data) => {
   }
   if (data.description) {
     args.description = data.description;
-    args.description_position = 'top';
+    if (variant === 'fifty') {
+      args.description_position = 'top';
+    }
   }
   if (data.picture_background.img.src) {
     args.background_image_url = data.picture_background.img.src;
@@ -102,7 +104,7 @@ const getArgs = (data) => {
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (variant) => {
   const argTypes = {
     ...expandableArgTypes(),
   };
@@ -215,28 +217,30 @@ const getArgTypes = () => {
     if: { arg: 'show_description' },
   };
 
-  argTypes.description_position = {
-    name: 'description position',
-    type: 'select',
-    description: 'Change description position',
-    options: ['top', 'bottom'],
-    control: {
-      labels: {
+  if (variant === 'fifty') {
+    argTypes.description_position = {
+      name: 'description position',
+      type: 'select',
+      description: 'Change description position',
+      options: ['top', 'bottom'],
+      control: {
+        labels: {
+          top: 'top',
+          bottom: 'bottom',
+        },
+      },
+      mapping: {
         top: 'top',
         bottom: 'bottom',
       },
-    },
-    mapping: {
-      top: 'top',
-      bottom: 'bottom',
-    },
-    table: {
-      type: 'string',
-      defaultValue: { summary: 'top' },
-      category: 'Display',
-    },
-    if: { arg: 'show_description' },
-  };
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'top' },
+        category: 'Display',
+      },
+      if: { arg: 'show_description' },
+    };
+  }
 
   argTypes.meta = {
     type: 'array',
@@ -344,8 +348,8 @@ Default.render = async (args) => {
   return renderedCore;
 };
 Default.storyName = 'default';
-Default.args = getArgs(demoContent);
-Default.argTypes = getArgTypes();
+Default.args = getArgs(demoContent, 'default');
+Default.argTypes = getArgTypes('default');
 Default.parameters = {
   notes: { markdown: notes, json: demoContent },
 };
@@ -357,8 +361,8 @@ News.render = async (args) => {
   return renderedNews;
 };
 News.storyName = 'news';
-News.args = getArgs(demoContentNews);
-News.argTypes = getArgTypes();
+News.args = getArgs(demoContentNews, 'news');
+News.argTypes = getArgTypes('news');
 News.parameters = {
   notes: { markdown: notes, json: demoContentNews },
 };
@@ -370,8 +374,8 @@ Fifty.render = async (args) => {
   return renderedFifty;
 };
 Fifty.storyName = '50/50';
-Fifty.args = getArgs(demoContentFifty);
-Fifty.argTypes = getArgTypes();
+Fifty.args = getArgs(demoContentFifty, 'fifty');
+Fifty.argTypes = getArgTypes('fifty');
 Fifty.parameters = {
   notes: { markdown: notes, json: demoContentFifty },
 };

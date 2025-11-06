@@ -4,24 +4,63 @@
  */
 
 @use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
 $page-header: null !default;
 $page-header-print: null !default;
 
-.ecl-page-header__info {
-  margin-bottom: map.get($theme, 'spacing-print', 's');
-  margin-top: map.get($theme, 'spacing-print', 'xl');
+.ecl-page-header__background {
+  display: block;
+  height: 10.875rem;
+  object-fit: cover;
+  object-position: 50% 0;
+  width: 100%;
+}
+
+.ecl-page-header__title {
+  color: map.get($page-header, 'title', 'color');
+  font: map.get($page-header-print, 'title', 'font');
+  font-weight: map.get($page-header, 'title', 'font-weight');
+  letter-spacing: map.get($page-header, 'title', 'letter-spacing');
+  margin-block: 0;
+  padding-block: map.get($theme, 'spacing-print', 'l') 0;
+}
+
+.ecl-page-header__title--hidden {
+  @include screen-reader.sr-only;
+}
+
+.ecl-page-header__description-container {
+  align-items: flex-start;
+  display: flex;
+  padding-top: map.get($theme, 'spacing-print', 'm');
+}
+
+.ecl-page-header__description-thumbnail {
+  border: 1px solid var(--c-p-20);
+  padding-block-start: map.get($theme, 'spacing-print', 'xs');
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
+  max-width: 120px;
+}
+
+.ecl-page-header__description {
+  color: map.get($page-header, 'description', 'color');
+  font: map.get($page-header-print, 'description', 'font');
+  font-weight: map.get($page-header, 'description', 'font');
+  margin-block: 0;
+  max-width: var(--max-w);
 }
 
 .ecl-page-header__meta {
-  color: var(--c-d);
+  color: map.get($page-header, 'meta', 'color');
   display: inline-block;
-  font: var(--f-ui-m);
+  font: map.get($page-header-print, 'meta', 'font');
   list-style: none;
-  margin-block: map.get($theme, 'spacing-print', 'm') 0;
-  padding: 0;
+  margin: 0;
+  padding-block: map.get($theme, 'spacing-print', 'l') 0;
+  padding-inline: 0;
 }
 
 .ecl-page-header__meta-item {
@@ -30,8 +69,10 @@ $page-header-print: null !default;
 
   &:first-child {
     display: block;
-    font-weight: map.get($theme, 'font-weight', 'bold');
-    text-transform: uppercase;
+    font-weight: map.get($page-header, 'meta', 'first-font-weight');
+    letter-spacing: map.get($page-header, 'meta', 'first-letter-spacing');
+    margin-block: map.get($page-header, 'meta', 'first-margin-block');
+    text-transform: map.get($page-header, 'meta', 'first-text-transform');
   }
 
   &:not(:first-child, :last-child)::after {
@@ -48,44 +89,7 @@ $page-header-print: null !default;
 
 .ecl-page-header__meta-icon {
   margin-inline-end: var(--s-2xs);
-}
-
-.ecl-page-header__title {
-  color: map.get($page-header, 'title-color');
-  font: map.get($page-header, 'title-font');
-  font-family: var(--ecl-font-family-print-alt);
-  margin-bottom: 0;
-  margin-top: map.get($theme, 'spacing-print', 'm');
-}
-
-.ecl-page-header__description-container {
-  align-items: flex-start;
-  display: flex;
-  margin-top: map.get($theme, 'spacing-print', 'l');
-}
-
-.ecl-page-header__description-thumbnail {
-  border: 1px solid var(--c-p-20);
-  margin-inline-end: map.get($theme, 'spacing-print', 'm');
-  max-width: 120px;
-}
-
-.ecl-page-header__description {
-  color: map.get($page-header, 'description-color');
-  font: map.get($page-header, 'description-font');
-  margin-bottom: 0;
-  margin-top: 0;
-  max-width: 80ch;
-}
-
-.ecl-page-header--image {
-  .ecl-page-header__background {
-    display: block;
-    height: 10.875rem;
-    object-fit: cover;
-    object-position: 50% 0;
-    width: 100%;
-  }
+  vertical-align: middle;
 }
 
 // Expandable

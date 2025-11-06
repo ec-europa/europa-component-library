@@ -72,7 +72,7 @@ $page-header-print: null !default;
     font-weight: map.get($page-header, 'meta', 'first-font-weight');
     letter-spacing: map.get($page-header, 'meta', 'first-letter-spacing');
     margin-block: map.get($page-header, 'meta', 'first-margin-block');
-    text-transform: uppercase;
+    text-transform: map.get($page-header, 'meta', 'first-text-transform');
   }
 
   &:not(:first-child, :last-child)::after {

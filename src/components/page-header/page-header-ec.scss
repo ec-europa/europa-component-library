@@ -12,6 +12,10 @@
 $theme: null !default;
 $page-header: null !default;
 
+.ecl-page-header {
+  background-color: #fff;
+}
+
 .ecl-page-header__background {
   display: block;
   height: 10.875rem;
@@ -87,10 +91,14 @@ $page-header: null !default;
 
   &:first-child {
     display: block;
-    font-weight: map.get($page-header, 'meta', 'first-font-weight');
     letter-spacing: map.get($page-header, 'meta', 'first-letter-spacing');
     margin-block: map.get($page-header, 'meta', 'first-margin-block');
-    text-transform: uppercase;
+    text-transform: map.get($page-header, 'meta', 'first-text-transform');
+
+    @include mixins.responsive-font(
+      map.get($page-header, 'meta', 'first-font'),
+      $font-weight: map.get($page-header, 'meta', 'first-font-weight')
+    );
   }
 
   &:not(:first-child, :last-child)::after {
