@@ -85,7 +85,7 @@ duet-date-picker {
   box-shadow: none;
   min-height: auto;
   margin: -1px;
-  height: map.get($datepicker, 'picker', 'toggle-height');
+  height: map.get($datepicker, 'picker', 'toggle-height-mobile');
 
   &:hover {
     background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
@@ -98,6 +98,10 @@ duet-date-picker {
     color: map.get($text-input, 'color-input');
     outline: 2px solid var(--c-p);
     outline-offset: -1px;
+  }
+
+  @media (width >= 480px) {
+    height: map.get($datepicker, 'picker', 'toggle-height-desktop');
   }
 }
 
@@ -132,12 +136,13 @@ duet-date-picker {
 
   @media (width <= 35.9375em) {
     padding-block-start: 0;
+    width: 100%;
   }
 
   .duet-date__header {
     margin-block-end: var(--s-xs);
-    margin-inline-end: var(--s-3xs, 0.25rem);
-    width: auto;
+    margin-inline: auto;
+    max-width: 304px;
 
     > div {
       display: flex;
@@ -233,8 +238,9 @@ duet-date-picker {
   }
 
   .duet-date__mobile {
-    margin-left: -5%;
-    width: 110%;
+    margin-inline: auto;
+    padding-inline: 0;
+    width: 304px;
   }
 
   @media (width >= 36em) {
@@ -256,6 +262,8 @@ duet-date-picker {
     border-collapse: initial;
     border-spacing: map.get($datepicker, 'picker', 'table-spacing');
     table-layout: fixed;
+    max-width: 304px;
+    margin: 0 auto;
 
     thead {
       box-shadow: inset 0 -1px 0
