@@ -16,6 +16,7 @@ npm install --save @ecl/datepicker
 - **"id"** (string) (default: random)
 - **"min"** (string) (default: '')
 - **"max"** (string) (default: '')
+- **"width"** (string) (default: 'm') size of the text field (s, m or l)
 - **"first_day_of_week"** (string) (default: 1)
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

@@ -20,19 +20,37 @@ $text-input: null !default;
   --duet-font-normal: #{map.get($theme, 'font-weight', 'regular')};
   --duet-radius: #{map.get($text-input, 'radius')};
   --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
+  --duet-z-index: 600;
 }
 
 .ecl-datepicker {
   display: flex;
   margin: 0;
+  max-width: 100%;
+}
+
+.ecl-datepicker--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
+.ecl-datepicker--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
+.ecl-datepicker--l {
+  @include mixins-form.form-width('l', $theme);
 }
 
 /*
-  * duet styling
-  */
+ * duet styling
+ */
+duet-date-picker {
+  flex-grow: 1;
+}
+
 .duet-date__input {
   padding-block: map.get($text-input, 'padding-block');
-  max-width: 304px;
+  padding-inline: map.get($text-input, 'padding-inline');
   width: 100%;
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
@@ -43,7 +61,7 @@ $text-input: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid #{map.get($text-input, 'outline-color')};
+    outline: 2px solid map.get($text-input, 'outline-color');
   }
 
   &[disabled] {
@@ -65,19 +83,26 @@ $text-input: null !default;
   border: none;
   box-shadow: none;
   min-height: auto;
+  margin: -1px;
+  height: 42px;
 
-  &:hover,
+  &:hover {
+    background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
+    border: 1px solid var(--cm-border-brand, var(--c-d));
+  }
+
   &:focus-visible {
     background: transparent;
     box-shadow: none;
     color: map.get($text-input, 'color-input');
     outline: 2px solid var(--c-p);
-    outline-offset: -2px;
+    outline-offset: -1px;
   }
 }
 
 .duet-date__toggle-icon svg {
-  width: map.get($theme, 'icon', 's');
+  color: var(--cm-border-brand, var(--c-d));
+  width: map.get($theme, 'icon', 'm');
 }
 
 .duet-date__dialog {

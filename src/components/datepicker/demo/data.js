@@ -5,6 +5,7 @@ module.exports = {
     name: 'error-outline',
   },
   sr_invalid_icon: 'Error',
+  width: 'm',
   invalid_text: 'Error text',
   optional_text: '(optional)',
   required_text: '(required)',
