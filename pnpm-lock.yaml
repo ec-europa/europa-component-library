@@ -322,6 +322,9 @@ importers:
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.17
         version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.17
+        version: link:../../utilities/screen-reader
 
   src/components/content-block:
     dependencies:
@@ -359,13 +362,6 @@ importers:
   src/components/date-block: {}
 
   src/components/datepicker:
-    dependencies:
-      '@ecl/icon':
-        specifier: 5.0.0-alpha.17
-        version: link:../icon
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
     devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.17
@@ -382,6 +378,10 @@ importers:
       '@ecl/tag':
         specifier: 5.0.0-alpha.17
         version: link:../tag
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
 
   src/components/expandable:
     dependencies:
@@ -729,7 +729,11 @@ importers:
         specifier: 5.0.0-alpha.15
         version: 5.0.0-alpha.15
 
-  src/components/ordered-list: {}
+  src/components/ordered-list:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
 
   src/components/page-header:
     dependencies:
@@ -799,6 +803,9 @@ importers:
       '@ecl/mixins-typography':
         specifier: 5.0.0-alpha.17
         version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-alpha.17
+        version: link:../../utilities/screen-reader
 
   src/components/range:
     dependencies:
@@ -868,6 +875,9 @@ importers:
         specifier: 5.0.0-alpha.17
         version: link:../social-media-follow
     devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
       '@ecl/resources-ec-logo':
         specifier: 5.0.0-alpha.17
         version: link:../../resources/logo-ec
@@ -1048,7 +1058,11 @@ importers:
         specifier: 5.0.0-alpha.17
         version: link:../../mixins/typography
 
-  src/components/unordered-list: {}
+  src/components/unordered-list:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-alpha.17
+        version: link:../../mixins/typography
 
   src/components/video: {}
 
@@ -1763,9 +1777,6 @@ importers:
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
     devDependencies:
       '@ecl/builder':
         specifier: 5.0.0-alpha.17
@@ -2037,9 +2048,6 @@ importers:
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
     devDependencies:
       '@ecl/builder':
         specifier: 5.0.0-alpha.17
@@ -9960,9 +9968,6 @@ packages:
   pify@5.0.0:
     resolution: {integrity: sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==}
     engines: {node: '>=10'}
-
-  pikaday@1.8.2:
-    resolution: {integrity: sha512-TNtsE+34BIax3WtkB/qqu5uepV1McKYEgvL3kWzU7aqPCpMEN6rBF3AOwu4WCwAealWlBGobXny/9kJb49C1ew==}
 
   pirates@4.0.7:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==}
@@ -20981,8 +20986,6 @@ snapshots:
   pify@4.0.1: {}
 
   pify@5.0.0: {}
-
-  pikaday@1.8.2: {}
 
   pirates@4.0.7: {}
 

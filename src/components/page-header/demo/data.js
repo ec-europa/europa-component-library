@@ -35,40 +35,19 @@ module.exports = {
   },
   expandable: {
     panel_id: 'page-header-expandable-panel-demo',
-    title: 'political advertisement',
-    description: 'The sponsor is Business Name',
-    more: 'More info:',
-    more_link: {
-      link: {
-        label: 'webpage link',
-        path: '/example',
-        external: true,
-      },
-    },
     toggle_label: 'expandable button',
     toggle_extra_attributes: [{ name: 'data-test-custom-toggle-attribute' }],
-    separator: '–',
-    lists: [
-      {
-        icon_list: true,
-        divider: false,
-        items: [
-          {
-            icon: {
-              name: 'check-bold',
-            },
-            description:
-              '(The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])',
-          },
-          {
-            icon: {
-              name: 'check-bold',
-            },
-            description:
-              '(The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])',
-          },
-        ],
-      },
-    ],
+    header_content:
+      '<strong>LOREM IPSUM</strong> - dolor sit amet, consectetur <a class="ecl-link" href="/example">adipiscing</a> elit.',
+    panel_content: `<ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      <li>Morbi faucibus justo eget ante hendrerit sagittis
+        <ul>
+          <li>consectetur adipiscing</li>
+          <li>Maecenas non convallis dolor</li>
+        </ul>
+      </li>
+      <li>Integer dignissim imperdiet</li>
+    </ul>`,
   },
 };

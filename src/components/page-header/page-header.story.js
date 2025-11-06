@@ -14,15 +14,9 @@ const demoContentFifty = { ...demoContent, variant: '50-50' };
 const expandableArgs = (data) => {
   return {
     expandable: true,
-    expandable_title: data.expandable.title,
-    expandable_description: data.expandable.description,
-    more: data.expandable.more,
-    more_link: data.expandable.more_link,
     toggle_label: data.expandable.toggle_label,
-    lists: data.expandable.lists,
-    separator: data.expandable.separator,
-    header_content: '',
-    panel_content: '',
+    header_content: data.expandable.header_content,
+    panel_content: data.expandable.panel_content,
   };
 };
 
@@ -38,49 +32,6 @@ const expandableArgTypes = () => {
       },
       if: { arg: 'show_page_header_expandable' },
     },
-    expandable_title: {
-      name: 'title',
-      type: { name: 'string' },
-      description: 'The page header expandable title',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'page header expandable',
-      },
-      if: { arg: 'show_page_header_expandable' },
-    },
-    expandable_description: {
-      name: 'description',
-      type: { name: 'string' },
-      description: 'The page header expandable description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'page header expandable',
-      },
-      if: { arg: 'show_page_header_expandable' },
-    },
-    more: {
-      type: { name: 'string' },
-      description: 'Additional info visible in header',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'page header expandable',
-      },
-      if: { arg: 'show_page_header_expandable' },
-    },
-    more_link: {
-      name: 'more link',
-      type: { name: 'object' },
-      description: 'Additional info link',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: { summary: '{}' },
-        category: 'page header expandable',
-      },
-      if: { arg: 'show_page_header_expandable' },
-    },
     toggle_label: {
       name: 'toggle button label',
       type: { name: 'string' },
@@ -92,28 +43,8 @@ const expandableArgTypes = () => {
       },
       if: { arg: 'show_page_header_expandable' },
     },
-    lists: {
-      type: { name: 'array' },
-      description: 'The panel content',
-      table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: '[]' },
-        category: 'page header expandable',
-      },
-      if: { arg: 'show_page_header_expandable' },
-    },
-    separator: {
-      type: { name: 'string' },
-      description: 'Separator for strings in the header',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'page header expandable',
-      },
-      if: { arg: 'show_page_header_expandable' },
-    },
     header_content: {
-      name: 'content of the header (additional)',
+      name: 'content of the header',
       type: { name: 'string' },
       description: 'Alternative way to feed the header with content',
       table: {
@@ -124,7 +55,7 @@ const expandableArgTypes = () => {
       if: { arg: 'show_page_header_expandable' },
     },
     panel_content: {
-      name: 'content of the panel (additional)',
+      name: 'content of the panel',
       type: { name: 'string' },
       description: 'Alternative way to feed the panel with content',
       table: {
@@ -335,13 +266,7 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   data.expandable = {
-    title: args.expandable_title,
-    description: args.expandable_description,
-    lists: args.lists,
-    more: args.more,
-    more_link: args.more_link,
     toggle_label: args.toggle_label,
-    separator: args.separator,
     header_content: args.header_content,
     panel_content: args.panel_content,
   };
@@ -392,10 +317,9 @@ const prepareData = (data, args) => {
   }
 
   if (!args.expandable && clone.expandable) {
-    clone.expandable.lists = [];
     clone.expandable.panel_content = '';
   } else if (args.expandable && !clone.expandable.lists) {
-    clone.expandable.lists = demoContent.lists;
+    clone.expandable.panel_content = demoContent.expandable.panel_content;
   }
 
   clone.title = args.title;

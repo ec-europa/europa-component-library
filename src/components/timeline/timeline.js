@@ -140,8 +140,7 @@ export class Timeline {
       const item = queryOne('.ecl-timeline__item--collapsed', this.element);
       if (item) {
         item.setAttribute('tabindex', '-1');
-        item.focus({ focusVisible: false });
-        item.removeAttribute('tabindex');
+        item.focus();
       }
     }
 

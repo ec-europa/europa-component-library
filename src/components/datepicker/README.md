@@ -14,8 +14,9 @@ npm install --save @ecl/datepicker
 - **"invalid"** (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
 - **"id"** (string) (default: random)
-- **"type"**: (string) (default: 'text')
-- **"name"** (string) (default: '')
+- **"min"** (string) (default: '')
+- **"max"** (string) (default: '')
+- **"first_day_of_week"** (string) (default: 1)
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker
@@ -28,8 +29,7 @@ npm install --save @ecl/datepicker
 ```twig 
 {% include '@ecl/datepicker/datepicker.html.twig' with { 
   id: 'an-id-for-the-input', 
-  name: 'a-name-for-the-input', 
+  placeholder: 'DD-MM-YYYY'
   required: true, 
-  type: 'text',
 } %} 
 ```

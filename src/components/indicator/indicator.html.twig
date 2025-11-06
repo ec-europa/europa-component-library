@@ -42,7 +42,9 @@
   {{ _extra_attributes|raw }}
 >
   {%- if _value is not empty -%}
-    {{- _value -}}
+    <span class="ecl-indicator__value">
+      {{- _value -}}
+    </span>
   {%- endif -%}
 
   {%- if _sr_label is not empty -%}

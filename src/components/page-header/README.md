@@ -18,15 +18,9 @@ npm install --save @ecl/page-header
 - **"meta"** (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
 - **"expandable"** (associative array) Page header expandable
-  - "title" (default: '')
-  - "description" (default: '')
-  - "more" (default: '')
-  - "lists" (default: [])
-  - "more_link" (default: {})
   - "toggle_label" (default: '')
   - "toggle_extra_attributes" (default: '')
-  - "separator" (default: '')
-  - "header_content" (default: '') if a link is provided the attribute data-ecl-page-header-expandable-header-link needs to be added to it.
+  - "header_content" (default: '')
   - "panel_content" (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

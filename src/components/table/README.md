@@ -14,7 +14,9 @@ npm install --save @ecl/table
 - **"zebra"** (boolean) (default: false)
 - **"sortable"** (boolean) (default: false)
 - **"caption"** (string) (default: ''): optional caption for the table
-- **"label_sort"** (string) (default: ''): label used for sorting buttons (screen reader only)
+- **"label_sort_ascending"** (string) (default: ''): label used for sorting ascending (screen reader only)
+- **"label_sort_descending"** (string) (default: ''): label used for sorting descending (screen reader only)
+- **"label_sort_default"** (string) (default: ''): label used for sorting default (screen reader only)
 - **"headers"** (array) (default: [])
   - "label" (string or array of string)
   - "colspan" (string) (default: ''),

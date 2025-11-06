@@ -203,7 +203,7 @@
         >{{ _optional_text }}</span>
       {%- endif -%}
 
-      {%- if _label_tag == 'legend' -%}
+      {%- if _label_tag == 'legend' or _input.input_type == 'datepicker' -%}
         {%- if _helper_text is not empty -%}
           <div class="ecl-help-block--hidden">{{ _helper_text }}</div>
         {%- endif -%}
@@ -220,7 +220,7 @@
       {% if _id %}
         id="{{ _id }}-helper"
       {% endif %}
-      {% if _label_tag == 'legend' %}
+      {% if _label_tag == 'legend' or _input.input_type == 'datepicker' %}
         aria-hidden="true"
       {% endif %}
     >
@@ -279,7 +279,7 @@
       {% if _id %}
         id="{{ _id }}-invalid"
       {% endif %}
-      {% if _label_tag == 'legend' %}
+      {% if _label_tag == 'legend' or _input.input_type == 'datepicker' %}
         aria-hidden="true"
       {% endif %}
     >
