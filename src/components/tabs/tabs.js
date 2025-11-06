@@ -390,6 +390,7 @@ export class Tabs {
    * Hide and show content when clicking on a tab.
    */
   handleClickOnTabs(e) {
+    let isVisibleTab = false;
     const tabUrl = new URL(e.target.href);
     const tabId = tabUrl.hash ? tabUrl.hash.slice(1) : null;
     // We only handle hashes
@@ -410,6 +411,11 @@ export class Tabs {
       } else {
         tab.link.classList.add(this.activeSelector);
         tab.link.setAttribute('aria-selected', 'true');
+        if (
+          !tab.link.closest('div').classList.contains('ecl-tabs__item--hidden')
+        ) {
+          isVisibleTab = true;
+        }
       }
     });
 
@@ -429,8 +435,10 @@ export class Tabs {
         } else {
           dropdownLink.classList.add(this.activeSelector);
           dropdownLink.setAttribute('aria-selected', 'true');
-          this.moreButtonActive = true;
-          this.moreButton.classList.add('ecl-tabs__toggle--active');
+          if (!isVisibleTab) {
+            this.moreButtonActive = true;
+            this.moreButton.classList.add('ecl-tabs__toggle--active');
+          }
         }
       });
     }
