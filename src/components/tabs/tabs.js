@@ -200,6 +200,7 @@ export class Tabs {
       if (activeTab) {
         activeTab.link.classList.add(this.activeSelector);
         activeTab.link.setAttribute('aria-selected', 'true');
+        history.replaceState(null, '', `#${activeTab.id}`);
       }
 
       this.tabs.forEach((t) => {
@@ -415,6 +416,7 @@ export class Tabs {
 
     e.target.classList.add(this.activeSelector);
     e.target.setAttribute('aria-selected', 'true');
+    history.replaceState(null, '', `#${tabId}`);
   }
 
   /**
