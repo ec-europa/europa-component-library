@@ -191,21 +191,71 @@ export class Tabs {
         }
       });
 
-      const activeTab =
-        this.tabs.find((t) => t.link.classList.contains(this.activeSelector)) ||
-        this.tabs[0];
+      const currentHash = window.location.hash.slice(1);
+      let activeTab = null;
+      const hasInitialHash = !!currentHash;
 
-      if (activeTab) {
-        activeTab.link.classList.add(this.activeSelector);
-        activeTab.link.setAttribute('aria-selected', 'true');
-        history.replaceState(null, '', `#${activeTab.id}`);
+      if (hasInitialHash) {
+        activeTab = this.tabs.find((t) => t.id === currentHash);
       }
 
-      this.tabs.forEach((t) => {
-        if (t.content) {
-          t.content.style.display = t === activeTab ? 'block' : 'none';
+      if (!activeTab) {
+        activeTab = this.tabs.find((t) =>
+          t.link.classList.contains(this.activeSelector),
+        );
+      }
+
+      if (!activeTab) {
+        activeTab = this.tabs[0];
+      }
+
+      if (activeTab) {
+        let isVisibleTab = false;
+
+        this.tabs.forEach((t) => {
+          const isActive = t === activeTab;
+          if (isActive) {
+            isVisibleTab = true;
+          }
+          t.link.classList.toggle(this.activeSelector, isActive);
+          t.link.setAttribute('aria-selected', isActive ? 'true' : 'false');
+
+          if (t.content) {
+            t.content.style.display = isActive ? 'block' : 'none';
+          }
+        });
+
+        if (this.moreButton) {
+          this.dropdownItems.forEach((item) => {
+            const dropdownLink = item.querySelector('a');
+            const dropdownUrl = new URL(dropdownLink.href);
+            const dropdownId = dropdownUrl.hash?.slice(1);
+            const isActive = dropdownId === activeTab.id;
+
+            dropdownLink.classList.toggle(this.activeSelector, isActive);
+            dropdownLink.setAttribute(
+              'aria-selected',
+              isActive ? 'true' : 'false',
+            );
+
+            if (isActive && !isVisibleTab) {
+              this.moreButtonActive = true;
+              this.moreButton.classList.add('ecl-tabs__toggle--active');
+            }
+          });
         }
-      });
+
+        if (!hasInitialHash) {
+          history.replaceState(null, '', `#${activeTab.id}`);
+        } else {
+          requestAnimationFrame(() => {
+            activeTab.content?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          });
+        }
+      }
     }
 
     if (this.attachClickListener && this.btnNext) {
