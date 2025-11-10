@@ -6,6 +6,7 @@
   - "item" (object)
     - "label" (string) Label of the menu link
     - "external" (boolean) External link
+    - "one_level_only" (boolean) (default: false)
     - "promotional" (boolean) (default: false) Promotional menu item, styles can be custommized defining:
         --ecl-mega-menu-item-promotional-bg
         --ecl-mega-menu-item-promotional-hover-bg
@@ -62,6 +63,7 @@
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _featured = _item.featured|default({}) %}
 {% set _info = _item.info|default({}) %}
+{% set _one_level_only = _item.one_level_only|default(false) %}
 {% set _promotional = _item.promotional|default(false) %}
 {% set _see_all = see_all|default(false) %}
 {% set _sublist_class = 'ecl-mega-menu__sublist' %}
@@ -82,6 +84,10 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup="true"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
+{% endif %}
+
+{% if _one_level_only %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--one-level-only' %}
 {% endif %}
 
 {% if _item.level|default(0) < 2 and _featured is not empty %}

@@ -119,8 +119,59 @@ module.exports = {
       ],
     },
     {
+      label: 'About the European Union',
+      path: exampleLink,
+      one_level_only: true,
+      info: {
+        title: 'About the European Union',
+        content:
+          'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+          },
+        },
+      },
+      featured: {
+        items: [
+          {
+            picture: {
+              img: {
+                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                alt: 'Jean Monnet banner',
+              },
+            },
+          },
+          {
+            label: 'Featured link 1',
+            path: exampleLink,
+            extra_classes: 'featrured-link-extra-class',
+            description:
+              'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            external: true,
+            sr_external: 'this is an external link',
+            extra_attributes: [
+              { name: 'an-extra-attribute-for-the-featured-link' },
+            ],
+          },
+        ],
+      },
+      children: [
+        { label: 'Item 3.1', path: exampleLink },
+        { label: 'Item 3.2', path: exampleLink },
+        { label: 'Item 3.3', path: exampleLink },
+        { label: 'Item 3.4', path: exampleLink },
+        { label: 'Item 3.5', path: exampleLink },
+        { label: 'Item 3.6', path: exampleLink },
+        { label: 'Item 3.7', path: exampleLink },
+        { label: 'Item 3.8', path: exampleLink },
+        { label: 'Item 3.9', path: exampleLink },
+      ],
+    },
+    {
       label: 'About the European Commission',
       path: exampleLink,
+      one_level_only: true,
       info: {
         title: 'About the European Commission',
         content:
