@@ -269,12 +269,6 @@ const getArgTypes = (variant) => {
 };
 
 const prepareData = (data, args) => {
-  data.expandable = {
-    toggle_label: args.toggle_label,
-    header_content: args.header_content,
-    panel_content: args.panel_content,
-  };
-
   const clone = JSON.parse(JSON.stringify(data));
 
   if (!args.show_description) {
@@ -311,19 +305,15 @@ const prepareData = (data, args) => {
   } else if (args.show_thumbnail && !clone.show_thumbnail) {
     clone.picture_thumbnail = demoContent.picture_thumbnail;
   }
-  if (!args.show_page_header_expandable) {
-    delete clone.expandable;
-  } else if (
-    args.show_page_header_expandable &&
-    !clone.show_page_header_expandable
-  ) {
-    clone.expandable = demoContent.expandable;
-  }
 
-  if (!args.expandable && clone.expandable) {
-    clone.expandable.panel_content = '';
-  } else if (args.expandable && !clone.expandable.lists) {
-    clone.expandable.panel_content = demoContent.expandable.panel_content;
+  if (args.show_page_header_expandable) {
+    clone.expandable = {
+      toggle_label: args.toggle_label,
+      header_content: args.header_content,
+      panel_content: args.panel_content,
+    };
+  } else {
+    delete clone.expandable;
   }
 
   clone.title = args.title;
