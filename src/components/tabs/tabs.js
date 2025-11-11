@@ -274,7 +274,14 @@ export class Tabs {
       window.addEventListener('resize', this.handleResize);
     }
 
-    this.handleResize();
+    requestAnimationFrame(() => this.handleResize());
+
+    // Add a second call to handleResize if needed.
+    window.addEventListener('load', () => {
+      if (this.list.getBoundingClientRect().width === 0) {
+        this.handleResize();
+      }
+    });
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -550,7 +557,8 @@ export class Tabs {
       // Hide items that won't fit in the list
       let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
       const hiddenItems = [];
-      const listWidth = this.list.getBoundingClientRect().width;
+      const listWidth =
+        this.list.getBoundingClientRect().width || this.list.offsetWidth;
       this.moreButtonActive = false;
       this.listItems.forEach((item, i) => {
         item.classList.remove('ecl-tabs__item--hidden');
