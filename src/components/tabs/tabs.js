@@ -259,10 +259,13 @@ export class Tabs {
         } else {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-              activeTab.content?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-              });
+              const content = activeTab.content;
+              if (content && content.offsetParent !== null) {
+                activeTab.content?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+              }
             });
           });
         }
