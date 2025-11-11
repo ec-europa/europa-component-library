@@ -148,8 +148,12 @@ export class Tabs {
         if (clone.id) {
           clone.setAttribute('data-id', clone.id);
           clone.removeAttribute('id');
+        }
+
+        if (clone.hasAttribute('aria-controls')) {
           clone.removeAttribute('aria-controls');
         }
+
         clone.addEventListener('click', this.handleClickOnTabs);
         this.dropdownList.appendChild(clone);
       });
