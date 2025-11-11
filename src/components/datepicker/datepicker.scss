@@ -213,10 +213,12 @@ duet-date-picker {
     display: flex;
     min-width: 32px;
     min-height: 32px;
+    height: 32px;
+    width: 32px;
     padding: 0;
 
     &:hover {
-      background-color: var(--cm-surface-grey-low-0, var(--c-p-20));
+      background-color: var(--cm-surface-grey-low-0, #fff);
       border-color: var(--cm-border-brand, var(--c-d));
       color: var(--cm-on-surface-brand, var(--c-d));
     }
@@ -226,6 +228,7 @@ duet-date-picker {
       color: var(--duet-color-text);
       outline-color: var(--cm-on-surface-primary, var(--c-p));
       outline-offset: -2px;
+      outline-width: 2px;
     }
 
     /* stylelint-disable-next-line no-descending-specificity */
@@ -254,6 +257,8 @@ duet-date-picker {
       min-height: 1rem;
       height: 1rem;
       width: 1rem;
+      position: relative;
+      z-index: 5;
     }
   }
 
@@ -325,6 +330,17 @@ duet-date-picker {
         font-weight: map.get($datepicker, 'picker', 'day-hover-weight');
       }
 
+      &:focus-visible:not(.is-today, [aria-pressed='true']) {
+        background: #fff;
+        border: none;
+        color: var(--cm-on-surface-brand, var(--c-d));
+        outline-color: var(--cm-on-surface-primary, var(--c-p));
+        outline-width: 2px;
+        padding: 0;
+        outline-offset: -2px;
+      }
+
+      /* stylelint-disable-next-line no-descending-specificity */
       &:not(.is-month) {
         background-color: map.get(
           $datepicker,
@@ -342,17 +358,17 @@ duet-date-picker {
           );
           color: map.get($datepicker, 'picker', 'theme-color');
         }
-      }
 
-      &:focus-visible:not(.is-today, [aria-pressed='true']) {
-        border: none;
-        color: var(--cm-on-surface-brand, var(--c-d));
-        outline-offset: -2px;
+        &:focus-visible {
+          color: map.get($datepicker, 'picker', 'day-outside-color');
+        }
       }
 
       &.is-today {
+        background-color: #fff;
         color: map.get($datepicker, 'picker', 'day-today-color');
         font-weight: map.get($datepicker, 'picker', 'day-today-weight');
+        padding: 0;
         position: relative;
 
         &::before {
@@ -368,14 +384,6 @@ duet-date-picker {
           width: 20px;
         }
 
-        &:focus-visible {
-          color: var(--cm-on-surface-inverted, #fff);
-
-          &::before {
-            background: var(--cm-on-surface-inverted, #fff);
-          }
-        }
-
         &:hover {
           color: map.get($datepicker, 'picker', 'theme-color');
 
@@ -383,9 +391,20 @@ duet-date-picker {
             background-color: map.get($datepicker, 'picker', 'theme-color');
           }
         }
+
+        &:focus-visible {
+          outline-color: var(--cm-on-surface-primary, var(--c-p));
+          outline-offset: -2px;
+          outline-width: 2px;
+          color: var(--cm-on-surface-primary, var(--c-p));
+
+          &::before {
+            background-color: var(--cm-on-surface-primary, var(--c-p));
+          }
+        }
       }
 
-      &[aria-pressed='true']:not(:hover) {
+      &[aria-pressed='true'] {
         background-color: map.get(
           $datepicker,
           'picker',
@@ -395,6 +414,14 @@ duet-date-picker {
         box-shadow: none;
         color: var(--cm-on-surface-inverted, #fff);
         font-weight: map.get($datepicker, 'picker', 'day-selected-weight');
+
+        &:focus-visible {
+          padding: 0;
+          outline-color: var(--cm-on-surface-primary, var(--c-p));
+          outline-offset: 2px;
+          outline-style: solid;
+          outline-width: 2px;
+        }
 
         &::before {
           background-color: var(--cm-surface-inverted, #fff);
