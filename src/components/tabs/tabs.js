@@ -145,9 +145,9 @@ export class Tabs {
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
         const clone = item.cloneNode(true);
-        const cloneLink = item.querySelector('a');
+        const cloneLink = clone.querySelector('a');
         if (cloneLink && cloneLink.id) {
-          cloneLink.setAttribute('data-id', clone.id);
+          cloneLink.setAttribute('data-id', cloneLink.id);
           cloneLink.removeAttribute('id');
         }
 
