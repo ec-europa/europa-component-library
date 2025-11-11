@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -52,22 +53,21 @@ $news-ticker: null !default;
 
 .ecl-news-ticker__slides {
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($news-ticker, 'font');
   list-style: none;
   margin: 0;
   padding: 0;
   transform: translate3d(0, 0, 0);
   transition-duration: 0s;
+
+  @include mixins.responsive-font(map.get($news-ticker, 'font'));
 }
 
 .ecl-news-ticker__slide {
   align-items: center;
   display: flex;
   flex-direction: row;
-  line-height: map.get($theme, 'line-height', 'xs');
 
   .ecl-link {
-    line-height: map.get($theme, 'line-height', 'xs');
     padding-inline-start: var(--s-2xs);
     padding-inline-end: var(--s-2xs);
 
@@ -116,8 +116,6 @@ $news-ticker: null !default;
   align-items: center;
   align-self: stretch;
   display: flex;
-  font: map.get($news-ticker, 'counter', 'font');
-  font-weight: map.get($news-ticker, 'counter', 'font-weight');
   flex-grow: 1;
   justify-content: center;
   order: 1;
@@ -126,6 +124,8 @@ $news-ticker: null !default;
   padding: 0 var(--s-l);
   text-align: end;
   white-space: pre;
+
+  @include mixins.responsive-font(map.get($news-ticker, 'counter', 'font'));
 }
 
 /* stylelint-disable-next-line order/order */
