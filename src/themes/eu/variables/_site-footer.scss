@@ -7,4 +7,18 @@ $site-footer: (
   shadow: var(--sh-2),
   separator-color: var(--c-p-20),
   column-gap: map.get($grid-gutter-width, 'xl'),
+  co-owner: (
+    background: var(--c-p-10),
+    padding-block: var(--s-l),
+    title-font: var(--f-m),
+    title-font-weight: map.get($font-weight, 'bold'),
+    title-margin: var(--s-xs),
+    item-margin-mobile: var(--s-xs),
+    item-margin-desktop: var(--s-s),
+    item-padding-desktop: var(--s-s),
+    item-separator: 1px solid var(--c-d-140),
+    link-font: var(--f-m),
+    link-color: var(--c-p),
+    link-color-hover: var(--c-p),
+  ),
 );
