@@ -261,7 +261,7 @@ export class Tabs {
             requestAnimationFrame(() => {
               const content = activeTab.content;
               if (content && content.offsetParent !== null) {
-                activeTab.content?.scrollIntoView({
+                content.scrollIntoView({
                   behavior: 'smooth',
                   block: 'start',
                 });
