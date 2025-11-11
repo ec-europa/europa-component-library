@@ -251,9 +251,7 @@ export class Tabs {
           });
         }
 
-        if (!hasInitialHash) {
-          history.replaceState(null, '', `#${activeTab.id}`);
-        } else {
+        if (hasInitialHash) {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
               const content = activeTab.content;
