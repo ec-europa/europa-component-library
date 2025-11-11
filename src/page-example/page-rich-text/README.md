@@ -1,7 +1,7 @@
-# ECL Example page - Home
+# ECL Example page - Rich text
 
-npm package: `@ecl/page-home`
+npm package: `@ecl/page-rich-text`
 
 ```shell
-npm install --save @ecl/page-home
+npm install --save @ecl/page-rich-text
 ```

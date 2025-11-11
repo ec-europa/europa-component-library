@@ -229,22 +229,10 @@
 }
 
 // Remove some spacing
-.ecl p:first-child,
-.ecl h1:first-child,
-.ecl h2:first-child,
-.ecl h3:first-child,
-.ecl h4:first-child,
-.ecl h5:first-child,
-.ecl h6:first-child {
+.ecl :is(h1, h2, h3, h4, h5, h6, p):first-child {
   margin-block-start: 0;
 }
 
-.ecl p:last-child,
-.ecl h1:last-child,
-.ecl h2:last-child,
-.ecl h3:last-child,
-.ecl h4:last-child,
-.ecl h5:last-child,
-.ecl h6:last-child {
+.ecl :is(h1, h2, h3, h4, h5, h6, p):last-child {
   margin-block-end: 0;
 }
