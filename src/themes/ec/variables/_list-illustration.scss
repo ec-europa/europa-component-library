@@ -13,21 +13,27 @@ $list-illustration: (
   item-padding-zebra-desktop: var(--s-5xl),
   item-margin-mobile: var(--s-6xl),
   counter: (
-    font-mobile: var(--f-xs),
-    font-tablet: var(--f-m),
-    font-desktop: var(--f-l),
+    font: (
+      mobile-xs: var(--f-xs),
+      tablet: var(--f-m),
+      desktop: var(--f-l),
+    ),
+    font-weight: map.get($font-weight, 'bold'),
   ),
   value: (
     color: var(--cm-on-surface-brand),
-    font-mobile-m: var(--f-2xl),
-    font-mobile-l: var(--f-5xl),
-    font-desktop-m: var(--f-3xl),
-    font-desktop-l: var(--f-6xl),
-    font-weight: map.get($font-weight, 'regular'),
+    font-m: (
+      mobile-xs: var(--f-2xl),
+      tablet: var(--f-3xl),
+    ),
+    font-l: (
+      mobile-xs: var(--f-5xl),
+      tablet: var(--f-6xl),
+    ),
   ),
   title: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-2xl),
+    font: 'heading3',
     font-weight: map.get($font-weight, 'light'),
     margin: 0,
     number-list-font: 'heading6',
