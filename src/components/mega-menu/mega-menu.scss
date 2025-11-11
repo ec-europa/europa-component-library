@@ -1687,6 +1687,11 @@ $mega-menu: null !default;
         .ecl-mega-menu__mega {
           left: 22rem;
           width: 20.93rem;
+
+          &.ecl-mega-menu__mega--no-info {
+            left: 0;
+            width: 39.805rem;
+          }
         }
       }
     }
@@ -1705,12 +1710,30 @@ $mega-menu: null !default;
           display: block;
         }
 
+        // Without info
+        &.ecl-mega-menu__mega--no-info {
+          width: 100%;
+
+          .ecl-mega-menu__sublist {
+            column-count: 4;
+          }
+        }
+
         // with featued panel
         &.ecl-mega-menu__mega--has-featured {
           width: calc(100% - 22rem - 18.875rem - calc(var(--s-3xl)));
 
           .ecl-mega-menu__sublist {
             column-count: 2;
+          }
+
+          // With featured & without info
+          &.ecl-mega-menu__mega--no-info {
+            width: calc(100% - 18.875rem - calc(var(--s-3xl)));
+
+            .ecl-mega-menu__sublist {
+              column-count: 3;
+            }
           }
         }
       }
@@ -1726,6 +1749,10 @@ $mega-menu: null !default;
       > .ecl-container
       > .ecl-mega-menu__mega {
       right: 20.93rem;
+
+      &.ecl-mega-menu__mega--no-info {
+        right: 0;
+      }
     }
   }
 }
