@@ -249,9 +249,11 @@ export class Tabs {
           history.replaceState(null, '', `#${activeTab.id}`);
         } else {
           requestAnimationFrame(() => {
-            activeTab.content?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
+            requestAnimationFrame(() => {
+              activeTab.content?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
             });
           });
         }
@@ -274,14 +276,18 @@ export class Tabs {
       window.addEventListener('resize', this.handleResize);
     }
 
-    requestAnimationFrame(() => this.handleResize());
+    // Prevent all tabs from collapsing if the list width is 0
+    const ensureTabsReady = (callback, retries = 10) => {
+      const hasSize = this.list && this.list.offsetWidth > 0;
 
-    // Add a second call to handleResize if needed.
-    window.addEventListener('load', () => {
-      if (this.list.getBoundingClientRect().width === 0) {
-        this.handleResize();
+      if (hasSize) {
+        callback();
+      } else if (retries > 0) {
+        requestAnimationFrame(() => ensureTabsReady(callback, retries - 1));
       }
-    });
+    };
+
+    requestAnimationFrame(() => ensureTabsReady(() => this.handleResize()));
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
