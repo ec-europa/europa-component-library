@@ -145,6 +145,11 @@ export class Tabs {
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
         const clone = item.cloneNode(true);
+        if (clone.id) {
+          clone.setAttribute('data-id', clone.id);
+          clone.removeAttribute('id');
+          clone.removeAttribute('aria-controls');
+        }
         clone.addEventListener('click', this.handleClickOnTabs);
         this.dropdownList.appendChild(clone);
       });
@@ -276,7 +281,7 @@ export class Tabs {
       window.addEventListener('resize', this.handleResize);
     }
 
-    // Prevent all tabs from collapsing if the list width is 0
+    // Tries ten times to get a reliable width for the list.
     const ensureTabsReady = (callback, retries = 10) => {
       const hasSize = this.list && this.list.offsetWidth > 0;
 
@@ -475,7 +480,9 @@ export class Tabs {
         tab.link.classList.add(this.activeSelector);
         tab.link.setAttribute('aria-selected', 'true');
         if (
-          !tab.link.closest('div').classList.contains('ecl-tabs__item--hidden')
+          !tab.link
+            .closest('.ecl-tabs__item')
+            .classList.contains('ecl-tabs__item--hidden')
         ) {
           isVisibleTab = true;
         }
