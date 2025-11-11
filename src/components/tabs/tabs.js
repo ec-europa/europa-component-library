@@ -145,13 +145,10 @@ export class Tabs {
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
         const clone = item.cloneNode(true);
-        if (clone.id) {
-          clone.setAttribute('data-id', clone.id);
-          clone.removeAttribute('id');
-        }
-
-        if (clone.hasAttribute('aria-controls')) {
-          clone.removeAttribute('aria-controls');
+        const cloneLink = item.querySelector('a');
+        if (cloneLink && cloneLink.id) {
+          cloneLink.setAttribute('data-id', clone.id);
+          cloneLink.removeAttribute('id');
         }
 
         clone.addEventListener('click', this.handleClickOnTabs);
