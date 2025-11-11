@@ -82,10 +82,12 @@ duet-date-picker {
   background: transparent;
   color: map.get($text-input, 'color-input');
   border: none;
+  border-radius: 4px;
   box-shadow: none;
   min-height: auto;
   margin: -1px;
   height: map.get($datepicker, 'picker', 'toggle-height-mobile');
+  width: map.get($datepicker, 'picker', 'toggle-height-mobile');
 
   &:hover {
     background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
