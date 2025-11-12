@@ -20,12 +20,6 @@ $button: null !default;
   display: inline-block;
   margin: 0;
   text-decoration: none;
-
-  &[disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-    text-decoration: none;
-  }
 }
 
 .ecl-button__container {
@@ -85,20 +79,24 @@ $button: null !default;
   }
 }
 
-.ecl-button:not(.ecl-button--icon-only) {
+@mixin icon-spacing($size) {
   .ecl-button__icon ~ .ecl-button__label,
   .ecl-button__icon-container ~ .ecl-button__label,
   .ecl-button__label ~ .ecl-button__icon,
   .ecl-button__label ~ .ecl-button__icon-container {
-    margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    margin-inline-start: map.get($button, $size, 'icon-spacing');
+  }
+}
 
-    .ecl-button--s & {
-      margin-inline-start: map.get($button, 'small', 'icon-spacing');
-    }
+.ecl-button:not(.ecl-button--icon-only) {
+  @include icon-spacing('large');
 
-    .ecl-button--m & {
-      margin-inline-start: map.get($button, 'medium', 'icon-spacing');
-    }
+  &.ecl-button--s {
+    @include icon-spacing('small');
+  }
+
+  &.ecl-button--m {
+    @include icon-spacing('medium');
   }
 }
 
@@ -150,6 +148,14 @@ $button: null !default;
       );
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
+  }
+
+  &[disabled] {
+    background-color: map.get($button, #{$variant}, 'background-disabled');
+    border-color: map.get($button, #{$variant}, 'border-color-disabled');
+    color: map.get($button, #{$variant}, 'color-disabled');
+    cursor: not-allowed;
+    text-decoration: none;
   }
 }
 // stylelint-enable nesting-selector-no-missing-scoping-root
