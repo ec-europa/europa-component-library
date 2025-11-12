@@ -709,15 +709,14 @@ export class MegaMenu {
         }
         if (infoPanel && this.isLarge) {
           heights.push(infoPanelHeight);
-        } else if (infoPanel && this.isDesktop) {
-          itemsHeight = infoPanelHeight;
-          subItemsHeight = infoPanelHeight;
-          featuredHeight = infoPanelHeight;
-          featuredFirstHeight = infoPanelHeight;
         }
 
         if (mainPanel) {
           mainPanel.style.height = '';
+          const seeAll = queryOne('.ecl-mega-menu__see-all', mainPanel);
+          if (seeAll) {
+            seeAll.style.top = 0;
+          }
           const mainTop = mainPanel.getBoundingClientRect().top;
           const list = queryOne('.ecl-mega-menu__sublist', mainPanel);
           if (!list) {
@@ -737,12 +736,23 @@ export class MegaMenu {
             }
           } else {
             const items = list.children;
-            if (items.length > 0) {
-              Array.from(items).forEach((item) => {
-                itemsHeight += item.getBoundingClientRect().height;
-              });
-              heights.push(itemsHeight);
+            if (
+              !list
+                .closest('.ecl-mega-menu__item')
+                .classList.contains('ecl-mega-menu__item--one-level-only')
+            ) {
+              if (items.length > 0) {
+                Array.from(items).forEach((item) => {
+                  itemsHeight += item.getBoundingClientRect().height;
+                });
+              }
+            } else {
+              if (items.length > 0) {
+                itemsHeight = list.offsetHeight;
+              }
             }
+
+            heights.push(itemsHeight);
           }
           featuredPanelFirst = queryOne(
             ':scope > .ecl-mega-menu__featured',
@@ -753,6 +763,7 @@ export class MegaMenu {
             Array.from(featuredPanelFirst.firstElementChild.children).forEach(
               (child) => {
                 const elStyle = window.getComputedStyle(child);
+
                 const marginHeight =
                   parseFloat(elStyle.marginTop) +
                   parseFloat(elStyle.marginBottom);
@@ -795,62 +806,64 @@ export class MegaMenu {
 
         const maxHeight = Math.max(...heights);
         const containerBounding = this.inner.getBoundingClientRect();
-        const containerBottom = containerBounding.bottom;
+        let containerBottom = containerBounding.bottom;
+        if (mainPanel && infoPanel && this.isDesktop && !this.isLarge) {
+          containerBottom += infoPanelHeight;
+        }
+
+        const availableHeight = window.innerHeight - containerBottom;
         // By requirements, limit the height to the 70% of the available space.
-        const availableHeight = (window.innerHeight - containerBottom) * 0.7;
-        const minHeight =
-          parseFloat(
-            window.getComputedStyle(queryOne('.ecl-mega-menu__wrapper'))
-              .minHeight,
-          ) || 0;
+        const allowedHeight = availableHeight * 0.7;
+        const wrapper = queryOne('.ecl-mega-menu__wrapper', menuItem);
+        const wrapperTop =
+          parseFloat(getComputedStyle(wrapper).paddingTop) || 0;
 
         if (maxHeight > availableHeight) {
-          height = availableHeight;
+          height = availableHeight - wrapperTop;
         } else {
-          height = maxHeight;
+          height = maxHeight > allowedHeight ? allowedHeight : maxHeight;
         }
 
-        if (height < minHeight) {
-          height = minHeight;
-        }
-
-        const wrapper = queryOne('.ecl-mega-menu__wrapper', menuItem);
         if (wrapper) {
-          wrapper.style.height = `${height}px`;
+          wrapper.style.height =
+            infoPanel && !this.isLarge
+              ? `${infoPanelHeight + height}px`
+              : `${height}px`;
         }
 
-        if (mainPanel && this.isLarge) {
+        if (mainPanel) {
           mainPanel.style.height = `${height}px`;
-        } else if (mainPanel && infoPanel && this.isDesktop) {
-          mainPanel.style.height = `${height - infoPanelHeight}px`;
+          const seeAll = queryOne('.ecl-mega-menu__see-all', mainPanel);
+          const firstOnly = mainPanel
+            .closest('li')
+            .classList.contains('ecl-mega-menu__item--one-level-only');
+          if (seeAll && firstOnly) {
+            const remaining =
+              mainPanel.offsetHeight - (seeAll.offsetTop + seeAll.offsetHeight);
+            if (remaining > 0) {
+              seeAll.style.top = `${remaining}px`;
+            }
+          }
         }
         if (infoPanel && this.isLarge) {
           infoPanel.style.height = `${height}px`;
         }
-        if (secondPanel && this.isLarge) {
+        if (secondPanel) {
           secondPanel.style.height = `${height}px`;
-        } else if (secondPanel && this.isDesktop) {
-          secondPanel.style.height = `${height - infoPanelHeight}px`;
+          secondPanel.style.opacity = 1;
         }
-        if (featuredPanelFirst && this.isLarge) {
+        if (featuredPanelFirst) {
           featuredPanelFirst.style.height = `${height}px`;
-        } else if (featuredPanelFirst && this.isDesktop) {
-          featuredPanelFirst.style.height = `${height - infoPanelHeight}px`;
         }
-        if (featuredPanel && this.isLarge) {
+        if (featuredPanel) {
           featuredPanel.style.height = `${height}px`;
-        } else if (featuredPanel && this.isDesktop) {
-          featuredPanel.style.height = `${height - infoPanelHeight}px`;
         }
-      }
-      if (mainPanel && this.isDesktop) {
-        mainPanel.style.opacity = 1;
-      }
-      if (infoPanel && this.isDesktop) {
-        infoPanel.style.opacity = 1;
-      }
-      if (secondPanel && this.isDesktop) {
-        secondPanel.style.opacity = 1;
+        if (mainPanel) {
+          mainPanel.style.opacity = 1;
+        }
+        if (infoPanel) {
+          infoPanel.style.opacity = 1;
+        }
       }
     }, 100);
   }
