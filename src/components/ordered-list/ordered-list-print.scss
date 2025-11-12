@@ -16,8 +16,12 @@ $list-print: null !default;
   font: map.get($theme, 'font-print', 'm');
   list-style-position: outside;
   margin: 0;
-  padding: 0;
   padding-inline-start: map.get($list-print, 'ordered', 'padding-start');
+
+  // Remove spacing in some situation
+  .ecl-featured-item__item & {
+    padding-inline-start: 0;
+  }
 }
 
 .ecl-ordered-list__item,
