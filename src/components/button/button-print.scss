@@ -162,6 +162,10 @@ $button: null !default;
     @include button(primary-highlight);
   }
 
+  &.ecl-button--neutral {
+    @include button(primary-neutral);
+  }
+
   &.ecl-button--inverted {
     @include button(primary-inverted);
   }
