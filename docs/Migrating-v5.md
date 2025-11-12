@@ -22,8 +22,10 @@ Typography has also changed quite drastically in EC.
 
 ### [EC] Color scales
 
-Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
-Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
+Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-25` to `[color]-950`. Color values have also been changed.
+Dark and neutral colors have been merged into a single palette: `neutral`.
+
+A few palettes are also provided for grey colors: `grey`, `grey-alpha` and ` monochrome`.
 
 ### [EC] Color modes
 
