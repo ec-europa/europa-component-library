@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
 import demoContent from './demo/data';
@@ -77,8 +78,11 @@ const getArgs = (data, variant) => {
     show_meta: true,
     show_page_header_expandable: false,
     hide_title: false,
-    font_size: 'm',
   };
+
+  if (getSystem() === 'ec') {
+    args.font_size = 'm';
+  }
 
   if (data.title) {
     args.title = data.title;
@@ -184,27 +188,29 @@ const getArgTypes = (variant) => {
     },
   };
 
-  argTypes.font_size = {
-    name: 'font size',
-    type: 'select',
-    description: 'Change title font size',
-    options: ['m', 'l'],
-    control: {
-      labels: {
-        m: 'medium',
-        l: 'large',
+  if (getSystem() === 'ec') {
+    argTypes.font_size = {
+      name: 'font size',
+      type: 'select',
+      description: 'Change title font size',
+      options: ['m', 'l'],
+      control: {
+        labels: {
+          m: 'medium',
+          l: 'large',
+        },
       },
-    },
-    mapping: {
-      medium: 'm',
-      large: 'l',
-    },
-    table: {
-      type: 'string',
-      defaultValue: { summary: 'm' },
-      category: 'Display',
-    },
-  };
+      mapping: {
+        medium: 'm',
+        large: 'l',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'm' },
+        category: 'Display',
+      },
+    };
+  }
 
   argTypes.description = {
     type: 'string',
@@ -318,7 +324,9 @@ const prepareData = (data, args) => {
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
-  clone.font_size = args.font_size;
+  if (getSystem() === 'ec') {
+    clone.font_size = args.font_size;
+  }
 
   correctPaths(clone);
 
