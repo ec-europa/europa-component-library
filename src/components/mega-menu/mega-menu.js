@@ -810,33 +810,28 @@ export class MegaMenu {
         if (mainPanel && infoPanel && this.isDesktop && !this.isLarge) {
           containerBottom += infoPanelHeight;
         }
+
+        const availableHeight = window.innerHeight - containerBottom;
         // By requirements, limit the height to the 70% of the available space.
-        const availableHeight = (window.innerHeight - containerBottom) * 0.7;
-        const minHeight =
-          parseFloat(
-            window.getComputedStyle(queryOne('.ecl-mega-menu__wrapper'))
-              .minHeight,
-          ) || 0;
+        const allowedHeight = availableHeight * 0.7;
+        const wrapper = queryOne('.ecl-mega-menu__wrapper', menuItem);
+        const wrapperTop =
+          parseFloat(getComputedStyle(wrapper).paddingTop) || 0;
 
         if (maxHeight > availableHeight) {
-          height = availableHeight;
+          height = availableHeight - wrapperTop;
         } else {
-          height = maxHeight;
+          height = maxHeight > allowedHeight ? allowedHeight : maxHeight;
         }
 
-        if (height < minHeight) {
-          height = minHeight;
-        }
-
-        const wrapper = queryOne('.ecl-mega-menu__wrapper', menuItem);
         if (wrapper) {
           wrapper.style.height =
-            infoPanel && this.isDesktop && !this.isLarge
+            infoPanel && !this.isLarge
               ? `${infoPanelHeight + height}px`
               : `${height}px`;
         }
 
-        if (mainPanel && this.isDesktop) {
+        if (mainPanel) {
           mainPanel.style.height = `${height}px`;
           const seeAll = queryOne('.ecl-mega-menu__see-all', mainPanel);
           const firstOnly = mainPanel
@@ -853,24 +848,22 @@ export class MegaMenu {
         if (infoPanel && this.isLarge) {
           infoPanel.style.height = `${height}px`;
         }
-        if (secondPanel && this.isDesktop) {
+        if (secondPanel) {
           secondPanel.style.height = `${height}px`;
+          secondPanel.style.opacity = 1;
         }
-        if (featuredPanelFirst && this.isDesktop) {
+        if (featuredPanelFirst) {
           featuredPanelFirst.style.height = `${height}px`;
         }
-        if (featuredPanel && this.isDesktop) {
+        if (featuredPanel) {
           featuredPanel.style.height = `${height}px`;
         }
-      }
-      if (mainPanel && this.isDesktop) {
-        mainPanel.style.opacity = 1;
-      }
-      if (infoPanel && this.isDesktop) {
-        infoPanel.style.opacity = 1;
-      }
-      if (secondPanel && this.isDesktop) {
-        secondPanel.style.opacity = 1;
+        if (mainPanel) {
+          mainPanel.style.opacity = 1;
+        }
+        if (infoPanel) {
+          infoPanel.style.opacity = 1;
+        }
       }
     }, 100);
   }
