@@ -9,109 +9,137 @@ import dataHarmonised from './demo/data-harmonised--eu';
 import footer from './site-footer-eu.html.twig';
 import notes from './README.md';
 
-const getArgs = () => {
-  const args = {
-    show_contact: true,
-    show_follow: true,
-    show_relate_site: true,
-    show_logo: true,
-    show_about: true,
+const getArgs = (variant) => {
+  let args = {
+    show_co_owner: true,
   };
+
+  if (variant !== 'core') {
+    args = {
+      ...args,
+      show_contact: true,
+      show_follow: true,
+      show_relate_site: true,
+      show_logo: true,
+      show_about: true,
+    };
+  }
 
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (variant) => {
   const argTypes = {};
-  argTypes.show_contact = {
-    name: 'contact site name',
+  argTypes.show_co_owner = {
+    name: 'co-owner',
     type: { name: 'boolean' },
-    description: 'Show "Contact site name" section',
+    description: 'Show co-owner banner',
     table: {
       category: 'Optional sections',
     },
   };
 
-  argTypes.show_logo = {
-    name: 'logo',
-    type: { name: 'boolean' },
-    description: 'Show logo',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+  if (variant !== 'core') {
+    argTypes.show_contact = {
+      name: 'contact site name',
+      type: { name: 'boolean' },
+      description: 'Show "Contact site name" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.show_follow = {
-    name: 'follow us',
-    type: { name: 'boolean' },
-    description: 'Show "Follow us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+    argTypes.show_logo = {
+      name: 'logo',
+      type: { name: 'boolean' },
+      description: 'Show logo',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.show_about = {
-    name: 'about us',
-    type: { name: 'boolean' },
-    description: 'Show "About us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+    argTypes.show_follow = {
+      name: 'follow us',
+      type: { name: 'boolean' },
+      description: 'Show "Follow us" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.show_relate_site = {
-    name: 'optional links',
-    type: { name: 'boolean' },
-    description: 'Show "Optional links" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+    argTypes.show_about = {
+      name: 'about us',
+      type: { name: 'boolean' },
+      description: 'Show "About us" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
+
+    argTypes.show_relate_site = {
+      name: 'optional links',
+      type: { name: 'boolean' },
+      description: 'Show "Optional links" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
+  }
 
   return argTypes;
 };
 
-const prepareCoreData = (data) => {
+const prepareCoreData = (data, args) => {
   correctPaths(data);
-  data.rows[0][0][0].logo.src_mobile = logoEuMobile;
-  data.rows[0][0][0].logo.src_desktop = logoEuDesktop;
 
-  return data;
+  const clone = JSON.parse(JSON.stringify(data));
+  if (!args.show_co_owner) {
+    delete clone.co_owner;
+  }
+
+  clone.rows[0][0][0].logo.src_mobile = logoEuMobile;
+  clone.rows[0][0][0].logo.src_desktop = logoEuDesktop;
+
+  return clone;
 };
 
 const prepareHarmonisedData = (data, args) => {
   correctPaths(data);
 
-  const res = JSON.parse(JSON.stringify(data));
-  res.rows[1][0][0].logo.src_mobile = logoEuMobile;
-  res.rows[1][0][0].logo.src_desktop = logoEuDesktop;
-
-  if (!args.show_logo && res.rows[1][0][0].logo) {
-    delete res.rows[1][0][0].logo;
+  const clone = JSON.parse(JSON.stringify(data));
+  if (!args.show_co_owner) {
+    delete clone.co_owner;
   }
-  if (!args.show_logo && res.rows[2]) {
-    delete res.rows[2][0][0].logo;
+
+  clone.rows[1][0][0].logo.src_mobile = logoEuMobile;
+  clone.rows[1][0][0].logo.src_desktop = logoEuDesktop;
+
+  if (!args.show_logo && clone.rows[1][0][0].logo) {
+    delete clone.rows[1][0][0].logo;
+  }
+  if (!args.show_logo && clone.rows[2]) {
+    delete clone.rows[2][0][0].logo;
   }
   if (!args.show_contact) {
-    res.rows[0][1].splice(0, 1);
+    clone.rows[0][1].splice(0, 1);
   }
   if (!args.show_follow) {
-    res.rows[0][1].splice(1, 1);
+    clone.rows[0][1].splice(1, 1);
   }
   if (!args.show_about) {
-    res.rows[0][2].splice(0, 1);
+    clone.rows[0][2].splice(0, 1);
   }
   if (!args.show_relate_site) {
-    res.rows[0].splice(2, 1);
+    clone.rows[0].splice(2, 1);
   }
   if (!args.show_about && !args.show_relate_site) {
-    res.rows[0].splice(2, 1);
+    clone.rows[0].splice(2, 1);
   }
   if (!args.show_contact && !args.show_follow) {
-    res.rows[0].splice(1, 1);
+    clone.rows[0].splice(1, 1);
   }
 
-  return res;
+  return clone;
 };
 
 export default {
@@ -127,9 +155,10 @@ Core.render = async (args) => {
   return renderedCore;
 };
 Core.storyName = 'core';
+Core.args = getArgs('core');
+Core.argTypes = getArgTypes('core');
 Core.parameters = {
   notes: { markdown: notes, json: dataCore },
-  controls: { disable: true },
 };
 
 export const Harmonised = (_, { loaded: { component } }) => component;
@@ -141,6 +170,6 @@ Harmonised.render = async (args) => {
   return renderedHarmonised;
 };
 Harmonised.storyName = 'harmonised';
-Harmonised.args = getArgs();
-Harmonised.argTypes = getArgTypes();
+Harmonised.args = getArgs('harmonised');
+Harmonised.argTypes = getArgTypes('harmonised');
 Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };
