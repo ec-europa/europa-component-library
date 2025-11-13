@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -60,11 +61,12 @@ $_arrow-size: 1rem;
 .ecl-popover__content {
   background-color: var(--cm-surface-inverted, #fff);
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: var(--f-m);
   line-height: map.get($popover, 'content-line-height');
   max-height: 11rem;
   text-align: start;
   width: auto;
+
+  @include mixins.responsive-font(map.get($popover, 'content-font'));
 }
 
 .ecl-popover__close {
