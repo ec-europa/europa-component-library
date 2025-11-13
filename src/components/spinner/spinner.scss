@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -40,8 +41,9 @@ $_spinner-sizes: (
 
 .ecl-spinner__text {
   color: map.get($spinner, 'text-color');
-  font: var(--f-m);
   margin-top: var(--s-xs);
+
+  @include mixins.responsive-font(map.get($spinner, 'text-font'));
 }
 
 .ecl-spinner__circle {
