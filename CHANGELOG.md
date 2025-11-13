@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.0-alpha.20 (2025-11-13)
+
+#### :rocket: New Feature
+
+- [#4172](https://github.com/ec-europa/europa-component-library/pull/4172) feat(footer): add co-owner section - FRONT-5121 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 5.0.0-alpha.18 (2025-10-08)
 
 #### :nail_care: Enhancement
