@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -44,9 +45,10 @@ $pagination: null !default;
 .ecl-pagination {
   border-top: 1px solid map.get($pagination, 'border-color');
   color: map.get($pagination, 'text-color');
-  font: var(--f-m);
   margin: 0;
   padding: map.get($pagination, 'padding');
+
+  @include mixins.responsive-font(map.get($pagination, 'font'));
 }
 
 .ecl-pagination__list {
