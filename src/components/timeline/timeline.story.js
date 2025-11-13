@@ -15,8 +15,11 @@ const getArgs = (data) => {
     items_before: data.hide.from,
     items_after: -1 * data.hide.to,
     nb_timeline: 1,
-    title: data.items[0].title,
+    headline_label: data.headline.label,
+    headline_title: data.headline.title,
+    headline_content: data.headline.content,
     label: data.items[0].label,
+    title: data.items[0].title,
     content: data.items[0].content,
     showDummyContent: false,
   };
@@ -68,18 +71,48 @@ const getArgTypes = () => ({
       category: 'Display',
     },
   },
-  title: {
+  headline_label: {
     type: { name: 'string' },
-    description: 'Title of the timeline item',
+    description: 'Label of the timeline headline',
+    table: {
+      category: 'Headline content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+    if: { arg: 'show_headline' },
+  },
+  headline_title: {
+    type: { name: 'string' },
+    description: 'Title of the timeline headline',
+    table: {
+      category: 'Headline content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+    if: { arg: 'show_headline' },
+  },
+  headline_content: {
+    type: { name: 'string' },
+    description: 'Content of the timeline headline',
+    table: {
+      category: 'Headline content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+    if: { arg: 'show_headline' },
+  },
+  label: {
+    type: { name: 'string' },
+    description: 'Label of the timeline item',
     table: {
       category: 'First item content',
       type: { summary: 'string' },
       defaultValue: { summary: '' },
     },
   },
-  label: {
+  title: {
     type: { name: 'string' },
-    description: 'Label of the timeline item',
+    description: 'Title of the timeline item',
     table: {
       category: 'First item content',
       type: { summary: 'string' },
@@ -115,6 +148,10 @@ const prepareData = (data, args) => {
 
   if (!args.show_headline) {
     delete clone.headline;
+  } else {
+    clone.headline.title = args.headline_title;
+    clone.headline.label = args.headline_label;
+    clone.headline.content = args.headline_content;
   }
 
   clone.items[0].title = args.title;
