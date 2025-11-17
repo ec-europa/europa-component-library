@@ -17,9 +17,13 @@ $list: null !default;
   list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
   padding-inline-start: map.get($list, 'ordered', 'padding-start');
-  padding-top: var(--s-2xs);
 
   @include mixins.responsive-font(map.get($list, 'ordered', 'font'));
+
+  // Remove spacing in some situation
+  .ecl-featured-item__item & {
+    padding-inline-start: 0;
+  }
 }
 
 .ecl-ordered-list .ecl-ordered-list,

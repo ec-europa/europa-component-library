@@ -33,6 +33,7 @@ npm install --save @ecl/mega-menu
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column
   "title" (string) Title of the info panel
+  "one_level_only" (boolean) (default: false)
   "content" (string) Content of the info panel
   "link" (object) Structure for the "discover more" link, following ECL Link
   "featured" (object) (optional) {
