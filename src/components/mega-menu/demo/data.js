@@ -119,8 +119,59 @@ module.exports = {
       ],
     },
     {
-      label: 'About the European Commission',
+      label: 'About the EU',
       path: exampleLink,
+      one_level_only: true,
+      info: {
+        title: 'About the European Union',
+        content:
+          'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+          },
+        },
+      },
+      featured: {
+        items: [
+          {
+            picture: {
+              img: {
+                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                alt: 'Jean Monnet banner',
+              },
+            },
+          },
+          {
+            label: 'Featured link 1',
+            path: exampleLink,
+            extra_classes: 'featrured-link-extra-class',
+            description:
+              'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            external: true,
+            sr_external: 'this is an external link',
+            extra_attributes: [
+              { name: 'an-extra-attribute-for-the-featured-link' },
+            ],
+          },
+        ],
+      },
+      children: [
+        { label: 'Item 3.1', path: exampleLink },
+        { label: 'Item 3.2', path: exampleLink },
+        { label: 'Item 3.3', path: exampleLink },
+        { label: 'Item 3.4', path: exampleLink },
+        { label: 'Item 3.5', path: exampleLink },
+        { label: 'Item 3.6', path: exampleLink },
+        { label: 'Item 3.7', path: exampleLink },
+        { label: 'Item 3.8', path: exampleLink },
+        { label: 'Item 3.9', path: exampleLink },
+      ],
+    },
+    {
+      label: 'About the EC',
+      path: exampleLink,
+      one_level_only: true,
       info: {
         title: 'About the European Commission',
         content:
@@ -144,6 +195,37 @@ module.exports = {
         { label: 'Item 3.10', path: exampleLink },
         { label: 'Item 3.11', path: exampleLink },
         { label: 'Item 3.12', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Topics',
+      path: exampleLink,
+      one_level_only: true,
+      children: [
+        { label: 'Item 3.1', path: exampleLink },
+        { label: 'Item 3.2', path: exampleLink },
+        { label: 'Item 3.3', path: exampleLink },
+        { label: 'Item 3.4', path: exampleLink },
+        { label: 'Item 3.5', path: exampleLink },
+        { label: 'Item 3.6', path: exampleLink },
+        { label: 'Item 3.7', path: exampleLink },
+        { label: 'Item 3.8', path: exampleLink },
+        { label: 'Item 3.9', path: exampleLink },
+        { label: 'Item 3.10', path: exampleLink },
+        { label: 'Item 3.11', path: exampleLink },
+        { label: 'Item 3.12', path: exampleLink },
+        { label: 'Item 3.13', path: exampleLink },
+        { label: 'Item 3.14', path: exampleLink },
+        { label: 'Item 3.15', path: exampleLink },
+        { label: 'Item 3.16', path: exampleLink },
+        { label: 'Item 3.17', path: exampleLink },
+        { label: 'Item 3.18', path: exampleLink },
+        { label: 'Item 3.19', path: exampleLink },
+        { label: 'Item 3.20', path: exampleLink },
+        { label: 'Item 3.21', path: exampleLink },
+        { label: 'Item 3.22', path: exampleLink },
+        { label: 'Item 3.23', path: exampleLink },
+        { label: 'Item 3.24', path: exampleLink },
       ],
     },
     {

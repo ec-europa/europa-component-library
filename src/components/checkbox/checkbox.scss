@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -19,11 +20,7 @@ $checkbox: null !default;
 }
 
 .ecl-checkbox__input {
-  clip-path: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute !important;
-  width: 1px;
+  @include screen-reader.sr-only;
 }
 
 .ecl-checkbox__label {
