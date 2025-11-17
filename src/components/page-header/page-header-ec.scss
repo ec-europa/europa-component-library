@@ -310,6 +310,12 @@ $page-header: null !default;
   }
 
   .ecl-page-header__title {
+    padding-block-start: var(--s-2xl);
+  }
+
+  .ecl-page-header__breadcrumb
+    + .ecl-page-header__content-info
+    .ecl-page-header__title {
     padding-block-start: var(--s-3xs);
   }
 
@@ -333,7 +339,9 @@ $page-header: null !default;
       aspect-ratio: 3/1;
     }
 
-    .ecl-page-header__title {
+    .ecl-page-header__breadcrumb
+      + .ecl-page-header__content-info
+      .ecl-page-header__title {
       padding-block-start: var(--s-xs);
     }
 
@@ -376,7 +384,10 @@ $page-header: null !default;
       justify-content: center;
     }
 
-    .ecl-page-header__title {
+    .ecl-page-header__title,
+    .ecl-page-header__breadcrumb
+      + .ecl-page-header__content-info
+      .ecl-page-header__title {
       padding-block-start: 0;
     }
 
