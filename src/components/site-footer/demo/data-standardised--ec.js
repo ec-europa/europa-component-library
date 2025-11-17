@@ -25,12 +25,6 @@ module.exports = {
         label: 'Site name',
         path: exampleLink,
       },
-      icon: {
-        name: 'arrow-left',
-        size: 'xs',
-        style: 'inverted',
-        transform: 'flip-horizontal',
-      },
     },
     description:
       'This site is managed by:<span class="ecl-site-footer__description-name">[name of the manager of the site]</span>',
