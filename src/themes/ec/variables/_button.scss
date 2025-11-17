@@ -53,6 +53,7 @@ $button: (
     background-disabled: var(--cm-surface-primary-low-0),
     color-disabled: var(--cm-on-surface-grey-low-transparent),
     border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   primary-highlight: (
     background: var(--cm-surface-secondary),
@@ -74,6 +75,7 @@ $button: (
     background-disabled: var(--cm-surface-secondary-low),
     color-disabled: var(--cm-on-surface-grey-low-transparent),
     border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   primary-neutral: (
     background: var(--cm-surface-brand),
@@ -95,6 +97,7 @@ $button: (
     background-disabled: var(--cm-surface-grey-low-1-transparent),
     color-disabled: var(--cm-on-surface-grey-low-transparent),
     border-color-disabled: transparent,
+    opacity-disabled: 0.9,
   ),
   primary-inverted: (
     background: var(--cm-surface-primary-lowest),
@@ -125,6 +128,7 @@ $button: (
         transparent
       ),
     border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   secondary: (
     background: transparent,
@@ -155,6 +159,7 @@ $button: (
         var(--cm-border-primary) 50%,
         transparent
       ),
+    opacity-disabled: 1,
   ),
   secondary-neutral: (
     background: transparent,
@@ -184,6 +189,7 @@ $button: (
         var(--cm-border-brand) 50%,
         transparent
       ),
+    opacity-disabled: 1,
   ),
   secondary-inverted: (
     background: transparent,
@@ -214,6 +220,7 @@ $button: (
         var(--cm-border-inverted) 50%,
         transparent
       ),
+    opacity-disabled: 1,
   ),
   tertiary: (
     background: transparent,
@@ -239,6 +246,7 @@ $button: (
         transparent
       ),
     border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   tertiary-neutral: (
     background: transparent,
@@ -264,6 +272,7 @@ $button: (
         transparent
       ),
     border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   tertiary-inverted: (
     background: transparent,
@@ -290,5 +299,6 @@ $button: (
         transparent
       ),
     border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
 );

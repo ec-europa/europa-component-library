@@ -155,6 +155,7 @@ $button: null !default;
     border-color: map.get($button, #{$variant}, 'border-color-disabled');
     color: map.get($button, #{$variant}, 'color-disabled');
     cursor: not-allowed;
+    opacity: map.get($button, #{$variant}, 'opacity-disabled');
     text-decoration: none;
   }
 }
