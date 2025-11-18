@@ -19,6 +19,7 @@ const getArgs = (data) => {
     credit: data.credit,
     sidebarContent: false,
     gridContent: false,
+    responsiveImage: false,
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
@@ -203,6 +204,18 @@ const getArgTypes = () => {
       type: 'string',
       category: 'Content',
     },
+    if: { arg: 'responsiveImage', truthy: false },
+  };
+  argTypes.responsiveImage = {
+    name: 'use responsive image',
+    type: { name: 'boolean' },
+    description: 'Change image based on breakpoint, using srcset',
+    table: {
+      category: 'Content',
+    },
+    control: {
+      type: 'boolean',
+    },
   };
 
   return argTypes;
@@ -217,7 +230,8 @@ const prepareData = (data, args) => {
   if (!args.show_anchor) clone.has_anchor = false;
   if (!args.show_credit) delete clone.credit;
 
-  if (clone.picture) {
+  if (!args.responsiveImage && clone.picture) {
+    delete clone.picture.sources;
     clone.picture.img.src = args.image;
   }
 
