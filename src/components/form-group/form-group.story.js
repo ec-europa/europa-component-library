@@ -31,13 +31,13 @@ const getArgs = (data) => {
   const args = {
     hide_label: false,
     show_helper: true,
-    show_error: true,
-    invalid: data.invalid || false,
+    show_feedback: false,
+    feedback_type: data.feedback_type || 'error',
     disabled: data.disabled || false,
     required: data.required || false,
     label: data.label || '',
     helper_text: data.helper_text,
-    invalid_text: data.invalid_text,
+    feedback_text: data.feedback_text,
     optional_text: data.optional_text,
     required_text: data.required_text,
     input: {
@@ -102,8 +102,10 @@ const prepareData = (data, args) => {
   Object.assign(clone, args);
   correctPaths(clone);
 
-  if (!args.show_error) {
-    clone.invalid_text = '';
+  clone.has_feedback = args.show_feedback;
+  if (!args.show_feedback) {
+    clone.feedback_text = '';
+    clone.feedback_type = '';
   }
   if (!args.show_helper) {
     clone.helper_text = '';

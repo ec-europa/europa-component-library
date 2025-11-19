@@ -4,11 +4,8 @@ module.exports = {
   required: true,
   label: 'Please Rate',
   helper_text: 'Optional help text',
-  invalid_text: 'Error text',
-  invalid_icon: {
-    name: 'error-outline',
-  },
-  sr_invalid_icon: 'Error',
+  feedback_text: 'Feedback text',
+  sr_feedback_icon: 'Error',
   input: {
     input_type: 'rating-field',
     id: 'rating-field',

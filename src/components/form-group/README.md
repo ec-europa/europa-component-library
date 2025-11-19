@@ -14,10 +14,11 @@ npm install --save @ecl/form-group
   }) - Object of type input
 - **"disabled"** (boolean) (default: false)
 - **"hide_label"** (bool) (default: false): hide form element label, for screen reader only
-- **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
+- **"has_feedback"** (bool) (default: false'): should the feedback message be displayed?
+- **"feedback_type"** (string) (default: 'error'): type of feedback message; can be "error", "success", "warning"
+- **"feedback_icon"** (object of type "icon") (default: {}): icon for the feedback message
+- **"sr_feedback_icon"** (string) (default: ''): additional label for the feedback icon; for screen readers
 - **"required"** (boolean) (default: false)
-- **"sr_invalid_icon"** (string) (default: ''): additional label for the invalid icon; for screen readers
 - **"label_aria_required"** (string) (default: ''): aria text for the required field label; if the required label is not explicit
 - **"label_aria_optional"** (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
 - **"extra_label_classes"** (optional) (string) (default: '') Extra classes for the label
@@ -28,7 +29,7 @@ npm install --save @ecl/form-group
 ### Blocks:
 
 - "helper_text"
-- "invalid_text"
+- "feedback_text"
 - "required_text"
 - "optional_text"
 - "label"
@@ -40,7 +41,7 @@ npm install --save @ecl/form-group
 {% include '@ecl/form-group/form-group.html.twig' with { 
   label: 'my file upload label', 
   helper_text: 'this is a helper text', 
-  invalid_text: 'this is an invalid text', 
+  feedback_text: 'this is a feedback text', 
   required_text: '*', 
   optional_text: '(optional)',
   label_aria_required: 'required',

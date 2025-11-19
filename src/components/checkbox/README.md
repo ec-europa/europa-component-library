@@ -18,9 +18,10 @@ npm install --save @ecl/checkbox
   - "label" (block) (default: '')
   - "item_required_text" (string) (default: '')
 - **"name"** (string) (default: '')
-- **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
-- **"sr_invalid_icon"** (string) (default: ''): additional label for the invalid icon; for screen readers
+- **"has_feedback"** (bool) (default: false'): should the feedback message be displayed?
+- **"feedback_type"** (string) (default: ''): type of feedback message; can be "error", "success", "warning"
+- **"feedback_icon"** (object of type "icon") (default: {}): icon for the feedback message
+- **"sr_feedback_icon"** (string) (default: ''): additional label for the feedback icon; for screen readers
 - **"required"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -29,7 +30,7 @@ npm install --save @ecl/checkbox
 
 ### Blocks:
 
-- **"invalid_text"**
+- **"feedback_text"**
 
 ### Example:
 
@@ -38,7 +39,6 @@ npm install --save @ecl/checkbox
 {% include '@ecl/checkbox/checkbox-group.html.twig' with { 
   id: 'checkbox-default',
   name: 'checkbox-default', 
-  invalid: false, 
   required: true, 
   items: [ 
     { 

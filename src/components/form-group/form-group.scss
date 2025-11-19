@@ -21,13 +21,24 @@ $form-group: null !default;
 .ecl-feedback-message {
   align-items: center;
   box-sizing: border-box;
-  color: map.get($form-group, 'invalid', 'color');
   display: flex;
-  margin-block: map.get($form-group, 'invalid', 'margin-block');
+  margin-block: map.get($form-group, 'feedback', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
 
-  @include mixins.responsive-font(map.get($form-group, 'invalid', 'font'));
+  @include mixins.responsive-font(map.get($form-group, 'feedback', 'font'));
+
+  .ecl-form-group--error & {
+    color: map.get($form-group, 'feedback', 'color-error');
+  }
+
+  .ecl-form-group--warning & {
+    color: map.get($form-group, 'feedback', 'color-warning');
+  }
+
+  .ecl-form-group--success & {
+    color: map.get($form-group, 'feedback', 'color-success');
+  }
 }
 
 .ecl-feedback-message__icon {
@@ -49,7 +60,7 @@ $form-group: null !default;
   box-sizing: border-box;
   color: map.get($form-group, 'label', 'color');
   display: block;
-  margin: 0;
+  margin-block: map.get($form-group, 'label', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
   white-space: pre-wrap;
@@ -88,11 +99,6 @@ $form-group: null !default;
   @include screen-reader.sr-only;
 }
 
-.ecl-form-label.ecl-form-label--hidden + * {
-  margin-top: 0;
-}
-
-.ecl-form-label:not(.ecl-form-label--hidden)
-  + *:not(.ecl-help-block, .ecl-feedback-message) {
-  margin-block-start: map.get($form-group, 'margin-no-helper');
+.ecl-help-block + .ecl-feedback-message {
+  margin-block: map.get($form-group, 'feedback', 'margin-block-with-helper');
 }

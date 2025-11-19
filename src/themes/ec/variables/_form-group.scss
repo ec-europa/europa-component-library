@@ -3,11 +3,11 @@
 
 $form-group: (
   margin-icon: var(--s-3xs),
-  margin-no-helper: calc(var(--s-3xs) + 2px),
   label: (
     color: var(--cm-on-surface-brand),
     font: 'body-s',
     font-weight: map.get($font-weight, 'semi-bold'),
+    margin-block: 0 var(--s-3xs),
   ),
   optional: (
     color: var(--cm-on-surface-grey),
@@ -24,11 +24,14 @@ $form-group: (
   help: (
     color: var(--cm-on-surface-grey),
     font: 'microcopy-xs',
-    margin-block: var(--s-3xs) calc(var(--s-xs) + 2px),
+    margin-block: var(--s-3xs) 0,
   ),
-  invalid: (
-    color: var(--cm-on-surface-status-error),
+  feedback: (
+    color-error: var(--cm-on-surface-status-error),
+    color-warning: var(--cm-on-surface-status-warning),
+    color-success: var(--cm-on-surface-status-success),
     font: 'microcopy-xs',
-    margin-block: var(--s-xs) 0,
+    margin-block: var(--s-3xs) 0,
+    margin-block-with-helper: var(--s-4xs) 0,
   ),
 );

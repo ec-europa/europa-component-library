@@ -188,7 +188,13 @@ The markup is now using the custom element defined by duet js:
 
 ### Form
 
-- Icon for the invalid text has been changed to the outline one
+- Form groups now support different feedback message types: `error`, `warning`, `success`. Corresponding twig parameter is "feedback_type". All existing invalid parameters have changed accordingly, to provide a more generic approach:
+  - `invalid` parameter is now `feedback_type`, and can contain "error", "warning" or "success"
+  - `invalid_icon` parameter is renamed to `feedback_icon`
+  - `sr_invalid_icon` parameter is renamed to `sr_feedback_icon`
+  - `invalid_text` parameter (block) is renamed to `feedback_text`
+- The form group itself now has an additional css class if it is in one of the status. Css classes are `ecl-form-group--error`, `ecl-form-group--warning` and `ecl-form-group--success`. Form group elements have been updated to react to these new classes.
+- Icon for the feedback text has been changed to the outline one, and are now defined by default in the template
 - The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo example have been updated in that sense. The parameter is still available in twig template, but left empy by default.
 
 ### Icon

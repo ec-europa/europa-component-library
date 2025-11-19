@@ -171,7 +171,6 @@ export const getFormControls = (data, type) => {
     description: `Hide ${type} label on screen, keeping it only for screen readers`,
     table: {
       type: { summary: 'boolean' },
-      defaultValue: { summary: false },
       category: 'Optional',
     },
   };
@@ -181,45 +180,49 @@ export const getFormControls = (data, type) => {
     description: `Show ${type} helper text`,
     table: {
       type: { summary: 'boolean' },
-      defaultValue: { summary: true },
       category: 'Optional',
     },
   };
-  argTypes.show_error = {
-    name: 'error message',
+  argTypes.show_feedback = {
+    name: 'feedback message',
     type: 'boolean',
-    description: `Show ${type} error message (only visible if invalid state is active)`,
+    description: `Show ${type} feedback message`,
     table: {
       type: { summary: 'boolean' },
-      defaultValue: { summary: true },
       category: 'Optional',
     },
-    if: { arg: 'invalid' },
   };
-  argTypes.invalid_text = {
-    name: 'error message',
+  argTypes.feedback_text = {
+    name: 'feedback message',
     type: 'string',
-    description: `Message to be shown in case of an invalid ${type}`,
+    description: `Contextual message of the ${type}`,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Content',
     },
-    if: { arg: 'invalid' },
+    if: { arg: 'show_feedback' },
   };
-  argTypes.invalid = {
-    name: 'invalid',
-    type: 'boolean',
-    description: `Marks the form ${type} as invalid`,
-    mapping: {
-      0: false,
-      1: true,
-    },
+  argTypes.feedback_type = {
+    name: 'feedback type',
+    type: 'select',
+    description: 'Type of feedback message',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
+      type: { summary: 'string' },
+      defaultValue: { summary: 'error' },
       category: 'States',
     },
+    options: ['error', 'warning', 'success'],
+    control: {
+      type: 'select',
+      label: { error: 'error', warning: 'warning', success: 'success' },
+    },
+    mapping: {
+      error: 'error',
+      warning: 'warning',
+      success: 'success',
+    },
+    if: { arg: 'show_feedback' },
   };
   argTypes.disabled = {
     name: 'disabled',

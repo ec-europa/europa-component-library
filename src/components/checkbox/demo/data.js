@@ -3,7 +3,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   helper_text: 'Optional help text',
-  invalid_text: 'Error text',
+  feedback_text: 'Feedback text',
   label: 'Select your preferred destinations',
   optional_text: '(optional)',
   disabled: false,
@@ -11,19 +11,13 @@ module.exports = {
   required_text: '(required)',
   required: true,
   name: 'checkbox-default',
-  invalid_icon: {
-    name: 'error-outline',
-  },
-  sr_invalid_icon: 'Error',
+  sr_feedback_icon: 'Error',
   input: {
     id: 'checkbox-default',
     input_type: 'checkbox',
     name: 'checkbox-default',
-    invalid_text: 'Error text',
-    invalid_icon: {
-      name: 'error-outline',
-    },
-    sr_invalid_icon: 'Error',
+    feedback_text: 'Feedback text',
+    sr_feedback_icon: 'Error',
     items: [
       {
         checked: true,

@@ -3,13 +3,9 @@ module.exports = {
   required_text: '(required)',
   required: true,
   disabled: false,
-  invalid: false,
   label: 'Do you need help?',
-  invalid_text: 'Error text',
-  invalid_icon: {
-    name: 'error-outline',
-  },
-  sr_invalid_icon: 'Error',
+  feedback_text: 'Feedback text',
+  sr_feedback_icon: 'Error',
   helper_text: 'Optional help text',
   input: {
     id: 'radio-default',
