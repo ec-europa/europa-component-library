@@ -89,9 +89,23 @@ duet-date-picker {
   height: map.get($datepicker, 'picker', 'toggle-height-mobile');
   width: map.get($datepicker, 'picker', 'toggle-height-mobile');
 
+  .duet-date__toggle-icon svg {
+    flex-shrink: 0;
+    color: var(--cm-on-surface-grey, var(--c-d));
+    width: map.get($theme, 'icon', 's');
+  }
+
   &:hover {
     background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
-    border: 1px solid var(--cm-border-brand, var(--c-d));
+    border-inline-end: 1px solid var(--duet-color-border, var(--c-d));
+    border-block: 1px solid var(--duet-color-border, var(--c-d));
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .duet-date__toggle-icon svg {
+      color: var(--cm-on-surface-brand, var(--c-d));
+    }
   }
 
   &:focus-visible {
@@ -100,17 +114,35 @@ duet-date-picker {
     color: map.get($text-input, 'color-input');
     outline: 2px solid var(--c-p);
     outline-offset: -1px;
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .duet-date__toggle-icon svg {
+      color: var(--cm-on-surface-brand, var(--c-d));
+    }
+  }
+
+  &::before {
+    background-color: var(--cm-border-brand, var(--c-d));
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 1px;
+    height: 1.5rem;
+    top: var(--s-xs);
   }
 
   @media (width >= 480px) {
     height: map.get($datepicker, 'picker', 'toggle-height-desktop');
-  }
-}
+    width: map.get($datepicker, 'picker', 'toggle-height-desktop');
 
-.duet-date__toggle-icon svg {
-  flex-shrink: 0;
-  color: var(--cm-border-brand, var(--c-d));
-  width: map.get($theme, 'icon', 'm');
+    &::before {
+      height: 1.75rem;
+    }
+
+    .duet-date__toggle-icon svg {
+      width: map.get($theme, 'icon', 'm');
+    }
+  }
 }
 
 .duet-date__dialog {
@@ -176,6 +208,7 @@ duet-date-picker {
         text-overflow: ellipsis;
       }
 
+      /* stylelint-disable-next-line no-descending-specificity */
       svg {
         flex-shrink: 0;
         width: map.get($theme, 'icon', 'm');
