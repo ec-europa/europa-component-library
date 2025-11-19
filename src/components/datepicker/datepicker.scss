@@ -53,6 +53,7 @@ duet-date-picker {
   padding-block: map.get($text-input, 'padding-block');
   padding-inline: map.get($text-input, 'padding-inline');
   width: 100%;
+  height: map.get($datepicker, 'picker', 'toggle-height-mobile');
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
 
@@ -71,6 +72,10 @@ duet-date-picker {
     color: map.get($text-input, 'color-disabled');
     cursor: not-allowed;
     opacity: map.get($text-input, 'opacity-disabled');
+  }
+
+  @media (width >= 480px) {
+    height: map.get($datepicker, 'picker', 'toggle-height-desktop');
   }
 }
 
