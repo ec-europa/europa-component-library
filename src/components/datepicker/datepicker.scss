@@ -112,6 +112,7 @@ duet-date-picker {
   &:hover {
     background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
     border-color: map.get($text-input, 'border-color-hover');
+    box-shadow: none;
 
     /* stylelint-disable-next-line no-descending-specificity */
     .duet-date__toggle-icon svg {
