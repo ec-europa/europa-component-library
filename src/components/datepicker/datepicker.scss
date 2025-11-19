@@ -11,6 +11,7 @@
 $theme: null !default;
 $datepicker: null !default;
 $text-input: null !default;
+$button-border-width: 1px;
 
 :root {
   --duet-font: #{map.get($theme, 'font-family', 'default')};
@@ -80,28 +81,34 @@ duet-date-picker {
 .duet-date__toggle,
 .ecl button.duet-date__toggle {
   background: transparent;
-  color: map.get($text-input, 'color-input');
-  border: none;
   border-radius: 4px;
+  color: map.get($text-input, 'color-input');
+  border-bottom: $button-border-width solid
+    map.get($datepicker, 'picker', 'toggle-border-color');
+  border-end-start-radius: 0;
+  border-inline-start-width: 0;
+  border-inline-end: $button-border-width solid
+    map.get($datepicker, 'picker', 'toggle-border-color');
+  border-top: $button-border-width solid
+    map.get($datepicker, 'picker', 'toggle-border-color');
+  border-start-start-radius: 0;
+  right: 0;
+  top: 0;
   box-shadow: none;
   min-height: auto;
   min-width: auto;
-  margin: -1px;
+  margin: 0;
   height: map.get($datepicker, 'picker', 'toggle-height-mobile');
   width: map.get($datepicker, 'picker', 'toggle-height-mobile');
 
   .duet-date__toggle-icon svg {
     flex-shrink: 0;
     color: var(--cm-on-surface-grey, var(--c-d));
-    width: map.get($theme, 'icon', 's');
+    width: map.get($datepicker, 'picker', 'icon-size-mobile');
   }
 
   &:hover {
     background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
-    border-inline-end: 1px solid var(--duet-color-border, var(--c-d));
-    border-block: 1px solid var(--duet-color-border, var(--c-d));
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
 
     /* stylelint-disable-next-line no-descending-specificity */
     .duet-date__toggle-icon svg {
@@ -128,8 +135,8 @@ duet-date-picker {
     position: absolute;
     left: -1px;
     width: 1px;
-    height: 1.5rem;
-    top: var(--s-xs);
+    height: map.get($datepicker, 'picker', 'toggle-separator-height-mobile');
+    top: map.get($datepicker, 'picker', 'toggle-separator-top');
   }
 
   @media (width >= 480px) {
