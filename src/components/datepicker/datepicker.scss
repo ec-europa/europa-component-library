@@ -88,14 +88,11 @@ duet-date-picker {
   background: transparent;
   border-radius: 4px;
   color: map.get($text-input, 'color-input');
-  border-bottom: $button-border-width solid
-    map.get($datepicker, 'picker', 'toggle-border-color');
+  border-bottom: $button-border-width solid var(--duet-color-border);
   border-end-start-radius: 0;
   border-inline-start-width: 0;
-  border-inline-end: $button-border-width solid
-    map.get($datepicker, 'picker', 'toggle-border-color');
-  border-top: $button-border-width solid
-    map.get($datepicker, 'picker', 'toggle-border-color');
+  border-inline-end: $button-border-width solid var(--duet-color-border);
+  border-top: $button-border-width solid var(--duet-color-border);
   border-start-start-radius: 0;
   right: 0;
   top: 0;
@@ -114,6 +111,7 @@ duet-date-picker {
 
   &:hover {
     background: var(--cm-surface-grey-low-0-transparent, var(--c-p-10));
+    border-color: map.get($text-input, 'border-color-hover');
 
     /* stylelint-disable-next-line no-descending-specificity */
     .duet-date__toggle-icon svg {
