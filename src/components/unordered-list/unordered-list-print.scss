@@ -17,8 +17,12 @@ $list-print: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
-  padding: 0;
   padding-inline-start: map.get($list-print, 'unordered', 'padding-start');
+
+  // Remove spacing in some situation
+  .ecl-featured-item__item & {
+    padding-inline-start: 0;
+  }
 }
 
 .ecl-unordered-list__item,
