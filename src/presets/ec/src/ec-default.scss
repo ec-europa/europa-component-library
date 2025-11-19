@@ -28,6 +28,7 @@
 );
 @use '@ecl/link/link' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $link: var.$link
 );
 @use '@ecl/ordered-list/ordered-list' with (
@@ -109,10 +110,15 @@
 }
 
 .ecl ul ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
-.ecl ul ul:is([class*='ecl-u-']),
+.ecl ul ul:is([class*='ecl-u-']) {
+  @extend %ecl-unordered-list--nested;
+}
+
 .ecl ul ol:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul ol:is([class*='ecl-u-']) {
-  @extend %ecl-unordered-list--nested;
+  padding-inline-start: var(--s-l);
+
+  @extend %ecl-ordered-list--nested;
 }
 
 .ecl ul li:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
@@ -131,10 +137,15 @@
 }
 
 .ecl ol ol:not([class*='ecl-'], [class*='wt-']),
-.ecl ol ol:is([class*='ecl-u-']),
+.ecl ol ol:is([class*='ecl-u-']) {
+  @extend %ecl-ordered-list--nested;
+}
+
 .ecl ol ul:not([class*='ecl-'], [class*='wt-']),
 .ecl ol ul:is([class*='ecl-u-']) {
-  @extend %ecl-ordered-list--nested;
+  margin-inline-start: 0;
+
+  @extend %ecl-unordered-list__item;
 }
 
 .ecl ol li:not([class*='ecl-'], [class*='wt-']),
@@ -157,12 +168,12 @@
   @extend %ecl-description-list__definition;
 }
 
-.ecl table:not([class*='ecl-'], [class*='wt-']),
+.ecl table:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker table),
 .ecl table:is([class*='ecl-u-']) {
   @extend %ecl-table;
 }
 
-.ecl thead:not([class*='ecl-'], [class*='wt-']),
+.ecl thead:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker thead),
 .ecl thead:is([class*='ecl-u-']) {
   @extend %ecl-table__head;
 
@@ -171,17 +182,17 @@
   }
 }
 
-.ecl th:not([class*='ecl-'], [class*='wt-']),
+.ecl th:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker th),
 .ecl th:is([class*='ecl-u-']) {
   @extend %ecl-table__header;
 }
 
-.ecl tr:not([class*='ecl-'], [class*='wt-']),
+.ecl tr:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker tr),
 .ecl tr:is([class*='ecl-u-']) {
   @extend %ecl-table__row;
 }
 
-.ecl td:not([class*='ecl-'], [class*='wt-']),
+.ecl td:not([class*='ecl-'], [class*='wt-'], .ecl-datepicker td),
 .ecl td:is([class*='ecl-u-']) {
   @extend %ecl-table__cell;
 }

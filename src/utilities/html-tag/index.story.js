@@ -53,6 +53,16 @@ export const Default = () => `
         </li>
       </ul>
       <hr />
+      <ul>
+        <li>Unordered list</li>
+        <li>Unordered list
+          <ol>
+            <li><a href="${exampleLink}">Nested ordered list in an unordered list</a></li>
+            <li>Nested ordered list in an unordered list</li>
+          </ol>
+        </li>
+      </ul>
+      <hr />
       <ol>
         <li>Ordered list</li>
         <li>Ordered list
@@ -60,6 +70,16 @@ export const Default = () => `
             <li><a href="${exampleLink}"class="ecl-link">Nested ordered list</a></li>
             <li>Nested ordered list</li>
           </ol>
+        </li>
+      </ol>
+      <hr />
+      <ol>
+        <li>Ordered list</li>
+        <li>Ordered list
+          <ul>
+            <li><a href="${exampleLink}"class="ecl-link">Nested unordered list in an ordered list</a></li>
+            <li>Nested unordered list in an ordered list</li>
+          </ul>
         </li>
       </ol>
       <dl>

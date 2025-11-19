@@ -98,4 +98,26 @@ describe('Fact and figures', () => {
       return expect(render(demo4Col)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('without value', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      const withoutValue = JSON.parse(JSON.stringify(demo1Col));
+      delete withoutValue.items[0].value;
+
+      return expect(render(withoutValue)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('without title', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      const withoutTitle = JSON.parse(JSON.stringify(demo1Col));
+      delete withoutTitle.items[0].title;
+
+      return expect(render(withoutTitle)).resolves.toMatchSnapshot();
+    });
+  });
 });

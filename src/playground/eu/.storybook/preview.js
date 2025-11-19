@@ -13,6 +13,13 @@ export const initialGlobals = {
 };
 
 export const parameters = {
+  breakpoints: {
+    xs: 0,
+    s: 480,
+    m: 768,
+    l: 996,
+    xl: 1140,
+  },
   options: {
     storySort: (a, b) => {
       return a.title.localeCompare(b.title, undefined);

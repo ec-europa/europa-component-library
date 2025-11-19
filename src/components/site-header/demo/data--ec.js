@@ -29,6 +29,7 @@ module.exports = {
       hide_label: true,
       indicator: {
         value: 10,
+        sr_label: 'Items not read',
       },
       aria_label: 'Custom aria label',
     },
@@ -254,7 +255,8 @@ module.exports = {
       placeholder: 'Placeholder text',
     },
     button: {
-      variant: 'ghost',
+      variant: 'tertiary',
+      style: 'neutral',
       label: 'Search',
     },
     extra_attributes: [
@@ -285,7 +287,7 @@ module.exports = {
   notification: {
     variant: 'info',
     icon: {
-      name: 'information',
+      name: 'information-outline',
       size: 'l',
     },
     close: {

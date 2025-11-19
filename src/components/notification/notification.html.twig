@@ -36,6 +36,17 @@
   {% set _css_class = _css_class ~ ' ecl-notification--' ~ _variant %}
 {% endif %}
 
+{% if _variant == 'info' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('information-outline')}) %}
+{% elseif _variant == 'success' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('success-outline')}) %}
+{% elseif _variant == 'warning' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('warning-outline')}) %}
+{% elseif _variant == 'error' %}
+  {% set _icon = _icon|merge({ name: _icon.name|default('error-outline')}) %}
+{% endif %}
+{% set _icon = _icon|merge({ size: _icon.size|default('l')}) %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -58,9 +69,6 @@
   role="alert"
   {{ _extra_attributes|raw }}
 >
-{% if _variant == 'warning' and _icon is not empty and _icon.name is defined and _icon.name == 'warning' %}
-  <span class="ecl-notification__icon-background"></span>
-{% endif %}
   {% include '@ecl/icon/icon.html.twig' with {
     icon: _icon,
     as_image: true,
@@ -73,7 +81,9 @@
   {% if _close is not empty %}
     {% include '@ecl/button/button.html.twig' with _close|merge({
       type: 'button',
+      size: 'm',
       variant: 'tertiary',
+      style: 'neutral',
       extra_classes: 'ecl-notification__close',
       extra_attributes: [{
         name: 'data-ecl-notification-close',
@@ -89,7 +99,9 @@
   {% if _links is not empty and _links is iterable %}
     {% for _link in _links %}
     <div class="ecl-notification__link">
-      {% include '@ecl/link/link.html.twig' with _link only %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        extra_classes: _link.extra_classes|default('') ~ ' ecl-notification__link-item',
+      }) only %}
     </div>
     {% endfor %}
   {% endif %}

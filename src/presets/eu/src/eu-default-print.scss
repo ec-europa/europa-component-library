@@ -30,6 +30,7 @@
 );
 @use '@ecl/link/link-print' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $link: var.$link
 );
 @use '@ecl/ordered-list/ordered-list-print' with (
@@ -135,10 +136,13 @@ html {
 }
 
 .ecl ul ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
-.ecl ul ul:is([class*='ecl-u-']),
+.ecl ul ul:is([class*='ecl-u-']) {
+  @extend %ecl-unordered-list--nested;
+}
+
 .ecl ul ol:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul ol:is([class*='ecl-u-']) {
-  @extend %ecl-unordered-list--nested;
+  @extend %ecl-ordered-list--nested;
 }
 
 .ecl ul li:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
@@ -157,10 +161,13 @@ html {
 }
 
 .ecl ol ol:not([class*='ecl-'], [class*='wt-']),
-.ecl ol ol:is([class*='ecl-u-']),
+.ecl ol ol:is([class*='ecl-u-']) {
+  @extend %ecl-ordered-list--nested;
+}
+
 .ecl ol ul:not([class*='ecl-'], [class*='wt-']),
 .ecl ol ul:is([class*='ecl-u-']) {
-  @extend %ecl-ordered-list--nested;
+  @extend %ecl-unordered-list--nested;
 }
 
 .ecl ol li:not([class*='ecl-'], [class*='wt-']),

@@ -68,4 +68,16 @@ describe('Page Header Standardised', () => {
       return expect(render(demoDefault)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('With simple header', () => {
+    test('- renders correctly', () => {
+      expect.assertions(1);
+      return expect(
+        render({
+          ...demoDefault,
+          expandable: { ...demoDefault.expandable, lists: [] },
+        }),
+      ).resolves.toMatchSnapshot();
+    });
+  });
 });

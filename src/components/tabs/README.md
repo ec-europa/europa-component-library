@@ -8,6 +8,7 @@ npm install --save @ecl/tabs
 
 ### Parameters:
 
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"items"** (associative array) (default: []): The tabs items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')

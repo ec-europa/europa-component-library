@@ -5,6 +5,7 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/mixins-color/mixins' as color;
 
 // Exposed variables
 $theme: null !default;
@@ -127,7 +128,6 @@ $typography: null !default;
   @each $key, $value in map.get($typography, 'microcopy') {
     .ecl-u-type-microcopy-#{$key} {
       color: map.get($typography, 'text-color') !important;
-      max-width: var(--max-w) !important;
 
       @include mixins.responsive-font('microcopy-' + $key, $important: true);
     }
@@ -171,7 +171,8 @@ $typography: null !default;
 @if map.has-key($theme, 'color-default') {
   @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-type-color-#{$key} {
-      color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
@@ -180,6 +181,7 @@ $typography: null !default;
     'secondary',
     'neutral',
     'grey',
+    'monochrome',
     'info',
     'success',
     'error',
@@ -188,34 +190,19 @@ $typography: null !default;
 
   @each $key in $semantic-color {
     .ecl-u-type-color-#{$key} {
-      color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
   @if map.has-key($theme, 'color-modes') {
     $type-mode: (
-      'on-surface-brand',
-      'on-surface-inverted',
-      'on-surface-swap-1',
-      'on-surface-swap-2',
       'on-surface',
-      'on-surface-variant-1',
-      'on-surface-variant-2',
-      'on-surface-variant-3',
-      'on-surface-highlight',
-      'on-surface-primary',
-      'on-surface-primary-highest',
-      'on-surface-secondary-medium',
-      'on-surface-secondary-highest',
-      'on-surface-neutral-low',
-      'on-surface-neutral-medium',
-      'on-surface-neutral-highest',
-      'on-surface-grey-medium',
-      'on-surface-grey',
-      'on-surface-status-error',
-      'on-surface-status-warning',
-      'on-surface-status-success',
-      'on-surface-status-info'
+      'on-surface-1',
+      'on-surface-2',
+      'on-surface-3',
+      'on-surface-swap-0',
+      'on-surface-swap-1'
     );
 
     @each $key in $type-mode {

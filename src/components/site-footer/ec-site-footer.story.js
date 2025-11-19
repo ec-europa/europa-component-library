@@ -8,74 +8,92 @@ import dataHarmonised from './demo/data-harmonised--ec';
 import footer from './site-footer-ec.html.twig';
 import notes from './README.md';
 
-const getArgs = () => {
-  const args = {
-    show_contact: true,
-    show_about: true,
-    show_more: true,
-    show_related: true,
-    show_custom: false,
-    social_vertical: false,
+const getArgs = (variant) => {
+  let args = {
+    show_co_owner: true,
   };
+
+  if (variant !== 'core') {
+    args = {
+      ...args,
+      show_contact: true,
+      show_about: true,
+      show_more: true,
+      show_related: true,
+      show_custom: false,
+      social_vertical: false,
+    };
+  }
 
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (variant) => {
   const argTypes = {};
-  argTypes.show_contact = {
-    name: 'contact us',
+  argTypes.show_co_owner = {
+    name: 'co-owner',
     type: { name: 'boolean' },
-    description: 'Show "Contact us" section',
+    description: 'Show co-owner banner',
     table: {
       category: 'Optional sections',
     },
   };
 
-  argTypes.show_about = {
-    name: 'about us',
-    type: { name: 'boolean' },
-    description: 'Show "About us" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+  if (variant !== 'core') {
+    argTypes.show_contact = {
+      name: 'contact us',
+      type: { name: 'boolean' },
+      description: 'Show "Contact us" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.show_more = {
-    name: 'more information',
-    type: { name: 'boolean' },
-    description: 'Show "More information" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+    argTypes.show_about = {
+      name: 'about us',
+      type: { name: 'boolean' },
+      description: 'Show "About us" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.show_related = {
-    name: 'related links',
-    type: { name: 'boolean' },
-    description: 'Show "Related links" section',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+    argTypes.show_more = {
+      name: 'more information',
+      type: { name: 'boolean' },
+      description: 'Show "More information" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.show_custom = {
-    name: 'custom links',
-    type: { name: 'boolean' },
-    description: 'Show "Custom links" sections',
-    table: {
-      category: 'Optional sections',
-    },
-  };
+    argTypes.show_related = {
+      name: 'related links',
+      type: { name: 'boolean' },
+      description: 'Show "Related links" section',
+      table: {
+        category: 'Optional sections',
+      },
+    };
 
-  argTypes.social_vertical = {
-    name: 'social vertical',
-    type: { name: 'boolean' },
-    description: 'Display social media vertically',
-    table: {
-      category: 'Display',
-    },
-  };
+    argTypes.show_custom = {
+      name: 'custom links',
+      type: { name: 'boolean' },
+      description: 'Show "Custom links" sections',
+      table: {
+        category: 'Optional sections',
+      },
+    };
+
+    argTypes.social_vertical = {
+      name: 'social vertical',
+      type: { name: 'boolean' },
+      description: 'Display social media vertically',
+      table: {
+        category: 'Display',
+      },
+    };
+  }
 
   return argTypes;
 };
@@ -84,6 +102,9 @@ const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
 
+  if (!args.show_co_owner) {
+    delete clone.co_owner;
+  }
   if (!args.show_contact) {
     delete clone.section_contact;
   }
@@ -130,8 +151,9 @@ Core.render = async (args) => {
   return renderedCore;
 };
 Core.storyName = 'core';
+Core.args = getArgs('core');
+Core.argTypes = getArgTypes('core');
 Core.parameters = {
-  controls: { disable: true },
   notes: { markdown: notes, json: dataCore },
 };
 
@@ -144,8 +166,8 @@ Standardised.render = async (args) => {
   return renderedStandardised;
 };
 Standardised.storyName = 'standardised';
-Standardised.args = getArgs();
-Standardised.argTypes = getArgTypes();
+Standardised.args = getArgs('standardised');
+Standardised.argTypes = getArgTypes('standardised');
 Standardised.parameters = {
   notes: { markdown: notes, json: dataStandardised },
 };
@@ -157,6 +179,6 @@ Harmonised.render = async (args) => {
   return renderedHarmonised;
 };
 Harmonised.storyName = 'harmonised';
-Harmonised.args = getArgs();
-Harmonised.argTypes = getArgTypes();
+Harmonised.args = getArgs('harmonised');
+Harmonised.argTypes = getArgTypes('harmonised');
 Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };

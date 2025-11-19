@@ -3,6 +3,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-color/mixins' as color;
 
 // Exposed variables
 $theme: null !default;
@@ -21,7 +22,8 @@ $theme: null !default;
 @if map.has-key($theme, 'color-default') {
   @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-bg-#{$key} {
-      background-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      background-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 
@@ -30,6 +32,7 @@ $theme: null !default;
     'secondary',
     'neutral',
     'grey',
+    'monochrome',
     'info',
     'success',
     'error',
@@ -38,44 +41,24 @@ $theme: null !default;
 
   @each $key in $semantic-color {
     .ecl-u-bg-#{$key} {
-      background-color: var(--ecl-color-#{$key}) !important;
+      // stylelint-disable-next-line custom-property-pattern
+      background-color: var(--c-#{color.get-color-short-name($key)}) !important;
     }
   }
 }
 
 @if map.has-key($theme, 'color-modes') {
   $background-mode: (
-    'surface-brand',
-    'surface-inverted',
     'surface-lowest',
     'surface-lowest-variant',
+    'surface-low-0',
     'surface-low-1',
     'surface-low-2',
-    'surface-medium',
-    'surface',
+    'surface-medium-0',
+    'surface-medium-1',
+    'surface-0',
     'surface-variant-1',
     'surface-variant-2',
-    'surface-primary-medium',
-    'surface-primary',
-    'surface-primary-high',
-    'surface-primary-highest',
-    'surface-secondary-low',
-    'surface-secondary',
-    'surface-secondary-high',
-    'surface-secondary-highest',
-    'surface-neutral-lowest',
-    'surface-neutral-low',
-    'surface-neutral-medium',
-    'surface-grey-low',
-    'surface-grey-low-1',
-    'surface-status-error-lowest',
-    'surface-status-error',
-    'surface-status-warning-lowest',
-    'surface-status-warning',
-    'surface-status-success-lowest',
-    'surface-status-success',
-    'surface-status-info-lowest',
-    'surface-status-info',
     'on-surface-highlight'
   );
 

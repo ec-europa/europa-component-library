@@ -27,6 +27,7 @@
 {% set _square = square|default(false) %}
 {% set _icon = icon|default({}) %}
 {% set _media_size = media_size|default('m') %}
+{% set _content_class = 'ecl-list-illustration__item-content' %}
 {% set _css_class = 'ecl-list-illustration__item' %}
 {% set _image_class =  'ecl-list-illustration__image' %}
 {% set _picture_classes = 'ecl-list-illustration__picture' %}
@@ -34,6 +35,18 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if last %}
+   {% set _css_class = _css_class ~ ' ' ~ ' ecl-list-illustration__item--is-last' %}
+{% endif %}
+
+{% if divider %}
+  {% set _content_class = _content_class ~ ' ecl-list-illustration__divider' %}
+{% endif %}
+
+{% if _picture.img and column == 1 %}
+  {% set _content_class = _content_class ~ ' ecl-list-illustration__item-content--row' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -67,34 +80,35 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  {% if _picture.img is not empty %}
-    {% include '@ecl/picture/picture.html.twig' with {
-      picture: _picture,
-      extra_classes: _picture_classes,
-      extra_image_classes: _image_class,
-    } only %}
-  {% endif %}
-  <div class="ecl-list-illustration__detail">
-  {% if _title is not empty or _icon is not empty or _value is not empty %}
-    <div class="ecl-list-illustration__title-container">
+  <div class="{{ _content_class }}">
+    {% if _picture.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        extra_classes: _picture_classes,
+        extra_image_classes: _image_class,
+      } only %}
+    {% endif %}
     {% if _icon is not empty %}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: _icon|merge({ size: _icon_size }),
         extra_classes: 'ecl-list-illustration__icon',
       } only %}
     {% endif %}
-    {% if _value is not empty %}
-      <div class="ecl-list-illustration__value">{{ _value }}</div>
+    <div class="ecl-list-illustration__detail">
+    {% if _title is not empty or _value is not empty %}
+      <div class="ecl-list-illustration__title-container">
+      {% if _value is not empty %}
+        <div class="ecl-list-illustration__value">{{ _value }}</div>
+      {% endif %}
+      {% if _title is not empty %}
+        <div class="ecl-list-illustration__title">{{ _title }}</div>
+      {% endif %}
+      </div>
     {% endif %}
-    {% if _title is not empty %}
-      <div class="ecl-list-illustration__title">{{ _title }}</div>
+    {% if _description is not empty %}
+      <div class="ecl-list-illustration__description">{{ _description }}</div>
     {% endif %}
     </div>
-  {% endif %}
-  {% if _description is not empty %}
-    <div class="ecl-list-illustration__description">{{ _description }}</div>
-  {% endif %}
   </div>
 </li>
-
 {% endapply %}

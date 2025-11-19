@@ -301,7 +301,7 @@
                 {% set icon = null %}
               {% endif %}
 
-              {% set base_classes = 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary' %}
+              {% set base_classes = 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral' %}
               {% if has_icon and has_hidden_label %}
                 {% set base_classes = base_classes ~ ' ecl-button--icon-only' %}
               {% endif %}
@@ -334,6 +334,7 @@
                     {% if _custom_action.overlay.close is defined and _custom_action.overlay.close is not empty %}
                       {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
                         variant: 'tertiary',
+                        style: 'neutral',
                         extra_classes: 'ecl-site-header__custom-action-close',
                         extra_attributes: [{
                           name: 'data-ecl-custom-action-close',
@@ -354,7 +355,7 @@
             <div class="ecl-site-header__login-container">
             {% if _logged %}
               <a
-                class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                 href="{{ _login_toggle.href_logged }}"
                 aria-controls="{{ _login_box.id }}"
                 data-ecl-login-toggle
@@ -392,7 +393,7 @@
               </div>
             {% else %}
               <a
-                class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                 href="{{ _login_toggle.href_not_logged }}"
                 data-ecl-login-toggle
               >
@@ -427,7 +428,7 @@
             <div class="ecl-site-header__search-container" role="search">
             {% if _search_toggle is not empty %}
               <a
-                class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
                 href="{{ _search_toggle.href }}"
                 data-ecl-search-toggle="true"
                 aria-controls="search-form-id"
@@ -501,7 +502,7 @@
         {% if _cta_link is not empty and _cta_link.link is not empty %}
         {% include '@ecl/link/link.html.twig' with _cta_link|merge({
           link: _cta_link.link|merge({
-            type: 'cta',
+            type: 'primary-highlight',
           }),
           extra_classes: 'ecl-site-header__cta',
         }) only %}

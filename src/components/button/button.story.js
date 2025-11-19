@@ -1,18 +1,17 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
-import dataPrimary from './demo/data--primary';
-import dataSecondary from './demo/data--secondary';
-import dataCall from './demo/data--call';
-import dataGhost from './demo/data--ghost';
-import dataGhostInverted from './demo/data--ghost-inverted';
-import dataTertiary from './demo/data--tertiary';
+import dataButton from './demo/data';
 
 import button from './button.html.twig';
 import notes from './README.md';
+
+const dataButtonPrimary = { ...dataButton, variant: 'primary' };
+const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
+const dataButtonTertiary = { ...dataButton, variant: 'tertiary' };
 
 const iconMapping = iconsAll.reduce((mapping, icon) => {
   mapping[icon] = icon;
@@ -22,24 +21,88 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 // Create 'none' option.
 iconsAll.unshift('none');
 
-const withInverted = (story) => {
-  const demo = story();
-  return `<div class="ecl-u-bg-dark ecl-u-bg-grey ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
-};
-
 const getArgs = (data) => ({
   label: data.label,
+  size: 'l',
+  style: '',
   icon_name: 'none',
   icon_position: 'after',
   icon_title: '',
   disabled: false,
   hide_label: false,
   indicator: false,
-  indicator_value: '',
+  indicator_value: '10',
+  indicator_label: 'Items not read',
 });
 
-const getArgTypes = () => {
-  const argTypes = {};
+const stylePrimary = {
+  options: ['', 'highlight', 'inverted'],
+  control: {
+    labels: {
+      '': 'default',
+      highlight: 'highlight',
+      inverted: 'inverted',
+    },
+  },
+  mapping: {
+    default: '',
+    highlight: 'highlight',
+    inverted: 'inverted',
+  },
+};
+
+const styleSecondary = {
+  options: ['', 'neutral', 'inverted'],
+  control: {
+    labels: {
+      '': 'default',
+      neutral: 'neutral',
+      inverted: 'inverted',
+    },
+  },
+  mapping: {
+    default: '',
+    neutral: 'neutral',
+    inverted: 'inverted',
+  },
+};
+
+const getArgTypes = (variant) => {
+  const argTypes = getIndicatorControls({ arg: 'hide_label', eq: true });
+
+  argTypes.size = {
+    name: 'size',
+    type: 'select',
+    description: 'Button size',
+    options: ['s', 'm', 'l'],
+    control: {
+      labels: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
+      },
+    },
+    mapping: {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'l' },
+      category: 'Display',
+    },
+  };
+  argTypes.style = {
+    ...(variant === 'primary' ? stylePrimary : styleSecondary),
+    name: 'style',
+    type: 'select',
+    description: 'Button style',
+    table: {
+      type: 'string',
+      category: 'Display',
+    },
+  };
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
@@ -146,45 +209,24 @@ const getArgTypes = () => {
       type: 'boolean',
     },
   };
-  argTypes.indicator = {
-    name: 'indicator',
-    type: { name: 'boolean' },
-    description: 'Display indicator. This only works if the label is hidden',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'boolean',
-    },
-    if: { arg: 'hide_label', eq: true },
-  };
-  argTypes.indicator_value = {
-    name: 'indicator_value',
-    type: { name: 'string' },
-    description: 'Indicator value',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Indicator',
-    },
-    control: {
-      type: 'text',
-    },
-    if: { arg: 'indicator', eq: true },
-  };
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
+  data.size = args.size;
+  data.style = args.style;
   data.label = args.label;
   data.disabled = args.disabled;
   data.hide_label = args.hide_label;
-  data.indicator = args.indicator ? { value: '' } : {};
-  if (args.indicator && args.indicator_value !== '') {
-    data.indicator.value = args.indicator_value;
+  data.indicator = args.indicator ? { value: '', sr_label: '' } : {};
+  if (args.indicator) {
+    if (args.indicator_value !== '') {
+      data.indicator.value = args.indicator_value;
+    }
+    if (args.indicator_label !== '') {
+      data.indicator.sr_label = args.indicator_label;
+    }
   }
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
@@ -203,82 +245,56 @@ const prepareData = (data, args) => {
   return data;
 };
 
+const renderStory = async (data, args) => {
+  let story = await button(prepareData(data, args));
+
+  if (args.style === 'inverted') {
+    story = `<div class="ecl-u-bg-black ecl-u-pa-m">${story}</div>`;
+  }
+
+  return story;
+};
+
 export default {
   title: 'Components/Button',
-  argTypes: getArgTypes(),
   decorators: [withCode, withNotes],
 };
+
 export const Primary = (_, { loaded: { component } }) => component;
 
 Primary.render = async (args) => {
-  const renderedButton = await button(prepareData(dataPrimary, args));
+  const renderedButton = await renderStory(dataButtonPrimary, args);
   return renderedButton;
 };
-Primary.args = getArgs(dataPrimary);
+Primary.args = getArgs(dataButtonPrimary);
 Primary.storyName = 'primary';
+Primary.argTypes = getArgTypes('primary');
 Primary.parameters = {
-  notes: { markdown: notes, json: dataPrimary },
+  notes: { markdown: notes, json: dataButtonPrimary },
 };
 
 export const Secondary = (_, { loaded: { component } }) => component;
 
 Secondary.render = async (args) => {
-  const renderedButtonSecondary = await button(
-    prepareData(dataSecondary, args),
-  );
-  return renderedButtonSecondary;
+  const renderedButton = await renderStory(dataButtonSecondary, args);
+  return renderedButton;
 };
-Secondary.args = getArgs(dataSecondary);
+Secondary.args = getArgs(dataButtonSecondary);
 Secondary.storyName = 'secondary';
+Secondary.argTypes = getArgTypes('secondary');
 Secondary.parameters = {
-  notes: { markdown: notes, json: dataSecondary },
+  notes: { markdown: notes, json: dataButtonSecondary },
 };
 
 export const Tertiary = (_, { loaded: { component } }) => component;
 
 Tertiary.render = async (args) => {
-  const renderedCta = await button(prepareData(dataTertiary, args));
-  return renderedCta;
+  const renderedButton = await renderStory(dataButtonTertiary, args);
+  return renderedButton;
 };
-Tertiary.args = getArgs(dataTertiary);
+Tertiary.args = getArgs(dataButtonTertiary);
 Tertiary.storyName = 'tertiary';
+Tertiary.argTypes = getArgTypes('tertiary');
 Tertiary.parameters = {
-  notes: { markdown: notes, json: dataTertiary },
-};
-
-export const CallToAction = (_, { loaded: { component } }) => component;
-
-CallToAction.render = async (args) => {
-  const renderedCta = await button(prepareData(dataCall, args));
-  return renderedCta;
-};
-CallToAction.args = getArgs(dataCall);
-CallToAction.storyName = 'call to action';
-CallToAction.parameters = {
-  notes: { markdown: notes, json: dataCall },
-};
-
-export const Ghost = (_, { loaded: { component } }) => component;
-
-Ghost.render = async (args) => {
-  const renderedCta = await button(prepareData(dataGhost, args));
-  return renderedCta;
-};
-Ghost.args = getArgs(dataGhost);
-Ghost.storyName = 'ghost';
-Ghost.parameters = {
-  notes: { markdown: notes, json: dataGhost },
-};
-
-export const GhostInverted = (_, { loaded: { component } }) => component;
-
-GhostInverted.render = async (args) => {
-  const renderedCta = await button(prepareData(dataGhostInverted, args));
-  return renderedCta;
-};
-GhostInverted.args = getArgs(dataGhostInverted);
-GhostInverted.storyName = 'ghost inverted';
-GhostInverted.decorators = [withNotes, withCode, withInverted];
-GhostInverted.parameters = {
-  notes: { markdown: notes, json: dataGhostInverted },
+  notes: { markdown: notes, json: dataButtonTertiary },
 };

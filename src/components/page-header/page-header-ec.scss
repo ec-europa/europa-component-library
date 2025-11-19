@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -127,5 +128,100 @@ $page-header: null !default;
     height: 100%;
     position: absolute;
     width: 100%;
+  }
+}
+
+// Expandable
+.ecl-page-header-expandable {
+  background-color: var(--cm-surface-primary-low-0);
+  color: var(--cm-on-surface-brand);
+}
+
+.ecl-page-header-expandable__header {
+  background: var(--cm-surface-primary-low-1);
+
+  :not(.ecl-page-header-no-toggle) > & {
+    cursor: pointer;
+  }
+
+  @include mixins.responsive-font('body-s');
+}
+
+.ecl-page-header-expandable__header-text {
+  padding-block: calc(var(--s-s) + 2px);
+  padding-inline-end: calc(var(--s-m) + 2.75rem + var(--s-xs));
+  color: var(--cm-on-surface-brand);
+}
+
+.ecl-page-header-expandable__toggle {
+  height: 2.75rem;
+  position: absolute;
+  right: var(--s-m);
+  top: var(--s-3xs);
+
+  .ecl-icon {
+    transition: transform 0.5s ease;
+  }
+
+  &[aria-expanded='true'] .ecl-icon {
+    transform: rotate(0);
+  }
+
+  &:focus-visible {
+    outline-offset: 0 !important;
+  }
+
+  [dir='rtl'] & {
+    right: auto;
+    left: var(--s-m);
+  }
+}
+
+.ecl-page-header-expandable__panel {
+  padding-block: var(--s-s);
+
+  * {
+    @include mixins.responsive-font('body-s');
+  }
+}
+
+.ecl-page-header-expandable__header .ecl-link,
+.ecl-page-header-expandable__header .ecl-link:visited,
+.ecl-page-header-expandable__header .ecl-link:hover {
+  color: var(--cm-on-surface-brand) !important;
+  font-weight: map.get($theme, 'font-weight', 'medium');
+}
+
+@include breakpoints.up('m') {
+  .ecl-page-header-expandable__header-text {
+    padding-inline-end: calc(var(--s-xl) + 2.75rem + var(--s-xs));
+  }
+
+  .ecl-page-header-expandable__toggle {
+    right: var(--s-xl);
+
+    [dir='rtl'] & {
+      right: auto;
+      left: var(--s-xl);
+    }
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-page-header-expandable__header-text {
+    padding-inline-end: calc(var(--s-3xl) + 2.75rem + var(--s-xs));
+  }
+
+  .ecl-page-header-expandable__toggle {
+    right: var(--s-3xl);
+
+    [dir='rtl'] & {
+      right: auto;
+      left: var(--s-3xl);
+    }
+  }
+
+  .ecl-page-header-expandable__panel {
+    padding-block: var(--s-m);
   }
 }

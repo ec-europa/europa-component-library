@@ -138,6 +138,22 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Button
+
+- Button variant have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
+- On top of the variants different styles are available: `highlight`, `neutral` and `inverted`
+
+Depending on your usage, you may have to update the button classes to match the new ones.
+
+Here is the mapping to the new variant / style:
+
+- primary -> primary
+- secondary -> secondary
+- tertiary -> tertiary / neutral
+- cta -> primary / highlight
+- ghost -> tertiary
+- ghost-inverted -> tertiary / inverted
+
 ### Checkbox
 
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
@@ -145,6 +161,17 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 ### Content block
 
 The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+
+### Datepicker
+
+ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
+
+`<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+or
+`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+
+The markup is now using the custom element defined by duet js:
+`<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
 
 ### Fact & figures
 
@@ -203,6 +230,29 @@ Extra attention points:
 - flags are now names with the country code istead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
 
+### Link
+
+- following the button updates, type `cta` has ben renamed to `primary-highlight`
+
+### List with illustration
+
+Two new variants have been added:
+
+- icon list (twig param: `icon_list`)
+- number list (twig param: `number_list`)
+
+For the number list additional parameter are available:
+
+- `counter_reset` (default: true) Resets the counter of the list
+- `counter_start` (default: 0) Starting number of the counter when counter_reset is true
+
+These variants are supposed to be used with a description only and in a layout with a single column or two columns maximum
+
+An additional param has been added to place the icon on the left and not on top:
+
+- `icon_inline`
+  This cannot be used in combnation with the `centered` variant
+
 ### Mega menu
 
 The featured panel has changed in order to present a list of elements including images, description, links with images only, textual links instead of an img and then a list of links.
@@ -254,6 +304,13 @@ The related styles can be customized defining:
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
 
+The menu can be used to show a single level list of sub items in a multi column layout, a parameter has been added `one_level_only` at the item level to optionally choose this display, the default is still to display the sub-items in a single column.
+It can be used with or without an info or a featured panel, it goes up to 4 columns when it's the only content of the dropdown.
+
+### Notification
+
+The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
+
 ### Radio
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
@@ -281,6 +338,10 @@ Site footer EC has been completely revamped to accomodate new design (markup, cs
   See the component documentation and examples for more information
 
 EU footer hasn't changed, but is now using its own template file
+
+### Table
+
+- parameter for aria label, in the sorting table (`label_sort`) has been split into `label_sort_ascending`, `label_sort_descending` and `label_sort_default`. It translates to `data-ecl-table-sort-label-asc`, `data-ecl-table-sort-label-desc` and `data-ecl-table-sort-label-default` in the markup. Current `label_sort` is used as fallback if the new elements are not provided.
 
 ### Timeline
 

@@ -58,6 +58,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__title {
+  display: block;
   font: map.get($fact-figures, 'title-font');
   font-weight: map.get($fact-figures, 'title-font-weight');
   margin-top: map.get($fact-figures, 'title-margin');

@@ -17,6 +17,7 @@
       "path": (string) (default: '')
       "external": (boolean) (optional),
       "sr_external" (string) (default: '') Additional label for the external icon
+      "one_level_only" (boolean) (default: false)
       "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
         - "name" (string) Attribute name, eg. 'data-test'
         - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -134,6 +135,7 @@
     {% include '@ecl/button/button.html.twig' with _toggle|merge({
       type: 'button',
       variant: 'tertiary',
+      style: 'neutral',
       icon_position: 'before',
       icon: _toggle_icon,
       hide_label: true,

@@ -5,15 +5,82 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $site-footer: null !default;
 
 .ecl-site-footer {
+  margin: 0;
+}
+
+// -------
+// Co-owner
+
+.ecl-site-footer__co-owner {
+  background-color: map.get($site-footer, 'co-owner', 'background');
+  padding-block: map.get($site-footer, 'co-owner', 'padding-block');
+}
+
+.ecl-site-footer__co-owner-title {
+  margin-block-end: map.get($site-footer, 'co-owner', 'title-margin');
+
+  @include mixins.responsive-font(
+    map.get($site-footer, 'co-owner', 'title-font'),
+    $font-weight: map.get($site-footer, 'co-owner', 'title-font-weight')
+  );
+}
+
+.ecl-site-footer__co-owner-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-site-footer__co-owner-item:not(.is-first) {
+  margin-block-start: map.get($site-footer, 'co-owner', 'item-margin-mobile');
+}
+
+.ecl-site-footer__co-owner-link {
+  color: map.get($site-footer, 'co-owner', 'link-color');
+
+  @include mixins.responsive-font(
+    map.get($site-footer, 'co-owner', 'link-font')
+  );
+
+  &:hover {
+    color: map.get($site-footer, 'co-owner', 'link-color-hover');
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-site-footer__co-owner-item {
+    display: inline;
+
+    &:not(.is-first) {
+      border-inline-start: map.get($site-footer, 'co-owner', 'item-separator');
+      margin-block-start: 0;
+      margin-inline-start: map.get(
+        $site-footer,
+        'co-owner',
+        'item-margin-desktop'
+      );
+      padding-inline-start: map.get(
+        $site-footer,
+        'co-owner',
+        'item-padding-desktop'
+      );
+    }
+  }
+}
+
+// -------
+// Main footer
+
+.ecl-site-footer__main {
   background-color: map.get($site-footer, 'background');
   color: map.get($site-footer, 'color');
-  margin: 0;
   padding-block: var(--s-8xl);
 }
 
@@ -45,6 +112,10 @@ $site-footer: null !default;
 .ecl-site-footer__description {
   font: var(--f-s);
   margin-block-start: var(--s-xs);
+}
+
+.ecl-site-footer__description-name {
+  display: block;
 }
 
 .ecl-site-footer__social-media {

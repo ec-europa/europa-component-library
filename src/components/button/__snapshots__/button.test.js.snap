@@ -1,197 +1,51 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Button CTA button - icon after renders correctly 1`] = `
+exports[`Button Primary button highlight - icon only renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--cta"
-    type="submit"
-  >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        CTA Button with icon after
-      </span>
-      <span
-        aria-hidden="true"
-        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow"
-        data-ecl-icon=""
-      />
-    </span>
-  </button>
-</jest>
-`;
-
-exports[`Button CTA button - icon after renders correctly with extra attributes 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--cta"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    type="submit"
-  >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        CTA Button with icon after
-      </span>
-      <span
-        aria-hidden="true"
-        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow"
-        data-ecl-icon=""
-      />
-    </span>
-  </button>
-</jest>
-`;
-
-exports[`Button CTA button - icon after renders correctly with extra class names 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--cta custom-class custom-class--test"
-    type="submit"
-  >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        CTA Button with icon after
-      </span>
-      <span
-        aria-hidden="true"
-        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow"
-        data-ecl-icon=""
-      />
-    </span>
-  </button>
-</jest>
-`;
-
-exports[`Button CTA button - icon before renders correctly 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--cta"
-    type="submit"
-  >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        aria-hidden="true"
-        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow"
-        data-ecl-icon=""
-      />
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        CTA Button with icon before
-      </span>
-    </span>
-  </button>
-</jest>
-`;
-
-exports[`Button CTA button - icon only renders correctly 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--cta ecl-button--icon-only"
-    type="submit"
-  >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        CTA Button with icon only
-      </span>
-      <span
-        aria-hidden="true"
-        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow"
-        data-ecl-icon=""
-      />
-    </span>
-  </button>
-</jest>
-`;
-
-exports[`Button CTA button - with indicator renders correctly 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--cta ecl-button--icon-only"
-    type="submit"
-  >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        CTA Button with indicator
-      </span>
-      <span
-        class="ecl-button__icon-container"
-      >
-        <span
-          aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow"
-          data-ecl-icon=""
-        />
-        <span
-          class="ecl-indicator"
-          data-ecl-auto-init="Indicator"
-          data-ecl-indicator=""
-        >
-          10
-        </span>
-      </span>
-    </span>
-  </button>
-</jest>
-`;
-
-exports[`Button CTA renders correctly 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--cta"
-    type="submit"
-  >
-    Call to action button
-  </button>
-</jest>
-`;
-
-exports[`Button Ghost inverted renders correctly 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--ghost-inverted"
+    class="ecl-button ecl-button--primary ecl-button--highlight ecl-button--icon-only"
     type="button"
   >
-    Ghost inverted button
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+    </span>
   </button>
 </jest>
 `;
 
-exports[`Button Ghost renders correctly 1`] = `
+exports[`Button Primary button inverted - icon after renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--ghost"
+    class="ecl-button ecl-button--primary ecl-button--inverted"
     type="button"
   >
-    Ghost button
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+    </span>
   </button>
 </jest>
 `;
@@ -200,9 +54,78 @@ exports[`Button Primary renders correctly 1`] = `
 <jest>
   <button
     class="ecl-button ecl-button--primary"
-    type="submit"
+    type="button"
   >
-    Primary button
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Primary renders correctly with extra attributes 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Primary renders correctly with extra class names 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary custom-class custom-class--test"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Secondary button neutral - with indicator renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--secondary ecl-button--neutral ecl-button--icon-only"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        class="ecl-button__icon-container"
+      >
+        <span
+          aria-hidden="true"
+          class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+          data-ecl-icon=""
+        />
+        <span
+          class="ecl-indicator"
+          data-ecl-auto-init="Indicator"
+          data-ecl-indicator=""
+        >
+          <span
+            class="ecl-indicator__value"
+          >
+            10
+          </span>
+          <span
+            class="ecl-indicator__label"
+          >
+            new items
+          </span>
+        </span>
+      </span>
+    </span>
   </button>
 </jest>
 `;
@@ -213,7 +136,32 @@ exports[`Button Secondary renders correctly 1`] = `
     class="ecl-button ecl-button--secondary"
     type="button"
   >
-    Secondary button
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Tertiary button neutral - icon before renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--tertiary ecl-button--neutral"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+    </span>
   </button>
 </jest>
 `;
@@ -224,7 +172,7 @@ exports[`Button Tertiary renders correctly 1`] = `
     class="ecl-button ecl-button--tertiary"
     type="button"
   >
-    Tertiary button
+    Button label
   </button>
 </jest>
 `;

@@ -17,4 +17,21 @@ module.exports = {
       alt: 'Europe map',
     },
   },
+  expandable: {
+    panel_id: 'page-header-expandable-panel-demo',
+    toggle_label: 'expandable button',
+    toggle_extra_attributes: [{ name: 'data-test-custom-toggle-attribute' }],
+    header_content:
+      '<strong>LOREM IPSUM</strong> - dolor sit amet, consectetur <a class="ecl-link" href="/example">adipiscing</a> elit.',
+    panel_content: `<ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      <li>Morbi faucibus justo eget ante hendrerit sagittis
+        <ul>
+          <li>consectetur adipiscing</li>
+          <li>Maecenas non convallis dolor</li>
+        </ul>
+      </li>
+      <li>Integer dignissim imperdiet</li>
+    </ul>`,
+  },
 };

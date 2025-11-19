@@ -12,10 +12,6 @@ $theme: null !default;
   @include breakpoints.up($breakpoint) {
     $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-    /**
-       * Container
-       */
-
     /* Direction */
     .ecl-u-flex#{$infix}-row {
       flex-direction: row !important;
@@ -94,10 +90,6 @@ $theme: null !default;
     .ecl-u-align-content#{$infix}-stretch {
       align-content: stretch !important;
     }
-
-    /**
-       * Items
-       */
 
     /* Order */
     .ecl-u-order#{$infix}-first {

@@ -52,7 +52,7 @@
 >
   {% if _text_input is not empty %}
     {% include '@ecl/form-group/form-group.html.twig' with {
-      label: _label,
+      label: _label ? _label : _text_input.placeholder|default(''),
       input: _text_input|merge({
         input_type: 'search',
         extra_classes: 'ecl-search-form__text-input' ~ ( _text_input.extra_classes ? ' ' ~ _text_input.extra_classes : ''),

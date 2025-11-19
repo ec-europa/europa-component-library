@@ -1,5 +1,132 @@
 # Changelog
 
+## 5.0.0-alpha.18 (2025-10-08)
+
+#### :nail_care: Enhancement
+
+- [#4153](https://github.com/ec-europa/europa-component-library/pull/4153) feat(page-header): Page header not expandable - FRONT-5099 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+# 5.0.0-alpha.17
+
+#### :rocket: New Feature
+
+- [#4141](https://github.com/ec-europa/europa-component-library/pull/4141) feat(political-advertisement): Adding component as part of the page header - FRONT-5088 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4146](https://github.com/ec-europa/europa-component-library/pull/4146) feat(site-header): Some styles update - FRONT-5080 - FRONT-5096 ([@planctus](https://github.com/planctus))
+- [#4145](https://github.com/ec-europa/europa-component-library/pull/4145) feat(spotlight): use media queries - FRONT-5089 ([@emeryro](https://github.com/emeryro))
+- [#4143](https://github.com/ec-europa/europa-component-library/pull/4143) feat(list-illustration): Style iteration, adding divider in number list - FRONT-5094 ([@planctus](https://github.com/planctus))
+- [#4085](https://github.com/ec-europa/europa-component-library/pull/4085) feat(notification): update EC display - FRONT-5006 ([@emeryro](https://github.com/emeryro))
+- [#4138](https://github.com/ec-europa/europa-component-library/pull/4138) feat(button): update styles - FRONT-5082 ([@emeryro](https://github.com/emeryro))
+- [#4134](https://github.com/ec-europa/europa-component-library/pull/4134) feat(modal): put icon in header content - FRONT-5076 ([@emeryro](https://github.com/emeryro))
+- [#4132](https://github.com/ec-europa/europa-component-library/pull/4132) feat(banner): add aria-describedby on button - FRONT-5071 ([@emeryro](https://github.com/emeryro))
+- [#4133](https://github.com/ec-europa/europa-component-library/pull/4133) feat(fact-figures): use span for title - FRONT-5074 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4147](https://github.com/ec-europa/europa-component-library/pull/4147) chore(page-header): Rename political-advertisement to page-header-expandable - FRONT-5098 ([@planctus](https://github.com/planctus))
+- [#4137](https://github.com/ec-europa/europa-component-library/pull/4137) chore(deps): Updates 22-09-25 ([@planctus](https://github.com/planctus))
+- [#4136](https://github.com/ec-europa/europa-component-library/pull/4136) feat(popover): update demo - FRONT-5078 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 5.0.0-alpha.16
+
+#### :rocket: New Feature
+
+- [#4124](https://github.com/ec-europa/europa-component-library/pull/4124) feat(list-illustration): Adding icon-list and number-list variants - FRONT-5062 ([@planctus](https://github.com/planctus))
+- [#4117](https://github.com/ec-europa/europa-component-library/pull/4117) feat(button): revamp button variants - FRONT-5030 ([@emeryro](https://github.com/emeryro))
+- [#4105](https://github.com/ec-europa/europa-component-library/pull/4105) feat(right-to-left): move rtl specific css to components - FRONT-5007 ([@emeryro](https://github.com/emeryro))
+- [#4057](https://github.com/ec-europa/europa-component-library/pull/4057) feat(spotlight): add component - FRONT-4962 ([@emeryro](https://github.com/emeryro))
+
+#### :boom: Breaking Change
+
+- [#4117](https://github.com/ec-europa/europa-component-library/pull/4117) feat(button): revamp button variants - FRONT-5030 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4109](https://github.com/ec-europa/europa-component-library/pull/4109) fix(timeline): fix label only display - FRONT-5037 ([@emeryro](https://github.com/emeryro))
+- [#4112](https://github.com/ec-europa/europa-component-library/pull/4112) fix(site-header): fix menu button overlap - FRONT-5044 ([@emeryro](https://github.com/emeryro))
+- [#4080](https://github.com/ec-europa/europa-component-library/pull/4080) fix(mega-menu): Reintroducing css code for the list scrollability - FRONT-5009 ([@planctus](https://github.com/planctus))
+- [#4093](https://github.com/ec-europa/europa-component-library/pull/4093) fix(carousel): fix tablet padding - FRONT-4993 ([@emeryro](https://github.com/emeryro))
+- [#4075](https://github.com/ec-europa/europa-component-library/pull/4075) fix(news-ticker): fix padding on EU - FRONT-4996 ([@emeryro](https://github.com/emeryro))
+- [#4056](https://github.com/ec-europa/europa-component-library/pull/4056) fix(carousel): Fixing some visual bug - FRONT-4970 ([@planctus](https://github.com/planctus))
+- [#4065](https://github.com/ec-europa/europa-component-library/pull/4065) fix(icon): add aria-hidden - FRONT-4979 ([@emeryro](https://github.com/emeryro))
+- [#4072](https://github.com/ec-europa/europa-component-library/pull/4072) fix(media-container, table): fix caption color - FRONT-4991 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#4130](https://github.com/ec-europa/europa-component-library/pull/4130) fix(site-header): add background color - FRONT-5068 ([@emeryro](https://github.com/emeryro))
+- [#4129](https://github.com/ec-europa/europa-component-library/pull/4129) feat(blockquote): update styles - FRONT-5065 ([@emeryro](https://github.com/emeryro))
+- [#4131](https://github.com/ec-europa/europa-component-library/pull/4131) feat(modal): add aria-describedby - FRONT-5069 ([@emeryro](https://github.com/emeryro))
+- [#4121](https://github.com/ec-europa/europa-component-library/pull/4121) fix(file): fix display when placed in columns - FRONT-5053 ([@emeryro](https://github.com/emeryro))
+- [#4114](https://github.com/ec-europa/europa-component-library/pull/4114) feat(banner): underline link on hover - FRONT-5046 ([@emeryro](https://github.com/emeryro))
+- [#4119](https://github.com/ec-europa/europa-component-library/pull/4119) feat(token): update border token - FRONT-5063 ([@emeryro](https://github.com/emeryro))
+- [#4120](https://github.com/ec-europa/europa-component-library/pull/4120) feat(social-media-follow): Passing extra attributes to the single links - FRONT-5060 ([@planctus](https://github.com/planctus))
+- [#4115](https://github.com/ec-europa/europa-component-library/pull/4115) feat(token): update border radius tokens - FRONT-5045 ([@emeryro](https://github.com/emeryro))
+- [#4110](https://github.com/ec-europa/europa-component-library/pull/4110) feat(tokens): update status tokens - FRONT-5034 ([@emeryro](https://github.com/emeryro))
+- [#4098](https://github.com/ec-europa/europa-component-library/pull/4098) feat(form): update colors and icon - FRONT-5015 ([@emeryro](https://github.com/emeryro))
+- [#4099](https://github.com/ec-europa/europa-component-library/pull/4099) feat(label): update EC label style - FRONT-5022 ([@emeryro](https://github.com/emeryro))
+- [#4100](https://github.com/ec-europa/europa-component-library/pull/4100) feat(card): update border - FRONT-5023 ([@emeryro](https://github.com/emeryro))
+- [#4102](https://github.com/ec-europa/europa-component-library/pull/4102) feat(breadcrumb): update link size - FRONT-5029 ([@emeryro](https://github.com/emeryro))
+- [#4087](https://github.com/ec-europa/europa-component-library/pull/4087) feat(table): small style update - FRONT-5008 ([@emeryro](https://github.com/emeryro))
+- [#4101](https://github.com/ec-europa/europa-component-library/pull/4101) feat(typography): update 10XL token - FRONT-5027 ([@emeryro](https://github.com/emeryro))
+- [#4095](https://github.com/ec-europa/europa-component-library/pull/4095) feat(tokens): update tokens (font, color, spacing) - FRONT-5019 ([@emeryro](https://github.com/emeryro))
+- [#4097](https://github.com/ec-europa/europa-component-library/pull/4097) feat(featured-item): add id and aria-describedby - FRONT-5021 ([@emeryro](https://github.com/emeryro))
+- [#4096](https://github.com/ec-europa/europa-component-library/pull/4096) feat(form): remove aria-label for required - FRONT-5020 ([@emeryro](https://github.com/emeryro))
+- [#4091](https://github.com/ec-europa/europa-component-library/pull/4091) feat(rating-field): Replacing screen reader utility in the markup - FRONT-5016 ([@planctus](https://github.com/planctus))
+- [#4079](https://github.com/ec-europa/europa-component-library/pull/4079) feat(breadcrumbs): update link style - FRONT-5004 ([@emeryro](https://github.com/emeryro))
+- [#4084](https://github.com/ec-europa/europa-component-library/pull/4084) feat(blockquote): Changing quotes in english - FRONT-5013 ([@planctus](https://github.com/planctus))
+- [#4083](https://github.com/ec-europa/europa-component-library/pull/4083) feat(inpage): Changing tokens used in EC - FRONT-5005 ([@planctus](https://github.com/planctus))
+- [#4077](https://github.com/ec-europa/europa-component-library/pull/4077) feat(typography): add letter spacing - FRONT-5001 ([@emeryro](https://github.com/emeryro))
+- [#4082](https://github.com/ec-europa/europa-component-library/pull/4082) feat(site-header): link icon size, mobile and desktop the same, 1.5rem - FRONT-5010 ([@planctus](https://github.com/planctus))
+- [#4073](https://github.com/ec-europa/europa-component-library/pull/4073) feat(rating): add stroke - FRONT-4999 ([@emeryro](https://github.com/emeryro))
+- [#4078](https://github.com/ec-europa/europa-component-library/pull/4078) feat(border): add grey tokens - FRONT-5002 ([@emeryro](https://github.com/emeryro))
+- [#4074](https://github.com/ec-europa/europa-component-library/pull/4074) chore(content-block): Moving attribute to identify title with links to the link itself - FRONT-5000 ([@planctus](https://github.com/planctus))
+- [#4066](https://github.com/ec-europa/europa-component-library/pull/4066) feat(checkbox, radio): put invalid and help text in label - FRONT-4698 ([@emeryro](https://github.com/emeryro))
+- [#4069](https://github.com/ec-europa/europa-component-library/pull/4069) feat(search-form): make button label accessible - FRONT-4992 ([@emeryro](https://github.com/emeryro))
+- [#4054](https://github.com/ec-europa/europa-component-library/pull/4054) feat(social-media-follow): Some style udpates - FRONT-4972 ([@planctus](https://github.com/planctus))
+- [#3988](https://github.com/ec-europa/europa-component-library/pull/3988) feat(typography): Changed to responsive font approach in components. - FRONT-4900 ([@tibi2303](https://github.com/tibi2303))
+- [#4067](https://github.com/ec-europa/europa-component-library/pull/4067) feat(site-header): update class font size - FRONT-4981 ([@emeryro](https://github.com/emeryro))
+- [#4064](https://github.com/ec-europa/europa-component-library/pull/4064) feat(select): rotate select icon - FRONT-4977 ([@emeryro](https://github.com/emeryro))
+- [#4058](https://github.com/ec-europa/europa-component-library/pull/4058) feat(description-list): update spacing - FRONT-4975 ([@emeryro](https://github.com/emeryro))
+- [#4059](https://github.com/ec-europa/europa-component-library/pull/4059) feat(labels): harmonize labels for "see more" ([@emeryro](https://github.com/emeryro))
+- [#4053](https://github.com/ec-europa/europa-component-library/pull/4053) feat(fact-figures): Small tweaks to simplify the webcomponents implementation - FRONT-4972 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#4107](https://github.com/ec-europa/europa-component-library/pull/4107) feat(utilities): cleanup and reduce size - FRONT-5031 ([@emeryro](https://github.com/emeryro))
+- [#4123](https://github.com/ec-europa/europa-component-library/pull/4123) feat(video): update demo video - FRONT-5051 ([@emeryro](https://github.com/emeryro))
+- [#4126](https://github.com/ec-europa/europa-component-library/pull/4126) chore(flags): v5 - Removing demo of the non EU members flags - FRONT-5066 ([@planctus](https://github.com/planctus))
+- [#4118](https://github.com/ec-europa/europa-component-library/pull/4118) chore(scss): Refactoring form width mixin and its usage - FRONT-5035 ([@planctus](https://github.com/planctus))
+- [#4116](https://github.com/ec-europa/europa-component-library/pull/4116) chore(deps): Updates 08-09-25 ([@planctus](https://github.com/planctus))
+- [#4106](https://github.com/ec-europa/europa-component-library/pull/4106) chore(rtl): Using addon to switch to RTL ([@planctus](https://github.com/planctus))
+- [#4104](https://github.com/ec-europa/europa-component-library/pull/4104) chore(deps): Updates - 19-08-25 ([@planctus](https://github.com/planctus))
+- [#4088](https://github.com/ec-europa/europa-component-library/pull/4088) feat(site-header): add background - FRONT-5014 ([@emeryro](https://github.com/emeryro))
+- [#4090](https://github.com/ec-europa/europa-component-library/pull/4090) chore(website): maintenance of typography page - FRONT-4995 ([@emeryro](https://github.com/emeryro))
+- [#4092](https://github.com/ec-europa/europa-component-library/pull/4092) chore(deps): Updates 11-08-25 ([@planctus](https://github.com/planctus))
+- [#4086](https://github.com/ec-europa/europa-component-library/pull/4086) chore(deps): Updates 05-08-25 ([@planctus](https://github.com/planctus))
+- [#4081](https://github.com/ec-europa/europa-component-library/pull/4081) fix(rtl): Fix plugin behavior when rtl is selected, handling dir attribute - FRONT-5007 ([@planctus](https://github.com/planctus))
+- [#4076](https://github.com/ec-europa/europa-component-library/pull/4076) chore(deps): Updates - 30-07-25 ([@planctus](https://github.com/planctus))
+- [#4070](https://github.com/ec-europa/europa-component-library/pull/4070) fix(demo): fix inverted demo - FRONT-4994 ([@emeryro](https://github.com/emeryro))
+- [#4063](https://github.com/ec-europa/europa-component-library/pull/4063) chore(deps): Updates 22-07-25 - v5 ([@planctus](https://github.com/planctus))
+- [#4037](https://github.com/ec-europa/europa-component-library/pull/4037) chore(grid): Removing XXL breakpoint, keeping container max width at 1368px - FRONT-4958 ([@planctus](https://github.com/planctus))
+- [#4055](https://github.com/ec-europa/europa-component-library/pull/4055) fix(example-page): Making packages private - FRONT-4974 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 5.0.0-alpha.15
 
 #### :rocket: New Feature

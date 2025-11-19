@@ -15,6 +15,11 @@ npm install --save @ecl/page-header
 - **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
 - **"meta"** (array) (default: []) Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
+- **"expandable"** (associative array) Page header expandable
+  - "toggle_label" (default: '')
+  - "toggle_extra_attributes" (default: '')
+  - "header_content" (default: '')
+  - "panel_content" (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
