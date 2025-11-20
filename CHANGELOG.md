@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.0.0-alpha.21 (2025-11-20)
+
+#### :nail_care: Enhancement
+
+- [#4200](https://github.com/ec-europa/europa-component-library/pull/4200) feat(breadcrumb): fix visited color - FRONT-5155 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 5.0.0-alpha.19 (2025-10-08)
+
+Only fixing the background color of the page header expandable
+
 ## 5.0.0-alpha.18 (2025-10-08)
 
 #### :nail_care: Enhancement
