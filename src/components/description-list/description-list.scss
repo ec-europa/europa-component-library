@@ -166,7 +166,7 @@ $description-list: null !default;
     height: 4px;
     left: -2px;
     position: absolute;
-    top: 7px;
+    top: map.get($description-list, 'taxonomy-separator-offset');
     width: 4px;
   }
 
