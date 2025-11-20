@@ -138,6 +138,10 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Breadcrumb
+
+- Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
+
 ### Button
 
 - Button variant have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
