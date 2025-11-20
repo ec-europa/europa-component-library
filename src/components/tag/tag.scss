@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -17,11 +18,12 @@ $tag: null !default;
   box-sizing: border-box;
   color: map.get($tag, 'color');
   display: inline-flex;
-  font: map.get($tag, 'font');
   padding: map.get($tag, 'padding');
   text-align: left;
   text-decoration: underline;
   text-underline-offset: 5px;
+
+  @include mixins.responsive-font(map.get($tag, 'font'));
 
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');
