@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -70,10 +71,11 @@ $button-width: 44px;
   border-radius: map.get($tabs, 'item', 'border-radius');
   color: map.get($tabs, 'item', 'color');
   display: block;
-  font: map.get($tabs, 'item', 'font');
   margin-bottom: -#{map.get($tabs, 'separator-width')};
   padding: map.get($tabs, 'item', 'padding');
   text-decoration: none;
+
+  @include mixins.responsive-font(map.get($tabs, 'item', 'font'));
 
   &:visited {
     color: map.get($tabs, 'item', 'color');
