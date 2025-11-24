@@ -10,6 +10,7 @@
 // Exposed variables
 $theme: null !default;
 $spotlight: null !default;
+$content-padding-top: 9.125rem;
 
 .ecl-spotlight {
   container-name: ecl-spotlight;
@@ -73,6 +74,7 @@ $spotlight: null !default;
   .ecl-container {
     align-items: flex-end;
     display: flex;
+    padding-block-start: $content-padding-top;
   }
 }
 
