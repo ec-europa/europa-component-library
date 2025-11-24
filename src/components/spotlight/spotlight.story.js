@@ -207,9 +207,9 @@ const getArgTypes = () => {
     if: { arg: 'responsiveImage', truthy: false },
   };
   argTypes.responsiveImage = {
-    name: 'use responsive image',
+    name: 'showcase responsive image',
     type: { name: 'boolean' },
-    description: 'Change image based on breakpoint, using srcset',
+    description: 'Use a set of images in the demo, with different aspect ratio',
     table: {
       category: 'Content',
     },
