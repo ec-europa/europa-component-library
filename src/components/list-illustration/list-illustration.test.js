@@ -133,6 +133,14 @@ describe('List with illustration', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly in two columns', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataListIllustrationNumberList, column: 2 }),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(
