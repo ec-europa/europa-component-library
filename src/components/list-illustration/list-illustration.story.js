@@ -377,6 +377,8 @@ const getVariantArgs = (data) => {
   args.title = data.items[0].title;
   args.description = data.items[0].description;
   args.divider = false;
+  args.column = 1;
+  args.sorting = 'row';
 
   return args;
 };
@@ -386,12 +388,45 @@ const getVariantArgTypes = () => {
     ...getColorModeControls(),
     description: {
       control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
     },
     title: {
       control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
     },
     divider: {
       control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    column: {
+      name: 'number of columns',
+      control: { type: 'range', min: 1, max: 2, step: 1 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '1' },
+        category: 'Layout',
+      },
+    },
+    sorting: {
+      name: 'items flow',
+      control: { type: 'select' },
+      options: ['row', 'column'],
+      description: 'Sort the items by row or column',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'row' },
+        category: 'Layout',
+      },
+      if: { arg: 'column', neq: 1 },
     },
   };
 };
@@ -509,6 +544,7 @@ const prepareIconList = (data, args) => {
   data.color_mode = args.color_mode;
   data.divider = args.divider;
   data.column = args.column;
+  data.sorting = args.sorting;
   data.counter_start = args.counter_start;
 
   return data;
@@ -600,7 +636,6 @@ IconList.storyName = 'icon list';
 IconList.args = {
   ...getVariantArgs(dataListIllustrationIconList),
   icon: 'check-bold',
-  column: 1,
 };
 IconList.argTypes = {
   ...getVariantArgTypes(),
@@ -609,10 +644,6 @@ IconList.argTypes = {
       type: 'select',
     },
     options: ['check-bold', 'arrow-right-bold', 'close-bold'],
-  },
-  column: {
-    name: 'number of columns',
-    control: { type: 'range', min: 1, max: 2, step: 1 },
   },
 };
 IconList.parameters = {
@@ -631,6 +662,7 @@ NumberList.render = async (args) => {
 NumberList.storyName = 'number list';
 NumberList.args = {
   ...getVariantArgs(dataListIllustrationNumberList),
+  sorting: 'column',
   counter_start: 0,
 };
 NumberList.argTypes = {

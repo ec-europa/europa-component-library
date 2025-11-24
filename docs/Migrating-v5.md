@@ -137,6 +137,16 @@ then the selectors for the right number of rows can be retrieved doing this:
 
 where items is the number of items to distribute and columns the desired number of columns.
 
+#### Limitations and known issues:
+
+- Currently the number or rows is limited to 20, so this solution can only be used knowing the maximum number of item to be displayed and when this, divided by the number of columns is less than 20.
+
+- Because of the grid display behavior, there are cases where the last column would be left empty:
+  3 columns with 4 items (2/2/0)
+  4 columns with 5 items (2/2/1/0)
+  4 columns with 6 items (2/2/2/0)
+  4 columns with 9 items (3/3/3/0)
+
 ## Component modifications
 
 ### Accordion
