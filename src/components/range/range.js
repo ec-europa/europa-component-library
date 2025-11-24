@@ -6,6 +6,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.rangeInputSelector Selector for the range input
  * @param {String} options.currentValueSelector Selector for the current value area
  * @param {String} options.bubbleSelector Selector for the value bubble
+ * @param {String} options.containerSelector Selector for the grid container
  * @param {Boolean} options.attachChangeListener Whether or not to bind change events on range
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  */
@@ -31,6 +32,7 @@ export class Range {
       rangeInputSelector = '[data-ecl-range-input]',
       currentValueSelector = '[data-ecl-range-value-current]',
       bubbleSelector = '[data-ecl-range-bubble]',
+      containerSelector = '.ecl-container',
       attachChangeListener = true,
       attachHoverListener = true,
     } = {},
@@ -48,6 +50,7 @@ export class Range {
     this.rangeInputSelector = rangeInputSelector;
     this.currentValueSelector = currentValueSelector;
     this.bubbleSelector = bubbleSelector;
+    this.containerSelector = containerSelector;
     this.attachChangeListener = attachChangeListener;
     this.attachHoverListener = attachHoverListener;
 
@@ -125,6 +128,7 @@ export class Range {
    * Place value bubble
    */
   placeBubble() {
+    let containerLeft = 0;
     // Quite complex calculus here
     // see https://stackoverflow.com/questions/46448994/get-the-offset-position-of-an-html5-range-slider-handle
 
@@ -134,9 +138,15 @@ export class Range {
 
     // Get range input width
     const rect = this.rangeInput.getBoundingClientRect();
+    const container = this.rangeInput.closest(this.containerSelector);
+
+    if (container) {
+      const containerRect = container.getBoundingClientRect();
+      containerLeft = containerRect.left;
+    }
+
     const center = rect.width / 2;
 
-    // Get position from center
     const percentOfRange =
       (this.rangeInput.value - this.rangeInput.min) /
       (this.rangeInput.max - this.rangeInput.min);
@@ -146,11 +156,19 @@ export class Range {
 
     // Calculate bubble position
     const offset = percentDistFromCenter * halfThumbWidth;
+
+    // FRONT-5161 Fix bubble position when inside a container
+    const leftFromParent = rect.left - containerLeft;
+
     let pos = 0;
     if (this.direction === 'rtl') {
-      pos = rect.right - valuePxPosition - halfLabelWidth + offset;
+      pos =
+        leftFromParent +
+        (rect.width - valuePxPosition) -
+        halfLabelWidth +
+        offset;
     } else {
-      pos = rect.left + valuePxPosition - halfLabelWidth - offset;
+      pos = leftFromParent + valuePxPosition - halfLabelWidth - offset;
     }
 
     this.bubble.style.left = `${pos}px`;
