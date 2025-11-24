@@ -6,7 +6,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.rangeInputSelector Selector for the range input
  * @param {String} options.currentValueSelector Selector for the current value area
  * @param {String} options.bubbleSelector Selector for the value bubble
- * @param {String} options.containerSelector Selector for the grid container
+ * @param {String} options.containerSelector Selector for the container
  * @param {Boolean} options.attachChangeListener Whether or not to bind change events on range
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  */
@@ -32,7 +32,7 @@ export class Range {
       rangeInputSelector = '[data-ecl-range-input]',
       currentValueSelector = '[data-ecl-range-value-current]',
       bubbleSelector = '[data-ecl-range-bubble]',
-      containerSelector = '.ecl-container',
+      containerSelector = '[data-ecl-range-container]',
       attachChangeListener = true,
       attachHoverListener = true,
     } = {},
