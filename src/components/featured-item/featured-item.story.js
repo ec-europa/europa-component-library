@@ -17,6 +17,7 @@ const getArgs = (data) => {
     title: data.title,
     description: data.description,
     position: 'left',
+    media_behavior: 'static',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -92,11 +93,28 @@ const getArgTypes = (data) => {
   argTypes.position = {
     name: 'media position',
     type: { name: 'select' },
-    description: 'Alignment inside featured item',
+    description: 'Media position',
     options: ['left', 'right'],
     mapping: {
       left: 'left',
       right: 'right',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+    if: { arg: 'show_media' },
+  };
+
+  argTypes.media_behavior = {
+    name: 'media fill behavior',
+    type: { name: 'select' },
+    description: 'Media fill behavior',
+    options: ['static', 'dynamic'],
+    mapping: {
+      static: 'static',
+      dynamic: 'dynamic',
     },
     table: {
       type: { summary: 'string' },

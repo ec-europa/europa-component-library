@@ -94,6 +94,16 @@ $featured-item: null !default;
       padding-inline-start: 0;
     }
   }
+
+  // Dynamic height image
+  .ecl-featured-item--dynamic {
+    .ecl-featured-item__media_container,
+    .ecl-media-container__figure,
+    .ecl-media-container__picture,
+    .ecl-media-container__media {
+      height: 100%;
+    }
+  }
 }
 
 /**

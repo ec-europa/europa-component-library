@@ -9,6 +9,7 @@
   - "link" (object) (default: {}): object of type Link
   - "link_highlighted" (bool) (default: false): display the link as highlighted
   - "media_container" (object) (default: {}): object of type Media container
+  - "media_behavior" (string) (default: 'static'): fill behavior of the media; can be 'static', 'dynamic'
   - "position" (object) (default: 'left'): Media position
   - "extra_classes" (string) (default: ''),
   - "extra_attributes" (array) (default: []): format: [
@@ -32,6 +33,7 @@
 {% set _link = link|default({}) %}
 {% set _link_highlighted = link_highlighted|default(false) %}
 {% set _media_container = media_container|default({}) %}
+{% set _media_behavior = media_behavior|default('static') %}
 {% set _position = position|default('left') %}
 {% set _extra_attributes = '' %}
 
@@ -39,6 +41,10 @@
 
 {% if _type is not empty %}
   {% set _css_class = _css_class ~ ' ecl-featured-item--' ~ _type %}
+{% endif %}
+
+{% if _media_behavior != 'static' %}
+  {% set _css_class = _css_class ~ ' ecl-featured-item--' ~ _media_behavior %}
 {% endif %}
 
 {# Internal logic - Process properties #}
