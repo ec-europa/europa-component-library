@@ -29,7 +29,7 @@ class CMTokenAnalyzer:
 
     def extract_cm_tokens(self):
         """Extract all --cm- tokens from custom properties file."""
-        print("📋 Extracting cm- tokens from custom properties...")
+        print("Extracting cm- tokens from custom properties...")
 
         with open(self.custom_properties_file, 'r') as f:
             content = f.read()
@@ -58,7 +58,7 @@ class CMTokenAnalyzer:
 
     def scan_directories(self):
         """Scan variables and components directories for token usage."""
-        print("🔎 Scanning directories for token usage...")
+        print("Scanning directories for token usage...")
 
         # Scan variables directory
         for scss_file in self.variables_dir.glob("*.scss"):
@@ -138,12 +138,7 @@ class CMTokenAnalyzer:
         usage_row = "| **USAGE COUNT** |"
         for token in tokens:
             total_usage = sum(self.token_usage[token].values())
-            if total_usage == 0:
-                usage_row += f" **{total_usage}** ❌ |"
-            elif total_usage == 1:
-                usage_row += f" **{total_usage}** ⚠️ |"
-            else:
-                usage_row += f" **{total_usage}** |"
+            usage_row += f" **{total_usage}** |"
         table += usage_row + "\n\n"
 
         return table
@@ -165,6 +160,10 @@ class CMTokenAnalyzer:
         """Get list of completely unused tokens."""
         return [token for token in sorted(self.tokens) if sum(self.token_usage[token].values()) == 0]
 
+    def get_single_use_tokens(self):
+        """Get list of tokens used only once."""
+        return [token for token in sorted(self.tokens) if sum(self.token_usage[token].values()) == 1]
+
     def get_most_used_tokens(self, limit=10):
         """Get most frequently used tokens."""
         token_counts = [(token, sum(usage.values())) for token, usage in self.token_usage.items()]
@@ -185,12 +184,13 @@ class CMTokenAnalyzer:
         if output_file is None:
             output_file = self.reports_dir / f"token-usage-{datetime.now().strftime('%Y-%m-%d')}.md"
 
-        print(f"📝 Generating report: {output_file}")
+        print(f"Generating report: {output_file}")
 
         # Get data for report
         stats = self.get_usage_statistics()
         categories = self.categorize_tokens()
         unused_tokens = self.get_unused_tokens()
+        single_use_tokens = self.get_single_use_tokens()
         most_used = self.get_most_used_tokens()
         component_usage = self.get_component_token_counts()
 
@@ -231,9 +231,9 @@ class CMTokenAnalyzer:
 
 ---
 
-## 🚨 IMMEDIATE CLEANUP RECOMMENDATIONS
+## Cleanup Recommendations
 
-### Completely Unused Tokens ({len(unused_tokens)} tokens - Remove immediately)
+### Unused Tokens ({len(unused_tokens)} tokens - candidates for removal)
 
 """
 
@@ -251,6 +251,34 @@ class CMTokenAnalyzer:
             report += f"\n**{category} tokens ({len(tokens)} unused):**\n"
             for token in sorted(tokens):
                 report += f"- `{token}`\n"
+
+        report += f"""
+
+### Single-Use Tokens ({len(single_use_tokens)} tokens - review for consolidation)
+
+These tokens are used only once in the codebase and may be candidates for consolidation with more common tokens:
+
+"""
+
+        # Group single-use tokens by category
+        single_use_by_category = defaultdict(list)
+        for token in single_use_tokens:
+            if '--cm-border-' in token:
+                single_use_by_category['Border'].append(token)
+            elif '--cm-surface-' in token:
+                single_use_by_category['Surface'].append(token)
+            elif '--cm-on-surface-' in token:
+                single_use_by_category['On-surface'].append(token)
+
+        for category, tokens in single_use_by_category.items():
+            report += f"\n**{category} tokens ({len(tokens)} used once):**\n"
+            for token in sorted(tokens):
+                # Find which component uses this token
+                component = next((comp for comp, count in self.token_usage[token].items() if count > 0), None)
+                if component:
+                    report += f"- `{token}` (used in: {component})\n"
+                else:
+                    report += f"- `{token}`\n"
 
         report += f"""
 
@@ -300,12 +328,12 @@ python3 scripts/token-analysis/analyse-ec-token.py
         with open(output_file, 'w') as f:
             f.write(report)
 
-        print(f"✅ Report generated: {output_file}")
+        print(f"Report generated: {output_file}")
         return output_file
 
     def run_analysis(self):
         """Run complete analysis and generate report."""
-        print("🔍 ECL CM- Token Usage Analysis")
+        print("ECL CM- Token Usage Analysis")
         print("=" * 50)
 
         # Extract tokens
@@ -320,13 +348,13 @@ python3 scripts/token-analysis/analyse-ec-token.py
         # Print summary
         stats = self.get_usage_statistics()
         print(f"""
-📈 Analysis Summary:
+Analysis Summary:
    - Total tokens: {stats['total_tokens']}
    - Used tokens: {stats['used_tokens']} ({stats['utilization_rate']:.1f}%)
    - Unused tokens: {stats['unused_tokens']}
    - Components analyzed: {len(self.component_files)}
 
-📄 Report saved to: {output_file}
+Report saved to: {output_file}
 """)
 
 def main():
