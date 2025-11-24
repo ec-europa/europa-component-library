@@ -107,6 +107,10 @@ $breadcrumb: null !default;
   text-overflow: ellipsis;
   white-space: nowrap;
 
+  &:visited {
+    color: map.get($breadcrumb, 'link-color');
+  }
+
   &:hover,
   &:focus-visible {
     color: map.get($breadcrumb, 'link-color-hover');
