@@ -35,13 +35,6 @@ $button: null !default;
   &:active {
     outline-width: 0;
   }
-
-  &[disabled],
-  &[disabled]:hover {
-    cursor: not-allowed;
-    opacity: 0.5;
-    text-decoration: none;
-  }
 }
 
 .ecl-button__container {
@@ -101,20 +94,24 @@ $button: null !default;
   }
 }
 
-.ecl-button:not(.ecl-button--icon-only) {
+@mixin icon-spacing($size) {
   .ecl-button__icon ~ .ecl-button__label,
   .ecl-button__icon-container ~ .ecl-button__label,
   .ecl-button__label ~ .ecl-button__icon,
   .ecl-button__label ~ .ecl-button__icon-container {
-    margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    margin-inline-start: map.get($button, $size, 'icon-spacing');
+  }
+}
 
-    .ecl-button--s & {
-      margin-inline-start: map.get($button, 'small', 'icon-spacing');
-    }
+.ecl-button:not(.ecl-button--icon-only) {
+  @include icon-spacing('large');
 
-    .ecl-button--m & {
-      margin-inline-start: map.get($button, 'medium', 'icon-spacing');
-    }
+  &.ecl-button--s {
+    @include icon-spacing('small');
+  }
+
+  &.ecl-button--m {
+    @include icon-spacing('medium');
   }
 }
 
@@ -228,6 +225,16 @@ $button: null !default;
     border-color: map.get($button, #{$variant}, 'border-color-active');
     color: map.get($button, #{$variant}, 'color-active');
   }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: map.get($button, #{$variant}, 'background-disabled');
+    border-color: map.get($button, #{$variant}, 'border-color-disabled');
+    color: map.get($button, #{$variant}, 'color-disabled');
+    cursor: not-allowed;
+    opacity: map.get($button, #{$variant}, 'opacity-disabled');
+    text-decoration: none;
+  }
 }
 // stylelint-enable nesting-selector-no-missing-scoping-root
 
@@ -237,6 +244,10 @@ $button: null !default;
 
   &.ecl-button--highlight {
     @include button(primary-highlight);
+  }
+
+  &.ecl-button--neutral {
+    @include button(primary-neutral);
   }
 
   &.ecl-button--inverted {

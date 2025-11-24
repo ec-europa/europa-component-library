@@ -36,17 +36,19 @@ const getArgs = (data) => ({
 });
 
 const stylePrimary = {
-  options: ['', 'highlight', 'inverted'],
+  options: ['', 'highlight', 'neutral', 'inverted'],
   control: {
     labels: {
       '': 'default',
       highlight: 'highlight',
+      neutral: 'neutral',
       inverted: 'inverted',
     },
   },
   mapping: {
     default: '',
     highlight: 'highlight',
+    neutral: 'neutral',
     inverted: 'inverted',
   },
 };
