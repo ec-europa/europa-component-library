@@ -22,8 +22,10 @@ Typography has also changed quite drastically in EC.
 
 ### [EC] Color scales
 
-Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
-Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
+Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-25` to `[color]-950`. Color values have also been changed.
+Dark and neutral colors have been merged into a single palette: `neutral`.
+
+A few palettes are also provided for grey colors: `grey`, `grey-alpha` and ` monochrome`.
 
 ### [EC] Color modes
 
@@ -138,6 +140,10 @@ A selector has been added to the first item `.is-first` and to the last item `.i
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
 
+### Breadcrumb
+
+- Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
+
 ### Button
 
 - Button variant have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
@@ -161,6 +167,17 @@ Here is the mapping to the new variant / style:
 ### Content block
 
 The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+
+### Datepicker
+
+ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
+
+`<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+or
+`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+
+The markup is now using the custom element defined by duet js:
+`<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
 
 ### Fact & figures
 
@@ -286,6 +303,9 @@ The related styles can be customized defining:
 
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
+
+The menu can be used to show a single level list of sub items in a multi column layout, a parameter has been added `one_level_only` at the item level to optionally choose this display, the default is still to display the sub-items in a single column.
+It can be used with or without an info or a featured panel, it goes up to 4 columns when it's the only content of the dropdown.
 
 ### Notification
 

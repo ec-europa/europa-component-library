@@ -199,6 +199,7 @@ Datepicker.storyName = 'Datepicker';
 Datepicker.args = getArgs(dataDatepicker);
 Datepicker.argTypes = getArgTypes(dataDatepicker, 'element');
 Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
+Datepicker.decorators = [withCode, withNotes];
 
 export const FileUpload = (_, { loaded: { component } }) => component;
 
