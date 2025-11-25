@@ -402,11 +402,11 @@ $menu: null !default;
   .ecl-button__icon {
     fill: currentcolor;
     flex-shrink: 0;
-    height: map.get($theme, 'icon', 'xs');
+    height: map.get($menu, 'mobile', 'caret-size');
     transition: none;
     transition-property: transform, fill;
     transform: rotate(90deg);
-    width: map.get($theme, 'icon', 'xs');
+    width: map.get($menu, 'mobile', 'caret-size');
   }
 
   &:hover {
