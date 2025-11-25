@@ -12,6 +12,7 @@ import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
 import dataFile from '@ecl/file/demo/data--with-translation';
 import dataGallery from '@ecl/gallery/demo/data';
+import dataModal from '@ecl/modal/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -48,6 +49,7 @@ const data = {
   unordered_list: dataUnorderedList,
   file: dataFile,
   gallery: dataGallery,
+  modal: dataModal,
 };
 
 export default data;

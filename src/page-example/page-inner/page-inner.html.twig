@@ -42,8 +42,14 @@
 
         <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-l" id="inline-nav-4">Nullam</h2>
         
+        <!-- Modal -->
+        <button class="ecl-button ecl-button--secondary" id="modal-toggle" aria-controls="modal-example" aria-haspopup="dialog">Modal toggle</button>
+        {% include '@ecl/modal/modal.html.twig' with modal %}
+
         <!-- Gallery -->
-        {% include '@ecl/gallery/gallery.html.twig' with gallery %}
+        {% include '@ecl/gallery/gallery.html.twig' with gallery|merge({
+          extra_classes: 'ecl-u-mt-l',
+        }) %}
       </div>
     </div>
   </div>
