@@ -122,7 +122,6 @@
           {% include '@ecl/link/link.html.twig' with {
             link: link|default({})|merge({
               type: 'standalone',
-              no_visited: true,
             }),
             extra_classes: _link_extra_class
           } only %}
