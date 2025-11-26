@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "color_mode" (string) (default: '') Name of the color mode
+    - "tab_behaviour" (boolean) (default: false)
     - "items": (associative array) (default: []): The tabs items - format: [
       {
         "label": "Home",
@@ -33,6 +34,7 @@
 {% set _color_mode = color_mode|default('') %}
 {% set _more_label = more_label|default('Show %d more items') %}
 {% set _previous_label = previous_label|default('Previous') %}
+{% set _tab_behaviour = tab_behaviour|default(false) %}
 {% set _next_label = next_label|default('Next') %}
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-tabs' %}
@@ -40,6 +42,10 @@
   'data-ecl-tabs="true"',
   'data-ecl-auto-init="Tabs"']|join(' ')
 %}
+
+{% if _tab_behaviour %}
+  {% set _extra_attributes = _extra_attributes  ~ ' data-ecl-tabs-with-content' %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -71,10 +77,11 @@
   <div class="ecl-tabs__container">
     <div class="ecl-tabs__list" role="tablist">
       {% for _item in _items %}
+        {% set _id = _item.id|default('ecl-tabs-item-' ~ random()) %}
         {% if _item.path is not empty %}
           <div class="ecl-tabs__item">
           {% set _item_extra_classes = 'ecl-tabs__link' %}
-          {% set _item_extra_attributes = [{ name: 'role', value: 'tab' }] %}
+          {% set _item_extra_attributes = [{ name: 'id', value: _id }, { name: 'role', value: 'tab' }] %}
           {% if loop.index != 1 %}
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '-1' }]) %}
           {% endif %}
