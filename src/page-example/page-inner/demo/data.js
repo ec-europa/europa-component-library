@@ -25,7 +25,10 @@ delete dataSiteHeaderEU.banner_top;
 delete dataSiteHeaderEU.notification;
 delete dataSiteHeaderEU.site_name;
 
-dataPageHeader.breadcrumb = dataBreadcrumb;
+const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
+pageHeader.breadcrumb = dataBreadcrumb;
+pageHeader.variant = '50-50';
+delete pageHeader.picture_thumbnail;
 
 dataInpageNavigation.links[0].label = 'Donec nec ex condimentum';
 dataInpageNavigation.links[1].label = 'Curabitur faucibus ex eu';
@@ -42,7 +45,7 @@ const data = {
   icon_path: '/icons.svg',
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
-  page_header: dataPageHeader,
+  page_header: pageHeader,
   inpage_navigation: dataInpageNavigation,
   accordion: dataAccordion,
   unordered_list: dataUnorderedList,
