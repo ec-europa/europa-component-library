@@ -28,11 +28,6 @@ module.exports = {
               label: 'Site name',
               path: exampleLink,
             },
-            icon: {
-              name: 'arrow-left',
-              size: 's',
-              transform: 'flip-horizontal',
-            },
           },
           description:
             'This site is managed by: [name of the manager of the site]',
