@@ -17,7 +17,7 @@ npm install --save @ecl/featured-item
 - **"link_highlighted"** (bool) (default: false): display the link as highlighted
 - **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
 - **"media_behavior"** (string) (default: 'static'): fill behavior of the media; can be 'static', 'dynamic'
-- **"position"** (string) (default: 'left') - Media position
+- **"position"** (string) (default: 'left') - Media position relative to the text; can be 'left', 'right'
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

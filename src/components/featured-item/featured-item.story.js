@@ -16,8 +16,9 @@ const getArgs = (data) => {
     show_media: true,
     title: data.title,
     description: data.description,
-    position: 'left',
+    media_position: 'left',
     media_behavior: 'static',
+    media_anchor: 'center',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -90,7 +91,7 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.position = {
+  argTypes.media_position = {
     name: 'media position',
     type: { name: 'select' },
     description: 'Media position',
@@ -124,6 +125,25 @@ const getArgTypes = (data) => {
     if: { arg: 'show_media' },
   };
 
+  argTypes.media_anchor = {
+    name: 'media anchor',
+    type: { name: 'select' },
+    description: 'Media anchor (sample)',
+    options: ['center', 'left', 'right', '20%'],
+    mapping: {
+      center: 'center',
+      left: 'left',
+      right: 'right',
+      '20%': '20%',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+    if: { arg: 'media_behavior', eq: 'dynamic' },
+  };
+
   return argTypes;
 };
 
@@ -137,7 +157,9 @@ const prepareData = (data, args) => {
     clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
   }
   if (args.show_media) {
+    clone.position = args.media_position;
     clone.media_container = mediaContainer;
+    clone.media_container.picture.image_anchor = args.media_anchor;
   } else {
     delete clone.media_container;
   }
