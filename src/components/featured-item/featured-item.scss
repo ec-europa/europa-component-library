@@ -95,6 +95,22 @@ $featured-item: null !default;
     }
   }
 
+  // Content alignment
+  .ecl-featured-item__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .ecl-featured-item--hcenter & {
+      align-items: center;
+      text-align: center;
+    }
+
+    .ecl-featured-item--vcenter & {
+      justify-content: center;
+    }
+  }
+
   // Dynamic height image
   .ecl-featured-item--dynamic {
     .ecl-featured-item__media_container,
@@ -182,7 +198,6 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link {
-    align-self: flex-start;
     color: map.get($featured-item, 'highlight', 'link', 'color');
     text-decoration: underline;
 

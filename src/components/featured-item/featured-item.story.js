@@ -16,6 +16,8 @@ const getArgs = (data) => {
     show_media: true,
     title: data.title,
     description: data.description,
+    horizontal_alignment: 'left',
+    vertical_alignment: 'top',
     media_position: 'left',
     media_behavior: 'static',
     media_anchor: 'center',
@@ -91,6 +93,38 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.horizontal_alignment = {
+    name: 'horizontal alignment',
+    type: { name: 'select' },
+    description: 'Content alignment (horizontal)',
+    options: ['left', 'center'],
+    mapping: {
+      left: 'left',
+      center: 'center',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'left' },
+      category: 'Display',
+    },
+  };
+
+  argTypes.vertical_alignment = {
+    name: 'vertical alignment',
+    type: { name: 'select' },
+    description: 'Content alignment (vertical)',
+    options: ['top', 'center'],
+    mapping: {
+      top: 'top',
+      center: 'center',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'top' },
+      category: 'Display',
+    },
+  };
+
   argTypes.media_position = {
     name: 'media position',
     type: { name: 'select' },
@@ -102,7 +136,7 @@ const getArgTypes = (data) => {
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: '' },
+      defaultValue: { summary: 'left' },
       category: 'Display',
     },
     if: { arg: 'show_media' },
@@ -119,7 +153,7 @@ const getArgTypes = (data) => {
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: '' },
+      defaultValue: { summary: 'static' },
       category: 'Display',
     },
     if: { arg: 'show_media' },
@@ -138,7 +172,7 @@ const getArgTypes = (data) => {
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: '' },
+      defaultValue: { summary: 'center' },
       category: 'Display',
     },
     if: { arg: 'media_behavior', eq: 'dynamic' },
