@@ -5,7 +5,8 @@ import withCode from '@ecl/storybook-addon-code';
 // Get data
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
-import enDataMenu from '@ecl/menu/demo/data--ec-long';
+import enDataMenu from '@ecl/menu/demo/data--ec';
+import enDataMenuLong from '@ecl/menu/demo/data--ec-long';
 import enDataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataFullEC from './demo/data--ec';
 import siteHeader from './site-header.html.twig';
@@ -15,6 +16,7 @@ import notes from './README.md';
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
+const enMenuLong = { ...enDataMenuLong };
 const enMegaMenu = { ...enDataMegaMenu };
 const closeButton = { ...dataFull.notification.close };
 
@@ -59,6 +61,7 @@ const getArgs = (data) => {
   }
   if (data.has_menu) {
     defaultArgs.show_menu = 'mega-menu';
+    defaultArgs.menu_size = 'short';
     defaultArgs.featured_priority = 'secondary';
   }
   if (data.cta_link) {
@@ -156,6 +159,16 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+    };
+    argTypes.menu_size = {
+      name: 'menu size',
+      control: { type: 'radio' },
+      description: 'Display a short or long menu',
+      options: ['short', 'long'],
+      table: {
+        category: 'Optional',
+      },
+      if: { arg: 'show_menu', eq: 'menu' },
     };
     argTypes.featured_priority = {
       name: 'featured panel priority',
@@ -264,89 +277,90 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  const clone = JSON.parse(JSON.stringify(data));
   if (!args.show_login) {
-    delete data.login_box;
-    delete data.login_toggle;
-  } else if (args.show_login && !data.login_box) {
-    data.login_box = clonedDataFull.login_box;
-    data.login_toggle = clonedDataFull.login_toggle;
+    delete clone.login_box;
+    delete clone.login_toggle;
+  } else if (args.show_login && !clone.login_box) {
+    clone.login_box = clonedDataFull.login_box;
+    clone.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (args.show_menu === 'none' && (data.menu || data.mega_menu)) {
-    delete data.menu;
-    delete data.mega_menu;
+  if (args.show_menu === 'none' && (clone.menu || clone.mega_menu)) {
+    delete clone.menu;
+    delete clone.mega_menu;
   }
-  if (args.show_menu === 'menu' && !data.menu) {
-    data.menu = enMenu;
-    delete data.mega_menu;
+  if (args.show_menu === 'menu' && !clone.menu) {
+    clone.menu = args.menu_size === 'long' ? enMenuLong : enMenu;
+    delete clone.mega_menu;
   }
-  if (args.show_menu === 'mega-menu' && !data.mega_menu) {
-    data.mega_menu = enMegaMenu;
-    delete data.menu;
+  if (args.show_menu === 'mega-menu' && !clone.mega_menu) {
+    clone.mega_menu = enMegaMenu;
+    delete clone.menu;
   }
 
-  data.logged = args.logged;
-  data.logo.size = args.logo_size;
+  clone.logged = args.logged;
+  clone.logo.size = args.logo_size;
 
   if (!args.show_language_selector) {
-    delete data.language_selector;
+    delete clone.language_selector;
   } else {
-    data.language_selector = JSON.parse(
+    clone.language_selector = JSON.parse(
       JSON.stringify(clonedDataFull.language_selector),
     );
-    data.language_selector.overlay.items.splice(
-      -(data.language_selector.overlay.items.length - args.languages_eu),
-      data.language_selector.overlay.items.length - args.languages_eu,
+    clone.language_selector.overlay.items.splice(
+      -(clone.language_selector.overlay.items.length - args.languages_eu),
+      clone.language_selector.overlay.items.length - args.languages_eu,
     );
-    data.language_selector.overlay.non_eu_items.splice(
+    clone.language_selector.overlay.non_eu_items.splice(
       -(
-        data.language_selector.overlay.non_eu_items.length -
+        clone.language_selector.overlay.non_eu_items.length -
         args.languages_non_eu
       ),
-      data.language_selector.overlay.non_eu_items.length -
+      clone.language_selector.overlay.non_eu_items.length -
         args.languages_non_eu,
     );
   }
 
   if (!args.show_custom_action) {
-    delete data.custom_action;
+    delete clone.custom_action;
   } else {
-    data.custom_action = JSON.parse(
+    clone.custom_action = JSON.parse(
       JSON.stringify(clonedDataFull.custom_action),
     );
   }
 
   if (!args.show_site_name) {
-    data.site_name = '';
+    clone.site_name = '';
   } else {
-    data.site_name = args.site_name;
-    data.site_name_mobile_only = args.site_name_mobile_only;
+    clone.site_name = args.site_name;
+    clone.site_name_mobile_only = args.site_name_mobile_only;
   }
 
   if (!args.show_search) {
-    delete data.search_form;
-    delete data.search_toggle;
-  } else if (args.show_search && !data.search_form) {
-    data.search_form = clonedDataFull.search_form;
-    data.search_toggle = clonedDataFull.search_toggle;
+    delete clone.search_form;
+    delete clone.search_toggle;
+  } else if (args.show_search && !clone.search_form) {
+    clone.search_form = clonedDataFull.search_form;
+    clone.search_toggle = clonedDataFull.search_toggle;
   }
 
   if (!args.show_cta_link) {
-    delete data.cta_link;
+    delete clone.cta_link;
   } else {
-    data.cta_link = clonedDataFull.cta_link;
+    clone.cta_link = clonedDataFull.cta_link;
   }
 
   if (!args.show_banner_top) {
-    delete data.banner_top;
+    delete clone.banner_top;
   } else {
-    data.banner_top = clonedDataFull.banner_top;
+    clone.banner_top = clonedDataFull.banner_top;
   }
 
   if (!args.show_notification) {
-    delete data.notification;
+    delete clone.notification;
   } else {
-    data.notification = clonedDataFull.notification;
+    clone.notification = clonedDataFull.notification;
     if (!args.show_notification_close) {
       delete clonedDataFull.notification.close;
     } else {
@@ -355,15 +369,15 @@ const prepareData = (data, args) => {
   }
 
   if (args.featured_priority) {
-    data.mega_menu.featured_priority = args.featured_priority;
+    clone.mega_menu.featured_priority = args.featured_priority;
   }
 
-  correctPaths(data);
+  correctPaths(clone);
 
-  data.logo.src_desktop = enLogoEC;
-  data.logo.src_mobile = enLogoMobileEC;
+  clone.logo.src_desktop = enLogoEC;
+  clone.logo.src_mobile = enLogoMobileEC;
 
-  return data;
+  return clone;
 };
 
 export default {
