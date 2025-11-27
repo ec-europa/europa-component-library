@@ -578,7 +578,6 @@ $menu: null !default;
     }
 
     .ecl-menu__item--current {
-      background-color: map.get($menu, 'desktop', 'item-current-background');
       box-shadow: map.get($menu, 'desktop', 'item-current-shadow');
       color: map.get($menu, 'desktop', 'item-current-color');
       margin-top: map.get($menu, 'desktop', 'item-current-margin');
@@ -599,7 +598,7 @@ $menu: null !default;
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__item--current .ecl-menu__button-caret,
     .ecl-menu__link:active {
-      background-color: transparent;
+      background-color: map.get($menu, 'desktop', 'item-current-background');
       color: currentcolor;
     }
 
