@@ -88,21 +88,17 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
         </div>
       </div>
     </div>
-    <div
-      class="ecl-page-header__background-container"
+    <picture
+      class="ecl-picture ecl-page-header__picture-background"
     >
-      <picture
-        class="ecl-picture ecl-page-header__picture-background"
-      >
-        <img
-          alt="Europe map"
-          class="ecl-page-header__background"
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-        />
-      </picture>
-    </div>
+      <img
+        alt="Europe flag"
+        class="ecl-page-header__background"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -117,7 +113,7 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -133,7 +129,7 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -153,29 +149,11 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -183,9 +161,9 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           class="ecl-picture ecl-page-header__picture-thumbnail"
         >
           <img
-            alt="Europe map"
+            alt="Europe flag"
             class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
           />
         </picture>
         <p
@@ -201,6 +179,43 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -295,7 +310,7 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -310,7 +325,7 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -326,7 +341,7 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -346,29 +361,11 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -385,6 +382,43 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -479,7 +513,7 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -494,7 +528,7 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -510,7 +544,7 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -530,15 +564,11 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info--no-margin"
+      <h1
+        class="ecl-page-header__title ecl-page-header__title--hidden"
       >
-        <h1
-          class="ecl-page-header__title ecl-u-sr-only"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -651,7 +681,7 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -666,7 +696,7 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -682,7 +712,7 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -702,29 +732,11 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -741,6 +753,43 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -835,7 +884,7 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -850,7 +899,7 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -866,7 +915,7 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -886,29 +935,11 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -925,6 +956,43 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -1018,21 +1086,17 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
         </div>
       </div>
     </div>
-    <div
-      class="ecl-page-header__background-container"
+    <picture
+      class="ecl-picture ecl-page-header__picture-background"
     >
-      <picture
-        class="ecl-picture ecl-page-header__picture-background"
-      >
-        <img
-          alt="Europe map"
-          class="ecl-page-header__background"
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-        />
-      </picture>
-    </div>
+      <img
+        alt="Europe flag"
+        class="ecl-page-header__background"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -1047,7 +1111,7 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -1063,7 +1127,7 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -1083,29 +1147,11 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -1113,9 +1159,9 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
           class="ecl-picture ecl-page-header__picture-thumbnail"
         >
           <img
-            alt="Europe map"
+            alt="Europe flag"
             class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
           />
         </picture>
         <p
@@ -1131,6 +1177,43 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>

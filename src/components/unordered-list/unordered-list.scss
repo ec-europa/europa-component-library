@@ -16,10 +16,14 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
-  padding-bottom: var(--s-2xs);
   padding-inline-start: map.get($list, 'unordered', 'padding-start');
 
   @include mixins.responsive-font(map.get($list, 'unordered', 'font'));
+
+  // Remove spacing in some situation
+  .ecl-featured-item__item & {
+    padding-inline-start: 0;
+  }
 }
 
 .ecl-unordered-list__item,
