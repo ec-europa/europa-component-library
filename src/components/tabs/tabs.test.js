@@ -51,11 +51,13 @@ describe('Tabs', () => {
             label: 'Tab label',
             path: '/example',
             extra_classes: 'extra-class-1',
+            id: 'tabs-1',
           },
           {
             label: 'Tab label',
             path: '/example',
             extra_classes: 'extra-class-2',
+            id: 'tabs-2',
           },
         ],
       };
