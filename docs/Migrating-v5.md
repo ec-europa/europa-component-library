@@ -22,8 +22,10 @@ Typography has also changed quite drastically in EC.
 
 ### [EC] Color scales
 
-Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
-Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
+Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-25` to `[color]-950`. Color values have also been changed.
+Dark and neutral colors have been merged into a single palette: `neutral`.
+
+A few palettes are also provided for grey colors: `grey`, `grey-alpha` and ` monochrome`.
 
 ### [EC] Color modes
 
@@ -137,6 +139,10 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 - Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+
+### Breadcrumb
+
+- Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
 
 ### Button
 
@@ -308,6 +314,11 @@ The modal variants now use the outline version of the icons, instead of the fill
 ### Notification
 
 The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
+
+### Page header
+
+- Meta now support a structure { label , icon } in addition to the existing string
+- Deprecated overlay on the image has been removed
 
 ### Radio
 

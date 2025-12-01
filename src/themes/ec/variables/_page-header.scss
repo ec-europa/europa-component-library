@@ -4,17 +4,24 @@
 $page-header: (
   title: (
     color: var(--cm-on-surface-brand),
-    font-mobile: var(--f-7xl),
-    font-desktop: var(--f-8xl),
+    font-m: 'heading1',
+    font-l: 'display',
     font-weight: map.get($font-weight, 'light'),
+    letter-spacing: map.get($letter-spacing, 'l'),
   ),
   description: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-m),
+    font: 'body-2xl',
+    font-weight: map.get($font-weight, 'semi-regular'),
   ),
   meta: (
     color: var(--cm-on-surface-brand),
-    font: var(--f-m),
+    font: 'body-xs',
+    first-font-weight: map.get($font-weight, 'bold'),
+    first-margin-block: 0 var(--s-3xs),
+    first-letter-spacing: map.get($letter-spacing, 'l'),
+    first-text-transform: uppercase,
+    first-font: 'body-xs',
   ),
 );
 $page-header-print: (
@@ -22,9 +29,9 @@ $page-header-print: (
     font: map.get($font-print, '8xl'),
   ),
   description: (
-    font: map.get($font-print, 'm'),
+    font: map.get($font-print, '2xl'),
   ),
   meta: (
-    font: map.get($font-print, 'm'),
+    font: map.get($font-print, 'xs'),
   ),
 );
