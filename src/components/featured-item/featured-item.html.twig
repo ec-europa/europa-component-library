@@ -96,12 +96,14 @@
   <div class="{{ _css_container_class }}">
     <div class="ecl-featured-item__item">
       <div class="ecl-featured-item__content">
-      {% if _title is not empty %}
-        <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
-      {% endif %}
-      {% if _description is not empty %}
-        <div class="ecl-featured-item__description">{{ _description }}</div>
-      {% endif %}
+        <div class="ecl-featured-item__info">
+        {% if _title is not empty %}
+          <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
+        {% endif %}
+        {% if _description is not empty %}
+          <div class="ecl-featured-item__description">{{ _description }}</div>
+        {% endif %}
+        </div>
       {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
         {% set _link_attributes = _link.extra_attributes|default({}) %}
         {% if _title is not empty %}

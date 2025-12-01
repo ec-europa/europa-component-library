@@ -227,7 +227,6 @@ const prepareData = (data, args) => {
     clone.link_highlighted = true;
   } else if (args.link_display === 'button') {
     clone.link.link.type = 'primary';
-    clone.link.link.style = 'neutral';
   }
 
   return Object.assign(correctPaths(clone), args);
