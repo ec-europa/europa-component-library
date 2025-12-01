@@ -10,9 +10,19 @@ $theme: null !default;
 $media-container: null !default;
 $media-container-print: null !default;
 
-.ecl-media-container,
-.ecl-media-container__figure {
+.ecl-media-container {
   margin: 0;
+}
+
+.ecl-media-container__figure {
+  background-color: map.get($media-container, 'caption-background-color');
+  border-radius: map.get($media-container, 'border-radius');
+  box-shadow: map.get($media-container, 'shadow');
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 .ecl-media-container__media iframe {
@@ -20,7 +30,11 @@ $media-container-print: null !default;
 }
 
 .ecl-media-container__media {
-  max-width: 100%;
+  display: block;
+  height: auto;
+  min-height: 1px; // IE 11 fix
+  object-fit: cover;
+  width: 100%;
 }
 
 .ecl-media-container__caption {
@@ -28,6 +42,7 @@ $media-container-print: null !default;
   font: map.get($media-container-print, 'caption-font');
   margin-top: map.get($theme, 'spacing-print', '2xs');
   max-width: var(--max-w);
+  padding: map.get($media-container-print, 'caption-padding');
 }
 
 .ecl-media-container__media-audio {
