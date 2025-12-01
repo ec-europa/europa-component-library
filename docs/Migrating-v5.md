@@ -311,6 +311,11 @@ It can be used with or without an info or a featured panel, it goes up to 4 colu
 
 The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
 
+### Page header
+
+- Meta now support a structure { label , icon } in addition to the existing string
+- Deprecated overlay on the image has been removed
+
 ### Radio
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.

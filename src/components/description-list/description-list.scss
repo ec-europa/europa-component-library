@@ -166,7 +166,7 @@ $description-list: null !default;
     height: 4px;
     left: -2px;
     position: absolute;
-    top: 7px;
+    top: map.get($description-list, 'taxonomy-separator-offset');
     width: 4px;
   }
 
@@ -183,10 +183,7 @@ $description-list: null !default;
     display: none;
   }
 
-  &:last-child {
-    margin-inline-start: 0;
-  }
-
+  &:last-child,
   &.ecl-description-list__definition-item--last-visible {
     margin-inline-end: 0;
   }
