@@ -65,6 +65,7 @@ $link: null !default;
   &:not(
       .ecl-link--standalone,
       .ecl-link--primary-highlight,
+      .ecl-link--primary-neutral,
       .ecl-link--primary,
       .ecl-link--secondary
     )
@@ -256,4 +257,8 @@ $link: null !default;
 
 .ecl-link--primary-highlight {
   @include link-button(primary-highlight);
+}
+
+.ecl-link--primary-neutral {
+  @include link-button(primary-neutral);
 }

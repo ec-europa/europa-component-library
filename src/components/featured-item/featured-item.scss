@@ -197,7 +197,16 @@ $featured-item: null !default;
     }
   }
 
-  .ecl-featured-item__link {
+  .ecl-featured-item__info + .ecl-featured-item__link {
+    margin-block-start: map.get($featured-item, 'highlight', 'link', 'spacing');
+  }
+
+  .ecl-featured-item__link:not(
+    .ecl-link--primary-highlight,
+    .ecl-link--primary-neutral,
+    .ecl-link--primary,
+    .ecl-link--secondary
+  ) {
     color: map.get($featured-item, 'highlight', 'link', 'color');
     text-align: start;
     text-decoration: underline;
@@ -214,10 +223,6 @@ $featured-item: null !default;
     }
   }
 
-  .ecl-featured-item__info + .ecl-featured-item__link {
-    margin-block-start: map.get($featured-item, 'highlight', 'link', 'spacing');
-  }
-
   // Highlighted link
   &.ecl-featured-item--link-highlighted {
     .ecl-featured-item__info {
@@ -230,6 +235,7 @@ $featured-item: null !default;
       flex-direction: column;
     }
 
+    // stylelint-disable-next-line no-descending-specificity
     .ecl-featured-item__link {
       background-color: map.get(
         $featured-item,
