@@ -146,7 +146,8 @@ export class Menu {
     this.lastVisibleItem = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointL = 1140;
+    this.breakpointTablet = 768;
+    this.breakpointDesktop = 1140;
     this.windowWidth = null;
     this.ignorehover = false;
 
@@ -512,7 +513,7 @@ export class Menu {
     const isTablet = browser.getPlatformType() === 'tablet';
 
     // Detect mobile devices
-    if (isMobile) {
+    if (isMobile && window.innerWidth < this.breakpointTablet) {
       return false;
     }
 
@@ -522,8 +523,8 @@ export class Menu {
       return false;
     }
 
-    // After all that, check if the hamburger button is displayed
-    if (window.innerWidth < this.breakpointL) {
+    // After all that, check the screen width
+    if (window.innerWidth < this.breakpointDesktop) {
       return false;
     }
 
