@@ -214,7 +214,7 @@
             {%- if _title.link is defined -%}
               {% set _title_extra_classes = (_title.extra_classes is not empty ? _title.extra_classes ~ ' ' : '') ~ 'ecl-banner__title-link' %}
               {% include '@ecl/link/link.html.twig' with _title|merge({
-                link: _title.link|merge({type: 'standalone'}),
+                link: _title.link,
                 extra_classes: _title_extra_classes,
               }) only %}
             {%- else -%}
@@ -229,7 +229,7 @@
             {%- if _description.link is defined -%}
               {% set _description_extra_classes = (_description.extra_classes is not empty ? _description.extra_classes ~ ' ' : '') ~ 'ecl-banner__description-link' %}
               {% include '@ecl/link/link.html.twig' with _description|merge({
-                link: _description.link|merge({type: 'standalone'}),
+                link: _description.link,
                 extra_classes: _description_extra_classes,
               }) only %}
             {%- else -%}
