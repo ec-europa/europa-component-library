@@ -22,8 +22,10 @@ Typography has also changed quite drastically in EC.
 
 ### [EC] Color scales
 
-Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
-Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
+Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-25` to `[color]-950`. Color values have also been changed.
+Dark and neutral colors have been merged into a single palette: `neutral`.
+
+A few palettes are also provided for grey colors: `grey`, `grey-alpha` and ` monochrome`.
 
 ### [EC] Color modes
 
@@ -137,6 +139,10 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 - Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
   Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
 - Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+
+### Breadcrumb
+
+- Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
 
 ### Button
 
@@ -298,14 +304,26 @@ The related styles can be customized defining:
 The featured panel can now be associated also to the first level items, it will be visible in all the children as long as they don't have a featured panel on their own, by default the one belonging to the clicked item will be shown.
 A parameter has been added in the twig template `featured_priority` so that this behavior can be changed and always show the panel from the first level item, the default value is `secondary`, it can be changed to `primary`.
 
+The menu can be used to show a single level list of sub items in a multi column layout, a parameter has been added `one_level_only` at the item level to optionally choose this display, the default is still to display the sub-items in a single column.
+It can be used with or without an info or a featured panel, it goes up to 4 columns when it's the only content of the dropdown.
+
 ### Notification
 
 The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
+
+### Page header
+
+- Meta now support a structure { label , icon } in addition to the existing string
+- Deprecated overlay on the image has been removed
 
 ### Radio
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
+
+### Range
+
+- To improve the component and be able to correctly position the bubble when used in a container (with position relative), a wrapper has been added and the js has been updated to calculate the position of the bubble based on a selector passed as an option `containerSelector`, by default it is `data-ecl-range-container`.
 
 ### Site header
 

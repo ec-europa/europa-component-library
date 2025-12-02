@@ -307,7 +307,10 @@ $timeline: null !default;
   @if map.has-key($timeline, 'left-spacing-tablet') {
     // Ensure minimum height for item to prevent overlapping
     .ecl-timeline__item {
-      min-height: var(--ecl-timeline-label-height, 0);
+      min-height: calc(
+        var(--ecl-timeline-label-height, 0) -
+          #{map.get($timeline, 'headline', 'spacing-adjustment')}
+      );
     }
 
     .ecl-timeline__label {

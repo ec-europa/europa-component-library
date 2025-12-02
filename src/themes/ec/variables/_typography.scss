@@ -51,8 +51,8 @@ $typography: (
       'line-height': var(--lh-l),
     ),
     'mobile': (
-      'size': var(--fs-4xl),
-      'line-height': var(--lh-xl),
+      'size': var(--fs-3xl),
+      'line-height': var(--lh-l),
     ),
     'tablet': (
       'size': var(--fs-5xl),
@@ -260,8 +260,22 @@ $typography: (
       'line-height': var(--lh-2xs),
     ),
     's': (
-      'size': var(--fs-s),
-      'line-height': var(--lh-xs),
+      'mobile-xs': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
+      ),
+      'mobile': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
+      ),
+      'tablet': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-xs),
+      ),
+      'desktop': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-xs),
+      ),
     ),
     'm': (
       'size': var(--fs-m),

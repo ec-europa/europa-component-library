@@ -183,14 +183,12 @@ export class Timeline {
 
     this.timelineItems.forEach((item) => {
       const label = queryOne('.ecl-timeline__label', item);
-      const title = queryOne('.ecl-timeline__title', item);
-      const content = queryOne('.ecl-timeline__content', item);
 
       // Reset CSS variable to get accurate measurements
       item.style.removeProperty('--ecl-timeline-label-height');
 
-      // Only adjust height for items with labels but no title/content
-      if (label && !title && !content) {
+      // If there is a label, set it as min height for the item
+      if (label) {
         const labelHeight = label.getBoundingClientRect().height;
 
         // Set CSS variable with the measured label height

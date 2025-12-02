@@ -29,6 +29,7 @@ module.exports = {
       hide_label: true,
       indicator: {
         value: 10,
+        sr_label: 'Items not read',
       },
       aria_label: 'Custom aria label',
     },

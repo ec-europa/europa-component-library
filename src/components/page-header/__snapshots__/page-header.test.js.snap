@@ -14,42 +14,22 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
         data-ecl-page-header-expandable-header=""
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
           <div
             class="ecl-page-header-expandable__header-text"
-            style="--ecl-page-header-expandable-separator: '–'"
           >
-            <span
-              class="ecl-page-header-expandable__title"
-            >
-              political advertisement
-            </span>
-            <span
-              class="ecl-page-header-expandable__description"
-            >
-              The sponsor is Business Name
-            </span>
-            <span
-              class="ecl-page-header-expandable__more"
-            >
-              More info:
-            </span>
+            <strong>
+              LOREM IPSUM
+            </strong>
+             - dolor sit amet, consectetur 
             <a
-              class="ecl-link ecl-link--icon ecl-page-header-expandable__more-link"
-              data-ecl-page-header-expandable-header-link=""
+              class="ecl-link"
               href="/example"
             >
-              <span
-                class="ecl-link__label"
-              >
-                webpage link
-              </span>
-              <span
-                aria-hidden="false"
-                class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
-              />
+              adipiscing
             </a>
+             elit.
           </div>
           <button
             aria-controls="page-header-expandable-panel-demo"
@@ -83,72 +63,42 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
         id="page-header-expandable-panel-demo"
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list ecl-page-header-expandable__list "
-          >
-            <li
-              class="ecl-list-illustration__item"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
+            <li>
+              Morbi faucibus justo eget ante hendrerit sagittis
+        
+              <ul>
+                <li>
+                  consectetur adipiscing
+                </li>
+                <li>
+                  Maecenas non convallis dolor
+                </li>
+              </ul>
+            </li>
+            <li>
+              Integer dignissim imperdiet
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <div
-      class="ecl-page-header__background-container"
+    <picture
+      class="ecl-picture ecl-page-header__picture-background"
     >
-      <picture
-        class="ecl-picture ecl-page-header__picture-background"
-      >
-        <img
-          alt="Europe map"
-          class="ecl-page-header__background"
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-        />
-      </picture>
-    </div>
+      <img
+        alt="Europe flag"
+        class="ecl-page-header__background"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -163,7 +113,7 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -179,7 +129,7 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -199,29 +149,11 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -229,9 +161,9 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           class="ecl-picture ecl-page-header__picture-thumbnail"
         >
           <img
-            alt="Europe map"
+            alt="Europe flag"
             class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
           />
         </picture>
         <p
@@ -247,6 +179,43 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -266,42 +235,22 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
         data-ecl-page-header-expandable-header=""
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
           <div
             class="ecl-page-header-expandable__header-text"
-            style="--ecl-page-header-expandable-separator: '–'"
           >
-            <span
-              class="ecl-page-header-expandable__title"
-            >
-              political advertisement
-            </span>
-            <span
-              class="ecl-page-header-expandable__description"
-            >
-              The sponsor is Business Name
-            </span>
-            <span
-              class="ecl-page-header-expandable__more"
-            >
-              More info:
-            </span>
+            <strong>
+              LOREM IPSUM
+            </strong>
+             - dolor sit amet, consectetur 
             <a
-              class="ecl-link ecl-link--icon ecl-page-header-expandable__more-link"
-              data-ecl-page-header-expandable-header-link=""
+              class="ecl-link"
               href="/example"
             >
-              <span
-                class="ecl-link__label"
-              >
-                webpage link
-              </span>
-              <span
-                aria-hidden="false"
-                class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
-              />
+              adipiscing
             </a>
+             elit.
           </div>
           <button
             aria-controls="page-header-expandable-panel-demo"
@@ -335,59 +284,33 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
         id="page-header-expandable-panel-demo"
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list ecl-page-header-expandable__list "
-          >
-            <li
-              class="ecl-list-illustration__item"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
+            <li>
+              Morbi faucibus justo eget ante hendrerit sagittis
+        
+              <ul>
+                <li>
+                  consectetur adipiscing
+                </li>
+                <li>
+                  Maecenas non convallis dolor
+                </li>
+              </ul>
+            </li>
+            <li>
+              Integer dignissim imperdiet
             </li>
           </ul>
         </div>
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -402,7 +325,7 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -418,7 +341,7 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -438,29 +361,11 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -477,6 +382,43 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -496,42 +438,22 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
         data-ecl-page-header-expandable-header=""
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
           <div
             class="ecl-page-header-expandable__header-text"
-            style="--ecl-page-header-expandable-separator: '–'"
           >
-            <span
-              class="ecl-page-header-expandable__title"
-            >
-              political advertisement
-            </span>
-            <span
-              class="ecl-page-header-expandable__description"
-            >
-              The sponsor is Business Name
-            </span>
-            <span
-              class="ecl-page-header-expandable__more"
-            >
-              More info:
-            </span>
+            <strong>
+              LOREM IPSUM
+            </strong>
+             - dolor sit amet, consectetur 
             <a
-              class="ecl-link ecl-link--icon ecl-page-header-expandable__more-link"
-              data-ecl-page-header-expandable-header-link=""
+              class="ecl-link"
               href="/example"
             >
-              <span
-                class="ecl-link__label"
-              >
-                webpage link
-              </span>
-              <span
-                aria-hidden="false"
-                class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
-              />
+              adipiscing
             </a>
+             elit.
           </div>
           <button
             aria-controls="page-header-expandable-panel-demo"
@@ -565,59 +487,33 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
         id="page-header-expandable-panel-demo"
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list ecl-page-header-expandable__list "
-          >
-            <li
-              class="ecl-list-illustration__item"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
+            <li>
+              Morbi faucibus justo eget ante hendrerit sagittis
+        
+              <ul>
+                <li>
+                  consectetur adipiscing
+                </li>
+                <li>
+                  Maecenas non convallis dolor
+                </li>
+              </ul>
+            </li>
+            <li>
+              Integer dignissim imperdiet
             </li>
           </ul>
         </div>
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -632,7 +528,7 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -648,7 +544,7 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -668,15 +564,11 @@ exports[`Page Header Standardised Default renders correctly when title is hidden
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info--no-margin"
+      <h1
+        class="ecl-page-header__title ecl-page-header__title--hidden"
       >
-        <h1
-          class="ecl-page-header__title ecl-u-sr-only"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -714,42 +606,22 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
         data-ecl-page-header-expandable-header=""
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
           <div
             class="ecl-page-header-expandable__header-text"
-            style="--ecl-page-header-expandable-separator: '–'"
           >
-            <span
-              class="ecl-page-header-expandable__title"
-            >
-              political advertisement
-            </span>
-            <span
-              class="ecl-page-header-expandable__description"
-            >
-              The sponsor is Business Name
-            </span>
-            <span
-              class="ecl-page-header-expandable__more"
-            >
-              More info:
-            </span>
+            <strong>
+              LOREM IPSUM
+            </strong>
+             - dolor sit amet, consectetur 
             <a
-              class="ecl-link ecl-link--icon ecl-page-header-expandable__more-link"
-              data-ecl-page-header-expandable-header-link=""
+              class="ecl-link"
               href="/example"
             >
-              <span
-                class="ecl-link__label"
-              >
-                webpage link
-              </span>
-              <span
-                aria-hidden="false"
-                class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
-              />
+              adipiscing
             </a>
+             elit.
           </div>
           <button
             aria-controls="page-header-expandable-panel-demo"
@@ -783,59 +655,33 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
         id="page-header-expandable-panel-demo"
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list ecl-page-header-expandable__list "
-          >
-            <li
-              class="ecl-list-illustration__item"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
+            <li>
+              Morbi faucibus justo eget ante hendrerit sagittis
+        
+              <ul>
+                <li>
+                  consectetur adipiscing
+                </li>
+                <li>
+                  Maecenas non convallis dolor
+                </li>
+              </ul>
+            </li>
+            <li>
+              Integer dignissim imperdiet
             </li>
           </ul>
         </div>
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -850,7 +696,7 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -866,7 +712,7 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -886,29 +732,11 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -925,6 +753,43 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -944,42 +809,22 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
         data-ecl-page-header-expandable-header=""
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
           <div
             class="ecl-page-header-expandable__header-text"
-            style="--ecl-page-header-expandable-separator: '–'"
           >
-            <span
-              class="ecl-page-header-expandable__title"
-            >
-              political advertisement
-            </span>
-            <span
-              class="ecl-page-header-expandable__description"
-            >
-              The sponsor is Business Name
-            </span>
-            <span
-              class="ecl-page-header-expandable__more"
-            >
-              More info:
-            </span>
+            <strong>
+              LOREM IPSUM
+            </strong>
+             - dolor sit amet, consectetur 
             <a
-              class="ecl-link ecl-link--icon ecl-page-header-expandable__more-link"
-              data-ecl-page-header-expandable-header-link=""
+              class="ecl-link"
               href="/example"
             >
-              <span
-                class="ecl-link__label"
-              >
-                webpage link
-              </span>
-              <span
-                aria-hidden="false"
-                class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
-              />
+              adipiscing
             </a>
+             elit.
           </div>
           <button
             aria-controls="page-header-expandable-panel-demo"
@@ -1013,59 +858,33 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
         id="page-header-expandable-panel-demo"
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
-          <ul
-            class="ecl-list-illustration ecl-list-illustration--icon-list ecl-page-header-expandable__list "
-          >
-            <li
-              class="ecl-list-illustration__item"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The sponsor is controlled by [either (a) business name of the legal entity or (b) name and surname of the natural person])
-                  </div>
-                </div>
-              </div>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </li>
-            <li
-              class="ecl-list-illustration__item  ecl-list-illustration__item--is-last"
-            >
-              <div
-                class="ecl-list-illustration__item-content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--check-bold ecl-icon ecl-icon--l ecl-list-illustration__icon ecl-icon--check-bold"
-                />
-                <div
-                  class="ecl-list-illustration__detail"
-                >
-                  <div
-                    class="ecl-list-illustration__description"
-                  >
-                    (The advertisement is linked to [title and date of the election(s)] or [name of the legislative or regulatory initiative])
-                  </div>
-                </div>
-              </div>
+            <li>
+              Morbi faucibus justo eget ante hendrerit sagittis
+        
+              <ul>
+                <li>
+                  consectetur adipiscing
+                </li>
+                <li>
+                  Maecenas non convallis dolor
+                </li>
+              </ul>
+            </li>
+            <li>
+              Integer dignissim imperdiet
             </li>
           </ul>
         </div>
       </div>
     </div>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -1080,7 +899,7 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -1096,7 +915,7 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -1116,29 +935,11 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -1155,6 +956,43 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
@@ -1166,68 +1004,99 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
     class="ecl-page-header ecl-page-header--image"
   >
     <div
-      class="ecl-page-header-expandable ecl-page-header-no-toggle"
+      class="ecl-page-header-expandable"
+      data-ecl-auto-init="PageHeaderExpandable"
     >
       <div
         class="ecl-page-header-expandable__header"
         data-ecl-page-header-expandable-header=""
       >
         <div
-          class="ecl-container"
+          class="ecl-container ecl-page-header-expandable__container"
         >
           <div
             class="ecl-page-header-expandable__header-text"
-            style="--ecl-page-header-expandable-separator: '–'"
           >
-            <span
-              class="ecl-page-header-expandable__title"
-            >
-              political advertisement
-            </span>
-            <span
-              class="ecl-page-header-expandable__description"
-            >
-              The sponsor is Business Name
-            </span>
-            <span
-              class="ecl-page-header-expandable__more"
-            >
-              More info:
-            </span>
+            <strong>
+              LOREM IPSUM
+            </strong>
+             - dolor sit amet, consectetur 
             <a
-              class="ecl-link ecl-link--icon ecl-page-header-expandable__more-link"
-              data-ecl-page-header-expandable-header-link=""
+              class="ecl-link"
               href="/example"
             >
+              adipiscing
+            </a>
+             elit.
+          </div>
+          <button
+            aria-controls="page-header-expandable-panel-demo"
+            aria-expanded="false"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-page-header-expandable__toggle ecl-button--icon-only"
+            data-ecl-page-header-expandable-toggle=""
+            data-test-custom-toggle-attribute=""
+            type="submit"
+          >
+            <span
+              class="ecl-button__container"
+            >
               <span
-                class="ecl-link__label"
+                class="ecl-button__label"
+                data-ecl-label="true"
               >
-                webpage link
+                expandable button
               </span>
               <span
-                aria-hidden="false"
-                class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
+                aria-hidden="true"
+                class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--flip-vertical ecl-button__icon ecl-icon--corner-arrow"
+                data-ecl-icon=""
               />
-            </a>
-          </div>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ecl-page-header-expandable__panel"
+        hidden=""
+        id="page-header-expandable-panel-demo"
+      >
+        <div
+          class="ecl-container ecl-page-header-expandable__container"
+        >
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </li>
+            <li>
+              Morbi faucibus justo eget ante hendrerit sagittis
+        
+              <ul>
+                <li>
+                  consectetur adipiscing
+                </li>
+                <li>
+                  Maecenas non convallis dolor
+                </li>
+              </ul>
+            </li>
+            <li>
+              Integer dignissim imperdiet
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div
-      class="ecl-page-header__background-container"
+    <picture
+      class="ecl-picture ecl-page-header__picture-background"
     >
-      <picture
-        class="ecl-picture ecl-page-header__picture-background"
-      >
-        <img
-          alt="Europe map"
-          class="ecl-page-header__background"
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-        />
-      </picture>
-    </div>
+      <img
+        alt="Europe flag"
+        class="ecl-page-header__background"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
-      class="ecl-container"
+      class="ecl-container ecl-page-header__container"
     >
       <nav
         aria-label="You are here:"
@@ -1242,7 +1111,7 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Home
@@ -1258,7 +1127,7 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
             data-ecl-breadcrumb-item="static"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
               href="/example"
             >
               Parent Page label
@@ -1278,29 +1147,11 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__info"
+      <h1
+        class="ecl-page-header__title"
       >
-        <ul
-          class="ecl-page-header__meta"
-        >
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            Meta info
-          </li>
-          <li
-            class="ecl-page-header__meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Consectetur adipiscing elit
+      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -1308,9 +1159,9 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
           class="ecl-picture ecl-page-header__picture-thumbnail"
         >
           <img
-            alt="Europe map"
+            alt="Europe flag"
             class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
           />
         </picture>
         <p
@@ -1326,6 +1177,43 @@ exports[`Page Header Standardised With simple header - renders correctly 1`] = `
           . Vestibulum gravida tincidunt venenatis.
         </p>
       </div>
+      <ul
+        class="ecl-page-header__meta"
+      >
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          News article
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          10 March 2025
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--location ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--location"
+          />
+          Brussels
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon--clock ecl-icon ecl-icon--2xs ecl-page-header__meta-icon ecl-icon--clock"
+          />
+          1 minute read
+        </li>
+        <li
+          class="ecl-page-header__meta-item"
+        >
+          Research Center
+        </li>
+      </ul>
     </div>
   </div>
 </jest>
