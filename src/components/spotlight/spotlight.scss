@@ -11,6 +11,8 @@
 $theme: null !default;
 $spotlight: null !default;
 $content-padding-top: 9.125rem;
+$anchor-width-m: 161px;
+$anchor-width-l: 232px;
 
 .ecl-spotlight {
   container-name: ecl-spotlight;
@@ -157,6 +159,10 @@ $content-padding-top: 9.125rem;
   .ecl-spotlight__title {
     max-width: 750px;
     padding-block: map.get($spotlight, 'title', 'padding-block-tablet');
+
+    .ecl-spotlight--anchor & {
+      padding-inline-end: $anchor-width-m;
+    }
   }
 
   .ecl-spotlight__header {
@@ -174,7 +180,7 @@ $content-padding-top: 9.125rem;
     padding-inline-end: inherit;
     position: absolute;
     right: 0;
-    width: 161px;
+    width: $anchor-width-m;
 
     &:dir(rtl) {
       left: 0;
@@ -187,6 +193,10 @@ $content-padding-top: 9.125rem;
   .ecl-spotlight__title {
     max-width: 950px;
     padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
+
+    .ecl-spotlight--anchor & {
+      padding-inline-end: $anchor-width-l;
+    }
   }
 
   .ecl-spotlight__header {
@@ -196,7 +206,7 @@ $content-padding-top: 9.125rem;
   .ecl-spotlight__anchor {
     mask-image: url("data:image/svg+xml;utf8,<svg width='232' height='122' viewBox='0 0 232 122' xmlns='http://www.w3.org/2000/svg'><path d='M212.327 84.3105L0.469702 104.936V113.47V122.004L232 104.936L229.761 0.200012H215.46L212.327 84.3105Z' /></svg>");
     height: 122px;
-    width: 232px;
+    width: $anchor-width-l;
   }
 }
 
