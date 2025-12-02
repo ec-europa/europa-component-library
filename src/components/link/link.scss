@@ -14,7 +14,7 @@ $link: null !default;
 
 .ecl-link,
 %ecl-link {
-  color: map.get($link, 'color');
+  color: var(--ecl-link-color);
   font-family: var(--ff-d);
   margin: 0;
   text-decoration: underline;
@@ -22,11 +22,11 @@ $link: null !default;
   text-underline-offset: clamp(3px, 0.245em, 10px);
 
   &:visited {
-    color: map.get($link, 'color-visited');
+    color: var(--ecl-link-color);
   }
 
   &:hover {
-    color: map.get($link, 'color-hover');
+    color: var(--ecl-link-color-hover);
   }
 
   &:focus-visible {
@@ -37,7 +37,7 @@ $link: null !default;
   }
 
   &:active {
-    color: map.get($link, 'color-active');
+    color: var(--ecl-link-color-active);
   }
 }
 
@@ -104,13 +104,17 @@ $link: null !default;
   text-decoration: none;
 
   &:visited {
-    color: map.get($link, 'color');
+    color: var(--ecl-link-color);
   }
 
   &:hover {
-    color: map.get($link, 'color');
+    color: var(--ecl-link-color-hover);
     text-decoration: underline;
     text-decoration-thickness: from-font;
+  }
+
+  &:active {
+    color: var(--ecl-link-color-active);
   }
 }
 
