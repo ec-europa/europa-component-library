@@ -37,7 +37,20 @@ const getPlugins = (options = {}) => {
   }
 
   if (process.env.NODE_ENV === 'production' || options.minify) {
-    plugins.push(cssnano({ preset: 'default' }));
+    plugins.push(
+      cssnano({
+        preset: [
+          'default',
+          {
+            // Remove all comments (default only removes some)
+            discardComments: { removeAll: true },
+
+            // Keep custom property names intact (don't mangle --c-p-950 etc)
+            reduceIdents: false,
+          },
+        ],
+      }),
+    );
   }
 
   return plugins;
