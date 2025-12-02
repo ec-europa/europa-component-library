@@ -5,6 +5,7 @@ import dataSiteFooterEC from '@ecl/site-footer/demo/data-harmonised--ec';
 import dataSiteHeaderEU from '@ecl/site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
+import dataPageHeader from '@ecl/page-header/demo/data';
 import dataCarousel from '@ecl/carousel/demo/data';
 import dataCard from '@ecl/card/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--event';
@@ -24,6 +25,15 @@ delete dataSiteHeaderEU.cta_link;
 delete dataSiteHeaderEU.banner_top;
 delete dataSiteHeaderEU.notification;
 delete dataSiteHeaderEU.site_name;
+
+const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
+pageHeader.hide_title = true;
+delete pageHeader.breadcrumb;
+delete pageHeader.description;
+delete pageHeader.meta;
+delete pageHeader.picture_background;
+delete pageHeader.picture_thumbnail;
+delete pageHeader.expandable;
 
 delete dataCard.description;
 delete dataCard.primary_meta;
@@ -51,6 +61,7 @@ const data = {
   icon_path: '/icons.svg',
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
+  page_header: pageHeader,
   carousel: dataCarousel,
   card: dataCard,
   content_item: dataContentItem,
