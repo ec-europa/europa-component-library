@@ -516,6 +516,11 @@ export class InpageNavigation {
     // Untrap focus
     this.focusTrap.deactivate();
 
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+
     const eventData = { target: heading || href, e };
     this.trigger('onClick', eventData);
   }
