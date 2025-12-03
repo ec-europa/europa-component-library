@@ -229,6 +229,10 @@ $featured-item: null !default;
       flex-grow: 1;
     }
 
+    &.ecl-featured-item--hcenter .ecl-featured-item__link {
+      align-self: flex-start;
+    }
+
     &.ecl-featured-item--vcenter .ecl-featured-item__info {
       justify-content: center;
       display: flex;
