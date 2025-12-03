@@ -235,3 +235,8 @@ html {
 
   display: block;
 }
+
+// Global font-family
+.ecl * {
+  font-family: #{map.get(theme.$font-family-print, 'default')};
+}

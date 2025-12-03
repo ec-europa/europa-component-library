@@ -229,6 +229,8 @@
   $theme: theme.$theme
 );
 
-html {
+// Global font-family
+[class^='ecl-'],
+[class*=' ecl-'] {
   font-family: #{map.get(theme.$font-family-print, 'default')};
 }
