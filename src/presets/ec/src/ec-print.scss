@@ -143,6 +143,10 @@
   $list: var.$list,
   $list-print: var.$list-print
 );
+@use '@ecl/page-information/page-information-print' with (
+  $theme: theme.$theme,
+  $page-information: var.$page-information
+);
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';
 @use '@ecl/separator/separator-print' with (
