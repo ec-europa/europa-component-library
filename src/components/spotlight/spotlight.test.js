@@ -40,6 +40,15 @@ describe('Spotlight', () => {
       return expect(render(dataNoCredit)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly without anchor', () => {
+      expect.assertions(1);
+
+      const dataNoAnchor = JSON.parse(JSON.stringify(spotlightData));
+      dataNoAnchor.has_anchor = false;
+
+      return expect(render(dataNoAnchor)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

@@ -3,12 +3,10 @@
 
 $spotlight: (
   gradient: linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 25%,
-      color-mix(in srgb, var(--c-d-140) 25%, transparent) 50%,
-      color-mix(in srgb, var(--c-d-140) 35%, transparent) 75%,
-      color-mix(in srgb, var(--c-d-140) 50%, transparent) 100%
+      0deg,
+      color-mix(in srgb, var(--c-d-140) 80%, transparent) 10%,
+      color-mix(in srgb, var(--c-d-140) 53%, transparent) 50%,
+      transparent 100%
     ),
   gradient-height-mobile: 241px,
   gradient-height-tablet: 374px,
@@ -46,6 +44,5 @@ $spotlight: (
   anchor: (
     color: #fff,
     padding-block: var(--s-2xl),
-    padding-inline: 0,
   ),
 );
