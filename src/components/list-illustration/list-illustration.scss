@@ -88,19 +88,25 @@ body {
 
 .ecl-list-illustration__value {
   color: map.get($list-illustration, 'value', 'color');
-  font: map.get($list-illustration, 'value', 'font-mobile-l');
-  font-weight: map.get($list-illustration, 'value', 'font-weight');
+
+  @include mixins.responsive-font(
+    map.get($list-illustration, 'value', 'font-l')
+  );
 
   .ecl-list-illustration--font-m & {
-    font: map.get($list-illustration, 'value', 'font-mobile-m');
-    font-weight: map.get($list-illustration, 'value', 'font-weight');
+    @include mixins.responsive-font(
+      map.get($list-illustration, 'value', 'font-m')
+    );
   }
 }
 
 .ecl-list-illustration__title {
   color: map.get($list-illustration, 'title', 'color');
-  font: map.get($list-illustration, 'title', 'font');
-  font-weight: map.get($list-illustration, 'title', 'font-weight');
+
+  @include mixins.responsive-font(
+    map.get($list-illustration, 'title', 'font'),
+    $font-weight: map.get($list-illustration, 'title', 'font-weight')
+  );
 }
 
 .ecl-list-illustration__value + .ecl-list-illustration__title {
@@ -139,18 +145,6 @@ body {
 
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
-    }
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-list-illustration__value {
-    font: map.get($list-illustration, 'value', 'font-desktop-l');
-    font-weight: map.get($list-illustration, 'value', 'font-weight');
-
-    .ecl-list-illustration--font-m & {
-      font: map.get($list-illustration, 'value', 'font-desktop-m');
-      font-weight: map.get($list-illustration, 'value', 'font-weight');
     }
   }
 }
@@ -476,14 +470,21 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      font: map.get($list-illustration, 'counter', 'font-mobile');
-      font-weight: map.get($theme, 'font-weight', 'bold') !important;
       background-color: transparent;
       color: var(--cm-on-surface-brand, var(--c-d));
+      font-weight: map.get(
+        $list-illustration,
+        'counter',
+        'font-weight'
+      ) !important;
       box-sizing: border-box;
       flex-shrink: 0;
       position: absolute;
       left: 0;
+
+      @include mixins.responsive-font(
+        map.get($list-illustration, 'counter', 'font')
+      );
     }
 
     .ecl-list-illustration__item-content {
@@ -521,7 +522,6 @@ body {
       &::before {
         border-color: var(--cm-border-low, var(--c-p-20));
         border-width: 4px;
-        font: map.get($list-illustration, 'counter', 'font-tablet');
       }
 
       .ecl-list-illustration__divider {
@@ -541,7 +541,6 @@ body {
 
       &::before {
         border-color: var(--cm-border-low, var(--c-p-20));
-        font: map.get($list-illustration, 'counter', 'font-desktop');
       }
 
       .ecl-list-illustration__divider {

@@ -39,7 +39,6 @@ $language-list: null !default;
 // Language list
 .ecl-splash-page__language-container {
   color: map.get($language-list, 'color');
-  font: var(--f-m);
   padding-block-start: map.get(
     $language-list,
     'container-padding-mobile',
@@ -59,6 +58,8 @@ $language-list: null !default;
     #{map.get($language-list, 'container-padding-mobile', 'inline-end')} +
       #{map.get($language-list, 'item-active-border-width')}
   );
+
+  @include mixins.responsive-font(map.get($language-list, 'item-font'));
 }
 
 .ecl-splash-page__language-title {
@@ -70,7 +71,7 @@ $language-list: null !default;
 
   @include mixins.responsive-font(
     map.get($language-list, 'header-typography'),
-    map.get($language-list, 'header-typography-font-weight')
+    $font-weight: map.get($language-list, 'header-typography-font-weight')
   );
 }
 
@@ -85,8 +86,6 @@ $language-list: null !default;
 }
 
 .ecl-splash-page__language-category-title {
-  font: map.get($language-list, 'category-title-font');
-  font-weight: map.get($language-list, 'category-title-font-weight');
   padding-block-start: map.get(
     $language-list,
     'category-title-padding',
@@ -107,6 +106,11 @@ $language-list: null !default;
     'inline-end'
   );
   margin: 0;
+
+  @include mixins.responsive-font(
+    map.get($language-list, 'category-title-font'),
+    map.get($language-list, 'category-title-font-weight')
+  );
 }
 
 .ecl-splash-page__language-category:first-child {
@@ -147,12 +151,15 @@ $language-list: null !default;
 
 .ecl-splash-page__language-link-code {
   color: map.get($language-list, 'code-color');
-  font: var(--f-m);
-  font-weight: map.get($language-list, 'code-font-weight');
   display: inline-block;
   margin-inline-end: var(--s-2xs);
   text-transform: uppercase;
   width: map.get($language-list, 'code-width');
+
+  @include mixins.responsive-font(
+    map.get($language-list, 'code-font'),
+    map.get($language-list, 'code-font-weight')
+  );
 }
 
 .ecl-splash-page__language-link:hover .ecl-splash-page__language-link-label,
@@ -203,10 +210,6 @@ $language-list: null !default;
       #{map.get($language-list, 'container-padding-mobile', 'inline-end')} +
         #{map.get($language-list, 'item-active-border-width')}
     );
-  }
-
-  .ecl-splash-page__language-title {
-    font-weight: map.get($language-list, 'header-font-weight');
   }
 
   // Columns display

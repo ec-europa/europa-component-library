@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -131,17 +132,23 @@ $_description-height-desktop: 108px;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
   display: none;
-  font: map.get($gallery, 'description-font');
   left: 0;
+  letter-spacing: map.get($gallery, 'description-letter-spacing');
   overflow: hidden;
   padding: var(--s-2xs) var(--s-xs);
   pointer-events: none;
   position: absolute;
   text-decoration: none;
+  text-transform: map.get($gallery, 'description-text-transform');
   text-overflow: ellipsis;
   vertical-align: text-bottom;
   white-space: nowrap;
   width: calc(100% - (var(--s-xs) * 2));
+
+  @include mixins.responsive-font(
+    map.get($gallery, 'description-font'),
+    $font-weight: map.get($gallery, 'description-font-weight')
+  );
 }
 
 .ecl-gallery:not(.ecl-gallery--no-hover) {
@@ -162,7 +169,13 @@ $_description-height-desktop: 108px;
   color: map.get($gallery, 'gallery-info-color');
   display: flex;
   flex-direction: row;
-  font: map.get($gallery, 'gallery-info-font');
+  letter-spacing: map.get($gallery, 'gallery-info-letter-spacing');
+  text-transform: map.get($gallery, 'gallery-info-text-transform');
+
+  @include mixins.responsive-font(
+    map.get($gallery, 'gallery-info-font'),
+    $font-weight: map.get($gallery, 'gallery-info-font-weight')
+  );
 }
 
 .ecl-gallery__info-total {
@@ -191,6 +204,8 @@ $_description-height-desktop: 108px;
   text-align: right;
   margin-top: var(--s-s);
   width: 100%;
+
+  @include mixins.responsive-font(map.get($gallery, 'footer-link-font'));
 }
 
 .ecl-gallery__footer-divider {
@@ -313,10 +328,6 @@ $_description-height-desktop: 108px;
   margin: var(--s-xs);
 }
 
-.ecl-gallery__controls {
-  display: inline-flex;
-}
-
 .ecl-gallery__slider {
   align-items: center;
   display: flex;
@@ -373,19 +384,23 @@ $_description-height-desktop: 108px;
   margin-inline-start: var(--s-m);
 }
 
-.ecl-gallery__slider-previous,
-.ecl-gallery__slider-next {
-  background-color: #fff;
-  flex-shrink: 0;
+.ecl-gallery__controls {
+  display: inline-flex;
 
-  &:hover {
-    background-color: var(--cm-surface-neutral-lowest, var(--c-p-20));
-  }
-
-  &:focus-visible {
+  .ecl-gallery__slider-previous,
+  .ecl-gallery__slider-next {
     background-color: #fff;
-    outline: 2px solid #fff;
-    outline-offset: 0;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: var(--cm-surface-neutral-lowest, var(--c-p-20));
+    }
+
+    &:focus-visible {
+      background-color: #fff;
+      outline: 2px solid #fff;
+      outline-offset: 0;
+    }
   }
 }
 
@@ -395,8 +410,9 @@ $_description-height-desktop: 108px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  font: var(--f-m);
   padding: var(--s-xl) var(--s-xs);
+
+  @include mixins.responsive-font(map.get($gallery, 'overlay-font'));
 
   .ecl-container {
     position: static;
@@ -451,8 +467,9 @@ $_description-height-desktop: 108px;
 
   .ecl-gallery__meta {
     display: block;
-    font: map.get($gallery, 'overlay-meta-font');
     margin-top: var(--s-s);
+
+    @include mixins.responsive-font(map.get($gallery, 'overlay-meta-font'));
   }
 }
 

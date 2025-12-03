@@ -50,7 +50,6 @@ $language-list: null !default;
   background-color: var(--cm-surface-inverted, #fff);
   box-shadow: map.get($language-switcher, 'shadow');
   color: map.get($language-list, 'color');
-  font: var(--f-m);
   left: 0;
   height: auto;
   margin-top: var(--s-m);
@@ -77,6 +76,8 @@ $language-list: null !default;
   right: 0;
   width: auto;
   z-index: map.get($theme, 'z-index', 'overlay');
+
+  @include mixins.responsive-font(map.get($language-list, 'item-font'));
 
   // arrow with border shadow
   &::before {
@@ -135,8 +136,6 @@ $language-list: null !default;
 }
 
 .ecl-site-header__language-category-title {
-  font: map.get($language-list, 'category-title-font');
-  font-weight: map.get($language-list, 'category-title-font-weight');
   padding-block-start: map.get(
     $language-list,
     'category-title-padding',
@@ -155,6 +154,11 @@ $language-list: null !default;
     $language-list,
     'category-title-padding',
     'inline-end'
+  );
+
+  @include mixins.responsive-font(
+    map.get($language-list, 'category-title-font'),
+    $font-weight: map.get($language-list, 'category-title-font-weight')
   );
 }
 
@@ -192,12 +196,15 @@ $language-list: null !default;
 .ecl-site-header__language-link-code,
 .ecl-site-header__custom-action-link-code {
   color: map.get($language-list, 'code-color');
-  font: var(--f-m);
-  font-weight: map.get($language-list, 'code-font-weight');
   display: inline-block;
   margin-inline-end: var(--s-2xs);
   text-transform: uppercase;
   width: map.get($language-list, 'code-width');
+
+  @include mixins.responsive-font(
+    map.get($language-list, 'code-font'),
+    $font-weight: map.get($language-list, 'code-font-weight')
+  );
 }
 
 .ecl-site-header__language-link:hover .ecl-site-header__language-link-label,

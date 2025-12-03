@@ -60,11 +60,6 @@ $navigation-list: null !default;
 .ecl-navigation-list__content-block {
   padding: map.get($navigation-list, 'content_block_padding');
   position: relative;
-
-  .ecl-content-block__title {
-    font: map.get($navigation-list, 'title-font');
-    font-weight: map.get($navigation-list, 'title-font-weight');
-  }
 }
 
 // No border

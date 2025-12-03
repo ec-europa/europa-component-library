@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -46,9 +47,12 @@ $file: null !default;
 
 .ecl-file__title {
   color: map.get($file, 'file-color');
-  font: map.get($file, 'title-font');
-  font-weight: map.get($file, 'title-font-weight');
   width: 100%;
+
+  @include mixins.responsive-font(
+    map.get($file, 'title-font'),
+    $font-weight: map.get($file, 'title-font-weight')
+  );
 }
 
 .ecl-file__footer {
@@ -63,24 +67,29 @@ $file: null !default;
 
 .ecl-file__language {
   color: map.get($file, 'file-color');
-  font: map.get($file, 'file-language-font');
-  font-weight: map.get($file, 'file-language-font-weight');
   margin-inline-end: var(--s-xs);
+
+  @include mixins.responsive-font(
+    map.get($file, 'file-language-font'),
+    $font-weight: map.get($file, 'file-language-font-weight')
+  );
 }
 
 .ecl-file__meta {
   color: map.get($file, 'file-color');
-  font: map.get($file, 'file-meta-font');
+
+  @include mixins.responsive-font(map.get($file, 'file-meta-font'));
 }
 
 .ecl-file__detail-meta {
   color: map.get($file, 'file-detail-meta-color');
   display: inline-block;
-  font: var(--f-ui-s, var(--f-s));
   list-style: none;
   margin-bottom: map.get($file, 'file-meta-margin');
   margin-top: 0;
   padding: 0;
+
+  @include mixins.responsive-font(map.get($file, 'file-detail-meta-font'));
 }
 
 .ecl-file__detail-meta-item {
@@ -103,10 +112,11 @@ $file: null !default;
 
 .ecl-file__description {
   color: map.get($file, 'file-description-color');
-  font: map.get($file, 'file-description-font');
   margin-top: var(--s-s);
   max-width: var(--max-w);
   white-space: pre-wrap;
+
+  @include mixins.responsive-font(map.get($file, 'file-description-font'));
 }
 
 .ecl-file__picture {
@@ -133,21 +143,16 @@ $file: null !default;
 }
 
 .ecl-file__action {
-  font: var(--f-m);
   margin-top: calc(
     #{map.get($file, 'file-action-spacing-mobile')} - var(--s-xs)
   );
+
+  @include mixins.responsive-font(map.get($file, 'file-action-font'));
 
   // stylelint-disable-next-line no-descending-specificity
   > * {
     margin-top: var(--s-xs);
   }
-}
-
-.ecl-file__translation-language {
-  color: map.get($file, 'file-description-color');
-  font: var(--f-s);
-  font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
 .ecl-file__translation-container {
@@ -161,11 +166,13 @@ $file: null !default;
 
 .ecl-file__translation-toggle {
   align-self: flex-end;
-  font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'regular');
   margin-bottom: map.get($file, 'file-translation-toggle-margin');
   margin-inline-end: var(--s-xs);
   margin-top: map.get($file, 'file-translation-toggle-margin');
+
+  @include mixins.responsive-font(
+    map.get($file, 'file-translation-toggle-font')
+  );
 
   &:focus-visible {
     outline-offset: -5px;
@@ -211,13 +218,17 @@ $file: null !default;
 
 .ecl-file__translation-title {
   color: map.get($file, 'file-color');
-  font: var(--f-m);
-  font-weight: map.get($file, 'file-translation-font-weight');
+
+  @include mixins.responsive-font(
+    map.get($file, 'file-language-font'),
+    $font-weight: map.get($file, 'file-language-font-weight')
+  );
 }
 
 .ecl-file__translation-meta {
   color: map.get($file, 'file-color');
-  font: map.get($file, 'file-translation-meta-font');
+
+  @include mixins.responsive-font(map.get($file, 'file-meta-font'));
 }
 
 .ecl-file__translation-action {
@@ -231,14 +242,7 @@ $file: null !default;
 }
 
 .ecl-file__translation-download {
-  font: var(--f-m);
-}
-
-.ecl-file__translation-description {
-  color: map.get($file, 'file-color');
-  display: block;
-  font: var(--f-m);
-  max-width: var(--max-w);
+  @include mixins.responsive-font(map.get($file, 'file-action-font'));
 }
 
 .ecl-file__translation-toggle[aria-expanded='true'] {
@@ -365,8 +369,6 @@ $file: null !default;
   }
 
   .ecl-file__translation-title {
-    font: var(--f-m);
-    font-weight: map.get($file, 'file-translation-title-weight');
     margin-bottom: map.get($file, 'file-translation-title-margin-bottom');
   }
 

@@ -20,10 +20,13 @@ $social-media-follow: null !default;
 
 .ecl-social-media-follow__description {
   color: map.get($social-media-follow, 'title-color');
-  font: var(--f-m);
-  font-weight: map.get($social-media-follow, 'title-font-weight');
   margin-bottom: map.get($social-media-follow, 'title-margin');
   margin-top: 0;
+
+  @include mixins.responsive-font(
+    map.get($social-media-follow, 'title-font'),
+    $font-weight: map.get($social-media-follow, 'title-font-weight')
+  );
 }
 
 .ecl-social-media-follow__list {
