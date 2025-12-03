@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The accordion component is used to generate vertically stacked content in a page. It is intended to save vertical space by hiding content, reducing scrolling.
+The accordion is a progressive disclosure component used to generate vertically stacked content in a page. It is intended to save vertical space by hiding content, reducing scrolling. progressive disclosure
 
 Accordions contains labels with the relevant information. Users can click on the accordion to read additional information. For this reason, accordion labels (collapsed state) should be as descriptive and concise as possible.
 
