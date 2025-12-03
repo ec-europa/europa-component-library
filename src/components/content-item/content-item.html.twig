@@ -31,6 +31,7 @@
         },
         ...
       ]
+    - "secondary_meta_direction" (string) (default: 'vertical'): Display direction of the meta
     - "lists" (array) (default: []): Array of ECL Description list
     - "divider" (boolean) (default: false): Optional divider below the content item
     - "extra_classes" (string) (default: '')
@@ -61,6 +62,7 @@
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default(_infos) %}
+{% set _secondary_meta_direction = secondary_meta_direction|default('vertical') %}
 {% set _lists = lists|default([]) %}
 {% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-content-item' %}
@@ -139,6 +141,7 @@
     title: _title,
     description: _description,
     secondary_meta: _secondary_meta,
+    secondary_meta_direction: _secondary_meta_direction,
     lists: _lists,
   } %}
   {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({

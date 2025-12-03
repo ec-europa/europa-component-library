@@ -20,6 +20,7 @@ npm install --save @ecl/content-block
   },
   ...
   ]
+- **"secondary_meta_direction"** (string) (default: 'vertical'): Display direction of the meta
 - **links** (array) (default: []): Array or multi array of ECL Links
 - **lists** (array) (default: []): Array of ECL Description list
 - **"extra_classes"** (string) (default: '')
