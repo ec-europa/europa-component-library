@@ -9,6 +9,8 @@
 // Exposed variables
 $theme: null !default;
 $spotlight: null !default;
+$content-padding-top: 9.125rem;
+$anchor-width-l: 232px;
 
 .ecl-spotlight {
   container-name: ecl-spotlight;
@@ -22,7 +24,7 @@ $spotlight: null !default;
   background-color: map.get($spotlight, 'header', 'background');
   color: map.get($spotlight, 'header', 'color');
   display: flex;
-  height: map.get($spotlight, 'header', 'height-mobile');
+  height: map.get($spotlight, 'header', 'height-desktop');
   letter-spacing: map.get($theme, 'letter-spacing', '3xl');
   text-transform: uppercase;
 
@@ -55,9 +57,9 @@ $spotlight: null !default;
 
 .ecl-spotlight__picture-container,
 .ecl-spotlight .ecl-spotlight__image {
-  aspect-ratio: 1/1;
+  aspect-ratio: 3/1;
 
-  --css-aspect-ratio: 1/1;
+  --css-aspect-ratio: 3/1;
 }
 
 .ecl-spotlight__container {
@@ -73,14 +75,15 @@ $spotlight: null !default;
   .ecl-container {
     align-items: flex-end;
     display: flex;
-    justify-content: space-between;
+    padding-block-start: $content-padding-top;
   }
 }
 
 .ecl-spotlight__title {
   color: map.get($spotlight, 'title', 'color');
   display: block;
-  padding-block: map.get($spotlight, 'title', 'padding-block-mobile');
+  max-width: 950px;
+  padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
 
   @include mixins.responsive-font(
     map.get($spotlight, 'title', 'font-m'),
@@ -94,6 +97,10 @@ $spotlight: null !default;
       $font-weight: map.get($spotlight, 'title', 'font-weight'),
       $container: 'ecl-spotlight'
     );
+  }
+
+  .ecl-spotlight--anchor & {
+    padding-inline-end: $anchor-width-l;
   }
 }
 
@@ -112,9 +119,22 @@ $spotlight: null !default;
 }
 
 .ecl-spotlight__anchor {
-  display: none;
+  align-self: flex-end;
+  background-color: map.get($spotlight, 'anchor', 'color');
+  display: block;
+  flex-shrink: 0;
+  height: 122px;
+  mask-image: url("data:image/svg+xml;utf8,<svg width='232' height='122' viewBox='0 0 232 122' xmlns='http://www.w3.org/2000/svg'><path d='M212.327 84.3105L0.469702 104.936V113.47V122.004L232 104.936L229.761 0.200012H215.46L212.327 84.3105Z' /></svg>");
+  mask-repeat: no-repeat;
+  padding-block-end: map.get($spotlight, 'anchor', 'padding-block');
+  padding-inline-end: inherit;
+  position: absolute;
+  right: 0;
+  width: $anchor-width-l;
 
   &:dir(rtl) {
+    left: 0;
+    right: auto;
     transform: scale(-1, 1);
   }
 }
@@ -129,66 +149,5 @@ $spotlight: null !default;
   &:dir(rtl) {
     left: auto;
     right: 50%;
-  }
-}
-
-@container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'm')}) {
-  .ecl-spotlight__container {
-    height: map.get($spotlight, 'gradient-height-tablet');
-  }
-
-  .ecl-spotlight__picture-container,
-  .ecl-spotlight .ecl-spotlight__image {
-    aspect-ratio: 2/1;
-
-    --css-aspect-ratio: 2/1;
-  }
-
-  .ecl-spotlight__title {
-    max-width: 750px;
-    padding-block: map.get($spotlight, 'title', 'padding-block-tablet');
-  }
-
-  .ecl-spotlight__header {
-    height: map.get($spotlight, 'header', 'height-tablet');
-  }
-
-  .ecl-spotlight__anchor {
-    align-self: flex-end;
-    background-color: map.get($spotlight, 'anchor', 'color');
-    display: block;
-    flex-shrink: 0;
-    height: 73px;
-    mask-image: url("data:image/svg+xml;utf8,<svg width='161' height='73' viewBox='0 0 161 73' xmlns='http://www.w3.org/2000/svg'><path d='M147.353 50.6247L0.389648 62.8649V67.9293V72.9936L160.999 62.8649L159.447 0.709961H149.526L147.353 50.6247Z' fill-rule='evenodd' /></svg>");
-    mask-repeat: no-repeat;
-    padding-block-end: map.get($spotlight, 'anchor', 'padding-block');
-    padding-inline-end: map.get($spotlight, 'anchor', 'padding-inline');
-    width: 161px;
-  }
-}
-
-@container ecl-spotlight (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
-  .ecl-spotlight__title {
-    max-width: 950px;
-    padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
-  }
-
-  .ecl-spotlight__header {
-    height: map.get($spotlight, 'header', 'height-desktop');
-  }
-
-  .ecl-spotlight__anchor {
-    mask-image: url("data:image/svg+xml;utf8,<svg width='232' height='122' viewBox='0 0 232 122' xmlns='http://www.w3.org/2000/svg'><path d='M212.327 84.3105L0.469702 104.936V113.47V122.004L232 104.936L229.761 0.200012H215.46L212.327 84.3105Z' /></svg>");
-    height: 122px;
-    width: 232px;
-  }
-}
-
-@container ecl-spotlight (width >= #{map.get($theme, 'container', 'xl')}) {
-  .ecl-spotlight__picture-container,
-  .ecl-spotlight .ecl-spotlight__image {
-    aspect-ratio: 3/1;
-
-    --css-aspect-ratio: 3/1;
   }
 }

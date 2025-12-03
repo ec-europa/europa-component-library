@@ -1,12 +1,16 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
 import demoContent from './demo/data';
 
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
+
+const demoContentNews = { ...demoContent, variant: 'news' };
+const demoContentFifty = { ...demoContent, variant: '50-50' };
 
 const expandableArgs = (data) => {
   return {
@@ -65,13 +69,20 @@ const expandableArgTypes = () => {
   };
 };
 
-const getArgs = (data) => {
+const getArgs = (data, variant) => {
   let args = {
     show_breadcrumb: true,
+    show_picture: true,
+    show_description: true,
     show_thumbnail: false,
+    show_meta: true,
     show_page_header_expandable: false,
     hide_title: false,
   };
+
+  if (getSystem() === 'ec') {
+    args.font_size = 'm';
+  }
 
   if (data.title) {
     args.title = data.title;
@@ -81,6 +92,9 @@ const getArgs = (data) => {
   }
   if (data.description) {
     args.description = data.description;
+    if (variant === 'fifty') {
+      args.description_position = 'top';
+    }
   }
   if (data.picture_background.img.src) {
     args.background_image_url = data.picture_background.img.src;
@@ -94,7 +108,7 @@ const getArgs = (data) => {
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = (variant) => {
   const argTypes = {
     ...expandableArgTypes(),
   };
@@ -104,8 +118,6 @@ const getArgTypes = (data) => {
     type: 'boolean',
     description: 'Toggle breadcrumb visibility',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
       category: 'Optional',
     },
   };
@@ -115,19 +127,42 @@ const getArgTypes = (data) => {
     type: 'boolean',
     description: 'Toggle thumbnail visibility',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
       category: 'Optional',
     },
   };
 
   argTypes.show_page_header_expandable = {
-    name: 'page header expandable',
+    name: 'expandable',
     type: 'boolean',
     description: 'Toggle element visibility',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_description = {
+    name: 'description',
+    type: 'boolean',
+    description: 'Toggle description visibility',
+    table: {
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_meta = {
+    name: 'meta',
+    type: 'boolean',
+    description: 'Toggle meta visibility',
+    table: {
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_picture = {
+    name: 'image',
+    type: 'boolean',
+    description: 'Toggle image visibility',
+    table: {
       category: 'Optional',
     },
   };
@@ -149,58 +184,122 @@ const getArgTypes = (data) => {
     table: {
       type: { summary: 'object' },
       defaultValue: { summary: '{}' },
-      category: 'Optional',
+      category: 'Display',
     },
   };
 
-  if (data.description) {
-    argTypes.description = {
-      type: 'string',
-      description: 'The page introduction',
+  if (getSystem() === 'ec') {
+    argTypes.font_size = {
+      name: 'font size',
+      type: 'select',
+      description: 'Change title font size',
+      options: ['m', 'l'],
+      control: {
+        labels: {
+          m: 'medium',
+          l: 'large',
+        },
+      },
+      mapping: {
+        medium: 'm',
+        large: 'l',
+      },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+        type: 'string',
+        defaultValue: { summary: 'm' },
+        category: 'Display',
       },
     };
   }
 
-  if (data.meta) {
-    argTypes.meta = {
-      type: 'array',
-      description: 'The page meta',
-      table: {
-        type: { summary: 'array' },
-        defaultValue: { summary: '[]' },
-        category: 'Content',
+  argTypes.description = {
+    type: 'string',
+    description: 'The page introduction',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    if: { arg: 'show_description' },
+  };
+
+  if (variant === 'fifty') {
+    argTypes.description_position = {
+      name: 'description position',
+      type: 'select',
+      description: 'Change description position',
+      options: ['top', 'bottom'],
+      control: {
+        labels: {
+          top: 'top',
+          bottom: 'bottom',
+        },
       },
+      mapping: {
+        top: 'top',
+        bottom: 'bottom',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'top' },
+        category: 'Display',
+      },
+      if: { arg: 'show_description' },
     };
   }
 
-  if (data.picture_background.img.src) {
-    argTypes.background_image_url = {
-      name: 'background image',
-      type: 'string',
-      description: 'The background image url',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.meta = {
+    type: 'array',
+    description: 'The page meta',
+    table: {
+      type: { summary: 'array' },
+      defaultValue: { summary: '[]' },
+      category: 'Content',
+    },
+    if: { arg: 'show_meta' },
+  };
+
+  argTypes.background_image_url = {
+    name: 'image url',
+    type: 'string',
+    description: 'The image url',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    if: { arg: 'show_picture' },
+  };
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  data.expandable = {
-    toggle_label: args.toggle_label,
-    header_content: args.header_content,
-    panel_content: args.panel_content,
-  };
-
   const clone = JSON.parse(JSON.stringify(data));
+
+  if (!args.show_description) {
+    delete clone.description;
+  } else {
+    clone.description = args.description;
+    clone.description_position = args.description_position;
+  }
+
+  if (!args.show_picture) {
+    delete clone.picture_background;
+  } else if (args.background_image_url) {
+    clone.picture_background = {
+      img: {
+        src: args.background_image_url,
+        alt: clone.picture_background.img.alt || '',
+      },
+    };
+  }
+
+  if (!args.show_meta) {
+    delete clone.meta;
+  } else {
+    clone.meta = args.meta;
+  }
 
   if (!args.show_breadcrumb) {
     delete clone.breadcrumb;
@@ -212,35 +311,21 @@ const prepareData = (data, args) => {
   } else if (args.show_thumbnail && !clone.show_thumbnail) {
     clone.picture_thumbnail = demoContent.picture_thumbnail;
   }
-  if (!args.show_page_header_expandable) {
-    delete clone.expandable;
-  } else if (
-    args.show_page_header_expandable &&
-    !clone.show_page_header_expandable
-  ) {
-    clone.expandable = demoContent.expandable;
-  }
 
-  if (!args.expandable && clone.expandable) {
-    clone.expandable.panel_content = '';
-  } else if (args.expandable && !clone.expandable.lists) {
-    clone.expandable.panel_content = demoContent.expandable.panel_content;
+  if (args.show_page_header_expandable) {
+    clone.expandable = {
+      toggle_label: args.toggle_label,
+      header_content: args.header_content,
+      panel_content: args.panel_content,
+    };
+  } else {
+    delete clone.expandable;
   }
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
-  clone.description = args.description;
-  clone.meta = args.meta;
-
-  if (args.background_image_url) {
-    clone.picture_background = {
-      img: {
-        src: args.background_image_url,
-        alt: clone.picture_background.img.alt || '',
-      },
-    };
-  } else {
-    clone.picture_background = {};
+  if (getSystem() === 'ec') {
+    clone.font_size = args.font_size;
   }
 
   correctPaths(clone);
@@ -261,8 +346,34 @@ Default.render = async (args) => {
   return renderedCore;
 };
 Default.storyName = 'default';
-Default.args = getArgs(demoContent);
-Default.argTypes = getArgTypes(demoContent);
+Default.args = getArgs(demoContent, 'default');
+Default.argTypes = getArgTypes('default');
 Default.parameters = {
   notes: { markdown: notes, json: demoContent },
+};
+
+export const News = (_, { loaded: { component } }) => component;
+
+News.render = async (args) => {
+  const renderedNews = await pageHeader(prepareData(demoContentNews, args));
+  return renderedNews;
+};
+News.storyName = 'news';
+News.args = getArgs(demoContentNews, 'news');
+News.argTypes = getArgTypes('news');
+News.parameters = {
+  notes: { markdown: notes, json: demoContentNews },
+};
+
+export const Fifty = (_, { loaded: { component } }) => component;
+
+Fifty.render = async (args) => {
+  const renderedFifty = await pageHeader(prepareData(demoContentFifty, args));
+  return renderedFifty;
+};
+Fifty.storyName = '50/50';
+Fifty.args = getArgs(demoContentFifty, 'fifty');
+Fifty.argTypes = getArgTypes('fifty');
+Fifty.parameters = {
+  notes: { markdown: notes, json: demoContentFifty },
 };

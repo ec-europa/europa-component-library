@@ -120,9 +120,9 @@ $description-list-print: null !default;
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline;
-  margin-inline-end: map.get($theme, 'spacing-print', 'm');
+  margin-inline-end: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
-  padding-inline-start: map.get($theme, 'spacing-print', 'm');
+  padding-inline-start: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
   position: relative;
 
   &::before {
@@ -133,7 +133,7 @@ $description-list-print: null !default;
     height: 4px;
     left: -2px;
     position: absolute;
-    top: 8px;
+    top: map.get($description-list, 'taxonomy-separator-offset');
     width: 4px;
   }
 

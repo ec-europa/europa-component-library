@@ -136,7 +136,8 @@ export class MegaMenu {
     this.menuOverlay = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointL = 1140;
+    this.breakpointTablet = 768;
+    this.breakpointDesktop = 1140;
     this.openPanel = { num: 0, item: {} };
     this.infoLinks = null;
     this.seeAllLinks = null;
@@ -461,7 +462,7 @@ export class MegaMenu {
     const isTablet = browser.getPlatformType() === 'tablet';
 
     // Detect mobile devices
-    if (isMobile) {
+    if (isMobile && window.innerWidth < this.breakpointTablet) {
       return false;
     }
 
@@ -471,8 +472,8 @@ export class MegaMenu {
       return false;
     }
 
-    // After all that, check if the hamburger button is displayed
-    if (window.innerWidth < this.breakpointL) {
+    // After all that, check the screen width
+    if (window.innerWidth < this.breakpointDesktop) {
       return false;
     }
 
@@ -627,16 +628,16 @@ export class MegaMenu {
     this.resizeTimer = setTimeout(() => {
       const screenWidth = window.innerWidth;
       if (this.prevScreenWidth !== undefined) {
-        // Check if the transition involves crossing the L breakpoint
+        // Check if the transition involves crossing the desktop breakpoint
         const isTransition =
-          (this.prevScreenWidth <= this.breakpointL &&
-            screenWidth > this.breakpointL) ||
-          (this.prevScreenWidth > this.breakpointL &&
-            screenWidth <= this.breakpointL);
-        // If we are moving in or out the L breakpoint, reset the styles
+          (this.prevScreenWidth <= this.breakpointDesktop &&
+            screenWidth > this.breakpointDesktop) ||
+          (this.prevScreenWidth > this.breakpointDesktop &&
+            screenWidth <= this.breakpointDesktop);
+        // If we are moving in or out the desktop breakpoint, reset the styles
         if (isTransition) {
           this.resetStyles(
-            screenWidth > this.breakpointL ? 'desktop' : 'mobile',
+            screenWidth > this.breakpointDesktop ? 'desktop' : 'mobile',
           );
         }
         if (this.prevScreenWidth >= 1368 && screenWidth >= 1140) {

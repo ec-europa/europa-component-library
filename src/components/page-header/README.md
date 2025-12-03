@@ -8,12 +8,14 @@ npm install --save @ecl/page-header
 
 ### Parameters
 
+- **"variant"** (string) (default: '') Page header variant; can be 'news', 'topic'
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
-- **"description"** (string) (default: '') Description of header
+- **"description"** (string) (default: '') Description of page header
+- **"description_position"** (string) (default: 'top') Position of the description; can be 'top' or 'bottom'. Only affects 50-50 variant
 - **"picture_thumbnail"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
 - **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
-- **"meta"** (array) (default: []) Meta of header
+- **"meta"** (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
 - **"expandable"** (associative array) Page header expandable
   - "toggle_label" (default: '')
@@ -32,7 +34,15 @@ npm install --save @ecl/page-header
 {% include '@ecl/page-header/page-header.html.twig' with {  
   title: 'Page title',  
   description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',  
-  meta: 'News article | 17 October 2015',  
+  meta: [
+    '10 March 2025', 
+    { 
+      label: 'Brussels', 
+      icon: {
+        name: 'location',
+      },
+    }
+  ],
   breadcrumb: {  
     links: [  
       {  
