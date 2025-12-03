@@ -45,6 +45,10 @@
   {% set _css_class = _css_class ~ ' ecl-spotlight--full-width' %}
 {% endif %}
 
+{% if _has_anchor %}
+  {% set _css_class = _css_class ~ ' ecl-spotlight--anchor' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}

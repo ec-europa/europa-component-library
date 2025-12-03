@@ -3,15 +3,11 @@
 
 $spotlight: (
   gradient: linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 25%,
-      color-mix(in srgb, var(--cm-on-surface-brand) 25%, transparent) 50%,
-      color-mix(in srgb, var(--cm-on-surface-brand) 35%, transparent) 75%,
-      color-mix(in srgb, var(--cm-on-surface-brand) 50%, transparent) 100%
+      0deg,
+      color-mix(in srgb, var(--cm-on-surface-brand) 80%, transparent) 10%,
+      color-mix(in srgb, var(--cm-on-surface-brand) 53%, transparent) 50%,
+      transparent 100%
     ),
-  gradient-height-mobile: 241px,
-  gradient-height-tablet: 374px,
   header: (
     background: var(--cm-surface-brand),
     color: var(--cm-on-surface-inverted),
@@ -54,6 +50,5 @@ $spotlight: (
   anchor: (
     color: var(--cm-on-surface-3),
     padding-block: var(--s-5xl),
-    padding-inline: 0,
   ),
 );
