@@ -63,11 +63,6 @@ collections:
         file: 'src/website/src/pages/ec/components/accordion/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Accordion a11y'
-        name: 'ec_accordion_a11y'
-        file: 'src/website/src/pages/ec/components/accordion/docs/accessibility.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
       - label: 'Banner'
         name: 'ec_banner'
         file: 'src/website/src/pages/ec/components/banner/docs/usage.md'
@@ -328,6 +323,14 @@ collections:
         file: 'src/website/src/pages/ec/components/timeline/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+  - label: 'EC a11y pages for components'
+    name: 'ec_accessibility_pages'
+    files:
+      - label: 'Accordion'
+        name: 'ec_accordion_a11y'
+        file: 'src/website/src/pages/ec/components/accordion/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
   - label: 'EC Guidelines'
     name: 'ec_guidelines'
     files:
@@ -390,11 +393,6 @@ collections:
       - label: 'Accordion'
         name: 'eu_accordion'
         file: 'src/website/src/pages/eu/components/accordion/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Accordion a11y'
-        name: 'eu_accordion_a11y'
-        file: 'src/website/src/pages/eu/components/accordion/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Banner'
@@ -656,6 +654,14 @@ collections:
       - label: 'Timeline'
         name: 'eu_timeline'
         file: 'src/website/src/pages/eu/components/timeline/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EU a11y pages for components'
+    name: 'eu_accessibility_pages'
+    files:
+      - label: 'Accordion'
+        name: 'eu_accordion_a11y'
+        file: 'src/website/src/pages/eu/components/accordion/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EU Guidelines'
