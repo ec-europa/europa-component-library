@@ -14,6 +14,7 @@
         },
         ...
       ]
+    - "secondary_meta_direction" (string) (default: 'vertical'): Display direction of the meta
     - "links" (array) (default: []): Array or multi array of ECL Links
     - "lists" (array) (default: []): Array of ECL Description list
     - "extra_classes" (string) (default: '')
@@ -33,6 +34,7 @@
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default([]) %}
+{% set _secondary_meta_direction = secondary_meta_direction|default('vertical') %}
 {% set _links = links|default([]) %}
 {% set _lists = lists|default([]) %}
 {% set _css_class = 'ecl-content-block' %}
@@ -103,7 +105,11 @@
   {% endif %}
 
   {% if _secondary_meta is not empty and _secondary_meta is iterable %}
-    <ul class="ecl-content-block__secondary-meta-container">
+    {% set _secondary_meta_class = "ecl-content-block__secondary-meta-container" %}
+    {% if _secondary_meta_direction == "horizontal" %}
+      {% set _secondary_meta_class = _secondary_meta_class ~ " ecl-content-block__secondary-meta-container--horizontal" %}
+    {% endif %}
+    <ul class="{{ _secondary_meta_class }}">
       {% for _meta in _secondary_meta %}
         <li class="ecl-content-block__secondary-meta-item">
           {% if _meta.icon is not empty %}

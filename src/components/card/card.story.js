@@ -30,6 +30,7 @@ const getArgs = (data) => {
   }
   if (data.secondary_meta) {
     args.show_secondary_meta = true;
+    args.secondary_meta_direction = 'vertical';
   }
   args.show_lists = false;
 
@@ -161,6 +162,29 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.secondary_meta_direction = {
+    name: 'secondary meta direction',
+    type: 'select',
+    description: 'Display direction',
+    options: ['vertical', 'horizontal'],
+    control: {
+      labels: {
+        vertical: 'vertical',
+        horizontal: 'horizontal',
+      },
+    },
+    mapping: {
+      vertical: 'vertical',
+      horizontal: 'horizontal',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'vertical' },
+      category: 'Display',
+    },
+    if: { arg: 'show_secondary_meta' },
+  };
+
   return argTypes;
 };
 
@@ -207,6 +231,9 @@ const prepareData = (data, args) => {
     } else {
       clone.title = args.title;
     }
+  }
+  if (clone.secondary_meta) {
+    clone.secondary_meta_direction = args.secondary_meta_direction;
   }
 
   return clone;
