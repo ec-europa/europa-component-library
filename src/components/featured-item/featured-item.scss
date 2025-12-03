@@ -70,6 +70,30 @@ $featured-item: null !default;
   }
 }
 
+// Content alignment
+.ecl-featured-item__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .ecl-featured-item__link {
+    align-self: flex-start;
+  }
+
+  .ecl-featured-item--hcenter & {
+    align-items: center;
+    text-align: center;
+
+    .ecl-featured-item__link {
+      align-self: auto;
+    }
+  }
+
+  .ecl-featured-item--vcenter & {
+    justify-content: center;
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-featured-item__container {
@@ -92,30 +116,6 @@ $featured-item: null !default;
   .ecl-featured-item:not(.ecl-featured-item--highlight) {
     .ecl-featured-item__item:only-child {
       padding-inline-start: 0;
-    }
-  }
-
-  // Content alignment
-  .ecl-featured-item__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    .ecl-featured-item__link {
-      align-self: flex-start;
-    }
-
-    .ecl-featured-item--hcenter & {
-      align-items: center;
-      text-align: center;
-
-      .ecl-featured-item__link {
-        align-self: auto;
-      }
-    }
-
-    .ecl-featured-item--vcenter & {
-      justify-content: center;
     }
   }
 
@@ -346,56 +346,6 @@ $featured-item: null !default;
         'padding-inline-desktop'
       );
       position: relative;
-
-      &::before {
-        border-bottom: map.get($featured-item, 'highlight', 'arrow-width') solid
-          transparent;
-        border-inline-end: map.get($featured-item, 'highlight', 'arrow-width')
-          solid map.get($featured-item, 'highlight', 'item', 'background-color');
-        border-top: map.get($featured-item, 'highlight', 'arrow-width') solid
-          transparent;
-        content: '';
-        display: block;
-        height: 0;
-        margin-inline-start: calc(
-          -1 *
-            (
-              #{map.get($featured-item, 'highlight', 'arrow-width')} +
-                #{map.get(
-                  $featured-item,
-                  'highlight',
-                  'item',
-                  'padding-inline-desktop'
-                )}
-            )
-        );
-        position: absolute;
-        width: 0;
-        z-index: 1;
-      }
-    }
-
-    .ecl-featured-item__container--right {
-      .ecl-featured-item__item:first-child {
-        &::before {
-          border-inline-start: map.get(
-              $featured-item,
-              'highlight',
-              'arrow-width'
-            )
-            solid
-            map.get($featured-item, 'highlight', 'item', 'background-color');
-          border-inline-end: map.get($featured-item, 'highlight', 'arrow-width')
-            solid transparent;
-          margin-inline-start: calc(
-            100% - #{map.get($featured-item, 'highlight', 'arrow-width')} + 4px
-          );
-        }
-      }
-    }
-
-    .ecl-featured-item__item:first-child:only-child::before {
-      display: none;
     }
 
     // Highlighted link
