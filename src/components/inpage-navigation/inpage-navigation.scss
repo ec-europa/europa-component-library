@@ -368,6 +368,12 @@ $inpage-navigation: null !default;
   }
 }
 
+.inpage-navigation__heading--active {
+  &:focus-visible {
+    outline: 2px var(--c-p) solid;
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.down('m') {
   .ecl-inpage-navigation__heading--active {
