@@ -78,8 +78,7 @@
         {% endif %}
         {% include '@ecl/link/link.html.twig' with link|merge({
           link: link.link|merge({
-            type: 'standalone',
-            no_visited: true,
+            type: 'standalone'
           }),
           icon: link.icon|default({})|merge({
             size: 's',

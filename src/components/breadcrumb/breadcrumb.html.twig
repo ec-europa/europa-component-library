@@ -121,7 +121,7 @@
           {% set _link_extra_class = 'ecl-breadcrumb__link' %}
           {% include '@ecl/link/link.html.twig' with {
             link: link|default({})|merge({
-              type: 'standalone',
+              type: 'standalone'
             }),
             extra_classes: _link_extra_class
           } only %}
