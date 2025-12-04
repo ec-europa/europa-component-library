@@ -65,6 +65,18 @@ $button: null !default;
 }
 
 /**
+* Branded link
+*/
+.ecl-link--brand,
+%ecl-link-brand {
+  color: map.get($link, 'brand', 'color');
+
+  &:visited {
+    color: map.get($link, 'brand', 'color');
+  }
+}
+
+/**
 * Link button
 */
 /* stylelint-disable nesting-selector-no-missing-scoping-root */

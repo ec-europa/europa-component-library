@@ -125,6 +125,33 @@ $link: null !default;
 }
 
 /**
+* Branded link
+*/
+.ecl-link--brand,
+%ecl-link-brand {
+  color: map.get($link, 'brand', 'color');
+
+  &:visited {
+    color: map.get($link, 'brand', 'color');
+  }
+
+  &:hover {
+    color: map.get($link, 'brand', 'color-hover');
+  }
+
+  &:active {
+    color: map.get($link, 'brand', 'color-active');
+  }
+
+  &.ecl-link--standalone {
+    &:hover,
+    &:visited {
+      color: map.get($link, 'brand', 'color');
+    }
+  }
+}
+
+/**
 * Inverted link
 */
 .ecl-link--inverted,

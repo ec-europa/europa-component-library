@@ -209,7 +209,9 @@ const prepareData = (data, args) => {
     data.link.inverted = false;
   }
   if (args.style === 'brand') {
-    // Do something
+    data.link.branded = true;
+  } else {
+    data.link.branded = false;
   }
 
   correctPaths(data);
