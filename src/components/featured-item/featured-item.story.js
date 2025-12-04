@@ -137,7 +137,7 @@ const getArgTypes = (data) => {
   argTypes.vertical_alignment = {
     name: 'vertical alignment',
     type: { name: 'select' },
-    description: 'Content alignment (vertical)',
+    description: 'Content alignment (vertical); tablet and desktop only',
     options: ['top', 'center'],
     mapping: {
       top: 'top',
