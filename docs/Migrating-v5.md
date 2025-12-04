@@ -185,13 +185,22 @@ Here is the mapping to the new variant / style:
 - ghost -> tertiary
 - ghost-inverted -> tertiary / inverted
 
+### Card
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
 ### Checkbox
 
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Content block
 
-The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
+### Content item
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
 
 ### Datepicker
 

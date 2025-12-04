@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
   repo: ec-europa/europa-component-library
-  branch: v4-dev
-  base_url: https://v4-dev--europa-component-library.netlify.app/
+  branch: v5-dev
+  base_url: https://v5-dev--europa-component-library.netlify.app/
   extension: md
   squash_merges: true
   commit_messages:
@@ -321,6 +321,14 @@ collections:
       - label: 'Timeline'
         name: 'ec_timeline'
         file: 'src/website/src/pages/ec/components/timeline/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EC a11y pages for components'
+    name: 'ec_accessibility_pages'
+    files:
+      - label: 'Accordion'
+        name: 'ec_accordion_a11y'
+        file: 'src/website/src/pages/ec/components/accordion/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EC Guidelines'
@@ -646,6 +654,14 @@ collections:
       - label: 'Timeline'
         name: 'eu_timeline'
         file: 'src/website/src/pages/eu/components/timeline/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EU a11y pages for components'
+    name: 'eu_accessibility_pages'
+    files:
+      - label: 'Accordion'
+        name: 'eu_accordion_a11y'
+        file: 'src/website/src/pages/eu/components/accordion/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EU Guidelines'
