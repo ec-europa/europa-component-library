@@ -227,3 +227,12 @@
 .ecl blockquote img:is([class*='ecl-u-']) {
   @extend %ecl-blockquote__image;
 }
+
+// Remove some spacing
+.ecl :is(h1, h2, h3, h4, h5, h6, p):first-child {
+  margin-block-start: 0;
+}
+
+.ecl :is(h1, h2, h3, h4, h5, h6, p):last-child {
+  margin-block-end: 0;
+}
