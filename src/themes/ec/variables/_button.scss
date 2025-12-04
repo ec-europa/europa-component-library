@@ -10,27 +10,27 @@ $button: (
     size: 2rem,
     padding-horizontal: var(--s-s),
     padding-vertical: var(--s-2xs),
-    font: 'body-s',
+    font: 'body-xs',
     icon-only-size: map.get($icon, '2xs'),
     icon-spacing: var(--s-3xs),
     icon-size: map.get($icon, '2xs'),
   ),
   medium: (
     size: 2.5rem,
-    padding-horizontal: var(--s-s),
-    padding-vertical: var(--s-2xs),
-    font: 'body-m',
+    padding-horizontal: var(--s-m),
+    padding-vertical: var(--s-xs),
+    font: 'body-s',
     icon-only-size: map.get($icon, 's'),
-    icon-spacing: var(--s-2xs),
+    icon-spacing: var(--s-xs),
     icon-size: map.get($icon, 'xs'),
   ),
   large: (
     size: 2.75rem,
-    padding-horizontal: var(--s-s),
-    padding-vertical: var(--s-xs),
+    padding-horizontal: var(--s-l),
+    padding-vertical: 0.625rem,
     font: 'body-m',
     icon-only-size: map.get($icon, 'm'),
-    icon-spacing: var(--s-2xs),
+    icon-spacing: var(--s-s),
     icon-size: map.get($icon, 'xs'),
   ),
   primary: (
@@ -50,16 +50,20 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: var(--cm-surface-primary-low-0),
+    color-disabled: var(--cm-on-surface-grey-low-transparent),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   primary-highlight: (
     background: var(--cm-surface-secondary),
     color: var(--cm-on-surface-brand),
     border-color: transparent,
     border-width: 0px,
-    background-hover: var(--cm-surface-secondary-high),
+    background-hover: var(--cm-surface-secondary-medium-1),
     color-hover: var(--cm-on-surface-brand),
     border-color-hover: transparent,
-    background-active: var(--cm-surface-secondary-highest),
+    background-active: var(--cm-surface-secondary-medium-0),
     color-active: var(--cm-on-surface-brand),
     border-color-active: transparent,
     background-focus: var(--cm-surface-secondary),
@@ -68,6 +72,32 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: var(--cm-surface-secondary-low),
+    color-disabled: var(--cm-on-surface-grey-low-transparent),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
+  ),
+  primary-neutral: (
+    background: var(--cm-surface-brand),
+    color: var(--cm-on-surface-inverted),
+    border-color: transparent,
+    border-width: 0px,
+    background-hover: var(--cm-surface-grey-highest-1-transparent),
+    color-hover: var(--cm-on-surface-inverted),
+    border-color-hover: transparent,
+    background-active: var(--cm-surface-grey-highest-2-transparent),
+    color-active: var(--cm-on-surface-inverted),
+    border-color-active: transparent,
+    background-focus: var(--cm-surface-brand),
+    color-focus: var(--cm-on-surface-inverted),
+    border-color-focus: transparent,
+    outline-color: var(--cm-border-primary),
+    outline-offset: 2px,
+    outline-width: 2px,
+    background-disabled: var(--cm-surface-grey-low-1),
+    color-disabled: var(--cm-on-surface-grey-low-transparent),
+    border-color-disabled: transparent,
+    opacity-disabled: 0.9,
   ),
   primary-inverted: (
     background: var(--cm-surface-primary-lowest),
@@ -87,6 +117,18 @@ $button: (
     outline-color: var(--cm-border-inverted),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: color-mix(
+        in srgb,
+        var(--cm-surface-primary-lowest) 50%,
+        transparent
+      ),
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-primary) 50%,
+        transparent
+      ),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   secondary: (
     background: transparent,
@@ -106,6 +148,18 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-primary) 50%,
+        transparent
+      ),
+    border-color-disabled: color-mix(
+        in srgb,
+        var(--cm-border-primary) 50%,
+        transparent
+      ),
+    opacity-disabled: 1,
   ),
   secondary-neutral: (
     background: transparent,
@@ -124,6 +178,18 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-brand) 50%,
+        transparent
+      ),
+    border-color-disabled: color-mix(
+        in srgb,
+        var(--cm-border-brand) 50%,
+        transparent
+      ),
+    opacity-disabled: 1,
   ),
   secondary-inverted: (
     background: transparent,
@@ -143,6 +209,18 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-inverted) 50%,
+        transparent
+      ),
+    border-color-disabled: color-mix(
+        in srgb,
+        var(--cm-border-inverted) 50%,
+        transparent
+      ),
+    opacity-disabled: 1,
   ),
   tertiary: (
     background: transparent,
@@ -161,6 +239,14 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-primary) 50%,
+        transparent
+      ),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   tertiary-neutral: (
     background: transparent,
@@ -179,6 +265,14 @@ $button: (
     outline-color: var(--cm-border-primary),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-brand) 50%,
+        transparent
+      ),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
   tertiary-inverted: (
     background: transparent,
@@ -198,5 +292,13 @@ $button: (
     outline-color: var(--cm-border-inverted),
     outline-offset: 2px,
     outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: color-mix(
+        in srgb,
+        var(--cm-on-surface-inverted) 50%,
+        transparent
+      ),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
   ),
 );

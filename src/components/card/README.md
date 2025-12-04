@@ -23,6 +23,7 @@ npm install --save @ecl/card
   },
   ...
   ]
+- **"secondary_meta_direction"** (string) (default: 'vertical'): Display direction of the meta
 - **lists** (array) (default: []): Array of ECL Description list
 - **extra_classes** (string) (default: '')
 - **extra_attributes** (array) (default: []): format: [

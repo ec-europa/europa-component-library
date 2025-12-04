@@ -33,6 +33,13 @@ module.exports = {
       },
       label: 'Luxembourg',
     },
+    {
+      icon: {
+        name: 'clock',
+        size: 'xs',
+      },
+      label: '1 hour',
+    },
   ],
   links: [
     [

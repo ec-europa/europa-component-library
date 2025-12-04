@@ -7,6 +7,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -46,7 +47,6 @@ $menu: null !default;
   color: map.get($menu, 'mobile', 'hamburger-color');
   display: flex;
   flex-direction: column;
-  font: var(--f-xs);
   margin-inline-start: auto;
   order: 2;
   padding: map.get($menu, 'mobile', 'open-padding');
@@ -170,8 +170,9 @@ $menu: null !default;
 }
 
 .ecl-menu__title {
-  font: map.get($menu, 'mobile', 'header-font');
   padding-inline-start: var(--s-m);
+
+  @include mixins.responsive-font(map.get($menu, 'global', 'header-font'));
 }
 
 .ecl-menu__close {
@@ -181,7 +182,6 @@ $menu: null !default;
   color: currentcolor;
   display: flex;
   flex-direction: column;
-  font: var(--f-xs);
   margin-inline-start: auto;
   order: 0;
   text-decoration: none;
@@ -217,9 +217,10 @@ $menu: null !default;
   cursor: pointer;
   color: currentcolor;
   display: none;
-  font: map.get($menu, 'mobile', 'header-font');
   text-decoration: none;
   width: 100%;
+
+  @include mixins.responsive-font(map.get($menu, 'global', 'header-font'));
 
   &:dir(rtl) .ecl-icon {
     transform: rotate(90deg);
@@ -349,10 +350,14 @@ $menu: null !default;
   color: map.get($menu, 'mobile', 'item-color');
   display: inline-flex;
   flex-grow: 1;
-  font: map.get($menu, 'mobile', 'item-font');
   justify-content: space-between;
   padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
+
+  @include mixins.responsive-font(
+    map.get($menu, 'global', 'item-font'),
+    $font-weight: map.get($menu, 'global', 'item-font-weight')
+  );
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -397,11 +402,11 @@ $menu: null !default;
   .ecl-button__icon {
     fill: currentcolor;
     flex-shrink: 0;
-    height: map.get($theme, 'icon', 'xs');
+    height: map.get($menu, 'mobile', 'caret-size');
     transition: none;
     transition-property: transform, fill;
     transform: rotate(90deg);
-    width: map.get($theme, 'icon', 'xs');
+    width: map.get($menu, 'mobile', 'caret-size');
   }
 
   &:hover {
@@ -411,6 +416,7 @@ $menu: null !default;
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-background');
     color: map.get($menu, 'mobile', 'caret-color');
+    outline-offset: -2px;
   }
 }
 
@@ -446,6 +452,13 @@ $menu: null !default;
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     border-top: map.get($menu, 'desktop', 'menu-border');
 
+    .ecl-menu__container {
+      padding-inline-start: calc(
+        #{map.get($theme, 'grid-gutter-width', 'xl')} -
+          #{map.get($menu, 'desktop', 'container-offset')}
+      );
+    }
+
     .ecl-menu__list {
       flex-direction: row;
       left: 0;
@@ -473,18 +486,35 @@ $menu: null !default;
           .ecl-menu__item--current,
           .ecl-menu__items-previous,
           .ecl-menu__items-next
-        ):hover,
-      &:not(.ecl-menu__item--current):focus-within {
+        ):hover {
         background-color: map.get($menu, 'desktop', 'item-background-hover');
         box-shadow: map.get($menu, 'desktop', 'item-shadow-hover');
         color: map.get($menu, 'desktop', 'item-color-hover');
       }
 
+      &:not(.ecl-menu__item--current):focus-within {
+        background-color: map.get($menu, 'desktop', 'item-background-focus');
+        color: map.get($menu, 'desktop', 'item-color-focus');
+      }
+
       &:hover .ecl-menu__link,
-      &:hover .ecl-menu__button-caret,
+      &:hover .ecl-menu__button-caret {
+        background-color: map.get(
+          $menu,
+          'desktop',
+          'item-background-color-hover'
+        );
+        color: map.get($menu, 'desktop', 'item-color-hover');
+      }
+
       &:focus-within .ecl-menu__link,
       &:focus-within .ecl-menu__button-caret {
-        color: map.get($menu, 'desktop', 'item-color-hover');
+        background-color: map.get(
+          $menu,
+          'desktop',
+          'item-background-color-focus'
+        );
+        color: map.get($menu, 'desktop', 'item-color-focus');
       }
     }
 
@@ -512,6 +542,7 @@ $menu: null !default;
     .ecl-menu__item:focus-within:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:focus-within
       + .ecl-menu__item:not(.ecl-menu__items-next)::before,
+    .ecl-menu__item:first-child::before,
     .ecl-menu__item:last-child:hover::after {
       background-color: transparent;
     }
@@ -525,9 +556,9 @@ $menu: null !default;
       box-shadow: none;
       color: map.get($menu, 'desktop', 'item-color');
       display: inline-flex;
-      font: map.get($menu, 'desktop', 'item-font');
-      line-height: map.get($menu, 'desktop', 'link-line-height');
-      padding: map.get($menu, 'desktop', 'link-padding');
+      min-height: map.get($menu, 'desktop', 'link-min-height');
+      padding-block: map.get($menu, 'desktop', 'link-padding-block');
+      padding-inline: map.get($menu, 'desktop', 'link-padding-inline');
       width: auto;
       z-index: 0;
 
@@ -538,12 +569,15 @@ $menu: null !default;
       &:focus-visible {
         background-color: map.get($menu, 'desktop', 'item-background-focus');
         color: map.get($menu, 'desktop', 'item-color-focus');
-        outline-offset: -4px;
+        outline-offset: -2px;
       }
     }
 
+    .ecl-menu__item--has-children .ecl-menu__link {
+      padding-inline: map.get($menu, 'desktop', 'link-children-padding-inline');
+    }
+
     .ecl-menu__item--current {
-      background-color: map.get($menu, 'desktop', 'item-current-background');
       box-shadow: map.get($menu, 'desktop', 'item-current-shadow');
       color: map.get($menu, 'desktop', 'item-current-color');
       margin-top: map.get($menu, 'desktop', 'item-current-margin');
@@ -558,13 +592,13 @@ $menu: null !default;
     }
 
     .ecl-menu__item--current .ecl-menu__link {
-      font-weight: map.get($menu, 'desktop', 'item-current-font-weight');
+      font-weight: map.get($menu, 'global', 'item-current-font-weight');
     }
 
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__item--current .ecl-menu__button-caret,
     .ecl-menu__link:active {
-      background-color: transparent;
+      background-color: map.get($menu, 'desktop', 'item-current-background');
       color: currentcolor;
     }
 
@@ -662,16 +696,13 @@ $menu: null !default;
       right: auto;
     }
 
-    .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
-      padding-right: var(--s-xs);
-    }
-
     .ecl-menu__button-caret {
       background: transparent;
       border-width: 0;
       color: map.get($menu, 'desktop', 'item-color');
       margin-inline-start: 0;
-      padding: map.get($menu, 'desktop', 'caret-padding');
+      min-width: auto;
+      padding-inline: map.get($menu, 'desktop', 'caret-padding-inline');
 
       .ecl-button__icon {
         fill: currentcolor;
@@ -686,7 +717,7 @@ $menu: null !default;
         background-color: map.get($menu, 'desktop', 'item-background-focus');
         color: map.get($menu, 'desktop', 'item-color-focus');
         outline: 2px solid map.get($menu, 'desktop', 'caret-focus-outline');
-        outline-offset: -4px;
+        outline-offset: -2px;
 
         .ecl-button__icon {
           fill: currentcolor;
@@ -707,7 +738,16 @@ $menu: null !default;
         .ecl-menu__link {
           background-color: #fff;
           margin-bottom: -2px;
-          padding: map.get($menu, 'desktop', 'link-expanded-padding');
+          padding-block: map.get(
+            $menu,
+            'desktop',
+            'link-expanded-padding-block'
+          );
+          padding-inline: map.get(
+            $menu,
+            'desktop',
+            'link-children-padding-inline'
+          );
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
 
@@ -721,7 +761,7 @@ $menu: null !default;
 
       &.ecl-menu__item--current {
         .ecl-menu__link:hover {
-          background-color: map.get($menu, 'desktop', 'item-background-hover');
+          background-color: #fff;
         }
 
         &:focus-within {
@@ -750,8 +790,11 @@ $menu: null !default;
     background-color: transparent;
     border-bottom: map.get($menu, 'mobile', 'subtitle-border');
     box-shadow: none;
-    font: map.get($menu, 'mobile', 'subtitle-font');
-    font-weight: map.get($menu, 'mobile', 'subtitle-font-weight');
+
+    @include mixins.responsive-font(
+      map.get($menu, 'global', 'subtitle-font'),
+      $font-weight: map.get($menu, 'global', 'subtitle-font-weight')
+    );
   }
 }
 
@@ -789,9 +832,10 @@ $menu: null !default;
 .ecl-menu__sublink {
   color: map.get($menu, 'mobile', 'item-color');
   display: block;
-  font: map.get($menu, 'mobile', 'item-font');
   padding: map.get($menu, 'mobile', 'subitem-padding');
   position: relative;
+
+  @include mixins.responsive-font(map.get($menu, 'global', 'subitem-font'));
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
@@ -897,7 +941,6 @@ $menu: null !default;
 
     .ecl-menu__sublink {
       break-inside: avoid-column;
-      font: map.get($menu, 'desktop', 'item-font');
       margin: 0;
       padding: map.get($menu, 'desktop', 'sublink-padding');
       white-space: normal;
