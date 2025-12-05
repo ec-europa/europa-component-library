@@ -120,6 +120,8 @@ $link: null !default;
 /**
 * Inverted link
 */
+
+/* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 .ecl-link--inverted,
 %ecl-link-inverted {
   --ecl-link-color: #{map.get($link, 'inverted', 'color')};
@@ -131,6 +133,7 @@ $link: null !default;
     --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
   }
 }
+/* stylelint-enable scss/dollar-variable-no-missing-interpolation */
 
 /**
 * Link button
