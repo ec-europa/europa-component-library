@@ -48,6 +48,10 @@ $text-input: null !default;
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
 
+  &:hover {
+    box-shadow: map.get($text-input, 'shadow-hover');
+  }
+
   &:focus-visible {
     border-color: map.get($text-input, 'outline-color');
     box-shadow: 0 0 0 1px var(--duet-color-primary);
@@ -155,7 +159,7 @@ $text-input: null !default;
       border-radius: 50%;
       border-width: 0;
       color: map.get($datepicker, 'picker', 'theme-color');
-      font-size: 0.875rem;
+      font-size: map.get($datepicker, 'picker', 'font');
       min-height: auto;
       min-width: auto;
       padding: 0;
