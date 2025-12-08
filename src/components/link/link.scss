@@ -117,38 +117,26 @@ $link: null !default;
   }
 }
 
+// stylelint-disable scss/dollar-variable-no-missing-interpolation
+
 /**
 * Branded link
 */
 .ecl-link--brand,
 %ecl-link-brand {
-  color: map.get($link, 'brand', 'color');
-
-  &:visited {
-    color: map.get($link, 'brand', 'color');
-  }
-
-  &:hover {
-    color: map.get($link, 'brand', 'color-hover');
-  }
-
-  &:active {
-    color: map.get($link, 'brand', 'color-active');
-  }
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
 
   &.ecl-link--standalone {
-    &:hover,
-    &:visited {
-      color: map.get($link, 'brand', 'color');
-    }
+    --ecl-link-color-hover: #{map.get($link, 'brand', 'color')};
   }
 }
 
 /**
 * Inverted link
 */
-
-/* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 .ecl-link--inverted,
 %ecl-link-inverted {
   --ecl-link-color: #{map.get($link, 'inverted', 'color')};
@@ -160,7 +148,8 @@ $link: null !default;
     --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
   }
 }
-/* stylelint-enable scss/dollar-variable-no-missing-interpolation */
+
+// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 /**
 * Link button

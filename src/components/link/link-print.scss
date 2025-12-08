@@ -68,17 +68,33 @@ $button: null !default;
   }
 }
 
+// stylelint-disable scss/dollar-variable-no-missing-interpolation
+
 /**
 * Branded link
 */
 .ecl-link--brand,
 %ecl-link-brand {
-  color: map.get($link, 'brand', 'color');
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
 
-  &:visited {
-    color: map.get($link, 'brand', 'color');
+  &.ecl-link--standalone {
+    --ecl-link-color-hover: #{map.get($link, 'brand', 'color')};
   }
 }
+
+/**
+* Inverted link
+*/
+.ecl-link--inverted,
+%ecl-link-inverted {
+  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
+
+  &.ecl-link--standalone {
+    --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
+  }
+}
+
+// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 /**
 * Link button
