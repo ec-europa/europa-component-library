@@ -143,6 +143,7 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 ### Breadcrumb
 
 - Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
+- Breadcrumb links are no longer using the "standalone" variant (class `ecl-link--standalone`)
 
 ### Button
 
