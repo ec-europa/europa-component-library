@@ -39,15 +39,9 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__co-owner-link {
-  color: map.get($site-footer, 'co-owner', 'link-color');
-
   @include mixins.responsive-font(
     map.get($site-footer, 'co-owner', 'link-font')
   );
-
-  &:hover {
-    color: map.get($site-footer, 'co-owner', 'link-color-hover');
-  }
 }
 
 @include breakpoints.up('l') {
@@ -129,12 +123,13 @@ $site-footer: null !default;
   margin: 0;
 }
 
-.ecl-site-footer__title-link,
-.ecl-site-footer__title-link:hover,
-.ecl-site-footer__title-link:focus,
-.ecl-site-footer__title-link:visited {
-  color: map.get($site-footer, 'color');
+// stylelint-disable scss/dollar-variable-no-missing-interpolation
+.ecl-site-footer__title-link {
+  --ecl-link-color: #{map.get($site-footer, 'color')};
+  --ecl-link-color-hover: #{map.get($site-footer, 'color')};
+  --ecl-link-color-active: #{map.get($site-footer, 'color')};
 }
+// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 .ecl-site-footer__title--separator {
   border-bottom: 1px solid map.get($site-footer, 'separator-color');
@@ -209,13 +204,6 @@ $site-footer: null !default;
 
   .ecl-site-footer__section {
     padding-top: var(--s-l);
-  }
-
-  .ecl-site-footer__title,
-  .ecl-site-footer__title:hover,
-  .ecl-site-footer__title:focus,
-  .ecl-site-footer__title:visited {
-    color: map.get($site-footer, 'color');
   }
 
   .ecl-site-footer__logo-image {

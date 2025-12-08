@@ -100,22 +100,17 @@ $breadcrumb: null !default;
   }
 }
 
+// stylelint-disable scss/dollar-variable-no-missing-interpolation
 .ecl-breadcrumb__link {
-  color: map.get($breadcrumb, 'link-color');
+  --ecl-link-color: #{map.get($breadcrumb, 'link-color')};
+  --ecl-link-color-hover: #{map.get($breadcrumb, 'link-color-hover')};
+
   overflow: hidden;
   text-decoration: map.get($breadcrumb, 'link-style');
   text-overflow: ellipsis;
   white-space: nowrap;
-
-  &:visited {
-    color: map.get($breadcrumb, 'link-color');
-  }
-
-  &:hover,
-  &:focus-visible {
-    color: map.get($breadcrumb, 'link-color-hover');
-  }
 }
+// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 .ecl-breadcrumb__icon {
   fill: map.get($breadcrumb, 'icon-color');

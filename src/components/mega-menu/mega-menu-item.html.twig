@@ -300,6 +300,7 @@
           {% include '@ecl/link/link.html.twig' with {
             link: {
               type: 'standalone',
+              branded: true,
               label: _see_all_label,
               path: _item.path,
             },
@@ -322,6 +323,7 @@
         {% include '@ecl/link/link.html.twig' with _info.link|merge({
           link: _info.link.link|merge({
             type: 'standalone',
+            branded: true,
             path: _path,
           }),
           icon: {

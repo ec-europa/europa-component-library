@@ -171,36 +171,71 @@ $featured-item: null !default;
     flex-grow: 1000;
   }
 
+  // stylelint-disable scss/dollar-variable-no-missing-interpolation
   .ecl-featured-item__link {
+    --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
+    --ecl-link-color-hover: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+    --ecl-link-color-active: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+    --ecl-focus-outline-color: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+
     align-self: flex-start;
-    color: map.get($featured-item, 'highlight', 'link', 'color');
     text-decoration: underline;
-
-    &:hover,
-    &:focus-visible,
-    &:active,
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'link', 'color');
-    }
-
-    &:focus-visible {
-      outline-color: map.get($featured-item, 'highlight', 'link', 'color');
-    }
   }
+  // stylelint-enable scss/dollar-variable-no-missing-interpolation
 
   .ecl-featured-item__title + .ecl-featured-item__link,
   .ecl-featured-item__description + .ecl-featured-item__link {
     margin-block-start: map.get($featured-item, 'highlight', 'link', 'spacing');
   }
 
+  // stylelint-disable scss/dollar-variable-no-missing-interpolation
   &.ecl-featured-item--link-highlighted .ecl-featured-item__link {
+    --ecl-link-color: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color-highlighted'
+      )};
+    --ecl-link-color-hover: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color-highlighted'
+      )};
+    --ecl-link-color-active: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color-highlighted'
+      )};
+    --ecl-focus-outline-color: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color-highlighted'
+      )};
+
     background-color: map.get(
       $featured-item,
       'highlight',
       'link',
       'background-color'
     );
-    color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
     display: block;
     margin-block-end: calc(
       -1 *
@@ -220,24 +255,11 @@ $featured-item: null !default;
     text-decoration: none;
 
     &:hover,
-    &:focus-visible,
-    &:active,
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
-    }
-
-    &:hover,
     &:active {
       text-decoration: underline;
     }
 
     &:focus-visible {
-      outline-color: map.get(
-        $featured-item,
-        'highlight',
-        'link',
-        'color-highlighted'
-      );
       outline-offset: -4px;
     }
 
@@ -247,6 +269,7 @@ $featured-item: null !default;
       margin-inline: 0;
     }
   }
+  // stylelint-enable scss/dollar-variable-no-missing-interpolation
 
   &.ecl-featured-item--link-highlighted
     .ecl-featured-item__title

@@ -52,13 +52,12 @@ $notification: null !default;
   max-width: var(--max-w);
 }
 
+// stylelint-disable scss/dollar-variable-no-missing-interpolation
 .ecl-notification__link-item {
-  color: map.get($notification, 'link-color');
-
-  &:hover {
-    color: map.get($notification, 'link-color-hover');
-  }
+  --ecl-link-color: #{map.get($notification, 'link-color')};
+  --ecl-link-color-hover: #{map.get($notification, 'link-color-hover')};
 }
+// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 .ecl-notification__close {
   color: map.get($notification, 'close-color');
