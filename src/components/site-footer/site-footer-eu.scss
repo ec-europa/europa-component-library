@@ -123,13 +123,11 @@ $site-footer: null !default;
   margin: 0;
 }
 
-// stylelint-disable scss/dollar-variable-no-missing-interpolation
 .ecl-site-footer__title-link {
   --ecl-link-color: #{map.get($site-footer, 'color')};
   --ecl-link-color-hover: #{map.get($site-footer, 'color')};
   --ecl-link-color-active: #{map.get($site-footer, 'color')};
 }
-// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 .ecl-site-footer__title--separator {
   border-bottom: 1px solid map.get($site-footer, 'separator-color');

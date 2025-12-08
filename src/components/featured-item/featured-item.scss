@@ -171,7 +171,6 @@ $featured-item: null !default;
     flex-grow: 1000;
   }
 
-  // stylelint-disable scss/dollar-variable-no-missing-interpolation
   .ecl-featured-item__link {
     --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
     --ecl-link-color-hover: #{map.get(
@@ -196,14 +195,12 @@ $featured-item: null !default;
     align-self: flex-start;
     text-decoration: underline;
   }
-  // stylelint-enable scss/dollar-variable-no-missing-interpolation
 
   .ecl-featured-item__title + .ecl-featured-item__link,
   .ecl-featured-item__description + .ecl-featured-item__link {
     margin-block-start: map.get($featured-item, 'highlight', 'link', 'spacing');
   }
 
-  // stylelint-disable scss/dollar-variable-no-missing-interpolation
   &.ecl-featured-item--link-highlighted .ecl-featured-item__link {
     --ecl-link-color: #{map.get(
         $featured-item,
@@ -269,7 +266,6 @@ $featured-item: null !default;
       margin-inline: 0;
     }
   }
-  // stylelint-enable scss/dollar-variable-no-missing-interpolation
 
   &.ecl-featured-item--link-highlighted
     .ecl-featured-item__title

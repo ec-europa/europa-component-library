@@ -100,7 +100,6 @@ $breadcrumb: null !default;
   }
 }
 
-// stylelint-disable scss/dollar-variable-no-missing-interpolation
 .ecl-breadcrumb__link {
   --ecl-link-color: #{map.get($breadcrumb, 'link-color')};
   --ecl-link-color-hover: #{map.get($breadcrumb, 'link-color-hover')};
@@ -110,7 +109,6 @@ $breadcrumb: null !default;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 .ecl-breadcrumb__icon {
   fill: map.get($breadcrumb, 'icon-color');

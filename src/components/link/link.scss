@@ -117,8 +117,6 @@ $link: null !default;
   }
 }
 
-// stylelint-disable scss/dollar-variable-no-missing-interpolation
-
 /**
 * Branded link
 */
@@ -148,8 +146,6 @@ $link: null !default;
     --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
   }
 }
-
-// stylelint-enable scss/dollar-variable-no-missing-interpolation
 
 /**
 * Link button
