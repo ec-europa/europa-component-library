@@ -221,6 +221,10 @@ $text-input: null !default;
         &::before {
           background-color: var(--cm-surface-inverted, #fff);
         }
+
+        &:hover {
+          border-width: 0;
+        }
       }
 
       &.is-today {
