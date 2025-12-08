@@ -14,7 +14,7 @@ $text-input: null !default;
 
 /* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 :root {
-  --duet-color-button: var(--c-g-50, var(--c-g-20));
+  --duet-color-button: var(--c-g-50, var(--c-p-5));
   --duet-font: #{map.get($theme, 'font-family', 'default')};
   --duet-font-bold: 600;
   --duet-color-surface: var(--cm-surface-inverted, #fff);
@@ -53,7 +53,7 @@ $text-input: null !default;
   }
 
   &:focus-visible {
-    border-color: map.get($text-input, 'outline-color');
+    border-color: var(--duet-color-primary);
     box-shadow: 0 0 0 1px var(--duet-color-primary);
   }
 
@@ -94,6 +94,7 @@ $text-input: null !default;
   }
 
   &:focus-visible {
+    background: #fff;
     box-shadow: 0 0 0 2px var(--duet-color-primary);
     color: var(--duet-color-text);
     outline: 0;
@@ -133,6 +134,7 @@ $text-input: null !default;
     padding: 0;
 
     &:hover {
+      background: var(--duet-color-button);
       color: var(--duet-color-text);
     }
 
@@ -172,11 +174,12 @@ $text-input: null !default;
         );
         border-color: var(--cm-on-surface-brand, var(--c-d));
         color: map.get($datepicker, 'picker', 'theme-color');
-        font-weight: map.get($datepicker, 'picker', 'day-hover-weight');
       }
 
       &:focus:not([aria-pressed='true']),
       &:focus-visible:not([aria-pressed='true']) {
+        background-color: #fff;
+        border-color: var(--duet-color-primary);
         border-width: 2px;
         box-shadow: none;
         color: var(--cm-on-surface-brand, var(--c-d));
@@ -198,6 +201,14 @@ $text-input: null !default;
 
         &::before {
           background-color: var(--cm-surface-inverted, #fff);
+        }
+      }
+
+      &.is-today {
+        border-width: 1px;
+
+        &:hover {
+          border-width: 0;
         }
       }
     }
