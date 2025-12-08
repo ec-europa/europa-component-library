@@ -7,7 +7,6 @@
       {
         type: '' (can be '', 'standalone', 'primary', 'primary-highlight', 'primary-neutral', 'secondary')
         inverted: false (boolean),
-        no_visited: false (boolean),
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
@@ -102,10 +101,6 @@
 
 {% if _link.inverted is defined and _link.inverted %}
   {% set _css_class = _css_class ~ ' ecl-link--inverted' %}
-{% endif %}
-
-{% if _link.no_visited is defined and _link.no_visited %}
-  {% set _css_class = _css_class ~ ' ecl-link--no-visited' %}
 {% endif %}
 
 {% if _icons is defined %}

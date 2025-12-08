@@ -244,6 +244,7 @@ Extra attention points:
 ### Link
 
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
+- variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
 
 ### List with illustration
 
