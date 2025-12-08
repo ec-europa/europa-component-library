@@ -43,7 +43,7 @@ $text-input: null !default;
   * duet styling
   */
 .duet-date__input {
-  padding-block: var(--s-s);
+  height: 2.75rem;
   outline: 0;
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
@@ -72,7 +72,7 @@ $text-input: null !default;
 
 .duet-date__toggle,
 .ecl button.duet-date__toggle {
-  background: var(--duet-color-button);
+  background: #fff;
   color: var(--duet-color-text);
   border: 0;
   border-radius: 0;
@@ -80,7 +80,18 @@ $text-input: null !default;
   border-top-right-radius: var(--duet-radius);
   display: flex;
   min-height: auto;
+  width: 2.75rem;
   padding: 0;
+
+  &::before {
+    background-color: var(--cm-border-brand, var(--c-d));
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 1px;
+    height: 80%;
+    top: 10%;
+  }
 
   &:hover,
   &[disabled] {
@@ -145,6 +156,10 @@ $text-input: null !default;
       outline: 0;
       padding: 0;
     }
+
+    svg {
+      margin-block-start: 1px;
+    }
   }
 
   .duet-date__table {
@@ -172,17 +187,22 @@ $text-input: null !default;
           'picker',
           'day-hover-background'
         );
+        border-width: 1px;
         border-color: var(--cm-on-surface-brand, var(--c-d));
         color: map.get($datepicker, 'picker', 'theme-color');
       }
 
-      &:focus:not([aria-pressed='true']),
-      &:focus-visible:not([aria-pressed='true']) {
-        background-color: #fff;
+      &:focus,
+      &:focus-visible {
+        background-color: map.get(
+          $datepicker,
+          'picker',
+          'day-selected-background'
+        );
         border-color: var(--duet-color-primary);
         border-width: 2px;
         box-shadow: none;
-        color: var(--cm-on-surface-brand, var(--c-d));
+        color: var(--cm-on-surface-inverted, #fff);
         outline: 0;
         padding: 0;
       }
@@ -196,7 +216,6 @@ $text-input: null !default;
         border-radius: 50%;
         box-shadow: none;
         color: var(--cm-on-surface-inverted, #fff);
-        font-weight: map.get($datepicker, 'picker', 'day-selected-weight');
         padding: 0;
 
         &::before {
