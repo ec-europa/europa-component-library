@@ -13,9 +13,13 @@ $button: null !default;
 
 .ecl-link,
 %ecl-link {
-  color: map.get($link, 'color');
+  color: var(--ecl-link-color);
   break-inside: avoid;
   text-decoration: none;
+
+  &:visited {
+    color: var(--ecl-link-color);
+  }
 }
 
 .ecl-link--icon-before,

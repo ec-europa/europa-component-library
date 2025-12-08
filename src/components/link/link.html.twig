@@ -8,7 +8,6 @@
         type: '' (can be '', 'standalone', 'primary', 'primary-highlight', 'secondary')
         inverted: false (boolean): Is the link inverted (displayed on dark background)?
         branded: false (boolean): Is the link using brand color (usually dark)?
-        no_visited: false (boolean),
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
@@ -107,10 +106,6 @@
 
 {% if _link.branded is defined and _link.branded %}
   {% set _css_class = _css_class ~ ' ecl-link--brand' %}
-{% endif %}
-
-{% if _link.no_visited is defined and _link.no_visited %}
-  {% set _css_class = _css_class ~ ' ecl-link--no-visited' %}
 {% endif %}
 
 {% if _icons is defined %}
