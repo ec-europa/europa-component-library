@@ -118,6 +118,8 @@ $text-input: null !default;
   border-width: 0;
   box-shadow: map.get($datepicker, 'picker', 'shadow');
   color: map.get($datepicker, 'picker', 'theme-color');
+  margin-block-start: var(--s-s);
+  padding-block-end: var(--s-m);
 
   @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
 
