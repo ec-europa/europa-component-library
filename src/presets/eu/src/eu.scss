@@ -188,6 +188,10 @@
   $theme: theme.$theme,
   $list: var.$list
 );
+@use '@ecl/page-information/page-information' with (
+  $theme: theme.$theme,
+  $page-information: var.$page-information
+);
 @use '@ecl/pagination/pagination' with (
   $theme: theme.$theme,
   $pagination: var.$pagination
