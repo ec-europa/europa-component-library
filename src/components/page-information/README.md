@@ -9,6 +9,10 @@ npm package: `@ecl/page-information`
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
+### Blocks:
+
+- **"content"**: free block to put any content in the page information
+
 ```shell
 npm install --save @ecl/page-information
 ```
@@ -17,5 +21,7 @@ npm install --save @ecl/page-information
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/page-information/page-information.html.twig'  %}
+{% include '@ecl/page-information/page-information.html.twig' with {
+  content: 'This page was last updated on 00 Month 0000',
+} %}
 ```
