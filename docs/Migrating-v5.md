@@ -200,7 +200,7 @@ The markup is now using the custom element defined by duet js:
 - Markup has been updated: now it reflects the real element orders, extra container added around the text content, and `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
 - New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
-- New parameters `horizontal_aligment` and `vertical_alignment` to handle text alignment
+- New parameters `horizontal_alignment` and `vertical_alignment` to handle text alignment
 - New parameter `media_behavior` to allow the image to take the full height if needed
 
 ### Form
