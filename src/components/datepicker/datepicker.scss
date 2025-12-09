@@ -14,37 +14,47 @@ $text-input: null !default;
 
 /* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 :root {
+  --duet-color-button: var(--c-g-50, var(--c-p-5));
   --duet-font: #{map.get($theme, 'font-family', 'default')};
+  --duet-font-bold: 600;
   --duet-color-surface: var(--cm-surface-inverted, #fff);
   --duet-color-border: #{map.get($text-input, 'border-color')};
   --duet-color-text: #{map.get($text-input, 'color-input')};
+  --duet-color-primary: #{map.get($text-input, 'outline-color')};
   --duet-font-normal: #{map.get($theme, 'font-weight', 'regular')};
   --duet-radius: #{map.get($text-input, 'radius')};
   --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
 }
 /* stylelint-enable scss/dollar-variable-no-missing-interpolation */
 
-.ecl-datepicker {
-  display: flex;
-  margin: 0;
+.ecl-datepicker--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
+.ecl-datepicker--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
+.ecl-datepicker--l {
+  @include mixins-form.form-width('l', $theme);
 }
 
 /*
   * duet styling
   */
 .duet-date__input {
-  padding-block: map.get($text-input, 'padding-block');
+  height: 2.75rem;
+  outline: 0;
 
   @include mixins.responsive-font(map.get($text-input, 'font'));
-  @include mixins-form.form-width('m', $theme);
 
   &:hover {
-    border-color: map.get($text-input, 'border-color-hover');
     box-shadow: map.get($text-input, 'shadow-hover');
   }
 
   &:focus-visible {
-    outline: 2px solid #{map.get($text-input, 'outline-color')};
+    border-color: var(--duet-color-primary);
+    box-shadow: 0 0 0 1px var(--duet-color-primary);
   }
 
   &[disabled] {
@@ -62,27 +72,44 @@ $text-input: null !default;
 
 .duet-date__toggle,
 .ecl button.duet-date__toggle {
-  color: map.get($text-input, 'color-input');
-  border: none;
-  box-shadow: none;
+  background: #fff;
+  color: var(--duet-color-text);
+  border: 0;
+  border-radius: 0;
+  border-bottom-right-radius: var(--duet-radius);
+  border-top-right-radius: var(--duet-radius);
+  display: flex;
   min-height: auto;
+  width: 2.75rem;
+  padding: 0;
+
+  &::before {
+    background-color: var(--cm-border-brand, var(--c-d));
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 1px;
+    height: 80%;
+    top: 10%;
+  }
 
   &:hover,
-  &:focus-visible {
-    background: transparent;
-    box-shadow: none;
-    color: map.get($text-input, 'color-input');
-    outline: 2px solid var(--c-p);
-    outline-offset: -2px;
+  &[disabled] {
+    background: var(--duet-color-button);
+    box-shadow: inset 1px 0 0 rgb(0, 0, 0, 0.1);
+    color: var(--duet-color-text);
   }
-}
 
-.duet-date__toggle-icon svg {
-  width: map.get($theme, 'icon', 's');
-}
+  &[disabled] {
+    opacity: 0.5;
+  }
 
-.duet-date__dialog {
-  min-width: 360px;
+  &:focus-visible {
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--duet-color-primary);
+    color: var(--duet-color-text);
+    outline: 0;
+  }
 }
 
 .duet-date__dialog-content {
@@ -91,128 +118,58 @@ $text-input: null !default;
   border-width: 0;
   box-shadow: map.get($datepicker, 'picker', 'shadow');
   color: map.get($datepicker, 'picker', 'theme-color');
-  margin-top: map.get($datepicker, 'picker', 'margin-top');
-  margin-inline-start: 0;
-  max-width: none;
-  min-width: 360px;
-  overflow: hidden;
-  padding: map.get($datepicker, 'picker', 'padding');
-  width: auto;
+  margin-block-start: var(--s-s);
+  padding-block-end: var(--s-m);
 
   @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
 
-  @media (width <= 35.9375em) {
-    padding-block-start: 0;
-  }
-
-  .duet-date__header > div {
-    display: flex;
-  }
-
   .duet-date__select {
-    align-items: center;
-    background-color: map.get($datepicker, 'picker', 'select-background-color');
-    border: map.get($datepicker, 'picker', 'select-border');
-    border-radius: map.get($datepicker, 'picker', 'border-radius');
-    color: map.get($datepicker, 'picker', 'theme-color');
-    display: flex;
-    height: 38px;
-    width: 160px;
-    justify-content: space-between;
-    margin-block-start: 0;
-    margin-inline-end: var(--s-xs);
-    padding: var(--s-xs) 0;
-    position: relative;
-
-    .duet-date__select-label {
-      flex: 1;
-
-      span {
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      svg {
-        flex-shrink: 0;
-        position: absolute;
-        right: 5px;
-      }
-
-      [dir='rtl'] & svg {
-        right: auto;
-        left: 5px;
-      }
-    }
-
-    * {
-      @include mixins.responsive-font(
-        map.get($datepicker, 'picker', 'font'),
-        $font-weight: map.get($theme, 'font-weight', 'regular')
-      );
-    }
-
-    &:last-of-type {
-      margin-inline-end: 0;
-      width: 75px;
-    }
-
     &:focus-within {
-      outline: 2px solid var(--c-p);
+      outline: 0;
     }
+  }
+
+  button.duet-date__next {
+    margin-inline-start: var(--s-xs);
   }
 
   button.duet-date__prev,
   button.duet-date__next,
   button.duet-date__close {
-    align-items: center;
-    border-color: transparent;
-    border-radius: 0;
-    color: var(--cm-on-surface-primary, var(--c-p));
-    display: flex;
-    margin-inline-start: var(--s-xs);
-    min-width: 38px;
-    min-height: 38px;
+    background: var(--duet-color-button);
+    border: 0;
+    border-radius: 50%;
+    color: var(--duet-color-text);
+    line-height: 100%;
+    min-height: auto;
+    min-width: 0;
+    outline: 0;
     padding: 0;
 
-    &:hover {
-      background-color: var(--cm-surface-neutral-lowest, var(--c-p-20));
-      border-color: var(--cm-border-brand, var(--c-d));
-      color: var(--cm-on-surface-brand, var(--c-d));
-    }
-
     &:focus-visible {
-      background: none;
+      background: var(--duet-color-button);
+      border: 0;
       color: var(--duet-color-text);
-      outline-color: var(--cm-on-surface-primary, var(--c-p));
-      outline-offset: -2px;
+      outline: 0;
+      padding: 0;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
+    &:hover {
+      background: var(--duet-color-button);
+      color: var(--duet-color-text);
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--duet-color-primary);
+      }
+    }
+
     svg {
-      flex-shrink: 0;
-      height: map.get($theme, 'icon', 's');
-      vertical-align: middle;
-      width: map.get($theme, 'icon', 's');
+      margin-block-start: 1px;
     }
   }
 
-  .duet-date__mobile {
-    margin-left: -5%;
-    width: 110%;
-  }
-
-  @media (width >= 36em) {
-    .duet-date__mobile {
-      right: 0;
-      top: 0;
-    }
-
-    button.duet-date__close {
-      min-width: 1rem;
-      min-height: 1rem;
-      height: 1rem;
-      width: 1rem;
-    }
+  .duet-date__header {
+    margin-block-end: var(--s-xs);
   }
 
   .duet-date__table {
@@ -222,51 +179,21 @@ $text-input: null !default;
 
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
-      padding-block: var(--s-s);
-      padding-inline: 0 map.get($datepicker, 'picker', 'table-spacing');
-      text-transform: uppercase;
-
-      @include mixins.responsive-font(
-        map.get($datepicker, 'picker', 'font-th'),
-        $font-weight: map.get($theme, 'font-weight', 'regular')
-      );
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
     }
 
-    td {
-      padding-block-start: map.get($datepicker, 'picker', 'table-spacing');
-      padding-inline-end: map.get($datepicker, 'picker', 'table-spacing');
-
-      &:last-child {
-        padding-inline-end: 0;
-      }
-    }
-
-    abbr {
-      text-decoration: none;
-    }
-
-    tbody::before {
-      background-color: transparent;
-      content: '';
-      display: block;
-      height: map.get($datepicker, 'picker', 'thead-margin');
+    .duet-date__table-header {
+      padding-block-start: var(--s-xs);
     }
 
     .duet-date__day {
       background-color: var(--cm-surface-inverted, #fff);
-      border-radius: map.get($datepicker, 'picker', 'border-radius');
+      border-radius: 50%;
       border-width: 0;
       color: map.get($datepicker, 'picker', 'theme-color');
-      padding: calc(var(--s-xs) + 2px) var(--s-xs);
-      min-height: 2.75rem;
-      min-width: 2.75rem;
-      text-align: center;
-
-      @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
+      font-size: map.get($datepicker, 'picker', 'font');
+      min-height: auto;
+      min-width: auto;
+      padding: 0;
 
       &:hover {
         background-color: map.get(
@@ -274,86 +201,51 @@ $text-input: null !default;
           'picker',
           'day-hover-background'
         );
+        border-width: 1px;
         border-color: var(--cm-on-surface-brand, var(--c-d));
-        border-radius: map.get($datepicker, 'picker', 'border-radius');
-        box-shadow: map.get($datepicker, 'picker', 'day-hover-shadow');
         color: map.get($datepicker, 'picker', 'theme-color');
-        font-weight: map.get($datepicker, 'picker', 'day-hover-weight');
       }
 
-      &:not(.is-month) {
-        background-color: map.get(
-          $datepicker,
-          'picker',
-          'day-outside-background'
-        );
-        color: map.get($datepicker, 'picker', 'day-outside-color');
-        opacity: 1;
-
-        &:hover {
-          background-color: map.get(
-            $datepicker,
-            'picker',
-            'day-hover-background'
-          );
-          color: map.get($datepicker, 'picker', 'theme-color');
-        }
-      }
-
-      &:focus-visible:not(.is-today, [aria-pressed='true']) {
-        border: none;
-        color: var(--cm-on-surface-brand, var(--c-d));
-        outline-offset: -2px;
-      }
-
-      &.is-today {
-        color: map.get($datepicker, 'picker', 'day-today-color');
-        font-weight: map.get($datepicker, 'picker', 'day-today-weight');
-        position: relative;
-
-        &::before {
-          background-color: map.get($datepicker, 'picker', 'day-today-color');
-          border-radius: 2px;
-          left: calc(50% - 10px);
-          content: '';
-          display: block;
-          height: 2px;
-          opacity: 1;
-          position: absolute;
-          top: 85%;
-          width: 20px;
-        }
-
-        &:focus-visible {
-          color: var(--cm-on-surface-inverted, #fff);
-
-          &::before {
-            background: var(--cm-on-surface-inverted, #fff);
-          }
-        }
-
-        &:hover {
-          color: map.get($datepicker, 'picker', 'theme-color');
-
-          &::before {
-            background-color: map.get($datepicker, 'picker', 'theme-color');
-          }
-        }
-      }
-
-      &[aria-pressed='true']:not(:hover) {
+      &:focus,
+      &:focus-visible {
         background-color: map.get(
           $datepicker,
           'picker',
           'day-selected-background'
         );
-        border-radius: map.get($datepicker, 'picker', 'border-radius');
+        border-color: var(--duet-color-primary);
+        border-width: 2px;
         box-shadow: none;
         color: var(--cm-on-surface-inverted, #fff);
-        font-weight: map.get($datepicker, 'picker', 'day-selected-weight');
+        outline: 0;
+        padding: 0;
+      }
+
+      &[aria-pressed='true'] {
+        background-color: map.get(
+          $datepicker,
+          'picker',
+          'day-selected-background'
+        );
+        border-radius: 50%;
+        box-shadow: none;
+        color: var(--cm-on-surface-inverted, #fff);
+        padding: 0;
 
         &::before {
           background-color: var(--cm-surface-inverted, #fff);
+        }
+
+        &:hover {
+          border-width: 0;
+        }
+      }
+
+      &.is-today {
+        border-width: 1px;
+
+        &:hover {
+          border-width: 0;
         }
       }
     }

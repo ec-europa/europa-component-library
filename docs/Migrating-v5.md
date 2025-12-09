@@ -188,6 +188,8 @@ or
 The markup is now using the custom element defined by duet js:
 `<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
 
+- Short months: The select to choose the month is now showing options using abbreviations for the month names, the default ones in english are provided by the ecl datepicker's js, the name of the option is `monthNamesShort`.
+
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.
