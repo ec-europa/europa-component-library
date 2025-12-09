@@ -1,0 +1,17 @@
+/**
+ * Page information
+ * @define page-info
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$page-information: null !default;
+
+.ecl-page-info {
+  color: map.get($page-information, 'color');
+
+  @include mixins.responsive-font(map.get($page-information, 'font'));
+}
