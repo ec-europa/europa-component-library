@@ -146,17 +146,21 @@ $text-input: null !default;
     outline: 0;
     padding: 0;
 
-    &:hover {
-      background: var(--duet-color-button);
-      color: var(--duet-color-text);
-    }
-
     &:focus-visible {
       background: var(--duet-color-button);
       border: 0;
       color: var(--duet-color-text);
       outline: 0;
       padding: 0;
+    }
+
+    &:hover {
+      background: var(--duet-color-button);
+      color: var(--duet-color-text);
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--duet-color-primary);
+      }
     }
 
     svg {
@@ -189,9 +193,7 @@ $text-input: null !default;
       font-size: map.get($datepicker, 'picker', 'font');
       min-height: auto;
       min-width: auto;
-      height: 2rem;
       padding: 0;
-      width: 2rem;
 
       &:hover {
         background-color: map.get(
