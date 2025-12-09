@@ -16,20 +16,14 @@ module.exports = {
   buttons: [
     {
       label: 'Button',
-      type: 'submit',
-      variant: 'primary',
-    },
-    {
-      label: 'Button',
       type: 'button',
       variant: 'secondary',
       extra_attributes: [{ name: 'data-ecl-modal-close' }],
     },
     {
       label: 'Button',
-      type: 'button',
-      variant: 'secondary',
-      style: 'neutral',
+      type: 'submit',
+      variant: 'primary',
     },
   ],
 };

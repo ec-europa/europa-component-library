@@ -12,7 +12,7 @@ const getArgs = (data) => ({
   size: 'l',
   body_scroll: data.body,
   body_fixed: data.body_fixed,
-  button: 3,
+  button: 2,
 });
 
 const getArgTypes = () => ({
@@ -95,7 +95,7 @@ const getArgTypes = () => ({
   },
   button: {
     name: 'footer buttons',
-    control: { type: 'range', min: 0, max: 3, step: 1 },
+    control: { type: 'range', min: 0, max: 2, step: 1 },
     description: 'Button examples in the footer',
     table: {
       defaultValue: { summary: 2 },
@@ -117,7 +117,7 @@ const prepareData = (data, args) => {
   if (args.button === 0) {
     delete dataClone.buttons;
   } else {
-    dataClone.buttons = dataClone.buttons.slice(0, args.button);
+    dataClone.buttons = dataClone.buttons.slice(-args.button);
   }
 
   correctPaths(dataClone);

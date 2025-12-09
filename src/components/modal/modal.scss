@@ -195,14 +195,16 @@ $overflow-height: 1rem;
 
 .ecl-modal__footer-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .ecl-modal__button {
-  margin-block-start: var(--s-m);
+  flex-grow: 1;
+  margin-inline-end: var(--s-m);
 
-  &:first-of-type {
-    margin-block-start: 0;
+  &:last-of-type {
+    margin-inline-end: 0;
   }
 }
 
@@ -227,18 +229,11 @@ $overflow-height: 1rem;
   .ecl-modal--l,
   .ecl-modal--full {
     .ecl-modal__footer-content {
-      flex-direction: row-reverse;
-      justify-content: flex-start;
+      justify-content: flex-end;
     }
 
     .ecl-modal__button {
       flex-grow: 0;
-      margin-inline-end: var(--s-m);
-      margin-block-start: 0;
-
-      &:first-of-type {
-        margin-inline-end: 0;
-      }
     }
   }
 }
