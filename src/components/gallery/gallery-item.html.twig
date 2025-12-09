@@ -50,8 +50,11 @@
 {% endif %}
 
 {# Process image alt #}
-{% set _image_alt = _thumbnail.img.alt|default('') %}
-{% if _item is not empty %}
+{% set _image_alt = '' %}
+{% if _thumbnail.img is defined and _thumbnail.img.alt is defined %}
+  {% set _image_alt = _thumbnail.img.alt %}
+{% endif %}
+{% if _image_alt is not empty and _item is not empty %}
   {% if (_item.video is not empty or _item.embedded_video is not empty) and _sr_video_label is not empty %}
     {% set _image_alt = _image_alt ~ ' - ' ~ _sr_video_label %}
   {% endif %}
