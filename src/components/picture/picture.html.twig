@@ -6,6 +6,7 @@
       - "img" (associative array) (default: {}):
         - "src" (string) (default: ''): Path to the image
         - "alt" (string) (default: ''): Alt text of the image
+      - "image_anchor" (string) (default: 'center'): initial position of the image when it should be cropped; can be any value allowed by object-position ('top left', '30% 50%', '100px 20px', ...),
       - "sources" (array) (default: []): format: [
         {
           "src" (string) (default: ''): Path to the source image
@@ -89,6 +90,9 @@
 
   {% if _picture.img is not empty %}
   <img 
+    {% if _picture.image_anchor is defined and _picture.image_anchor != 'center' %}
+      style="--ecl-image-anchor: {{ _picture.image_anchor|e('html_attr') }}"
+    {% endif %}
     {% if _extra_image_classes is not empty %}
       class="{{ _extra_image_classes }}"
     {% endif %}

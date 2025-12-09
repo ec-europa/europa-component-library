@@ -13,6 +13,7 @@ npm install --save @ecl/picture
     - "src" (string) (default: ''): Path to the image
     - "alt" (string) (default: ''): Alt text of the image
     - "lazy" (boolean) (default: false): Should the image be loaded using lazy loading?
+  - **"image_anchor"** (string) (default: 'center'): initial position of the image when it should be cropped; can be any value allowed by object-position ('top left', '30% 50%', '100px 20px', ...),
   - **"sources"** (array) (default: []): format: [
     {
     "src" (string) (default: ''): Path to the source image
@@ -21,6 +22,8 @@ npm install --save @ecl/picture
     },
     ...
     ]
+  - **"lazy"** (boolean) (default: false): Should the picture be loaded using lazy loading?
+  - **"zoom"** (boolean) (default: false): Should the picture have a zoom animation?
   - **"extra_classes"** (optional) (string) (default: ''): Extra css classes, added to the root picture tag
   - **"extra_image_classes"** (optional) (string) (default: ''): Extra css classes, added to to the img tag
   - **"extra_attributes"** (optional) (array) (default: [])

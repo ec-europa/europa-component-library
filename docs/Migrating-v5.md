@@ -197,9 +197,11 @@ The markup is now using the custom element defined by duet js:
 
 - Variant `simple` has been removed (deprecated in v4)
 - Featured item footer has been removed, as it is no longer in use.
-- Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
+- Markup has been updated: now it reflects the real element orders, extra container added around the text content, and `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
 - New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
+- New parameters `horizontal_alignment` and `vertical_alignment` to handle text alignment
+- New parameter `media_behavior` to allow the image to take the full height if needed
 
 ### Form
 
@@ -325,6 +327,10 @@ The default notifications now use the outline version of the icons, instead of t
 
 - Meta now support a structure { label , icon } in addition to the existing string
 - Deprecated overlay on the image has been removed
+
+### Picture
+
+- New parameter `image_anchor` to handle position of image when it is cropped
 
 ### Radio
 
