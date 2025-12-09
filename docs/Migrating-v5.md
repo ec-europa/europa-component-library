@@ -160,13 +160,22 @@ Here is the mapping to the new variant / style:
 - ghost -> tertiary
 - ghost-inverted -> tertiary / inverted
 
+### Card
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
 ### Checkbox
 
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Content block
 
-The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
+### Content item
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
 
 ### Datepicker
 
@@ -233,6 +242,7 @@ Extra attention points:
 ### Link
 
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
+- variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
 
 ### List with illustration
 
@@ -324,6 +334,10 @@ The default notifications now use the outline version of the icons, instead of t
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
+
+### Range
+
+- To improve the component and be able to correctly position the bubble when used in a container (with position relative), a wrapper has been added and the js has been updated to calculate the position of the bubble based on a selector passed as an option `containerSelector`, by default it is `data-ecl-range-container`.
 
 ### Site header
 

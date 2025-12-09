@@ -12,6 +12,7 @@ $theme: null !default;
 $datepicker: null !default;
 $text-input: null !default;
 
+/* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 :root {
   --duet-font: #{map.get($theme, 'font-family', 'default')};
   --duet-color-surface: var(--cm-surface-inverted, #fff);
@@ -21,6 +22,7 @@ $text-input: null !default;
   --duet-radius: #{map.get($text-input, 'radius')};
   --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
 }
+/* stylelint-enable scss/dollar-variable-no-missing-interpolation */
 
 .ecl-datepicker {
   display: flex;

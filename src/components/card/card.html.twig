@@ -17,6 +17,7 @@
         },
         ...
       ]
+    - "secondary_meta_direction" (string) (default: 'vertical'): Display direction of the meta
     - "lists" (array) (default: []): Array of ECL Description list
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -37,6 +38,7 @@
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default([]) %}
+{% set _secondary_meta_direction = secondary_meta_direction|default('vertical') %}
 {% set _lists = lists|default([]) %}
 {% set _color_mode = color_mode|default('') %}
 
@@ -91,6 +93,7 @@
       title: _title,
       description: _description,
       secondary_meta: _secondary_meta,
+      secondary_meta_direction: _secondary_meta_direction,
       lists: _lists,
     } %}
     {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({

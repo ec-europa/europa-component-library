@@ -46,6 +46,7 @@ npm install --save @ecl/content-item
   },
   ...
   ]
+- **"secondary_meta_direction"** (string) (default: 'vertical'): Display direction of the meta
 - **divider** (boolean) (default: false): Optional divider below the content item
 - **lists** (array) (default: []): Array of ECL Description list
 - **extra_classes** (string) (default: '')
