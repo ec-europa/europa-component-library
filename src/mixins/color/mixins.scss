@@ -7,7 +7,15 @@
 
 // Function to get short color name
 @function get-color-short-name($color) {
-  $one-char: ('primary', 'secondary', 'neutral', 'grey', 'alpha', 'monochrome');
+  $one-char: (
+    'primary',
+    'secondary',
+    'neutral',
+    'grey',
+    'alpha',
+    'white',
+    'monochrome'
+  );
   $two-char: ('info', 'success', 'error', 'warning');
   $color-parts: string.split($color, '-');
   $color-name: list.nth($color-parts, 1);

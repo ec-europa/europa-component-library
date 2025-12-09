@@ -8,8 +8,11 @@
   - "description" (string) (default: ''),
   - "link" (object) (default: {}): object of type Link
   - "link_highlighted" (bool) (default: false): display the link as highlighted
+  - "horizontal_alignment" (string) (default: 'left'): content alignment (horizontal); can be 'left', 'center'
+  - "vertical_alignment" (string) (default: 'top'): content alignment (vertical); can be 'top', 'center'
   - "media_container" (object) (default: {}): object of type Media container
-  - "position" (object) (default: 'left'): Media position
+  - "media_behavior" (string) (default: 'static'): fill behavior of the media; can be 'static', 'dynamic'
+  - "position" (string) (default: 'left'): Media position relative to the text; can be 'left', 'right'
   - "extra_classes" (string) (default: ''),
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -31,7 +34,10 @@
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
 {% set _link_highlighted = link_highlighted|default(false) %}
+{% set _horizontal_alignment = horizontal_alignment|default('left') %}
+{% set _vertical_alignment = vertical_alignment|default('top') %}
 {% set _media_container = media_container|default({}) %}
+{% set _media_behavior = media_behavior|default('static') %}
 {% set _position = position|default('left') %}
 {% set _extra_attributes = '' %}
 
@@ -39,6 +45,18 @@
 
 {% if _type is not empty %}
   {% set _css_class = _css_class ~ ' ecl-featured-item--' ~ _type %}
+{% endif %}
+
+{% if _horizontal_alignment != 'left' %}
+  {% set _css_class = _css_class ~ ' ecl-featured-item--h' ~ _horizontal_alignment %}
+{% endif %}
+
+{% if _vertical_alignment != 'top' %}
+  {% set _css_class = _css_class ~ ' ecl-featured-item--v' ~ _vertical_alignment %}
+{% endif %}
+
+{% if _media_behavior != 'static' %}
+  {% set _css_class = _css_class ~ ' ecl-featured-item--' ~ _media_behavior %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -77,25 +95,29 @@
 >
   <div class="{{ _css_container_class }}">
     <div class="ecl-featured-item__item">
-    {% if _title is not empty %}
-      <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
-    {% endif %}
-    {% if _description is not empty %}
-      <div class="ecl-featured-item__description">{{ _description }}</div>
-    {% endif %}
-    {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
-      {% set _link_attributes = _link.extra_attributes|default({}) %}
-      {% if _title is not empty %}
-        {% set _link_attributes = _link_attributes|merge([
-          { name: 'aria-describedby', value: _id ~ '-title' },
-          ])
-        %}
+      <div class="ecl-featured-item__content">
+        <div class="ecl-featured-item__info">
+        {% if _title is not empty %}
+          <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
+        {% endif %}
+        {% if _description is not empty %}
+          <div class="ecl-featured-item__description">{{ _description }}</div>
+        {% endif %}
+        </div>
+      {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
+        {% set _link_attributes = _link.extra_attributes|default({}) %}
+        {% if _title is not empty %}
+          {% set _link_attributes = _link_attributes|merge([
+            { name: 'aria-describedby', value: _id ~ '-title' },
+            ])
+          %}
+        {% endif %}
+        {% include '@ecl/link/link.html.twig' with _link|merge({
+          extra_classes: 'ecl-featured-item__link',
+          extra_attributes: _link_attributes,
+        }) only %}
       {% endif %}
-      {% include '@ecl/link/link.html.twig' with _link|merge({
-        extra_classes: 'ecl-featured-item__link',
-        extra_attributes: _link_attributes,
-      }) only %}
-    {% endif %}
+      </div>
     </div>
 
     {% if _media_container is not empty %}

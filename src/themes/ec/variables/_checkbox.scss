@@ -5,12 +5,13 @@ $checkbox: (
   checkbox-fill: var(--cm-surface-inverted),
   border-color: var(--cm-border-brand),
   background: var(--cm-surface-inverted),
-  box-size: 1.5rem,
+  box-size: 1.25rem,
+  box-offset: 2px,
   border-width: 1px,
   border-radius: map.get($border-radius, 'xs'),
-  item-spacing: var(--s-s),
+  item-spacing: var(--s-2xs),
   label: (
-    font: 'microcopy-m',
+    font: 'body-s',
     color: var(--cm-on-surface-brand),
   ),
   checked: (

@@ -6,6 +6,7 @@ import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 import iconsAll from '@ecl/resources-icons/list.json';
 import dataDefault from './demo/data--default';
 import dataPrimaryHighlight from './demo/data--primary-highlight';
+import dataPrimaryNeutral from './demo/data--primary-neutral';
 import dataPrimary from './demo/data--primary';
 import dataSecondary from './demo/data--secondary';
 import dataStandalone from './demo/data--standalone';
@@ -276,6 +277,21 @@ PrimaryHighlight.args = getArgs(dataPrimaryHighlight);
 PrimaryHighlight.argTypes = getArgTypes();
 PrimaryHighlight.parameters = {
   notes: { markdown: notes, json: dataPrimaryHighlight },
+};
+
+export const PrimaryNeutral = (_, { loaded: { component } }) => component;
+
+PrimaryNeutral.render = async (args) => {
+  const renderedLinkPrimaryNeutral = await link(
+    prepareData(dataPrimaryNeutral, args),
+  );
+  return renderedLinkPrimaryNeutral;
+};
+PrimaryNeutral.storyName = 'primary neutral';
+PrimaryNeutral.args = getArgs(dataPrimaryNeutral);
+PrimaryNeutral.argTypes = getArgTypes();
+PrimaryNeutral.parameters = {
+  notes: { markdown: notes, json: dataPrimaryNeutral },
 };
 
 export const Secondary = (_, { loaded: { component } }) => component;

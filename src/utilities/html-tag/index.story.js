@@ -19,16 +19,17 @@ export const Default = () => `
   <p class="ecl-u-type-paragraph">To see the following HTML tags styled with ECL, just activate the optional "ecl-${getSystem()}-default" or "ecl-${getSystem()}-default-print" css file in the "CSS resources" tab.</p>
   <details>
     <summary class="ecl-u-type-s">Link and button</summary>
-    <br>
-    <div class="ecl">
+    <div class="ecl ecl-u-mt-xs">
       <a href="${exampleLink}">Link</a><br><br>
       <button>Button</button>
     </div>
   </details>
-  <br>
+
+  <hr class="ecl-u-mv-s">
+
   <details>
     <summary class="ecl-u-type-s">Typography</summary>
-    <div class="ecl">
+    <div class="ecl ecl-u-mt-xs">
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
       <h3>Heading 3</h3>
@@ -38,11 +39,12 @@ export const Default = () => `
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis volutpat diam. Aliquam ac eleifend elit. Vivamus urna orci, vehicula nec sagittis et, facilisis a dolor. Mauris sed justo a sapien venenatis lobortis. Sed eu ornare nunc. Curabitur vitae est suscipit, mattis magna aliquam, scelerisque lorem. Aenean sem ex, dignissim eget justo vitae, fringilla dictum ligula.</p>
     </div>
   </details>
-  <br>
+
+  <hr class="ecl-u-mv-s">
+
   <details>
     <summary class="ecl-u-type-s">Lists</summary>
-    <br>
-    <div class="ecl">
+    <div class="ecl ecl-u-mt-xs">
       <ul>
         <li>Unordered list</li>
         <li>Unordered list
@@ -90,22 +92,24 @@ export const Default = () => `
       </dl>
     </div>
   </details>
-  <br>
+  
+  <hr class="ecl-u-mv-s">
+
   <details>
     <summary class="ecl-u-type-s">Blockquote</summary>
-    <br>
-    <div class="ecl">
+    <div class="ecl ecl-u-mt-xs">
       <blockquote>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis.</p>
         <cite>Someone</cite>
       </blockquote>
     </div>
   </details>
-  <br>
+
+  <hr class="ecl-u-mv-s">
+
   <details>
     <summary class="ecl-u-type-s">Table</summary>
-    <br>
-    <div class="ecl">
+    <div class="ecl ecl-u-mt-xs">
       <table>
         <thead>
           <th>Table heading</th>

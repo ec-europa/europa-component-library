@@ -13,9 +13,13 @@ $button: null !default;
 
 .ecl-link,
 %ecl-link {
-  color: map.get($link, 'color');
+  color: var(--ecl-link-color);
   break-inside: avoid;
   text-decoration: none;
+
+  &:visited {
+    color: var(--ecl-link-color);
+  }
 }
 
 .ecl-link--icon-before,
@@ -36,6 +40,7 @@ $button: null !default;
   &:not(
       .ecl-link--standalone,
       .ecl-link--primary-highlight,
+      .ecl-link--primary-neutral,
       .ecl-link--primary,
       .ecl-link--secondary
     )
@@ -69,13 +74,14 @@ $button: null !default;
 */
 /* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin link-button($variant: null) {
+  align-items: center;
   background-color: map.get($button, #{$variant}, 'background');
   border: map.get($button, #{$variant}, 'border-width') solid
     map.get($button, #{$variant}, 'border-color');
   border-radius: map.get($button, 'radius');
   box-sizing: border-box;
   color: map.get($button, #{$variant}, 'color');
-  display: inline-block;
+  display: inline-flex;
   min-height: map.get($button, 'large', 'size');
   min-width: map.get($button, 'large', 'size');
   padding: calc(
@@ -122,4 +128,8 @@ $button: null !default;
 
 .ecl-link--primary-highlight {
   @include link-button(primary-highlight);
+}
+
+.ecl-link--primary-neutral {
+  @include link-button(primary-neutral);
 }
