@@ -52,6 +52,7 @@ $checkbox: null !default;
   flex-shrink: 0;
   height: map.get($checkbox, 'box-size');
   justify-content: center;
+  margin-block-start: map.get($checkbox, 'box-offset');
   margin-inline-end: var(--s-xs);
   position: relative;
   user-select: none;

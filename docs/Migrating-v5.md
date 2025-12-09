@@ -321,6 +321,10 @@ A parameter has been added in the twig template `featured_priority` so that this
 The menu can be used to show a single level list of sub items in a multi column layout, a parameter has been added `one_level_only` at the item level to optionally choose this display, the default is still to display the sub-items in a single column.
 It can be used with or without an info or a featured panel, it goes up to 4 columns when it's the only content of the dropdown.
 
+### Modal
+
+The modal variants now use the outline version of the icons, instead of the filled one. This is part of the twig, but should be updated for users not relying on it.
+
 ### Notification
 
 The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
