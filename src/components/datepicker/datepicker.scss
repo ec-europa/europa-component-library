@@ -164,6 +164,10 @@ $text-input: null !default;
     }
   }
 
+  .duet-date__header {
+    margin-block-end: var(--s-xs);
+  }
+
   .duet-date__table {
     background-color: map.get($datepicker, 'picker', 'background-color');
     border-collapse: initial;
@@ -171,6 +175,10 @@ $text-input: null !default;
 
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
+    }
+
+    .duet-date__table-header {
+      padding-block-start: var(--s-xs);
     }
 
     .duet-date__day {
