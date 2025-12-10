@@ -3,8 +3,11 @@ order: 2
 title: eUI
 section: Resources
 ---
+
+## About eUi
+
 eUI is the component library of applications for the European Commission.
 
-It is in the process of integrating the components with native Angular code using HTML/CSS provided by the Europa Component Library (v4).
+It also provides an integrating of ECL components with native Angular code.
 
-https://eui.ecdevops.eu/
+Official website: https://eui.ecdevops.eu/
