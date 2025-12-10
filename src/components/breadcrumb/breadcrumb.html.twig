@@ -120,9 +120,7 @@
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
           {% set _link_extra_class = 'ecl-breadcrumb__link' %}
           {% include '@ecl/link/link.html.twig' with {
-            link: link|default({})|merge({
-              type: 'standalone'
-            }),
+            link: link|default({}),
             extra_classes: _link_extra_class
           } only %}
           {% include '@ecl/icon/icon.html.twig' with _breadcrumb_icon only %}
