@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
@@ -51,8 +50,8 @@ $button-border-width: 1px;
   border-top: $button-border-width solid
     map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
-  height: map.get($search-form, 'button-height');
-  width: map.get($search-form, 'button-height');
+  height: map.get($search-form, 'button-size');
+  width: map.get($search-form, 'button-size');
   position: relative;
 
   &:hover {
@@ -72,10 +71,6 @@ $button-border-width: 1px;
     position: absolute;
     top: var(--s-xs);
     width: 1px;
-  }
-
-  @include breakpoints.up('s') {
-    height: map.get($search-form, 'button-height-desktop');
   }
 }
 

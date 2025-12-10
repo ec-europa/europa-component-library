@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/layout-form/mixins' as mixins-form;
 
@@ -47,8 +46,7 @@ $text-input: null !default;
   height: map.get($text-input, 'height');
   outline: 0;
   padding-block: var(--s-s);
-
-  @include mixins.responsive-font(map.get($text-input, 'font'));
+  font: map.get($text-input, 'font');
 
   &:hover {
     box-shadow: map.get($text-input, 'shadow-hover');
@@ -66,10 +64,6 @@ $text-input: null !default;
     cursor: not-allowed;
     opacity: map.get($text-input, 'opacity-disabled');
   }
-
-  @include breakpoints.up('s') {
-    height: 3rem;
-  }
 }
 
 .ecl-datepicker[invalid] .duet-date__input {
@@ -85,8 +79,9 @@ $text-input: null !default;
   border-bottom-right-radius: var(--duet-radius);
   border-top-right-radius: var(--duet-radius);
   display: flex;
-  min-height: auto;
+  height: calc(#{map.get($text-input, 'height')} - 2px);
   width: map.get($text-input, 'height');
+  min-height: auto;
   padding: 0;
 
   &::before {
@@ -115,11 +110,6 @@ $text-input: null !default;
     box-shadow: 0 0 0 2px var(--duet-color-primary);
     color: var(--duet-color-text);
     outline: 0;
-  }
-
-  @include breakpoints.up('s') {
-    height: calc(3rem - 2px);
-    width: 3rem;
   }
 }
 

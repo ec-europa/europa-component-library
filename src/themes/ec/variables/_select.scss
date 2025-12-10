@@ -2,8 +2,8 @@
 @use '../index' as *;
 
 $select: (
-  font: 'body-s',
-  arrow-width: 2.75rem,
+  font: var(--f-s),
+  arrow-width: 3rem,
   border-color-focus: var(--cm-on-surface-primary),
   border-radius: map.get($border-radius, 's'),
   border-color: var(--cm-on-surface-grey-medium),
