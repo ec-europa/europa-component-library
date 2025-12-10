@@ -1,0 +1,45 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the page information
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the page information
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
+  Blocks:
+    - "content": free block to put any content in the page information
+#}
+
+{# Internal properties #}
+
+{% set _content = content|default('') %}
+{% set _css_class = 'ecl-page-info' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {%- block content %}{{ _content }}{% endblock -%}
+</div>
+
+{% endapply %}
