@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/layout-form/mixins' as mixins-form;
 @use '@ecl/mixins-typography/mixins';
 
@@ -24,6 +25,7 @@ $outline-width: 2px;
   box-sizing: border-box;
   color: map.get($text-input, 'color-input');
   display: block;
+  height: map.get($text-input, 'height');
   margin: 0;
   max-width: 100%;
   padding-block: map.get($text-input, 'padding-block');
@@ -47,6 +49,10 @@ $outline-width: 2px;
   &:active {
     outline: $outline-width solid var(--cm-border-primary, var(--c-p));
     outline-offset: -#{$outline-width};
+  }
+
+  @include breakpoints.up('s') {
+    height: 3rem;
   }
 }
 

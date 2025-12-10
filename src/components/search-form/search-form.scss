@@ -73,6 +73,10 @@ $button-border-width: 1px;
     top: var(--s-xs);
     width: 1px;
   }
+
+  @include breakpoints.up('s') {
+    height: map.get($search-form, 'button-height-desktop');
+  }
 }
 
 .ecl-search-form__button .ecl-button__icon {

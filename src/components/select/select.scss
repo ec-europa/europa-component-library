@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/layout-form/mixins' as mixins-form;
 @use '@ecl/mixins-typography/mixins';
 
@@ -15,6 +16,7 @@ $select: null !default;
 $outline-width: 2px;
 
 .ecl-select {
+  align-items: center;
   appearance: none;
   background-color: transparent;
   border: map.get($select, 'border-width') solid
@@ -24,10 +26,10 @@ $outline-width: 2px;
   box-sizing: border-box;
   color: map.get($select, 'color-input');
   cursor: pointer;
-  display: block;
+  display: flex;
+  height: map.get($select, 'arrow-width');
   margin: 0;
   overflow: hidden;
-  padding-block: map.get($select, 'padding-block');
   padding-inline-end: map.get($select, 'arrow-width');
   padding-inline-start: map.get($select, 'padding-inline-start');
   text-align: left;
@@ -57,6 +59,10 @@ $outline-width: 2px;
   &--active {
     outline: $outline-width solid var(--cm-border-primary, var(--c-p));
     outline-offset: -#{$outline-width};
+  }
+
+  @include breakpoints.up('s') {
+    height: 3rem;
   }
 }
 
@@ -112,16 +118,29 @@ $outline-width: 2px;
     left: 0;
     right: auto;
   }
+
+  @include breakpoints.up('s') {
+    height: 3rem;
+  }
 }
 
 .ecl-select:hover ~ .ecl-select__icon {
   background-color: map.get($select, 'arrow-background-color-hover');
 }
 
-.ecl-select__icon .ecl-button--icon-only .ecl-icon {
-  fill: map.get($select, 'icon-fill');
-  height: map.get($select, 'icon-size');
-  width: map.get($select, 'icon-size');
+.ecl-select__icon .ecl-button--icon-only {
+  height: map.get($select, 'arrow-width');
+  width: map.get($select, 'arrow-width');
+
+  .ecl-icon {
+    fill: map.get($select, 'icon-fill');
+    height: map.get($select, 'icon-size');
+    width: map.get($select, 'icon-size');
+  }
+
+  @include breakpoints.up('s') {
+    height: 3rem;
+  }
 }
 
 .ecl-select--active {
