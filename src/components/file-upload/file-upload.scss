@@ -20,6 +20,11 @@ $file-upload: null !default;
   margin-top: var(--s-xs);
   width: fit-content;
 
+  .ecl-file-upload__button {
+    align-items: center;
+    display: inline-flex;
+  }
+
   .no-js & {
     display: none;
   }
