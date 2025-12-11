@@ -331,7 +331,7 @@ dist/
 ├── styles/
 │   ├── ecl-{system}.css          # Main styles
 │   ├── ecl-{system}-print.css    # Print styles
-│   ├── ecl-{system}-color-modes.css
+│   ├── ecl-ec-color-modes.css    # Color modes (EC only, EU doesn't have this)
 │   └── optional/
 │       ├── ecl-{system}-default.css
 │       ├── ecl-{system}-utilities.css
@@ -587,11 +587,19 @@ npm run build  # See detailed output
 
 **Targets** (from `.browserslistrc`):
 ```
->1%
+> 0.5% in alt-eu
+Chrome >= 62
+ChromeAndroid >= 55
+Firefox >= 50
+IE >= 11
+Edge >= 16
+Safari >= 10
+Opera >= 52
+Firefox ESR
 not dead
-not ie <= 11
-not safari < 14
 ```
+
+Based on IPG requirements and StatCounter GlobalStats for European usage.
 
 **Modern features used**:
 - CSS Grid
@@ -599,6 +607,7 @@ not safari < 14
 - CSS Custom Properties
 - ES6+ (transpiled)
 - color-mix()
+- Autoprefixer handles vendor prefixes
 
 ---
 
@@ -671,8 +680,9 @@ npm install @ecl/preset-eu
 - **Tests**: Describe/test structure
 
 ### Git Workflow
-- **Main branch**: `v4-dev` (note: working on v5)
-- **Current branch**: `FRONT-5120-documentation`
+- **Main branch (stable)**: `v4-dev` (ECL v4)
+- **Development branch**: `v5-dev` (ECL v5 - current work)
+- **Current branch**: `FRONT-5176-form-upload-button`
 - **Commit format**: `type(scope): message - TICKET-ID (#PR)`
 - Example: `feat(button): add new variant - FRONT-1234 (#123)`
 
@@ -943,4 +953,14 @@ Available in MDX files:
 
 ---
 
-This context document should be updated as the project evolves. Last updated: 2025-12-04
+---
+
+## Documentation Status
+
+**Last documentation review**: 2025-12-11
+- All /docs files reviewed and updated
+- Color modes: EC only (EU doesn't have color modes)
+
+---
+
+This context document should be updated as the project evolves. Last updated: 2025-12-11

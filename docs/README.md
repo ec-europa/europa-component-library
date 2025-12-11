@@ -1,6 +1,6 @@
 # Documentation
 
-ECL v4 consists of Vanilla components packages and a twig implementation of those, also released as npm packages.
+ECL v5 consists of Vanilla components packages and a twig implementation of those, also released as npm packages.
 
 To maintain these it's important to have a good grasp of few concepts before diving in the code of the packages.
 
