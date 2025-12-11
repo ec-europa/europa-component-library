@@ -6,11 +6,35 @@ Components do not depend on jQuery and provide consistent APIs which can be mana
 
 ## How to use
 
-First, you need to include the JavaScript file of `ecl-ec.js` or `ecl-eu.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
+There are two ways to use ECL JavaScript: via global IIFE bundle or ESM imports.
 
-This means that when you include the `ECL` library in your pages, you will have a global called `ECL` which contains the components' factory functions.
+### Option 1: Global IIFE (Browser)
+
+Include the JavaScript file of `ecl-ec.js` or `ecl-eu.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
+
+```html
+<script src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/scripts/ecl-ec.js"></script>
+```
+
+This creates a global `ECL` object which contains the components' factory functions.
 
 ![ECL library in your browser's console](./assets/ECLjs.png)
+
+### Option 2: ESM (Modern JavaScript)
+
+Install the preset via npm and import only what you need:
+
+```bash
+npm install @ecl/preset-ec
+```
+
+```javascript
+// Import specific components
+import { Accordion, Modal } from '@ecl/preset-ec';
+
+// Or import autoInit utility
+import { autoInit } from '@ecl/preset-ec';
+```
 
 ## Version in use
 
@@ -20,7 +44,11 @@ You can get the ECL version you are using running `ECL.version` in the console o
 
 Each component contains `.init()` and `.destroy()` methods.
 
-Recommended approach for instantiation is to use main `.autoInit()` method:
+### Auto-initialization (Recommended)
+
+The simplest approach is to use the `.autoInit()` method which automatically initializes all components on the page:
+
+**Global IIFE:**
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
@@ -28,26 +56,117 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-Alternatively components can be manually initialised this way:
+**ESM:**
+
+```javascript
+import { autoInit } from '@ecl/preset-ec';
+
+document.addEventListener('DOMContentLoaded', () => {
+  autoInit();
+});
+```
+
+### Manual initialization
+
+You can also manually initialize individual components:
+
+**Global IIFE:**
 
 ```js
-var elt = document.querySelector('yourSelector');
-var accordion = new ECL.Accordion(elt);
+const element = document.querySelector('[data-ecl-accordion]');
+const accordion = new ECL.Accordion(element);
 accordion.init();
 ```
 
-In both cases the instance will be available in the main ECL object, in the components Map, from here an existing instance can be retrieved to further update it, for instance running `destroy()` and `init()` again.
+**ESM:**
+
+```javascript
+import { Accordion } from '@ecl/preset-ec';
+
+const element = document.querySelector('[data-ecl-accordion]');
+const accordion = new Accordion(element);
+accordion.init();
+```
+
+### Retrieving instances
+
+All component instances are stored in a global Map and can be retrieved:
+
+**Global IIFE:**
 
 ```js
-var instance = ECL.components.get('yourElement');
+const element = document.querySelector('[data-ecl-accordion]');
+const instance = ECL.components.get(element);
+```
+
+**ESM:**
+
+```javascript
+import { components } from '@ecl/preset-ec';
+
+const element = document.querySelector('[data-ecl-accordion]');
+const instance = components.get(element);
+```
+
+### Destroying components
+
+Always clean up component instances when they're no longer needed:
+
+```javascript
 instance.destroy();
-instance.init();
+instance.init(); // Re-initialize if needed
 ```
 
 For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v5-dev/src/tools/dom-utils/autoinit/README.md).
 
-## Settings
+## Component Options
 
-Components with JavaScript provide information for their APIs on their corresponding pages on ECL's website.
+Most components accept options during initialization:
 
-For an example, if you are looking `Accordion`'s settings, refer to https://ec.europa.eu/component-library/ec/components/accordion/api/
+```javascript
+const modal = new ECL.Modal(element, {
+  // Custom options
+  dismissOnClickOutside: true,
+  dismissOnEscape: true,
+});
+modal.init();
+```
+
+## Event Handling
+
+Components emit custom events that you can listen to:
+
+```javascript
+const accordion = new ECL.Accordion(element);
+accordion.init();
+
+// Listen to events
+accordion.on('onOpen', (event) => {
+  console.log('Accordion opened', event);
+});
+
+accordion.on('onClose', (event) => {
+  console.log('Accordion closed', event);
+});
+```
+
+**Available events** vary by component. Common events include:
+
+- `onInit` - Component initialized
+- `onOpen` - Component opened (modals, accordions, etc.)
+- `onClose` - Component closed
+- `onDestroy` - Component destroyed
+
+## Component API Reference
+
+Each component has detailed API documentation on ECL's website. For example:
+
+- Accordion: https://ec.europa.eu/component-library/ec/components/accordion/api/
+- Modal: https://ec.europa.eu/component-library/ec/components/modal/api/
+
+The API documentation includes:
+
+- Available options
+- Methods
+- Events
+- Usage examples
