@@ -34,16 +34,10 @@ $page-header: null !default;
   margin-block: 0;
   padding-block: var(--s-l) 0;
 
-  @include mixins.responsive-font(
-    map.get($page-header, 'title', 'font-m'),
-    $font-weight: map.get($page-header, 'title', 'font-weight')
-  );
+  @include mixins.responsive-font(map.get($page-header, 'title', 'font-m'));
 
   .ecl-page-header--font-l & {
-    @include mixins.responsive-font(
-      map.get($page-header, 'title', 'font-l'),
-      $font-weight: map.get($page-header, 'title', 'font-weight')
-    );
+    @include mixins.responsive-font(map.get($page-header, 'title', 'font-l'));
   }
 }
 
