@@ -39,8 +39,13 @@
 {% set _counter_reset = counter_reset ?? true %}
 {% set _counter_start = counter_start|default(0) %}
 {% set _extra_attributes = '' %}
+{% set _list_tag = 'ul' %}
 
 {# Internal logic - Process properties #}
+
+{% if _number_list %}
+  {% set _list_tag = 'ol' %}
+{% endif %}
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
@@ -95,7 +100,7 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-<ul
+<{{ _list_tag }}
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
   {% if _number_list and _counter_reset %}
@@ -111,7 +116,7 @@
         last: loop.index0 >= cutoff,
       })) only %}
   {% endfor -%}
-</ul>
+</{{ _list_tag }}>
 {% endif %}
 
 {% endapply %}
