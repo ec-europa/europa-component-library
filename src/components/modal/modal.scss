@@ -5,13 +5,14 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $modal: null !default;
 
 // Internal variables
-$overflow-height: 2rem;
+$overflow-height: 1rem;
 
 .ecl-modal {
   background-color: map.get($modal, 'overlay');
@@ -34,7 +35,7 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal__container {
-  margin: 0 var(--s-m);
+  margin-inline: map.get($modal, 'margin-inline-mobile');
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -46,15 +47,17 @@ $overflow-height: 2rem;
   box-shadow: map.get($modal, 'shadow');
   display: flex;
   flex-direction: column;
-  font: map.get($modal, 'font');
   left: 50%;
   overflow: hidden;
   margin: 0;
   max-height: 80vh;
-  padding: 0;
+  padding-block: map.get($modal, 'padding-block');
+  padding-inline: 0;
   position: relative;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'modal');
+
+  @include mixins.responsive-font(map.get($modal, 'font'));
 
   &:dir(rtl) {
     left: auto;
@@ -69,11 +72,11 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal--m .ecl-modal__content {
-  max-width: min(633px, 100%);
+  max-width: min(800px, 100%);
 }
 
 .ecl-modal--l .ecl-modal__content {
-  max-width: min(823px, 100%);
+  max-width: min(1008px, 100%);
 }
 
 .ecl-modal--full .ecl-modal__content {
@@ -85,15 +88,25 @@ $overflow-height: 2rem;
 .ecl-modal__header {
   align-items: flex-start;
   display: flex;
-  font: map.get($modal, 'header', 'font');
-  font-weight: map.get($modal, 'header', 'font-weight');
-  padding: map.get($modal, 'header', 'padding-mobile');
+  margin-block-end: map.get($modal, 'header', 'margin-block-end');
+  padding-inline: map.get($modal, 'padding-inline');
+
+  @include mixins.responsive-font(
+    map.get($modal, 'header', 'font'),
+    $font-weight: map.get($modal, 'header', 'font-weight')
+  );
+
+  &:is(:last-child) {
+    margin-block-end: 0;
+  }
 }
 
 .ecl-modal__icon {
   flex-shrink: 0;
-  margin-inline-end: var(--s-xs);
+  height: map.get($modal, 'header', 'icon-size');
+  margin-block-end: map.get($modal, 'header', 'icon-spacing');
   position: relative;
+  width: map.get($modal, 'header', 'icon-size');
   z-index: 2;
 
   .ecl-modal--information & {
@@ -113,35 +126,24 @@ $overflow-height: 2rem;
   }
 }
 
-.ecl-modal__icon-background {
-  background: map.get($modal, 'warning', 'icon-background-color');
-  height: map.get($modal, 'warning', 'icon-background-height');
-  left: map.get($modal, 'warning', 'icon-background-left');
-  position: absolute;
-  width: map.get($modal, 'warning', 'icon-background-width');
-  top: map.get($modal, 'warning', 'icon-background-top');
-  z-index: 1;
-}
-
 .ecl-modal__header-content {
   align-items: flex-start;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-
-  .ecl-modal__icon + & {
-    margin-top: 2px;
-  }
 }
 
 .ecl-modal__body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin-block-end: map.get($modal, 'footer', 'margin-block-start');
+  padding-inline: map.get($modal, 'padding-inline');
   overflow: hidden;
-  padding: map.get($modal, 'body', 'padding-mobile');
 
-  &:is(:last-child) {
-    padding-bottom: map.get($modal, 'body', 'padding-last-child');
+  &:is(:last-child),
+  &:has(.ecl-modal__body-fixed) {
+    margin-block-end: 0;
   }
 }
 
@@ -155,44 +157,62 @@ $overflow-height: 2rem;
   display: none;
   height: $overflow-height;
   left: 0;
-  margin-bottom: -#{$overflow-height};
+  margin-block-end: -#{$overflow-height};
   pointer-events: none;
   position: relative;
   top: -#{$overflow-height};
   width: 100%;
 }
 
-* + .ecl-modal__body-fixed {
-  margin-top: map.get($modal, 'body', 'margin-fixed');
+.ecl-modal__body-fixed {
+  border-block-start: map.get($modal, 'body', 'fixed-separator');
+  margin-block-end: map.get($modal, 'body', 'fixed-margin-block-end');
+  padding-block-start: map.get($modal, 'body', 'fixed-padding-block-start');
+
+  .ecl-modal__body-overflow + & {
+    margin-block-start: map.get($modal, 'body', 'scroll-margin-block-end');
+  }
+
+  &:is(:first-child) {
+    border-block-start: none;
+    padding-block-start: 0;
+  }
+}
+
+.ecl-modal__body:is(:last-child) .ecl-modal__body-fixed {
+  margin-block-end: 0;
 }
 
 .ecl-modal__footer {
-  border-top: map.get($modal, 'separator');
-  padding: map.get($modal, 'footer', 'padding-mobile');
+  border-block-start: map.get($modal, 'footer', 'separator');
+  padding-block-start: map.get($modal, 'footer', 'padding-block-start');
+  margin-inline: map.get($modal, 'padding-inline');
 }
 
 .ecl-modal__header + .ecl-modal__footer {
-  border-top: none;
+  border-block-start: none;
 }
 
 .ecl-modal__footer-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .ecl-modal__button {
-  margin-top: var(--s-m);
+  flex-grow: 1;
+  margin-inline-end: var(--s-m);
 
-  &:first-of-type {
-    margin-top: 0;
+  &:last-of-type {
+    margin-inline-end: 0;
   }
 }
 
 .ecl-modal__close {
-  margin-bottom: 0;
+  margin-block-end: 0;
   margin-inline-end: map.get($modal, 'close', 'margin-end');
   margin-inline-start: 0;
-  margin-top: map.get($modal, 'close', 'margin-top');
+  margin-block-start: map.get($modal, 'close', 'margin-top');
 
   .ecl-button__icon {
     margin: 0;
@@ -202,58 +222,18 @@ $overflow-height: 2rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-modal__container {
-    margin: 0 map.get($modal, 'body', 'container-spacing-top');
-  }
-
-  .ecl-modal__header {
-    padding: map.get($modal, 'header', 'padding-desktop');
-  }
-
-  .ecl-modal__body {
-    padding: map.get($modal, 'body', 'padding-desktop');
-  }
-
-  .ecl-modal__footer {
-    padding: map.get($modal, 'padding-desktop');
+    margin-inline: map.get($modal, 'margin-inline-desktop');
   }
 
   .ecl-modal--m,
-  .ecl-modal--l {
-    .ecl-modal__footer-content {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .ecl-modal__button {
-      align-items: center;
-      display: flex;
-      flex-basis: 50%;
-      flex-grow: 1;
-      justify-content: center;
-      margin-inline-end: var(--s-m);
-      margin-top: 0;
-
-      &:last-of-type {
-        margin-inline-end: 0;
-      }
-    }
-  }
-
+  .ecl-modal--l,
   .ecl-modal--full {
     .ecl-modal__footer-content {
-      flex-direction: row;
       justify-content: flex-end;
     }
 
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-modal__button {
       flex-grow: 0;
-      margin-inline-end: var(--s-m);
-      margin-top: 0;
-
-      &:last-of-type {
-        margin-inline-end: 0;
-      }
     }
   }
 }
@@ -261,7 +241,7 @@ $overflow-height: 2rem;
 // Scrolling body
 .ecl-modal__body--has-scroll {
   .ecl-modal__body-scroll {
-    padding-bottom: $overflow-height;
+    padding-block-end: $overflow-height;
   }
 
   .ecl-modal__body-overflow {

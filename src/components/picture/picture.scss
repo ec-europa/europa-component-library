@@ -3,6 +3,10 @@
  * @define picture
  */
 
+.ecl-picture img {
+  object-position: var(--ecl-image-anchor, 'center');
+}
+
 .ecl-picture--zoom {
   display: block;
   overflow: hidden;

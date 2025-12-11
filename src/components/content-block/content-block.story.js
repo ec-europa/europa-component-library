@@ -25,13 +25,14 @@ const getArgs = (data) => {
   }
   if (data.secondary_meta) {
     args.show_secondary_meta = true;
+    args.secondary_meta_direction = 'vertical';
   }
   if (data.links) {
     args.show_links = true;
   }
   if (data.lists) {
     args.show_lists = true;
-    args.horizontal_lists = false;
+    args.lists_direction = 'vertical';
   }
 
   return args;
@@ -141,18 +142,52 @@ const getArgTypes = (data) => {
     };
   }
   if (data.lists) {
-    argTypes.horizontal_lists = {
-      name: 'horizontal lists',
-      type: 'boolean',
-      description: 'Display lists horizontally',
+    argTypes.lists_direction = {
+      name: 'list direction',
+      type: 'select',
+      description: 'Display direction',
+      options: ['vertical', 'horizontal'],
+      control: {
+        labels: {
+          vertical: 'vertical',
+          horizontal: 'horizontal',
+        },
+      },
+      mapping: {
+        vertical: 'vertical',
+        horizontal: 'horizontal',
+      },
       table: {
-        type: 'boolean',
-        defaultValue: { summary: false },
+        type: 'string',
+        defaultValue: { summary: 'vertical' },
         category: 'Display',
       },
       if: { arg: 'show_lists' },
     };
   }
+
+  argTypes.secondary_meta_direction = {
+    name: 'secondary meta direction',
+    type: 'select',
+    description: 'Display direction',
+    options: ['vertical', 'horizontal'],
+    control: {
+      labels: {
+        vertical: 'vertical',
+        horizontal: 'horizontal',
+      },
+    },
+    mapping: {
+      vertical: 'vertical',
+      horizontal: 'horizontal',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'vertical' },
+      category: 'Display',
+    },
+    if: { arg: 'show_secondary_meta' },
+  };
 
   return argTypes;
 };
@@ -192,10 +227,13 @@ const prepareData = (data, args) => {
   if (clone.description) {
     clone.description = args.description;
   }
-  if (args.horizontal_lists && args.show_lists) {
+  if (args.lists_direction === 'horizontal' && args.show_lists) {
     clone.lists.forEach((list) => {
       list.variant = 'horizontal';
     });
+  }
+  if (clone.secondary_meta) {
+    clone.secondary_meta_direction = args.secondary_meta_direction;
   }
 
   return clone;

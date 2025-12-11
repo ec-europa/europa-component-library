@@ -7,7 +7,6 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContent from './demo/data';
 
-const demoContentSimple = { ...demoContent, type: 'simple' };
 const demoContentHighlight = { ...demoContent, type: 'highlight' };
 
 expect.extend(toHaveNoViolations);
@@ -30,25 +29,29 @@ describe('Featured item', () => {
       return expect(render(withoutImage)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with content alignment', () => {
+      expect.assertions(1);
+
+      const withAlignment = {
+        ...demoContent,
+        horizontal_alignment: 'center',
+        vertical_alignment: 'center',
+      };
+
+      return expect(render(withAlignment)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with dynamic media', () => {
+      expect.assertions(1);
+
+      const withDynamic = { ...demoContent, media_behavior: 'dynamic' };
+
+      return expect(render(withDynamic)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoContent, true)),
-      ).toHaveNoViolations();
-    });
-  });
-
-  describe('Simple', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(demoContentSimple)).resolves.toMatchSnapshot();
-    });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(
-          await renderTwigFileAsHtml(template, demoContentSimple, true),
-        ),
       ).toHaveNoViolations();
     });
   });

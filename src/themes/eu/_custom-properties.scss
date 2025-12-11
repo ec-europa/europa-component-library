@@ -87,6 +87,7 @@
   --ecl-max-width: #{$max-width};
 
   // Font sizes
+  --ecl-font-size-s: #{map.get($font-size, 's')};
   --ecl-font-size-m: #{map.get($font-size, 'm')};
   --ecl-font-size-l: #{map.get($font-size, 'l')};
   --ecl-font-size-xl: #{map.get($font-size, 'xl')};
@@ -164,6 +165,7 @@
   --f-5xl: var(--ecl-font-5xl);
   --f-ui-s: var(--ecl-font-ui-s);
   --f-ui-m: var(--ecl-font-ui-m);
+  --fs-s: var(--ecl-font-size-s);
   --fs-m: var(--ecl-font-size-m);
   --fs-l: var(--ecl-font-size-l);
   --fs-xl: var(--ecl-font-size-xl);
@@ -200,6 +202,12 @@
   --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
   --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
   --max-w: var(--ecl-max-width);
+
+  // Component properties
+  --ecl-focus-outline-color: var(--c-p);
+  --ecl-link-color: var(--c-p);
+  --ecl-link-color-hover: var(--c-p-160);
+  --ecl-link-color-active: var(--c-d);
 
   // Deprecated
   --ecl-color-primary-130: #{map.get($color, 'primary-130')};

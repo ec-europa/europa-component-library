@@ -160,13 +160,22 @@ Here is the mapping to the new variant / style:
 - ghost -> tertiary
 - ghost-inverted -> tertiary / inverted
 
+### Card
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
 ### Checkbox
 
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Content block
 
-The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
+### Content item
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
 
 ### Datepicker
 
@@ -179,6 +188,8 @@ or
 The markup is now using the custom element defined by duet js:
 `<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
 
+- Short months: The select to choose the month is now showing options using abbreviations for the month names, the default ones in english are provided by the ecl datepicker's js, the name of the option is `monthNamesShort`.
+
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.
@@ -188,9 +199,11 @@ The markup is now using the custom element defined by duet js:
 
 - Variant `simple` has been removed (deprecated in v4)
 - Featured item footer has been removed, as it is no longer in use.
-- Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
+- Markup has been updated: now it reflects the real element orders, extra container added around the text content, and `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
 - New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
+- New parameters `horizontal_alignment` and `vertical_alignment` to handle text alignment
+- New parameter `media_behavior` to allow the image to take the full height if needed
 
 ### Form
 
@@ -233,6 +246,7 @@ Extra attention points:
 ### Link
 
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
+- variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
 
 ### List with illustration
 
@@ -307,6 +321,10 @@ A parameter has been added in the twig template `featured_priority` so that this
 The menu can be used to show a single level list of sub items in a multi column layout, a parameter has been added `one_level_only` at the item level to optionally choose this display, the default is still to display the sub-items in a single column.
 It can be used with or without an info or a featured panel, it goes up to 4 columns when it's the only content of the dropdown.
 
+### Modal
+
+The modal variants now use the outline version of the icons, instead of the filled one. This is part of the twig, but should be updated for users not relying on it.
+
 ### Notification
 
 The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
@@ -316,10 +334,18 @@ The default notifications now use the outline version of the icons, instead of t
 - Meta now support a structure { label , icon } in addition to the existing string
 - Deprecated overlay on the image has been removed
 
+### Picture
+
+- New parameter `image_anchor` to handle position of image when it is cropped
+
 ### Radio
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
+
+### Range
+
+- To improve the component and be able to correctly position the bubble when used in a container (with position relative), a wrapper has been added and the js has been updated to calculate the position of the bubble based on a selector passed as an option `containerSelector`, by default it is `data-ecl-range-container`.
 
 ### Site header
 
