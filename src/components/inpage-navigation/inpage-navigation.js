@@ -274,6 +274,7 @@ export class InpageNavigation {
                   const addedNodeIndex = H2s.findIndex(
                     (H2) => H2.id === addedNode.id,
                   );
+                  addedNode.setAttribute('tabindex', '-1');
                   const element =
                     currentInpage.childNodes[addedNodeIndex - 1].cloneNode(
                       true,
@@ -332,6 +333,24 @@ export class InpageNavigation {
 
     this.toggleElement = queryOne(this.toggleSelector, this.element);
     this.navLinks = queryAll(this.linksSelector, this.element);
+    // Build a map of links and targets
+    this.navLinksMap = new Map();
+    this.navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      const hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+
+      const targetId = href.slice(hashIndex + 1);
+      const targetEl = queryOne(`#${targetId}`, document);
+
+      if (targetEl) {
+        targetEl.setAttribute('tabindex', '-1');
+        this.navLinksMap.set(link, targetEl);
+      }
+    });
+
     this.currentList = queryOne(this.inPageList, this.element);
     this.direction = getComputedStyle(this.element).direction;
 
@@ -499,31 +518,20 @@ export class InpageNavigation {
   }
 
   /**
-   * Sets the necessary attributes to collapse inpage navigation list.
+   * Moves the focus on the target element
    *
    * @param {Event} e
    */
   handleClickOnLink(e) {
-    const { href } = e.target;
-    let heading = null;
-
-    if (href) {
-      const id = href.split('#')[1];
-
-      if (id) {
-        heading = queryOne(`#${id}`, document);
-      }
-    }
-
+    const targetEl = this.navLinksMap.get(e.target);
     // Untrap focus
     this.focusTrap.deactivate();
-
-    if (heading) {
-      heading.setAttribute('tabindex', '-1');
-      heading.focus();
+    // Set the focus on the target
+    if (targetEl) {
+      targetEl.focus();
     }
 
-    const eventData = { target: heading || href, e };
+    const eventData = { target: targetEl || e };
     this.trigger('onClick', eventData);
   }
 
