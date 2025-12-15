@@ -20,8 +20,8 @@ module.exports = {
     },
   },
   labels: [
-    { label: 'highlight', variant: 'highlight' },
-    { label: 'high', variant: 'high' },
+    { label: 'Highlight', variant: 'highlight' },
+    { label: 'Medium', variant: 'medium' },
   ],
   labels_aria: 'Labels',
   secondary_meta: [

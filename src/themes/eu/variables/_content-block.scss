@@ -2,17 +2,20 @@
 @use '../index' as *;
 
 $content-block: (
-  description-margin: var(--s-s) 0 var(--s-m),
+  description-margin-mobile: var(--s-m),
+  description-margin-tablet: var(--s-m),
   description-font: var(--f-p-m),
-  label-item-spacing: 0 var(--s-xs) var(--s-xs) 0,
-  label-spacing: 0 0 var(--s-xs),
+  label-spacing-mobile: var(--s-l),
+  label-spacing-tablet: var(--s-l),
+  label-gap: var(--s-xs),
   link-separator-color: var(--c-p-20),
   link-font: var(--f-p-m),
   link-spacing: var(--s-s),
   list-margin: var(--s-l) 0 0,
   meta-font: var(--f-ui-s),
   primary-meta-color: var(--c-d-140),
-  primary-meta-margin: var(--s-xs) 0 calc(var(--s-xs) * -1),
+  primary-meta-margin-mobile: var(--s-xs),
+  primary-meta-margin-tablet: var(--s-xs),
   secondary-meta-color: var(--c-d-80),
   secondary-meta-font: var(--f-s),
   secondary-meta-icon-color: var(--c-p-60),
@@ -21,5 +24,6 @@ $content-block: (
   secondary-meta-separator-color: var(--c-d-140),
   text-color: var(--c-d-140),
   title-font: var(--f-xl),
-  title-margin: var(--s-xs) 0 var(--s-s),
+  title-margin-mobile: var(--s-s),
+  title-margin-tablet: var(--s-s),
 );
