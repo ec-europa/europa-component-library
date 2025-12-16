@@ -13,6 +13,7 @@ import dataSelectMultiple from '@ecl/select/demo/data-multiple';
 import dataTextInput from '@ecl/text-input/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataButton from '@ecl/button/demo/data';
+import dataDatePicker from '@ecl/datepicker/demo/data';
 
 const dataButtonPrimary = { ...dataButton, variant: 'primary' };
 const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
@@ -53,6 +54,19 @@ dataTextInput.required = false;
 delete dataTextInput.optional_text;
 delete dataTextInput.helper_text;
 
+dataDatePicker.required = false;
+dataDatePicker.label = 'Select start date';
+dataDatePicker.input.id = 'example-datepicker-1';
+delete dataDatePicker.optional_text;
+delete dataDatePicker.helper_text;
+const dataDatePicker2 = {
+  ...dataDatePicker,
+  input: { ...dataDatePicker.input, default_value: '' },
+};
+dataDatePicker2.label = 'Select end date';
+dataDatePicker2.input.id = 'example-datepicker-2';
+dataDatePicker2.input.placeholder = 'dd-mm-yyyy';
+
 const system = getSystem();
 
 const data = {
@@ -63,6 +77,8 @@ const data = {
   page_header: dataPageHeader,
   content_item: dataContentItem,
   pagination: dataPagination,
+  datepicker: dataDatePicker,
+  datepicker2: dataDatePicker2,
   select_multiple: dataSelectMultiple,
   text_input: dataTextInput,
   checkbox: dataCheckbox,

@@ -24,6 +24,11 @@ $text-input: null !default;
   --duet-font-normal: #{map.get($theme, 'font-weight', 'regular')};
   --duet-radius: #{map.get($text-input, 'radius')};
   --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
+  --duet-z-index: #{map.get($theme, 'z-index', 'dropdown')};
+}
+
+.ecl-datepicker {
+  max-width: 100%;
 }
 /* stylelint-enable scss/dollar-variable-no-missing-interpolation */
 
