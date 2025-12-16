@@ -41,7 +41,7 @@ $text-input: null !default;
   * duet styling
   */
 .duet-date__input {
-  height: map.get($text-input, 'height');
+  height: var(--ecl-text-field-height);
   outline: 0;
   padding-block: var(--s-s);
   font: map.get($text-input, 'font');
@@ -77,8 +77,8 @@ $text-input: null !default;
   border-bottom-right-radius: var(--duet-radius);
   border-top-right-radius: var(--duet-radius);
   display: flex;
-  height: calc(#{map.get($text-input, 'height')} - 2px);
-  width: map.get($text-input, 'height');
+  height: calc(var(--ecl-text-field-height) - 2px);
+  width: var(--ecl-text-field-height);
   min-height: auto;
   padding: 0;
 

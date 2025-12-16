@@ -26,7 +26,7 @@ $outline-width: 2px;
   color: map.get($select, 'color-input');
   cursor: pointer;
   display: flex;
-  height: map.get($select, 'arrow-width');
+  height: var(--ecl-text-field-height);
   margin: 0;
   overflow: hidden;
   padding-inline-end: map.get($select, 'arrow-width');
@@ -119,8 +119,8 @@ $outline-width: 2px;
 }
 
 .ecl-select__icon .ecl-button--icon-only {
-  height: map.get($select, 'arrow-width');
-  width: map.get($select, 'arrow-width');
+  height: var(--ecl-text-field-height);
+  width: var(--ecl-text-field-height);
 
   .ecl-icon {
     fill: map.get($select, 'icon-fill');

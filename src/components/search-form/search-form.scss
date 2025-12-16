@@ -50,8 +50,8 @@ $button-border-width: 1px;
   border-top: $button-border-width solid
     map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
-  height: map.get($search-form, 'button-size');
-  width: map.get($search-form, 'button-size');
+  height: var(--ecl-text-field-height);
+  width: var(--ecl-text-field-height);
   position: relative;
 
   &:hover {

@@ -24,7 +24,7 @@ $outline-width: 2px;
   color: map.get($text-input, 'color-input');
   display: block;
   font: map.get($text-input, 'font');
-  height: map.get($text-input, 'height');
+  height: var(--ecl-text-field-height);
   margin: 0;
   max-width: 100%;
   padding-block: map.get($text-input, 'padding-block');
