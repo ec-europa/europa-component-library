@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.0-alpha.22.1
+
+#### :bug: Bug Fix
+
+- [#4240](https://github.com/ec-europa/europa-component-library/pull/4240) fix(datepicker): Fixing z-index, better handling default value - FRONT-5185 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-alpha.22 (2025-12-11)
 
 #### :rocket: New Feature
