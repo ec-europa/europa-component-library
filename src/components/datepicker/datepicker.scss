@@ -12,7 +12,6 @@ $theme: null !default;
 $datepicker: null !default;
 $text-input: null !default;
 
-/* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 :root {
   --duet-color-button: var(--c-g-50, var(--c-p-5));
   --duet-font: #{map.get($theme, 'font-family', 'default')};
@@ -25,7 +24,6 @@ $text-input: null !default;
   --duet-radius: #{map.get($text-input, 'radius')};
   --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
 }
-/* stylelint-enable scss/dollar-variable-no-missing-interpolation */
 
 .ecl-datepicker--s {
   @include mixins-form.form-width('s', $theme);

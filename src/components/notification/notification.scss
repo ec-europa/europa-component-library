@@ -53,11 +53,8 @@ $notification: null !default;
 }
 
 .ecl-notification__link-item {
-  color: map.get($notification, 'link-color');
-
-  &:hover {
-    color: map.get($notification, 'link-color-hover');
-  }
+  --ecl-link-color: #{map.get($notification, 'link-color')};
+  --ecl-link-color-hover: #{map.get($notification, 'link-color-hover')};
 }
 
 .ecl-notification__close {

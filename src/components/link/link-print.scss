@@ -70,6 +70,30 @@ $button: null !default;
 }
 
 /**
+* Branded link
+*/
+.ecl-link--brand,
+%ecl-link-brand {
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
+
+  &.ecl-link--standalone {
+    --ecl-link-color-hover: #{map.get($link, 'brand', 'color')};
+  }
+}
+
+/**
+* Inverted link
+*/
+.ecl-link--inverted,
+%ecl-link-inverted {
+  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
+
+  &.ecl-link--standalone {
+    --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
+  }
+}
+
+/**
 * Link button
 */
 /* stylelint-disable nesting-selector-no-missing-scoping-root */

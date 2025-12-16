@@ -143,6 +143,7 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 ### Breadcrumb
 
 - Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
+- Breadcrumb links are no longer using the "standalone" variant (class `ecl-link--standalone`)
 
 ### Button
 
@@ -247,6 +248,7 @@ Extra attention points:
 
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
 - variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
+- new parameter `branded` added, to use an alternative display (using dark text instead of blue)
 
 ### List with illustration
 
