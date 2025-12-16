@@ -26,6 +26,10 @@ $text-input: null !default;
   --duet-z-index: #{map.get($theme, 'z-index', 'dropdown')};
 }
 
+.ecl-datepicker {
+  max-width: 100%;
+}
+
 .ecl-datepicker--s {
   @include mixins-form.form-width('s', $theme);
 }
