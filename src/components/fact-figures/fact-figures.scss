@@ -78,9 +78,8 @@ $fact-figures: null !default;
   padding-top: map.get($fact-figures, 'view-all-padding-mobile');
 }
 
-.ecl-fact-figures__view-all-link,
-.ecl-fact-figures__view-all-link:hover {
-  color: map.get($fact-figures, 'view-all-color');
+.ecl-fact-figures__view-all-link {
+  --ecl-link-color: #{map.get($fact-figures, 'view-all-color')};
 }
 
 /* stylelint-disable-next-line order/order */
