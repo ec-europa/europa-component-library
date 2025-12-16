@@ -43,15 +43,9 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__co-owner-link {
-  color: map.get($site-footer, 'co-owner', 'link-color');
-
   @include mixins.responsive-font(
     map.get($site-footer, 'co-owner', 'link-font')
   );
-
-  &:hover {
-    color: map.get($site-footer, 'co-owner', 'link-color-hover');
-  }
 }
 
 @include breakpoints.up('l') {
