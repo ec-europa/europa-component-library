@@ -49,6 +49,7 @@ $radio: null !default;
   display: block;
   flex-shrink: 0;
   height: map.get($radio, 'box-size');
+  margin-block-start: map.get($radio, 'box-offset');
   margin-inline-end: var(--s-xs);
   position: relative;
   width: map.get($radio, 'box-size');

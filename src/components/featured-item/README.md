@@ -15,8 +15,11 @@ npm install --save @ecl/featured-item
 - **"description"** (string) (default: '') - Description of the content opposite the media container,
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"link_highlighted"** (bool) (default: false): display the link as highlighted
+- **"horizontal_alignment"** (string) (default: 'left'): content alignment (horizontal); can be 'left', 'center'
+- **"vertical_alignment"** (string) (default: 'top'): content alignment (vertical); can be 'top', 'center'
 - **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
-- **"position"** (string) (default: 'left') - Media position
+- **"media_behavior"** (string) (default: 'static'): fill behavior of the media; can be 'static', 'dynamic'
+- **"position"** (string) (default: 'left') - Media position relative to the text; can be 'left', 'right'
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

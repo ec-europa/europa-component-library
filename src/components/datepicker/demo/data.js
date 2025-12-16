@@ -11,6 +11,7 @@ module.exports = {
   required: true,
   disabled: false,
   invalid: false,
+  width: 'm',
   input: {
     id: 'example-input-id-1',
     name: 'example-input-id-1',
