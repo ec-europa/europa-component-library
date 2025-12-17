@@ -49,6 +49,17 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
+{# Process image alt #}
+{% set _image_alt = '' %}
+{% if _thumbnail.img is defined and _thumbnail.img.alt is defined %}
+  {% set _image_alt = _thumbnail.img.alt %}
+{% endif %}
+{% if _image_alt is not empty and _item is not empty %}
+  {% if (_item.video is not empty or _item.embedded_video is not empty) and _sr_video_label is not empty %}
+    {% set _image_alt = _image_alt ~ ' - ' ~ _sr_video_label %}
+  {% endif %}
+{% endif %}
+
 {# Setting up Video and image variables #}
 {% set _video_title = '' %}
 {% if _item and _item is not empty %}
@@ -93,6 +104,9 @@
     data-ecl-gallery-item
     class="ecl-gallery__item-link"
     id="{{ _id }}"
+  {%- if _image_alt is not empty -%}
+    aria-label="{{ _image_alt }}"
+  {%- endif -%}
   {%- if _media_share_path is not empty -%}
     data-ecl-gallery-item-share="{{ _media_share_path }}"
   {%- endif -%}
@@ -107,21 +121,26 @@
   {% endif %}
   >
   {% if _item is not empty %}
-    {% set _image_alt = _thumbnail.img.alt|default('') %}
+    
     <figure class="ecl-gallery__image-container">
+      {# Zoom icon #}
+      <div class="ecl-gallery__icon-zoom-wrapper">
+        {%- include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'fullscreen',
+            size: 's',
+          },
+          extra_classes: 'ecl-gallery__icon-zoom',
+        } only %}
+      </div>
 
     {% if _item.video is not empty or _item.embedded_video is not empty %}
       {# Display video icon #}
-      {% if _sr_video_label is not empty %}
-        {% set _image_alt = _image_alt ~ ' - ' ~ _sr_video_label %}
-      {% endif %}
-
       <div class="ecl-gallery__item-icon-wrapper">
       {%- include '@ecl/icon/icon.html.twig' with {
         icon: {
-          name: 'play-filled',
-          size: 'l',
-          color: 'inverted',
+          name: 'play',
+          size: 's',
         },
         extra_classes: 'ecl-gallery__item-icon',
       } only %}
