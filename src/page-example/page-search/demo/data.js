@@ -61,11 +61,15 @@ delete dataDatePicker.optional_text;
 delete dataDatePicker.helper_text;
 const dataDatePicker2 = {
   ...dataDatePicker,
-  input: { ...dataDatePicker.input, default_value: '' },
+  label: 'Select end date',
+  input: {
+    ...dataDatePicker.input,
+    id: 'example-datepicker-2',
+    placeholder: 'dd-mm-yyyy',
+    default_value: '',
+    name: 'example-input-name-2',
+  },
 };
-dataDatePicker2.label = 'Select end date';
-dataDatePicker2.input.id = 'example-datepicker-2';
-dataDatePicker2.input.placeholder = 'dd-mm-yyyy';
 
 const system = getSystem();
 
