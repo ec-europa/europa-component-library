@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.0.0-alpha.22.2
+
+#### :bug: Bug Fix
+
+- [#4241](https://github.com/ec-europa/europa-component-library/pull/4241) fix(datepicker): Restoring name parameter, applying the attribute to the custom element - FRONT-5187 ([@planctus](https://github.com/planctus))
+- [#4242](https://github.com/ec-europa/europa-component-library/pull/4242) fix(banner): fix color when no media - FRONT-5188 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-alpha.22.1
 
 #### :bug: Bug Fix
