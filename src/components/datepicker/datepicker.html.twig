@@ -4,7 +4,8 @@
   Parameters:
     - "autoinit" (boolean) (default: false)
     - "id" (string) (default: randomized string)
-    - "default_value" (default: '')
+    - "name" (string) (default: same as id)
+    - "default_value" (default: '') (YYY-MM-DD format)
     - "width" (string) (default: 'm')
     - "required" (boolean) (default: false)
     - "disabled" (boolean) (default: false)
@@ -28,6 +29,7 @@
 {% set _required = required|default(false) %}
 {% set _default_value = default_value|default('') %} {# YYYY-MM-DD #}
 {% set _id = id|default('ecl-datepicker-' ~ random()) %}
+{% set _name = name|default(_id) %}
 {% set _min = min|default('') %}
 {% set _max = max|default('') %}
 {% set _width = width|default('m') %}
@@ -82,6 +84,7 @@
   >
     <duet-date-picker
       identifier="{{ _id }}"
+      name="{{ _name }}"
       first-day-of-week="{{  _first_day_of_week }}"
     {% if _min %}
       min="{{ _min }}"

@@ -18,5 +18,7 @@ module.exports = {
     'declaration-block-no-redundant-longhand-properties': null,
     // Disable checks because automated fixes would be breaking
     'color-function-notation': null,
+    // Allow map.get() and other functions inside interpolation
+    'scss/dollar-variable-no-missing-interpolation': null,
   },
 };

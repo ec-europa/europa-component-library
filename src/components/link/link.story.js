@@ -10,15 +10,9 @@ import dataPrimaryNeutral from './demo/data--primary-neutral';
 import dataPrimary from './demo/data--primary';
 import dataSecondary from './demo/data--secondary';
 import dataStandalone from './demo/data--standalone';
-import dataInverted from './demo/data--inverted';
 
 import link from './link.html.twig';
 import notes from './README.md';
-
-const dataInvertedStandalone = {
-  ...dataInverted,
-  link: { ...dataInverted.link, type: 'standalone' },
-};
 
 // Create 'none' option.
 iconsAll.unshift('none');
@@ -28,37 +22,30 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
   return mapping;
 }, {});
 
-const withFont = (story) => {
-  const demo = story();
-  return `<div class="ecl-u-type-m">${demo}</div>`;
+const getArgs = (data, variant) => {
+  const args = {
+    label: data.link.label,
+    icon_name: 'none',
+    icon_position: 'after',
+    icon_title: '',
+    external: false,
+    hide_label: false,
+    indicator: false,
+    indicator_value: '10',
+    indicator_label: 'Items not read',
+  };
+
+  if (variant === 'default' || variant === 'standalone') {
+    args.style = '';
+  }
+
+  return args;
 };
 
-const withParagraph = (story) => {
-  const demo = story();
-  return `<div class="ecl-u-type-m">The European Commission is the executive of ${demo} and promotes its general interest.</div>`;
-};
+const getArgTypes = (variant) => {
+  const argTypes = getIndicatorControls({ arg: 'hide_label', eq: true });
 
-const withInverted = (story) => {
-  const demo = story();
-  return `<div class="ecl-u-bg-grey ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
-};
-
-const getArgs = (data) => ({
-  label: data.link.label,
-  icon_name: 'none',
-  icon_position: 'after',
-  icon_title: '',
-  external: false,
-  hide_label: false,
-  indicator: false,
-  indicator_value: '10',
-  indicator_label: 'Items not read',
-});
-
-const getArgTypes = () => ({
-  ...getIndicatorControls({ arg: 'hide_label', eq: true }),
-
-  label: {
+  argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
     description: 'The link label',
@@ -70,8 +57,8 @@ const getArgTypes = () => ({
     control: {
       type: 'text',
     },
-  },
-  external: {
+  };
+  argTypes.external = {
     type: { name: 'boolean' },
     description: 'External link',
     table: {
@@ -82,8 +69,8 @@ const getArgTypes = () => ({
     control: {
       type: 'boolean',
     },
-  },
-  icon_name: {
+  };
+  argTypes.icon_name = {
     name: 'icon name',
     type: { name: 'select', required: false },
     options: [...iconsAll],
@@ -94,8 +81,8 @@ const getArgTypes = () => ({
       type: { summary: 'string' },
       category: 'Icon',
     },
-  },
-  icon_transform: {
+  };
+  argTypes.icon_transform = {
     name: 'icon transform',
     type: { name: 'select' },
     description: 'Link icon transform',
@@ -118,8 +105,8 @@ const getArgTypes = () => ({
       type: { summary: 'string' },
       category: 'Icon',
     },
-  },
-  icon_position: {
+  };
+  argTypes.icon_position = {
     name: 'icon position',
     type: { name: 'inline-radio' },
     description: 'Icon position inside the link',
@@ -134,8 +121,8 @@ const getArgTypes = () => ({
       defaultValue: { summary: 'after' },
       category: 'Icon',
     },
-  },
-  icon_title: {
+  };
+  argTypes.icon_title = {
     name: 'icon title',
     type: 'string',
     description: 'Textual information for the icon, mostly for screen readers',
@@ -145,8 +132,8 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
       category: 'Icon',
     },
-  },
-  hide_label: {
+  };
+  argTypes.hide_label = {
     name: 'hide label',
     type: { name: 'boolean' },
     description:
@@ -160,8 +147,35 @@ const getArgTypes = () => ({
     control: {
       type: 'boolean',
     },
-  },
-});
+  };
+
+  if (variant === 'default' || variant === 'standalone') {
+    argTypes.style = {
+      options: ['', 'brand', 'inverted'],
+      control: {
+        labels: {
+          '': 'default',
+          brand: 'brand',
+          inverted: 'inverted',
+        },
+      },
+      mapping: {
+        default: '',
+        brand: 'brand',
+        inverted: 'inverted',
+      },
+      name: 'style',
+      type: 'select',
+      description: 'Link style',
+      table: {
+        type: 'string',
+        category: 'Display',
+      },
+    };
+  }
+
+  return argTypes;
+};
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
@@ -190,10 +204,38 @@ const prepareData = (data, args) => {
   if (args.external) {
     data.as_image = true;
   }
+  if (args.style === 'inverted') {
+    data.link.inverted = true;
+  } else {
+    data.link.inverted = false;
+  }
+  if (args.style === 'brand') {
+    data.link.branded = true;
+  } else {
+    data.link.branded = false;
+  }
 
   correctPaths(data);
 
   return data;
+};
+
+const renderStory = async (data, args, variant) => {
+  let story = await link(prepareData(data, args));
+
+  if (variant === 'default') {
+    story = `<div class="ecl-u-type-m">The European Commission is the executive of ${story} and promotes its general interest.</div>`;
+  }
+
+  if (variant === 'standalone') {
+    story = `<div class="ecl-u-type-m">${story}</div>`;
+  }
+
+  if (args.style === 'inverted') {
+    story = `<div class="ecl-u-bg-black ecl-u-type-color-white ecl-u-pa-m">${story}</div>`;
+  }
+
+  return story;
 };
 
 export default {
@@ -204,77 +246,52 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedLink = await link(prepareData(dataDefault, args));
+  const renderedLink = await renderStory(dataDefault, args, 'default');
   return renderedLink;
 };
 Default.storyName = 'default';
-Default.decorators = [withNotes, withCode, withParagraph];
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes();
+Default.args = getArgs(dataDefault, 'default');
+Default.argTypes = getArgTypes('default');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Standalone = (_, { loaded: { component } }) => component;
 
 Standalone.render = async (args) => {
-  const renderedLinkStandalone = await link(prepareData(dataStandalone, args));
+  const renderedLinkStandalone = await renderStory(
+    dataStandalone,
+    args,
+    'standalone',
+  );
   return renderedLinkStandalone;
 };
 Standalone.storyName = 'standalone';
-Standalone.decorators = [withNotes, withCode, withFont];
-Standalone.args = getArgs(dataStandalone);
-Standalone.argTypes = getArgTypes();
+Standalone.args = getArgs(dataStandalone, 'standalone');
+Standalone.argTypes = getArgTypes('standalone');
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
-
-export const Inverted = (_, { loaded: { component } }) => component;
-
-Inverted.render = async (args) => {
-  const renderedLinkInverted = await link(prepareData(dataInverted, args));
-  return renderedLinkInverted;
-};
-Inverted.storyName = 'inverted';
-Inverted.decorators = [withNotes, withCode, withParagraph, withInverted];
-Inverted.args = getArgs(dataInverted);
-Inverted.argTypes = getArgTypes();
-Inverted.parameters = { notes: { markdown: notes, json: dataInverted } };
-
-export const InvertedStandalone = (_, { loaded: { component } }) => component;
-
-InvertedStandalone.render = async (args) => {
-  const renderedLinkInvertedStandalone = await link(
-    prepareData(dataInvertedStandalone, args),
-  );
-  return renderedLinkInvertedStandalone;
-};
-InvertedStandalone.storyName = 'inverted standalone';
-InvertedStandalone.decorators = [withNotes, withCode, withFont, withInverted];
-InvertedStandalone.args = getArgs(dataInvertedStandalone);
-InvertedStandalone.argTypes = getArgTypes();
-InvertedStandalone.parameters = {
-  notes: { markdown: notes, json: dataInvertedStandalone },
-};
 
 export const Primary = (_, { loaded: { component } }) => component;
 
 Primary.render = async (args) => {
-  const renderedLinkPrimary = await link(prepareData(dataPrimary, args));
+  const renderedLinkPrimary = await renderStory(dataPrimary, args);
   return renderedLinkPrimary;
 };
 Primary.storyName = 'primary';
-Primary.args = getArgs(dataPrimary);
-Primary.argTypes = getArgTypes();
+Primary.args = getArgs(dataPrimary, 'primary');
+Primary.argTypes = getArgTypes('primary');
 Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const PrimaryHighlight = (_, { loaded: { component } }) => component;
 
 PrimaryHighlight.render = async (args) => {
-  const renderedLinkPrimaryHighlight = await link(
-    prepareData(dataPrimaryHighlight, args),
+  const renderedLinkPrimaryHighlight = await renderStory(
+    dataPrimaryHighlight,
+    args,
   );
   return renderedLinkPrimaryHighlight;
 };
 PrimaryHighlight.storyName = 'primary highlight';
-PrimaryHighlight.args = getArgs(dataPrimaryHighlight);
-PrimaryHighlight.argTypes = getArgTypes();
+PrimaryHighlight.args = getArgs(dataPrimaryHighlight, 'primary highlight');
+PrimaryHighlight.argTypes = getArgTypes('primary highlight');
 PrimaryHighlight.parameters = {
   notes: { markdown: notes, json: dataPrimaryHighlight },
 };
@@ -297,10 +314,10 @@ PrimaryNeutral.parameters = {
 export const Secondary = (_, { loaded: { component } }) => component;
 
 Secondary.render = async (args) => {
-  const renderedLinkSecondary = await link(prepareData(dataSecondary, args));
+  const renderedLinkSecondary = await renderStory(dataSecondary, args);
   return renderedLinkSecondary;
 };
 Secondary.storyName = 'secondary';
-Secondary.args = getArgs(dataSecondary);
-Secondary.argTypes = getArgTypes();
+Secondary.args = getArgs(dataSecondary, 'secondary');
+Secondary.argTypes = getArgTypes('secondary');
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
