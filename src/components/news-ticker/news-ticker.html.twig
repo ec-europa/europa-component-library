@@ -80,39 +80,35 @@
     <div class="ecl-news-ticker__content">
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
-        {% set _icon = '' %}
-        {% set _image = '' %}
-        {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {% set _icon %}
+        {% set _media = '' %}
+        {% if _item.img is not empty and _item.img.path is not empty %}
+          {% set _media %} 
+            <img
+              class="ecl-news-ticker__icon"
+              src="{{ _item.img.path }}"
+            {%- if _item.img.alt is not empty -%}
+              alt="{{ _item.img.alt }}"
+            {%- endif -%}
+            {%- if _item.img.title is not empty -%}
+              title="{{ _item.img.title }}"
+            {%- endif -%} 
+            >
+          {% endset %}
+        {% else %}
+          {% set _media %}
             {% include '@ecl/icon/icon.html.twig' with {
-              icon: _item.icon|merge({
-                name: _item.icon.name,
+              icon: _item.icon|default({})|merge({
+                name: _item.icon.name|default('information-outline'),
                 size: 'l',
               }),
               extra_classes: 'ecl-news-ticker__icon',
             } only %}
           {% endset %}
-        {% elseif _item.img is not empty and _item.img.path is not empty %}
-        {% set _image %} 
-          <img
-            class="ecl-news-ticker__icon"
-            src="{{ _item.img.path }}"
-          {%- if _item.img.alt is not empty -%}
-            alt="{{ _item.img.alt }}"
-          {%- endif -%}
-          {%- if _item.img.title is not empty -%}
-            title="{{ _item.img.title }}"
-          {%- endif -%} 
-          >
-        {% endset %}
         {% endif %}
         <li class="ecl-news-ticker__slide">
-          {% if _icon is not empty or _image is not empty %}
-            <div class="ecl-news-ticker__slide-icon">
-              {{- _icon -}}
-              {{- _image -}}
-            </div>
-          {% endif %}
+          <div class="ecl-news-ticker__slide-icon">
+            {{- _media -}}
+          </div>
 
           <div class="ecl-news-ticker__slide-content">
           {% if _item.link is not empty %}
