@@ -10,8 +10,6 @@
 // Exposed variables
 $theme: null !default;
 $news-ticker: null !default;
-$slide-height-mobile: 9.5rem;
-$slide-height-desktop: 4.5rem;
 
 .ecl-news-ticker {
   align-items: center;
@@ -34,7 +32,7 @@ $slide-height-desktop: 4.5rem;
   align-items: center;
   background: #fff;
   display: flex;
-  height: $slide-height-mobile;
+  height: map.get($news-ticker, 'height-mobile');
   width: 100%;
 }
 
@@ -65,7 +63,7 @@ $slide-height-desktop: 4.5rem;
   align-items: center;
   display: flex;
   flex-direction: row;
-  height: $slide-height-mobile;
+  height: map.get($news-ticker, 'height-mobile');
 
   .ecl-link {
     &:focus-visible {
@@ -83,7 +81,7 @@ $slide-height-desktop: 4.5rem;
   background-color: map.get($news-ticker, 'icon', 'background');
   flex-shrink: 0;
   height: calc(
-    #{$slide-height-mobile} -
+    #{map.get($news-ticker, 'height-mobile')} -
       (2 * #{map.get($news-ticker, 'icon', 'padding-block')})
   );
   padding-block: map.get($news-ticker, 'icon', 'padding-block');
@@ -98,7 +96,7 @@ $slide-height-desktop: 4.5rem;
 
 .ecl-news-ticker__slide-content {
   height: calc(
-    #{$slide-height-mobile} -
+    #{map.get($news-ticker, 'height-mobile')} -
       (#{map.get($news-ticker, 'content', 'padding-block-mobile')} * 2)
   );
   overflow: hidden;
@@ -172,7 +170,7 @@ $slide-height-desktop: 4.5rem;
 
   .ecl-news-ticker__container {
     border-end-start-radius: map.get($news-ticker, 'border-radius');
-    height: $slide-height-desktop;
+    height: map.get($news-ticker, 'height-desktop');
   }
 
   .ecl-news-ticker__content {
@@ -180,14 +178,14 @@ $slide-height-desktop: 4.5rem;
   }
 
   .ecl-news-ticker__slide {
-    height: $slide-height-desktop;
+    height: map.get($news-ticker, 'height-desktop');
   }
 
   .ecl-news-ticker__slide-icon {
     align-items: center;
     display: flex;
     height: calc(
-      #{$slide-height-desktop} -
+      #{map.get($news-ticker, 'height-desktop')} -
         (2 * #{map.get($news-ticker, 'icon', 'padding-block')})
     );
     position: relative;
@@ -210,7 +208,7 @@ $slide-height-desktop: 4.5rem;
     align-items: center;
     border-end-start-radius: map.get($news-ticker, 'border-radius');
     height: calc(
-      #{$slide-height-desktop} -
+      #{map.get($news-ticker, 'height-desktop')} -
         (#{map.get($news-ticker, 'content', 'padding-block-desktop')} * 2)
     );
     display: flex;

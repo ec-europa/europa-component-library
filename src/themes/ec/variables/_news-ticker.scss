@@ -2,6 +2,8 @@
 @use '../index' as *;
 
 $news-ticker: (
+  height-mobile: 9.5rem,
+  height-desktop: 4.5rem,
   border-radius: map.get($border-radius, 's'),
   box-shadow: map.get($shadow, '1'),
   font: 'body-m',
