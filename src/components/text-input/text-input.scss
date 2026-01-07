@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/layout-form/mixins' as mixins-form;
-@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -24,18 +23,17 @@ $outline-width: 2px;
   box-sizing: border-box;
   color: map.get($text-input, 'color-input');
   display: block;
+  font: map.get($text-input, 'font');
+  height: var(--ecl-text-field-height);
   margin: 0;
   max-width: 100%;
   padding-block: map.get($text-input, 'padding-block');
   padding-inline: map.get($text-input, 'padding-inline');
 
-  @include mixins.responsive-font(map.get($text-input, 'font'));
-
   &::placeholder {
     color: map.get($text-input, 'color-placeholder');
     opacity: 1;
-
-    @include mixins.responsive-font(map.get($text-input, 'font'));
+    font: map.get($text-input, 'font');
   }
 
   &:hover {

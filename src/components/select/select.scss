@@ -15,6 +15,7 @@ $select: null !default;
 $outline-width: 2px;
 
 .ecl-select {
+  align-items: center;
   appearance: none;
   background-color: transparent;
   border: map.get($select, 'border-width') solid
@@ -24,10 +25,10 @@ $outline-width: 2px;
   box-sizing: border-box;
   color: map.get($select, 'color-input');
   cursor: pointer;
-  display: block;
+  display: flex;
+  height: var(--ecl-text-field-height);
   margin: 0;
   overflow: hidden;
-  padding-block: map.get($select, 'padding-block');
   padding-inline-end: map.get($select, 'arrow-width');
   padding-inline-start: map.get($select, 'padding-inline-start');
   text-align: left;
@@ -35,8 +36,7 @@ $outline-width: 2px;
   white-space: nowrap;
   width: 100%;
   z-index: 1;
-
-  @include mixins.responsive-font(map.get($select, 'font'));
+  font: map.get($select, 'font');
 
   &::placeholder {
     color: map.get($select, 'color-placeholder');
@@ -118,10 +118,15 @@ $outline-width: 2px;
   background-color: map.get($select, 'arrow-background-color-hover');
 }
 
-.ecl-select__icon .ecl-button--icon-only .ecl-icon {
-  fill: map.get($select, 'icon-fill');
-  height: map.get($select, 'icon-size');
-  width: map.get($select, 'icon-size');
+.ecl-select__icon .ecl-button--icon-only {
+  height: var(--ecl-text-field-height);
+  width: var(--ecl-text-field-height);
+
+  .ecl-icon {
+    fill: map.get($select, 'icon-fill');
+    height: map.get($select, 'icon-size');
+    width: map.get($select, 'icon-size');
+  }
 }
 
 .ecl-select--active {
