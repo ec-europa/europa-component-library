@@ -99,11 +99,19 @@ $theme: null !default;
 }
 
 @mixin make-col-push($size, $columns: map.get($grid, 'columns')) {
-  left: if($size > 0, math.percentage(math.div($size, $columns)), auto);
+  @if $size > 0 {
+    left: math.percentage(math.div($size, $columns));
+  } @else {
+    left: auto;
+  }
 }
 
 @mixin make-col-pull($size, $columns: map.get($grid, 'columns')) {
-  right: if($size > 0, math.percentage(math.div($size, $columns)), auto);
+  @if $size > 0 {
+    right: math.percentage(math.div($size, $columns));
+  } @else {
+    right: auto;
+  }
 }
 
 @mixin make-col-modifier($type, $size, $columns) {

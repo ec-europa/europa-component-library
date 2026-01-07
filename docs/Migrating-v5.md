@@ -211,6 +211,11 @@ The markup is now using the custom element defined by duet js:
 - Icon for the invalid text has been changed to the outline one
 - The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo example have been updated in that sense. The parameter is still available in twig template, but left empy by default.
 
+### Gallery
+
+- New icon displayed when focusing an item (updated in the twig template).
+- Icon for the video updated to use `play` instead of `play-filled` (updated in the twig template)
+
 ### Icon
 
 ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools.
