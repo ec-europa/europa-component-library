@@ -3,8 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataLink from './demo/data--link';
-import dataRemovable from './demo/data--removable';
+import dataDemo from './demo/data';
 
 import tag from './tag.html.twig';
 import notes from './README.md';
@@ -15,6 +14,7 @@ const getArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
+  args.type = 'link';
   args.label = data.tag.label;
   args.nowrap = false;
   if (data.tag.type === 'link') {
@@ -47,6 +47,28 @@ const getArgTypes = (data) => {
       category: 'Content',
     },
   };
+  argTypes.type = {
+    name: 'type',
+    type: 'select',
+    description: 'Select tag type',
+    options: ['link', 'removable', 'prefilter'],
+    control: {
+      labels: {
+        link: 'link',
+        removable: 'removable',
+        prefilter: 'prefilter',
+      },
+    },
+    mapping: {
+      link: 'link',
+      removable: 'removable',
+      prefilter: 'prefilter',
+    },
+    table: {
+      type: 'string',
+      category: 'Display',
+    },
+  };
 
   if (data.tag.type === 'link') {
     argTypes.external = {
@@ -64,13 +86,30 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.tag.label = args.label;
-  data.tag.nowrap = args.nowrap;
-  data.tag.external = args.external;
+  const clone = JSON.parse(JSON.stringify(data));
+  clone.tag.type = args.type;
 
-  correctPaths(data);
+  switch (args.type) {
+    case 'prefilter':
+      break;
 
-  return Object.assign(data, args);
+    case 'removable':
+      delete clone.tag.path;
+      break;
+
+    case 'link':
+    default:
+      delete clone.tag.aria_label;
+      break;
+  }
+
+  clone.tag.label = args.label;
+  clone.tag.nowrap = args.nowrap;
+  clone.tag.external = args.external;
+
+  correctPaths(clone);
+
+  return Object.assign(clone, args);
 };
 
 export default {
@@ -78,24 +117,13 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Link = (_, { loaded: { component } }) => component;
+export const Single = (_, { loaded: { component } }) => component;
 
-Link.render = async (args) => {
-  const renderedTag = await tag(prepareData(dataLink, args));
+Single.render = async (args) => {
+  const renderedTag = await tag(prepareData(dataDemo, args));
   return renderedTag;
 };
-Link.storyName = 'link tag';
-Link.args = getArgs(dataLink);
-Link.argTypes = getArgTypes(dataLink);
-Link.parameters = { notes: { markdown: notes, json: dataLink } };
-
-export const Removable = (_, { loaded: { component } }) => component;
-
-Removable.render = async (args) => {
-  const renderedTagRemovable = await tag(prepareData(dataRemovable, args));
-  return renderedTagRemovable;
-};
-Removable.storyName = 'removable tag';
-Removable.args = getArgs(dataRemovable);
-Removable.argTypes = getArgTypes(dataRemovable);
-Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
+Single.storyName = 'single tag';
+Single.args = getArgs(dataDemo);
+Single.argTypes = getArgTypes(dataDemo);
+Single.parameters = { notes: { markdown: notes, json: dataDemo } };
