@@ -107,23 +107,33 @@
         {% endset %}
         {% endif %}
         <li class="ecl-news-ticker__slide">
-        {% if _item.link is not empty %}
-          {{- _icon -}}
-          {{- _image -}}
-          {% include '@ecl/link/link.html.twig' with {
-            link: {
-            type: 'standalone',
-              label: _item.content,
-              path: _item.link,
-              icon_position: 'before',
-              external: _item.external,
-              sr_external: _sr_external
-            },
-            extra_classes: 'ecl-news-ticker__slide-text',
-          } only %}
-        {% else %}
-          {{- _icon -}}{{- _image -}}{{ _item.content }}
-        {% endif %}
+          {% if _icon is not empty or _image is not empty %}
+            <div class="ecl-news-ticker__slide-icon">
+              {{- _icon -}}
+              {{- _image -}}
+            </div>
+          {% endif %}
+
+          <div class="ecl-news-ticker__slide-content">
+          {% if _item.link is not empty %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                type: 'standalone',
+                branded: true,
+                label: _item.content,
+                path: _item.link,
+                icon_position: 'before',
+                external: _item.external,
+                sr_external: _sr_external
+              },
+              extra_classes: 'ecl-news-ticker__slide-text',
+            } only %}
+          {% else %}
+            <span class="ecl-news-ticker__slide-text">
+              {{ _item.content }}
+            </span>
+          {% endif %}
+          </div>
         </li>  
       {% endfor %}
       </ul>
@@ -140,7 +150,6 @@
         hide_label: true,
         icon: {
           name: 'corner-arrow',
-          size: 'l',
           transform: 'rotate-270',
         },
         extra_classes: 'ecl-news-ticker__prev',
@@ -157,7 +166,6 @@
         hide_label: true,
         icon: {
           name: 'play-outline',
-          size: 'l',
         },
         extra_classes: 'ecl-news-ticker__play',
         extra_attributes: [{
@@ -173,7 +181,6 @@
         hide_label: true,
         icon: {
           name: 'pause-outline',
-          size: 'l',
         },
         extra_classes: 'ecl-news-ticker__pause',
         extra_attributes: [{

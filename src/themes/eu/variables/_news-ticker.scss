@@ -2,20 +2,34 @@
 @use '../index' as *;
 
 $news-ticker: (
-  height: 3.75rem,
-  desktop-only-height: 5.375rem,
-  border: 1px solid var(--c-p-20),
   border-radius: map.get($border-radius, 's'),
   box-shadow: map.get($shadow, '4'),
-  padding-container-desktop: var(--s-s) var(--s-xl) var(--s-s) var(--s-m),
-  padding-horizontal: var(--s-xs),
-  font: var(--f-s),
-  container-background: var(--c-in-5),
-  controls-background: map.get($color, 'white'),
+  font: var(--f-m),
+  font-weight: map.get($font-weight, 'regular'),
+  icon: (
+    background: var(--c-p),
+    padding-block: var(--s-s),
+    padding-inline: var(--s-m) var(--s-s),
+  ),
+  content: (
+    padding-block-mobile: var(--s-m),
+    padding-inline-mobile: var(--s-l),
+    padding-block-desktop: var(--s-xs),
+    padding-inline-desktop: var(--s-l) 0,
+    padding-inline-single: var(--s-l),
+  ),
   counter: (
     font: var(--f-m),
     font-weight: map.get($font-weight, 'regular'),
-    background: var(--c-p),
-    color: map.get($color, 'white'),
+    background-mobile: var(--c-d-5),
+    color-mobile: var(--c-d-80),
+    background-desktop: #fff,
+    color-desktop: var(--c-d-80),
+    padding-inline-mobile: var(--s-m),
+    padding-inline-desktop: var(--s-l),
+  ),
+  action: (
+    background: var(--c-d-5),
+    color: var(--c-d-80),
   ),
 );

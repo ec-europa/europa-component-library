@@ -120,6 +120,7 @@ export class NewsTicker {
 
     // If only one slide, don't initialize ticker and hide controls
     if (this.total <= 1 && this.controls) {
+      this.element.classList.add('ecl-news-ticker--single');
       this.content.style.height = 'auto';
       this.controls.style.display = 'none';
       return false;

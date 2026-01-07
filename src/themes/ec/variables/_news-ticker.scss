@@ -2,20 +2,34 @@
 @use '../index' as *;
 
 $news-ticker: (
-  height: 3.75rem,
-  desktop-only-height: 5.375rem,
-  border: 1px solid var(--cm-border-neutral),
-  border-radius: 0,
-  box-shadow: map.get($shadow, '6'),
-  padding-container-desktop: var(--s-s) var(--s-5xl) var(--s-s) var(--s-m),
-  padding-horizontal: var(--s-s),
-  font: var(--f-s),
-  controls-background: var(--cm-surface-inverted),
-  container-background: var(--cm-surface-neutral-lowest),
-  counter: (
-    font: var(--f-m),
-    font-weight: map.get($font-weight, 'regular'),
+  border-radius: map.get($border-radius, 's'),
+  box-shadow: map.get($shadow, '1'),
+  font: 'body-m',
+  font-weight: map.get($font-weight, 'semi-bold'),
+  icon: (
     background: var(--cm-surface-primary),
-    color: var(--cm-on-surface-inverted),
+    padding-block: var(--s-s),
+    padding-inline: var(--s-m) var(--s-s),
+  ),
+  content: (
+    padding-block-mobile: var(--s-m),
+    padding-inline-mobile: var(--s-l),
+    padding-block-desktop: var(--s-xs),
+    padding-inline-desktop: var(--s-xl) 0,
+    padding-inline-single: var(--s-xl),
+  ),
+  counter: (
+    font: 'body-s',
+    font-weight: map.get($font-weight, 'regular'),
+    background-mobile: var(--cm-surface-grey-low-0),
+    color-mobile: var(--cm-on-surface-grey),
+    background-desktop: var(--cm-surface-inverted),
+    color-desktop: var(--cm-on-surface-grey),
+    padding-inline-mobile: var(--s-m),
+    padding-inline-desktop: var(--s-xl),
+  ),
+  action: (
+    background: var(--cm-surface-grey-low-0),
+    color: var(--cm-on-surface-grey),
   ),
 );
