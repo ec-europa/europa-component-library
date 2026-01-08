@@ -16,27 +16,17 @@ const getArgs = (data) => {
   }
   args.type = 'link';
   args.label = data.tag.label;
+  args.external = false;
+  args.current = false;
+  args.disabled = false;
   args.nowrap = false;
-  if (data.tag.type === 'link') {
-    args.external = false;
-  }
 
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = () => {
   const argTypes = getColorModeControls();
 
-  argTypes.nowrap = {
-    name: 'no wrap',
-    type: { name: 'boolean' },
-    description: 'Keep the tag on one line (no label wrap)',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Display',
-    },
-  };
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
@@ -47,6 +37,7 @@ const getArgTypes = (data) => {
       category: 'Content',
     },
   };
+
   argTypes.type = {
     name: 'type',
     type: 'select',
@@ -70,17 +61,48 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.tag.type === 'link') {
-    argTypes.external = {
-      type: { name: 'boolean' },
-      description: 'External link',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
+  argTypes.current = {
+    type: { name: 'boolean' },
+    description: 'Current filter',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+    if: { arg: 'type', eq: 'prefilter' },
+  };
+
+  argTypes.external = {
+    type: { name: 'boolean' },
+    description: 'External link',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+    if: { arg: 'type', eq: 'link' },
+  };
+
+  argTypes.disabled = {
+    type: { name: 'boolean' },
+    description: 'Disabled tag',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+  };
+
+  argTypes.nowrap = {
+    name: 'no wrap',
+    type: { name: 'boolean' },
+    description: 'Keep the tag on one line (no label wrap)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+  };
 
   return argTypes;
 };
@@ -90,9 +112,6 @@ const prepareData = (data, args) => {
   clone.tag.type = args.type;
 
   switch (args.type) {
-    case 'prefilter':
-      break;
-
     case 'removable':
       delete clone.tag.path;
       break;
@@ -105,6 +124,8 @@ const prepareData = (data, args) => {
 
   clone.tag.label = args.label;
   clone.tag.nowrap = args.nowrap;
+  clone.tag.current = args.current;
+  clone.tag.disabled = args.disabled;
   clone.tag.external = args.external;
 
   correctPaths(clone);
@@ -125,5 +146,5 @@ Single.render = async (args) => {
 };
 Single.storyName = 'single tag';
 Single.args = getArgs(dataDemo);
-Single.argTypes = getArgTypes(dataDemo);
+Single.argTypes = getArgTypes();
 Single.parameters = { notes: { markdown: notes, json: dataDemo } };

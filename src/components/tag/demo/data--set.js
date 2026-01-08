@@ -2,46 +2,33 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  label: 'Tag set label',
   items: [
     {
       tag: {
         type: 'link',
         path: exampleLink,
-        label: 'Link tag',
+        label: 'Tag label',
       },
     },
     {
       tag: {
         type: 'removable',
-        label: 'Removable tag',
+        label: 'Tag label',
         aria_label: 'Dismiss',
       },
     },
     {
       tag: {
         type: 'removable',
-        label: 'Removable tag',
+        label: 'Tag label',
         aria_label: 'Dismiss',
       },
     },
     {
       tag: {
         type: 'removable',
-        label: 'Removable tag',
-        aria_label: 'Dismiss',
-      },
-    },
-    {
-      tag: {
-        type: 'link',
-        path: exampleLink,
-        label: 'Link tag',
-      },
-    },
-    {
-      tag: {
-        type: 'removable',
-        label: 'Removable tag',
+        label: 'Tag label',
         aria_label: 'Dismiss',
       },
     },
@@ -49,7 +36,21 @@ module.exports = {
       tag: {
         type: 'link',
         path: exampleLink,
-        label: 'Link tag',
+        label: 'Tag label',
+      },
+    },
+    {
+      tag: {
+        type: 'removable',
+        label: 'Tag label',
+        aria_label: 'Dismiss',
+      },
+    },
+    {
+      tag: {
+        type: 'link',
+        path: exampleLink,
+        label: 'Tag label',
       },
     },
   ],

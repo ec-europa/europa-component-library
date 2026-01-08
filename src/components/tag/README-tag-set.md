@@ -9,7 +9,9 @@ npm install --save @ecl/tag
 ### Parameters
 
 - **color_mode** (string) (default: '')
+- **"variant"** (string) (default: ''): display variant for the tag set. Can be empty or 'prefilter'
 - **"items"** (array) (default: []): array of Tag
+- **"label"** (string) (default: '') optional label for the tag set
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

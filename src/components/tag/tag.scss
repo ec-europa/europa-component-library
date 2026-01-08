@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -31,10 +32,7 @@ $tag: null !default;
   }
 
   &:hover {
-    background-color: var(
-      --cm-surface-medium,
-      #{map.get($tag, 'background-color-hover')}
-    );
+    background-color: #{map.get($tag, 'background-color-hover')};
     color: map.get($tag, 'color-hover');
   }
 
@@ -45,7 +43,9 @@ $tag: null !default;
     outline-offset: -1px;
   }
 
-  &[disabled] {
+  &[disabled],
+  &[disabled]:hover {
+    background-color: map.get($tag, 'background-color');
     cursor: not-allowed;
     opacity: 0.5;
   }
@@ -87,22 +87,69 @@ $tag: null !default;
   top: 0;
 }
 
+// Prefilter tag
+.ecl-tag--prefilter {
+  background-color: map.get($tag, 'prefilter', 'background-color');
+  border: 1px solid map.get($tag, 'prefilter', 'border-color');
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    background-color: map.get($tag, 'prefilter', 'background-color-hover');
+  }
+
+  &:focus-visible {
+    background-color: map.get($tag, 'prefilter', 'background-color-focus');
+    border-color: transparent;
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: map.get($tag, 'prefilter', 'background-color');
+  }
+
+  &.ecl-tag--current {
+    background-color: map.get($tag, 'prefilter', 'background-color-current');
+    border-color: map.get($tag, 'prefilter', 'border-color-current');
+    color: map.get($tag, 'prefilter', 'color-current');
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: map.get($tag, 'prefilter', 'background-color-current');
+    }
+  }
+}
+
 // Tag set
 .ecl-tag-set {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-s);
+}
+
+.ecl-tag-set__label {
+  text-transform: uppercase;
+
+  @include mixins.responsive-font(map.get($tag, 'set', 'label-font'));
+}
+
+.ecl-tag-set__list {
+  display: contents;
   list-style: none;
-  margin: calc(-1 * var(--s-xs)) 0 0;
+  margin: 0;
   padding: 0;
+}
 
-  .ecl-tag-set__item {
-    margin-inline-end: var(--s-xs);
-    margin-inline-start: 0;
-    margin-top: var(--s-xs);
-    padding: 0;
+.ecl-tag-set__item {
+  padding: 0;
+}
 
-    &:last-child {
-      margin-inline-end: 0;
-    }
+.ecl-tag-set--prefilter {
+  .ecl-tag-set__label {
+    @include mixins.responsive-font(
+      map.get($tag, 'set', 'prefilter-label-font'),
+      $font-weight: map.get($tag, 'set', 'prefilter-label-font-weight')
+    );
   }
 }

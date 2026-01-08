@@ -6,7 +6,7 @@ exports[`Tag Link renders correctly 1`] = `
     class="ecl-tag"
     href="/example"
   >
-    Link tag
+    Tag label
   </a>
 </jest>
 `;
@@ -17,7 +17,7 @@ exports[`Tag Link renders correctly with an external link 1`] = `
     class="ecl-tag"
     href="/example"
   >
-    Link tag
+    Tag label
     <span
       aria-hidden="true"
       class="wt-icon--external ecl-icon ecl-icon--2xs ecl-tag__icon ecl-tag__icon--external ecl-icon--external"
@@ -34,7 +34,7 @@ exports[`Tag Link renders correctly with extra attributes 1`] = `
     data-test-1="data-test-value-1"
     href="/example"
   >
-    Link tag
+    Tag label
   </a>
 </jest>
 `;
@@ -45,7 +45,18 @@ exports[`Tag Link renders correctly with extra class names 1`] = `
     class="ecl-tag custom-class custom-class--test"
     href="/example"
   >
-    Link tag
+    Tag label
+  </a>
+</jest>
+`;
+
+exports[`Tag Prefilter renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-tag ecl-tag--prefilter"
+    href="/example"
+  >
+    Tag label
   </a>
 </jest>
 `;
@@ -56,7 +67,7 @@ exports[`Tag Removable renders correctly 1`] = `
     class="ecl-tag ecl-tag--removable"
     type="button"
   >
-    Removable tag
+    Tag label
     <span
       class="ecl-tag__icon"
     >
@@ -71,361 +82,476 @@ exports[`Tag Removable renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Tag Set renders correctly (prefilter) 1`] = `
+<jest>
+  <div
+    class="ecl-tag-set ecl-tag-set--prefilter"
+  >
+    <span
+      class="ecl-tag-set__label"
+    >
+      Tag set label
+    </span>
+    <ul
+      class="ecl-tag-set__list"
+    >
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href=""
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href=""
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href=""
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href=""
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag ecl-tag--prefilter"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+    </ul>
+  </div>
+</jest>
+`;
+
 exports[`Tag Set renders correctly 1`] = `
 <jest>
-  <ul
+  <div
     class="ecl-tag-set"
   >
-    <li
-      class="ecl-tag-set__item"
+    <span
+      class="ecl-tag-set__label"
     >
-      <a
-        class="ecl-tag"
-        href="/example"
-      >
-        Link tag
-      </a>
-    </li>
-    <li
-      class="ecl-tag-set__item"
+      Tag set label
+    </span>
+    <ul
+      class="ecl-tag-set__list"
     >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <a
+          class="ecl-tag"
+          href="/example"
         >
-          <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <a
-        class="ecl-tag"
-        href="/example"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Link tag
-      </a>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
-      >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <a
-        class="ecl-tag"
-        href="/example"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Link tag
-      </a>
-    </li>
-  </ul>
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
+        >
+          Tag label
+          <span
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+    </ul>
+  </div>
 </jest>
 `;
 
 exports[`Tag Set renders correctly with extra attributes 1`] = `
 <jest>
-  <ul
+  <div
     class="ecl-tag-set"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <li
-      class="ecl-tag-set__item"
+    <span
+      class="ecl-tag-set__label"
     >
-      <a
-        class="ecl-tag"
-        href="/example"
-      >
-        Link tag
-      </a>
-    </li>
-    <li
-      class="ecl-tag-set__item"
+      Tag set label
+    </span>
+    <ul
+      class="ecl-tag-set__list"
     >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <a
+          class="ecl-tag"
+          href="/example"
         >
-          <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <a
-        class="ecl-tag"
-        href="/example"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Link tag
-      </a>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
-      >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <a
-        class="ecl-tag"
-        href="/example"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Link tag
-      </a>
-    </li>
-  </ul>
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
+        >
+          Tag label
+          <span
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+    </ul>
+  </div>
 </jest>
 `;
 
 exports[`Tag Set renders correctly with extra class names 1`] = `
 <jest>
-  <ul
+  <div
     class="ecl-tag-set custom-class custom-class--test"
   >
-    <li
-      class="ecl-tag-set__item"
+    <span
+      class="ecl-tag-set__label"
     >
-      <a
-        class="ecl-tag"
-        href="/example"
-      >
-        Link tag
-      </a>
-    </li>
-    <li
-      class="ecl-tag-set__item"
+      Tag set label
+    </span>
+    <ul
+      class="ecl-tag-set__list"
     >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <a
+          class="ecl-tag"
+          href="/example"
         >
-          <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <a
-        class="ecl-tag"
-        href="/example"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Link tag
-      </a>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <button
-        class="ecl-tag ecl-tag--removable"
-        type="button"
-      >
-        Removable tag
-        <span
-          class="ecl-tag__icon"
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
         >
+          Tag label
           <span
-            aria-hidden="false"
-            class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
-            role="img"
-            title="Dismiss"
-          />
-        </span>
-      </button>
-    </li>
-    <li
-      class="ecl-tag-set__item"
-    >
-      <a
-        class="ecl-tag"
-        href="/example"
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
       >
-        Link tag
-      </a>
-    </li>
-  </ul>
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <button
+          class="ecl-tag ecl-tag--removable"
+          type="button"
+        >
+          Tag label
+          <span
+            class="ecl-tag__icon"
+          >
+            <span
+              aria-hidden="false"
+              class="wt-icon--close-outline ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon--close-outline"
+              role="img"
+              title="Dismiss"
+            />
+          </span>
+        </button>
+      </li>
+      <li
+        class="ecl-tag-set__item"
+      >
+        <a
+          class="ecl-tag"
+          href="/example"
+        >
+          Tag label
+        </a>
+      </li>
+    </ul>
+  </div>
 </jest>
 `;

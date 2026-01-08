@@ -14,6 +14,7 @@ import dataTextInput from '@ecl/text-input/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataButton from '@ecl/button/demo/data';
 import dataDatePicker from '@ecl/datepicker/demo/data';
+import dataTagPrefilter from '@ecl/tag/demo/data--set';
 
 const dataButtonPrimary = { ...dataButton, variant: 'primary' };
 const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
@@ -71,6 +72,9 @@ const dataDatePicker2 = {
   },
 };
 
+dataTagPrefilter.variant = 'prefilter';
+dataTagPrefilter.label = 'Quick access';
+
 const system = getSystem();
 
 const data = {
@@ -88,6 +92,7 @@ const data = {
   checkbox: dataCheckbox,
   button_primary: dataButtonPrimary,
   button_secondary: dataButtonSecondary,
+  tag_prefilter: dataTagPrefilter,
 };
 
 export default data;

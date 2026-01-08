@@ -16,6 +16,8 @@ npm install --save @ecl/tag
   - external: boolean (default: false) External icon for a tag with link
   - aria_label: (string) (default: '') (optional) aria label for removable tag as a string
   - nowrap: boolean (default: false) force the tag to stay on one line
+  - current: boolean (default: false) currently selected tag (for prefilter tags)
+  - disabled: boolean (default: false) disabled tag
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
