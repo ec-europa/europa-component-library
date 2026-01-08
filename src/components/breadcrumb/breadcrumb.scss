@@ -128,11 +128,27 @@ $breadcrumb: null !default;
   display: none;
 }
 
+// Show first link and icon on mobile when there are only 2 items (Home + Current Page)
+// stylelint-disable-next-line no-descending-specificity
+.ecl-breadcrumb__segment:first-of-type:nth-last-of-type(2) {
+  flex-direction: row-reverse;
+
+  .ecl-breadcrumb__link,
+  .ecl-breadcrumb__icon {
+    display: inline-flex;
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-breadcrumb__icon {
     margin-inline: map.get($breadcrumb, 'icon-spacing-desktop');
     transform: rotateZ(90deg);
+  }
+
+  // Reset flex-direction for 2-item breadcrumb on desktop
+  .ecl-breadcrumb__segment:first-of-type:nth-last-of-type(2) {
+    flex-direction: row;
   }
 
   .ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__link,
