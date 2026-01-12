@@ -40,8 +40,11 @@ $content-block: null !default;
   border-inline-end: 1px solid var(--cm-on-surface-brand, var(--c-p));
   color: map.get($content-block, 'primary-meta-color');
   display: inline;
-  margin-inline-end: var(--s-xs);
-  padding-inline-end: var(--s-xs);
+  margin-inline-end: map.get($content-block, 'primary-meta-item-margin-mobile');
+  padding-inline-end: map.get(
+    $content-block,
+    'primary-meta-item-margin-mobile'
+  );
   unicode-bidi: isolate;
 
   &:last-child {
@@ -202,6 +205,17 @@ $content-block: null !default;
 
   .ecl-content-block__primary-meta-container {
     margin-block-end: map.get($content-block, 'primary-meta-margin-tablet');
+  }
+
+  .ecl-content-block__primary-meta-item {
+    margin-inline-end: map.get(
+      $content-block,
+      'primary-meta-item-margin-tablet'
+    );
+    padding-inline-end: map.get(
+      $content-block,
+      'primary-meta-item-margin-tablet'
+    );
   }
 
   .ecl-content-block__title {
