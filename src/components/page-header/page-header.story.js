@@ -316,7 +316,7 @@ const prepareData = (data, args) => {
     clone.expandable = {
       toggle_label: args.toggle_label,
       header_content: args.header_content,
-      panel_content: args.panel_content,
+      panel_content: args.expandable ? args.panel_content : '',
     };
   } else {
     delete clone.expandable;
