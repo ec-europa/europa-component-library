@@ -57,6 +57,40 @@
 
 {# Print the result #}
 
+<div class="test-accordion">
+  {% if _items is not empty %}
+    {% for _item in _items %}
+      {% set _item_class = 'test-accordion__item' %}
+      {% if loop.first %}
+        {% set _item_class = _item_class ~ ' is-first'  %}
+      {% elseif loop.last %}
+        {% set _item_class = _item_class ~ ' is-last' %}
+      {% endif %}
+
+      <details class="{{ _item_class }}">
+        <summary class="test-accordion__toggle">
+          {{- _item.toggle.label -}}
+
+          {% for icon in _icons %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: icon|merge({
+                size: icon.size|default('s'),
+              }),
+              extra_classes: 'test-accordion__toggle-icon' ~ icon.extra_classes|default(''),
+            } only %}
+          {% endfor %}
+        </summary>
+        <div class="test-accordion__content">
+          {{- _item.content|default('') -}}
+        </div>
+      </details>
+
+    {% endfor %}
+  {% endif %}
+</div>
+
+<hr class="ecl-u-mv-3xl" />
+
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
