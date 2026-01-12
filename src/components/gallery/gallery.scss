@@ -48,30 +48,55 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__item-link {
   text-decoration: none;
+
+  .ecl-gallery:not(.ecl-gallery--no-overlay):hover & {
+    cursor: zoom-in;
+  }
+}
+
+.ecl-gallery__icon-zoom-wrapper {
+  align-items: center;
+  background: var(--c-w-600, rgb(255 255 255 / 0.6));
+  color: var(--cm-on-surface-brand, var(--c-d-140));
+  display: none;
+  justify-content: center;
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  border-radius: map.get($theme, 'border-radius', 's');
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+  z-index: 1;
+
+  &:dir(rtl) {
+    left: 0.25rem;
+    right: auto;
+  }
+}
+
+.ecl-gallery:not(.ecl-gallery--no-overlay)
+  .ecl-gallery__item-link:focus-visible
+  .ecl-gallery__icon-zoom-wrapper {
+  display: inline-flex;
 }
 
 .ecl-gallery__item-icon-wrapper {
-  background: var(--cm-on-surface-dark, var(--c-d));
-  box-shadow: 0 0 15px 6px
-    color-mix(
-      in srgb,
-      var(--cm-on-surface-neutral-highest, var(--c-d-80)) 55%,
-      transparent
-    );
-  display: inline-block;
+  align-items: center;
+  background: var(--c-w-600, rgb(255 255 255 / 0.6));
+  box-shadow: var(--sh-2);
+  color: var(--cm-on-surface-brand, var(--c-d-140));
+  display: inline-flex;
+  justify-content: center;
   position: absolute;
   left: 50%;
   top: 50%;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 1;
-}
-
-.ecl-gallery__item-icon {
-  transform: scale(1.2);
 }
 
 .ecl-gallery__image-container {
@@ -83,6 +108,7 @@ $_description-height-desktop: 108px;
   overflow: hidden;
 }
 
+// stylelint-disable-next-line no-descending-specificity
 .ecl-gallery__item-link:focus-visible {
   outline: none;
 
@@ -127,10 +153,9 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
-  bottom: 0;
+  bottom: -100%;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
-  display: none;
   font: map.get($gallery, 'description-font');
   left: 0;
   overflow: hidden;
@@ -148,14 +173,14 @@ $_description-height-desktop: 108px;
   .ecl-gallery__item-link:hover,
   .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
-      display: block;
+      bottom: 0;
     }
   }
 }
 
 .ecl-gallery__list .ecl-gallery__caption,
 .ecl-gallery__list .ecl-gallery__meta {
-  @include screen-reader.sr-only;
+  display: none;
 }
 
 .ecl-gallery__info {

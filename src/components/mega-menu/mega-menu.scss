@@ -12,7 +12,6 @@
 $theme: null !default;
 $mega-menu: null !default;
 
-/* stylelint-disable scss/dollar-variable-no-missing-interpolation */
 :root {
   --ecl-mega-menu-item-promotional-bg: #{map.get(
       $mega-menu,
@@ -50,7 +49,6 @@ $mega-menu: null !default;
       'promotional-item-focus-text-color'
     )};
 }
-/* stylelint-enable scss/dollar-variable-no-missing-interpolation */
 
 @mixin with-scrollbar {
   overflow-y: auto;
