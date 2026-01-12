@@ -144,15 +144,28 @@ export class Tabs {
       this.dropdownList = document.createElement('div');
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
-        const clone = item.cloneNode(true);
-        const cloneLink = clone.querySelector('a');
-        if (cloneLink && cloneLink.id) {
-          cloneLink.setAttribute('data-id', cloneLink.id);
-          cloneLink.removeAttribute('id');
+        const originalLink = queryOne('.ecl-link', item);
+        if (!originalLink) return;
+
+        const li = document.createElement('div');
+        li.className = 'ecl-tabs__item';
+
+        const a = document.createElement('a');
+        a.className = originalLink.className;
+        a.setAttribute('role', 'tab');
+        a.setAttribute('aria-selected', 'false');
+        a.href = originalLink.getAttribute('href');
+        // This will only copy text, not any markup used as the label of the link
+        a.textContent = originalLink.textContent?.trim() ?? '';
+
+        if (originalLink.id) {
+          a.dataset.id = originalLink.id;
         }
 
-        clone.addEventListener('click', this.handleClickOnTabs);
-        this.dropdownList.appendChild(clone);
+        li.appendChild(a);
+        li.addEventListener('click', this.handleClickOnTabs);
+
+        this.dropdownList.appendChild(li);
       });
       this.dropdown.appendChild(this.dropdownList);
       this.moreItem.appendChild(this.dropdown);
