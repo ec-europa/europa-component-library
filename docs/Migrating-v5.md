@@ -143,6 +143,7 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 ### Breadcrumb
 
 - Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
+- Breadcrumb links are no longer using the "standalone" variant (class `ecl-link--standalone`)
 
 ### Button
 
@@ -210,6 +211,11 @@ The markup is now using the custom element defined by duet js:
 - Icon for the invalid text has been changed to the outline one
 - The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo example have been updated in that sense. The parameter is still available in twig template, but left empy by default.
 
+### Gallery
+
+- New icon displayed when focusing an item (updated in the twig template).
+- Icon for the video updated to use `play` instead of `play-filled` (updated in the twig template)
+
 ### Icon
 
 ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools.
@@ -247,6 +253,7 @@ Extra attention points:
 
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
 - variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
+- new parameter `branded` added, to use an alternative display (using dark text instead of blue)
 
 ### List with illustration
 

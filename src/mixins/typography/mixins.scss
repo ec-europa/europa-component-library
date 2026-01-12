@@ -13,18 +13,34 @@ $typography: null !default;
     $ls: map.get($tier, 'letter-spacing');
 
     @if $size {
-      font-size: if($important, $size !important, $size);
+      @if $important {
+        font-size: $size !important;
+      } @else {
+        font-size: $size;
+      }
     }
 
     @if $lh {
-      line-height: if($important, $lh !important, $lh);
+      @if $important {
+        line-height: $lh !important;
+      } @else {
+        line-height: $lh;
+      }
     }
 
     @if $ls {
-      letter-spacing: if($important, $ls !important, $ls);
+      @if $important {
+        letter-spacing: $ls !important;
+      } @else {
+        letter-spacing: $ls;
+      }
     }
   } @else if meta.type-of($tier) == 'string' and string.index($tier, '--f-') {
-    font: if($important, $tier !important, $tier);
+    @if $important {
+      font: $tier !important;
+    } @else {
+      font: $tier;
+    }
   }
 }
 
@@ -32,7 +48,11 @@ $typography: null !default;
   $v: $map;
 
   @each $k in $keys {
-    $v: if(meta.type-of($v) == 'map', map.get($v, $k), null);
+    @if meta.type-of($v) == 'map' {
+      $v: map.get($v, $k);
+    } @else {
+      $v: null;
+    }
   }
 
   @return $v;
@@ -59,6 +79,7 @@ $font-breakpoints: (
   $container: ''
 ) {
   $token-map: null;
+  $base-token: null;
 
   @if meta.type-of($token) == 'map' {
     $token-map: $token;
@@ -80,8 +101,14 @@ $font-breakpoints: (
     } @else {
       // It is not a font, handle it
       $hyphen: string.index($token, '-');
-      $base-token: if($hyphen, string.slice($token, 1, $hyphen - 1), $token);
-      $variant: if($hyphen, string.slice($token, $hyphen + 1), null);
+      $variant: null;
+
+      @if $hyphen {
+        $base-token: string.slice($token, 1, $hyphen - 1);
+        $variant: string.slice($token, $hyphen + 1);
+      } @else {
+        $base-token: $token;
+      }
 
       @if $variant {
         $token-map: map-deep-get($typography, $base-token, $variant);
@@ -121,35 +148,32 @@ $font-breakpoints: (
     }
 
     $prev-tier: 'mobile-xs';
+    $previous: null;
+    $current: null;
 
     @each $tier, $bp-name in $font-breakpoints {
       @if map.has-key($token-map, $tier) {
-        $current: if(
-          map.has-key($token-map, $tier),
-          map.get($token-map, $tier),
-          null
-        );
-        $previous: if(
-          map.has-key($token-map, $prev-tier),
-          map.get($token-map, $prev-tier),
-          null
-        );
+        $current: map.get($token-map, $tier);
+      }
 
-        @if $current != $previous {
-          @if $container != '' {
-            // stylelint-disable-next-line container-name-pattern
-            @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
-              @include responsive-font-emit($current, $important);
-            }
-          } @else {
-            @include breakpoints.up($bp-name) {
-              @include responsive-font-emit($current, $important);
-            }
+      @if map.has-key($token-map, $prev-tier) {
+        $previous: map.get($token-map, $prev-tier);
+      }
+
+      @if $current != $previous {
+        @if $container != '' {
+          // stylelint-disable-next-line container-name-pattern
+          @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
+            @include responsive-font-emit($current, $important);
+          }
+        } @else {
+          @include breakpoints.up($bp-name) {
+            @include responsive-font-emit($current, $important);
           }
         }
-
-        $prev-tier: $tier;
       }
+
+      $prev-tier: $tier;
     }
   }
 }

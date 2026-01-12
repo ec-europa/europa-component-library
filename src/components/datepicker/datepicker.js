@@ -36,7 +36,9 @@ export class Datepicker {
       ...Datepicker.defaults.localization,
       ...localization,
     };
-    this.direction = 'ltr';
+
+    // Bind `this` for use in callbacks
+    this.normalizeDate = this.normalizeDate.bind(this);
   }
 
   /**
@@ -56,6 +58,7 @@ export class Datepicker {
     Datepicker.applyCustomizations = () => {
       this.picker = this.element.querySelector('duet-date-picker');
 
+      // Convert ISO 8601 format YYYY-MM-DD into EU format DD-MM-YYYY
       const DEFAULT_DATE_ADAPTER = {
         parse(value = '', createDate) {
           const DATE_FORMAT_EU = /^(\d{2})-(\d{2})-(\d{4})$/;
@@ -77,13 +80,24 @@ export class Datepicker {
       if (!this.picker.identifier) {
         this.picker.identifier = `ecl-datepicker-${Math.random().toString(36).substr(2, length)}`;
       }
+
       if (this.element.dataset.value) {
-        this.picker.value = this.element.dataset.value;
+        this.picker.value = this.normalizeDate(this.element.dataset.value);
       }
 
       this.picker.direction = this.direction === 'ltr' ? 'right' : 'left';
+
       this.picker.localization = this.localization;
-      this.picker.dateAdapter = this.format || DEFAULT_DATE_ADAPTER;
+
+      if (this.element.dataset.placeholder) {
+        this.picker.localization.placeholder = this.element.dataset.placeholder;
+      }
+
+      // Prevent errors if a simple string is used in this option
+      this.picker.dateAdapter =
+        this.format && typeof this.format === 'object'
+          ? this.format
+          : DEFAULT_DATE_ADAPTER;
     };
 
     setTimeout(Datepicker.applyCustomizations, 50);
@@ -93,6 +107,18 @@ export class Datepicker {
     ECL.components.set(this.element, this);
 
     return this.picker;
+  }
+
+  /**
+   * Normalize the default value when it contains extra info.
+   */
+  normalizeDate(value) {
+    if (typeof value !== 'string') return value;
+    const match = value.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (!match) return '';
+
+    // return YYYY-MM-DD
+    return `${match[1]}-${match[2]}-${match[3]}`;
   }
 
   /**

@@ -27,11 +27,11 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 ) {
   $n: list.index($breakpoint-names, $name);
 
-  @return if(
-    $n < list.length($breakpoint-names),
-    list.nth($breakpoint-names, $n + 1),
-    null
-  );
+  @if $n < list.length($breakpoint-names) {
+    @return list.nth($breakpoint-names, $n + 1);
+  }
+
+  @return null;
 }
 
 /* Minimum breakpoint width. Null for the smallest (first) breakpoint.
@@ -41,7 +41,11 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 @function ecl-min($name, $breakpoints: map.get($theme, 'breakpoint')) {
   $min: map.get($breakpoints, $name);
 
-  @return if($min != 0, $min, null);
+  @if $min != 0 {
+    @return $min;
+  }
+
+  @return null;
 }
 
 /* Maximum breakpoint width. Null for the largest (last) breakpoint.
@@ -53,7 +57,11 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 @function ecl-max($name, $breakpoints: map.get($theme, 'breakpoint')) {
   $next: next($name, $breakpoints);
 
-  @return if($next, ecl-min($next, $breakpoints) - 1px, null);
+  @if $next {
+    @return ecl-min($next, $breakpoints) - 1px;
+  }
+
+  @return null;
 }
 
 /* Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
@@ -65,7 +73,11 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
     "-s"
 */
 @function infix($name, $breakpoints: map.get($theme, 'breakpoint')) {
-  @return if(ecl-min($name, $breakpoints) == null, '', '-#{$name}');
+  @if ecl-min($name, $breakpoints) {
+    @return '-#{$name}';
+  } @else {
+    @return '';
+  }
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
@@ -106,7 +118,6 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
   }
 }
 
-// Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
 @mixin between($lower, $upper, $breakpoints: map.get($theme, 'breakpoint')) {
   @include up($lower, $breakpoints) {
