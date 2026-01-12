@@ -368,10 +368,8 @@ $inpage-navigation: null !default;
   }
 }
 
-.inpage-navigation__heading--active {
-  &:focus-visible {
-    outline: 2px var(--cm-border-primary, var(--c-p)) solid;
-  }
+.inpage-navigation__heading:focus-visible {
+  outline: none;
 }
 
 /* stylelint-disable-next-line order/order */

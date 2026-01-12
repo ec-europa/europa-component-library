@@ -2,7 +2,6 @@ import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
-import { createFocusTrap } from 'focus-trap';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -104,7 +103,7 @@ export class InpageNavigation {
     this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.initScrollSpy = this.initScrollSpy.bind(this);
@@ -347,6 +346,7 @@ export class InpageNavigation {
 
       if (targetEl) {
         targetEl.setAttribute('tabindex', '-1');
+        targetEl.classList.add('inpage-navigation__heading');
         this.navLinksMap.set(link, targetEl);
       }
     });
@@ -363,14 +363,8 @@ export class InpageNavigation {
     this.initScrollSpy();
     this.initObserver();
 
-    // Create focus trap
-    this.focusTrap = createFocusTrap(this.element, {
-      onActivate: () => this.openList(),
-      onDeactivate: () => this.closeList(),
-    });
-
     if (this.attachClickListener && this.toggleElement) {
-      this.toggleElement.addEventListener('click', this.handleClickOnToggler);
+      this.toggleElement.addEventListener('click', this.handleClickOnToggle);
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -383,7 +377,7 @@ export class InpageNavigation {
         link.addEventListener('click', this.handleClickOnLink),
       );
       this.element.addEventListener('keydown', this.handleShiftTab);
-      this.toggleElement.addEventListener('click', this.handleClickOnToggler);
+      this.toggleElement.addEventListener('click', this.handleClickOnToggle);
     }
 
     if (this.attachKeyListener) {
@@ -486,7 +480,7 @@ export class InpageNavigation {
    *
    * @param {Event} e
    */
-  handleClickOnToggler(e) {
+  handleClickOnToggle(e) {
     e.preventDefault();
 
     if (this.toggleElement) {
@@ -500,16 +494,21 @@ export class InpageNavigation {
         this.isExpanded ? 'false' : 'true',
       );
       if (this.isExpanded) {
-        // Untrap focus
-        this.focusTrap.deactivate();
+        this.closeList();
+        this.toggleElement.focus();
       } else {
         this.setListHeight();
-        // Trap focus
-        this.focusTrap.activate();
+        this.openList();
 
-        // Focus first item
         if (this.navLinks && this.navLinks.length > 0) {
-          this.navLinks[0].focus();
+          const activeEl = queryOne(`.${this.spyClass}`, this.element);
+          if (activeEl) {
+            // If there is an active element set focus on it
+            activeEl.firstElementChild.focus();
+          } else {
+            // Otherwise set it on the first link.
+            this.navLinks[0].focus();
+          }
         }
       }
 
@@ -524,8 +523,7 @@ export class InpageNavigation {
    */
   handleClickOnLink(e) {
     const targetEl = this.navLinksMap.get(e.target);
-    // Untrap focus
-    this.focusTrap.deactivate();
+    this.closeList();
     // Set the focus on the target
     if (targetEl) {
       targetEl.focus();
@@ -554,10 +552,25 @@ export class InpageNavigation {
   handleKeyboard(e) {
     const element = e.target;
 
+    // When pressing Esc close the inpage
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      this.handleClickOnToggle(e);
+    }
+
+    // When using Tab close the inpage if moving the focus out of it
+    if (e.key === 'Tab') {
+      if (element === this.navLinks.at(-1)) {
+        this.closeList();
+      }
+    }
+
+    // When using arrow keys, make them loop around the list of items, as in
+    // https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (element === this.navLinks[0]) {
-        this.handleClickOnToggler(e);
+        this.navLinks.at(-1).focus();
       } else {
         const prevItem = element.parentElement.previousSibling;
         if (
@@ -575,7 +588,7 @@ export class InpageNavigation {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (element === this.toggleElement) {
-        this.handleClickOnToggler(e);
+        this.handleClickOnToggle(e);
       } else {
         const nextItem = element.parentElement.nextSibling;
         if (
@@ -586,6 +599,8 @@ export class InpageNavigation {
           if (nextLink) {
             nextLink.focus();
           }
+        } else {
+          this.navLinks[0].focus();
         }
       }
     }
@@ -596,10 +611,7 @@ export class InpageNavigation {
    */
   destroy() {
     if (this.attachClickListener && this.toggleElement) {
-      this.toggleElement.removeEventListener(
-        'click',
-        this.handleClickOnToggler,
-      );
+      this.toggleElement.removeEventListener('click', this.handleClickOnToggle);
     }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>
