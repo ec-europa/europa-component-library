@@ -207,20 +207,28 @@ $featured-item: null !default;
     .ecl-link--primary,
     .ecl-link--secondary
   ) {
-    color: map.get($featured-item, 'highlight', 'link', 'color');
+    --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
+    --ecl-link-color-hover: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+    --ecl-link-color-active: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+    --ecl-focus-outline-color: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+
     text-align: start;
     text-decoration: underline;
-
-    &:hover,
-    &:focus-visible,
-    &:active,
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'link', 'color');
-    }
-
-    &:focus-visible {
-      outline-color: map.get($featured-item, 'highlight', 'link', 'color');
-    }
   }
 
   // Highlighted link
@@ -241,13 +249,37 @@ $featured-item: null !default;
 
     // stylelint-disable-next-line no-descending-specificity
     .ecl-featured-item__link {
+      --ecl-link-color: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+      --ecl-link-color-hover: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+      --ecl-link-color-active: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+      --ecl-focus-outline-color: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+
       background-color: map.get(
         $featured-item,
         'highlight',
         'link',
         'background-color'
       );
-      color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
       display: block;
       margin-block-end: calc(
         -1 *
@@ -277,29 +309,11 @@ $featured-item: null !default;
       text-decoration: none;
 
       &:hover,
-      &:focus-visible,
-      &:active,
-      &:visited {
-        color: map.get(
-          $featured-item,
-          'highlight',
-          'link',
-          'color-highlighted'
-        );
-      }
-
-      &:hover,
       &:active {
         text-decoration: underline;
       }
 
       &:focus-visible {
-        outline-color: map.get(
-          $featured-item,
-          'highlight',
-          'link',
-          'color-highlighted'
-        );
         outline-offset: -4px;
       }
 
