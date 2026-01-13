@@ -59,7 +59,7 @@ $button-width: 44px;
   flex-shrink: 0;
   margin-inline-end: map.get($tabs, 'item', 'margin-end');
 
-  &:last-child {
+  &:nth-last-child(2):not(.ecl-tabs__item--more) {
     margin-inline-end: 0;
   }
 }
