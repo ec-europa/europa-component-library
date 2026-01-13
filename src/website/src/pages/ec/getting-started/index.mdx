@@ -66,12 +66,24 @@ https://cdn{1,2,3,4}.fpfis.tech.ec.europa.eu/ecl/v{version}/ec/{path-to-asset}
 
 Example:
 
-<a
-  className="ecl-link"
-  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/styles/ecl-ec.css`}
->
-  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/styles/ecl-ec.css`}
-</a>
+<ul>
+  <li>
+    <a
+      className="ecl-link"
+      href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/ecl-ec.css`}
+    >
+      {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/ecl-ec.css`}
+    </a>
+  </li>
+  <li>
+    <a
+      className="ecl-link"
+      href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/scripts/ecl-esm-ec.js`}
+    >
+      {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/scripts/ecl-esm-ec.js`}
+    </a>
+  </li>
+</ul>
 
 **Important**: When using the CDN, always include **Subresource Integrity (SRI)** hashes for security. These can be found in the [release notes](https://github.com/ec-europa/europa-component-library/releases) for each version.
 
@@ -93,6 +105,25 @@ Example:
     </li>
   </ul>
 </details>
+
+```html
+<!-- CSS -->
+<link
+  rel="stylesheet"
+  href="path-to-ecl-ec.css"
+  integrity="sha256-... sha384-... sha512-..."
+  crossorigin="anonymous"
+  media="screen"
+/>
+
+<!-- JavaScript -->
+<script
+  type="module"
+  src="path-to-ecl-esm-ec.js"
+  integrity="sha256-... sha384-... sha512-..."
+  crossorigin="anonymous"
+></script>
+```
 
 **Note**: While the CDN is convenient, **hosting ECL resources on your own domain is recommended** for better performance, reduced network dependencies, and to avoid cross-origin issues with SVG assets.
 
@@ -140,7 +171,7 @@ Once you have the ECL preset, integrate it into your HTML pages:
     <!-- Your page content here -->
 
     <!-- ECL JavaScript -->
-    <script src="/scripts/ecl-ec.js"></script>
+    <script type="module" src="/scripts/ecl-esm-ec.js"></script>
     <script>
       ECL.autoInit();
     </script>
@@ -152,8 +183,7 @@ Once you have the ECL preset, integrate it into your HTML pages:
 
 - Adjust file paths based on where you've placed the preset files in your project
 - The `no-js` / `has-js` class toggle enables CSS to adapt based on JavaScript availability
-- The example uses the IIFE (Immediately Invoked Function Expression) JavaScript bundle. For modern module-based projects, use `<script type="module" src="/scripts/ecl-esm-ec.js"></script>` instead
-- The `ECL` object is globally available (on `window` or `globalThis`)
+- The `ECL` object is globally available (on `window`)
 
 ---
 
@@ -161,21 +191,21 @@ Once you have the ECL preset, integrate it into your HTML pages:
 
 ECL provides several optional CSS files in the `styles/optional/` directory. **These must be included before the main ECL stylesheet** if you choose to use them:
 
-#### `ecl-reset.css`
+#### ecl-reset.css
 
 Provides CSS reset rules based on normalize.css with Commission-specific additions. Recommended for new projects to ensure consistent cross-browser styling.
 
-#### `ecl-ec-default.css`
+#### ecl-ec-default.css
 
 Applies ECL styling to standard HTML elements (links, buttons, tables, etc.) without requiring specific classes. Useful for content-heavy sites, but **the recommended approach is to use ECL classes explicitly** for better control.
 
 A corresponding print stylesheet `ecl-ec-default-print.css` is also available.
 
-#### `ecl-ec-utilities.css`
+#### ecl-ec-utilities.css
 
 Contains utility classes for spacing, typography, display, and more. Useful for quick styling adjustments without writing custom CSS.
 
-#### `ecl-ec-color-modes.css`
+#### ecl-ec-color-modes.css
 
 Contains CSS definitions for the color modes system, enabling theme variations and customization. See the <Link to="/ec/guidelines/colours/" label="Colours documentation" /> for more information.
 
@@ -324,10 +354,10 @@ To integrate ECL components in your pages:
 For server-side rendering, ECL provides **Twig templates** for all components, available on npm:
 
 ```bash
-npm install @ecl/twig-component-{component-name}
+npm install @ecl/{component-name}.html.twig
 ```
 
-Browse available templates at [npmjs.com/org/ecl](https://www.npmjs.com/org/ecl).
+Browse available packages on [npm](https://www.npmjs.com/org/ecl).
 
 ### Logo and Asset Paths
 
@@ -341,29 +371,6 @@ Ensure logos and other assets load correctly by verifying file paths. Assets are
 - **Accessibility testing**: Validate your implementation with screen readers and automated accessibility tools
 - **Cross-browser testing**: Verify functionality across different browsers and devices
 - **Performance**: Optimize asset loading (compression, caching, lazy loading where appropriate)
-
----
-
-## Advanced Usage
-
-### Individual Component Packages
-
-While presets are the easiest way to get started, ECL also publishes individual packages for each component, tool, and resource. This is useful for:
-
-- Custom builds with only the components you need
-- Rebuilding ECL with modified theme variables
-- Integrating specific components into existing design systems
-
-Each release includes a complete package list in the [release notes](https://github.com/ec-europa/europa-component-library/releases).
-
-**Package categories**:
-
-- **Presets**: `@ecl/preset-ec` (complete bundle)
-- **Components**: `@ecl/{component-name}` (individual components with CSS, JS, Twig)
-- **Resources**: `@ecl/resources-ec-{name}` (logos, etc.)
-- **Tools**: `@ecl/builder`, `@ecl/dom-utils`, etc.
-
-For most projects, using the preset is recommended unless you have specific customization needs.
 
 ---
 

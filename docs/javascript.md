@@ -6,35 +6,11 @@ Components do not depend on jQuery and provide consistent APIs which can be mana
 
 ## How to use
 
-There are two ways to use ECL JavaScript: via global IIFE bundle or ESM imports.
+There are two export of ECL JavaScript: one in common js, the other in ESM.
 
-### Option 1: Global IIFE (Browser)
+In both cases those are meant to be used by the browser with a script tag (the only difference is that you have to use type="module" for the ESM script). Once loaded, an `ECL` object will be available in the window.
 
-Include the JavaScript file of `ecl-ec.js` or `ecl-eu.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
-
-```html
-<script src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.18/ec/scripts/ecl-ec.js"></script>
-```
-
-This creates a global `ECL` object which contains the components' factory functions.
-
-![ECL library in your browser's console](./assets/ECLjs.png)
-
-### Option 2: ESM (Modern JavaScript)
-
-Install the preset via npm and import only what you need:
-
-```bash
-npm install @ecl/preset-ec
-```
-
-```javascript
-// Import specific components
-import { Accordion, Modal } from '@ecl/preset-ec';
-
-// Or import autoInit utility
-import { autoInit } from '@ecl/preset-ec';
-```
+We recommend the use of the ESM one which is also the one we use in storybook.
 
 ## Version in use
 
@@ -48,29 +24,9 @@ Each component contains `.init()` and `.destroy()` methods.
 
 The simplest approach is to use the `.autoInit()` method which automatically initializes all components on the page:
 
-**Global IIFE:**
-
-```js
-document.addEventListener('DOMContentLoaded', function () {
-  ECL.autoInit();
-});
-```
-
-**ESM:**
-
-```javascript
-import { autoInit } from '@ecl/preset-ec';
-
-document.addEventListener('DOMContentLoaded', () => {
-  autoInit();
-});
-```
-
 ### Manual initialization
 
 You can also manually initialize individual components:
-
-**Global IIFE:**
 
 ```js
 const element = document.querySelector('[data-ecl-accordion]');
@@ -78,39 +34,7 @@ const accordion = new ECL.Accordion(element);
 accordion.init();
 ```
 
-**ESM:**
-
-```javascript
-import { Accordion } from '@ecl/preset-ec';
-
-const element = document.querySelector('[data-ecl-accordion]');
-const accordion = new Accordion(element);
-accordion.init();
-```
-
-### Retrieving instances
-
-All component instances are stored in a global Map and can be retrieved:
-
-**Global IIFE:**
-
-```js
-const element = document.querySelector('[data-ecl-accordion]');
-const instance = ECL.components.get(element);
-```
-
-**ESM:**
-
-```javascript
-import { components } from '@ecl/preset-ec';
-
-const element = document.querySelector('[data-ecl-accordion]');
-const instance = components.get(element);
-```
-
-### Destroying components
-
-Always clean up component instances when they're no longer needed:
+If the component is manually initialized, make sure to also clean up component instances when they're no longer needed:
 
 ```javascript
 instance.destroy();
@@ -149,13 +73,6 @@ accordion.on('onClose', (event) => {
   console.log('Accordion closed', event);
 });
 ```
-
-**Available events** vary by component. Common events include:
-
-- `onInit` - Component initialized
-- `onOpen` - Component opened (modals, accordions, etc.)
-- `onClose` - Component closed
-- `onDestroy` - Component destroyed
 
 ## Component API Reference
 

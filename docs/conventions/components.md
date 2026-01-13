@@ -61,7 +61,6 @@ export const Primary = () => /* ... */;
 Each component should have a `.test.js` file with:
 
 - **Snapshot tests**: Ensure HTML output remains consistent
-- **Unit tests**: Test JavaScript behavior (if component has `.js` file)
 - **Accessibility tests**: Basic axe-core checks (automatically included)
 
 Run tests with:
