@@ -1,6 +1,6 @@
 # Linting
 
-ECL uses [ESLint](https://eslint.org/) to ensure standardization within JavaScript and JSX files within this repository.
+ECL uses [ESLint](https://eslint.org/) to ensure standardization within JavaScript and JSX code within this repository.
 
 Please refer to the [getting started](https://eslint.org/docs/user-guide/getting-started) page to familiarize yourself with the fundamentals of this static analysis tool.
 
