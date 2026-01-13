@@ -51,19 +51,39 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
 function HTMLMarkup({ active, markup, originalMarkup }) {
   const [activeTab, setActiveTab] = useState('source');
 
-  const beautifyHtml = (html) => {
+  const beautifyHtml = (html, options = {}) => {
     return beautify(html, {
       indent_size: 2,
-      max_preserve_newlines: -1,
-      preserve_newlines: false,
+      indent_char: ' ',
+      max_preserve_newlines: 1,
+      preserve_newlines: true,
       indent_scripts: 'normal',
+      end_with_newline: false,
+      wrap_line_length: 0,
+      wrap_attributes: 'auto',
+      wrap_attributes_indent_size: 2,
+      indent_inner_html: true,
+      unformatted: [],
+      content_unformatted: ['pre', 'textarea'],
+      extra_liners: [],
+      ...options,
     });
   };
 
-  const beautifiedRendered = beautifyHtml(markup);
+  // For rendered HTML with SVG icons, apply more aggressive formatting
+  const beautifiedRendered = beautifyHtml(markup, {
+    unformatted: [],
+    inline: [],
+  });
   const unescapedRendered = decode(beautifiedRendered);
 
-  const beautifiedOriginal = originalMarkup ? beautifyHtml(originalMarkup) : '';
+  // For original source HTML, also force block-level formatting for consistent output
+  const beautifiedOriginal = originalMarkup
+    ? beautifyHtml(originalMarkup, {
+        unformatted: [],
+        inline: [],
+      })
+    : '';
   const unescapedOriginal = originalMarkup ? decode(beautifiedOriginal) : '';
 
   const currentCode =
