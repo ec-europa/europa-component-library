@@ -37,6 +37,7 @@ accordion.init();
 If the component is manually initialized, make sure to also clean up component instances when they're no longer needed:
 
 ```javascript
+const instance = ECL.components.get('yourHtmlElement');
 instance.destroy();
 instance.init(); // Re-initialize if needed
 ```
