@@ -1,4 +1,4 @@
-import { queryAll, queryOne } from '@ecl/dom-utils';
+import { queryAll, queryOne, handleScroll } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -187,6 +187,9 @@ export class Modal {
       this.element.setAttribute('open', '');
     }
 
+    // Lock body scroll
+    handleScroll(true);
+
     // Check scroll
     this.checkScroll();
 
@@ -203,6 +206,9 @@ export class Modal {
     } else {
       this.element.removeAttribute('open');
     }
+
+    // Unock body scroll
+    handleScroll();
 
     // Untrap focus
     if (this.focusTrap.active) {

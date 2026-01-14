@@ -32,3 +32,28 @@ export const styled = (stylesObject) =>
       return `${key}:${stylesObject[prop]}`;
     })
     .join(';');
+
+let scrollY = 0;
+
+/**
+ * @param {boolean} Lock/Unlock
+ */
+export const handleScroll = (lock, context = document) => {
+  if (lock) {
+    scrollY = window.scrollY;
+
+    context.body.style.position = 'fixed';
+    context.body.style.top = `-${scrollY}px`;
+    context.body.style.left = '0';
+    context.body.style.right = '0';
+    context.body.style.width = '100%';
+  } else {
+    context.body.style.position = '';
+    context.body.style.top = '';
+    context.body.style.left = '';
+    context.body.style.right = '';
+    context.body.style.width = '';
+
+    window.scrollTo(0, scrollY);
+  }
+};
