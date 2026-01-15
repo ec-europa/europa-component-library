@@ -87,7 +87,7 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
   const unescapedOriginal = originalMarkup ? decode(beautifiedOriginal) : '';
 
   const currentCode =
-    activeTab === 'source' ? unescapedOriginal : unescapedRendered;
+    activeTab === 'source' ? beautifiedOriginal : beautifiedRendered;
   const hasOriginal = originalMarkup && originalMarkup.trim() !== '';
 
   return active ? (
@@ -138,7 +138,7 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
         </TabBar>
       )}
       <StyledSyntaxHighlighter bordered copyable format={false} language="html">
-        {hasOriginal ? currentCode : unescapedRendered}
+        {hasOriginal ? currentCode : beautifiedRendered}
       </StyledSyntaxHighlighter>
     </DocumentWrapper>
   ) : null;
