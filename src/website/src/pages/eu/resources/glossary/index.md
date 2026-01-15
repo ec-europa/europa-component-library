@@ -10,10 +10,6 @@ Web accessibility is a set of design and development guidelines used for designi
 
 Components are reusable building blocks necessary to design a website. For example: breadcrumbs, buttons, lists, and paginations.
 
-## Content Type
-
-A content type is a reusable template in a Content Management System (CMS). It allows you to add content to their website in a structured and consistent way. Fields available in a given content type are defined according to what research and analysis have identified as commonly needed.
-
 ## Design System
 
 A design system is a library of visual guidelines and reusable components for developers and designers to create websites.
