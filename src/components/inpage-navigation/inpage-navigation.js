@@ -59,14 +59,14 @@ export class InpageNavigation {
       toggleSelector = '[data-ecl-inpage-navigation-trigger]',
       linksSelector = '[data-ecl-inpage-navigation-link]',
       spyActiveContainer = 'ecl-inpage-navigation--visible',
-      spyOffset = 20,
+      spyOffset = 80,
       spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       attachResizeListener = true,
       attachScrollListener = true,
       attachKeyListener = true,
-      contentClass = 'inpage-navigation__heading--active',
+      contentClass = 'ecl-inpage-navigation__heading--active',
     } = {},
   ) {
     // Check element
@@ -346,7 +346,7 @@ export class InpageNavigation {
 
       if (targetEl) {
         targetEl.setAttribute('tabindex', '-1');
-        targetEl.classList.add('inpage-navigation__heading');
+        targetEl.classList.add('ecl-inpage-navigation__heading');
         this.navLinksMap.set(link, targetEl);
       }
     });
@@ -588,7 +588,14 @@ export class InpageNavigation {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (element === this.toggleElement) {
-        this.handleClickOnToggle(e);
+        const activeEl = this.navLinks.find((link) =>
+          link.parentElement.classList.contains(this.spyClass),
+        );
+        if (activeEl) {
+          this.navLinksMap.get(activeEl).focus();
+        } else {
+          [...this.navLinksMap.values()][0].focus();
+        }
       } else {
         const nextItem = element.parentElement.nextSibling;
         if (
