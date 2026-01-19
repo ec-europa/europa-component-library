@@ -1,11 +1,18 @@
+import { withNotes } from '@ecl/storybook-addon-notes';
 import { loremIpsum } from 'lorem-ipsum';
 import withCode from '@ecl/storybook-addon-code';
+
+import notes from './README.md';
 
 const loremBefore = loremIpsum({ count: 10 });
 const loremAfter = loremIpsum({ count: 10 });
 
+const dataDefault = {
+  content: 'Tooltip content, wrapping on multiple lines',
+};
+
 const getArgs = () => ({
-  content: 'Tooltip content, wraping on multiple lines',
+  content: dataDefault.content,
 });
 
 const getArgTypes = () => ({
@@ -21,10 +28,12 @@ const getArgTypes = () => ({
 
 export default {
   title: 'Components/Tooltip',
-  decorators: [withCode],
+  decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => `
+export const Default = (_, { loaded: { component } }) => component;
+
+Default.render = async (args) => `
     <p class="ecl-u-type-paragraph-m ecl-u-mt-none">
       ${loremBefore}
       <span class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline">
@@ -37,3 +46,6 @@ export const Default = (args) => `
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
+};
