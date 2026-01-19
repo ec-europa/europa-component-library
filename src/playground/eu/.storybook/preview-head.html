@@ -43,6 +43,11 @@
 
   document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
+      // Add autoinit for specific components
+      document
+        .getElementById('storybook-root')
+        .setAttribute('data-ecl-auto-init', 'Tooltip');
+
       runOnPageChange();
       const callback = function (mutationsList) {
         for (let i = 0, len = mutationsList.length; i < len; i++) {

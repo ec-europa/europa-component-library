@@ -29,6 +29,7 @@ import SiteHeader from '@ecl/site-header';
 import Table from '@ecl/table';
 import Tabs from '@ecl/tabs';
 import Timeline from '@ecl/timeline';
+import Tooltip from '@ecl/tooltip';
 
 const ECL = {
   autoInit,
@@ -60,6 +61,7 @@ const ECL = {
   Tabs,
   Table,
   Timeline,
+  Tooltip,
 };
 
 export { ECL };
