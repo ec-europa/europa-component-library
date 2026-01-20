@@ -131,6 +131,17 @@ export const loaders = [
   async ({ args, originalStoryFn }) => {
     if (originalStoryFn.render) {
       const component = await originalStoryFn.render(args);
+
+      // Store the original HTML (before icon replacement) for the HTML addon
+      if (typeof component === 'string') {
+        setTimeout(() => {
+          const rootDiv = document.querySelector('#storybook-root');
+          if (rootDiv) {
+            rootDiv.setAttribute('data-original-markup', component);
+          }
+        }, 0);
+      }
+
       return { component };
     }
   },

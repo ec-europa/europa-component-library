@@ -420,9 +420,15 @@ export class Tabs {
       newOffset = Math.ceil(this.listItems[this.index].offsetLeft);
     }
 
+    // Calculate available width, accounting for the right button width
+    // Note: left button doesn't reduce width due to negative margin on list
+    let availableWidth = this.element.getBoundingClientRect().width;
+    if (this.container.classList.contains('ecl-tabs__container--right')) {
+      availableWidth -= this.buttonNextSize;
+    }
+
     const maxScroll = Math.ceil(
-      this.list.getBoundingClientRect().width -
-        this.element.getBoundingClientRect().width,
+      this.list.getBoundingClientRect().width - availableWidth,
     );
 
     if (newOffset > maxScroll) {
