@@ -4,16 +4,25 @@
 
 .h1 {
   color: var(--ws-c-d);
-  font: var(--ws-f-3xl);
+  font: var(--ws-f-4xl);
   margin: 0;
   padding: 0;
+
+  @media screen and (width >= 768px) {
+    font: var(--ws-f-5xl);
+  }
+}
+
+.h2 {
+  color: var(--ws-c-d);
+  font: var(--ws-f-3xl);
 
   @media screen and (width >= 768px) {
     font: var(--ws-f-4xl);
   }
 }
 
-.h2 {
+.h3 {
   color: var(--ws-c-d);
   font: var(--ws-f-2xl);
 
@@ -22,21 +31,12 @@
   }
 }
 
-.h3 {
+.h4 {
   color: var(--ws-c-d);
   font: var(--ws-f-xl);
 
   @media screen and (width >= 768px) {
     font: var(--ws-f-2xl);
-  }
-}
-
-.h4 {
-  color: var(--ws-c-d);
-  font: var(--ws-f-l);
-
-  @media screen and (width >= 768px) {
-    font: var(--ws-f-xl);
   }
 }
 
