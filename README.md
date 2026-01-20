@@ -17,11 +17,19 @@ ECL is currently using **node 22.12.0 (LTS)**, we recommend using this version (
 
 ## Documentation
 
-Read the technical documentation [on GitHub](docs/README.md).
+**📚 [Complete Documentation](docs/README.md)** - Full technical documentation
 
-## Migrate from v4
+**Quick links:**
 
-Read the technical documentation [on GitHub](docs/Migrating-v5.md).
+- 🚀 [Getting Started](docs/developers-start-here.md) - Setup, commands, and development workflow
+- 📦 [Using Presets](docs/presets.md) - NPM, CDN, and installation guide
+- 💻 [JavaScript Guide](docs/javascript.md) - ESM, IIFE, events, and API
+- 🎨 [ECL Structure](docs/ecl-structure.md) - Project architecture and organization
+- ♿ [Accessibility](docs/accessibility.md) - WCAG compliance guidelines
+
+**Migration:**
+
+- 🔄 [Migrating from v4 to v5](docs/Migrating-v5.md)
 
 ## Quick start
 
