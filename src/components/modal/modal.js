@@ -56,6 +56,7 @@ export class Modal {
     this.close = null;
     this.scroll = null;
     this.focusTrap = null;
+    this.previousOverflow = null;
 
     // Bind `this` for use in callbacks
     this.openModal = this.openModal.bind(this);
@@ -188,7 +189,8 @@ export class Modal {
     }
 
     // Lock body scroll
-    document.body.classList.add('ecl-u-disablescroll');
+    this.previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
     // Check scroll
     this.checkScroll();
@@ -208,7 +210,7 @@ export class Modal {
     }
 
     // Unock body scroll
-    document.body.classList.remove('ecl-u-disablescroll');
+    document.body.style.overflow = this.previousOverflow;
 
     // Untrap focus
     if (this.focusTrap.active) {
