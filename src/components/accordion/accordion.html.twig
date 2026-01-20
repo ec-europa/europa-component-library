@@ -14,6 +14,7 @@
       ...
     ]
     - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
+    - "name" (string) (default: '') Optional name to link multiple accordion items
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -29,6 +30,7 @@
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
+{% set _name = name|default('') %}
 {% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
 
 {% if _icons|length == 1 and _icons[0].name == 'plus' %}
@@ -67,7 +69,12 @@
         {% set _item_class = _item_class ~ ' is-last' %}
       {% endif %}
 
-      <details class="{{ _item_class }}">
+      <details 
+        class="{{ _item_class }}"
+        {% if _name is not empty %}
+          name="{{ _name }}"
+        {% endif %}
+        >
         <summary class="test-accordion__toggle">
           {{- _item.toggle.label -}}
 
