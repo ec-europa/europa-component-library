@@ -59,10 +59,13 @@
 
 {# Print the result #}
 
-<div class="test-accordion">
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% if _items is not empty %}
     {% for _item in _items %}
-      {% set _item_class = 'test-accordion__item' %}
+      {% set _item_class = 'ecl-accordion__item' %}
       {% if loop.first %}
         {% set _item_class = _item_class ~ ' is-first'  %}
       {% elseif loop.last %}
@@ -75,7 +78,7 @@
           name="{{ _name }}"
         {% endif %}
         >
-        <summary class="test-accordion__toggle">
+        <summary class="ecl-accordion__toggle">
           {{- _item.toggle.label -}}
 
           {% for icon in _icons %}
@@ -83,73 +86,15 @@
               icon: icon|merge({
                 size: icon.size|default('s'),
               }),
-              extra_classes: 'test-accordion__toggle-icon' ~ icon.extra_classes|default(''),
+              extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
             } only %}
           {% endfor %}
         </summary>
-        <div class="test-accordion__content">
+        <div class="ecl-accordion__content">
           {{- _item.content|default('') -}}
         </div>
       </details>
 
-    {% endfor %}
-  {% endif %}
-</div>
-
-<hr class="ecl-u-mv-3xl" />
-
-<div
-  class="{{ _css_class }}"
-  {{ _extra_attributes|raw }}
-  data-ecl-accordion
->
-  {% if _items is not empty %}
-    {% for _item in _items %}
-      {% set _item_class = 'ecl-accordion__item' %}
-      {% if loop.first %}
-        {% set _item_class = _item_class ~ ' is-first'  %}
-      {% elseif loop.last %}
-        {% set _item_class = _item_class ~ ' is-last' %}
-      {% endif %}
-      <div class="{{ _item_class }}">
-        <div class="ecl-accordion__title" id="{{ _item.id }}-title">
-          <button
-            type="button"
-            class="ecl-accordion__toggle"
-            data-ecl-accordion-toggle
-            aria-controls="{{ _item.id }}-content"
-            aria-expanded="false"
-          >
-            <span class="ecl-accordion__toggle-flex">
-              <span class="ecl-accordion__toggle-title">
-                {{- _item.toggle.label -}}
-              </span>
-              <span class="ecl-accordion__toggle-indicator">
-              {% for icon in _icons %}
-                {% include '@ecl/icon/icon.html.twig' with {
-                  icon: icon|merge({
-                    size: icon.size|default('s'),
-                  }),
-                  extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
-                  extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),
-                } only %}
-              {% endfor %}
-              </span>
-              
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-accordion__content"
-          hidden
-          id="{{ _item.id }}-content"
-          role="region"
-          aria-labelledby="{{ _item.id }}-title"
-        >
-          {%- set _content = _item.content|default('') %}
-          {%- block content _content -%}
-        </div>
-      </div>
     {% endfor %}
   {% endif %}
 </div>

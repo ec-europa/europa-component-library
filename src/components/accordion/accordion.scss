@@ -16,30 +16,42 @@ $accordion: null !default;
 }
 
 .ecl-accordion__toggle {
-  background-color: transparent;
-  border: none;
+  align-items: flex-start;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
-  display: block;
+  display: flex;
+  flex-direction: row;
   font: var(--f-m);
   font-weight: map.get($accordion, 'title-font-weight');
+  justify-content: space-between;
   padding: map.get($accordion, 'item-padding');
-  position: relative;
-  text-align: start;
-  width: 100%;
 
   &:hover {
     background-color: map.get($accordion, 'item-background-hover');
   }
 
-  &[aria-expanded='true'] {
-    padding: map.get($accordion, 'item-padding-expanded');
+  &:focus-visible {
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
+    outline-offset: -2px;
   }
 }
 
-.ecl-accordion__toggle:focus-visible {
-  outline: 2px solid var(--cm-border-primary, var(--c-p));
-  outline-offset: -2px;
+.ecl-accordion__toggle-icon {
+  fill: map.get($accordion, 'icon-color');
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-inline-start: map.get($accordion, 'icon-margin');
+
+  &:last-of-type,
+  .ecl-accordion__item[open] &:first-of-type {
+    display: none;
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  &:first-of-type,
+  .ecl-accordion__item[open] &:last-of-type {
+    display: block;
+  }
 }
 
 .ecl-accordion__content {
@@ -50,10 +62,6 @@ $accordion: null !default;
   padding-inline-end: map.get($accordion, 'item-padding');
   padding-inline-start: map.get($accordion, 'item-padding');
   padding-bottom: var(--s-xl);
-}
-
-.no-js .ecl-accordion__content {
-  display: block;
 }
 
 .ecl-accordion__item {
@@ -94,166 +102,13 @@ $accordion: null !default;
       border-end-start-radius: map.get($accordion, 'radius');
       border-end-end-radius: map.get($accordion, 'radius');
 
-      &[aria-expanded='true'] {
+      .ecl-accordion__item[open] & {
         border-end-start-radius: 0;
         border-end-end-radius: 0;
       }
     }
 
     .ecl-accordion__content {
-      border-end-start-radius: map.get($accordion, 'radius');
-      border-end-end-radius: map.get($accordion, 'radius');
-      overflow: hidden;
-    }
-  }
-}
-
-.ecl-accordion__title {
-  margin: 0;
-  padding: 0;
-}
-
-.ecl-accordion__toggle-flex {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.ecl-accordion__toggle-title {
-  max-width: var(--max-w);
-}
-
-.ecl-accordion__toggle-indicator {
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-  margin-inline-end: 0;
-  margin-inline-start: map.get($accordion, 'icon-margin');
-
-  .ecl-accordion__toggle-icon {
-    fill: map.get($accordion, 'icon-color');
-
-    &:last-child {
-      display: none;
-    }
-
-    &:first-child,
-    &:only-child {
-      display: flex;
-    }
-
-    [aria-expanded='true'] &:first-child {
-      display: none;
-    }
-
-    [aria-expanded='true'] &:last-child,
-    [aria-expanded='true'] &:only-child {
-      display: block;
-    }
-  }
-}
-
-.test-accordion {
-  border-radius: map.get($accordion, 'radius');
-  box-shadow: map.get($accordion, 'shadow');
-  margin: 0;
-}
-
-.test-accordion__toggle {
-  align-items: flex-start;
-  color: map.get($accordion, 'title-text-color');
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  font: var(--f-m);
-  font-weight: map.get($accordion, 'title-font-weight');
-  justify-content: space-between;
-  padding: map.get($accordion, 'item-padding');
-
-  &:hover {
-    background-color: map.get($accordion, 'item-background-hover');
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--cm-border-primary, var(--c-p));
-    outline-offset: -2px;
-  }
-}
-
-.test-accordion__toggle-icon {
-  fill: map.get($accordion, 'icon-color');
-  flex-grow: 0;
-  flex-shrink: 0;
-  margin-inline-start: map.get($accordion, 'icon-margin');
-
-  &:last-of-type,
-  .test-accordion__item[open] &:first-of-type {
-    display: none;
-  }
-
-  // stylelint-disable-next-line no-descending-specificity
-  &:first-of-type,
-  .test-accordion__item[open] &:last-of-type {
-    display: block;
-  }
-}
-
-.test-accordion__content {
-  color: map.get($accordion, 'text-color');
-  font: var(--f-m);
-  margin-inline-start: 0;
-  max-width: var(--max-w);
-  padding-inline-end: map.get($accordion, 'item-padding');
-  padding-inline-start: map.get($accordion, 'item-padding');
-  padding-bottom: var(--s-xl);
-}
-
-.test-accordion__item {
-  border-bottom: map.get($accordion, 'separator');
-  position: relative;
-
-  &.is-first {
-    @if map.has-key($accordion, 'yellow-bar') {
-      &::before {
-        background-color: var(--cm-surface-secondary, var(--c-s));
-        border-end-start-radius: map.get($theme, 'border-radius', 'xs');
-        border-end-end-radius: map.get($theme, 'border-radius', 'xs');
-        content: '';
-        height: 4px;
-        left: var(--s-l);
-        position: absolute;
-        top: 0;
-        width: 32px;
-        z-index: 1;
-      }
-
-      &:dir(rtl)::before {
-        left: auto;
-        right: var(--s-l);
-      }
-    }
-
-    .test-accordion__toggle {
-      border-start-start-radius: map.get($accordion, 'radius');
-      border-start-end-radius: map.get($accordion, 'radius');
-    }
-  }
-
-  &.is-last {
-    border-bottom-width: 0;
-
-    .test-accordion__toggle {
-      border-end-start-radius: map.get($accordion, 'radius');
-      border-end-end-radius: map.get($accordion, 'radius');
-
-      .test-accordion__item[open] & {
-        border-end-start-radius: 0;
-        border-end-end-radius: 0;
-      }
-    }
-
-    .test-accordion__content {
       border-end-start-radius: map.get($accordion, 'radius');
       border-end-end-radius: map.get($accordion, 'radius');
       overflow: hidden;
