@@ -34,6 +34,10 @@ $accordion: null !default;
     outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -2px;
   }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
 }
 
 .ecl-accordion__toggle-icon {
