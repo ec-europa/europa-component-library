@@ -1,9 +1,9 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.tooltipSelector Selector for tooltip triggers (requires both data-ecl-tooltip attribute and title attribute)
+ * @param {String} options.tooltipSelector Selector for tooltip triggers (requires data-ecl-tooltip attribute and could use title attribute)
  * @param {String} options.tooltipPopupSelector Selector for tooltip popup element
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events on tooltip triggers
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
@@ -53,16 +53,17 @@ export class Tooltip {
 
     // Private variables
     this.popup = null;
-    this.tooltipTriggers = null;
-    this.observer = null;
     this.currentTrigger = null;
     this.isMouseTriggered = false;
+    this.removedTitle = null;
     this.usePopoverApi = 'popover' in HTMLElement.prototype;
 
     // Bind `this` for use in callbacks
-    this.displayTooltip = this.displayTooltip.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.handleFocusIn = this.handleFocusIn.bind(this);
+    this.handleFocusOut = this.handleFocusOut.bind(this);
     this.hideTooltip = this.hideTooltip.bind(this);
-    this.handleMutations = this.handleMutations.bind(this);
     this.positionTooltip = this.positionTooltip.bind(this);
   }
 
@@ -96,15 +97,13 @@ export class Tooltip {
       this.popup = markup;
     }
 
-    // Initial scan for tooltip triggers
-    this.scanForTriggers();
-
-    // Set up MutationObserver to watch for dynamically added elements
-    this.observer = new MutationObserver(this.handleMutations);
-    this.observer.observe(this.element, {
-      childList: true,
-      subtree: true,
-    });
+    // Attach delegated event listeners to the root element
+    if (this.attachHoverListener) {
+      this.element.addEventListener('mouseover', this.handleMouseOver);
+      this.element.addEventListener('mouseout', this.handleMouseOut);
+      this.element.addEventListener('focusin', this.handleFocusIn);
+      this.element.addEventListener('focusout', this.handleFocusOut);
+    }
 
     // Attach resize event listener
     if (this.attachResizeListener) {
@@ -122,82 +121,20 @@ export class Tooltip {
   }
 
   /**
-   * Scan for tooltip triggers and attach event listeners.
-   */
-  scanForTriggers() {
-    // Find all tooltip triggers
-    const triggers = queryAll(this.tooltipSelector, this.element);
-
-    // Attach event listeners to triggers
-    if (this.attachHoverListener && triggers.length > 0) {
-      triggers.forEach((trigger) => {
-        // Check if already has listeners (avoid duplicates)
-        if (!trigger.hasAttribute('data-ecl-tooltip-initialized')) {
-          trigger.setAttribute('data-ecl-tooltip-initialized', 'true');
-          trigger.addEventListener('mouseenter', this.displayTooltip);
-          trigger.addEventListener('mouseleave', this.hideTooltip);
-          trigger.addEventListener('focus', this.displayTooltip);
-          trigger.addEventListener('blur', this.hideTooltip);
-        }
-      });
-    }
-
-    // Update the triggers list
-    this.tooltipTriggers = triggers;
-  }
-
-  /**
-   * Handle DOM mutations to detect new tooltip triggers.
-   *
-   * @param {MutationRecord[]} mutations
-   */
-  handleMutations(mutations) {
-    let shouldRescan = false;
-
-    mutations.forEach((mutation) => {
-      // Check if any added nodes contain or are tooltip triggers
-      if (mutation.addedNodes.length > 0) {
-        mutation.addedNodes.forEach((node) => {
-          // Only check element nodes
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            // Check if the node itself is a trigger
-            if (node.matches && node.matches(this.tooltipSelector)) {
-              shouldRescan = true;
-            }
-            // Check if the node contains triggers
-            if (
-              node.querySelector &&
-              node.querySelector(this.tooltipSelector)
-            ) {
-              shouldRescan = true;
-            }
-          }
-        });
-      }
-    });
-
-    // Rescan if new tooltip triggers were detected
-    if (shouldRescan) {
-      this.scanForTriggers();
-    }
-  }
-
-  /**
    * Destroy component.
    */
   destroy() {
-    // Restore title if tooltip is currently showing and was removed (mouse trigger)
-    if (
-      this.currentTrigger &&
-      this.popup.textContent &&
-      this.isMouseTriggered
-    ) {
-      this.currentTrigger.setAttribute('title', this.popup.textContent);
+    // Restore title if tooltip is currently showing and was removed
+    if (this.currentTrigger && this.removedTitle) {
+      this.currentTrigger.setAttribute('title', this.removedTitle);
     }
 
-    // Disconnect MutationObserver
-    if (this.observer) {
-      this.observer.disconnect();
+    // Remove delegated event listeners
+    if (this.attachHoverListener) {
+      this.element.removeEventListener('mouseover', this.handleMouseOver);
+      this.element.removeEventListener('mouseout', this.handleMouseOut);
+      this.element.removeEventListener('focusin', this.handleFocusIn);
+      this.element.removeEventListener('focusout', this.handleFocusOut);
     }
 
     // Remove resize event listener
@@ -210,17 +147,6 @@ export class Tooltip {
       window.removeEventListener('scroll', this.hideTooltip, { capture: true });
     }
 
-    // Remove event listeners from triggers
-    if (this.attachHoverListener && this.tooltipTriggers) {
-      this.tooltipTriggers.forEach((trigger) => {
-        trigger.removeEventListener('mouseenter', this.displayTooltip);
-        trigger.removeEventListener('mouseleave', this.hideTooltip);
-        trigger.removeEventListener('focus', this.displayTooltip);
-        trigger.removeEventListener('blur', this.hideTooltip);
-        trigger.removeAttribute('data-ecl-tooltip-initialized');
-      });
-    }
-
     // Remove popup from DOM
     if (this.popup && this.popup.parentNode) {
       this.popup.parentNode.removeChild(this.popup);
@@ -230,6 +156,54 @@ export class Tooltip {
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
+    }
+  }
+
+  /**
+   * Handle mouseover event (delegated).
+   *
+   * @param {Event} e
+   */
+  handleMouseOver(e) {
+    const trigger = e.target.closest(this.tooltipSelector);
+    if (!trigger || trigger === this.currentTrigger) return;
+
+    this.displayTooltip(trigger, true);
+  }
+
+  /**
+   * Handle mouseout event.
+   *
+   * @param {Event} e
+   */
+  handleMouseOut(e) {
+    if (!this.currentTrigger) return;
+
+    // Check if mouse is moving to an element still within the trigger
+    const relatedTarget = e.relatedTarget;
+    if (relatedTarget && this.currentTrigger.contains(relatedTarget)) return;
+
+    this.hideTooltip();
+  }
+
+  /**
+   * Handle focusin event.
+   *
+   * @param {Event} e
+   */
+  handleFocusIn(e) {
+    const trigger = e.target.closest(this.tooltipSelector);
+    if (!trigger) return;
+
+    this.displayTooltip(trigger, false);
+  }
+
+  /**
+   * Handle focusout event.
+   */
+  handleFocusOut() {
+    if (this.currentTrigger) {
+      this.hideTooltip();
     }
   }
 
@@ -288,29 +262,26 @@ export class Tooltip {
   /**
    * Display tooltip
    *
-   * @param {Event} e
+   * @param {HTMLElement} trigger
+   * @param {Boolean} isMouseTriggered
    */
-  displayTooltip(e) {
-    const trigger = e.currentTarget;
-
-    // Element must have data-ecl-tooltip attribute AND title attribute
-    if (!trigger.hasAttribute('data-ecl-tooltip')) return;
-
-    const content = trigger.getAttribute('title');
+  displayTooltip(trigger, isMouseTriggered) {
+    // Use data-ecl-tooltip value if provided, otherwise fall back to title
+    const content =
+      trigger.getAttribute('data-ecl-tooltip') || trigger.getAttribute('title');
     if (!content) return;
 
     // Store current trigger reference
     this.currentTrigger = trigger;
+    this.isMouseTriggered = isMouseTriggered;
 
-    // Check if triggered by mouse or keyboard
-    this.isMouseTriggered = e.type === 'mouseenter';
-
-    // Copy title content to tooltip
+    // Copy content to tooltip
     this.popup.textContent = content;
 
     // Only remove title on mouse hover to prevent browser's default tooltip
     // Keep title for keyboard focus so screen readers can access it
-    if (this.isMouseTriggered) {
+    if (isMouseTriggered && trigger.hasAttribute('title')) {
+      this.removedTitle = trigger.getAttribute('title');
       trigger.removeAttribute('title');
     }
 
@@ -335,18 +306,14 @@ export class Tooltip {
       this.popup.style.display = 'none';
     }
 
-    // Only restore title if it was removed (mouse trigger)
-    // For keyboard focus, title was never removed
-    if (
-      this.currentTrigger &&
-      this.popup.textContent &&
-      this.isMouseTriggered
-    ) {
-      this.currentTrigger.setAttribute('title', this.popup.textContent);
+    // Restore title if it was removed
+    if (this.currentTrigger && this.removedTitle) {
+      this.currentTrigger.setAttribute('title', this.removedTitle);
     }
 
     this.currentTrigger = null;
     this.isMouseTriggered = false;
+    this.removedTitle = null;
   }
 }
 

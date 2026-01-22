@@ -8,7 +8,7 @@ const loremBefore = loremIpsum({ count: 10 });
 const loremAfter = loremIpsum({ count: 10 });
 
 const dataDefault = {
-  content: 'Tooltip content, wrapping on multiple lines',
+  content: 'Tooltip content with max width, wrapping on multiple lines',
 };
 
 const getArgs = () => ({
@@ -38,7 +38,7 @@ Default.render = async (args) => `
       ${loremBefore}
       <span class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline">
         <button class="ecl-button ecl-button--primary" data-ecl-tooltip title="${args.content}">button tooltip</button>
-        <a href="#" class="ecl-link" data-ecl-tooltip title="${args.content}">link tooltip</a>
+        <a href="#" class="ecl-link" data-ecl-tooltip="${args.content}">link tooltip</a>
       </span>
       ${loremAfter}
     </p>
