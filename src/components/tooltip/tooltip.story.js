@@ -8,7 +8,7 @@ const loremBefore = loremIpsum({ count: 10 });
 const loremAfter = loremIpsum({ count: 10 });
 
 const dataDefault = {
-  content: 'Tooltip content with max width, wrapping on multiple lines',
+  content: 'Tooltip content',
 };
 
 const getArgs = () => ({
