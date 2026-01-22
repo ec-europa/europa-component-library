@@ -17,17 +17,27 @@ $max-width: 12.5rem;
   border-radius: map.get($tooltip, 'border-radius');
   box-shadow: map.get($tooltip, 'shadow');
   color: map.get($tooltip, 'color');
-  display: none;
   max-width: $max-width;
   padding: map.get($tooltip, 'padding');
   position: absolute;
-  z-index: map.get($theme, 'z-index', 'modal');
+  text-align: center;
+  z-index: map.get($theme, 'z-index', 'overlay');
 
   @include mixins.responsive-font(map.get($tooltip, 'font'));
+
+  // Reset Popover API defaults when used
+  &[popover] {
+    border: none;
+    inset: unset;
+    margin: 0;
+    overflow: visible;
+    position: fixed;
+  }
 
   // arrow
   &::before {
     background-color: map.get($tooltip, 'background');
+    border-end-start-radius: map.get($tooltip, 'border-radius');
     bottom: -#{$arrow-size};
     content: '';
     height: $arrow-size;

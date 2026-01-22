@@ -6,6 +6,8 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.tooltipSelector Selector for tooltip triggers (requires both data-ecl-tooltip attribute and title attribute)
  * @param {String} options.tooltipPopupSelector Selector for tooltip popup element
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events on tooltip triggers
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
+ * @param {Boolean} options.attachScrollListener Whether or not to bind scroll events
  */
 export class Tooltip {
   /**
@@ -29,6 +31,8 @@ export class Tooltip {
       tooltipSelector = '[data-ecl-tooltip]',
       tooltipPopupSelector = '[data-ecl-tooltip-popup]',
       attachHoverListener = true,
+      attachResizeListener = true,
+      attachScrollListener = true,
     } = {},
   ) {
     // Check element
@@ -44,6 +48,8 @@ export class Tooltip {
     this.tooltipSelector = tooltipSelector;
     this.tooltipPopupSelector = tooltipPopupSelector;
     this.attachHoverListener = attachHoverListener;
+    this.attachResizeListener = attachResizeListener;
+    this.attachScrollListener = attachScrollListener;
 
     // Private variables
     this.popup = null;
@@ -51,6 +57,7 @@ export class Tooltip {
     this.observer = null;
     this.currentTrigger = null;
     this.isMouseTriggered = false;
+    this.usePopoverApi = 'popover' in HTMLElement.prototype;
 
     // Bind `this` for use in callbacks
     this.displayTooltip = this.displayTooltip.bind(this);
@@ -78,6 +85,13 @@ export class Tooltip {
       markup.setAttribute(attributeName, '');
       markup.setAttribute('aria-hidden', true);
 
+      // Use Popover API if supported for proper layering above modals
+      if (this.usePopoverApi) {
+        markup.setAttribute('popover', 'manual');
+      } else {
+        markup.style.display = 'none';
+      }
+
       document.body.append(markup);
       this.popup = markup;
     }
@@ -91,6 +105,16 @@ export class Tooltip {
       childList: true,
       subtree: true,
     });
+
+    // Attach resize event listener
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.hideTooltip);
+    }
+
+    // Attach scroll event listener
+    if (this.attachScrollListener) {
+      window.addEventListener('scroll', this.hideTooltip, { capture: true });
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -174,6 +198,16 @@ export class Tooltip {
     // Disconnect MutationObserver
     if (this.observer) {
       this.observer.disconnect();
+    }
+
+    // Remove resize event listener
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.hideTooltip);
+    }
+
+    // Remove scroll event listener
+    if (this.attachScrollListener) {
+      window.removeEventListener('scroll', this.hideTooltip, { capture: true });
     }
 
     // Remove event listeners from triggers
@@ -281,7 +315,11 @@ export class Tooltip {
     }
 
     // Show tooltip
-    this.popup.style.display = 'block';
+    if (this.usePopoverApi) {
+      this.popup.showPopover();
+    } else {
+      this.popup.style.display = 'block';
+    }
 
     // Position tooltip
     this.positionTooltip(trigger);
@@ -291,7 +329,11 @@ export class Tooltip {
    * Hide tooltip
    */
   hideTooltip() {
-    this.popup.style.display = 'none';
+    if (this.usePopoverApi) {
+      this.popup.hidePopover();
+    } else {
+      this.popup.style.display = 'none';
+    }
 
     // Only restore title if it was removed (mouse trigger)
     // For keyboard focus, title was never removed
