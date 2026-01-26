@@ -82,7 +82,9 @@
           <div class="ecl-tabs__item">
           {% set _item_extra_classes = 'ecl-tabs__link' %}
           {% set _item_extra_attributes = [{ name: 'id', value: _id }, { name: 'role', value: 'tab' }] %}
-          {% if loop.index != 1 %}
+          {% if _item.is_current is defined and _item.is_current is not empty %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '0' }]) %}
+          {% else %}
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '-1' }]) %}
           {% endif %}
           {% if _item.is_current is defined and _item.is_current is not empty %}
