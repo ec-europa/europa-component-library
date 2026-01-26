@@ -103,6 +103,7 @@ export class Tabs {
     this.isMobile = false;
     this.resizeTimer = null;
     this.tabs = [];
+    this.activeTab = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -220,28 +221,28 @@ export class Tabs {
       });
 
       const currentHash = window.location.hash.slice(1);
-      let activeTab = null;
+      this.activeTab = null;
       const hasInitialHash = !!currentHash;
 
       if (hasInitialHash) {
-        activeTab = this.tabs.find((t) => t.id === currentHash);
+        this.activeTab = this.tabs.find((t) => t.id === currentHash);
       }
 
-      if (!activeTab) {
-        activeTab = this.tabs.find((t) =>
+      if (!this.activeTab) {
+        this.activeTab = this.tabs.find((t) =>
           t.link.classList.contains(this.activeSelector),
         );
       }
 
-      if (!activeTab) {
-        activeTab = this.tabs[0];
+      if (!this.activeTab) {
+        this.activeTab = this.tabs[0];
       }
 
-      if (activeTab) {
+      if (this.activeTab) {
         let isVisibleTab = false;
 
         this.tabs.forEach((t) => {
-          const isActive = t === activeTab;
+          const isActive = t === this.activeTab;
           if (isActive) {
             isVisibleTab = true;
           }
@@ -251,6 +252,9 @@ export class Tabs {
 
           if (t.content) {
             t.content.style.display = isActive ? 'block' : 'none';
+            if (!t.content.hasAttribute('z-index')) {
+              t.content.setAttribute('z-index', -1);
+            }
           }
         });
 
@@ -259,7 +263,7 @@ export class Tabs {
             const dropdownLink = item.querySelector('a');
             const dropdownUrl = new URL(dropdownLink.href);
             const dropdownId = dropdownUrl.hash?.slice(1);
-            const isActive = dropdownId === activeTab.id;
+            const isActive = dropdownId === this.activeTab.id;
 
             dropdownLink.classList.toggle(this.activeSelector, isActive);
             dropdownLink.setAttribute(
@@ -277,7 +281,7 @@ export class Tabs {
         if (hasInitialHash) {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-              const content = activeTab.content;
+              const content = this.activeTab.content;
               if (content && content.offsetParent !== null) {
                 content.scrollIntoView({
                   behavior: 'smooth',
@@ -541,6 +545,7 @@ export class Tabs {
         tab.link.setAttribute('aria-selected', 'false');
         tab.link.setAttribute('tabindex', '-1');
       } else {
+        this.activeTab = tab;
         tab.link.classList.add(this.activeSelector);
         tab.link.setAttribute('aria-selected', 'true');
         tab.link.setAttribute('tabindex', '0');
@@ -787,6 +792,15 @@ export class Tabs {
             this.moreButton.setAttribute('tabindex', '0');
           }
         }, 0);
+
+        // Move focus to the tab panel (if any)
+        if (!e.shiftKey && this.hasContent) {
+          if (this.activeTab.content) {
+            e.preventDefault();
+            this.activeTab.content.focus();
+          }
+        }
+
         break;
 
       default:
