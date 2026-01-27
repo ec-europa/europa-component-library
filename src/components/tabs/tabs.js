@@ -786,8 +786,9 @@ export class Tabs {
         this.closeMoreDropdown();
         // Temporarily make more button non-tabbable so focus skips it
         this.moreButton.setAttribute('tabindex', '-1');
-        // Restore tabindex after focus has moved
+        // Restore tabindex and reset isTabEvent after focus has moved
         setTimeout(() => {
+          this.isTabEvent = false;
           if (this.moreButtonActive) {
             this.moreButton.setAttribute('tabindex', '0');
           }
@@ -796,7 +797,6 @@ export class Tabs {
         // Move focus to the tab panel (if any)
         if (!e.shiftKey && this.hasContent) {
           if (this.activeTab.content) {
-            e.preventDefault();
             this.activeTab.content.focus();
           }
         }
