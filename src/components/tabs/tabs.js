@@ -762,12 +762,10 @@ export class Tabs {
 
     switch (e.key) {
       case 'ArrowLeft':
-      case 'ArrowUp':
         this.arrowFocusToTab(tgt, 'prev');
         break;
 
       case 'ArrowRight':
-      case 'ArrowDown':
         this.arrowFocusToTab(tgt, 'next');
         break;
 
@@ -777,6 +775,14 @@ export class Tabs {
 
       case 'End':
         this.moveFocus(this.lastTab);
+        break;
+
+      case ' ':
+        this.handleClickOnTabs(e);
+        break;
+
+      case 'Escape':
+        this.closeMoreDropdown();
         break;
 
       case 'Tab':
