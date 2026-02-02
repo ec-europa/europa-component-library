@@ -137,6 +137,7 @@
         transform: 'rotate-270',
       },
       extra_classes: 'ecl-tabs__prev ecl-tabs__item--hidden',
+      extra_attributes: [{ name: 'tabindex', value: '-1' }],
     } only %}
     {% include '@ecl/button/button.html.twig' with {
       label: _next_label,
@@ -149,6 +150,7 @@
         transform: 'rotate-90',
       },
       extra_classes: 'ecl-tabs__next ecl-tabs__item--hidden',
+      extra_attributes: [{ name: 'tabindex', value: '-1' }],
     } only %}
   </div>
 </div>

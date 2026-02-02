@@ -118,6 +118,7 @@ export class Tabs {
     this.tabsKeyEvents = this.tabsKeyEvents.bind(this);
     this.handleFocusOnToggle = this.handleFocusOnToggle.bind(this);
     this.handleMouseDownOnToggle = this.handleMouseDownOnToggle.bind(this);
+    this.handleFocusOnTab = this.handleFocusOnTab.bind(this);
   }
 
   /**
@@ -506,6 +507,51 @@ export class Tabs {
   }
 
   /**
+   * Handle focus on a tab link - sync transform on mobile.
+   * @param {Event} e
+   */
+  handleFocusOnTab(e) {
+    if (!this.isMobile) return;
+
+    const tab = e.currentTarget;
+    const tabIndex = this.tabsKey.indexOf(tab);
+    if (tabIndex === -1) return;
+
+    // Sync this.index with focused tab
+    this.index = tabIndex;
+
+    // Reset any native scroll
+    this.list.scrollLeft = 0;
+    this.container.scrollLeft = 0;
+
+    // Update button visibility
+    if (tabIndex > 0) {
+      this.btnPrev.style.display = 'flex';
+      this.container.classList.add('ecl-tabs__container--left');
+    } else {
+      this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
+    }
+
+    if (tabIndex >= this.total - 1) {
+      this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
+    } else {
+      this.btnNext.style.display = 'flex';
+      this.container.classList.add('ecl-tabs__container--right');
+    }
+
+    // Sync transform to show the focused tab
+    if (tabIndex > 0) {
+      const prevBtnWidth = this.btnPrev.getBoundingClientRect().width;
+      const tabOffset = this.listItems[tabIndex].offsetLeft - prevBtnWidth;
+      this.list.style.transform = `translate3d(-${tabOffset}px, 0px, 0px)`;
+    } else {
+      this.list.style.transform = 'translate3d(0px, 0px, 0px)';
+    }
+  }
+
+  /**
    * Sets the callback function to be executed on toggle.
    * @param {Function} callback - The callback function to be set.
    */
@@ -712,6 +758,7 @@ export class Tabs {
         tab = queryOne('.ecl-tabs__link', dropdownItem);
       }
       tab.addEventListener('keydown', this.handleKeyboardOnTabs);
+      tab.addEventListener('focus', this.handleFocusOnTab);
       this.tabsKey.push(tab);
 
       if (index === 0) {
@@ -838,8 +885,8 @@ export class Tabs {
 
     if (this.isMobile) {
       if (currentTab !== endTab) {
+        // moveFocus will trigger handleFocusOnTab which syncs the transform
         this.moveFocus(this.tabsKey[index]);
-        this.shiftTabs(direction);
       }
       return;
     }
