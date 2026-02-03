@@ -72,6 +72,7 @@ const getArgs = (data, variant) => {
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
     args.icon_size = 'l';
+    args.icon_title = '';
     args.icon_inline = false;
   }
 
@@ -340,6 +341,17 @@ const getArgTypes = (data, variant) => {
       },
       if: { arg: 'show_icon' },
     };
+    argTypes.icon_title = {
+      name: 'icon title',
+      type: 'string',
+      description: 'Short textual information for the icon, for screen readers',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Icon',
+      },
+      if: { arg: 'show_icon' },
+    };
     argTypes.icon_inline = {
       name: 'icon inline',
       type: { name: 'boolean' },
@@ -410,6 +422,7 @@ const prepareDataItem = (data, args) => {
   } else {
     clone.icon = {};
     clone.icon.name = args.icon;
+    clone.icon.title = args.icon_title;
     clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
       clone.icon.name = args.icon_flag;
