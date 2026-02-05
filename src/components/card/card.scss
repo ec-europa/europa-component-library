@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -31,7 +32,7 @@ $card: null !default;
 }
 
 .ecl-card__body {
-  padding: map.get($card, 'body-padding');
+  padding: map.get($card, 'body-padding-mobile');
   position: relative;
 
   @if map.has-key($card, 'yellow-bar') {
@@ -46,5 +47,11 @@ $card: null !default;
       top: 0;
       width: 32px;
     }
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-card__body {
+    padding: map.get($card, 'body-padding-tablet');
   }
 }
