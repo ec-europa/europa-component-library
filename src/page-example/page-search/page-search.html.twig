@@ -26,11 +26,11 @@
           {%- include '@ecl/form-group/form-group.html.twig' with checkbox|merge({
             extra_classes: 'ecl-u-mb-xl',
           }) -%}
-          <div class="ecl-u-d-flex ecl-u-flex-row ecl-u-flex-l-column">
+          <div class="ecl-u-d-flex">
             {%- include '@ecl/button/button.html.twig' with button_primary -%}
-            <div class="ecl-u-mt-none ecl-u-mt-l-m ecl-u-ml-m ecl-u-ml-l-none ecl-u-d-flex ecl-u-flex-column">
-              {%- include '@ecl/button/button.html.twig' with button_secondary -%}
-            </div>
+            {%- include '@ecl/button/button.html.twig' with button_secondary|merge({
+              extra_classes: 'ecl-u-ml-m',
+            }) -%}
           </div>
         </form>
       </div>
