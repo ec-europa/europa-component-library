@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
@@ -82,6 +82,7 @@ const getArgs = (data, variant) => {
 
   if (getSystem() === 'ec') {
     args.font_size = 'm';
+    args.color_mode = 'default';
   }
 
   if (data.title) {
@@ -110,6 +111,7 @@ const getArgs = (data, variant) => {
 
 const getArgTypes = (variant) => {
   const argTypes = {
+    ...getColorModeControls(),
     ...expandableArgTypes(),
   };
 
@@ -276,6 +278,8 @@ const getArgTypes = (variant) => {
 
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
+
+  clone.color_mode = args.color_mode;
 
   if (!args.show_description) {
     delete clone.description;

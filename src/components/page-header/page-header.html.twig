@@ -1,6 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
+    - "color_mode" (string) The color mode name
     - "variant" (string) (default: '') Page header variant; can be 'news', '50-50'
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
@@ -28,6 +29,7 @@
 
 {# Internal properties #}
 
+{% set _color_mode = color_mode|default('') %}
 {% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
 {% set _hide_title = hide_title|default(false) %}
@@ -44,6 +46,10 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--' ~ _variant %}
