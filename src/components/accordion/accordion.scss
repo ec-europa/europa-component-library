@@ -33,6 +33,7 @@ $accordion: null !default;
   }
 
   &[aria-expanded='true'] {
+    background-color: map.get($accordion, 'item-background-hover');
     padding: map.get($accordion, 'item-padding-expanded');
   }
 }
