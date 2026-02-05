@@ -2,7 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  label: 'Tag set label',
+  label: 'Quick filter',
   items: [
     {
       tag: {

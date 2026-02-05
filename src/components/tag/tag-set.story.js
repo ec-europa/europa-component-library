@@ -16,6 +16,8 @@ const getArgs = (data) => {
   }
   args.variant = '';
   args.label = data.label;
+  args.current = false;
+  args.disabled = false;
 
   return args;
 };
@@ -44,6 +46,26 @@ const getArgTypes = () => {
     },
   };
 
+  argTypes.current = {
+    name: 'current',
+    type: { name: 'boolean' },
+    description: 'Display a tag as currently active',
+    table: {
+      category: 'Display',
+    },
+    if: { arg: 'variant', eq: 'prefilter' },
+  };
+
+  argTypes.disabled = {
+    name: 'disabled',
+    type: { name: 'boolean' },
+    description: 'Display a tag as disabled',
+    table: {
+      category: 'Display',
+    },
+    if: { arg: 'variant', eq: 'prefilter' },
+  };
+
   argTypes.label = {
     name: 'label',
     type: { name: 'string' },
@@ -66,6 +88,9 @@ const prepareData = (data, args) => {
   if (args.variant !== 'prefilter') {
     delete clone.label;
   }
+
+  clone.items[0].tag.current = args.current;
+  clone.items[1].tag.disabled = args.disabled;
 
   return Object.assign(clone, args);
 };
