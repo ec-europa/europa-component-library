@@ -73,8 +73,6 @@ export class Datepicker {
         },
       };
 
-      this.direction = getComputedStyle(this.element).direction;
-
       if (!this.picker) return;
 
       if (!this.picker.identifier) {
@@ -85,6 +83,7 @@ export class Datepicker {
         this.picker.value = this.normalizeDate(this.element.dataset.value);
       }
 
+      this.direction = getComputedStyle(this.element).direction;
       this.picker.direction = this.direction === 'ltr' ? 'right' : 'left';
 
       this.picker.localization = this.localization;
