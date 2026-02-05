@@ -16,8 +16,13 @@ import dataButton from '@ecl/button/demo/data';
 import dataDatePicker from '@ecl/datepicker/demo/data';
 import dataTagPrefilter from '@ecl/tag/demo/data--set';
 
-const dataButtonPrimary = { ...dataButton, variant: 'primary' };
-const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
+const dataButtonPrimary = JSON.parse(JSON.stringify(dataButton));
+dataButtonPrimary.variant = 'primary';
+dataButtonPrimary.label = 'Search';
+const dataButtonSecondary = JSON.parse(JSON.stringify(dataButton));
+dataButtonSecondary.variant = 'secondary';
+dataButtonSecondary.label = 'Clear filters';
+dataButtonSecondary.type = 'button';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
