@@ -181,6 +181,10 @@ $text-input: null !default;
     svg {
       margin-block-start: 1px;
     }
+
+    &:dir(rtl) svg {
+      transform: rotate(180deg);
+    }
   }
 
   .duet-date__header {
