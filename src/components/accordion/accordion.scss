@@ -34,7 +34,6 @@ $accordion: null !default;
 
   &[aria-expanded='true'] {
     background-color: map.get($accordion, 'item-background-hover');
-    padding: map.get($accordion, 'item-padding-expanded');
   }
 }
 
@@ -117,10 +116,6 @@ $accordion: null !default;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.ecl-accordion__toggle-title {
-  max-width: var(--max-w);
 }
 
 .ecl-accordion__toggle-indicator {
