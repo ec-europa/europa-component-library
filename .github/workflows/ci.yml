@@ -95,7 +95,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   chromatic-ec:
-    if: "!contains(github.event.pull_request.label, 'skip chromatic')"
+    if: "!contains(github.event.pull_request.labels, 'skip chromatic')"
     name: Run Chromatic for EC
     needs: deploy-pull-request-preview
     runs-on: ubuntu-latest
@@ -107,7 +107,7 @@ jobs:
           storybookBuildDir: dist/website/playground/ec
   chromatic-eu:
     name: Run Chromatic for EU
-    if: "!contains(github.event.pull_request.label, 'skip chromatic')"
+    if: "!contains(github.event.pull_request.labels, 'skip chromatic')"
     needs: deploy-pull-request-preview
     runs-on: ubuntu-latest
     steps:
