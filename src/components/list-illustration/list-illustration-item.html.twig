@@ -1,0 +1,114 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "title" (string) (default: '')
+    - "description" (string) (default: '')
+    - "value" (string) (default: ''): Optional metrics 
+    - "picture" (associative array) (default: {}): Image for item, following ECL Picture structure
+    - "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
+    - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "media_size" (string) (default: 'm'): size of the media (square picture or icon). Could be 's', 'm' or 'l'
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('') %}
+{% set _description = description|default('') %}
+{% set _value = value|default('') %}
+{% set _picture = picture|default({}) %}
+{% set _square = square|default(false) %}
+{% set _icon = icon|default({}) %}
+{% set _media_size = media_size|default('m') %}
+{% set _content_class = 'ecl-list-illustration__item-content' %}
+{% set _css_class = 'ecl-list-illustration__item' %}
+{% set _image_class =  'ecl-list-illustration__image' %}
+{% set _picture_classes = 'ecl-list-illustration__picture' %}
+{% set _icon_size =  '' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if last %}
+   {% set _css_class = _css_class ~ ' ' ~ ' ecl-list-illustration__item--is-last' %}
+{% endif %}
+
+{% if divider %}
+  {% set _content_class = _content_class ~ ' ecl-list-illustration__divider' %}
+{% endif %}
+
+{% if _picture.img and column == 1 %}
+  {% set _content_class = _content_class ~ ' ecl-list-illustration__item-content--row' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if _square %}
+  {% set _image_class = _image_class ~ ' ecl-list-illustration__image--square' %}
+  {% set _image_class = _image_class ~ ' ecl-list-illustration__image--' ~ _media_size %}
+  {% set _picture_classes = _picture_classes ~ ' ecl-list-illustration__picture--square' %}
+{% endif %}
+
+{% if _media_size == 'l' %}
+  {% set _icon_size = '2xl' %}
+{% else %}
+  {% set _icon_size = 'l' %}
+{% endif %}
+
+{# Print the result #}
+
+<li
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <div class="{{ _content_class }}">
+    {% if _picture.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        extra_classes: _picture_classes,
+        extra_image_classes: _image_class,
+      } only %}
+    {% endif %}
+    {% if _icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _icon|merge({ size: _icon_size }),
+        extra_classes: 'ecl-list-illustration__icon',
+      } only %}
+    {% endif %}
+    <div class="ecl-list-illustration__detail">
+    {% if _title is not empty or _value is not empty %}
+      <div class="ecl-list-illustration__title-container">
+      {% if _value is not empty %}
+        <div class="ecl-list-illustration__value">{{ _value }}</div>
+      {% endif %}
+      {% if _title is not empty %}
+        <div class="ecl-list-illustration__title">{{ _title }}</div>
+      {% endif %}
+      </div>
+    {% endif %}
+    {% if _description is not empty %}
+      <div class="ecl-list-illustration__description">{{ _description }}</div>
+    {% endif %}
+    </div>
+  </div>
+</li>
+{% endapply %}

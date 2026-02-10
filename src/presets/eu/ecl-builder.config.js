@@ -1,28 +1,44 @@
-const path = require('path');
-const pkg = require('./package.json');
-const rootPkg = require('../../../package.json');
+import path from 'node:path';
+import { promises as fs } from 'node:fs';
 
+const pkg = JSON.parse(
+  await fs.readFile(new URL('./package.json', import.meta.url), 'utf8'),
+);
+const rootPkg = JSON.parse(
+  await fs.readFile(new URL('../../../package.json', import.meta.url), 'utf8'),
+);
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
 
-const nodeModules = path.resolve(__dirname, '../../../node_modules');
+const nodeModules = path.resolve(__dirname, './node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
 
-const banner = `${pkg.name} - ${
-  pkg.version
-} Built on ${new Date().toISOString()}`;
+const banner = `${pkg.name} - ${pkg.version} Built on ${new Date().toISOString()}`;
 
 const { apps } = rootPkg;
 const app = apps['storybook-eu'];
 
-module.exports = {
+export default {
   scripts: [
     {
       entry: path.resolve(__dirname, 'src/eu.js'),
       dest: path.resolve(outputFolder, 'scripts/ecl-eu.js'),
       options: {
+        format: 'iife',
+        banner,
+        moduleName: 'ECL',
+        sourceMap: isProd ? false : 'inline',
+      },
+    },
+    {
+      entry: path.resolve(__dirname, 'src/eu-esm.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-esm-eu.js'),
+      options: {
+        format: 'es',
         banner,
         moduleName: 'ECL',
         sourceMap: isProd ? false : 'inline',
@@ -91,17 +107,8 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(nodeModules, '@ecl/preset-reset/src/reset.scss'),
+      entry: path.resolve('../reset', 'src/reset.scss'),
       dest: path.resolve(outputFolder, 'styles/optional/ecl-reset.css'),
-      options: {
-        banner,
-        includePaths,
-        sourceMap: false,
-      },
-    },
-    {
-      entry: path.resolve(nodeModules, '@ecl/preset-rtl/src/rtl.scss'),
-      dest: path.resolve(outputFolder, 'styles/optional/ecl-rtl.css'),
       options: {
         banner,
         includePaths,
@@ -110,22 +117,6 @@ module.exports = {
     },
   ],
   copy: [
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-icons/dist'),
-      to: path.resolve(outputFolder, 'images/icons'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-social-media-icons/dist'),
-      to: path.resolve(outputFolder, 'images/icons-social-media'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-flag-icons/dist'),
-      to: path.resolve(outputFolder, 'images/icons-flag'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/resources-eu-social-icons/dist'),
-      to: path.resolve(outputFolder, 'images/social-icons'),
-    },
     {
       from: path.resolve(nodeModules, '@ecl/resources-eu-logo/dist'),
       to: path.resolve(outputFolder, 'images/logo'),
@@ -137,10 +128,7 @@ module.exports = {
     },
     handlers: [
       {
-        pattern: `${path.resolve(
-          __dirname,
-          '..',
-        )}/(dev|eu|reset|rtl)/src/*.scss`,
+        pattern: `${path.resolve(__dirname, '..')}/(dev|eu|reset)/src/*.scss`,
         events: [
           {
             on: 'change',
@@ -167,7 +155,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..',
-        )}/implementations/vanilla/**/*.scss`,
+        )}/(components|layout|utilities)/*/*.scss`,
         events: [
           {
             on: 'change',
@@ -182,7 +170,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..',
-        )}/implementations/vanilla/**/*.js`,
+        )}/components/*/!(*.story|*.test).js`,
         events: [
           {
             on: 'change',

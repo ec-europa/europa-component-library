@@ -3,14 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Link, Playground, Html } from '@ecl/website-components';
-
-import {
-  fileWithTranslation,
-  fileWithoutTranslation,
-  fileThumbnail,
-  fileTaxonomy,
-} from '../demo';
+import { Link, Playground } from '@ecl/website-components';
 
 ## Without translations
 
@@ -18,11 +11,8 @@ import {
   system="eu"
   selectedKind="components-file"
   selectedStory="default"
-  showFrame
-  selectedArgs="show_translations:false"
->
-  <Html markup={fileWithoutTranslation} />
-</Playground>
+  selectedArgs="show_translations:!false"
+></Playground>
 
 ## With translations
 
@@ -30,11 +20,8 @@ import {
   system="eu"
   selectedKind="components-file"
   selectedStory="default"
-  showFrame
-  selectedArgs="show_translations:true"
->
-  <Html markup={fileWithTranslation} />
-</Playground>
+  selectedArgs="show_translations:!true"
+></Playground>
 
 ## With thumbnail
 
@@ -42,11 +29,8 @@ import {
   system="eu"
   selectedKind="components-file"
   selectedStory="thumbnail"
-  showFrame
-  selectedArgs="show_taxonomy:false"
->
-  <Html markup={fileThumbnail} />
-</Playground>
+  selectedArgs="show_taxonomy:!false"
+></Playground>
 
 ## With taxonomy
 
@@ -54,8 +38,5 @@ import {
   system="eu"
   selectedKind="components-file"
   selectedStory="thumbnail"
-  showFrame
-  selectedArgs="show_taxonomy:true"
->
-  <Html markup={fileTaxonomy} />
-</Playground>
+  selectedArgs="show_taxonomy:!true"
+></Playground>

@@ -1,0 +1,125 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: random): id of the radio
+  - "name" (string) (default: '')
+  - "value" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "required" (boolean) (default: false)
+  - "checked" (boolean) (default: false)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
+  Blocks:
+  - "helper_text"
+  - "label"
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-radio-' ~ random()) %}
+{% set _name = name|default('') %}
+{% set _binary = binary|default(false) %}
+{% set _value = value|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _checked = checked|default(false) %}
+{% set _required = required|default(false) %}
+{% set _helper_id = helper_id|default('') %}
+{% set _helper_text = helper_text|default('') %}
+{% set _label = label|default('') %}
+{% set _css_class = 'ecl-radio' %}
+{% set _label_css_class = 'ecl-radio__label' %}
+{% set _helper_css_class = 'ecl-radio__help' %}
+{% set _box_css_class = 'ecl-radio__box' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _disabled %}
+  {% set _css_class = _css_class ~ ' ecl-radio--disabled' %}
+  {% set _label_css_class = _label_css_class ~ ' ecl-radio__label--disabled' %}
+  {% set _helper_css_class = _helper_css_class ~ ' ecl-radio__help--disabled' %}
+  {% set _box_css_class = _box_css_class ~ ' ecl-radio__box--disabled' %}
+{% endif %}
+
+{% if _binary %}
+  {% set _css_class = _css_class ~ ' ecl-radio--binary' %}
+{% endif %}
+
+{% if _invalid %}
+  {% set _css_class = _css_class ~ ' ecl-radio--invalid' %}
+  {% set _box_css_class = _box_css_class ~ ' ecl-radio__box--invalid' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <input
+  {% if _id %}
+    id="{{ _id }}"
+  {% endif %}
+  {% if _name is not empty %}
+    name="{{ _name }}"
+  {% endif %}
+    class="ecl-radio__input"
+    type="radio"
+    value="{{ _value }}"
+  {% if _disabled %}
+    disabled
+  {% endif %}
+  {% if _checked %}
+    checked
+  {% endif %}
+  {% if _required %}
+    required
+  {% endif %}
+  >
+
+  <label
+    class="{{ _label_css_class }}"
+  {% if _id %}
+    for="{{ _id }}"
+  {% endif %}
+  >
+    <span class="{{ _box_css_class }}">
+      <span class="ecl-radio__box-inner"></span>
+    </span>
+    {% if _label is not empty %}
+    <span class="ecl-radio__text">
+      {%- block label _label -%}
+    </span>
+    {% endif %}
+  </label>
+
+  {% if _helper_text is not empty %}
+    <div
+      class="{{ _helper_css_class }}"
+    {% if _id is not empty %}
+      id="{{ _id }}-helper"
+    {% endif %}
+    >
+      {%- block helper_text _helper_text -%}
+    </div>
+  {% endif %}
+</div>
+
+{% endapply %}

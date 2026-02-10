@@ -1,0 +1,112 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "color_mode" (string)
+    - "tag" (associative array) (default: predefined structure): format:
+      {
+        type: string (default: 'link') can be 'link' or 'removable'
+        path: string (default: '') tag url if needed),
+        label: string (default: '') tag text as string,
+        external: boolean (default: false) External icon for a tag with link
+        aria_label: (string) (default: '') (optional) aria label for removable tag as a string
+        nowrap: boolean (default: false) force the tag to stay on one line
+      }
+    - "extra_classes" (string) (default: '') Extra classes
+    - "extra_attributes" (array) (default: []): Extra attributes, format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _color_mode = color_mode|default('') %}
+{% set _tag = {
+  type: 'link',
+  path: '',
+  label: '',
+  external: false,
+  aria_label: '',
+  nowrap: false,
+} %}
+
+{% if tag is defined %}
+  {% set _tag = _tag|merge(tag) %}
+{% endif %}
+
+{% set _css_class = 'ecl-tag' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _tag.type == 'removable' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
+{% endif %}
+
+{% if _tag.nowrap %}
+  {% set _css_class = _css_class ~ ' ecl-tag--nowrap' %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _tag.type == 'removable' %}
+  <button
+    type="button"
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
+    {{- _tag.label -}}
+    <span class="ecl-tag__icon">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: { name: 'close-outline', size: 'xs' },
+        extra_classes: 'ecl-tag__icon-close',
+        as_image: true,
+        extra_accessibility: {
+          title: _tag.aria_label|default(''),
+        },
+      } only %}
+    </span>
+  </button>
+{% else %}
+  <a
+    href="{{ _tag.path }}"
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
+    {{- _tag.label -}}
+    {%- if _tag.external -%}
+      {%- include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'external',
+            size: '2xs',
+          },
+          extra_classes: 'ecl-tag__icon ecl-tag__icon--external',
+      } only -%}
+    {%- endif -%}
+  </a>
+{% endif %}
+
+{% endapply %}

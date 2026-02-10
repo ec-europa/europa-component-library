@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Spacing.scss';
+import styles from './Spacing.module.scss';
 
 function Spacing({ type, token }) {
   return (

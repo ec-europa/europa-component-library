@@ -1,12 +1,11 @@
-import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
 import isChromatic from 'chromatic/isChromatic';
 
-global.Buffer = Buffer;
-
 import './ECL';
+
+global.Buffer = Buffer;
 
 if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   function createLink(href, media) {
@@ -35,7 +34,71 @@ if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   );
 }
 
+export const initialGlobals = {
+  panelDescription:
+    'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
+  panelTitle: 'ECL styles',
+};
+
 export const parameters = {
+  breakpoints: {
+    xs: 0,
+    s: 480,
+    m: 768,
+    l: 996,
+    xl: 1140,
+  },
+  styleToggle: {
+    styleSheets: [
+      {
+        id: 'ecl-reset',
+        href: './styles/optional/ecl-reset.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-default',
+        href: './styles/optional/ecl-ec-default.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-ec',
+        href: './styles/ecl-ec.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-ec-color-modes',
+        href: './styles/ecl-ec-color-modes.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-utilities',
+        href: './styles/optional/ecl-ec-utilities.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-ec-default-print',
+        href: './styles/optional/ecl-ec-default-print.css',
+        picked: false,
+        group: 'print',
+      },
+      {
+        id: 'ecl-ec-print',
+        href: './styles/ecl-ec-print.css',
+        picked: false,
+        group: 'print',
+      },
+    ],
+  },
+  options: {
+    storySort: (a, b) => {
+      return a.title.localeCompare(b.title, undefined);
+    },
+  },
   disableSaveFromUI: true,
   a11y: {
     element: '#storybook-root',
@@ -54,50 +117,6 @@ export const parameters = {
     canvas: { sourceState: 'shown' },
   },
   viewMode: 'story',
-  cssresources: [
-    {
-      id: 'ecl-reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-default',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-utilities',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-utilities.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-rtl',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-ec-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-  ],
   controls: { expanded: true },
   layout: 'padded',
   viewport: {
@@ -136,12 +155,21 @@ export const parameters = {
   },
 };
 
-export const decorators = [withCssResources];
-
 export const loaders = [
   async ({ args, originalStoryFn }) => {
     if (originalStoryFn.render) {
       const component = await originalStoryFn.render(args);
+
+      // Store the original HTML (before icon replacement) for the HTML addon
+      if (typeof component === 'string') {
+        setTimeout(() => {
+          const rootDiv = document.querySelector('#storybook-root');
+          if (rootDiv) {
+            rootDiv.setAttribute('data-original-markup', component);
+          }
+        }, 0);
+      }
+
       return { component };
     }
   },

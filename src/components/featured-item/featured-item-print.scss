@@ -1,0 +1,283 @@
+/**
+ * Featured item print
+ * @define featured-item
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$featured-item: null !default;
+$featured-item-print: null !default;
+
+.ecl-featured-item__container {
+  border-radius: map.get($featured-item, 'border-radius');
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.ecl-featured-item__item {
+  box-sizing: border-box;
+  flex-basis: 50%;
+  flex-grow: 1;
+
+  &:first-child {
+    margin-block-start: 0;
+    padding-inline: map.get($featured-item-print, 'gap-horizontal') 0;
+  }
+}
+
+.ecl-featured-item__title {
+  color: map.get($featured-item, 'title', 'color');
+  font: map.get($featured-item-print, 'title', 'font');
+  font-weight: map.get($featured-item, 'title', 'font-weight');
+  max-width: var(--max-w);
+}
+
+.ecl-featured-item__description {
+  color: map.get($featured-item, 'description', 'color');
+  font: map.get($featured-item-print, 'description', 'font');
+  max-width: var(--max-w);
+
+  .ecl-featured-item__title + & {
+    margin-block-start: map.get($featured-item-print, 'description', 'spacing');
+  }
+
+  &:first-child,
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ecl-featured-item__link {
+  font: map.get($featured-item-print, 'link', 'font');
+  text-align: start;
+
+  .ecl-featured-item__info + & {
+    margin-block-start: map.get($featured-item-print, 'link', 'spacing');
+  }
+
+  &:dir(rtl) .ecl-icon {
+    transform: scaleX(1);
+  }
+}
+
+.ecl-featured-item__container--right {
+  flex-direction: row;
+
+  .ecl-featured-item__item:first-child {
+    padding-inline: 0 map.get($featured-item-print, 'gap-horizontal');
+  }
+}
+
+.ecl-featured-item:not(.ecl-featured-item--highlight) {
+  .ecl-featured-item__item:only-child {
+    padding-inline-start: 0;
+  }
+}
+
+// Content alignment
+.ecl-featured-item__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .ecl-featured-item__link {
+    align-self: flex-start;
+  }
+
+  .ecl-featured-item--hcenter & {
+    align-items: center;
+    text-align: center;
+
+    .ecl-featured-item__link {
+      align-self: auto;
+    }
+  }
+
+  .ecl-featured-item--vcenter & {
+    justify-content: center;
+  }
+}
+
+// Dynamic height image
+.ecl-featured-item--dynamic {
+  .ecl-featured-item__media_container,
+  .ecl-media-container__figure,
+  .ecl-media-container__picture,
+  .ecl-media-container__media {
+    height: 100%;
+  }
+}
+
+/**
+* Highlight
+*/
+.ecl-featured-item--highlight {
+  .ecl-featured-item__container {
+    background-color: map.get(
+      $featured-item,
+      'highlight',
+      'container',
+      'background-color'
+    );
+    border-inline-start: map.get($featured-item, 'highlight', 'border-size')
+      solid map.get($featured-item, 'highlight', 'border-color');
+    padding-block: map.get(
+      $featured-item-print,
+      'highlight',
+      'container',
+      'padding-block'
+    );
+    padding-inline: map.get(
+      $featured-item-print,
+      'highlight',
+      'container',
+      'padding-inline'
+    );
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-featured-item__item:first-child {
+    background-color: map.get(
+      $featured-item,
+      'highlight',
+      'item',
+      'background-color'
+    );
+    display: flex;
+    flex-direction: column;
+    padding-block: map.get(
+      $featured-item-print,
+      'highlight',
+      'item',
+      'padding-block'
+    );
+    padding-inline: map.get(
+      $featured-item-print,
+      'highlight',
+      'item',
+      'padding-inline'
+    );
+    position: relative;
+  }
+
+  .ecl-featured-item__title {
+    color: map.get($featured-item, 'highlight', 'title', 'color');
+  }
+
+  .ecl-featured-item__description {
+    color: map.get($featured-item, 'highlight', 'description', 'color');
+  }
+
+  .ecl-featured-item__info + .ecl-featured-item__link {
+    margin-block-start: map.get(
+      $featured-item-print,
+      'highlight',
+      'link',
+      'spacing'
+    );
+  }
+
+  .ecl-featured-item__link:not(
+    .ecl-link--primary-highlight,
+    .ecl-link--primary-neutral,
+    .ecl-link--primary,
+    .ecl-link--secondary
+  ) {
+    color: map.get($featured-item, 'highlight', 'description', 'color');
+    text-decoration: underline;
+
+    &:visited {
+      color: map.get($featured-item, 'highlight', 'description', 'color');
+    }
+  }
+
+  // Highlighted link
+  &.ecl-featured-item--link-highlighted {
+    .ecl-featured-item__info {
+      flex-grow: 1;
+    }
+
+    &.ecl-featured-item--vcenter .ecl-featured-item__info {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    .ecl-featured-item__link {
+      background-color: map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'background-color'
+      );
+      color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
+      display: block;
+      margin-block-end: calc(
+        -1 *
+          #{map.get($featured-item-print, 'highlight', 'item', 'padding-block')}
+      );
+      margin-inline-end: calc(
+        -1 *
+          #{map.get(
+            $featured-item-print,
+            'highlight',
+            'item',
+            'padding-inline'
+          )}
+      );
+      margin-inline-start: auto;
+      width: clamp(
+        1px,
+        #{map.get($featured-item, 'highlight', 'link', 'max-width')},
+        100%
+      );
+      padding: map.get($featured-item-print, 'highlight', 'link', 'padding');
+      text-decoration: none;
+
+      &:visited {
+        color: map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        );
+      }
+
+      .ecl-link__icon {
+        display: block;
+        margin-block: var(--s-s) 0;
+        margin-inline: 0;
+      }
+    }
+
+    .ecl-featured-item__info + .ecl-featured-item__link {
+      margin-block-start: map.get(
+        $featured-item-print,
+        'highlight',
+        'link',
+        'spacing-highlighted'
+      );
+    }
+
+    .ecl-featured-item__container--right .ecl-featured-item__link,
+    .ecl-featured-item__item:first-child:only-child .ecl-featured-item__link {
+      margin-inline-end: 0;
+      margin-inline-start: calc(
+        -1 *
+          #{map.get(
+            $featured-item-print,
+            'highlight',
+            'item',
+            'padding-inline'
+          )}
+      );
+    }
+  }
+}

@@ -1,0 +1,196 @@
+/**
+ * News ticker
+ * @define news-ticker
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$news-ticker: null !default;
+
+.ecl-news-ticker {
+  align-items: center;
+  background: #fff;
+  border: map.get($news-ticker, 'border');
+  border-radius: map.get($news-ticker, 'border-radius');
+  box-shadow: map.get($news-ticker, 'box-shadow');
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.ecl-news-ticker__icon {
+  fill: var(--cm-on-surface-primary, var(--c-p));
+  flex-shrink: 0;
+  height: map.get($theme, 'icon', 'm');
+  width: map.get($theme, 'icon', 'm');
+  margin-inline-end: var(--s-2xs);
+}
+
+.ecl-news-ticker__container {
+  box-sizing: border-box;
+  align-items: center;
+  background: #fff;
+  display: flex;
+  height: 4.25rem;
+  padding: var(--s-m);
+  width: 100%;
+}
+
+.ecl-news-ticker__content {
+  height: 0;
+  overflow: hidden;
+  transition-duration: 0.4s;
+  width: 100%;
+}
+
+.ecl-news-ticker__slides {
+  color: var(--cm-on-surface-brand, var(--c-d));
+  font: map.get($news-ticker, 'font');
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transform: translate3d(0, 0, 0);
+  transition-duration: 0s;
+}
+
+.ecl-news-ticker__slide {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  line-height: map.get($theme, 'line-height', 'xs');
+
+  .ecl-link {
+    line-height: map.get($theme, 'line-height', 'xs');
+    padding-inline-start: var(--s-2xs);
+    padding-inline-end: var(--s-2xs);
+
+    &:focus-visible {
+      outline-offset: -2px;
+    }
+  }
+
+  .ecl-link__icon {
+    height: map.get($theme, 'icon', 'xs');
+    width: map.get($theme, 'icon', 'xs');
+  }
+}
+
+// stylelint-disable value-no-vendor-prefix
+.ecl-news-ticker__slide-text {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  // stylelint-disable-next-line property-no-unknown
+  line-clamp: 2;
+  // stylelint-disable-next-line property-no-deprecated
+  -webkit-box-orient: vertical;
+}
+
+// stylelint-enable value-no-vendor-prefix
+.ecl-news-ticker__controls {
+  align-items: center;
+  align-self: stretch;
+  background-color: map.get($news-ticker, 'controls-background');
+  display: flex;
+  width: 100%;
+}
+
+.ecl-news-ticker__actions {
+  border-top: map.get($news-ticker, 'border');
+  display: flex;
+  flex-direction: row;
+  order: 3;
+}
+
+.ecl-news-ticker__counter {
+  background-color: map.get($news-ticker, 'counter', 'background');
+  color: map.get($news-ticker, 'counter', 'color');
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  font: map.get($news-ticker, 'counter', 'font');
+  font-weight: map.get($news-ticker, 'counter', 'font-weight');
+  flex-grow: 1;
+  justify-content: center;
+  order: 1;
+  margin-bottom: -1px;
+  margin-inline-start: -1px;
+  padding: 0 var(--s-l);
+  text-align: end;
+  white-space: pre;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-news-ticker {
+    box-shadow: none;
+    flex-flow: initial;
+    justify-content: initial;
+  }
+
+  .ecl-news-ticker__container {
+    background: map.get($news-ticker, 'container-background');
+    border-inline-end: map.get($news-ticker, 'border');
+    height: map.get($news-ticker, 'desktop-only-height');
+    padding: map.get($news-ticker, 'padding-container-desktop');
+  }
+
+  .ecl-news-ticker__controls {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+
+    .ecl-news-ticker__actions {
+      border-top: none;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .ecl-news-ticker__counter {
+    order: 4;
+    flex-shrink: 0;
+    margin-inline-end: -1px;
+    text-align: initial;
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-news-ticker__container {
+    border-inline-end: none;
+    height: map.get($news-ticker, 'height');
+  }
+
+  .ecl-news-ticker__controls {
+    flex-direction: row;
+  }
+
+  .ecl-news-ticker__counter {
+    margin-top: -1px;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    order: 1;
+  }
+
+  .ecl-news-ticker__prev {
+    margin-inline-start: var(--s-xs);
+  }
+
+  .ecl-news-ticker__next {
+    margin-inline-end: var(--s-xs);
+  }
+
+  .ecl-news-ticker__icon {
+    margin-inline-end: map.get($news-ticker, 'padding-horizontal');
+    height: 2rem;
+    width: 2rem;
+  }
+}

@@ -1,0 +1,43 @@
+/**
+ * Navigation list print
+ * @define navigation-list
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$navigation-list: null !default;
+$navigation-list-print: null !default;
+
+// Navigation list
+
+.ecl-navigation-list {
+  margin: 0;
+}
+
+.ecl-navigation-list--col-2,
+.ecl-navigation-list--col-3 {
+  display: grid;
+  grid-auto-rows: auto;
+  column-gap: map.get($theme, 'grid', 'gutter-print');
+  row-gap: map.get($theme, 'spacing-print', 'xl');
+  width: 100%;
+}
+
+.ecl-navigation-list--col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ecl-navigation-list--col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ecl-navigation-list__image {
+  display: none;
+}
+
+.ecl-navigation-list__content-block .ecl-content-block__title {
+  font: map.get($navigation-list-print, 'title-font');
+  font-weight: map.get($navigation-list, 'title-font-weight');
+}

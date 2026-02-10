@@ -3,17 +3,17 @@
 ## Develop
 
 ```sh
-yarn start
+pnpm start
 ```
 
 ## Build static
 
 ```sh
-yarn build
+pnpm build
 ```
 
 ## Serve static
 
 ```sh
-yarn serve
+pnpm serve
 ```

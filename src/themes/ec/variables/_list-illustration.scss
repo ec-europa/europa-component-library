@@ -2,24 +2,55 @@
 @use '../index' as *;
 
 $list-illustration: (
-  title-color: var(--c-d),
-  description-color: var(--c-d),
-  background-color: var(--c-n-40),
-  value-font-mobile-m: var(--f-xl),
-  value-font-mobile-l: var(--f-2xl),
-  value-font-desktop-m: var(--f-2xl),
-  value-font-desktop-l: var(--f-3xl),
-  title-font: var(--f-l),
-  title-margin: var(--s-xs),
-  description-margin: var(--s-xs),
-  icon-color: var(--c-d),
+  background-color: var(--cm-surface-low-1),
+  column-gap: var(--s-5xl),
+  icon-color: var(--cm-on-surface),
+  icon-spacing-desktop: var(--s-l),
   item-padding-mobile: 0 0 var(--s-6xl),
-  item-padding-desktop: 0 0 var(--s-3xl),
-  item-padding-zebra-mobile: var(--s-3xl) var(--s-xl),
-  item-padding-zebra-desktop: var(--s-3xl),
+  item-padding-desktop: 0 0 var(--s-5xl),
+  item-padding-desktop-variant: var(--s-xl),
+  item-padding-zebra-mobile: var(--s-5xl) var(--s-xl),
+  item-padding-zebra-desktop: var(--s-5xl),
   item-margin-mobile: var(--s-6xl),
+  counter: (
+    font-mobile: var(--f-xs),
+    font-tablet: var(--f-m),
+    font-desktop: var(--f-l),
+  ),
+  value: (
+    color: var(--cm-on-surface-brand),
+    font-mobile-m: var(--f-2xl),
+    font-mobile-l: var(--f-5xl),
+    font-desktop-m: var(--f-3xl),
+    font-desktop-l: var(--f-6xl),
+    font-weight: map.get($font-weight, 'regular'),
+  ),
+  title: (
+    color: var(--cm-on-surface-brand),
+    font: var(--f-2xl),
+    font-weight: map.get($font-weight, 'light'),
+    margin: 0,
+    number-list-font: 'heading6',
+    number-list-font-weight: map.get($font-weight, 'semi-bold'),
+  ),
+  description: (
+    font: 'body-m',
+    color: var(--cm-on-surface-brand),
+    margin: var(--s-xs),
+  ),
 );
 $list-illustration-print: (
-  value-font-desktop-m: map.get($font-print, '2xl'),
-  value-font-desktop-l: map.get($font-print, '3xl'),
+  value: (
+    font-desktop-m: map.get($font-print, '4xl'),
+    font-desktop-l: map.get($font-print, '5xl'),
+    font-weight: map.get($font-weight, 'light'),
+  ),
+  title: (
+    font: map.get($font-print, '4xl'),
+    font-weight: map.get($font-weight, 'light'),
+    margin: map.get($spacing-print, 's'),
+  ),
+  description: (
+    margin: map.get($spacing-print, 'xs'),
+  ),
 );

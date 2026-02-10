@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
+.link {
+  color: var(--ws-c-p);
+  display: inline-block;
+  fill: currentcolor;
+  font-family: #{map.get($theme, 'font-family', 'default')};
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+
+  &:focus {
+    outline: 2px solid var(--ws-c-p);
+    outline-offset: 2px;
+  }
+}
+
+.standalone {
+  text-decoration: none;
+}
+
+.icon {
+  height: 1em;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+  width: 1em;
+}

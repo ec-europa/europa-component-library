@@ -1,0 +1,179 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+@use '@ecl/grid/mixins/breakpoints';
+
+$theme: null !default;
+$typography: null !default;
+
+@mixin responsive-font-emit($tier, $important: false) {
+  @if meta.type-of($tier) == 'map' {
+    $size: map.get($tier, 'size');
+    $lh: map.get($tier, 'line-height');
+    $ls: map.get($tier, 'letter-spacing');
+
+    @if $size {
+      @if $important {
+        font-size: $size !important;
+      } @else {
+        font-size: $size;
+      }
+    }
+
+    @if $lh {
+      @if $important {
+        line-height: $lh !important;
+      } @else {
+        line-height: $lh;
+      }
+    }
+
+    @if $ls {
+      @if $important {
+        letter-spacing: $ls !important;
+      } @else {
+        letter-spacing: $ls;
+      }
+    }
+  } @else if meta.type-of($tier) == 'string' and string.index($tier, '--f-') {
+    @if $important {
+      font: $tier !important;
+    } @else {
+      font: $tier;
+    }
+  }
+}
+
+@function map-deep-get($map, $keys...) {
+  $v: $map;
+
+  @each $k in $keys {
+    @if meta.type-of($v) == 'map' {
+      $v: map.get($v, $k);
+    } @else {
+      $v: null;
+    }
+  }
+
+  @return $v;
+}
+
+@function font-size-value($v) {
+  @if meta.type-of($v) == 'map' {
+    @return map.get($v, 'size');
+  }
+
+  @return $v;
+}
+
+$font-breakpoints: (
+  'mobile': 's',
+  'tablet': 'm',
+  'desktop': 'xl',
+);
+
+@mixin responsive-font(
+  $token,
+  $font-weight: '',
+  $important: false,
+  $container: ''
+) {
+  $token-map: null;
+  $base-token: null;
+
+  @if meta.type-of($token) == 'map' {
+    $token-map: $token;
+  } @else if meta.type-of($token) == 'string' {
+    // Check if it is a full font variable
+    $variable: string.index($token, '--f-');
+
+    @if $variable {
+      // It is a full font (EU), just display it
+      @if $important {
+        font: $token !important;
+      } @else {
+        font: $token;
+      }
+
+      @if $font-weight != '' {
+        font-weight: $font-weight;
+      }
+    } @else {
+      // It is not a font, handle it
+      $hyphen: string.index($token, '-');
+      $variant: null;
+
+      @if $hyphen {
+        $base-token: string.slice($token, 1, $hyphen - 1);
+        $variant: string.slice($token, $hyphen + 1);
+      } @else {
+        $base-token: $token;
+      }
+
+      @if $variant {
+        $token-map: map-deep-get($typography, $base-token, $variant);
+      } @else {
+        $token-map: map.get($typography, $base-token);
+      }
+    }
+  }
+
+  @if $token-map {
+    // Font family
+    $font-family: map.get($typography, 'font-family');
+
+    @if $font-family {
+      font-family: $font-family;
+    }
+
+    // Font weight
+    @if $font-weight != '' {
+      font-weight: $font-weight;
+    } @else if map.has-key($token-map, 'font-weight') {
+      $fw: map.get($token-map, 'font-weight');
+
+      @if $fw {
+        font-weight: $fw;
+      }
+    }
+
+    // Base (mobile-xs)
+    @if map.has-key($token-map, 'mobile-xs') {
+      @include responsive-font-emit(
+        map.get($token-map, 'mobile-xs'),
+        $important
+      );
+    } @else {
+      @include responsive-font-emit($token-map, $important);
+    }
+
+    $prev-tier: 'mobile-xs';
+    $previous: null;
+    $current: null;
+
+    @each $tier, $bp-name in $font-breakpoints {
+      @if map.has-key($token-map, $tier) {
+        $current: map.get($token-map, $tier);
+      }
+
+      @if map.has-key($token-map, $prev-tier) {
+        $previous: map.get($token-map, $prev-tier);
+      }
+
+      @if $current != $previous {
+        @if $container != '' {
+          // stylelint-disable-next-line container-name-pattern
+          @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
+            @include responsive-font-emit($current, $important);
+          }
+        } @else {
+          @include breakpoints.up($bp-name) {
+            @include responsive-font-emit($current, $important);
+          }
+        }
+      }
+
+      $prev-tier: $tier;
+    }
+  }
+}

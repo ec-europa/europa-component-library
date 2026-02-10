@@ -1,0 +1,129 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
+  - "font_size" (string) (default: 'l') Size of the title (can be 'm', 'l')
+  - "title" (string) (default: '') Title of the spotlight
+  - "path" (string) (default: '') Link url
+  - "header" (string) (default: '') Header over the spotlight
+  - "picture" (object) (default: {}): Image for the spotlight, following ECL Picture structure
+  - "has_anchor" (boolean) (default: true): Should the visual anchor be displayed?
+  - "credit" (string) (default: '') Credit for the image
+  - "full_width" (boolean) (default: false) Full width spotlight (extend outside the grid)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-spotlight' %}
+{% set _extra_attributes = '' %}
+{% set _color_mode = color_mode|default('') %}
+{% set _picture = picture|default({}) %}
+{% set _font_size = font_size|default('m') %}
+{% set _full_width = full_width ?? false %}
+{% set _header = header|default('') %}
+{% set _title = title|default('') %}
+{% set _path = path|default('') %}
+{% set _credit = credit|default('') %}
+{% set _has_anchor = has_anchor ?? true %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _font_size != 'm' %}
+  {% set _css_class = _css_class ~ ' ecl-spotlight--font-' ~ _font_size %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-spotlight--full-width' %}
+{% endif %}
+
+{% if _has_anchor %}
+  {% set _css_class = _css_class ~ ' ecl-spotlight--anchor' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _picture is not empty %}
+<section
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {# Header #}
+  {% if _header is not empty %}
+    <div class="ecl-spotlight__header">
+      <div class="ecl-container">
+        {{- _header -}}
+      </div>
+    </div>
+  {% endif %}
+
+  {# Link #}
+  {% if _path is not empty %}
+  <a href="{{ _path }}" class="ecl-spotlight__link">
+  {% endif %}
+
+    {# Image #}
+    {% if _picture.img is not empty %}
+      <figure class="ecl-spotlight__picture-container">
+        {% include '@ecl/picture/picture.html.twig' with {
+          picture: _picture,
+          extra_classes: 'ecl-spotlight__picture',
+          extra_image_classes: 'ecl-spotlight__image',
+          extra_attributes: [{ name: 'data-ecl-spotlight-image' }],
+        } only %}
+      </figure>
+    {% endif %}
+
+    {# Content box #}
+    {% if _title is not empty or _has_anchor or _credit is not empty %}
+      <div
+        class="ecl-spotlight__container"
+        data-ecl-spotlight-container
+      >
+        <div class="ecl-container">
+          {%- if _title is not empty -%}
+            <div class="ecl-spotlight__title">{{ _title }}</div>
+          {%- endif -%}
+
+          {%- if _has_anchor -%}
+            <div class="ecl-spotlight__anchor" aria-hidden="true"></div>
+          {%- endif -%}
+        </div>
+
+        {%- if _credit is not empty -%}
+          <footer class="ecl-spotlight__credit">
+            {{- _credit -}}
+          </footer>
+        {%- endif -%}
+      </div>
+    {% endif %}
+
+  {% if _path is not empty %}
+  </a>
+  {% endif %}
+</section>
+{% endif %}
+
+{% endapply %}

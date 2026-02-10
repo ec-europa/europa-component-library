@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob');
-const { execSync } = require('child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { globSync } from 'glob';
+import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url'; // Add this
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const publicUrl = process.env.PUBLIC_URL || '';
-const dir = path.resolve(__dirname, '../../implementations/vanilla/components');
+const dir = path.resolve(__dirname, '../../components');
 
-const files = glob
-  .sync('**/*.js', {
-    cwd: dir,
-  })
-  .sort((a, b) => a.localeCompare(b, 'en'));
+const files = globSync('*/*.js', {
+  cwd: dir,
+  ignore: ['**/*.story.js', '**/*.test.js'],
+}).sort((a, b) => a.localeCompare(b, 'en'));
 
 const publicDir = path.resolve(__dirname, '../public');
 const apisDir = 'apis';
@@ -62,10 +64,13 @@ const componentNames = [];
 
 files.forEach((file) => {
   const inputFile = path.resolve(dir, file);
-  const namespace = () =>
-    path.basename(file, '.js') === 'file'
-      ? 'FileDownload'
-      : capitalizeFirstLetter(path.basename(file, '.js'));
+  const namespace = () => {
+    const base = path.basename(file, '.js');
+
+    if (base === 'file') return 'FileDownload';
+
+    return capitalizeFirstLetter(base);
+  };
   const outputFile = path.resolve(outputDir, `${namespace()}.html`);
 
   try {
@@ -127,7 +132,7 @@ const indexPageContent = `
     <style>
       body {
         padding: 1rem;
-        max-width: 1200px;
+        max-width: 1368px;
         margin: o auto;
       }
       .ecl-apis-header h1 {

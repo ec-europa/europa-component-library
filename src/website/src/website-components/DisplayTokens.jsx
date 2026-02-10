@@ -1,7 +1,6 @@
-/* eslint-disable react/forbid-prop-types */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import styles from './DisplayTokens.scss';
+import styles from './DisplayTokens.module.scss';
 
 class DisplayTokens extends PureComponent {
   render() {

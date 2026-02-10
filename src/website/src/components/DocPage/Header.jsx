@@ -1,24 +1,25 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router';
 import PropTypes from 'prop-types';
-import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
-import styles from './Header.scss';
+import styles from './Header.module.scss';
 
 import { getPageTitle, getSectionTitle } from './utils/title';
 
-const navigateTab = (e, history) => {
+const navigateTab = (e, navigate) => {
   if (e.target.value.indexOf('/playground/') !== -1) {
     window.location.href = e.target.value;
     return;
   }
 
-  history.push(e.target.value);
+  navigate(e.target.value); // Use the navigate hook
 };
 
-const Header = React.memo(({ component, history, location }) => {
+const Header = React.memo(({ component }) => {
+  const navigate = useNavigate(); // Get the navigate function
+  const location = useLocation(); // Get the location object
+
   if (!component || !component.attributes) return null;
 
   const pageTitle = getPageTitle(component);
@@ -40,9 +41,11 @@ const Header = React.memo(({ component, history, location }) => {
                   <li key={tab.attributes.url}>
                     <NavLink
                       to={tab.attributes.url}
-                      strict
-                      className={styles['header__tabs-item']}
-                      activeClassName={styles['header__tabs-item--active']}
+                      className={({ isActive }) =>
+                        isActive
+                          ? `${styles['header__tabs-item']} ${styles['header__tabs-item--active']}`
+                          : styles['header__tabs-item']
+                      }
                     >
                       {tab.attributes.title}
                     </NavLink>
@@ -61,13 +64,9 @@ const Header = React.memo(({ component, history, location }) => {
                     rel="noopener noreferrer"
                   >
                     Playground
-                    <svg
-                      focusable="false"
-                      aria-hidden="true"
-                      className={styles['header__tabs-icon']}
-                    >
-                      <use xlinkHref={`${icons}#external`} />
-                    </svg>
+                    <span
+                      className={`wt-icon--external ${styles['header__tabs-icon']}`}
+                    />
                   </a>
                 </li>
               )}
@@ -76,7 +75,7 @@ const Header = React.memo(({ component, history, location }) => {
               <select
                 id="header-tabs"
                 className={styles.select}
-                onChange={(e) => navigateTab(e, history)}
+                onChange={(e) => navigateTab(e, navigate)} // Use navigate from hooks
                 defaultValue={location.pathname}
               >
                 {component.parent.children.map((tab) => (
@@ -97,13 +96,9 @@ const Header = React.memo(({ component, history, location }) => {
                 )}
               </select>
               <div className={styles.select__icon}>
-                <svg
-                  focusable="false"
-                  aria-hidden="true"
-                  className={styles['select__icon-shape']}
-                >
-                  <use xlinkHref={`${icons}#corner-arrow`} />
-                </svg>
+                <span
+                  className={`wt-icon--corner-arrow ${styles['select__icon-shape']}`}
+                />
               </div>
             </div>
           </>
@@ -118,31 +113,32 @@ const componentType = PropTypes.shape({
     url: PropTypes.string,
     title: PropTypes.string,
     isTab: PropTypes.bool,
+    playground: PropTypes.shape({
+      system: PropTypes.string,
+      path: PropTypes.string,
+    }),
+  }),
+  parent: PropTypes.shape({
+    children: PropTypes.arrayOf(
+      PropTypes.shape({
+        attributes: PropTypes.shape({
+          url: PropTypes.string,
+          title: PropTypes.string,
+          isTab: PropTypes.bool,
+        }),
+      }),
+    ),
+    attributes: PropTypes.shape({
+      playground: PropTypes.shape({
+        system: PropTypes.string,
+        path: PropTypes.string,
+      }),
+    }),
   }),
 });
 
-const componentDefaults = {
-  attributes: {
-    url: '',
-    title: '',
-    isTab: false,
-  },
-};
-
 Header.propTypes = {
-  parent: componentType,
-  component: componentType,
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
+  component: componentType.isRequired,
 };
 
-Header.defaultProps = {
-  parent: componentDefaults,
-  component: componentDefaults,
-};
-
-export default withRouter(Header);
+export default Header;

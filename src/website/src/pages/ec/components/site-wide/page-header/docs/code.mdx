@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-
-import {
-  pageHeaderDefault,
-  pageHeaderThumbnail,
-  pageHeaderBackground,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default page header
 
@@ -17,34 +11,23 @@ import {
   system="ec"
   selectedKind="components-site-wide-page-headers"
   selectedStory="default"
-  selectedArgs="show_thumbnail:false;background_image_url:"
-  showFrame
->
-  <Html markup={pageHeaderDefault} />
-</Playground>
+  selectedArgs="show_thumbnail:!false"
+></Playground>
 
-## Page header with background image
-
-Overlay can be configured (dark, light or none)
+## News page header
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="default"
-  selectedArgs="show_thumbnail:false"
-  showFrame
->
-  <Html markup={pageHeaderBackground} />
-</Playground>
+  selectedStory="news"
+  selectedArgs="show_thumbnail:!false"
+></Playground>
 
-## Page header with thumbnail
+## 50/50 page header
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="default"
-  selectedArgs="background_image_url:"
-  showFrame
->
-  <Html markup={pageHeaderThumbnail} />
-</Playground>
+  selectedStory="fifty"
+  selectedArgs="show_thumbnail:!false"
+></Playground>

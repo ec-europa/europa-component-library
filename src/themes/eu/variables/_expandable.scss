@@ -3,9 +3,12 @@
 
 $expandable: (
   content-color: var(--c-d-80),
+  content-divider: none,
   content-margin: var(--s-m),
   content-padding: var(--s-m),
-  toggle-background-active: transparent,
+  content-spacing-bottom: 0,
+  toggle-background-active: var(--c-p-20),
   toggle-border-active: transparent,
-  toggle-color-active: var(--c-p),
+  toggle-color-active: var(--c-d),
+  toggle-radius: map.get($border-radius, 's'),
 );

@@ -1,0 +1,268 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: random): unique id of the banner
+  - "color_mode" (string) (default: '') Name of the color mode
+  - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
+  - "font_size" (string) (default: 'm') Size of the title and description (can be 's', 'm', 'l')
+  - "font_color" (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
+  - "box_background" (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
+  - "title" (string or Link) (default: '') Title of banner
+  - "picture" (object) (default: {}): Image for the banner, following ECL Picture structure
+  - "video" (object) (default: {}): Video for the banner
+    - "poster" (string) (default: ''): Image to be used as the video placeholder 
+    - "sources" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''),
+        "type" (string) (default: ''),
+      },
+      ...
+    ],
+    - "tracks" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''),
+        "kind" (string) (default: ''),
+        "src_lang" (string) (default: ''),
+        "label" (string) (default: ''),
+      },
+      ...
+    ],
+  - "sr_play" (string) (default: '') screen reader label for the play button
+  - "sr_pause" (string) (default: '') screen reader label for the pause button
+  - "credit" (string) (default: '') Credit for the image
+  - "description" (string or Link) (default: '') Description of banner
+  - "horizontal" (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
+  - "vertical" (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
+  - "full_width": (bool) (default: false) Full width banner (inside the grid)
+  - "link" (object) (default: predefined structure) predefined structure for the Link component
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-banner-' ~ random()) %}
+{% set _css_class = 'ecl-banner' %}
+{% set _extra_attributes = 'data-ecl-banner data-ecl-auto-init="Banner"' %}
+{% set _color_mode = color_mode|default('') %}
+{% set _picture = picture|default({}) %}
+{% set _video = video|default({}) %}
+{% set _size = size|default('m') %}
+{% set _font_size = font_size|default('m') %}
+{% set _font_color = font_color|default('dark') %}
+{% set _box_background = box_background|default('light') %}
+{% set _horizontal = horizontal|default('left') %}
+{% set _vertical = vertical|default('center') %}
+{% set _full_width = full_width|default(false) %}
+{% set _title = title|default('') %}
+{% set _description = description|default('') %}
+{% set _credit = credit|default('') %}
+{% set _link = link|default({}) %}
+{% set _sr_play = sr_play|default('') %}
+{% set _sr_pause = sr_pause|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _size is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _size %}
+{% endif %}
+
+{% if _font_size is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--font-' ~ _font_size %}
+{% endif %}
+
+{% if _picture is empty and _video is empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--no-media' %}
+{% endif %}
+
+{% set _color = '' %}
+{% if _font_color is not empty and (_picture is not empty or _video is not empty) %}
+  {% set _color = _font_color %}
+{% endif %}
+
+{% if _box_background is not empty and (_picture is not empty or _video is not empty) %}
+  {% if _box_background == 'light' %}
+    {% set _color = 'dark' %}
+  {% elseif _box_background == 'dark' %}
+    {% set _color = 'light' %}
+  {% endif %}
+
+  {% set _css_class = _css_class ~ ' ecl-banner--box-bg-' ~ _box_background %}
+{% endif %}
+
+{% if _color is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--color-' ~ _color %}
+{% endif %}
+
+{% if _horizontal is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--h-' ~ _horizontal %}
+{% endif %}
+
+{% if _vertical is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--v-' ~ _vertical %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-banner--full-width' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<section
+  class="{{ _css_class }}"
+  id="{{ _id }}"
+  {{ _extra_attributes|raw }}
+>
+  {# Media #}
+  {% if _picture.img is not empty %}
+    {# Image #}
+    <figure class="ecl-banner__picture-container">
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        extra_classes: 'ecl-banner__picture',
+        extra_image_classes: 'ecl-banner__image',
+        extra_attributes: [{ name: 'data-ecl-banner-image' }],
+      } only %}
+      {% if _credit is not empty %}
+        <footer class="ecl-banner__credit" data-ecl-banner-footer>
+          <div class="ecl-container">{{ _credit }}</div>
+        </footer>
+      {% endif %}
+    </figure>
+  {% elseif _video is not empty %}
+    {# Video #}
+    <div class="ecl-banner__video-container">
+      {% set video_classes = 'ecl-banner__video' ~ (_video.extra_classes ? ' ' ~ _video.extra_classes : '') %}
+      {% include '@ecl/video/video.html.twig' with _video|merge({
+        controls: false,
+        autoplay: true,
+        muted: true,
+        loop: true,
+        extra_classes: video_classes,
+        extra_attributes: video.extra_attributes|default([])|merge([{ name: 'data-ecl-banner-video' }]),
+      }) only %}
+      {% if _credit is not empty %}
+        <div class="ecl-banner__credit" data-ecl-banner-footer>
+          <div class="ecl-container">{{ _credit }}</div>
+        </div>
+      {% endif %}
+
+      {# Video controls #}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _sr_play,
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        size: 'm',
+        extra_classes: 'ecl-banner__play',
+        extra_attributes: [{ name: 'data-ecl-banner-play' }],
+        icon: {
+          name: 'play-outline',
+          size: 'm',
+        },
+      } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _sr_pause,
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        size: 'm',
+        extra_classes: 'ecl-banner__pause',
+        extra_attributes: [{ name: 'data-ecl-banner-pause' }],
+        icon: {
+          name: 'pause-outline',
+          size: 'm',
+        },
+      } only %}
+    </div>
+  {% endif %}
+
+  {# Content box #}
+  {% if _title is not empty or _description is not empty or _link is not empty %}
+  <div class="ecl-container ecl-banner__info">
+    <div
+      class="ecl-banner__container"
+      data-ecl-banner-container
+    >
+      <div class="ecl-banner__content">
+        {% if _title is not empty %}
+          <div class="ecl-banner__title" id="{{ _id }}-title">
+            <span class="ecl-banner__title-text">
+            {%- if _title.link is defined -%}
+              {% set _title_extra_classes = (_title.extra_classes is not empty ? _title.extra_classes ~ ' ' : '') ~ 'ecl-banner__title-link' %}
+              {% include '@ecl/link/link.html.twig' with _title|merge({
+                link: _title.link,
+                extra_classes: _title_extra_classes,
+              }) only %}
+            {%- else -%}
+              {{- _title -}}
+            {%- endif -%}
+            </span>
+          </div>
+        {% endif %}
+        {% if _description is not empty %}
+          <p class="ecl-banner__description" id="{{ _id }}-description">
+            <span class="ecl-banner__description-text">
+            {%- if _description.link is defined -%}
+              {% set _description_extra_classes = (_description.extra_classes is not empty ? _description.extra_classes ~ ' ' : '') ~ 'ecl-banner__description-link' %}
+              {% include '@ecl/link/link.html.twig' with _description|merge({
+                link: _description.link,
+                extra_classes: _description_extra_classes,
+              }) only %}
+            {%- else -%}
+              {{- _description -}}
+            {%- endif -%}
+            </span>
+          </p>
+        {% endif %}
+        {% if _link is not empty %}
+          {% set _link_extra_classes = 'ecl-banner__link-cta' %}
+          {% if _link.extra_classes is defined and _link.extra_classes is not empty %}
+            {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ _link.extra_classes %}
+          {% endif %}
+          {% set _link_extra_attributes = _link.extra_attributes|default([]) %}
+          {% if _title is not empty %}
+            {% set _link_extra_attributes = _link_extra_attributes|merge([{name: 'aria-describedby', value: _id ~ '-title' }]) %}
+          {% elseif _description is not empty %}
+            {% set _link_extra_attributes = _link_extra_attributes|merge([{name: 'aria-describedby', value: _id ~ '-description' }]) %}
+          {% endif %}
+          <div class="ecl-banner__cta">
+          {% include '@ecl/link/link.html.twig' with _link|merge({
+            link: _link.link|merge({
+              type: 'primary-highlight',
+            }),
+            extra_classes: _link_extra_classes,
+            extra_attributes: _link_extra_attributes,
+          }) only %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+{% endapply %}

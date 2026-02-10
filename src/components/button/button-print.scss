@@ -1,0 +1,204 @@
+/**
+ * Button print
+ * @define button
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$button: null !default;
+
+.ecl-button,
+%ecl-button {
+  appearance: none;
+  background: none;
+  border-radius: map.get($button, 'radius');
+  border-width: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  text-decoration: none;
+}
+
+.ecl-button__container {
+  align-items: center;
+  display: flex;
+}
+
+.ecl-button__icon {
+  flex-shrink: 0;
+  height: map.get($button, 'large', 'icon-size');
+  width: map.get($button, 'large', 'icon-size');
+
+  .ecl-button--s & {
+    height: map.get($button, 'small', 'icon-size');
+    width: map.get($button, 'small', 'icon-size');
+  }
+
+  .ecl-button--m & {
+    height: map.get($button, 'medium', 'icon-size');
+    width: map.get($button, 'medium', 'icon-size');
+  }
+}
+
+.ecl-button__icon-container {
+  display: flex;
+  position: relative;
+}
+
+.ecl-button__indicator {
+  display: none;
+}
+
+// Icon only
+.ecl-button--icon-only {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+
+  .ecl-button__label {
+    display: none;
+  }
+
+  .ecl-button__icon {
+    height: map.get($button, 'large', 'icon-only-size');
+    width: map.get($button, 'large', 'icon-only-size');
+  }
+
+  &.ecl-button--s .ecl-button__icon {
+    height: map.get($button, 'small', 'icon-only-size');
+    width: map.get($button, 'small', 'icon-only-size');
+  }
+
+  &.ecl-button--m .ecl-button__icon {
+    height: map.get($button, 'medium', 'icon-only-size');
+    width: map.get($button, 'medium', 'icon-only-size');
+  }
+}
+
+@mixin icon-spacing($size) {
+  .ecl-button__icon ~ .ecl-button__label,
+  .ecl-button__icon-container ~ .ecl-button__label,
+  .ecl-button__label ~ .ecl-button__icon,
+  .ecl-button__label ~ .ecl-button__icon-container {
+    margin-inline-start: map.get($button, $size, 'icon-spacing');
+  }
+}
+
+.ecl-button:not(.ecl-button--icon-only) {
+  @include icon-spacing('large');
+
+  &.ecl-button--s {
+    @include icon-spacing('small');
+  }
+
+  &.ecl-button--m {
+    @include icon-spacing('medium');
+  }
+}
+
+// Button styles
+// stylelint-disable nesting-selector-no-missing-scoping-root
+@mixin button($variant: null) {
+  background-color: map.get($button, #{$variant}, 'background');
+  border: map.get($button, #{$variant}, 'border-width') solid
+    map.get($button, #{$variant}, 'border-color');
+  color: map.get($button, #{$variant}, 'color');
+  min-height: map.get($button, 'large', 'size');
+  min-width: map.get($button, 'large', 'size');
+  padding: calc(
+      #{map.get($button, 'large', 'padding-vertical')} -
+        #{map.get($button, #{$variant}, 'border-width')}
+    )
+    calc(
+      #{map.get($button, 'large', 'padding-horizontal')} -
+        #{map.get($button, #{$variant}, 'border-width')}
+    );
+
+  @include mixins.responsive-font(map.get($button, 'large', 'font'));
+
+  &.ecl-button--s {
+    min-height: map.get($button, 'small', 'size');
+    min-width: map.get($button, 'small', 'size');
+    padding: calc(
+        #{map.get($button, 'small', 'padding-vertical')} -
+          #{map.get($button, #{$variant}, 'border-width')}
+      )
+      calc(
+        #{map.get($button, 'small', 'padding-horizontal')} -
+          #{map.get($button, #{$variant}, 'border-width')}
+      );
+
+    @include mixins.responsive-font(map.get($button, 'small', 'font'));
+  }
+
+  &.ecl-button--m {
+    min-height: map.get($button, 'medium', 'size');
+    min-width: map.get($button, 'medium', 'size');
+    padding: calc(
+        #{map.get($button, 'medium', 'padding-vertical')} -
+          #{map.get($button, #{$variant}, 'border-width')}
+      )
+      calc(
+        #{map.get($button, 'medium', 'padding-horizontal')} -
+          #{map.get($button, #{$variant}, 'border-width')}
+      );
+
+    @include mixins.responsive-font(map.get($button, 'medium', 'font'));
+  }
+
+  &[disabled] {
+    background-color: map.get($button, #{$variant}, 'background-disabled');
+    border-color: map.get($button, #{$variant}, 'border-color-disabled');
+    color: map.get($button, #{$variant}, 'color-disabled');
+    cursor: not-allowed;
+    opacity: map.get($button, #{$variant}, 'opacity-disabled');
+    text-decoration: none;
+  }
+}
+// stylelint-enable nesting-selector-no-missing-scoping-root
+
+// Primary
+.ecl-button--primary {
+  @include button(primary);
+
+  &.ecl-button--highlight {
+    @include button(primary-highlight);
+  }
+
+  &.ecl-button--neutral {
+    @include button(primary-neutral);
+  }
+
+  &.ecl-button--inverted {
+    @include button(primary-inverted);
+  }
+}
+
+.ecl-button--secondary,
+%ecl-button {
+  @include button(secondary);
+
+  &.ecl-button--neutral {
+    @include button(secondary-neutral);
+  }
+
+  &.ecl-button--inverted {
+    @include button(secondary-inverted);
+  }
+}
+
+.ecl-button--tertiary {
+  @include button(tertiary);
+
+  &.ecl-button--neutral {
+    @include button(tertiary-neutral);
+  }
+
+  &.ecl-button--inverted {
+    @include button(tertiary-inverted);
+  }
+}

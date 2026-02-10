@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Button Primary button highlight - icon only renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary ecl-button--highlight ecl-button--icon-only"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+    </span>
+  </button>
+</jest>
+`;
+
+exports[`Button Primary button inverted - icon after renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary ecl-button--inverted"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+    </span>
+  </button>
+</jest>
+`;
+
+exports[`Button Primary renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Primary renders correctly with extra attributes 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Primary renders correctly with extra class names 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary custom-class custom-class--test"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Secondary button neutral - with indicator renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--secondary ecl-button--neutral ecl-button--icon-only"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        class="ecl-button__icon-container"
+      >
+        <span
+          aria-hidden="true"
+          class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+          data-ecl-icon=""
+        />
+        <span
+          class="ecl-indicator"
+          data-ecl-auto-init="Indicator"
+          data-ecl-indicator=""
+        >
+          <span
+            class="ecl-indicator__value"
+          >
+            10
+          </span>
+          <span
+            class="ecl-indicator__label"
+          >
+            new items
+          </span>
+        </span>
+      </span>
+    </span>
+  </button>
+</jest>
+`;
+
+exports[`Button Secondary renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--secondary"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button Tertiary button neutral - icon before renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--tertiary ecl-button--neutral"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+    </span>
+  </button>
+</jest>
+`;
+
+exports[`Button Tertiary renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--tertiary"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;

@@ -1,25 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import icons from '@ecl/resources-icons/dist/lists/all.json';
-import iconsFlag from '@ecl/resources-flag-icons/dist/lists/members/all.json';
-import iconsFlagNonMembers from '@ecl/resources-flag-icons/dist/lists/non-members/all.json';
-import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/lists/social-media.json';
+import icons from '@ecl/resources-icons/list.json';
+import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
+import iconsSocialMedia from '@ecl/resources-icons/list-network.json';
 
 import IconCard from './IconCard';
-import styles from './IconList.scss';
+import styles from './IconList.module.scss';
 
 function IconList({ set }) {
   let iconSet = icons;
   if (set === 'flag') iconSet = iconsFlag;
-  if (set === 'flag-non-members') iconSet = iconsFlagNonMembers;
   if (set === 'social-media') iconSet = iconsSocialMedia;
 
   return (
     <ul className={styles.icons}>
-      {iconSet.map((icon) => (
-        <IconCard name={icon} key={icon} set={set} />
-      ))}
+      {iconSet.map((icon) => {
+        const iconName = icon.name ? icon.name : icon;
+        const iconLabel = icon.label ? icon.label : '';
+        return (
+          <IconCard
+            key={iconName}
+            name={iconName}
+            label={iconLabel}
+            set={set}
+          />
+        );
+      })}
     </ul>
   );
 }

@@ -1,0 +1,189 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id": (string) (default: random): Unique id for the menu
+  - "toggle": (associative array) (default: {}): Toggle (hamburger) button, using ECL Button structure
+  - "close": (associative array) (default: {}): Close button, using ECL Button structure
+  - "back_label": (string): (default: ''): Back button label
+  - "aria_label" (string) (default: '') Aria label for the main nav
+  - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
+  - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
+  - "see_all_label": (string) (default: ''): Label for the "view all" link
+  - "featured_priority": (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible in desktop 
+  - "items": (array) (default: []): The menu items - format: [
+    {
+      "label": (string) (default: '')
+      "path": (string) (default: '')
+      "external": (boolean) (optional),
+      "sr_external" (string) (default: '') Additional label for the external icon
+      "one_level_only" (boolean) (default: false)
+      "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+      "container": (string) Empty container to be filled in with content
+      - "info" (object) (default: {}) Info column
+        - "title" (string) Title of the info panel
+        - "content" (string) Content of the info panel
+        - "link" (object) Structure for the "discover more" link, following ECL Link
+      "featured" (oject) (optional) {
+        - "title": (string) Title of the featured panel
+        - "content": (string) Top content of the featured panel
+        - "items": (associative array) (optional) Array of items with image, link and description
+      }
+      "children": (associative array) (optional): [
+        {
+          "label": (string) (default: '')
+          "path": (string) (default: '')
+          "external": (boolean),
+          "sr_external" (string) (default: '') Additional label for the external icon
+          "featured" (oject) (optional) {
+          - "title": (string) Title of the featured panel
+          - "content": (string) Top content of the featured panel
+          - "items": (associative array) (optional) Array of items with image, link and description
+          "see_all" (boolean) controls visibility of "View All" button
+          "children": (associative array) (optional): [
+            {
+              "label": (string) (default: '')
+              "path": (string) (default: '')
+              "external": (boolean),
+              "sr_external" (string) (default: '') Additional label for the external icon
+              "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+                - "name" (string) Attribute name, eg. 'data-test'
+                - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+            }
+          ]
+          "see_all_label" (string)
+          "see_all_attributes" (optional) (array) (default: [])
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+          "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+        }
+      ]
+    }
+  ],
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-mega-menu-' ~ random()) %}
+{% set _back_label = back_label|default('') %}
+{% set _aria_label = aria_label|default('') %}
+{% set _second_level_aria_label = second_level_aria_label|default('') %}
+{% set _third_level_aria_label = third_level_aria_label|default('') %}
+{% set _toggle = toggle|default({}) %}
+{% set _close = close|default({}) %}
+{% set _items = items|default([{}]) %}
+{% set _featured_priority = featured_priority|default('secondary') %}
+{% set _see_all_label = see_all_label|default('') %}
+{% set _css_class = 'ecl-mega-menu' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _featured_priority == 'primary' %}
+  {% set _css_class = _css_class ~ ' ecl-mega-menu--featured--primary' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<nav
+  class="{{ _css_class }}"
+  data-ecl-mega-menu
+  data-ecl-auto-init="MegaMenu"
+  {%- if _toggle is not empty and  _toggle.label is not empty -%}
+    data-ecl-mega-menu-label-open="{{ _toggle.label }}"
+  {%- endif -%}
+  {%- if _close is not empty and _close.label is defined and _close.label is not empty -%}
+    data-ecl-mega-menu-label-close="{{ _close.label }}"
+  {%- endif -%}
+  role="navigation"
+  id={{ _id }}
+  {%- if _aria_label is not empty %}
+    aria-label="{{ _aria_label }}"
+  {%- endif -%}
+  {{- _extra_attributes|raw -}}
+>
+  <div class="ecl-mega-menu__overlay">&nbsp;</div>
+  <div class="ecl-container ecl-mega-menu__container">
+    {% set _toggle_icon = {} %}
+    {% if _toggle.icon is defined %}
+      {% if _close is not empty and _close.icon is not empty %}
+        {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
+      {% else %}
+        {% set _toggle_icon = _toggle.icon %}
+      {% endif %}
+    {% endif %}
+    {% include '@ecl/button/button.html.twig' with _toggle|merge({
+      type: 'button',
+      variant: 'tertiary',
+      style: 'neutral',
+      icon_position: 'before',
+      icon: _toggle_icon,
+      hide_label: true,
+      extra_classes: 'ecl-mega-menu__open',
+      extra_attributes: [
+        { name: 'data-ecl-mega-menu-open' },
+        { name: 'aria-expanded', value: 'false' }
+      ],
+    }) only %}
+
+    <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner>
+      <header class="ecl-mega-menu__inner-header">
+        {%- if _back_label is not empty -%}
+          {% include '@ecl/button/button.html.twig' with {
+            type: 'submit',
+            variant: 'tertiary',
+            label: _back_label,
+            icon: {
+              name: 'corner-arrow',
+              size: 'xs',
+              transform: 'rotate-270',
+            },
+            icon_position: 'before',
+            extra_classes: 'ecl-mega-menu__back',
+            extra_attributes: [{
+              name: 'data-ecl-mega-menu-back',
+            }],
+          } only %}
+        {%- endif -%}
+      </header>
+      
+      <ul class="ecl-mega-menu__list">
+      {% if _items is not empty and _items is iterable %}
+        {% for key, item in _items %}
+          {% if item is defined and item is not empty %}
+            {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              item: item,
+              id: "ecl-mega-menu-item-" ~ _id ~ '-' ~ key,
+              see_all_label: _see_all_label,
+              second_level_aria_label: _second_level_aria_label,
+              third_level_aria_label: _third_level_aria_label,
+            } only %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      </ul>
+    </section>
+  </div>
+</nav>
+
+{% endapply %}

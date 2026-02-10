@@ -3,14 +3,23 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import timeline from '../demo';
+import { Playground } from '@ecl/website-components';
 
 <Playground
   system="eu"
   selectedKind="components-timeline"
   selectedStory="default"
   showFrame
->
-  <Html markup={timeline} />
-</Playground>
+></Playground>
+
+## Timeline set
+
+You can group multiple timelines by using a timeline set
+
+<Playground
+  system="eu"
+  selectedKind="components-timeline"
+  selectedStory="default"
+  selectedArgs="nb_timeline:2"
+  showFrame
+></Playground>

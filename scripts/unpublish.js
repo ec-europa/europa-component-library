@@ -1,7 +1,7 @@
 /*
  For some reasons the query on nom doesn't return some packages:
-  @ecl/vanilla-component-site-header
-  @ecl/vanilla-component-modal
+  @ecl/site-header
+  @ecl/modal
   @ecl/vanilla-component-page-header
   @ecl/vanilla-component-breadcrumb
 */
@@ -49,7 +49,7 @@ async function unpublishPackages(scope, version, dryRun = true) {
     `Running npm unpublish ${dryRun ? 'with dry-run option...' : '...'} `,
   );
   const packageNames = await fetchPackageNames(scope);
-  // eslint-disable-next-line no-restricted-syntax
+
   for (const packageName of packageNames) {
     const npmUnpublishCommand = `npm unpublish ${packageName}@${version}${
       dryRun ? ' --dry-run' : ''

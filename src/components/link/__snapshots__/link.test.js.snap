@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Link Default renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link"
+    href="/example"
+  >
+    The European Union
+  </a>
+</jest>
+`;
+
+exports[`Link External renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link
+    </span>
+    <span
+      aria-hidden="false"
+      class="wt-icon--external ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--external"
+      role="img"
+      title="Links to an external url"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link Primary highlight variant with icon renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--primary-highlight ecl-link--icon"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Call to action link
+    </span>
+    <span
+      aria-hidden="true"
+      class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link Standalone renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone"
+    href="/example"
+  >
+    Standalone link
+  </a>
+</jest>
+`;
+
+exports[`Link Standalone with missing icon name renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone"
+    href="/example"
+  >
+    Standalone link with icon
+  </a>
+</jest>
+`;
+
+exports[`Link With icon after renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link With icon after renders correctly with extra attributes 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link With icon after renders correctly with extra class names 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon custom-class custom-class--test"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link With icon before renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon"
+    href="/example"
+  >
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class ecl-icon--external"
+    />
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+  </a>
+</jest>
+`;
+
+exports[`Link With two icons after renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
+    />
+    <span
+      aria-hidden="true"
+      class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+    />
+  </a>
+</jest>
+`;
+
+exports[`Link With two icons after renders correctly with extra class names 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone custom-class custom-class--test"
+    href="/example"
+  >
+    Standalone link
+  </a>
+</jest>
+`;
+
+exports[`Link With two icons before renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon"
+    href="/example"
+  >
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
+    />
+    <span
+      aria-hidden="true"
+      class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+    />
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+  </a>
+</jest>
+`;
+
+exports[`Link With two icons before renders correctly with extra class names 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--standalone ecl-link--icon custom-class custom-class--test"
+    href="/example"
+  >
+    <span
+      aria-hidden="true"
+      class="wt-icon--external ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--external"
+    />
+    <span
+      aria-hidden="true"
+      class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+    />
+    <span
+      class="ecl-link__label"
+    >
+      Standalone link with icon
+    </span>
+  </a>
+</jest>
+`;
+
+exports[`Link with indicator renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--primary-highlight ecl-link--icon ecl-link--icon-only"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Call to action link
+    </span>
+    <span
+      class="ecl-link__icon-container"
+    >
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+      />
+      <span
+        class="ecl-indicator"
+        data-ecl-auto-init="Indicator"
+        data-ecl-indicator=""
+      >
+        <span
+          class="ecl-indicator__value"
+        >
+          10
+        </span>
+      </span>
+    </span>
+  </a>
+</jest>
+`;

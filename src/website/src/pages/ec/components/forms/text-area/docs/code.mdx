@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  textAreaDefault,
-  textAreaDisabled,
-  textAreaInvalid,
-  textAreaRequired,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default text area
 
@@ -17,9 +11,8 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="textarea"
->
-  <Html markup={textAreaDefault} />
-</Playground>
+  selectedArgs="required:!false"
+></Playground>
 
 ## Disabled text area
 
@@ -27,10 +20,8 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="textarea"
-  selectedArgs="disabled:true"
->
-  <Html markup={textAreaDisabled} />
-</Playground>
+  selectedArgs="disabled:!true"
+></Playground>
 
 ## Invalid text area
 
@@ -38,10 +29,8 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="textarea"
-  selectedArgs="invalid:true"
->
-  <Html markup={textAreaInvalid} />
-</Playground>
+  selectedArgs="invalid:!true"
+></Playground>
 
 ## Required text area
 
@@ -49,7 +38,5 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="textarea"
-  selectedArgs="required:true"
->
-  <Html markup={textAreaRequired} />
-</Playground>
+  selectedArgs="required:!true;"
+></Playground>

@@ -1,0 +1,212 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: randomized string)
+  - "variant" (string) (default: 'default') Name of the variant [default, thumbnail]
+  - "icon" (object) (default: {}): object of type Icon; file type
+  - "title" (string|object) (default: '') Plain text title or named link object 
+    Ex: title: {
+          link: {
+            label: 'Link label',
+            path: 'Url or path to a webpage'
+          }
+        }
+  - "description" (string) (default: '') Description text (thumbnail variant)
+  - "language" (string) (default: '')
+  - "meta" (string) (default: '')
+  - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
+  - "download" (object) (default: {}): object of type Link
+  - "download_attribute" (bool) (default: false): should the download link have the download attribute?
+  - "picture" (object) (default: {}): image for the thumbnail variant
+  - "label" (array) (default: {}) array of objects of type
+  ** still supported as an object with a single label **
+  - "lists" (array) (default: []) Array of objects of type "description list".
+  - "variant" (optional) (taxonomy or horizontal)
+  - "items" (array)
+    - "term" (string)
+  - "translation" (array) (default: []):
+    - "toggle" (object) (default: {}): object of type Button
+    - "items" (array) (default: []):
+      - "title" (string) (default: '')
+      - "meta" (string) (default: '')
+      - "lang" (string) (default: '')
+      - "download" (object) (default to the parent download property) object of type Link
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: []) [{
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+    },
+    ...
+  ],
+#}
+
+{# Internal properties #}
+
+{% set _icon = icon|default({}) %}
+{% set _title = title|default('') %}
+{% set _language = language|default('') %}
+{% set _meta = meta|default([]) %}
+{% set _label = label|default({}) %}
+{% set _lists = lists|default([]) %}
+{% set _download = download|default({}) %}
+{% set _download_attribute = download_attribute|default(false) %}
+{% set _detail_meta = detail_meta|default([]) %}
+{% set _translation = translation|default([]) %}
+{% set _css_class = 'ecl-file' %}
+{% set _image = image|default({}) %}
+{% set _picture = picture|default({}) %}
+{% set _meta_detail_string = '' %}
+{% set _variant = variant|default('default') %}
+{% set _description = description|default('') %}
+{% set _id = id|default('ecl-file-' ~ random()) %}
+
+{% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
+{% set _lang_id = _id ~ '-lang' %}
+{% set _title_id = _id ~ '-title' %}
+{% set _download_id = _id ~ '-link' %}
+{% set _download_label_id = _id ~ '-link-label' %}
+
+{% if _label.label is defined %}
+  {% set _labels = [_label] %}
+{% elseif _label[0] is defined %}
+  {% set _labels = _label %}
+{% endif %}
+
+{% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
+  {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+{% if _variant != 'default' %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if _detail_meta is not empty and _detail_meta is iterable %}
+  {% for meta_detail in _detail_meta %}
+    {% set _meta_detail_string %}
+      {{ _meta_detail_string }}
+      <li class="ecl-file__detail-meta-item">{{ meta_detail }}</li>
+    {% endset %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-file__container">
+  {% if _variant == 'default' %}
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _icon,
+      extra_classes: 'ecl-file__icon',
+    } only %}
+  {% else %}
+    {% if _picture.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        extra_classes: "ecl-file__picture",
+        extra_image_classes: 'ecl-file__image',
+      } only %}
+    {% endif %}
+  {% endif %}
+    <div class="ecl-file__info">
+    {% if _labels is defined %}
+      {% for _label in _labels %}
+      <div class="ecl-file__label">
+        {% include '@ecl/label/label.html.twig' with _label only %}
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% if  _meta_detail_string is not empty %}
+      <ul class="ecl-file__detail-meta">
+        {{- _meta_detail_string -}}
+      </ul>
+    {% endif %}
+    {% if _title is not empty %}
+      <div class="ecl-file__title" id="{{ _title_id }}">
+      {%- if _title.link is defined -%}
+        {% include '@ecl/link/link.html.twig' with {
+          link: _title.link|merge({ 'type' : 'standalone' }),
+        } only %}
+      {%- else -%}
+        {{ _title }}
+      {%- endif -%}
+      </div>
+    {% endif %}
+    {% if _description is not empty %}
+      <div class="ecl-file__description">{{ _description }}</div>
+    {% endif %}
+    {% if _lists is not empty and _lists is iterable %}
+      <div class="ecl-file__taxonomy">
+        {% for _list in _lists %}
+          {% include '@ecl/description-list/description-list.html.twig' with _list only %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    </div>
+  </div>
+
+  <div class="ecl-file__footer">
+  {% if _language is not empty %}
+    <div class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</div>
+  {% endif %}
+  {% if _meta is not empty %}
+    <div class="ecl-file__meta">{{ _meta }}</div>
+  {% endif %}
+    <div class="ecl-file__action">
+      {% set _download_link_attributes = _download.extra_attributes|default([])|merge([
+        { name: 'id', value: _download_id },
+        { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+      ]) %}
+      {% if _download_attribute %}
+        {% set _download_link_attributes = _download_link_attributes|merge([
+          { name: 'download' },
+        ]) %}
+      {% endif %}
+
+      {% set _download_link_classes = 'ecl-file__download' %}
+      {% if _download.extra_classes is not empty %}
+        {% set _download_link_classes = _download_link_classes ~ ' ' ~ _download.extra_classes %}
+      {% endif %}
+
+      {% include '@ecl/link/link.html.twig' with _download|merge({
+        link: _download.link|default({})|merge({
+          type: 'standalone',
+          icon_position: 'after',
+        }),
+        icon: _download.icon|default({})|merge({
+          name: 'download',
+          size: 'fluid'
+        }),
+        extra_attributes: _download_link_attributes,
+        extra_classes: _download_link_classes,
+      }) only %}
+    </div>
+  </div>
+
+{% if _translation is not empty %}
+  {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
+    id: _id,
+    download_attribute_default: _download_attribute,
+  }) only %}
+{% endif %}
+</div>
+
+{% endapply %}

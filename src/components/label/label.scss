@@ -1,0 +1,44 @@
+/**
+ * Label
+ * @define label
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$label: null !default;
+
+.ecl-label {
+  border-radius: map.get($label, 'radius');
+  border: map.get($label, 'border-width') solid transparent;
+  display: inline-block;
+  margin: 0;
+  padding: map.get($label, 'padding');
+  text-transform: map.get($label, 'text-transform');
+
+  @include mixins.responsive-font(map.get($label, 'font'));
+}
+
+@mixin label($variant: null) {
+  background-color: map.get($label, #{$variant}, 'background');
+  border-color: map.get($label, #{$variant}, 'border-color');
+  color: map.get($label, #{$variant}, 'color');
+}
+
+.ecl-label--low {
+  @include label(low);
+}
+
+.ecl-label--medium {
+  @include label(medium);
+}
+
+.ecl-label--high {
+  @include label(high);
+}
+
+.ecl-label--highlight {
+  @include label(highlight);
+}

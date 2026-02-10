@@ -24,9 +24,9 @@ import ListIllustrationThumbnail from './list-illustration/ec_comp_list_illustra
 import NotificationThumbnail from './notification/ec_comp_notifications.svg';
 import ModalThumbnail from './modal/ec_comp_modal.svg';
 import NewsTickerThumbnail from './news-ticker/ec_comp_news_ticker.svg';
+import PageInformationThumbnail from './page-information/ec_comp_page-information.svg';
 import PopoverThumbnail from './popover/ec_comp_popover.svg';
 import SMFThumbnail from './social-media-follow/ec_comp_social_media_follow.svg';
-import SMSThumbnail from './social-media-share/ec_comp_social_media_share.svg';
 import SpinnerThumbnail from './loading-indicator/ec_comp_loading_indicator.svg';
 import SplashPageThumbnail from './splash-page/ec_comp_splash-page.svg';
 import TableThumbnail from './table/ec_comp_table.svg';
@@ -38,6 +38,7 @@ import SiteHeaderThumbnail from './site-wide/site-header/ec_comp_site-header.svg
 import SiteFooterThumbnail from './site-wide/site-footer/ec_comp_site-footer.svg';
 
 import BannerThumbnail from './banner/ec_comp_banner.svg';
+import SpotlightThumbnail from './spotlight/ec_comp_spotlight.svg';
 import CarouselThumbnail from './carousel/ec_comp_carousel.svg';
 
 import CheckboxThumbnail from './forms/checkbox/ec_comp_checkbox.svg';
@@ -145,6 +146,13 @@ Every component is coded to serve a function and designed to solve a specific us
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
     <Thumbnail
+      image={PageInformationThumbnail}
+      link="./page-information/usage/"
+      title="Page information"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
       image={PopoverThumbnail}
       link="./popover/usage/"
       title="Popover"
@@ -158,17 +166,17 @@ Every component is coded to serve a function and designed to solve a specific us
     />
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
-    <Thumbnail
-      image={SMSThumbnail}
-      link="./social-media-share/usage/"
-      title="Social media share"
-    />
-  </Col>
-  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
     <Thumbnail image={SplashPageThumbnail} link="./splash-page/usage/" title="Splash page" />
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
     <Thumbnail image={SpinnerThumbnail} link="./loading-indicator/usage/" title="Loading indicator" />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
+      image={SpotlightThumbnail}
+      link="./spotlight/usage/"
+      title="Spotlight"
+    />
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
     <Thumbnail image={TableThumbnail} link="./table/usage/" title="Tables" />

@@ -1,0 +1,134 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "color_mode" (string)
+  - "column" (integer) (default: 3): Number of columns (1 to 4)
+  - "centered" (boolean) (default: false)
+  - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
+  - "items" (array) (default: []):
+    - "icon" (associate array) (default: { size: 'm' })
+    - "value" (string) (default: '')
+    - "title" (string) (default: '')
+    - "description" (string) (default:'')
+  - "view_all" (optional) (associative array) (default: {})
+    - "link" (associative array) {
+      - "label" (string) (default: '')
+      - "path" (string) (default: '')
+  - "display_icons" (boolean) (default: true)
+  - "icon_size" (string) (default: 'l'): l or 2xl
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ],
+#}
+
+{# Parameters #}
+
+{% set _color_mode = color_mode|default('') %}
+{% set _css_class = 'ecl-fact-figures' %}
+{% set _extra_attributes = '' %}
+{% set _columns = column|default(3) %}
+{% set _font_size = font_size|default('l') %}
+{% set _extra_classes = extra_classes|default('') %}
+{% set _icon_size = icon_size|default('l') %}
+{% set _display_icons = display_icons ?? true %}
+{% set _centered = centered|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _centered %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--centered' %} 
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+
+{% if items is defined and items is not empty and items is iterable %}
+  <div class="ecl-fact-figures__items">
+  {% for item in items %}
+    {% set _item_class = 'ecl-fact-figures__item' %}
+    {% if _font_size != 'l' %}
+      {% set _item_class = _item_class ~ ' ecl-fact-figures__item--font-m' %}
+    {% endif %}
+    {% if loop.first %}
+      {% set _item_class = _item_class ~ ' is-first' %}
+    {% endif %}
+    <div class="{{ _item_class }}">
+    {% if item.icon is defined and item.icon is not empty and _display_icons %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: item.icon|merge({
+          size: _icon_size,
+        }),
+        extra_classes: 'ecl-fact-figures__icon',
+      } only %}
+    {% endif %}
+    {% if item.value is defined and item.value is not empty %}
+      <div class="ecl-fact-figures__value">
+        {{- item.value -}}
+        {% if item.title is defined and item.title is not empty %}
+          {# span used for accessibility. see https://citnet.tech.ec.europa.eu/CITnet/jira/browse/FRONT-5074 #}
+          <span class="ecl-fact-figures__title">
+            {{- item.title -}}
+          </span>
+        {% endif %}
+      </div>
+    {% elseif item.title is defined and item.title is not empty %}
+      <div class="ecl-fact-figures__title">
+        {{- item.title -}}
+      </div>    
+    {% endif %}
+    {% if item.description is defined and item.description is not empty %}
+      <div class="ecl-fact-figures__description">
+        {{- item.description -}}
+      </div>
+    {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+{% endif %}
+
+{% if view_all.link is defined and view_all.link is not empty %}
+  <div class="ecl-fact-figures__view-all">
+    {% include '@ecl/link/link.html.twig' with view_all|merge({
+      link: view_all.link|merge({
+        type: 'standalone',
+      }),
+      icon: view_all.link.external ? {} : view_all.icon|default({})|merge({
+        name: 'arrow-left',
+        transform: 'flip-horizontal',
+        size: 'xs',
+      }),
+      extra_classes: 'ecl-fact-figures__view-all-link',
+    }) only %}
+  </div>
+{% endif %}
+</div>
+
+{% endapply %}

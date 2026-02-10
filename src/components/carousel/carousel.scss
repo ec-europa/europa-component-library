@@ -1,0 +1,175 @@
+/**
+ * Carousel
+ * @define carousel;
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$carousel: null !default;
+
+.ecl-carousel {
+  border-bottom: map.get($carousel, 'separator');
+  box-shadow: map.get($carousel, 'box-shadow');
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+  .ecl-banner,
+  .ecl-banner__image::before {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .ecl-banner {
+    height: 100%;
+  }
+}
+
+.ecl-carousel__container {
+  box-sizing: border-box;
+  box-shadow: map.get($carousel, 'container-shadow');
+  order: 1;
+  width: 100%;
+}
+
+.ecl-carousel__slides {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  scroll-snap-type: x mandatory;
+
+  .ecl-carousel__slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+  }
+}
+
+.ecl-carousel__slide .ecl-banner__credit {
+  width: auto;
+}
+
+.ecl-carousel__controls {
+  background-color: map.get($carousel, 'controls-background');
+  order: 2;
+  padding: map.get($carousel, 'controls-padding');
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ecl-carousel__pause {
+    display: none;
+  }
+}
+
+.ecl-carousel__controls,
+.ecl-carousel__slides .ecl-banner {
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-container {
+    max-width: 1368px;
+    width: 100%;
+  }
+}
+
+.ecl-carousel__navigation-item {
+  margin-inline-end: var(--s-xs);
+
+  &[aria-current='true']:not(:focus-visible) {
+    background-color: map.get($carousel, 'navigation-background-active');
+    border-color: map.get($carousel, 'navigation-border-active');
+    color: map.get($carousel, 'navigation-color-active');
+    outline: none;
+  }
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-carousel__navigation {
+    align-items: center;
+    display: flex;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-carousel__autoplay {
+    display: flex;
+    width: 140px;
+  }
+
+  .ecl-carousel__navigation {
+    margin-inline-start: auto;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('xl') {
+  .ecl-carousel__controls .ecl-container {
+    padding-inline-start: var(--s-2xl);
+    padding-inline-end: var(--s-2xl);
+  }
+
+  .ecl-carousel {
+    .ecl-banner {
+      height: initial;
+
+      .ecl-container {
+        height: initial;
+      }
+    }
+  }
+
+  .ecl-carousel__slide {
+    position: relative;
+  }
+
+  .ecl-carousel__slide .ecl-banner__credit {
+    margin-inline-end: 0;
+    width: 100%;
+  }
+
+  .ecl-carousel--full-width .ecl-carousel__slide .ecl-banner__credit {
+    left: 0;
+    right: 0;
+    width: 100vw;
+  }
+
+  .ecl-carousel__slide .ecl-banner__picture-container {
+    padding-bottom: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('xl') {
+  .ecl-carousel__autoplay {
+    width: 10%;
+  }
+}
+
+/*
+ * full width
+ */
+.ecl-carousel--full-width {
+  left: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
+}

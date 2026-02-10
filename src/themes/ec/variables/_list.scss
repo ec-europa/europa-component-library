@@ -3,6 +3,7 @@
 
 $list: (
   unordered: (
+    font: 'body-m',
     marker: disc,
     item-margin: var(--s-xl),
     item-padding: 0,
@@ -10,17 +11,26 @@ $list: (
     sublist-marker: circle,
     sublist-padding: 0,
     unstyled-sublist-padding: var(--s-xl),
-    divider-item-padding: var(--s-3xl),
+    divider-item-padding: var(--s-5xl),
   ),
   ordered: (
-    divider-item-padding: var(--s-3xl),
+    font: 'body-m',
+    divider-item-padding: var(--s-5xl),
     marker: decimal,
     item-margin: var(--s-xl),
-    padding-start: var(--s-3xl),
+    padding-start: var(--s-5xl),
     sublist-marker: lower-latin,
     sublist-padding: 0,
     unstyled-sublist-padding: var(--s-xl),
   ),
-  text-color: var(--c-d),
-  divider-color: var(--c-n),
+  text-color: var(--cm-on-surface-brand),
+  divider-color: var(--cm-border-neutral),
+);
+$list-print: (
+  unordered: (
+    padding-start: map.get($spacing-print, 'xl'),
+  ),
+  ordered: (
+    padding-start: map.get($spacing-print, 'xl'),
+  ),
 );

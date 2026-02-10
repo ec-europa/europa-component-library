@@ -1,0 +1,50 @@
+/**
+ * Accordion print
+ * @define accordion
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$accordion-print: null !default;
+
+.ecl-accordion__item {
+  margin-top: map.get($theme, 'spacing-print', 'l');
+  break-inside: avoid;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-accordion__toggle-icon {
+  display: none;
+}
+
+.ecl-accordion__title {
+  font: map.get($accordion-print, 'toggle-font');
+  margin: 0;
+  max-width: var(--max-w);
+  break-after: avoid;
+}
+
+.ecl-accordion__toggle {
+  background-color: map.get($accordion-print, 'toggle-background');
+  border-width: 0;
+  color: map.get($accordion-print, 'toggle-color');
+  display: block;
+  padding: 0;
+  text-align: start;
+  width: 100%;
+}
+
+.ecl-accordion__content,
+.ecl-accordion__content[hidden] {
+  color: map.get($accordion-print, 'content-color');
+  display: block;
+  font: map.get($accordion-print, 'content-font');
+  margin-top: map.get($theme, 'spacing-print', 'm');
+  max-width: var(--max-w);
+  break-inside: avoid;
+}

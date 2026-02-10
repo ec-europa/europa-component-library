@@ -1,0 +1,36 @@
+# ECL Datepicker
+
+npm package: `@ecl/datepicker`
+
+```shell
+npm install --save @ecl/datepicker
+```
+
+### Parameters
+
+- **"autoinit"** (boolean) (default: false)
+- **"default_value"** (string) (default: '') (YYYY-MM-DD format)
+- **"required"** (boolean) (default: false)
+- **"invalid"** (boolean) (default: false)
+- **"disabled"** (boolean) (default: false)
+- **"width"** (string) (default: 'm') size of the text field (s, m or l)
+- **"id"** (string) (default: random)
+- **"min"** (string) (default: '')
+- **"max"** (string) (default: '')
+- **"first_day_of_week"** (string) (default: 1)
+- **"placeholder"**: (string) (default: 'DD-MM-YYYY')
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
+### Example:
+
+<!-- prettier-ignore -->
+```twig 
+{% include '@ecl/datepicker/datepicker.html.twig' with { 
+  id: 'an-id-for-the-input', 
+  placeholder: 'DD-MM-YYYY'
+  required: true, 
+} %} 
+```

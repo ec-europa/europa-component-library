@@ -1,0 +1,142 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: random): id of the checkbox
+  - "name" (string) (default: '')
+  - "value" (string) (default: '')
+  - "required_text" (string) (default: '')
+  - "optional_text" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "required" (boolean) (default: false)
+  - "label_aria_required" (string) (default: ''): aria text for the required field label; if the required label is not explicit
+  - "label_aria_optional" (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
+  - "invalid" (boolean) (default: false)
+  - "checked" (boolean) (default: false)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
+  Blocks:
+  - "helper_text"
+  - "label"
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-checkbox-' ~ random()) %}
+{% set _name = name|default('') %}
+{% set _value = value|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _required = required|default(false) %}
+{% set _label_aria_required = label_aria_required|default('') %}
+{% set _label_aria_optional = label_aria_optional|default('') %}
+{% set _invalid = invalid|default(false) %}
+{% set _checked = checked|default(false) %}
+{% set _box_css_class = 'ecl-checkbox__box' %}
+{% set _helper_text = helper_text|default('') %}
+{% set _label = label|default('') %}
+{% set _css_class = 'ecl-checkbox' %}
+{% set _required_text = required_text|default('') %}
+{% set _optional_text = optional_text|default('') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+{% if _invalid %}
+  {% set _css_class = _css_class ~ ' ecl-checkbox--invalid' %}
+  {% set _box_css_class = _box_css_class ~ ' ecl-checkbox__box--invalid' %}
+{% endif %}
+
+{% if _disabled %}
+  {% set _css_class = _css_class ~ ' ecl-checkbox--disabled' %}
+  {% set _box_css_class = _box_css_class ~ ' ecl-checkbox__box--disabled' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <input
+    name="{{ _name }}"
+    class="ecl-checkbox__input"
+    type="checkbox"
+    value="{{ _value }}"
+  {% if _id %}
+    id="{{ _id }}"
+  {% endif %}
+  {% if _disabled %}
+    disabled
+  {% endif %}
+  {% if _checked %}
+    checked
+  {% endif %}
+  {% if _required %}
+    required
+  {% endif %}
+  >
+  <label
+    {% if _id %}
+      for="{{ _id }}"
+    {% endif %}
+    class="ecl-checkbox__label"
+  >
+    <span class="{{ _box_css_class }}">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: {
+          name: "check",
+          size: "xs"
+        },
+        extra_classes: 'ecl-checkbox__icon',
+      } only %}
+    </span>
+    {% if _label is not empty %}
+    <span class="ecl-checkbox__text">
+      {%- block label _label -%}
+    </span>
+    {% endif %}
+    {%- if _required and _required_text is not empty -%}
+      <span 
+        class="ecl-form-label__required"
+        {% if _label_aria_required %}
+          role="note"
+          aria-label="{{ _label_aria_required }}"
+        {% endif %}
+      >{{ _required_text }}</span>
+    {%- elseif not _required and _optional_text is not empty -%}
+      <span 
+        class="ecl-form-label__optional"
+        {%- if _label_aria_optional -%}
+          role="note"
+          aria-label="{{ _label_aria_optional }}"
+        {%- endif -%}
+      >{{ _optional_text }}</span>
+    {%- endif -%}
+  </label>
+
+  {% if _helper_text is not empty %}
+    <div
+      class="ecl-checkbox__help{{ _disabled ? " ecl-checkbox__help--disabled" }}"
+      {% if _id is not empty %}
+        id="{{ _id }}-helper"
+      {% endif %}
+    >
+      {%- block helper_text _helper_text -%}
+    </div>
+  {% endif %}
+</div>
+
+{% endapply %}

@@ -1,0 +1,161 @@
+/**
+ * Blockquote
+ * @define blockquote
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$blockquote: null !default;
+
+.ecl-blockquote,
+%ecl-blockquote {
+  background-color: map.get($blockquote, 'background');
+  border-inline-start: map.get($blockquote, 'border-width') solid
+    map.get($blockquote, 'border-color');
+  border-radius: map.get($blockquote, 'border-radius');
+  box-shadow: map.get($blockquote, 'shadow');
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: map.get($blockquote, 'padding-mobile');
+}
+
+.ecl-blockquote__citation,
+%ecl-blockquote__citation {
+  color: map.get($blockquote, 'quote', 'color');
+  margin: 0;
+  max-width: var(--max-w);
+  quotes: '\201C' '\201D';
+
+  @include mixins.responsive-font(
+    map.get($blockquote, 'quote', 'font'),
+    $font-weight: map.get($blockquote, 'quote', 'font-weight')
+  );
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+
+  &[lang='en'] {
+    quotes: '‘' '’';
+  }
+
+  &[lang='bg'],
+  &[lang='cs'],
+  &[lang='de'],
+  &[lang='et'],
+  &[lang='sk'],
+  &[lang='sl'],
+  &[lang='lt'] {
+    quotes: '„' '“';
+  }
+
+  &[lang='hr'],
+  &[lang='hu'],
+  &[lang='pl'],
+  &[lang='ro'] {
+    quotes: '„' '”';
+  }
+
+  &[lang='da'] {
+    quotes: '»' '«';
+  }
+
+  &[lang='el'],
+  &[lang='fr'],
+  &[lang='es'],
+  &[lang='it'],
+  &[lang='pt'] {
+    quotes: '«' '»';
+  }
+
+  &[lang='fi'],
+  &[lang='sv'] {
+    quotes: '”' '”';
+  }
+
+  &[lang='lv'],
+  &[lang='nl'],
+  &[lang='mt'] {
+    quotes: '“' '”';
+  }
+}
+
+.ecl-blockquote__quote {
+  margin: 0;
+}
+
+.ecl-blockquote__attribution,
+%ecl-blockquote__author {
+  margin-top: map.get($blockquote, 'author', 'margin-mobile');
+  max-width: var(--max-w);
+}
+
+.ecl-blockquote__author,
+%ecl-blockquote__author {
+  color: map.get($blockquote, 'author', 'color');
+  font-style: normal;
+
+  @include mixins.responsive-font(
+    map.get($blockquote, 'author', 'font'),
+    $font-weight: map.get($blockquote, 'author', 'font-weight')
+  );
+}
+
+.ecl-blockquote__image,
+%ecl-blockquote__image {
+  aspect-ratio: 1/1;
+  background-color: map.get($blockquote, 'image', 'background');
+  display: block;
+  height: 120px;
+  margin-bottom: map.get($blockquote, 'image', 'margin-mobile');
+  object-fit: cover;
+  width: 120px;
+}
+
+@include breakpoints.up('m') {
+  .ecl-blockquote {
+    flex-direction: row;
+  }
+
+  .ecl-blockquote,
+  %ecl-blockquote {
+    border-inline-start: map.get($blockquote, 'border-width') solid
+      map.get($blockquote, 'border-color');
+    border-radius: map.get($blockquote, 'border-radius');
+    box-shadow: map.get($blockquote, 'shadow');
+    justify-content: flex-start;
+    padding: map.get($blockquote, 'padding-tablet');
+  }
+
+  .ecl-blockquote__image,
+  %ecl-blockquote__image {
+    margin-inline-end: map.get($blockquote, 'image', 'margin-tablet');
+    margin-bottom: 0;
+  }
+
+  .ecl-blockquote__attribution,
+  %ecl-blockquote__author {
+    margin-top: map.get($blockquote, 'author', 'margin-tablet');
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-blockquote,
+  %ecl-blockquote {
+    padding: map.get($blockquote, 'padding-desktop');
+  }
+
+  .ecl-blockquote__image,
+  %ecl-blockquote__image {
+    margin-inline-end: map.get($blockquote, 'image', 'margin-desktop');
+  }
+}

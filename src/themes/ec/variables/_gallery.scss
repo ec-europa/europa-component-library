@@ -3,9 +3,16 @@
 
 $gallery: (
   actions-margin: var(--s-s),
-  detail-color: map.get($color, 'white'),
-  description-background: var(--c-ov-l),
-  gallery-info-color: var(--c-d),
-  overlay-background: var(--c-ov-d),
+  detail-color: #fff,
+  description-background: var(--cm-surface-transparent-70),
+  description-font: var(--f-xs),
+  gallery-info-color: var(--cm-on-surface-brand),
+  gallery-info-font: var(--f-xs),
+  overlay-background: var(--cm-surface-transparent-70),
   overlay-shadow: none,
+  overlay-title-font-weight: map.get($font-weight, 'semi-bold'),
+  overlay-meta-font: var(--f-xs),
+);
+$gallery-print: (
+  description-font: map.get($font-print, 'xs'),
 );

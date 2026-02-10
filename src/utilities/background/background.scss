@@ -1,0 +1,83 @@
+/**
+ * Background utilities
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-color/mixins' as color;
+
+// Exposed variables
+$theme: null !default;
+
+// Used only on EU
+@if map.has-key($theme, 'color') {
+  @each $key, $value in map.get($theme, 'color') {
+    @if $key != 'white' and $key != 'black' {
+      .ecl-u-bg-#{$key} {
+        background-color: var(--ecl-color-#{$key}) !important;
+      }
+    }
+  }
+}
+
+@if map.has-key($theme, 'color-default') {
+  @each $key, $value in map.get($theme, 'color-default') {
+    .ecl-u-bg-#{$key} {
+      // stylelint-disable-next-line custom-property-pattern
+      background-color: var(--c-#{color.get-color-short-name($key)}) !important;
+    }
+  }
+
+  $semantic-color: (
+    'primary',
+    'secondary',
+    'neutral',
+    'grey',
+    'alpha',
+    'monochrome',
+    'info',
+    'success',
+    'error',
+    'warning'
+  );
+
+  @each $key in $semantic-color {
+    .ecl-u-bg-#{$key} {
+      // stylelint-disable-next-line custom-property-pattern
+      background-color: var(--c-#{color.get-color-short-name($key)}) !important;
+    }
+  }
+}
+
+@if map.has-key($theme, 'color-modes') {
+  $background-mode: (
+    'surface-lowest',
+    'surface-lowest-variant',
+    'surface-low-0',
+    'surface-low-1',
+    'surface-low-2',
+    'surface-medium-0',
+    'surface-medium-1',
+    'surface-0',
+    'surface-variant-1',
+    'surface-variant-2',
+    'on-surface-highlight'
+  );
+
+  @each $key in $background-mode {
+    .ecl-u-bg-#{$key} {
+      background-color: var(--cm-#{$key}) !important;
+    }
+  }
+}
+
+.ecl-u-bg-transparent {
+  background-color: transparent !important;
+}
+
+.ecl-u-bg-white {
+  background-color: #fff !important;
+}
+
+.ecl-u-bg-black {
+  background-color: #000 !important;
+}

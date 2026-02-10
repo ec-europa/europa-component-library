@@ -1,0 +1,225 @@
+{% apply spaceless %}
+{#
+  Parameters:
+    - "variant" (string) (default: '') Page header variant; can be 'news', '50-50'
+    - "title" (string) (default: '') Title of header
+    - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
+    - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
+    - "description" (string) (default: '') Description of page header
+    - "description_position" (string) (default: 'top') Position of the description; can be 'top' or 'bottom'. Only affects 50-50 variant
+    - "expandable" (associative array) {
+        "toggle_label" (string)
+        "toggle_extra_attributes" (array) (default: [])
+        "header_content" (string)
+        "panel_content" (string)
+      }
+    - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
+    - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
+    - "meta" (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
+    - "breadcrumb" (associative array) (default: '') Predefined structure compatible with ECL Breadcrumb
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _title = title|default('') %}
+{% set _hide_title = hide_title|default(false) %}
+{% set _font_size = font_size|default('m') %}
+{% set _meta = meta|default([]) %}
+{% set _description = description|default('') %}
+{% set _description_position = description_position|default('top') %}
+{% set _picture_thumbnail = picture_thumbnail|default({}) %}
+{% set _picture_background = picture_background|default({}) %}
+{% set _breadcrumb = breadcrumb|default({}) %}
+{% set _css_class = 'ecl-page-header' %}
+{% set _expandable = expandable|default({}) %}
+
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--' ~ _variant %}
+{% endif %}
+
+{% if _picture_background.img is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
+{% endif %}
+
+{% if _font_size is not empty and _font_size != 'm' %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--font-' ~ _font_size %}
+{% endif %}
+
+{% if _description_position == 'bottom' %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--description-bottom' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Markup elements #}
+
+{% set _breadcrumb_markup = '' %}
+{% if _breadcrumb is not empty %}
+  {% set _breadcrumb_markup %}
+    {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
+      extra_classes: 'ecl-page-header__breadcrumb',
+    }) only -%}
+  {% endset %}
+{% endif %}
+
+{% set _picture_markup = '' %}
+{% if _picture_background.img is not empty %}
+  {% set _picture_markup %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture_background,
+      extra_classes: "ecl-page-header__picture-background",
+      extra_image_classes: "ecl-page-header__background",
+    } only %}
+  {% endset %}
+{% endif %}
+
+{% set _title_markup = '' %}
+{% if _title is not empty %}
+  {% set _title_markup %}
+    {% set _title_class = 'ecl-page-header__title' %}
+    {% if _hide_title %}
+      {% set _title_class = _title_class ~ ' ecl-page-header__title--hidden' %}
+    {% endif %}
+
+    <h1 class="{{ _title_class }}">{{ _title }}</h1>
+  {% endset %}
+{% endif %}
+
+{% set _description_markup = '' %}
+{% if _description is not empty or _picture_thumbnail.img is not empty %}
+  {% set _description_markup %}
+    <div class="ecl-page-header__description-container">
+    {% if _picture_thumbnail.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture_thumbnail,
+        extra_classes: "ecl-page-header__picture-thumbnail",
+        extra_image_classes: "ecl-page-header__description-thumbnail",
+      } only %}
+    {% endif %}
+    {% if _description is not empty %}
+      <p class="ecl-page-header__description">{{ _description }}</p>
+    {% endif %}
+    </div>
+  {% endset %}
+{% endif %}
+
+{% set _meta_markup = '' %}
+{% if _meta is not empty %}
+  {% set _meta_markup %}
+    <ul class="ecl-page-header__meta">
+      {% for _item in _meta %}
+        {% if _item.label is defined %}
+          <li class="ecl-page-header__meta-item">
+            {%- if _item.icon is defined -%}
+              {%- include '@ecl/icon/icon.html.twig' with _item.icon|merge({
+                icon: _item.icon|merge({ size: '2xs' }),
+                extra_classes: 'ecl-page-header__meta-icon',
+              }) only -%}
+            {%- endif -%}
+            {{- _item.label -}}
+          </li>
+        {% else %}
+          <li class="ecl-page-header__meta-item">{{- _item -}}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endset %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {# Expandable #}
+  {% if _expandable is not empty %}
+    {% include '@ecl/page-header/page-header-expandable.html.twig' with _expandable only %}
+  {% endif %}
+
+  {# Variant: news #}
+  {% if _variant == 'news' %}
+    <div class="ecl-container ecl-page-header__container">
+      {{- _breadcrumb_markup -}}
+
+      {{- _title_markup -}}
+
+      {{- _meta_markup -}}
+
+      {{- _picture_markup -}}
+    </div>
+
+    <div class="ecl-page-header__section-description">
+      <div class="ecl-container">
+        {{- _description_markup -}}
+      </div>
+    </div>
+
+  {# Variant: 50-50 #}
+  {% elseif _variant == '50-50' %}
+  <div class="ecl-page-header__container">
+    {{- _picture_markup -}}
+
+    <div class="ecl-page-header__section-info ecl-container">
+      {{- _breadcrumb_markup -}}
+
+      <div class="ecl-page-header__content-info">
+        {{- _title_markup -}}
+
+        <div class="ecl-page-header__description-info">
+          {{- _description_markup -}}
+        </div>
+      </div>
+
+      {{- _meta_markup -}}
+    </div>
+  </div>
+  <div class="ecl-page-header__section-description">
+    <div class="ecl-container">
+      {{- _description_markup -}}
+    </div>
+  </div>
+
+  {# Variant: default #}
+  {% else %}
+
+    {{- _picture_markup -}}
+
+    <div class="ecl-container ecl-page-header__container">
+      {{- _breadcrumb_markup -}}
+
+      {{- _title_markup -}}
+
+      {{- _description_markup -}}
+
+      {{- _meta_markup -}}
+    </div>
+
+  {% endif %}
+</div>
+
+{% endapply %}

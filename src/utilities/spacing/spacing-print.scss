@@ -1,0 +1,86 @@
+/**
+ * Spacing utilities print
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+
+/*
+   Base:
+    m = margin
+    p = padding
+  Modifiers:
+    a = all
+    h = horizontal
+    v = vertical
+    t = top
+    r = right
+    b = bottom
+    l = left
+*/
+
+// Mixin to generate spacing utilities with exact class names
+@mixin generate-spacing-set($property, $prefix, $infix, $suffix, $value) {
+  .ecl-u-#{$prefix}a#{$infix}-#{$suffix} {
+    #{$property}: $value !important;
+  }
+
+  .ecl-u-#{$prefix}h#{$infix}-#{$suffix} {
+    #{$property}-inline-start: $value !important;
+    #{$property}-inline-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}v#{$infix}-#{$suffix} {
+    #{$property}-block-start: $value !important;
+    #{$property}-block-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}t#{$infix}-#{$suffix} {
+    #{$property}-block-start: $value !important;
+  }
+
+  .ecl-u-#{$prefix}r#{$infix}-#{$suffix} {
+    #{$property}-inline-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}b#{$infix}-#{$suffix} {
+    #{$property}-block-end: $value !important;
+  }
+
+  .ecl-u-#{$prefix}l#{$infix}-#{$suffix} {
+    #{$property}-inline-start: $value !important;
+  }
+}
+
+/* stylelint-disable max-nesting-depth */
+@each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+
+    // Generate margin utilities for each spacing value
+    @each $key, $value in map.get($theme, 'spacing-print') {
+      @include generate-spacing-set(margin, 'm', $infix, $key, $value);
+    }
+
+    // Generate margin utilities for none and auto
+    @include generate-spacing-set(margin, 'm', $infix, 'none', 0);
+    @include generate-spacing-set(margin, 'm', $infix, 'auto', auto);
+  }
+}
+
+@each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
+  @include breakpoints.up($breakpoint) {
+    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
+
+    // Generate padding utilities for each spacing value
+    @each $key, $value in map.get($theme, 'spacing-print') {
+      @include generate-spacing-set(padding, 'p', $infix, $key, $value);
+    }
+
+    // Generate padding utilities for none
+    @include generate-spacing-set(padding, 'p', $infix, 'none', 0);
+  }
+}

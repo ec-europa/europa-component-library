@@ -1,0 +1,155 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "color_mode" (string) (default: '') Name of the color mode
+    - "tab_behaviour" (boolean) (default: false)
+    - "items": (associative array) (default: []): The tabs items - format: [
+      {
+        "label": "Home",
+        "path": "/example",
+        "is_current": true,
+        "extra_classes": 'extra-class'
+      },
+      {
+        "label": "Item 1",
+        "path": "/example"
+      },
+    }],
+    - "more_label" (string) (default: 'More (%d)') Label for the more button (responsive)
+    - "previous_label" (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
+    - "next_label" (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _color_mode = color_mode|default('') %}
+{% set _more_label = more_label|default('Show %d more items') %}
+{% set _previous_label = previous_label|default('Previous') %}
+{% set _tab_behaviour = tab_behaviour|default(false) %}
+{% set _next_label = next_label|default('Next') %}
+{% set _items = items|default([]) %}
+{% set _css_class = 'ecl-tabs' %}
+{% set _extra_attributes = [
+  'data-ecl-tabs="true"',
+  'data-ecl-auto-init="Tabs"']|join(' ')
+%}
+
+{% if _tab_behaviour %}
+  {% set _extra_attributes = _extra_attributes  ~ ' data-ecl-tabs-with-content' %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-tabs__container">
+    <div class="ecl-tabs__list" role="tablist">
+      {% for _item in _items %}
+        {% set _id = _item.id|default('ecl-tabs-item-' ~ random()) %}
+        {% if _item.path is not empty %}
+          <div class="ecl-tabs__item">
+          {% set _item_extra_classes = 'ecl-tabs__link' %}
+          {% set _item_extra_attributes = [{ name: 'id', value: _id }, { name: 'role', value: 'tab' }] %}
+          {% if loop.index != 1 %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '-1' }]) %}
+          {% endif %}
+          {% if _item.is_current is defined and _item.is_current is not empty %}
+            {% set _item_extra_classes = _item_extra_classes ~ ' ecl-tabs__link--active' %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'true' }]) %}
+          {% else %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'false' }]) %}
+          {% endif %}
+          {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
+            {% set _item_extra_classes = _item_extra_classes ~ ' ' ~ _item.extra_classes %}
+          {% endif %}
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              label: _item.label,
+              path: _item.path
+            },
+            extra_classes: _item_extra_classes,
+            extra_attributes: _item_extra_attributes,
+          } only %}
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="ecl-tabs__item ecl-tabs__item--more"></div>
+    </div>
+
+    {% include '@ecl/button/button.html.twig' with {
+      label: _more_label,
+      variant: 'tertiary',
+      type: 'button',
+      icon_position: 'after',
+      icon: {
+        name: 'corner-arrow',
+        size: 'fluid',
+        transform: 'rotate-180'
+      },
+      extra_classes: 'ecl-tabs__toggle',
+      extra_attributes: [{ name: 'tabindex', value: '-1' }],
+    } only %}
+  </div>
+
+  <div class="ecl-tabs__controls">
+    {% include '@ecl/button/button.html.twig' with {
+      label: _previous_label,
+      variant: 'tertiary',
+      type: 'button',
+      hide_label: true,
+      icon: {
+        name: 'corner-arrow',
+        size: 's',
+        transform: 'rotate-270',
+      },
+      extra_classes: 'ecl-tabs__prev ecl-tabs__item--hidden',
+    } only %}
+    {% include '@ecl/button/button.html.twig' with {
+      label: _next_label,
+      variant: 'tertiary',
+      type: 'button',
+      hide_label: true,
+      icon: {
+        name: 'corner-arrow',
+        size: 's',
+        transform: 'rotate-90',
+      },
+      extra_classes: 'ecl-tabs__next ecl-tabs__item--hidden',
+    } only %}
+  </div>
+</div>
+{% endif %}
+
+{% endapply %}

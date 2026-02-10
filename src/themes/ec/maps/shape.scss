@@ -1,28 +1,22 @@
 @use 'sass:map';
 
 $border-radius: (
-  's': 2px,
-  'm': 4px,
-  'l': 6px,
-  'xl': 8px,
+  '2xs': 1px,
+  'xs': 2px,
+  's': 4px,
+  'm': 8px,
+  'l': 12px,
 ) !default;
-$shadow-color: #26324b !default;
-$shadow-inline-color: #e0e5f5 !default;
+$shadow-color: #18274b !default;
 $shadow: (
-  '1': #{0 0 1px rgba($shadow-color, 0.06),
-  2px 2px 2px rgba($shadow-color, 0.05),
-  4px 4px 6px rgba($shadow-color, 0.05),
-  0 1px 0 $shadow-inline-color inset},
-  '6': #{0 0 6px rgba($shadow-color, 0.06),
-  12px 12px 12px rgba($shadow-color, 0.05),
-  24px 24px 36px rgba($shadow-color, 0.05),
-  0 1px 0 $shadow-inline-color inset},
-  '12': #{0 0 12px rgba($shadow-color, 0.06),
-  24px 24px 24px rgba($shadow-color, 0.05),
-  48px 48px 72px rgba($shadow-color, 0.05),
-  0 1px 0 $shadow-inline-color inset},
-  '16': #{0 0 16px rgba($shadow-color, 0.06),
-  32px 32px 32px rgba($shadow-color, 0.05),
-  64px 64px 96px rgba($shadow-color, 0.05),
-  0 1px 0 $shadow-inline-color inset},
+  '1': #{0 0 0.5px 0.5px rgba($shadow-color, 0.08),
+  0 6px 12px 0 rgba($shadow-color, 0.08)},
+  '2': #{0 0 0.5px 0.5px rgba($shadow-color, 0.08),
+  0 10px 22px 0 rgba($shadow-color, 0.1)},
+  '3': #{0 0 0.5px 0.5px rgba($shadow-color, 0.08),
+  0 12px 32px 0 rgba($shadow-color, 0.12)},
+  '4': #{0 0 0.5px 0.5px rgba($shadow-color, 0.08),
+  0 14px 42px 0 rgba($shadow-color, 0.12)},
+  '5': #{0 0 0.5px 0.5px rgba($shadow-color, 0.08),
+  0 18px 52px 0 rgba($shadow-color, 0.14)},
 ) !default;

@@ -3,15 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  featuredItem,
-  featuredItemRightAlignement,
-  featuredItemSimple,
-  featuredItemSimpleRightAlignement,
-  featuredItemHighlight,
-  featuredItemHighlightRightAlignement,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default
 
@@ -19,9 +11,7 @@ import {
   system="eu"
   selectedKind="components-featured-item"
   selectedStory="default"
->
-  <Html markup={featuredItem} />
-</Playground>
+></Playground>
 
 ## Default right-aligned
 
@@ -29,49 +19,22 @@ import {
   system="eu"
   selectedKind="components-featured-item"
   selectedStory="default"
-  selectedArgs="position:right"
->
-  <Html markup={featuredItemRightAlignement} />
-</Playground>
-
-## Simple
-
-<Playground
-  system="eu"
-  selectedKind="components-featured-item"
-  selectedStory="simple"
->
-  <Html markup={featuredItemSimple} />
-</Playground>
-
-## Simple right-aligned
-
-<Playground
-  system="eu"
-  selectedKind="components-featured-item"
-  selectedStory="simple"
-  selectedArgs="position:right"
->
-  <Html markup={featuredItemSimpleRightAlignement} />
-</Playground>
+  selectedArgs="media_position:right"
+></Playground>
 
 ## Highlighted
 
 <Playground
   system="eu"
   selectedKind="components-featured-item"
-  selectedStory="highlight"
->
-  <Html markup={featuredItemHighlight} />
-</Playground>
+  selectedStory="highlighted"
+></Playground>
 
 ## Highlighted right-aligned
 
 <Playground
   system="eu"
   selectedKind="components-featured-item"
-  selectedStory="highlight"
-  selectedArgs="position:right"
->
-  <Html markup={featuredItemHighlightRightAlignement} />
-</Playground>
+  selectedStory="highlighted"
+  selectedArgs="media_position:right"
+></Playground>

@@ -3,27 +3,34 @@
 
 $banner: (
   background-color: var(--c-p-5),
-  content-width: 42.5rem,
+  content-width: (
+    'mobile': 50rem,
+    'desktop': 42.5rem,
+  ),
   content-background: map.get($color, 'white'),
-  content-border-radius: map.get($border-radius, 'm'),
+  content-border-radius: map.get($border-radius, 's'),
   content-padding: var(--s-l) var(--s-l),
-  container-padding-bottom: (
-    'mobile': var(--s-l),
-    'tablet': var(--s-xl),
-    'desktop': var(--s-3xl),
+  container-padding-block: (
+    'media': (
+      'mobile': var(--s-l),
+      'tablet': var(--s-xl),
+      'desktop': var(--s-3xl),
+    ),
+    'no-media': (
+      'mobile': var(--s-l),
+      'tablet': var(--s-xl),
+      'desktop': var(--s-3xl),
+    ),
   ),
-  container-padding-top: (
-    'mobile': var(--s-l),
+  container-padding-inline: (
+    'mobile': var(--s-m),
     'tablet': var(--s-xl),
-    'desktop': var(--s-3xl),
-  ),
-  container-padding-horizontal: (
-    'tablet': var(--s-xl),
+    'desktop': var(--s-m),
   ),
   border-color: var(--c-s),
   border-radius: (
-    'banner': 8px,
-    'content': 4px,
+    'banner': map.get($border-radius, 'm'),
+    'content': map.get($border-radius, 's'),
   ),
   box-shadow: var(--sh-2),
   border-width: (
@@ -36,15 +43,29 @@ $banner: (
     'inverted': map.get($color, 'white'),
   ),
   font: (
-    'title': (
-      'mobile': var(--f-2xl),
-      'desktop-m': var(--f-4xl),
-      'desktop-l': var(--f-5xl),
+    'title-s': (
+      'mobile-xs': var(--f-2xl),
+      'desktop': var(--f-4xl),
     ),
-    'description': (
-      'mobile': var(--f-xl),
-      'desktop-m': var(--f-2xl),
-      'desktop-l': var(--f-4xl),
+    'title-m': (
+      'font-weight': map.get($font-weight, 'regular'),
+      'mobile-xs': var(--f-2xl),
+      'desktop': var(--f-4xl),
+    ),
+    'title-l': (
+      'mobile-xs': var(--f-2xl),
+      'desktop': var(--f-5xl),
+    ),
+    'description-s': 'heading4',
+    'description-s-font-weight': map.get($font-weight, 'regular'),
+    'description-m': 'heading4',
+    'description-l': (
+      'mobile-xs': var(--f-xl),
+      'desktop': var(--f-4xl),
+    ),
+    'credit': (
+      'mobile': var(--f-s),
+      'desktop': var(--f-s),
     ),
   ),
   description-margin: var(--s-s),
@@ -56,7 +77,7 @@ $banner: (
           var(--c-p) 100%
         ),
       'text-box-mobile': map.get($color, 'white'),
-      'text-box-desktop': rgba(255, 255, 255, 0.9),
+      'text-box-desktop': rgb(255, 255, 255, 0.9),
       'image-overlay': linear-gradient(
           to right,
           var(--c-p-140) 0%,
@@ -70,5 +91,20 @@ $banner: (
     ),
 );
 $banner-print: (
-  cta-radius: 4px,
+  font: (
+    'title': (
+      'desktop-m': map.get($font-print, '2xl'),
+      'desktop-l': map.get($font-print, '3xl'),
+    ),
+    'description': (
+      'desktop-m': map.get($font-print, 'l'),
+      'desktop-l': map.get($font-print, '2xl'),
+    ),
+    'credit': map.get($font-print, 's'),
+  ),
+  container-padding-bottom: map.get($spacing-print, '3xl'),
+  container-padding-top: map.get($spacing-print, '3xl'),
+  container-padding-horizontal: map.get($spacing-print, 'm'),
+  content-padding: map.get($spacing-print, 'm'),
+  content-width: 10cm,
 );

@@ -1,0 +1,211 @@
+/**
+ * Site Footer EU
+ * @define site-footer
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$site-footer: null !default;
+
+// -------
+// Co-owner
+
+.ecl-site-footer__co-owner {
+  background-color: map.get($site-footer, 'co-owner', 'background');
+  padding-block: map.get($site-footer, 'co-owner', 'padding-block');
+}
+
+.ecl-site-footer__co-owner-title {
+  margin-block-end: map.get($site-footer, 'co-owner', 'title-margin');
+
+  @include mixins.responsive-font(
+    map.get($site-footer, 'co-owner', 'title-font'),
+    $font-weight: map.get($site-footer, 'co-owner', 'title-font-weight')
+  );
+}
+
+.ecl-site-footer__co-owner-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-site-footer__co-owner-item:not(.is-first) {
+  margin-block-start: map.get($site-footer, 'co-owner', 'item-margin-mobile');
+}
+
+.ecl-site-footer__co-owner-link {
+  @include mixins.responsive-font(
+    map.get($site-footer, 'co-owner', 'link-font')
+  );
+}
+
+@include breakpoints.up('l') {
+  .ecl-site-footer__co-owner-item {
+    display: inline;
+
+    &:not(.is-first) {
+      border-inline-start: map.get($site-footer, 'co-owner', 'item-separator');
+      margin-block-start: 0;
+      margin-inline-start: map.get(
+        $site-footer,
+        'co-owner',
+        'item-margin-desktop'
+      );
+      padding-inline-start: map.get(
+        $site-footer,
+        'co-owner',
+        'item-padding-desktop'
+      );
+    }
+  }
+}
+
+// -------
+// Global rules
+
+.ecl-site-footer {
+  box-shadow: map.get($site-footer, 'shadow');
+}
+
+.ecl-site-footer__main {
+  background-color: map.get($site-footer, 'background');
+  color: map.get($site-footer, 'color');
+  display: flex;
+  font: var(--f-p-m);
+  margin: 0;
+}
+
+.ecl-site-footer__container {
+  padding: var(--s-3xl) var(--s-m);
+}
+
+.ecl-site-footer__row {
+  border-bottom: 2px solid map.get($site-footer, 'separator-color');
+  padding-bottom: var(--s-xl);
+  padding-top: var(--s-xl);
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.ecl-site-footer__column {
+  padding-top: var(--s-l);
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.ecl-site-footer__section {
+  padding-top: var(--s-l);
+
+  /* stylelint-disable-next-line max-nesting-depth */
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.ecl-site-footer__title {
+  color: map.get($site-footer, 'color');
+  font: var(--f-l);
+  margin: 0;
+}
+
+.ecl-site-footer__title-link {
+  --ecl-link-color: #{map.get($site-footer, 'color')};
+  --ecl-link-color-hover: #{map.get($site-footer, 'color')};
+  --ecl-link-color-active: #{map.get($site-footer, 'color')};
+}
+
+.ecl-site-footer__title--separator {
+  border-bottom: 1px solid map.get($site-footer, 'separator-color');
+  padding-bottom: var(--s-s);
+}
+
+.ecl-site-footer__description {
+  margin-top: var(--s-m);
+}
+
+.ecl-site-footer__list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: var(--s-s);
+  padding-inline-start: 0;
+}
+
+.ecl-site-footer__list-item {
+  line-height: map.get($theme, 'line-height-ui', 'xs');
+  margin-top: var(--s-xs);
+
+  .ecl-link__label {
+    vertical-align: middle;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-site-footer__logo-link {
+  display: inline-block;
+  vertical-align: bottom; // Fix to prevent extra vertical spacing
+
+  & + .ecl-site-footer__list {
+    margin-top: var(--s-m);
+  }
+}
+
+.ecl-site-footer__logo-image {
+  display: block;
+  height: 2.75rem;
+}
+
+.ecl-site-footer__section--site-info {
+  .ecl-site-footer__list {
+    margin-top: var(--s-xs);
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-site-footer__main {
+    padding-top: 0;
+  }
+
+  .ecl-site-footer__container {
+    padding: var(--s-4xl) var(--s-m);
+  }
+
+  .ecl-site-footer__row {
+    display: grid;
+    gap: 0 map.get($site-footer, 'column-gap');
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: var(--s-3xl);
+    padding-top: var(--s-3xl);
+  }
+
+  .ecl-site-footer__column {
+    padding-top: 0;
+  }
+
+  .ecl-site-footer__section {
+    padding-top: var(--s-l);
+  }
+
+  .ecl-site-footer__logo-image {
+    display: block;
+    height: 2.75rem;
+  }
+}

@@ -1,12 +1,11 @@
-import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
 import isChromatic from 'chromatic/isChromatic';
 
-global.Buffer = Buffer;
-
 import './ECL';
+
+global.Buffer = Buffer;
 
 if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   function createLink(href, media) {
@@ -34,7 +33,65 @@ if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   );
 }
 
+export const initialGlobals = {
+  panelDescription:
+    'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
+  panelTitle: 'ECL styles',
+};
+
 export const parameters = {
+  breakpoints: {
+    xs: 0,
+    s: 480,
+    m: 768,
+    l: 996,
+    xl: 1140,
+  },
+  options: {
+    storySort: (a, b) => {
+      return a.title.localeCompare(b.title, undefined);
+    },
+  },
+  styleToggle: {
+    styleSheets: [
+      {
+        id: 'ecl-reset',
+        href: './styles/optional/ecl-reset.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-eu-default',
+        href: './styles/optional/ecl-eu-default.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-eu',
+        href: './styles/ecl-eu.css',
+        picked: true,
+        group: 'screen',
+      },
+      {
+        id: 'ecl-eu-utilities',
+        href: './styles/optional/ecl-eu-utilities.css',
+        picked: true,
+        group: 'others',
+      },
+      {
+        id: 'ecl-eu-default-print',
+        href: './styles/optional/ecl-eu-default-print.css',
+        picked: false,
+        group: 'print',
+      },
+      {
+        id: 'ecl-eu-print',
+        href: './styles/ecl-eu-print.css',
+        picked: false,
+        group: 'print',
+      },
+    ],
+  },
   disableSaveFromUI: true,
   a11y: {
     element: '#storybook-root',
@@ -53,50 +110,6 @@ export const parameters = {
     canvas: { sourceState: 'shown' },
   },
   viewMode: 'story',
-  cssresources: [
-    {
-      id: 'ecl-reset',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-reset.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-eu-default',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-eu',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-eu-utlities',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-utilities.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-rtl',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-eu-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-    {
-      id: 'ecl-eu-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default-print.css" />`,
-      picked: false,
-      hideCode: true,
-    },
-  ],
   controls: { expanded: true },
   layout: 'padded',
   viewport: {
@@ -135,12 +148,21 @@ export const parameters = {
   },
 };
 
-export const decorators = [withCssResources];
-
 export const loaders = [
   async ({ args, originalStoryFn }) => {
     if (originalStoryFn.render) {
       const component = await originalStoryFn.render(args);
+
+      // Store the original HTML (before icon replacement) for the HTML addon
+      if (typeof component === 'string') {
+        setTimeout(() => {
+          const rootDiv = document.querySelector('#storybook-root');
+          if (rootDiv) {
+            rootDiv.setAttribute('data-original-markup', component);
+          }
+        }, 0);
+      }
+
       return { component };
     }
   },

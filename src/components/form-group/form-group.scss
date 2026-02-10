@@ -1,0 +1,98 @@
+/**
+ * Form group
+ */
+
+@use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$form-group: null !default;
+
+.ecl-form-group {
+  border-width: 0;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-feedback-message {
+  align-items: center;
+  box-sizing: border-box;
+  color: map.get($form-group, 'invalid', 'color');
+  display: flex;
+  margin-block: map.get($form-group, 'invalid', 'margin-block');
+  max-width: var(--max-w);
+  padding: 0;
+
+  @include mixins.responsive-font(map.get($form-group, 'invalid', 'font'));
+}
+
+.ecl-feedback-message__icon {
+  margin-inline-end: map.get($form-group, 'margin-icon');
+}
+
+.ecl-help-block {
+  box-sizing: border-box;
+  color: map.get($form-group, 'help', 'color');
+  display: block;
+  margin-block: map.get($form-group, 'help', 'margin-block');
+  max-width: var(--max-w);
+  padding: 0;
+
+  @include mixins.responsive-font(map.get($form-group, 'help', 'font'));
+}
+
+.ecl-form-label {
+  box-sizing: border-box;
+  color: map.get($form-group, 'label', 'color');
+  display: block;
+  margin: 0;
+  max-width: var(--max-w);
+  padding: 0;
+  white-space: pre-wrap;
+
+  @include mixins.responsive-font(
+    map.get($form-group, 'label', 'font'),
+    $font-weight: map.get($form-group, 'label', 'font-weight')
+  );
+}
+
+.ecl-form-label__optional {
+  align-self: center;
+  color: map.get($form-group, 'optional', 'color');
+  margin-inline: map.get($form-group, 'optional', 'margin-inline');
+
+  @include mixins.responsive-font(
+    map.get($form-group, 'optional', 'font'),
+    $font-weight: map.get($form-group, 'optional', 'font-weight')
+  );
+}
+
+.ecl-form-label__required {
+  align-self: center;
+  color: map.get($form-group, 'required', 'color');
+  margin-inline: map.get($form-group, 'required', 'margin-inline');
+
+  @include mixins.responsive-font(
+    map.get($form-group, 'required', 'font'),
+    $font-weight: map.get($form-group, 'required', 'font-weight')
+  );
+}
+
+.ecl-form-label--hidden,
+.ecl-feedback-message--hidden,
+.ecl-help-block--hidden {
+  @include screen-reader.sr-only;
+}
+
+.ecl-form-label.ecl-form-label--hidden + * {
+  margin-top: 0;
+}
+
+.ecl-form-label:not(.ecl-form-label--hidden)
+  + *:not(.ecl-help-block, .ecl-feedback-message) {
+  margin-block-start: map.get($form-group, 'margin-no-helper');
+}

@@ -3,14 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  ratingFieldGroupDefault,
-  ratingFieldGroupInvalid,
-  ratingFieldGroupRequired,
-  ratingFieldGroupOptional,
-  ratingFieldGroupDisabled,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default rating field
 
@@ -18,9 +11,8 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="rating-field"
->
-  <Html markup={ratingFieldGroupDefault} />
-</Playground>
+  selectedArgs="disabled:!false;required:!true;invalid:!false"
+></Playground>
 
 ## Invalid rating field
 
@@ -28,10 +20,8 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="rating-field"
-  selectedArgs="invalid:true"
->
-  <Html markup={ratingFieldGroupInvalid} />
-</Playground>
+  selectedArgs="invalid:!true;disabled:!false"
+></Playground>
 
 ## Optional rating-field
 
@@ -39,10 +29,8 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="rating-field"
-  selectedArgs="required:false"
->
-  <Html markup={ratingFieldGroupOptional} />
-</Playground>
+  selectedArgs="required:!false'disabled:!false"
+></Playground>
 
 ## Read only rating-field
 
@@ -50,7 +38,5 @@ import {
   system="ec"
   selectedKind="components-forms"
   selectedStory="rating-field"
-  selectedArgs="disabled:true"
->
-  <Html markup={ratingFieldGroupDisabled} />
-</Playground>
+  selectedArgs="disabled:!true"
+></Playground>

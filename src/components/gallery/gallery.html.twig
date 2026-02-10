@@ -1,0 +1,213 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "grid" (boolean) (default: false) Display gallery as a grid
+  - "grid_template" (int) (default: 0) Id of the template to be used. Grid display only
+  - "column" (int) (default: 3) Number of columns. Grid display only
+  - "ratio" (string) (default: '3-2') Image aspect ratio. Grid display only
+  - "picture_zoom" (bool) (default: false): Should the thumbnail pictures be animated?
+  - "id": (string) (default: random): Unique id for the gallery
+  - "counter_label" (string) (default: '') Label of the counter
+  - "view_all_label" (string) (default: '') Label of the view all button
+  - "view_all_expanded_label" (string) (default: '') Label of the view all button when expanded
+  - "expandable": (boolean) (default: true) If false all items will be visible by default
+  - "visible_items": (integer) (default: 8)
+  - "full_width": (boolean) (default: false)
+  - "disable_hover": (boolean) (default: false)
+  - "disable_overlay": (boolean) (default: false)
+  - "overlay" (object) (default: {})
+    - "close" (object) (default: {}): object of type button
+    - "previous" (object) (default: {}): object of type button
+    - "next" (object) (default: {}): object of type button
+    - "counter_separator" (string) (default: '')
+    - "full_screen_label" (string) (default: '')
+    - "download" (object) (default: {}): object of type link
+    - "share" (object) (default: {}): object of type link
+    - "sr_overlay_label" (string) (default: '') aria-label for the overlay
+  - "footer" (object) (default: {}): object of type link
+  - "items" (array) (default: [])
+    - "title" (string) (default: '')
+    - "description" (string) (default: '')
+    - "meta" (string) (default: '')
+    - "icon" (object) (default: {}): object of type icon
+    - "thumbnail" (optional) (object) (default: {}) Picture to the thumbnail, type Picture; uses "picture" if empty
+    - "picture" (optional) (object) (default: {}) Object of type Picture; always needed, even for video
+    - "video" (optional) (object) (default: {})
+    - "embedded_video" (optional) (object) (default: {})
+    - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
+    - "share_path" (optional) (string) (default: '')
+  - "sr_gallery_label" (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
+  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
+  - "selected_item_id" (int) (default: 0)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# variables #}
+
+{% set _grid = grid|default(false) %}
+{% set _grid_template = grid_template|default(0) %}
+{% set _column = column|default(3) %}
+{% set _ratio = ratio|default('3-2') %}
+{% set _picture_zoom = picture_zoom|default(false) %}
+{% set _id = id|default('ecl-gallery-' ~ random()) %}
+{% set _css_class = 'ecl-gallery' %}
+{% set _extra_attributes = '' %}
+{% set _overlay = overlay|default({}) %}
+{% set _counter_label = counter_label|default('') %}
+{% set _view_all_label = view_all_label|default('') %}
+{% set _view_all_expanded_label = view_all_expanded_label|default('') %}
+{% set _items = items|default([]) %}
+{% set _footer = footer|default({}) %}
+{% set _visible_items = visible_items|default(8) %}
+{% set _disable_hover = disable_hover|default(false) %}
+{% set _disable_overlay = disable_overlay|default(false) %}
+{% set _sr_gallery_label = sr_gallery_label|default('') %}
+{% set _sr_video_label = sr_video_label|default('') %}
+{% set _expandable = expandable ?? true %}
+{% set _selected_item_id = selected_item_id|default(0) %}
+{% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
+{% set _overlay_class = '' %}
+{% set _overlay_attrs = [] %}
+{% set _full_width = full_width|default(false) %}
+{% set _sr_video_player = sr_video_player|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _grid %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--grid' %}
+
+  {% if _grid_template is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-gallery--template-' ~ _grid_template %}
+  {% endif %}
+
+  {% if _column is not empty and _grid_template == 0 %}
+    {% set _css_class = _css_class ~ ' ecl-gallery--col-' ~ _column %}
+  {% endif %}
+
+  {% if _ratio is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-gallery--ratio-' ~ _ratio %}
+  {% endif %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--full-width' %}
+{% endif %}
+
+{% if _disable_hover %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--no-hover' %}
+{% endif %}
+
+{% if not _expandable %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-not-expandable' %}
+{% else %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-visible-items="' ~ _visible_items ~ '"' %}
+{% endif %}
+
+{% if _disable_overlay %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-no-overlay' %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--no-overlay' %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<section
+  class="{{ _css_class }}"
+  {% if _sr_gallery_label is not empty and not _disable_overlay %}
+    aria-label="{{ _sr_gallery_label }}"
+  {% endif %}
+  {{ _extra_attributes|raw }}
+  data-ecl-gallery
+>
+  <ul class="ecl-gallery__list">
+    {% for _key, _item in _items %}
+      {% set _item_class = '' %}
+      {% set _item_attrs = [] %}
+      {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
+        {% set _item_class = _item.extra_classes %}
+      {% endif %}
+      {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
+        {% set _item_attrs = _item.extra_attributes %}
+      {% endif %}
+      {% include '@ecl/gallery/gallery-item.html.twig' with {
+        id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
+        item: _item,
+        sr_video_label: _sr_video_label,
+        sr_video_player: _sr_video_player,
+        disable_overlay: _disable_overlay,
+        picture_zoom: _picture_zoom,
+        extra_attributes: _item_attrs,
+        extra_classes: _item_class,
+      } only %}
+    {% endfor %}
+  </ul>
+  <div class="ecl-gallery__footer">
+  {%- if _expandable -%}
+    <div class="ecl-gallery__info">
+      <div class="ecl-gallery__info-total" id="{{ _id }}-info">
+        <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+      </div>
+        {% include '@ecl/button/button.html.twig' with {
+          label: _view_all_label,
+          type: 'submit',
+          variant: 'tertiary',
+          extra_attributes: [
+            { name: 'data-ecl-gallery-all' },
+            { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
+            { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
+            { name: 'aria-describedby', value: _id ~ '-info' },
+          ],
+          extra_classes: 'ecl-gallery__view-all',
+        } only %}
+    </div>
+  {%- endif -%}
+  {% if _footer.link is defined and _footer.link is not empty %}
+    <hr class="ecl-gallery__footer-divider" />
+    <div class="ecl-gallery__footer-link">
+      {% include '@ecl/link/link.html.twig' with _footer|merge({
+        link: _footer.link|merge({
+          type: 'standalone',
+          icon_position: 'after',
+        }),
+        icon: _footer.icon
+      }) only %}
+    </div>
+  {% endif %}
+  </div>
+  {% set _selected_item = {} %}
+  {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
+    {% set _selected_item = _items[_selected_item_id] %}
+  {% endif %}
+  {% if overlay.extra_classes is defined and overlay.extra_classes is not empty %}
+    {% set _overlay_class = overlay.extra_classes %}
+  {% endif %}
+  {% if overlay.extra_attributes is defined and overlay.extra_attributes is not empty %}
+    {% set _overlay_attrs = overlay.extra_attributes %}
+  {% endif %}
+  {% include '@ecl/gallery/gallery-overlay.html.twig' with {
+    overlay: _overlay,
+    extra_attributes: _overlay_attrs,
+    extra_classes: _overlay_class,
+    item: _selected_item,
+  } only %}
+</section>
+
+{% endapply %}

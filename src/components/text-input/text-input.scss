@@ -1,0 +1,86 @@
+/**
+ * Text input
+ * @define text-input
+ */
+
+@use 'sass:map';
+@use '@ecl/layout-form/mixins' as mixins-form;
+
+// Exposed variables
+$theme: null !default;
+$text-input: null !default;
+
+// Internal variables
+$border-width: 1px;
+$outline-width: 2px;
+
+.ecl-text-input {
+  appearance: none;
+  background-color: var(--cm-surface-inverted, #fff);
+  border: $border-width solid map.get($text-input, 'border-color');
+  border-radius: map.get($text-input, 'radius');
+  box-shadow: map.get($text-input, 'shadow');
+  box-sizing: border-box;
+  color: map.get($text-input, 'color-input');
+  display: block;
+  font: map.get($text-input, 'font');
+  height: var(--ecl-text-field-height);
+  margin: 0;
+  max-width: 100%;
+  padding-block: map.get($text-input, 'padding-block');
+  padding-inline: map.get($text-input, 'padding-inline');
+
+  &::placeholder {
+    color: map.get($text-input, 'color-placeholder');
+    opacity: 1;
+    font: map.get($text-input, 'font');
+  }
+
+  &:hover {
+    border-color: map.get($text-input, 'border-color-hover');
+    box-shadow: map.get($text-input, 'shadow-hover');
+  }
+
+  &:focus-visible,
+  &:active {
+    outline: $outline-width solid var(--cm-border-primary, var(--c-p));
+    outline-offset: -#{$outline-width};
+  }
+}
+
+.ecl-text-input[disabled],
+.ecl-text-input--disabled,
+.ecl-text-input[readonly],
+.ecl-text-input--readonly {
+  border-color: map.get($text-input, 'border-color-disabled');
+  background-color: map.get($text-input, 'background-disabled');
+  color: map.get($text-input, 'color-disabled');
+  cursor: not-allowed;
+  opacity: map.get($text-input, 'opacity-disabled');
+}
+
+.ecl-text-input--invalid {
+  border-color: map.get($text-input, 'border-color-invalid');
+
+  &:hover {
+    border-color: map.get($text-input, 'border-color-invalid-hover');
+  }
+
+  &:active,
+  &:focus-visible {
+    border-color: map.get($text-input, 'border-color-invalid-focus');
+    outline-color: map.get($text-input, 'border-color-invalid-focus');
+  }
+}
+
+.ecl-text-input--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
+.ecl-text-input--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
+.ecl-text-input--l {
+  @include mixins-form.form-width('l', $theme);
+}

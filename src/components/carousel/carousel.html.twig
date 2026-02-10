@@ -1,0 +1,134 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "color_mode" (string) The color mode name
+    - "items" (array) (default: []): List of banner compatible with ECL Banner component structure
+    - "size" (string) (default: 'm') Size of the carousel (can be 's', 'm', 'l')
+    - "counter_label" (string) (default: 'of')
+    - "sr_description" (string) (default: '') screen reader description of the carousel
+    - "sr_role" (string) (default: 'carousel') screen reader localized role for the carousel
+    - "sr_slide_role" (string) (default: 'slide') screen reader localized role for the slides
+    - "sr_play" (string) (default: 'Play carousel') screen reader label for the play button
+    - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
+    - "full_width": (bool) (default: false) Full width banner (inside the grid)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-carousel' %}
+{% set _color_mode = color_mode|default('') %}
+{% set _extra_attributes = '' %}
+{% set _items = items|default([]) %}
+{% set _size = size|default('m') %}
+{% set _sr_description = sr_description|default('') %}
+{% set _sr_role = sr_role|default('carousel') %}
+{% set _sr_slide_role = sr_slide_role|default('slide') %}
+{% set _sr_play = sr_play|default('Play carousel') %}
+{% set _sr_pause = sr_pause|default('Pause carousel') %}
+{% set _counter_label = counter_label|default('of') %}
+{% set _full_width = full_width|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-carousel--full-width' %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+<section 
+  class="{{ _css_class }}"
+  data-ecl-auto-init="Carousel"
+  aria-roledescription="{{ _sr_role }}"
+  {% if _sr_description %}
+    aria-label="{{ _sr_description }}"
+  {% endif %}
+  {{- _extra_attributes|raw -}}
+>
+  <div class="ecl-carousel__controls">
+    <div class="ecl-container">
+      <div class="ecl-carousel__autoplay">
+        {% include '@ecl/button/button.html.twig' with {
+          hide_label: true,
+          label: _sr_play,
+          type: 'button',
+          variant: 'tertiary',
+          style: 'neutral',
+          extra_classes: 'ecl-carousel__play',
+          icon: {
+            name: 'play-outline',
+            size: 'm',
+            extra_classes: 'ecl-carousel__icon-default',
+          },
+        } only %}
+        {% include '@ecl/button/button.html.twig' with {
+          hide_label: true,
+          label: _sr_pause,
+          type: 'button',
+          variant: 'tertiary',
+          style: 'neutral',
+          extra_classes: 'ecl-carousel__pause',
+          icon: {
+            name: 'pause-outline',
+            size: 'm',
+            extra_classes: 'ecl-carousel__icon-default',
+          },
+        } only %}
+      </div>
+      <div class="ecl-carousel__navigation" role="tablist">
+        {% for item in _items %}
+          <button class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item" role="tab">
+            {{ loop.index }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="ecl-carousel__container">
+    <div class="ecl-carousel__slides">
+    {% for item in _items %}
+      <div 
+        class="ecl-carousel__slide" 
+        role="tabpanel" 
+        aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}"
+        aria-roledescription="{{ _sr_slide_role }}"
+      >
+        {% include '@ecl/banner/banner.html.twig' with item|merge({
+          size: _size,
+        }) only %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% endapply %}

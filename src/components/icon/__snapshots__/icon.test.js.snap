@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Icon WT markup - icon audio renders correctly 1`] = `
+<jest>
+  <span
+    aria-hidden="true"
+    class="wt-icon--audio ecl-icon ecl-icon--m ecl-icon--audio"
+  />
+</jest>
+`;
+
+exports[`Icon WT markup - renders correctly with accessibility content 1`] = `
+<jest>
+  <span
+    aria-hidden="false"
+    class="wt-icon--audio ecl-icon ecl-icon--m ecl-icon--audio"
+    data-desc="Description"
+    role="img"
+    title="Title"
+  />
+</jest>
+`;
+
+exports[`Icon WT markup - renders correctly with extra attributes 1`] = `
+<jest>
+  <span
+    aria-hidden="true"
+    class="wt-icon--audio ecl-icon ecl-icon--m ecl-icon--audio"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  />
+</jest>
+`;
+
+exports[`Icon WT markup - renders correctly with extra class names 1`] = `
+<jest>
+  <span
+    aria-hidden="true"
+    class="wt-icon--audio ecl-icon ecl-icon--m custom-class custom-class--test ecl-icon--audio"
+  />
+</jest>
+`;

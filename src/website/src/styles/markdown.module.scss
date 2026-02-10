@@ -1,0 +1,228 @@
+@use 'sass:map';
+@use 'custom-properties';
+@use '@ecl/theme-ec/theme' as *;
+
+.h1 {
+  color: var(--ws-c-d);
+  font: var(--ws-f-4xl);
+  margin: 0;
+  padding: 0;
+
+  @media screen and (width >= 768px) {
+    font: var(--ws-f-5xl);
+  }
+}
+
+.h2 {
+  color: var(--ws-c-d);
+  font: var(--ws-f-3xl);
+
+  @media screen and (width >= 768px) {
+    font: var(--ws-f-4xl);
+  }
+}
+
+.h3 {
+  color: var(--ws-c-d);
+  font: var(--ws-f-2xl);
+
+  @media screen and (width >= 768px) {
+    font: var(--ws-f-3xl);
+  }
+}
+
+.h4 {
+  color: var(--ws-c-d);
+  font: var(--ws-f-xl);
+
+  @media screen and (width >= 768px) {
+    font: var(--ws-f-2xl);
+  }
+}
+
+.p {
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin: 0;
+  max-width: var(--ws-max-w);
+  padding: 0;
+}
+
+.a {
+  color: var(--ws-c-p);
+  font-family: #{map.get($theme, 'font-family', 'default')};
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+
+  &:focus {
+    outline: 2px solid var(--ws-c-p);
+    outline-offset: 2px;
+  }
+}
+
+.details {
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin: 0;
+  padding: 0;
+}
+
+.summary {
+  cursor: pointer;
+}
+
+.img {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+// link around an image
+.imgA {
+  display: block;
+}
+
+.ul {
+  box-sizing: border-box;
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  max-width: var(--ws-max-w);
+  margin: 0;
+}
+
+.ol {
+  box-sizing: border-box;
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  max-width: var(--ws-max-w);
+  margin: 0;
+}
+
+.table {
+  border-collapse: collapse;
+  border-width: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.thead .tr {
+  border-bottom: 2px solid var(--ws-c-d-60);
+}
+
+.tbody .tr {
+  border-bottom: 1px solid var(--ws-c-d-60);
+}
+
+.th {
+  background-color: transparent;
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  text-align: left;
+}
+
+.td {
+  font: var(--ws-f-m);
+}
+
+.td,
+.th {
+  color: var(--ws-c-d);
+  display: table-cell;
+  padding: var(--ws-s-s);
+  vertical-align: top;
+  margin: 0;
+  max-width: var(--ws-max-w);
+}
+
+.hr {
+  border-color: var(--ws-c-d-80);
+  border-width: 1px;
+  border-style: solid;
+  margin: 0;
+  padding: 0;
+}
+
+* + .h1 {
+  margin-top: var(--ws-s-2xl);
+}
+
+* + .h2 {
+  margin-top: var(--ws-s-2xl);
+
+  @media screen and (width >= 768px) {
+    margin-top: var(--ws-s-3xl);
+  }
+}
+
+* + .h3 {
+  margin-top: var(--ws-s-xl);
+}
+
+* + .h4 {
+  margin-top: var(--ws-s-m);
+
+  @media screen and (width >= 768px) {
+    margin-top: var(--ws-s-l);
+  }
+}
+
+* + .p,
+* + .details,
+* + .img,
+* + .ul,
+* + .ol,
+* + .table {
+  margin-top: var(--ws-s-s);
+}
+
+.h1 + .p,
+.h1 + .details,
+.h1 + .img,
+.h1 + .ul,
+.h1 + .ol,
+.h1 + .table {
+  margin-top: var(--ws-s-m);
+}
+
+.h2 + .p,
+.h2 + .details,
+.h2 + .img,
+.h2 + .ul,
+.h2 + .ol,
+.h2 + .table {
+  margin-top: var(--ws-s-m);
+}
+
+h2 + blockquote + p {
+  border: 1px solid var(--ws-c-n-40);
+  max-width: 100% !important;
+  text-align: center;
+
+  &::after {
+    background:
+      url('../../public/cms-images/anatomy_legend.png') 2rem center no-repeat,
+      var(--ws-c-n-20);
+    background-size: 15rem;
+    content: '';
+    display: block;
+    height: 4rem;
+  }
+}
+
+div:not([class^='ecl'], [class^='wt']):first-child
+  p:not([class^='ecl'], [class^='wt']):first-child {
+  font: var(--ws-f-l);
+  max-width: var(--ws-max-w);
+}
+
+* + .hr {
+  margin-top: var(--ws-s-m);
+}
+
+* + .imgA {
+  margin-top: var(--ws-s-m);
+}

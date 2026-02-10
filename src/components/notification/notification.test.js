@@ -1,0 +1,90 @@
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+// Import data for tests
+import dataInfo from './demo/data--info';
+import dataSuccess from './demo/data--success';
+import dataError from './demo/data--error';
+import dataWarning from './demo/data--warning';
+
+const template = '@ecl/notification/notification.html.twig';
+const render = (params) => renderTwigFileAsNode(template, params);
+
+expect.extend(toHaveNoViolations);
+
+describe('Notification', () => {
+  describe('Info', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataInfo)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(dataInfo, {
+        extra_classes: 'custom-button custom-button--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(dataInfo, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly without title', () => {
+      expect.assertions(1);
+      const withoutTitle = { ...dataInfo, title: '' };
+
+      return expect(render(withoutTitle)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly without description', () => {
+      expect.assertions(1);
+      const withoutDesc = { ...dataInfo, description: '' };
+
+      return expect(render(withoutDesc)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataInfo)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Success', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataSuccess)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Warning', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataWarning)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Error', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataError)).resolves.toMatchSnapshot();
+    });
+  });
+});

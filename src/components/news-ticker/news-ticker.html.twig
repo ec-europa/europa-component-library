@@ -1,0 +1,210 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: random)
+    - "items" (array) (default: []): format: [
+        {
+          "content" (string)
+          "link" (string)
+          "icon" (object) Object of type ECL icon
+          "img" (object)
+            - "path" (string)
+            - "alt" (string)
+            - "title" (string)
+          "external" (boolean)
+        },
+        ...
+      ]
+    - "counter_label" (string) (default: 'of')
+    - "sr_external" (string) (default: 'External link') screen reader label for external icon
+    - "sr_previous" (string) (default: 'Previous news') screen reader label for previous button
+    - "sr_next" (string) (default: 'Next news') screen reader label for next button
+    - "sr_play" (string) (default: 'Play news ticker') screen reader label for play button
+    - "sr_pause" (string) (default: 'Pause news ticker') screen reader label for pause button
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-news-ticker-' ~ random()) %}
+{% set _counter_label = counter_label|default('of') %}
+{% set _items = items|default([]) %}
+{% set _aria_controls = _id ~ '-content' %}
+{% set _sr_external = sr_external|default('External link') %}
+{% set _sr_previous = sr_previous|default('Previous news') %}
+{% set _sr_next = sr_next|default('Next news') %}
+{% set _sr_play = sr_play|default('Play news ticker') %}
+{% set _sr_pause = sr_pause|default('Pause news ticker') %}
+{% set _css_class = 'ecl-news-ticker' %}
+{% set _extra_attributes = [
+  'data-ecl-news-ticker="true"',
+  'data-ecl-auto-init="NewsTicker"']|join(' ')
+%}
+
+{# Internal logic - Process properties #}
+
+{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
+  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {% if _items is not empty and _items is iterable %}
+  <div class="ecl-news-ticker__container">
+    <div class="ecl-news-ticker__content">
+      <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
+      {% for _item in _items %}
+        {% set _icon = '' %}
+        {% set _image = '' %}
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
+          {% set _icon %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: _item.icon|merge({
+                name: _item.icon.name,
+                size: 'l',
+              }),
+              extra_classes: 'ecl-news-ticker__icon',
+            } only %}
+          {% endset %}
+        {% elseif _item.img is not empty and _item.img.path is not empty %}
+        {% set _image %} 
+          <img
+            class="ecl-news-ticker__icon"
+            src="{{ _item.img.path }}"
+          {%- if _item.img.alt is not empty -%}
+            alt="{{ _item.img.alt }}"
+          {%- endif -%}
+          {%- if _item.img.title is not empty -%}
+            title="{{ _item.img.title }}"
+          {%- endif -%} 
+          >
+        {% endset %}
+        {% endif %}
+        <li class="ecl-news-ticker__slide">
+        {% if _item.link is not empty %}
+          {{- _icon -}}
+          {{- _image -}}
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+            type: 'standalone',
+              label: _item.content,
+              path: _item.link,
+              icon_position: 'before',
+              external: _item.external,
+              sr_external: _sr_external
+            },
+            extra_classes: 'ecl-news-ticker__slide-text',
+          } only %}
+        {% else %}
+          {{- _icon -}}{{- _image -}}{{ _item.content }}
+        {% endif %}
+        </li>  
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+  <div class="ecl-news-ticker__controls">
+    <div class="ecl-news-ticker__actions">
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        label: _sr_previous,
+        hide_label: true,
+        icon: {
+          name: 'corner-arrow',
+          size: 'l',
+          transform: 'rotate-270',
+        },
+        extra_classes: 'ecl-news-ticker__prev',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-prev',
+        }],
+      } only %}
+
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        label: _sr_play,
+        hide_label: true,
+        icon: {
+          name: 'play-outline',
+          size: 'l',
+        },
+        extra_classes: 'ecl-news-ticker__play',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-play',
+        }],
+      } only %}
+
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        label: _sr_pause,
+        hide_label: true,
+        icon: {
+          name: 'pause-outline',
+          size: 'l',
+        },
+        extra_classes: 'ecl-news-ticker__pause',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-pause',
+        }],
+      } only %}
+
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        label: _sr_next,
+        hide_label: true,
+        icon: {
+          name: 'corner-arrow',
+          size: 'l',
+          transform: 'rotate-90',
+        },
+        extra_classes: 'ecl-news-ticker__next',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-next',
+        }],
+      } only %}
+    </div>
+
+    <div class="ecl-news-ticker__counter">
+      <span class="ecl-news-ticker__counter--current">1</span>
+      {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}
+      <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
+    </div>
+  </div>
+</div>
+
+{% endapply %}

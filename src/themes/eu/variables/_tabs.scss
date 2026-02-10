@@ -6,7 +6,7 @@ $tabs: (
   separator-width: 1px,
   separator-color: var(--c-d-20),
   item: (
-    border-radius: 4px 4px 0 0,
+    border-radius: map.get($border-radius, 's') map.get($border-radius, 's') 0 0,
     color: var(--c-d-80),
     font: var(--f-ui-m),
     margin-end: var(--s-2xs),
@@ -24,20 +24,16 @@ $tabs: (
     highlight-color: var(--c-p),
     color: var(--c-p),
     padding-top: calc(var(--s-xs) - 4px),
+    font-weight: map.get($font-weight, 'bold'),
   ),
   more: (
     font-weight: map.get($font-weight, 'regular'),
     highlight-width: 4px,
     highlight-color: var(--c-p),
-    active-separator-color: map.get($color, 'white'),
+    active-separator: 1px solid map.get($color, 'white'),
     color-open: var(--c-d),
+    border-color-open: transparent,
     background-open: var(--c-p-20),
-  ),
-  overflow: (
-    background: var(--c-p),
-    color: map.get($color, 'white'),
-    background-hover: var(--c-p),
-    color-hover: map.get($color, 'white'),
   ),
   dropdown: (
     shadow: var(--sh-1),
@@ -47,5 +43,6 @@ $tabs: (
     item-color: var(--c-d),
     item-active-background: var(--c-p-20),
     item-active-color: var(--c-d),
+    font-weight: map.get($font-weight, 'regular'),
   ),
 );

@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
   repo: ec-europa/europa-component-library
-  branch: v4-dev
-  base_url: https://v4-dev--europa-component-library.netlify.app/
+  branch: v5-dev
+  base_url: https://v5-dev--europa-component-library.netlify.app/
   extension: md
   squash_merges: true
   commit_messages:
@@ -68,6 +68,11 @@ collections:
         file: 'src/website/src/pages/ec/components/banner/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Spotlight'
+        name: 'ec_spotlight'
+        file: 'src/website/src/pages/ec/components/spotlight/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Breadcrumbs (site-wide)'
         name: 'ec_breadcrumbs_site_wide'
         file: 'src/website/src/pages/ec/components/navigation/breadcrumb/docs/usage.md'
@@ -126,6 +131,11 @@ collections:
       - label: 'List illustration'
         name: 'ec_list_illustration'
         file: 'src/website/src/pages/ec/components/list-illustration/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page information'
+        name: 'ec_page_information'
+        file: 'src/website/src/pages/ec/components/page-information/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Popover'
@@ -253,9 +263,9 @@ collections:
         file: 'src/website/src/pages/ec/components/forms/select/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Separator'
-        name: 'ec_separator'
-        file: 'src/website/src/pages/ec/components/separator/docs/usage.md'
+      - label: 'Divider'
+        name: 'ec_divider'
+        file: 'src/website/src/pages/ec/components/divider/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Site Header'
@@ -276,11 +286,6 @@ collections:
       - label: 'Social media follow'
         name: 'ec_social_media_follow'
         file: 'src/website/src/pages/ec/components/social-media-follow/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Social media share'
-        name: 'ec_social_media_share'
-        file: 'src/website/src/pages/ec/components/social-media-share/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Spinner'
@@ -321,6 +326,14 @@ collections:
       - label: 'Timeline'
         name: 'ec_timeline'
         file: 'src/website/src/pages/ec/components/timeline/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EC a11y pages for components'
+    name: 'ec_accessibility_pages'
+    files:
+      - label: 'Accordion'
+        name: 'ec_accordion_a11y'
+        file: 'src/website/src/pages/ec/components/accordion/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EC Guidelines'
@@ -389,7 +402,12 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Banner'
         name: 'eu_banner'
-        file: 'src/website/src/pages/ec/components/banner/docs/usage.md'
+        file: 'src/website/src/pages/eu/components/banner/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'spotlight'
+        name: 'eu_spotlight'
+        file: 'src/website/src/pages/eu/components/spotlight/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Breadcrumbs (site-wide)'
@@ -450,6 +468,11 @@ collections:
       - label: 'List illustration'
         name: 'eu_list_illustration'
         file: 'src/website/src/pages/eu/components/list-illustration/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page information'
+        name: 'eu_page_information'
+        file: 'src/website/src/pages/eu/components/page-information/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Popover'
@@ -578,9 +601,9 @@ collections:
         file: 'src/website/src/pages/eu/components/forms/select/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Separator'
-        name: 'eu_separator'
-        file: 'src/website/src/pages/eu/components/separator/docs/usage.md'
+      - label: 'Divider'
+        name: 'eu_divider'
+        file: 'src/website/src/pages/eu/components/divider/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Site Header'
@@ -601,11 +624,6 @@ collections:
       - label: 'Social media follow'
         name: 'eu_social_media_follow'
         file: 'src/website/src/pages/eu/components/social-media-follow/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Social media share'
-        name: 'eu_social_media_share'
-        file: 'src/website/src/pages/eu/components/social-media-share/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Spinner'
@@ -646,6 +664,14 @@ collections:
       - label: 'Timeline'
         name: 'eu_timeline'
         file: 'src/website/src/pages/eu/components/timeline/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'EU a11y pages for components'
+    name: 'eu_accessibility_pages'
+    files:
+      - label: 'Accordion'
+        name: 'eu_accordion_a11y'
+        file: 'src/website/src/pages/eu/components/accordion/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EU Guidelines'

@@ -2,40 +2,54 @@
 @use '../index' as *;
 
 $date-block: (
-  background-color-cancelled: var(--c-n-60),
-  background-color-default: map.get($color, 'white'),
-  background-color-ongoing: map.get($color, 'white'),
-  background-color-past: var(--c-n-60),
-  outline-color-cancelled: transparent,
-  outline-color-default: var(--c-d),
-  outline-color-ongoing: var(--c-d),
-  outline-color-past: transparent,
+  background-color-cancelled: var(--cm-surface-lowest),
+  background-color-default: var(--cm-surface-inverted),
+  background-color-ongoing: var(--cm-surface-inverted),
+  background-color-past: var(--cm-surface-lowest),
+  outline-color-cancelled: var(--cm-border-brand),
+  outline-color-default: var(--cm-border-brand),
+  outline-color-ongoing: var(--cm-border-brand),
+  outline-color-past: var(--cm-border-brand),
   border-radius: 0,
   circle-width: 10px,
-  max-height: 5.75rem,
+  max-height: 6.125rem,
   padding-top: calc(var(--s-xs) - 2px),
   shadow: none,
   shadow-decoration: none,
-  text-color: var(--c-d),
-  text-color-inverted: var(--c-d),
+  text-color: var(--cm-on-surface-brand),
+  text-color-inverted: var(--cm-on-surface-brand),
   text-white-space: nowrap,
   width-desktop: 5rem,
   width-mobile: 5rem,
   day: (
     padding: var(--s-s) var(--s-2xs) var(--s-2xs),
-    line-height: map.get($line-height, 's'),
-    font-size: map.get($font-size, 'xl'),
+    line-height: 20px,
+    font: var(--f-xl),
   ),
   month: (
     padding: 0 var(--s-2xs) var(--s-s),
     line-height: 12px,
-    font-size: map.get($font-size, 's'),
+    font: var(--f-xs),
   ),
   year: (
     padding: var(--s-2xs) 0,
-    background-color: var(--c-d),
-    text-color: map.get($color, 'white'),
-    font: map.get($font, 's'),
-    font-weight: map.get($font-weight, 'bold'),
+    background-color: var(--cm-surface-brand),
+    text-color: var(--cm-on-surface-inverted),
+    font: var(--f-xs),
+  ),
+);
+$date-block-print: (
+  day: (
+    padding: map.get($spacing-print, 's') map.get($spacing-print, '2xs')
+      map.get($spacing-print, '2xs'),
+    font: map.get($font-print, 'xl'),
+  ),
+  month: (
+    padding: 0 map.get($spacing-print, '2xs') map.get($spacing-print, 's'),
+    font: map.get($font-print, 'xs'),
+  ),
+  year: (
+    padding: map.get($spacing-print, '2xs') 0,
+    font: map.get($font-print, 'xs'),
   ),
 );

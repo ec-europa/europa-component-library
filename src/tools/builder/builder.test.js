@@ -6,14 +6,9 @@ import { getPlugins } from './scripts/styles';
 
 describe('ECL Builder', () => {
   describe('System resolution utility', () => {
-    let windowSpy;
-    beforeEach(() => {
-      windowSpy = jest.spyOn(window, 'window', 'get');
-    });
     afterEach(() => {
       delete process.env.ECL_SYSTEM;
       delete process.env.STORYBOOK_SYSTEM;
-      windowSpy.mockRestore();
     });
 
     it('should return null on no context match', () => {
@@ -57,58 +52,19 @@ describe('ECL Builder', () => {
       expect(getSystem()).toBe(null);
     });
 
-    it('should respect window.location.pathname', () => {
-      windowSpy.mockImplementation(() => ({
-        location: {
-          pathname: '/playground/ec/',
-        },
-      }));
-
-      expect(getSystem()).toBe('ec');
-
-      windowSpy.mockImplementation(() => ({
-        location: {
-          pathname: '/playground/eu/',
-        },
-      }));
-
-      expect(getSystem()).toBe('eu');
-
-      windowSpy.mockImplementation(() => ({
-        location: {
-          pathname: '/component-library/playground/ec/',
-        },
-      }));
-
-      expect(getSystem()).toBe('ec');
-
-      windowSpy.mockImplementation(() => ({
-        location: {
-          pathname: '/component-library/playground/eu/',
-        },
-      }));
-
-      expect(getSystem()).toBe('eu');
+    it('should respect window.location.pathname (simulated)', () => {
+      expect(getSystem('/playground/ec/')).toBe('ec');
+      expect(getSystem('/playground/eu/')).toBe('eu');
+      expect(getSystem('/component-library/playground/ec/')).toBe('ec');
+      expect(getSystem('/component-library/playground/eu/')).toBe('eu');
     });
 
     it('should have preference for window.location.pathname over STORYBOOK_SYSTEM', () => {
       process.env.STORYBOOK_SYSTEM = 'EU';
-      windowSpy.mockImplementation(() => ({
-        location: {
-          pathname: '/playground/ec/',
-        },
-      }));
-
-      expect(getSystem()).toBe('ec');
+      expect(getSystem('/playground/ec/')).toBe('ec');
 
       process.env.STORYBOOK_SYSTEM = 'EC';
-      windowSpy.mockImplementation(() => ({
-        location: {
-          pathname: '/playground/eu/',
-        },
-      }));
-
-      expect(getSystem()).toBe('eu');
+      expect(getSystem('/playground/eu/')).toBe('eu');
     });
   });
 
@@ -134,7 +90,7 @@ describe('ECL Builder', () => {
       const plugins = getPlugins();
       expect(plugins.length).toBe(2);
       expect(JSON.stringify(plugins, replacer)).toEqual(
-        '[{"info":"infofn()","options":{"grid":"no-autoplace"},"postcssPlugin":"autoprefixer","prepare":"preparefn()"},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
+        '[{"browsers":["> 1%","not dead","not ie <= 11","not safari < 14"],"info":"infofn()","options":{"grid":"no-autoplace","overrideBrowserslist":["> 1%","not dead","not ie <= 11","not safari < 14"]},"postcssPlugin":"autoprefixer","prepare":"preparefn()"},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
       );
     });
 

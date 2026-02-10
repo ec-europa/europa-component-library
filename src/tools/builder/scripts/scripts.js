@@ -1,33 +1,35 @@
-const babelPresetEnv = require('@babel/preset-env');
-const rollup = require('rollup');
-const babel = require('rollup-plugin-babel');
-const replace = require('@rollup/plugin-replace');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const { uglify } = require('rollup-plugin-uglify');
-const svg = require('rollup-plugin-svg');
-const getSystem = require('../utils/getSystem');
-const pkg = require('../package.json');
+import { rollup } from 'rollup';
+import babelPresetEnv from '@babel/preset-env';
+import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import terser from '@rollup/plugin-terser';
+import svg from 'rollup-plugin-svg';
+import externalGlobals from 'rollup-plugin-external-globals';
+import { promises as fs } from 'node:fs';
+import getSystem from '../utils/getSystem.js';
 
-module.exports = (input, dest, options) => {
-  const uglifyCode =
+const pkg = JSON.parse(
+  await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'),
+);
+
+export default async (input, dest, options) => {
+  const minifyCode =
     options.uglify === true ||
     (options.uglify !== false && process.env.NODE_ENV === 'production');
 
-  // ECL uses Pikaday for the datepicker component. Pikaday dynamically requires moment.js which messes up JS bundling.
-  // ECL does not want to include moment.js in its release in order to reduce the final bundle size.
-  // Instruct minifier to preserve the UMD locally scoped 'moment' (default Pikaday module) variable in Pikaday in order to correctly reference the global 'moment' included separately from the ECL library bundle.
-  // When Pikaday really removes moment from its dependencies and does not load it dynamically, bundlers such as rollup will be able to handle this more gracefully.
-  // @see https://github.com/Pikaday/Pikaday/issues/815
-  const uglifyOptions = {};
+  const { external, banner, moduleName, sourceMap, format } = options;
+
+  const terserOptions = {};
 
   if (options.banner) {
-    uglifyOptions.output = { preamble: `/* ${options.banner} */` };
+    terserOptions.format = { preamble: `/* ${banner} */` };
   }
 
   const inputOptions = {
     input,
-    external: options.external || [],
+    external: external || [],
     plugins: [
       replace({
         'getSystem()': JSON.stringify(getSystem()),
@@ -36,8 +38,8 @@ module.exports = (input, dest, options) => {
         __VERSION__: JSON.stringify(pkg.version),
       }),
       resolve(),
-      commonjs(),
       babel({
+        babelHelpers: 'bundled',
         presets: [
           [
             babelPresetEnv,
@@ -49,19 +51,26 @@ module.exports = (input, dest, options) => {
         ],
       }),
       svg(),
-      uglifyCode && uglify(uglifyOptions),
-    ],
+      commonjs(),
+      minifyCode && terser(terserOptions),
+    ].filter(Boolean),
   };
 
   const outputOptions = {
     file: dest,
-    format: 'iife',
-    name: options.name || options.moduleName,
-    sourcemap: options.sourcemap || options.sourceMap,
+    format,
     exports: 'named',
-    globals: options.globals || {},
+    name: moduleName,
+    sourcemap: sourceMap,
+    globals: options.globals,
     footer: `ECL.version = "${pkg.version}";`,
   };
 
-  rollup.rollup(inputOptions).then((bundle) => bundle.write(outputOptions));
+  if (format === 'es') {
+    outputOptions.extend = true;
+    inputOptions.plugins.push(externalGlobals({ ECL: 'ECL' }));
+  }
+
+  const bundle = await rollup(inputOptions);
+  await bundle.write(outputOptions);
 };

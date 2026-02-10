@@ -72,23 +72,7 @@ Vector image format can produce results with high fidelity at every resolution s
 - SVG formats are supported by most contemporary browsers
 - the image file size is lightweight and compressible
   supports transparency
-- ECL icons are of type SVG and are distributed in `@ecl/resources-icons`
-
-When implementing ECL icons, please pay extra attention to image paths with relation to files' physical location. Here is an example of how markup would look like in a component's showcase:
-
-```html
-<svg
-  focusable="false"
-  aria-hidden="true"
-  data-ecl-accordion-icon="true"
-  class="ecl-accordion2__toggle-icon ecl-icon ecl-icon--m"
->
-  <use xlink:href="/component-library/dist/media/icons.865a18d2.svg#plus"></use>
-</svg>
-```
-
-To have actual plus sign icon rendered correctly, replace the `/component-library/` path to your absolute or relative path where you have hosted ECL resources. Also, the `865a18d2` value can be removed to be `icons.svg#plus`.
-
+  
 ## Editing visuals
 
 - don't apply effects, gradients, borders or filters. It can make the picture look manipulated

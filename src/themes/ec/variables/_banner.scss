@@ -2,60 +2,77 @@
 @use '../index' as *;
 
 $banner: (
-  background-color: var(--c-n-40),
-  content-width: 42.5rem,
-  content-background: var(--c-bg),
+  background-color: var(--cm-surface-lowest),
+  content-width: (
+    'mobile': 50rem,
+    'desktop': 42.5rem,
+  ),
+  content-background: var(--cm-surface-inverted),
   content-border-radius: 0,
   content-padding: var(--s-l) var(--s-xl) var(--s-xl),
-  container-padding-bottom: (
-    'mobile': var(--s-xl),
-    'tablet': var(--s-2xl),
-    'desktop': var(--s-4xl),
+  container-padding-block: (
+    'media': (
+      'mobile': var(--s-l) var(--s-xl),
+      'tablet': var(--s-xl) var(--s-2xl),
+      'desktop': var(--s-4xl),
+    ),
+    'no-media': (
+      'mobile': var(--s-xl) var(--s-2xl),
+      'tablet': var(--s-2xl),
+      'desktop': var(--s-4xl),
+    ),
   ),
-  container-padding-top: (
+  container-padding-inline: (
     'mobile': var(--s-m),
-    'tablet': var(--s-m),
-    'desktop': var(--s-4xl),
-  ),
-  container-padding-horizontal: (
-    'tablet': var(--s-2xl),
+    'tablet': var(--s-xl),
+    'desktop': var(--s-2xl),
   ),
   border-color: transparent,
   border-radius: (
     'banner': 0,
     'content': 0,
   ),
-  box-shadow: var(--sh-6),
+  box-shadow: none,
   border-width: (
     'left': 0,
     'bottom': 0,
   ),
   text-color: (
-    'dark': var(--c-d),
-    'light': map.get($color, 'white'),
-    'inverted': map.get($color, 'white'),
+    'dark': var(--cm-on-surface-brand),
+    'light': #fff,
+    'inverted': #fff,
   ),
   font: (
-    'title': (
-      'mobile': var(--f-2xl),
-      'desktop-m': var(--f-3xl),
-      'desktop-l': var(--f-4xl),
-    ),
-    'description': (
-      'mobile': var(--f-xl),
-      'desktop-m': var(--f-xl),
-      'desktop-l': var(--f-3xl),
+    'title-s': 'heading1',
+    'title-m': 'heading1',
+    'title-l': 'display',
+    'description-s': 'body-2xl',
+    'description-s-font-weight': map.get($font-weight, 'light'),
+    'description-m': 'heading2',
+    'description-l': 'heading2',
+    'credit': (
+      'mobile': var(--f-2xs),
+      'desktop': var(--f-xs),
     ),
   ),
   description-margin: var(--s-s),
-  // DEPRECATED
-  background: (
-      'plain-background': var(--c-p),
-      'text-box-mobile': var(--c-n-40),
-      'text-box-desktop': var(--c-bg),
-      'text-overlay': var(--c-p),
-    ),
 );
 $banner-print: (
-  cta-radius: 0,
+  font: (
+    'title': (
+      'desktop-m': map.get($font-print, '6xl'),
+      'desktop-l': map.get($font-print, '7xl'),
+    ),
+    'description': (
+      'desktop-m': map.get($font-print, 'm'),
+      'desktop-l': map.get($font-print, 'xl'),
+    ),
+    'credit': map.get($font-print, 'xs'),
+  ),
+  container-padding-bottom: map.get($spacing-print, '4xl'),
+  container-padding-top: map.get($spacing-print, '4xl'),
+  container-padding-horizontal: map.get($spacing-print, '2xl'),
+  content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
+    map.get($spacing-print, 'l'),
+  content-width: 10cm,
 );

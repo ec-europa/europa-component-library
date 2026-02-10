@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOMServer from 'react-dom/server';
 
-import iconSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
-import styles from './Playground.scss';
+import styles from './Playground.module.scss';
 import Code from './Code';
 
 class Playground extends Component {
@@ -12,13 +10,14 @@ class Playground extends Component {
     super(props);
     this.showcaseCodeRef = React.createRef();
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.iframeRef = React.createRef();
 
     // Parameters
     this.showcaseLineHeight = 1.5;
     this.showcaseNbLines = 6;
     this.state = {
       hasError: false,
-      resolvedMarkup: null,
+      iframeHtml: null,
     };
   }
 
@@ -28,8 +27,6 @@ class Playground extends Component {
   }
 
   componentDidMount() {
-    this.renderMarkup();
-
     this.calculateContainerHeight().then((containerHeight) => {
       // Calculate max height
       this.maxHeight =
@@ -46,7 +43,75 @@ class Playground extends Component {
         this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
       }
     });
+
+    window.addEventListener('message', this.handleMessage);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('message', this.handleMessage);
+  }
+
+  handleMessage = (event) => {
+    let parsedData = null;
+    try {
+      parsedData = JSON.parse(event.data);
+    } catch {
+      return;
+    }
+
+    if (
+      parsedData &&
+      parsedData.key === 'storybook-channel' &&
+      parsedData.event?.type === 'storybook/docs/snippet-rendered'
+    ) {
+      const [payload] = parsedData.event.args || [];
+      const story = `${this.props.selectedKind}--${this.props.selectedStory}`;
+
+      if (!payload?.id || payload.id !== story) return;
+
+      const selectedArgs = this.props.selectedArgs;
+
+      // If there are no selected args, assume it's a match and accept the payload
+      if (!selectedArgs) {
+        this.setState({ iframeHtml: payload.source });
+        return;
+      }
+
+      // Parse the selectedArgs string into key-value pairs, converting to correct types
+      const expectedArgs = selectedArgs.split(';').reduce((acc, pair) => {
+        const [key, ...rest] = pair.split(':');
+        if (!key) return acc;
+
+        const rawValue = rest.join(':'); // allows colons inside values
+        let normalizedValue;
+
+        if (rawValue === '!true') {
+          normalizedValue = true;
+        } else if (rawValue === '!false') {
+          normalizedValue = false;
+        } else if (rawValue === '') {
+          normalizedValue = ''; // explicitly handle empty string
+        } else if (!isNaN(rawValue)) {
+          normalizedValue = Number(rawValue);
+        } else {
+          normalizedValue = rawValue;
+        }
+
+        acc[key] = normalizedValue;
+        return acc;
+      }, {});
+
+      const payloadArgs = payload.args || {};
+
+      const allArgsMatch = Object.entries(expectedArgs).every(
+        ([key, value]) => payloadArgs[key] === value,
+      );
+
+      if (allArgsMatch) {
+        this.setState({ iframeHtml: payload.source });
+      }
+    }
+  };
 
   handleClickOnToggle() {
     // Display full code
@@ -74,38 +139,6 @@ class Playground extends Component {
     });
   }
 
-  async renderMarkup() {
-    const { children } = this.props;
-
-    if (!children) {
-      return;
-    }
-
-    if (children instanceof Promise) {
-      const resolvedMarkup = await children;
-      if (typeof resolvedMarkup === 'string') {
-        this.setState({ resolvedMarkup });
-      }
-      return;
-    }
-
-    const childrenArray = Array.isArray(children) ? children : [children];
-
-    const htmlPromises = childrenArray.map(async (child) => {
-      const { markup } = child.props;
-      const resolvedMarkup = await markup;
-      if (typeof resolvedMarkup === 'string') {
-        return resolvedMarkup;
-      }
-      return ReactDOMServer.renderToStaticMarkup(child);
-    });
-
-    const resolvedHtmlArray = await Promise.all(htmlPromises);
-    const resolvedMarkup = resolvedHtmlArray.join('');
-
-    this.setState({ resolvedMarkup });
-  }
-
   render() {
     const {
       frameHeight,
@@ -123,11 +156,9 @@ class Playground extends Component {
       children,
     } = this.props;
 
-    const { hasError, resolvedMarkup } = this.state;
+    const { hasError, iframeHtml } = this.state;
 
-    if (!children) return null;
-
-    if (hasError)
+    if (hasError) {
       return (
         <div className={styles.playground}>
           <p className={styles.description}>
@@ -135,6 +166,7 @@ class Playground extends Component {
           </p>
         </div>
       );
+    }
 
     let playgroundUrl;
 
@@ -159,8 +191,8 @@ class Playground extends Component {
 
     let markupElement = null;
 
-    if (resolvedMarkup) {
-      markupElement = <Code>{resolvedMarkup}</Code>;
+    if (iframeHtml) {
+      markupElement = <Code>{iframeHtml}</Code>;
     }
 
     return (
@@ -191,13 +223,7 @@ class Playground extends Component {
                 rel="noopener noreferrer"
               >
                 <span className={styles.link__label}>Fullscreen</span>
-                <svg
-                  focusable="false"
-                  aria-hidden="true"
-                  className={styles.link__icon}
-                >
-                  <use xlinkHref={`${iconSprite}#fullscreen`} />
-                </svg>
+                <span className={`wt-icon--fullscreen ${styles.link__icon}`} />
               </a>
             </div>
           )}
@@ -219,13 +245,9 @@ class Playground extends Component {
               >
                 <div className={styles.toggle__container}>
                   <span className={styles.link__label}>Show more</span>
-                  <svg
-                    focusable="false"
-                    aria-hidden="true"
-                    className={styles.link__icon}
-                  >
-                    <use xlinkHref={`${iconSprite}#corner-arrow`} />
-                  </svg>
+                  <span
+                    className={`wt-icon--corner-arrow ${styles.link__icon}`}
+                  />
                 </div>
               </button>
             </div>
@@ -244,13 +266,7 @@ class Playground extends Component {
               rel="noopener noreferrer"
             >
               <span className={styles.link__label}>Playground</span>
-              <svg
-                focusable="false"
-                aria-hidden="true"
-                className={styles.link__icon}
-              >
-                <use xlinkHref={`${iconSprite}#corner-arrow`} />
-              </svg>
+              <span className={`wt-icon--corner-arrow ${styles.link__icon}`} />
             </a>
           </>
         )}
@@ -260,7 +276,7 @@ class Playground extends Component {
 }
 
 Playground.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   frameHeight: PropTypes.string,
   frameWidth: PropTypes.string,
   playgroundLink: PropTypes.string,
@@ -277,10 +293,11 @@ Playground.propTypes = {
 };
 
 Playground.defaultProps = {
+  children: '',
   frameHeight: '200',
   frameWidth: '100%',
   playgroundLink: '',
-  showFrame: false,
+  showFrame: true,
   hideCode: false,
   iframeOptions: {},
   hideDemo: false,

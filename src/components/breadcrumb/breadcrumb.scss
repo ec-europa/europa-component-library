@@ -1,0 +1,160 @@
+/*
+ * Breadcrumb
+ * @define breadcrumb
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$breadcrumb: null !default;
+
+.ecl-breadcrumb {
+  margin: 0;
+
+  @include mixins.responsive-font(map.get($breadcrumb, 'typography'));
+}
+
+.ecl-breadcrumb__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 map.get($breadcrumb, 'padding-vertical');
+
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.ecl-breadcrumb__segment {
+  align-items: center;
+  display: inline-flex;
+  margin-top: map.get($breadcrumb, 'padding-vertical');
+  max-width: 100%;
+
+  &[aria-hidden='true'] {
+    position: absolute;
+    visibility: hidden;
+
+    /* Force display if JS is disabled */
+    .no-js & {
+      position: static;
+      visibility: visible;
+    }
+  }
+}
+
+// If the component is using js, it will always be on one line, until it is expanded
+.ecl-breadcrumb[data-ecl-auto-initialized]:not(.ecl-breadcrumb--wrap)
+  .ecl-breadcrumb__container {
+  flex-wrap: nowrap;
+
+  .ecl-breadcrumb__segment {
+    flex-shrink: 0;
+  }
+}
+
+.ecl-breadcrumb__segment--ellipsis {
+  display: none;
+
+  &[aria-hidden='false'] {
+    /* Force hide if JS is disabled */
+    .no-js & {
+      display: none;
+    }
+  }
+}
+
+.ecl-breadcrumb__ellipsis {
+  background-color: map.get($breadcrumb, 'ellipsis', 'background');
+  color: map.get($breadcrumb, 'link-color');
+  margin: map.get($breadcrumb, 'ellipsis', 'offset-vertical')
+    map.get($breadcrumb, 'ellipsis', 'offset-horizontal');
+
+  @include mixins.responsive-font(
+    map.get($breadcrumb, 'typography'),
+    $font-weight: map.get($breadcrumb, 'ellipsis', 'font-weight')
+  );
+
+  &:hover {
+    background-color: map.get($breadcrumb, 'ellipsis', 'background-hover');
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: map.get($breadcrumb, 'link-color-hover');
+  }
+}
+
+@if map.has-key($breadcrumb, 'ghost-override') {
+  .ecl-breadcrumb .ecl-breadcrumb__ellipsis,
+  .ecl-breadcrumb .ecl-breadcrumb__ellipsis:hover {
+    border-width: 2px;
+    padding: 0 var(--s-2xs);
+  }
+}
+
+.ecl-breadcrumb__link {
+  --ecl-link-color: #{map.get($breadcrumb, 'link-color')};
+  --ecl-link-color-hover: #{map.get($breadcrumb, 'link-color-hover')};
+
+  overflow: hidden;
+  text-decoration: map.get($breadcrumb, 'link-style');
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ecl-breadcrumb__icon {
+  fill: map.get($breadcrumb, 'icon-color');
+  flex-shrink: 0;
+  margin-inline: map.get($breadcrumb, 'icon-spacing-mobile');
+  transform: rotateZ(270deg);
+  vertical-align: text-bottom;
+}
+
+.ecl-breadcrumb__current-page {
+  color: map.get($breadcrumb, 'last-link-color');
+}
+
+.ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__link,
+.ecl-breadcrumb__segment:nth-last-of-type(2) .ecl-breadcrumb__icon,
+.ecl-breadcrumb__current-page {
+  display: none;
+}
+
+// Show first link and icon on mobile when there are only 2 items (Home + Current Page)
+// stylelint-disable-next-line no-descending-specificity
+.ecl-breadcrumb__segment:first-of-type:nth-last-of-type(2) {
+  flex-direction: row-reverse;
+
+  .ecl-breadcrumb__link,
+  .ecl-breadcrumb__icon {
+    display: inline-flex;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-breadcrumb__icon {
+    margin-inline: map.get($breadcrumb, 'icon-spacing-desktop');
+    transform: rotateZ(90deg);
+  }
+
+  // Reset flex-direction for 2-item breadcrumb on desktop
+  .ecl-breadcrumb__segment:first-of-type:nth-last-of-type(2) {
+    flex-direction: row;
+  }
+
+  .ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__link,
+  .ecl-breadcrumb__segment:nth-last-of-type(2) .ecl-breadcrumb__icon,
+  .ecl-breadcrumb__current-page,
+  .ecl-breadcrumb__segment--ellipsis {
+    display: inline-flex;
+  }
+}

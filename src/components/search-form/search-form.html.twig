@@ -1,0 +1,76 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "label" (string) (default: '') Label of the search form
+    - "text_input" (associative array) (default: A predefined structure for ECL Text Input)
+    - "button" (associative array) (default: A predefined structure for ECL Button)
+    - "width" (string) (default: 'm')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+  Blocks:
+    - "extra_form_elements"
+#}
+
+{# Internal properties #}
+
+{% set _extra_form_elements = extra_form_elements|default('') %}
+{% set _button = button|default('') %}
+{% set _width = width|default('m') %}
+{% set _css_class = 'ecl-search-form' %}
+{% set _text_input = text_input|default('') %}
+{% set _label = label|default('') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<form
+  class="{{ _css_class }}"
+  role="search"
+  {{ _extra_attributes|raw }}
+>
+  {% if _text_input is not empty %}
+    {% include '@ecl/form-group/form-group.html.twig' with {
+      label: _label ? _label : _text_input.placeholder|default(''),
+      input: _text_input|merge({
+        input_type: 'search',
+        extra_classes: 'ecl-search-form__text-input' ~ ( _text_input.extra_classes ? ' ' ~ _text_input.extra_classes : ''),
+      }),
+      extra_label_classes: 'ecl-search-form__label',
+    } only %}
+  {% endif %}
+  {% if _button is not empty %}
+    {% include '@ecl/button/button.html.twig' with _button|merge({
+      hide_label: true,
+      icon: {
+        name: 'search',
+        size: 'm',
+      },
+      extra_classes: 'ecl-search-form__button' ~ ( _button.extra_classes ? ' ' ~ _button.extra_classes : ''),
+      }) only %}
+  {% endif %}
+  {%- block extra_form_elements _extra_form_elements -%}
+</form>
+
+{% endapply %}

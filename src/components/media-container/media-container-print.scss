@@ -1,0 +1,50 @@
+/**
+ * Media container print
+ * @define media-container
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$media-container: null !default;
+$media-container-print: null !default;
+
+.ecl-media-container {
+  margin: 0;
+}
+
+.ecl-media-container__figure {
+  background-color: map.get($media-container, 'caption-background-color');
+  border-radius: map.get($media-container, 'border-radius');
+  box-shadow: map.get($media-container, 'shadow');
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ecl-media-container__media iframe {
+  display: none;
+}
+
+.ecl-media-container__media {
+  display: block;
+  height: auto;
+  min-height: 1px; // IE 11 fix
+  object-fit: cover;
+  width: 100%;
+}
+
+.ecl-media-container__caption {
+  color: map.get($media-container, 'caption-color');
+  font: map.get($media-container-print, 'caption-font');
+  margin-top: map.get($theme, 'spacing-print', '2xs');
+  max-width: var(--max-w);
+  padding: map.get($media-container-print, 'caption-padding');
+}
+
+.ecl-media-container__media-audio {
+  display: none;
+}

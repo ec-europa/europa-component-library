@@ -1,9 +1,30 @@
 @use 'sass:map';
+@use 'sass:color';
 @use '../index' as *;
 
 $site-footer: (
-  background: var(--c-br),
-  color: map.get($color, 'white'),
-  separator-color: var(--c-n),
-  column-gap: map.get($grid-gutter-width, 'm'),
+  background: var(--cm-surface-brand),
+  color: var(--cm-on-surface-inverted),
+  separator-color: color-mix(
+      in srgb,
+      var(--cm-border-on-brand),
+      transparent 20%
+    ),
+  row-gap-small: var(--s-m),
+  row-gap-medium: var(--s-l),
+  row-gap-large: var(--s-5xl),
+  co-owner: (
+    background: var(--cm-surface-primary-low-1),
+    padding-block: var(--s-l),
+    title-font: 'microcopy-s',
+    title-font-weight: map.get($font-weight, 'semi-bold'),
+    title-margin: var(--s-xs),
+    item-margin-mobile: var(--s-xs),
+    item-margin-desktop: var(--s-s),
+    item-padding-desktop: var(--s-s),
+    item-separator: 1px solid var(--cm-border-brand),
+    link-font: 'body-s',
+    link-color: var(--cm-on-surface-brand),
+    link-color-hover: var(--cm-on-surface-grey),
+  ),
 );

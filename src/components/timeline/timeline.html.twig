@@ -1,0 +1,145 @@
+{% apply spaceless %}
+
+{#
+Parameters:
+  - "color_mode" (string)
+  - "toggle_collapsed": (string) (default: '')
+  - "toggle_expanded": (string) (default: '')
+  - "hide" (object): (default: undefined)
+    - "from": (integer) (default: items.length) Item index after which to start hiding timeline items
+    - "to": (integer) (default: items.length) Item index after which to resume displaying timeline items
+  - "items" (array) (default: []):
+    - "id": (string) (default: '')
+    - "label": (string) (default: '')
+    - "title": (string) (default: '')
+    - "content": (block) (default: '')
+  - "headline" (object) (default: {}): Highlighted item at the top of the timeline
+    - "label": (string) (default: '')
+    - "title": (string) (default: '')
+    - "content": (block) (default: '')
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format:
+    - "name" (string) (default: '')
+    - "value" (optional) (string),
+#}
+
+{# Internal properties #}
+
+{% set _color_mode = color_mode|default('') %}
+{% set _css_class = 'ecl-timeline' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Timeline" data-ecl-timeline' %}
+{% set _items = items|default([]) %}
+{% set _headline = headline|default({}) %}
+{% set _toggle_collapsed = toggle_collapsed|default('') %}
+{% set _toggle_expanded = toggle_expanded|default('') %}
+{% set _hide_from = hide.from|default(items|length) %}
+{% set _hide_to = hide.to|default(items|length) %}
+
+{# Internal logic - Process properties #}
+
+{% set _display_amount = items|length %}
+{% set _hide_amount = 0 %}
+{% set _bottom_amount = 0 %}
+
+{% if _hide_from > 0 or (_hide_from == 0 and _headline is not empty) %}
+  {% if _hide_to > 0 %}
+    {% set _bottom_amount = _display_amount - _hide_to %}
+  {% else %}
+    {% set _bottom_amount = _hide_to|abs %}
+  {% endif %}
+  {% set _countbase = items|length - _bottom_amount %}
+  {% set _display_amount = _hide_from %}
+  {% set _hide_amount = _countbase - _display_amount %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _headline is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-timeline--has-headline' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<ol
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {# Headline #}
+  {% if _headline is not empty %}
+    <li class="ecl-timeline__item ecl-timeline__item--headline">
+      <div class="ecl-timeline__tooltip">
+        <div class="ecl-timeline__tooltip-arrow"></div>
+        {% if _headline.label is not empty %}
+          <div class="ecl-timeline__label">{{ _headline.label }}</div>
+        {% endif %}
+        {% if _headline.title is not empty %}
+          <div class="ecl-timeline__title">{{ _headline.title }}</div>
+        {% endif %}
+        {% if _headline.content is not empty %}
+          <div class="ecl-timeline__content">{{ _headline.content }}</div>
+        {% endif %}
+      </div>
+    </li>
+  {% endif %}
+
+  {% if _items is not empty %}
+    {% for _item in _items %}
+      {# Decide on per item if it should display. #}
+      {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline__item--collapsed' : '' %}
+      {% set _item_id = _item.id is defined and _item.id is not empty ? _item.id : 'ecl-timeline-item-' ~ random() %}
+      <li class="ecl-timeline__item{{ extra_class }}" id="{{ _item_id }}">
+        <div class="ecl-timeline__tooltip">
+          <div class="ecl-timeline__tooltip-arrow"></div>
+          {% if _item.label is not empty %}
+            <div class="ecl-timeline__label">{{ _item.label }}</div>
+          {% endif %}
+          {% if _item.title is not empty %}
+            <div class="ecl-timeline__title">{{ _item.title }}</div>
+          {% endif %}
+          {% if _item.content is not empty %}
+            <div class="ecl-timeline__content">{{ _item.content }}</div>
+          {% endif %}
+        </div>
+      </li>
+      {# Display the show more button if required. #}
+      {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
+        <li class="ecl-timeline__item ecl-timeline__item--toggle">
+          {% include '@ecl/button/button.html.twig' with {
+            label: _toggle_collapsed,
+            variant: 'secondary',
+            type: 'button',
+            icon: {
+              name: 'corner-arrow',
+              size: 'xs',
+              transform: 'rotate-180',
+            },
+            icon_position: 'after',
+            extra_classes: 'ecl-timeline__toggle',
+            extra_attributes: [
+              {name: 'data-ecl-timeline-button'},
+              {name: 'data-ecl-label-collapsed', value: _toggle_collapsed},
+              {name: 'data-ecl-label-expanded', value: _toggle_expanded},
+            ],
+          } only %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</ol>
+
+{% endapply %}

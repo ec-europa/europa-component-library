@@ -1,0 +1,49 @@
+# ECL Accordion component
+
+npm package: `@ecl/accordion`
+
+```shell
+npm install --save @ecl/accordion
+```
+
+### Parameters
+
+- **"color_mode"** (string)
+- **"items"** (array) (default: []): format:
+  - "id" (string) (default: '') Used for binding of togglable elements
+  - "toggle" (predefined structure): see Button component
+    - "label" (string) (default: '')
+  - "content" (string) (default: '')
+- **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Example :
+
+<!-- prettier-ignore -->
+```twig
+{% include '@ecl/accordion/accordion.html.twig' with { 
+  items: [ 
+    { 
+      id: 'accordion-example',
+      toggle: { 
+        label: 
+          'Delivery of last pending proposals, a common Destiny of unity, the hour of European Democracy', 
+      }, 
+      content: 
+        'The College of Commissioners held today the first weekly meeting of 2019 which was devoted to discussing the challenges of this new year. Commissioners used the opportunity to take stock and discuss the year ahead, including the European elections in May and other important milestones ahead.', 
+    }, 
+    ... 
+  ], 
+  icon: [{ 
+    path: 'static/icons.svg', 
+    name: 'plus', 
+  },
+  { 
+    path: 'static/icons.svg', 
+    name: 'minus', 
+  }]
+} %} 
+```

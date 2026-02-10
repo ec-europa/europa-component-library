@@ -89,7 +89,7 @@ addons.register('ecl/notes', (api) => {
     title: 'Notes',
     paramKey: 'EclNotes',
     type: types.PANEL,
-    // eslint-disable-next-line react/prop-types
+
     render: ({ active }) => (
       <Notes channel={channel} api={api} active={active} />
     ),

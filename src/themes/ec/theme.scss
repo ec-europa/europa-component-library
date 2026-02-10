@@ -5,35 +5,49 @@
 
 // TODO: build this dynamically (if possible)
 $theme: (
-  color: index.$color,
+  // color
+  color-default: index.$color-default,
+  color-palette: index.$color-palette,
+  color-modes: index.$color-modes,
+
+  // form
   form-width: index.$form-width,
+
+  // icon
   icon: index.$icon,
   icon-print: index.$icon-print,
+
+  // layout
   breakpoint: index.$breakpoint,
   container: index.$container,
+  container-spacing: index.$container-spacing,
   grid: index.$grid,
   grid-gutter-width: index.$grid-gutter-width,
+
+  // media
   media: index.$media,
+
+  // shape
   border-radius: index.$border-radius,
   shadow-color: index.$shadow-color,
   shadow: index.$shadow,
+
+  // spacing
   spacing: index.$spacing,
   spacing-print: index.$spacing-print,
+
+  // typography
   font-family: index.$font-family,
-  font-size: index.$font-size,
-  font-size-ui: index.$font-size-ui,
-  line-height: index.$line-height,
-  line-height-ui: index.$line-height-ui,
   font-weight: index.$font-weight,
+  font-size: index.$font-size,
+  line-height: index.$line-height,
   font: index.$font,
-  font-ui: index.$font-ui,
+  letter-spacing: index.$letter-spacing,
   font-family-print: index.$font-family-print,
   font-size-print: index.$font-size-print,
   line-height-print: index.$line-height-print,
-  font-weight-print: index.$font-weight-print,
   font-print: index.$font-print,
-  font-ui-print: index.$font-ui-print,
-  font-size-ui-print: index.$font-size-ui-print,
-  line-height-ui-print: index.$line-height-ui-print,
-  z-index: index.$z-index,
+
+  // z-index
+  z-index: index.$z-index
 );

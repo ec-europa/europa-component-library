@@ -1,0 +1,258 @@
+/*
+ * Datepicker
+ * @define datepicker
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
+
+// Exposed variables
+$theme: null !default;
+$datepicker: null !default;
+$text-input: null !default;
+
+:root {
+  --duet-color-button: var(--c-g-50, var(--c-p-5));
+  --duet-font: #{map.get($theme, 'font-family', 'default')};
+  --duet-font-bold: 600;
+  --duet-color-surface: var(--cm-surface-inverted, #fff);
+  --duet-color-border: #{map.get($text-input, 'border-color')};
+  --duet-color-text: #{map.get($text-input, 'color-input')};
+  --duet-color-primary: #{map.get($text-input, 'outline-color')};
+  --duet-font-normal: #{map.get($theme, 'font-weight', 'regular')};
+  --duet-radius: #{map.get($text-input, 'radius')};
+  --duet-color-placeholder: #{map.get($text-input, 'color-placeholder')};
+  --duet-z-index: #{map.get($theme, 'z-index', 'dropdown')};
+}
+
+.ecl-datepicker {
+  max-width: 100%;
+}
+
+.ecl-datepicker--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
+.ecl-datepicker--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
+.ecl-datepicker--l {
+  @include mixins-form.form-width('l', $theme);
+}
+
+/*
+  * duet styling
+  */
+.duet-date__input {
+  height: var(--ecl-text-field-height);
+  outline: 0;
+  padding-block: var(--s-s);
+  padding-inline-start: var(--s-s);
+  font: map.get($text-input, 'font');
+
+  &:hover {
+    box-shadow: map.get($text-input, 'shadow-hover');
+  }
+
+  &:focus-visible {
+    border-color: var(--duet-color-primary);
+    box-shadow: 0 0 0 1px var(--duet-color-primary);
+  }
+
+  &[disabled] {
+    border-color: map.get($text-input, 'border-color-disabled');
+    background-color: map.get($text-input, 'background-disabled');
+    color: map.get($text-input, 'color-disabled');
+    cursor: not-allowed;
+    opacity: map.get($text-input, 'opacity-disabled');
+  }
+}
+
+.ecl-datepicker[invalid] .duet-date__input {
+  border-color: var(--ecl-color-error);
+}
+
+.duet-date__toggle,
+.ecl button.duet-date__toggle {
+  background: #fff;
+  color: var(--duet-color-text);
+  border: 0;
+  border-radius: 0;
+  border-bottom-right-radius: var(--duet-radius);
+  border-top-right-radius: var(--duet-radius);
+  display: flex;
+  height: calc(var(--ecl-text-field-height) - 2px);
+  width: var(--ecl-text-field-height);
+  min-height: auto;
+  padding: 0;
+
+  &::before {
+    background-color: var(--cm-border-brand, var(--c-d));
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 1px;
+    height: 80%;
+    top: 10%;
+  }
+
+  &:hover,
+  &[disabled] {
+    background: var(--duet-color-button);
+    box-shadow: inset 1px 0 0 rgb(0, 0, 0, 0.1);
+    color: var(--duet-color-text);
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &:focus-visible {
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--duet-color-primary);
+    color: var(--duet-color-text);
+    outline: 0;
+  }
+}
+
+.duet-date__dialog-content {
+  background-color: map.get($datepicker, 'picker', 'background-color');
+  border-radius: map.get($datepicker, 'picker', 'border-radius');
+  border-width: 0;
+  box-shadow: map.get($datepicker, 'picker', 'shadow');
+  color: map.get($datepicker, 'picker', 'theme-color');
+  margin-block-start: var(--s-s);
+  padding-block-end: var(--s-m);
+
+  @include mixins.responsive-font(map.get($datepicker, 'picker', 'font'));
+
+  .duet-date__select {
+    &:focus-within {
+      outline: 0;
+    }
+  }
+
+  button.duet-date__next {
+    margin-inline-start: var(--s-xs);
+  }
+
+  button.duet-date__prev,
+  button.duet-date__next,
+  button.duet-date__close {
+    background: var(--duet-color-button);
+    border: 0;
+    border-radius: 50%;
+    color: var(--duet-color-text);
+    line-height: 100%;
+    min-height: auto;
+    min-width: 0;
+    outline: 0;
+    padding: 0;
+
+    &:focus-visible {
+      background: var(--duet-color-button);
+      border: 0;
+      color: var(--duet-color-text);
+      outline: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      background: var(--duet-color-button);
+      color: var(--duet-color-text);
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--duet-color-primary);
+      }
+    }
+
+    svg {
+      margin-block-start: 1px;
+    }
+  }
+
+  .duet-date__header {
+    margin-block-end: var(--s-xs);
+  }
+
+  .duet-date__table {
+    background-color: map.get($datepicker, 'picker', 'background-color');
+    border-collapse: initial;
+    border-spacing: 0;
+
+    th {
+      color: map.get($datepicker, 'picker', 'theme-color');
+    }
+
+    .duet-date__table-header {
+      padding-block-start: var(--s-xs);
+    }
+
+    .duet-date__day {
+      background-color: var(--cm-surface-inverted, #fff);
+      border-radius: 50%;
+      border-width: 0;
+      color: map.get($datepicker, 'picker', 'theme-color');
+      font-size: map.get($datepicker, 'picker', 'font');
+      min-height: auto;
+      min-width: auto;
+      padding: 0;
+
+      &:hover {
+        background-color: map.get(
+          $datepicker,
+          'picker',
+          'day-hover-background'
+        );
+        border-width: 1px;
+        border-color: var(--cm-on-surface-brand, var(--c-d));
+        color: map.get($datepicker, 'picker', 'theme-color');
+      }
+
+      &:focus,
+      &:focus-visible {
+        background-color: map.get(
+          $datepicker,
+          'picker',
+          'day-selected-background'
+        );
+        border-color: var(--duet-color-primary);
+        border-width: 2px;
+        box-shadow: none;
+        color: var(--cm-on-surface-inverted, #fff);
+        outline: 0;
+        padding: 0;
+      }
+
+      &[aria-pressed='true'] {
+        background-color: map.get(
+          $datepicker,
+          'picker',
+          'day-selected-background'
+        );
+        border-radius: 50%;
+        box-shadow: none;
+        color: var(--cm-on-surface-inverted, #fff);
+        padding: 0;
+
+        &::before {
+          background-color: var(--cm-surface-inverted, #fff);
+        }
+
+        &:hover {
+          border-width: 0;
+        }
+      }
+
+      &.is-today {
+        border-width: 1px;
+
+        &:hover {
+          border-width: 0;
+        }
+      }
+    }
+  }
+}
