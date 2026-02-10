@@ -270,7 +270,7 @@ This library is **not bundled with ECL**, so you need to include it yourself if 
 
 If you don’t have restrictions on loading external scripts, you can include the datepicker directly from the CDN:
 
-```
+```html
 <script
   type="module"
   src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
@@ -285,7 +285,7 @@ If you don’t have restrictions on loading external scripts, you can include th
 
 1. Install the package:
 
-```
+```javascript
 npm install @duetds/date-picker
 # or
 pnpm add @duetds/date-picker
@@ -293,7 +293,7 @@ pnpm add @duetds/date-picker
 
 2. Import or bundle it in your build process:
 
-```
+```javascript
 import '@duetds/date-picker/dist/duet.esm.js';
 ```
 
@@ -303,19 +303,19 @@ import '@duetds/date-picker/dist/duet.esm.js';
 
 1. Install the package (or skip if you already have it):
 
-```
+```javascript
 npm install @duetds/date-picker
 ```
 
 2. Copy the `dist` folder contents to a location your webserver can serve, for example:
 
-```
+```bash
 cp -r node_modules/@duetds/date-picker/dist/* /path/to/assets/duet/
 ```
 
 3. Include the library in your HTML pages that use datepickers:
 
-```
+```html
 <script type="module" src="/assets/duet/duet.esm.js"></script>
 ```
 
@@ -325,25 +325,25 @@ cp -r node_modules/@duetds/date-picker/dist/* /path/to/assets/duet/
 
 1. Download the tarball:
 
-```
+```bash
 wget https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz
 ```
 
 2. Extract it:
 
-```
+```bash
 tar -xzf date-picker-1.4.0.tgz
 ```
 
 3. Copy the `dist` folder contents to a location your webserver can serve:
 
-```
+```bash
 cp -r package/dist/* /path/to/assets/duet/
 ```
 
 4. Include the library in your HTML pages that use datepickers:
 
-```
+```html
 <script type="module" src="/assets/duet/duet.esm.js"></script>
 ```
 
