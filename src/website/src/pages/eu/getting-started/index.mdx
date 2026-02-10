@@ -261,33 +261,101 @@ https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_u
 
 ### Datepicker
 
-ECL's datepicker component uses the [Duet Date Picker](https://duetds.github.io/date-picker/) library. This library is **not bundled with ECL**, so you must include it separately if you're using datepicker components.
+ECL's datepicker component is based on the [Duet Date Picker](https://duetds.github.io/date-picker/) library.  
+This library is **not bundled with ECL**, so you need to include it yourself if you use datepicker components.
 
-**Add to your HTML head** (only needed on pages with datepickers):
+---
 
-```html
-<!-- Preload for better performance -->
-<link
-  rel="preload"
-  href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
-  as="script"
-  crossorigin="anonymous"
-/>
-<link
-  rel="preload"
-  href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet-date-picker.entry.js"
-  as="script"
-  crossorigin="anonymous"
-/>
+#### Option 1 — Load from CDN (simplest, no Node required)
 
-<!-- Load the datepicker library -->
+If you don’t have restrictions on loading external scripts, you can include the datepicker directly from the CDN:
+
+```
 <script
   type="module"
   src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
 ></script>
 ```
 
-Alternatively, install and bundle the library in your build process.
+> This will work on any page without installing Node or copying files manually.
+
+---
+
+#### Option 2 — NPM + bundler (recommended if you have a build process)
+
+1. Install the package:
+
+```
+npm install @duetds/date-picker
+# or
+pnpm add @duetds/date-picker
+```
+
+2. Import or bundle it in your build process:
+
+```
+import '@duetds/date-picker/dist/duet.esm.js';
+```
+
+---
+
+#### Option 3 — Manual copy for static pages or CMS
+
+1. Install the package (or skip if you already have it):
+
+```
+npm install @duetds/date-picker
+```
+
+2. Copy the `dist` folder contents to a location your webserver can serve, for example:
+
+```
+cp -r node_modules/@duetds/date-picker/dist/* /path/to/assets/duet/
+```
+
+3. Include the library in your HTML pages that use datepickers:
+
+```
+<script type="module" src="/assets/duet/duet.esm.js"></script>
+```
+
+---
+
+#### Option 4 — Download tarball from the npm registry (no Node required)
+
+1. Download the tarball:
+
+```
+wget https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz
+```
+
+2. Extract it:
+
+```
+tar -xzf date-picker-1.4.0.tgz
+```
+
+3. Copy the `dist` folder contents to a location your webserver can serve:
+
+```
+cp -r package/dist/* /path/to/assets/duet/
+```
+
+4. Include the library in your HTML pages that use datepickers:
+
+```
+<script type="module" src="/assets/duet/duet.esm.js"></script>
+```
+
+---
+
+**Notes**
+
+- The `/assets/duet/` folder must contain the files from `dist/`, not the `dist` folder itself.
+- Only include the `<script>` on pages that actually use datepickers.
+- Option 2 is recommended for modern build setups and avoids manual copying.
+- Option 1 is the simplest if external scripts are allowed.
+- Option 4 is useful for static sites or CMSs where Node.js/npm is not available.
 
 ---
 
