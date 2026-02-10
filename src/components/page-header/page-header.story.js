@@ -80,8 +80,7 @@ const getArgs = (data, variant) => {
     hide_title: false,
   };
 
-  if (getSystem() === 'ec') {
-    args.font_size = 'm';
+  if (getSystem() === 'ec' && variant !== 'default') {
     args.color_mode = 'default';
   }
 
@@ -110,10 +109,15 @@ const getArgs = (data, variant) => {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = {
-    ...getColorModeControls(),
-    ...expandableArgTypes(),
-  };
+  const argTypes =
+    variant !== 'default'
+      ? {
+          ...getColorModeControls(),
+          ...expandableArgTypes(),
+        }
+      : {
+          ...expandableArgTypes(),
+        };
 
   argTypes.show_breadcrumb = {
     name: 'breadcrumb',
@@ -189,30 +193,6 @@ const getArgTypes = (variant) => {
       category: 'Display',
     },
   };
-
-  if (getSystem() === 'ec') {
-    argTypes.font_size = {
-      name: 'font size',
-      type: 'select',
-      description: 'Change title font size',
-      options: ['m', 'l'],
-      control: {
-        labels: {
-          m: 'medium',
-          l: 'large',
-        },
-      },
-      mapping: {
-        medium: 'm',
-        large: 'l',
-      },
-      table: {
-        type: 'string',
-        defaultValue: { summary: 'm' },
-        category: 'Display',
-      },
-    };
-  }
 
   argTypes.description = {
     type: 'string',
