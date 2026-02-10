@@ -5,7 +5,6 @@
     - "variant" (string) (default: '') Page header variant; can be 'news', '50-50'
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
-    - "font_size" (string) (default: 'm') Size of the title (can be 'm', 'l')
     - "description" (string) (default: '') Description of page header
     - "description_position" (string) (default: 'top') Position of the description; can be 'top' or 'bottom'. Only affects 50-50 variant
     - "expandable" (associative array) {
@@ -33,7 +32,6 @@
 {% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
 {% set _hide_title = hide_title|default(false) %}
-{% set _font_size = font_size|default('m') %}
 {% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
 {% set _description_position = description_position|default('top') %}
@@ -57,10 +55,6 @@
 
 {% if _picture_background.img is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
-{% endif %}
-
-{% if _font_size is not empty and _font_size != 'm' %}
-  {% set _css_class = _css_class ~ ' ecl-page-header--font-' ~ _font_size %}
 {% endif %}
 
 {% if _description_position == 'bottom' %}
