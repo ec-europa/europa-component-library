@@ -24,7 +24,7 @@ $inpage-navigation: null !default;
   display: none;
   margin: 0;
   position: relative;
-  z-index: 1;
+  z-index: map.get($theme, 'z-index', 'dropdown');
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
@@ -368,21 +368,16 @@ $inpage-navigation: null !default;
   }
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.down('m') {
-  .ecl-inpage-navigation__heading--active {
-    &:first-of-type {
-      padding-top: map.get($theme, 'spacing', '4xl');
-    }
+.ecl-inpage-navigation__heading {
+  &:focus-visible {
+    outline: 2px solid map.get($inpage-navigation, 'outline', 'color');
+  }
 
-    &:not(:first-of-type) {
-      &::before {
-        content: '';
-        display: block;
-        margin-top: -#{map.get($theme, 'spacing', '4xl')};
-        padding-top: map.get($theme, 'spacing', '4xl');
-        visibility: hidden;
-      }
+  @include breakpoints.down('m') {
+    &:not(:first-of-type):target {
+      scroll-margin-top: calc(
+        map.get($inpage-navigation, 'trigger', 'height') + var(--s-4xl)
+      );
     }
   }
 }

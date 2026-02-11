@@ -183,8 +183,13 @@ Here is the mapping to the new variant / style:
 ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
 
 `<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+
+if you have no restrictions on the use of external scripts, otherwise you'll need:
+A) the npm package `npm install @duetds/date-picker`, and the whole `dist` folder you'll find inside of it
 or
-`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+B) the tarball from https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz that is also containing the same `dist` folder
+
+inside the `dist` folder there is the `duet.esm.js` script to be loaded in a script tag, mind the fact that it needs all the files in the containing folder to work.
 
 The markup is now using the custom element defined by duet js:
 `<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
