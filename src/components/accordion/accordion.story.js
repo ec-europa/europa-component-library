@@ -9,6 +9,7 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {};
+  args.use_name = false;
   data.items.forEach((item, i) => {
     args[`toggle${i + 1}`] = item.toggle.label;
     args[`content${i + 1}`] = item.content;
@@ -23,6 +24,15 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = getColorModeControls();
+
+  argTypes.use_name = {
+    name: 'use name',
+    type: { name: 'boolean' },
+    description: 'Use a name to link the items (only one item open)',
+    table: {
+      category: 'Optional',
+    },
+  };
 
   data.items.forEach((item, i) => {
     argTypes[`toggle${i + 1}`] = {
@@ -57,14 +67,19 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctPaths(data);
-  data.items.forEach((item, i) => {
+  const clone = JSON.parse(JSON.stringify(data));
+  correctPaths(clone);
+  clone.items.forEach((item, i) => {
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
   });
-  data.color_mode = args.color_mode;
+  clone.color_mode = args.color_mode;
 
-  return data;
+  if (args.use_name) {
+    clone.name = 'accordion-name';
+  }
+
+  return clone;
 };
 
 export default {
