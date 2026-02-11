@@ -111,11 +111,14 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 
 ECL uses [Duet datepicker](https://duetds.github.io/date-picker/) and this library is not bundled by ECL.
 Therefore **duet js needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when a datepicker instance is present in a webpage.
-This script can be loaded from a CDN or fetched from the respective npm packages or websites for then hosting them locally.
+This library can be loaded from a CDN or fetched from the respective npm package for then hosting it locally.
 The order of the scripts should be:
 
-- duet (https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js)
-- ecl.js
+- duet.esm.js
+- ecl.esm.js
+
+If hosted locally you will need the entire `dist` folder as found in the npm package `@duetds/date-picker` or in the tarball at https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz to be accessible by your webserver.
+More detailed info are available in the getting started page in the ECL website.
 
 ## Need help?
 
