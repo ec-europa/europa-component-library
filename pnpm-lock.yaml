@@ -1447,6 +1447,9 @@ importers:
       '@babel/runtime':
         specifier: 7.28.6
         version: 7.28.6
+      '@duetds/date-picker':
+        specifier: 1.4.0
+        version: 1.4.0
       '@ecl/storybook-addon-styles':
         specifier: 5.0.0-alpha.22
         version: link:../addons/storybook-addon-styles
@@ -1486,6 +1489,9 @@ importers:
       core-js:
         specifier: 3.48.0
         version: 3.48.0
+      ncp:
+        specifier: 2.0.0
+        version: 2.0.0
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -1522,6 +1528,9 @@ importers:
       '@babel/runtime':
         specifier: 7.28.6
         version: 7.28.6
+      '@duetds/date-picker':
+        specifier: 1.4.0
+        version: 1.4.0
       '@ecl/storybook-addon-styles':
         specifier: 5.0.0-alpha.22
         version: link:../addons/storybook-addon-styles
@@ -1561,6 +1570,9 @@ importers:
       core-js:
         specifier: 3.48.0
         version: 3.48.0
+      ncp:
+        specifier: 2.0.0
+        version: 2.0.0
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -3833,6 +3845,10 @@ packages:
   '@dabh/diagnostics@2.0.3':
     resolution: {integrity: sha512-hrlQOIi7hAfzsMqlGSFyVucrx38O+j6wiGOf//H2ecvIEqYN4ADBSS2iLMh5UFyDunCNniUIPk/q3riFv45xRA==}
 
+  '@duetds/date-picker@1.4.0':
+    resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
+    engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
+
   '@ecl/grid@5.0.0-alpha.15':
     resolution: {integrity: sha512-z1kgc+YriX3U4VRjGibM/NBMzp22NFBdK2QHLVXgNm2ZZ5GT+x/gOI17Sh3ZjTrRuKlGlVImjy+Sz1bI7mg+Ag==}
 
@@ -5207,6 +5223,11 @@ packages:
 
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
+
+  '@stencil/core@2.22.3':
+    resolution: {integrity: sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng==}
+    engines: {node: '>=12.10.0', npm: '>=6.0.0'}
+    hasBin: true
 
   '@storybook/addon-a11y@8.6.14':
     resolution: {integrity: sha512-fozv6enO9IgpWq2U8qqS8MZ21Nt+MVHiRQe3CjnCpBOejTyo/ATm690PeYYRVHVG6M/15TVePb0h3ngKQbrrzQ==}
@@ -13587,6 +13608,10 @@ snapshots:
       enabled: 2.0.0
       kuler: 2.0.0
 
+  '@duetds/date-picker@1.4.0':
+    dependencies:
+      '@stencil/core': 2.22.3
+
   '@ecl/grid@5.0.0-alpha.15': {}
 
   '@ecl/mixins-typography@5.0.0-alpha.15':
@@ -15110,6 +15135,8 @@ snapshots:
       - webpack-cli
 
   '@socket.io/component-emitter@3.1.2': {}
+
+  '@stencil/core@2.22.3': {}
 
   '@storybook/addon-a11y@8.6.14(storybook@8.6.14(prettier@3.8.1))':
     dependencies:
