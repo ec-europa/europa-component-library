@@ -16,30 +16,50 @@ $accordion: null !default;
 }
 
 .ecl-accordion__toggle {
-  background-color: transparent;
-  border: none;
+  align-items: flex-start;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
-  display: block;
+  display: flex;
+  flex-direction: row;
   font: var(--f-m);
   font-weight: map.get($accordion, 'title-font-weight');
+  justify-content: space-between;
   padding: map.get($accordion, 'item-padding');
-  position: relative;
-  text-align: start;
-  width: 100%;
 
   &:hover {
     background-color: map.get($accordion, 'item-background-hover');
   }
 
-  &[aria-expanded='true'] {
+  .ecl-accordion__item[open] & {
     background-color: map.get($accordion, 'item-background-hover');
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
+    outline-offset: -2px;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
   }
 }
 
-.ecl-accordion__toggle:focus-visible {
-  outline: 2px solid var(--cm-border-primary, var(--c-p));
-  outline-offset: -2px;
+.ecl-accordion__toggle-icon {
+  fill: map.get($accordion, 'icon-color');
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-inline-start: map.get($accordion, 'icon-margin');
+
+  &:last-of-type,
+  .ecl-accordion__item[open] &:first-of-type {
+    display: none;
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  &:first-of-type,
+  .ecl-accordion__item[open] &:last-of-type {
+    display: block;
+  }
 }
 
 .ecl-accordion__content {
@@ -48,10 +68,6 @@ $accordion: null !default;
   margin-inline-start: 0;
   max-width: var(--max-w);
   padding: map.get($accordion, 'content-padding');
-}
-
-.no-js .ecl-accordion__content {
-  display: block;
 }
 
 .ecl-accordion__item {
@@ -92,7 +108,7 @@ $accordion: null !default;
       border-end-start-radius: map.get($accordion, 'radius');
       border-end-end-radius: map.get($accordion, 'radius');
 
-      &[aria-expanded='true'] {
+      .ecl-accordion__item[open] & {
         border-end-start-radius: 0;
         border-end-end-radius: 0;
       }
@@ -137,12 +153,12 @@ $accordion: null !default;
       display: flex;
     }
 
-    [aria-expanded='true'] &:first-child {
+    .ecl-accordion__item[open] &:first-child {
       display: none;
     }
 
-    [aria-expanded='true'] &:last-child,
-    [aria-expanded='true'] &:only-child {
+    .ecl-accordion__item[open] &:last-child,
+    .ecl-accordion__item[open] &:only-child {
       display: block;
     }
   }

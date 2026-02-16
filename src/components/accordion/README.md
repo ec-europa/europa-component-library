@@ -15,6 +15,7 @@ npm install --save @ecl/accordion
     - "label" (string) (default: '')
   - "content" (string) (default: '')
 - **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled
+- **"name"** (string) (default: '') Optional name to link multiple accordion items
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

@@ -128,11 +128,15 @@ If not specificed, the default reading direction remains left to right.
 
 ### Accordion
 
-Markup of accordion title has been updated to use a simple div instead of a heading.
+Markup of accordion title has been updated
 
-Corresponding twig parameter `level` has been removed.
+- it relies on the use of default HTML tags `details` and `summary`. Javascript is no longer required as everything is handled by the browser.
+- items no longer uses heading. Corresponding twig parameter `level` has been removed.
+- a selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
 
-A selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
+Event management:
+
+As there is no more ECL javascript for the accordion, javascript event are no longer provided by us. But the `details` element comes with a [build-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which could be used directly
 
 ### Banner
 

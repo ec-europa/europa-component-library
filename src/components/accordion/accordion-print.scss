@@ -7,6 +7,7 @@
 
 // Exposed variables
 $theme: null !default;
+$accordion: null !default;
 $accordion-print: null !default;
 
 .ecl-accordion__item {
@@ -34,6 +35,7 @@ $accordion-print: null !default;
   border-width: 0;
   color: map.get($accordion-print, 'toggle-color');
   display: block;
+  font-weight: map.get($accordion, 'title-font-weight');
   padding: 0;
   text-align: start;
   width: 100%;
@@ -47,4 +49,8 @@ $accordion-print: null !default;
   margin-top: map.get($theme, 'spacing-print', 'm');
   max-width: var(--max-w);
   break-inside: avoid;
+}
+
+.ecl-accordion__item::details-content {
+  content-visibility: visible;
 }
