@@ -32,7 +32,8 @@ const prepareHtmlContent = (data) =>
     <div id="ecl-tabs-${index + 1}">
       <h2 class="ecl-u-type-heading-2">${label} content</h2>
       <img src="https://picsum.photos/300/200?${Math.random()}" alt="Random image">
-      ${loremIpsum({ count: 3, format: 'html', units: 'paragraphs', random: Math.random })}
+      <div><button class="ecl-button ecl-button--primary">Button</button></div>
+      <p>${loremIpsum({ count: 3, format: 'html', units: 'paragraphs', random: Math.random })}</p>
     </div>`,
     )
     .join('');
