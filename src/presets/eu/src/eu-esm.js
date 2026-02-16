@@ -1,6 +1,5 @@
 import '@ecl/dom-utils/polyfills';
 
-import Accordion from '@ecl/accordion';
 import autoInit from '@ecl/dom-utils/autoinit';
 import Banner from '@ecl/banner';
 import Carousel from '@ecl/carousel';
@@ -32,7 +31,6 @@ import Timeline from '@ecl/timeline';
 
 const ECL = {
   autoInit,
-  Accordion,
   Banner,
   Carousel,
   CategoryFilter,
