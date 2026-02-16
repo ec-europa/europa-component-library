@@ -80,8 +80,8 @@ $text-input: null !default;
   color: var(--duet-color-text);
   border: 0;
   border-radius: 0;
-  border-bottom-right-radius: var(--duet-radius);
-  border-top-right-radius: var(--duet-radius);
+  border-start-end-radius: var(--duet-radius);
+  border-end-end-radius: var(--duet-radius);
   display: flex;
   height: calc(var(--ecl-text-field-height) - 2px);
   width: var(--ecl-text-field-height);
@@ -114,6 +114,16 @@ $text-input: null !default;
     box-shadow: 0 0 0 2px var(--duet-color-primary);
     color: var(--duet-color-text);
     outline: 0;
+  }
+
+  &:dir(rtl) {
+    left: 1px;
+    right: auto;
+  }
+
+  &:dir(rtl)::before {
+    left: auto;
+    right: -1px;
   }
 }
 
@@ -170,6 +180,10 @@ $text-input: null !default;
 
     svg {
       margin-block-start: 1px;
+    }
+
+    &:dir(rtl) svg {
+      transform: rotate(180deg);
     }
   }
 
@@ -254,5 +268,15 @@ $text-input: null !default;
         }
       }
     }
+  }
+}
+
+.duet-date__mobile {
+  margin-inline-start: -10%;
+}
+
+@media (width <= 35.9375em) {
+  .duet-date__dialog.is-left {
+    width: 100%;
   }
 }

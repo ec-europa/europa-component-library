@@ -7,6 +7,7 @@
   "description": "Storybook EC Twig",
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EC ../../../node_modules/.pnpm/node_modules/.bin/sb build -c .storybook -o build",
+    "postinstall": "ncp node_modules/@duetds/date-picker/dist/duet public/duet",
     "start": "STORYBOOK_SYSTEM=EC node start.js"
   },
   "devDependencies": {
@@ -14,8 +15,9 @@
     "@babel/preset-env": "7.29.0",
     "@babel/preset-react": "7.28.5",
     "@babel/runtime": "7.28.6",
+    "@duetds/date-picker": "1.4.0",
     "@ecl/storybook-addon-styles": "5.0.0-alpha.22",
-    "@iframe-resizer/child": "5.5.8",
+    "@iframe-resizer/child": "5.5.9",
     "@storybook/addon-a11y": "8.6.14",
     "@storybook/addon-essentials": "8.6.14",
     "@storybook/addon-links": "8.6.14",
@@ -27,6 +29,7 @@
     "browser-update": "3.3.63",
     "buffer": "6.0.3",
     "core-js": "3.48.0",
+    "ncp": "2.0.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "storybook": "8.6.14",
