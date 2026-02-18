@@ -245,9 +245,9 @@ const getArgTypes = () => {
   };
 
   argTypes.picture_position = {
-    name: 'picture position',
+    name: 'image position',
     type: 'select',
-    description: 'Change picture position',
+    description: 'Change image position',
     options: ['top', 'beside', 'bottom'],
     control: {
       labels: {
