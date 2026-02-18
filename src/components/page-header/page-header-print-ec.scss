@@ -76,7 +76,7 @@ $page-header-print: null !default;
 }
 
 .ecl-page-header__description-bottom {
-  background-color: var(--cm-surface-lowest);
+  background-color: var(--cm-surface-primary-lowest);
   margin-block-start: var(--s-2xl);
   padding-block: var(--s-2xl);
 
@@ -88,6 +88,12 @@ $page-header-print: null !default;
 .ecl-page-header--picture-beside {
   .ecl-page-header__description-bottom {
     margin-block-start: 0;
+  }
+}
+
+.ecl-page-header--background {
+  .ecl-page-header__description-bottom {
+    background-color: var(--cm-surface-lowest);
   }
 }
 
