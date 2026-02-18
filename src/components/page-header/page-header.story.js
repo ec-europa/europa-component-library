@@ -143,7 +143,7 @@ const getArgTypes = () => {
   argTypes.show_description = {
     name: 'description',
     type: 'boolean',
-    description: 'Toggle description visibility',
+    description: 'Toggle description (introduction) visibility',
     table: {
       category: 'Optional',
     },
@@ -273,7 +273,7 @@ const getArgTypes = () => {
     name: 'hide title',
     type: 'boolean',
     description:
-      'Toggle title visibility, for screen reader only. This implies that the page title is provided somewhere else (banner for instance)',
+      'Toggle title visibility, for screen reader only. This implies that the visible page title is provided somewhere else (banner for instance)',
     table: {
       type: { summary: 'boolean' },
       category: 'Extra configuration',
