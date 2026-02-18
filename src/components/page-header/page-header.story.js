@@ -75,7 +75,6 @@ const getArgs = (data) => {
     show_meta: true,
     show_page_header_expandable: false,
     has_background: false,
-    hide_title: false,
   };
 
   if (getSystem() === 'ec') {
@@ -96,6 +95,8 @@ const getArgs = (data) => {
     args.background_image_url = data.picture_background.img.src;
     args.picture_position = 'top';
   }
+
+  args.hide_title = false;
 
   args = {
     ...args,
@@ -121,9 +122,9 @@ const getArgTypes = () => {
   };
 
   argTypes.show_thumbnail = {
-    name: 'thumbnail',
+    name: 'featured image',
     type: 'boolean',
-    description: 'Toggle thumbnail visibility',
+    description: 'Toggle featured image (thumbnail) visibility',
     table: {
       category: 'Optional',
     },
@@ -180,16 +181,6 @@ const getArgTypes = () => {
     name: 'colored background',
     type: 'boolean',
     description: 'Use a colored background',
-    table: {
-      type: { summary: 'boolean' },
-      category: 'Display',
-    },
-  };
-
-  argTypes.hide_title = {
-    name: 'hide title',
-    type: 'boolean',
-    description: 'Toggle title visibility, for screen reader only',
     table: {
       type: { summary: 'boolean' },
       category: 'Display',
@@ -276,6 +267,17 @@ const getArgTypes = () => {
       category: 'Display',
     },
     if: { arg: 'show_picture' },
+  };
+
+  argTypes.hide_title = {
+    name: 'hide title',
+    type: 'boolean',
+    description:
+      'Toggle title visibility, for screen reader only. This implies that the page title is provided somewhere else (banner for instance)',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Extra configuration',
+    },
   };
 
   return argTypes;
