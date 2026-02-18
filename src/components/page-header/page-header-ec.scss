@@ -35,6 +35,14 @@ $page-header: null !default;
   }
 }
 
+@include breakpoints.up('xl') {
+  .ecl-page-header--picture-beside {
+    &.ecl-page-header--background {
+      padding-block-end: 0;
+    }
+  }
+}
+
 // Title
 .ecl-page-header__title {
   color: map.get($page-header, 'title', 'color');
