@@ -8,20 +8,23 @@ npm install --save @ecl/page-header
 
 ### Parameters
 
-- **"variant"** (string) (default: '') Page header variant; can be 'news', 'topic'
+- **"color_mode"** (string) The color mode name
+- **"has_background"** (boolean) (default: false) Use a colored background
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
 - **"description"** (string) (default: '') Description of page header
-- **"description_position"** (string) (default: 'top') Position of the description; can be 'top' or 'bottom'. Only affects 50-50 variant
-- **"picture_thumbnail"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
-- **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
-- **"meta"** (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
-- **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
+- **"description_position"** (string) (default: 'top') Position of the description; can be 'top' or 'bottom'
 - **"expandable"** (associative array) Page header expandable
   - "toggle_label" (default: '')
   - "toggle_extra_attributes" (default: '')
   - "header_content" (default: '')
   - "panel_content" (default: '')
+- **"picture_thumbnail"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
+- **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure
+- **"picture_position"** (string) (default: 'top') Position of the picture; can be 'top', 'beside' or 'bottom'
+- **"meta"** (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
+- **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
+
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
