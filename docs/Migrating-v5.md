@@ -331,6 +331,8 @@ The default notifications now use the outline version of the icons, instead of t
 
 ### Page header
 
+- Several new display option added. Corresponding twig parameters are: `has_background`, `color_mode`, `description_position`, `picture_position`
+- Optional section added on top of the page header. It is filled with the parameter `expandable`
 - Meta now support a structure { label , icon } in addition to the existing string
 - Deprecated overlay on the image has been removed
 
