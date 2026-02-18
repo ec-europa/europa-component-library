@@ -113,7 +113,7 @@ const getArgTypes = () => {
   };
 
   argTypes.show_breadcrumb = {
-    name: 'breadcrumb',
+    name: 'Breadcrumb',
     type: 'boolean',
     description: 'Toggle breadcrumb visibility',
     table: {
@@ -122,9 +122,9 @@ const getArgTypes = () => {
   };
 
   argTypes.show_thumbnail = {
-    name: 'featured image',
+    name: 'Featured media',
     type: 'boolean',
-    description: 'Toggle featured image (thumbnail) visibility',
+    description: 'Toggle featured media (thumbnail) visibility',
     table: {
       category: 'Optional',
     },
@@ -132,7 +132,7 @@ const getArgTypes = () => {
   };
 
   argTypes.show_page_header_expandable = {
-    name: 'expandable',
+    name: 'Expandable',
     type: 'boolean',
     description: 'Toggle element visibility',
     table: {
@@ -141,16 +141,16 @@ const getArgTypes = () => {
   };
 
   argTypes.show_description = {
-    name: 'description',
+    name: 'Introduction',
     type: 'boolean',
-    description: 'Toggle description (introduction) visibility',
+    description: 'Toggle introduction (description) visibility',
     table: {
       category: 'Optional',
     },
   };
 
   argTypes.show_meta = {
-    name: 'meta',
+    name: 'Meta',
     type: 'boolean',
     description: 'Toggle meta visibility',
     table: {
@@ -159,7 +159,7 @@ const getArgTypes = () => {
   };
 
   argTypes.show_picture = {
-    name: 'image',
+    name: 'Image',
     type: 'boolean',
     description: 'Toggle image visibility',
     table: {
@@ -168,6 +168,7 @@ const getArgTypes = () => {
   };
 
   argTypes.title = {
+    name: 'Page title',
     type: { name: 'string', required: true },
     description: 'The page title',
     table: {
@@ -178,7 +179,7 @@ const getArgTypes = () => {
   };
 
   argTypes.has_background = {
-    name: 'colored background',
+    name: 'Enable background color',
     type: 'boolean',
     description: 'Use a colored background',
     table: {
@@ -188,8 +189,9 @@ const getArgTypes = () => {
   };
 
   argTypes.description = {
+    name: 'Introduction',
     type: 'string',
-    description: 'The page introduction',
+    description: 'The page introduction (description)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -199,7 +201,7 @@ const getArgTypes = () => {
   };
 
   argTypes.description_position = {
-    name: 'description position',
+    name: 'Description position',
     type: 'select',
     description: 'Change description position',
     options: ['top', 'bottom'],
@@ -222,6 +224,7 @@ const getArgTypes = () => {
   };
 
   argTypes.meta = {
+    name: 'Meta',
     type: 'array',
     description: 'The page meta',
     table: {
@@ -233,7 +236,7 @@ const getArgTypes = () => {
   };
 
   argTypes.background_image_url = {
-    name: 'image url',
+    name: 'Background image',
     type: 'string',
     description: 'The image url',
     table: {
@@ -245,7 +248,7 @@ const getArgTypes = () => {
   };
 
   argTypes.picture_position = {
-    name: 'image position',
+    name: 'Background image position',
     type: 'select',
     description: 'Change image position',
     options: ['top', 'beside', 'bottom'],
@@ -270,7 +273,7 @@ const getArgTypes = () => {
   };
 
   argTypes.hide_title = {
-    name: 'hide title',
+    name: 'Hide title',
     type: 'boolean',
     description:
       'Toggle title visibility, for screen reader only. This implies that the visible page title is provided somewhere else (banner for instance)',
