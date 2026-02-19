@@ -1,0 +1,56 @@
+/**
+ * tooltip
+ * @define tooltip
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$tooltip: null !default;
+$arrow-size: 0.5rem;
+$max-width: 12.5rem;
+
+.ecl-tooltip {
+  background: map.get($tooltip, 'background');
+  border-radius: map.get($tooltip, 'border-radius');
+  box-shadow: map.get($tooltip, 'shadow');
+  color: map.get($tooltip, 'color');
+  max-width: $max-width;
+  padding: map.get($tooltip, 'padding');
+  position: absolute;
+  text-align: center;
+  z-index: map.get($theme, 'z-index', 'overlay');
+
+  @include mixins.responsive-font(map.get($tooltip, 'font'));
+
+  // Reset Popover API defaults when used
+  &[popover] {
+    border: none;
+    inset: unset;
+    margin: 0;
+    overflow: visible;
+    position: fixed;
+  }
+
+  // arrow
+  &::before {
+    background-color: map.get($tooltip, 'background');
+    border-end-start-radius: map.get($tooltip, 'border-radius');
+    bottom: -#{$arrow-size};
+    content: '';
+    height: $arrow-size;
+    left: var(--ecl-tooltip-arrow-left, 50%);
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: $arrow-size;
+  }
+
+  // Bottom position: arrow points upward
+  &--bottom::before {
+    bottom: auto;
+    top: 0;
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+}

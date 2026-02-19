@@ -113,6 +113,10 @@
   $theme: theme.$theme,
   $tag: var.$tag
 );
+@use '@ecl/tooltip/tooltip' with (
+  $theme: theme.$theme,
+  $tooltip: var.$tooltip
+);
 @use '@ecl/video/video';
 
 // Molecules
