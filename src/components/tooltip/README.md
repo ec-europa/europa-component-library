@@ -10,6 +10,7 @@ npm install --save @ecl/tooltip
 
 - **"data-ecl-tooltip"** (string) (default: ''): Enables the tooltip. Can optionally contain the tooltip content
 - **"title"** (recommended) (string) (default: ''): Tooltip content. Recommended for accessibility as it is exposed to assistive technologies
+- **"data-ecl-tooltip-inverted"** (boolean) (default: false): Use the inverted tooltip, to be visible on dark bakground
 
 ### Example:
 

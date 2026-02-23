@@ -5,6 +5,7 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.tooltipSelector Selector for tooltip triggers (requires data-ecl-tooltip attribute and could use title attribute)
  * @param {String} options.tooltipPopupSelector Selector for tooltip popup element
+ * @param {String} options.tooltipInvertedSelector Selector to use inverted tooltip
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events on tooltip triggers
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  * @param {Boolean} options.attachScrollListener Whether or not to bind scroll events
@@ -30,6 +31,7 @@ export class Tooltip {
     {
       tooltipSelector = '[data-ecl-tooltip]',
       tooltipPopupSelector = '[data-ecl-tooltip-popup]',
+      tooltipInverted = 'data-ecl-tooltip-inverted',
       attachHoverListener = true,
       attachResizeListener = true,
       attachScrollListener = true,
@@ -47,6 +49,7 @@ export class Tooltip {
     // Options
     this.tooltipSelector = tooltipSelector;
     this.tooltipPopupSelector = tooltipPopupSelector;
+    this.tooltipInverted = tooltipInverted;
     this.attachHoverListener = attachHoverListener;
     this.attachResizeListener = attachResizeListener;
     this.attachScrollListener = attachScrollListener;
@@ -277,6 +280,15 @@ export class Tooltip {
 
     // Copy content to tooltip
     this.popup.textContent = content;
+
+    // Use inverted if needed
+    console.log(trigger.getAttribute(this.tooltipInverted));
+    const isInverted = trigger.getAttribute(this.tooltipInverted);
+    if (isInverted !== null && isInverted !== false) {
+      this.popup.classList.add('ecl-tooltip--inverted');
+    } else {
+      this.popup.classList.remove('ecl-tooltip--inverted');
+    }
 
     // Only remove title on mouse hover to prevent browser's default tooltip
     // Keep title for keyboard focus so screen readers can access it
