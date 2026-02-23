@@ -25,6 +25,7 @@
   - "multiple_close_text" (string)(default: '') Label for the close button
   - "multiple_search_text" (string)(default: '') Label for the search box inside the multiple select
   - "multiple_search_no_results_text" (string)(default: '') Label label when there is no result by searching for an option
+  - "multiple_counter_text" (string)(default: '') Label for the counter when multiple options are selected; for screen readers
   - "multiple_select_all" (boolean) (default: true) Show the select all checkbox in the multiple select
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the select
@@ -53,6 +54,7 @@
 {% set _multiple_search = multiple_search ?? true %}
 {% set _multiple_search_text = multiple_search_text|default('') %}
 {% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
+{% set _multiple_counter_text = multiple_counter_text|default('') %}
 {% set _multiple_select_all = multiple_select_all ?? true %}
 {% set _multiple_close_text = multiple_close_text|default('') %}
 {% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
@@ -70,7 +72,8 @@
     { name: 'data-ecl-select-multiple'},
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
     { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
-    { name: 'data-ecl-select-close', value: _multiple_close_text }
+    { name: 'data-ecl-select-close', value: _multiple_close_text },
+    { name: 'data-ecl-select-counter', value: _multiple_counter_text }
   ]) %}
 
   {% if _multiple_select_all and _multiple_all_text is not empty %}

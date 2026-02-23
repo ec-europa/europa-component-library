@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/layout-form/mixins' as mixins-form;
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -377,6 +378,10 @@ $outline-width: 2px;
     &.ecl-select-multiple-selections-counter--xxl * {
       width: 85%;
     }
+  }
+
+  .ecl-select-multiple-selections-counter__label {
+    @include screen-reader.sr-only;
   }
 
   .ecl-select-multiple-selections-counter--visible {
