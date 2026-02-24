@@ -26,6 +26,15 @@ describe('Content block', () => {
       return expect(render(dataSimpleTitle)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with single primary meta', () => {
+      expect.assertions(1);
+
+      const singleMeta = JSON.parse(JSON.stringify(dataImage));
+      singleMeta.primary_meta = ['Single meta'];
+
+      return expect(render(singleMeta)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
