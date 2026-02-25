@@ -1854,43 +1854,34 @@ exports[`Content block Default renders correctly with simple title 1`] = `
 </jest>
 `;
 
-exports[`Content block Default renders correctly with single primary meta 1`] = `
+exports[`Content block Default renders correctly with single list items 1`] = `
 <jest>
   <div
     class="ecl-content-block"
     data-ecl-auto-init="ContentBlock"
     data-ecl-content-block=""
   >
-    <ul
+    <div
       aria-label="Labels"
       class="ecl-content-block__label-container"
     >
-      <li
+      <div
         class="ecl-content-block__label-item"
       >
         <span
           class="ecl-label ecl-label--highlight"
         >
-          highlight
+          Single label
         </span>
-      </li>
-      <li
-        class="ecl-content-block__label-item"
-      >
-        <span
-          class="ecl-label ecl-label--high"
-        >
-          high importance
-        </span>
-      </li>
-    </ul>
+      </div>
+    </div>
     <div
       class="ecl-content-block__primary-meta-container"
     >
       <div
         class="ecl-content-block__primary-meta-item"
       >
-        Single meta
+        Single primary meta
       </div>
     </div>
     <div
@@ -1909,49 +1900,19 @@ exports[`Content block Default renders correctly with single primary meta 1`] = 
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
     </div>
-    <ul
+    <div
       class="ecl-content-block__secondary-meta-container"
     >
-      <li
+      <div
         class="ecl-content-block__secondary-meta-item"
       >
         <span
-          aria-hidden="true"
-          class="wt-icon--calendar ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon ecl-icon--calendar"
-        />
-        <span
           class="ecl-content-block__secondary-meta-label"
         >
-          2018/10/22
+          Single secondary meta
         </span>
-      </li>
-      <li
-        class="ecl-content-block__secondary-meta-item"
-      >
-        <span
-          aria-hidden="true"
-          class="wt-icon--location ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon ecl-icon--location"
-        />
-        <span
-          class="ecl-content-block__secondary-meta-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-      <li
-        class="ecl-content-block__secondary-meta-item"
-      >
-        <span
-          aria-hidden="true"
-          class="wt-icon--clock ecl-icon ecl-icon--s ecl-content-block__secondary-meta-icon ecl-icon--clock"
-        />
-        <span
-          class="ecl-content-block__secondary-meta-label"
-        >
-          1 hour
-        </span>
-      </li>
-    </ul>
+      </div>
+    </div>
     <div
       class="ecl-content-block__list-container"
     >
@@ -2074,74 +2035,20 @@ exports[`Content block Default renders correctly with single primary meta 1`] = 
     <div
       class="ecl-content-block__link-container"
     >
-      <ul
+      <div
         class="ecl-content-block__link-list"
       >
-        <li
+        <div
           class="ecl-content-block__link-item"
         >
           <a
             class="ecl-link ecl-link--standalone"
-            href="/example"
+            href="#example"
           >
-            Primary link 1
+            Single link
           </a>
-        </li>
-        <li
-          class="ecl-content-block__link-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone"
-            href="/example"
-          >
-            Primary link 2
-          </a>
-        </li>
-        <li
-          class="ecl-content-block__link-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone"
-            href="/example"
-          >
-            Primary link 3
-          </a>
-        </li>
-        <li
-          class="ecl-content-block__link-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone"
-            href="/example"
-          >
-            Primary link 4
-          </a>
-        </li>
-      </ul>
-      <ul
-        class="ecl-content-block__link-list"
-      >
-        <li
-          class="ecl-content-block__link-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone"
-            href="/example"
-          >
-            Secondary link 1
-          </a>
-        </li>
-        <li
-          class="ecl-content-block__link-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone"
-            href="/example"
-          >
-            Secondary link 2
-          </a>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </jest>
