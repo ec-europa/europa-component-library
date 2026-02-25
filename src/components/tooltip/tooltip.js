@@ -3,7 +3,7 @@ import { queryOne } from '@ecl/dom-utils';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.tooltipSelector Selector for tooltip triggers (requires data-ecl-tooltip attribute and could use title attribute)
+ * @param {String} options.tooltipSelector Selector for tooltip triggers (uses data-ecl-tooltip or data-ecl-tooltip-inverted attribute, with optional title fallback)
  * @param {String} options.tooltipPopupSelector Selector for tooltip popup element
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events on tooltip triggers
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
@@ -28,7 +28,7 @@ export class Tooltip {
   constructor(
     element,
     {
-      tooltipSelector = '[data-ecl-tooltip]',
+      tooltipSelector = '[data-ecl-tooltip], [data-ecl-tooltip-inverted]',
       tooltipPopupSelector = '[data-ecl-tooltip-popup]',
       attachHoverListener = true,
       attachResizeListener = true,
@@ -266,9 +266,11 @@ export class Tooltip {
    * @param {Boolean} isMouseTriggered
    */
   displayTooltip(trigger, isMouseTriggered) {
-    // Use data-ecl-tooltip value if provided, otherwise fall back to title
+    // Use data-ecl-tooltip or data-ecl-tooltip-inverted value if provided, otherwise fall back to title
     const content =
-      trigger.getAttribute('data-ecl-tooltip') || trigger.getAttribute('title');
+      trigger.getAttribute('data-ecl-tooltip') ||
+      trigger.getAttribute('data-ecl-tooltip-inverted') ||
+      trigger.getAttribute('title');
     if (!content) return;
 
     // Store current trigger reference
@@ -277,6 +279,12 @@ export class Tooltip {
 
     // Copy content to tooltip
     this.popup.textContent = content;
+
+    // Use inverted if needed
+    this.popup.classList.toggle(
+      'ecl-tooltip--inverted',
+      trigger.hasAttribute('data-ecl-tooltip-inverted'),
+    );
 
     // Only remove title on mouse hover to prevent browser's default tooltip
     // Keep title for keyboard focus so screen readers can access it

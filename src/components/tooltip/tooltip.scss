@@ -54,3 +54,12 @@ $max-width: 12.5rem;
     transform: translate(-50%, -50%) rotate(135deg);
   }
 }
+
+.ecl-tooltip--inverted {
+  background-color: map.get($tooltip, 'background-inverted');
+  color: map.get($tooltip, 'color-inverted');
+
+  &::before {
+    background-color: map.get($tooltip, 'background-inverted');
+  }
+}
