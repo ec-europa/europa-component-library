@@ -51,8 +51,8 @@ Default.render = async (args) => {
           ${loremBefore}
         </span>
         <span class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline ecl-u-pv-m">
-          <button class="ecl-button ecl-button--primary ecl-button--inverted" data-ecl-tooltip data-ecl-tooltip-inverted title="${args.content}">button tooltip</button>
-          <a href="#" class="ecl-link ecl-link--inverted" data-ecl-tooltip="${args.content}" data-ecl-tooltip-inverted>link tooltip</a>
+          <button class="ecl-button ecl-button--primary ecl-button--inverted" data-ecl-tooltip-inverted title="${args.content}">button tooltip</button>
+          <a href="#" class="ecl-link ecl-link--inverted" data-ecl-tooltip-inverted="${args.content}">link tooltip</a>
         </span>
         <span class="ecl-u-type-color-white">
           ${loremAfter}
