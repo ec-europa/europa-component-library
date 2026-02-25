@@ -282,7 +282,6 @@ export class Tooltip {
     this.popup.textContent = content;
 
     // Use inverted if needed
-    console.log(trigger.getAttribute(this.tooltipInverted));
     const isInverted = trigger.getAttribute(this.tooltipInverted);
     if (isInverted !== null && isInverted !== false) {
       this.popup.classList.add('ecl-tooltip--inverted');
