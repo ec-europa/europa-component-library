@@ -55,7 +55,7 @@ Default.render = async (args) => {
   const renderedTabs = await Tabs(prepareData(demoData, args));
   return renderedTabs;
 };
-Default.storyName = 'as a navigational element';
+Default.storyName = 'tabs only';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = { notes: { markdown: notes, json: demoData } };
@@ -73,7 +73,7 @@ WithTabbedContent.render = async (args) => {
 
   return renderedStory;
 };
-WithTabbedContent.storyName = 'as tabbed interface';
+WithTabbedContent.storyName = 'with content management';
 WithTabbedContent.args = getArgs(demoDtaWithContent);
 WithTabbedContent.argTypes = getArgTypes(demoDtaWithContent);
 WithTabbedContent.parameters = {
