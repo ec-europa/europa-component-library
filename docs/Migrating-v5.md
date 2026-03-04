@@ -188,7 +188,9 @@ ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which repla
 
 `<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
 
-if you have no restrictions on the use of external scripts, otherwise you'll need:
+**Important:** Using an external CDN may not be allowed for your website (this is most probably the case if it is hosted under europa.eu).
+In that case, you would have to use one of the following options and use:
+
 A) the npm package `npm install @duetds/date-picker`, and the whole `dist` folder you'll find inside of it
 or
 B) the tarball from https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz that is also containing the same `dist` folder
