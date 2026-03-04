@@ -453,7 +453,9 @@ $mega-menu: null !default;
   .ecl-icon {
     flex-shrink: 0;
     height: map.get($mega-menu, 'mobile', 'arrow-size');
-    margin-inline-start: auto;
+
+    // Overriding style coming from button
+    margin-inline-start: auto !important;
     padding: 1px 3px;
     width: map.get($mega-menu, 'mobile', 'arrow-size');
 
@@ -960,7 +962,11 @@ $mega-menu: null !default;
   .ecl-icon {
     align-self: center;
     flex-shrink: 0;
-    margin-inline-start: auto;
+
+    // Overriding style coming from button
+    margin-inline-start: auto !important;
+    height: map.get($theme, 'icon', '2xs');
+    width: map.get($theme, 'icon', '2xs');
   }
 }
 

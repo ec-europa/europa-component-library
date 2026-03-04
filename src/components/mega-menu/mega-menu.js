@@ -900,6 +900,7 @@ export class MegaMenu {
               const bottomInfo = bottomRect.bottom;
               availableHeight = window.innerHeight - bottomInfo - 16;
             }
+            // When the subitem of first level defines a featured panel
             if (hasFeatured) {
               const hasFeaturedRect = hasFeatured.getBoundingClientRect();
               const hasFeaturedTop = hasFeaturedRect.top;
@@ -908,6 +909,7 @@ export class MegaMenu {
               hasFeatured.style.height = `${availableHeight}px`;
             } else {
               const subList = queryOne('.ecl-mega-menu__sublist', item);
+              // Check that we are showing the first panel, with no featured panel.
               if (subList && this.openPanel.num === 1) {
                 const subListRect = subList.getBoundingClientRect();
                 const subListRectTop = subListRect.top;
@@ -916,10 +918,11 @@ export class MegaMenu {
                   availableHeight || window.innerHeight - subListRectTop;
                 subList.style.height = `${availableHeight}px`;
               } else if (subList) {
+                // Clean up the sublist, it is not the one being shown.
                 subList.classList.remove('ecl-mega-menu__sublist--scrollable');
                 subList.style.height = '';
               }
-
+              // Second panel handling
               if (this.openPanel.num === 2) {
                 const subItem = queryOne(
                   '.ecl-mega-menu__subitem--expanded',
@@ -930,11 +933,15 @@ export class MegaMenu {
                     '.ecl-mega-menu__mega--level-2',
                     subItem,
                   );
+                  // If there is a featured panel is going to part of it.
                   if (subMega) {
                     const subMegaRect = subMega.getBoundingClientRect();
                     const subMegaTop = subMegaRect.top;
                     availableHeight = window.innerHeight - subMegaTop;
                     subMega.style.height = `${availableHeight}px`;
+                    // Overflow on the child list doesn't work here, so we apply
+                    // this class to the wrapper
+                    subMega.classList.add('ecl-mega-menu__sublist--scrollable');
                   }
                 }
               }
