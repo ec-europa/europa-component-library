@@ -1378,6 +1378,7 @@ export class MegaMenu {
         this.items[0].firstElementChild.focus();
       }
       this.openPanel.num = 0;
+      this.element.classList.add('ecl-mega-menu--start-panel');
       if (this.header) {
         this.header.classList.add('ecl-site-header--open-menu-start');
       }
