@@ -1,7 +1,6 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import { createFocusTrap } from 'focus-trap';
-import Bowser from 'bowser';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -155,7 +154,6 @@ export class MegaMenu {
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
-    this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
     this.checkDropdownHeight = this.checkDropdownHeight.bind(this);
     this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
@@ -194,8 +192,8 @@ export class MegaMenu {
     this.toggleLabel = queryOne('.ecl-button__label', this.open);
     this.menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
 
-    // Check if we should use desktop display (it does not rely only on breakpoints)
-    this.isDesktop = this.useDesktopDisplay();
+    // Check if we should use desktop display
+    this.isDesktop = window.innerWidth >= this.breakpointDesktop;
 
     // Bind click events on buttons
     if (this.attachClickListener) {
@@ -452,37 +450,6 @@ export class MegaMenu {
   }
 
   /**
-   * Check if desktop display has to be used
-   * - not using a phone or tablet (whatever the screen size is)
-   * - not having hamburger menu on screen
-   */
-  useDesktopDisplay() {
-    const browser = Bowser.getParser(window.navigator.userAgent);
-    const isMobile = browser.getPlatformType() === 'mobile';
-    const isTablet = browser.getPlatformType() === 'tablet';
-
-    // Detect mobile devices
-    if (isMobile && window.innerWidth < this.breakpointTablet) {
-      return false;
-    }
-
-    // Force mobile display on tablet
-    if (isTablet) {
-      this.element.classList.add('ecl-mega-menu--forced-mobile');
-      return false;
-    }
-
-    // After all that, check the screen width
-    if (window.innerWidth < this.breakpointDesktop) {
-      return false;
-    }
-
-    // Everything is fine to use desktop display
-    this.element.classList.remove('ecl-mega-menu--forced-mobile');
-    return true;
-  }
-
-  /**
    * Reset the styles set by the script
    *
    * @param {string} desktop or mobile
@@ -644,11 +611,10 @@ export class MegaMenu {
           this.resetStyles('desktop', true);
         }
       }
-      this.isDesktop = this.useDesktopDisplay();
+      this.isDesktop = window.innerWidth >= this.breakpointDesktop;
       this.isLarge = window.innerWidth >= 1368;
       // Update previous screen width
       this.prevScreenWidth = screenWidth;
-      this.element.classList.remove('ecl-mega-menu--forced-mobile');
       // RTL
       this.direction = getComputedStyle(this.element).direction;
       if (this.direction === 'rtl') {
