@@ -135,8 +135,8 @@ export class MegaMenu {
     this.menuOverlay = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointTablet = 768;
     this.breakpointDesktop = 1140;
+    this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
     this.infoLinks = null;
     this.seeAllLinks = null;
@@ -607,12 +607,15 @@ export class MegaMenu {
             screenWidth > this.breakpointDesktop ? 'desktop' : 'mobile',
           );
         }
-        if (this.prevScreenWidth >= 1368 && screenWidth >= 1140) {
+        if (
+          this.prevScreenWidth >= this.breakpointLarge &&
+          screenWidth >= this.breakpointDesktop
+        ) {
           this.resetStyles('desktop', true);
         }
       }
       this.isDesktop = window.innerWidth >= this.breakpointDesktop;
-      this.isLarge = window.innerWidth >= 1368;
+      this.isLarge = window.innerWidth >= this.breakpointLarge;
       // Update previous screen width
       this.prevScreenWidth = screenWidth;
       // RTL
