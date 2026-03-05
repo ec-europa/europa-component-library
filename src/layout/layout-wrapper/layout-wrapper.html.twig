@@ -1,0 +1,108 @@
+{% import _self as layout_wrapper %}
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "configuration" (string) (default: 'col-2'): Layout configuration. Possible options:
+    - col-2
+    - col-3
+    - col-4
+    - highlight-col-2
+    - highlight-col-3
+  - "items" (array) (default: []): Items to be displayed in the wrapper.
+      Each item can be either:
+      - a string (rendered as-is)
+      - an object with a single component key, e.g. { card: { ... } }
+        Supported component keys: card
+  - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _configuration = configuration|default('col-2') %}
+{% set _items = items|default([]) %}
+{% set _direction = direction|default('horizontal') %}
+{% set _css_class = 'ecl-layout-wrapper' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% set _css_class = _css_class ~ ' ' ~ _configuration %}
+
+{% if _direction != 'horizontal' %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--vertical' %}
+  {% if _configuration starts with 'col-' %}
+    {% set _col_count = _configuration|replace({'col-': ''}) %}
+    {% set _row_count = (_items|length / _col_count)|round(0, 'ceil') %}
+  {% elseif _configuration starts with 'highlight-col-' %}
+    {% set _col_count = _configuration|replace({'highlight-col-': ''}) %}
+    {% set _row_count = ((_items|length - 1) / _col_count)|round(0, 'ceil') %}
+  {% endif %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Item rendering macro - add elseif branches here to support more components #}
+
+{% macro render_item(item) %}{% apply spaceless %}
+  {%- if item.card is defined -%}
+    {%- include '@ecl/card/card.html.twig' with item.card only -%}
+  {%- else -%}
+    {{- item -}}
+  {%- endif -%}
+{% endapply %}{% endmacro %}
+
+{# Print the result #}
+
+{% if _items is not empty %}
+<div
+  class="{{ _css_class }}"
+  {% if _row_count is defined %}style="--ecl-layout-rows: {{ _row_count }}"{% endif %}
+  {{ _extra_attributes|raw }}
+>
+  {%- if _configuration starts with 'highlight-col-' -%}
+    <div class="ecl-layout-wrapper__highlight">
+      <div class="ecl-layout-item ecl-layout-item--1">
+        {{- layout_wrapper.render_item(_items[0]) -}}
+      </div>
+    </div>
+    <div class="ecl-layout-wrapper__content">
+      {%- for item in _items|slice(1) -%}
+        <div class="ecl-layout-item ecl-layout-item--{{ loop.index + 1 }}">
+          {{- layout_wrapper.render_item(item) -}}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    {%- for item in _items -%}
+      <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
+        {{- layout_wrapper.render_item(item) -}}
+      </div>
+    {%- endfor -%}
+  {%- endif -%}
+</div>
+{% endif %}
+
+{% endapply %}
+
+

@@ -1104,6 +1104,12 @@ importers:
 
   src/layout/grid: {}
 
+  src/layout/layout-wrapper:
+    dependencies:
+      '@ecl/card':
+        specifier: 5.0.0-alpha.22
+        version: link:../../components/card
+
   src/mixins/color: {}
 
   src/mixins/typography:
@@ -1691,6 +1697,9 @@ importers:
       '@ecl/layout-form':
         specifier: 5.0.0-alpha.22
         version: link:../../layout/form
+      '@ecl/layout-wrapper':
+        specifier: 5.0.0-alpha.22
+        version: link:../../layout/layout-wrapper
       '@ecl/link':
         specifier: 5.0.0-alpha.22
         version: link:../../components/link
@@ -1968,6 +1977,9 @@ importers:
       '@ecl/layout-form':
         specifier: 5.0.0-alpha.22
         version: link:../../layout/form
+      '@ecl/layout-wrapper':
+        specifier: 5.0.0-alpha.22
+        version: link:../../layout/layout-wrapper
       '@ecl/link':
         specifier: 5.0.0-alpha.22
         version: link:../../components/link
