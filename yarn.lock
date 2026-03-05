@@ -4045,11 +4045,6 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/quickjs-emscripten/-/quickjs-emscripten-0.23.0.tgz#db4ecfd499a9765ab24002c3b696d02e6d32a12c"
   integrity sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==
 
-"@trysound/sax@0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
-  integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
-
 "@tufjs/canonical-json@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@tufjs/canonical-json/-/canonical-json-2.0.0.tgz#a52f61a3d7374833fca945b2549bc30a2dd40d0a"
@@ -7290,14 +7285,6 @@ css-tree@^1.1.2, css-tree@^1.1.3:
   dependencies:
     mdn-data "2.0.14"
     source-map "^0.6.1"
-
-css-tree@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-2.3.1.tgz#10264ce1e5442e8572fc82fbe490644ff54b5c20"
-  integrity sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==
-  dependencies:
-    mdn-data "2.0.30"
-    source-map-js "^1.0.1"
 
 css-tree@^3.0.1, css-tree@^3.1.0:
   version "3.2.0"
@@ -13034,11 +13021,6 @@ mdn-data@2.0.28:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.28.tgz#5ec48e7bef120654539069e1ae4ddc81ca490eba"
   integrity sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==
 
-mdn-data@2.0.30:
-  version "2.0.30"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.30.tgz#ce4df6f80af6cfbe218ecd5c552ba13c4dfa08cc"
-  integrity sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==
-
 mdn-data@2.27.1, mdn-data@^2.21.0, mdn-data@^2.25.0:
   version "2.27.1"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.27.1.tgz#e37b9c50880b75366c4d40ac63d9bbcacdb61f0e"
@@ -18499,30 +18481,17 @@ svg4everybody@2.1.9:
   resolved "https://registry.yarnpkg.com/svg4everybody/-/svg4everybody-2.1.9.tgz#5bd9f6defc133859a044646d4743fabc28db7e2d"
   integrity sha512-AS9WORVV/vk520ZHxGTlQzyDBizp/h6WyAYUbKhze/kwvQr43DwJpkIIPBomsUyKqN7N+h1deF92N9PmW+o+9A==
 
-svgo@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-3.3.2.tgz#ad58002652dffbb5986fc9716afe52d869ecbda8"
-  integrity sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==
+svgo@4.0.1, svgo@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/svgo/-/svgo-4.0.1.tgz#c82dacd04ee9f1d55cd4e0b7f9a214c86670e3ee"
+  integrity sha512-XDpWUOPC6FEibaLzjfe0ucaV0YrOjYotGJO1WpF0Zd+n6ZGEQUsSugaoLq9QkEZtAfQIxT42UChcssDVPP3+/w==
   dependencies:
-    "@trysound/sax" "0.2.0"
-    commander "^7.2.0"
+    commander "^11.1.0"
     css-select "^5.1.0"
-    css-tree "^2.3.1"
+    css-tree "^3.0.1"
     css-what "^6.1.0"
     csso "^5.0.5"
-    picocolors "^1.0.0"
-
-svgo@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-3.3.3.tgz#8246aee0b08791fde3b0ed22b5661b471fadf58e"
-  integrity sha512-+wn7I4p7YgJhHs38k2TNjy1vCfPIfLIJWR5MnCStsN8WuuTcBnRKcMHQLMM2ijxGZmDoZwNv8ipl5aTTen62ng==
-  dependencies:
-    commander "^7.2.0"
-    css-select "^5.1.0"
-    css-tree "^2.3.1"
-    css-what "^6.1.0"
-    csso "^5.0.5"
-    picocolors "^1.0.0"
+    picocolors "^1.1.1"
     sax "^1.5.0"
 
 svgo@^2.8.0:
@@ -18537,19 +18506,6 @@ svgo@^2.8.0:
     picocolors "^1.0.0"
     sax "^1.5.0"
     stable "^0.1.8"
-
-svgo@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-4.0.1.tgz#c82dacd04ee9f1d55cd4e0b7f9a214c86670e3ee"
-  integrity sha512-XDpWUOPC6FEibaLzjfe0ucaV0YrOjYotGJO1WpF0Zd+n6ZGEQUsSugaoLq9QkEZtAfQIxT42UChcssDVPP3+/w==
-  dependencies:
-    commander "^11.1.0"
-    css-select "^5.1.0"
-    css-tree "^3.0.1"
-    css-what "^6.1.0"
-    csso "^5.0.5"
-    picocolors "^1.1.1"
-    sax "^1.5.0"
 
 symbol-tree@^3.2.4:
   version "3.2.4"
@@ -20076,6 +20032,7 @@ winston@^3.11.0, winston@^3.3.3:
 
 word-wrap@^1.2.5, word-wrap@aashutoshrathi/word-wrap:
   version "1.2.7"
+  uid "07cb5082d681d084c4a79c1588b169b0b9cfa349"
   resolved "https://codeload.github.com/aashutoshrathi/word-wrap/tar.gz/07cb5082d681d084c4a79c1588b169b0b9cfa349"
 
 wordwrap@^1.0.0:
