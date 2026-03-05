@@ -76,6 +76,9 @@ export const Default = () => `
   ${system === 'ec' ? Spacing('a', '8xl') : ''}
   ${system === 'ec' ? Spacing('a', '9xl') : ''}
   ${system === 'ec' ? Spacing('a', '10xl') : ''}
+  ${system === 'ec' ? Spacing('a', '11xl') : ''}
+  ${system === 'ec' ? Spacing('a', '12xl') : ''}
+  ${system === 'ec' ? Spacing('a', '13xl') : ''}
 
   <h2 class="ecl-u-type-heading-2">Vertical spacing</h2>
   ${system === 'ec' ? Spacing('v', '5xs') : ''}
@@ -96,6 +99,9 @@ export const Default = () => `
   ${system === 'ec' ? Spacing('v', '8xl') : ''}
   ${system === 'ec' ? Spacing('v', '9xl') : ''}
   ${system === 'ec' ? Spacing('v', '10xl') : ''}
+  ${system === 'ec' ? Spacing('v', '11xl') : ''}
+  ${system === 'ec' ? Spacing('v', '12xl') : ''}
+  ${system === 'ec' ? Spacing('v', '13xl') : ''}
 
   <h2 class="ecl-u-type-heading-2">Horizontal spacing</h2>
   ${system === 'ec' ? Spacing('h', '5xs') : ''}
@@ -116,6 +122,9 @@ export const Default = () => `
   ${system === 'ec' ? Spacing('h', '8xl') : ''}
   ${system === 'ec' ? Spacing('h', '9xl') : ''}
   ${system === 'ec' ? Spacing('h', '10xl') : ''}
+  ${system === 'ec' ? Spacing('h', '11xl') : ''}
+  ${system === 'ec' ? Spacing('h', '12xl') : ''}
+  ${system === 'ec' ? Spacing('h', '13xl') : ''}
 `;
 
 Default.storyName = 'default';
