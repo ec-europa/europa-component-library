@@ -375,20 +375,12 @@ export class Select {
       }
 
       // Add accessibility attributes
-      if (this.label) {
-        this.input.setAttribute(
-          'aria-labelledby',
-          this.label.id + ' ' + this.input.id,
-        );
-      }
-      let describedby = '';
+      let describedby = `${this.element.id}-counter`;
       if (this.helper) {
-        describedby = this.helper.id;
+        describedby = `${describedby} ${this.helper.id}`;
       }
       if (this.invalid) {
-        describedby = describedby
-          ? `${describedby} ${this.invalid.id}`
-          : this.invalid.id;
+        describedby = `${describedby} ${this.invalid.id}`;
       }
       if (describedby) {
         this.input.setAttribute('aria-describedby', describedby);
@@ -401,6 +393,7 @@ export class Select {
       this.selectionCount.classList.add(
         this.selectMultiplesSelectionCountSelector,
       );
+      this.selectionCount.setAttribute('id', `${this.element.id}-counter`);
       this.selectionCountLabel = document.createElement('div');
       this.selectionCountLabel.classList.add(
         'ecl-select-multiple-selections-counter__label',
@@ -845,15 +838,6 @@ export class Select {
       .join('|');
 
     this.input.innerHTML = optionSelected || this.textDefault || '';
-
-    if (optionSelected !== '' && this.label) {
-      this.label.setAttribute(
-        'aria-label',
-        `${this.label.innerText} ${optionSelected}`,
-      );
-    } else if (optionSelected === '' && this.label) {
-      this.label.removeAttribute('aria-label');
-    }
 
     this.trigger('onSelection', { selected: optionSelected });
     // Dispatch a change event once the value of the select has changed.
