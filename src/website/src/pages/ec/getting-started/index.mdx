@@ -272,7 +272,12 @@ This library is **not bundled with ECL**, so you need to include it yourself if 
 
 #### Option 1 — Load from CDN (simplest, no Node required)
 
-If you don’t have restrictions on loading external scripts, you can include the datepicker directly from the CDN:
+**Important**
+
+Before using a resource from an external CDN, you have to make sure that this is allowed for your website. For instance, this is not the case for most of the websites hosted under europa.eu.
+So, even if this solution is the easiest to put in place, it may not be suited in your situation.
+
+If you don't have restrictions on loading external scripts, you can include the datepicker directly by using:
 
 ```html
 <script
@@ -358,7 +363,7 @@ cp -r package/dist/* /path/to/assets/duet/
 - The `/assets/duet/` folder must contain the files from `dist/`, not the `dist` folder itself.
 - Only include the `<script>` on pages that actually use datepickers.
 - Option 2 is recommended for modern build setups and avoids manual copying.
-- Option 1 is the simplest if external scripts are allowed.
+- Option 1 is the simplest, but only if external scripts are allowed.
 - Option 4 is useful for static sites or CMSs where Node.js/npm is not available.
 
 ---
