@@ -128,11 +128,15 @@ If not specificed, the default reading direction remains left to right.
 
 ### Accordion
 
-Markup of accordion title has been updated to use a simple div instead of a heading.
+Markup of accordion title has been updated
 
-Corresponding twig parameter `level` has been removed.
+- it relies on the use of default HTML tags `details` and `summary`. Javascript is no longer required as everything is handled by the browser.
+- items no longer uses heading. Corresponding twig parameter `level` has been removed.
+- a selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
 
-A selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
+Event management:
+
+As there is no more ECL javascript for the accordion, javascript event are no longer provided by us. But the `details` element comes with a [build-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which could be used directly
 
 ### Banner
 
@@ -183,8 +187,15 @@ Here is the mapping to the new variant / style:
 ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
 
 `<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+
+**Important:** Using an external CDN may not be allowed for your website (this is most probably the case if it is hosted under europa.eu).
+In that case, you would have to use one of the following options and use:
+
+A) the npm package `npm install @duetds/date-picker`, and the whole `dist` folder you'll find inside of it
 or
-`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+B) the tarball from https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz that is also containing the same `dist` folder
+
+inside the `dist` folder there is the `duet.esm.js` script to be loaded in a script tag, mind the fact that it needs all the files in the containing folder to work.
 
 The markup is now using the custom element defined by duet js:
 `<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
@@ -338,6 +349,8 @@ The default notifications now use the outline version of the icons, instead of t
 
 ### Page header
 
+- Several new display option added. Corresponding twig parameters are: `has_background`, `color_mode`, `description_position`, `picture_position`
+- Optional section added on top of the page header. It is filled with the parameter `expandable`
 - Meta now support a structure { label , icon } in addition to the existing string
 - Deprecated overlay on the image has been removed
 

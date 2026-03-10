@@ -14,6 +14,7 @@
       ...
     ]
     - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
+    - "name" (string) (default: '') Optional name to link multiple accordion items
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,8 +28,9 @@
 
 {% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-accordion' %}
-{% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
+{% set _extra_attributes = '' %}
 {% set _items = items|default([]) %}
+{% set _name = name|default('') %}
 {% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
 
 {% if _icons|length == 1 and _icons[0].name == 'plus' %}
@@ -60,7 +62,6 @@
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
-  data-ecl-accordion
 >
   {% if _items is not empty %}
     {% for _item in _items %}
@@ -70,45 +71,30 @@
       {% elseif loop.last %}
         {% set _item_class = _item_class ~ ' is-last' %}
       {% endif %}
-      <div class="{{ _item_class }}">
-        <div class="ecl-accordion__title" id="{{ _item.id }}-title">
-          <button
-            type="button"
-            class="ecl-accordion__toggle"
-            data-ecl-accordion-toggle
-            aria-controls="{{ _item.id }}-content"
-            aria-expanded="false"
-          >
-            <span class="ecl-accordion__toggle-flex">
-              <span class="ecl-accordion__toggle-title">
-                {{- _item.toggle.label -}}
-              </span>
-              <span class="ecl-accordion__toggle-indicator">
-              {% for icon in _icons %}
-                {% include '@ecl/icon/icon.html.twig' with {
-                  icon: icon|merge({
-                    size: icon.size|default('s'),
-                  }),
-                  extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
-                  extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),
-                } only %}
-              {% endfor %}
-              </span>
-              
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-accordion__content"
-          hidden
-          id="{{ _item.id }}-content"
-          role="region"
-          aria-labelledby="{{ _item.id }}-title"
+
+      <details 
+        class="{{ _item_class }}"
+        {% if _name is not empty %}
+          name="{{ _name }}"
+        {% endif %}
         >
-          {%- set _content = _item.content|default('') %}
-          {%- block content _content -%}
+        <summary class="ecl-accordion__toggle">
+          {{- _item.toggle.label -}}
+
+          {% for icon in _icons %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: icon|merge({
+                size: icon.size|default('s'),
+              }),
+              extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
+            } only %}
+          {% endfor %}
+        </summary>
+        <div class="ecl-accordion__content">
+          {{- _item.content|default('') -}}
         </div>
-      </div>
+      </details>
+
     {% endfor %}
   {% endif %}
 </div>

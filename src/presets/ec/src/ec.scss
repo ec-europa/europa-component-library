@@ -34,6 +34,7 @@
 );
 @use '@ecl/file-upload/file-upload' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $file-upload: var.$file-upload
 );
 @use '@ecl/radio/radio' with (
@@ -112,6 +113,10 @@
 @use '@ecl/tag/tag' with (
   $theme: theme.$theme,
   $tag: var.$tag
+);
+@use '@ecl/tooltip/tooltip' with (
+  $theme: theme.$theme,
+  $tooltip: var.$tooltip
 );
 @use '@ecl/video/video';
 

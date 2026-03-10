@@ -73,6 +73,7 @@
 @use '@ecl/tag/tag-print' with (
   $theme: theme.$theme
 );
+@use '@ecl/tooltip/tooltip-print';
 
 // Molecules
 @use '@ecl/banner/banner-print' with (
@@ -165,6 +166,7 @@
 // Organisms
 @use '@ecl/accordion/accordion-print' with (
   $theme: theme.$theme,
+  $accordion: var.$accordion,
   $accordion-print: var.$accordion-print
 );
 @use '@ecl/carousel/carousel-print';

@@ -11,24 +11,53 @@ import demoDefault from './demo/data';
 expect.extend(toHaveNoViolations);
 demoDefault.breadcrumb = dataBreadcrumbSimple;
 
-const demoSimple = { ...demoDefault };
-delete demoSimple.picture_background;
-delete demoSimple.picture_thumbnail;
-
-describe('Page Header Standardised', () => {
+describe('Page Header', () => {
   const template = '@ecl/page-header/page-header.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
-    test('- renders correctly', () => {
+    test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(demoSimple)).resolves.toMatchSnapshot();
+      return expect(render(demoDefault)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with hidden title and no meta', () => {
+      expect.assertions(1);
+      const noTitle = JSON.parse(JSON.stringify(demoDefault));
+      noTitle.hide_title = true;
+      noTitle.meta = [];
+
+      return expect(render(noTitle)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with description bottom', () => {
+      expect.assertions(1);
+      const descriptionBottom = JSON.parse(JSON.stringify(demoDefault));
+      descriptionBottom.description_position = 'bottom';
+
+      return expect(render(descriptionBottom)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with picture bottom', () => {
+      expect.assertions(1);
+      const pictureBottom = JSON.parse(JSON.stringify(demoDefault));
+      pictureBottom.picture_position = 'bottom';
+
+      return expect(render(pictureBottom)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with picture beside', () => {
+      expect.assertions(1);
+      const pictureBeside = JSON.parse(JSON.stringify(demoDefault));
+      pictureBeside.picture_position = 'beside';
+
+      return expect(render(pictureBeside)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(demoSimple, {
+      const withExtraClasses = merge(demoDefault, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -38,7 +67,7 @@ describe('Page Header Standardised', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(demoSimple, {
+      const withExtraAttributes = merge(demoDefault, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -48,36 +77,10 @@ describe('Page Header Standardised', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly when title is hidden and no meta is provided', () => {
-      expect.assertions(1);
-      const noMargin = { ...demoSimple, hide_title: true, meta: [] };
-
-      return expect(render(noMargin)).resolves.toMatchSnapshot();
-    });
-
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, demoSimple, true)),
+        await axe(await renderTwigFileAsHtml(template, demoDefault, true)),
       ).toHaveNoViolations();
-    });
-  });
-
-  describe('Background image', () => {
-    test('- renders correctly', () => {
-      expect.assertions(1);
-      return expect(render(demoDefault)).resolves.toMatchSnapshot();
-    });
-  });
-
-  describe('With simple header', () => {
-    test('- renders correctly', () => {
-      expect.assertions(1);
-      return expect(
-        render({
-          ...demoDefault,
-          expandable: { ...demoDefault.expandable, lists: [] },
-        }),
-      ).resolves.toMatchSnapshot();
     });
   });
 });
