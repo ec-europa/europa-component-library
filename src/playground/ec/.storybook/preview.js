@@ -2,6 +2,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
 import isChromatic from 'chromatic/isChromatic';
+import { allModes } from './modes';
 
 import './ECL';
 
@@ -9,7 +10,7 @@ global.Buffer = Buffer;
 
 if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   function createLink(href, media) {
-    var link = document.createElement('link');
+    const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = href;
@@ -18,7 +19,7 @@ if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   }
 
   // Manually inject styles
-  var head = document.head || document.getElementsByTagName('head')[0];
+  const head = document.head || document.getElementsByTagName('head')[0];
 
   head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
   head.appendChild(
@@ -41,6 +42,14 @@ export const initialGlobals = {
 };
 
 export const parameters = {
+  chromatic: {
+    modes: {
+      s: allModes.s,
+      m: allModes.m,
+      l: allModes.l,
+      xl: allModes.xl,
+    },
+  },
   breakpoints: {
     xs: 0,
     s: 480,
