@@ -95,27 +95,47 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   chromatic-ec:
-    if: "!contains(github.event.pull_request.labels.*.name, 'skip chromatic')"
+    if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-ec')) }}
     name: Run Chromatic for EC
     needs: deploy-pull-request-preview
     runs-on: ubuntu-latest
     steps:
       - uses: jpoehnelt/reusable-workspace/restore@v1
+      - name: Compute Chromatic args
+        id: chromatic_args
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
+            STORIES=$(cat .github/chromatic-test-stories.txt)
+            echo "args=--only-story-names=$STORIES --exit-zero-on-changes" >> $GITHUB_OUTPUT
+          else
+            echo "args=" >> $GITHUB_OUTPUT
+          fi
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
+          args: ${{ steps.chromatic_args.outputs.args }}
   chromatic-eu:
     name: Run Chromatic for EU
-    if: "!contains(github.event.pull_request.labels.*.name, 'skip chromatic')"
+    if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-eu')) }}
     needs: deploy-pull-request-preview
     runs-on: ubuntu-latest
     steps:
       - uses: jpoehnelt/reusable-workspace/restore@v1
+      - name: Compute Chromatic args
+        id: chromatic_args
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
+            STORIES=$(cat .github/chromatic-test-stories.txt)
+            echo "args=--only-story-names=$STORIES --exit-zero-on-changes" >> $GITHUB_OUTPUT
+          else
+            echo "args=" >> $GITHUB_OUTPUT
+          fi
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
+          args: ${{ steps.chromatic_args.outputs.args }}
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
