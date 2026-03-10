@@ -3,7 +3,7 @@
 
 {#
   Parameters:
-  - "configuration" (string) (default: 'col-2'): Layout configuration. Possible options:
+  - "configuration" (string) (default: 'col-3'): Layout configuration. Possible options:
     - col-2
     - col-3
     - col-4
@@ -12,8 +12,8 @@
   - "items" (array) (default: []): Items to be displayed in the wrapper.
       Each item can be either:
       - a string (rendered as-is)
-      - an object with a single component key, e.g. { card: { ... } }
-        Supported component keys: card
+      - an object with a defining component key, e.g. { card: { ... } }, { heading: { level: 2, content: 'my heading' } }
+        Supported component keys: heading, card, navigation_list, content_item
   - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
@@ -27,7 +27,7 @@
 
 {# Internal properties #}
 
-{% set _configuration = configuration|default('col-2') %}
+{% set _configuration = configuration|default('col-3') %}
 {% set _items = items|default([]) %}
 {% set _direction = direction|default('horizontal') %}
 {% set _css_class = 'ecl-layout-wrapper' %}
@@ -67,6 +67,13 @@
 {% macro render_item(item) %}{% apply spaceless %}
   {%- if item.card is defined -%}
     {%- include '@ecl/card/card.html.twig' with item.card only -%}
+  {%- elseif item.navigation_list is defined -%}
+    {%- include '@ecl/navigation-list/navigation-list.html.twig' with item.navigation_list only -%}
+  {%- elseif item.content_item is defined -%}
+    {%- include '@ecl/content-item/content-item.html.twig' with item.content_item only -%}
+  {%- elseif item.heading is defined -%}
+    {% set level = item.heading.level|default(2) %}
+    <h{{ level }} class="ecl-u-type-heading-{{ level }} ecl-u-mt-none">{{- item.heading.content -}}</h{{ level }}>
   {%- else -%}
     {{- item -}}
   {%- endif -%}

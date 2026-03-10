@@ -10,7 +10,7 @@ $theme: null !default;
 
 .ecl-layout-wrapper {
   display: grid;
-  gap: var(--s-m);
+  gap: map.get($theme, 'grid', 'gutter-l');
 
   &.col-2 {
     grid-template-columns: repeat(2, 1fr);
@@ -52,7 +52,7 @@ $theme: null !default;
 
     .ecl-layout-wrapper__content {
       display: grid;
-      gap: var(--s-m);
+      gap: map.get($theme, 'grid', 'gutter-l');
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -62,13 +62,16 @@ $theme: null !default;
 
     .ecl-layout-wrapper__content {
       display: grid;
-      gap: var(--s-m);
+      gap: map.get($theme, 'grid', 'gutter-l');
       grid-template-columns: repeat(3, 1fr);
     }
   }
 }
 
 .ecl-layout-item {
-  background-color: antiquewhite;
   height: 100%;
+
+  & > * {
+    height: 100%;
+  }
 }
