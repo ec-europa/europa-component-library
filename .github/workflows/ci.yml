@@ -101,20 +101,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: jpoehnelt/reusable-workspace/restore@v1
-      - name: Compute Chromatic args
+      - name: Compute Chromatic stories
         id: chromatic_args
         run: |
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
             STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
-            echo "args=--only-story-names=$STORIES --exit-zero-on-changes" >> $GITHUB_OUTPUT
+            echo "stories=$STORIES" >> $GITHUB_OUTPUT
           else
-            echo "args=" >> $GITHUB_OUTPUT
+            echo "stories=" >> $GITHUB_OUTPUT
           fi
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
-          args: ${{ steps.chromatic_args.outputs.args }}
+          onlyStoryNames: ${{ steps.chromatic_args.outputs.stories || '' }}
   chromatic-eu:
     name: Run Chromatic for EU
     if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-eu')) }}
@@ -122,20 +122,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: jpoehnelt/reusable-workspace/restore@v1
-      - name: Compute Chromatic args
+      - name: Compute Chromatic stories
         id: chromatic_args
         run: |
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
             STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
-            echo "args=--only-story-names=$STORIES --exit-zero-on-changes" >> $GITHUB_OUTPUT
+            echo "stories=$STORIES" >> $GITHUB_OUTPUT
           else
-            echo "args=" >> $GITHUB_OUTPUT
+            echo "stories=" >> $GITHUB_OUTPUT
           fi
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
-          args: ${{ steps.chromatic_args.outputs.args }}
+          onlyStoryNames: ${{ steps.chromatic_args.outputs.stories || '' }}
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
