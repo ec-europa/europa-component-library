@@ -102,6 +102,67 @@ const navigationListData = {
   },
 };
 
+// File download
+const fileData = {
+  file: {
+    title: 'State of the Union 2018 brochure',
+    language: 'English',
+    meta: '(16.2 MB - PDF)',
+    icon: {
+      name: 'file',
+      size: '2xl',
+    },
+    download: {
+      link: {
+        label: 'Download',
+        path: exampleLink,
+      },
+    },
+    translation: {
+      toggle: {
+        label: 'Translations (3)',
+      },
+      items: [
+        {
+          title: 'български',
+          meta: '(15.7 MB - PDF)',
+          lang: 'bg',
+          download: {
+            link: {
+              label: 'Download',
+              path: '/example#bg',
+            },
+          },
+          download_attribute: false,
+        },
+        {
+          title: 'español',
+          meta: '(15.8 MB - PDF)',
+          lang: 'es',
+          download: {
+            link: {
+              label: 'Download',
+              path: '/example#es',
+            },
+          },
+          download_attribute: true,
+        },
+        {
+          title: 'français',
+          meta: '(15.4 MB - PDF)',
+          lang: 'fr',
+          download: {
+            link: {
+              label: 'Download',
+              path: '/example#fr',
+            },
+          },
+        },
+      ],
+    },
+  },
+};
+
 // Content item
 const contentItemData = {
   content_item: {
@@ -143,11 +204,30 @@ const contentItemData = {
   },
 };
 
+// List with illustration
+const listIllustrationData = {
+  list_illustration: {
+    items: [
+      {
+        title: 'Title list with illustration',
+        icon: {
+          name: 'regulation',
+        },
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend quam leo, at malesuada ex viverra vitae.',
+        value: '3.2 million',
+      },
+    ],
+  },
+};
+
 const contentTypes = {
   heading: headingData,
   card: cardData,
   navigation_list: navigationListData,
+  file: fileData,
   content_item: contentItemData,
+  list_illustration: listIllustrationData,
 };
 
 module.exports = {

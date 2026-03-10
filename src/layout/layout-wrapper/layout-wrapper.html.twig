@@ -13,7 +13,7 @@
       Each item can be either:
       - a string (rendered as-is)
       - an object with a defining component key, e.g. { card: { ... } }, { heading: { level: 2, content: 'my heading' } }
-        Supported component keys: heading, card, navigation_list, content_item
+        Supported component keys: heading, card, navigation_list, content_item, file, list_illustration
   - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
@@ -71,6 +71,10 @@
     {%- include '@ecl/navigation-list/navigation-list.html.twig' with item.navigation_list only -%}
   {%- elseif item.content_item is defined -%}
     {%- include '@ecl/content-item/content-item.html.twig' with item.content_item only -%}
+  {%- elseif item.file is defined -%}
+    {%- include '@ecl/file/file.html.twig' with item.file only -%}
+  {%- elseif item.list_illustration is defined -%}
+    {%- include '@ecl/list-illustration/list-illustration.html.twig' with item.list_illustration only -%}
   {%- elseif item.heading is defined -%}
     {% set level = item.heading.level|default(2) %}
     <h{{ level }} class="ecl-u-type-heading-{{ level }} ecl-u-mt-none">{{- item.heading.content -}}</h{{ level }}>

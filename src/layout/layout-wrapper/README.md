@@ -18,7 +18,7 @@ npm install --save @ecl/layout-wrapper
   Each item can be either:
   - a string (rendered as-is)
   - an object with a defining component key, e.g. { card: { ... } }, { heading: { level: 2, content: 'my heading' } }
-    Supported component keys: heading, card, navigation_list, content_item
+    Supported component keys: heading, card, navigation_list, content_item, file, list_illustration
 - **"direction"** (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
 - **"extra_classes"** (string) (default: '')
 - **"extra_attributes"** (array) (default: []): format: [
