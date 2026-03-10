@@ -105,7 +105,7 @@ jobs:
         id: chromatic_args
         run: |
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
-            STORIES=$(cat .github/chromatic-test-stories.txt)
+            STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
             echo "args=--only-story-names=$STORIES --exit-zero-on-changes" >> $GITHUB_OUTPUT
           else
             echo "args=" >> $GITHUB_OUTPUT
@@ -126,7 +126,7 @@ jobs:
         id: chromatic_args
         run: |
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
-            STORIES=$(cat .github/chromatic-test-stories.txt)
+            STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
             echo "args=--only-story-names=$STORIES --exit-zero-on-changes" >> $GITHUB_OUTPUT
           else
             echo "args=" >> $GITHUB_OUTPUT
