@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { loremIpsum } from 'lorem-ipsum';
 import withCode from '@ecl/storybook-addon-code';
+import { within, userEvent, expect } from '@storybook/test';
 
 import notes from './README.md';
 
@@ -76,6 +77,37 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
+Default.tags = ['!test'];
 Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
+};
+
+export const Visible = (_, { loaded: { component } }) => component;
+
+Visible.render = async () =>
+  `<p class="ecl-u-type-paragraph-m ecl-u-mt-none">
+    Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
+    Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
+    Laboris consequat non deserunt ullamco cupidatat est cillum aute. 
+    Id esse incididunt culpa fugiat qui ex enim exercitation id aliqua elit velit et
+    <button class="ecl-button ecl-button--primary" data-ecl-tooltip title="test tooltip content">button tooltip</button>
+    Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
+    Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
+    Laboris consequat non deserunt ullamco cupidatat est cillum aute.`;
+
+Visible.storyName = 'visible';
+Visible.tags = ['!dev'];
+Visible.parameters = {
+  chromatic: {
+    modes: 'm',
+  },
+};
+Visible.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = await canvas.findByRole('button');
+  const tooltip = document.querySelector('.ecl-tooltip');
+
+  expect(tooltip).not.toBeVisible();
+  await userEvent.hover(button);
+  expect(tooltip).toBeVisible();
 };
