@@ -51,8 +51,8 @@ Default.render = async (args) => {
           ${loremBefore}
         </span>
         <span class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline ecl-u-pv-m">
-          <button class="ecl-button ecl-button--primary ecl-button--inverted" data-ecl-tooltip-inverted title="${args.content}">button tooltip</button>
-          <a href="#" class="ecl-link ecl-link--inverted" data-ecl-tooltip-inverted="${args.content}">link tooltip</a>
+          <button class="ecl-button ecl-button--primary ecl-button--inverted" data-ecl-tooltip-inverted title="${args.content} (button)">button tooltip</button>
+          <a href="#" class="ecl-link ecl-link--inverted" data-ecl-tooltip-inverted="${args.content} (link)">link tooltip</a>
         </span>
         <span class="ecl-u-type-color-white">
           ${loremAfter}
@@ -66,8 +66,8 @@ Default.render = async (args) => {
     <p class="ecl-u-type-paragraph-m ecl-u-mt-none">
       ${loremBefore}
       <span class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline ecl-u-pv-m">
-        <button class="ecl-button ecl-button--primary" data-ecl-tooltip title="${args.content}">button tooltip</button>
-        <a href="#" class="ecl-link" data-ecl-tooltip="${args.content}">link tooltip</a>
+        <button class="ecl-button ecl-button--primary" data-ecl-tooltip title="${args.content} (button)">button tooltip</button>
+        <a href="#" class="ecl-link" data-ecl-tooltip="${args.content} (link)">link tooltip</a>
       </span>
       ${loremAfter}
     </p>

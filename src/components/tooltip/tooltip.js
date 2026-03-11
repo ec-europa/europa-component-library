@@ -1,13 +1,16 @@
-import { queryOne } from '@ecl/dom-utils';
+import { queryAll } from '@ecl/dom-utils';
+
+let tooltipCounter = 0;
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.tooltipSelector Selector for tooltip triggers (uses data-ecl-tooltip or data-ecl-tooltip-inverted attribute, with optional title fallback)
- * @param {String} options.tooltipPopupSelector Selector for tooltip popup element
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events on tooltip triggers
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  * @param {Boolean} options.attachScrollListener Whether or not to bind scroll events
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
+ * @param {Number} options.hideDelay Delay in ms before hiding the tooltip when the mouse leaves, giving time to cross the gap between trigger and tooltip
  */
 export class Tooltip {
   /**
@@ -29,10 +32,11 @@ export class Tooltip {
     element,
     {
       tooltipSelector = '[data-ecl-tooltip], [data-ecl-tooltip-inverted]',
-      tooltipPopupSelector = '[data-ecl-tooltip-popup]',
       attachHoverListener = true,
       attachResizeListener = true,
       attachScrollListener = true,
+      attachKeyListener = true,
+      hideDelay = 300,
     } = {},
   ) {
     // Check element
@@ -46,23 +50,26 @@ export class Tooltip {
 
     // Options
     this.tooltipSelector = tooltipSelector;
-    this.tooltipPopupSelector = tooltipPopupSelector;
     this.attachHoverListener = attachHoverListener;
     this.attachResizeListener = attachResizeListener;
     this.attachScrollListener = attachScrollListener;
+    this.attachKeyListener = attachKeyListener;
+    this.hideDelay = hideDelay;
 
     // Private variables
-    this.popup = null;
+    this.popups = new Map(); // trigger → popup element
     this.currentTrigger = null;
-    this.isMouseTriggered = false;
-    this.removedTitle = null;
+    this.currentPopup = null;
     this.usePopoverApi = 'popover' in HTMLElement.prototype;
+    this.hideTimeoutId = null;
+    this.initTimeoutId = null;
 
     // Bind `this` for use in callbacks
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
     this.handleFocusIn = this.handleFocusIn.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
+    this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.hideTooltip = this.hideTooltip.bind(this);
     this.positionTooltip = this.positionTooltip.bind(this);
   }
@@ -76,26 +83,20 @@ export class Tooltip {
     }
     ECL.components = ECL.components || new Map();
 
-    // Create tooltip popup, if not already existing
-    this.popup = queryOne(this.tooltipPopupSelector, document.body);
+    // Eagerly create popups for triggers already present in the DOM.
+    queryAll(this.tooltipSelector, this.element).forEach((trigger) => {
+      this.getOrCreatePopup(trigger);
+    });
 
-    if (!this.popup) {
-      const markup = document.createElement('span');
-      markup.classList.add('ecl-tooltip');
-      const attributeName = this.tooltipPopupSelector.replace(/[[\]]/g, '');
-      markup.setAttribute(attributeName, '');
-      markup.setAttribute('aria-hidden', true);
-
-      // Use Popover API if supported for proper layering above modals
-      if (this.usePopoverApi) {
-        markup.setAttribute('popover', 'manual');
-      } else {
-        markup.style.display = 'none';
-      }
-
-      document.body.append(markup);
-      this.popup = markup;
-    }
+    // Deferred scan: catches triggers rendered asynchronously after init()
+    // (e.g. Storybook loaders, React, or other async frameworks).
+    // Lazy creation in getOrCreatePopup() remains the final fallback.
+    this.initTimeoutId = setTimeout(() => {
+      this.initTimeoutId = null;
+      queryAll(this.tooltipSelector, this.element).forEach((trigger) => {
+        this.getOrCreatePopup(trigger);
+      });
+    }, 100);
 
     // Attach delegated event listeners to the root element
     if (this.attachHoverListener) {
@@ -103,6 +104,23 @@ export class Tooltip {
       this.element.addEventListener('mouseout', this.handleMouseOut);
       this.element.addEventListener('focusin', this.handleFocusIn);
       this.element.addEventListener('focusout', this.handleFocusOut);
+    }
+
+    // Bind global keyboard events.
+    // Also listen on the parent frame when running inside an iframe (e.g.
+    // Storybook), so ESC works even when the iframe has not received focus yet.
+    if (this.attachKeyListener) {
+      document.addEventListener('keyup', this.handleKeyboardGlobal);
+      try {
+        if (window.parent !== window) {
+          window.parent.document.addEventListener(
+            'keyup',
+            this.handleKeyboardGlobal,
+          );
+        }
+      } catch {
+        // Cross-origin parent frame — silently skip
+      }
     }
 
     // Attach resize event listener
@@ -124,17 +142,27 @@ export class Tooltip {
    * Destroy component.
    */
   destroy() {
-    // Restore title if tooltip is currently showing and was removed
-    if (this.currentTrigger && this.removedTitle) {
-      this.currentTrigger.setAttribute('title', this.removedTitle);
-    }
-
     // Remove delegated event listeners
     if (this.attachHoverListener) {
       this.element.removeEventListener('mouseover', this.handleMouseOver);
       this.element.removeEventListener('mouseout', this.handleMouseOut);
       this.element.removeEventListener('focusin', this.handleFocusIn);
       this.element.removeEventListener('focusout', this.handleFocusOut);
+    }
+
+    // Remove global keyboard listener (both own frame and parent frame)
+    if (this.attachKeyListener) {
+      document.removeEventListener('keyup', this.handleKeyboardGlobal);
+      try {
+        if (window.parent !== window) {
+          window.parent.document.removeEventListener(
+            'keyup',
+            this.handleKeyboardGlobal,
+          );
+        }
+      } catch {
+        // Cross-origin parent frame — silently skip
+      }
     }
 
     // Remove resize event listener
@@ -147,10 +175,21 @@ export class Tooltip {
       window.removeEventListener('scroll', this.hideTooltip, { capture: true });
     }
 
-    // Remove popup from DOM
-    if (this.popup && this.popup.parentNode) {
-      this.popup.parentNode.removeChild(this.popup);
+    // Cancel any pending timeouts
+    this.clearHideTimeout();
+    if (this.initTimeoutId !== null) {
+      clearTimeout(this.initTimeoutId);
+      this.initTimeoutId = null;
     }
+
+    // Remove all popup elements and clean up aria attributes on triggers
+    this.popups.forEach((popup, trigger) => {
+      trigger.removeAttribute('aria-describedby');
+      if (popup.parentNode) {
+        popup.parentNode.removeChild(popup);
+      }
+    });
+    this.popups.clear();
 
     // Clean up references
     if (this.element) {
@@ -160,15 +199,82 @@ export class Tooltip {
   }
 
   /**
+   * Return the popup element linked to a trigger, creating it if needed.
+   * This allows triggers added to the DOM after init() to work correctly.
+   *
+   * @param {HTMLElement} trigger
+   * @returns {HTMLElement} popup
+   */
+  getOrCreatePopup(trigger) {
+    if (this.popups.has(trigger)) return this.popups.get(trigger);
+
+    const id = `ecl-tooltip-${tooltipCounter++}`;
+
+    const popup = document.createElement('span');
+    popup.classList.add('ecl-tooltip');
+    popup.setAttribute('id', id);
+    popup.setAttribute('role', 'tooltip');
+    popup.setAttribute('aria-hidden', 'true');
+
+    if (this.usePopoverApi) {
+      popup.setAttribute('popover', 'manual');
+    } else {
+      popup.style.display = 'none';
+    }
+
+    // Keep tooltip open while hovering over it; use a delay to handle the gap
+    popup.addEventListener('mouseover', () => this.clearHideTimeout());
+    popup.addEventListener('mouseout', (e) => {
+      const { relatedTarget } = e;
+      if (relatedTarget && trigger.contains(relatedTarget)) return;
+      if (relatedTarget && popup.contains(relatedTarget)) return;
+      this.scheduleHide();
+    });
+
+    document.body.append(popup);
+    trigger.setAttribute('aria-describedby', id);
+
+    // The title attribute is inaccessible (hover-only, poor screen reader
+    // support). Transfer its value to the data attribute if needed, then
+    // remove it permanently — aria-describedby covers screen readers.
+    const titleValue = trigger.getAttribute('title');
+    if (titleValue) {
+      if (
+        !trigger.getAttribute('data-ecl-tooltip') &&
+        !trigger.getAttribute('data-ecl-tooltip-inverted')
+      ) {
+        const attr = trigger.hasAttribute('data-ecl-tooltip-inverted')
+          ? 'data-ecl-tooltip-inverted'
+          : 'data-ecl-tooltip';
+        trigger.setAttribute(attr, titleValue);
+      }
+      trigger.removeAttribute('title');
+    }
+
+    // Pre-populate content so the tooltip is not empty when first created
+    popup.textContent =
+      trigger.getAttribute('data-ecl-tooltip') ||
+      trigger.getAttribute('data-ecl-tooltip-inverted') ||
+      '';
+
+    this.popups.set(trigger, popup);
+
+    return popup;
+  }
+
+  /**
    * Handle mouseover event (delegated).
    *
    * @param {Event} e
    */
   handleMouseOver(e) {
     const trigger = e.target.closest(this.tooltipSelector);
-    if (!trigger || trigger === this.currentTrigger) return;
+    if (!trigger) return;
 
-    this.displayTooltip(trigger, true);
+    this.clearHideTimeout();
+    if (trigger === this.currentTrigger) return;
+
+    this.displayTooltip(trigger);
   }
 
   /**
@@ -179,11 +285,19 @@ export class Tooltip {
   handleMouseOut(e) {
     if (!this.currentTrigger) return;
 
-    // Check if mouse is moving to an element still within the trigger
-    const relatedTarget = e.relatedTarget;
+    const { relatedTarget } = e;
     if (relatedTarget && this.currentTrigger.contains(relatedTarget)) return;
+    // Optimisation: if moving directly to the popup, cancel immediately
+    if (
+      relatedTarget &&
+      this.currentPopup &&
+      this.currentPopup.contains(relatedTarget)
+    ) {
+      return;
+    }
 
-    this.hideTooltip();
+    // Delay to let the mouse cross the visual gap between trigger and tooltip
+    this.scheduleHide();
   }
 
   /**
@@ -195,7 +309,7 @@ export class Tooltip {
     const trigger = e.target.closest(this.tooltipSelector);
     if (!trigger) return;
 
-    this.displayTooltip(trigger, false);
+    this.displayTooltip(trigger);
   }
 
   /**
@@ -208,19 +322,50 @@ export class Tooltip {
   }
 
   /**
+   * Schedule a delayed hide, giving the mouse time to cross the gap between
+   * the trigger and the tooltip without closing it prematurely.
+   */
+  scheduleHide() {
+    this.clearHideTimeout();
+    this.hideTimeoutId = setTimeout(() => this.hideTooltip(), this.hideDelay);
+  }
+
+  /**
+   * Cancel a previously scheduled hide.
+   */
+  clearHideTimeout() {
+    if (this.hideTimeoutId !== null) {
+      clearTimeout(this.hideTimeoutId);
+      this.hideTimeoutId = null;
+    }
+  }
+
+  /**
+   * Handles global keyboard events, triggered outside of the tooltip.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardGlobal(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      this.hideTooltip();
+    }
+  }
+
+  /**
    * Position tooltip relative to the trigger element.
    *
    * @param {HTMLElement} trigger
+   * @param {HTMLElement} popup
    */
-  positionTooltip(trigger) {
+  positionTooltip(trigger, popup) {
     const triggerRect = trigger.getBoundingClientRect();
     const gap = 8; // Gap between trigger and tooltip
 
     // Use fixed positioning at off-screen location for accurate measurement
-    this.popup.style.position = 'fixed';
-    this.popup.style.left = '-9999px';
-    this.popup.style.top = '-9999px';
-    const tooltipRect = this.popup.getBoundingClientRect();
+    popup.style.position = 'fixed';
+    popup.style.left = '-9999px';
+    popup.style.top = '-9999px';
+    const tooltipRect = popup.getBoundingClientRect();
 
     // Calculate horizontal position (centered on trigger)
     const triggerCenter = triggerRect.left + triggerRect.width / 2;
@@ -250,78 +395,76 @@ export class Tooltip {
 
     // Calculate arrow position to point at trigger center
     const arrowLeft = triggerCenter - left;
-    this.popup.style.setProperty('--ecl-tooltip-arrow-left', `${arrowLeft}px`);
+    popup.style.setProperty('--ecl-tooltip-arrow-left', `${arrowLeft}px`);
 
     // Apply position modifier class for arrow direction
-    this.popup.classList.toggle('ecl-tooltip--bottom', positionBottom);
+    popup.classList.toggle('ecl-tooltip--bottom', positionBottom);
 
-    this.popup.style.top = `${top}px`;
-    this.popup.style.left = `${left}px`;
+    popup.style.top = `${top}px`;
+    popup.style.left = `${left}px`;
   }
 
   /**
    * Display tooltip
    *
    * @param {HTMLElement} trigger
-   * @param {Boolean} isMouseTriggered
    */
-  displayTooltip(trigger, isMouseTriggered) {
-    // Use data-ecl-tooltip or data-ecl-tooltip-inverted value if provided, otherwise fall back to title
+  displayTooltip(trigger) {
+    // getOrCreatePopup() ensures title has already been transferred to the
+    // data attribute and removed, so only data attributes need to be read.
+    const popup = this.getOrCreatePopup(trigger);
+
     const content =
       trigger.getAttribute('data-ecl-tooltip') ||
-      trigger.getAttribute('data-ecl-tooltip-inverted') ||
-      trigger.getAttribute('title');
+      trigger.getAttribute('data-ecl-tooltip-inverted');
     if (!content) return;
 
-    // Store current trigger reference
+    // Hide previously visible tooltip when switching triggers
+    if (this.currentPopup && this.currentPopup !== popup) {
+      this.hideTooltip();
+    }
+
+    // Store current trigger and popup references
     this.currentTrigger = trigger;
-    this.isMouseTriggered = isMouseTriggered;
+    this.currentPopup = popup;
 
     // Copy content to tooltip
-    this.popup.textContent = content;
+    popup.textContent = content;
 
-    // Use inverted if needed
-    this.popup.classList.toggle(
+    // Use inverted style if needed
+    popup.classList.toggle(
       'ecl-tooltip--inverted',
       trigger.hasAttribute('data-ecl-tooltip-inverted'),
     );
 
-    // Only remove title on mouse hover to prevent browser's default tooltip
-    // Keep title for keyboard focus so screen readers can access it
-    if (isMouseTriggered && trigger.hasAttribute('title')) {
-      this.removedTitle = trigger.getAttribute('title');
-      trigger.removeAttribute('title');
-    }
-
     // Show tooltip
+    popup.removeAttribute('aria-hidden');
     if (this.usePopoverApi) {
-      this.popup.showPopover();
+      popup.showPopover();
     } else {
-      this.popup.style.display = 'block';
+      popup.style.display = 'block';
     }
 
     // Position tooltip
-    this.positionTooltip(trigger);
+    this.positionTooltip(trigger, popup);
   }
 
   /**
    * Hide tooltip
    */
   hideTooltip() {
-    if (this.usePopoverApi) {
-      this.popup.hidePopover();
-    } else {
-      this.popup.style.display = 'none';
-    }
+    this.clearHideTimeout();
+    if (!this.currentPopup) return;
 
-    // Restore title if it was removed
-    if (this.currentTrigger && this.removedTitle) {
-      this.currentTrigger.setAttribute('title', this.removedTitle);
+    if (this.usePopoverApi) {
+      this.currentPopup.hidePopover();
+    } else {
+      this.currentPopup.style.display = 'none';
     }
+    this.currentPopup.setAttribute('aria-hidden', 'true');
 
     this.currentTrigger = null;
-    this.isMouseTriggered = false;
-    this.removedTitle = null;
+    this.currentPopup = null;
   }
 }
 
