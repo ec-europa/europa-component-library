@@ -2,6 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import { loremIpsum } from 'lorem-ipsum';
 import withCode from '@ecl/storybook-addon-code';
 import { within, userEvent, expect } from '@storybook/test';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 import notes from './README.md';
 
@@ -77,9 +78,11 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
-Default.tags = ['!test'];
 Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
+  chromatic: {
+    disable: true,
+  },
 };
 
 export const Visible = (_, { loaded: { component } }) => component;
@@ -93,16 +96,54 @@ Visible.render = async () =>
     <button class="ecl-button ecl-button--primary" data-ecl-tooltip title="test tooltip content">button tooltip</button>
     Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
     Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
-    Laboris consequat non deserunt ullamco cupidatat est cillum aute.`;
+    Laboris consequat non deserunt ullamco cupidatat est cillum aute.
+  </p>`;
 
 Visible.storyName = 'visible';
 Visible.tags = ['!dev'];
 Visible.parameters = {
   chromatic: {
-    modes: 'm',
+    modes: {
+      m: allModes.m,
+    },
   },
 };
 Visible.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = await canvas.findByRole('button');
+  const tooltip = document.querySelector('.ecl-tooltip');
+
+  expect(tooltip).not.toBeVisible();
+  await userEvent.hover(button);
+  expect(tooltip).toBeVisible();
+};
+
+export const VisibleInverted = (_, { loaded: { component } }) => component;
+
+VisibleInverted.render = async () =>
+  `<div class="ecl-u-bg-black ecl-u-pa-m">
+    <p class="ecl-u-type-paragraph-m ecl-u-mt-none ecl-u-type-color-white">
+      Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
+      Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
+      Laboris consequat non deserunt ullamco cupidatat est cillum aute. 
+      Id esse incididunt culpa fugiat qui ex enim exercitation id aliqua elit velit et
+      <button class="ecl-button ecl-button--primary ecl-button--inverted" data-ecl-tooltip-inverted title="test tooltip content">button tooltip</button>
+      Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
+      Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
+      Laboris consequat non deserunt ullamco cupidatat est cillum aute.
+    </p>
+  </div>`;
+
+VisibleInverted.storyName = 'inverted';
+VisibleInverted.tags = ['!dev'];
+VisibleInverted.parameters = {
+  chromatic: {
+    modes: {
+      m: allModes.m,
+    },
+  },
+};
+VisibleInverted.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   const tooltip = document.querySelector('.ecl-tooltip');

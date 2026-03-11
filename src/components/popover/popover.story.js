@@ -3,6 +3,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 import { within, userEvent, expect } from '@storybook/test';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 import dataDefault from './demo/data';
 
@@ -105,8 +106,12 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
-Default.tags = ['!test'];
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
+  chromatic: {
+    disable: true,
+  },
+};
 
 export const Visible = (_, { loaded: { component } }) => component;
 
@@ -124,6 +129,15 @@ Visible.render = async () => {
 };
 Visible.storyName = 'visible';
 Visible.tags = ['!dev'];
+Visible.parameters = {
+  chromatic: {
+    modes: {
+      m: allModes.m,
+      l: allModes.l,
+      xl: allModes.xl,
+    },
+  },
+};
 Visible.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
