@@ -1,10 +1,39 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
+import isChromatic from 'chromatic/isChromatic';
+import { allModes } from './modes';
 
 import './ECL';
 
 global.Buffer = Buffer;
+
+if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
+  function createLink(href, media) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = href;
+    link.media = media || 'all';
+    return link;
+  }
+
+  // Manually inject styles
+  const head = document.head || document.getElementsByTagName('head')[0];
+
+  head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
+  head.appendChild(
+    createLink('./styles/optional/ecl-ec-default.css', 'screen'),
+  );
+  head.appendChild(createLink('./styles/ecl-ec.css', 'screen'));
+  head.appendChild(
+    createLink('./styles/optional/ecl-ec-utilities.css', 'screen'),
+  );
+  head.appendChild(createLink('./styles/ecl-ec-print.css', 'print'));
+  head.appendChild(
+    createLink('./styles/optional/ecl-ec-default-print.css', 'print'),
+  );
+}
 
 export const initialGlobals = {
   panelDescription:
@@ -13,6 +42,14 @@ export const initialGlobals = {
 };
 
 export const parameters = {
+  chromatic: {
+    modes: {
+      s: allModes.s,
+      m: allModes.m,
+      l: allModes.l,
+      xl: allModes.xl,
+    },
+  },
   breakpoints: {
     xs: 0,
     s: 480,

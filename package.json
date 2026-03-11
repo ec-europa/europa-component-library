@@ -31,7 +31,10 @@
     "test:components": "jest --verbose",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-deps": "npm-check-updates -i -ws",
-    "update-version": "scripts/update-version.sh"
+    "chromatic-eu": "cd src/playground/eu && npm run build",
+    "chromatic-ec": "cd src/playground/ec && npm run build",
+    "chromatic-EU": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-eu",
+    "chromatic-EC": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-ec"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
@@ -41,6 +44,7 @@
     "@prettier/plugin-xml": "3.4.2",
     "@size-limit/preset-big-lib": "12.0.1",
     "babel-jest": "30.2.0",
+    "chromatic": "15.2.0",
     "classnames": "2.5.1",
     "cross-env": "10.1.0",
     "eslint": "9.39.2",
