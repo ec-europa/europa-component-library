@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import { within, userEvent, expect } from '@storybook/test';
 
 import demoData from './demo/data';
 import expandable from './expandable.html.twig';
@@ -61,3 +62,22 @@ Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };
 Default.decorators = [withCode, withNotes];
+
+export const Expanded = (_, { loaded: { component } }) => component;
+
+Expanded.render = async (args) => {
+  const renderedExpandable = await expandable(prepareData(demoData, args));
+  return renderedExpandable;
+};
+Expanded.tags = ['!dev'];
+Expanded.storyName = 'expanded';
+Expanded.args = getArgs(demoData);
+Expanded.argTypes = getArgTypes();
+
+Expanded.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = await canvas.findByRole('button', { name: /collapsed/i });
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  await userEvent.click(button);
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+};
