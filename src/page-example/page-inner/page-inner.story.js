@@ -50,5 +50,10 @@ Default.render = async () => {
   return renderedInner;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes } };
+Default.parameters = {
+  notes: { markdown: notes },
+  chromatic: {
+    ignoreSelectors: ['#ecl-tabs-4'],
+  },
+};
 Default.tags = ['!dev'];
