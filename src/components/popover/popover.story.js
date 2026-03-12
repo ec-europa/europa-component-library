@@ -124,7 +124,7 @@ Visible.render = async () => {
       })}</div>
     </div>
   `;
-  console.log(dataDefault);
+
   return visiblePopover;
 };
 Visible.storyName = 'visible';
@@ -136,6 +136,7 @@ Visible.parameters = {
       l: allModes.l,
       xl: allModes.xl,
     },
+    ignoreSelectors: ['.ecl-popover__scrollable'],
   },
 };
 Visible.play = async ({ canvasElement }) => {
