@@ -255,6 +255,9 @@ EmbeddedVideo.parameters = {
       rules: [{ id: 'frame-tested', enabled: false }],
     },
   },
+  chromatic: {
+    ignoreSelectors: ['#player'],
+  },
 };
 
 export const Infographic = (_, { loaded: { component } }) => component;
