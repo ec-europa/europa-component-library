@@ -62,7 +62,6 @@ export class Tooltip {
     this.currentPopup = null;
     this.usePopoverApi = 'popover' in HTMLElement.prototype;
     this.hideTimeoutId = null;
-    this.initTimeoutId = null;
 
     // Bind `this` for use in callbacks
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -83,20 +82,10 @@ export class Tooltip {
     }
     ECL.components = ECL.components || new Map();
 
-    // Eagerly create popups for triggers already present in the DOM.
+    // Create tooltips for triggers already present in the DOM.
     queryAll(this.tooltipSelector, this.element).forEach((trigger) => {
       this.getOrCreatePopup(trigger);
     });
-
-    // Deferred scan: catches triggers rendered asynchronously after init()
-    // (e.g. Storybook loaders, React, or other async frameworks).
-    // Lazy creation in getOrCreatePopup() remains the final fallback.
-    this.initTimeoutId = setTimeout(() => {
-      this.initTimeoutId = null;
-      queryAll(this.tooltipSelector, this.element).forEach((trigger) => {
-        this.getOrCreatePopup(trigger);
-      });
-    }, 100);
 
     // Attach delegated event listeners to the root element
     if (this.attachHoverListener) {
@@ -177,10 +166,6 @@ export class Tooltip {
 
     // Cancel any pending timeouts
     this.clearHideTimeout();
-    if (this.initTimeoutId !== null) {
-      clearTimeout(this.initTimeoutId);
-      this.initTimeoutId = null;
-    }
 
     // Remove all popup elements and clean up aria attributes on triggers
     this.popups.forEach((popup, trigger) => {
