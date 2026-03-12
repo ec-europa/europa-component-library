@@ -2,7 +2,7 @@
 module.exports = {
   variant: 'success',
   icon: {
-    name: 'success-outline',
+    name: 'success-filled',
     size: 'l',
   },
   links: [
