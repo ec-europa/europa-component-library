@@ -231,7 +231,7 @@ export class Tooltip {
       this.scheduleHide();
     });
 
-    document.body.append(popup);
+    trigger.insertAdjacentElement('afterend', popup);
     trigger.setAttribute('aria-describedby', id);
 
     // The title attribute is inaccessible (hover-only, poor screen reader
