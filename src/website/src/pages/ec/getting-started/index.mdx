@@ -6,38 +6,136 @@ title: Getting started
 import { Link } from '@ecl/website-components';
 import { ECL_VERSION } from '../../../preval/getVersion';
 
-The Europa Component Library is a design system defining the visual identity of the European Commission on the web.
+## What is the Europa Component Library?
 
-It provides design guidelines and code to help users create consistent and accessible web presence.
+The Europa Component Library (ECL) is the official design system for the European Commission's digital presence. It provides a comprehensive set of design guidelines, reusable components, and code resources to help teams create consistent, accessible, and user-friendly web experiences across Commission services.
 
-All library elements are accompanied by:
+### Why use ECL?
 
-- documentation explaining what the component is intended for and how it should be used
-- a visual demonstration of the component
-- HTML/CSS code for implementation
+**Consistency**: ECL ensures visual and functional consistency across all European Commission digital properties, strengthening the Commission's identity and improving user recognition.
 
-New components are continuously being added to the library. The team is also constantly updating visual guidelines for designers in the Guidelines section, where we provide detailed information about design principles and resources.
+**Accessibility**: All components are built following WCAG AA standards, ensuring your digital services are accessible to all users, including those with disabilities.
 
-## How to use ECL
+**Efficiency**: Pre-built, tested components significantly reduce development time and effort, allowing teams to focus on unique features rather than rebuilding common UI elements.
 
-ECL distributes its resources in different ways and depending on the implementation approach, things might change a bit: generally speaking, given the HTML markup defined by ECL, applying the distrbuted css and javascript on top of it would ensure the expected look and feel.
+**Maintainability**: Centralized design system means updates and improvements benefit all projects using ECL, reducing long-term maintenance costs.
 
-ECL resources are represented by:
+**Compliance**: Using ECL helps ensure alignment with European Commission digital service standards and branding requirements.
 
-- css
-- javascript
-- logos (svgs)
+### What does ECL provide?
 
-### Presets
+- **Usage guidelines** explaining when and how to use the components
+- **Interactive demonstrations** showing the components in action
+- **Production-ready code** including HTML markup, CSS styles, and JavaScript behavior
+- **Design specifications** for designers working in design tools
+- **Accessibility documentation** detailing compliance and best practices
 
-All these resources are distributed in a single "package", called `preset-ec`, this package can be retrieved on npm or alternatively from the github release page as a zip file.
+The library is continuously evolving, with new components added regularly and existing components refined based on user feedback and changing needs.
 
-Using npm:
-`npm install @ecl/preset-ec`
-OR
-`pnpm install @ecl/preset-ec`
+---
 
-Once you have the `preset-ec` you're ready to setup the ECL integration in your application or website like this:
+## For Developers
+
+### Installation
+
+ECL is distributed as a bundled package called a **preset**, which includes all the CSS, JavaScript, and assets (logos, ...) needed to build European Commission-styled websites and applications.
+
+#### Option 1: Package Manager (Recommended)
+
+Install via npm or pnpm:
+
+```bash
+npm install @ecl/preset-ec
+```
+
+or
+
+```bash
+pnpm install @ecl/preset-ec
+```
+
+**Benefits**: Easy version management, seamless updates, and the ability to rebuild resources if needed.
+
+#### Option 2: CDN
+
+Load ECL resources directly from the CDN:
+
+```
+https://cdn{1,2,3,4}.fpfis.tech.ec.europa.eu/ecl/v{version}/ec/{path-to-asset}
+```
+
+Example:
+
+<ul>
+  <li>
+    <a
+      className="ecl-link"
+      href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/ecl-ec.css`}
+    >
+      {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/ecl-ec.css`}
+    </a>
+  </li>
+  <li>
+    <a
+      className="ecl-link"
+      href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/scripts/ecl-esm-ec.js`}
+    >
+      {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/scripts/ecl-esm-ec.js`}
+    </a>
+  </li>
+</ul>
+
+**Important**: When using the CDN, always include **Subresource Integrity (SRI)** hashes for security. These can be found in the [release notes](https://github.com/ec-europa/europa-component-library/releases) for each version.
+
+<details>
+  <summary className="ecl-u-type-s ecl-u-mt-s">Common SRI hashes (click to expand)</summary>
+
+  <ul>
+    <li>
+      <code>ecl-ec.css</code>: <code>{process.env.ECL_EC_CSS}</code>
+    </li>
+    <li>
+      <code>ecl-ec-print.css</code>: <code>{process.env.ECL_EC_PRINT_CSS}</code>
+    </li>
+    <li>
+      <code>ecl-ec.js</code>: <code>{process.env.ECL_EC_JS}</code>
+    </li>
+    <li>
+      <code>ecl-esm-ec.js</code>: <code>{process.env.ECL_ESM_EC_JS}</code>
+    </li>
+  </ul>
+</details>
+
+```html
+<!-- CSS -->
+<link
+  rel="stylesheet"
+  href="path-to-ecl-ec.css"
+  integrity="sha256-... sha384-... sha512-..."
+  crossorigin="anonymous"
+  media="screen"
+/>
+
+<!-- JavaScript -->
+<script
+  type="module"
+  src="path-to-ecl-esm-ec.js"
+  integrity="sha256-... sha384-... sha512-..."
+  crossorigin="anonymous"
+></script>
+```
+
+**Note**: While the CDN is convenient, **hosting ECL resources on your own domain is recommended** for better performance, reduced network dependencies, and to avoid cross-origin issues with SVG assets.
+
+#### Option 3: Direct Download
+
+Download the preset package as a zip file from the [GitHub releases page](https://github.com/ec-europa/europa-component-library/releases).
+
+---
+
+### Basic Setup
+
+Once you have the ECL preset, integrate it into your HTML pages:
 
 ```html
 <!doctype html>
@@ -45,48 +143,35 @@ Once you have the `preset-ec` you're ready to setup the ECL integration in your 
   <head>
     <meta charset="utf-8" />
     <title>Page title</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Enable JavaScript detection -->
     <script>
-      var cl = document.querySelector('html').classList;
-      cl.remove('no-js');
-      cl.add('has-js');
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('has-js');
     </script>
-    <!-- Preload Duet Date Picker scripts to improve loading performance -->
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
-      as="script"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet-date-picker.entry.js"
-      as="script"
-      crossorigin="anonymous"
-    />
+
+    <!-- ECL Styles -->
     <link
       rel="stylesheet"
       href="/styles/optional/ecl-reset.css"
       media="screen"
     />
-    <link rel="stylesheet" href="/styles/ecl-ec.css" media="screen" />
     <link
       rel="stylesheet"
       href="/styles/optional/ecl-ec-utilities.css"
       media="screen"
     />
+    <link rel="stylesheet" href="/styles/ecl-ec.css" media="screen" />
     <link rel="stylesheet" href="/styles/ecl-ec-print.css" media="print" />
-    <!-- Only needed if an ECL datepicker is present in the page -->
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
-    ></script>
   </head>
-  <body>
-    <!-- content of your page here -->
 
-    <script src="/scripts/ecl-ec.js"></script>
+  <body>
+    <!-- Your page content here -->
+
+    <!-- ECL JavaScript -->
+    <script type="module" src="/scripts/ecl-esm-ec.js"></script>
     <script>
       ECL.autoInit();
     </script>
@@ -94,82 +179,45 @@ Once you have the `preset-ec` you're ready to setup the ECL integration in your 
 </html>
 ```
 
-This assumes your `preset-ec` package is directly accessible in the root of your project, change the path according to your environment.
+**Key points**:
 
-In this example the main ECL css and js are defined and in addition a css for print and the reset css are added. The example here demonstrates using the CommonJS version of the JavaScript. If you prefer or need to use the ESM version instead, you can load it like this:
-`<script type="module" src="/scripts/ecl-esm-ec.js"></script>`.
-The ECL object will be available globally, either on the window object in the browser or on globalThis in environments that support it.
+- Adjust file paths based on where you've placed the preset files in your project
+- The `no-js` / `has-js` class toggle enables CSS to adapt based on JavaScript availability
+- The `ECL` object is globally available (on `window`)
 
-There are also other optional css files distributed that can be used, duet js is added because it's needed for the ECL datepicker, see below for further information.
+---
 
-### Using the CDN
+### Optional Styles
 
-ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available there, this is the pattern to reach them:
-`https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
+ECL provides several optional CSS files in the `styles/optional/` directory. **These must be included before the main ECL stylesheet** if you choose to use them:
 
-Ex:
+#### ecl-reset.css
 
-<a
-  className="ecl-link"
-  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/styles/ecl-ec.css`}
->
-  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/styles/ecl-ec.css`}
-</a>
+Provides CSS reset rules based on normalize.css with Commission-specific additions. Recommended for new projects to ensure consistent cross-browser styling.
 
-Download a `preset-ec` package from the release page to see all the files available so to know how to reach them in the CDN, the file system is the same.
+#### ecl-ec-default.css
 
-For more security, use the SRI hashes corresponding to the files when using them from the CDN.
-They can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
+Applies ECL styling to standard HTML elements (links, buttons, tables, etc.) without requiring specific classes. Useful for content-heavy sites, but **the recommended approach is to use ECL classes explicitly** for better control.
 
-<details>
-  <summary class="ecl-u-type-s ecl-u-mt-s">SRI hashes (click to expand)</summary>
+A corresponding print stylesheet `ecl-ec-default-print.css` is also available.
 
-  <ul>
-    <li>
-      for `ecl-ec.css`: <code>{process.env.ECL_EC_CSS}</code>
-    </li>
-    <li>
-      for `ecl-ec-print.css`: <code>{process.env.ECL_EC_PRINT_CSS}</code>
-    </li>
-    <li>
-      {' '}
-      for `ecl-ec.js`: <code>{process.env.ECL_EC_JS}</code>
-    </li>
-    <li>
-      {' '}
-      for `ecl-esm-ec.js`: <code>{process.env.ECL_ESM_EC_JS}</code>
-    </li>
-  </ul>
-</details>
+#### ecl-ec-utilities.css
 
-When using the CDN for logos be aware that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
+Contains utility classes for spacing, typography, display, and more. Useful for quick styling adjustments without writing custom CSS.
 
-For different reasons, starting from performances and network traffic, **the recommended way of using ECL is to fetch its resources for then hosting them in the same domain where they are going to be used**.
+#### ecl-ec-color-modes.css
 
-### Optional styles
+Contains CSS definitions for the color modes system, enabling theme variations and customization. See the <Link to="/ec/guidelines/colours/" label="Colours documentation" /> for more information.
 
-There are several optional CSS files, located in `ec/styles/optional`, which can be included in your site on not, depending on the needs.  
-**These optional CSS have to be called before the main ECL CSS**
+---
 
-- `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
-- `ecl-ec-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements. A corresponding print css `ecl-ec-default-print` is also provided.
-- `ecl-ec-color-modes.css`: contains css definition for the color modes. See the <Link to="/ec/guidelines/colours/" label="Colours documentation" /> for more information
+### JavaScript Components
 
-### Right to left display
+ECL components can be initialized either **automatically** or **manually**.
 
-For a number of languages, content is displayed right to left. ECL components are designed to take this into consideration, but need some information to know what direction to use.
+#### Automatic Initialization (Recommended)
 
-The detection is based on the standard HTML attribute `dir`. When using a right to left language, make sure to set `dir="rtl"` anywhere at upper level on the page (it could be the html or body tag for instance).
-
-If not done, some elements may be misplaced when using right to left display; the default display remains left to right.
-
-## JavaScript
-
-You can either initalise JS components manually or automatically. Here, we will focus on the automatic initialisation. If you want to know more about the manual initialisation, please check the component's documentation.
-
-In order to automatically initialize a component, add `data-ecl-auto-init="[component class]"` to the root element of the component, `[component class]` being the name of the JS class related to the component.
-
-For example, if you want to auto initialize a `Message`:
+Add the `data-ecl-auto-init` attribute to any component's root element, specifying the component class name:
 
 ```html
 <div
@@ -178,71 +226,237 @@ For example, if you want to auto initialize a `Message`:
   data-ecl-message
   data-ecl-auto-init="Message"
 >
-  ... Message component ...
+  <!-- Message component content -->
 </div>
 ```
 
-Then, in the footer of the document (or whenever the document is ready), call `ECL.autoInit()`. For example:
+Then call `ECL.autoInit()` once the DOM is ready (typically at the end of `<body>`):
 
 ```html
-  <body>
-    ...
-    <script>
-      ECL.autoInit();
-    </script>
-  </body>
-</html>
+<script src="/scripts/ecl-ec.js"></script>
+<script>
+  ECL.autoInit();
+</script>
 ```
 
-You can get the ECL version you are using running `ECL.version` in the console of your devtools.
+All components with `data-ecl-auto-init` will be automatically initialized.
+
+#### Manual Initialization
+
+For more control, you can initialize components programmatically. See individual component documentation for specific APIs and initialization options.
+
+#### Checking Your ECL Version
+
+To verify which version of ECL you're using, open your browser's developer console and run:
+
+```javascript
+ECL.version;
+```
+
+---
 
 ### Icons
 
-Icons are provided by Webtools, and may require additional configuration or extra files.
-
-Please check documentation on Webtools site for more information:
+Icons are provided through the Webtools service and may require additional configuration. For the most up-to-date information and advanced usage, consult the Webtools documentation:
 
 https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_use
 
+---
+
 ### Datepicker
 
-ECL uses [Duet datepicker](https://duetds.github.io/date-picker/) and this library is not bundled by ECL.
-Therefore **duet js needs to be loaded or bundled by the application or website using ECL**, depending on the needs, the library is only required when a datepicker is instantiated in a page.
+ECL's datepicker component is based on the [Duet Date Picker](https://duetds.github.io/date-picker/) library.  
+This library is **not bundled with ECL**, so you need to include it yourself if you use datepicker components.
 
-## Additional information
+---
 
-- to integrate ECL components, copy the markup from the component you want and paste it in the `<body>`. This markup can be found on this website and on <Link to="/playground/eu/" label="the playground" />.
-  TWIG templates are also [provided on npm](https://www.npmjs.com/org/ecl) for easy integration.
-- make sure that you are correctly loading the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and initialize it with: `svg4everybody({ polyfill: true });`.
-- before going live, make sure to embed the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie+Consent+Kit+Banner).
-- all useful information concerning releases content can be found on the [release page](https://github.com/ec-europa/europa-component-library/releases)
+#### Option 1 — Load from CDN (simplest, no Node required)
 
-### More on the available packages
+**Important**
 
-**ECL is distributed primarily as npm packages and this is the recommended way of getting it**.
-When used in a node project this is surely the easiest and more reliable way, the new versions can be automatically detected and fetched and the ECL resources could be even rebuilt on the client side by fetching all the needed packages one by one.
+Before using a resource from an external CDN, you have to make sure that this is allowed for your website. For instance, this is not the case for most of the websites hosted under europa.eu.
+So, even if this solution is the easiest to put in place, it may not be suited in your situation.
 
-<details>
-  <summary>Identifying the packages (click to expand)</summary>
+If you don't have restrictions on loading external scripts, you can include the datepicker directly by using:
 
-In every release, starting from 3.9.1, a file containing a list of all the available packages on npm is deployed on the github release page, this list is quite long and you don't surely need, in a normal situation, to know all the available packages as you don't need to fetch them all.
+```html
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"
+></script>
+```
 
-ECL releases npm packages for:
+> This will work on any page without installing Node or copying files manually.
 
-  <ul>
-    <li>builder (used to compile css and js) `@ecl/builder`</li>
-    <li>presets (EC and EU) `@ecl/preset-ec`</li>
-    <li>components (css, js, twig) `@ecl/{name}`</li>
-    <li>resources packages `@ecl/resources-ec-{name}`</li>
-  </ul>
-</details>
+---
 
-## Guidelines
+#### Option 2 — NPM + bundler (recommended if you have a build process)
 
-Additional ready-to-use resources:
+1. Install the package:
 
-- <Link to="/ec/guidelines/typography/" label="Typography" />
-- <Link to="/ec/guidelines/colours/" label="Colours" />
-- <Link to="/ec/guidelines/images/" label="Images" />
-- <Link to="/ec/guidelines/iconography/" label="Iconography" />
-- <Link to="/ec/guidelines/spacing/" label="Spacing" />
+```javascript
+npm install @duetds/date-picker
+# or
+pnpm add @duetds/date-picker
+```
+
+2. Import or bundle it in your build process:
+
+```javascript
+import '@duetds/date-picker/dist/duet.esm.js';
+```
+
+---
+
+#### Option 3 — Manual copy for static pages or CMS
+
+1. Install the package (or skip if you already have it):
+
+```javascript
+npm install @duetds/date-picker
+```
+
+2. Copy the `dist` folder contents to a location your webserver can serve, for example:
+
+```bash
+cp -r node_modules/@duetds/date-picker/dist/* /path/to/assets/duet/
+```
+
+3. Include the library in your HTML pages that use datepickers:
+
+```html
+<script type="module" src="/assets/duet/duet.esm.js"></script>
+```
+
+---
+
+#### Option 4 — Download tarball from the npm registry (no Node required)
+
+1. Download the tarball:
+
+```bash
+wget https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz
+```
+
+2. Extract it:
+
+```bash
+tar -xzf date-picker-1.4.0.tgz
+```
+
+3. Copy the `dist` folder contents to a location your webserver can serve:
+
+```bash
+cp -r package/dist/* /path/to/assets/duet/
+```
+
+4. Include the library in your HTML pages that use datepickers:
+
+```html
+<script type="module" src="/assets/duet/duet.esm.js"></script>
+```
+
+---
+
+**Notes**
+
+- The `/assets/duet/` folder must contain the files from `dist/`, not the `dist` folder itself.
+- Only include the `<script>` on pages that actually use datepickers.
+- Option 2 is recommended for modern build setups and avoids manual copying.
+- Option 1 is the simplest, but only if external scripts are allowed.
+- Option 4 is useful for static sites or CMSs where Node.js/npm is not available.
+
+---
+
+### Right-to-Left (RTL) Support
+
+ECL components support right-to-left languages (Arabic, Hebrew, etc.). To enable RTL display, add the `dir="rtl"` attribute to your HTML document:
+
+```html
+<html lang="ar" dir="rtl"></html>
+```
+
+or
+
+```html
+<body dir="rtl"></body>
+```
+
+The direction attribute can be set on any parent element. Without `dir="rtl"`, ECL will default to left-to-right display.
+
+---
+
+### Browser Support
+
+ECL supports all modern, evergreen browsers:
+
+- Chrome, Edge, Firefox, Safari (latest versions)
+- No Internet Explorer support
+
+ECL uses modern web standards including CSS Grid, Flexbox, CSS Custom Properties, and ES6+ JavaScript (transpiled for broader compatibility).
+
+---
+
+### Accessibility
+
+All ECL components are built to meet **WCAG 2.1 Level AA** accessibility standards. This includes:
+
+- Semantic HTML structure
+- Proper ARIA attributes
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast compliance
+
+For component-specific accessibility details, refer to each component's documentation.
+
+---
+
+## Integration Tips
+
+### Using ECL Components
+
+To integrate ECL components in your pages:
+
+1. **Find the component** you need in the <Link to="/ec/components/" label="Components section" />
+2. **Copy the HTML markup** from the component documentation or <Link to="/playground/ec/" label="playground" />
+3. **Paste it into your page** where needed
+4. **Customize** the component, if needed, by modifying data attributes, classes, or content
+
+### Twig Templates
+
+For server-side rendering, ECL provides **Twig templates** for all components, available on npm:
+
+```bash
+npm install @ecl/{component-name}
+```
+
+Template are usually called `{component-name}.html.twig`
+
+Browse available packages on [npm](https://www.npmjs.com/org/ecl).
+
+### Logo and Asset Paths
+
+Ensure logos and other assets load correctly by verifying file paths. Assets are typically located in the `/images/` folder of your preset.
+
+**Recommendation**: Host all ECL assets (CSS, JS, logos) on your own domain to avoid CORS issues and improve load times.
+
+### Before Going Live
+
+- **Cookie Consent**: Implement the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie+Consent+Kit+Banner) as required for Commission sites
+- **Accessibility testing**: Validate your implementation with screen readers and automated accessibility tools
+- **Cross-browser testing**: Verify functionality across different browsers and devices
+- **Performance**: Optimize asset loading (compression, caching, lazy loading where appropriate)
+
+---
+
+## Additional Resources
+
+Explore more about designing and building with ECL:
+
+- <Link to="/ec/guidelines/typography/" label="Typography guidelines" />
+- <Link to="/ec/guidelines/colours/" label="Colour palette and usage" />
+- <Link to="/ec/guidelines/spacing/" label="Spacing system" />
+- <Link to="/ec/guidelines/iconography/" label="Icon library and usage" />
+- <Link to="/ec/guidelines/images/" label="Image guidelines" />
+
+For release notes, changelogs, and downloads, visit the [GitHub releases page](https://github.com/ec-europa/europa-component-library/releases).

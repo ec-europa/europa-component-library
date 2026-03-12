@@ -51,11 +51,13 @@ describe('Tabs', () => {
             label: 'Tab label',
             path: '/example',
             extra_classes: 'extra-class-1',
+            id: 'tabs-1',
           },
           {
             label: 'Tab label',
             path: '/example',
             extra_classes: 'extra-class-2',
+            id: 'tabs-2',
           },
         ],
       };
@@ -67,6 +69,15 @@ describe('Tabs', () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
       ).toHaveNoViolations();
+    });
+  });
+
+  describe('With tab behavior', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...demoData, tab_behaviour: true }),
+      ).resolves.toMatchSnapshot();
     });
   });
 });

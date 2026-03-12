@@ -4,7 +4,9 @@
   Parameters:
     - "autoinit" (boolean) (default: false)
     - "id" (string) (default: randomized string)
-    - "default_value" (default: '')
+    - "name" (string) (default: same as id)
+    - "default_value" (default: '') (YYY-MM-DD format)
+    - "width" (string) (default: 'm')
     - "required" (boolean) (default: false)
     - "disabled" (boolean) (default: false)
     - "min" (string: YYYY-MM-DD) (default: '')
@@ -27,13 +29,17 @@
 {% set _required = required|default(false) %}
 {% set _default_value = default_value|default('') %} {# YYYY-MM-DD #}
 {% set _id = id|default('ecl-datepicker-' ~ random()) %}
+{% set _name = name|default(_id) %}
 {% set _min = min|default('') %}
 {% set _max = max|default('') %}
+{% set _width = width|default('m') %}
 {% set _first_day_of_week = first_day_of_week|default(1) %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% set _css_class = _css_class ~ ' ecl-datepicker--' ~ _width %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -78,6 +84,7 @@
   >
     <duet-date-picker
       identifier="{{ _id }}"
+      name="{{ _name }}"
       first-day-of-week="{{  _first_day_of_week }}"
     {% if _min %}
       min="{{ _min }}"

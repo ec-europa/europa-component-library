@@ -60,6 +60,7 @@
   $notification: var.$notification,
   $notification-print: var.$notification-print
 );
+@use '@ecl/picture/picture';
 @use '@ecl/skip-link/skip-link-print';
 @use '@ecl/spinner/spinner-print';
 @use '@ecl/table/table-print' with (
@@ -72,6 +73,7 @@
 @use '@ecl/tag/tag-print' with (
   $theme: theme.$theme
 );
+@use '@ecl/tooltip/tooltip-print';
 
 // Molecules
 @use '@ecl/banner/banner-print' with (
@@ -143,6 +145,10 @@
   $list: var.$list,
   $list-print: var.$list-print
 );
+@use '@ecl/page-information/page-information-print' with (
+  $theme: theme.$theme,
+  $page-information: var.$page-information
+);
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';
 @use '@ecl/search-form/search-form-print';
@@ -160,6 +166,7 @@
 // Organisms
 @use '@ecl/accordion/accordion-print' with (
   $theme: theme.$theme,
+  $accordion: var.$accordion,
   $accordion-print: var.$accordion-print
 );
 @use '@ecl/carousel/carousel-print';

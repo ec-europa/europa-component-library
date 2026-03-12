@@ -24,6 +24,7 @@ import ListIllustrationThumbnail from './list-illustration/ec_comp_list_illustra
 import NotificationThumbnail from './notification/ec_comp_notifications.svg';
 import ModalThumbnail from './modal/ec_comp_modal.svg';
 import NewsTickerThumbnail from './news-ticker/ec_comp_news_ticker.svg';
+import PageInformationThumbnail from './page-information/ec_comp_page-information.svg';
 import PopoverThumbnail from './popover/ec_comp_popover.svg';
 import SMFThumbnail from './social-media-follow/ec_comp_social_media_follow.svg';
 import SpinnerThumbnail from './loading-indicator/ec_comp_loading_indicator.svg';
@@ -31,6 +32,7 @@ import SplashPageThumbnail from './splash-page/ec_comp_splash-page.svg';
 import TableThumbnail from './table/ec_comp_table.svg';
 import TagThumbnail from './tag/ec_comp_tags.svg';
 import TimelineThumbnail from './timeline/ec_comp_timeline.svg';
+import TooltipThumbnail from './tooltip/ec_comp_tooltip.svg';
 
 import PageHeaderThumbnail from './site-wide/page-header/ec_comp_page-header.svg';
 import SiteHeaderThumbnail from './site-wide/site-header/ec_comp_site-header.svg';
@@ -145,6 +147,13 @@ Every component is coded to serve a function and designed to solve a specific us
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
     <Thumbnail
+      image={PageInformationThumbnail}
+      link="./page-information/usage/"
+      title="Page information"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
       image={PopoverThumbnail}
       link="./popover/usage/"
       title="Popover"
@@ -181,6 +190,13 @@ Every component is coded to serve a function and designed to solve a specific us
       image={TimelineThumbnail}
       link="./timeline/usage/"
       title="Timeline"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
+      image={TooltipThumbnail}
+      link="./tooltip/usage/"
+      title="Tooltip"
     />
   </Col>
 </Row>

@@ -5,7 +5,7 @@
     - "id" (string) (default: random): id of the modal
     - "toggle_id" (string) (default: random): id of the element to toggle the modal
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
-    - "size" (string) (default: 'l'): Size of the modal. Could be 's' or 'l' 
+    - "size" (string) (default: 'l'): Size of the modal. Could be 's', 'm', 'l' or 'full' 
     - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
     - "close" (object of type "button") (default: {}): close button; label has to be provided for screen reader
     - "buttons" (array) (default: {}) Array of ECL Button, displayed in the modal footer
@@ -45,13 +45,13 @@
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ecl-modal--' ~ _variant %}
   {% if _variant == 'information' %}
-    {% set _header_icon = 'information' %}
+    {% set _header_icon = 'information-outline' %}
   {% elseif _variant == 'success' %}
-    {% set _header_icon = 'check-filled' %}
+    {% set _header_icon = 'success-outline' %}
   {% elseif _variant == 'warning' %}
-    {% set _header_icon = 'warning' %}
+    {% set _header_icon = 'warning-outline' %}
   {% elseif _variant == 'error' %}
-    {% set _header_icon = 'error' %}
+    {% set _header_icon = 'error-outline' %}
   {% endif %}
 {% endif %}
 
@@ -99,13 +99,10 @@
         {% if _header_icon is not empty or _header is not empty or block('header') is not empty %} 
           <div class="ecl-modal__header-content" id="{{ _id }}-header">
           {%- if _header_icon is not empty -%}
-            {% if _variant == 'warning' and _header_icon == 'warning' %}
-              <span class="ecl-modal__icon-background"></span>
-            {% endif %}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 name: _header_icon,
-                size: 'l',
+                size: 'xl',
               },
               as_image: true,
               extra_accessibility: not _sr_icon ? {} : {
@@ -126,6 +123,7 @@
             type: 'button',
             variant: 'tertiary',
             style: 'neutral',
+            size: 'm',
             hide_label: true,
             extra_classes: 'ecl-modal__close',
             extra_attributes: [{
@@ -165,6 +163,7 @@
                 {% set _button_extra_classes = _button_extra_classes ~ ' ' ~ _button.extra_classes %}
               {% endif %}
               {% include '@ecl/button/button.html.twig' with _button|merge({
+                size: _button.size|default('m'),
                 extra_classes: _button_extra_classes,
               }) only %}
             {% endfor %}

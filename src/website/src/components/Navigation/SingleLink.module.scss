@@ -1,6 +1,6 @@
 .page-list-item {
   align-items: center;
-  background-color: var(--ws-c-n-20);
+  background-color: var(--ws-c-n-60);
   border-width: 0;
   color: var(--ws-c-d);
   display: flex;
@@ -9,25 +9,25 @@
   text-decoration: none;
 
   &.level-0 {
-    padding: var(--ws-s-s) var(--ws-s-m);
+    padding: var(--ws-s-xs) var(--ws-s-m);
   }
 
   &.level-1 {
-    padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-xl);
+    padding: var(--ws-s-xs) var(--ws-s-m) var(--ws-s-xs) var(--ws-s-xl);
   }
 
   &.level-2 {
-    padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-3xl);
+    padding: var(--ws-s-xs) var(--ws-s-m) var(--ws-s-xs) var(--ws-s-3xl);
   }
 
   &.level-3 {
-    padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-4xl);
+    padding: var(--ws-s-xs) var(--ws-s-m) var(--ws-s-xs) var(--ws-s-4xl);
   }
 }
 
 .page-list-item:hover,
 .page-list-item:focus {
-  background-color: var(--ws-c-n-60);
+  background-color: var(--ws-c-n-80);
   outline: none;
 }
 
@@ -47,10 +47,10 @@
   }
 
   &.level-2 {
-    padding-left: calc(var(--ws-s-3xl) - 4px);
+    padding-left: calc(var(--ws-s-4xl) - 4px);
   }
 
   &.level-3 {
-    padding-left: calc(var(--ws-s-4xl) - 4px);
+    padding-left: calc(var(--ws-s-5xl) - 4px);
   }
 }

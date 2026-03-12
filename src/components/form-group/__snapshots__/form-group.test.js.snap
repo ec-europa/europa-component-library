@@ -847,17 +847,18 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
     </div>
     <div
       aria-describedby="example-input-id-1-helper"
-      class="ecl-datepicker"
+      class="ecl-datepicker ecl-datepicker--m"
       data-ecl-auto-init="Datepicker"
       data-ecl-datepicker-toggle=""
       data-placeholder="DD-MM-YYYY"
-      data-value="2025-08-30"
+      data-value="2025-08-30 14:13:48 Europe/Brussels"
     >
       <duet-date-picker
         first-day-of-week="1"
         identifier="example-input-id-1"
         max="2026-08-30"
         min="2024-06-15"
+        name="example-input-name-1"
         required=""
       />
     </div>
@@ -896,11 +897,11 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
     </div>
     <div
       aria-describedby="example-input-id-1-helper"
-      class="ecl-datepicker"
+      class="ecl-datepicker ecl-datepicker--m"
       data-ecl-auto-init="Datepicker"
       data-ecl-datepicker-toggle=""
       data-placeholder="DD-MM-YYYY"
-      data-value="2025-08-30"
+      data-value="2025-08-30 14:13:48 Europe/Brussels"
     >
       <duet-date-picker
         disabled=""
@@ -908,6 +909,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
         identifier="example-input-id-1"
         max="2026-08-30"
         min="2024-06-15"
+        name="example-input-name-1"
         required=""
       />
     </div>
@@ -952,11 +954,11 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
     <div
       aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
       aria-invalid="true"
-      class="ecl-datepicker ecl-datepicker--invalid"
+      class="ecl-datepicker ecl-datepicker--m ecl-datepicker--invalid"
       data-ecl-auto-init="Datepicker"
       data-ecl-datepicker-toggle=""
       data-placeholder="DD-MM-YYYY"
-      data-value="2025-08-30"
+      data-value="2025-08-30 14:13:48 Europe/Brussels"
       invalid=""
     >
       <duet-date-picker
@@ -964,6 +966,7 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
         identifier="example-input-id-1"
         max="2026-08-30"
         min="2024-06-15"
+        name="example-input-name-1"
         required=""
       />
     </div>
@@ -1015,17 +1018,18 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
     </div>
     <div
       aria-describedby="example-input-id-1-helper"
-      class="ecl-datepicker"
+      class="ecl-datepicker ecl-datepicker--m"
       data-ecl-auto-init="Datepicker"
       data-ecl-datepicker-toggle=""
       data-placeholder="DD-MM-YYYY"
-      data-value="2025-08-30"
+      data-value="2025-08-30 14:13:48 Europe/Brussels"
     >
       <duet-date-picker
         first-day-of-week="1"
         identifier="example-input-id-1"
         max="2026-08-30"
         min="2024-06-15"
+        name="example-input-name-1"
         required=""
       />
     </div>
@@ -1066,17 +1070,18 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
     </div>
     <div
       aria-describedby="example-input-id-1-helper"
-      class="ecl-datepicker"
+      class="ecl-datepicker ecl-datepicker--m"
       data-ecl-auto-init="Datepicker"
       data-ecl-datepicker-toggle=""
       data-placeholder="DD-MM-YYYY"
-      data-value="2025-08-30"
+      data-value="2025-08-30 14:13:48 Europe/Brussels"
     >
       <duet-date-picker
         first-day-of-week="1"
         identifier="example-input-id-1"
         max="2026-08-30"
         min="2024-06-15"
+        name="example-input-name-1"
         required=""
       />
     </div>
@@ -1115,17 +1120,18 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
     </div>
     <div
       aria-describedby="example-input-id-1-helper"
-      class="ecl-datepicker"
+      class="ecl-datepicker ecl-datepicker--m"
       data-ecl-auto-init="Datepicker"
       data-ecl-datepicker-toggle=""
       data-placeholder="DD-MM-YYYY"
-      data-value="2025-08-30"
+      data-value="2025-08-30 14:13:48 Europe/Brussels"
     >
       <duet-date-picker
         first-day-of-week="1"
         identifier="example-input-id-1"
         max="2026-08-30"
         min="2024-06-15"
+        name="example-input-name-1"
         required=""
       />
     </div>
@@ -2540,33 +2546,38 @@ exports[`Form group  with Range field renders correctly 1`] = `
     >
       Optional help text
     </div>
-    <input
-      aria-describedby="example-range-id-helper example-range-id-value"
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
-    />
     <div
-      class="ecl-range__bubble"
-      data-ecl-range-bubble=""
+      class="ecl-range-container"
+      data-ecl-range-container=""
     >
-      <span
-        class="ecl-range__value-bubble"
-        data-ecl-range-value-current=""
+      <input
+        aria-describedby="example-range-id-helper example-range-id-value"
+        class="ecl-range ecl-range--m"
+        data-ecl-range-input=""
+        id="example-range-id"
+        max="30"
+        type="range"
+        value="15"
       />
-    </div>
-    <div
-      class="ecl-range__value"
-      id="example-range-id-value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
+      <div
+        class="ecl-range__bubble"
+        data-ecl-range-bubble=""
+      >
+        <span
+          class="ecl-range__value-bubble"
+          data-ecl-range-value-current=""
+        />
+      </div>
+      <div
+        class="ecl-range__value"
+        id="example-range-id-value"
+      >
+        Value: 
+        <span
+          class="ecl-range__value-current"
+          data-ecl-range-value-current=""
+        />
+      </div>
     </div>
   </div>
 </jest>
@@ -2597,34 +2608,39 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
     >
       Optional help text
     </div>
-    <input
-      aria-describedby="example-range-id-helper example-range-id-value"
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      disabled=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
-    />
     <div
-      class="ecl-range__bubble"
-      data-ecl-range-bubble=""
+      class="ecl-range-container"
+      data-ecl-range-container=""
     >
-      <span
-        class="ecl-range__value-bubble"
-        data-ecl-range-value-current=""
+      <input
+        aria-describedby="example-range-id-helper example-range-id-value"
+        class="ecl-range ecl-range--m"
+        data-ecl-range-input=""
+        disabled=""
+        id="example-range-id"
+        max="30"
+        type="range"
+        value="15"
       />
-    </div>
-    <div
-      class="ecl-range__value"
-      id="example-range-id-value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
+      <div
+        class="ecl-range__bubble"
+        data-ecl-range-bubble=""
+      >
+        <span
+          class="ecl-range__value-bubble"
+          data-ecl-range-value-current=""
+        />
+      </div>
+      <div
+        class="ecl-range__value"
+        id="example-range-id-value"
+      >
+        Value: 
+        <span
+          class="ecl-range__value-current"
+          data-ecl-range-value-current=""
+        />
+      </div>
     </div>
   </div>
 </jest>
@@ -2655,34 +2671,39 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
     >
       Optional help text
     </div>
-    <input
-      aria-describedby="example-range-id-helper example-range-id-invalid example-range-id-value"
-      aria-invalid="true"
-      class="ecl-range ecl-range--invalid ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
-    />
     <div
-      class="ecl-range__bubble"
-      data-ecl-range-bubble=""
+      class="ecl-range-container"
+      data-ecl-range-container=""
     >
-      <span
-        class="ecl-range__value-bubble"
-        data-ecl-range-value-current=""
+      <input
+        aria-describedby="example-range-id-helper example-range-id-invalid example-range-id-value"
+        aria-invalid="true"
+        class="ecl-range ecl-range--invalid ecl-range--m"
+        data-ecl-range-input=""
+        id="example-range-id"
+        max="30"
+        type="range"
+        value="15"
       />
-    </div>
-    <div
-      class="ecl-range__value"
-      id="example-range-id-value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
+      <div
+        class="ecl-range__bubble"
+        data-ecl-range-bubble=""
+      >
+        <span
+          class="ecl-range__value-bubble"
+          data-ecl-range-value-current=""
+        />
+      </div>
+      <div
+        class="ecl-range__value"
+        id="example-range-id-value"
+      >
+        Value: 
+        <span
+          class="ecl-range__value-current"
+          data-ecl-range-value-current=""
+        />
+      </div>
     </div>
     <div
       class="ecl-feedback-message"
@@ -2725,34 +2746,39 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
     >
       Optional help text
     </div>
-    <input
-      aria-describedby="example-range-id-helper example-range-id-value"
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      required=""
-      type="range"
-      value="15"
-    />
     <div
-      class="ecl-range__bubble"
-      data-ecl-range-bubble=""
+      class="ecl-range-container"
+      data-ecl-range-container=""
     >
-      <span
-        class="ecl-range__value-bubble"
-        data-ecl-range-value-current=""
+      <input
+        aria-describedby="example-range-id-helper example-range-id-value"
+        class="ecl-range ecl-range--m"
+        data-ecl-range-input=""
+        id="example-range-id"
+        max="30"
+        required=""
+        type="range"
+        value="15"
       />
-    </div>
-    <div
-      class="ecl-range__value"
-      id="example-range-id-value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
+      <div
+        class="ecl-range__bubble"
+        data-ecl-range-bubble=""
+      >
+        <span
+          class="ecl-range__value-bubble"
+          data-ecl-range-value-current=""
+        />
+      </div>
+      <div
+        class="ecl-range__value"
+        id="example-range-id-value"
+      >
+        Value: 
+        <span
+          class="ecl-range__value-current"
+          data-ecl-range-value-current=""
+        />
+      </div>
     </div>
   </div>
 </jest>
@@ -2785,33 +2811,38 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
     >
       Optional help text
     </div>
-    <input
-      aria-describedby="example-range-id-helper example-range-id-value"
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
-    />
     <div
-      class="ecl-range__bubble"
-      data-ecl-range-bubble=""
+      class="ecl-range-container"
+      data-ecl-range-container=""
     >
-      <span
-        class="ecl-range__value-bubble"
-        data-ecl-range-value-current=""
+      <input
+        aria-describedby="example-range-id-helper example-range-id-value"
+        class="ecl-range ecl-range--m"
+        data-ecl-range-input=""
+        id="example-range-id"
+        max="30"
+        type="range"
+        value="15"
       />
-    </div>
-    <div
-      class="ecl-range__value"
-      id="example-range-id-value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
+      <div
+        class="ecl-range__bubble"
+        data-ecl-range-bubble=""
+      >
+        <span
+          class="ecl-range__value-bubble"
+          data-ecl-range-value-current=""
+        />
+      </div>
+      <div
+        class="ecl-range__value"
+        id="example-range-id-value"
+      >
+        Value: 
+        <span
+          class="ecl-range__value-current"
+          data-ecl-range-value-current=""
+        />
+      </div>
     </div>
   </div>
 </jest>
@@ -2842,33 +2873,38 @@ exports[`Form group  with Range field renders correctly with extra class names 1
     >
       Optional help text
     </div>
-    <input
-      aria-describedby="example-range-id-helper example-range-id-value"
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
-    />
     <div
-      class="ecl-range__bubble"
-      data-ecl-range-bubble=""
+      class="ecl-range-container"
+      data-ecl-range-container=""
     >
-      <span
-        class="ecl-range__value-bubble"
-        data-ecl-range-value-current=""
+      <input
+        aria-describedby="example-range-id-helper example-range-id-value"
+        class="ecl-range ecl-range--m"
+        data-ecl-range-input=""
+        id="example-range-id"
+        max="30"
+        type="range"
+        value="15"
       />
-    </div>
-    <div
-      class="ecl-range__value"
-      id="example-range-id-value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
+      <div
+        class="ecl-range__bubble"
+        data-ecl-range-bubble=""
+      >
+        <span
+          class="ecl-range__value-bubble"
+          data-ecl-range-value-current=""
+        />
+      </div>
+      <div
+        class="ecl-range__value"
+        id="example-range-id-value"
+      >
+        Value: 
+        <span
+          class="ecl-range__value-current"
+          data-ecl-range-value-current=""
+        />
+      </div>
     </div>
   </div>
 </jest>

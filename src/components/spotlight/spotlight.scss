@@ -10,6 +10,9 @@
 // Exposed variables
 $theme: null !default;
 $spotlight: null !default;
+$content-padding-top: 9.125rem;
+$anchor-width-m: 161px;
+$anchor-width-l: 232px;
 
 .ecl-spotlight {
   container-name: ecl-spotlight;
@@ -66,7 +69,6 @@ $spotlight: null !default;
   bottom: 0;
   display: flex;
   flex-direction: column;
-  height: map.get($spotlight, 'gradient-height-mobile');
   justify-content: flex-end;
   position: absolute;
   width: 100%;
@@ -74,7 +76,7 @@ $spotlight: null !default;
   .ecl-container {
     align-items: flex-end;
     display: flex;
-    justify-content: space-between;
+    padding-block-start: $content-padding-top;
   }
 }
 
@@ -98,10 +100,17 @@ $spotlight: null !default;
   }
 }
 
-.ecl-spotlight__link:hover .ecl-spotlight__title {
-  text-decoration: underline;
-  text-decoration-thickness: from-font;
-  text-underline-offset: 0.15em;
+.ecl-spotlight__link {
+  &:hover .ecl-spotlight__title,
+  &:focus-visible .ecl-spotlight__title {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.15em;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .ecl-spotlight__credit {
@@ -140,10 +149,6 @@ $spotlight: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-spotlight__container {
-    height: map.get($spotlight, 'gradient-height-tablet');
-  }
-
   .ecl-spotlight__picture-container,
   .ecl-spotlight .ecl-spotlight__image {
     aspect-ratio: 2/1;
@@ -154,6 +159,10 @@ $spotlight: null !default;
   .ecl-spotlight__title {
     max-width: 750px;
     padding-block: map.get($spotlight, 'title', 'padding-block-tablet');
+
+    .ecl-spotlight--anchor & {
+      padding-inline-end: $anchor-width-m;
+    }
   }
 
   .ecl-spotlight__header {
@@ -161,7 +170,6 @@ $spotlight: null !default;
   }
 
   .ecl-spotlight__anchor {
-    align-self: flex-end;
     background-color: map.get($spotlight, 'anchor', 'color');
     display: block;
     flex-shrink: 0;
@@ -169,8 +177,15 @@ $spotlight: null !default;
     mask-image: url("data:image/svg+xml;utf8,<svg width='161' height='73' viewBox='0 0 161 73' xmlns='http://www.w3.org/2000/svg'><path d='M147.353 50.6247L0.389648 62.8649V67.9293V72.9936L160.999 62.8649L159.447 0.709961H149.526L147.353 50.6247Z' fill-rule='evenodd' /></svg>");
     mask-repeat: no-repeat;
     padding-block-end: map.get($spotlight, 'anchor', 'padding-block');
-    padding-inline-end: map.get($spotlight, 'anchor', 'padding-inline');
-    width: 161px;
+    padding-inline-end: inherit;
+    position: absolute;
+    right: 0;
+    width: $anchor-width-m;
+
+    &:dir(rtl) {
+      left: 0;
+      right: auto;
+    }
   }
 }
 
@@ -178,6 +193,10 @@ $spotlight: null !default;
   .ecl-spotlight__title {
     max-width: 950px;
     padding-block: map.get($spotlight, 'title', 'padding-block-desktop');
+
+    .ecl-spotlight--anchor & {
+      padding-inline-end: $anchor-width-l;
+    }
   }
 
   .ecl-spotlight__header {
@@ -187,7 +206,7 @@ $spotlight: null !default;
   .ecl-spotlight__anchor {
     mask-image: url("data:image/svg+xml;utf8,<svg width='232' height='122' viewBox='0 0 232 122' xmlns='http://www.w3.org/2000/svg'><path d='M212.327 84.3105L0.469702 104.936V113.47V122.004L232 104.936L229.761 0.200012H215.46L212.327 84.3105Z' /></svg>");
     height: 122px;
-    width: 232px;
+    width: $anchor-width-l;
   }
 }
 

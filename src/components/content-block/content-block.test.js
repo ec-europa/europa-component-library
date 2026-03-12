@@ -26,6 +26,30 @@ describe('Content block', () => {
       return expect(render(dataSimpleTitle)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with single list items', () => {
+      expect.assertions(1);
+
+      const singleMeta = JSON.parse(JSON.stringify(dataImage));
+      singleMeta.primary_meta = ['Single primary meta'];
+      singleMeta.secondary_meta = [{ label: 'Single secondary meta' }];
+      singleMeta.links = [
+        {
+          link: {
+            label: 'Single link',
+            path: '#example',
+          },
+        },
+      ];
+      singleMeta.labels = [
+        {
+          label: 'Single label',
+          variant: 'highlight',
+        },
+      ];
+
+      return expect(render(singleMeta)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

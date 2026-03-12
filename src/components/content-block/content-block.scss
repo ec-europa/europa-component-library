@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
@@ -17,25 +18,18 @@ $content-block: null !default;
 .ecl-content-block__label-container {
   display: inline-flex;
   flex-wrap: wrap;
+  gap: map.get($content-block, 'label-gap');
   list-style: none;
-  margin: map.get($content-block, 'label-spacing');
+  margin-block: 0 map.get($content-block, 'label-spacing-mobile');
   padding: 0;
   width: 100%;
-}
-
-.ecl-content-block__label-item {
-  margin: map.get($content-block, 'label-item-spacing');
-
-  &:last-child {
-    margin-inline-end: 0;
-  }
 }
 
 .ecl-content-block__primary-meta-container {
   color: map.get($content-block, 'primary_meta-color');
   display: inline-block;
   list-style: none;
-  margin: map.get($content-block, 'primary-meta-margin');
+  margin-block: 0 map.get($content-block, 'primary-meta-margin-mobile');
   padding: 0;
   width: 100%;
 
@@ -46,8 +40,11 @@ $content-block: null !default;
   border-inline-end: 1px solid var(--cm-on-surface-brand, var(--c-p));
   color: map.get($content-block, 'primary-meta-color');
   display: inline;
-  margin-inline-end: var(--s-xs);
-  padding-inline-end: var(--s-xs);
+  margin-inline-end: map.get($content-block, 'primary-meta-item-margin-mobile');
+  padding-inline-end: map.get(
+    $content-block,
+    'primary-meta-item-margin-mobile'
+  );
   unicode-bidi: isolate;
 
   &:last-child {
@@ -59,7 +56,7 @@ $content-block: null !default;
 
 .ecl-content-block__title {
   color: map.get($content-block, 'text-color');
-  margin: map.get($content-block, 'title-margin');
+  margin-block: 0 map.get($content-block, 'title-margin-mobile');
   max-width: var(--max-w);
 
   @include mixins.responsive-font(
@@ -75,9 +72,10 @@ $content-block: null !default;
 
 .ecl-content-block__description {
   color: map.get($content-block, 'text-color');
-  font: map.get($content-block, 'description-font');
-  margin: map.get($content-block, 'description-margin');
+  margin-block: 0 map.get($content-block, 'description-margin-mobile');
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(map.get($content-block, 'description-font'));
 }
 
 .ecl-content-block__secondary-meta-container {
@@ -96,8 +94,28 @@ $content-block: null !default;
 .ecl-content-block__secondary-meta-item {
   align-items: center;
   display: inline-flex;
-  padding: var(--s-xs) 0;
+  margin-block: map.get($content-block, 'secondary-meta-item-margin-block');
+  padding: 0;
   width: 100%;
+}
+
+.ecl-content-block__secondary-meta-container--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .ecl-content-block__secondary-meta-item {
+    border-inline-end: 1px solid
+      map.get($content-block, 'secondary-meta-separator-color');
+    margin-inline-end: var(--s-xs);
+    padding-inline-end: var(--s-xs);
+    width: auto;
+
+    &:last-child {
+      border-inline-end: none;
+      margin-inline-end: 0;
+      padding-inline-end: 0;
+    }
+  }
 }
 
 .ecl-content-block__secondary-meta-icon {
@@ -138,9 +156,10 @@ $content-block: null !default;
 }
 
 .ecl-content-block__link-item {
-  font: map.get($content-block, 'link-font');
   line-height: map.get($theme, 'line-height', 'm');
   margin-block-start: map.get($content-block, 'link-spacing');
+
+  @include mixins.responsive-font(map.get($content-block, 'link-font'));
 
   &:first-child {
     margin-block-start: 0;
@@ -179,6 +198,31 @@ $content-block: null !default;
   margin-top: 0;
 }
 
-.ecl-content-block__label-container + .ecl-content-block__title {
-  margin-top: 0;
+@include breakpoints.up('m') {
+  .ecl-content-block__label-container {
+    margin-block-end: map.get($content-block, 'label-spacing-tablet');
+  }
+
+  .ecl-content-block__primary-meta-container {
+    margin-block-end: map.get($content-block, 'primary-meta-margin-tablet');
+  }
+
+  .ecl-content-block__primary-meta-item {
+    margin-inline-end: map.get(
+      $content-block,
+      'primary-meta-item-margin-tablet'
+    );
+    padding-inline-end: map.get(
+      $content-block,
+      'primary-meta-item-margin-tablet'
+    );
+  }
+
+  .ecl-content-block__title {
+    margin-block-end: map.get($content-block, 'title-margin-tablet');
+  }
+
+  .ecl-content-block__description {
+    margin-block-end: map.get($content-block, 'description-margin-tablet');
+  }
 }

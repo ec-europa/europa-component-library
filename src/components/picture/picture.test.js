@@ -29,13 +29,28 @@ describe('Picture', () => {
       return expect(render(dataZoom)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with empty alt attribute', () => {
+    test('adds an empty alt attribute when img.alt is empty', async () => {
       expect.assertions(1);
 
       const dataEmptyAlt = JSON.parse(JSON.stringify(data));
       dataEmptyAlt.picture.img.alt = '';
 
-      return expect(render(dataEmptyAlt)).resolves.toMatchSnapshot();
+      const html = await render(dataEmptyAlt);
+      const img = html.querySelector('picture.ecl-picture img');
+
+      expect(img.hasAttribute('alt')).toBe(true);
+    });
+
+    test('does not add style attribute when img.picture_anchor is empty', async () => {
+      expect.assertions(1);
+
+      const dataEmptyAnchor = JSON.parse(JSON.stringify(data));
+      dataEmptyAnchor.picture.img.picture_anchor = '';
+
+      const html = await render(dataEmptyAnchor);
+      const img = html.querySelector('picture.ecl-picture img');
+
+      expect(img.hasAttribute('style')).toBe(false);
     });
 
     test('renders correctly with extra class names', () => {

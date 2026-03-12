@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
@@ -8,9 +8,6 @@ import demoContent from './demo/data';
 
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
-
-const demoContentNews = { ...demoContent, variant: 'news' };
-const demoContentFifty = { ...demoContent, variant: '50-50' };
 
 const expandableArgs = (data) => {
   return {
@@ -69,7 +66,7 @@ const expandableArgTypes = () => {
   };
 };
 
-const getArgs = (data, variant) => {
+const getArgs = (data) => {
   let args = {
     show_breadcrumb: true,
     show_picture: true,
@@ -77,11 +74,11 @@ const getArgs = (data, variant) => {
     show_thumbnail: false,
     show_meta: true,
     show_page_header_expandable: false,
-    hide_title: false,
+    has_background: false,
   };
 
   if (getSystem() === 'ec') {
-    args.font_size = 'm';
+    args.color_mode = 'default';
   }
 
   if (data.title) {
@@ -92,13 +89,14 @@ const getArgs = (data, variant) => {
   }
   if (data.description) {
     args.description = data.description;
-    if (variant === 'fifty') {
-      args.description_position = 'top';
-    }
+    args.description_position = 'top';
   }
   if (data.picture_background.img.src) {
     args.background_image_url = data.picture_background.img.src;
+    args.picture_position = 'top';
   }
+
+  args.hide_title = false;
 
   args = {
     ...args,
@@ -108,13 +106,14 @@ const getArgs = (data, variant) => {
   return args;
 };
 
-const getArgTypes = (variant) => {
+const getArgTypes = () => {
   const argTypes = {
+    ...getColorModeControls({ arg: 'has_background' }),
     ...expandableArgTypes(),
   };
 
   argTypes.show_breadcrumb = {
-    name: 'breadcrumb',
+    name: 'Breadcrumb',
     type: 'boolean',
     description: 'Toggle breadcrumb visibility',
     table: {
@@ -123,16 +122,17 @@ const getArgTypes = (variant) => {
   };
 
   argTypes.show_thumbnail = {
-    name: 'thumbnail',
+    name: 'Featured media',
     type: 'boolean',
-    description: 'Toggle thumbnail visibility',
+    description: 'Toggle featured media (thumbnail) visibility',
     table: {
       category: 'Optional',
     },
+    if: { arg: 'show_description' },
   };
 
   argTypes.show_page_header_expandable = {
-    name: 'expandable',
+    name: 'Expandable',
     type: 'boolean',
     description: 'Toggle element visibility',
     table: {
@@ -141,16 +141,16 @@ const getArgTypes = (variant) => {
   };
 
   argTypes.show_description = {
-    name: 'description',
+    name: 'Introduction',
     type: 'boolean',
-    description: 'Toggle description visibility',
+    description: 'Toggle introduction (description) visibility',
     table: {
       category: 'Optional',
     },
   };
 
   argTypes.show_meta = {
-    name: 'meta',
+    name: 'Meta',
     type: 'boolean',
     description: 'Toggle meta visibility',
     table: {
@@ -159,7 +159,7 @@ const getArgTypes = (variant) => {
   };
 
   argTypes.show_picture = {
-    name: 'image',
+    name: 'Image',
     type: 'boolean',
     description: 'Toggle image visibility',
     table: {
@@ -168,6 +168,7 @@ const getArgTypes = (variant) => {
   };
 
   argTypes.title = {
+    name: 'Page title',
     type: { name: 'string', required: true },
     description: 'The page title',
     table: {
@@ -177,44 +178,20 @@ const getArgTypes = (variant) => {
     },
   };
 
-  argTypes.hide_title = {
-    name: 'hide title',
+  argTypes.has_background = {
+    name: 'Enable background color',
     type: 'boolean',
-    description: 'Toggle title visibility, for screen reader only',
+    description: 'Use a colored background',
     table: {
-      type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
+      type: { summary: 'boolean' },
       category: 'Display',
     },
   };
 
-  if (getSystem() === 'ec') {
-    argTypes.font_size = {
-      name: 'font size',
-      type: 'select',
-      description: 'Change title font size',
-      options: ['m', 'l'],
-      control: {
-        labels: {
-          m: 'medium',
-          l: 'large',
-        },
-      },
-      mapping: {
-        medium: 'm',
-        large: 'l',
-      },
-      table: {
-        type: 'string',
-        defaultValue: { summary: 'm' },
-        category: 'Display',
-      },
-    };
-  }
-
   argTypes.description = {
+    name: 'Introduction',
     type: 'string',
-    description: 'The page introduction',
+    description: 'The page introduction (description)',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -223,32 +200,31 @@ const getArgTypes = (variant) => {
     if: { arg: 'show_description' },
   };
 
-  if (variant === 'fifty') {
-    argTypes.description_position = {
-      name: 'description position',
-      type: 'select',
-      description: 'Change description position',
-      options: ['top', 'bottom'],
-      control: {
-        labels: {
-          top: 'top',
-          bottom: 'bottom',
-        },
-      },
-      mapping: {
+  argTypes.description_position = {
+    name: 'Description position',
+    type: 'select',
+    description: 'Change description position',
+    options: ['top', 'bottom'],
+    control: {
+      labels: {
         top: 'top',
         bottom: 'bottom',
       },
-      table: {
-        type: 'string',
-        defaultValue: { summary: 'top' },
-        category: 'Display',
-      },
-      if: { arg: 'show_description' },
-    };
-  }
+    },
+    mapping: {
+      top: 'top',
+      bottom: 'bottom',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'top' },
+      category: 'Display',
+    },
+    if: { arg: 'show_description' },
+  };
 
   argTypes.meta = {
+    name: 'Meta',
     type: 'array',
     description: 'The page meta',
     table: {
@@ -260,7 +236,7 @@ const getArgTypes = (variant) => {
   };
 
   argTypes.background_image_url = {
-    name: 'image url',
+    name: 'Background image',
     type: 'string',
     description: 'The image url',
     table: {
@@ -271,11 +247,49 @@ const getArgTypes = (variant) => {
     if: { arg: 'show_picture' },
   };
 
+  argTypes.picture_position = {
+    name: 'Background image position',
+    type: 'select',
+    description: 'Change image position',
+    options: ['top', 'beside', 'bottom'],
+    control: {
+      labels: {
+        top: 'top',
+        beside: 'beside',
+        bottom: 'bottom',
+      },
+    },
+    mapping: {
+      top: 'top',
+      beside: 'beside',
+      bottom: 'bottom',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'top' },
+      category: 'Display',
+    },
+    if: { arg: 'show_picture' },
+  };
+
+  argTypes.hide_title = {
+    name: 'Hide title',
+    type: 'boolean',
+    description:
+      'Toggle title visibility, for screen reader only. This implies that the visible page title is provided somewhere else (banner for instance)',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Extra configuration',
+    },
+  };
+
   return argTypes;
 };
 
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
+
+  clone.color_mode = args.color_mode;
 
   if (!args.show_description) {
     delete clone.description;
@@ -287,6 +301,7 @@ const prepareData = (data, args) => {
   if (!args.show_picture) {
     delete clone.picture_background;
   } else if (args.background_image_url) {
+    clone.picture_position = args.picture_position;
     clone.picture_background = {
       img: {
         src: args.background_image_url,
@@ -316,7 +331,7 @@ const prepareData = (data, args) => {
     clone.expandable = {
       toggle_label: args.toggle_label,
       header_content: args.header_content,
-      panel_content: args.panel_content,
+      panel_content: args.expandable ? args.panel_content : '',
     };
   } else {
     delete clone.expandable;
@@ -324,9 +339,7 @@ const prepareData = (data, args) => {
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
-  if (getSystem() === 'ec') {
-    clone.font_size = args.font_size;
-  }
+  clone.has_background = args.has_background;
 
   correctPaths(clone);
 
@@ -346,34 +359,8 @@ Default.render = async (args) => {
   return renderedCore;
 };
 Default.storyName = 'default';
-Default.args = getArgs(demoContent, 'default');
-Default.argTypes = getArgTypes('default');
+Default.args = getArgs(demoContent);
+Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: { markdown: notes, json: demoContent },
-};
-
-export const News = (_, { loaded: { component } }) => component;
-
-News.render = async (args) => {
-  const renderedNews = await pageHeader(prepareData(demoContentNews, args));
-  return renderedNews;
-};
-News.storyName = 'news';
-News.args = getArgs(demoContentNews, 'news');
-News.argTypes = getArgTypes('news');
-News.parameters = {
-  notes: { markdown: notes, json: demoContentNews },
-};
-
-export const Fifty = (_, { loaded: { component } }) => component;
-
-Fifty.render = async (args) => {
-  const renderedFifty = await pageHeader(prepareData(demoContentFifty, args));
-  return renderedFifty;
-};
-Fifty.storyName = '50/50';
-Fifty.args = getArgs(demoContentFifty, 'fifty');
-Fifty.argTypes = getArgTypes('fifty');
-Fifty.parameters = {
-  notes: { markdown: notes, json: demoContentFifty },
 };

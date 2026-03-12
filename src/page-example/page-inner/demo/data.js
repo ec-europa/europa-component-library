@@ -12,6 +12,8 @@ import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
 import dataFile from '@ecl/file/demo/data--with-translation';
 import dataGallery from '@ecl/gallery/demo/data';
+import dataTabs from '@ecl/tabs/demo/data--with-content';
+import dataModal from '@ecl/modal/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -46,11 +48,13 @@ const data = {
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
   page_header: pageHeader,
+  tabs: dataTabs,
   inpage_navigation: dataInpageNavigation,
   accordion: dataAccordion,
   unordered_list: dataUnorderedList,
   file: dataFile,
   gallery: dataGallery,
+  modal: dataModal,
 };
 
 export default data;

@@ -3,11 +3,11 @@
 exports[`Date picker Disabled renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-datepicker"
+    class="ecl-datepicker ecl-datepicker--m"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       disabled=""
@@ -15,6 +15,7 @@ exports[`Date picker Disabled renders correctly 1`] = `
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -23,11 +24,11 @@ exports[`Date picker Disabled renders correctly 1`] = `
 exports[`Date picker Invalid renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-datepicker ecl-datepicker--invalid"
+    class="ecl-datepicker ecl-datepicker--m ecl-datepicker--invalid"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
     invalid=""
   >
     <duet-date-picker
@@ -35,6 +36,7 @@ exports[`Date picker Invalid renders correctly 1`] = `
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -43,17 +45,18 @@ exports[`Date picker Invalid renders correctly 1`] = `
 exports[`Date picker Optional renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-datepicker"
+    class="ecl-datepicker ecl-datepicker--m"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       first-day-of-week="1"
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -62,19 +65,20 @@ exports[`Date picker Optional renders correctly 1`] = `
 exports[`Date picker Optional renders correctly with extra attributes 1`] = `
 <jest>
   <div
-    class="ecl-datepicker"
+    class="ecl-datepicker ecl-datepicker--m"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       first-day-of-week="1"
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -83,17 +87,18 @@ exports[`Date picker Optional renders correctly with extra attributes 1`] = `
 exports[`Date picker Optional renders correctly with extra class names 1`] = `
 <jest>
   <div
-    class="ecl-datepicker custom-class custom-class--test"
+    class="ecl-datepicker ecl-datepicker--m custom-class custom-class--test"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       first-day-of-week="1"
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -102,17 +107,18 @@ exports[`Date picker Optional renders correctly with extra class names 1`] = `
 exports[`Date picker Optional renders correctly with extra group class names 1`] = `
 <jest>
   <div
-    class="ecl-datepicker"
+    class="ecl-datepicker ecl-datepicker--m"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       first-day-of-week="1"
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -121,17 +127,18 @@ exports[`Date picker Optional renders correctly with extra group class names 1`]
 exports[`Date picker Optional renders correctly with extra label class names 1`] = `
 <jest>
   <div
-    class="ecl-datepicker"
+    class="ecl-datepicker ecl-datepicker--m"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       first-day-of-week="1"
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
     />
   </div>
 </jest>
@@ -140,17 +147,18 @@ exports[`Date picker Optional renders correctly with extra label class names 1`]
 exports[`Date picker Required renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-datepicker"
+    class="ecl-datepicker ecl-datepicker--m"
     data-ecl-auto-init="Datepicker"
     data-ecl-datepicker-toggle=""
     data-placeholder="DD-MM-YYYY"
-    data-value="2025-08-30"
+    data-value="2025-08-30 14:13:48 Europe/Brussels"
   >
     <duet-date-picker
       first-day-of-week="1"
       identifier="example-input-id-1"
       max="2026-08-30"
       min="2024-06-15"
+      name="example-input-name-1"
       required=""
     />
   </div>

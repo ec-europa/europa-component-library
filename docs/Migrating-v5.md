@@ -128,11 +128,15 @@ If not specificed, the default reading direction remains left to right.
 
 ### Accordion
 
-Markup of accordion title has been updated to use a simple div instead of a heading.
+Markup of accordion title has been updated
 
-Corresponding twig parameter `level` has been removed.
+- it relies on the use of default HTML tags `details` and `summary`. Javascript is no longer required as everything is handled by the browser.
+- items no longer uses heading. Corresponding twig parameter `level` has been removed.
+- a selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
 
-A selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
+Event management:
+
+As there is no more ECL javascript for the accordion, javascript event are no longer provided by us. But the `details` element comes with a [build-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which could be used directly
 
 ### Banner
 
@@ -143,6 +147,7 @@ A selector has been added to the first item `.is-first` and to the last item `.i
 ### Breadcrumb
 
 - Breadcrumb links are no longer using the "no-visited" variant (class `ecl-link--no-visited`)
+- Breadcrumb links are no longer using the "standalone" variant (class `ecl-link--standalone`)
 
 ### Button
 
@@ -160,24 +165,42 @@ Here is the mapping to the new variant / style:
 - ghost -> tertiary
 - ghost-inverted -> tertiary / inverted
 
+### Card
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
 ### Checkbox
 
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Content block
 
-The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
+
+### Content item
+
+- New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
 
 ### Datepicker
 
 ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
 
 `<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+
+**Important:** Using an external CDN may not be allowed for your website (this is most probably the case if it is hosted under europa.eu).
+In that case, you would have to use one of the following options and use:
+
+A) the npm package `npm install @duetds/date-picker`, and the whole `dist` folder you'll find inside of it
 or
-`<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>`
+B) the tarball from https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz that is also containing the same `dist` folder
+
+inside the `dist` folder there is the `duet.esm.js` script to be loaded in a script tag, mind the fact that it needs all the files in the containing folder to work.
 
 The markup is now using the custom element defined by duet js:
 `<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
+
+- Short months: The select to choose the month is now showing options using abbreviations for the month names, the default ones in english are provided by the ecl datepicker's js, the name of the option is `monthNamesShort`.
 
 ### Fact & figures
 
@@ -188,14 +211,21 @@ The markup is now using the custom element defined by duet js:
 
 - Variant `simple` has been removed (deprecated in v4)
 - Featured item footer has been removed, as it is no longer in use.
-- Markup has been simplified: now it reflects the real element orders, and extra container `ecl-featured-item__title-content` has been removed
+- Markup has been updated: now it reflects the real element orders, extra container added around the text content, and `ecl-featured-item__title-content` has been removed
 - New parameter `link-highlighted` to have a different display for the link
 - New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
+- New parameters `horizontal_alignment` and `vertical_alignment` to handle text alignment
+- New parameter `media_behavior` to allow the image to take the full height if needed
 
 ### Form
 
 - Icon for the invalid text has been changed to the outline one
 - The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo example have been updated in that sense. The parameter is still available in twig template, but left empy by default.
+
+### Gallery
+
+- New icon displayed when focusing an item (updated in the twig template).
+- Icon for the video updated to use `play` instead of `play-filled` (updated in the twig template)
 
 ### Icon
 
@@ -233,6 +263,8 @@ Extra attention points:
 ### Link
 
 - following the button updates, type `cta` has ben renamed to `primary-highlight`
+- variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
+- new parameter `branded` added, to use an alternative display (using dark text instead of blue)
 
 ### List with illustration
 
@@ -307,19 +339,33 @@ A parameter has been added in the twig template `featured_priority` so that this
 The menu can be used to show a single level list of sub items in a multi column layout, a parameter has been added `one_level_only` at the item level to optionally choose this display, the default is still to display the sub-items in a single column.
 It can be used with or without an info or a featured panel, it goes up to 4 columns when it's the only content of the dropdown.
 
+### Modal
+
+The modal variants now use the outline version of the icons, instead of the filled one. This is part of the twig, but should be updated for users not relying on it.
+
 ### Notification
 
 The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
 
 ### Page header
 
+- Several new display option added. Corresponding twig parameters are: `has_background`, `color_mode`, `description_position`, `picture_position`
+- Optional section added on top of the page header. It is filled with the parameter `expandable`
 - Meta now support a structure { label , icon } in addition to the existing string
 - Deprecated overlay on the image has been removed
+
+### Picture
+
+- New parameter `image_anchor` to handle position of image when it is cropped
 
 ### Radio
 
 - To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
+
+### Range
+
+- To improve the component and be able to correctly position the bubble when used in a container (with position relative), a wrapper has been added and the js has been updated to calculate the position of the bubble based on a selector passed as an option `containerSelector`, by default it is `data-ecl-range-container`.
 
 ### Site header
 

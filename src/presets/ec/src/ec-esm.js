@@ -1,6 +1,5 @@
 import '@ecl/dom-utils/polyfills';
 
-import Accordion from '@ecl/accordion';
 import autoInit from '@ecl/dom-utils/autoinit';
 import Banner from '@ecl/banner';
 import Carousel from '@ecl/carousel';
@@ -29,10 +28,10 @@ import SiteHeader from '@ecl/site-header';
 import Table from '@ecl/table';
 import Tabs from '@ecl/tabs';
 import Timeline from '@ecl/timeline';
+import Tooltip from '@ecl/tooltip';
 
 const ECL = {
   autoInit,
-  Accordion,
   Banner,
   Carousel,
   CategoryFilter,
@@ -60,6 +59,7 @@ const ECL = {
   Tabs,
   Table,
   Timeline,
+  Tooltip,
 };
 
 export { ECL };

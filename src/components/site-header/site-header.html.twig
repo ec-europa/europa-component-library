@@ -476,7 +476,7 @@
       <div class="ecl-site-header__banner-top">
         {%- if banner_top.link is defined and banner_top.link is not empty %}
           {% include '@ecl/link/link.html.twig' with banner_top|merge({
-            link: banner_top.link|merge({ type: 'standalone', no_visited: true}),
+            link: banner_top.link|merge({ type: 'standalone' }),
           }) only %}
         {% else %}
           {{ banner_top }}

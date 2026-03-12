@@ -9,10 +9,11 @@ npm install --save @ecl/datepicker
 ### Parameters
 
 - **"autoinit"** (boolean) (default: false)
-- **"default_value"** (string) (default: '')
+- **"default_value"** (string) (default: '') (YYYY-MM-DD format)
 - **"required"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
+- **"width"** (string) (default: 'm') size of the text field (s, m or l)
 - **"id"** (string) (default: random)
 - **"min"** (string) (default: '')
 - **"max"** (string) (default: '')

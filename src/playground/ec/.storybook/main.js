@@ -25,6 +25,7 @@ const addons = [
   '@storybook/addon-measure',
   '@ecl/storybook-addon-system-switcher',
   'storybook-addon-rtl',
+  '@storybook/addon-interactions',
 ];
 
 let staticDirs = [
@@ -35,7 +36,7 @@ let staticDirs = [
 
 // FRONT-3789 - No need for static dirs, we manually copy the files.
 if (isProd) {
-  staticDirs = [];
+  staticDirs = [path.resolve(__dirname, '../public')];
 }
 
 const webpackFinal = (config) => {

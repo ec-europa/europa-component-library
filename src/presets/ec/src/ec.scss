@@ -34,6 +34,7 @@
 );
 @use '@ecl/file-upload/file-upload' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $file-upload: var.$file-upload
 );
 @use '@ecl/radio/radio' with (
@@ -113,6 +114,10 @@
   $theme: theme.$theme,
   $tag: var.$tag
 );
+@use '@ecl/tooltip/tooltip' with (
+  $theme: theme.$theme,
+  $tooltip: var.$tooltip
+);
 @use '@ecl/video/video';
 
 // Molecules
@@ -187,6 +192,10 @@
 @use '@ecl/unordered-list/unordered-list' with (
   $theme: theme.$theme,
   $list: var.$list
+);
+@use '@ecl/page-information/page-information' with (
+  $theme: theme.$theme,
+  $page-information: var.$page-information
 );
 @use '@ecl/pagination/pagination' with (
   $theme: theme.$theme,

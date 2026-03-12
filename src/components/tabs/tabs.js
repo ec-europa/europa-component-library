@@ -5,6 +5,7 @@ import EventManager from '@ecl/event-manager';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.containerSelector Selector for container element
+ * @param {String} options.contentSelector Selector for tabs with content
  * @param {String} options.listSelector Selector for list element
  * @param {String} options.listItemsSelector Selector for tabs element
  * @param {String} options.moreButtonSelector Selector for more button element
@@ -42,6 +43,7 @@ export class Tabs {
     element,
     {
       containerSelector = '.ecl-tabs__container',
+      contentSelector = 'data-ecl-tabs-with-content',
       listSelector = '.ecl-tabs__list',
       listItemsSelector = '.ecl-tabs__item:not(.ecl-tabs__item--more)',
       moreItemSelector = '.ecl-tabs__item--more',
@@ -49,6 +51,7 @@ export class Tabs {
       moreLabelSelector = '.ecl-tabs__toggle .ecl-button__label',
       prevSelector = '.ecl-tabs__prev',
       nextSelector = '.ecl-tabs__next',
+      activeSelector = 'ecl-tabs__link--active',
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -65,6 +68,7 @@ export class Tabs {
 
     // Options
     this.containerSelector = containerSelector;
+    this.contentSelector = contentSelector;
     this.listSelector = listSelector;
     this.listItemsSelector = listItemsSelector;
     this.moreItemSelector = moreItemSelector;
@@ -72,6 +76,7 @@ export class Tabs {
     this.moreLabelSelector = moreLabelSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
+    this.activeSelector = activeSelector;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -97,16 +102,23 @@ export class Tabs {
     this.direction = 'ltr';
     this.isMobile = false;
     this.resizeTimer = null;
+    this.tabs = [];
+    this.activeTab = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleClickOnTabs = this.handleClickOnTabs.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.closeMoreDropdown = this.closeMoreDropdown.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.shiftTabs = this.shiftTabs.bind(this);
     this.handleKeyboardOnTabs = this.handleKeyboardOnTabs.bind(this);
     this.moveFocus = this.moveFocus.bind(this);
     this.arrowFocusToTab = this.arrowFocusToTab.bind(this);
     this.tabsKeyEvents = this.tabsKeyEvents.bind(this);
+    this.handleFocusOnToggle = this.handleFocusOnToggle.bind(this);
+    this.handleMouseDownOnToggle = this.handleMouseDownOnToggle.bind(this);
+    this.handleFocusOnTab = this.handleFocusOnTab.bind(this);
   }
 
   /**
@@ -119,6 +131,7 @@ export class Tabs {
     ECL.components = ECL.components || new Map();
 
     this.container = queryOne(this.containerSelector, this.element);
+    this.hasContent = this.element.hasAttribute(this.contentSelector);
     this.list = queryOne(this.listSelector, this.element);
     this.listItems = queryAll(this.listItemsSelector, this.element);
     this.moreItem = queryOne(this.moreItemSelector, this.element);
@@ -136,7 +149,29 @@ export class Tabs {
       this.dropdownList = document.createElement('div');
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
-        this.dropdownList.appendChild(item.cloneNode(true));
+        const originalLink = queryOne('.ecl-link', item);
+        if (!originalLink) return;
+
+        const li = document.createElement('div');
+        li.className = 'ecl-tabs__item';
+
+        const a = document.createElement('a');
+        a.className = originalLink.className;
+        a.setAttribute('role', 'tab');
+        a.setAttribute('aria-selected', 'false');
+        a.setAttribute('tabindex', '-1');
+        a.href = originalLink.getAttribute('href');
+        // This will only copy text, not any markup used as the label of the link
+        a.textContent = originalLink.textContent?.trim() ?? '';
+
+        if (originalLink.id) {
+          a.dataset.id = originalLink.id;
+        }
+
+        li.appendChild(a);
+        li.addEventListener('click', this.handleClickOnTabs);
+
+        this.dropdownList.appendChild(li);
       });
       this.dropdown.appendChild(this.dropdownList);
       this.moreItem.appendChild(this.dropdown);
@@ -150,15 +185,116 @@ export class Tabs {
       this.buttonNextSize = this.btnNext.getBoundingClientRect().width;
     }
 
-    this.handleResize();
-
     // Bind events
     if (this.attachClickListener && this.moreButton) {
+      this.moreButton.addEventListener(
+        'mousedown',
+        this.handleMouseDownOnToggle,
+      );
       this.moreButton.addEventListener('click', this.handleClickOnToggle);
+      this.moreButton.addEventListener('focus', this.handleFocusOnToggle);
     }
     if (this.attachClickListener && document && this.moreButton) {
-      document.addEventListener('click', this.closeMoreDropdown);
+      document.addEventListener('click', this.handleClickOutside);
     }
+
+    if (this.hasContent) {
+      this.listItems.forEach((tab) => {
+        const link = queryOne('.ecl-tabs__link', tab);
+        const url = new URL(link.href);
+
+        if (url.hash) {
+          const id = url.hash.slice(1);
+          const content = document.getElementById(id);
+          if (content) {
+            content.setAttribute('role', 'tabpanel');
+            link.setAttribute('aria-controls', id);
+
+            if (link.id) {
+              content.setAttribute('aria-labelledby', link.id);
+            }
+          }
+
+          this.tabs.push({ link, id, content });
+
+          tab.addEventListener('click', this.handleClickOnTabs);
+        }
+      });
+
+      const currentHash = window.location.hash.slice(1);
+      this.activeTab = null;
+      const hasInitialHash = !!currentHash;
+
+      if (hasInitialHash) {
+        this.activeTab = this.tabs.find((t) => t.id === currentHash);
+      }
+
+      if (!this.activeTab) {
+        this.activeTab = this.tabs.find((t) =>
+          t.link.classList.contains(this.activeSelector),
+        );
+      }
+
+      if (!this.activeTab) {
+        this.activeTab = this.tabs[0];
+      }
+
+      if (this.activeTab) {
+        let isVisibleTab = false;
+
+        this.tabs.forEach((t) => {
+          const isActive = t === this.activeTab;
+          if (isActive) {
+            isVisibleTab = true;
+          }
+          t.link.classList.toggle(this.activeSelector, isActive);
+          t.link.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          t.link.setAttribute('tabindex', isActive ? '0' : '-1');
+
+          if (t.content) {
+            t.content.style.display = isActive ? 'block' : 'none';
+            if (!t.content.hasAttribute('z-index')) {
+              t.content.setAttribute('z-index', -1);
+            }
+          }
+        });
+
+        if (this.moreButton) {
+          this.dropdownItems.forEach((item) => {
+            const dropdownLink = item.querySelector('a');
+            const dropdownUrl = new URL(dropdownLink.href);
+            const dropdownId = dropdownUrl.hash?.slice(1);
+            const isActive = dropdownId === this.activeTab.id;
+
+            dropdownLink.classList.toggle(this.activeSelector, isActive);
+            dropdownLink.setAttribute(
+              'aria-selected',
+              isActive ? 'true' : 'false',
+            );
+
+            if (isActive && !isVisibleTab) {
+              this.moreButtonActive = true;
+              this.moreButton.classList.add('ecl-tabs__toggle--active');
+            }
+          });
+        }
+
+        if (hasInitialHash) {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              const content = this.activeTab.content;
+              if (content && content.offsetParent !== null) {
+                content.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+              }
+            });
+          });
+        }
+      }
+    }
+
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
@@ -174,6 +310,19 @@ export class Tabs {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    // Tries ten times to get a reliable width for the list.
+    const ensureTabsReady = (callback, retries = 10) => {
+      const hasSize = this.list && this.list.offsetWidth > 0;
+
+      if (hasSize) {
+        callback();
+      } else if (retries > 0) {
+        requestAnimationFrame(() => ensureTabsReady(callback, retries - 1));
+      }
+    };
+
+    requestAnimationFrame(() => ensureTabsReady(() => this.handleResize()));
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -229,7 +378,7 @@ export class Tabs {
       this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.attachClickListener && document && this.moreButton) {
-      document.removeEventListener('click', this.closeMoreDropdown);
+      document.removeEventListener('click', this.handleClickOutside);
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
@@ -237,6 +386,11 @@ export class Tabs {
     if (this.tabsKey) {
       this.tabsKey.forEach((item) => {
         item.addEventListener('keydown', this.handleKeyboardOnTabs);
+      });
+    }
+    if (this.hasContent) {
+      this.tabs.forEach((tab) => {
+        tab.removeEventListener('click', this.handleClickOnTabs);
       });
     }
     if (this.element) {
@@ -281,9 +435,15 @@ export class Tabs {
       newOffset = Math.ceil(this.listItems[this.index].offsetLeft);
     }
 
+    // Calculate available width, accounting for the right button width
+    // Note: left button doesn't reduce width due to negative margin on list
+    let availableWidth = this.element.getBoundingClientRect().width;
+    if (this.container.classList.contains('ecl-tabs__container--right')) {
+      availableWidth -= this.buttonNextSize;
+    }
+
     const maxScroll = Math.ceil(
-      this.list.getBoundingClientRect().width -
-        this.element.getBoundingClientRect().width,
+      this.list.getBoundingClientRect().width - availableWidth,
     );
 
     if (newOffset > maxScroll) {
@@ -302,16 +462,93 @@ export class Tabs {
   }
 
   /**
+   * Track mouse interaction on the "more" button.
+   */
+  handleMouseDownOnToggle() {
+    this.isMouseEvent = true;
+  }
+
+  /**
    * Toggle the "more" dropdown.
    */
   handleClickOnToggle(e) {
-    this.dropdown.classList.toggle('ecl-tabs__dropdown--show');
-    this.moreButton.setAttribute(
-      'aria-expanded',
-      this.dropdown.classList.contains('ecl-tabs__dropdown--show'),
-    );
+    this.isMouseEvent = false;
+
+    if (this.dropdown.classList.contains('ecl-tabs__dropdown--show')) {
+      this.closeMoreDropdown();
+    } else {
+      this.openMoreDropdown();
+    }
 
     this.trigger('onToggle', e);
+  }
+
+  /**
+   * Handle focus on the "more" button - open dropdown and focus active item.
+   */
+  handleFocusOnToggle() {
+    // Only handle focus if the active tab is in the dropdown
+    // and focus came from keyboard (not mouse click or tab from dropdown)
+    if (!this.moreButtonActive || this.isMouseEvent || this.isTabEvent) {
+      this.isTabEvent = false;
+      return;
+    }
+
+    // Open the dropdown
+    this.openMoreDropdown();
+
+    // Find and focus the active item in the dropdown
+    const activeDropdownLink = this.dropdown.querySelector(
+      `.${this.activeSelector}`,
+    );
+    if (activeDropdownLink) {
+      activeDropdownLink.focus();
+    }
+  }
+
+  /**
+   * Handle focus on a tab link - sync transform on mobile.
+   * @param {Event} e
+   */
+  handleFocusOnTab(e) {
+    if (!this.isMobile) return;
+
+    const tab = e.currentTarget;
+    const tabIndex = this.tabsKey.indexOf(tab);
+    if (tabIndex === -1) return;
+
+    // Sync this.index with focused tab
+    this.index = tabIndex;
+
+    // Reset any native scroll
+    this.list.scrollLeft = 0;
+    this.container.scrollLeft = 0;
+
+    // Update button visibility
+    if (tabIndex > 0) {
+      this.btnPrev.style.display = 'flex';
+      this.container.classList.add('ecl-tabs__container--left');
+    } else {
+      this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
+    }
+
+    if (tabIndex >= this.total - 1) {
+      this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
+    } else {
+      this.btnNext.style.display = 'flex';
+      this.container.classList.add('ecl-tabs__container--right');
+    }
+
+    // Sync transform to show the focused tab
+    if (tabIndex > 0) {
+      const prevBtnWidth = this.btnPrev.getBoundingClientRect().width;
+      const tabOffset = this.listItems[tabIndex].offsetLeft - prevBtnWidth;
+      this.list.style.transform = `translate3d(-${tabOffset}px, 0px, 0px)`;
+    } else {
+      this.list.style.transform = 'translate3d(0px, 0px, 0px)';
+    }
   }
 
   /**
@@ -331,12 +568,82 @@ export class Tabs {
   }
 
   /**
+   * Hide and show content when clicking on a tab.
+   */
+  handleClickOnTabs(e) {
+    let isVisibleTab = false;
+    const tabUrl = new URL(e.target.href);
+    const tabId = tabUrl.hash ? tabUrl.hash.slice(1) : null;
+    // We only handle hashes
+    if (!tabId) return;
+
+    e.preventDefault();
+
+    // Visible tabs
+    this.tabs.forEach((tab) => {
+      // Toggle content visibility
+      if (tab.content) {
+        tab.content.style.display = tab.id !== tabId ? 'none' : 'block';
+      }
+      // Toggle active styles and attributes
+      if (tab.id !== tabId) {
+        tab.link.classList.remove(this.activeSelector);
+        tab.link.setAttribute('aria-selected', 'false');
+        tab.link.setAttribute('tabindex', '-1');
+      } else {
+        this.activeTab = tab;
+        tab.link.classList.add(this.activeSelector);
+        tab.link.setAttribute('aria-selected', 'true');
+        tab.link.setAttribute('tabindex', '0');
+        if (
+          !tab.link
+            .closest('.ecl-tabs__item')
+            .classList.contains('ecl-tabs__item--hidden')
+        ) {
+          isVisibleTab = true;
+        }
+      }
+    });
+
+    if (this.moreButton) {
+      // Reset styles for the more button
+      this.moreButtonActive = false;
+      this.moreButton.classList.remove('ecl-tabs__toggle--active');
+      // Hidden tabs
+      this.dropdownItems.forEach((item) => {
+        const dropdownLink = item.getElementsByTagName('a')[0];
+        const dropdownUrl = new URL(dropdownLink);
+        const dropdownId = dropdownUrl.hash ? dropdownUrl.hash.slice(1) : null;
+        // Toggle active styles and attributes
+        if (dropdownId !== tabId) {
+          dropdownLink.classList.remove(this.activeSelector);
+          dropdownLink.setAttribute('aria-selected', 'false');
+        } else {
+          dropdownLink.classList.add(this.activeSelector);
+          dropdownLink.setAttribute('aria-selected', 'true');
+          if (!isVisibleTab) {
+            this.moreButtonActive = true;
+            this.moreButton.classList.add('ecl-tabs__toggle--active');
+          }
+        }
+      });
+      // Update tabindex on more button based on whether active tab is hidden
+      this.moreButton.setAttribute(
+        'tabindex',
+        this.moreButtonActive ? '0' : '-1',
+      );
+    }
+    // Add the hash to the URL
+    history.replaceState(null, '', `#${tabId}`);
+  }
+
+  /**
    * Trigger events on resize.
    */
   handleResize() {
     // Close dropdown if more button is not displayed
     if (window.getComputedStyle(this.moreButton).display === 'none') {
-      this.closeMoreDropdown(this);
+      this.closeMoreDropdown();
     }
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
@@ -384,7 +691,8 @@ export class Tabs {
       // Hide items that won't fit in the list
       let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
       const hiddenItems = [];
-      const listWidth = this.list.getBoundingClientRect().width;
+      const listWidth =
+        this.list.getBoundingClientRect().width || this.list.offsetWidth;
       this.moreButtonActive = false;
       this.listItems.forEach((item, i) => {
         item.classList.remove('ecl-tabs__item--hidden');
@@ -405,8 +713,11 @@ export class Tabs {
       // Add active class to the more button if it contains an active element
       if (this.moreButtonActive) {
         this.moreButton.classList.add('ecl-tabs__toggle--active');
+        // Make more button focusable when active tab is hidden
+        this.moreButton.setAttribute('tabindex', '0');
       } else {
         this.moreButton.classList.remove('ecl-tabs__toggle--active');
+        this.moreButton.setAttribute('tabindex', '-1');
       }
 
       // Toggle the visibility of More button and items in dropdown
@@ -447,6 +758,7 @@ export class Tabs {
         tab = queryOne('.ecl-tabs__link', dropdownItem);
       }
       tab.addEventListener('keydown', this.handleKeyboardOnTabs);
+      tab.addEventListener('focus', this.handleFocusOnTab);
       this.tabsKey.push(tab);
 
       if (index === 0) {
@@ -460,9 +772,25 @@ export class Tabs {
 
   /**
    * Close the dropdown.
+   */
+  closeMoreDropdown() {
+    this.moreButton.setAttribute('aria-expanded', false);
+    this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+  }
+
+  /**
+   * Open the dropdown.
+   */
+  openMoreDropdown() {
+    this.moreButton.setAttribute('aria-expanded', true);
+    this.dropdown.classList.add('ecl-tabs__dropdown--show');
+  }
+
+  /**
+   * Handle click outside the dropdown to close it.
    * @param {Event} e
    */
-  closeMoreDropdown(e) {
+  handleClickOutside(e) {
     let el = e.target;
     while (el) {
       if (el === this.moreButton) {
@@ -470,8 +798,7 @@ export class Tabs {
       }
       el = el.parentNode;
     }
-    this.moreButton.setAttribute('aria-expanded', false);
-    this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+    this.closeMoreDropdown();
   }
 
   /**
@@ -482,12 +809,10 @@ export class Tabs {
 
     switch (e.key) {
       case 'ArrowLeft':
-      case 'ArrowUp':
         this.arrowFocusToTab(tgt, 'prev');
         break;
 
       case 'ArrowRight':
-      case 'ArrowDown':
         this.arrowFocusToTab(tgt, 'next');
         break;
 
@@ -499,6 +824,38 @@ export class Tabs {
         this.moveFocus(this.lastTab);
         break;
 
+      case ' ':
+        this.handleClickOnTabs(e);
+        break;
+
+      case 'Escape':
+        this.closeMoreDropdown();
+        break;
+
+      case 'Tab':
+        // Close dropdown when tabbing out
+        // Set flag to prevent focus handler from reopening
+        this.isTabEvent = true;
+        this.closeMoreDropdown();
+        // Temporarily make more button non-tabbable so focus skips it
+        this.moreButton.setAttribute('tabindex', '-1');
+        // Restore tabindex and reset isTabEvent after focus has moved
+        setTimeout(() => {
+          this.isTabEvent = false;
+          if (this.moreButtonActive) {
+            this.moreButton.setAttribute('tabindex', '0');
+          }
+        }, 0);
+
+        // Move focus to the tab panel (if any)
+        if (!e.shiftKey && this.hasContent) {
+          if (this.activeTab.content) {
+            this.activeTab.content.focus();
+          }
+        }
+
+        break;
+
       default:
     }
   }
@@ -508,11 +865,9 @@ export class Tabs {
    */
   moveFocus(currentTab) {
     if (currentTab.closest('.ecl-tabs__dropdown')) {
-      this.moreButton.setAttribute('aria-expanded', true);
-      this.dropdown.classList.add('ecl-tabs__dropdown--show');
+      this.openMoreDropdown();
     } else {
-      this.moreButton.setAttribute('aria-expanded', false);
-      this.dropdown.classList.remove('ecl-tabs__dropdown--show');
+      this.closeMoreDropdown();
     }
     currentTab.focus();
   }
@@ -530,8 +885,8 @@ export class Tabs {
 
     if (this.isMobile) {
       if (currentTab !== endTab) {
+        // moveFocus will trigger handleFocusOnTab which syncs the transform
         this.moveFocus(this.tabsKey[index]);
-        this.shiftTabs(direction);
       }
       return;
     }

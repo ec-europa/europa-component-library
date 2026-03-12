@@ -57,16 +57,40 @@ $featured-item: null !default;
 }
 
 .ecl-featured-item__link {
+  align-self: flex-start;
   font: map.get($featured-item, 'link', 'font');
   max-width: map.get($featured-item, 'max-width');
 
-  .ecl-featured-item__title + &,
-  .ecl-featured-item__description + & {
+  .ecl-featured-item__info + & {
     margin-block-start: map.get($featured-item, 'link', 'spacing');
   }
 
   &:dir(rtl) .ecl-icon {
     transform: scaleX(1);
+  }
+}
+
+// Content alignment
+.ecl-featured-item__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .ecl-featured-item__link {
+    align-self: flex-start;
+  }
+
+  .ecl-featured-item--hcenter & {
+    align-items: center;
+    text-align: center;
+
+    .ecl-featured-item__link {
+      align-self: auto;
+    }
+  }
+
+  .ecl-featured-item--vcenter & {
+    justify-content: center;
   }
 }
 
@@ -92,6 +116,16 @@ $featured-item: null !default;
   .ecl-featured-item:not(.ecl-featured-item--highlight) {
     .ecl-featured-item__item:only-child {
       padding-inline-start: 0;
+    }
+  }
+
+  // Dynamic height image
+  .ecl-featured-item--dynamic {
+    .ecl-featured-item__media_container,
+    .ecl-media-container__figure,
+    .ecl-media-container__picture,
+    .ecl-media-container__media {
+      height: 100%;
     }
   }
 }
@@ -151,10 +185,6 @@ $featured-item: null !default;
     color: map.get($featured-item, 'highlight', 'title', 'color');
   }
 
-  &.ecl-featured-item--link-highlighted .ecl-featured-item__title {
-    flex-grow: 1;
-  }
-
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
 
@@ -167,99 +197,141 @@ $featured-item: null !default;
     }
   }
 
-  &.ecl-featured-item--link-highlighted .ecl-featured-item__description {
-    flex-grow: 1000;
-  }
-
-  .ecl-featured-item__link {
-    align-self: flex-start;
-    color: map.get($featured-item, 'highlight', 'link', 'color');
-    text-decoration: underline;
-
-    &:hover,
-    &:focus-visible,
-    &:active,
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'link', 'color');
-    }
-
-    &:focus-visible {
-      outline-color: map.get($featured-item, 'highlight', 'link', 'color');
-    }
-  }
-
-  .ecl-featured-item__title + .ecl-featured-item__link,
-  .ecl-featured-item__description + .ecl-featured-item__link {
+  .ecl-featured-item__info + .ecl-featured-item__link {
     margin-block-start: map.get($featured-item, 'highlight', 'link', 'spacing');
   }
 
-  &.ecl-featured-item--link-highlighted .ecl-featured-item__link {
-    background-color: map.get(
-      $featured-item,
-      'highlight',
-      'link',
-      'background-color'
-    );
-    color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
-    display: block;
-    margin-block-end: calc(
-      -1 *
-        #{map.get($featured-item, 'highlight', 'item', 'padding-block-mobile')}
-    );
-    margin-inline-end: 0;
-    margin-inline-start: calc(
-      -1 *
-        #{map.get($featured-item, 'highlight', 'item', 'padding-inline-mobile')}
-    );
-    width: clamp(
-      1px,
-      #{map.get($featured-item, 'highlight', 'link', 'max-width')},
-      100%
-    );
-    padding: map.get($featured-item, 'highlight', 'link', 'padding-mobile');
-    text-decoration: none;
-
-    &:hover,
-    &:focus-visible,
-    &:active,
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
-    }
-
-    &:hover,
-    &:active {
-      text-decoration: underline;
-    }
-
-    &:focus-visible {
-      outline-color: map.get(
+  .ecl-featured-item__link:not(
+    .ecl-link--primary-highlight,
+    .ecl-link--primary-neutral,
+    .ecl-link--primary,
+    .ecl-link--secondary
+  ) {
+    --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
+    --ecl-link-color-hover: #{map.get(
         $featured-item,
         'highlight',
         'link',
-        'color-highlighted'
-      );
-      outline-offset: -4px;
-    }
+        'color'
+      )};
+    --ecl-link-color-active: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
+    --ecl-focus-outline-color: #{map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'color'
+      )};
 
-    .ecl-link__icon {
-      display: block;
-      margin-block: var(--s-s) 0;
-      margin-inline: 0;
-    }
+    text-align: start;
+    text-decoration: underline;
   }
 
-  &.ecl-featured-item--link-highlighted
-    .ecl-featured-item__title
-    + .ecl-featured-item__link,
-  &.ecl-featured-item--link-highlighted
-    .ecl-featured-item__description
-    + .ecl-featured-item__link {
-    margin-block-start: map.get(
-      $featured-item,
-      'highlight',
-      'link',
-      'spacing-highlighted'
-    );
+  // Highlighted link
+  &.ecl-featured-item--link-highlighted {
+    .ecl-featured-item__info {
+      flex-grow: 1;
+    }
+
+    &.ecl-featured-item--hcenter .ecl-featured-item__link {
+      align-self: flex-start;
+    }
+
+    &.ecl-featured-item--vcenter .ecl-featured-item__info {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    .ecl-featured-item__link {
+      --ecl-link-color: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+      --ecl-link-color-hover: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+      --ecl-link-color-active: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+      --ecl-focus-outline-color: #{map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'color-highlighted'
+        )};
+
+      background-color: map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'background-color'
+      );
+      display: block;
+      margin-block-end: calc(
+        -1 *
+          #{map.get(
+            $featured-item,
+            'highlight',
+            'item',
+            'padding-block-mobile'
+          )}
+      );
+      margin-inline-end: 0;
+      margin-inline-start: calc(
+        -1 *
+          #{map.get(
+            $featured-item,
+            'highlight',
+            'item',
+            'padding-inline-mobile'
+          )}
+      );
+      width: clamp(
+        1px,
+        #{map.get($featured-item, 'highlight', 'link', 'max-width')},
+        100%
+      );
+      padding: map.get($featured-item, 'highlight', 'link', 'padding-mobile');
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+
+      &:focus-visible {
+        outline-offset: -4px;
+      }
+
+      .ecl-link__icon {
+        display: block;
+        margin-block: var(--s-s) 0;
+        margin-inline: 0;
+      }
+    }
+
+    .ecl-featured-item__info + .ecl-featured-item__link {
+      margin-block-start: map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'spacing-highlighted'
+      );
+    }
   }
 
   @include breakpoints.up('m') {
@@ -292,97 +364,51 @@ $featured-item: null !default;
         'padding-inline-desktop'
       );
       position: relative;
+    }
 
-      &::before {
-        border-bottom: map.get($featured-item, 'highlight', 'arrow-width') solid
-          transparent;
-        border-inline-end: map.get($featured-item, 'highlight', 'arrow-width')
-          solid map.get($featured-item, 'highlight', 'item', 'background-color');
-        border-top: map.get($featured-item, 'highlight', 'arrow-width') solid
-          transparent;
-        content: '';
-        display: block;
-        height: 0;
-        margin-inline-start: calc(
+    // Highlighted link
+    &.ecl-featured-item--link-highlighted {
+      .ecl-featured-item__link {
+        margin-block-end: calc(
           -1 *
-            (
-              #{map.get($featured-item, 'highlight', 'arrow-width')} +
-                #{map.get(
-                  $featured-item,
-                  'highlight',
-                  'item',
-                  'padding-inline-desktop'
-                )}
-            )
-        );
-        position: absolute;
-        width: 0;
-        z-index: 1;
-      }
-    }
-
-    &.ecl-featured-item--link-highlighted .ecl-featured-item__link {
-      margin-block-end: calc(
-        -1 *
-          #{map.get(
-            $featured-item,
-            'highlight',
-            'item',
-            'padding-block-desktop'
-          )}
-      );
-      margin-inline-end: calc(
-        -1 *
-          #{map.get(
-            $featured-item,
-            'highlight',
-            'item',
-            'padding-inline-desktop'
-          )}
-      );
-      margin-inline-start: auto;
-      padding: map.get($featured-item, 'highlight', 'link', 'padding-desktop');
-    }
-
-    .ecl-featured-item__container--right {
-      .ecl-featured-item__item:first-child {
-        &::before {
-          border-inline-start: map.get(
+            #{map.get(
               $featured-item,
               'highlight',
-              'arrow-width'
-            )
-            solid
-            map.get($featured-item, 'highlight', 'item', 'background-color');
-          border-inline-end: map.get($featured-item, 'highlight', 'arrow-width')
-            solid transparent;
-          margin-inline-start: calc(
-            100% - #{map.get($featured-item, 'highlight', 'arrow-width')} + 4px
-          );
-        }
+              'item',
+              'padding-block-desktop'
+            )}
+        );
+        margin-inline-end: calc(
+          -1 *
+            #{map.get(
+              $featured-item,
+              'highlight',
+              'item',
+              'padding-inline-desktop'
+            )}
+        );
+        margin-inline-start: auto;
+        padding: map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'padding-desktop'
+        );
       }
-    }
 
-    .ecl-featured-item__item:first-child:only-child::before {
-      display: none;
-    }
-
-    &.ecl-featured-item--link-highlighted
-      .ecl-featured-item__container--right
-      .ecl-featured-item__link,
-    &.ecl-featured-item--link-highlighted
-      .ecl-featured-item__item:first-child:only-child
-      .ecl-featured-item__link {
-      margin-inline-end: 0;
-      margin-inline-start: calc(
-        -1 *
-          #{map.get(
-            $featured-item,
-            'highlight',
-            'item',
-            'padding-inline-desktop'
-          )}
-      );
+      .ecl-featured-item__container--right .ecl-featured-item__link,
+      .ecl-featured-item__item:first-child:only-child .ecl-featured-item__link {
+        margin-inline-end: 0;
+        margin-inline-start: calc(
+          -1 *
+            #{map.get(
+              $featured-item,
+              'highlight',
+              'item',
+              'padding-inline-desktop'
+            )}
+        );
+      }
     }
   }
 }
