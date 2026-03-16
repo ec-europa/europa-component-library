@@ -5,6 +5,7 @@ module.exports = {
   tag: {
     type: 'link',
     path: exampleLink,
-    label: 'Link tag',
+    label: 'Tag label',
+    aria_label: 'Dismiss',
   },
 };

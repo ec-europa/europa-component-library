@@ -10,7 +10,8 @@ import { Playground } from '@ecl/website-components';
 <Playground
   system="ec"
   selectedKind="components-tag"
-  selectedStory="link"
+  selectedStory="single"
+  selectedArgs="type:link"
 ></Playground>
 
 ## Removable tag
@@ -18,7 +19,17 @@ import { Playground } from '@ecl/website-components';
 <Playground
   system="ec"
   selectedKind="components-tag"
-  selectedStory="removable"
+  selectedStory="single"
+  selectedArgs="type:removable"
+></Playground>
+
+## Prefilter tag
+
+<Playground
+  system="ec"
+  selectedKind="components-tag"
+  selectedStory="single"
+  selectedArgs="type:prefilter"
 ></Playground>
 
 ## Tag set
@@ -27,4 +38,12 @@ import { Playground } from '@ecl/website-components';
   system="ec"
   selectedKind="components-tag"
   selectedStory="set"
+  selectedArgs="variant:default"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-tag"
+  selectedStory="set"
+  selectedArgs="variant:prefilter"
 ></Playground>

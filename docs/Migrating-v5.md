@@ -394,6 +394,13 @@ EU footer hasn't changed, but is now using its own template file
 
 - parameter for aria label, in the sorting table (`label_sort`) has been split into `label_sort_ascending`, `label_sort_descending` and `label_sort_default`. It translates to `data-ecl-table-sort-label-asc`, `data-ecl-table-sort-label-desc` and `data-ecl-table-sort-label-default` in the markup. Current `label_sort` is used as fallback if the new elements are not provided.
 
+### Tag
+
+- new tag type available: `prefilter`
+- parameter added to select the current tag in a list (mostly for prefilter). Twig parameter: `current`
+- parameter added to disable a tag. Twig parameter: `disabled`
+- parameter added to have a label in front of a tag set. Twig parameter: `label`. Markup structure for tag set had to be updated to allow this
+
 ### Timeline
 
 - new section available to add headline (larger first item). Corresponding twig parameter is `headline`

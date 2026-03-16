@@ -71,7 +71,8 @@
   $theme: theme.$theme
 );
 @use '@ecl/tag/tag-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $tag: var.$tag
 );
 @use '@ecl/tooltip/tooltip-print';
 

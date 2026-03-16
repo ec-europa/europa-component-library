@@ -3,8 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataLink from './demo/data--link';
-import dataRemovable from './demo/data--removable';
+import dataDemo from './demo/data';
 
 import tag from './tag.html.twig';
 import notes from './README.md';
@@ -15,28 +14,19 @@ const getArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
+  args.type = 'link';
   args.label = data.tag.label;
+  args.external = false;
+  args.current = false;
+  args.disabled = false;
   args.nowrap = false;
-  if (data.tag.type === 'link') {
-    args.external = false;
-  }
 
   return args;
 };
 
-const getArgTypes = (data) => {
+const getArgTypes = () => {
   const argTypes = getColorModeControls();
 
-  argTypes.nowrap = {
-    name: 'no wrap',
-    type: { name: 'boolean' },
-    description: 'Keep the tag on one line (no label wrap)',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Display',
-    },
-  };
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
@@ -48,29 +38,99 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.tag.type === 'link') {
-    argTypes.external = {
-      type: { name: 'boolean' },
-      description: 'External link',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+  argTypes.type = {
+    name: 'type',
+    type: 'select',
+    description: 'Select tag type',
+    options: ['link', 'removable', 'prefilter'],
+    control: {
+      labels: {
+        link: 'link',
+        removable: 'removable',
+        prefilter: 'prefilter',
       },
-    };
-  }
+    },
+    mapping: {
+      link: 'link',
+      removable: 'removable',
+      prefilter: 'prefilter',
+    },
+    table: {
+      type: 'string',
+      category: 'Display',
+    },
+  };
+
+  argTypes.current = {
+    type: { name: 'boolean' },
+    description: 'Current filter',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+    if: { arg: 'type', eq: 'prefilter' },
+  };
+
+  argTypes.external = {
+    type: { name: 'boolean' },
+    description: 'External link',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+    if: { arg: 'type', eq: 'link' },
+  };
+
+  argTypes.disabled = {
+    type: { name: 'boolean' },
+    description: 'Disabled tag',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+  };
+
+  argTypes.nowrap = {
+    name: 'no wrap',
+    type: { name: 'boolean' },
+    description: 'Keep the tag on one line (no label wrap)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+  };
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  data.tag.label = args.label;
-  data.tag.nowrap = args.nowrap;
-  data.tag.external = args.external;
+  const clone = JSON.parse(JSON.stringify(data));
+  clone.tag.type = args.type;
 
-  correctPaths(data);
+  switch (args.type) {
+    case 'removable':
+      delete clone.tag.path;
+      break;
 
-  return Object.assign(data, args);
+    case 'link':
+    default:
+      delete clone.tag.aria_label;
+      break;
+  }
+
+  clone.tag.label = args.label;
+  clone.tag.nowrap = args.nowrap;
+  clone.tag.current = args.current;
+  clone.tag.disabled = args.disabled;
+  clone.tag.external = args.external;
+
+  correctPaths(clone);
+
+  return Object.assign(clone, args);
 };
 
 export default {
@@ -78,24 +138,13 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Link = (_, { loaded: { component } }) => component;
+export const Single = (_, { loaded: { component } }) => component;
 
-Link.render = async (args) => {
-  const renderedTag = await tag(prepareData(dataLink, args));
+Single.render = async (args) => {
+  const renderedTag = await tag(prepareData(dataDemo, args));
   return renderedTag;
 };
-Link.storyName = 'link tag';
-Link.args = getArgs(dataLink);
-Link.argTypes = getArgTypes(dataLink);
-Link.parameters = { notes: { markdown: notes, json: dataLink } };
-
-export const Removable = (_, { loaded: { component } }) => component;
-
-Removable.render = async (args) => {
-  const renderedTagRemovable = await tag(prepareData(dataRemovable, args));
-  return renderedTagRemovable;
-};
-Removable.storyName = 'removable tag';
-Removable.args = getArgs(dataRemovable);
-Removable.argTypes = getArgTypes(dataRemovable);
-Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
+Single.storyName = 'single tag';
+Single.args = getArgs(dataDemo);
+Single.argTypes = getArgTypes();
+Single.parameters = { notes: { markdown: notes, json: dataDemo } };

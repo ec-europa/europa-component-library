@@ -14,49 +14,85 @@ const getArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
-  args.label = data.items[0].tag.label;
-  args.external = false;
+  args.variant = '';
+  args.label = data.label;
+  args.current = false;
+  args.disabled = false;
 
   return args;
 };
 
 const getArgTypes = () => {
-  const argTypes = getColorModeControls();
+  const argTypes = getColorModeControls({ arg: 'variant', neq: 'prefilter' });
+
+  argTypes.variant = {
+    name: 'variant',
+    type: 'select',
+    description: 'Select tag set variant',
+    options: ['default', 'prefilter'],
+    control: {
+      labels: {
+        '': 'default',
+        prefilter: 'prefilter',
+      },
+    },
+    mapping: {
+      default: '',
+      prefilter: 'prefilter',
+    },
+    table: {
+      type: 'string',
+      category: 'Display',
+    },
+  };
+
+  argTypes.current = {
+    name: 'current',
+    type: { name: 'boolean' },
+    description: 'Display a tag as currently active',
+    table: {
+      category: 'Display',
+    },
+    if: { arg: 'variant', eq: 'prefilter' },
+  };
+
+  argTypes.disabled = {
+    name: 'disabled',
+    type: { name: 'boolean' },
+    description: 'Display a tag as disabled',
+    table: {
+      category: 'Display',
+    },
+    if: { arg: 'variant', eq: 'prefilter' },
+  };
 
   argTypes.label = {
     name: 'label',
-    type: { name: 'string', required: true },
-    description: 'The label of the first tag',
+    type: { name: 'string' },
+    description: 'The label of the tag set',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Content',
     },
-  };
-
-  argTypes.external = {
-    type: { name: 'boolean' },
-    description: 'External link',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
+    if: { arg: 'variant', eq: 'prefilter' },
   };
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  data.items[0].tag.label = args.label;
+  const clone = JSON.parse(JSON.stringify(data));
+  correctPaths(clone);
 
-  data.items.forEach((item) => {
-    item.tag.external = args.external;
-  });
+  if (args.variant !== 'prefilter') {
+    delete clone.label;
+  }
 
-  correctPaths(data);
+  clone.items[0].tag.current = args.current;
+  clone.items[1].tag.disabled = args.disabled;
 
-  return Object.assign(data, args);
+  return Object.assign(clone, args);
 };
 
 export default {

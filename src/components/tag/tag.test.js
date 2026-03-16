@@ -5,9 +5,15 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataLink from './demo/data--link';
-import dataRemovable from './demo/data--removable';
+import dataSingle from './demo/data';
 import dataSet from './demo/data--set';
+
+const dataRemovable = JSON.parse(JSON.stringify(dataSingle));
+dataRemovable.tag.type = 'removable';
+const dataPrefilter = JSON.parse(JSON.stringify(dataSingle));
+dataPrefilter.tag.type = 'prefilter';
+const dataSetPrefilter = JSON.parse(JSON.stringify(dataSet));
+dataSetPrefilter.variant = 'prefilter';
 
 expect.extend(toHaveNoViolations);
 
@@ -20,15 +26,15 @@ describe('Tag', () => {
   describe('Link', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataLink)).resolves.toMatchSnapshot();
+      return expect(render(dataSingle)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with an external link', () => {
       expect.assertions(1);
 
-      const withExternal = { ...dataLink.tag, external: true };
+      const withExternal = { ...dataSingle.tag, external: true };
       const optionsWithExternal = {
-        ...dataLink,
+        ...dataSingle,
         tag: withExternal,
       };
 
@@ -38,7 +44,7 @@ describe('Tag', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(dataLink, {
+      const optionsWithExtraClasses = merge(dataSingle, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -48,7 +54,7 @@ describe('Tag', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(dataLink, {
+      const optionsWithExtraClasses = merge(dataSingle, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -60,7 +66,7 @@ describe('Tag', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataLink, true)),
+        await axe(await renderTwigFileAsHtml(template, dataSingle, true)),
       ).toHaveNoViolations();
     });
   });
@@ -78,10 +84,28 @@ describe('Tag', () => {
     });
   });
 
+  describe('Prefilter', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataPrefilter)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataPrefilter, true)),
+      ).toHaveNoViolations();
+    });
+  });
+
   describe('Set', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(renderSet(dataSet)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly (prefilter)', () => {
+      expect.assertions(1);
+      return expect(renderSet(dataSetPrefilter)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {

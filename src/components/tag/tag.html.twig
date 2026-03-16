@@ -5,12 +5,14 @@
     - "color_mode" (string)
     - "tag" (associative array) (default: predefined structure): format:
       {
-        type: string (default: 'link') can be 'link' or 'removable'
+        type: string (default: 'link') can be 'link', 'removable' or 'prefilter'
         path: string (default: '') tag url if needed),
         label: string (default: '') tag text as string,
         external: boolean (default: false) External icon for a tag with link
         aria_label: (string) (default: '') (optional) aria label for removable tag as a string
         nowrap: boolean (default: false) force the tag to stay on one line
+        current: boolean (default: false) currently selected tag (for prefilter tags)
+        disabled: boolean (default: false) disabled tag
       }
     - "extra_classes" (string) (default: '') Extra classes
     - "extra_attributes" (array) (default: []): Extra attributes, format: [
@@ -31,6 +33,8 @@
   external: false,
   aria_label: '',
   nowrap: false,
+  current: false,
+  disabled: false,
 } %}
 
 {% if tag is defined %}
@@ -46,12 +50,20 @@
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
-{% if _tag.type == 'removable' %}
-  {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
+{% if _tag.type != 'link' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--' ~ _tag.type %}
 {% endif %}
 
 {% if _tag.nowrap %}
   {% set _css_class = _css_class ~ ' ecl-tag--nowrap' %}
+{% endif %}
+
+{% if _tag.current %}
+  {% set _css_class = _css_class ~ ' ecl-tag--current' %}
+{% endif %}
+
+{% if _tag.disabled %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
 {# Internal logic - Process properties #}
