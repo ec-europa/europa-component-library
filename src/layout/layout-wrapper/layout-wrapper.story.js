@@ -23,6 +23,7 @@ const getArgs = (defaultConfig, defaultNbItems = 6, firstItemType = 'card') => {
     configuration: defaultConfig,
     nb_items: defaultNbItems,
     direction: 'horizontal',
+    gridContent: false,
     item_1: firstItemType,
     item_2: 'card',
     item_3: 'card',
@@ -95,6 +96,17 @@ const getArgTypes = (configGroup) => {
     contentTypeMapping[key] = key;
   }
 
+  argTypes.gridContent = {
+    name: 'demo sidebar layout',
+    type: { name: 'boolean' },
+    description:
+      'Display the layout wrapper inside a sidebar layout, to test container-query responsiveness',
+    table: {
+      category: 'Test content',
+    },
+    control: { type: 'boolean' },
+  };
+
   for (let i = 1; i <= 8; i++) {
     argTypes[`show_item_${i}`] = { table: { disable: true } };
     argTypes[`item_${i}`] = {
@@ -126,6 +138,23 @@ const prepareData = (data, args) => {
   return Object.assign(clone, args);
 };
 
+const renderStory = async (data, args) => {
+  const renderedLayout = await layoutWrapper(prepareData(data, args));
+
+  if (args.gridContent) {
+    return `<div class="ecl-container">
+      <div class="ecl-row ecl-u-mt-l">
+        <aside class="ecl-col-l-3">
+          <div class="ecl-u-bg-dark-20 ecl-u-bg-grey-75 ecl-u-pa-m">Sidebar</div>
+        </aside>
+        <div class="ecl-col-l-9">${renderedLayout}</div>
+      </div>
+    </div>`;
+  }
+
+  return renderedLayout;
+};
+
 const syncItemVisibility = (Story) => {
   const [args, updateArgs] = useArgs();
   const updates = {};
@@ -150,10 +179,7 @@ export default {
 
 export const Columns = (_, { loaded: { component } }) => component;
 
-Columns.render = async (args) => {
-  const renderedLayout = await layoutWrapper(prepareData(dataDemo, args));
-  return renderedLayout;
-};
+Columns.render = async (args) => renderStory(dataDemo, args);
 Columns.storyName = 'columns';
 Columns.args = getArgs('col-3');
 Columns.argTypes = getArgTypes(configurations.columns);
@@ -162,10 +188,7 @@ Columns.decorators = [syncItemVisibility];
 
 export const Highlight = (_, { loaded: { component } }) => component;
 
-Highlight.render = async (args) => {
-  const renderedLayout = await layoutWrapper(prepareData(dataDemo, args));
-  return renderedLayout;
-};
+Highlight.render = async (args) => renderStory(dataDemo, args);
 Highlight.storyName = 'highlight';
 Highlight.args = getArgs('highlight-col-2', 6, 'heading');
 Highlight.argTypes = getArgTypes(configurations.highlight);

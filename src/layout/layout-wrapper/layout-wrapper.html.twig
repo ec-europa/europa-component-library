@@ -41,10 +41,19 @@
   {% set _css_class = _css_class ~ ' ecl-layout-wrapper--vertical' %}
   {% if _configuration starts with 'col-' %}
     {% set _col_count = _configuration|replace({'col-': ''}) %}
-    {% set _row_count = (_items|length / _col_count)|round(0, 'ceil') %}
+    {% set _base_count = _items|length %}
   {% elseif _configuration starts with 'highlight-col-' %}
     {% set _col_count = _configuration|replace({'highlight-col-': ''}) %}
-    {% set _row_count = ((_items|length - 1) / _col_count)|round(0, 'ceil') %}
+    {% set _base_count = _items|length - 1 %}
+  {% endif %}
+  {% if _col_count is defined %}
+    {% set _style_vars = [] %}
+    {% if _col_count > 2 %}
+      {% for n in range(2, _col_count - 1) %}
+        {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ n ~ ':' ~ (_base_count / n)|round(0, 'ceil')]) %}
+      {% endfor %}
+    {% endif %}
+    {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ _col_count ~ ':' ~ (_base_count / _col_count)|round(0, 'ceil')]) %}
   {% endif %}
 {% endif %}
 
@@ -88,28 +97,32 @@
 {% if _items is not empty %}
 <div
   class="{{ _css_class }}"
-  {% if _row_count is defined %}style="--ecl-layout-rows: {{ _row_count }}"{% endif %}
+  {% if _style_vars is defined and _style_vars is not empty %}style="{{ _style_vars|join('; ') }}"{% endif %}
   {{ _extra_attributes|raw }}
 >
   {%- if _configuration starts with 'highlight-col-' -%}
-    <div class="ecl-layout-wrapper__highlight">
-      <div class="ecl-layout-item ecl-layout-item--1">
-        {{- layout_wrapper.render_item(_items[0]) -}}
+    <div class="ecl-layout-wrapper__grid">
+      <div class="ecl-layout-wrapper__highlight">
+        <div class="ecl-layout-item ecl-layout-item--1">
+          {{- layout_wrapper.render_item(_items[0]) -}}
+        </div>
+      </div>
+      <div class="ecl-layout-wrapper__content">
+        {%- for item in _items|slice(1) -%}
+          <div class="ecl-layout-item ecl-layout-item--{{ loop.index + 1 }}">
+            {{- layout_wrapper.render_item(item) -}}
+          </div>
+        {%- endfor -%}
       </div>
     </div>
-    <div class="ecl-layout-wrapper__content">
-      {%- for item in _items|slice(1) -%}
-        <div class="ecl-layout-item ecl-layout-item--{{ loop.index + 1 }}">
+  {%- else -%}
+    <div class="ecl-layout-wrapper__grid">
+      {%- for item in _items -%}
+        <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
           {{- layout_wrapper.render_item(item) -}}
         </div>
       {%- endfor -%}
     </div>
-  {%- else -%}
-    {%- for item in _items -%}
-      <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
-        {{- layout_wrapper.render_item(item) -}}
-      </div>
-    {%- endfor -%}
   {%- endif -%}
 </div>
 {% endif %}
