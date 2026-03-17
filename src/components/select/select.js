@@ -418,6 +418,7 @@ export class Select {
         this.search.classList.add('ecl-text-input');
         this.search.setAttribute('type', 'search');
         this.search.setAttribute('placeholder', this.textSearch || '');
+        this.search.setAttribute('aria-label', this.textSearch || '');
         this.search.addEventListener('keyup', this.handleSearch);
         this.search.addEventListener('search', this.handleSearch);
         this.search.addEventListener('keydown', this.handleKeyboardOnSearch);
