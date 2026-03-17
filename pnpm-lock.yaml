@@ -1472,6 +1472,9 @@ importers:
       '@storybook/addon-essentials':
         specifier: 8.6.14
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.8.1))
+      '@storybook/addon-interactions':
+        specifier: 8.6.14
+        version: 8.6.14(storybook@8.6.14(prettier@3.8.1))
       '@storybook/addon-links':
         specifier: 8.6.14
         version: 8.6.14(react@19.2.4)(storybook@8.6.14(prettier@3.8.1))
@@ -1553,6 +1556,9 @@ importers:
       '@storybook/addon-essentials':
         specifier: 8.6.14
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.8.1))
+      '@storybook/addon-interactions':
+        specifier: 8.6.14
+        version: 8.6.14(storybook@8.6.14(prettier@3.8.1))
       '@storybook/addon-links':
         specifier: 8.6.14
         version: 8.6.14(react@19.2.4)(storybook@8.6.14(prettier@3.8.1))
@@ -5249,6 +5255,11 @@ packages:
 
   '@storybook/addon-highlight@8.6.14':
     resolution: {integrity: sha512-4H19OJlapkofiE9tM6K/vsepf4ir9jMm9T+zw5L85blJZxhKZIbJ6FO0TCG9PDc4iPt3L6+aq5B0X29s9zicNQ==}
+    peerDependencies:
+      storybook: ^8.6.14
+
+  '@storybook/addon-interactions@8.6.14':
+    resolution: {integrity: sha512-8VmElhm2XOjh22l/dO4UmXxNOolGhNiSpBcls2pqWSraVh4a670EyYBZsHpkXqfNHo2YgKyZN3C91+9zfH79qQ==}
     peerDependencies:
       storybook: ^8.6.14
 
@@ -15128,6 +15139,15 @@ snapshots:
       '@storybook/global': 5.0.0
       storybook: 8.6.14(prettier@3.8.1)
 
+  '@storybook/addon-interactions@8.6.14(storybook@8.6.14(prettier@3.8.1))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@storybook/instrumenter': 8.6.14(storybook@8.6.14(prettier@3.8.1))
+      '@storybook/test': 8.6.14(storybook@8.6.14(prettier@3.8.1))
+      polished: 4.3.1
+      storybook: 8.6.14(prettier@3.8.1)
+      ts-dedent: 2.2.0
+
   '@storybook/addon-links@8.6.14(react@19.2.4)(storybook@8.6.14(prettier@3.8.1))':
     dependencies:
       '@storybook/global': 5.0.0
@@ -15419,7 +15439,7 @@ snapshots:
 
   '@testing-library/dom@10.4.0':
     dependencies:
-      '@babel/code-frame': 7.27.1
+      '@babel/code-frame': 7.29.0
       '@babel/runtime': 7.29.2
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
