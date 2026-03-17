@@ -40,6 +40,9 @@ export default {
     controls: { disable: true },
     EclNotes: { disable: true },
     layout: 'fullscreen',
+    chromatic: {
+      disable: true,
+    },
   },
 };
 

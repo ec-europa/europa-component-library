@@ -25,6 +25,7 @@ const addons = [
   '@storybook/addon-measure',
   '@ecl/storybook-addon-system-switcher',
   'storybook-addon-rtl',
+  '@storybook/addon-interactions',
 ];
 
 let staticDirs = [
