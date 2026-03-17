@@ -447,4 +447,27 @@ $banner: null !default;
   .ecl-banner--v-bottom .ecl-container {
     bottom: 0;
   }
+
+  // Overlay
+  .ecl-banner--overlay {
+    .ecl-banner__picture-container::after,
+    .ecl-banner__video-container::after {
+      background-color: map.get($banner, 'overlay');
+      content: '';
+      inset: 0;
+      mix-blend-mode: multiply;
+      position: absolute;
+      z-index: 0;
+    }
+
+    // Force light text
+    &:not(.ecl-banner--box-bg-light) {
+      .ecl-banner__title,
+      .ecl-banner__title-link,
+      .ecl-banner__description,
+      .ecl-banner__description-link {
+        color: map.get($banner, 'text-color', 'light');
+      }
+    }
+  }
 }
