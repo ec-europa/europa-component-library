@@ -33,7 +33,7 @@ $theme: null !default;
 
 // Switch to 2 columns if possible
 // Keep highlight content stacked
-@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 's')}) {
   // Grid content
   .ecl-layout-wrapper.col-2 > .ecl-layout-wrapper__grid,
   .ecl-layout-wrapper.col-3 > .ecl-layout-wrapper__grid,
@@ -76,7 +76,7 @@ $theme: null !default;
 
 // Switch to 3 columns if possible
 // Put highlight content beside grid content
-@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'l')}) {
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
   // Grid content
   .ecl-layout-wrapper.col-3 > .ecl-layout-wrapper__grid,
   .ecl-layout-wrapper.col-4 > .ecl-layout-wrapper__grid {

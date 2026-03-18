@@ -144,7 +144,7 @@ const renderStory = async (data, args) => {
   if (args.gridContent) {
     return `<div class="ecl-container">
       <div class="ecl-row ecl-u-mt-l">
-        <aside class="ecl-col-l-3">
+        <aside class="ecl-col-l-3 ecl-u-mb-l ecl-u-mb-l-none">
           <div class="ecl-u-bg-dark-20 ecl-u-bg-grey-75 ecl-u-pa-m">Sidebar</div>
         </aside>
         <div class="ecl-col-l-9">${renderedLayout}</div>
