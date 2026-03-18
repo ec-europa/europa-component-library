@@ -149,6 +149,10 @@ $overflow-height: 1rem;
 
 .ecl-modal__body-scroll {
   overflow-y: auto;
+
+  // FRONT-5257 - prevent clipping of the focus styles
+  margin-inline: calc(-1 * var(--s-xs));
+  padding-inline: var(--s-xs);
 }
 
 .ecl-modal__body-overflow {

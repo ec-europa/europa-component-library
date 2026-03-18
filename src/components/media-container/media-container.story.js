@@ -204,6 +204,9 @@ Video.args = getArgs(dataVideo);
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
+  chromatic: {
+    disable: true,
+  },
 };
 
 export const EmbeddedVideo = (_, { loaded: { component } }) => component;
@@ -251,6 +254,9 @@ EmbeddedVideo.parameters = {
     config: {
       rules: [{ id: 'frame-tested', enabled: false }],
     },
+  },
+  chromatic: {
+    ignoreSelectors: ['#player'],
   },
 };
 
