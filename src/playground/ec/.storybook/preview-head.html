@@ -17,33 +17,13 @@
   type="text/javascript"
 ></script>
 <script>
-  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
-  function runOnPageChange() {
-    ECL.autoInit();
-  }
-
   document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
+      const root = document.getElementById('storybook-root');
       // Add autoinit for specific components
-      document
-        .getElementById('storybook-root')
-        .setAttribute('data-ecl-auto-init', 'Tooltip');
-
-      runOnPageChange();
-      const callback = function (mutationsList) {
-        for (let i = 0, len = mutationsList.length; i < len; i++) {
-          if (mutationsList[i].type == 'childList') {
-            runOnPageChange();
-            break;
-          }
-        }
-      };
-      const observer = new MutationObserver(callback);
-      const config = { childList: true, subtree: false };
-      observer.observe(document.getElementById('storybook-root'), config);
-
-      // Add ecl class to body, to ensure that default css is working well
-      document.getElementById('storybook-root').classList.add('ecl');
+      root.setAttribute('data-ecl-auto-init', 'Tooltip');
+      // Add ecl class to ensure that default css is working well
+      root.classList.add('ecl');
     }
   };
   setTimeout(() => {
