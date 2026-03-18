@@ -2,6 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 import { within, userEvent, expect } from '@storybook/test';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 import demoData from './demo/data';
 import expandable from './expandable.html.twig';
@@ -69,16 +70,18 @@ Expanded.render = async (args) => {
   const renderedExpandable = await expandable(prepareData(demoData, args));
   return renderedExpandable;
 };
-Expanded.tags = ['!dev'];
+Expanded.tags = [''];
 Expanded.storyName = 'expanded';
 Expanded.args = getArgs(demoData);
 Expanded.argTypes = getArgTypes();
 Expanded.parameters = {
   chromatic: {
-    viewports: [768],
+    modes: {
+      s: allModes.s,
+    },
   },
 };
-
+console.log(Expanded.parameters);
 Expanded.play = async ({ canvasElement }) => {
   ECL.autoInit();
   const canvas = within(canvasElement);

@@ -139,7 +139,9 @@ VisibleInverted.storyName = 'inverted';
 VisibleInverted.tags = ['!dev'];
 VisibleInverted.parameters = {
   chromatic: {
-    viewports: [768],
+    modes: {
+      m: allModes.m,
+    },
   },
 };
 VisibleInverted.play = async ({ canvasElement }) => {
