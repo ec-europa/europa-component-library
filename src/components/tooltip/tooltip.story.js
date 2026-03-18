@@ -109,6 +109,7 @@ Visible.parameters = {
   },
 };
 Visible.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   const tooltip = document.querySelector('.ecl-tooltip');
@@ -138,12 +139,11 @@ VisibleInverted.storyName = 'inverted';
 VisibleInverted.tags = ['!dev'];
 VisibleInverted.parameters = {
   chromatic: {
-    modes: {
-      m: allModes.m,
-    },
+    viewports: [768],
   },
 };
 VisibleInverted.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   const tooltip = document.querySelector('.ecl-tooltip');

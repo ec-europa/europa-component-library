@@ -177,6 +177,9 @@ export default {
     viewport: {
       defaultViewport: 'pixelxl',
     },
+    chromatic: {
+      viewports: [768],
+    },
   },
 };
 
@@ -256,7 +259,7 @@ EmbeddedVideo.parameters = {
     },
   },
   chromatic: {
-    ignoreSelectors: ['#player'],
+    ignoreSelectors: ['.ecl-media-container__media'],
   },
 };
 

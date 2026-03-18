@@ -73,8 +73,14 @@ Expanded.tags = ['!dev'];
 Expanded.storyName = 'expanded';
 Expanded.args = getArgs(demoData);
 Expanded.argTypes = getArgTypes();
+Expanded.parameters = {
+  chromatic: {
+    viewports: [768],
+  },
+};
 
 Expanded.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button', { name: /collapsed/i });
   await expect(button).toHaveAttribute('aria-expanded', 'false');

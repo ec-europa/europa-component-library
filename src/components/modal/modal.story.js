@@ -164,6 +164,7 @@ Opened.storyName = 'Opened';
 Opened.args = getArgs(dataDefault);
 Opened.argTypes = getArgTypes();
 Opened.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   await userEvent.click(button);
