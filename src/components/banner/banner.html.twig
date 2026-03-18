@@ -100,6 +100,12 @@
 {% endif %}
 
 {% if _overlay %}
+  {% if _box_background == 'light' %}
+    {% set _color = 'dark' %}
+  {% else %}
+    {% set _color = 'light' %}
+  {% endif %}
+
   {% set _css_class = _css_class ~ ' ecl-banner--overlay' %}
 {% endif %}
 

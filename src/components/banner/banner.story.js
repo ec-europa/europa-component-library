@@ -136,7 +136,7 @@ const getArgTypes = (data) => {
     font_color: {
       name: 'font color',
       type: 'select',
-      description: 'Change font color',
+      description: 'Change font color (no effect when overlay is enabled)',
       options: ['dark', 'light'],
       control: {
         labels: {
