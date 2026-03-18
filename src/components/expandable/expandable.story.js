@@ -70,7 +70,7 @@ Expanded.render = async (args) => {
   const renderedExpandable = await expandable(prepareData(demoData, args));
   return renderedExpandable;
 };
-Expanded.tags = [''];
+Expanded.tags = ['!dev'];
 Expanded.storyName = 'expanded';
 Expanded.args = getArgs(demoData);
 Expanded.argTypes = getArgTypes();
@@ -81,7 +81,7 @@ Expanded.parameters = {
     },
   },
 };
-console.log(Expanded.parameters);
+
 Expanded.play = async ({ canvasElement }) => {
   ECL.autoInit();
   const canvas = within(canvasElement);
