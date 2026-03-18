@@ -2,7 +2,6 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 import { within, userEvent, expect } from '@storybook/test';
-import { allModes } from '../../playground/ec/.storybook/modes';
 
 import demoData from './demo/data';
 import expandable from './expandable.html.twig';
@@ -50,6 +49,16 @@ const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
 export default {
   title: 'Components/Expandables',
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -74,13 +83,6 @@ Expanded.tags = ['!dev'];
 Expanded.storyName = 'expanded';
 Expanded.args = getArgs(demoData);
 Expanded.argTypes = getArgTypes();
-Expanded.parameters = {
-  chromatic: {
-    modes: {
-      s: allModes.s,
-    },
-  },
-};
 
 Expanded.play = async ({ canvasElement }) => {
   ECL.autoInit();

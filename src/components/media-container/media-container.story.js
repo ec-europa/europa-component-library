@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import { allModes } from '../../playground/ec/.storybook/modes';
 
 import dataExpandable from '@ecl/expandable/demo/data';
 import dataImg from './demo/data--image';
@@ -180,7 +179,10 @@ export default {
     },
     chromatic: {
       modes: {
-        m: allModes.m,
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
       },
     },
   },

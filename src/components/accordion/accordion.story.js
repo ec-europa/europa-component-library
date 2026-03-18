@@ -3,7 +3,6 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import { userEvent, expect } from '@storybook/test';
-import { allModes } from '../../playground/ec/.storybook/modes';
 
 import demoData from './demo/data';
 import accordion from './accordion.html.twig';
@@ -89,7 +88,10 @@ export default {
   parameters: {
     chromatic: {
       modes: {
-        m: allModes.m,
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
       },
     },
   },

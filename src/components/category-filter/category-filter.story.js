@@ -2,7 +2,6 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
-import { allModes } from '../../playground/ec/.storybook/modes';
 
 import demoData from './demo/data';
 import categoryFilter from './category-filter.html.twig';
@@ -33,7 +32,10 @@ export default {
   parameters: {
     chromatic: {
       modes: {
-        s: allModes.s,
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
       },
     },
   },

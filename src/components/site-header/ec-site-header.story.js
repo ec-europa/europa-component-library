@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import { allModes } from '../../playground/ec/.storybook/modes';
 import { userEvent } from '@storybook/test';
 
 // Get data
@@ -453,8 +452,9 @@ MegaMenuOpened.tags = ['!dev'];
 MegaMenuOpened.parameters = {
   chromatic: {
     modes: {
-      l: allModes.l,
-      xl: allModes.xl,
+      xs: { disable: true },
+      s: { disable: true },
+      l: { disable: true },
     },
   },
 };
@@ -481,8 +481,7 @@ MegaMenuOpenedMobile.argTypes = getArgTypes(dataCore);
 MegaMenuOpenedMobile.parameters = {
   chromatic: {
     modes: {
-      s: allModes.s,
-      m: allModes.m,
+      xl: { disable: true },
     },
   },
 };
