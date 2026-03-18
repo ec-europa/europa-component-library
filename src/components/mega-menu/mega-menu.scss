@@ -152,7 +152,7 @@ $mega-menu: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
-  .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
+  .ecl-mega-menu {
     background: map.get($mega-menu, 'desktop', 'menu-background');
     padding-bottom: 0;
     padding-top: 0;
@@ -168,7 +168,7 @@ $mega-menu: null !default;
     // For the external icon
     .ecl-mega-menu__link .ecl-icon {
       flex-shrink: 0;
-      margin-inline-start: var(--s-2xs);
+      margin-inline-start: var(--s-2xs) !important;
     }
 
     .ecl-mega-menu__site-name,
@@ -335,7 +335,7 @@ $mega-menu: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
-  .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
+  .ecl-mega-menu {
     .ecl-mega-menu__overlay {
       background-color: map.get($mega-menu, 'desktop', 'overlay-background');
       opacity: 0.7;
@@ -453,7 +453,9 @@ $mega-menu: null !default;
   .ecl-icon {
     flex-shrink: 0;
     height: map.get($mega-menu, 'mobile', 'arrow-size');
-    margin-inline-start: auto;
+
+    // Overriding style coming from button to align icon on the right
+    margin-inline-start: auto !important;
     padding: 1px 3px;
     width: map.get($mega-menu, 'mobile', 'arrow-size');
 
@@ -577,7 +579,7 @@ $mega-menu: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
-  .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
+  .ecl-mega-menu {
     border-top: map.get($mega-menu, 'desktop', 'menu-border');
 
     .ecl-mega-menu__inner {
@@ -726,10 +728,7 @@ $mega-menu: null !default;
     }
   }
 
-  .ecl-mega-menu:not(
-    .ecl-mega-menu--forced-mobile,
-    .ecl-mega-menu--forced-close
-  ) {
+  .ecl-mega-menu {
     .ecl-mega-menu__item {
       &.ecl-mega-menu__item--expanded > .ecl-button .ecl-icon {
         transform: rotate(0);
@@ -739,6 +738,7 @@ $mega-menu: null !default;
         .ecl-mega-menu__link {
           background-color: #fff;
           color: var(--cm-on-surface-brand, var(--c-d));
+          display: flex;
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
       }
@@ -960,7 +960,11 @@ $mega-menu: null !default;
   .ecl-icon {
     align-self: center;
     flex-shrink: 0;
-    margin-inline-start: auto;
+
+    // Overriding style coming from button to align item on the right
+    margin-inline-start: auto !important;
+    height: map.get($theme, 'icon', '2xs');
+    width: map.get($theme, 'icon', '2xs');
   }
 }
 
@@ -1110,10 +1114,7 @@ $mega-menu: null !default;
 }
 
 @include breakpoints.up('xl') {
-  .ecl-mega-menu:not(
-    .ecl-mega-menu--forced-mobile,
-    .ecl-mega-menu--forced-close
-  ) {
+  .ecl-mega-menu {
     .ecl-mega-menu__wrapper {
       padding-top: var(--s-m);
 
@@ -1519,10 +1520,7 @@ $mega-menu: null !default;
 }
 
 @media (width >= 1368px) {
-  .ecl-mega-menu:not(
-    .ecl-mega-menu--forced-mobile,
-    .ecl-mega-menu--forced-close
-  ) {
+  .ecl-mega-menu {
     .ecl-container {
       padding-inline: map.get(
         $mega-menu,
@@ -1611,10 +1609,7 @@ $mega-menu: null !default;
 }
 
 @include breakpoints.up('xl') {
-  .ecl-mega-menu:not(
-    .ecl-mega-menu--forced-mobile,
-    .ecl-mega-menu--forced-close
-  ) {
+  .ecl-mega-menu {
     .ecl-container {
       padding-inline: map.get(
         $mega-menu,
@@ -1657,10 +1652,7 @@ $mega-menu: null !default;
 }
 
 @media (width >= 1368px) {
-  .ecl-mega-menu:not(
-    .ecl-mega-menu--forced-mobile,
-    .ecl-mega-menu--forced-close
-  ) {
+  .ecl-mega-menu {
     .ecl-mega-menu__mega:not(.ecl-mega-menu__mega--level-2)
       > .ecl-mega-menu__featured {
       margin-inline-start: 20.68rem !important;
