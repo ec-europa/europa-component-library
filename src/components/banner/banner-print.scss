@@ -254,14 +254,4 @@ $banner-print: null !default;
     position: absolute;
     z-index: 0;
   }
-
-  // Force light text
-  &:not(.ecl-banner--box-bg-light) {
-    .ecl-banner__title,
-    .ecl-banner__title-link,
-    .ecl-banner__description,
-    .ecl-banner__description-link {
-      color: map.get($banner, 'text-color', 'light');
-    }
-  }
 }
