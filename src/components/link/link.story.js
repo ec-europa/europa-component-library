@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
@@ -241,6 +242,13 @@ const renderStory = async (data, args, variant) => {
 export default {
   title: 'Components/Navigation/Link',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: allModes.m,
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

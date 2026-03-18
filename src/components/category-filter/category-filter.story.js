@@ -2,6 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 import demoData from './demo/data';
 import categoryFilter from './category-filter.html.twig';
@@ -29,6 +30,13 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Category filter',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        s: allModes.s,
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

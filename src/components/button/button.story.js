@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
@@ -260,6 +261,13 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Button',
   decorators: [withCode, withNotes],
+  parameters: {
+    chromatic: {
+      modes: {
+        s: allModes.s,
+      },
+    },
+  },
 };
 
 export const Primary = (_, { loaded: { component } }) => component;
