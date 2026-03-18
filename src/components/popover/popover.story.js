@@ -2,6 +2,8 @@ import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
+import { within, userEvent, expect } from '@storybook/test';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 import dataDefault from './demo/data';
 
@@ -71,11 +73,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Popover',
   decorators: [withNotes, withCode],
-  parameters: {
-    chromatic: {
-      disable: true,
-    },
-  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -109,4 +106,44 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
+  chromatic: {
+    disable: true,
+  },
+};
+
+export const Visible = (_, { loaded: { component } }) => component;
+
+Visible.render = async () => {
+  const visiblePopover = `
+    <div class="ecl-container">
+      <div class="ecl-u-f-r">${await popover({
+        ...dataDefault,
+        id: 'popover-example1',
+      })}</div>
+    </div>
+  `;
+
+  return visiblePopover;
+};
+Visible.storyName = 'visible';
+Visible.tags = ['!dev'];
+Visible.parameters = {
+  chromatic: {
+    modes: {
+      m: allModes.m,
+      l: allModes.l,
+      xl: allModes.xl,
+    },
+    ignoreSelectors: ['.ecl-popover__scrollable'],
+  },
+};
+Visible.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = await canvas.findByRole('button');
+  const popover = document.getElementById('popover-example1');
+  expect(popover).toHaveAttribute('hidden');
+  await userEvent.click(button);
+  expect(popover).not.toHaveAttribute('hidden');
+};

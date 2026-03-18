@@ -37,25 +37,6 @@ module.exports = {
           },
         },
       },
-      featured: {
-        items: [
-          {
-            picture: {
-              img: {
-                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
-                alt: 'Jean Monnet banner',
-              },
-            },
-            label: 'I belong to news & media',
-            path: exampleLink,
-            description:
-              '<p>Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
-            extra_attributes: [
-              { name: 'an-extra-attribute-for-the-featured-link' },
-            ],
-          },
-        ],
-      },
       children: [
         {
           label: 'Item 2.1',
