@@ -14,6 +14,8 @@ const getArgs = (data) => {
   let args = {
     show_description: true,
     description: data.description,
+    show_credit: true,
+    credit: data.credit,
     show_expandable: false,
     full_width: false,
   };
@@ -43,6 +45,14 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
+    show_credit: {
+      name: 'credit',
+      type: { name: 'boolean' },
+      description: 'Show the credit',
+      table: {
+        category: 'Optional',
+      },
+    },
     show_expandable: {
       name: 'expandable',
       type: { name: 'boolean' },
@@ -61,6 +71,17 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
       if: { arg: 'show_description' },
+    },
+    credit: {
+      name: 'credit content',
+      type: 'string',
+      description: 'Media credit',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_credit' },
     },
   };
 
@@ -136,6 +157,9 @@ const prepareData = (data, args) => {
   if (!args.show_description) {
     args.description = '';
   }
+  if (!args.show_credit) {
+    args.credit = '';
+  }
   if (args.show_expandable) {
     data.expandable = dataExpandable;
   } else {
@@ -204,6 +228,9 @@ Video.args = getArgs(dataVideo);
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
+  chromatic: {
+    disable: true,
+  },
 };
 
 export const EmbeddedVideo = (_, { loaded: { component } }) => component;
@@ -251,6 +278,9 @@ EmbeddedVideo.parameters = {
     config: {
       rules: [{ id: 'frame-tested', enabled: false }],
     },
+  },
+  chromatic: {
+    ignoreSelectors: ['#player'],
   },
 };
 

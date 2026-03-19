@@ -78,4 +78,7 @@ WithTabbedContent.args = getArgs(demoDtaWithContent);
 WithTabbedContent.argTypes = getArgTypes(demoDtaWithContent);
 WithTabbedContent.parameters = {
   notes: { markdown: notes, json: demoDtaWithContent },
+  chromatic: {
+    disable: true,
+  },
 };

@@ -20,6 +20,7 @@ const getArgs = (data) => {
     size: 'm',
     font_size: 'm',
     box_background: 'light',
+    overlay: false,
     font_color: 'dark',
     title: data.title.link.label,
     description: data.description.link.label,
@@ -135,7 +136,7 @@ const getArgTypes = (data) => {
     font_color: {
       name: 'font color',
       type: 'select',
-      description: 'Change font color',
+      description: 'Change font color (no effect when overlay is enabled)',
       options: ['dark', 'light'],
       control: {
         labels: {
@@ -153,6 +154,17 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
       if: { arg: 'box_background', eq: 'none' },
+    },
+    overlay: {
+      name: 'overlay',
+      type: { name: 'boolean' },
+      description: 'Display overlay on the image',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
     },
     box_background: {
       name: 'box background',

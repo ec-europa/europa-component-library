@@ -161,7 +161,36 @@ $banner-print: null !default;
   }
 }
 
-// No full width banner on print
+.ecl-banner__cta {
+  margin-top: var(--s-m);
+}
+
+// No media
+.ecl-banner--no-media {
+  background-color: var(--cm-surface-0, var(--c-p));
+
+  .ecl-banner__info {
+    background-color: var(--cm-surface-0, var(--c-p));
+  }
+
+  .ecl-banner__title,
+  .ecl-banner__title-link,
+  .ecl-banner__description,
+  .ecl-banner__description-link {
+    color: var(--cm-on-surface-swap-0, #fff);
+  }
+
+  .ecl-banner__content {
+    background: transparent;
+    padding: 0;
+  }
+
+  .ecl-container {
+    position: relative;
+  }
+}
+
+// Full width
 .ecl-banner--full-width {
   border-radius: 0;
   left: 50%;
@@ -241,4 +270,17 @@ $banner-print: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-banner--v-bottom .ecl-container {
   bottom: 0;
+}
+
+// Overlay
+.ecl-banner--overlay {
+  .ecl-banner__picture-container::after,
+  .ecl-banner__video-container::after {
+    background-color: map.get($banner, 'overlay');
+    content: '';
+    inset: 0;
+    mix-blend-mode: multiply;
+    position: absolute;
+    z-index: 0;
+  }
 }
