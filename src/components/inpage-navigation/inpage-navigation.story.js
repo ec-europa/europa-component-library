@@ -115,7 +115,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     chromatic: {
-      disable: true,
+      ignoreSelectors: ['.ecl-col-l-9'],
     },
   },
 };

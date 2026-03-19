@@ -149,6 +149,12 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
   },
 };
 

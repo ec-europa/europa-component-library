@@ -78,6 +78,14 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Splash Page',
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

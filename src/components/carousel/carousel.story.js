@@ -116,6 +116,12 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Carousel',
   decorators: [withNotes, withCode],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

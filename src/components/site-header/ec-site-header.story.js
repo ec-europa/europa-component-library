@@ -452,7 +452,7 @@ MegaMenuOpened.tags = ['!dev'];
 MegaMenuOpened.parameters = {
   chromatic: {
     modes: {
-      xs: { disable: true },
+      m: { disable: true },
       s: { disable: true },
       l: { disable: true },
     },
