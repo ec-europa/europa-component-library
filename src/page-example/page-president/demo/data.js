@@ -1,21 +1,30 @@
 /* eslint-disable camelcase */
+import getSystem from '@ecl/builder/utils/getSystem';
 import dataSiteHeaderEC from '@ecl/site-header/demo/data--ec';
 import dataSiteFooterEC from '@ecl/site-footer/demo/data-core--ec';
+import dataSiteHeaderEU from '@ecl/site-header/demo/data--eu';
+import dataSiteFooterEU from '@ecl/site-footer/demo/data-core--eu';
 import rating from '@ecl/rating-field/demo/data';
 
 import dataMegaMenu from './data-menu';
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
+const system = getSystem();
+
+const site_header = system === 'ec' ? dataSiteHeaderEC : dataSiteHeaderEU;
+const site_footer = system === 'ec' ? dataSiteFooterEC : dataSiteFooterEU;
+
 // Site header
-dataSiteHeaderEC.mega_menu = dataMegaMenu;
-delete dataSiteHeaderEC.cta_link;
-delete dataSiteHeaderEC.custom_action;
-delete dataSiteHeaderEC.login_box;
-delete dataSiteHeaderEC.banner_top;
-delete dataSiteHeaderEC.notification;
-delete dataSiteHeaderEC.site_name;
-delete dataSiteFooterEC.co_owner;
+site_header.mega_menu = dataMegaMenu;
+delete site_header.cta_link;
+delete site_header.custom_action;
+delete site_header.login_box;
+delete site_header.banner_top;
+delete site_header.notification;
+delete site_header.site_name;
+// Site footer
+delete site_footer.co_owner;
 
 // Rating field
 rating.label = 'Rate this page';
@@ -520,6 +529,7 @@ const related = {
 };
 
 const data = {
+  system,
   banner,
   blockquote,
   agenda_items,
@@ -532,8 +542,8 @@ const data = {
   rating,
   nav_list,
   icon_path: '/icons.svg',
-  site_header: dataSiteHeaderEC,
-  site_footer: dataSiteFooterEC,
+  site_header,
+  site_footer,
   page_header,
 };
 

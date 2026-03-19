@@ -163,4 +163,8 @@
 </main>
 
 <!-- Footer -->
-{%- include '@ecl/site-footer/site-footer-ec.html.twig' with site_footer -%}
+{% if system == 'ec' %}
+  {%- include '@ecl/site-footer/site-footer-ec.html.twig' with site_footer -%}
+{% else %}
+  {%- include '@ecl/site-footer/site-footer-eu.html.twig' with site_footer -%}
+{% endif %}
