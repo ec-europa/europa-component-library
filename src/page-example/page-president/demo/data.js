@@ -116,7 +116,9 @@ const social_media = {
 // News block
 const news = [
   {
+    picture_zoom: true,
     primary_meta: '16 March 2026',
+
     title: {
       link: {
         type: 'standalone',
@@ -136,7 +138,6 @@ const news = [
       },
     ],
     picture: {
-      zoom: true,
       position: 'top',
       img: {
         src: 'https://ec.europa.eu/avservices/avs/files/video6/repository/prod/photo/store//06/92/23/P-069223_00-05_03-MED-677887.jpg',
@@ -144,6 +145,7 @@ const news = [
     },
   },
   {
+    picture_zoom: true,
     primary_meta: '27 February 2026',
     title: {
       link: {
@@ -165,13 +167,13 @@ const news = [
     ],
     picture: {
       position: 'top',
-      zoom: true,
       img: {
         src: 'https://ec.europa.eu/avservices/avs/files/video6/repository/prod/photo/store//06/91/24/P-069124_00-10_03-MED-360540.jpg',
       },
     },
   },
   {
+    picture_zoom: true,
     primary_meta: '25 February 2026',
     title: {
       link: {
@@ -193,13 +195,13 @@ const news = [
     ],
     picture: {
       position: 'top',
-      zoom: true,
       img: {
         src: 'https://ec.europa.eu/avservices/avs/files/video6/repository/prod/photo/store//06/92/23/P-069223_00-05_03-MED-677887.jpg',
       },
     },
   },
   {
+    picture_zoom: true,
     image_position: 'top',
     primary_meta: '17 February 2026',
     title: {
@@ -222,7 +224,6 @@ const news = [
     ],
     picture: {
       position: 'top',
-      zoom: true,
       img: {
         src: 'https://ec.europa.eu/avservices/avs/files/video6/repository/prod/photo/store//06/89/77/P-068977_00-19_03-MED-631002.jpg',
       },
@@ -298,6 +299,7 @@ const gallery = {
   id: 'gallery-id',
   column: 4,
   expandable: false,
+  picture_zoom: true,
   grid: true,
   items: [
     {
