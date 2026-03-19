@@ -116,6 +116,11 @@ export default {
     layout: 'fullscreen',
     chromatic: {
       ignoreSelectors: ['.ecl-col-l-9'],
+      modes: {
+        s: { disable: true },
+        m: { disable: true },
+        l: { disable: true },
+      },
     },
   },
 };

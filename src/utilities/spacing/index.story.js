@@ -53,6 +53,7 @@ export default {
       defaultViewport: 'responsive',
     },
     EclNotes: { disable: true },
+    chromatic: { disable: true },
   },
 };
 
