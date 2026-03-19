@@ -297,7 +297,6 @@ const banner = {
 const gallery = {
   id: 'gallery-id',
   column: 4,
-  disable_overlay: true,
   expandable: false,
   grid: true,
   items: [
@@ -312,6 +311,8 @@ const gallery = {
           src: 'https://commission.europa.eu/sites/default/files/styles/oe_theme_ratio_3_2_medium/avportal/P-069224/00-01.jpg?itok=QGlSxthx',
         },
       },
+      title:
+        'Participation of Ursula von der Leyen, President of the European Commission, in the Nuclear Energy Summit',
       description:
         'Participation of Ursula von der Leyen, President of the European Commission, in the Nuclear Energy Summit',
     },
@@ -326,6 +327,7 @@ const gallery = {
           src: 'https://commission.europa.eu/sites/default/files/styles/oe_theme_ratio_3_2_medium/public/2026-02/P-069076_00-49_02-HIGH-552395.jpg?h=0257d294&itok=1jkoqGOV',
         },
       },
+      title: 'Presidents von der Leyen, Costa and Zelenskyy',
       description: 'Presidents von der Leyen, Costa and Zelenskyy',
     },
     {
@@ -339,6 +341,8 @@ const gallery = {
           src: 'https://commission.europa.eu/sites/default/files/styles/oe_theme_ratio_3_2_medium/avportal/P-069226/00-02.jpg?itok=LDZYSwbL',
         },
       },
+      title:
+        'Participation of Ursula von der Leyen, President of the European Commission, in the plenary session of the European Parliament',
       description:
         'Participation of Ursula von der Leyen, President of the European Commission, in the plenary session of the European Parliament',
     },
@@ -353,6 +357,8 @@ const gallery = {
           src: 'https://commission.europa.eu/sites/default/files/styles/oe_theme_ratio_3_2_medium/avportal/P-069124/00-02.jpg?itok=FuW4ZHFB',
         },
       },
+      title:
+        'Participation of Ursula von der Leyen, President of the European Commission, and Raffaele Fitto, Executive Vice-President of the European Commission, in the Eastern Border Regions High-Level Conference ',
       description:
         'Participation of Ursula von der Leyen, President of the European Commission, and Raffaele Fitto, Executive Vice-President of the European Commission, in the Eastern Border Regions High-Level Conference ',
     },
@@ -386,6 +392,8 @@ const gallery = {
         transform: 'rotate-90',
       },
     },
+    counter_separator: 'of',
+    full_screen_label: 'View original',
   },
 };
 
