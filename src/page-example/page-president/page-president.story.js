@@ -35,4 +35,4 @@ Default.render = async () => {
   return renderedPresident;
 };
 Default.storyName = 'default';
-Default.tags = [];
+Default.tags = ['!dev'];
