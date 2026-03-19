@@ -68,6 +68,7 @@ const agenda_items = [
 // Social media follow
 const social_media = {
   description: 'Follow us',
+  variant: 'horizontal',
   links: [
     {
       link: {

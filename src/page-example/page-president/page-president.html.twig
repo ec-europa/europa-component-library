@@ -20,11 +20,15 @@
       <div class="ecl-row">
       {% for item in agenda_items %}
         <div class="ecl-col-l-3">
-          {%- include '@ecl/content-block/content-block.html.twig' with item only -%}
+          {%- include '@ecl/content-block/content-block.html.twig' with item|merge({
+            extra_classes: 'ecl-u-mt-m ecl-u-mt-l-none',
+          }) only -%}
         </div>
       {%  endfor %}
         <div class="ecl-col-3">
-          {% include "@ecl/social-media-follow/social-media-follow.html.twig" with social_media only %}
+          {% include "@ecl/social-media-follow/social-media-follow.html.twig" with social_media|merge({
+            extra_classes: 'ecl-u-mv-m ecl-u-mv-l-none',
+          }) only %}
         </div>
       </div>
       {%  include "@ecl/link/link.html.twig" with {
@@ -54,7 +58,9 @@
     <div class="ecl-row">
     {% for item in news %}
       <div class="ecl-col-l-3">
-        {%- include '@ecl/content-item/content-item.html.twig' with item only -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with item|merge({
+          extra_classes: 'ecl-u-mt-m ecl-u-mt-l-none',
+        }) only -%}
       </div>
     {%  endfor %}
     </div>
@@ -80,7 +86,9 @@
       <div class="ecl-row">
       {% for item in statements %}
         <div class="ecl-col-l-6">
-          {%- include '@ecl/content-item/content-item.html.twig' with item only -%}
+          {%- include '@ecl/content-item/content-item.html.twig' with item|merge({
+            extra_classes: 'ecl-u-mt-m ecl-u-mt-l-none',
+          }) only -%}
         </div>
       {%  endfor %}
       </div>
