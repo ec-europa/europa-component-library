@@ -152,7 +152,7 @@ const renderStory = async (data, args) => {
     </div>`;
   }
 
-  return renderedLayout;
+  return `<div class="ecl-container">${renderedLayout}</div>`;
 };
 
 const syncItemVisibility = (Story) => {
