@@ -1,0 +1,158 @@
+<!-- Site header -->
+{% include '@ecl/site-header/site-header.html.twig' with site_header only %}
+
+<main>
+  <!-- Page header -->
+  {% include '@ecl/page-header/page-header.html.twig' with page_header only %}
+  {%- include '@ecl/banner/banner.html.twig' with banner|merge({
+    extra_classes: 'ecl-u-mt-2xl',
+  }) only -%}
+  <!-- Blockquote -->
+  <div class="ecl-container">
+    <div class="ecl-u-mv-2xl">
+      {%- include '@ecl/blockquote/blockquote.html.twig' with blockquote only -%}
+    </div>
+  </div>
+  <!-- Agenda -->
+  <div class="ecl-u-bg-surface-lowest ecl-u-pt-xs ecl-u-pb-2xl">
+    <div class="ecl-container">
+      <h2 class="ecl-u-type-heading-2 ecl-u-width-100">Weekly agenda</h2>
+      <div class="ecl-row">
+      {% for item in agenda_items %}
+        <div class="ecl-col-l-3">
+          {%- include '@ecl/content-block/content-block.html.twig' with item only -%}
+        </div>
+      {%  endfor %}
+        <div class="ecl-col-3">
+          {% include "@ecl/social-media-follow/social-media-follow.html.twig" with social_media only %}
+        </div>
+      </div>
+      {%  include "@ecl/link/link.html.twig" with {
+        link: {
+          path: '#',
+          type: 'standalone',
+          label: 'See the full agenda',
+        },
+        icon: {
+          name: 'arrow-left',
+          transform: 'rotate-180',
+          size: 'xs',
+        },
+      } only %}
+    </div>
+  </div>
+  <div class="ecl-container ecl-u-mt-2xl">
+    {%  include "@ecl/link/link.html.twig" with {
+      link: {
+        path: '#',
+        type: 'primary',
+        label: 'Transparency >',
+      },
+    } only %}
+    <!-- News -->
+    <h2 class="ecl-u-type-heading-2">News</h2>
+    <div class="ecl-row">
+    {% for item in news %}
+      <div class="ecl-col-l-3">
+        {%- include '@ecl/content-item/content-item.html.twig' with item only -%}
+      </div>
+    {%  endfor %}
+    </div>
+    <div class="ecl-u-border-color-neutral-light-500 ecl-u-width-100 ecl-u-border-width-1 ecl-u-border-top ecl-u-mv-xl"></div>
+    {%  include "@ecl/link/link.html.twig" with {
+      link: {
+        path: '#',
+        type: 'standalone',
+        label: 'Read more news',
+        icon_position: 'after',
+      },
+      extra_classes: 'ecl-u-mb-2xl',
+      icon: {
+        transform: 'rotate-180',
+        name: 'arrow-left',
+      },
+    } only %}
+  </div>
+  <!-- Statements -->
+  <div class="ecl-u-bg-surface-lowest ecl-u-pt-xs ecl-u-pb-2xl">
+    <div class="ecl-container">
+      <h2 class="ecl-u-type-heading-2">Statements and speeches</h2>
+      <div class="ecl-row">
+      {% for item in statements %}
+        <div class="ecl-col-l-6">
+          {%- include '@ecl/content-item/content-item.html.twig' with item only -%}
+        </div>
+      {%  endfor %}
+      </div>
+      <div class="ecl-u-border-color-neutral-light-500 ecl-u-width-100 ecl-u-border-width-1 ecl-u-border-top ecl-u-mv-xl"></div>
+      {% include "@ecl/link/link.html.twig" with {
+        link: {
+          path: '#',
+          type: 'standalone',
+          label: 'More statements and speeches',
+          icon_position: 'after',
+        },
+        icon: {
+          transform: 'rotate-180',
+          name: 'arrow-left',
+          size: 'xs',
+        },
+      } only %}
+    </div>
+  </div>
+  <!-- Gallery -->
+  <div class="ecl-container ecl-u-mv-2xl">
+    <h2 class="ecl-u-type-heading-2">Media</h2>
+    {% include "@ecl/gallery/gallery.html.twig" with gallery only %}
+  </div>
+  <div class="ecl-u-bg-surface-lowest ecl-u-pt-xs ecl-u-pb-2xl">
+    <div class="ecl-container">
+      <h2 class="ecl-u-type-heading-2">About the President</h2>
+      <div class="ecl">
+        <p>Ursula von der Leyen was the first woman to become President of the European Commission in 2019. She was elected for a second mandate by the European Parliament in July 2024, and will lead the Commission until the European elections in 2029.</p>
+      </div>
+        {% include "@ecl/navigation-list/navigation-list.html.twig" with nav_list only %}
+    </div>
+  </div>
+  <!-- Banner -->
+  <div class="ecl-container">
+    <div class="ecl-u-mv-2xl">
+      {%  include "@ecl/banner/banner.html.twig" with banner_bottom only %}
+    </div>
+    <!-- Related links -->
+    <h2 class="ecl-u-type-heading-2">Related links</h2>
+    <div class="ecl-row">
+    {% for col in related %}
+      <div class="ecl-col-l-6">
+        {% for item in col %}
+          {% include "@ecl/content-item/content-item.html.twig" with item|merge({
+            extra_classes: 'ecl-u-mt-l',
+          }) only %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+    {% include "@ecl/social-media-follow/social-media-follow.html.twig" with social_media|merge({
+      extra_classes: 'ecl-u-mv-2xl',
+    }) only %}
+  </div>
+  <div class="ecl-u-bg-surface-lowest ecl-u-pv-l ecl-u-border-top ecl-u-border-color-grey-300">
+    <div class="ecl-container ecl-u-d-flex ecl-u-align-items-end">
+        {% include "@ecl/form-group/form-group.html.twig" with rating|merge({
+          extra_classes: '',
+        }) only %}
+        <span class="ecl-u-type-paragraph-m ecl-u-ml-s">or</span>
+        {% include "@ecl/link/link.html.twig" with {
+          link: {
+            path: '#',
+            label: 'gives us more feedback',
+          },
+          extra_classes: 'ecl-u-ml-xs ecl-u-mb-2xs',
+        } only %}
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+{%- include '@ecl/site-footer/site-footer-ec.html.twig' with site_footer -%}
