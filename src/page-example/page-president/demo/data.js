@@ -432,10 +432,17 @@ const nav_list = {
 // Other banner
 const banner_bottom = {
   title: 'Priorities for 2024-2029',
-  cta: {
+  box_background: 'dark',
+  link: {
     link: {
+      type: '',
+      style: 'highlight',
       label: 'Learn more',
       path: '#',
+    },
+    icon: {
+      name: 'corner-arrow',
+      transform: 'rotate-90',
     },
   },
   picture: {
