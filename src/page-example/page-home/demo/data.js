@@ -6,7 +6,7 @@ import dataSiteHeaderEU from '@ecl/site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataPageHeader from '@ecl/page-header/demo/data';
-import dataBanner from '@ecl/banner/demo/data--image';
+import dataCarousel from '@ecl/carousel/demo/data';
 import dataCard from '@ecl/card/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--event';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
@@ -18,25 +18,7 @@ delete dataSiteHeaderEC.banner_top;
 delete dataSiteHeaderEC.notification;
 delete dataSiteHeaderEC.site_name;
 
-const banner = JSON.parse(JSON.stringify(dataBanner));
-banner.full_width = true;
-banner.box_background = 'dark';
-banner.title = 'Making business easier with EU Inc.';
-banner.description = 'One Europe, one market';
-banner.link = {
-  link: {
-    label: 'Learn more',
-    path: '#',
-    icon_position: 'after',
-  },
-  icon: {
-    name: 'corner-arrow',
-    size: 'xs',
-    transform: 'rotate-90',
-  },
-};
-banner.picture.img.src =
-  'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
+dataCarousel.full_width = true;
 
 dataSiteHeaderEU.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEU.cta_link;
@@ -80,7 +62,7 @@ const data = {
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
   page_header: pageHeader,
-  banner: banner,
+  carousel: dataCarousel,
   card: dataCard,
   content_item: dataContentItem,
   featured_item: dataFeaturedItem,

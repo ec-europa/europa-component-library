@@ -122,10 +122,7 @@ $banner: null !default;
   @include mixins.responsive-font(map.get($banner, 'font', 'title-m'));
 
   .ecl-banner--font-s & {
-    @include mixins.responsive-font(
-      map.get($banner, 'font', 'title-s'),
-      map.get($banner, 'font', 'title-s-font-weight')
-    );
+    @include mixins.responsive-font(map.get($banner, 'font', 'title-s'));
   }
 
   .ecl-banner--font-l & {
@@ -148,20 +145,17 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'dark');
   }
 
-  @include mixins.responsive-font(
-    map.get($banner, 'font', 'description-m'),
-    map.get($banner, 'font', 'description-m-font-weight')
-  );
+  @include mixins.responsive-font(map.get($banner, 'font', 'description-m'));
 
   .ecl-banner--font-s & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'description-s'));
+    @include mixins.responsive-font(
+      map.get($banner, 'font', 'description-s'),
+      map.get($banner, 'font', 'description-s-font-weight')
+    );
   }
 
   .ecl-banner--font-l & {
-    @include mixins.responsive-font(
-      map.get($banner, 'font', 'description-l'),
-      map.get($banner, 'font', 'description-l-font-weight')
-    );
+    @include mixins.responsive-font(map.get($banner, 'font', 'description-l'));
   }
 }
 

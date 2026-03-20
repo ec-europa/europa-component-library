@@ -12,21 +12,19 @@ $typography: (
       'line-height': var(--lh-3xl),
     ),
     'mobile': (
-      'size': var(--fs-6xl),
-      'line-height': var(--lh-5xl),
-      'letter-spacing': map.get($letter-spacing, 'xs'),
+      'size': var(--fs-7xl),
+      'line-height': var(--lh-7xl),
     ),
     'tablet': (
-      'size': var(--fs-8xl),
-      'line-height': var(--lh-7xl),
-      'letter-spacing': map.get($letter-spacing, 'xs'),
+      'size': var(--fs-9xl),
+      'line-height': var(--lh-9xl),
     ),
     'desktop': (
       'size': var(--fs-10xl),
       'line-height': var(--lh-10xl),
-      'letter-spacing': map.get($letter-spacing, '3xs'),
+      'letter-spacing': map.get($letter-spacing, '3xl'),
     ),
-    'font-weight': map.get($font-weight, 'regular'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   heading1: (
     'mobile-xs': (
@@ -34,21 +32,18 @@ $typography: (
       'line-height': var(--lh-xl),
     ),
     'mobile': (
-      'size': var(--fs-5xl),
-      'line-height': var(--lh-2xl),
-      'letter-spacing': map.get($letter-spacing, 'xs'),
+      'size': var(--fs-6xl),
+      'line-height': var(--lh-3xl),
     ),
     'tablet': (
       'size': var(--fs-7xl),
       'line-height': var(--lh-6xl),
-      'letter-spacing': map.get($letter-spacing, '3xs'),
     ),
     'desktop': (
       'size': var(--fs-8xl),
       'line-height': var(--lh-7xl),
-      'letter-spacing': map.get($letter-spacing, '3xs'),
     ),
-    'font-weight': map.get($font-weight, 'semi-bold'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   heading2: (
     'mobile-xs': (
@@ -61,15 +56,13 @@ $typography: (
     ),
     'tablet': (
       'size': var(--fs-5xl),
-      'line-height': var(--lh-2xl),
-      'letter-spacing': map.get($letter-spacing, 'xs'),
+      'line-height': var(--lh-3xl),
     ),
     'desktop': (
       'size': var(--fs-6xl),
       'line-height': var(--lh-4xl),
-      'letter-spacing': map.get($letter-spacing, 'xs'),
     ),
-    'font-weight': map.get($font-weight, 'semi-bold'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   heading3: (
     'mobile-xs': (
@@ -77,18 +70,18 @@ $typography: (
       'line-height': var(--lh-m),
     ),
     'mobile': (
-      'size': var(--fs-xl),
-      'line-height': var(--lh-m),
+      'size': var(--fs-2xl),
+      'line-height': var(--lh-l),
     ),
     'tablet': (
       'size': var(--fs-3xl),
-      'line-height': var(--lh-l),
+      'line-height': var(--lh-xl),
     ),
     'desktop': (
       'size': var(--fs-3xl),
-      'line-height': var(--lh-l),
+      'line-height': var(--lh-xl),
     ),
-    'font-weight': map.get($font-weight, 'semi-bold'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   heading4: (
     'mobile-xs': (
@@ -96,18 +89,18 @@ $typography: (
       'line-height': var(--lh-m),
     ),
     'mobile': (
-      'size': var(--fs-l),
+      'size': var(--fs-m),
       'line-height': var(--lh-m),
     ),
     'tablet': (
-      'size': var(--fs-xl),
-      'line-height': var(--lh-m),
+      'size': var(--fs-2xl),
+      'line-height': var(--lh-xl),
     ),
     'desktop': (
       'size': var(--fs-2xl),
-      'line-height': var(--lh-l),
+      'line-height': var(--lh-xl),
     ),
-    'font-weight': map.get($font-weight, 'medium'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   heading5: (
     'mobile-xs': (
@@ -119,14 +112,14 @@ $typography: (
       'line-height': var(--lh-s),
     ),
     'tablet': (
-      'size': var(--fs-l),
-      'line-height': var(--lh-s),
+      'size': var(--fs-xl),
+      'line-height': var(--lh-m),
     ),
     'desktop': (
       'size': var(--fs-xl),
       'line-height': var(--lh-m),
     ),
-    'font-weight': map.get($font-weight, 'medium'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   heading6: (
     'mobile-xs': (
@@ -135,17 +128,17 @@ $typography: (
     ),
     'mobile': (
       'size': var(--fs-s),
-      'line-height': var(--lh-xs),
+      'line-height': var(--lh-s),
     ),
     'tablet': (
       'size': var(--fs-m),
-      'line-height': var(--lh-s),
+      'line-height': var(--lh-m),
     ),
     'desktop': (
       'size': var(--fs-m),
-      'line-height': var(--lh-s),
+      'line-height': var(--lh-m),
     ),
-    'font-weight': map.get($font-weight, 'near-bold'),
+    'font-weight': map.get($font-weight, 'light'),
   ),
   body: (
     'xs': (
@@ -190,8 +183,8 @@ $typography: (
         'line-height': var(--lh-s),
       ),
       'mobile': (
-        'size': var(--fs-m),
-        'line-height': var(--lh-m),
+        'size': var(--fs-s),
+        'line-height': var(--lh-s),
       ),
       'tablet': (
         'size': var(--fs-m),
@@ -208,12 +201,12 @@ $typography: (
         'line-height': var(--lh-s),
       ),
       'mobile': (
-        'size': var(--fs-m),
-        'line-height': var(--lh-m),
+        'size': var(--fs-s),
+        'line-height': var(--lh-s),
       ),
       'tablet': (
         'size': var(--fs-m),
-        'line-height': var(--lh-m),
+        'line-height': var(--lh-s),
       ),
       'desktop': (
         'size': var(--fs-l),
@@ -226,12 +219,12 @@ $typography: (
         'line-height': var(--lh-l),
       ),
       'mobile': (
-        'size': var(--fs-m),
-        'line-height': var(--lh-m),
+        'size': var(--fs-xl),
+        'line-height': var(--lh-l),
       ),
       'tablet': (
-        'size': var(--fs-l),
-        'line-height': var(--lh-m),
+        'size': var(--fs-xl),
+        'line-height': var(--lh-l),
       ),
       'desktop': (
         'size': var(--fs-xl),
@@ -244,8 +237,8 @@ $typography: (
         'line-height': var(--lh-m),
       ),
       'mobile': (
-        'size': var(--fs-l),
-        'line-height': var(--lh-m),
+        'size': var(--fs-xl),
+        'line-height': var(--lh-l),
       ),
       'tablet': (
         'size': var(--fs-xl),
@@ -272,21 +265,21 @@ $typography: (
         'line-height': var(--lh-2xs),
       ),
       'mobile': (
-        'size': var(--fs-s),
-        'line-height': var(--lh-s),
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
       ),
       'tablet': (
         'size': var(--fs-s),
-        'line-height': var(--lh-s),
+        'line-height': var(--lh-xs),
       ),
       'desktop': (
         'size': var(--fs-s),
-        'line-height': var(--lh-s),
+        'line-height': var(--lh-xs),
       ),
     ),
     'm': (
       'size': var(--fs-m),
-      'line-height': var(--lh-m),
+      'line-height': var(--lh-s),
     ),
   ),
   paragraph: (
