@@ -310,3 +310,57 @@ Tertiary.argTypes = getArgTypes('tertiary');
 Tertiary.parameters = {
   notes: { markdown: notes, json: dataButtonTertiary },
 };
+
+export const WithIcon = (_, { loaded: { component } }) => component;
+
+WithIcon.render = async () => {
+  const renderedButtonIcon = await button({
+    ...dataButtonPrimary,
+    icon_position: 'after',
+    style: 'highlight',
+    icon: {
+      name: 'arrow-left',
+      transform: 'rotate-180',
+    },
+  });
+
+  return renderedButtonIcon;
+};
+WithIcon.tags = ['!dev'];
+WithIcon.storyName = 'with icon and style';
+
+export const IconOnly = (_, { loaded: { component } }) => component;
+
+IconOnly.render = async () => {
+  const renderedButtonIconOnly = await button({
+    ...dataButtonPrimary,
+    hide_label: true,
+    icon: {
+      name: 'camera',
+    },
+  });
+
+  return renderedButtonIconOnly;
+};
+IconOnly.tags = ['!dev'];
+IconOnly.storyName = 'icon only';
+
+export const WithIndicator = (_, { loaded: { component } }) => component;
+
+WithIndicator.render = async () => {
+  const renderedButtonIndicator = await button({
+    ...dataButtonPrimary,
+    hide_label: true,
+    style: 'neutral',
+    icon: {
+      name: 'calendar',
+    },
+    indicator: {
+      value: '31',
+    },
+  });
+
+  return renderedButtonIndicator;
+};
+WithIndicator.tags = ['!dev'];
+WithIndicator.storyName = 'with indicator';

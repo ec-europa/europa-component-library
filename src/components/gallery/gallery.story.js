@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import { userEvent, expect } from '@storybook/test';
 
 import dataDefault from './demo/data';
 import gallery from './gallery.html.twig';
@@ -172,3 +173,19 @@ Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
+
+export const Overlay = (_, { loaded: { component } }) => component;
+
+Overlay.render = async () => {
+  const renderedGalleryOverlay = `<div class="ecl-container">${await gallery(dataDefault)}</div>`;
+  return renderedGalleryOverlay;
+};
+Overlay.storyName = 'overlay';
+Overlay.tags = ['!dev'];
+Overlay.play = async () => {
+  ECL.autoInit();
+  const thumb = await document.querySelector('.ecl-gallery__item-link');
+  await userEvent.click(thumb);
+  const dialog = document.querySelector('.ecl-gallery__overlay');
+  await expect(dialog).toBeVisible();
+};
