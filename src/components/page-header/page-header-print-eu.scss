@@ -45,7 +45,6 @@ $page-header-print: null !default;
 .ecl-page-header__title {
   color: map.get($page-header, 'title', 'color');
   font: map.get($page-header-print, 'title', 'font');
-  font-weight: map.get($page-header, 'title', 'font-weight');
   letter-spacing: map.get($page-header, 'title', 'letter-spacing');
   margin-block: 0;
   padding-block: map.get($theme, 'spacing-print', 'l') 0;
