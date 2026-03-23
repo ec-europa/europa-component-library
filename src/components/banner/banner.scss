@@ -228,6 +228,7 @@ $banner: null !default;
 
   .ecl-banner__content {
     background: transparent;
+    padding: 0;
   }
 }
 
@@ -446,5 +447,18 @@ $banner: null !default;
   // stylelint-disable-next-line no-descending-specificity
   .ecl-banner--v-bottom .ecl-container {
     bottom: 0;
+  }
+
+  // Overlay
+  .ecl-banner--overlay {
+    .ecl-banner__picture-container::after,
+    .ecl-banner__video-container::after {
+      background-color: map.get($banner, 'overlay');
+      content: '';
+      inset: 0;
+      mix-blend-mode: multiply;
+      position: absolute;
+      z-index: 0;
+    }
   }
 }

@@ -117,6 +117,11 @@ export class Table {
 
         this.sortButtons.push(sort);
       });
+
+      // Set initial heading aria-sort attr.
+      this.sortHeadings.forEach((th) => {
+        th.setAttribute('aria-sort', 'none');
+      });
     }
 
     // Set default row order via dataset.
@@ -194,7 +199,7 @@ export class Table {
       if (order && th === toggle) {
         th.setAttribute('aria-sort', order);
       } else {
-        th.removeAttribute('aria-sort');
+        th.setAttribute('aria-sort', 'none');
       }
     });
 
