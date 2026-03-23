@@ -42,33 +42,55 @@ $banner: (
     'light': map.get($color, 'white'),
     'inverted': map.get($color, 'white'),
   ),
-  font: (
-    'title-s': (
-      'mobile-xs': var(--f-2xl),
-      'desktop': var(--f-4xl),
+  title: (
+    's': (
+      'font': (
+        'mobile-xs': var(--f-2xl),
+        'desktop': var(--f-4xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
-    'title-s-font-weight': map.get($font-weight, 'regular'),
-    'title-m': (
-      'font-weight': map.get($font-weight, 'regular'),
-      'mobile-xs': var(--f-2xl),
-      'desktop': var(--f-4xl),
+    'm': (
+      'font': (
+        'mobile-xs': var(--f-2xl),
+        'desktop': var(--f-4xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
-    'title-l': (
-      'mobile-xs': var(--f-2xl),
-      'desktop': var(--f-5xl),
+    'l': (
+      'font': (
+        'mobile-xs': var(--f-2xl),
+        'desktop': var(--f-5xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
-    'description-s': 'heading4',
-    'description-m': 'heading4',
-    'description-m-font-weight': map.get($font-weight, 'regular'),
-    'description-l': (
-      'mobile-xs': var(--f-xl),
-      'desktop': var(--f-4xl),
+  ),
+  description: (
+    's': (
+      'font': 'heading4',
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
-    'description-l-font-weight': map.get($font-weight, 'regular'),
-    'credit': (
-      'mobile': var(--f-s),
-      'desktop': var(--f-s),
+    'm': (
+      'font': 'heading4',
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
+    'l': (
+      'font': (
+        'mobile-xs': var(--f-xl),
+        'desktop': var(--f-4xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
+    ),
+  ),
+  credit: (
+    'mobile': var(--f-s),
+    'desktop': var(--f-s),
   ),
   description-margin: var(--s-s),
   overlay: var(--c-d-60),
