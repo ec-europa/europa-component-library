@@ -5,8 +5,8 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataEC from '@ecl/site-header/demo/data--ec';
-import dataEU from '@ecl/site-header/demo/data--eu';
+import dataEC from './demo/data--ec';
+import dataEU from './demo/data--eu';
 
 const template = '@ecl/site-header/site-header.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
