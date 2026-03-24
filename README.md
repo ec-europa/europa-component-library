@@ -1,4 +1,4 @@
-# ECL v4 - Europa Component Library
+# ECL v5 - Europa Component Library
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
@@ -13,29 +13,37 @@ All library elements are accompanied with
 
 ## Requirements
 
-ECL is currently using **node 20.9.0 (LTS)**, we recommend using this version (nvm use) to ensure the compatibility with all the ECL dependencies or the ones defined by the ECL Builder.
+ECL is currently using **node 22.12.0 (LTS)**, we recommend using this version (nvm use) to ensure the compatibility with all the ECL dependencies or the ones defined by the ECL Builder.
 
 ## Documentation
 
-Read the technical documentation [on GitHub](docs/README.md).
+**📚 [Complete Documentation](docs/README.md)** - Full technical documentation
 
-## Migrate from v3
+**Quick links:**
 
-Read the technical documentation [on GitHub](docs/Migrating-v4.md).
+- 🚀 [Getting Started](docs/developers-start-here.md) - Setup, commands, and development workflow
+- 📦 [Using Presets](docs/presets.md) - NPM, CDN, and installation guide
+- 💻 [JavaScript Guide](docs/javascript.md) - ESM, IIFE, events, and API
+- 🎨 [ECL Structure](docs/ecl-structure.md) - Project architecture and organization
+- ♿ [Accessibility](docs/accessibility.md) - WCAG compliance guidelines
+
+**Migration:**
+
+- 🔄 [Migrating from v4 to v5](docs/Migrating-v5.md)
 
 ## Quick start
 
 The ECL is bundled in various [presets](docs/presets.md) in order to accomodate the different needs of everyone. Once you know which preset you want to use, you can:
 
 - download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
-- install the preset with npm or yarn, e.g. `npm install @ecl/preset-ec` or `yarn add @ecl/preset-ec`
+- install the preset with npm or pnpm, e.g. `npm install @ecl/preset-ec` or `pnpm install @ecl/preset-ec`
 - use the CDN, https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}. Here's an example:
 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/optional/ecl-ec-default.css"
-    integrity="sha256-iW7hhMZXv7yvITW7e+lAtSX3LP2oN+kMfisPvjEFR80= sha384-90cZ0eB/WItWc1lC4uryBB0/aNO84gk9eU2IQHjkTW0MZIs+sz/NUykutVRvkdtW sha512-WsI01nbLVzMIXdluwM+eyr/jhs5UVFrwHKZMcz5NmiakQ0XWzKl/HhTNAH16RHQCVwlxJe5dAtdEJoXLa4lqUw=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/styles/optional/ecl-ec-default.css"
+    integrity="sha256-oK4J1qWuNPDDFpzSn8bTtLkDOo98b5yPRN8vCSQ2rpA= sha384-bxX3MzZj8kiGJI9iSM3P8jM7R7CZuTh43eMPTc8dAJ8USlhuSUqCT8tB6XlctGBM sha512-yaNqWLuadTCqbTi2WMnBQfraUGQaJKcjbaXxMWuC3njFwjlVdEC3zbahEpHCx0S1gmjm/Oc2sLoRSDSyj5wCqg=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -44,8 +52,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/optional/ecl-reset.css"
-    integrity="sha256-EdkdYgVECs2jW/ibm3HHO10jaG0AOeNkDlf/ucMlrbU= sha384-P1sBTcqevL99sC0B1zmBV1lMqsbViU0cqnEN2jAHEQd3VmSNfegxVKv2dxYu9GhUsha512-KzbAuvXUKtELOvX0akYYtBs6bfeIdrKhEo8xwXt9FxLxgQ6YT1EDXC5c+HKsGGDhrfRe736D4BhIzL9a9HETwg=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/styles/optional/ecl-reset.css"
+    integrity="sha256-MC8NaDyeEIHJXRMhnvZW213vwgLcyXAHHYVHNRw388c= sha384-FmS12yaGF+gsr2igi4lSgiKccryIe+8ubfIf8wXnUsC0Gv9jMicJ81p/OfdV0sV7 sha512-X9XfiDVA1Mulvzlf7RkZKM3NbcXLBOXSkz8ksO7eVcuvLdr096kzFkqpDa5Kq5hErUlBijEFWNyxcCCvdTS3/w=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -54,8 +62,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/ecl-ec.css"
-    integrity="sha256-GtPoIEuv04ZOW0sGmPFzuKxsg5vg5oKk+c3Jr5/nsDg= sha384-UCzb3Wr61GTH9ni7H9lsXJ2B0dSjXAP+KXSviP1naNe4WX+JPQFB6hfDYhi/AwoL sha512-RelZzdtLiUDJISd764PXYp/BalPoq/JXQXxZz+2IppP+q5wikB4p22uaWXg3dk/28UHsaY7wrP7oFJyMlxhb7w=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/styles/ecl-ec.css"
+    integrity="sha256-IfNQNi+iYfirfHRZAioJ8iAWyQnL543z1fx6WfLVf2o= sha384-ufUASfDDqNcwJwxwntiwFTiAHym/RYA+HHQfouf3UuW00NwNP8UN1k+yxlnI+WEi sha512-7YdHR0HxMLbheAeQoWywwxwX1BeikNcRnOryNlw+90KEGXoq6BiK4q7XOdnohFSBjhnDjcDtVQGoZe8auf0RGQ=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -64,8 +72,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/ecl-ec-utilities.css"
-    integrity="sha256-3Vdb4VSfr43FeJCapxuQ5wwcvTAau6fvPO4yyEMCE5Y= sha384-uxtSW7PSydM9Ow3jU25ck+o9xHET/9y1RW5I9Kl2dx5zVkKRX/LS06r82yMuQsfO sha512-blsB5JICQnYY/aj6wUN404YrYCi3OcfGAaQ6bfh5oCttV2+ORUhbFZ9y//IDJlRQLqJ3UCnanSV+mM42LUVKTA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/styles/ecl-ec-utilities.css"
+    integrity="sha256-h2gL8CMAFC9m85FusHii0J+Pb1GYw26jpO91LKSmkhE= sha384-Z74xeclXM60TNGUWBJTj0P/F0RnaXHZsHaCaDkoRHYQg4eRppGh8iNWEdXSTVGYC sha512-Up/+y4mn2XqVH3bR9kQhm0KHzmFdKmNVaZX5LRq+Y6+vb4L0jj8MqiVWGyc36r+SBVAtBG4d8YGZABjVCToZRw=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -74,8 +82,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/ecl-ec-print.css"
-    integrity="sha256-6WGwnimzcT/CCCt4y3uoqZRB2PyvFYbH8a6mKiOzfu8= sha384-gxx+5NguJCcrRIVRDWZDLi53ih7mh2U9rCeIxNJZuINCSEQrJjHUXK4OUVTT/Mxj sha512-yjc+86Pd1po51IU1IJqKCd5GyYSW/TTAHs8ieoCacUAaq0NLWqbD+WuliI7i04ZGde8dK5mTL+oPojQvUpefAQ=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/styles/ecl-ec-print.css"
+    integrity="sha256-71MivTfYZ1EcwSWhry/S8aRbsytKd86lJMRFGOM8KQs= sha384-vd4KJMoiIeSxVHZ9P1WbLNA5Shnzm2udO/rOOmvgWsjyF9TbJV59NLTpch/AL7nW sha512-fw5r7ACKkWYbvdzU2xfaNZXBiRelxL69JyHJfYsJqzo5vWNWbyY3A0Wr0UFt7lSO5bRr1CXpu0qbYdQKfnyn3A=="
     crossorigin="anonymous"
     media="print"
   />
@@ -84,9 +92,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/optional/ecl-ec-default-print.css"
-    integrity="sha256-94GWM6UMwYIhx3EpBu0gDNUiYXmx4kbfl1qhBkjvDSY= sha384-UbjfSU0KUoc9nhgsAfKdxylzfUEHxvM1k2mYOt8/bLydYrFbL+ERbzqVRrjb9t8b
-    sha512-YBNIoVWgXrfrji4Ux+iN+gW3OfU+euRbbMOApTBdMGxC77592yWlvyKwPYTF6UR5bJwe+rYYz09RBvJRO+q9zw=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/styles/optional/ecl-ec-default-print.css"
+    integrity="sha256-d02RXPnGXBTHRZH+czF3fGoOBlmyw32vAyiazwiUj9Y= sha384-/AWAoQeoA7PEYGFGBv+B9fSb9bagXcqaH0einxmQWafM3mk38BSH2WUaBoC36+nP sha512-dcyJqLbwCRNEcWjX3sIjSJS9ATq+wjjkMb6sGhY7qpjkgsaaAaxpBi67YH99HaRIxg+o8iC0/+72zRvHQkQI3Q=="
     crossorigin="anonymous"
     media="print"
   />
@@ -94,23 +101,24 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 
   ```html
   <script
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/scripts/ecl-ec.js"
-    integrity="sha256-t06Aw2x1aXuWl8P4+VrfbbDgzXzG7DgYXNsC07eYKLg= sha384-eEV5mdTXAaDyXMMExBvtkbqvSJTo+H1lMhWpZPTwmJbWZam6rkKWDWSKb+OSl7uI sha512-+6xdwKTXk0w5cYkA7WZiDEw7kdRHqJUvIVQcswuA6h1ixMHY6irJ2KZCDqzaFMgVi0CvtX+njup9+LbNER8M7w=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v5.0.0-alpha.22/ec/scripts/ecl-ec.js"
+    integrity="sha256-0PygCSF5lO+Iaw5CNmufw8wmQXu+VHoZmUYUPxtwgLg= sha384-i+z7cmhCW4BBu85kNJUL14MQRP3BPxxQjLSzh30qi+ADfjWSEFbc41LrXn0dpID8 sha512-Gzv8dS+8S1VNdamuVc6mkN0ornctudMPgpniaMZ2OIFyPizhJaUKGdoNyHodLRvcMIFJTZyRLm+vQBqBxB8aBA=="
     crossorigin="anonymous"
   ></script>
   ```
 
-### :warning: pikaday
+### :warning: duet js
 
-ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled anymore by ECL.
-Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when a datepicker instance is present in a webpage.
-Additionally, when customising the date format used by the datepicker, in order to get a consistent output, [moment.js](https://momentjs.com/) is also needed.
-These scripts can be loaded from a CDN or fetched from the respective npm packages or websites for then hosting them locally.
+ECL uses [Duet datepicker](https://duetds.github.io/date-picker/) and this library is not bundled by ECL.
+Therefore **duet js needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when a datepicker instance is present in a webpage.
+This library can be loaded from a CDN or fetched from the respective npm package for then hosting it locally.
 The order of the scripts should be:
 
-- moment.js (https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js) (https://momentjs.com/)
-- pikaday (https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js) (https://pikaday.com/)
-- ecl.js
+- duet.esm.js
+- ecl.esm.js
+
+If hosted locally you will need the entire `dist` folder as found in the npm package `@duetds/date-picker` or in the tarball at https://registry.npmjs.org/@duetds/date-picker/-/date-picker-1.4.0.tgz to be accessible by your webserver.
+More detailed info are available in the getting started page in the ECL website.
 
 ## Need help?
 
@@ -118,6 +126,7 @@ Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) fo
 
 ## Previous major versions
 
+- v4.10.0 [sources](https://github.com/ec-europa/europa-component-library/tree/v4) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v4.10.0) - [website](https://ec.europa.eu/component-library/v4.10.0/)
 - v3.13.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v3) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v3.13.0) - [website](https://ec.europa.eu/component-library/v3.13.0/)
 - v2.39.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v2) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v2.39.0) - [website](https://ec.europa.eu/component-library/v2.39.0/)
 - v1.15.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.15.0) - [website](https://ec.europa.eu/component-library/v1.15.0/)

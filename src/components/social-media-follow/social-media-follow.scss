@@ -1,0 +1,107 @@
+/**
+ * Social media follow 
+ * @define social-media-follow
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$social-media-follow: null !default;
+
+.ecl-social-media-follow {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-social-media-follow__description {
+  color: map.get($social-media-follow, 'title-color');
+  font: var(--f-m);
+  font-weight: map.get($social-media-follow, 'title-font-weight');
+  margin-bottom: map.get($social-media-follow, 'title-margin');
+  margin-top: 0;
+}
+
+.ecl-social-media-follow__list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: calc(-1 * var(--s-2xs));
+  padding-inline-start: 0;
+}
+
+.ecl-social-media-follow__item {
+  display: flex;
+  margin-inline-end: map.get($social-media-follow, 'item-margin');
+  padding-top: var(--s-2xs);
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
+.ecl-social-media-follow__link {
+  align-items: center;
+  display: flex;
+  overflow: hidden; /* Improve rendering on IE */
+
+  @include mixins.responsive-font(map.get($social-media-follow, 'link-font'));
+}
+
+// Icon
+.ecl-social-media-follow__icon {
+  color: map.get($social-media-follow, 'icon-color');
+  flex-shrink: 0;
+  top: 0 !important;
+}
+
+// Description inline
+@include breakpoints.up('m') {
+  .ecl-social-media-follow--description_inline {
+    flex-direction: row;
+
+    .ecl-social-media-follow__description {
+      margin-inline-end: var(--s-m);
+      margin-block-end: 0;
+    }
+  }
+}
+
+// Vertical
+.ecl-social-media-follow--vertical {
+  .ecl-social-media-follow__list {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .ecl-social-media-follow__item {
+    margin-inline-end: 0;
+    margin-block-start: var(--s-m);
+    padding-block-start: 0;
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+  }
+}
+
+// Position
+.ecl-social-media-follow--right {
+  align-items: flex-end;
+
+  &.ecl-social-media-follow--description_inline {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .ecl-social-media-follow__list {
+    align-items: flex-end;
+  }
+}

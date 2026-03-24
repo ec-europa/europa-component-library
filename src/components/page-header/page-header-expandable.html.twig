@@ -1,0 +1,100 @@
+{% apply spaceless %}
+{#
+  Parameters:
+    - "toggle_label" (string) (default: '') Not visible, needed for accessibility
+    - "extra_classes" (string) (default: '')
+    - "toggle_extra_attributes" (array) (default: []) Custom attributes for the toggle button 
+    - "extra_attributes" (array) (default: [])
+      format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+
+  Blocks:
+    - header_content (default: '') Content of the header
+    - panel_content (default: '') Content of the hidden panel
+#}
+
+{# Internal properties #}
+
+{% set _toggle_label = toggle_label|default('') %}
+{% set _panel_id = panel_id|default('ecl-page-header-expandable-panel-' ~ random()) %}
+{% set _header_content = header_content|default('') %}
+{% set _panel_content = panel_content|default('') %}
+{% set _expandable = true %}
+{% set _extra_attributes = '' %}
+{% set _toggle_extra_attributes = toggle_extra_attributes|default([]) %}
+{% set _css_class = "ecl-page-header-expandable" %}
+
+{# Internal logic - Process properties #}
+
+{% if _lists is empty and _panel_content is empty %}
+  {% set _expandable = false %}
+  {% set _css_class =  _css_class ~ ' ecl-page-header-no-toggle' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+{% if _expandable %}
+  data-ecl-auto-init="PageHeaderExpandable"
+{% endif %}
+>
+  <div
+    class="ecl-page-header-expandable__header"
+    data-ecl-page-header-expandable-header
+  >
+    <div class="ecl-container ecl-page-header-expandable__container">
+      <div class="ecl-page-header-expandable__header-text">
+        {%- block header_content _header_content -%}
+      </div>
+    {% if _expandable %}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _toggle_label,
+        variant: 'tertiary',
+        style: 'neutral',
+        size: 'l',
+        icon: {
+          name: 'corner-arrow',
+          transform: 'flip-vertical',
+          size: 'm',
+        },
+        extra_classes: 'ecl-page-header-expandable__toggle',
+        extra_attributes: _toggle_extra_attributes|merge([
+          { name: 'aria-controls', value: _panel_id },
+          { name: 'aria-expanded', value: 'false' },
+          { name: 'data-ecl-page-header-expandable-toggle' },
+        ]),
+      } only %}
+    {% endif %}
+    </div>
+  </div>
+{% if _expandable %}
+  <div class="ecl-page-header-expandable__panel" id="{{ _panel_id }}" hidden>
+    <div class="ecl-container ecl-page-header-expandable__container">
+      {%- block panel_content _panel_content -%}
+    </div>
+  </div>
+{% endif %}
+</div>
+
+{% endapply %}

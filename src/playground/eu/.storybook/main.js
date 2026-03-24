@@ -4,31 +4,39 @@ const webpack = require('webpack');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 const publicUrl = process.env.PUBLIC_URL || '';
-const stories = ['../../../implementations/twig/**/!(ec*).story.js'];
+const stories = [
+  '../../../components/*/!(ec*).story.js',
+  '../../../utilities/*/!(ec*).story.js',
+  '../../../compositions/*/!(ec*).story.js',
+  '../../../layout/*/!(ec*).story.js',
+  '../../../page-example/*/!(ec*).story.js',
+];
 
 const addons = [
   '@storybook/addon-docs',
-  '@storybook/addon-cssresources',
+  '@ecl/storybook-addon-styles',
   '@ecl/storybook-addon-notes',
   '@ecl/storybook-addon-code',
+  '@ecl/storybook-addon-preview-width',
   '@storybook/addon-viewport',
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
   'storybook-dark-mode',
   '@storybook/addon-measure',
   '@ecl/storybook-addon-system-switcher',
+  'storybook-addon-rtl',
+  '@storybook/addon-interactions',
 ];
 
 let staticDirs = [
-  path.resolve(`${__dirname}/../../../presets/eu/${outputFolder}`),
-  path.resolve(`${__dirname}/../../../presets/reset/${outputFolder}`),
-  path.resolve(`${__dirname}/../../../presets/rtl/${outputFolder}`),
-  path.resolve(`${__dirname}/../public`),
+  path.resolve(__dirname, '../../../presets/eu', outputFolder),
+  path.resolve(__dirname, '../../../presets/reset', outputFolder),
+  path.resolve(__dirname, '../public'),
 ];
 
 // FRONT-3789 - No need for static dirs, we manually copy the files.
 if (isProd) {
-  staticDirs = [];
+  staticDirs = [path.resolve(__dirname, '../public')];
 }
 
 const webpackFinal = (config) => {
@@ -38,7 +46,7 @@ const webpackFinal = (config) => {
     test: /\.twig$/,
     loader: 'twing-loader',
     options: {
-      environmentModulePath: path.resolve(`${__dirname}/environment.js`),
+      environmentModulePath: path.resolve(__dirname, 'environment.js'),
     },
   });
 

@@ -1,0 +1,245 @@
+/**
+* Link
+* @define link
+*/
+
+@use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$button: null !default;
+$link: null !default;
+
+.ecl-link,
+%ecl-link {
+  color: var(--ecl-link-color);
+  font-family: var(--ff-d);
+  margin: 0;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-offset: clamp(3px, 0.245em, 10px);
+
+  &:visited {
+    color: var(--ecl-link-color);
+  }
+
+  &:hover {
+    color: var(--ecl-link-color-hover);
+  }
+
+  &:focus-visible {
+    border-radius: map.get($link, 'outline-radius');
+    outline: map.get($link, 'outline-width') solid
+      var(--ecl-focus-outline-color);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    color: var(--ecl-link-color-active);
+  }
+}
+
+.ecl-link--icon {
+  display: inline;
+  text-decoration: none;
+
+  .ecl-link__icon {
+    fill: currentcolor;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+  &:not(
+      .ecl-link--standalone,
+      .ecl-link--primary-highlight,
+      .ecl-link--primary-neutral,
+      .ecl-link--primary,
+      .ecl-link--secondary
+    )
+    .ecl-link__label {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+  }
+}
+
+.ecl-link__icon-container {
+  display: inline;
+  position: relative;
+}
+
+.ecl-link__indicator {
+  display: none;
+}
+
+// stylelint-disable no-descending-specificity
+.ecl-link__icon ~ .ecl-link__label,
+.ecl-link__icon-container ~ .ecl-link__label,
+.ecl-link__label ~ .ecl-link__icon,
+.ecl-link__label ~ .ecl-link__icon-container {
+  margin-inline-start: var(--s-xs);
+}
+// stylelint-enable no-descending-specificity
+
+// Icon only
+.ecl-link--icon-only {
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-link__label {
+    @include screen-reader.sr-only;
+  }
+
+  .ecl-link__icon,
+  .ecl-link__icon-container {
+    margin: 0;
+  }
+}
+
+/**
+* Standalone
+*/
+.ecl-link--standalone {
+  display: inline-block;
+  text-decoration: none;
+
+  &:visited {
+    color: var(--ecl-link-color);
+  }
+
+  &:hover {
+    color: var(--ecl-link-color);
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+  }
+
+  &:active {
+    color: var(--ecl-link-color-active);
+  }
+}
+
+/**
+* Branded link
+*/
+.ecl-link--brand,
+%ecl-link-brand {
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+
+  &.ecl-link--standalone {
+    --ecl-link-color-hover: #{map.get($link, 'brand', 'color')};
+  }
+}
+
+/**
+* Inverted link
+*/
+.ecl-link--inverted,
+%ecl-link-inverted {
+  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
+
+  &.ecl-link--standalone {
+    --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
+  }
+}
+
+/**
+* Link button
+*/
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
+@mixin link-button($variant: null) {
+  align-items: center;
+  background-color: map.get($button, #{$variant}, 'background');
+  border: map.get($button, #{$variant}, 'border-width') solid
+    map.get($button, #{$variant}, 'border-color');
+  border-radius: map.get($button, 'radius');
+  box-sizing: border-box;
+  color: map.get($button, #{$variant}, 'color');
+  display: inline-flex;
+  min-height: map.get($button, 'large', 'size');
+  min-width: map.get($button, 'large', 'size');
+  padding: calc(
+      #{map.get($button, 'large', 'padding-vertical')} -
+        #{map.get($button, #{$variant}, 'border-width')}
+    )
+    calc(
+      #{map.get($button, 'large', 'padding-horizontal')} -
+        #{map.get($button, #{$variant}, 'border-width')}
+    );
+  text-decoration: none;
+
+  @include mixins.responsive-font(map.get($button, 'large', 'font'));
+
+  &:visited {
+    color: map.get($button, #{$variant}, 'color');
+  }
+
+  &:hover {
+    background-color: map.get($button, #{$variant}, 'background-hover');
+    border-color: map.get($button, #{$variant}, 'border-color-hover');
+    box-shadow: map.get($button, 'shadow');
+    color: map.get($button, #{$variant}, 'color-hover');
+  }
+
+  &:focus-visible {
+    background-color: map.get($button, #{$variant}, 'background-focus');
+    border-color: map.get($button, #{$variant}, 'border-color-focus');
+    color: map.get($button, #{$variant}, 'color-focus');
+    outline: #{map.get($button, #{$variant}, 'outline-width')} solid
+      #{map.get($button, #{$variant}, 'outline-color')};
+    outline-offset: map.get($button, #{$variant}, 'outline-offset');
+
+    @if map.has-key($button, #{$variant}, 'shadow-focus') {
+      box-shadow: map.get($button, #{$variant}, 'shadow-focus');
+    }
+  }
+
+  &:active {
+    background-color: map.get($button, #{$variant}, 'background-active');
+    border-color: map.get($button, #{$variant}, 'border-color-active');
+    color: map.get($button, #{$variant}, 'color-active');
+  }
+
+  &.ecl-link--icon-only {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0 !important;
+
+    .ecl-link__icon {
+      height: map.get($button, 'large', 'icon-only-size');
+      width: map.get($button, 'large', 'icon-only-size');
+    }
+  }
+
+  &:not(.ecl-link--icon-only) {
+    .ecl-link__icon ~ .ecl-link__label,
+    .ecl-link__icon-container ~ .ecl-link__label,
+    .ecl-link__label ~ .ecl-link__icon,
+    .ecl-link__label ~ .ecl-link__icon-container {
+      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+    }
+  }
+}
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
+
+.ecl-link--primary {
+  @include link-button(primary);
+}
+
+.ecl-link--secondary {
+  @include link-button(secondary);
+}
+
+.ecl-link--primary-highlight {
+  @include link-button(primary-highlight);
+}
+
+.ecl-link--primary-neutral {
+  @include link-button(primary-neutral);
+}

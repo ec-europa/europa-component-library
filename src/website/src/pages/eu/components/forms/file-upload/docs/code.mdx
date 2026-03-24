@@ -5,58 +5,38 @@ order: 2
 
 import { Link, Playground, Html } from '@ecl/website-components';
 
-import {
-  fileUpload,
-  fileUploadMultiple,
-  fileUploadDisabled,
-  fileUploadOptional,
-  fileUploadInvalid,
-} from '../demo';
-
 <Playground
   system="eu"
   selectedKind="components-forms"
-  selectedStory="file"
-  showFrame
->
-  <Html markup={fileUpload} />
-</Playground>
+  selectedStory="file-upload"
+  selectedArgs="invalid:!false;disabled:!false;required:!true"
+></Playground>
 
 ## Multiple uploads
 
 <Playground
   system="eu"
   selectedKind="components-forms"
-  selectedStory="file"
-  showFrame
-  selectedArgs="input.multiple:true"
->
-  <Html markup={fileUploadMultiple} />
-</Playground>
+  selectedStory="file-upload-multiple"
+></Playground>
 
 ## Disabled
 
 <Playground
   system="eu"
   selectedKind="components-forms"
-  selectedStory="file"
-  selectedArgs="disabled:true"
-  showFrame
->
-  <Html markup={fileUploadDisabled} />
-</Playground>
+  selectedStory="file-upload"
+  selectedArgs="disabled:!true"
+></Playground>
 
 ## With error
 
 <Playground
   system="eu"
   selectedKind="components-forms"
-  selectedStory="file"
-  selectedArgs="invalid:true"
-  showFrame
->
-  <Html markup={fileUploadInvalid} />
-</Playground>
+  selectedStory="file-upload"
+  selectedArgs="invalid:!true"
+></Playground>
 
 ## Optional
 
@@ -65,7 +45,4 @@ import {
   selectedKind="components-forms"
   selectedStory="file-upload"
   selectedArgs="required:!false"
-  showFrame
->
-  <Html markup={fileUploadOptional} />
-</Playground>
+></Playground>

@@ -2,35 +2,34 @@
 @use '../index' as *;
 
 $modal: (
-  overlay: var(--c-ov-l),
-  border-radius: map.get($border-radius, 's'),
-  shadow: var(--sh-16),
-  font: var(--f-m),
+  overlay: var(--cm-surface-lowest-variant),
+  border-radius: map.get($border-radius, 'xs'),
+  shadow: var(--sh-4),
+  font: 'body-s',
+  padding-block: var(--s-l) var(--s-xl),
+  padding-inline: var(--s-2xl),
+  margin-inline-mobile: var(--s-m),
+  margin-inline-desktop: var(--s-5xl),
   header: (
-    font: var(--f-l),
-    padding-mobile: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
-    padding-desktop: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
+    font: 'heading6',
+    font-weight: map.get($font-weight, 'semi-bold'),
+    icon-size: 1.75rem,
+    icon-spacing: var(--s-3xs),
+    margin-block-end: var(--s-4xs),
   ),
   close: (
-    margin-top: calc(-1 * var(--s-xl)),
-    margin-end: calc(-1 * var(--s-xl)),
+    margin-top: -0.5rem,
+    margin-end: -1rem,
   ),
   body: (
-    padding-mobile: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
-    padding-desktop: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
-    padding-last-child: var(--s-3xl),
-    margin-fixed: var(--s-m),
+    scroll-margin-block-end: var(--s-xl),
+    fixed-separator: 1px solid var(--cm-border-neutral),
+    fixed-margin-block-end: var(--s-2xs),
+    fixed-padding-block-start: var(--s-2xs),
   ),
   footer: (
-    padding-mobile: 0 var(--s-3xl) var(--s-3xl),
-    padding-desktop: 0 var(--s-3xl) var(--s-3xl),
-  ),
-  warning: (
-    icon-background-color: var(--c-d),
-    icon-background-height: var(--s-m),
-    icon-background-width: var(--s-xs),
-    icon-background-top: calc(var(--s-3xl) + var(--s-s)),
-    icon-background-left:
-      calc(var(--s-3xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
+    separator: 1px solid var(--cm-border-neutral),
+    padding-block-start: var(--s-xl),
+    margin-block-start: var(--s-xl),
   ),
 );

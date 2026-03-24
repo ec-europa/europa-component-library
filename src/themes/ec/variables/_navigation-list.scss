@@ -2,9 +2,15 @@
 @use '../index' as *;
 
 $navigation-list: (
+  grid-row-gap: var(--s-5xl),
+  title-font: var(--f-xl),
+  title-font-weight: map.get($font-weight, 'regular'),
   image-margin: var(--s-s),
   content_block_padding: var(--s-xl),
-  border-radius: map.get($border-radius, 's'),
+  border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-1),
-  border: 1px solid var(--c-st),
+  background: var(--cm-surface-inverted),
+);
+$navigation-list-print: (
+  title-font: map.get($font-print, 'xl'),
 );

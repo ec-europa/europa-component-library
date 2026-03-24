@@ -2,9 +2,9 @@
 @use '../index' as *;
 
 $media-container: (
-  border-radius: 8px,
+  border-radius: map.get($border-radius, 'm'),
   shadow: var(--sh-1),
-  caption-background-color: map.get($color, 'white'),
+  caption-background-color: #fff,
   caption-color: var(--c-d-80),
   caption-font: var(--f-p-m),
   caption-line-height: map.get($line-height-prolonged, 'm'),
@@ -12,4 +12,8 @@ $media-container: (
   caption-before: true,
   expandable-spacing-top: var(--s-xs),
   scrollbar-width: 16px,
+);
+$media-container-print: (
+  caption-font: map.get($font-print, 'm'),
+  caption-padding: map.get($spacing-print, 's'),
 );

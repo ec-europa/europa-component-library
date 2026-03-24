@@ -1,0 +1,26 @@
+/**
+ * Skip link
+ * @define skip-link
+ */
+
+@use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
+
+// Exposed variables
+$theme: null !default;
+
+.ecl-skip-link {
+  position: absolute;
+  left: var(--s-l);
+  top: var(--s-l);
+  z-index: calc(map.get($theme, 'z-index', 'modal') + 1);
+
+  &:dir(rtl) {
+    left: auto;
+    right: var(--s-l);
+  }
+}
+
+.ecl-skip-link:not(:active, :focus-visible) {
+  @include screen-reader.sr-only;
+}

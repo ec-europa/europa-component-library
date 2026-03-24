@@ -3,7 +3,7 @@
 
 $fact-figures: (
   background: var(--c-p-5),
-  border-radius: 8px,
+  border-radius: map.get($border-radius, 'm'),
   padding-mobile: var(--s-m),
   padding-desktop: var(--s-xl),
   margin-vertical: var(--s-xl),
@@ -13,16 +13,25 @@ $fact-figures: (
   value-font-mobile-l: var(--f-3xl),
   value-font-desktop-m: var(--f-3xl),
   value-font-desktop-l: var(--f-4xl),
+  value-font-weight: map.get($font-weight, 'regular'),
   title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'bold'),
   title-margin: var(--s-xs),
   description-font: var(--f-m),
   description-margin: var(--s-xs),
   view-all-font: var(--f-m),
+  view-all-color: var(--c-p),
   view-all-border-color: var(--c-p-20),
   view-all-margin: var(--s-xl),
   view-all-padding-mobile: var(--s-m),
   view-all-padding-desktop: var(--s-xl),
   icon-color: var(--c-p),
   icon-margin: var(--s-xs),
+);
+$fact-figures-print: (
+  title-font: map.get($font-print, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  value-font-m: map.get($font-print, '3xl'),
+  value-font-l: map.get($font-print, '4xl'),
+  value-font-weight: map.get($font-weight, 'regular'),
 );

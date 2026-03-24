@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MainContainer.scss';
+import styles from './MainContainer.module.scss';
 
 const MainContainer = React.memo(({ children, forceRefresh, sidebarOpen }) => (
   <div

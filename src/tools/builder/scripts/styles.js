@@ -1,17 +1,27 @@
-const path = require('path');
-const fs = require('fs');
-const sass = require('sass');
-const postcss = require('postcss');
-const cssnano = require('cssnano');
-const autoprefixer = require('autoprefixer');
-const bannerPlugin = require('postcss-banner');
-const rangePlugin = require('postcss-input-range');
-const getSystem = require('../utils/getSystem');
+import path from 'node:path';
+import { promises as fs } from 'node:fs';
+import * as sass from 'sass';
+import postcss from 'postcss';
+import cssnano from 'cssnano';
+import autoprefixer from 'autoprefixer';
+import bannerPlugin from 'postcss-banner';
+import rangePlugin from 'postcss-input-range';
+import getSystem from '../utils/getSystem.js';
 
 const getPlugins = (options = {}) => {
   const plugins = [];
 
-  plugins.push(autoprefixer({ grid: 'no-autoplace' }));
+  plugins.push(
+    autoprefixer({
+      grid: 'no-autoplace',
+      overrideBrowserslist: [
+        '> 1%',
+        'not dead',
+        'not ie <= 11',
+        'not safari < 14',
+      ],
+    }),
+  );
   plugins.push(rangePlugin());
 
   if (process.env.NODE_ENV === 'production') {
@@ -27,58 +37,50 @@ const getPlugins = (options = {}) => {
   }
 
   if (process.env.NODE_ENV === 'production' || options.minify) {
-    plugins.push(cssnano({ safe: true }));
+    plugins.push(cssnano({ preset: 'default' }));
   }
 
   return plugins;
 };
 
-const buildStyles = (entry, dest, options) => {
+const buildStyles = async (entry, dest, options) => {
   const plugins = getPlugins(options);
 
   let postcssSourceMap = false;
   if (options.sourceMap === true) {
     postcssSourceMap = true; // inline
   } else if (options.sourceMap === 'file') {
-    postcssSourceMap = options.sourceMap; // as a file
+    postcssSourceMap = 'file'; // as a file
   }
 
-  const sassResult = sass.renderSync({
-    file: entry,
+  const sassResult = sass.compile(entry, {
     outFile: dest,
-    silenceDeprecations: ['legacy-js-api'],
     functions: {
       'getsystem()': () => new sass.types.String(getSystem() || ''),
     },
     sourceMap: options.sourceMap !== false,
-    sourceMapContents: options.sourceMap === true,
-    sourceMapEmbed: options.sourceMap === true,
-    includePaths: [
+    sourceMapIncludeSources: options.sourceMap === true,
+    loadPaths: [
       path.resolve(process.cwd(), 'node_modules'),
       ...(options.includePaths || []),
     ],
   });
 
-  postcss(plugins)
-    .process(sassResult.css, {
-      map:
-        postcssSourceMap === 'file'
-          ? { inline: false, prev: sassResult.map.toString() }
-          : postcssSourceMap,
-      from: entry,
-      to: dest,
-    })
-    .then((postcssResult) => {
-      fs.mkdirSync(path.dirname(dest), { recursive: true });
-      fs.writeFileSync(dest, postcssResult.css);
+  const postcssResult = await postcss(plugins).process(sassResult.css, {
+    map:
+      postcssSourceMap === 'file'
+        ? { inline: false, prev: sassResult.sourceMap }
+        : postcssSourceMap,
+    from: entry,
+    to: dest,
+  });
 
-      if (postcssResult.map) {
-        fs.writeFileSync(`${dest}.map`, postcssResult.map.toString());
-      }
-    });
+  await fs.mkdir(path.dirname(dest), { recursive: true });
+  await fs.writeFile(dest, postcssResult.css);
+
+  if (postcssResult.map) {
+    await fs.writeFile(`${dest}.map`, postcssResult.map.toString());
+  }
 };
 
-module.exports = {
-  getPlugins,
-  buildStyles,
-};
+export { getPlugins, buildStyles };

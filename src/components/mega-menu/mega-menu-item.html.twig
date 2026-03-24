@@ -1,0 +1,387 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
+  - "item" (object)
+    - "label" (string) Label of the menu link
+    - "external" (boolean) External link
+    - "one_level_only" (boolean) (default: false)
+    - "promotional" (boolean) (default: false) Promotional menu item, styles can be custommized defining:
+        --ecl-mega-menu-item-promotional-bg
+        --ecl-mega-menu-item-promotional-hover-bg
+        --ecl-mega-menu-item-promotional-focus-bg
+        --ecl-mega-menu-item-promotional-outline-color
+        --ecl-mega-menu-item-promotional-text-color
+        --ecl-mega-menu-item-promotional-hover-text-color
+        --ecl-mega-menu-item-promotional-focus-text-color
+    - "sr_external" (string) (default: '') Additional label for the external icon
+    - "path" (string) Href of the menu link
+    - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "info" (object) (default: {}) Info column
+      - "title" (string) Title of the info panel
+      - "content" (string) Content of the info panel
+      - "link" (object) Structure for the "discover more" link, following ECL Link
+    - "featured": (object) (default({})) Featured column
+      - "title" (string) Title of the featured panel
+      - "content" (string) Content of the featured panel
+      - "items" (associative array) Array of items
+        - "picture": (object) (default: {}) Object of type Picture
+        - "path" (string) Path or Url for the href
+        - "label" (string) Label of the item
+        - "description" (string) Description for the item
+        - "external" (boolean) Whether the link is external
+        - "icon_path" (string) Path to the icons sprite
+        - "sr_external" (string) (default: '') Additional label for the external icon
+        - "extra_attributes" (array)
+          - "name" (string) Attribute name, eg. 'data-test'
+          - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "container": (string) White panel to be filled at will
+    - "see_all": (boolean) (default: false) Whether to show the "view all" link
+    - "see_all_label": (string) (default: ''): Label for the "view all" link
+    - "see_all_attributes" (optional) (array) Custom attributes for the "view all" link
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "children" (array of object) Array of sub-items
+      - "external": (boolean) External link
+      - "sr_external" (string) (default: '') Additional label for the external icon
+      - "path" (string) Href of the sub-item link
+      - "label" (string) Label of the sub-item link
+      - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{% set _id = id|default('') %}
+{% set _item = item|default({}) %}
+{% set _menu_link_class = 'ecl-mega-menu__link' %}
+{% set _menu_link_attribute = 'data-ecl-mega-menu-link' %}
+{% set _menu_sublink_attribute = 'data-ecl-mega-menu-sublink' %}
+{% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
+{% set _menu_list_item_class = 'ecl-mega-menu__item' %}
+{% set _featured = _item.featured|default({}) %}
+{% set _info = _item.info|default({}) %}
+{% set _one_level_only = _item.one_level_only|default(false) %}
+{% set _promotional = _item.promotional|default(false) %}
+{% set _see_all = see_all|default(false) %}
+{% set _sublist_class = 'ecl-mega-menu__sublist' %}
+{% set _mega_class = 'ecl-mega-menu__mega' %}
+{% set _see_all_label = see_all_label|default('') %}
+{% set _see_all_attributes = see_all_attributes|default([]) %}
+{% set _can_be_external = true %}
+{% set _icon = {} %}
+
+{# Internal logic - Process properties #}
+
+{% if _item.container is defined and _item.container is not empty %}
+  {% set _can_be_external = false %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-container' %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-container aria-haspopup="true"' %}
+{% endif %}
+
+{% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup="true"' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
+{% endif %}
+
+{% if _one_level_only %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--one-level-only' %}
+{% endif %}
+
+{% if _item.level|default(0) < 2 and _featured is not empty %}
+  {% set _mega_class = _mega_class ~ ' ecl-mega-menu__mega--has-featured' %}
+{% endif %}
+
+{% if _info is empty %}
+  {% set _mega_class = _mega_class ~ ' ecl-mega-menu__mega--no-info' %}
+{% endif %}
+
+{% if _item.level == 2 %}
+  {% set _mega_class = _mega_class ~ ' ecl-mega-menu__mega--level-2' %}
+  {% if _item.children is empty %}
+    {% set _mega_class = _mega_class ~ ' ecl-mega-menu-featured-only' %}
+  {% endif %}
+{% endif %}
+
+{% if _promotional %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--promotional' %}
+{% endif %}
+
+{% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
+  {% set _can_be_external = false %}
+  {% set _icon = [{
+    name: 'corner-arrow',
+    transform: 'rotate-90',
+    size: '2xs',
+  },
+  {
+    name: 'arrow-left',
+    transform: 'flip-horizontal',
+    size: 's',
+  }] %}
+{% endif %}
+
+{%- if _item.label is not empty -%}
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
+  {% set _menu_link_attributes = _item.extra_attributes|default([])|merge([
+    { name: _menu_link_attribute },
+    { name: 'id', value: _id ~ "-link" },
+  ]) %}
+  {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
+    {% set _menu_link_attributes = _menu_link_attributes|merge([
+      { name: 'aria-expanded', value: 'false' },
+    ]) %}
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      label: _item.label,
+      icon_position: 'after',
+      icon: _icon,
+      extra_classes: _menu_link_class,
+      extra_attributes: _menu_link_attributes,
+    } only %}
+  {% else %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: {
+        type: 'standalone',
+        label: _item.label,
+        path: _item.path,
+        external: _can_be_external ? _item.external|default(false),
+        sr_external: _item.sr_external|default(''),
+        icon_position: 'after',
+      },
+      icon: _icon,
+      extra_classes: _menu_link_class,
+      extra_attributes: _menu_link_attributes,
+    } only %}
+  {% endif %}
+{%- endif -%}
+
+{# Container #}
+{%- if _item.container is defined and _item.container is not empty -%}
+  <div
+    class="{{ _mega_class }} ecl-mega-menu__mega-container"
+    data-ecl-mega-menu-mega
+  >
+    <div class="ecl-container">
+      <div class="ecl-mega-menu__mega-container-scrollable">
+        {{ _item.container }}
+      </div>
+    </div>
+  </div>
+{# Children #}
+{%- elseif (_item.children is defined and _item.children is not empty and _item.children is iterable) or _featured is not empty -%}
+  {% set _sublist_aria_label = '' %}
+{% if _item.level|default(0) < 2 %}
+  {% set _sublist_aria_label = second_level_aria_label|default('') %}
+  <div class="ecl-mega-menu__wrapper">
+    <div class="ecl-container">
+{% else %}
+  {% set _sublist_aria_label = third_level_aria_label|default('') %}
+{% endif %}
+  {# Info #}
+  {% if _info is not empty %}
+    {% set _info_classes = 'ecl-mega-menu__info' %}
+    {% set _info_title_id =  _id ~ '-info-title' %}
+    {% if _info.link is not empty %}
+      {% set _info_classes = _info_classes ~ ' ecl-mega-menu__info--has-link' %}
+    {% endif %}
+    <div
+      class="{{ _info_classes }}"
+      data-ecl-mega-menu-mega
+    >
+    {% if _info.title is not empty %}
+      <span
+        class="ecl-mega-menu__info-title"
+        id="{{ _info_title_id }}"
+        >
+          {{-  _info.title -}}
+        </span>
+    {% endif %}
+      <div class="ecl-mega-menu__info-scrollable">
+      {%- if _info.content is not empty -%}
+        <div class="ecl-mega-menu__info-content">{{ _info.content }}</div>
+      {%- endif -%}
+      </div>
+    </div>
+  {% endif %}
+    <div
+      class="{{ _mega_class }}"
+      data-ecl-mega-menu-mega
+    >
+    {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
+      <ul
+        class="{{ _sublist_class }}"
+        {%- if _sublist_aria_label -%}
+          aria-label="{{ _sublist_aria_label }}"
+        {%- endif -%}
+      >
+      {% for child in _item.children %}
+        {% set _can_be_external = true %}
+        {% set _icon = {} %}
+        {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
+        {% set _subitem_class = 'ecl-mega-menu__subitem' %}
+        {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+        {% if loop.last %}
+          {% set _sublink_class = _sublink_class ~ ' ecl-mega-menu__sublink--last' %}
+        {% endif %}
+        {% set _sublink_attrs = child.extra_attributes|default([])|merge([
+          { name: _menu_sublink_attribute },
+        ]) %}
+        {% if (child.children is defined and child.children is not empty) or child.featured is not empty %}
+          {% set _sublink_attrs = _sublink_attrs|merge([
+            { name: 'aria-expanded', value: 'false' },
+          ]) %}
+        {% endif %}
+        {% if (child.children is defined and child.children is not empty and _item.level|default(0) < 2) or child.featured is not empty %}
+          {%- if child.see_all and child.see_all_label is not empty -%}
+            {% if child.sublink_id is empty %}
+              {% set _sublink_id = 'ecl-mega-menu-sublink-' ~ random() %}
+            {% else %}
+              {% set _sublink_id = child.sublink_id %}
+            {% endif %}
+            {% set _sublink_attrs = _sublink_attrs|merge([{ name: 'id', value: _sublink_id }]) %}
+          {%- endif -%}
+
+          {% set _can_be_external = false %}
+          {% set _icon = {
+            name: 'corner-arrow',
+            transform: 'rotate-90',
+            size: '2xs',
+          } %}
+        {% endif %}
+        <li
+          class="{{ _subitem_class }}"
+          {{ ' ' ~ _subitem_attrs|raw }}
+        >
+        {%- if (child.children is defined and child.children is not empty) or child.featured is not empty -%}
+          {# Children, 2nd level #}
+            {% include '@ecl/button/button.html.twig' with {
+              type: 'button',
+              label: child.label,
+              icon: _icon,
+              extra_classes: _sublink_class,
+              extra_attributes: _sublink_attrs,
+          } only %}
+          {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              see_all_label: child.see_all_label|default(''),
+              see_all: child.see_all|default(false),
+              third_level_aria_label: third_level_aria_label|default(''), 
+              see_all_attributes: child.see_all_attributes|default([]),
+              sublink_id: _sublink_id|default(''),
+              item: {
+                path: child.path, 
+                children: child.children,
+                level: 2,
+                info: child.info|default({}),
+                featured: child.featured|default({}),
+              },           
+          } only %}
+        {%- else -%}
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              type: 'standalone',
+              label: child.label,
+              path: child.path,
+              external: _can_be_external ? child.external|default(false),
+              sr_external: child.sr_external|default(''),
+            },
+            icon: _icon,
+            extra_classes: _sublink_class,
+            extra_attributes: _sublink_attrs,
+        } only %}
+        {% endif %}
+        </li>
+      {% endfor %}
+      {%- if _see_all and _see_all_label is not empty -%}
+        <li class="ecl-mega-menu__spacer" data-ecl-mega-menu-subitem>&nbsp;</li>
+        <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all" data-ecl-mega-menu-subitem>
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              type: 'standalone',
+              branded: true,
+              label: _see_all_label,
+              path: _item.path,
+            },
+            icon: {
+              name: 'arrow-left',
+              size: 'xs',
+              transform: 'rotate-180',
+            },
+            extra_attributes: [{
+             name: 'aria-describedby',
+             value: sublink_id,
+             }]|merge(_see_all_attributes|default([])),
+          } only %}
+        </li>
+      {%- endif -%}
+      {%- if _info.link is not empty -%}
+        <li class="ecl-mega-menu__spacer" data-ecl-mega-menu-subitem>&nbsp;</li>
+        <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all" data-ecl-mega-menu-subitem>
+        {% set _path = (_info.link.link.path is not empty) ? _info.link.link.path : _item.path %}
+        {% include '@ecl/link/link.html.twig' with _info.link|merge({
+          link: _info.link.link|merge({
+            type: 'standalone',
+            branded: true,
+            path: _path,
+          }),
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            size: 'xs',
+          },
+          extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
+          extra_attributes: _info.link.extra_attributes|default([])|merge([{
+            name: 'aria-describedby', 
+            value: _info_title_id,
+          }]),
+        }) only %}
+        </li>
+      {%- endif -%}
+      </ul>
+    {% endif %}
+
+    {# Featured #}
+    {% if _featured is not empty %}
+      <div
+        class="ecl-mega-menu__featured"
+        data-ecl-mega-menu-featured
+      >
+        <div class="ecl-mega-menu__featured-scrollable">
+        {% if _featured.title is not empty %}
+          <span
+            class="ecl-mega-menu__featured-title"
+            id="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id }}"
+          >
+            {{-  _featured.title -}}
+          </span>
+        {% endif %}
+        {%- if _featured.content is not empty -%}
+          <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
+        {%- endif -%}
+        {%- if _featured.items is not empty and _featured.items is iterable -%}
+          {% set sublink_id = sublink_id ? sublink_id : _id %}
+          {% set labelled_by = _featured.title is not empty ? 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id : sublink_id %}
+          <ul
+            class="ecl-mega-menu__featured-list"
+            {% if labelled_by is not empty %}
+              aria-labelledby="{{ labelled_by }}"
+            {% endif %}
+          >
+            {% for item in _featured.items %}
+              {% include '@ecl/mega-menu/mega-menu-featured-item.html.twig' with item only %}
+            {% endfor %}
+          </ul>
+        {%- endif -%}
+        </div>
+      </div>
+    {% endif %}
+  {% if _item.level|default(0) < 2 %}
+    </div>
+  </div>
+  {% endif %}
+{% endif %}
+</li>
+
+{% endapply %}

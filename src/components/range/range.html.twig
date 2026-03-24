@@ -1,0 +1,125 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: random)
+  - "min" (integer) (default: '') Minimum value of the range
+  - "max" (integer) (default: '') Maxium value of the range
+  - "step" (integer) (default: '') Granularity of the range
+  - "value" (integer) (default: '') Default value of the range
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "required" (boolean) (default: false)
+  - "name" (string) (default: '')
+  - "width" (string) (default: 'm')
+  - "extra_label_classes" (optional) (string) (default: '') Extra classes (space separated) for the range label
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the range group
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the range
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the range
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  Blocks:
+  - "value_text"
+
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-range-' ~ random()) %}
+{% set _min = min|default('') %}
+{% set _max = max|default('') %}
+{% set _step = step|default('') %}
+{% set _value = value|default('') %}
+{% set _name = name|default('') %}
+{% set _width = width|default('m') %}
+
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _required = required|default(false) %}
+{% set _value_text = value_text|default('') %}
+
+{% set _css_class = ['ecl-range'] %}
+{% if _invalid %}
+  {% set _css_class = _css_class|merge(['ecl-range--invalid']) %}
+{% endif %}
+{% set _css_class = _css_class|merge(['ecl-range--' ~ _width]) %}
+{% set _css_class = _css_class|join(' ') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_group_classes is defined and extra_group_classes is not empty %}
+  {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_label_classes is defined and extra_label_classes is not empty %}
+  {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
+{% endif %}
+
+{% set _aria_describedby = _id ~ '-value' %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% if attr.name == 'aria-describedby' %}
+        {% set _aria_describedby = attr.value ~ ' ' ~ _aria_describedby %}
+      {% endif %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<div
+  class="ecl-range-container"
+  data-ecl-range-container
+>
+  <input
+    data-ecl-range-input
+    type="range"
+    class="{{ _css_class }}"
+    id="{{ _id }}"
+    aria-describedby="{{ _aria_describedby }}"
+  {% if _name is not empty %}
+    name="{{ _name }}"
+  {% endif %}
+  {% if _min %}
+    min="{{ _min }}"
+  {% endif %}
+  {% if _max %}
+    max="{{ _max }}"
+  {% endif %}
+  {% if _step %}
+    step="{{ _step }}"
+  {% endif %}
+  {% if _value %}
+    value="{{ _value }}"
+  {% endif %}
+  {% if _disabled %}
+    disabled
+  {% endif %}
+  {% if _required %}
+    required
+  {% endif %}
+    {{ _extra_attributes|raw }}
+  >
+
+  <div class="ecl-range__bubble" data-ecl-range-bubble>
+    <span class="ecl-range__value-bubble" data-ecl-range-value-current></span>
+  </div>
+
+  {% if _value_text is not empty %}
+    <div class="ecl-range__value" id="{{ _id }}-value">
+      {%- block value_text _value_text -%}
+      <span class="ecl-range__value-current" data-ecl-range-value-current></span>
+    </div>
+  {% endif %}
+</div>
+
+{% endapply %}

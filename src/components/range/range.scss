@@ -1,0 +1,215 @@
+/**
+ * Range
+ * @define range
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+@use '@ecl/layout-form/mixins' as mixins-form;
+
+// Exposed variables
+$theme: null !default;
+$range: null !default;
+
+@mixin range-track {
+  background-color: map.get($range, 'bar-color');
+  content: '';
+  position: absolute;
+  display: block;
+  height: map.get($range, 'range-size');
+  width: 100%;
+}
+
+.ecl-range-container {
+  position: relative;
+}
+
+/* stylelint-disable selector-pseudo-element-no-unknown */
+.ecl-range {
+  appearance: none;
+  background-color: transparent;
+  border-radius: map.get($theme, 'border-radius', 'xs');
+  display: block;
+  height: map.get($range, 'range-size');
+  outline: none;
+  padding: map.get($range, 'touch-area') 0;
+  position: relative;
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::before {
+    @include range-track;
+  }
+}
+
+// Add the slider size to calculate margin
+.ecl-form-group[data-ecl-range] {
+  .ecl-range {
+    margin: calc(
+        -#{map.get($range, 'touch-area')} +
+          (
+            #{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}
+          ) /
+          2
+      )
+      0 -#{map.get($range, 'touch-area')};
+  }
+
+  .ecl-form-label + *:not(.ecl-help-block, .ecl-feedback-message) {
+    /* eslint-disable-next-line no-math-div */
+    margin: calc(
+        -#{map.get($range, 'touch-area')} +
+          #{map.get($range, 'range-margin-top')} +
+          (
+            #{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}
+          ) /
+          2
+      )
+      0 -#{map.get($range, 'touch-area')};
+  }
+}
+
+// Value
+.ecl-range__value {
+  box-sizing: border-box;
+  color: map.get($range, 'value-color');
+  display: inline-flex;
+
+  @include mixins.responsive-font(map.get($range, 'value-font'));
+}
+
+.ecl-form-group .ecl-range__value {
+  /* eslint-disable-next-line no-math-div */
+  /* stylelint-disable declaration-property-value-no-unknown */
+  margin-top: calc(
+    var(--s-2xs) +
+      (map.get($range, 'slider-size') - map.get($range, 'range-size')) / 2
+  );
+}
+
+.ecl-range__value-current {
+  font-weight: map.get($range, 'value-font-weight');
+  margin-inline-start: var(--s-2xs);
+}
+
+.ecl-range::range-thumb {
+  appearance: none;
+  border: none;
+  background-color: map.get($range, 'slider-color');
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: map.get($range, 'slider-size');
+  outline: 0 solid transparent;
+  outline-offset: -1px;
+  transition: 0.15s ease-in-out;
+  width: map.get($range, 'slider-size');
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    background-color: map.get($range, 'hover-color');
+    outline: 4px solid map.get($range, 'hover-color');
+  }
+
+  &:active {
+    background-color: map.get($range, 'active-color');
+    outline-color: map.get($range, 'active-color');
+  }
+}
+
+.ecl-range:focus-visible::range-thumb {
+  outline: map.get($range, 'outline') solid map.get($range, 'outline-color');
+  outline-offset: map.get($range, 'outline-offset');
+}
+
+// Bubble
+.ecl-range__bubble {
+  background-color: var(--cm-surface-transparent-70, var(--c-ov-d));
+  border-radius: map.get($theme, 'border-radius', 'xs');
+  color: map.get($range, 'bubble-color');
+  display: none;
+  margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));
+  padding: var(--s-2xs) var(--s-xs);
+  position: absolute;
+
+  @include mixins.responsive-font(map.get($range, 'bubble-font'));
+
+  &::before {
+    content: '';
+    border-bottom: 4px solid var(--cm-surface-transparent-70, var(--c-ov-d));
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    display: inline-block;
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: -4px;
+    transform: translateX(-50%);
+    width: 0;
+  }
+
+  .ecl-range:focus-visible + & {
+    display: block;
+    margin-top: calc(
+      #{map.get($range, 'slider-size')} / 2 + 8px + var(--s-2xs)
+    );
+  }
+}
+
+.ecl-range__bubble--visible {
+  display: block;
+}
+
+// Width
+.ecl-range--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
+.ecl-range--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
+.ecl-range--l {
+  @include mixins-form.form-width('l', $theme);
+}
+
+// Disabled
+.ecl-range--disabled,
+.ecl-range--readonly,
+.ecl-range[disabled],
+.ecl-range[readonly] {
+  &::before {
+    background-color: map.get($range, 'disabled-color');
+  }
+
+  &::range-thumb {
+    background-color: map.get($range, 'disabled-color');
+    cursor: not-allowed;
+
+    &:hover {
+      outline: none;
+    }
+  }
+
+  + .ecl-range__value {
+    opacity: 0.5;
+  }
+}
+
+// Invalid
+.ecl-range--invalid::range-thumb {
+  background-color: map.get($range, 'invalid-color');
+
+  &:hover {
+    background-color: map.get($range, 'invalid-hover-color');
+    outline-color: map.get($range, 'invalid-hover-color');
+  }
+
+  &:active {
+    background-color: map.get($range, 'invalid-active-color');
+    outline-color: map.get($range, 'invalid-active-color');
+  }
+}

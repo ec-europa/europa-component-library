@@ -4,13 +4,7 @@ order: 2
 ---
 
 import { correctSvgPath } from '@ecl/website-utils';
-import { Playground, Html } from '@ecl/website-components';
-import {
-  linkStandalone,
-  linkCTA,
-  linkPrimary,
-  linkSecondary,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default link
 
@@ -19,7 +13,6 @@ import {
   selectedKind="components-navigation-link"
   selectedStory="default"
 >
-  <p className="ecl-u-type-paragraph">The European Commission is the executive of <a href="/example#123123" className="ecl-link">The European Union</a> and promotes its general interest.</p>
 </Playground>
 
 ## Standalone link
@@ -29,7 +22,6 @@ import {
   selectedKind="components-navigation-link"
   selectedStory="standalone"
 >
-  <Html markup={linkStandalone} />
 </Playground>
 
 ## Link with icon
@@ -40,18 +32,8 @@ Note: all types of links listed on this page can have icons before or after the 
   system="eu"
   selectedKind="components-navigation-link"
   selectedStory="default"
+  selectedArgs="icon_name:copy"
 >
-  <div dangerouslySetInnerHTML={{ __html: correctSvgPath(`<p class="ecl-u-type-paragraph">The European Commission is the executive of <a href="/example#235231" class="ecl-link ecl-link--default ecl-link--icon"><span class="ecl-link__label">The European Union</span><svg class="ecl-icon ecl-icon--fluid ecl-link__icon" focusable="false" aria-hidden="false" role="img"><title>Links to an external domain</title><use xlink:href="/icons.svg#external"></use></svg></a> and promotes its general interest.</p>`) }} />
-</Playground>
-
-## Call-to-action link
-
-<Playground
-  system="eu"
-  selectedKind="components-navigation-link"
-  selectedStory="cta"
->
-  <Html markup={linkCTA} />
 </Playground>
 
 ## Primary link
@@ -61,7 +43,24 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="primary"
 >
-  <Html markup={linkPrimary} />
+</Playground>
+
+## Primary highlight link
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="primary-highlight"
+>
+</Playground>
+
+## Primary neutral link
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="primary-neutral"
+>
 </Playground>
 
 ## Secondary link
@@ -71,7 +70,6 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="secondary"
 >
-  <Html markup={linkSecondary} />
 </Playground>
 
 ## Inverted link
@@ -79,9 +77,17 @@ Note: all types of links listed on this page can have icons before or after the 
 <Playground
   system="eu"
   selectedKind="components-navigation-link"
-  selectedStory="inverted"
+  selectedStory="default"
+  selectedArgs="style:inverted"
 >
+</Playground>
 
-  <p className="ecl-u-type-paragraph ecl-u-bg-dark ecl-u-type-color-white">The European Commission is the executive of <a href="/example#345252" className="ecl-link ecl-link--inverted">The European Union</a>
-    and promotes its general interest. </p>
+## Branded (dark) link
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="default"
+  selectedArgs="style:brand"
+>
 </Playground>

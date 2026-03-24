@@ -2,30 +2,36 @@
 @use '../index' as *;
 
 $blockquote: (
+  background: var(--cm-surface-inverted),
   border-width: 4px,
-  border-color: var(--c-p),
-  border-radius: 2px,
+  border-color: var(--cm-border),
+  border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-1),
-  padding: var(--s-3xl),
+  padding-mobile: var(--s-xl) var(--s-m) var(--s-2xl) var(--s-m),
+  padding-tablet: var(--s-2xl) var(--s-xl) var(--s-3xl) var(--s-xl),
+  padding-desktop: var(--s-3xl) var(--s-3xl) var(--s-4xl) var(--s-3xl),
   quote: (
-    font: var(--f-l),
-    color: var(--c-d),
+    font: 'body-2xl',
+    font-weight: map.get($font-weight, 'light'),
+    color: var(--cm-on-surface-brand),
   ),
   author: (
-    margin: var(--s-m),
-    font: var(--f-m),
-    font-weight: map.get($font-weight, 'bold'),
-    color: var(--c-d),
+    margin-mobile: var(--s-xs),
+    margin-tablet: var(--s-s),
+    font: 'body-s',
+    font-weight: map.get($font-weight, 'semi-bold'),
+    color: var(--cm-on-surface-brand),
   ),
   image: (
-    margin-mobile: var(--s-2xl),
+    background: var(--cm-surface-lowest),
+    margin-mobile: var(--s-m),
+    margin-tablet: var(--s-xl),
     margin-desktop: var(--s-3xl),
   ),
 );
 $blockquote-print: (
-  padding: map.get($spacing-print, '3xl'),
-  quote-font: var(--f-l),
+  quote-font: map.get($font-print, 'l'),
   author-margin: map.get($spacing-print, 'm'),
-  author-font: var(--f-l),
+  author-font: map.get($font-print, 'l'),
   image-margin: map.get($spacing-print, 'xl'),
 );

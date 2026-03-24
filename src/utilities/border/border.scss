@@ -1,0 +1,147 @@
+/**
+ * Border utilities
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-color/mixins' as color;
+
+// Exposed variables
+$theme: null !default;
+
+// Full border
+.ecl-u-border-all {
+  border: 1px solid #000 !important;
+}
+
+.ecl-u-border-bottom {
+  border-block-end: 1px solid #000 !important;
+}
+
+.ecl-u-border-left {
+  border-inline-start: 1px solid #000 !important;
+}
+
+.ecl-u-border-top {
+  border-block-start: 1px solid #000 !important;
+}
+
+.ecl-u-border-right {
+  border-inline-end: 1px solid #000 !important;
+}
+
+// Border color
+@if map.has-key($theme, 'color') {
+  @each $key, $value in map.get($theme, 'color') {
+    @if $key != 'white' and $key != 'black' {
+      .ecl-u-border-color-#{$key} {
+        border-color: var(--ecl-color-#{$key}) !important;
+      }
+    }
+  }
+}
+
+@if map.has-key($theme, 'color-default') {
+  @each $key, $value in map.get($theme, 'color-default') {
+    .ecl-u-border-color-#{$key} {
+      // stylelint-disable-next-line custom-property-pattern
+      border-color: var(--c-#{color.get-color-short-name($key)}) !important;
+    }
+  }
+
+  $semantic-color: (
+    'primary',
+    'secondary',
+    'neutral',
+    'grey',
+    'alpha',
+    'monochrome',
+    'info',
+    'success',
+    'error',
+    'warning'
+  );
+
+  @each $key in $semantic-color {
+    .ecl-u-border-color-#{$key} {
+      // stylelint-disable-next-line custom-property-pattern
+      border-color: var(--c-#{color.get-color-short-name($key)}) !important;
+    }
+  }
+}
+
+@if map.has-key($theme, 'color-modes') {
+  $border-mode: ('border-low', 'border-medium', 'border', 'border-high');
+
+  @each $key in $border-mode {
+    .ecl-u-border-color-#{$key} {
+      border-color: var(--cm-#{$key}) !important;
+    }
+  }
+}
+
+.ecl-u-border-color-transparent {
+  border-color: transparent !important;
+}
+
+.ecl-u-border-color-white {
+  border-color: #fff !important;
+}
+
+.ecl-u-border-color-black {
+  border-color: #000 !important;
+}
+
+// Border width
+.ecl-u-border-width-0 {
+  border-width: 0 !important;
+}
+
+.ecl-u-border-width-1 {
+  border-width: 0.0625rem !important; // 1px
+}
+
+.ecl-u-border-width-2 {
+  border-width: 0.125rem !important; // 2px
+}
+
+.ecl-u-border-width-4 {
+  border-width: 0.25rem !important; // 4px
+}
+
+.ecl-u-border-width-8 {
+  border-width: 0.5rem !important; // 8px
+}
+
+// Border style
+.ecl-u-border-style-solid {
+  border-style: solid !important;
+}
+
+.ecl-u-border-style-dashed {
+  border-style: dashed !important;
+}
+
+.ecl-u-border-style-dotted {
+  border-style: dotted !important;
+}
+
+// Border radius
+.ecl-u-border-radius-0 {
+  border-radius: 0 !important;
+}
+
+.ecl-u-border-radius-2 {
+  border-radius: 0.125rem !important; // 2px
+}
+
+.ecl-u-border-radius-4 {
+  border-radius: 0.25rem !important; // 4px
+}
+
+.ecl-u-border-radius-8 {
+  border-radius: 0.5rem !important; // 8px
+}
+
+.ecl-u-border-radius-12 {
+  border-radius: 0.75rem !important; // 12px
+}

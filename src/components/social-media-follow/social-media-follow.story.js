@@ -1,0 +1,131 @@
+import { withNotes } from '@ecl/storybook-addon-notes';
+import { correctPaths } from '@ecl/story-utils';
+import withCode from '@ecl/storybook-addon-code';
+
+import specs from './demo/data--monochrome';
+import SocialMediaFollow from './social-media-follow.html.twig';
+import notes from './README.md';
+
+// Preserve original data.
+const dataHorizontal = { ...specs };
+const dataVertical = { ...specs, variant: 'vertical' };
+
+const getArgs = (data) => ({
+  show_other: true,
+  show_label: true,
+  position: 'left',
+  description: data.description,
+  description_inline: false,
+});
+
+const getArgTypes = () => ({
+  show_label: {
+    name: 'label',
+    type: { name: 'boolean' },
+    description: 'toggle the visibility of the links label',
+    table: {
+      category: 'Optional',
+    },
+  },
+  show_other: {
+    name: 'other social networks',
+    type: { name: 'boolean' },
+    description: 'toggle the visibility of the "other social networks" link',
+    table: {
+      category: 'Optional',
+    },
+  },
+  position: {
+    name: 'position',
+    type: 'select',
+    description: 'Position',
+    options: ['left', 'right'],
+    control: {
+      labels: {
+        left: 'left',
+        right: 'right',
+      },
+    },
+    mapping: {
+      left: 'left',
+      right: 'right',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'left' },
+      category: 'Display',
+    },
+  },
+  description: {
+    name: 'description',
+    type: { name: 'string' },
+    description: 'The description of the elements',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
+  description_inline: {
+    name: 'description inline',
+    type: { name: 'boolean' },
+    description: 'Display the description inline',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: 'false' },
+      category: 'Display',
+    },
+  },
+});
+
+const prepareData = (data, args) => {
+  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
+
+  if (!args.show_other) {
+    delete clone.links.pop();
+  }
+
+  if (!args.show_label) {
+    clone.links.forEach((element) => {
+      element.link.hide_label = true;
+    });
+  }
+
+  return Object.assign(clone, args);
+};
+
+export default {
+  title: 'Components/Social Media Follow',
+  decorators: [withNotes, withCode],
+};
+
+export const Horizontal = (_, { loaded: { component } }) => component;
+
+Horizontal.render = async (args) => {
+  const renderedHorizontal = await SocialMediaFollow(
+    prepareData(dataHorizontal, args),
+  );
+  return renderedHorizontal;
+};
+Horizontal.storyName = 'horizontal';
+Horizontal.args = getArgs(dataHorizontal);
+Horizontal.argTypes = getArgTypes();
+Horizontal.parameters = {
+  notes: { markdown: notes, json: dataHorizontal },
+};
+
+export const Vertical = (_, { loaded: { component } }) => component;
+
+Vertical.render = async (args) => {
+  const renderedVertical = await SocialMediaFollow(
+    prepareData(dataVertical, args),
+  );
+  return renderedVertical;
+};
+Vertical.storyName = 'vertical';
+Vertical.args = getArgs(dataVertical);
+Vertical.argTypes = getArgTypes();
+Vertical.parameters = {
+  notes: { markdown: notes, json: dataVertical },
+};

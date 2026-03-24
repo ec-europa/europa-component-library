@@ -11,17 +11,21 @@ $container: (
   's': 768px,
   'm': 996px,
   'l': 1140px,
-  'xl': 1140px,
+  'xl': 1368px,
 ) !default;
 $grid: (
-  'gutter': 2rem,
+  'gutter-s': 1rem,
+  'gutter-m': 1.5rem,
+  'gutter-l': 2rem,
+  'gutter-print': 0.847cm,
   'columns': 12,
 ) !default;
 $grid-gutter-width: (
-  'xs': map.get($grid, 'gutter'),
-  's': map.get($grid, 'gutter'),
-  'm': map.get($grid, 'gutter'),
-  'l': map.get($grid, 'gutter'),
-  'xl': map.get($grid, 'gutter'),
+  'xs': map.get($grid, 'gutter-s'),
+  's': map.get($grid, 'gutter-s'),
+  'm': map.get($grid, 'gutter-m'),
+  'l': map.get($grid, 'gutter-m'),
+  'xl': map.get($grid, 'gutter-l'),
 ) !default;
+$container-spacing: 1;
 $max-width: 80ch !default;

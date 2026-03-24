@@ -1,0 +1,90 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: random): unique id for the rating field
+  - "items" (array) (default: []): array of radio_button
+  - "name" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "star_filled_icon" (object) default({})
+  - "star_outline_icon" (object) default({})
+  - "required" (boolean) (default: false)
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-rating-field-' ~ random()) %}
+{% set _items = items|default([]) %}
+{% set _name = name|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _required = required|default(false) %}
+{% set _star_filled_icon = star_filled_icon|default({}) %}
+{% set _star_outline_icon = star_outline_icon|default({}) %}
+{% set _css_class = 'ecl-form-group' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+  <div class="ecl-rating-field
+    {{- _disabled ? ' ecl-rating-field--disabled' -}}">
+  {%- for _item in _items|reverse %}
+    {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
+    <input
+      id="{{ _item_id }}" 
+      name="{{ _name }}" 
+      class="ecl-rating-field__input" 
+      type="radio" 
+      value="{{ _item.value }}" 
+      {% if _item.checked %}
+        checked 
+      {% endif %}
+      {% if _required %}
+        required 
+      {% endif %}
+      {% if _disabled %}
+        disabled
+      {% endif %}
+    >
+    <label 
+      class="ecl-rating-field__label" 
+      for="{{ _item_id }}">
+    {% if _item.label %}
+      <span class="ecl-rating-field__sr-label">{{ _item.label }}</span>
+    {% endif %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _star_filled_icon,
+        extra_classes: 'ecl-rating-field__icon-filled',
+      } only %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _star_outline_icon,
+        extra_classes: 'ecl-rating-field__icon-outline',
+      } only %}
+    </label>
+  {% endfor -%}
+  </div>
+  {% endif %}
+
+{% endapply %}

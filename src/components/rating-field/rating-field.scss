@@ -1,0 +1,123 @@
+/* stylelint-disable no-descending-specificity */
+
+/**
+ * Rating field
+ * @define rating-field
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/utility-screen-reader/screen-reader';
+
+// Exposed variables
+$theme: null !default;
+$rating-field: null !default;
+$stroke-width: 4px;
+
+.ecl-rating-field {
+  display: inline-flex;
+  flex-direction: row-reverse;
+
+  &--disabled .ecl-rating-field__input + .ecl-rating-field__label {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .ecl-rating-field__input {
+    &:checked,
+    &:active {
+      ~ .ecl-rating-field__label {
+        .ecl-rating-field__icon-outline {
+          display: none;
+        }
+
+        .ecl-rating-field__icon-filled {
+          display: inline-block;
+        }
+
+        &:hover .ecl-rating-field__icon-filled {
+          fill: map.get($rating-field, 'checked-hover-color');
+        }
+      }
+    }
+  }
+
+  &:not(.ecl-rating-field--disabled) {
+    .ecl-rating-field__input
+      + .ecl-rating-field__label:hover
+      .ecl-rating-field__icon-outline {
+      fill: map.get($rating-field, 'hover-stroke-color');
+    }
+
+    .ecl-rating-field__input:focus-visible {
+      + .ecl-rating-field__label {
+        outline: 1px solid map.get($rating-field, 'focus-outline');
+        outline-offset: -1px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.ecl-rating-field__input {
+  border: 0;
+  clip-path: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.ecl-rating-field__label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  position: relative;
+  width: 32px;
+}
+
+.ecl-rating-field__sr-label {
+  @include screen-reader.sr-only;
+}
+
+.ecl-rating-field__icon-filled {
+  bottom: 1px;
+  display: none;
+  fill: map.get($rating-field, 'checked-color');
+  height: calc(2rem - #{$stroke-width});
+  position: relative;
+  stroke: map.get($rating-field, 'stroke-color');
+  stroke-width: $stroke-width;
+  width: calc(2rem - #{$stroke-width});
+}
+
+.ecl-rating-field__icon-outline {
+  bottom: 1px;
+  fill: map.get($rating-field, 'stroke-color');
+  position: relative;
+}
+
+@include breakpoints.up('m') {
+  .ecl-rating-field {
+    .ecl-rating-field__icon-outline {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .ecl-rating-field__icon-filled {
+      width: calc(1.5rem - #{$stroke-width});
+      height: calc(1.5rem - #{$stroke-width});
+    }
+  }
+
+  .ecl-rating-field__label {
+    height: 28px;
+    width: 28px;
+  }
+}

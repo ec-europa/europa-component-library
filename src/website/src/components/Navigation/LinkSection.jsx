@@ -1,101 +1,63 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 
-import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
-import styles from './LinkSection.scss';
-import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
+import styles from './LinkSection.module.scss';
+import LinkList from './LinkList';
 
-class LinkSection extends Component {
-  constructor(props) {
-    super(props);
+function LinkSection({ pages, level, showStatus, section, attributes }) {
+  const location = useLocation(); // Get the location object from the hook
+  const [isOpen, setIsOpen] = useState(
+    location.pathname.indexOf(attributes.url) === 0,
+  );
 
-    this.state = {
-      pathname: props.location.pathname,
-      isOpen: props.location.pathname.indexOf(props.attributes.url) === 0,
-    };
+  useEffect(() => {
+    setIsOpen(location.pathname.indexOf(attributes.url) === 0);
+  }, [location.pathname, attributes.url]);
 
-    this.toggleSection = this.toggleSection.bind(this);
-  }
+  const toggleSection = () => {
+    setIsOpen((prevState) => !prevState);
+  };
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (
-      prevState.pathname !== nextProps.location.pathname &&
-      nextProps.location.pathname.indexOf(nextProps.attributes.url) === 0
-    ) {
-      return { pathname: nextProps.location.pathname, isOpen: true };
-    }
+  const to = attributes.defaultTab
+    ? `${attributes.url}${attributes.defaultTab}/`
+    : attributes.url;
 
-    return {
-      pathname: nextProps.location.pathname,
-    };
-  }
-
-  toggleSection() {
-    this.setState((state) => ({
-      isOpen: !state.isOpen,
-    }));
-  }
-
-  render() {
-    const { pages, level, showStatus, section, attributes } = this.props;
-
-    const { isOpen } = this.state;
-
-    const to = attributes.defaultTab
-      ? `${attributes.url}${attributes.defaultTab}/`
-      : attributes.url;
-
-    return (
-      <>
-        <span className={styles['group-list-parent']}>
-          <Link
-            to={to}
-            className={`${styles['group-list-item']} ${
-              styles[`level-${level}`]
-            }`}
-          >
-            {section}
-          </Link>
-          <button
-            className={styles.button}
-            type="button"
-            onClick={this.toggleSection}
-            aria-label={`Click to expand the section ${section}`}
-          >
-            <svg
-              focusable="false"
-              aria-hidden="true"
-              className={classnames(styles.icon, {
-                [styles['icon-rotate-90']]: !isOpen,
-                [styles['icon-rotate-180']]: isOpen,
-              })}
-            >
-              <use xlinkHref={`${icons}#corner-arrow`} />
-            </svg>
-          </button>
-        </span>
-        <LinkList
-          pages={pages}
-          level={level + 1}
-          aria-hidden={!isOpen}
-          showStatus={showStatus}
-        />
-      </>
-    );
-  }
+  return (
+    <>
+      <span className={styles['group-list-parent']}>
+        <Link
+          to={to}
+          className={`${styles['group-list-item']} ${styles[`level-${level}`]}`}
+        >
+          {section}
+        </Link>
+        <button
+          className={styles.button}
+          type="button"
+          onClick={toggleSection}
+          aria-label={`Click to expand the section ${section}`}
+          aria-expanded={isOpen}
+        >
+          <span className={`wt-icon--corner-arrow ${styles.icon}`} />
+        </button>
+      </span>
+      <LinkList
+        pages={pages}
+        level={level + 1}
+        aria-hidden={!isOpen}
+        showStatus={showStatus}
+      />
+    </>
+  );
 }
 
 LinkSection.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   attributes: PropTypes.shape({
     url: PropTypes.string,
     defaultTab: PropTypes.string,
   }).isRequired,
-  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array.isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   section: PropTypes.string,
@@ -107,4 +69,4 @@ LinkSection.defaultProps = {
   section: '',
 };
 
-export default withRouter(LinkSection);
+export default LinkSection;

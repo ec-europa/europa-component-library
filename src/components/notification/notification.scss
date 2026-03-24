@@ -1,0 +1,141 @@
+/**
+ * Notification
+ * @define notification
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$notification: null !default;
+
+.ecl-notification {
+  border: map.get($notification, 'border-width') solid transparent;
+  border-radius: map.get($notification, 'radius');
+  box-sizing: border-box;
+  color: map.get($notification, 'color');
+  display: flex;
+  margin: 0;
+  padding-bottom: map.get($notification, 'padding-mobile');
+  padding-inline-start: map.get($notification, 'padding-start-mobile');
+  padding-inline-end: map.get($notification, 'padding-end-mobile');
+  padding-top: map.get($notification, 'padding-mobile');
+  position: relative;
+
+  @include mixins.responsive-font(map.get($notification, 'font'));
+}
+
+.ecl-notification__icon {
+  flex-shrink: 0;
+  margin-inline-end: map.get($notification, 'icon-spacing-mobile');
+}
+
+.ecl-notification__content {
+  width: 100%;
+}
+
+.ecl-notification__title {
+  grid-column-start: 1;
+  margin-bottom: map.get($notification, 'title-spacing');
+  max-width: var(--max-w);
+
+  @include mixins.responsive-font(
+    map.get($notification, 'title-font'),
+    $font-weight: map.get($notification, 'title-font-weight')
+  );
+}
+
+.ecl-notification__description {
+  margin: 0;
+  max-width: var(--max-w);
+}
+
+.ecl-notification__link-item {
+  --ecl-link-color: #{map.get($notification, 'link-color')};
+  --ecl-link-color-hover: #{map.get($notification, 'link-color-hover')};
+}
+
+.ecl-notification__close {
+  color: map.get($notification, 'close-color');
+  right: map.get($notification, 'close-offset-end');
+  top: map.get($notification, 'close-offset-top');
+  position: absolute;
+
+  .no-js & {
+    display: none;
+  }
+
+  &:dir(rtl) {
+    left: map.get($notification, 'close-offset-end');
+    right: auto;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-notification {
+    padding-bottom: map.get($notification, 'padding');
+    padding-inline-end: map.get($notification, 'padding-end');
+    padding-inline-start: map.get($notification, 'padding-start');
+    padding-top: map.get($notification, 'padding');
+  }
+
+  .ecl-notification__icon {
+    margin-inline-end: map.get($notification, 'icon-spacing');
+  }
+
+  .ecl-notification__description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+// information
+.ecl-notification--info {
+  background: map.get($notification, 'info', 'background');
+  border-color: map.get($notification, 'info', 'border-color');
+  border-inline-start: 4px solid
+    map.get($notification, 'info', 'border-start-color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'info', 'color');
+  }
+}
+
+// success
+.ecl-notification--success {
+  background: map.get($notification, 'success', 'background');
+  border-color: map.get($notification, 'success', 'border-color');
+  border-inline-start: 4px solid
+    map.get($notification, 'success', 'border-start-color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'success', 'color');
+  }
+}
+
+// warning
+.ecl-notification--warning {
+  background: map.get($notification, 'warning', 'background');
+  border-color: map.get($notification, 'warning', 'border-color');
+  border-inline-start: 4px solid
+    map.get($notification, 'warning', 'border-start-color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'warning', 'color');
+  }
+}
+
+// error
+.ecl-notification--error {
+  background: map.get($notification, 'error', 'background');
+  border-color: map.get($notification, 'error', 'border-color');
+  border-inline-start: 4px solid
+    map.get($notification, 'error', 'border-start-color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'error', 'color');
+  }
+}

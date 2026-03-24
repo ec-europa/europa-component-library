@@ -1,0 +1,93 @@
+/*
+ * Fact and figures print
+ * @define fact-figures
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$fact-figures: null !default;
+$fact-figures-print: null !default;
+
+.ecl-fact-figures {
+  margin: 0;
+}
+
+.ecl-fact-figures__item {
+  border-bottom: 1px solid var(--cm-border-brand, var(--c-d));
+  color: map.get($fact-figures, 'text-color');
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-w);
+  padding-bottom: map.get($theme, 'spacing-print', 'xl');
+  padding-top: map.get($theme, 'spacing-print', 'xl');
+}
+
+.ecl-fact-figures__icon {
+  color: map.get($fact-figures, 'icon-color');
+  display: block;
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-fact-figures__value {
+  font: map.get($fact-figures-print, 'value-font-l');
+  font-family: var(--ecl-font-family-print-alt);
+  font-weight: map.get($fact-figures-print, 'value-font-weight');
+
+  .ecl-fact-figures--font-m & {
+    font: map.get($fact-figures-print, 'value-font-m');
+    font-family: var(--ecl-font-family-print-alt);
+    font-weight: map.get($fact-figures-print, 'value-font-weight');
+  }
+}
+
+.ecl-fact-figures__title {
+  clear: left;
+  display: block;
+  font: map.get($fact-figures-print, 'title-font');
+  font-family: var(--ecl-font-family-print-alt);
+  font-weight: map.get($fact-figures-print, 'title-font-weight');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-fact-figures__description {
+  font: map.get($theme, 'font-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', 's');
+}
+
+.ecl-fact-figures__view-all {
+  display: none;
+}
+
+.ecl-fact-figures__items {
+  display: grid;
+  column-gap: map.get($theme, 'spacing-print', 'xl');
+  row-gap: map.get($theme, 'spacing-print', 'xl');
+
+  .ecl-fact-figures--col-2 & {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-fact-figures--col-3 & {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ecl-fact-figures--col-4 & {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ecl-fact-figures--centered {
+  .ecl-fact-figures__items {
+    justify-content: center;
+  }
+
+  .ecl-fact-figures__item {
+    align-items: center;
+
+    * {
+      text-align: center;
+    }
+  }
+}

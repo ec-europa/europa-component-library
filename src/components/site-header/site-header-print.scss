@@ -1,0 +1,50 @@
+/**
+ * Site Header print
+ * @define site-header
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$site-header: null !default;
+
+.ecl-site-header .ecl-site-header__background {
+  background-image: none;
+}
+
+.ecl-site-header__top {
+  display: flex;
+  justify-content: center;
+}
+
+.ecl-site-header__logo-image {
+  height: auto;
+  margin-bottom: map.get($theme, 'spacing-print', 's');
+  margin-top: map.get($theme, 'spacing-print', 'm');
+  width: 6.65cm;
+}
+
+.ecl-site-header__action {
+  display: none;
+}
+
+.ecl-site-header__banner {
+  display: none !important;
+}
+
+.ecl-site-header__banner-top {
+  display: none;
+}
+
+.ecl-site-header__logo-link::after {
+  display: none;
+}
+
+.ecl-site-header__logo-image-mobile {
+  display: none;
+}
+
+.ecl-site-header__notification .ecl-notification {
+  width: 100%;
+}

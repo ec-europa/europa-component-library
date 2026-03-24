@@ -1,0 +1,147 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
+.nameWrapper {
+  align-items: flex-end;
+  box-shadow: 0 0 2px rgb(0, 0, 0, 0.3) inset;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+}
+
+.item {
+  background-color: #fff;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 4.5rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.item--main {
+  box-shadow: 0 2px 3px rgb(0, 0, 0, 0.3);
+  margin: 0 -0.5rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: currentcolor transparent transparent;
+    bottom: -0.5rem;
+    filter: brightness(85%);
+  }
+
+  &::before {
+    left: 0;
+    border-width: 0.5rem 0 0 0.5rem;
+  }
+
+  &::after {
+    right: 0;
+    border-width: 0.5rem 0.5rem 0 0;
+  }
+}
+
+.title {
+  background-color: rgb(0, 0, 0, 0.75);
+  border: none;
+  border-radius: 0 4px 0 0;
+  color: #fff;
+  font: var(--ws-f-xs);
+  height: 1.75rem;
+  left: 0;
+  margin: 0;
+  padding: 0 var(--ws-s-xs);
+  position: absolute;
+
+  .nameHoverHidden {
+    display: inline;
+  }
+
+  .nameHoverOnly {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .nameHoverHidden {
+      display: none;
+    }
+
+    .nameHoverOnly {
+      display: inline;
+    }
+  }
+}
+
+.button {
+  background: #fff;
+  border: none;
+  border-inline-start: 1px solid #000;
+  box-shadow: 0 0 2px rgb(0, 0, 0, 0.3) inset;
+  color: #000;
+  font: var(--ws-f-xs);
+  height: 100%;
+  width: 5.1rem;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+  }
+
+  &:focus {
+    background-color: var(--ws-c-n-80);
+  }
+
+  .buttonHoverHidden {
+    display: inline;
+  }
+
+  .buttonHoverOnly {
+    display: none;
+  }
+
+  &:hover .buttonHoverHidden {
+    display: none;
+  }
+
+  &:hover .buttonHoverOnly {
+    display: inline;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--ws-c-d);
+  font: var(--ws-f-s);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  pointer-events: none;
+}
+
+.item .tooltip {
+  opacity: 1;
+  visibility: visible;
+}

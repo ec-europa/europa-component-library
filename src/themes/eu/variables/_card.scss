@@ -2,10 +2,11 @@
 @use '../index' as *;
 
 $card: (
-  border-radius: map.get($border-radius, 'xl'),
+  background: #fff,
+  border-radius: map.get($border-radius, 'm'),
   shadow: var(--sh-1),
-  border: none,
   border-bottom: none,
-  body-padding: var(--s-l),
+  body-padding-mobile: var(--s-l),
+  body-padding-tablet: var(--s-l),
   yellow-bar: true,
 );

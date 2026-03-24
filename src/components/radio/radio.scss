@@ -1,0 +1,169 @@
+/**
+ * Radio
+ * @define radio
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+@use '@ecl/utility-screen-reader/screen-reader';
+
+// Exposed variables
+$theme: null !default;
+$radio: null !default;
+
+.ecl-radio {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+}
+
+.ecl-radio__input {
+  @include screen-reader.sr-only;
+}
+
+.ecl-radio__label {
+  color: map.get($radio, 'label', 'color');
+  display: inline-flex;
+  max-width: var(--max-w);
+  padding-block: map.get($radio, 'item-spacing');
+  white-space: pre-wrap;
+
+  @include mixins.responsive-font(map.get($radio, 'label', 'font'));
+
+  @if map.has-key($radio, 'hover-circle') {
+    &:hover .ecl-radio__box:not(.ecl-radio__box--disabled)::before {
+      @each $property, $value in map.get($radio, 'hover-circle') {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+.ecl-radio__box {
+  background-color: map.get($radio, 'background');
+  border: map.get($radio, 'border-width') solid map.get($radio, 'border-color');
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  flex-shrink: 0;
+  height: map.get($radio, 'box-size');
+  margin-block-start: map.get($radio, 'box-offset');
+  margin-inline-end: var(--s-xs);
+  position: relative;
+  width: map.get($radio, 'box-size');
+}
+
+.ecl-radio__box:not(.ecl-radio__box--disabled) {
+  cursor: pointer;
+}
+
+.ecl-radio__help {
+  box-sizing: border-box;
+  color: map.get($radio, 'help', 'color');
+  display: block;
+
+  @include mixins.responsive-font(map.get($radio, 'help', 'font'));
+}
+
+// Disabled
+.ecl-radio--disabled {
+  opacity: 0.5;
+
+  .ecl-radio__label {
+    cursor: not-allowed;
+  }
+}
+
+// Checked
+.ecl-radio__input:checked ~ .ecl-radio__label {
+  .ecl-radio__box {
+    border-color: map.get($radio, 'checked', 'border-color');
+    border-width: map.get($radio, 'checked', 'border-width');
+  }
+
+  .ecl-radio__box-inner {
+    background: map.get($radio, 'checked', 'background-color');
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: map.get($radio, 'checked', 'inner-display');
+    height: 0.875rem;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0.875rem;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    .ecl-checkbox__box {
+      border-color: map.get($radio, 'checked', 'background-color-hover');
+    }
+
+    .ecl-radio__box-inner {
+      background: map.get($radio, 'checked', 'background-color-hover');
+    }
+  }
+}
+
+// Invalid
+.ecl-radio__box--invalid {
+  border-color: map.get($radio, 'invalid', 'border-color');
+}
+
+// stylelint-disable no-descending-specificity
+.ecl-radio__input:checked ~ .ecl-radio__label .ecl-radio__box--invalid {
+  border-color: map.get($radio, 'invalid', 'border-color');
+
+  .ecl-radio__box-inner {
+    background-color: map.get($radio, 'invalid', 'border-color');
+  }
+}
+
+.ecl-radio__label:hover .ecl-radio__box--invalid,
+.ecl-radio__input:checked ~ .ecl-radio__label:hover .ecl-radio__box--invalid {
+  border-color: map.get($radio, 'invalid', 'border-color');
+
+  .ecl-radio__box-inner {
+    background-color: map.get($radio, 'invalid', 'border-color');
+  }
+}
+// stylelint-enable no-descending-specificity
+
+// Focus
+.ecl-radio__input:focus-visible
+  ~ .ecl-radio__label
+  .ecl-radio__box:not(.ecl-radio__box--disabled) {
+  outline: 2px solid var(--cm-border-primary);
+  outline-offset: 2px;
+
+  @if map.has-key($radio, 'hover-circle') {
+    &::before {
+      @each $property, $value in map.get($radio, 'hover-circle') {
+        #{$property}: $value;
+      }
+    }
+  }
+
+  .ecl-radio--invalid & {
+    outline-color: map.get($radio, 'invalid', 'border-color');
+  }
+}
+
+// Binary radio
+.ecl-radio--binary {
+  display: inline-flex;
+  margin-bottom: 0;
+  margin-inline-end: map.get($radio, 'binary-margin');
+  vertical-align: top;
+}
+
+.ecl-radio--binary:last-child {
+  margin-inline-end: 0;
+}
+
+.ecl-form-label + .ecl-radio--binary + .ecl-radio--binary {
+  margin-top: var(--s-xs);
+}

@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router'; // Use the useLocation hook
 
-import styles from './LinkGroup.scss';
-import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
+import styles from './LinkGroup.module.scss';
+import LinkList from './LinkList';
 
-const LinkGroup = React.memo(({ pages, level, showStatus, group }) => (
-  <>
-    <span className={styles.group}>{group}</span>
-    <LinkList pages={pages} level={level + 1} showStatus={showStatus} />
-  </>
-));
+const LinkGroup = React.memo(({ pages, level, showStatus, group }) => {
+  const location = useLocation(); // Get the location object from the hook
+
+  return (
+    <>
+      <span className={styles.group}>{group}</span>
+      <LinkList
+        pages={pages}
+        level={level + 1}
+        showStatus={showStatus}
+        location={location}
+      />
+    </>
+  );
+});
 
 LinkGroup.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   pages: PropTypes.array.isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
@@ -28,4 +34,4 @@ LinkGroup.defaultProps = {
   group: '',
 };
 
-export default withRouter(LinkGroup);
+export default LinkGroup;

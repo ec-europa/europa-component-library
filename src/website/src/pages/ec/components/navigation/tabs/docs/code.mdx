@@ -3,16 +3,20 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import { tabs } from '../demo';
+import { Playground } from '@ecl/website-components';
 
-## Information
+## As a navigational element
 
 <Playground
   system="ec"
   selectedKind="components-navigation-tabs"
   selectedStory="default"
-  showFrame
->
-  <Html markup={tabs} />
-</Playground>
+></Playground>
+
+## As a tabbed interface
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-tabs"
+  selectedStory="with-tabbed-content"
+></Playground>

@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/components-messages--info
+  path: /story/components-splash-page--default
 ---

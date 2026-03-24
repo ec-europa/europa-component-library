@@ -1,0 +1,113 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "color_mode" (string) The color mode name
+    - "id" (string) (default: random)
+    - "title" (string) (default: '')
+    - "trigger_aria_label": (default: '')
+    - "links" (array) (default: predefined structure): format: [
+      {
+        href: (string) (default: ''),
+        label: (string) (default: '')
+      },
+      ...
+      ]
+    - "icon_size" (string) (default: '2xs') EC: 2xs, EU: s
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _color_mode = color_mode|default('') %}
+{% set _id = id|default('ecl-inpage-navigation-' ~ random()) %}
+{% set _title = title|default('') %}
+{% set _css_class = 'ecl-inpage-navigation' %}
+{% set _icon_size = icon_size|default('xs') %}
+{% set _trigger_aria_label = trigger_aria_label|default('') %}
+{% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  data-ecl-inpage-navigation="true"
+  aria-labelledby="{{ _id }}"
+>
+  <div class="ecl-inpage-navigation__title" id="{{ _id }}">
+    {{ _title }}
+  </div>
+  {% set _button_attributes = '
+      type="button"
+      class="ecl-inpage-navigation__trigger"
+      id="' ~ _id ~ '-trigger"
+      data-ecl-inpage-navigation-trigger="true"
+      aria-controls="ecl-inpage-navigation-list"
+      aria-expanded="false"'
+  %}
+  <div class="ecl-inpage-navigation__body">
+    <div class="ecl-inpage-navigation__trigger-wrapper">
+      <button {{ _button_attributes|raw }}>
+        <span
+          class="ecl-inpage-navigation__trigger-current"
+          data-ecl-inpage-navigation-trigger-current="true">
+          {{- _title -}}
+        </span>
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: "corner-arrow",
+            size: _icon_size,
+          },
+          as_image: true,
+          extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',
+          extra_accessibility: {
+            title: _trigger_aria_label
+          }
+        } only %}
+      </button>
+    </div>
+    <ul class="ecl-inpage-navigation__list" data-ecl-inpage-navigation-list="true" id="{{ _id }}-list">
+      {% for link in links %}
+        <li class="ecl-inpage-navigation__item">
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              path: link.href,
+              label: link.label,
+            },
+            extra_classes: 'ecl-inpage-navigation__link',
+            extra_attributes: [{ name: 'data-ecl-inpage-navigation-link' }]
+          } only %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+
+{% endapply %}

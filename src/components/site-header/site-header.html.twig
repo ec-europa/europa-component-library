@@ -1,0 +1,528 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "banner_top" (object): Object of type link (link : { label, path })
+    - "logged" (boolean): Whether the user is logged in or not
+    - "menu" (associative array): Menu content, if any. Uses ECL Menu structure
+    - "mega_menu" (associative array): Menu content, if any. Uses ECL Mega Menu structure
+    - "site_name" (string) Site name
+    - "site_name_mobile_only" (boolean): Whether the site name should be hidden on desktop or not
+    - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure
+    - "logo" (associative array) (default: predefined structure): Logo image settings. format:
+        {
+          "title": (string) (default: ''): Logo title attribute.
+          "alt": (string) (default: ''): Logo alt attribute.
+          "breakpoint": (string) (default: 'xs', 415px) Breakpoint where to switch the logo displayed. Expected value in EU is "l"
+          "href": (string) (default: ''): Logo URL.
+          "src_desktop": (string) (default: ''): Desktop logo image file path
+          "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
+          "size": (string) (default: 'l'): Three sizes in desktop (s, m, l)
+        },
+    - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
+        {
+          "href": (string) (default: ''): URL for switcher
+          "label": (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+          "aria_label": (string) (default: ''): Switcher language aria label
+          "code": (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
+          "eu_category": (string) (default: ''): Label for EU languages
+          "non_eu_category": (string) (default: ''): Label for non-EU languages
+          "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
+            {
+              "close_label": (string) (default: ''): Close button label eg. 'Close'.
+              "title": (string) (default: ''): Overlay title, eg. 'Select your language'.
+              "items": (array) (default: []): (array) (default: []): format: [
+                {
+                  "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
+                  "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
+                  "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+                  "active" (boolean) (default: false) define if item is the active language.
+                },
+              ],
+              "non_eu_items": (array) (default: []): (array) (default: []): format: [
+                {
+                  "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
+                  "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
+                  "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+                  "active" (boolean) (default: false) define if item is the active language.
+                },
+              ],
+            },
+        },
+    - "custom_action" (associative array) (default: {}): optional custom link with optional popover, e.g.:
+      {
+        "link": (object) (default: predefined structure) predefined structure for the Link component
+        "icon" (associative array) OR (array) of associative arrays : format
+          {
+            name: (string) (default: ''),
+            extra_classes: (string) (default: 'ecl-link__icon'),
+            ...
+          }
+        "overlay": (object) – if defined, we display a popover; otherwise it’s a simple link
+          {
+            "title": (string) (default: '')
+            "close_label": (string) (default: '')
+            "content": (string)
+          }
+      }
+    - "search_toggle" (associate array) (default: {}) format:
+      {
+        "label": (string) Label of the element
+        "path": (string) Link of the element
+      }
+    - "login_box" (associate array) (default: {}) format:
+        {
+          "id": (string): Id of the box
+          "description": (string) default('Logged in as <last name>, <first name>')
+          "label": (string): Log out label
+          "href": (string): Url of the link
+      }
+    - "login_toggle" (associate array) (default: {}) format:
+      {
+        "label_not_logged": (string) Label for the anonymous users
+        "href_not_logged": (string) Link to the login form
+        "label_logged": (string) Label for the logged in users
+        "href_logged": (string) Link to the logout form
+      }
+    - "search_form" (associative array) (default: predefined structure): ECL Search Form component structure
+    - "notification" (object) (default: {}): Optional notification compatible with ECL Notification component structure
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderStandardised"): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Default variables #}
+
+{% set _logo = logo|default({}) %}
+{% set _language_selector = language_selector|default({}) %}
+{% set _custom_action = custom_action|default({}) %}
+{% set _logged = logged|default(false) %}
+{% set _login_box = login_box|default({}) %}
+{% set _login_toggle = login_toggle|default({}) %}
+{% set _search_toggle = search_toggle|default({}) %}
+{% set _menu = menu|default(false) %}
+{% set _mega_menu = mega_menu|default(false) %}
+{% set _site_name = site_name|default('') %}
+{% set _site_name_mobile_only = site_name_mobile_only|default(false) %}
+{% set _cta_link = cta_link|default({}) %}
+{% set _notification = notification|default({}) %}
+{% set _extra_attributes = '' %}
+{% set _css_class = 'ecl-site-header' %}
+{% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
+{% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
+{% set _search_form_extra_classes = 'ecl-site-header__search' %}
+{% set _search_input_extra_attributes = [] %}
+{% set _search_button_extra_attributes = [] %}
+{% set _search_button_label = '' %}
+
+{# Merge options #}
+
+{% set extra_attributes = [
+  { name: 'data-ecl-auto-init', value: 'SiteHeader' }
+  ]|merge(extra_attributes|default([]))
+%}
+
+{% if logo is defined and logo is not empty %}
+  {% set _logo = _logo|merge(logo) %}
+{% endif %}
+
+{% if login_toggle is defined and login_toggle is not empty %}
+  {% set _login_toggle = _login_toggle|merge(login_toggle) %}
+{% endif %}
+
+{% if login_box is defined and login_box is not empty %}
+  {% set _login_box = _login_box|merge(login_box) %}
+{% endif %}
+
+{% if language_selector is defined and language_selector is not empty %}
+  {% set _language_selector = _language_selector|merge(language_selector) %}
+{% endif %}
+
+{% if search_toggle is defined and search_toggle is not empty %}
+  {% set _search_toggle = _search_toggle|merge(search_toggle) %}
+{% endif %}
+
+{% if search_form is defined and search_form is not empty %}
+  {% if search_form.extra_attributes is defined and search_form.extra_attributes is not empty %}
+    {% set _search_form_extra_attributes = _search_form_extra_attributes|merge(search_form.extra_attributes) %}
+  {% endif %}
+  {% if search_form.extra_classes is defined and search_form.extra_classes is not empty %}
+    {% set _search_form_extra_classes = _search_form_extra_classes ~ ' ' ~ search_form.extra_classes %}
+  {% endif %}
+
+  {% if search_form.text_input is defined and search_form.text_input is not empty %}
+    {% if search_form.text_input.extra_classes is defined and search_form.text_input.extra_classes is not empty %}
+      {% set _search_input_extra_classes = _search_input_extra_classes ~ ' ' ~ _search_form.text_input.extra_classes %}
+    {% endif %}
+    {% if search_form.text_input.extra_attributes is defined and search_form.text_input.extra_attributes is not empty %}
+      {% set _search_input_extra_attributes = _search_input_extra_attributes|merge(search_form.text_input.extra_attributes) %}
+    {% endif %}
+  {% endif %}
+
+  {% if search_form.button is defined and search_form.button is not empty %}
+    {% if search_form.button.extra_classes is defined and search_form.button.extra_classes is not empty %}
+      {% set _search_button_extra_classes = _search_button_extra_classes ~ ' ' ~ search_form.button.extra_classes %}
+    {% endif %}
+    {% if search_form.button.extra_attributes is defined and search_form.button.extra_attributes is not empty %}
+      {% set _search_button_extra_attributes = _search_button_extra_attributes|merge(search_form.button.extra_attributes) %}
+    {% endif %}
+    {% if search_form.button.label is defined and search_form.button.label is not empty %}
+      {% set _search_button_label = search_form.button.label %}
+    {% endif %}
+  {% endif %}
+
+  {% set _search_form = {
+    label: search_form.label,
+    text_input: search_form.text_input|default({})|merge({
+      extra_input_classes: _search_input_extra_classes,
+      extra_attributes: _search_input_extra_attributes,
+    }),
+    button: search_form.button|default({})|merge({
+      label: _search_button_label,
+      icon: {
+        name: 'search',
+        size: 'fluid',
+      },
+      icon_position: 'before',
+      extra_classes: _button_extra_classes,
+      extra_attributes: _search_button_extra_attributes,
+    }),
+    extra_attributes: _search_form_extra_attributes,
+    extra_classes: _search_form_extra_classes
+    }
+  %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if _menu is not empty %}
+  {% set extra_classes = _css_class ~ '--has-menu ' ~ extra_classes %}
+{% endif %}
+
+{% if _mega_menu is not empty %}
+  {% set extra_classes = _css_class ~ '--has-mega-menu ' ~ extra_classes %}
+{% endif %}
+
+{% set _css_class = _css_class ~ ' ecl-site-header-with-logo-' ~ _logo.size|default('l')  %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<header
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-site-header__inner">
+    <div class="ecl-site-header__header">
+      <div class="ecl-site-header__container ecl-container">
+        <div class="ecl-site-header__top" data-ecl-site-header-top>
+          {# Logo #}
+          {% if _logo is not empty and _logo.src_desktop is not empty %}
+            {% set _label %}
+              {% set _picture = { sources: [{ src: _logo.src_desktop, media: _logo.breakpoint|default('xs') }] } %}
+              {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+                {% set _picture = _picture|merge({
+                  img: {
+                    src: _logo.src_mobile,
+                    alt: _logo.alt,
+                  },
+                }) %}
+              {% else %}
+                {% set _picture = _picture|merge({
+                  img: {
+                    src: _logo.src_desktop,
+                    alt: _logo.alt,
+                  },
+                }) %}
+              {% endif %}
+              {% set image_classes = 'ecl-site-header__logo-image' %}
+              {% set image_classes = image_classes ~ ' ecl-site-header__logo-image--' ~ _logo.size|default('l') %}
+              {% include '@ecl/picture/picture.html.twig' with {
+                picture: _picture,
+                extra_classes: "ecl-site-header__picture",
+                extra_image_classes: image_classes,
+                extra_attributes: _logo.title is not empty ? [{ name: 'title', value: _logo.title }] : [],
+              } only %}
+            {% endset %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                path: _logo.path,
+                label: _label,
+                type: 'standalone'
+              },
+              extra_classes: 'ecl-site-header__logo-link'
+            } only %}
+          {% endif %}
+
+          {# Header actions #}
+          <div class="ecl-site-header__action">
+          
+          {# Custom action #}
+          {% if _custom_action is not empty %}
+            <div class="ecl-site-header__custom-action" aria-live="polite">
+              {% set is_overlay = _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+              {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
+              {% set has_hidden_label = _custom_action.link.hide_label is defined and _custom_action.link.hide_label is not empty %}
+
+              {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
+              {% set link_extra_attributes = link_extra_attributes|merge([
+                { name: 'role', value: 'button' },
+                { name: 'data-ecl-custom-action', value: '' }
+              ]) %}
+              {% if is_overlay %}
+                {% set link_extra_attributes = link_extra_attributes|merge([
+                  { name: 'aria-controls', value: 'custom-action-overlay' },
+                  { name: 'aria-expanded', value: 'false' }
+                ]) %}
+              {% endif %}
+
+              {% if has_icon %}
+                {% set icon = _custom_action.icon|merge({
+                  extra_classes: (_custom_action.icon.extra_classes|default('')) ~ ' ecl-site-header__icon'
+                }) %}
+              {% else %}
+                {% set icon = null %}
+              {% endif %}
+
+              {% set base_classes = 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral' %}
+              {% if has_icon and has_hidden_label %}
+                {% set base_classes = base_classes ~ ' ecl-button--icon-only' %}
+              {% endif %}
+              {% set user_classes = _custom_action.link.extra_classes|default('') %}
+              {% set full_classes = (user_classes ? user_classes ~ ' ' : '') ~ base_classes %}
+
+              {% set custom_action_link = {
+                link: _custom_action.link|merge({ type: 'standalone' }),
+                icon: icon,
+                extra_attributes: link_extra_attributes,
+                extra_classes: full_classes
+              } %}
+
+              {% include '@ecl/link/link.html.twig' with custom_action_link only %}
+
+              {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
+                <div
+                  class="ecl-site-header__custom-action-overlay"
+                  id="custom-action-overlay"
+                  hidden
+                  data-ecl-custom-action-overlay
+                  role="dialog"
+                  aria-labelledby="custom-action-overlay-title"
+                >
+                  <div class="ecl-site-header__custom-action-header">
+                    <div class="ecl-site-header__custom-action-title" id="custom-action-overlay-title">
+                      {{ _custom_action.overlay.title|default('') }}
+                    </div>
+
+                    {% if _custom_action.overlay.close is defined and _custom_action.overlay.close is not empty %}
+                      {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
+                        variant: 'tertiary',
+                        style: 'neutral',
+                        extra_classes: 'ecl-site-header__custom-action-close',
+                        extra_attributes: [{
+                          name: 'data-ecl-custom-action-close',
+                        }],
+                      }) %}
+                    {% endif %}
+                  </div>
+                  <div class="ecl-site-header__custom-action-content">
+                    {{ _custom_action.overlay.content|default('')|raw }}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {# Login #}
+          {% if _login_toggle is not empty and _login_box is not empty %}
+            <div class="ecl-site-header__login-container">
+            {% if _logged %}
+              <a
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
+                href="{{ _login_toggle.href_logged }}"
+                aria-controls="{{ _login_box.id }}"
+                data-ecl-login-toggle
+                aria-expanded="false"
+              >
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: {
+                    name: 'logged-in',
+                    size: 'm'
+                  },
+                  as_image: true,
+                  extra_classes: 'ecl-site-header__icon',
+                  extra_accessibility: {
+                    title: login_toggle.label_logged,
+                  },
+                } only %}
+                {{- login_toggle.label_logged -}}
+              </a>
+              <div
+                id="{{ _login_box.id }}"
+                class="ecl-site-header__login-box"
+                data-ecl-login-box
+              >
+                <p class="ecl-site-header__login-description">
+                  {{- _login_box.description -}}
+                </p>
+                <hr class="ecl-site-header__login-separator">
+                {% include '@ecl/link/link.html.twig' with {
+                  link: {
+                    label: _login_box.label,
+                    path: _login_box.href,
+                    type: 'standalone',
+                  }
+                } only %}
+              </div>
+            {% else %}
+              <a
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
+                href="{{ _login_toggle.href_not_logged }}"
+                data-ecl-login-toggle
+              >
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: {
+                    path: _icon_path,
+                    name: 'log-in',
+                    size: 'm'
+                  },
+                  as_image: true,
+                  extra_classes: 'ecl-site-header__icon',
+                  extra_accessibility: {
+                    title: login_toggle.label_not_logged,
+                  },
+                } only %}
+                {{- login_toggle.label_not_logged -}}
+              </a>
+            {% endif %}
+            </div>
+          {% endif %}
+
+          {# Language selector #}
+          {% if _language_selector is not empty %}
+            {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
+              language_selector: _language_selector,
+              icon_path: _icon_path,
+            } only %}
+          {% endif %}
+
+          {# Search form #}
+          {% if _search_form is defined %}
+            <div class="ecl-site-header__search-container" role="search">
+            {% if _search_toggle is not empty %}
+              <a
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
+                href="{{ _search_toggle.href }}"
+                data-ecl-search-toggle="true"
+                aria-controls="search-form-id"
+                aria-expanded="false"
+              >
+              {%- include '@ecl/icon/icon.html.twig' with {
+                icon: {
+                  name: 'search',
+                  path: _icon_path,
+                  size: 'm',
+                },
+                as_image: true,
+                extra_classes: 'ecl-site-header__icon',
+                extra_accessibility: {
+                  title: _search_toggle.label,
+                },
+              } only -%}
+              {{- _search_toggle.label -}}
+              </a>
+            {% endif %}
+              {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
+            </div>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {# Notification #}
+  {% if _notification is defined and _notification is not empty %}
+    <div class="ecl-site-header__notification">
+      <div class="ecl-container">
+        {% include '@ecl/notification/notification.html.twig' with _notification|merge({
+          extra_attributes: _notification.extra_attributes|default([])|merge([{
+            name: 'data-ecl-site-header-notification',
+          }]),
+        }) only %}
+      </div>
+    </div>
+  {% endif %}
+
+  {# Banner top #}
+  {% if banner_top is defined and banner_top is not empty %}
+    <div class="ecl-container">
+      <div class="ecl-site-header__banner-top">
+        {%- if banner_top.link is defined and banner_top.link is not empty %}
+          {% include '@ecl/link/link.html.twig' with banner_top|merge({
+            link: banner_top.link|merge({ type: 'standalone' }),
+          }) only %}
+        {% else %}
+          {{ banner_top }}
+        {% endif -%}
+      </div>
+    </div>
+  {% endif %}
+
+  {# Site name and call to action (banner) #}
+  {% if _site_name is not empty or _cta_link is not empty %}
+    {% set _banner_class = 'ecl-site-header__banner' %}
+    {% if _site_name_mobile_only %}
+      {% set _banner_class = _banner_class ~ ' ecl-site-header__site-name--mobile-only' %}
+    {% endif %}
+    <div class="{{ _banner_class }}">
+      <div class="ecl-container">
+        {% if _site_name is not empty %}
+          {% set _site_name_class = 'ecl-site-header__site-name' %}
+        <div class="{{ _site_name_class }}">
+          {{- _site_name -}}
+        </div>
+        {% endif %}
+        {% if _cta_link is not empty and _cta_link.link is not empty %}
+        {% include '@ecl/link/link.html.twig' with _cta_link|merge({
+          link: _cta_link.link|merge({
+            type: 'primary-highlight',
+          }),
+          extra_classes: 'ecl-site-header__cta',
+        }) only %}
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+  </div>
+
+{# Menu #}
+{% if _menu is defined and _menu is not empty %}
+  {% include '@ecl/menu/menu.html.twig' with _menu|merge({
+    site_name: _site_name,
+  }) only %}
+{% endif %}
+{% if _mega_menu is defined and _mega_menu is not empty %}
+  {% include '@ecl/mega-menu/mega-menu.html.twig' with _mega_menu|merge({
+    site_name: _site_name,
+  }) only %}
+{% endif %}
+</header>
+
+{% endapply %}

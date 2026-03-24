@@ -1,55 +1,102 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import ClipboardJS from 'clipboard';
 
-import styles from './PaletteItem.scss';
+import styles from './PaletteItem.module.scss';
 
 class PaletteItem extends PureComponent {
   constructor(props) {
     super(props);
-    this.element = React.createRef();
-    this.clipboard = null;
 
-    const { name, id, value, ui, main } = props;
-    this.color = { name, id, value, ui, main };
+    const { name, id, value, alias, main } = props;
+    this.color = { name, id, value, alias, main };
+
+    const sanitizedName = name.replace(/\s*\([^)]*\)/g, '').trim();
+    this.customProperty = `--ecl-color-${sanitizedName.toLowerCase()}`;
+
+    // State to manage tooltip visibility
+    this.state = {
+      tooltipVisible: false,
+    };
   }
 
-  componentDidMount() {
-    const { name, id } = this.color;
-    this.clipboard = new ClipboardJS(`#${id || name.toLowerCase()}`);
-  }
+  getCode = (alias, paletteRef) => {
+    if (!alias) return '';
 
-  componentWillUnmount() {
-    if (this.clipboard) this.clipboard.destroy();
-  }
+    let hex = '';
+    // Try getting the computed style from the parent ol element
+    if (paletteRef?.current) {
+      hex = window
+        .getComputedStyle(paletteRef.current)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
+
+    // If not found, fallback to document.body
+    if (!hex) {
+      hex = window
+        .getComputedStyle(document.body)
+        .getPropertyValue(`--${alias}`)
+        .trim();
+    }
+
+    // Handle transparent color-mix cases
+    if (hex.includes('color-mix')) {
+      // Transparent color, we get the hex code and transparency
+      [, hex] = hex.split(',');
+    }
+
+    return hex.toUpperCase();
+  };
+
+  handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    this.setState({ tooltipVisible: true });
+
+    // Hide tooltip after 1 second
+    setTimeout(() => {
+      this.setState({ tooltipVisible: false });
+    }, 1000);
+  };
 
   render() {
-    const { name, id, value, ui, main } = this.color;
+    const { name, id, value, alias, main, paletteRef } = this.props;
+    const { tooltipVisible } = this.state;
+
+    let code = value.toUpperCase();
+
+    // Get color code from alias, trying parent first, then fallback to body
+    if (alias && typeof window !== 'undefined') {
+      code = this.getCode(alias, paletteRef);
+    }
 
     return (
-      <li
-        className={classnames(
-          styles.item,
-          {
-            [styles[`item--${ui}`]]: true,
-          },
-          { [styles['item--main']]: main },
-        )}
-        style={{ backgroundColor: value, color: value }}
-      >
-        <h3 className={styles.title}>{name}</h3>
-        <button
-          type="button"
-          id={id || name.toLowerCase()}
-          data-clipboard-text={value.toUpperCase()}
-          className={styles.button}
+      <li className={classnames(styles.item, { [styles['item--main']]: main })}>
+        <div
+          className={styles.nameWrapper}
+          style={{ backgroundColor: alias ? `var(--${alias})` : value }}
         >
-          <span className={styles['button-hover-hidden']}>
-            {value.toUpperCase()}
-          </span>
-          <span className={styles['button-hover-only']}>COPY</span>
-        </button>
+          <button
+            type="button"
+            className={styles.title}
+            onClick={() => this.handleCopy(this.customProperty)}
+          >
+            <span className={styles.nameHoverHidden}>{name}</span>
+            <span className={styles.nameHoverOnly}>{this.customProperty}</span>
+          </button>
+
+          <button
+            type="button"
+            id={id || name.toLowerCase()}
+            className={styles.button}
+            onClick={() => this.handleCopy(code)}
+          >
+            <span className={styles.buttonHoverHidden}>{code}</span>
+            <span className={styles.buttonHoverOnly}>COPY</span>
+          </button>
+
+          {tooltipVisible && <div className={styles.tooltip}>Copied!</div>}
+        </div>
       </li>
     );
   }
@@ -59,15 +106,19 @@ PaletteItem.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   value: PropTypes.string,
-  ui: PropTypes.string,
+  alias: PropTypes.string,
   main: PropTypes.bool,
+  paletteRef: PropTypes.shape({
+    current: PropTypes.any,
+  }),
 };
 
 PaletteItem.defaultProps = {
   id: '',
   value: '',
-  ui: 'light',
+  alias: '',
   main: false,
+  paletteRef: null,
 };
 
 export default PaletteItem;

@@ -2,31 +2,34 @@
 @use '../index' as *;
 
 $radio: (
-  box-background: map.get($color, 'white'),
-  box-border-color-checked: var(--c-p),
-  box-border-color: var(--c-d-80),
-  box-border-width: 1px,
-  box-border-width-checked: 1px,
-  box-inner-display: inline-block,
-  box-margin-top: 0,
-  box-size: 1.5rem,
   binary-margin: var(--s-xl),
-  help-text-color: var(--c-d),
-  help-text-font: var(--f-s),
-  invalid-border-color: var(--c-er),
-  invalid-border-color-hover: var(--c-er),
-  label-color: var(--c-d),
-  hover-circle: (
-    height: 2.5rem,
-    width: 2.5rem,
-    content: '',
-    display: block,
-    border-radius: 50%,
-    position: absolute,
-    top: 50%,
-    left: 50%,
-    transform: translate(-50%, -50%),
-    background-color: var(--c-p-20),
-    z-index: -1,
+  border-color: var(--cm-border-brand),
+  background: var(--cm-surface-inverted),
+  box-size: 1.25rem,
+  box-offset: 2px,
+  border-width: 1px,
+  item-spacing: var(--s-2xs),
+  label: (
+    font: 'body-s',
+    color: var(--cm-on-surface-brand),
+  ),
+  checked: (
+    background-color: var(--cm-surface-primary),
+    border-color: var(--cm-border-primary),
+    background-color-hover: color-mix(
+        in srgb,
+        var(--cm-surface-primary) 50%,
+        var(--cm-on-surface-neutral-highest)
+      ),
+    inner-display: inline-block,
+    border-width: 1px,
+  ),
+  help: (
+    color: var(--cm-on-surface-grey-medium),
+    font: 'microcopy-xs',
+  ),
+  invalid: (
+    background-color: var(--cm-surface-status-error),
+    border-color: var(--cm-border-status-error),
   ),
 );

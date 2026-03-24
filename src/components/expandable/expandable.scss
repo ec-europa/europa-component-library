@@ -1,0 +1,54 @@
+/**
+ * Expandable
+ * @define expandable
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$expandable: null !default;
+
+.ecl-expandable {
+  margin: 0;
+}
+
+.ecl-expandable__toggle {
+  border-radius: map.get($expandable, 'toggle-radius');
+}
+
+.ecl-expandable__toggle[aria-expanded='true'] {
+  &.ecl-button--tertiary:not(:hover, :focus-visible) {
+    background-color: map.get($expandable, 'toggle-background-active');
+    border-color: map.get($expandable, 'toggle-border-active');
+    color: map.get($expandable, 'toggle-color-active');
+  }
+
+  .ecl-icon {
+    transform: rotate(0deg);
+  }
+}
+
+.ecl-expandable__content {
+  color: map.get($expandable, 'content-color');
+  font-family: var(--ff-d);
+  margin-top: map.get($expandable, 'content-margin');
+  padding-bottom: map.get($expandable, 'content-spacing-bottom');
+  padding-inline-start: map.get($expandable, 'content-padding');
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.no-js .ecl-expandable__content {
+  display: block;
+}
+
+.ecl-expandable__toggle[aria-expanded='true'] + .ecl-expandable__content {
+  border-bottom: map.get($expandable, 'content-divider');
+}

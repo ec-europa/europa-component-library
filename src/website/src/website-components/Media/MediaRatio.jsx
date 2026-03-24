@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Media.scss';
+import styles from './Media.module.scss';
 
 function MediaRatio({ type, token, ratio }) {
   return (

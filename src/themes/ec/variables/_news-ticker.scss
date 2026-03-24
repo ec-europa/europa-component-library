@@ -4,17 +4,18 @@
 $news-ticker: (
   height: 3.75rem,
   desktop-only-height: 5.375rem,
-  border: 1px solid var(--c-n),
+  border: 1px solid var(--cm-border-neutral),
   border-radius: 0,
   box-shadow: map.get($shadow, '6'),
+  padding-container-desktop: var(--s-s) var(--s-5xl) var(--s-s) var(--s-m),
   padding-horizontal: var(--s-s),
   font: var(--f-s),
-  controls-background: map.get($color, 'white'),
-  container-background: var(--c-n-20),
+  controls-background: var(--cm-surface-inverted),
+  container-background: var(--cm-surface-neutral-lowest),
   counter: (
     font: var(--f-m),
     font-weight: map.get($font-weight, 'regular'),
-    background: var(--c-p),
-    color: map.get($color, 'white'),
+    background: var(--cm-surface-primary),
+    color: var(--cm-on-surface-inverted),
   ),
 );

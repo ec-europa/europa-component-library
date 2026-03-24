@@ -1,0 +1,193 @@
+/*
+ * File print
+ * @define file
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$_image-width: 13.125rem;
+
+.ecl-file {
+  margin: 0;
+}
+
+.ecl-file__container {
+  display: flex;
+}
+
+.ecl-file__info {
+  border-bottom: 1px solid var(--cm-on-surface-brand, var(--c-d));
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: map.get($theme, 'spacing-print', 'm');
+  padding-bottom: map.get($theme, 'spacing-print', 'm');
+
+  > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.ecl-file__icon {
+  display: none;
+}
+
+.ecl-file__title {
+  color: var(--cm-on-surface-brand, #000);
+  font: map.get($theme, 'font-print', 'm');
+  font-family: var(--ecl-font-family-print-alt);
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+  margin-bottom: map.get($theme, 'spacing-print', 's');
+  width: 100%;
+}
+
+.ecl-file__language {
+  color: var(--cm-on-surface-brand, #000);
+  display: inline-block;
+  font: map.get($theme, 'font-print', 's');
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+  margin-inline-end: map.get($theme, 'spacing-print', '2xs');
+}
+
+.ecl-file__meta {
+  color: var(--cm-on-surface-brand, #000);
+  display: inline-block;
+  font: map.get($theme, 'font-print', 's');
+}
+
+.ecl-file__action {
+  border-width: 0;
+  font: map.get($theme, 'font-print', 's');
+  font-weight: map.get($theme, 'font-weight-print', 'regular');
+
+  & > :first-child:not(:only-child) {
+    display: none;
+  }
+}
+
+.ecl-file__detail {
+  border-bottom: 1px solid var(--cm-border-neutral, var(--c-d-20));
+  display: flex;
+  flex-direction: row;
+  margin-bottom: map.get($theme, 'spacing-print', 'm');
+  padding-bottom: map.get($theme, 'spacing-print', 'm');
+}
+
+.ecl-file__detail-meta {
+  color: var(--cm-on-surface-brand, var(--c-d));
+  display: inline-block;
+  font: map.get($theme, 'font-print', 's');
+  list-style: none;
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
+  margin-top: 0;
+  padding: 0;
+}
+
+.ecl-file__detail-meta-item {
+  border-inline-end: 1px solid var(--cm-border-primary, var(--c-p));
+  display: inline;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  padding-inline-end: map.get($theme, 'spacing-print', 'xs');
+  unicode-bidi: isolate;
+
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+  }
+}
+
+.ecl-file__detail-meta-item:first-of-type {
+  margin-inline-start: 0;
+  text-transform: uppercase;
+
+  &::before {
+    display: none;
+  }
+}
+
+.ecl-file__picture {
+  order: 1;
+}
+
+.ecl-file__image {
+  align-self: flex-start;
+  display: block;
+  margin-inline-start: map.get($theme, 'spacing-print', 'l');
+  margin-top: 0;
+  max-width: $_image-width;
+  order: 1;
+}
+
+.ecl-file__taxonomy {
+  padding-bottom: map.get($theme, 'spacing-print', 'm');
+  padding-top: map.get($theme, 'spacing-print', 'm');
+  width: 100%;
+}
+
+.ecl-file__label {
+  margin-bottom: map.get($theme, 'spacing-print', 'm');
+}
+
+.ecl-file__description {
+  color: var(--cm-on-surface-brand, #000);
+  display: inline-flex;
+  font: map.get($theme, 'font-print', 'm');
+  max-width: var(--max-w);
+  white-space: pre-wrap;
+}
+
+.ecl-file__translation-toggle {
+  display: none;
+}
+
+.ecl-file__translation-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.ecl-file__translation-item {
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-file__translation-info {
+  display: flex;
+}
+
+.ecl-file__translation-title {
+  color: var(--cm-on-surface-brand, #000);
+  font: map.get($theme, 'font-print', 's');
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+  margin-inline-end: map.get($theme, 'spacing-print', '2xs');
+}
+
+.ecl-file__translation-meta {
+  color: var(--cm-on-surface-brand, #000);
+  font: map.get($theme, 'font-print', 's');
+}
+
+.ecl-file__translation-description {
+  color: var(--cm-on-surface-brand, #000);
+  font: map.get($theme, 'font-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', 's');
+  max-width: var(--max-w);
+}
+
+.ecl-file__translation-language {
+  color: var(--cm-on-surface-brand, #000);
+  font: map.get($theme, 'font-print', 's');
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+}
+
+.ecl-file__translation-action {
+  font: map.get($theme, 'font-print', 's');
+
+  & > :first-child:not(:only-child) {
+    display: none;
+  }
+}

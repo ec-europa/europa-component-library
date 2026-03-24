@@ -3,13 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  checkboxDefault,
-  checkboxInvalid,
-  checkboxOptional,
-  checkboxSingle,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Default checkbox group
 
@@ -17,23 +11,17 @@ import {
   selectedKind="components-forms"
   selectedStory="checkbox"
   system="ec"
-  showFrame
-  selectedArgs="required:true"
->
-  <Html markup={checkboxDefault} />
-</Playground>
+  selectedArgs="required:!true;invalid:!false"
+></Playground>
 
 ## Invalid checkbox group
 
 <Playground
   selectedKind="components-forms"
   selectedStory="checkbox"
-  selectedArgs="invalid:true"
+  selectedArgs="invalid:!true;required:!true"
   system="ec"
-  showFrame
->
-  <Html markup={checkboxInvalid} />
-</Playground>
+></Playground>
 
 ## Optional checkbox group
 
@@ -41,11 +29,8 @@ import {
   selectedKind="components-forms"
   selectedStory="checkbox"
   system="ec"
-  selectedArgs="required:!false"
-  showFrame
->
-  <Html markup={checkboxOptional} />
-</Playground>
+  selectedArgs="required:!false;invalid:!false"
+></Playground>
 
 ## Standalone checkbox
 
@@ -53,7 +38,4 @@ import {
   selectedKind="components-forms"
   selectedStory="standalone-checkbox"
   system="ec"
-  showFrame
->
-  <Html markup={checkboxSingle} />
-</Playground>
+></Playground>

@@ -1,0 +1,57 @@
+/**
+ * Card
+ * @define card
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$card: null !default;
+
+.ecl-card {
+  background-color: map.get($card, 'background');
+  border-bottom: map.get($card, 'border-bottom');
+  border-radius: map.get($card, 'border-radius');
+  box-shadow: map.get($card, 'shadow');
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+.ecl-card__image {
+  aspect-ratio: 3/2;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.ecl-card__body {
+  padding: map.get($card, 'body-padding-mobile');
+  position: relative;
+
+  @if map.has-key($card, 'yellow-bar') {
+    &::before {
+      background-color: var(--cm-surface-secondary, var(--c-s));
+      border-bottom-left-radius: map.get($theme, 'border-radius', 'xs');
+      border-bottom-right-radius: map.get($theme, 'border-radius', 'xs');
+      content: '';
+      height: 4px;
+      left: var(--s-l);
+      position: absolute;
+      top: 0;
+      width: 32px;
+    }
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-card__body {
+    padding: map.get($card, 'body-padding-tablet');
+  }
+}

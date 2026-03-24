@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
 import SingleLink from './SingleLink';
-import LinkGroup from './LinkGroup'; // eslint-disable-line import/no-cycle
-import LinkSection from './LinkSection'; // eslint-disable-line import/no-cycle
-import styles from './LinkList.scss';
+import LinkGroup from './LinkGroup';
+import LinkSection from './LinkSection';
+import styles from './LinkList.module.scss';
 
 const LinkList = React.memo(
   ({ pages, level, showStatus, 'aria-hidden': ariaHidden }) => (
@@ -56,10 +55,7 @@ const LinkList = React.memo(
 );
 
 LinkList.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  pages: PropTypes.array.isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   'aria-hidden': PropTypes.bool,
@@ -71,4 +67,4 @@ LinkList.defaultProps = {
   'aria-hidden': false,
 };
 
-export default withRouter(LinkList);
+export default LinkList;

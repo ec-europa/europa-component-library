@@ -1,0 +1,77 @@
+/**
+ * File-upload
+ * @define file-upload
+ */
+
+@use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$file-upload: null !default;
+$button: null !default;
+
+.ecl-file-upload:not(.no-js .ecl-file-upload) {
+  @include screen-reader.sr-only;
+}
+
+.ecl-file-upload__button-container {
+  display: flex;
+  margin-top: var(--s-xs);
+  width: fit-content;
+
+  .ecl-file-upload__button {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-file-upload__list {
+  color: var(--cm-on-surface-brand, var(--c-d));
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: var(--s-m);
+  max-width: var(--max-w);
+  padding-inline-start: 0;
+  width: 100%;
+
+  @include mixins.responsive-font(map.get($file-upload, 'list-font'));
+
+  .no-js &,
+  &:empty {
+    display: none;
+  }
+}
+
+.ecl-file-upload__item {
+  border-top: 1px solid map.get($file-upload, 'separator-color');
+  margin: 0;
+  padding-bottom: var(--s-s);
+  padding-top: var(--s-s);
+
+  .ecl-file-upload__item-meta {
+    color: map.get($file-upload, 'meta-color');
+    display: inline-block;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.ecl-file-upload__item-name {
+  display: inline-block;
+}
+
+.ecl-file-upload:focus-visible
+  + .ecl-file-upload__button-container
+  .ecl-file-upload__button {
+  outline: #{map.get($button, 'primary', 'outline-width')} solid
+    #{map.get($button, 'primary', 'outline-color')};
+  outline-offset: map.get($button, 'primary', 'outline-offset');
+}

@@ -3,16 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Playground, Html } from '@ecl/website-components';
-import {
-  buttonPrimary,
-  buttonSecondary,
-  buttonTertiary,
-  buttonCall,
-  buttonGhost,
-  buttonGhostInverted,
-  buttonIconOnly,
-} from '../demo';
+import { Playground } from '@ecl/website-components';
 
 ## Primary
 
@@ -20,9 +11,28 @@ import {
   system="ec"
   selectedKind="components-button"
   selectedStory="primary"
->
-  <Html markup={buttonPrimary} />
-</Playground>
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="style:highlight"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="style:neutral"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="style:inverted"
+></Playground>
 
 ## Secondary
 
@@ -30,9 +40,21 @@ import {
   system="ec"
   selectedKind="components-button"
   selectedStory="secondary"
->
-  <Html markup={buttonSecondary} />
-</Playground>
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+  selectedArgs="style:neutral"
+></Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+  selectedArgs="style:inverted"
+></Playground>
 
 ## Tertiary
 
@@ -40,38 +62,21 @@ import {
   system="ec"
   selectedKind="components-button"
   selectedStory="tertiary"
->
-  <Html markup={buttonTertiary} />
-</Playground>
-
-## Call to action
+></Playground>
 
 <Playground
   system="ec"
   selectedKind="components-button"
-  selectedStory="call-to-action"
->
-  <Html markup={buttonCall} />
-</Playground>
-
-## Ghost
-
-<Playground system="ec" selectedKind="components-button" selectedStory="ghost">
-  <Html markup={buttonGhost} />
-</Playground>
-
-## Ghost inverted
+  selectedStory="tertiary"
+  selectedArgs="style:neutral"
+></Playground>
 
 <Playground
   system="ec"
   selectedKind="components-button"
-  selectedStory="ghost-inverted"
->
-  <Html
-    extraClasses="ecl-u-pa-s ecl-u-bg-dark ecl-u-type-color-white"
-    markup={buttonGhostInverted}
-  />
-</Playground>
+  selectedStory="tertiary"
+  selectedArgs="style:inverted"
+></Playground>
 
 ## Button with icon only
 
@@ -85,7 +90,16 @@ Spacing of icon only button is adapted to make it square.
   system="ec"
   selectedKind="components-button"
   selectedStory="secondary"
-  selectedArgs="icon_name:logged-in;hide_label:true"
->
-  <Html markup={buttonIconOnly} />
-</Playground>
+  selectedArgs="icon_name:logged-in;hide_label:!true"
+></Playground>
+
+## Button size
+
+ECL button are available in 3 sizes: `s`, `m` and `l` (default)
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+  selectedArgs="size:s"
+></Playground>

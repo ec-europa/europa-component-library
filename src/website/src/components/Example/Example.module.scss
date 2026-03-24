@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
+$_outline-width: 2px;
+
+.button {
+  background: none;
+  border-width: 0;
+  box-sizing: border-box;
+  color: var(--ws-c-p);
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin: 0;
+  padding: var(--ws-s-s) var(--ws-s-m);
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: $_outline-width solid var(--ws-c-s);
+    outline-offset: -#{$_outline-width};
+  }
+}

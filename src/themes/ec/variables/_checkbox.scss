@@ -2,32 +2,40 @@
 @use '../index' as *;
 
 $checkbox: (
-  border-color: var(--c-d-80),
-  background: map.get($color, 'white'),
-  box-background-checked-hover: var(--c-p),
-  box-size: 1.5rem,
-  box-margin-top: 0,
-  help-text-color: var(--c-d),
-  help-text-font: var(--f-s),
-  invalid-border-color: var(--c-er),
-  invalid-border-color-hover: var(--c-er),
-  label-color: var(--c-d),
-  box-border-color-checked: var(--c-p),
-  box-background-checked: var(--c-p),
+  checkbox-fill: var(--cm-surface-inverted),
+  border-color: var(--cm-border-brand),
+  background: var(--cm-surface-inverted),
+  box-size: 1.25rem,
+  box-offset: 2px,
   border-width: 1px,
-  border-radius: map.get($border-radius, 's'),
-  checkbox-fill: map.get($color, 'white'),
-  hover-circle: (
-    height: 2.5rem,
-    width: 2.5rem,
-    content: '',
-    display: block,
-    border-radius: 50%,
-    position: absolute,
-    top: 50%,
-    left: 50%,
-    transform: translate(-50%, -50%),
-    background-color: var(--c-p-20),
-    z-index: -1,
+  border-radius: map.get($border-radius, 'xs'),
+  item-spacing: var(--s-2xs),
+  label: (
+    font: 'body-s',
+    color: var(--cm-on-surface-brand),
+  ),
+  checked: (
+    background-color: var(--cm-surface-primary),
+    border-color: var(--cm-border-primary),
+    background-color-hover: color-mix(
+        in srgb,
+        var(--cm-surface-primary) 50%,
+        var(--cm-on-surface-neutral-highest)
+      ),
+  ),
+  help: (
+    color: var(--cm-on-surface-grey-medium),
+    font: 'microcopy-xs',
+    margin-block: var(--s-xs) 0,
+  ),
+  invalid: (
+    background-color: var(--cm-surface-status-error),
+    border-color: var(--cm-border-status-error),
+  ),
+  required: (
+    color: var(--cm-on-surface-status-error),
+    font: 'body-xs',
+    font-weight: map.get($font-weight, 'regular'),
+    margin-inline: var(--s-3xs) 0,
   ),
 );

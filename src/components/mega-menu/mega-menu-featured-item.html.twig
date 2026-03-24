@@ -1,0 +1,109 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "label" (string) Label of the textual link
+  - "path" (string) Path or Url for the href of the link
+  - "description" (string) Description of the link or the image
+  - "icon_path": Path to the icons sprite
+  - "picture" (associative array) ECL picture
+    - "img" (associative array) (default: {}):
+    - "src" (string) (default: ''): Path to the image
+    - "alt" (string) (default: ''): Alt text, required in case of a link with only an image
+    - "sources" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''): Path to the source image
+        "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
+        "type" (string) (default: ''): Type of this source
+      },
+      ...
+    ]
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _item_css_class = 'ecl-mega-menu__featured-list__item' %}
+{% set _css_class = 'ecl-mega-menu__featured-link' %}
+{% set _label = label|default('') %}
+{% set _description = description|default('') %}
+{% set _path = path|default('') %}
+{% set _picture = picture|default({})  %}
+{% set _icon_path = icon_path|default('') %}
+{% set _external = external|default(false) %}
+{% set _sr_external = sr_external|default(false) %}
+{% set _extra_attributes = 'data-ecl-mega-menu-featured-link' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set _picture_markup = '' %}
+{% if _picture is not empty %}
+  {% set _picture_markup %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: 'ecl-mega-menu__featured-picture',
+      extra_image_classes: 'ecl-mega-menu__featured-image',
+    } only %}
+  {% endset %}
+{% endif %}
+
+{% if _label is not empty and _picture_markup is not empty %}
+  {% set _item_css_class = _item_css_class ~ ' ecl-mega-menu__featured-list__item--combo' %}
+{% endif %}
+{% if _picture is not empty and _path is empty %}
+  {% set _item_css_class = _item_css_class ~ ' ecl-mega-menu__featured-list__item--image-only' %}
+{% endif %}
+
+<li class="{{  _item_css_class }}">
+  {# Link with image #}
+  {% if _path is not empty and _picture is not empty %}
+  <a 
+    class="ecl-link ecl-link--standalone {{ _css_class }}"
+    href="{{ _path }}"
+    {{ _extra_attributes|raw }}
+  >
+    {{- _picture_markup -}}{{- _label -}}
+  </a>
+  {# simple image #}
+  {% elseif _picture is not empty %}
+    {{- _picture_markup -}}
+  {#  textual link #}
+  {% elseif _path is not empty and _label is not empty  %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: { 
+        path: _path,
+        type: 'standalone',
+        icon_path: _icon_path,
+        external: _external,
+        sr_external: _sr_external,
+        label: _label, 
+      },
+      extra_attributes: extra_attributes|default([])|merge([{ name: 'data-ecl-mega-menu-featured-link' }]),
+      extra_classes: _css_class,
+    } only %}
+  {% endif %}
+  {% if _description is not empty %}
+    <div class="ecl-mega-menu__featured-list__item-description">
+      {{- _description -}}
+    </div>
+  {% endif %}
+</li>
+
+{% endapply %}

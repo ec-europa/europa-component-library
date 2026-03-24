@@ -2,13 +2,14 @@
 @use '../index' as *;
 
 $accordion: (
-  radius: var(--s-xs),
+  radius: map.get($border-radius, 'm'),
   shadow: var(--sh-1),
   separator: 2px solid var(--c-p-20),
   title-text-color: var(--c-d-80),
+  title-font-weight: map.get($font-weight, 'bold'),
   item-padding: var(--s-l),
-  item-padding-expanded: var(--s-l) var(--s-l) var(--s-m),
   item-background-hover: var(--c-p-10),
+  content-padding: var(--s-m) var(--s-l),
   text-color: var(--c-d),
   icon-color: var(--c-p),
   icon-margin: var(--s-m),

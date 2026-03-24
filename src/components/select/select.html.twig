@@ -1,0 +1,173 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: random)
+  - "options" (array) (default: []):
+    - "value" (string) (default: '')
+    - "label" (string) (default: '')
+    - "disabled" (boolean) (default: false)
+    - "selected" (boolean) (default: false)
+  - "icon_size": (string) (default: xs)
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "invalid_icon" (object of type "icon") (default: {})
+  - "required" (boolean) (default: false)
+  - "name" (string) (default: '')
+  - "toggle_label": (default: 'Toggle dropdown')
+  - "width" (string) (default: '')
+  - "icon_path" (string) (default: ''): file containing the svg icons
+  - "multiple" (boolean) (optional) (default: false) For the multiple select
+  - "multiple_placeholder" (string)(default: '') Label for the multiple select placeholder
+  - "multiple_all_text" (string)(default: '') Label for the select all option
+  - "multiple_clear_all_text" (string)(default: '') Label for the clear all button
+  - "multiple_search" (boolean) (default: true) Show the text filter in the multiselect
+  - "multiple_close_text" (string)(default: '') Label for the close button
+  - "multiple_search_text" (string)(default: '') Label for the search box inside the multiple select
+  - "multiple_search_no_results_text" (string)(default: '') Label label when there is no result by searching for an option
+  - "multiple_select_all" (boolean) (default: true) Show the select all checkbox in the multiple select
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the select
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-select-' ~ random()) %}
+{% set _options = options|default([]) %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _invalid_icon = invalid_icon|default({}) %}
+{% set _required = required|default(false) %}
+{% set _name = name|default('') %}
+{% set _icon_path = icon_path|default(false) %}
+{% set _icon_size = icon_size|default('xs') %}
+{% set _width = width|default('m') %}
+{% set _label = label|default('') %}
+{% set _toggle_label = toggle_label|default('Toggle dropdown') %}
+{% set _multiple = multiple|default(false) %}
+{% set _multiple_placeholder = multiple_placeholder|default('') %}
+{% set _multiple_all_text = multiple_all_text|default('') %}
+{% set _multiple_search = multiple_search ?? true %}
+{% set _multiple_search_text = multiple_search_text|default('') %}
+{% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
+{% set _multiple_select_all = multiple_select_all ?? true %}
+{% set _multiple_close_text = multiple_close_text|default('') %}
+{% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
+{% set _css_group_class = 'ecl-form-group' %}
+{% set _css_class = 'ecl-select' %}
+{% set _extra_attributes = '' %}
+{% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
+
+{# Internal logic - Process properties #}
+
+{% if _multiple %}
+  {% set extra_attributes = extra_attributes|merge([
+    { name: 'multiple' },
+    { name: 'data-ecl-auto-init', value: 'Select' },
+    { name: 'data-ecl-select-multiple'},
+    { name: 'data-ecl-select-default', value: _multiple_placeholder },
+    { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
+    { name: 'data-ecl-select-close', value: _multiple_close_text }
+  ]) %}
+
+  {% if _multiple_select_all and _multiple_all_text is not empty %}
+    {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-select-all', value: _multiple_all_text }]) %}
+  {% endif %}
+
+  {% if _multiple_search and _multiple_search_text is not empty %}
+    {% set extra_attributes = extra_attributes|merge([
+      { name: 'data-ecl-select-search', value: _multiple_search_text },
+      { name: 'data-ecl-select-no-results', value: _multiple_search_no_results_text },
+    ]) %}
+  {% endif %}
+{% endif %}
+
+{% if extra_group_classes is defined and extra_group_classes is not empty %}
+  {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+  <select
+    class="{{ _css_class }}"
+  {% if _id %}
+    id="{{ _id }}"
+  {% endif %}
+  {% if _name is not empty %}
+    name="{{ _name }}"
+  {% endif %}
+  {% if _required %}
+    required
+  {% endif %}
+  {% if _disabled %}
+    disabled
+  {% endif %}
+  {{ _extra_attributes|raw }}
+  >
+    {% for _option in _options %}
+      {% if _option.optgroup %}
+      <optgroup label="{{ _option.optgroup.label }}">
+      {% for _option_grouped in _option.optgroup.options %}
+        <option
+          value="{{ _option_grouped.value }}"
+          {% if _option_grouped.selected %}
+            selected
+          {% endif %}
+          {% if _option_grouped.disabled %}
+            disabled
+          {% endif %}
+        >
+          {{- _option_grouped.label -}}
+        </option>
+      {% endfor %}
+      </optgroup>
+      {% else %}
+        <option
+          value="{{ _option.value }}"
+        {% if _option.selected %}
+          selected
+        {% endif %}
+        {% if _option.disabled %}
+          disabled
+        {% endif %}
+        >
+          {{- _option.label -}}
+        </option>
+      {% endif %}
+    {% endfor %}
+  </select>
+  <div class="ecl-select__icon">
+    {% include '@ecl/button/button.html.twig' with {
+      hide_label: true,
+      type: 'button',
+      variant: 'tertiary',
+      disabled: _disabled,
+      label: _toggle_label,
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: _icon_size,
+        transform: 'rotate-180'
+      },
+      extra_attributes: [{ name: 'tabindex', value: -1 }],
+    } only %}
+  </div>
+
+{% endapply %}

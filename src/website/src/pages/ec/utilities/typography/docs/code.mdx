@@ -5,24 +5,13 @@ order: 2
 
 import { Playground } from '@ecl/website-components';
 
-import demoContentHeading from '@ecl/specs-utils-typography/demo/data--heading';
-import demoContentParagraph from '@ecl/specs-utils-typography/demo/data--paragraph';
-
 ## Headings
 
 <Playground
   system="ec"
   selectedKind="utilities-typography"
   selectedStory="heading"
-  showFrame
->
-  <h1 className="ecl-u-type-heading-1">{demoContentHeading.content}</h1>
-  <h2 className="ecl-u-type-heading-2">{demoContentHeading.content}</h2>
-  <h3 className="ecl-u-type-heading-3">{demoContentHeading.content}</h3>
-  <h4 className="ecl-u-type-heading-4">{demoContentHeading.content}</h4>
-  <h5 className="ecl-u-type-heading-5">{demoContentHeading.content}</h5>
-  <h6 className="ecl-u-type-heading-6">{demoContentHeading.content}</h6>
-</Playground>
+></Playground>
 
 ## Paragraph
 
@@ -30,13 +19,15 @@ import demoContentParagraph from '@ecl/specs-utils-typography/demo/data--paragra
   system="ec"
   selectedKind="utilities-typography"
   selectedStory="paragraph"
-  showFrame
->
-  <p className="ecl-u-type-paragraph-lead">{demoContentParagraph.content}</p>
-  <p className="ecl-u-type-paragraph">{demoContentParagraph.content}</p>
-  <p className="ecl-u-type-paragraph-s">{demoContentParagraph.content}</p>
-  <p className="ecl-u-type-paragraph-xs">{demoContentParagraph.content}</p>
-</Playground>
+></Playground>
+
+## Microcopy
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="microcopy"
+></Playground>
 
 ## Text colour
 
@@ -46,13 +37,8 @@ Note: this list is not exhaustive, please read the usage page to know available 
   system="ec"
   selectedKind="utilities-typography"
   selectedStory="text-colour"
->
-  <div className="ecl-u-type-m ecl-u-type-color-dark">Colour dark</div>
-  <div className="ecl-u-type-m ecl-u-type-color-primary">Colour primary</div>
-  <div className="ecl-u-type-m ecl-u-type-color-dark-60">Colour dark 60</div>
-  <div className="ecl-u-type-m ecl-u-type-color-error">Colour error</div>
-  <div className="ecl-u-type-m ecl-u-type-color-success">Colour success</div>
-</Playground>
+  selectedArgs="colour:ecl-u-type-color-primary"
+></Playground>
 
 ## Text style
 
@@ -60,26 +46,21 @@ Note: this list is not exhaustive, please read the usage page to know available 
   system="ec"
   selectedKind="utilities-typography"
   selectedStory="text-style"
->
-  <div className="ecl-u-type-m ecl-u-type-none">
-    {demoContentHeading.content}
-  </div>
-  <div className="ecl-u-type-m ecl-u-type-lowercase">
-    {demoContentHeading.content}
-  </div>
-  <div className="ecl-u-type-m ecl-u-type-uppercase">
-    {demoContentHeading.content}
-  </div>
-  <div className="ecl-u-type-m ecl-u-type-capitalize">
-    {demoContentHeading.content}
-  </div>
-  <div className="ecl-u-type-m ecl-u-type-overline">
-    {demoContentHeading.content}
-  </div>
-  <div className="ecl-u-type-m ecl-u-type-underline">
-    {demoContentHeading.content}
-  </div>
-  <div className="ecl-u-type-m ecl-u-type-strike">
-    {demoContentHeading.content}
-  </div>
-</Playground>
+  selectedArgs="style:ecl-u-type-italic"
+></Playground>
+
+## Text highlight
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="highlight"
+></Playground>
+
+## Text enhance
+
+<Playground
+  system="ec"
+  selectedKind="utilities-typography"
+  selectedStory="enhance"
+></Playground>

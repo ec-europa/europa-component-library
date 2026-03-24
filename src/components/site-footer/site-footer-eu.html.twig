@@ -1,0 +1,216 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "co_owner" (optional) (object) (default: ()): Banner on top of the footer
+    - "title" (string) (default: ''): Co-owner title
+    - "links" (array of objects): List of links, using the ECL Link structure
+  - "rows" (array of objects) (default: [])
+    - "section_class_name" (string) (default: '')
+    - "logo"
+      - "title": (string) (default: ''): Logo title attribute.
+      - "alt" (string) alt attribute for the logo link
+      - "path" (string) logo link path
+      - "language" (string) Language code
+      - "src_mobile" (string) Path the mobile logo
+      - "src_desktop" (string) Path to the desktop logo
+    - "title" (optional) (string) OR (object with Link component in property)
+    - "title_with_separator" (optional) (bolean) (default: false)
+    - "description" (optional) (string) (default: '')
+    - "content_before" (optional) (string) (default: '')
+    - "links" (optional) (array of objects) (default: []),
+      - "link" (link object)
+      - "content_before" (string) Optional text before the link
+      - "content_after" (string) Optional text after the link
+    - "links_inline" (optional) (boolean) (default: false) Optional inline style for the list
+    - "links_separator" (optional) (boolean) (default: false) Optional separator for inline links
+  - "split_columns" (boolean) (optional) (default: false) Split columns in the footer, used for Core EC version
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the footer
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the footer
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _co_owner = co_owner|default({}) %}
+{% set _split_columns = split_columns|default(false) %}
+{% set _rows = rows|default([]) %}
+{% set _css_class = 'ecl-site-footer' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _split_columns %}
+  {% set _css_class = _css_class ~ ' ecl-site-footer--split-columns' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<footer
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {# Co owner #}
+  {%- if _co_owner is not empty -%}
+    <div class="ecl-site-footer__co-owner">
+      <div class="ecl-container ecl-site-footer__co-owner-container">
+        {%- if _co_owner.title is not empty -%}
+          <div class="ecl-site-footer__co-owner-title">
+            {{- _co_owner.title -}}
+          </div>
+        {%- endif -%}
+
+        {%- if _co_owner.links is not empty and _co_owner.links is iterable -%}
+          <ul class="ecl-site-footer__co-owner-list">
+            {%- for _item in _co_owner.links -%}
+              {% set _item_class = 'ecl-site-footer__co-owner-item' %}
+              {% if loop.index == 1 %}
+                {% set _item_class = _item_class ~ ' is-first' %}
+              {% endif %}
+
+              <li class="{{ _item_class }}">
+                {% include '@ecl/link/link.html.twig' with _item|merge({
+                  link: _item.link|merge({
+                    type: 'standalone',
+                  }),
+                  extra_classes: 'ecl-site-footer__co-owner-link',
+                }) only %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {# Main container #}
+  <div class="ecl-site-footer__main">
+    <div class="ecl-container ecl-site-footer__container">
+    {% for _row in _rows %}
+      <div class="ecl-site-footer__row">
+      {% for _columns in _row %}
+        <div class="ecl-site-footer__column">
+        {% for _sections in _columns %}
+          {% set _section_class_name = 'ecl-site-footer__section' %}
+          {% if _sections.section_class_name is defined and _sections.section_class_name is not empty %}
+            {% set _section_class_name = _section_class_name ~ ' ' ~ _sections.section_class_name %}
+          {% endif %}
+          {% if _sections.section_with_separator %}
+            {% set _section_class_name = _section_class_name ~ ' ecl-site-footer__section--separator' %}
+          {% endif %}
+          <div class="{{ _section_class_name }}">
+          {# logo #}
+          {% if _sections.logo is defined and _sections.logo is not empty and _sections.logo.src_desktop is not empty %}
+            {% set _label %}
+            {% set _picture = { sources: [{ src: _sections.logo.src_desktop, media: 'l' }] } %}
+            {% if _sections.logo.src_mobile is defined and _sections.logo.src_mobile is not empty %}
+              {% set _picture = _picture|merge({
+                  img: {
+                    src: _sections.logo.src_mobile,
+                    alt: _sections.logo.alt,
+                  },
+                }) %}
+            {% else %}
+              {% set _picture = _picture|merge({
+                img: {
+                  src: _sections.logo.src_desktop,
+                  alt: _sections.logo.alt,
+                },
+              }) %}
+            {% endif %}
+            {% include '@ecl/picture/picture.html.twig' with {
+              picture: _picture,
+              extra_classes: "ecl-site-footer__picture",
+              extra_image_classes: 'ecl-site-footer__logo-image',
+              extra_attributes: _sections.logo.title is not empty ? [{ name: 'title', value: _sections.logo.title }] : [],
+            } only %}
+            {% endset %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                path: _sections.logo.path,
+                label: _label,
+                type: 'standalone'
+              },
+              extra_classes: 'ecl-site-footer__logo-link'
+            } only %}
+          {% endif %}
+          {# content before #}
+          {% if _sections.content_before is defined and _sections.content_before is not empty %}
+            <div class="ecl-site-footer__content">{{ _sections.content_before }}</div>
+          {% endif %}
+          {# title #}
+          {% if _sections.title is defined and _sections.title is not empty %}
+            {% set _title_class_name = 'ecl-site-footer__title' %}
+            {% if _sections.title_with_separator %}
+              {% set _title_class_name = _title_class_name ~ ' ecl-site-footer__title--separator' %}
+            {% endif %}
+            <div class="{{ _title_class_name }}">
+            {%- if _sections.title.link is defined and _sections.title.link is not empty -%}
+              {% include '@ecl/link/link.html.twig' with _sections|merge({
+                link: _sections.title.link,
+                extra_classes: 'ecl-site-footer__title-link',
+                icon: _sections.title.icon|default({}),
+              }) only %}
+            {%- else -%}
+              {{- _sections.title -}}
+            {%- endif -%}
+            </div>
+            {%- endif -%}
+          {# description #}
+          {% if _sections.description is defined and _sections.description is not empty %}
+            <div class="ecl-site-footer__description">{{ _sections.description }}</div>
+          {% endif %}
+          {# list #}
+          {% if _sections.links is defined and _sections.links is not empty and _sections.links is iterable %}
+            {% set _list_class_name = 'ecl-site-footer__list' %}
+            {% if _sections.links_inline %}
+              {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--inline' %}
+            {% endif %}
+            {% if _sections.links_separator %}
+              {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--separator' %}
+            {% endif %}
+            {% if _sections.links_columns %}
+              {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--columns' %}
+            {% endif %}
+            <ul class="{{ _list_class_name }}">
+            {% for _item in _sections.links %}
+              <li class="ecl-site-footer__list-item">
+                {% if _item.content_before is defined and _item.content_before is not empty %}
+                  {{- _item.content_before -}}
+                {% endif %}
+                {% include '@ecl/link/link.html.twig' with _item|merge({
+                  link: _item.link|default({})|merge({ type: 'standalone' }),
+                  extra_classes: 'ecl-site-footer__link',
+                }) only %}
+                {% if _item.content_after is defined and _item.content_after is not empty %}
+                  {{- _item.content_after -}}
+                {% endif %}
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+          </div>
+        {% endfor %}
+        </div>
+      {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</footer>
+
+{% endapply %}

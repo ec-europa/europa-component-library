@@ -1,0 +1,123 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "icon" (associative array) (default: predefined structure): format:
+        {
+          name: '',
+          size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
+          transform: '' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
+          color: '' (available options: 'default', 'inverted', 'primary')
+          title: '' (additional title for the icon; shortcut for extra accessibility title)
+          family (string) (default: ''): icon family
+          style: (string) (default: ''): icon style; mostly used for social networks icons, can be 'primary', 'monochrome', 'inverted'
+        }
+    - "as_image": false,
+    - "extra_accessibility" : {
+        description: '' (desc tag)
+        description_id: '' (desc tag id)
+        title: '_icon.title' (title tag)
+        title_id: '' (title tag id)
+        role: '' (role attribute)
+    }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _icon = {
+  name: '',
+  size: 'm',
+  transform: '',
+  color: '',
+  title: '',
+  family: '',
+  style: '',
+}|merge(icon|default({})) %}
+
+{% set _extra_accessibility = {
+  description: '',
+  description_id: '',
+  title: _icon.title is not empty ? _icon.title : '',
+  title_id: '',
+  role: '',
+}|merge(extra_accessibility|default({})) %}
+
+{% set _as_image = as_image|default(false) %}
+{% set _aria_hidden = 'true' %}
+
+{% set _css_class = 'ecl-icon' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _extra_accessibility.title is not empty %}
+  {% set _as_image = 'true' %}
+  {% set _extra_accessibility = _extra_accessibility|merge({role: 'img'}) %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'title', value: _extra_accessibility.title }]) %}
+{% endif %}
+
+{% if _as_image %}
+  {% set _aria_hidden = 'false' %}
+{% endif %}
+
+{% for property in ['size', 'transform', 'color'] %}
+  {% if _icon[property] is defined and _icon[property] is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon[property] %}
+  {% endif %}
+{% endfor %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _extra_accessibility.role is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'role', value: _extra_accessibility.role },
+  ]) %}
+{% endif %}
+
+{% if _extra_accessibility.description is not empty %}
+  {% set extra_attributes = extra_attributes|merge([{ name: 'data-desc', value: _extra_accessibility.description }]) %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% set _wt_classes = '' %}
+{% set _full_name = '' %}
+{% if _icon.family is not empty %}
+  {% set _full_name = _full_name ~ '-' ~ _icon.family %}
+{% endif %}
+{% if _icon.name is not empty %}
+  {% set _full_name = _full_name ~ '--' ~ _icon.name %}
+{% endif %}
+{% set _wt_classes = 'wt-icon' ~ _full_name %}
+{% set _css_class = _css_class  ~ ' ecl-icon' ~ _full_name %}
+
+{% if _icon.style is not empty %}
+  {% set _wt_classes = _wt_classes ~ ' wt-icon--' ~ _icon.style %}
+{% endif %}
+
+<span 
+  class="{{ _wt_classes }} {{ _css_class }}"
+  aria-hidden="{{ _aria_hidden }}"
+  {{ _extra_attributes|raw }}>
+</span>
+
+{% endapply %}

@@ -2,7 +2,7 @@
   "name": "@ecl/resources-ec-logo",
   "author": "European Commission",
   "license": "EUPL-1.2",
-  "version": "4.7.0",
+  "version": "5.0.0-RC1",
   "description": "Logo for EC system of ECL",
   "publishConfig": {
     "access": "public"
@@ -10,13 +10,16 @@
   "scripts": {
     "dist:clean": "rimraf dist",
     "dist:copy": "ncp src dist",
+    "dist:lists": "node ./scripts/build-lists.js",
+    "dist:script": "node scripts/esm-export.js",
     "dist": "run-s dist:*",
     "prepublish": "npm run dist"
   },
-  "dependencies": {
+  "devDependencies": {
+    "mkdirp": "3.0.1",
     "ncp": "2.0.0",
     "npm-run-all": "4.1.5",
-    "rimraf": "6.0.1"
+    "rimraf": "6.1.3"
   },
   "repository": {
     "type": "git",

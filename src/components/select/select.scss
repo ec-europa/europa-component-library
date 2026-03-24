@@ -1,0 +1,389 @@
+/**
+ * Select
+ * @define select
+ */
+
+@use 'sass:map';
+@use '@ecl/layout-form/mixins' as mixins-form;
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$select: null !default;
+
+// Internal variables
+$outline-width: 2px;
+
+.ecl-select {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border: map.get($select, 'border-width') solid
+    map.get($select, 'border-color');
+  border-radius: map.get($select, 'border-radius');
+  box-shadow: map.get($select, 'shadow');
+  box-sizing: border-box;
+  color: map.get($select, 'color-input');
+  cursor: pointer;
+  display: block;
+  height: var(--ecl-text-field-height);
+  margin: 0;
+  overflow: hidden;
+  padding-inline-end: map.get($select, 'arrow-width');
+  padding-inline-start: map.get($select, 'padding-inline-start');
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 1;
+  font: map.get($select, 'font');
+
+  &::placeholder {
+    color: map.get($select, 'color-placeholder');
+    opacity: 1;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: map.get($select, 'border-color-hover');
+    box-shadow: map.get($select, 'shadow-hover');
+  }
+
+  &:focus-visible,
+  &:active,
+  &--active {
+    outline: $outline-width solid var(--cm-border-primary, var(--c-p));
+    outline-offset: -#{$outline-width};
+  }
+}
+
+.ecl-select__container {
+  background-color: var(--cm-surface-inverted, #fff);
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  position: relative;
+}
+
+.ecl-select__container--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
+.ecl-select__container--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
+.ecl-select__container--l {
+  @include mixins-form.form-width('l', $theme);
+}
+
+.ecl-select__container--hidden {
+  margin-top: 0 !important;
+
+  .ecl-select {
+    border: none;
+    clip-path: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+  }
+}
+
+.ecl-select__icon {
+  align-items: center;
+  background-color: map.get($select, 'arrow-background-color');
+  border-end-end-radius: map.get($select, 'border-radius');
+  border-start-end-radius: map.get($select, 'border-radius');
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: map.get($select, 'arrow-width');
+  z-index: 0;
+
+  &:dir(rtl) {
+    left: 0;
+    right: auto;
+  }
+}
+
+.ecl-select:hover ~ .ecl-select__icon {
+  background-color: map.get($select, 'arrow-background-color-hover');
+}
+
+.ecl-select__icon .ecl-button--icon-only {
+  height: var(--ecl-text-field-height);
+  width: var(--ecl-text-field-height);
+
+  .ecl-icon {
+    fill: map.get($select, 'icon-fill');
+    height: map.get($select, 'icon-size');
+    width: map.get($select, 'icon-size');
+  }
+}
+
+.ecl-select--active {
+  &:hover {
+    border-color: map.get($select, 'border-color-focus');
+    cursor: pointer !important;
+  }
+
+  ~ .ecl-select__icon .ecl-icon {
+    transform: rotate(0);
+  }
+}
+
+.ecl-select:open ~ .ecl-select__icon .ecl-icon {
+  transform: none;
+}
+
+// Disabled
+.ecl-select__container--disabled .ecl-select {
+  border-color: map.get($select, 'border-color-disabled');
+  background-color: map.get($select, 'background-disabled');
+  color: map.get($select, 'color-disabled');
+  opacity: map.get($select, 'opacity-disabled');
+  cursor: not-allowed;
+}
+
+// Invalid
+.ecl-select__container--invalid {
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-select__icon {
+    background-color: map.get($select, 'arrow-background-color-invalid');
+  }
+
+  .ecl-select:hover ~ .ecl-select__icon {
+    background-color: map.get($select, 'arrow-background-color-invalid-hover');
+  }
+
+  .ecl-select:focus-visible ~ .ecl-select__icon {
+    background-color: map.get($select, 'arrow-background-invalid-focus');
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-select {
+    border-color: map.get($select, 'border-color-invalid');
+
+    &:hover {
+      border-color: map.get($select, 'border-color-invalid-hover');
+    }
+
+    &:active,
+    &:focus-visible {
+      border-color: map.get($select, 'border-color-invalid-focus');
+      outline-color: map.get($select, 'border-color-invalid-focus');
+    }
+  }
+}
+
+// Multiple
+// stylelint-disable-next-line no-descending-specificity
+.ecl-select[multiple] ~ .ecl-select__icon {
+  display: none;
+}
+
+.ecl-select__multiple {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  max-width: 100%;
+
+  .ecl-form-label + .ecl-select__container--hidden + & {
+    margin-top: var(--s-xs);
+  }
+
+  .ecl-select__multiple-dropdown {
+    background-color: map.get($select, 'multiple', 'dropdown-background-color');
+    border: map.get($select, 'multiple', 'dropdown-border');
+    border-radius: map.get($select, 'multiple', 'dropdown-border-radius');
+    cursor: default;
+    box-shadow: map.get($select, 'multiple', 'dropdown-shadow');
+    box-sizing: border-box;
+    margin-top: map.get($select, 'multiple', 'dropdown-margin');
+    min-width: map.get($theme, 'form-width', 's', 'breakpoint-m');
+    padding-bottom: var(--s-m);
+    position: absolute;
+    z-index: map.get($theme, 'z-index', 'dropdown');
+
+    // When the select all is present and the search is not
+    .ecl-select__multiple-all:first-child {
+      padding-top: var(--s-m);
+    }
+  }
+
+  .ecl-text-input {
+    margin: map.get($select, 'multiple', 'dropdown-input-margin');
+    width: map.get($select, 'multiple', 'dropdown-input-width');
+  }
+
+  .ecl-checkbox__label {
+    padding-inline-start: var(--s-m);
+    padding-inline-end: var(--s-m);
+    width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
+
+    &:hover {
+      background-color: var(--cm-surface-neutral-lowest, transparent);
+    }
+  }
+
+  .ecl-select__multiple-group {
+    border-bottom: 1px solid map.get($select, 'group-separator-color');
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid map.get($select, 'group-separator-color');
+    margin: 0 var(--s-m);
+    padding: var(--s-s) 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    .ecl-checkbox__label {
+      margin-inline-start: calc(-1 * var(--s-m));
+      margin-inline-end: calc(-1 * var(--s-m));
+      width: 100%;
+    }
+  }
+
+  .ecl-select__multiple-options {
+    box-sizing: border-box;
+    max-height: map.get($select, 'multiple', 'dropdown-container-max-height');
+    overflow-y: auto;
+
+    // When no search and select all are present
+    &:first-child .ecl-select__multiple-group:first-child {
+      border-top: none;
+      padding-top: var(--s-m);
+    }
+  }
+
+  .ecl-checkbox {
+    clear: left;
+  }
+
+  .ecl-text-input
+    + .ecl-select__multiple-options
+    > .ecl-select__multiple-group:first-child {
+    padding-top: var(--s-xs);
+  }
+
+  .ecl-select__multiple-group + .ecl-checkbox {
+    margin-top: var(--s-s);
+  }
+
+  .ecl-select__multiple-group__title {
+    color: map.get($select, 'group-title-color');
+    float: left;
+    margin: 0 0 var(--s-2xs);
+
+    @include mixins.responsive-font(
+      map.get($select, 'group-title-font'),
+      $font-weight: map.get($select, 'group-title-font-weight')
+    );
+  }
+
+  .ecl-select__multiple-no-results {
+    align-items: center;
+    color: var(--cm-on-surface-brand, var(--c-d));
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    min-height: 100px;
+    width: 100%;
+
+    @include mixins.responsive-font(map.get($select, 'font'));
+  }
+
+  .ecl-select-multiple-toolbar {
+    // stylelint-disable-next-line declaration-property-value-no-unknown
+    border-top: 1px solid
+      map.get($select, 'multiple', 'dropdown-toolbar-separator-color');
+    display: flex;
+    flex-direction: column;
+    padding: var(--s-s) var(--s-m) 0;
+
+    .ecl-button + .ecl-button {
+      margin-top: var(--s-m);
+    }
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-select__multiple-all {
+    // stylelint-disable-next-line declaration-property-value-no-unknown
+    border-bottom: 1px solid
+      map.get($select, 'multiple', 'dropdown-separator-color');
+    margin-bottom: var(--s-s);
+    padding-bottom: var(--s-s);
+
+    @if map.has-key($select, 'multiple', 'select-all-after') {
+      &::after {
+        content: '';
+        display: inline-block;
+        height: 1px;
+        margin: 0 auto;
+        position: relative;
+        bottom: calc(-1 * var(--s-s));
+        width: calc(100% - (#{var(--s-m)} * 2));
+        background: var(--cm-border-neutral, var(--c-n));
+      }
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    + .ecl-select__multiple-options > .ecl-select__multiple-group {
+      border-top: none;
+    }
+  }
+
+  .ecl-select-multiple-selections-counter {
+    display: none;
+    left: var(--s-m);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    * {
+      align-items: center;
+      background-color: map.get($select, 'multiple', 'counter-background');
+      border-radius: map.get($theme, 'border-radius', 'l');
+      color: map.get($select, 'multiple', 'counter-color');
+      display: inline-flex;
+      height: auto;
+      justify-content: center;
+      position: relative;
+      min-width: 1rem;
+      padding: map.get($select, 'multiple', 'counter-padding');
+      text-align: center;
+      width: 100%;
+
+      @include mixins.responsive-font(
+        map.get($select, 'multiple', 'counter-font')
+      );
+
+      &::after {
+        content: '';
+        display: table;
+        padding-top: 100%;
+      }
+    }
+
+    &.ecl-select-multiple-selections-counter--xxl * {
+      width: 85%;
+    }
+  }
+
+  .ecl-select-multiple-selections-counter--visible {
+    display: block;
+
+    + .ecl-select {
+      padding-inline-start: calc(3.5rem - #{map.get($select, 'border-width')});
+    }
+  }
+}

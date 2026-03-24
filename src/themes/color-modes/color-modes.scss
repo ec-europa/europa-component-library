@@ -1,0 +1,17 @@
+/**
+ * Color modes
+ * @define color modes
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+
+@each $mode, $properties in map.get($theme, 'color-modes') {
+  .ecl-color-mode--#{$mode} {
+    @each $prop, $value in $properties {
+      #{$prop}: #{$value};
+    }
+  }
+}

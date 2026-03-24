@@ -1,0 +1,306 @@
+/**
+ * Typography utilities print
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+@use '@ecl/mixins-color/mixins' as color;
+
+// Exposed variables
+$theme: null !default;
+$typography: null !default;
+$typography-print: null !default;
+
+/*
+* Headings
+*/
+.ecl-u-type-display {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'display') !important;
+  font-weight: map.get($typography, 'display', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+.ecl-u-type-heading-1,
+%ecl-heading-1 {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'heading1') !important;
+  font-weight: map.get($typography, 'heading1', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+.ecl-u-type-heading-2,
+%ecl-heading-2 {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'heading2') !important;
+  font-weight: map.get($typography, 'heading2', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+.ecl-u-type-heading-3,
+%ecl-heading-3 {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'heading3') !important;
+  font-weight: map.get($typography, 'heading3', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+.ecl-u-type-heading-4,
+%ecl-heading-4 {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'heading4') !important;
+  font-weight: map.get($typography, 'heading4', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+.ecl-u-type-heading-5,
+%ecl-heading-5 {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'heading5') !important;
+  font-weight: map.get($typography, 'heading5', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+.ecl-u-type-heading-6,
+%ecl-heading-6 {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'heading6') !important;
+  font-weight: map.get($typography, 'heading6', 'font-weight') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+}
+
+%ecl-heading-1,
+%ecl-heading-2,
+%ecl-heading-3,
+%ecl-heading-4,
+%ecl-heading-5,
+%ecl-heading-6 {
+  margin: map.get($typography-print, 'heading-margin');
+}
+
+/*
+* Paragraph
+*/
+@each $key, $value in map.get($typography, 'paragraph') {
+  .ecl-u-type-paragraph-#{$key} {
+    color: map.get($typography, 'text-color') !important;
+    font: map.get($theme, 'font-print', $key) !important;
+  }
+}
+
+.ecl-u-type-paragraph {
+  color: map.get($typography, 'text-color') !important;
+  font: map.get($theme, 'font-print', 'm') !important;
+}
+
+%ecl-paragraph {
+  color: map.get($typography, 'text-color');
+  font: map.get($theme, 'font-print', 'm') !important;
+}
+
+.ecl-u-type-paragraph-lead {
+  color: map.get($typography, 'text-color');
+  font: map.get($theme, 'font-print', 'xl') !important;
+}
+
+/*
+* Microcopy
+*/
+@if map.has-key($typography, 'microcopy') {
+  @each $key, $value in map.get($typography, 'microcopy') {
+    .ecl-u-type-microcopy-#{$key} {
+      color: map.get($typography, 'text-color') !important;
+
+      @include mixins.responsive-font('microcopy-' + $key);
+    }
+  }
+}
+
+/*
+* Fonts
+*/
+@each $key, $value in map.get($theme, 'font-print') {
+  .ecl-u-type-#{$key} {
+    font: map.get($theme, 'font-print', $key) !important;
+  }
+}
+
+/*
+* Font colour
+*/
+// Used only on EU
+@if map.has-key($theme, 'color') {
+  @each $key, $value in map.get($theme, 'color') {
+    @if $key != 'white' and $key != 'black' {
+      .ecl-u-type-color-#{$key} {
+        color: var(--ecl-color-#{$key}) !important;
+      }
+    }
+  }
+}
+
+@if map.has-key($theme, 'color-default') {
+  @each $key, $value in map.get($theme, 'color-default') {
+    .ecl-u-type-color-#{$key} {
+      // stylelint-disable-next-line custom-property-pattern
+      color: var(--c-#{color.get-color-short-name($key)}) !important;
+    }
+  }
+
+  $semantic-color: (
+    'primary',
+    'secondary',
+    'neutral',
+    'grey',
+    'alpha',
+    'monochrome',
+    'info',
+    'success',
+    'error',
+    'warning'
+  );
+
+  @each $key in $semantic-color {
+    .ecl-u-type-color-#{$key} {
+      // stylelint-disable-next-line custom-property-pattern
+      color: var(--c-#{color.get-color-short-name($key)}) !important;
+    }
+  }
+
+  @if map.has-key($theme, 'color-modes') {
+    $type-mode: (
+      'on-surface',
+      'on-surface-1',
+      'on-surface-2',
+      'on-surface-3',
+      'on-surface-swap-0',
+      'on-surface-swap-1'
+    );
+
+    @each $key in $type-mode {
+      .ecl-u-type-color-#{$key} {
+        color: var(--cm-#{$key}) !important;
+      }
+    }
+  }
+}
+
+.ecl-u-type-color-white {
+  color: #fff !important;
+}
+
+.ecl-u-type-color-black {
+  color: #000 !important;
+}
+
+/*
+* Font weight
+*/
+@each $key, $value in map.get($theme, 'font-weight') {
+  .ecl-u-type-weight-#{$key} {
+    font-weight: $value !important;
+  }
+}
+
+/*
+* Font style
+*/
+.ecl-u-type-italic {
+  font-style: italic !important;
+}
+
+.ecl-u-type-capitalize {
+  text-transform: capitalize !important;
+}
+
+.ecl-u-type-lowercase {
+  text-transform: lowercase !important;
+}
+
+.ecl-u-type-uppercase {
+  text-transform: uppercase !important;
+}
+
+.ecl-u-type-overline {
+  text-decoration: overline !important;
+}
+
+.ecl-u-type-underline {
+  text-decoration: underline !important;
+}
+
+.ecl-u-type-strike {
+  text-decoration: line-through !important;
+}
+
+.ecl-u-type-none {
+  text-decoration: none !important;
+}
+
+/*
+* Text align
+*/
+.ecl-u-type-align-left {
+  text-align: left !important;
+}
+
+.ecl-u-type-align-right {
+  text-align: right !important;
+}
+
+.ecl-u-type-align-center {
+  text-align: center !important;
+}
+
+/*
+* Text highlight
+*/
+.ecl-u-type-highlight {
+  background-color: map.get($typography, 'highlight-color');
+}
+
+.ecl-u-type-enhance {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'default',
+    'background-color'
+  );
+  border-inline-start: map.get($typography, 'enhance', 'default', 'border');
+  color: map.get($typography, 'enhance', 'default', 'color');
+  font: map.get($typography-print, 'enhance', 'font');
+  font-weight: map.get($typography, 'enhance', 'font-weight');
+  padding: map.get($typography, 'enhance', 'default', 'padding-desktop');
+}
+
+.ecl-u-type-enhance-strong {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'strong',
+    'background-color'
+  );
+  color: map.get($typography, 'enhance', 'strong', 'color');
+  font: map.get($typography-print, 'enhance', 'font');
+  font-weight: map.get($typography, 'enhance', 'font-weight');
+  padding: map.get($typography, 'enhance', 'strong', 'padding-desktop');
+}
+
+.ecl-u-type-enhance-light {
+  background-color: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'background-color'
+  );
+  border-inline-start: map.get($typography, 'enhance', 'light', 'border');
+  color: map.get($typography, 'enhance', 'light', 'color');
+  font: map.get($typography-print, 'enhance', 'font');
+  font-weight: map.get($typography, 'enhance', 'font-weight');
+  padding-inline-start: map.get(
+    $typography,
+    'enhance',
+    'light',
+    'padding-start'
+  );
+}

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import iframeResizer from '@iframe-resizer/parent';
 
-import styles from './Iframe.scss';
+import styles from './Iframe.module.scss';
 
 class Iframe extends PureComponent {
   constructor(props) {
@@ -27,14 +27,16 @@ class Iframe extends PureComponent {
   }
 
   componentWillUnmount() {
-    if (
-      this.iframeResizer &&
-      this.iframeResizer.length > 0 &&
-      this.iframeResizer[0].iFrameResizer
-    ) {
-      this.iframeResizer[0].iFrameResizer.disconnect();
-      this.iframeResizer[0].iFrameResizer.close();
-    }
+    setTimeout(() => {
+      if (
+        this.iframeResizer &&
+        this.iframeResizer.length > 0 &&
+        this.iframeResizer[0].iFrameResizer
+      ) {
+        this.iframeResizer[0].iFrameResizer.disconnect();
+        this.iframeResizer[0].iFrameResizer.close();
+      }
+    }, 0);
   }
 
   render() {

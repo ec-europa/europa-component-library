@@ -1,18 +1,9 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-const componentAbsPath = path.resolve(
-  __dirname,
-  '../../../implementations/twig/components',
-);
-const compositionsAbsPath = path.resolve(
-  __dirname,
-  '../../../implementations/twig/compositions',
-);
-const pageAbsPath = path.resolve(
-  __dirname,
-  '../../../implementations/twig/pages',
-);
+const componentAbsPath = path.resolve(__dirname, '../../../components');
+const pageAbsPath = path.resolve(__dirname, '../../../page-example');
+const compositionsAbsPath = path.resolve(__dirname, '../../../compositions');
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);
 

@@ -1,0 +1,100 @@
+/**
+ * Ordered list
+ * @define ordered-list
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$list: null !default;
+
+.ecl-ordered-list,
+%ecl-ordered-list {
+  color: map.get($list, 'text-color');
+  list-style-position: outside;
+  list-style-type: map.get($list, 'ordered', 'marker');
+  margin: 0;
+  padding-inline-start: map.get($list, 'ordered', 'padding-start');
+
+  @include mixins.responsive-font(map.get($list, 'ordered', 'font'));
+
+  // Remove spacing in some situation
+  .ecl-featured-item__item & {
+    padding-inline-start: 0;
+  }
+}
+
+.ecl-ordered-list .ecl-ordered-list,
+%ecl-ordered-list--nested {
+  list-style-type: map.get($list, 'ordered', 'sublist-marker');
+  padding-inline-start: map.get($list, 'ordered', 'sublist-padding');
+}
+
+.ecl-ordered-list__item,
+%ecl-ordered-list__item {
+  margin-inline-start: map.get($list, 'ordered', 'item-margin');
+  padding-bottom: var(--s-2xs);
+  padding-top: var(--s-2xs);
+  max-width: var(--max-w);
+  padding-inline-start: 0;
+
+  &:first-of-type {
+    padding-top: var(--s-2xs);
+  }
+
+  &:last-of-type {
+    padding-bottom: var(--s-2xs);
+  }
+}
+
+// No marker
+.ecl-ordered-list--no-marker {
+  list-style-type: none;
+  padding-inline-start: map.get($list, 'ordered', 'divider-sublist-padding');
+
+  .ecl-ordered-list {
+    list-style-type: none;
+    padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
+  }
+
+  .ecl-ordered-list__item {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+  }
+}
+
+// Dividers
+.ecl-ordered-list--divider {
+  list-style: none;
+  padding-inline-start: 0;
+
+  .ecl-ordered-list__item {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+  }
+
+  > .ecl-ordered-list__item {
+    border-bottom: 1px solid map.get($list, 'divider-color');
+    margin-bottom: var(--s-xs);
+    padding-bottom: var(--s-xs);
+    padding-inline-start: map.get($list, 'ordered', 'divider-item-padding');
+
+    .ecl-link {
+      padding: 0;
+    }
+  }
+
+  .ecl-ordered-list {
+    padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
+
+    .ecl-ordered-list__item {
+      list-style-type: none;
+    }
+  }
+}
+
+.ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:last-of-type {
+  margin-bottom: 0;
+}

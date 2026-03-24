@@ -1,0 +1,74 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "color_mode" (string) (default: '')
+    - "citation" (string) (default: '')
+    - "author" (string) (default: '')
+    - "lang" (string) (default: 'en')
+    - "extra_classes" (string) (default: '')
+    - "picture" (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-blockquote' %}
+{% set _extra_attributes = '' %}
+{% set _citation = citation|default('') %}
+{% set _author = author|default('') %}
+{% set _picture = picture|default({}) %}
+{% set _lang = lang|default('en') %}
+{% set _color_mode = color_mode|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<figure
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {% if _picture is not empty and _picture.img is not empty %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: "ecl-blockquote__picture",
+      extra_image_classes: "ecl-blockquote__image",
+    } only %}
+  {% endif %}
+  <div class="ecl-blockquote__body">
+    <blockquote class="ecl-blockquote__quote">
+      <p class="ecl-blockquote__citation" lang="{{ _lang }}">{{ _citation }}</p>
+      <footer class="ecl-blockquote__attribution">
+        <cite class="ecl-blockquote__author">{{ _author }}</cite>
+      </footer>
+    </blockquote>
+    
+  </div>
+</figure>
+
+{% endapply %}

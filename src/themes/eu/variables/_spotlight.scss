@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$spotlight: (
+  gradient: linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--c-d-140) 80%, transparent) 10%,
+      color-mix(in srgb, var(--c-d-140) 53%, transparent) 50%,
+      transparent 100%
+    ),
+  gradient-height-mobile: 241px,
+  gradient-height-tablet: 374px,
+  header: (
+    background: var(--c-d-140),
+    color: #fff,
+    height-mobile: 32px,
+    height-tablet: 40px,
+    height-desktop: 44px,
+    padding-block: 2px,
+    font: var(--f-s),
+    font-weight: map.get($font-weight, 'bold'),
+  ),
+  credit: (
+    color: #fff,
+    padding-block: var(--s-3xs),
+    padding-inline: var(--s-xs),
+    font: var(--f-xs),
+  ),
+  title: (
+    color: #fff,
+    padding-block-mobile: 0 var(--s-xl),
+    padding-block-tablet: 0 var(--s-xl),
+    padding-block-desktop: 0 var(--s-2xl),
+    font-l: (
+      mobile-xs: var(--f-2xl),
+      desktop: var(--f-5xl),
+    ),
+    font-m: (
+      mobile-xs: var(--f-2xl),
+      desktop: var(--f-4xl),
+    ),
+  ),
+  anchor: (
+    color: #fff,
+    padding-block: var(--s-2xl),
+  ),
+);

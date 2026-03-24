@@ -2,32 +2,29 @@
 @use '../index' as *;
 
 $label: (
-  radius: 2px,
-  border-width: 2px,
-  padding-horizontal: var(--s-m),
-  padding-vertical: var(--s-2xs),
+  radius: map.get($border-radius, 's'),
+  border-width: 1px,
+  padding: var(--s-4xs) var(--s-xs),
+  font: 'body-s',
+  text-transform: none,
   highlight: (
-    background: var(--c-d),
-    color: map.get($color, 'white'),
-    border-color: var(--c-d),
+    background: var(--cm-surface-primary-medium),
+    color: var(--cm-on-surface-primary-highest),
+    border-color: var(--cm-surface-primary-medium),
   ),
   high: (
-    background: var(--c-s),
-    color: var(--c-d),
-    border-color: var(--c-s),
+    background: var(--cm-surface-secondary-low),
+    color: var(--cm-on-surface-secondary-highest),
+    border-color: var(--cm-surface-secondary-low),
   ),
   medium: (
-    background: var(--c-p),
-    color: map.get($color, 'white'),
-    border-color: var(--c-p),
+    background: var(--cm-surface-grey-low-0),
+    color: var(--cm-on-surface-grey),
+    border-color: var(--cm-surface-grey-low-0),
   ),
   low: (
-    background: map.get($color, 'white'),
-    color: var(--c-p),
-    border-color: var(--c-p),
+    background: var(--cm-surface-inverted),
+    color: var(--cm-on-surface-grey),
+    border-color: var(--cm-border-grey-medium),
   ),
-);
-$label-print: (
-  padding-horizontal: map.get($spacing-print, 'm'),
-  padding-vertical: map.get($spacing-print, '2xs'),
 );

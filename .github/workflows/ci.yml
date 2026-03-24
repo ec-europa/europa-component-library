@@ -23,7 +23,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.9.0
+          node-version: 22.12.0
+      - name: Install pnpm
+        run: npm install -g pnpm@10.9.0
       - name: Test
         run: ./scripts/audit.sh
   tests:
@@ -33,15 +35,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.9.0
+          node-version: 22.12.0
+      - name: Install pnpm
+        run: npm install -g pnpm@10.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build icons
-        run: yarn build:icons
+        run: pnpm build:icons
       - name: Build presets
-        run: yarn build:presets
+        run: pnpm build:presets
       - name: Test
-        run: yarn test
+        run: pnpm test
   size:
     name: size
     runs-on: ubuntu-latest
@@ -49,28 +53,37 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.9.0
+          node-version: 22.12.0
+      - name: Install pnpm
+        run: npm install -g pnpm@10.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
+      - name: Build icons
+        run: pnpm build:icons
       - name: Build presets
-        run: yarn dist:presets
+        run: pnpm dist:presets
       - name: Test
-        run: yarn size-limit
+        run: pnpm size-limit
   deploy-pull-request-preview:
     name: deploy preview
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.9.0
+          node-version: 22.12.0
+      - name: Install pnpm
+        run: npm install -g pnpm@10.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build icons
-        run: yarn build:icons
+        run: pnpm build:icons
       - name: Package application
-        run: yarn dist
+        run: pnpm dist
+      - uses: jpoehnelt/reusable-workspace/save@v1
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
@@ -81,6 +94,48 @@ jobs:
           NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  chromatic-ec:
+    if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-ec')) }}
+    name: Run Chromatic for EC
+    needs: deploy-pull-request-preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - name: Compute Chromatic stories
+        id: chromatic_args
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
+            STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
+            echo "stories=$STORIES" >> $GITHUB_OUTPUT
+          else
+            echo "stories=" >> $GITHUB_OUTPUT
+          fi
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: dist/website/playground/ec
+          onlyStoryNames: ${{ steps.chromatic_args.outputs.stories || '' }}
+  chromatic-eu:
+    name: Run Chromatic for EU
+    if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-eu')) }}
+    needs: deploy-pull-request-preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - name: Compute Chromatic stories
+        id: chromatic_args
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
+            STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
+            echo "stories=$STORIES" >> $GITHUB_OUTPUT
+          else
+            echo "stories=" >> $GITHUB_OUTPUT
+          fi
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
+          storybookBuildDir: dist/website/playground/eu
+          onlyStoryNames: ${{ steps.chromatic_args.outputs.stories || '' }}
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
@@ -89,13 +144,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.9.0
+          node-version: 22.12.0
+      - name: Install pnpm
+        run: npm install -g pnpm@10.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build icons
-        run: yarn build:icons
+        run: pnpm build:icons
       - name: Package application
-        run: yarn dist
+        run: pnpm dist
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
