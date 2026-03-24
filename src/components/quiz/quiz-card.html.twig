@@ -1,0 +1,86 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "quiz" (associative array) (default: {}): 
+    - "icon" (object) Object of type icon
+    - "flip_text" (string) Helper text 
+    - "flip_icon" (object) Object of type icon
+    - "back_text" (string) Text on the back of the card
+    - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
+    - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
+    - "extra_attributes" (optional) (array) (default: [])
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _question = question|default('') %}
+{% set _icon = icon|default({}) %}
+{% set _flip_text =  flip_text|default('') %}
+{% set _flip_icon = flip_icon|default('') %}
+{% set _back_text = back_text|default('') %}
+{% set _answer = answer|default('') %}
+{% set _css_class = 'ecl-quiz-card' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<li class="ecl-quiz__list-item">
+  <div
+    class="{{ css_class }}"
+    {{ _extra_attributes|raw }}
+  >
+    <div class="ecl-quiz-card">
+      <div class="ecl-quiz-card__content">
+        <div class="ecl-quiz-card__front">
+          <div class="ecl-quiz-card__icon">
+            {% include "@ecl/icon/icon.html.twig" with _icon only %}
+          </div>
+          <div class="ecl-quiz-card__question">
+            {{-  _question -}}
+          </div>
+          <div
+            class="ecl-quiz-card__flip"
+            data-ecl-quiz-card-flip
+          >
+            {{ _flip_text }}
+            {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
+          </div>
+        </div>
+        <div class="ecl-quiz-card__back">
+           <div class="ecl-quiz-card__icon">
+            {% include "@ecl/icon/icon.html.twig" with _icon only %}
+          </div>
+          <div class="ecl-quiz-card__answer">
+            {{-  _answer -}}
+          </div>
+          <div
+            class="ecl-quiz-card__flip"
+            data-ecl-quiz-card-flip
+          >
+            {{ _back_text }}
+            {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </li>
+
+{% endapply %}

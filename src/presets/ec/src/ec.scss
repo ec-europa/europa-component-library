@@ -92,6 +92,9 @@
   $notification: var.$notification
 );
 @use '@ecl/picture/picture';
+@use '@ecl/quiz/quiz' with (
+  $theme: theme.$theme
+);
 @use '@ecl/separator/separator' with (
   $separator: var.$separator
 );

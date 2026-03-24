@@ -1,0 +1,114 @@
+/**
+ * Pagination
+ * @define quiz
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$quiz: null !default;
+
+.ecl-quiz-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.ecl-quiz-card {
+  color: var(--cm-on-surface-inverted);
+  perspective: 1000px;
+  width: 385px;
+}
+
+.ecl-quiz-card__icon {
+  background: var(--c-w-300);
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.ecl-quiz-card__content {
+  position: relative;
+  width: 385px;
+  height: 344px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* flip on hover */
+.ecl-quiz-card.ecl-quiz-card__flipped .ecl-quiz-card__content {
+  transform: rotateY(180deg);
+}
+
+.ecl-quiz-card__front,
+.ecl-quiz-card__back {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-3xl) var(--s-2xl);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.ecl-quiz-card__back {
+  background: var(--cm-on-surface-inverted);
+  color: var(--cm-on-surface-brand);
+  transform: rotateY(180deg);
+
+  .ecl-quiz-card__icon {
+    color: var(--cm-on-surface-inverted);
+  }
+}
+
+.ecl-quiz__list-item:nth-child(3n + 1) {
+  .ecl-quiz-card__front,
+  .ecl-quiz-card__back .ecl-quiz-card__icon {
+    background: var(--cm-on-surface-brand);
+  }
+}
+
+.ecl-quiz__list-item:nth-child(3n + 2) {
+  .ecl-quiz-card__front,
+  .ecl-quiz-card__back .ecl-quiz-card__icon {
+    background: var(--c-p-400);
+  }
+}
+
+.ecl-quiz__list-item:nth-child(3n + 3) {
+  .ecl-quiz-card__front,
+  .ecl-quiz-card__back .ecl-quiz-card__icon {
+    background: var(--c-p-700);
+  }
+}
+
+.ecl-quiz-card__question,
+.ecl-quiz-card__answer {
+  padding-block-start: var(--s-3xl);
+  text-align: center;
+
+  @include mixins.responsive-font('body-l', 'semi-bold');
+}
+
+.ecl-quiz-card__flip {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  margin-block-start: auto;
+  margin-inline: auto;
+  z-index: 1;
+
+  @include mixins.responsive-font('body-m');
+
+  .ecl-icon {
+    margin-inline-start: var(--s-s);
+  }
+}
