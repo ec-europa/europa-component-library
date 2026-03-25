@@ -9,7 +9,6 @@ npm install --save @ecl/add-to-calendar
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"picture"** (associative array) (default: {}): Image for the event, following ECL Picture structure
 - **"title"** (string) (default: ''): Event title
 - **"meta"** (array) (default: []): format: [
   {
@@ -31,12 +30,6 @@ npm install --save @ecl/add-to-calendar
 ```twig
 {% include '@ecl/add-to-calendar/add-to-calendar.html.twig' with { 
   title: 'Event title', 
-  picture: {
-    img: {
-      src: '/path/to/your/image',
-      alt: 'An alternate text',
-    },
-  },
   meta: [
     {
       icon: {

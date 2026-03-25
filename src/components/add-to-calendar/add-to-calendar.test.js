@@ -44,7 +44,7 @@ describe('Add to calendar', () => {
 
   test('passes the accessibility tests', async () => {
     expect(
-      await axe(await renderTwigFileAsHtml(template, demoData)),
+      await axe(await renderTwigFileAsHtml(template, demoData, true)),
     ).toHaveNoViolations();
   });
 });

@@ -9,13 +9,11 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
-    show_picture: true,
     show_title: true,
     show_meta: true,
     show_button: false,
     full_width: false,
     title: data.title,
-    image: data.picture.img.src,
     meta: data.meta,
     gridContent: false,
   };
@@ -30,14 +28,6 @@ const getArgs = (data) => {
 const getArgTypes = () => {
   const argTypes = {
     ...getColorModeControls(),
-    show_picture: {
-      name: 'Image',
-      type: { name: 'boolean' },
-      description: 'Show the image',
-      table: {
-        category: 'Optional',
-      },
-    },
     show_title: {
       name: 'Title',
       type: { name: 'boolean' },
@@ -82,17 +72,6 @@ const getArgTypes = () => {
       },
       if: { arg: 'show_title' },
     },
-    image: {
-      name: 'Image',
-      type: 'string',
-      description: 'Url of the image',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      if: { arg: 'show_picture' },
-    },
     meta: {
       name: 'Meta',
       type: 'array',
@@ -125,7 +104,6 @@ const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
 
-  if (!args.show_picture) delete clone.picture;
   if (!args.show_title) delete clone.title;
   if (!args.show_meta) delete clone.meta;
 

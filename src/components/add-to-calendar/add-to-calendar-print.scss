@@ -10,28 +10,17 @@
 $theme: null !default;
 $add-to-calendar: null !default;
 
-.ecl-add-to-calendar__picture-container {
-  margin: 0;
-}
-
-.ecl-add-to-calendar__image {
-  aspect-ratio: 14/3;
-  display: block;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.ecl-add-to-calendar__info {
+.ecl-add-to-calendar {
   background: map.get($add-to-calendar, 'info', 'background-default');
   color: map.get($add-to-calendar, 'info', 'color');
 
+  &[class*='ecl-color-mode-'],
   [class*='ecl-color-mode-'] & {
     background: map.get($add-to-calendar, 'info', 'background-color-mode');
   }
 }
 
-.ecl-add-to-calendar__info-container {
+.ecl-add-to-calendar__info {
   display: flex;
   flex-direction: row;
   gap: map.get($add-to-calendar, 'info', 'gap-tablet');

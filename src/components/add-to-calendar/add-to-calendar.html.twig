@@ -2,7 +2,6 @@
 {#
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
-  - "picture" (associative array) (default: {}): Image for the event, following ECL Picture structure
   - "title" (string) (default: ''): Event title
   - "meta" (array) (default: []): format: [
       {
@@ -27,7 +26,6 @@
 
 {% set _css_class = 'ecl-add-to-calendar' %}
 {% set _color_mode = color_mode|default('') %}
-{% set _picture = picture|default('') %}
 {% set _title = title|default('') %}
 {% set _meta = meta|default([]) %}
 {% set _button_add = button_add|default([]) %}
@@ -64,60 +62,47 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }} 
 >
-  {# Picture #}
-  {% if _picture.img is not empty %}
-    <figure class="ecl-add-to-calendar__picture-container">
-      {% include '@ecl/picture/picture.html.twig' with {
-        picture: _picture,
-        extra_classes: 'ecl-add-to-calendar__picture',
-        extra_image_classes: 'ecl-add-to-calendar__image',
-      } only %}
-    </figure>
+  {% set _info_class = "ecl-add-to-calendar__info" %}
+  {% if _full_width %}
+    {% set _info_class = _info_class ~ " ecl-container" %}
   {% endif %}
-
-  <div class="ecl-add-to-calendar__info">
-    {% set _info_container_class = "ecl-add-to-calendar__info-container" %}
-    {% if _full_width %}
-      {% set _info_container_class = _info_container_class ~ " ecl-container" %}
-    {% endif %}
-    <div class="{{ _info_container_class }}">
-      <div class="ecl-add-to-calendar__info-content">
-        
-        {# Title #}
-        {% if _title is not empty %}
-          <div class="ecl-add-to-calendar__title">
-            {{ _title }}
-          </div>
-        {% endif %}
+  <div class="{{ _info_class }}">
+    <div class="ecl-add-to-calendar__info-content">
       
-        {# Meta #}
-        {% if _meta is not empty and _meta is iterable %}
-          {% set _meta_class = "ecl-add-to-calendar__meta-list" %}
-          {% set _tag_meta_list = _meta|length == 1 ? 'div' : 'ul' %}
-          {% set _tag_meta_item = _meta|length == 1 ? 'div' : 'li' %}
-          <{{ _tag_meta_list }} class="{{ _meta_class }}">
-            {% for _meta_item in _meta %}
-              <{{ _tag_meta_item }} class="ecl-add-to-calendar__meta-item">
-                {% if _meta_item.icon is not empty %}
-                  {% include '@ecl/icon/icon.html.twig' with {
-                    icon: _meta_item.icon|merge({
-                      size: 's',
-                    }),
-                    extra_classes: 'ecl-add-to-calendar__meta-icon'
-                  } only %}
-                {% endif %}
-                <span class="ecl-add-to-calendar__meta-label">{{ _meta_item.label }}</span>
-              </{{ _tag_meta_item }}>
-            {% endfor %}
-          </{{ _tag_meta_list }}>
-        {% endif %}
-      </div>
-
-      {# Button #}
-      {% if _button_add is not empty %}
-        <div class="ecl-add-to-calendar__action">{{ _button_add }}</div>
+      {# Title #}
+      {% if _title is not empty %}
+        <div class="ecl-add-to-calendar__title">
+          {{- _title -}}
+        </div>
+      {% endif %}
+    
+      {# Meta #}
+      {% if _meta is not empty and _meta is iterable %}
+        {% set _meta_class = "ecl-add-to-calendar__meta-list" %}
+        {% set _tag_meta_list = _meta|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_meta_item = _meta|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_meta_list }} class="{{ _meta_class }}">
+          {% for _meta_item in _meta %}
+            <{{ _tag_meta_item }} class="ecl-add-to-calendar__meta-item">
+              {% if _meta_item.icon is not empty %}
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: _meta_item.icon|merge({
+                    size: 's',
+                  }),
+                  extra_classes: 'ecl-add-to-calendar__meta-icon'
+                } only %}
+              {% endif %}
+              <span class="ecl-add-to-calendar__meta-label">{{ _meta_item.label }}</span>
+            </{{ _tag_meta_item }}>
+          {% endfor %}
+        </{{ _tag_meta_list }}>
       {% endif %}
     </div>
+
+    {# Button #}
+    {% if _button_add is not empty %}
+      <div class="ecl-add-to-calendar__action">{{ _button_add }}</div>
+    {% endif %}
   </div>
 </div>
 
