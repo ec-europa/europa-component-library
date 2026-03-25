@@ -1,0 +1,160 @@
+/**
+ * Add to calendar
+ * @define add-to-calendar
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$add-to-calendar: null !default;
+
+.ecl-add-to-calendar__picture-container {
+  margin: 0;
+}
+
+.ecl-add-to-calendar__image {
+  aspect-ratio: 16/9;
+  display: block;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.ecl-add-to-calendar__info {
+  background: map.get($add-to-calendar, 'info', 'background-default');
+  color: map.get($add-to-calendar, 'info', 'color');
+
+  [class*='ecl-color-mode-'] & {
+    background: map.get($add-to-calendar, 'info', 'background-color-mode');
+  }
+}
+
+.ecl-add-to-calendar__info-container {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($add-to-calendar, 'info', 'gap-mobile');
+  padding: map.get($add-to-calendar, 'info', 'padding-mobile');
+}
+
+.ecl-add-to-calendar__info-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  gap: map.get($add-to-calendar, 'info', 'gap-content');
+}
+
+.ecl-add-to-calendar__action {
+  align-items: center;
+  display: flex;
+}
+
+.ecl-add-to-calendar__title {
+  @include mixins.responsive-font(
+    map.get($add-to-calendar, 'title', 'font'),
+    map.get($add-to-calendar, 'title', 'font-weight')
+  );
+}
+
+.ecl-add-to-calendar__meta-list {
+  gap: map.get($add-to-calendar, 'meta', 'gap');
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include mixins.responsive-font(map.get($add-to-calendar, 'meta', 'font'));
+}
+
+.ecl-add-to-calendar__meta-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ecl-add-to-calendar__meta-icon {
+  margin-inline-end: map.get($add-to-calendar, 'meta', 'icon-spacing');
+}
+
+.ecl-add-to-calendar--full-width {
+  border-radius: 0;
+  left: 50%;
+  margin-inline-start: -50vw;
+  position: relative;
+  width: 100vw;
+
+  &:dir(rtl) {
+    left: auto;
+    right: 50%;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-add-to-calendar__image {
+    aspect-ratio: 14/3;
+  }
+
+  .ecl-add-to-calendar__info-container {
+    flex-direction: row;
+    gap: map.get($add-to-calendar, 'info', 'gap-tablet');
+    padding: map.get($add-to-calendar, 'info', 'padding-tablet');
+  }
+
+  .ecl-add-to-calendar__meta-list {
+    column-gap: 0;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+  }
+
+  .ecl-add-to-calendar__meta-item {
+    position: relative;
+
+    &:nth-child(2n) {
+      padding-inline-start: map.get($add-to-calendar, 'meta', 'item-padding');
+    }
+
+    &:nth-child(2n)::before {
+      background-color: map.get($add-to-calendar, 'info', 'color');
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 4px;
+      left: map.get($add-to-calendar, 'meta', 'separator-offset-left');
+      position: absolute;
+      top: map.get($add-to-calendar, 'meta', 'separator-offset-top');
+      width: 4px;
+    }
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-add-to-calendar__info-container {
+    padding: map.get($add-to-calendar, 'info', 'padding-desktop');
+  }
+
+  .ecl-add-to-calendar__meta-list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .ecl-add-to-calendar__meta-item {
+    &:not(:first-child) {
+      padding-inline-start: map.get($add-to-calendar, 'meta', 'item-padding');
+    }
+
+    &:not(:first-child)::before {
+      background-color: map.get($add-to-calendar, 'info', 'color');
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 4px;
+      left: map.get($add-to-calendar, 'meta', 'separator-offset-left');
+      position: absolute;
+      top: map.get($add-to-calendar, 'meta', 'separator-offset-top');
+      width: 4px;
+    }
+  }
+}
