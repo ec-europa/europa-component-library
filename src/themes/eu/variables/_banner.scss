@@ -116,20 +116,8 @@ $banner: (
     ),
 );
 $banner-print: (
-  font: (
-    'title': (
-      'desktop-m': map.get($font-print, '2xl'),
-      'desktop-l': map.get($font-print, '3xl'),
-    ),
-    'description': (
-      'desktop-m': map.get($font-print, 'l'),
-      'desktop-l': map.get($font-print, '2xl'),
-    ),
-    'credit': map.get($font-print, 's'),
-  ),
   container-padding-bottom: map.get($spacing-print, '3xl'),
   container-padding-top: map.get($spacing-print, '3xl'),
   container-padding-horizontal: map.get($spacing-print, 'm'),
   content-padding: map.get($spacing-print, 'm'),
-  content-width: 10cm,
 );

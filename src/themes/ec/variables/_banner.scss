@@ -46,7 +46,7 @@ $banner: (
     's': (
       'font': 'heading2',
       'font-weight-light': map.get($font-weight, 'regular'),
-      'font-weight-bold': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'semi-bold'),
     ),
     'm': (
       'font': 'heading1',
@@ -55,8 +55,8 @@ $banner: (
     ),
     'l': (
       'font': 'display',
-      'font-weight-light': map.get($font-weight, 'light'),
-      'font-weight-bold': map.get($font-weight, 'regular'),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'semi-bold'),
     ),
   ),
   description: (
@@ -84,21 +84,9 @@ $banner: (
   overlay: var(--c-g-600),
 );
 $banner-print: (
-  font: (
-    'title': (
-      'desktop-m': map.get($font-print, '6xl'),
-      'desktop-l': map.get($font-print, '7xl'),
-    ),
-    'description': (
-      'desktop-m': map.get($font-print, 'm'),
-      'desktop-l': map.get($font-print, 'xl'),
-    ),
-    'credit': map.get($font-print, 'xs'),
-  ),
   container-padding-bottom: map.get($spacing-print, '4xl'),
   container-padding-top: map.get($spacing-print, '4xl'),
   container-padding-horizontal: map.get($spacing-print, '2xl'),
   content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
     map.get($spacing-print, 'l'),
-  content-width: 10cm,
 );
