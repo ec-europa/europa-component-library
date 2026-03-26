@@ -72,7 +72,7 @@ $add-to-calendar: null !default;
     content: '';
     display: block;
     height: 4px;
-    left: map.get($add-to-calendar, 'meta', 'separator-offset-left');
+    left: map.get($add-to-calendar, 'meta', 'separator-offset-inline-start');
     position: absolute;
     top: map.get($add-to-calendar, 'meta', 'separator-offset-top');
     width: 4px;
@@ -85,13 +85,8 @@ $add-to-calendar: null !default;
 
 .ecl-add-to-calendar--full-width {
   border-radius: 0;
-  left: 50%;
+  inset-inline-start: 50%;
   margin-inline-start: -50vw;
   position: relative;
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }
