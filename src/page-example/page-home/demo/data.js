@@ -43,7 +43,10 @@ const addToCalendar = JSON.parse(JSON.stringify(dataAddToCalendar));
 addToCalendar.full_width = true;
 addToCalendar.button_add =
   "<div class='ecl-u-bg-white ecl-u-type-m ecl-u-type-color-black ecl-u-border-all ecl-u-border-color-error ecl-u-border-width-4 ecl-u-border-style-dashed ecl-u-pv-xs ecl-u-ph-s ecl-u-width-100'>Button placeholder</div>";
-delete addToCalendar.picture;
+
+const addToCalendar2 = JSON.parse(JSON.stringify(dataAddToCalendar));
+addToCalendar2.button_add =
+  "<div class='ecl-u-bg-white ecl-u-type-m ecl-u-type-color-black ecl-u-border-all ecl-u-border-color-error ecl-u-border-width-4 ecl-u-border-style-dashed ecl-u-pv-xs ecl-u-ph-s ecl-u-width-100'>Button placeholder</div>";
 
 dataSiteHeaderEU.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEU.cta_link;
@@ -90,6 +93,7 @@ const data = {
   page_header: pageHeader,
   banner: banner,
   add_to_calendar: addToCalendar,
+  add_to_calendar2: addToCalendar2,
   card: dataCard,
   content_item: dataContentItem,
   featured_item: dataFeaturedItem,
