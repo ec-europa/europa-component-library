@@ -41,46 +41,47 @@
   {% endfor %}
 {% endif %}
 
-<li class="ecl-quiz__list-item">
-  <div
-    class="{{ css_class }}"
-    {{ _extra_attributes|raw }}
-  >
-    <div class="ecl-quiz-card">
-      <div class="ecl-quiz-card__content">
-        <div class="ecl-quiz-card__front">
-          <div class="ecl-quiz-card__icon">
-            {% include "@ecl/icon/icon.html.twig" with _icon only %}
-          </div>
-          <div class="ecl-quiz-card__question">
-            {{-  _question -}}
-          </div>
-          <div
-            class="ecl-quiz-card__flip"
-            data-ecl-quiz-card-flip
-          >
-            {{ _flip_text }}
-            {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
-          </div>
-        </div>
-        <div class="ecl-quiz-card__back">
-           <div class="ecl-quiz-card__icon">
-            {% include "@ecl/icon/icon.html.twig" with _icon only %}
-          </div>
-          <div class="ecl-quiz-card__answer">
-            {{-  _answer -}}
-          </div>
-          <div
-            class="ecl-quiz-card__flip"
-            data-ecl-quiz-card-flip
-          >
-            {{ _back_text }}
-            {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
-          </div>
-        </div>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-quiz-card__content">
+    <div class="ecl-quiz-card__front">
+      <div class="ecl-quiz-card__icon">
+        {% include "@ecl/icon/icon.html.twig" with _icon only %}
       </div>
+      <div class="ecl-quiz-card__question">
+        {{-  _question -}}
+      </div>
+      <button
+        class="ecl-quiz-card__flip"
+        data-ecl-quiz-card-flip
+        aria-expanded="false"
+      >
+        {{ _flip_text }}
+        {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
+      </button>
+    </div>
+    <div
+      class="ecl-quiz-card__back"
+      hidden
+    >
+       <div class="ecl-quiz-card__icon">
+        {% include "@ecl/icon/icon.html.twig" with _icon only %}
+      </div>
+      <div class="ecl-quiz-card__answer">
+        {{-  _answer -}}
+      </div>
+      <button
+        class="ecl-quiz-card__flip"
+        data-ecl-quiz-card-flip
+        aria-expanded="false"
+      >
+        {{ _back_text }}
+        {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
+      </button>
     </div>
   </div>
- </li>
+</div>
 
 {% endapply %}

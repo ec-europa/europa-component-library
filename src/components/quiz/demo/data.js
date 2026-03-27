@@ -1,4 +1,10 @@
 module.exports = {
+  title: 'Ut enim ad minim veniam ',
+  description: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt.`,
+  next_label: 'Next',
+  prev_label: 'Previous',
   items: [
     {
       question:
@@ -15,7 +21,7 @@ module.exports = {
       flip_icon: {
         icon: {
           name: 'refresh',
-          size: 'm',
+          size: 's',
         },
       },
     },
@@ -34,7 +40,7 @@ module.exports = {
       flip_icon: {
         icon: {
           name: 'refresh',
-          size: 'm',
+          size: 's',
         },
       },
     },
@@ -52,7 +58,46 @@ module.exports = {
       flip_icon: {
         icon: {
           name: 'refresh',
-          size: 'm',
+          size: 's',
+        },
+      },
+    },
+    {
+      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      answer:
+        'Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum',
+      icon: {
+        icon: {
+          name: 'star-outline',
+          size: 'xl',
+        },
+      },
+      back_text: 'Go back',
+      flip_text: 'Click to reveal',
+      flip_icon: {
+        icon: {
+          name: 'refresh',
+          size: 's',
+        },
+      },
+    },
+    {
+      question:
+        'Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.',
+      answer:
+        'Aenean est metus, malesuada sed suscipit id, tempor non sapien. Donec viverra, odio id venenatis sollicitudin',
+      icon: {
+        icon: {
+          name: 'star-outline',
+          size: 'xl',
+        },
+      },
+      back_text: 'Go back',
+      flip_text: 'Click to reveal',
+      flip_icon: {
+        icon: {
+          name: 'refresh',
+          size: 's',
         },
       },
     },

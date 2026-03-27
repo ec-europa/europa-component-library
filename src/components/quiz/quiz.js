@@ -1,11 +1,24 @@
-import { queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
+import EmblaCarousel from 'embla-carousel';
+import Accessibility from 'embla-carousel-accessibility';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.itemSelector Element used to toggle the visibility of the panel
+ * @param {String} options.itemSelector Element used to trigger the animation
+ * @param {String} options.sliderSelector Root element of the slider
+ * @param {String} options.filppedClass Css class for the active dot element
+ * @param {String} options.textClass Css class of the element containing the text
+ * @param {String} options.frontClass Css class of the initially visible face of the card
+ * @param {String} options.backClass Css class of the initially hidden face of the card
+ * @param {String} options.prevClass Css class of the prev button
+ * @param {String} options.nextClass Css class of the next button
+ * @param {String} options.dotsClass Css class of the dots wrapper
+ * @param {String} options.dotClass Css class of the single dot
+ * @param {String} options.activeDotClass Css class to be assigned to the active dot
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class Quiz {
   /**
@@ -35,8 +48,21 @@ export class Quiz {
   constructor(
     element,
     {
+      cardSelector = '.ecl-quiz-card',
+      sliderSelector = '[data-ecl-quiz-slider]',
       itemSelector = '[data-ecl-quiz-card-flip]',
+      flippedClass = 'ecl-quiz-card__flipped',
+      textClass = '.ecl-quiz-card__question',
+      contentClass = '.ecl-quiz-card__content',
+      frontClass = '.ecl-quiz-card__front',
+      backClass = '.ecl-quiz-card__back',
+      prevClass = '.ecl-quiz__prev',
+      nextClass = '.ecl-quiz__next',
+      dotsClass = '.ecl-quiz__dots',
+      dotClass = '.ecl-quiz__dot',
+      activeDotClass = 'ecl-quiz__dot--active',
       attachClickListener = true,
+      attachResizeListener = true,
     } = {},
   ) {
     // Check element
@@ -50,11 +76,34 @@ export class Quiz {
     this.eventManager = new EventManager();
 
     // Options
+    this.cardSelector = cardSelector;
     this.itemSelector = itemSelector;
+    this.flippedClass = flippedClass;
+    this.contentClass = contentClass;
+    this.textClass = textClass;
+    this.prevClass = prevClass;
+    this.nextClass = nextClass;
+    this.dotsClass = dotsClass;
+    this.dotClass = dotClass;
+    this.frontClass = frontClass;
+    this.backClass = backClass;
+    this.activeDotClass = activeDotClass;
     this.attachClickListener = attachClickListener;
+    this.attachResizeListener = attachResizeListener;
+    this.sliderSelector = sliderSelector;
+
+    this.prevButtonNode = null;
+    this.nextButtonNode = null;
+    this.resizeTimer = null;
+    this.slider = null;
+    this.dotsNode = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
+    this.checkHeight = this.checkHeight.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+    this.initSlider = this.initSlider.bind(this);
+    this.setCounter = this.setCounter.bind(this);
   }
 
   /**
@@ -67,12 +116,26 @@ export class Quiz {
     ECL.components = ECL.components || new Map();
 
     this.items = queryAll(this.itemSelector, this.element);
+    this.cards = queryAll(this.cardSelector, this.element);
+    this.sliderEl = queryOne(this.sliderSelector, this.element);
 
     // Bind click event on toggle
     if (this.attachClickListener && this.items.length > 0) {
       this.items.forEach((item) => {
         item.addEventListener('click', this.handleClickOnItem);
       });
+    }
+
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
+
+    if (this.cards.length) {
+      this.checkHeight();
+    }
+
+    if (this.sliderEl) {
+      this.initSlider(this.sliderEl);
     }
 
     // Set ecl initialized attribute
@@ -105,7 +168,7 @@ export class Quiz {
    * @param {string} eventName - The name of the event to trigger.
    * @param {any} eventData - Data associated with the event.
    *
-   * @memberof PageHeaderExpandable
+   * @memberof Quiz
    */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
@@ -120,10 +183,223 @@ export class Quiz {
         item.removeEventListener('click', this.handleClickOnItem);
       });
     }
+
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
+
+    if (this.slider) {
+      this.slider.destroy();
+    }
+  }
+
+  /**
+   * Init the slider.
+   */
+  initSlider(sliderEl) {
+    const liveRegionNode = queryOne('[aria-live]', this.element);
+
+    this.slider = EmblaCarousel(
+      sliderEl,
+      {
+        loop: false,
+        align: 'start',
+      },
+      [
+        Accessibility({
+          carouselAriaLabel: 'Quiz slider',
+          announceChanges: true,
+          dotButtonAriaLabel: (
+            hasAnyGroupedSlides,
+            firstSlideIndex,
+            lastSlideIndex,
+            totalSlides,
+            selectedSnapIndex,
+            totalSnaps,
+          ) => {
+            const visibleSlides = totalSlides - (totalSnaps - 1);
+            if (hasAnyGroupedSlides) {
+              const start = firstSlideIndex + 1;
+              const end = Math.min(
+                firstSlideIndex + visibleSlides,
+                totalSlides,
+              );
+              return `Go to slides ${start} to ${end} of ${totalSlides}`;
+            }
+
+            return `Go to slide ${firstSlideIndex + 1} of ${totalSlides}`;
+          },
+        }),
+      ],
+    );
+
+    const accessibility = this.slider.plugins().accessibility;
+    this.prevButtonNode = queryOne(this.prevClass, this.element);
+    this.nextButtonNode = queryOne(this.nextClass, this.element);
+
+    if (this.prevButtonNode) {
+      this.prevButtonNode.addEventListener(
+        'click',
+        () => this.slider.goToPrev(),
+        false,
+      );
+    }
+    if (this.nextButtonNode) {
+      this.nextButtonNode.addEventListener(
+        'click',
+        () => this.slider.goToNext(),
+        false,
+      );
+    }
+
+    if (this.prevButtonNode && this.nextButtonNode) {
+      const toggleButtonsDisabled = (emblaApi) => {
+        const setButtonState = (button, enabled) => {
+          button.toggleAttribute('disabled', !enabled);
+        };
+        setButtonState(this.prevButtonNode, emblaApi.canGoToPrev());
+        setButtonState(this.nextButtonNode, emblaApi.canGoToNext());
+      };
+
+      toggleButtonsDisabled(this.slider);
+      this.slider.on('select', toggleButtonsDisabled);
+      this.slider.on('reInit', toggleButtonsDisabled);
+
+      accessibility.setupPrevAndNextButtons(
+        this.prevButtonNode,
+        this.nextButtonNode,
+      );
+    }
+
+    let dotNodes = [];
+    this.dotsNode = queryOne(this.dotsClass, this.element);
+
+    if (this.dotsNode) {
+      const createDotButtonHtml = (emblaApi) => {
+        const dotTemplate = document.getElementById('ecl-quiz__dot-template');
+        const snapList = emblaApi.snapList();
+        this.dotsNode.innerHTML = snapList.reduce(
+          (acc) => acc + dotTemplate.innerHTML,
+          '',
+        );
+        return Array.from(queryAll(this.dotClass, this.dotsNode));
+      };
+
+      const addDotButtonClickHandlers = (emblaApi, dotNodes) => {
+        dotNodes.forEach((dotNode, index) => {
+          dotNode.addEventListener('click', () => emblaApi.goTo(index), false);
+        });
+      };
+
+      this.createAndSetupDotButtons = (emblaApi) => {
+        dotNodes = createDotButtonHtml(emblaApi);
+        addDotButtonClickHandlers(emblaApi, dotNodes);
+      };
+
+      this.createAndSetupDotButtons(this.slider, this.dotsNode);
+      this.slider.on('reInit', () => {
+        this.createAndSetupDotButtons(this.slider, this.dotsNode);
+      });
+
+      this.updateDots = () => {
+        const index = this.slider.selectedSnap();
+
+        dotNodes.forEach((dot, i) => {
+          dot.classList.toggle(this.activeDotClass, i === index);
+          dot.classList.toggle('is-prev', i === index - 1);
+        });
+
+        this.setCounter();
+      };
+
+      accessibility.setupDotButtons(this.dotsNode);
+
+      this.updateDots();
+      this.slider.on('select', this.updateDots);
+    }
+
+    accessibility.setupLiveRegion(liveRegionNode);
+  }
+
+  /**
+   * Sets the counter (in mobile).
+   */
+  setCounter() {
+    const currentIndex = this.slider.selectedSnap();
+    const total = this.slider.snapList().length;
+    const counter = queryOne('.ecl-quiz__counter', this.element);
+
+    if (counter) {
+      counter.textContent = `${currentIndex + 1} / ${total}`;
+    }
+  }
+
+  /**
+   * Check the height of the elements.
+   *
+   * @memberof Quiz
+   */
+  checkHeight() {
+    let maxHeight = 0;
+    let maxContentHeight = 0;
+
+    this.cards.forEach((card) => {
+      const content = queryOne(this.textClass, card);
+      const element = queryOne(this.contentClass, card);
+      const front = queryOne(this.frontClass, card);
+      const back = queryOne(this.backClass, card);
+
+      // Reset heights previously set.
+      element.style.height = '';
+      content.style.height = '';
+
+      const styles = getComputedStyle(front);
+      const minHeight =
+        parseFloat(styles.getPropertyValue('min-height')) || 345;
+
+      const heightFront = front.scrollHeight;
+      const heightBack = back.scrollHeight;
+      const heightContent = content.scrollHeight;
+
+      const height = Math.max(heightFront, heightBack);
+
+      if (height > minHeight && height > maxHeight) {
+        maxHeight = height;
+      }
+      if (heightContent > maxContentHeight) {
+        maxContentHeight = heightContent;
+      }
+    });
+
+    this.cards.forEach((card) => {
+      const cardContent = queryOne(this.textClass, card);
+      const element = queryOne(this.contentClass, card);
+      if (maxHeight > 0) {
+        element.style.height = maxHeight * 1.15 + 'px';
+      }
+      cardContent.style.height = maxContentHeight + 'px';
+    });
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      if (this.slider) {
+        this.createAndSetupDotButtons(this.slider, this.dotsNode);
+        this.updateDots();
+      }
+
+      this.checkHeight();
+    }, 200);
   }
 
   /**
@@ -134,12 +410,18 @@ export class Quiz {
    * @fires Quiz#onClick
    */
   handleClickOnItem(e) {
-    const card = e.target.closest('.ecl-quiz-card');
-    console.log(card);
-    if (card) {
-      const isFlipped = card.classList.toggle('ecl-quiz-card__flipped');
+    const card = e.target.closest(this.cardSelector);
 
-      const eventData = { expanded: !isFlipped, e };
+    if (card) {
+      card.classList.toggle(this.flippedClass);
+      const isFlipped = card.classList.contains(this.flippedClass);
+      const front = queryOne(this.frontClass, card);
+      const back = queryOne(this.backClass, card);
+
+      front.hidden = isFlipped;
+      back.hidden = !isFlipped;
+
+      const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);
     }
   }

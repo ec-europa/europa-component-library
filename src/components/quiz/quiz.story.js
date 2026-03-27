@@ -6,9 +6,44 @@ import specs from './demo/data';
 import quiz from './quiz.html.twig';
 import notes from './README.md';
 
+const getArgs = () => {
+  const args = { withBackground: false };
+
+  return args;
+};
+
+const getArgTypes = () => {
+  return {
+    withBackground: {
+      name: 'with background',
+      control: {
+        type: 'boolean',
+      },
+    },
+  };
+};
+
+const prepareData = (data, args) => {
+  data.with_background = args.withBackground;
+
+  if (args.withBackground) {
+    data.full_width = true;
+  }
+
+  return data;
+};
+
 export default {
   title: 'Components/Quiz',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (Story) => `
+      <div class="ecl-container">
+        ${Story()}
+      </div>
+    `,
+  ],
   parameters: {
     parameters: { layout: 'fullscreen' },
   },
@@ -16,9 +51,11 @@ export default {
 
 export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async () => {
-  const renderedQuiz = await quiz(correctPaths(specs));
+Default.render = async (args) => {
+  const renderedQuiz = await quiz(prepareData(correctPaths(specs), args));
   return renderedQuiz;
 };
+Default.args = getArgs();
+Default.argTypes = getArgTypes();
 Default.storyName = 'reveal';
 Default.parameters = { notes: { markdown: notes, json: specs } };

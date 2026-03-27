@@ -825,6 +825,15 @@ importers:
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC1
         version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-RC1
+        version: link:../../utilities/screen-reader
+      embla-carousel:
+        specifier: 9.0.0-rc01
+        version: 9.0.0-rc01
+      embla-carousel-accessibility:
+        specifier: 9.0.0-rc01
+        version: 9.0.0-rc01(embla-carousel@9.0.0-rc01)
 
   src/components/radio:
     devDependencies:
@@ -7677,6 +7686,14 @@ packages:
 
   electron-to-chromium@1.5.266:
     resolution: {integrity: sha512-kgWEglXvkEfMH7rxP5OSZZwnaDWT7J9EoZCujhnpLbfi0bbNtRkgdX2E3gt0Uer11c61qCYktB3hwkAS325sJg==}
+
+  embla-carousel-accessibility@9.0.0-rc01:
+    resolution: {integrity: sha512-H0ur9/ctEE5cc0/NLRD4aS2aNHLX1vJumFoPztcHpe6zmIZtg42pNlfpIuWwnAH9sqTs8J+puce9GAJTNsGI3g==}
+    peerDependencies:
+      embla-carousel: 9.0.0-rc01
+
+  embla-carousel@9.0.0-rc01:
+    resolution: {integrity: sha512-4BTERU1gAXgg4Vl0m7hQ1GzePGLNNfM2j030ww8i9idiPXumyRUpaNUDfT2zx1Hv8um1Ew7QKBy/HdNPz8L30g==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -18837,6 +18854,12 @@ snapshots:
       jake: 10.9.2
 
   electron-to-chromium@1.5.266: {}
+
+  embla-carousel-accessibility@9.0.0-rc01(embla-carousel@9.0.0-rc01):
+    dependencies:
+      embla-carousel: 9.0.0-rc01
+
+  embla-carousel@9.0.0-rc01: {}
 
   emittery@0.13.1: {}
 

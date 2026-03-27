@@ -2,7 +2,15 @@
 
 {#
   Parameters:
-    - "quiz" (associative array) (default: {}):
+    - "variant" (string) (default: reveal)
+    - "title" (string) (default: '')
+    - "description" (string) (default: '')
+    - "with_background" (boolean) (default: false)
+    - "color_mode" (string (default: '')
+    - "full_width" (boolean) (default: false)
+    - "slider" (boolean) (default: true)
+    - "prev_label" (string) (default: '')
+    - "next_label" (string) (default: '')
     - "items" (array) default([]) array of quiz-cards 
     - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
     - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
@@ -13,11 +21,34 @@
 
 {# Internal properties #}
 
+{% set _title = title|default('') %}
+{% set _variant = variant|default('reveal') %}
+{% set _description = description|default('') %}
 {% set _items = items|default([]) %}
+{% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-quiz' %}
+{% set _slider = slider ?? true %}
+{% set _prev_label = prev_label|default('') %}
+{% set _next_label = next_label|default('') %}
+{% set _full_width = full_width|default(false) %}
+{% set _with_background = with_background|default(false) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% set _css_class = _css_class  ~ ' ecl-quiz--' ~ _variant %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _with_background %}
+  {% set _css_class = _css_class ~ ' ecl-quiz--background' %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-quiz--full-width' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -34,16 +65,75 @@
 {% endif %}
 
 <div 
-  class="{{ css_class }}"
+  class="{{ _css_class }}"
   data-ecl-auto-init="Quiz"
   {{ _extra_attributes|raw }}
 >
+{% if _full_width %}
+  <div class="ecl-container">
+{% endif %}
+  <div class="ecl-quiz__header">
+    <div class="ecl-quiz__title">
+      {{-  _title -}}
+    </div>
+    <div class="ecl-quiz__description">
+      {{- _description -}}
+    </div>
+  </div>
 {% if _items is iterable %}
-  <ul class="ecl-quiz-list">
-  {% for _item in _items %}
-    {% include "@ecl/quiz/quiz-card.html.twig" with _item only %}
-  {% endfor %}
-  </ul>
+  <div
+    class="ecl-quiz__viewport"
+    {%- if _slider -%}
+      data-ecl-quiz-slider
+    {%- endif -%}
+  >
+    <div class="ecl-quiz__list">
+    {% for _item in _items %}
+      {% include "@ecl/quiz/quiz-card.html.twig" with _item only %}
+    {% endfor %}
+    </div>
+  </div>
+{% endif %}
+  <div class="ecl-quiz__pager">
+    <button class="ecl-quiz__prev">
+      {% include "@ecl/icon/icon.html.twig" with {
+        icon: {
+          name: 'corner-arrow',
+          transform: 'rotate-270',
+          size: 'xs',
+          style: 'monochrome',
+        }
+      } %}
+      <span class="ecl-quiz__prev-label">
+        {{ _prev_label }}
+      </span>
+    </button>
+    <div class="ecl-quiz__dots"></div>
+    <button class="ecl-quiz__next">
+      <span class="ecl-quiz__next-label">
+        {{ _next_label }}
+      </span>
+      {% include "@ecl/icon/icon.html.twig" with {
+        icon: {
+          name: 'corner-arrow',
+          transform: 'rotate-90',
+          size: 'xs',
+          style: 'monochrome',
+        }
+      } %}
+    </button>
+    <script type="text/template" id="ecl-quiz__dot-template">
+      <button class="ecl-quiz__dot"></button>
+    </script>
+  </div>
+  <div class="ecl-quiz__counter"></div>
+  <div
+    class="ecl-quiz__live-region"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+{% if _full_width %}
+  </div>
 {% endif %}
 </div>
 

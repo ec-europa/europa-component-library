@@ -4,23 +4,189 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
 $quiz: null !default;
 
-.ecl-quiz-list {
+.ecl-quiz {
+  container-type: inline-size;
+  container-name: ecl-quiz;
+  position: relative;
+
+  &.ecl-quiz--background {
+    background: var(--cm-surface-grey-low-0);
+    padding-block-start: var(--s-13xl);
+    padding-block-end: var(--s-11xl);
+  }
+
+  &.ecl-quiz--full-width {
+    border-radius: 0;
+    left: 50%;
+    margin-inline-start: -50vw;
+    width: 100vw;
+
+    &:dir(rtl) {
+      left: auto;
+      right: 50%;
+    }
+  }
+}
+
+.ecl-quiz__counter {
+  margin-block-start: var(--s-xs);
+  text-align: center;
+
+  @include mixins.responsive-font('body-xs');
+}
+
+.ecl-quiz__title {
+  margin-block-end: var(--s-m);
+
+  @include mixins.responsive-font(
+    'heading2',
+    map.get($theme, 'font-weight', 'semi-bold')
+  );
+}
+
+.ecl-quiz__description {
+  max-width: var(--max-w);
+
+  @include mixins.responsive-font('body-m');
+}
+
+.ecl-quiz__list {
   display: flex;
   list-style: none;
+  gap: var(--s-m);
+  margin-block: var(--s-xl);
   padding: 0;
 }
 
 .ecl-quiz-card {
+  box-sizing: border-box;
   color: var(--cm-on-surface-inverted);
+  flex: 0 0 auto;
+  min-width: 18rem;
+  width: calc(100% - 3rem);
   perspective: 1000px;
-  width: 385px;
+}
+
+.ecl-quiz .ecl-quiz__pager {
+  display: flex;
+  align-items: center;
+
+  .ecl-quiz__prev,
+  .ecl-quiz__next {
+    background: transparent;
+    border: none !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: var(--s-xs);
+
+    &[disabled] {
+      visibility: hidden;
+    }
+
+    .ecl-quiz__prev-label,
+    .ecl-quiz__next-label {
+      color: var(--ecl-color-grey-600);
+      display: none;
+      font: var(--f-xs);
+      font-weight: map.get($theme, 'font-weight', 'semi-bold');
+    }
+  }
+
+  .ecl-quiz__prev {
+    margin-inline-end: auto;
+  }
+
+  .ecl-quiz__next {
+    margin-inline-start: auto;
+  }
+
+  .ecl-quiz__dots {
+    .ecl-quiz__dot {
+      background: var(--ecl-color-grey-600);
+      border: none !important;
+      border-radius: 50%;
+      cursor: pointer;
+      height: 0.5rem;
+      margin-inline-end: var(--s-3xs);
+      min-height: 0;
+      min-width: 0;
+      padding: 0;
+      width: 0.5rem;
+    }
+
+    .ecl-quiz__dot--active {
+      border-radius: map.get($theme, 'border-radius', 'l');
+      width: 2.5rem;
+      background: var(--c-p-600);
+    }
+
+    .ecl-quiz__dot--active + .ecl-quiz__dot,
+    .ecl-quiz__dot.is-prev {
+      border-radius: map.get($theme, 'border-radius', 'm');
+      width: 1rem;
+    }
+  }
+}
+
+@container (width >= #{map.get($theme, 'breakpoint', 'xs')}) {
+  .ecl-quiz-card {
+    width: calc(100% - 4rem);
+  }
+}
+
+@container (width >= 600px) {
+  .ecl-quiz__counter {
+    display: none;
+  }
+
+  .ecl-quiz__list {
+    gap: var(--s-xl);
+    margin-block: var(--s-3xl);
+  }
+
+  .ecl-quiz .ecl-quiz__pager {
+    .ecl-quiz__prev,
+    .ecl-quiz__next {
+      margin-inline: var(--s-4xl);
+
+      .ecl-quiz__prev-label,
+      .ecl-quiz__next-label {
+        display: flex;
+      }
+
+      .ecl-icon {
+        display: none;
+      }
+    }
+  }
+
+  // 2 cards and 6rems of the 3rd
+  .ecl-quiz-card {
+    width: calc((100% - var(--s-xl) - 6rem) / 2);
+  }
+}
+
+@container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-quiz__title {
+    margin-block-end: var(--s-xl);
+  }
+
+  .ecl-quiz__list {
+    gap: var(--s-3xl);
+    margin-block: var(--s-6xl);
+  }
+
+  .ecl-quiz-card {
+    width: calc((100% - 2 * var(--s-3xl)) / 3);
+  }
 }
 
 .ecl-quiz-card__icon {
@@ -28,6 +194,7 @@ $quiz: null !default;
   border-radius: 50%;
   height: 3.5rem;
   width: 3.5rem;
+  flex-shrink: 0;
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -35,20 +202,19 @@ $quiz: null !default;
 }
 
 .ecl-quiz-card__content {
+  min-height: 345px;
   position: relative;
-  width: 385px;
-  height: 344px;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
-/* flip on hover */
 .ecl-quiz-card.ecl-quiz-card__flipped .ecl-quiz-card__content {
   transform: rotateY(180deg);
 }
 
 .ecl-quiz-card__front,
 .ecl-quiz-card__back {
+  border-radius: map.get($theme, 'border-radius', 's');
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -56,11 +222,14 @@ $quiz: null !default;
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 345px;
   backface-visibility: hidden;
 }
 
 .ecl-quiz-card__back {
   background: var(--cm-on-surface-inverted);
+  border: 1px solid var(--cm-border-grey-low);
+  box-shadow: map.get($theme, 'shadow', '1');
   color: var(--cm-on-surface-brand);
   transform: rotateY(180deg);
 
@@ -69,21 +238,21 @@ $quiz: null !default;
   }
 }
 
-.ecl-quiz__list-item:nth-child(3n + 1) {
+.ecl-quiz-card:nth-child(3n + 1) {
   .ecl-quiz-card__front,
   .ecl-quiz-card__back .ecl-quiz-card__icon {
-    background: var(--cm-on-surface-brand);
+    background: var(--cm-surface-0);
   }
 }
 
-.ecl-quiz__list-item:nth-child(3n + 2) {
+.ecl-quiz-card:nth-child(3n + 2) {
   .ecl-quiz-card__front,
   .ecl-quiz-card__back .ecl-quiz-card__icon {
     background: var(--c-p-400);
   }
 }
 
-.ecl-quiz__list-item:nth-child(3n + 3) {
+.ecl-quiz-card:nth-child(3n + 3) {
   .ecl-quiz-card__front,
   .ecl-quiz-card__back .ecl-quiz-card__icon {
     background: var(--c-p-700);
@@ -95,20 +264,45 @@ $quiz: null !default;
   padding-block-start: var(--s-3xl);
   text-align: center;
 
-  @include mixins.responsive-font('body-l', 'semi-bold');
+  @include mixins.responsive-font(
+    'body-l',
+    map.get($theme, 'font-weight', 'semi-bold')
+  );
 }
 
 .ecl-quiz-card__flip {
   align-items: center;
+  background: transparent;
+  border: none;
+  color: var(--cm-o-surface-inverted);
   cursor: pointer;
   display: flex;
   margin-block-start: auto;
   margin-inline: auto;
   z-index: 1;
 
-  @include mixins.responsive-font('body-m');
+  @include mixins.responsive-font('body-xs');
 
   .ecl-icon {
     margin-inline-start: var(--s-s);
   }
+}
+
+.ecl-quiz__pager {
+  display: flex;
+  justify-content: center;
+}
+
+// slider
+
+.ecl-quiz__viewport {
+  overflow: hidden;
+}
+
+.ecl-quiz__list {
+  touch-action: pan-y pinch-zoom;
+}
+
+.ecl-quiz__live-region {
+  @include screen-reader.sr-only;
 }
