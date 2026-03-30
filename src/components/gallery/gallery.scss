@@ -61,18 +61,13 @@ $_description-height-desktop: 108px;
   display: none;
   justify-content: center;
   position: absolute;
-  right: 0.25rem;
+  inset-inline-end: 0.25rem;
   top: 0.25rem;
   border-radius: map.get($theme, 'border-radius', 's');
   width: 2rem;
   height: 2rem;
   pointer-events: none;
   z-index: 1;
-
-  &:dir(rtl) {
-    left: 0.25rem;
-    right: auto;
-  }
 }
 
 .ecl-gallery:not(.ecl-gallery--no-overlay)

@@ -164,12 +164,7 @@ $carousel: null !default;
  * full width
  */
 .ecl-carousel--full-width {
-  left: 50%;
+  inset-inline-start: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }

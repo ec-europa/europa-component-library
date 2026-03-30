@@ -138,16 +138,11 @@ $table: null !default;
   display: flex;
   flex-direction: column;
   height: auto;
-  left: map.get($table, 'sort', 'arrow-left');
+  inset-inline-start: map.get($table, 'sort', 'arrow-left');
   padding: 0;
   position: absolute;
   top: map.get($table, 'sort', 'arrow-top');
   width: auto;
-
-  &:dir(rtl) {
-    left: auto;
-    right: map.get($table, 'sort', 'arrow-left');
-  }
 
   &:focus-visible {
     outline: 2px solid var(--cm-border-primary, var(--c-p));

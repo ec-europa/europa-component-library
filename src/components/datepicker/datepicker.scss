@@ -92,7 +92,7 @@ $text-input: null !default;
     background-color: var(--cm-border-brand, var(--c-d));
     content: '';
     position: absolute;
-    left: -1px;
+    inset-inline-start: -1px;
     width: 1px;
     height: 80%;
     top: 10%;
@@ -119,11 +119,6 @@ $text-input: null !default;
   &:dir(rtl) {
     left: 1px;
     right: auto;
-  }
-
-  &:dir(rtl)::before {
-    left: auto;
-    right: -1px;
   }
 }
 

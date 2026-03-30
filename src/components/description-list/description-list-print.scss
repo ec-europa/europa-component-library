@@ -131,15 +131,10 @@ $description-list-print: null !default;
     content: '';
     display: block;
     height: 4px;
-    left: -2px;
+    inset-inline-start: -2px;
     position: absolute;
     top: map.get($description-list, 'taxonomy-separator-offset');
     width: 4px;
-  }
-
-  &:dir(rtl)::before {
-    left: auto;
-    right: -2px;
   }
 
   &:first-child {

@@ -94,16 +94,11 @@ $media-container: null !default;
 // We have to substract the scrollbar width, as it is not handled well by vw unit)
 .ecl-media-container--full-width,
 .ecl-media-container--full-width + .ecl-media-container__expandable {
-  left: 50%;
+  inset-inline-start: 50%;
   margin-inline-start: calc(
     -50vw + (#{map.get($media-container, 'scrollbar-width')} / 2)
   );
   width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }
 
 @if map.has-key($media-container, 'caption-before') {
@@ -115,15 +110,10 @@ $media-container: null !default;
       border-bottom-right-radius: map.get($theme, 'border-radius', 'xs');
       content: '';
       height: 4px;
-      left: var(--s-l);
+      inset-inline-start: var(--s-l);
       position: absolute;
       top: 0;
       width: 32px;
-    }
-
-    &:dir(rtl)::before {
-      left: auto;
-      right: var(--s-l);
     }
   }
 

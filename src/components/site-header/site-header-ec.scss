@@ -30,13 +30,8 @@ $language-list: null !default;
     bottom: 0;
     padding: 0;
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     width: 100%;
-
-    &:dir(rtl) {
-      left: 0;
-      right: auto;
-    }
   }
 
   .ecl-menu__open,
@@ -275,12 +270,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 .ecl-site-header .ecl-mega-menu {
-  right: calc(-1 * var(--s-l));
-
-  &:dir(rtl) {
-    left: calc(-1 * var(--s-l));
-    right: auto;
-  }
+  inset-inline-end: calc(-1 * var(--s-l));
 }
 // stylelint-enable no-descending-specificity
 

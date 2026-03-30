@@ -128,15 +128,10 @@ $menu: null !default;
   display: none;
   overflow-y: auto;
   position: fixed;
-  right: -100%;
+  inset-inline-end: -100%;
   top: 0;
   width: 100%;
   z-index: map.get($theme, 'z-index', 'modal') + 3;
-
-  &:dir(rtl) {
-    left: -100%;
-    right: auto;
-  }
 
   /* Force display if JS is disabled */
   .no-js & {
@@ -147,12 +142,7 @@ $menu: null !default;
 // Expanded
 .ecl-menu[data-expanded] .ecl-menu__inner {
   display: block;
-  right: 0;
-
-  &:dir(rtl) {
-    left: 0;
-    right: auto;
-  }
+  inset-inline-end: 0;
 }
 
 .ecl-menu__inner-header {
@@ -262,13 +252,8 @@ $menu: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-menu__inner {
-    right: -25rem;
+    inset-inline-end: -25rem;
     width: 25rem;
-
-    &:dir(rtl) {
-      left: -25rem;
-      right: auto;
-    }
   }
 
   .ecl-menu__overlay {
@@ -298,15 +283,10 @@ $menu: null !default;
       display: block;
       overflow-y: visible;
       position: relative;
-      right: 0;
+      inset-inline-end: 0;
       transition: none;
       width: 100%;
       z-index: map.get($theme, 'z-index', 'modal');
-
-      &:dir(rtl) {
-        left: 0;
-        right: auto;
-      }
     }
 
     .ecl-menu__inner--has-overflow {
@@ -606,7 +586,7 @@ $menu: null !default;
     .ecl-menu__items-previous {
       border-radius: map.get($menu, 'global', 'border-radius') 0 0
         map.get($menu, 'global', 'border-radius');
-      left: 0;
+      inset-inline-start: 0;
 
       &::before {
         display: none;
@@ -630,7 +610,7 @@ $menu: null !default;
     .ecl-menu__items-next {
       border-radius: 0 map.get($menu, 'global', 'border-radius')
         map.get($menu, 'global', 'border-radius') 0;
-      right: 0;
+      inset-inline-end: 0;
 
       &::after {
         display: none;
@@ -684,16 +664,6 @@ $menu: null !default;
           );
         }
       }
-    }
-
-    &:dir(rtl) .ecl-menu__items-previous {
-      left: auto;
-      right: 0;
-    }
-
-    &:dir(rtl) .ecl-menu__items-next {
-      left: 0;
-      right: auto;
     }
 
     .ecl-menu__button-caret {
@@ -960,11 +930,7 @@ $menu: null !default;
 
 // Hack to prevent transition issue on page load on chrome
 .ecl-menu--transition .ecl-menu__inner {
-  transition: right 375ms;
-
-  &:dir(rtl) {
-    transition: left 375ms;
-  }
+  transition: inset-inline-end 375ms;
 }
 
 @include breakpoints.up('xl') {

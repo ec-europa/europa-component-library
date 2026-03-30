@@ -207,14 +207,9 @@ $banner: null !default;
 // Full width
 .ecl-banner--full-width {
   border-radius: 0;
-  left: 50%;
+  inset-inline-start: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }
 
 // No media

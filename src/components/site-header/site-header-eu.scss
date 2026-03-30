@@ -42,13 +42,8 @@ $language-list: null !default;
     top: var(--s-m);
     padding: 0;
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     width: calc(44px + var(--s-m) * 2);
-
-    &:dir(rtl) {
-      left: 0;
-      right: auto;
-    }
   }
 
   .ecl-site-header__cta {
