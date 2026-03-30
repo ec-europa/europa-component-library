@@ -76,9 +76,10 @@ delete dataContentItem.labels_aria;
 delete dataContentItem.lists;
 
 dataFeaturedItem.type = 'highlight';
-delete dataFeaturedItem.footer_description;
-delete dataFeaturedItem.footer_link;
-delete dataFeaturedItem.footer_picture;
+delete dataFeaturedItem.media_container.credit;
+delete dataFeaturedItem.media_container.description;
+dataFeaturedItem.title =
+  'Ut enim ad minim veniam quis nostrud exercitation ullamco.';
 
 const navigationList = JSON.parse(JSON.stringify(dataNavigationList));
 navigationList.column = 3;
