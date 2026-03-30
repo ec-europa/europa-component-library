@@ -29,6 +29,11 @@
 
     <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-2xl">Orci varius natoque penatibus</h2>
 
+    <!-- Add to calendar -->
+    {% include '@ecl/add-to-calendar/add-to-calendar.html.twig' with add_to_calendar2|merge({
+      extra_classes: 'ecl-u-mb-2xl',
+    }) %}
+
     <!-- Content item -->
     <div class="ecl-row">
       <div class="ecl-col-12 ecl-col-l-6 ecl-u-mb-xl">
@@ -66,9 +71,6 @@
 
     <!-- Featured item -->
     {%- include '@ecl/featured-item/featured-item.html.twig' with featured_item -%}
-
-    <!-- Add to calendar -->
-    {%- include '@ecl/add-to-calendar/add-to-calendar.html.twig' with add_to_calendar2 -%}
 
     <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-2xl">Aliquam massa est, facilisis eget eleifend ut</h2>
 

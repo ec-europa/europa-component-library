@@ -38,6 +38,7 @@ banner.link = {
 };
 banner.picture.img.src =
   'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
+delete banner.credit;
 
 const addToCalendar = JSON.parse(JSON.stringify(dataAddToCalendar));
 addToCalendar.full_width = true;

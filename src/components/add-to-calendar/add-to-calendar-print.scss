@@ -11,7 +11,7 @@ $theme: null !default;
 $add-to-calendar: null !default;
 
 .ecl-add-to-calendar {
-  background: map.get($add-to-calendar, 'info', 'background-default');
+  background: var(--ecl-color-corporate-gradient);
   color: map.get($add-to-calendar, 'info', 'color');
 
   &[class*='ecl-color-mode-'],

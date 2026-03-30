@@ -12,7 +12,7 @@ $theme: null !default;
 $add-to-calendar: null !default;
 
 .ecl-add-to-calendar {
-  background: map.get($add-to-calendar, 'info', 'background-default');
+  background: var(--ecl-color-corporate-gradient);
   color: map.get($add-to-calendar, 'info', 'color');
 
   &[class*='ecl-color-mode-'],
@@ -78,53 +78,23 @@ $add-to-calendar: null !default;
 
 @include breakpoints.up('m') {
   .ecl-add-to-calendar__info {
-    flex-direction: row;
     gap: map.get($add-to-calendar, 'info', 'gap-tablet');
     padding: map.get($add-to-calendar, 'info', 'padding-tablet');
   }
 
-  .ecl-add-to-calendar__meta-list {
-    column-gap: 0;
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-  }
-
-  .ecl-add-to-calendar__meta-item {
-    position: relative;
-
-    &:nth-child(2n) {
-      padding-inline-start: map.get($add-to-calendar, 'meta', 'item-padding');
-    }
-
-    &:nth-child(2n)::before {
-      background-color: map.get($add-to-calendar, 'info', 'color');
-      border-radius: 50%;
-      content: '';
-      display: block;
-      height: 4px;
-      inset-inline-start: map.get(
-        $add-to-calendar,
-        'meta',
-        'separator-offset-inline-start'
-      );
-      position: absolute;
-      top: map.get($add-to-calendar, 'meta', 'separator-offset-top');
-      width: 4px;
-    }
-  }
-}
-
-@include breakpoints.up('xl') {
-  .ecl-add-to-calendar__info {
-    padding: map.get($add-to-calendar, 'info', 'padding-desktop');
+  .ecl-add-to-calendar__action {
+    align-self: flex-start;
   }
 
   .ecl-add-to-calendar__meta-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .ecl-add-to-calendar__meta-item {
+    position: relative;
+
     &:not(:first-child) {
       padding-inline-start: map.get($add-to-calendar, 'meta', 'item-padding');
     }
@@ -144,5 +114,12 @@ $add-to-calendar: null !default;
       top: map.get($add-to-calendar, 'meta', 'separator-offset-top');
       width: 4px;
     }
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-add-to-calendar__info {
+    flex-direction: row;
+    padding: map.get($add-to-calendar, 'info', 'padding-desktop');
   }
 }
