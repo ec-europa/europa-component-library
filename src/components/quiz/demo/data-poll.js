@@ -64,7 +64,7 @@ module.exports = {
           size: '2xl',
         },
       },
-      anwer_title: 'The correct answer is B.',
+      answer_title: 'The correct answer is B.',
       answer:
         'A valid ID card or passport is usually enough to travel freely between most EU countries.',
       back_icon: {
@@ -94,7 +94,7 @@ module.exports = {
       options: [
         { name: 'The pound is the most used currency in the EU' },
         {
-          name: 'The Leu is by far the most used curreny in the European Union ',
+          name: 'The Leu is by far the most used currency in the European Union ',
         },
         {
           name: 'The euro (€) is used in many EU member states.',
