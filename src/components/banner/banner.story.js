@@ -19,7 +19,9 @@ const getArgs = (data) => {
     credit: data.credit || '',
     size: 'm',
     font_size: 'm',
+    font_weight: 'light',
     box_background: 'light',
+    overlay: false,
     font_color: 'dark',
     title: data.title.link.label,
     description: data.description.link.label,
@@ -132,10 +134,31 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
+    font_weight: {
+      name: 'font weight',
+      type: 'select',
+      description: 'Change font weight',
+      options: ['light', 'bold'],
+      control: {
+        labels: {
+          light: 'light',
+          bold: 'bold',
+        },
+      },
+      mapping: {
+        light: 'light',
+        bold: 'bold',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'light' },
+        category: 'Display',
+      },
+    },
     font_color: {
       name: 'font color',
       type: 'select',
-      description: 'Change font color',
+      description: 'Change font color (no effect when overlay is enabled)',
       options: ['dark', 'light'],
       control: {
         labels: {
@@ -153,6 +176,17 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
       if: { arg: 'box_background', eq: 'none' },
+    },
+    overlay: {
+      name: 'overlay',
+      type: { name: 'boolean' },
+      description: 'Display overlay on the image',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
     },
     box_background: {
       name: 'box background',
