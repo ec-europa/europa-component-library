@@ -15,10 +15,24 @@ npm install --save @ecl/quiz
   - **"with_background"** (boolean) (default: false)
   - **"title"** (string) (default: '')
   - **"description"** (string) (default: '')
-  - **"items"** (array) array of quiz cards [
-    { - "question" (string) (default: '') - "answer" (string) (default: '') - "icon" (object) Object of type ECL icon - "flip_icon" (object) Object of type ECL icon - "flip_text" (string) (default: '') - "back_text" (string) (default: '') - "prev_label" (string) (default: '') - "next_label" (string) (default: '') - "extra_classes" (optional) (string) (default: ''): Extra css classes for the card - "extra_attributes" (optional) (array) (default: []): Extra attributes for the card
-    }
-    ]
+  - **"items"** (array) array of quiz cards
+    - "question" (string) (default: '')
+    - "answer" (string) (default: '')
+    - "answer_title" (string) (default: '')
+    - "options" (associative array)
+    - "name" (string) (default: '')
+    - "correct" (boolean)
+    - "icon" (object) Object of type ECL icon
+    - "flip_icon" (object) Object of type ECL icon
+    - "flip_text" (string) (default: '')
+    - "back_text" (string) (default: '')
+    - "prev_label" (string) (default: '')
+    - "next_label" (string) (default: '')
+    - "category" (string) (default: '')
+    - "success_category" (string) (default: '')
+    - "error_category" (string) (default: '')
+    - "extra_classes" (optional) (string) (default: ''): Extra css classes for the card
+    - "extra_attributes" (optional) (array) (default: []): Extra attributes for the card
   - **"extra_classes"** (optional) (string) (default: ''): Extra css classes
   - **"extra_attributes"** (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'

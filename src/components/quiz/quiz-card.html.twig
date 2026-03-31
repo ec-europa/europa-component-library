@@ -1,10 +1,18 @@
 {% apply spaceless %}
 
 {#
-  Parameters:
-    - "quiz" (associative array) (default: {}): 
+  Parameters
+    - "variant" (string) (default: 'reveal')
+    - "category" (string) (default: '') (poll variant)
+    - "success_category" (string (default: '')
+    - "error_category" (string (default: '')
+    - "question" (string) (default: '')
+    - "answer" (string) (default: '')
+    - "answer_title" (string) (default: '')
+    - "options" (array) Array of options (poll variant)
     - "icon" (object) Object of type icon
-    - "flip_text" (string) Helper text 
+    - "back_icon" (object) Object of type icon
+    - "flip_text" (string) Helper text (reveal variant)
     - "flip_icon" (object) Object of type icon
     - "back_text" (string) Text on the back of the card
     - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
@@ -16,12 +24,18 @@
 
 {# Internal properties #}
 
+{% set _category = category|default('') %}
+{% set _success_category = success_category|default('') %}
+{% set _error_category = error_category|default('') %}
 {% set _question = question|default('') %}
 {% set _icon = icon|default({}) %}
+{% set _back_icon = back_icon|default({}) %}
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
 {% set _answer = answer|default('') %}
+{% set _answer_title = answer_title|default('') %}
+{% set _options = options|default([]) %}
 {% set _css_class = 'ecl-quiz-card' %}
 {% set _extra_attributes = '' %}
 
@@ -47,12 +61,34 @@
 >
   <div class="ecl-quiz-card__content">
     <div class="ecl-quiz-card__front">
-      <div class="ecl-quiz-card__icon">
-        {% include "@ecl/icon/icon.html.twig" with _icon only %}
+      <div class="ecl-quiz-card__header">
+        <div class="ecl-quiz-card__icon">
+          {% include "@ecl/icon/icon.html.twig" with _icon only %}
+        </div>
+      {% if _category is not empty %}
+        <span class="ecl-quiz-card__category">
+          {{- _category -}}
+        </span>
+      {% endif %}
       </div>
       <div class="ecl-quiz-card__question">
         {{-  _question -}}
       </div>
+    {% if _options is not empty %}
+      <div class="ecl-quiz-card__options" role="list">
+      {% for _option in _options %}
+        <div
+          class="ecl-quiz-card__option"
+          data-ecl-quiz-card-flip
+          role="listitem"
+          data-match="{{ _option.correct ? "true" : "false" }}"
+        >
+          {{- _option.name -}}
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+    {% if _flip_text is not empty %}
       <button
         class="ecl-quiz-card__flip"
         data-ecl-quiz-card-flip
@@ -61,17 +97,56 @@
         {{ _flip_text }}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </button>
+    {% endif %}
     </div>
     <div
       class="ecl-quiz-card__back"
       hidden
     >
-       <div class="ecl-quiz-card__icon">
-        {% include "@ecl/icon/icon.html.twig" with _icon only %}
+      <div class="ecl-quiz-card__header">
+        <div class="ecl-quiz-card__icon">
+          {% if _back_icon %}
+            {% include "@ecl/icon/icon.html.twig" with _back_icon.success|merge({
+              extra_classes: 'ecl-quiz-card__icon--success',
+            }) only %}
+            {% set _icon = _back_icon.error %}
+          {% endif %}
+          {% include "@ecl/icon/icon.html.twig" with _icon only %}
+        </div>
+        {% if _success_category is not empty %}
+          <span class="ecl-quiz-card__category ecl-quiz-card__category--success">
+            {{- _success_category -}}
+          </span>
+        {% endif %}
+        {% if _error_category is not empty %}
+          <span class="ecl-quiz-card__category ecl-quiz-card__category--error">
+            {{- _error_category -}}
+          </span>
+        {% endif %}
       </div>
       <div class="ecl-quiz-card__answer">
+      {%- if _answer_title is not empty -%}
+        <div class="ecl-quiz-card__answer-title">{{ _answer_title }}</div>
+      {%- endif -%}
         {{-  _answer -}}
       </div>
+    {% if _options is not empty %}
+      <div
+        class="ecl-quiz-card__options"
+        role="list"
+      >
+      {% for _option in _options %}
+        <div
+          class="ecl-quiz-card__option"
+          role="listitem"
+          data-match="{{ _option.correct ? "true" : "false" }}"
+        >
+          {{- _option.name -}}
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+    {% if _back_text is not empty or _flip_icon is not empty %}
       <button
         class="ecl-quiz-card__flip"
         data-ecl-quiz-card-flip
@@ -80,6 +155,7 @@
         {{ _back_text }}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </button>
+    {% endif %}
     </div>
   </div>
 </div>

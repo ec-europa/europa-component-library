@@ -5,6 +5,7 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import demoData from './demo/data';
+import demoPoll from './demo/data-poll';
 
 expect.extend(toHaveNoViolations);
 
@@ -44,6 +45,19 @@ describe('Quiz', () => {
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Poll', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoPoll)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, demoPoll, true)),
       ).toHaveNoViolations();
     });
   });

@@ -12,7 +12,8 @@ module.exports = {
       answer: 'You usually pay the same at home, no extra roaming fees.',
       icon: {
         icon: {
-          name: 'star-outline',
+          name: 'sparkle',
+          family: 'phosphor',
           size: 'xl',
         },
       },
@@ -20,7 +21,8 @@ module.exports = {
       flip_text: 'Click to reveal',
       flip_icon: {
         icon: {
-          name: 'refresh',
+          family: 'phosphor',
+          name: 'arrow-clockwise',
           size: 's',
         },
       },
@@ -31,7 +33,8 @@ module.exports = {
       answer: 'A valid ID card or passport is usually enough.',
       icon: {
         icon: {
-          name: 'star-outline',
+          name: 'sparkle',
+          family: 'phosphor',
           size: 'xl',
         },
       },
@@ -39,7 +42,8 @@ module.exports = {
       flip_text: 'Click to reveal',
       flip_icon: {
         icon: {
-          name: 'refresh',
+          family: 'phosphor',
+          name: 'arrow-clockwise',
           size: 's',
         },
       },
@@ -49,7 +53,8 @@ module.exports = {
       answer: 'The euro (€) is used in many EU member states.',
       icon: {
         icon: {
-          name: 'star-outline',
+          name: 'sparkle',
+          family: 'phosphor',
           size: 'xl',
         },
       },
@@ -57,7 +62,8 @@ module.exports = {
       flip_text: 'Click to reveal',
       flip_icon: {
         icon: {
-          name: 'refresh',
+          family: 'phosphor',
+          name: 'arrow-clockwise',
           size: 's',
         },
       },
@@ -68,7 +74,8 @@ module.exports = {
         'Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum',
       icon: {
         icon: {
-          name: 'star-outline',
+          name: 'sparkle',
+          family: 'phosphor',
           size: 'xl',
         },
       },
@@ -76,7 +83,8 @@ module.exports = {
       flip_text: 'Click to reveal',
       flip_icon: {
         icon: {
-          name: 'refresh',
+          name: 'arrow-clockwise',
+          family: 'phosphor',
           size: 's',
         },
       },
@@ -88,7 +96,8 @@ module.exports = {
         'Aenean est metus, malesuada sed suscipit id, tempor non sapien. Donec viverra, odio id venenatis sollicitudin',
       icon: {
         icon: {
-          name: 'star-outline',
+          family: 'phosphor',
+          name: 'sparkle',
           size: 'xl',
         },
       },
@@ -96,7 +105,8 @@ module.exports = {
       flip_text: 'Click to reveal',
       flip_icon: {
         icon: {
-          name: 'refresh',
+          name: 'arrow-clockwise',
+          family: 'phosphor',
           size: 's',
         },
       },

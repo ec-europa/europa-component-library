@@ -52,7 +52,8 @@ export class Quiz {
       sliderSelector = '[data-ecl-quiz-slider]',
       itemSelector = '[data-ecl-quiz-card-flip]',
       flippedClass = 'ecl-quiz-card__flipped',
-      textClass = '.ecl-quiz-card__question',
+      questionClass = '.ecl-quiz-card__question',
+      answerClass = '.ecl-quiz-card__answer',
       contentClass = '.ecl-quiz-card__content',
       frontClass = '.ecl-quiz-card__front',
       backClass = '.ecl-quiz-card__back',
@@ -80,7 +81,8 @@ export class Quiz {
     this.itemSelector = itemSelector;
     this.flippedClass = flippedClass;
     this.contentClass = contentClass;
-    this.textClass = textClass;
+    this.questionClass = questionClass;
+    this.answerClass = answerClass;
     this.prevClass = prevClass;
     this.nextClass = nextClass;
     this.dotsClass = dotsClass;
@@ -346,44 +348,56 @@ export class Quiz {
    */
   checkHeight() {
     let maxHeight = 0;
-    let maxContentHeight = 0;
+    let maxTextHeight = 0;
+
+    const front = queryOne(this.frontClass, this.element);
+    const styles = getComputedStyle(front);
+    const minHeight = parseFloat(styles.getPropertyValue('min-height')) || 345;
+    const paddingBottom = parseFloat(styles.getPropertyValue('padding-bottom'));
 
     this.cards.forEach((card) => {
-      const content = queryOne(this.textClass, card);
-      const element = queryOne(this.contentClass, card);
-      const front = queryOne(this.frontClass, card);
-      const back = queryOne(this.backClass, card);
+      const question = queryOne(this.questionClass, card);
+      const answer = queryOne(this.answerClass, card);
 
       // Reset heights previously set.
-      element.style.height = '';
+      question.style.minHeight = '';
+      answer.style.minHeight = '';
+
+      const heightQuestion = question.scrollHeight;
+      const heightAnswer = answer.scrollHeight;
+      const heightText = Math.max(heightQuestion, heightAnswer);
+
+      if (heightText > maxTextHeight) {
+        maxTextHeight = heightText;
+      }
+    });
+
+    this.cards.forEach((card) => {
+      const question = queryOne(this.questionClass, card);
+      const answer = queryOne(this.answerClass, card);
+      const front = queryOne(this.frontClass, card);
+      const back = queryOne(this.backClass, card);
+      const content = queryOne(this.contentClass, card);
       content.style.height = '';
 
-      const styles = getComputedStyle(front);
-      const minHeight =
-        parseFloat(styles.getPropertyValue('min-height')) || 345;
+      question.style.minHeight = maxTextHeight + 'px';
+      answer.style.minHeight = maxTextHeight + 'px';
 
       const heightFront = front.scrollHeight;
       const heightBack = back.scrollHeight;
-      const heightContent = content.scrollHeight;
-
       const height = Math.max(heightFront, heightBack);
 
       if (height > minHeight && height > maxHeight) {
         maxHeight = height;
       }
-      if (heightContent > maxContentHeight) {
-        maxContentHeight = heightContent;
-      }
     });
 
-    this.cards.forEach((card) => {
-      const cardContent = queryOne(this.textClass, card);
-      const element = queryOne(this.contentClass, card);
-      if (maxHeight > 0) {
-        element.style.height = maxHeight * 1.15 + 'px';
-      }
-      cardContent.style.height = maxContentHeight + 'px';
-    });
+    if (maxHeight > 0) {
+      this.cards.forEach((card) => {
+        const content = queryOne(this.contentClass, card);
+        content.style.height = maxHeight + paddingBottom + 'px';
+      });
+    }
   }
 
   /**
@@ -399,7 +413,7 @@ export class Quiz {
       }
 
       this.checkHeight();
-    }, 200);
+    }, 400);
   }
 
   /**
@@ -417,6 +431,25 @@ export class Quiz {
       const isFlipped = card.classList.contains(this.flippedClass);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
+
+      if (e.target.classList.contains('ecl-quiz-card__option')) {
+        const parent = e.target.parentNode;
+        const items = Array.from(parent.children);
+        const index = items.indexOf(e.target);
+        const match = e.target.getAttribute('data-match') === 'true';
+
+        if (match) {
+          back.classList.add('ecl-quiz-card--correct');
+        }
+
+        const options = queryOne('.ecl-quiz-card__options', back);
+        Array.from(options.children).forEach((el) =>
+          el.classList.remove('ecl-quiz-card__option--selected'),
+        );
+        options.children[index].classList.add(
+          'ecl-quiz-card__option--selected',
+        );
+      }
 
       front.hidden = isFlipped;
       back.hidden = !isFlipped;

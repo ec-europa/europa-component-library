@@ -3,6 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import specs from './demo/data';
+import specsPoll from './demo/data-poll';
 import quiz from './quiz.html.twig';
 import notes from './README.md';
 
@@ -49,13 +50,24 @@ export default {
   },
 };
 
-export const Default = (_, { loaded: { component } }) => component;
+export const Reveal = (_, { loaded: { component } }) => component;
 
-Default.render = async (args) => {
+Reveal.render = async (args) => {
   const renderedQuiz = await quiz(prepareData(correctPaths(specs), args));
   return renderedQuiz;
 };
-Default.args = getArgs();
-Default.argTypes = getArgTypes();
-Default.storyName = 'reveal';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Reveal.args = getArgs();
+Reveal.argTypes = getArgTypes();
+Reveal.storyName = 'reveal';
+Reveal.parameters = { notes: { markdown: notes, json: specs } };
+
+export const Poll = (_, { loaded: { component } }) => component;
+
+Poll.render = async (args) => {
+  const renderedQuiz = await quiz(prepareData(correctPaths(specsPoll), args));
+  return renderedQuiz;
+};
+Poll.args = getArgs();
+Poll.argTypes = getArgTypes();
+Poll.storyName = 'poll';
+Reveal.parameters = { notes: { markdown: notes, json: specsPoll } };
