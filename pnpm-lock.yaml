@@ -1111,19 +1111,19 @@ importers:
     dependencies:
       '@ecl/card':
         specifier: 5.0.0-alpha.22
-        version: link:../../components/card
+        version: 5.0.0-alpha.22
       '@ecl/content-item':
         specifier: 5.0.0-alpha.22
-        version: link:../../components/content-item
+        version: 5.0.0-alpha.22
       '@ecl/file':
         specifier: 5.0.0-alpha.22
-        version: link:../../components/file
+        version: 5.0.0-alpha.22
       '@ecl/list-illustration':
         specifier: 5.0.0-alpha.22
-        version: link:../../components/list-illustration
+        version: 5.0.0-alpha.22
       '@ecl/navigation-list':
         specifier: 5.0.0-alpha.22
-        version: link:../../components/navigation-list
+        version: 5.0.0-alpha.22
 
   src/mixins/color: {}
 
@@ -1768,7 +1768,7 @@ importers:
         specifier: 5.0.0-RC1
         version: link:../../layout/form
       '@ecl/layout-wrapper':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../layout/layout-wrapper
       '@ecl/link':
         specifier: 5.0.0-RC1
@@ -2048,7 +2048,7 @@ importers:
         specifier: 5.0.0-RC1
         version: link:../../layout/form
       '@ecl/layout-wrapper':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../layout/layout-wrapper
       '@ecl/link':
         specifier: 5.0.0-RC1
@@ -3821,11 +3821,62 @@ packages:
     resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
     engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
 
+  '@ecl/button@5.0.0-alpha.22':
+    resolution: {integrity: sha512-9jMUYDXKcbOkqrg335n4KikBuwiXrBhl8BkQnTN3nEBXHX8Iq1+7g/uzKaPZdYIUNSTwLAvGv4HR6lQLCq7KdQ==}
+
+  '@ecl/card@5.0.0-alpha.22':
+    resolution: {integrity: sha512-AWSG+Lz8BR/ircYOWLdVtze47oMhWhbTHG60lSHByXWXEoQSZagxLGdaG9rfGYm3EV0ybwe+1lBMuF8bpXQYcg==}
+
+  '@ecl/content-block@5.0.0-alpha.22':
+    resolution: {integrity: sha512-zKnJltF7DWvhKs6/1+CYYXQK5PAIWLK4ffVGPkY4ExChOXazdsBRyvzuPiDU2trLhgoyEBBNLrfWsxqIDQ7Khw==}
+
+  '@ecl/content-item@5.0.0-alpha.22':
+    resolution: {integrity: sha512-yaUsHm/ts+NVsEUrK8y+uPIm/gZ2jYrKFzwMisHdyExcLwbXLMpOqYk9ddwuBcud5y+cS796i4/N8j0cG1QTYg==}
+
+  '@ecl/date-block@5.0.0-alpha.22':
+    resolution: {integrity: sha512-DuxE46pF6Te6XKkumcLqHnQ97lktJlmBY18lX9ULvqbace0fzCNydKzvKRhR1upN91Tp722qwtF/VgMQG/RU2A==}
+
+  '@ecl/description-list@5.0.0-alpha.22':
+    resolution: {integrity: sha512-Xc1/ROgG3Ia9lskrMGw3n5dev8wh/4fbA+iX/cpl3WVhjlm68R0u/a+uKUYTXPVTQ//XJx+Qyvym/W2ggG6rIQ==}
+
+  '@ecl/dom-utils@5.0.0-alpha.22':
+    resolution: {integrity: sha512-qqxh7zyuqmNPcW8pZziJlnPCk8zk8JEw7qDeKg7A5gqQ/S4M4/3oNqgipGmH+H3MhFpOQ2SbCI+SWZ/svF3HOQ==}
+
+  '@ecl/file@5.0.0-alpha.22':
+    resolution: {integrity: sha512-pGRYI+OFzJgKVBObQ0BjQQlfrIYI9O5pGBVubeyR2cZIQtpO28cw/rNLGQtHyZqWjZ+0p0SwP1DXxeiUD9gOfA==}
+
   '@ecl/grid@5.0.0-alpha.15':
     resolution: {integrity: sha512-z1kgc+YriX3U4VRjGibM/NBMzp22NFBdK2QHLVXgNm2ZZ5GT+x/gOI17Sh3ZjTrRuKlGlVImjy+Sz1bI7mg+Ag==}
 
+  '@ecl/grid@5.0.0-alpha.22':
+    resolution: {integrity: sha512-Os9Ajg9+AGozMWcWWIeyjDfsF7z3ZnqH6xVrq3QbA1LTHCsalmBmuySx1LS4Q3HWuMZz7D/DVuooiLs1nytEyg==}
+
+  '@ecl/icon@5.0.0-alpha.22':
+    resolution: {integrity: sha512-JH6qMGvPbw62Ik8mPkN+zJi0LPdJAcP3cagdHWQTCxfqqZIg4YA8Obgx2DWVZR6Yz8Vmttdedgy31dpNPJHthg==}
+
+  '@ecl/indicator@5.0.0-alpha.22':
+    resolution: {integrity: sha512-mv0/d8piFksr81zcTGzzGIkAy/kcAXqhsjMCuCJvZ4z3AdvWGxUevf1t7hYfsCLxKlBDIxB25Lz5JXvUyjcCVA==}
+
+  '@ecl/label@5.0.0-alpha.22':
+    resolution: {integrity: sha512-yYMOGetKnlsAQT6ipQeV8R6aTSWEl3JteLyPrY2fNQ4Xa9lx3NB22oJ2j1q43uCOVIRPXvNjlxq9aevwPpxJQQ==}
+
+  '@ecl/link@5.0.0-alpha.22':
+    resolution: {integrity: sha512-lble2x+po69i3cbgC85JoUlUqLyQLcB8MViGeAfZ5iJ0XfMbNU+xs9vlYnza+qvrk2ixs8THdRb35vIFNAVoBg==}
+
+  '@ecl/list-illustration@5.0.0-alpha.22':
+    resolution: {integrity: sha512-4EE2FLXeFUNdN3uVchIfUs8rv+Ai2IDvv+UB/SlKNcAJok+PaKB3IwW1ikS8LD6AZHO+vkhDk13qt3b4XELn0w==}
+
   '@ecl/mixins-typography@5.0.0-alpha.15':
     resolution: {integrity: sha512-wvgFHvQQAIJEwuQSyWXsqBjL4wY/63M+G/Q3kf6mkpBtMyMja+n6gKG5M8yBrBEgjvmuks8Yrb0HNC0WFdR5kA==}
+
+  '@ecl/mixins-typography@5.0.0-alpha.22':
+    resolution: {integrity: sha512-yFSV/MSWlmkeFAnl3npkWtTczCxWxhC+90KjV/YZo1oT/DNsrwxkMlkYCyBCyD0ivMYxYSkjMTN7GmFMwIHSGQ==}
+
+  '@ecl/navigation-list@5.0.0-alpha.22':
+    resolution: {integrity: sha512-ps434OCBJ+HCTgghfI2/EXAItn9lpA9D+zLO8XsUrMHsDvORgRYeXAhUx5gF6do5GfG3aAhJfs+nRpvXzphhgA==}
+
+  '@ecl/picture@5.0.0-alpha.22':
+    resolution: {integrity: sha512-kDFiUdQkDe3vnphDoiLOSQ2CBbfl08rZUl1Ya7gEqYhNwOFBoSBdF9KtEi8TDvUPKUd/KF8D5yLNhh1kYZ0j3w==}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
@@ -3835,6 +3886,9 @@ packages:
 
   '@ecl/resources-social-media-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-ruVrsu8ADIfrOPRaStG04de3RKHNuv5rQ3lbfsqH6aS1dsoPAEmG9QO10fkFstYBbFk7QbYpp5iuZbYB/uYdkw==}
+
+  '@ecl/tag@5.0.0-alpha.22':
+    resolution: {integrity: sha512-jB3fYeBM389vK9HF114Nxfg6LudsfZiXu5SuedTyVqH84+g01zWIOnffDhUaD/4JeCA7uygrW2WUBkmGZyKRtQ==}
 
   '@emnapi/core@1.9.1':
     resolution: {integrity: sha512-mukuNALVsoix/w1BJwFzwXBN/dHeejQtuVzcDsfOEsdpCumXb/E9j8w11h5S54tT1xhifGfbbSm/ICrObRb3KA==}
@@ -13372,17 +13426,95 @@ snapshots:
     dependencies:
       '@stencil/core': 2.22.3
 
+  '@ecl/button@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/icon': 5.0.0-alpha.22
+      '@ecl/indicator': 5.0.0-alpha.22
+
+  '@ecl/card@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/content-block': 5.0.0-alpha.22
+      '@ecl/picture': 5.0.0-alpha.22
+
+  '@ecl/content-block@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/description-list': 5.0.0-alpha.22
+      '@ecl/dom-utils': 5.0.0-alpha.22
+      '@ecl/icon': 5.0.0-alpha.22
+      '@ecl/label': 5.0.0-alpha.22
+      '@ecl/link': 5.0.0-alpha.22
+      '@ecl/mixins-typography': 5.0.0-alpha.22
+
+  '@ecl/content-item@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/content-block': 5.0.0-alpha.22
+      '@ecl/date-block': 5.0.0-alpha.22
+      '@ecl/picture': 5.0.0-alpha.22
+
+  '@ecl/date-block@5.0.0-alpha.22': {}
+
+  '@ecl/description-list@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/dom-utils': 5.0.0-alpha.22
+      '@ecl/link': 5.0.0-alpha.22
+      '@ecl/tag': 5.0.0-alpha.22
+
+  '@ecl/dom-utils@5.0.0-alpha.22': {}
+
+  '@ecl/file@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/button': 5.0.0-alpha.22
+      '@ecl/description-list': 5.0.0-alpha.22
+      '@ecl/dom-utils': 5.0.0-alpha.22
+      '@ecl/icon': 5.0.0-alpha.22
+      '@ecl/label': 5.0.0-alpha.22
+      '@ecl/link': 5.0.0-alpha.22
+      '@ecl/picture': 5.0.0-alpha.22
+
   '@ecl/grid@5.0.0-alpha.15': {}
+
+  '@ecl/grid@5.0.0-alpha.22': {}
+
+  '@ecl/icon@5.0.0-alpha.22': {}
+
+  '@ecl/indicator@5.0.0-alpha.22': {}
+
+  '@ecl/label@5.0.0-alpha.22': {}
+
+  '@ecl/link@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/button': 5.0.0-alpha.22
+      '@ecl/icon': 5.0.0-alpha.22
+
+  '@ecl/list-illustration@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/icon': 5.0.0-alpha.22
+      '@ecl/picture': 5.0.0-alpha.22
 
   '@ecl/mixins-typography@5.0.0-alpha.15':
     dependencies:
       '@ecl/grid': 5.0.0-alpha.15
+
+  '@ecl/mixins-typography@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/grid': 5.0.0-alpha.22
+
+  '@ecl/navigation-list@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/content-block': 5.0.0-alpha.22
+      '@ecl/picture': 5.0.0-alpha.22
+
+  '@ecl/picture@5.0.0-alpha.22': {}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 
   '@ecl/resources-flag-icons@5.0.0-alpha.10': {}
 
   '@ecl/resources-social-media-icons@5.0.0-alpha.10': {}
+
+  '@ecl/tag@5.0.0-alpha.22':
+    dependencies:
+      '@ecl/icon': 5.0.0-alpha.22
 
   '@emnapi/core@1.9.1':
     dependencies:
