@@ -1,0 +1,59 @@
+# ECL Text and media component
+
+npm package: `@ecl/text-media`
+
+```shell
+npm install --save @ecl/text-media
+```
+
+### Parameters
+
+- **"color_mode"** (string) (default: '') Name of the color mode
+- **"id"** (string) (default: random)
+- **"type"** (string) (default: '') - Featured item type (can be 'highlight'),
+- **"title"** (string) (default: '') - Title of the content opposite the media container,
+- **"description"** (string) (default: '') - Description of the content opposite the media container,
+- **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
+- **"link_highlighted"** (bool) (default: false): display the link as highlighted
+- **"horizontal_alignment"** (string) (default: 'left'): content alignment (horizontal); can be 'left', 'center'
+- **"vertical_alignment"** (string) (default: 'top'): content alignment (vertical); can be 'top', 'center'
+- **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
+- **"media_behavior"** (string) (default: 'static'): fill behavior of the media; can be 'static', 'dynamic'
+- **"position"** (string) (default: 'left') - Media position relative to the text; can be 'left', 'right'
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'.
+
+### Example
+
+<!-- prettier-ignore -->
+```twig
+{% include '@ecl/text-media/text-media.html.twig' with {
+  title: 'title', 
+  description: 
+    '<p class="ecl-u-type-paragraph-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>', 
+  link: { 
+    link: { 
+      variant: 'standalone', 
+      path: exampleLink, 
+      label: 'Standalone link', 
+      icon_position: 'after', 
+    }, 
+    icon: { 
+      name: 'external', 
+      size: 'xs', 
+    }, 
+  }, 
+  media_container: {
+    picture: {
+      img: {
+        alt: 'Lorem ipsum dolor sit amet', 
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+    }, 
+    description: 
+      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 
+  },
+} %} 
+```

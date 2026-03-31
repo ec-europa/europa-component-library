@@ -1,0 +1,89 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$text-media: (
+  gap-horizontal: var(--s-xl),
+  gap-vertical: var(--s-xs),
+  padding: var(--s-xl),
+  border-radius: map.get($border-radius, 'xs'),
+  max-width: 918px,
+  title: (
+    color: var(--cm-on-surface-brand),
+    typography: 'heading3',
+  ),
+  description: (
+    color: var(--cm-on-surface-brand),
+    font: var(--f-m),
+    spacing: var(--s-l),
+  ),
+  link: (
+    font: var(--f-m),
+    spacing: var(--s-l),
+  ),
+  highlight: (
+    container: (
+      background-color: transparent,
+      padding-inline-mobile: 0,
+      padding-block-mobile: 0,
+      padding-inline-desktop: 0,
+      padding-block-desktop: 0,
+    ),
+    item: (
+      background-color: var(--cm-surface-0),
+      padding-inline-mobile: var(--s-xl),
+      padding-block-mobile: var(--s-xl),
+      padding-inline-desktop: var(--s-5xl),
+      padding-block-desktop: var(--s-5xl),
+    ),
+    border-size: 0,
+    border-color: transparent,
+    title: (
+      color: var(--cm-on-surface-swap-0),
+    ),
+    description: (
+      color: var(--cm-on-surface-swap-0),
+    ),
+    link: (
+      background-color: var(--cm-surface-variant-1),
+      color: var(--cm-on-surface-swap-0),
+      color-highlighted: var(--cm-on-surface-swap-1),
+      spacing: var(--s-l),
+      spacing-highlighted: var(--s-5xl),
+      padding-mobile: var(--s-m) var(--s-xl),
+      padding-desktop: var(--s-m) var(--s-5xl),
+      max-width: 13.125rem,
+    ),
+  ),
+);
+$text-media-print: (
+  gap-horizontal: map.get($spacing-print, 'xl'),
+  gap-vertical: map.get($spacing-print, 'xs'),
+  padding: map.get($spacing-print, 'xl'),
+  title: (
+    font: map.get($font-print, '2xl'),
+  ),
+  description: (
+    font: map.get($font-print, 'm'),
+    spacing: map.get($spacing-print, 'l'),
+  ),
+  link: (
+    font: map.get($font-print, 'm'),
+    spacing: map.get($spacing-print, 'l'),
+  ),
+  highlight: (
+    container: (
+      padding-inline: 0,
+      padding-block: 0,
+    ),
+    item: (
+      padding-inline: map.get($spacing-print, 'xl'),
+      padding-block: map.get($spacing-print, 'xl'),
+    ),
+    link: (
+      spacing: map.get($spacing-print, 'l'),
+      spacing-highlighted: map.get($spacing-print, '3xl'),
+      padding: map.get($spacing-print, 'm') map.get($spacing-print, '3xl'),
+      max-width: 13.125rem,
+    ),
+  ),
+);
