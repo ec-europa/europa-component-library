@@ -87,12 +87,14 @@ $anchor-width-l: 232px;
 
   @include mixins.responsive-font(
     map.get($spotlight, 'title', 'font-m'),
+    $font-weight: map.get($spotlight, 'title', 'font-weight'),
     $container: 'ecl-spotlight'
   );
 
   .ecl-spotlight--font-l & {
     @include mixins.responsive-font(
       map.get($spotlight, 'title', 'font-l'),
+      $font-weight: map.get($spotlight, 'title', 'font-weight'),
       $container: 'ecl-spotlight'
     );
   }

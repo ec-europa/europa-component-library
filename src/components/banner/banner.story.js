@@ -19,6 +19,7 @@ const getArgs = (data) => {
     credit: data.credit || '',
     size: 'm',
     font_size: 'm',
+    font_weight: 'light',
     box_background: 'light',
     overlay: false,
     font_color: 'dark',
@@ -130,6 +131,27 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
+        category: 'Display',
+      },
+    },
+    font_weight: {
+      name: 'font weight',
+      type: 'select',
+      description: 'Change font weight',
+      options: ['light', 'bold'],
+      control: {
+        labels: {
+          light: 'light',
+          bold: 'bold',
+        },
+      },
+      mapping: {
+        light: 'light',
+        bold: 'bold',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'light' },
         category: 'Display',
       },
     },
