@@ -16,7 +16,7 @@ overrides:
   merge: '>=2.1.1'
   browserslist: '>=4.24.2'
   node-forge: '>=1.0.0'
-  nth-check: '>=2.0.1'
+  nth-check: '>=2.0.1 <3'
   prismjs: '>=1.27.0'
   minimist: '>=1.2.6'
   simple-git: '>=3.3.0'
@@ -914,6 +914,9 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC1
         version: link:../link
+      '@ecl/mega-menu':
+        specifier: 5.0.0-RC1
+        version: link:../mega-menu
       '@ecl/menu':
         specifier: 5.0.0-RC1
         version: link:../menu
@@ -1235,50 +1238,50 @@ importers:
   src/page-example/page-president:
     dependencies:
       '@ecl/banner':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/banner
       '@ecl/blockquote':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/blockquote
       '@ecl/breadcrumb':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/breadcrumb
       '@ecl/content-block':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/content-block
       '@ecl/content-item':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/content-item
       '@ecl/form-group':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/form-group
       '@ecl/gallery':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/gallery
       '@ecl/link':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/link
       '@ecl/mega-menu':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/mega-menu
       '@ecl/navigation-list':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/navigation-list
       '@ecl/page-header':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/page-header
       '@ecl/site-footer':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/site-footer
       '@ecl/site-header':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/site-header
       '@ecl/social-media-follow':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../components/social-media-follow
     devDependencies:
       '@ecl/builder':
-        specifier: 5.0.0-alpha.22
+        specifier: 5.0.0-RC1
         version: link:../../tools/builder
 
   src/page-example/page-rich-text:
@@ -1286,6 +1289,9 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0-RC1
         version: link:../../components/banner
+      '@ecl/breadcrumb':
+        specifier: 5.0.0-RC1
+        version: link:../../components/breadcrumb
       '@ecl/card':
         specifier: 5.0.0-RC1
         version: link:../../components/card
@@ -1304,6 +1310,9 @@ importers:
       '@ecl/navigation-list':
         specifier: 5.0.0-RC1
         version: link:../../components/navigation-list
+      '@ecl/page-header':
+        specifier: 5.0.0-RC1
+        version: link:../../components/page-header
       '@ecl/site-footer':
         specifier: 5.0.0-RC1
         version: link:../../components/site-footer
