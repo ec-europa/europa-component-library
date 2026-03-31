@@ -17,7 +17,7 @@ const getArgs = (data) => {
     title: data.title,
     micro_title: data.micro_title,
     description: data.description,
-    link: data.link.link.label,
+    link_label: data.link.link.label,
     text_position: 'left',
     media_anchor: 'center',
   };
@@ -93,7 +93,7 @@ const getArgTypes = () => {
     if: { arg: 'show_description' },
   };
 
-  argTypes.link = {
+  argTypes.link_label = {
     name: 'Link',
     type: { name: 'string' },
     description: 'Label of the link',
@@ -145,12 +145,12 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
-  if (clone.link.link.label) {
-    clone.link.link.label = args.link;
-  }
-  if (clone.link.icon) {
-    clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
-  }
+  clone.link.link.label = args.link_label;
+  clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
+
+  if (!args.show_micro_title) delete clone.micro_title;
+  if (!args.show_description) delete clone.description;
+  if (!args.show_link) delete clone.link;
 
   return Object.assign(correctPaths(clone), args);
 };

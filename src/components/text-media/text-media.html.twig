@@ -8,6 +8,7 @@
   - "title" (string) (default: ''): Content title
   - "micro_title" (string) (default: ''): Small additional title
   - "description" (string) (default: ''): Content description
+  - "link" (object) (default: {}): Content link, following ECL Link structure
   - "media_container" (object) (default: {}): object of type Media container
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
@@ -29,6 +30,7 @@
 {% set _title = title|default('') %}
 {% set _micro_title = micro_title|default('') %}
 {% set _description = description|default('') %}
+{% set _link = link|default({}) %}
 {% set _media_container = media_container|default({}) %}
 {% set _extra_attributes = '' %}
 
@@ -43,7 +45,7 @@
 {% endif %}
 
 {% if _text_position != 'left' %}
-  {% set _css_container_class = _css_container_class ~ ' ecl-text-media__container--position-' ~ _text_position %}
+  {% set _css_class = _css_class ~ ' ecl-text-media--position-' ~ _text_position %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -66,40 +68,48 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <div class="{{ _css_container_class }}">
-    <div class="ecl-text-media__item">
-      <div class="ecl-text-media__content">
-        <div class="ecl-text-media__info">
-        {% if _title is not empty %}
-          <div class="ecl-text-media__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
-        {% endif %}
-        {% if _description is not empty %}
-          <div class="ecl-text-media__description">{{ _description }}</div>
-        {% endif %}
-        </div>
-      {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
-        {% set _link_attributes = _link.extra_attributes|default({}) %}
-        {% if _title is not empty %}
-          {% set _link_attributes = _link_attributes|merge([
-            { name: 'aria-describedby', value: _id ~ '-title' },
-            ])
-          %}
-        {% endif %}
-        {% include '@ecl/link/link.html.twig' with _link|merge({
-          extra_classes: 'ecl-text-media__link',
-          extra_attributes: _link_attributes,
-        }) only %}
-      {% endif %}
-      </div>
-    </div>
+  <div class="ecl-text-media__content">
+    {# Micro title #}
+    {% if _micro_title is not empty %}
+      <div class="ecl-text-media__micro-title">{{ _micro_title }}</div>
+    {% endif %}
 
-    {% if _media_container is not empty %}
-      <div class="ecl-text-media__item">
-      {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
-        extra_classes: 'ecl-text-media__media_container',
+    {# Title #}
+    {% if _title is not empty %}
+      <div class="ecl-text-media__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
+    {% endif %}
+
+    {# Description #}
+    {% if _description is not empty %}
+      <div class="ecl-text-media__description">{{ _description }}</div>
+    {% endif %}
+
+    {# Link #}
+    {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
+      {% set _link_attributes = _link.extra_attributes|default({}) %}
+      {% if _title is not empty %}
+        {% set _link_attributes = _link_attributes|merge([
+          { name: 'aria-describedby', value: _id ~ '-title' },
+          ])
+        %}
+      {% endif %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        link: _link.link|merge({
+          type: 'primary-neutral',
+        }),
+        extra_classes: 'ecl-text-media__link',
+        extra_attributes: _link_attributes,
       }) only %}
-      </div>
     {% endif %}
   </div>
+
+  {# Media #}
+  {% if _media_container is not empty %}
+    <div class="ecl-text-media__media">
+    {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
+      extra_classes: 'ecl-text-media__media_container',
+    }) only %}
+    </div>
+  {% endif %}
 </article>
 {% endapply %}
