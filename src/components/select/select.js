@@ -710,9 +710,8 @@ export class Select {
    * Destroy the component instance.
    */
   destroy() {
-    this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
-
     if (this.multiple) {
+      this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
       document.removeEventListener('click', this.handleClickOutside);
       this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
       this.input.removeEventListener('click', this.handleToggle);
@@ -765,6 +764,8 @@ export class Select {
       }
 
       this.select.parentNode.classList.remove('ecl-select__container--hidden');
+    } else {
+      this.select.removeEventListener('keydown', this.handleKeyboardOnSelect);
     }
 
     if (this.element) {

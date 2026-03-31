@@ -34,7 +34,8 @@
     "chromatic-eu": "cd src/playground/eu && npm run build",
     "chromatic-ec": "cd src/playground/ec && npm run build",
     "chromatic-EU": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-eu",
-    "chromatic-EC": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-ec"
+    "chromatic-EC": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-ec",
+    "update-version": "lerna version --no-push --no-git-tag-version"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
@@ -101,7 +102,7 @@
       "merge": ">=2.1.1",
       "browserslist": ">=4.24.2",
       "node-forge": ">=1.0.0",
-      "nth-check": ">=2.0.1",
+      "nth-check": ">=2.0.1 <3",
       "prismjs": ">=1.27.0",
       "minimist": ">=1.2.6",
       "simple-git": ">=3.3.0",
