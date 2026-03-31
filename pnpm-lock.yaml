@@ -16,7 +16,7 @@ overrides:
   merge: '>=2.1.1'
   browserslist: '>=4.24.2'
   node-forge: '>=1.0.0'
-  nth-check: '>=2.0.1'
+  nth-check: '>=2.0.1 <3'
   prismjs: '>=1.27.0'
   minimist: '>=1.2.6'
   simple-git: '>=3.3.0'
@@ -914,6 +914,9 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC1
         version: link:../link
+      '@ecl/mega-menu':
+        specifier: 5.0.0-RC1
+        version: link:../mega-menu
       '@ecl/menu':
         specifier: 5.0.0-RC1
         version: link:../menu
@@ -1237,6 +1240,9 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0-RC1
         version: link:../../components/banner
+      '@ecl/breadcrumb':
+        specifier: 5.0.0-RC1
+        version: link:../../components/breadcrumb
       '@ecl/card':
         specifier: 5.0.0-RC1
         version: link:../../components/card
@@ -1255,6 +1261,9 @@ importers:
       '@ecl/navigation-list':
         specifier: 5.0.0-RC1
         version: link:../../components/navigation-list
+      '@ecl/page-header':
+        specifier: 5.0.0-RC1
+        version: link:../../components/page-header
       '@ecl/site-footer':
         specifier: 5.0.0-RC1
         version: link:../../components/site-footer
