@@ -358,8 +358,13 @@ export class Quiz {
     const paddingBottom = parseFloat(styles.getPropertyValue('padding-bottom'));
 
     this.cards.forEach((card) => {
+      const front = queryOne(this.frontClass, card);
+      const back = queryOne(this.backClass, card);
       const question = queryOne(this.questionClass, card);
       const answer = queryOne(this.answerClass, card);
+
+      front.style.position = 'static';
+      back.style.position = 'static';
 
       // Reset heights previously set.
       question.style.minHeight = '';
@@ -372,6 +377,9 @@ export class Quiz {
       if (heightText > maxTextHeight) {
         maxTextHeight = heightText;
       }
+
+      front.style.position = '';
+      back.style.position = '';
     });
 
     this.cards.forEach((card) => {
@@ -380,6 +388,9 @@ export class Quiz {
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
       const content = queryOne(this.contentClass, card);
+
+      front.style.position = 'static';
+      back.style.position = 'static';
       content.style.height = '';
 
       question.style.minHeight = maxTextHeight + 'px';
@@ -392,6 +403,8 @@ export class Quiz {
       if (height > minHeight && height > maxHeight) {
         maxHeight = height;
       }
+      front.style.position = '';
+      back.style.position = '';
     });
 
     if (maxHeight > 0) {
