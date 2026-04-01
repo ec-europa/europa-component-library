@@ -11,7 +11,8 @@ $theme: null !default;
 .ecl-quiz__prev,
 .ecl-quiz__next,
 .ecl-quiz__counter,
-.ecl-quiz__live-region {
+.ecl-quiz__live-region,
+.ecl-quiz-card__flip {
   display: none;
 }
 
@@ -54,6 +55,10 @@ $theme: null !default;
   .ecl-quiz-card__answer {
     display: inline-flex;
     min-height: auto !important;
+  }
+
+  .ecl-quiz-card__question {
+    font-weight: map.get($theme, 'font-weight', 'semi-bold');
   }
 
   .ecl-quiz-card__question,
