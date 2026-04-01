@@ -75,6 +75,7 @@ export class Quiz {
 
     this.element = element;
     this.eventManager = new EventManager();
+    this.direction = getComputedStyle(this.element).direction;
 
     // Options
     this.cardSelector = cardSelector;
@@ -211,6 +212,7 @@ export class Quiz {
       {
         loop: false,
         align: 'start',
+        direction: this.direction,
       },
       [
         Accessibility({
