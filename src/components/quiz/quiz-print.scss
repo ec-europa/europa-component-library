@@ -25,10 +25,18 @@ $theme: null !default;
 .ecl-quiz__description {
   font: map.get($theme, 'font-print', 'l');
   margin-block-end: map.get($theme, 'spacing-print', 'l');
+  max-width: var(--max-w);
 }
 
 .ecl-quiz-card {
+  border-block-end: 1px solid
+    var(--cm-border-brand, map.get($theme, 'color', 'black'));
   margin-block-end: map.get($theme, 'spacing-print', 's');
+  padding-block-end: map.get($theme, 'spacing-print', 's');
+
+  &:last-child {
+    border: none;
+  }
 }
 
 .ecl-quiz-card__front,
