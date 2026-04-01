@@ -1,0 +1,81 @@
+/*
+ * Quiz print
+ * @define quiz
+ */
+
+@use 'sass:map';
+
+$theme: null !default;
+
+.ecl-quiz__pager,
+.ecl-quiz__prev,
+.ecl-quiz__next,
+.ecl-quiz__counter,
+.ecl-quiz__live-region {
+  display: none;
+}
+
+.ecl-quiz__title {
+  font: map.get($theme, 'font-print', 'xl');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-block-end: map.get($theme, 'spacing-print', 's');
+}
+
+.ecl-quiz__description {
+  font: map.get($theme, 'font-print', 'l');
+  margin-block-end: map.get($theme, 'spacing-print', 'l');
+}
+
+.ecl-quiz-card {
+  margin-block-end: map.get($theme, 'spacing-print', 's');
+}
+
+.ecl-quiz-card__front,
+.ecl-quiz-card__back {
+  align-items: center;
+  font: map.get($theme, 'font-print', 'm');
+  transform: none !important;
+  display: flex;
+
+  &[hidden] {
+    display: flex;
+  }
+
+  .ecl-quiz-card__category {
+    display: none;
+  }
+
+  .ecl-quiz-card__header {
+    height: map.get($theme, 'icon-print', '2xl');
+  }
+
+  .ecl-quiz-card__header,
+  .ecl-quiz-card__question,
+  .ecl-quiz-card__answer {
+    display: inline-flex;
+    min-height: auto !important;
+  }
+
+  .ecl-quiz-card__question,
+  .ecl-quiz-card__answer {
+    margin-inline-start: map.get($theme, 'spacing-print', 's');
+  }
+
+  .ecl-quiz-card__option {
+    display: none;
+  }
+}
+
+.ecl-quiz-card__back {
+  .ecl-quiz-card__answer-title {
+    display: none;
+  }
+
+  .ecl-quiz-card__icon .ecl-icon {
+    display: none;
+
+    &.ecl-quiz-card__icon--success {
+      display: flex;
+    }
+  }
+}
