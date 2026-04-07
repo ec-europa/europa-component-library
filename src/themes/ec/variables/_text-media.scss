@@ -27,35 +27,3 @@ $text-media: (
     spacing: var(--s-3xl),
   ),
 );
-$text-media-print: (
-  gap-horizontal: map.get($spacing-print, 'xl'),
-  gap-vertical: map.get($spacing-print, 'xs'),
-  padding: map.get($spacing-print, 'xl'),
-  title: (
-    font: map.get($font-print, '2xl'),
-  ),
-  description: (
-    font: map.get($font-print, 'm'),
-    spacing: map.get($spacing-print, 'l'),
-  ),
-  link: (
-    font: map.get($font-print, 'm'),
-    spacing: map.get($spacing-print, 'l'),
-  ),
-  highlight: (
-    container: (
-      padding-inline: 0,
-      padding-block: 0,
-    ),
-    item: (
-      padding-inline: map.get($spacing-print, 'xl'),
-      padding-block: map.get($spacing-print, 'xl'),
-    ),
-    link: (
-      spacing: map.get($spacing-print, 'l'),
-      spacing-highlighted: map.get($spacing-print, '3xl'),
-      padding: map.get($spacing-print, 'm') map.get($spacing-print, '3xl'),
-      max-width: 13.125rem,
-    ),
-  ),
-);

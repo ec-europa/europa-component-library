@@ -71,12 +71,17 @@ $text-media: null !default;
 
   .ecl-media-container__figure,
   .ecl-media-container__picture,
-  .ecl-media-container__media {
+  .ecl-media-container__media,
+  .ecl-media-container__video-wrapper {
     height: 100%;
   }
 
   .ecl-media-container__media {
     aspect-ratio: 4/3;
+  }
+
+  .ecl-media-container__figure {
+    border-radius: 0;
   }
 }
 

@@ -3,14 +3,15 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import demoData from './demo/data';
+import demoDataImage from './demo/data--image';
+import demoDataVideo from './demo/data--video';
 import textMedia from './text-media.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
 
 const getArgs = (data) => {
-  const args = {
+  let args = {
     variant: '',
     show_micro_title: true,
     show_description: true,
@@ -21,17 +22,31 @@ const getArgs = (data) => {
     link_label: data.link.link.label,
     full_width: false,
     media_position: 'right',
-    media_anchor: 'center',
     gridContent: false,
   };
+
   if (system === 'ec') {
     args.color_mode = 'default';
+  }
+
+  if (data.media_container.picture) {
+    args = {
+      ...args,
+      media_anchor: 'center',
+    };
+  }
+
+  if (data.media_container.video) {
+    args = {
+      ...args,
+      autoplay: false,
+    };
   }
 
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (data) => {
   const argTypes = getColorModeControls({ arg: 'variant', eq: '' });
 
   argTypes.variant = {
@@ -155,23 +170,38 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.media_anchor = {
-    name: 'Media anchor',
-    type: { name: 'select' },
-    description: 'Media anchor (sample)',
-    options: ['center', 'top left', 'bottom right', '20% 20%'],
-    mapping: {
-      center: 'center',
-      'top left': 'top left',
-      'bottom right': 'bottom right',
-      '20% 20%': '20% 20%',
-    },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'center' },
-      category: 'Display',
-    },
-  };
+  if (data.media_container.picture) {
+    argTypes.media_anchor = {
+      name: 'Media anchor',
+      type: { name: 'select' },
+      description: 'Media anchor (sample)',
+      options: ['center', 'top left', 'bottom right', '20% 20%'],
+      mapping: {
+        center: 'center',
+        'top left': 'top left',
+        'bottom right': 'bottom right',
+        '20% 20%': '20% 20%',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'center' },
+        category: 'Display',
+      },
+    };
+  }
+
+  if (data.media_container.video) {
+    argTypes.autoplay = {
+      name: 'Auto play',
+      type: 'boolean',
+      description:
+        'Video will start playing once rendered, muted, in a loop and without controls',
+      table: {
+        defaultValue: { summary: 'false' },
+        category: 'Display',
+      },
+    };
+  }
 
   argTypes.gridContent = {
     name: 'demo grid content',
@@ -195,7 +225,12 @@ const prepareData = (data, args) => {
   clone.link.link.label = args.link_label;
   clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
 
-  clone.media_container.picture.image_anchor = args.media_anchor;
+  if (clone.media_container.picture) {
+    clone.media_container.picture.image_anchor = args.media_anchor;
+  }
+  if (clone.media_container.video) {
+    clone.media_container.autoplay = args.autoplay;
+  }
 
   if (!args.show_micro_title) delete clone.micro_title;
   if (!args.show_description) delete clone.description;
@@ -224,12 +259,25 @@ export default {
 export const Image = (_, { loaded: { component } }) => component;
 
 Image.render = async (args) => {
-  const renderedtextMedia = await renderStory(demoData, args);
+  const renderedtextMedia = await renderStory(demoDataImage, args);
   return renderedtextMedia;
 };
 Image.storyName = 'image';
-Image.args = getArgs(demoData);
-Image.argTypes = getArgTypes();
+Image.args = getArgs(demoDataImage);
+Image.argTypes = getArgTypes(demoDataImage);
 Image.parameters = {
-  notes: { markdown: notes, json: demoData },
+  notes: { markdown: notes, json: demoDataImage },
+};
+
+export const Video = (_, { loaded: { component } }) => component;
+
+Video.render = async (args) => {
+  const renderedtextMedia = await renderStory(demoDataVideo, args);
+  return renderedtextMedia;
+};
+Video.storyName = 'video';
+Video.args = getArgs(demoDataVideo);
+Video.argTypes = getArgTypes(demoDataVideo);
+Video.parameters = {
+  notes: { markdown: notes, json: demoDataVideo },
 };

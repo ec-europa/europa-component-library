@@ -2,59 +2,28 @@
 @use '../index' as *;
 
 $text-media: (
-  background-default: var(--cm-surface-0-text-media),
-  background-primary: var(--c-p-500),
-  color-default: var(--cm-on-surface-text-media),
-  color-primary: var(--cm-on-surface-brand),
-  padding-content-mobile: var(--s-7xl) var(--s-m),
-  padding-content-tablet: var(--s-7xl) var(--s-xl),
-  padding-content-desktop: 5rem var(--s-3xl),
+  background-default: var(--c-p-180),
+  background-primary: var(--c-p-60),
+  color-default: #fff,
+  color-primary: var(--c-p-180),
+  padding-content-mobile: var(--s-3xl) var(--s-m),
+  padding-content-tablet: var(--s-3xl) var(--s-l),
+  padding-content-desktop: 5rem var(--s-xl),
   micro-title: (
-    font: 'microcopy-s',
-    letter-spacing: map.get($letter-spacing, '3xl'),
-    font-weight: map.get($font-weight, 'medium'),
+    font: var(--f-m),
+    letter-spacing: 2px,
+    font-weight: map.get($font-weight, 'regular'),
   ),
   title: (
     font: 'heading2',
     spacing: var(--s-m),
   ),
   description: (
-    font: 'body-m',
-    font-weight: map.get($font-weight, 'medium'),
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'regular'),
     spacing: var(--s-m),
   ),
   link: (
-    spacing: var(--s-3xl),
-  ),
-);
-$text-media-print: (
-  gap-horizontal: map.get($spacing-print, 'm'),
-  gap-vertical: map.get($spacing-print, 'm'),
-  padding: 0,
-  title: (
-    font: map.get($font-prolonged-print, 'l'),
-  ),
-  description: (
-    font: map.get($font-prolonged-print, 'm'),
-    spacing: map.get($spacing-print, 's'),
-  ),
-  link: (
-    font: map.get($font-print, 'm'),
-    spacing: map.get($spacing-print, 'm'),
-  ),
-  highlight: (
-    container: (
-      padding-inline: map.get($spacing-print, 'l') map.get($spacing-print, 'm'),
-      padding-block: map.get($spacing-print, 'm'),
-    ),
-    item: (
-      padding-inline: map.get($spacing-print, 'l'),
-      padding-block: 0,
-    ),
-    link: (
-      spacing: map.get($spacing-print, 'm'),
-      spacing-highlighted: 0,
-      padding: map.get($spacing-print, 'm') map.get($spacing-print, '3xl'),
-    ),
+    spacing: var(--s-xl),
   ),
 );
