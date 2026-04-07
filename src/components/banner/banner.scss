@@ -42,7 +42,7 @@ $banner: null !default;
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($banner, 'font', 'credit', 'mobile');
+  font: map.get($banner, 'credit', 'mobile');
   margin-block-end: calc(-1 * var(--s-xl));
   padding-block-start: 1px;
   position: relative;
@@ -119,17 +119,35 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'dark');
   }
 
-  @include mixins.responsive-font(map.get($banner, 'font', 'title-m'));
+  @include mixins.responsive-font(
+    map.get($banner, 'title', 'm', 'font'),
+    map.get($banner, 'title', 'm', 'font-weight-light')
+  );
+
+  .ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'title', 'm', 'font-weight-bold');
+  }
 
   .ecl-banner--font-s & {
     @include mixins.responsive-font(
-      map.get($banner, 'font', 'title-s'),
-      map.get($banner, 'font', 'title-s-font-weight')
+      map.get($banner, 'title', 's', 'font'),
+      map.get($banner, 'title', 's', 'font-weight-light')
     );
   }
 
+  .ecl-banner--font-s.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'title', 's', 'font-weight-bold');
+  }
+
   .ecl-banner--font-l & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'title-l'));
+    @include mixins.responsive-font(
+      map.get($banner, 'title', 'l', 'font'),
+      map.get($banner, 'title', 'l', 'font-weight-light')
+    );
+  }
+
+  .ecl-banner--font-l.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'title', 'l', 'font-weight-bold');
   }
 }
 
@@ -149,19 +167,34 @@ $banner: null !default;
   }
 
   @include mixins.responsive-font(
-    map.get($banner, 'font', 'description-m'),
-    map.get($banner, 'font', 'description-m-font-weight')
+    map.get($banner, 'description', 'm', 'font'),
+    map.get($banner, 'description', 'm', 'font-weight-light')
   );
 
+  .ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'description', 'm', 'font-weight-bold');
+  }
+
   .ecl-banner--font-s & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'description-s'));
+    @include mixins.responsive-font(
+      map.get($banner, 'description', 's', 'font'),
+      map.get($banner, 'description', 's', 'font-weight-light')
+    );
+  }
+
+  .ecl-banner--font-s.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'description', 's', 'font-weight-bold');
   }
 
   .ecl-banner--font-l & {
     @include mixins.responsive-font(
-      map.get($banner, 'font', 'description-l'),
-      map.get($banner, 'font', 'description-l-font-weight')
+      map.get($banner, 'description', 'l', 'font'),
+      map.get($banner, 'description', 'l', 'font-weight-light')
     );
+  }
+
+  .ecl-banner--font-l.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'description', 'l', 'font-weight-bold');
   }
 }
 
@@ -318,7 +351,7 @@ $banner: null !default;
   }
 
   .ecl-banner__credit {
-    font: map.get($banner, 'font', 'credit', 'desktop');
+    font: map.get($banner, 'credit', 'desktop');
     margin-block-end: 0;
     padding-block: var(--s-2xs);
     position: absolute;
