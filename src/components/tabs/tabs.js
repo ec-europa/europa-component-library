@@ -666,12 +666,13 @@ export class Tabs {
         if (this.moreButton) {
           this.moreButton.classList.add('ecl-tabs__toggle--hidden');
         }
-        let listWidth = 0;
+        // Reset to auto so scrollWidth reflects the natural content width
+        this.list.style.width = 'auto';
         this.listItems.forEach((item) => {
           item.classList.remove('ecl-tabs__item--hidden');
-          listWidth += Math.ceil(item.getBoundingClientRect().width);
         });
-        this.list.style.width = `${listWidth}px`;
+        // scrollWidth includes item margins, unlike getBoundingClientRect().width
+        this.list.style.width = `${this.list.scrollWidth}px`;
         this.btnNext.style.display = 'flex';
         this.container.classList.add('ecl-tabs__container--right');
         this.btnPrev.style.display = 'none';
@@ -689,26 +690,68 @@ export class Tabs {
       this.list.style.width = 'auto';
 
       // Hide items that won't fit in the list
-      let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
+      // Temporarily show the more button to get its actual width,
+      // since getBoundingClientRect returns 0 when display:none
+      this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
+      const moreButtonWidth = this.moreButton.getBoundingClientRect().width;
+      this.moreItem.classList.add('ecl-tabs__item--hidden');
+      this.moreButton.classList.add('ecl-tabs__toggle--hidden');
+
       const hiddenItems = [];
-      const listWidth =
-        this.list.getBoundingClientRect().width || this.list.offsetWidth;
+      const listRect = this.list.getBoundingClientRect();
+      const direction = getComputedStyle(this.element).direction;
       this.moreButtonActive = false;
-      this.listItems.forEach((item, i) => {
-        item.classList.remove('ecl-tabs__item--hidden');
-        if (
-          listWidth >= stopWidth + item.getBoundingClientRect().width &&
-          !hiddenItems.includes(i - 1)
-        ) {
-          stopWidth += item.getBoundingClientRect().width;
-        } else {
-          item.classList.add('ecl-tabs__item--hidden');
-          if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
-            this.moreButtonActive = true;
+
+      // First, show all items and check if they all fit without the button.
+      // Use position-based checks so item margins (excluded from getBoundingClientRect)
+      // are naturally accounted for by the flex layout.
+      this.listItems.forEach((item) =>
+        item.classList.remove('ecl-tabs__item--hidden'),
+      );
+      const lastItem = this.listItems[this.listItems.length - 1];
+      const lastItemEdge =
+        direction === 'rtl'
+          ? lastItem.getBoundingClientRect().left
+          : lastItem.getBoundingClientRect().right;
+      const allFit =
+        direction === 'rtl'
+          ? lastItemEdge >= listRect.left
+          : lastItemEdge <= listRect.right;
+
+      if (!allFit) {
+        // Some items overflow; re-hide all and iterate with button space reserved.
+        this.listItems.forEach((item) =>
+          item.classList.add('ecl-tabs__item--hidden'),
+        );
+        // In LTR the button is at right:0, in RTL it is at left:0.
+        const threshold =
+          direction === 'rtl'
+            ? listRect.left + moreButtonWidth
+            : listRect.right - moreButtonWidth;
+
+        this.listItems.forEach((item, i) => {
+          item.classList.remove('ecl-tabs__item--hidden');
+          const itemEdge =
+            direction === 'rtl'
+              ? item.getBoundingClientRect().left
+              : item.getBoundingClientRect().right;
+          const fits =
+            direction === 'rtl' ? itemEdge >= threshold : itemEdge <= threshold;
+
+          if (fits && !hiddenItems.includes(i - 1)) {
+            // item fits
+          } else {
+            item.classList.add('ecl-tabs__item--hidden');
+            if (
+              item.childNodes[0].classList.contains('ecl-tabs__link--active')
+            ) {
+              this.moreButtonActive = true;
+            }
+            hiddenItems.push(i);
           }
-          hiddenItems.push(i);
-        }
-      });
+        });
+      }
 
       // Add active class to the more button if it contains an active element
       if (this.moreButtonActive) {
