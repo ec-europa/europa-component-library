@@ -4,264 +4,93 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $text-media: null !default;
-$text-media-print: null !default;
 
-.ecl-text-media__container {
-  border-radius: map.get($text-media, 'border-radius');
+.ecl-text-media {
   display: flex;
+  flex-direction: row;
+}
+
+.ecl-text-media--position-left {
   flex-direction: row-reverse;
 }
 
-.ecl-text-media__item {
-  box-sizing: border-box;
-  flex-basis: 50%;
-  flex-grow: 1;
+.ecl-text-media__media {
+  flex-basis: 70%;
+}
 
-  &:first-child {
+.ecl-text-media__content {
+  align-items: flex-start;
+  background-color: map.get($text-media, 'background-default');
+  box-sizing: border-box;
+  color: map.get($text-media, 'color-default');
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  padding: map.get($text-media, 'padding-content-desktop');
+
+  & > *:first-child {
     margin-block-start: 0;
-    padding-inline: map.get($text-media-print, 'gap-horizontal') 0;
   }
+}
+
+.ecl-text-media--primary .ecl-text-media__content {
+  background-color: map.get($text-media, 'background-primary');
+  color: map.get($text-media, 'color-primary');
+}
+
+.ecl-text-media__micro-title {
+  letter-spacing: map.get($text-media, 'micro-title', 'letter-spacing');
+  text-transform: uppercase;
+
+  @include mixins.responsive-font(
+    map.get($text-media, 'micro-title', 'font'),
+    $font-weight: map.get($text-media, 'micro-title', 'font-weight')
+  );
 }
 
 .ecl-text-media__title {
-  color: map.get($text-media, 'title', 'color');
-  font: map.get($text-media-print, 'title', 'font');
-  font-weight: map.get($text-media, 'title', 'font-weight');
-  max-width: var(--max-w);
+  margin-block-start: map.get($text-media, 'title', 'spacing');
+
+  @include mixins.responsive-font(map.get($text-media, 'title', 'font'));
 }
 
 .ecl-text-media__description {
-  color: map.get($text-media, 'description', 'color');
-  font: map.get($text-media-print, 'description', 'font');
-  max-width: var(--max-w);
+  margin-block-start: map.get($text-media, 'description', 'spacing');
 
-  .ecl-text-media__title + & {
-    margin-block-start: map.get($text-media-print, 'description', 'spacing');
-  }
-
-  &:first-child,
-  > *:first-child {
-    margin-top: 0;
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
+  @include mixins.responsive-font(
+    map.get($text-media, 'description', 'font'),
+    $font-weight: map.get($text-media, 'description', 'font-weight')
+  );
 }
 
 .ecl-text-media__link {
-  font: map.get($text-media-print, 'link', 'font');
-  text-align: start;
-
-  .ecl-text-media__info + & {
-    margin-block-start: map.get($text-media-print, 'link', 'spacing');
-  }
-
-  &:dir(rtl) .ecl-icon {
-    transform: scaleX(1);
-  }
+  margin-block-start: map.get($text-media, 'link', 'spacing');
 }
 
-.ecl-text-media__container--right {
-  flex-direction: row;
-
-  .ecl-text-media__item:first-child {
-    padding-inline: 0 map.get($text-media-print, 'gap-horizontal');
-  }
-}
-
-.ecl-text-media:not(.ecl-text-media--highlight) {
-  .ecl-text-media__item:only-child {
-    padding-inline-start: 0;
-  }
-}
-
-// Content alignment
-.ecl-text-media__content {
-  display: flex;
-  flex-direction: column;
+.ecl-text-media__media_container {
   height: 100%;
 
-  .ecl-text-media__link {
-    align-self: flex-start;
-  }
-
-  .ecl-text-media--hcenter & {
-    align-items: center;
-    text-align: center;
-
-    .ecl-text-media__link {
-      align-self: auto;
-    }
-  }
-
-  .ecl-text-media--vcenter & {
-    justify-content: center;
-  }
-}
-
-// Dynamic height image
-.ecl-text-media--dynamic {
-  .ecl-text-media__media_container,
   .ecl-media-container__figure,
   .ecl-media-container__picture,
   .ecl-media-container__media {
     height: 100%;
   }
+
+  .ecl-media-container__media {
+    aspect-ratio: 16/9;
+  }
 }
 
-/**
-* Highlight
-*/
-.ecl-text-media--highlight {
-  .ecl-text-media__container {
-    background-color: map.get(
-      $text-media,
-      'highlight',
-      'container',
-      'background-color'
-    );
-    border-inline-start: map.get($text-media, 'highlight', 'border-size') solid
-      map.get($text-media, 'highlight', 'border-color');
-    padding-block: map.get(
-      $text-media-print,
-      'highlight',
-      'container',
-      'padding-block'
-    );
-    padding-inline: map.get(
-      $text-media-print,
-      'highlight',
-      'container',
-      'padding-inline'
-    );
-  }
-
-  // stylelint-disable-next-line no-descending-specificity
-  .ecl-text-media__item:first-child {
-    background-color: map.get(
-      $text-media,
-      'highlight',
-      'item',
-      'background-color'
-    );
-    display: flex;
-    flex-direction: column;
-    padding-block: map.get(
-      $text-media-print,
-      'highlight',
-      'item',
-      'padding-block'
-    );
-    padding-inline: map.get(
-      $text-media-print,
-      'highlight',
-      'item',
-      'padding-inline'
-    );
-    position: relative;
-  }
-
-  .ecl-text-media__title {
-    color: map.get($text-media, 'highlight', 'title', 'color');
-  }
-
-  .ecl-text-media__description {
-    color: map.get($text-media, 'highlight', 'description', 'color');
-  }
-
-  .ecl-text-media__info + .ecl-text-media__link {
-    margin-block-start: map.get(
-      $text-media-print,
-      'highlight',
-      'link',
-      'spacing'
-    );
-  }
-
-  .ecl-text-media__link:not(
-    .ecl-link--primary-highlight,
-    .ecl-link--primary-neutral,
-    .ecl-link--primary,
-    .ecl-link--secondary
-  ) {
-    color: map.get($text-media, 'highlight', 'description', 'color');
-    text-decoration: underline;
-
-    &:visited {
-      color: map.get($text-media, 'highlight', 'description', 'color');
-    }
-  }
-
-  // Highlighted link
-  &.ecl-text-media--link-highlighted {
-    .ecl-text-media__info {
-      flex-grow: 1;
-    }
-
-    &.ecl-text-media--vcenter .ecl-text-media__info {
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    // stylelint-disable-next-line no-descending-specificity
-    .ecl-text-media__link {
-      background-color: map.get(
-        $text-media,
-        'highlight',
-        'link',
-        'background-color'
-      );
-      color: map.get($text-media, 'highlight', 'link', 'color-highlighted');
-      display: block;
-      margin-block-end: calc(
-        -1 * #{map.get($text-media-print, 'highlight', 'item', 'padding-block')}
-      );
-      margin-inline-end: calc(
-        -1 *
-          #{map.get($text-media-print, 'highlight', 'item', 'padding-inline')}
-      );
-      margin-inline-start: auto;
-      width: clamp(
-        1px,
-        #{map.get($text-media, 'highlight', 'link', 'max-width')},
-        100%
-      );
-      padding: map.get($text-media-print, 'highlight', 'link', 'padding');
-      text-decoration: none;
-
-      &:visited {
-        color: map.get($text-media, 'highlight', 'link', 'color-highlighted');
-      }
-
-      .ecl-link__icon {
-        display: block;
-        margin-block: var(--s-s) 0;
-        margin-inline: 0;
-      }
-    }
-
-    .ecl-text-media__info + .ecl-text-media__link {
-      margin-block-start: map.get(
-        $text-media-print,
-        'highlight',
-        'link',
-        'spacing-highlighted'
-      );
-    }
-
-    .ecl-text-media__container--right .ecl-text-media__link,
-    .ecl-text-media__item:first-child:only-child .ecl-text-media__link {
-      margin-inline-end: 0;
-      margin-inline-start: calc(
-        -1 *
-          #{map.get($text-media-print, 'highlight', 'item', 'padding-inline')}
-      );
-    }
-  }
+.ecl-text-media--full-width {
+  inset-inline-start: 50%;
+  margin-inline-start: -50vw;
+  position: relative;
+  width: 100vw;
 }

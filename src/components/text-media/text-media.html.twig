@@ -4,12 +4,13 @@
   - "color_mode" (string) (default: '') Name of the color mode
   - "id" (string) (default: random): Unique id
   - "variant" (string) (default: ''): Display variant; can be '', 'primary'
-  - "text_position" (string) (default: 'left'): Text position relative to the media; can be 'left', 'right'
+  - "media_position" (string) (default: 'right'): Media position relative to the text; can be 'left', 'right'
   - "title" (string) (default: ''): Content title
   - "micro_title" (string) (default: ''): Small additional title
   - "description" (string) (default: ''): Content description
   - "link" (object) (default: {}): Content link, following ECL Link structure
-  - "media_container" (object) (default: {}): object of type Media container
+  - "media_container" (object) (default: {}): Media used (picture or video), following ECL Media container structure
+  - "full_width" (boolean) (default: false): Full width display (inside the grid)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -26,15 +27,22 @@
 {% set _color_mode = color_mode|default('') %}
 {% set _id = id|default('ecl-text-media-' ~ random()) %}
 {% set _variant = variant|default('') %}
-{% set _text_position = text_position|default('left') %}
+{% set _media_position = media_position|default('right') %}
 {% set _title = title|default('') %}
 {% set _micro_title = micro_title|default('') %}
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
 {% set _media_container = media_container|default({}) %}
+{% set _full_width = full_width|default(false) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% set _color_mode_light = ['blue', 'orange', 'green', 'blue-electric', 'blue-ocean', 'green-lemon', 'warm-grey', 'yellow-gold', 'purple-violet', 'red-tomato'] %}
+{% set _link_type = 'secondary-inverted' %}
+{% if _variant == 'primary' or _color_mode in _color_mode_light %}
+  {% set _link_type = 'primary-neutral' %}
+{% endif %}
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
@@ -44,8 +52,12 @@
   {% set _css_class = _css_class ~ ' ecl-text-media--' ~ _variant %}
 {% endif %}
 
-{% if _text_position != 'left' %}
-  {% set _css_class = _css_class ~ ' ecl-text-media--position-' ~ _text_position %}
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-text-media--full-width' %}
+{% endif %}
+
+{% if _media_position != 'right' %}
+  {% set _css_class = _css_class ~ ' ecl-text-media--position-' ~ media_position %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -95,7 +107,7 @@
       {% endif %}
       {% include '@ecl/link/link.html.twig' with _link|merge({
         link: _link.link|merge({
-          type: 'primary-neutral',
+          type: _link_type,
         }),
         extra_classes: 'ecl-text-media__link',
         extra_attributes: _link_attributes,
@@ -107,6 +119,7 @@
   {% if _media_container is not empty %}
     <div class="ecl-text-media__media">
     {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
+      caption_position: 'over',
       extra_classes: 'ecl-text-media__media_container',
     }) only %}
     </div>

@@ -8,8 +8,9 @@
   - "sr_pause" (string) (default: ''): Label for the pause button (for autoplay video)
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "title" (string) (default: ''): Media title
-  - "description" (string) (default: ''),
-  - "credit" (string) (default: '') Credit for the image
+  - "description" (string) (default: ''): Description of the media
+  - "credit" (string) (default: ''): Credit for the media
+  - "caption_position" (string) (default: 'bottom'): Position of the description and credit; can be 'bottom', 'over'
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "ratio" (string) (default: '')
@@ -44,6 +45,7 @@
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
 {% set _credit = credit|default('') %}
+{% set _caption_position = caption_position|default('bottom') %}
 {% set _title = title|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_audio = sr_video_audio|default('') %}
@@ -53,7 +55,8 @@
 {% set _autoplay = autoplay|default(false) %}
 {% set _video = video|default({}) %}
 {% set _picture = picture|default({}) %}
-{% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
+{% set _needs_js = embedded_media or (autoplay and (video or sources)) or (_caption_position == 'over' and _description is not empty and _credit is not empty) %}
+{% set _extra_attributes = _needs_js ? [
   'data-ecl-media-container="true"',
   'data-ecl-auto-init="MediaContainer"'
 ]|join(' ') : '' %}
@@ -67,6 +70,10 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _caption_position != 'bottom' %}
+  {% set _css_class = _css_class ~ ' ecl-media-container--caption-' ~ _caption_position %}
+{% endif %}
 
 {% if _picture.img is empty and _image is not empty %}
   {% set _picture = {

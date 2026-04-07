@@ -2,63 +2,29 @@
 @use '../index' as *;
 
 $text-media: (
-  gap-horizontal: var(--s-m),
-  gap-vertical: var(--s-m),
-  padding: 0,
-  border-radius: map.get($border-radius, 's'),
-  max-width: var(--max-w),
+  background-default: var(--cm-surface-0-text-media),
+  background-primary: var(--c-p-500),
+  color-default: var(--cm-on-surface-text-media),
+  color-primary: var(--cm-on-surface-brand),
+  padding-content-mobile: var(--s-7xl) var(--s-m),
+  padding-content-tablet: var(--s-7xl) var(--s-xl),
+  padding-content-desktop: 5rem var(--s-3xl),
+  micro-title: (
+    font: 'microcopy-s',
+    letter-spacing: map.get($letter-spacing, '3xl'),
+    font-weight: map.get($font-weight, 'medium'),
+  ),
   title: (
-    color: var(--c-d-140),
-    typography: (
-      'mobile': (
-        'size': var(--fs-l),
-        'line-height': var(--lh-l),
-      ),
-      'font-weight': map.get($font-weight, 'bold'),
-    ),
-  ),
-  description: (
-    color: var(--c-d-80),
-    font: var(--f-p-m),
-    spacing: var(--s-s),
-  ),
-  link: (
-    font: var(--f-m),
+    font: 'heading2',
     spacing: var(--s-m),
   ),
-  highlight: (
-    container: (
-      background-color: var(--c-p-10),
-      padding-inline-mobile: var(--s-xs) var(--s-m),
-      padding-block-mobile: var(--s-m),
-      padding-inline-desktop: var(--s-l) var(--s-m),
-      padding-block-desktop: var(--s-m),
-    ),
-    item: (
-      background-color: transparent,
-      padding-inline-mobile: 0,
-      padding-block-mobile: var(--s-m) 0,
-      padding-inline-desktop: var(--s-l),
-      padding-block-desktop: 0,
-    ),
-    border-size: 8px,
-    border-color: var(--c-p),
-    title: (
-      color: var(--c-d-140),
-    ),
-    description: (
-      color: var(--c-d-80),
-    ),
-    link: (
-      background-color: transparent,
-      color: var(--c-p),
-      color-highlighted: var(--c-p),
-      spacing: var(--s-m),
-      spacing-highlighted: 0,
-      padding-mobile: var(--s-m) var(--s-xl),
-      padding-desktop: var(--s-m) var(--s-3xl),
-      max-width: 13.125rem,
-    ),
+  description: (
+    font: 'body-m',
+    font-weight: map.get($font-weight, 'medium'),
+    spacing: var(--s-m),
+  ),
+  link: (
+    spacing: var(--s-3xl),
   ),
 );
 $text-media-print: (

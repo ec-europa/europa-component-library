@@ -23,10 +23,11 @@ module.exports = {
     picture: {
       img: {
         alt: 'Lorem ipsum dolor sit amet',
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
       },
     },
-    // description: 'Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing',
-    // credit: '@Copyright',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipiscing elite tempore incididunt ut labore et dolore magna.',
+    credit: '@Copyright',
   },
 };

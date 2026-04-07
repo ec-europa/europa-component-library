@@ -2,72 +2,29 @@
 @use '../index' as *;
 
 $text-media: (
-  background-default: black,
-  // todo
-  background-primary: blue,
-  // todo
-  color-default: white,
-  // todo
-  color-primary: black,
-  // todo
-  padding-content: 1rem,
-  // todo
+  background-default: var(--cm-surface-0-text-media),
+  background-primary: var(--c-p-500),
+  color-default: var(--cm-on-surface-text-media),
+  color-primary: var(--cm-on-surface-brand),
+  padding-content-mobile: var(--s-7xl) var(--s-m),
+  padding-content-tablet: var(--s-7xl) var(--s-xl),
+  padding-content-desktop: 5rem var(--s-3xl),
   micro-title: (
-      font: 'body-xs',
-      // todo
-    ),
+    font: 'microcopy-s',
+    letter-spacing: map.get($letter-spacing, '3xl'),
+    font-weight: map.get($font-weight, 'medium'),
+  ),
   title: (
-    font: 'heading3',
-    // todo
+    font: 'heading2',
+    spacing: var(--s-m),
   ),
   description: (
     font: 'body-m',
-    // todo
+    font-weight: map.get($font-weight, 'medium'),
+    spacing: var(--s-m),
   ),
-
-  gap-horizontal: var(--s-xl),
-  gap-vertical: var(--s-xs),
-  padding: var(--s-xl),
-  border-radius: map.get($border-radius, 'xs'),
-  max-width: 918px,
-
   link: (
-    font: var(--f-m),
-    spacing: var(--s-l),
-  ),
-  highlight: (
-    container: (
-      background-color: transparent,
-      padding-inline-mobile: 0,
-      padding-block-mobile: 0,
-      padding-inline-desktop: 0,
-      padding-block-desktop: 0,
-    ),
-    item: (
-      background-color: var(--cm-surface-0),
-      padding-inline-mobile: var(--s-xl),
-      padding-block-mobile: var(--s-xl),
-      padding-inline-desktop: var(--s-5xl),
-      padding-block-desktop: var(--s-5xl),
-    ),
-    border-size: 0,
-    border-color: transparent,
-    title: (
-      color: var(--cm-on-surface-swap-0),
-    ),
-    description: (
-      color: var(--cm-on-surface-swap-0),
-    ),
-    link: (
-      background-color: var(--cm-surface-variant-1),
-      color: var(--cm-on-surface-swap-0),
-      color-highlighted: var(--cm-on-surface-swap-1),
-      spacing: var(--s-l),
-      spacing-highlighted: var(--s-5xl),
-      padding-mobile: var(--s-m) var(--s-xl),
-      padding-desktop: var(--s-m) var(--s-5xl),
-      max-width: 13.125rem,
-    ),
+    spacing: var(--s-3xl),
   ),
 );
 $text-media-print: (

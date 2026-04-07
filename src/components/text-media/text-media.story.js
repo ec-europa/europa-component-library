@@ -11,6 +11,7 @@ const system = getSystem();
 
 const getArgs = (data) => {
   const args = {
+    variant: '',
     show_micro_title: true,
     show_description: true,
     show_link: true,
@@ -18,8 +19,10 @@ const getArgs = (data) => {
     micro_title: data.micro_title,
     description: data.description,
     link_label: data.link.link.label,
-    text_position: 'left',
+    full_width: false,
+    media_position: 'right',
     media_anchor: 'center',
+    gridContent: false,
   };
   if (system === 'ec') {
     args.color_mode = 'default';
@@ -29,7 +32,29 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = () => {
-  const argTypes = getColorModeControls();
+  const argTypes = getColorModeControls({ arg: 'variant', eq: '' });
+
+  argTypes.variant = {
+    name: 'Variant',
+    type: 'select',
+    description: 'Change variant',
+    options: ['', 'primary'],
+    control: {
+      labels: {
+        '': 'default',
+        primary: 'primary',
+      },
+    },
+    mapping: {
+      default: '',
+      primary: 'primary',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: '' },
+      category: 'Variant',
+    },
+  };
 
   argTypes.show_micro_title = {
     name: 'Show micro title',
@@ -105,10 +130,19 @@ const getArgTypes = () => {
     if: { arg: 'show_link' },
   };
 
-  argTypes.text_position = {
-    name: 'Text position',
+  argTypes.full_width = {
+    name: 'Full width',
+    type: { name: 'boolean' },
+    description: 'Take the full width of the viewport when in a container',
+    table: {
+      category: 'Display',
+    },
+  };
+
+  argTypes.media_position = {
+    name: 'Media position',
     type: { name: 'select' },
-    description: 'Text position',
+    description: 'Media position',
     options: ['left', 'right'],
     mapping: {
       left: 'left',
@@ -116,7 +150,7 @@ const getArgTypes = () => {
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'left' },
+      defaultValue: { summary: 'right' },
       category: 'Display',
     },
   };
@@ -125,17 +159,30 @@ const getArgTypes = () => {
     name: 'Media anchor',
     type: { name: 'select' },
     description: 'Media anchor (sample)',
-    options: ['center', 'left', 'right', '20%'],
+    options: ['center', 'top left', 'bottom right', '20% 20%'],
     mapping: {
       center: 'center',
-      left: 'left',
-      right: 'right',
-      '20%': '20%',
+      'top left': 'top left',
+      'bottom right': 'bottom right',
+      '20% 20%': '20% 20%',
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'center' },
       category: 'Display',
+    },
+  };
+
+  argTypes.gridContent = {
+    name: 'demo grid content',
+    type: { name: 'boolean' },
+    description:
+      'Inject a test content block displayed on the grid, to see the alignment',
+    table: {
+      category: 'Test content',
+    },
+    control: {
+      type: 'boolean',
     },
   };
 
@@ -148,11 +195,25 @@ const prepareData = (data, args) => {
   clone.link.link.label = args.link_label;
   clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
 
+  clone.media_container.picture.image_anchor = args.media_anchor;
+
   if (!args.show_micro_title) delete clone.micro_title;
   if (!args.show_description) delete clone.description;
   if (!args.show_link) delete clone.link;
 
   return Object.assign(correctPaths(clone), args);
+};
+
+const renderStory = async (data, args) => {
+  let story = await textMedia(prepareData(data, args));
+  story = `<div class="ecl-container">${story}</div>`;
+
+  if (args.gridContent) {
+    story +=
+      '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
+  }
+
+  return story;
 };
 
 export default {
@@ -163,7 +224,7 @@ export default {
 export const Image = (_, { loaded: { component } }) => component;
 
 Image.render = async (args) => {
-  const renderedtextMedia = await textMedia(prepareData(demoData, args));
+  const renderedtextMedia = await renderStory(demoData, args);
   return renderedtextMedia;
 };
 Image.storyName = 'image';
