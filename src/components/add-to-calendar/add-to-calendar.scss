@@ -120,6 +120,11 @@ $add-to-calendar: null !default;
 @include breakpoints.up('xl') {
   .ecl-add-to-calendar__info {
     flex-direction: row;
+    gap: map.get($add-to-calendar, 'info', 'gap-desktop');
     padding: map.get($add-to-calendar, 'info', 'padding-desktop');
+  }
+
+  .ecl-add-to-calendar__action {
+    align-self: center;
   }
 }
