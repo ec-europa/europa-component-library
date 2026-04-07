@@ -26,6 +26,10 @@ $add-to-calendar: null !default;
   flex-direction: column;
   gap: map.get($add-to-calendar, 'info', 'gap-mobile');
   padding: map.get($add-to-calendar, 'info', 'padding-mobile');
+
+  &:empty {
+    padding: 0;
+  }
 }
 
 .ecl-add-to-calendar__info-content {

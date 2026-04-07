@@ -67,6 +67,7 @@
     {% set _info_class = _info_class ~ " ecl-container" %}
   {% endif %}
   <div class="{{ _info_class }}">
+    {% if _title is not empty or _meta is not empty or _button_add is not empty %}
     <div class="ecl-add-to-calendar__info-content">
       
       {# Title #}
@@ -104,6 +105,7 @@
       <div class="ecl-add-to-calendar__action">{{ _button_add }}</div>
     {% endif %}
   </div>
+  {% endif %}
 </div>
 
 {% endapply %}
