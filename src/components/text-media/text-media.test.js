@@ -5,93 +5,57 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import demoContent from './demo/data';
-
-const demoContentHighlight = { ...demoContent, type: 'highlight' };
+import demoContentImage from './demo/data--image';
+import demoContentVideo from './demo/data--video';
 
 expect.extend(toHaveNoViolations);
 
-describe('Featured item', () => {
+describe('Text and media', () => {
   const template = '@ecl/text-media/text-media.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Default', () => {
+  describe('Image', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(demoContent)).resolves.toMatchSnapshot();
+      return expect(render(demoContentImage)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly without image', () => {
+    test('renders correctly with extra class names', () => {
       expect.assertions(1);
-      const withoutImage = { ...demoContent, media_container: false };
 
-      return expect(render(withoutImage)).resolves.toMatchSnapshot();
+      const withExtraClasses = merge(demoContentImage, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with content alignment', () => {
+    test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withAlignment = {
-        ...demoContent,
-        horizontal_alignment: 'center',
-        vertical_alignment: 'center',
-      };
+      const withExtraAttributes = merge(demoContentImage, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
 
-      return expect(render(withAlignment)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with dynamic media', () => {
-      expect.assertions(1);
-
-      const withDynamic = { ...demoContent, media_behavior: 'dynamic' };
-
-      return expect(render(withDynamic)).resolves.toMatchSnapshot();
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, demoContent, true)),
+        await axe(await renderTwigFileAsHtml(template, demoContentImage, true)),
       ).toHaveNoViolations();
     });
   });
 
-  describe('Highlight', () => {
+  describe('Video', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(demoContentHighlight)).resolves.toMatchSnapshot();
+      return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
     });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(
-          await renderTwigFileAsHtml(template, demoContentHighlight, true),
-        ),
-      ).toHaveNoViolations();
-    });
-  });
-
-  test('renders correctly with extra class names', () => {
-    expect.assertions(1);
-
-    const withExtraClasses = merge(demoContent, {
-      extra_classes: 'custom-class custom-class--test',
-    });
-
-    return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
-  });
-
-  test('renders correctly with extra attributes', () => {
-    expect.assertions(1);
-
-    const withExtraAttributes = merge(demoContent, {
-      extra_attributes: [
-        { name: 'data-test', value: 'data-test-value' },
-        { name: 'data-test-1', value: 'data-test-value-1' },
-      ],
-    });
-
-    return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
   });
 });
