@@ -6,6 +6,7 @@
 @use 'sass:map';
 
 $theme: null !default;
+$quiz-print: null !default;
 
 .ecl-quiz__pager,
 .ecl-quiz__prev,
@@ -30,7 +31,7 @@ $theme: null !default;
 
 .ecl-quiz-card {
   border-block-end: 1px solid
-    var(--cm-border-brand, map.get($theme, 'color', 'black'));
+    var(--c-g-400, map.get($theme, 'color', 'dark-40'));
   margin-block-end: map.get($theme, 'spacing-print', 's');
   padding-block-end: map.get($theme, 'spacing-print', 's');
 
@@ -66,7 +67,7 @@ $theme: null !default;
   }
 
   .ecl-quiz-card__question {
-    font-weight: map.get($theme, 'font-weight', 'semi-bold');
+    font-weight: map.get($quiz-print, 'question-font-weight');
   }
 
   .ecl-quiz-card__question,

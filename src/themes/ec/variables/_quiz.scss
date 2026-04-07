@@ -1,0 +1,55 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$quiz: (
+  quiz: (
+    background: var(--cm-surface-grey-low-0),
+    background-padding-top: var(--s-13xl),
+    background-padding-bottom: var(--s-11xl),
+    counter-font: 'body-xs',
+    description-font: 'body-m',
+    list-margin: var(--s-6xl),
+    prev-next-color: var(--ecl-color-grey-600),
+    prev-next-font: var(--f-xs),
+    prev-next-font-weight: map.get($font-weight, 'semi-bold'),
+    dot-background: var(--ecl-color-grey-600),
+    dot-active-background: var(--c-p-600),
+    outline-color: var(--cm-border-primary),
+    title-font: 'heading2',
+    title-font-weight: map.get($font-weight, 'semi-bold'),
+  ),
+  card: (
+    category-font: 'body-xs',
+    category-font-weight: map.get($font-weight, 'bold'),
+    color: var(--cm-on-surface-inverted),
+    question-answer-font: 'body-l',
+    question-answer-font-weight: map.get($font-weight, 'semi-bold'),
+    flip-link-font: 'body-xs',
+    padding: var(--s-5xl) var(--s-3xl),
+    poll-answer-font: 'body-s',
+    icon-background: var(--c-w-300),
+    first-background: var(--c-g-950),
+    second-background: var(--c-p-400),
+    third-background: var(--c-p-700),
+    option-background: var(--c-w-150),
+    option-border: var(--c-w-500),
+    option-font: 'body-s',
+  ),
+  card-back: (
+    background: var(--cm-on-surface-inverted),
+    color: var(--cm-on-surface-brand),
+    border: var(--cm-border-grey-low),
+    flip-link-color: var(--cm-on-surface-brand),
+    icon-color: var(--cm-on-surface-inverted),
+    option-color: var(--cm-on-surface-brand),
+    error-icon-color: var(--c-er-600),
+    option-background: var(--c-a-50),
+    option-border: var(--c-a-300),
+    success-color: var(--c-su-200),
+    success-icon-color: var(--c-su-700),
+    error-color: var(--c-er-100),
+  ),
+);
+$quiz-print: (
+  category-font-weight: map.get($font-weight, 'semi-bold'),
+);

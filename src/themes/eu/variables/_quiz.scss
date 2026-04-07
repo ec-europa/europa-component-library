@@ -1,0 +1,55 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$quiz: (
+  quiz: (
+    background: var(--cm-surface-grey-low-0),
+    background-padding-top: var(--s-4xl),
+    background-padding-bottom: var(--s-4xl),
+    counter-font: var(--f-xs),
+    description-font: var(--f-m),
+    prev-next-color: var(--ecl-color-grey-600),
+    prev-next-font: var(--f-xs),
+    prev-next-font-weight: map.get($font-weight, 'bold'),
+    dot-background: var(--ecl-color-grey-600),
+    dot-active-background: var(--c-p-600),
+    list-margin: var(--s-xl),
+    outline-color: var(--cm-border-primary),
+    title-font: 'heading2',
+    title-font-weight: map.get($font-weight, 'bold'),
+  ),
+  card: (
+    category-font: var(--f-xs),
+    category-font-weight: map.get($font-weight, 'bold'),
+    color: #fff,
+    question-answer-font: var(--f-l),
+    question-answer-font-weight: map.get($font-weight, 'bold'),
+    flip-link-font: var(--f-xs),
+    padding: var(--s-2xl) var(--s-xl),
+    poll-answer-font: var(--f-s),
+    icon-background: var(--c-w-300),
+    first-background: var(--c-d),
+    second-background: var(--c-p-400),
+    third-background: var(--c-p-700),
+    option-background: var(--c-w-150),
+    option-border: var(--c-w-500),
+    option-font: var(--f-s),
+  ),
+  card-back: (
+    background: #fff,
+    color: var(--c-d),
+    border: var(--cm-border-grey-low),
+    flip-link-color: var(--c-d),
+    icon-color: #fff,
+    option-color: var(--c-d),
+    error-icon-color: var(--c-er),
+    option-background: var(--c-a-50),
+    option-border: var(--c-a-300),
+    success-color: var(--c-su-200),
+    success-icon-color: var(--c-su-700),
+    error-color: var(--c-er-5),
+  ),
+);
+$quiz-print: (
+  question-font-weight: map.get($font-weight, 'bold'),
+);
