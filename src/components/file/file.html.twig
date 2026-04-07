@@ -64,6 +64,7 @@
 {% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
 {% set _lang_id = _id ~ '-lang' %}
 {% set _title_id = _id ~ '-title' %}
+{% set _meta_id = _id ~ '-meta' %}
 {% set _download_id = _id ~ '-link' %}
 {% set _download_label_id = _id ~ '-link-label' %}
 
@@ -168,12 +169,12 @@
     <div class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</div>
   {% endif %}
   {% if _meta is not empty %}
-    <div class="ecl-file__meta">{{ _meta }}</div>
+    <div class="ecl-file__meta" id="{{ _meta_id }}">{{ _meta }}</div>
   {% endif %}
     <div class="ecl-file__action">
       {% set _download_link_attributes = _download.extra_attributes|default([])|merge([
         { name: 'id', value: _download_id },
-        { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+        { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id ~ ' ' ~ _meta_id},
       ]) %}
       {% if _download_attribute %}
         {% set _download_link_attributes = _download_link_attributes|merge([
