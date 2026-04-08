@@ -8,7 +8,7 @@ module.exports = {
   items: [
     {
       question:
-        'When you travel in the EU, what happens to yor roaming charges?',
+        'When you travel in the EU, what happens to your roaming charges?',
       answer: 'You usually pay the same at home, no extra roaming fees.',
       icon: {
         icon: {
