@@ -23,7 +23,7 @@ module.exports = {
         icon: {
           family: 'phosphor',
           name: 'arrow-clockwise',
-          size: 's',
+          size: 'm',
         },
       },
     },
@@ -44,7 +44,7 @@ module.exports = {
         icon: {
           family: 'phosphor',
           name: 'arrow-clockwise',
-          size: 's',
+          size: 'm',
         },
       },
     },
@@ -64,7 +64,7 @@ module.exports = {
         icon: {
           family: 'phosphor',
           name: 'arrow-clockwise',
-          size: 's',
+          size: 'm',
         },
       },
     },
@@ -85,7 +85,7 @@ module.exports = {
         icon: {
           name: 'arrow-clockwise',
           family: 'phosphor',
-          size: 's',
+          size: 'm',
         },
       },
     },
@@ -107,7 +107,7 @@ module.exports = {
         icon: {
           name: 'arrow-clockwise',
           family: 'phosphor',
-          size: 's',
+          size: 'm',
         },
       },
     },
