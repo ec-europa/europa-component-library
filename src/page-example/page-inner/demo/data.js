@@ -29,7 +29,7 @@ delete dataSiteHeaderEU.site_name;
 
 const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
 pageHeader.breadcrumb = dataBreadcrumb;
-pageHeader.variant = '50-50';
+pageHeader.picture_position = 'top';
 delete pageHeader.picture_thumbnail;
 
 dataInpageNavigation.links[0].label = 'Donec nec ex condimentum';
