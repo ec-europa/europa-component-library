@@ -268,19 +268,15 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   bottom: auto;
   padding: 0;
   position: absolute;
-  right: 0;
   top: 2.5rem;
-  width: calc(44px + var(--s-l) * 2);
+
+  // 44px as the other buttons
+  width: 2.75rem;
+
+  // container's padding inline end
+  right: var(--s-m);
 }
 
-.ecl-site-header .ecl-mega-menu {
-  right: calc(-1 * var(--s-l));
-
-  &:dir(rtl) {
-    left: calc(-1 * var(--s-l));
-    right: auto;
-  }
-}
 // stylelint-enable no-descending-specificity
 
 .ecl-site-header .ecl-mega-menu--rtl,
@@ -351,9 +347,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .ecl-site-header {
-    .ecl-mega-menu,
-    .ecl-menu {
-      width: calc(44px + var(--s-xl) * 2);
+    .ecl-menu,
+    .ecl-mega-menu {
+      // container's padding inline end
+      right: var(--s-xl);
     }
 
     .ecl-search-form {
