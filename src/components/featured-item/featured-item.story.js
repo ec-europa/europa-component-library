@@ -14,6 +14,7 @@ const system = getSystem();
 const getArgs = (data) => {
   const args = {
     show_media: true,
+    micro_title: data.micro_title,
     title: data.title,
     description: data.description,
     horizontal_alignment: 'left',
@@ -42,6 +43,16 @@ const getArgTypes = (data) => {
     description: 'Toggle media visility',
     table: {
       category: 'Optional',
+    },
+  };
+
+  argTypes.micro_title = {
+    type: 'string',
+    description: 'Features item content micro title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
   };
 
