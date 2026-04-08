@@ -28,6 +28,17 @@ $featured-item: null !default;
   }
 }
 
+.ecl-featured-item__micro-title {
+  color: map.get($featured-item, 'micro-title', 'color');
+  letter-spacing: map.get($featured-item, 'micro-title', 'letter-spacing');
+  text-transform: uppercase;
+
+  @include mixins.responsive-font(
+    map.get($featured-item, 'micro-title', 'font'),
+    $font-weight: map.get($featured-item, 'micro-title', 'font-weight')
+  );
+}
+
 .ecl-featured-item__title {
   color: map.get($featured-item, 'title', 'color');
   max-width: map.get($featured-item, 'max-width');
@@ -35,6 +46,10 @@ $featured-item: null !default;
   @include mixins.responsive-font(
     map.get($featured-item, 'title', 'typography')
   );
+
+  .ecl-featured-item__micro-title + & {
+    margin-block-start: map.get($featured-item, 'title', 'spacing');
+  }
 }
 
 .ecl-featured-item__description {
@@ -179,6 +194,10 @@ $featured-item: null !default;
       'item',
       'padding-inline-mobile'
     );
+  }
+
+  .ecl-featured-item__micro-title {
+    color: map.get($featured-item, 'highlight', 'micro-title', 'color');
   }
 
   .ecl-featured-item__title {

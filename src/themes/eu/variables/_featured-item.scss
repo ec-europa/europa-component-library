@@ -7,6 +7,12 @@ $featured-item: (
   padding: 0,
   border-radius: map.get($border-radius, 's'),
   max-width: var(--max-w),
+  micro-title: (
+    color: var(--c-d-140),
+    font: var(--f-m),
+    letter-spacing: 2px,
+    font-weight: map.get($font-weight, 'regular'),
+  ),
   title: (
     color: var(--c-d-140),
     typography: (
@@ -16,6 +22,7 @@ $featured-item: (
       ),
       'font-weight': map.get($font-weight, 'bold'),
     ),
+    spacing: var(--s-m),
   ),
   description: (
     color: var(--c-d-80),
@@ -43,6 +50,9 @@ $featured-item: (
     ),
     border-size: 8px,
     border-color: var(--c-p),
+    micro-title: (
+      color: var(--c-d-80),
+    ),
     title: (
       color: var(--c-d-140),
     ),
@@ -65,8 +75,12 @@ $featured-item-print: (
   gap-horizontal: map.get($spacing-print, 'm'),
   gap-vertical: map.get($spacing-print, 'm'),
   padding: 0,
+  micro-title: (
+    font: map.get($font-print, 'm'),
+  ),
   title: (
     font: map.get($font-prolonged-print, 'l'),
+    spacing: map.get($spacing-print, 's'),
   ),
   description: (
     font: map.get($font-prolonged-print, 'm'),
