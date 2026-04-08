@@ -93,7 +93,6 @@ $mega-menu: null !default;
   display: flex;
   flex-direction: column;
   font: var(--f-xs);
-  margin-inline-start: map.get($mega-menu, 'mobile', 'open-button-margin');
   order: 2;
   padding: map.get($mega-menu, 'mobile', 'open-padding');
   text-decoration: none;
@@ -158,7 +157,8 @@ $mega-menu: null !default;
     padding-top: 0;
 
     .ecl-container {
-      padding: 0 map.get($mega-menu, 'desktop', 'container-padding-horizontal');
+      padding: 0
+        map.get($mega-menu, 'desktop', 'container-large-padding-horizontal');
     }
 
     .ecl-mega-menu__container {
