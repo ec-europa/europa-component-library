@@ -197,7 +197,7 @@ $quiz: null !default;
 @container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
   .ecl-quiz__list {
     gap: var(--s-3xl);
-    margin-block: map.get($quiz, 'list-margin');
+    margin-block: map.get($quiz, 'quiz', 'list-margin-desktop');
   }
 
   .ecl-quiz-card {
@@ -317,6 +317,37 @@ $quiz: null !default;
   }
 }
 
+.ecl-quiz-card__options {
+  counter-reset: letter;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @include mixins.responsive-font(map.get($quiz, 'card', 'option-font'));
+
+  .ecl-quiz-card__option {
+    background: map.get($quiz, 'card', 'option-background');
+    border: 1px solid map.get($quiz, 'card', 'option-border');
+    border-radius: map.get($theme, 'border-radius', 's');
+    cursor: pointer;
+    display: grid;
+    flex: 1;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-s);
+    padding: var(--s-xs) var(--s-m);
+
+    + .ecl-quiz-card__option {
+      margin-block-start: var(--s-xs);
+    }
+
+    &::before {
+      counter-increment: letter;
+      content: counter(letter, upper-alpha) '. ';
+      font-weight: bold;
+    }
+  }
+}
+
 .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
   background: map.get($quiz, 'card', 'first-background');
 }
@@ -342,6 +373,11 @@ $quiz: null !default;
     &:focus-visible {
       outline: 1px solid var(--cm-on-surface-brand, var(--c-d));
     }
+  }
+
+  .ecl-quiz-card__option {
+    background: map.get($quiz, 'card', 'second-option-background');
+    border-color: map.get($quiz, 'card', 'second-option-border');
   }
 }
 
@@ -431,37 +467,6 @@ $quiz: null !default;
 
   .ecl-quiz-card__back .ecl-quiz-card__answer {
     font-weight: map.get($theme, 'font-weight', 'regular');
-  }
-
-  .ecl-quiz-card__options {
-    counter-reset: letter;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    @include mixins.responsive-font(map.get($quiz, 'card', 'option-font'));
-
-    .ecl-quiz-card__option {
-      background: map.get($quiz, 'card', 'option-background');
-      border: 1px solid map.get($quiz, 'card', 'option-border');
-      border-radius: map.get($theme, 'border-radius', 's');
-      cursor: pointer;
-      display: grid;
-      flex: 1;
-      grid-template-columns: auto 1fr;
-      gap: var(--s-s);
-      padding: var(--s-xs) var(--s-m);
-
-      + .ecl-quiz-card__option {
-        margin-block-start: var(--s-xs);
-      }
-
-      &::before {
-        counter-increment: letter;
-        content: counter(letter, upper-alpha) '. ';
-        font-weight: bold;
-      }
-    }
   }
 
   @container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
