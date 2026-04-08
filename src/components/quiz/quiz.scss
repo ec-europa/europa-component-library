@@ -17,21 +17,16 @@ $quiz: null !default;
   position: relative;
 
   &.ecl-quiz--background {
-    background: var(--cm-surface-grey-low-0);
+    background: map.get($quiz, 'quiz', 'background');
     padding-block-start: map.get($quiz, 'quiz', 'background-padding-top');
     padding-block-end: map.get($quiz, 'quiz', 'background-padding-bottom');
   }
 
   &.ecl-quiz--full-width {
     border-radius: 0;
-    left: 50%;
+    inset-inline-start: 50%;
     margin-inline-start: -50vw;
     width: 100vw;
-
-    &:dir(rtl) {
-      left: auto;
-      right: 50%;
-    }
   }
 }
 
@@ -47,7 +42,7 @@ $quiz: null !default;
 }
 
 .ecl-quiz__description {
-  margin-block-start: var(--s-m);
+  margin-block-start: var(--s-xs);
   max-width: var(--max-w);
 
   @include mixins.responsive-font(map.get($quiz, 'quiz', 'description-font'));
@@ -55,8 +50,8 @@ $quiz: null !default;
 
 .ecl-quiz__list {
   display: flex;
-  gap: var(--s-m);
-  margin-block: var(--s-xl);
+  gap: map.get($quiz, 'quiz', 'list-gap-mobile');
+  margin-block: map.get($quiz, 'quiz', 'list-spacing-mobile');
   padding: 0;
   touch-action: pan-y pinch-zoom;
 }
@@ -87,6 +82,7 @@ $quiz: null !default;
     }
 
     &:disabled {
+      visibility: hidden;
       cursor: default;
       box-shadow: map.get($theme, 'shadow', '1');
       opacity: 0.5;
@@ -116,7 +112,7 @@ $quiz: null !default;
       border-radius: 50%;
       cursor: pointer;
       height: 0.5rem;
-      margin-inline-end: var(--s-3xs);
+      margin-inline-end: map.get($quiz, 'quiz', 'dot-spacing');
       min-height: 0;
       min-width: 0;
       padding: 0;
@@ -163,15 +159,19 @@ $quiz: null !default;
   }
 
   .ecl-quiz__list {
-    gap: var(--s-xl);
-    margin-block: var(--s-3xl);
+    gap: map.get($quiz, 'quiz', 'list-gap-tablet');
+    margin-block: map.get($quiz, 'quiz', 'list-spacing-tablet');
+  }
+
+  .ecl-quiz__description {
+    margin-block-start: var(--s-m);
   }
 
   .ecl-quiz .ecl-quiz__pager {
     .ecl-quiz__prev,
     .ecl-quiz__next {
       border-radius: map.get($theme, 'border-radius', 's');
-      margin-inline: var(--s-4xl);
+      margin-inline: map.get($quiz, 'quiz', 'prev-next-spacing');
 
       .ecl-quiz__prev-label,
       .ecl-quiz__next-label {
@@ -196,12 +196,16 @@ $quiz: null !default;
 
 @container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
   .ecl-quiz__list {
-    gap: var(--s-3xl);
-    margin-block: map.get($quiz, 'quiz', 'list-margin-desktop');
+    gap: map.get($quiz, 'quiz', 'list-gap-desktop');
+    margin-block: map.get($quiz, 'quiz', 'list-spacing-desktop');
+  }
+
+  .ecl-quiz__description {
+    margin-block-start: map.get($quiz, 'card', 'description-spacing-desktop');
   }
 
   .ecl-quiz-card {
-    width: calc((100% - 2 * var(--s-3xl)) / 3);
+    width: calc((100% - 2 * map.get($quiz, 'quiz', 'list-gap-desktop')) / 3);
   }
 }
 
@@ -402,7 +406,7 @@ $quiz: null !default;
 .ecl-quiz-card__question,
 .ecl-quiz-card__answer {
   box-sizing: border-box;
-  padding-block-start: var(--s-5xl);
+  padding-block-start: map.get($quiz, 'card', 'question-answer-spacing');
   text-align: center;
 
   @include mixins.responsive-font(

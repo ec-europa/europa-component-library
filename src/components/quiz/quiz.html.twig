@@ -6,13 +6,28 @@
     - "title" (string) (default: '')
     - "description" (string) (default: '')
     - "with_background" (boolean) (default: false)
-    - "color_mode" (string (default: '')
     - "full_width" (boolean) (default: false)
     - "slider" (boolean) (default: true)
     - "prev_label" (string) (default: '')
     - "next_label" (string) (default: '')
     - "items" (array) default([]) array of quiz-cards
-    - "options" (array) List of options (poll variant)
+      - "category" (string) (default: '') (poll variant)
+      - "success_category" (string (default: '')
+      - "error_category" (string (default: '')
+      - "question" (string) (default: '')
+      - "answer" (string) (default: '')
+      - "answer_title" (string) (default: '')
+      - "options" (array) Array of options (poll variant)
+      - "icon" (object) Object of type icon
+      - "back_icon" (object) Object of type icon
+      - "flip_text" (string) Helper text (reveal variant)
+      - "flip_icon" (object) Object of type icon
+      - "back_text" (string) Text on the back of the card
+      - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
+      - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
+      - "extra_attributes" (optional) (array) (default: [])
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
     - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
     - "extra_attributes" (optional) (array) (default: [])
@@ -26,7 +41,6 @@
 {% set _variant = variant|default('reveal') %}
 {% set _description = description|default('') %}
 {% set _items = items|default([]) %}
-{% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-quiz' %}
 {% set _slider = slider ?? true %}
 {% set _prev_label = prev_label|default('') %}
@@ -38,10 +52,6 @@
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class  ~ ' ecl-quiz--' ~ _variant %}
-
-{% if _color_mode is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-color-mode--' ~ _color_mode %}
-{% endif %}
 
 {% if _with_background %}
   {% set _css_class = _css_class ~ ' ecl-quiz--background' %}
@@ -95,6 +105,7 @@
     </div>
   </div>
 {% endif %}
+{%- if _slider -%}
   <div class="ecl-quiz__pager">
     <button class="ecl-quiz__prev">
       {% include "@ecl/icon/icon.html.twig" with {
@@ -133,6 +144,7 @@
     aria-live="polite"
     aria-atomic="true"
   ></div>
+{%- endif -%}
 {% if _full_width %}
   </div>
 {% endif %}

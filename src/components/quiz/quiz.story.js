@@ -70,4 +70,4 @@ Poll.render = async (args) => {
 Poll.args = getArgs();
 Poll.argTypes = getArgTypes();
 Poll.storyName = 'poll';
-Reveal.parameters = { notes: { markdown: notes, json: specsPoll } };
+Poll.parameters = { notes: { markdown: notes, json: specsPoll } };
