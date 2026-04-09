@@ -327,7 +327,6 @@ $quiz: null !default;
   counter-reset: letter;
   display: flex;
   flex-direction: column;
-  height: 100%;
 
   @include mixins.responsive-font(map.get($quiz, 'card', 'option-font'));
 
