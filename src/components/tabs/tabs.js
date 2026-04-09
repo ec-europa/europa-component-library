@@ -671,7 +671,7 @@ export class Tabs {
         this.listItems.forEach((item) => {
           item.classList.remove('ecl-tabs__item--hidden');
         });
-        // scrollWidth includes item margins, unlike getBoundingClientRect().width
+        // Use scrollWidth to also include item margins
         this.list.style.width = `${this.list.scrollWidth}px`;
         this.btnNext.style.display = 'flex';
         this.container.classList.add('ecl-tabs__container--right');
@@ -690,8 +690,7 @@ export class Tabs {
       this.list.style.width = 'auto';
 
       // Hide items that won't fit in the list
-      // Temporarily show the more button to get its actual width,
-      // since getBoundingClientRect returns 0 when display:none
+      // Temporarily show the more button to get its actual width
       this.moreItem.classList.remove('ecl-tabs__item--hidden');
       this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
       const moreButtonWidth = this.moreButton.getBoundingClientRect().width;
