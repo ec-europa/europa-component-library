@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.0-RC1 (2026-04-09)
+
+#### :house: Internal
+
+- [#4342](https://github.com/ec-europa/europa-component-library/pull/4342) feat(site-header): remove fixed background - FRONT-5268 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 5.0.0-RC1 (2026-03-20)
 
 #### :rocket: New Feature
