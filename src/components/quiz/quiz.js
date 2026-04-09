@@ -301,6 +301,21 @@ export class Quiz {
       };
 
       this.createAndSetupDotButtons = (emblaApi) => {
+        const canScroll =
+          this.slider.canGoToNext() || this.slider.canGoToPrev();
+
+        this.prevButtonNode.style.display = '';
+        this.nextButtonNode.style.display = '';
+
+        if (!canScroll) {
+          this.prevButtonNode.style.display = 'none';
+          this.nextButtonNode.style.display = 'none';
+
+          this.dotsNode.innerHTML = '';
+          dotNodes = [];
+          return;
+        }
+
         dotNodes = createDotButtonHtml(emblaApi);
         addDotButtonClickHandlers(emblaApi, dotNodes);
       };
@@ -311,6 +326,8 @@ export class Quiz {
       });
 
       this.updateDots = () => {
+        if (!dotNodes.length) return;
+
         const index = this.slider.selectedSnap();
 
         dotNodes.forEach((dot, i) => {
@@ -427,7 +444,7 @@ export class Quiz {
       }
 
       this.checkHeight();
-    }, 400);
+    }, 100);
   }
 
   /**
