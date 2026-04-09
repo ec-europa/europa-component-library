@@ -2,7 +2,6 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import { loremIpsum } from 'lorem-ipsum';
 import withCode from '@ecl/storybook-addon-code';
 import { within, userEvent, expect } from '@storybook/test';
-import { allModes } from '../../playground/ec/.storybook/modes';
 
 import notes from './README.md';
 
@@ -104,11 +103,15 @@ Visible.tags = ['!dev'];
 Visible.parameters = {
   chromatic: {
     modes: {
-      m: allModes.m,
+      xs: { disable: true },
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
     },
   },
 };
 Visible.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   const tooltip = document.querySelector('.ecl-tooltip');
@@ -139,11 +142,15 @@ VisibleInverted.tags = ['!dev'];
 VisibleInverted.parameters = {
   chromatic: {
     modes: {
-      m: allModes.m,
+      xs: { disable: true },
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
     },
   },
 };
 VisibleInverted.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   const tooltip = document.querySelector('.ecl-tooltip');

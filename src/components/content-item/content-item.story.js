@@ -345,6 +345,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Content item',
   decorators: [withCode, withNotes],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -356,7 +364,9 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
+};
 
 export const Image = (_, { loaded: { component } }) => component;
 
@@ -369,7 +379,9 @@ Image.render = async (args) => {
 Image.storyName = 'image';
 Image.args = getArgs(dataImage);
 Image.argTypes = getArgTypes(dataImage);
-Image.parameters = { notes: { markdown: notes, json: dataImage } };
+Image.parameters = {
+  notes: { markdown: notes, json: dataImage },
+};
 
 export const Event = (_, { loaded: { component } }) => component;
 
@@ -382,4 +394,6 @@ Event.render = async (args) => {
 Event.storyName = 'event';
 Event.args = getArgs(dataEvent);
 Event.argTypes = getArgTypes(dataEvent);
-Event.parameters = { notes: { markdown: notes, json: dataEvent } };
+Event.parameters = {
+  notes: { markdown: notes, json: dataEvent },
+};

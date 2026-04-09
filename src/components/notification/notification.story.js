@@ -100,6 +100,13 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Notifications',
   decorators: [withCode, withNotes],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Info = (_, { loaded: { component } }) => component;

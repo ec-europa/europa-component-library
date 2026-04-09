@@ -11,6 +11,11 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
+    chromatic: {
+      modes: {
+        xl: { disable: true },
+      },
+    },
   },
 };
 

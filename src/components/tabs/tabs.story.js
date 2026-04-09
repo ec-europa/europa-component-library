@@ -47,6 +47,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Tabs',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
