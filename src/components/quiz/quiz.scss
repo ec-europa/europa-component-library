@@ -142,6 +142,7 @@ $quiz: null !default;
   box-sizing: border-box;
   color: map.get($quiz, 'card', 'color');
   flex: 0 0 auto;
+  max-width: 30rem;
   min-width: 18rem;
   width: calc(100% - 3rem);
   perspective: 1000px;
@@ -153,7 +154,7 @@ $quiz: null !default;
   }
 }
 
-@container (width >= 600px) {
+@container (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-quiz__counter {
     display: none;
   }
@@ -194,7 +195,7 @@ $quiz: null !default;
   }
 }
 
-@container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+@container (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
   .ecl-quiz__list {
     gap: map.get($quiz, 'quiz', 'list-gap-desktop');
     margin-block: map.get($quiz, 'quiz', 'list-spacing-desktop');
@@ -406,7 +407,7 @@ $quiz: null !default;
 .ecl-quiz-card__question,
 .ecl-quiz-card__answer {
   box-sizing: border-box;
-  padding-block-start: map.get($quiz, 'card', 'question-answer-spacing');
+  padding-block: map.get($quiz, 'card', 'question-answer-spacing');
   text-align: center;
 
   @include mixins.responsive-font(
@@ -473,10 +474,10 @@ $quiz: null !default;
     font-weight: map.get($theme, 'font-weight', 'regular');
   }
 
-  @container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  @container (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
     .ecl-quiz-card__question,
     .ecl-quiz-card__answer {
-      padding-block: var(--s-xl);
+      padding-block: map.get($quiz, 'card', 'question-answer-poll-spacing');
     }
   }
 

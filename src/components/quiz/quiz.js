@@ -355,7 +355,6 @@ export class Quiz {
     const front = queryOne(this.frontClass, this.element);
     const styles = getComputedStyle(front);
     const minHeight = parseFloat(styles.getPropertyValue('min-height')) || 345;
-    const paddingBottom = parseFloat(styles.getPropertyValue('padding-bottom'));
 
     this.cards.forEach((card) => {
       const front = queryOne(this.frontClass, card);
@@ -410,7 +409,7 @@ export class Quiz {
     if (maxHeight > 0) {
       this.cards.forEach((card) => {
         const content = queryOne(this.contentClass, card);
-        content.style.height = maxHeight + paddingBottom + 'px';
+        content.style.height = maxHeight + 'px';
       });
     }
   }

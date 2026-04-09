@@ -129,8 +129,7 @@ module.exports = {
       category: 'Quiz',
       success_category: 'Correct',
       error_category: 'Incorrect',
-      question:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit In a lectus vitae orci ullamcorper efficitur. Vivamus auctor blandit auctor.',
+      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?',
       answer_title: 'The correct answer is B.',
       answer: 'Duis id mattis libero. Quisque accumsan nisi',
       options: [
