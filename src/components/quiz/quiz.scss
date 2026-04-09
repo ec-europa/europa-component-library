@@ -267,6 +267,7 @@ $quiz: null !default;
 }
 
 .ecl-quiz-card__back {
+  border: map.get($quiz, 'card', 'back-border');
   pointer-events: none;
 }
 
