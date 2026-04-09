@@ -15,6 +15,7 @@
       - an object with a defining component key, e.g. { card: { ... } }, { heading: { level: 2, content: 'my heading' } }
         Supported component keys: heading, card, navigation_list, content_item, file, list_illustration
   - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
+  - "view_all" (object) (default: {}): Link display below the grid; Follows the ECL Link structure
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
         {
@@ -30,6 +31,7 @@
 {% set _configuration = configuration|default('col-3') %}
 {% set _items = items|default([]) %}
 {% set _direction = direction|default('horizontal') %}
+{% set _view_all = view_all|default({}) %}
 {% set _css_class = 'ecl-layout-wrapper' %}
 {% set _extra_attributes = '' %}
 
@@ -92,6 +94,27 @@
   {%- endif -%}
 {% endapply %}{% endmacro %}
 
+{# Prepare markup #}
+
+{% set _view_all_markup = '' %}
+{% if _view_all.link is defined and _view_all.link is not empty %}
+  {% set _view_all_markup %}
+    <div class="ecl-layout-wrapper__view-all">
+      {% include '@ecl/link/link.html.twig' with _view_all|merge({
+        link: _view_all.link|merge({
+          type: 'standalone',
+        }),
+        icon: _view_all.link.external ? {} : _view_all.icon|default({})|merge({
+          name: 'arrow-left',
+          transform: 'flip-horizontal',
+          size: 'xs',
+        }),
+        extra_classes: 'ecl-layout-wrapper__view-all-link',
+      }) only %}
+    </div>
+  {% endset %}
+{% endif %}
+
 {# Print the result #}
 
 {% if _items is not empty %}
@@ -101,21 +124,26 @@
   {{ _extra_attributes|raw }}
 >
   {%- if _configuration starts with 'highlight-col-' -%}
+  {# Highlight #}
     <div class="ecl-layout-wrapper__grid">
       <div class="ecl-layout-wrapper__highlight">
         <div class="ecl-layout-item ecl-layout-item--1">
           {{- layout_wrapper.render_item(_items[0]) -}}
         </div>
       </div>
-      <div class="ecl-layout-wrapper__content">
-        {%- for item in _items|slice(1) -%}
-          <div class="ecl-layout-item ecl-layout-item--{{ loop.index + 1 }}">
-            {{- layout_wrapper.render_item(item) -}}
-          </div>
-        {%- endfor -%}
+      <div class="ecl-layout-wrapper__container">
+        <div class="ecl-layout-wrapper__content">
+          {%- for item in _items|slice(1) -%}
+            <div class="ecl-layout-item ecl-layout-item--{{ loop.index + 1 }}">
+              {{- layout_wrapper.render_item(item) -}}
+            </div>
+          {%- endfor -%}
+        </div>
+        {{- _view_all_markup -}}
       </div>
     </div>
   {%- else -%}
+  {# Default grid #}
     <div class="ecl-layout-wrapper__grid">
       {%- for item in _items -%}
         <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
@@ -123,6 +151,7 @@
         </div>
       {%- endfor -%}
     </div>
+    {{- _view_all_markup -}}
   {%- endif -%}
 </div>
 {% endif %}

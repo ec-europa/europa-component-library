@@ -242,4 +242,11 @@ module.exports = {
     cardData,
     cardData,
   ],
+  view_all: {
+    link: {
+      path: exampleLink,
+      label: 'View all',
+      icon_position: 'after',
+    },
+  },
 };

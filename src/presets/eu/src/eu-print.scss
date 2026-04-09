@@ -13,7 +13,8 @@
   $theme: theme.$theme
 );
 @use '@ecl/layout-wrapper/layout-wrapper' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $layout-wrapper: var.$layout-wrapper
 );
 
 // Functions and Mixins

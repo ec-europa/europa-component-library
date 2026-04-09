@@ -7,10 +7,16 @@
 
 // Exposed variables
 $theme: null !default;
+$layout-wrapper: null !default;
 
 .ecl-layout-wrapper {
   container-name: ecl-layout-wrapper;
   container-type: inline-size;
+}
+
+// Highlight content
+.ecl-layout-wrapper.highlight-col-2,
+.ecl-layout-wrapper.highlight-col-3 {
   display: grid;
   gap: map.get($theme, 'grid', 'gutter-l');
 }
@@ -31,30 +37,36 @@ $theme: null !default;
   grid-template-columns: 1fr;
 }
 
+.ecl-layout-wrapper__view-all {
+  border-block-start: map.get($layout-wrapper, 'view-all', 'border');
+  margin-block-start: map.get($layout-wrapper, 'view-all', 'margin');
+  padding-block-start: map.get($layout-wrapper, 'view-all', 'padding');
+}
+
 // Switch to 2 columns if possible
 // Keep highlight content stacked
 @container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 's')}) {
   // Grid content
-  .ecl-layout-wrapper.col-2 > .ecl-layout-wrapper__grid,
-  .ecl-layout-wrapper.col-3 > .ecl-layout-wrapper__grid,
-  .ecl-layout-wrapper.col-4 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper.col-2 .ecl-layout-wrapper__grid,
+  .ecl-layout-wrapper.col-3 .ecl-layout-wrapper__grid,
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   // Highlight content
   .ecl-layout-wrapper.highlight-col-2
-    > .ecl-layout-wrapper__grid
-    > .ecl-layout-wrapper__content,
+    .ecl-layout-wrapper__grid
+    .ecl-layout-wrapper__content,
   .ecl-layout-wrapper.highlight-col-3
-    > .ecl-layout-wrapper__grid
-    > .ecl-layout-wrapper__content {
+    .ecl-layout-wrapper__grid
+    .ecl-layout-wrapper__content {
     grid-template-columns: repeat(2, 1fr);
   }
 
   // Vertical flow with 2 cols
-  .ecl-layout-wrapper--vertical.col-2 > .ecl-layout-wrapper__grid,
-  .ecl-layout-wrapper--vertical.col-3 > .ecl-layout-wrapper__grid,
-  .ecl-layout-wrapper--vertical.col-4 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper--vertical.col-2 .ecl-layout-wrapper__grid,
+  .ecl-layout-wrapper--vertical.col-3 .ecl-layout-wrapper__grid,
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__grid {
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     grid-template-columns: none;
@@ -62,11 +74,11 @@ $theme: null !default;
   }
 
   .ecl-layout-wrapper--vertical.highlight-col-2
-    > .ecl-layout-wrapper__grid
-    > .ecl-layout-wrapper__content,
+    .ecl-layout-wrapper__grid
+    .ecl-layout-wrapper__content,
   .ecl-layout-wrapper--vertical.highlight-col-3
-    > .ecl-layout-wrapper__grid
-    > .ecl-layout-wrapper__content {
+    .ecl-layout-wrapper__grid
+    .ecl-layout-wrapper__content {
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     grid-template-columns: none;
@@ -78,32 +90,32 @@ $theme: null !default;
 // Put highlight content beside grid content
 @container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
   // Grid content
-  .ecl-layout-wrapper.col-3 > .ecl-layout-wrapper__grid,
-  .ecl-layout-wrapper.col-4 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper.col-3 .ecl-layout-wrapper__grid,
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
   // Highlight content
-  .ecl-layout-wrapper.highlight-col-2 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper.highlight-col-2 .ecl-layout-wrapper__grid {
     grid-template-columns: 1fr 2fr;
   }
 
   // Content columns for highlight-col-3 (full-width at this point)
   .ecl-layout-wrapper.highlight-col-3
-    > .ecl-layout-wrapper__grid
-    > .ecl-layout-wrapper__content {
+    .ecl-layout-wrapper__grid
+    .ecl-layout-wrapper__content {
     grid-template-columns: repeat(3, 1fr);
   }
 
   // Vertical flow with 3 cols
-  .ecl-layout-wrapper--vertical.col-3 > .ecl-layout-wrapper__grid,
-  .ecl-layout-wrapper--vertical.col-4 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper--vertical.col-3 .ecl-layout-wrapper__grid,
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__grid {
     grid-template-rows: repeat(var(--ecl-layout-rows-3), auto);
   }
 
   .ecl-layout-wrapper--vertical.highlight-col-3
-    > .ecl-layout-wrapper__grid
-    > .ecl-layout-wrapper__content {
+    .ecl-layout-wrapper__grid
+    .ecl-layout-wrapper__content {
     grid-template-rows: repeat(var(--ecl-layout-rows-3), auto);
   }
 }
@@ -112,17 +124,17 @@ $theme: null !default;
 // Put highlight content beside grid content
 @container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'xl')}) {
   // Grid content
-  .ecl-layout-wrapper.col-4 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
   // Highlight content
-  .ecl-layout-wrapper.highlight-col-3 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper.highlight-col-3 .ecl-layout-wrapper__grid {
     grid-template-columns: 1fr 3fr;
   }
 
   // Vertical flow with 4 cols
-  .ecl-layout-wrapper--vertical.col-4 > .ecl-layout-wrapper__grid {
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__grid {
     grid-template-rows: repeat(var(--ecl-layout-rows-4), auto);
   }
 }

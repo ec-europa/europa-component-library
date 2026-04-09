@@ -23,7 +23,8 @@ const getArgs = (defaultConfig, defaultNbItems = 6, firstItemType = 'card') => {
     configuration: defaultConfig,
     nb_items: defaultNbItems,
     direction: 'horizontal',
-    gridContent: false,
+    grid_content: false,
+    show_view_all: true,
     item_1: firstItemType,
     item_2: 'card',
     item_3: 'card',
@@ -50,7 +51,7 @@ const getArgTypes = (configGroup) => {
 
   const argTypes = {
     configuration: {
-      name: 'layout configuration',
+      name: 'Layout configuration',
       type: 'select',
       description: 'Change layout',
       options: configOptions,
@@ -58,16 +59,20 @@ const getArgTypes = (configGroup) => {
       mapping: configMapping,
       table: {
         type: 'string',
+        category: 'Configuration',
         defaultValue: { summary: configOptions[0] },
       },
     },
     nb_items: {
-      name: 'number of items',
+      name: 'Number of items',
       description: 'Number of items displayed',
       control: { type: 'range', min: 1, max: 8, step: 1 },
+      table: {
+        category: 'Configuration',
+      },
     },
     direction: {
-      name: 'direction',
+      name: 'Direction',
       type: 'select',
       description: 'Flow of items',
       options: ['horizontal', 'vertical'],
@@ -84,6 +89,7 @@ const getArgTypes = (configGroup) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'horizontal' },
+        category: 'Display',
       },
     },
   };
@@ -96,8 +102,18 @@ const getArgTypes = (configGroup) => {
     contentTypeMapping[key] = key;
   }
 
-  argTypes.gridContent = {
-    name: 'demo sidebar layout',
+  argTypes.show_view_all = {
+    name: 'View all',
+    type: { name: 'boolean' },
+    description: 'Display the "view all" link"',
+    control: { type: 'boolean' },
+    table: {
+      category: 'Display',
+    },
+  };
+
+  argTypes.grid_content = {
+    name: 'Demo sidebar layout',
     type: { name: 'boolean' },
     description:
       'Display the layout wrapper inside a sidebar layout, to test container-query responsiveness',
@@ -135,13 +151,17 @@ const prepareData = (data, args) => {
     clone.items.push(data.contentTypes[args[`item_${i}`]]);
   }
 
+  if (!args.show_view_all) {
+    delete clone.view_all;
+  }
+
   return Object.assign(clone, args);
 };
 
 const renderStory = async (data, args) => {
   const renderedLayout = await layoutWrapper(prepareData(data, args));
 
-  if (args.gridContent) {
+  if (args.grid_content) {
     return `<div class="ecl-container">
       <div class="ecl-row ecl-u-mt-l">
         <aside class="ecl-col-l-3 ecl-u-mb-l ecl-u-mb-l-none">
