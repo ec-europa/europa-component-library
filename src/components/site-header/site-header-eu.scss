@@ -41,8 +41,8 @@ $language-list: null !default;
     top: var(--s-m);
     padding: 0;
     position: absolute;
-    right: 0;
-    width: calc(44px + var(--s-m) * 2);
+    right: var(--s-m);
+    width: 44px;
 
     &:dir(rtl) {
       left: 0;
@@ -108,10 +108,6 @@ $language-list: null !default;
   .ecl-menu__open .ecl-icon:last-of-type {
     height: 1.5rem;
     width: 1.5rem;
-  }
-
-  .ecl-mega-menu__open {
-    margin-inline-start: var(--s-m);
   }
 
   .ecl-menu[data-expanded] .ecl-menu__open,
@@ -336,6 +332,14 @@ $language-list: null !default;
 }
 // stylelint-enable plugin/selector-bem-pattern
 
+@include breakpoints.up('m') {
+  .ecl-site-header .ecl-menu,
+  .ecl-site-header .ecl-mega-menu {
+    // container's padding-inline-end
+    right: var(--s-l);
+  }
+}
+
 @include breakpoints.down('l') {
   .ecl-site-header__custom-action-toggle,
   .ecl-site-header__login-toggle,
@@ -406,12 +410,14 @@ $language-list: null !default;
       background: map.get($site-header, 'gradient-background');
       min-height: auto;
       position: static;
+      right: 0;
       width: 100%;
     }
 
     .ecl-mega-menu {
       background: map.get($site-header, 'gradient-background');
       position: relative;
+      right: 0;
       top: 0;
       width: 100%;
     }
