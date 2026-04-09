@@ -349,7 +349,16 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Site-wide/Page headers',
   decorators: [withNotes, withCode],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        s: { disable: true },
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

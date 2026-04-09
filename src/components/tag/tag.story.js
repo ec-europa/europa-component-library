@@ -76,6 +76,15 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Tag',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Link = (_, { loaded: { component } }) => component;

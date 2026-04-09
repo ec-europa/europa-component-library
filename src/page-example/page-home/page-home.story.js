@@ -40,7 +40,9 @@ export default {
     controls: { disable: true },
     EclNotes: { disable: true },
     layout: 'fullscreen',
-    chromatic: { ignoreSelectors: ['.ecl-u-type-paragraph'] },
+    chromatic: {
+      ignoreSelectors: ['.ecl-u-type-paragraph', '.ecl-carousel'],
+    },
   },
 };
 

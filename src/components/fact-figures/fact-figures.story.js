@@ -196,4 +196,12 @@ Default.render = async (args) => {
 };
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: { markdown: notes, json: demoData },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};

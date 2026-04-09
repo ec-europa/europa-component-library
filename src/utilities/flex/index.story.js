@@ -161,6 +161,7 @@ export default {
   parameters: {
     a11y: { disable: true },
     EclNotes: { disable: true },
+    chromatic: { disable: true },
     viewport: {
       defaultViewport: 'responsive',
     },

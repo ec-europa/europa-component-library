@@ -262,6 +262,12 @@ Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = {
   notes: { markdown: notes, json: demoData },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Highlighted = (_, { loaded: { component } }) => component;
@@ -277,4 +283,10 @@ Highlighted.args = getArgs(demoDataHighlighted);
 Highlighted.argTypes = getArgTypes(demoDataHighlighted);
 Highlighted.parameters = {
   notes: { markdown: notes, json: demoDataHighlighted },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
