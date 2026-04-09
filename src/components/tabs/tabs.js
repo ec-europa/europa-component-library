@@ -699,53 +699,37 @@ export class Tabs {
       this.moreButton.classList.add('ecl-tabs__toggle--hidden');
 
       const hiddenItems = [];
-      const listRect = this.list.getBoundingClientRect();
-      const direction = getComputedStyle(this.element).direction;
+      const listWidth =
+        this.list.getBoundingClientRect().width || this.list.offsetWidth;
       this.moreButtonActive = false;
 
-      // First, show all items and check if they all fit without the button.
-      // Use position-based checks so item margins (excluded from getBoundingClientRect)
-      // are naturally accounted for by the flex layout.
+      // Measure all items first to check if they fit without the button
       this.listItems.forEach((item) =>
         item.classList.remove('ecl-tabs__item--hidden'),
       );
-      const lastItem = this.listItems[this.listItems.length - 1];
-      const lastItemEdge =
-        direction === 'rtl'
-          ? lastItem.getBoundingClientRect().left
-          : lastItem.getBoundingClientRect().right;
-      const allFit =
-        direction === 'rtl'
-          ? lastItemEdge >= listRect.left
-          : lastItemEdge <= listRect.right;
+      const itemWidths = this.listItems.map((item) => {
+        const itemMargin =
+          parseFloat(getComputedStyle(item).marginInlineEnd) || 0;
+        return item.getBoundingClientRect().width + itemMargin;
+      });
+      const totalWidth = itemWidths.reduce((sum, w) => sum + w, 0);
 
-      if (!allFit) {
-        // Some items overflow; re-hide all and iterate with button space reserved.
+      if (totalWidth > listWidth) {
+        // Reserve space for the more button and hide items that don't fit
         this.listItems.forEach((item) =>
           item.classList.add('ecl-tabs__item--hidden'),
         );
-        // In LTR the button is at right:0, in RTL it is at left:0.
-        const threshold =
-          direction === 'rtl'
-            ? listRect.left + moreButtonWidth
-            : listRect.right - moreButtonWidth;
-
+        let stopWidth = moreButtonWidth;
         this.listItems.forEach((item, i) => {
           item.classList.remove('ecl-tabs__item--hidden');
-          const itemEdge =
-            direction === 'rtl'
-              ? item.getBoundingClientRect().left
-              : item.getBoundingClientRect().right;
-          const fits =
-            direction === 'rtl' ? itemEdge >= threshold : itemEdge <= threshold;
-
-          if (fits && !hiddenItems.includes(i - 1)) {
-            // item fits
+          if (
+            listWidth >= stopWidth + itemWidths[i] &&
+            !hiddenItems.includes(i - 1)
+          ) {
+            stopWidth += itemWidths[i];
           } else {
             item.classList.add('ecl-tabs__item--hidden');
-            if (
-              item.childNodes[0].classList.contains('ecl-tabs__link--active')
-            ) {
+            if (queryOne('.ecl-tabs__link--active', item)) {
               this.moreButtonActive = true;
             }
             hiddenItems.push(i);
