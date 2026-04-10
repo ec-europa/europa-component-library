@@ -100,7 +100,7 @@
   >
     <div class="ecl-quiz__list">
     {% for _item in _items %}
-      {% include "@ecl/quiz/quiz-card.html.twig" with _item only %}
+      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant}) only %}
     {% endfor %}
     </div>
   </div>

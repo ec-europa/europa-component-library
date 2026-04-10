@@ -148,6 +148,10 @@ $quiz: null !default;
   perspective: 1000px;
 }
 
+.ecl-quiz--reveal .ecl-quiz-card {
+  cursor: pointer;
+}
+
 @container (width >= #{map.get($theme, 'breakpoint', 'xs')}) {
   .ecl-quiz-card {
     width: calc(100% - 4rem);
@@ -273,10 +277,7 @@ $quiz: null !default;
 
 .ecl-quiz-card__flip {
   align-items: center;
-  background: transparent;
-  border: none;
   color: map.get($quiz, 'card', 'color');
-  cursor: pointer;
   display: flex;
   margin-block-start: auto;
   margin-inline: auto;
@@ -284,19 +285,6 @@ $quiz: null !default;
   z-index: 1;
 
   @include mixins.responsive-font(map.get($quiz, 'card', 'flip-link-font'));
-
-  &:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  &[disabled] {
-    opacity: 0.5;
-  }
-
-  &:focus-visible {
-    outline: 1px solid var(--cm-on-surface-inverted, #fff);
-  }
 
   .ecl-icon {
     margin-inline-start: var(--s-xs);
@@ -312,10 +300,6 @@ $quiz: null !default;
 
   .ecl-quiz-card__flip {
     color: map.get($quiz, 'card-back', 'flip-link-color');
-
-    &:focus-visible {
-      outline: 1px solid map.get($quiz, 'card-back', 'flip-link-color');
-    }
   }
 
   .ecl-quiz-card__icon {

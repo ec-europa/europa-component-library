@@ -14,6 +14,7 @@
     - "flip_text" (string) Helper text (reveal variant)
     - "flip_icon" (object) Object of type icon
     - "back_text" (string) Text on the back of the card
+    - "variant" (string) (default: ''): Variant of the quiz card ('reveal' or 'poll')
     - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
     - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
     - "extra_attributes" (optional) (array) (default: [])
@@ -35,6 +36,7 @@
 {% set _answer = answer|default('') %}
 {% set _answer_title = answer_title|default('') %}
 {% set _options = options|default([]) %}
+{% set _variant = variant|default('') %}
 {% set _css_class = 'ecl-quiz-card' %}
 {% set _extra_attributes = '' %}
 
@@ -57,6 +59,9 @@
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
+  {% if _variant == 'reveal' %}
+    data-ecl-quiz-card-flip
+  {% endif %}
 >
   <div class="ecl-quiz-card__content">
     <div class="ecl-quiz-card__front">
@@ -88,14 +93,10 @@
       </div>
     {% endif %}
     {% if _flip_text is not empty %}
-      <button
-        class="ecl-quiz-card__flip"
-        data-ecl-quiz-card-flip
-        aria-expanded="false"
-      >
+      <div class="ecl-quiz-card__flip">
         {{ _flip_text }}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
-      </button>
+      </div>
     {% endif %}
     </div>
     <div
@@ -146,14 +147,10 @@
       </div>
     {% endif %}
     {% if _back_text is not empty or _flip_icon is not empty %}
-      <button
-        class="ecl-quiz-card__flip"
-        data-ecl-quiz-card-flip
-        aria-expanded="false"
-      >
+      <div class="ecl-quiz-card__flip">
         {{ _back_text }}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
-      </button>
+      </div>
     {% endif %}
     </div>
   </div>
