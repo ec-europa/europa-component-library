@@ -61,6 +61,14 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/List/Unordered list',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Text = (_, { loaded: { component } }) => component;

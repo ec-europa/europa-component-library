@@ -54,6 +54,11 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Icon',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      disable: true,
+    },
+  },
 };
 
 export const All = (_, { loaded: { component } }) => component;

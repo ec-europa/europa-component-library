@@ -115,7 +115,12 @@ export default {
   parameters: {
     layout: 'fullscreen',
     chromatic: {
-      disable: true,
+      ignoreSelectors: ['.ecl-col-l-9'],
+      modes: {
+        s: { disable: true },
+        m: { disable: true },
+        l: { disable: true },
+      },
     },
   },
 };

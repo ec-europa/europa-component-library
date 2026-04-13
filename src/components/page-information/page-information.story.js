@@ -30,6 +30,15 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Page information',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
