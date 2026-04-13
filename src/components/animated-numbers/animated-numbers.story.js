@@ -7,6 +7,9 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    with_background: false,
+    border: false,
+    counter_color: true,
     currency: data.currency,
     amount: data.amount,
     description: data.description,
@@ -18,6 +21,36 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = () => ({
+  with_background: {
+    name: 'with a dark background',
+    type: { name: 'boolean', required: false },
+    description: 'On a dark background',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
+    },
+  },
+  border: {
+    name: 'border left',
+    type: { name: 'boolean', required: false },
+    description: 'Add a border to the left of the items',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
+    },
+  },
+  counter_color: {
+    name: 'counter color',
+    type: { name: 'boolean', required: false },
+    description: 'Coloured counter',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'true' },
+      category: 'Style',
+    },
+  },
   description: {
     name: 'description',
     type: { name: 'string', required: false },
@@ -70,7 +103,17 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  return Object.assign(data.items[0], args);
+  data.border = args.border;
+  data.counter_color = args.counter_color;
+  data.with_background = args.with_background;
+  data.full_width = args.with_background;
+
+  data.items[0].description = args.description;
+  data.items[0].category = args.category;
+  data.items[0].amount = args.amount;
+  data.items[0].value = args.value;
+
+  return data;
 };
 
 export default {
@@ -81,9 +124,8 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedAnimatedNumbers = await AnimatedNumbers(
-    prepareData(defaultData, args),
-  );
+  const renderedAnimatedNumbers = `<div class="ecl-container">
+  ${await AnimatedNumbers(prepareData(defaultData, args))}</div>`;
   return renderedAnimatedNumbers;
 };
 Default.args = getArgs(defaultData.items[0]);

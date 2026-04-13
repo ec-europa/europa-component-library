@@ -3,13 +3,18 @@
 {#
   Parameters:
   - "inverted" (boolean) (default: false)
+  - "border" (boolean) (default: false)
+  - "counter_color" (string) (default: 'true')
   - "items" (array) (default: []):
     - category (string) default('')
-    - currency_icon (object) default({}) Object of type ECL icon
+    - icon (object) default({}) Object of type ECL icon
     - amount (string) (default: '')
     - value (string) (default: 0)
     - currency (string) (default: '')
-    - description (string (default: '')xl
+    - description (string (default: '')
+  - "sources": (array) (default: [])
+    - "name" (string) (default: '')
+    - "url" (string) (default: '')
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
         {
@@ -24,13 +29,32 @@
 
 {% set _css_class = 'ecl-animated-numbers' %}
 {% set _extra_attributes = '' %}
-{% set _inverted = inverted|default(false) %}
+{% set _with_background = with_background|default(false) %}
+{% set _full_width = full_width|default(false) %}
+{% set _counter_color = counter_color ?? true %}
+{% set _border = border|default(false) %}
 {% set _items = items|default([]) %}
 {% set _extra_classes = extra_classes|default('') %}
+{% set _sources = sources|default([]) %}
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ecl-animated-numbers--col-' ~ _columns %}
+{% if _border %}
+  {% set _css_class = _css_class ~ ' ecl-animated-numbers--border' %}
+{% endif %}
+
+{% if _with_background %}
+  {% set _css_class = _css_class ~ ' ecl-animated-numbers--with-background' %}
+  {% set _counter_color = false %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-animated-numbers--full-width' %}
+{% endif %}
+
+{% if _counter_color %}
+  {% set _css_class = _css_class ~ ' ecl-animated-numbers--counter-color' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -49,8 +73,11 @@
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
+  data-ecl-auto-init="AnimatedNumbers"
 >
-
+{% if _full_width or _with_background %}
+  <div class="ecl-container">
+{% endif %}
 {% if items is defined and items is not empty and items is iterable %}
   <div class="ecl-animated-numbers__items">
   {% for item in items %}
@@ -59,45 +86,76 @@
       {% set _item_class = _item_class ~ ' is-first' %}
     {% endif %}
     <div class="{{ _item_class }}">
-      <div class="ecl-animated_number__header">
-      {% if _item.category is not empty %}
+      <div class="ecl-animated-number__header">
+      {% if item.category is not empty %}
         <div class="ecl-animated-number__category">
-          {{- item.cateogry -}}
+          {{- item.category -}}
         </div>
       {% endif %}
-      {% if item.currency_icon is defined and item.currency_icon is not empty %}
+      {% if item.icon is defined and item.icon is not empty %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: item.icon|merge({
-            size: _icon_size,
+            size: 'xl',
+            color: _counter_color ? 'primary' : null
           }),
-          extra_classes: 'ecl-animated-numbers__icon',
+          extra_classes: 'ecl-animated-number__icon',
         } only %}
       {% endif %}
       </div>
-      <div class="ecl-animated-number__number">
-      {% if item.amount is not empty %}
-        <span class="ecl-animated-number__amount">
-          {{- item.amount -}}
-        </span>
-      {% endif %}
-      {% if item.value is defined and item.value is not empty %}
-        <div class="ecl-animated-numbers__value">
-          {{- item.value -}}
+      <div class="ecl-animated-number__content">
+        <div class="ecl-animated-number__number">
+        {% if item.amount is not empty %}
+          <span class="ecl-animated-number__amount">
+            {{- item.amount -}}
+          </span>
+        {% endif %}
+        {% if item.value is defined and item.value is not empty %}
+          <div
+            class="ecl-animated-number__value"
+            data-ecl-animated-numbers-value
+          >
+            {{- item.value -}}
+          </div>
+        {% endif %}
+        {% if item.currency is defined and item.currency is not empty %}
+          <div class="ecl-animated-number__currency">
+            {{- item.currency -}}
+          </div>
+        {% endif %}
         </div>
-      {% endif %}
-      {% if item.currency is defined and item.currenvy is not empty %}
-        <div class="ecl-animated-numbers__value">
-          {{- item.currency -}}
-        </div>
-      {% endif %}
       </div>
     {% if item.description is defined and item.description is not empty %}
-      <div class="ecl-animated-numbers__description">
+      <div class="ecl-animated-number__description">
         {{- item.description -}}
       </div>
     {% endif %}
     </div>
   {% endfor %}
+  </div>
+{% endif %}
+{% if _sources is defined and _sources is not empty and _sources is iterable %}
+  <div class="ecl-animated-numbers__sources">
+    <span class="ecl-animated-numbers__sources-label">
+      {{- 'Sources:' -}}
+    </span>
+    {% for source in _sources %}
+      {% if source.url is defined and source.url is not empty %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            path: source.url,
+            label: source.name,
+          },
+          extra_classes: 'ecl-animated-numbers__source'
+        } only -%}
+      {% else %}
+        <span class="ecl-animated-numbers__source">
+          {{- source.name -}}
+        </span>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
+{% if _full_width or _with_background %}
   </div>
 {% endif %}
 </div>

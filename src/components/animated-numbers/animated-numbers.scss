@@ -1,0 +1,187 @@
+/**
+ * Animated numbers component for ECL.
+ * @define animated-numbers
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$animated-numbers: null !default;
+
+.ecl-animated-numbers {
+  container-type: inline-size;
+  container-name: ecl-animated-numbers;
+
+  --gap: #{map.get($animated-numbers, 'gap-mobile')};
+
+  width: 100%;
+}
+
+.ecl-animated-numbers--full-width {
+  position: absolute;
+  inset-inline-start: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+}
+
+.ecl-animated-numbers--with-background {
+  background: var(--cm-surface-brand, var(--c-d));
+  color: var(--cm-on-surface-inverted, #fff);
+  padding: map.get($animated-numbers, 'background-spacing');
+}
+
+.ecl-animated-numbers__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: flex-start;
+}
+
+.ecl-animated-number {
+  box-sizing: border-box;
+  background: map.get($animated-numbers, 'surface');
+  border: 1px solid map.get($animated-numbers, 'border-color');
+  border-radius: map.get($animated-numbers, 'border-radius');
+  box-shadow: map.get($animated-numbers, 'shadow');
+  display: flex;
+  flex: 1 1 calc(25% - var(--gap));
+  flex-direction: column;
+  gap: var(--s-m);
+  min-width: map.get($animated-numbers, 'min-width');
+  padding: map.get($animated-numbers, 'item-spacing');
+
+  .ecl-animated-numbers--border & {
+    border: none;
+    border-inline-start: 1px solid var(--cm-border-brand, var(--c-d));
+    box-shadow: none;
+    padding: 0 map.get($animated-numbers, 'item-spacing');
+  }
+
+  .ecl-animated-numbers--with-background & {
+    background: transparent;
+    color: var(--cm-on-surface-inverted, #fff);
+  }
+
+  .ecl-animated-numbers--with-background.ecl-animated-numbers--border & {
+    border-inline-start: 1px solid var(--cm-on-surface-inverted, #fff);
+  }
+}
+
+@container (width >= 480px) {
+  .ecl-animated-numbers__items {
+    --gap: #{map.get($animated-numbers, 'gap-tablet')};
+  }
+}
+
+@container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-animated-numbers__items {
+    --gap: #{map.get($animated-numbers, 'gap-desktop')};
+  }
+}
+
+.ecl-animated-number__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-m);
+}
+
+.ecl-animated-number__category {
+  white-space: nowrap;
+
+  @include mixins.responsive-font(
+    map.get($animated-numbers, 'category-font'),
+    map.get($animated-numbers, 'category-font-weight')
+  );
+}
+
+.ecl-animated-number__icon {
+  margin-inline-start: auto;
+
+  .ecl-animated-numbers--counter-color & {
+    color: var(--cm-on-surface-primary, var(--c-p));
+  }
+}
+
+.ecl-animated-number__currency {
+  @include mixins.responsive-font(
+    map.get($animated-numbers, 'amount-font'),
+    map.get($animated-numbers, 'amount-font-weight')
+  );
+}
+
+.ecl-animated-number__content {
+  align-items: center;
+  display: flex;
+  gap: var(--s-2xs);
+  align-self: stretch;
+}
+
+.ecl-animated-number__number {
+  align-items: center;
+  display: flex;
+  gap: var(--s-xs);
+}
+
+.ecl-animated-number__amount {
+  white-space: nowrap;
+
+  @include mixins.responsive-font(
+    map.get($animated-numbers, 'amount-font'),
+    map.get($animated-numbers, 'amount-font-weight')
+  );
+}
+
+.ecl-animated-number__value {
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+
+  @include mixins.responsive-font(
+    map.get($animated-numbers, 'value-font'),
+    map.get($animated-numbers, 'value-font-weight')
+  );
+
+  .ecl-animated-numbers--counter-color & {
+    color: var(--cm-on-surface-primary, var(--c-p));
+  }
+}
+
+.ecl-animated-number__description {
+  color: map.get($animated-numbers, 'description-color');
+
+  @include mixins.responsive-font(
+    map.get($animated-numbers, 'description-font')
+  );
+
+  .ecl-animated-numbers--with-background & {
+    color: var(--cm-on-surface-inverted, #fff);
+  }
+}
+
+.ecl-animated-numbers__sources {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: map.get($animated-numbers, 'source-spacing');
+
+  @include mixins.responsive-font(map.get($animated-numbers, 'source-font'));
+}
+
+.ecl-animated-numbers__source {
+  text-decoration: none;
+
+  .ecl-animated-numbers--with-background & {
+    color: var(--cm-on-surface-inverted, #fff);
+  }
+}
+
+.ecl-animated-numbers__source + .ecl-animated-numbers__source::before {
+  color: map.get($animated-numbers, 'source-separator-color');
+  content: '|';
+  margin-inline-end: var(--s-xs);
+}

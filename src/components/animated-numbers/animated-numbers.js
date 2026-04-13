@@ -1,10 +1,15 @@
-import { queryAll, queryOne } from '@ecl/dom-utils';
+import { queryAll } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.numberSelector
  * @param {Boolean} options.attachHoverListener
+ * @param {Boolean} options.attachResizeListener
+ * @param {Boolean} options.animateOnHover
+ * @param {Boolean} options.animateOnVisible
+ * @param {Number} options.animationDuration
+ * @param {String} options.animationStyle - 'linear' or 'random'
  */
 export class AnimatedNumbers {
   /**
@@ -25,9 +30,13 @@ export class AnimatedNumbers {
   constructor(
     element,
     {
-      numberSelector = '[data-ecl-animated-number]',
+      numberSelector = '[data-ecl-animated-numbers-value]',
       attachHoverListener = true,
       attachResizeListener = true,
+      animateOnHover = true,
+      animateOnVisible = true,
+      animationDuration = 1000,
+      animationStyle = 'random', // 'linear' or 'random'
     } = {},
   ) {
     // Check element
@@ -43,13 +52,21 @@ export class AnimatedNumbers {
     this.numberSelector = numberSelector;
     this.attachHoverListener = attachHoverListener;
     this.attachResizeListener = attachResizeListener;
+    this.animateOnHover = animateOnHover;
+    this.animateOnVisible = animateOnVisible;
+    this.animationDuration = animationDuration;
+    this.animationStyle = animationStyle;
 
     // Private variables
     this.resizeTimer = null;
+    this.intersectionObserver = null;
+    this.animatedElements = new Map();
 
     // Bind `this` for use in callbacks
     this.animateNumber = this.animateNumber.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.handleIntersection = this.handleIntersection.bind(this);
+    this.handleHoverStart = this.handleHoverStart.bind(this);
   }
 
   /**
@@ -62,19 +79,45 @@ export class AnimatedNumbers {
 
     ECL.components = ECL.components || new Map();
 
-    this.ellipsisButton = queryOne(this.ellipsisButtonSelector, this.element);
-
-    // Bind click event on ellipsis
-    if (this.attachClickListener && this.ellipsisButton) {
-      this.ellipsisButton.addEventListener('click', this.handleClickOnEllipsis);
-    }
-
     this.itemsElements = queryAll(this.numberSelector, this.element);
 
-    // Bind resize events
+    // Initialize animated elements map with original values
+    this.itemsElements.forEach((element) => {
+      const originalValue =
+        parseFloat(element.textContent.replace(/[^\d.-]/g, '')) || 0;
+      this.animatedElements.set(element, {
+        originalValue,
+        isAnimating: false,
+        animationId: null,
+      });
+      // Set initial display to 0
+      element.textContent = '0';
+    });
+
+    // Set up Intersection Observer for viewport visibility
+    if (this.animateOnVisible && window.IntersectionObserver) {
+      this.intersectionObserver = new IntersectionObserver(
+        this.handleIntersection,
+        {
+          threshold: 0.1, // Trigger when 10% visible
+        },
+      );
+
+      this.itemsElements.forEach((element) => {
+        this.intersectionObserver.observe(element);
+      });
+    }
+
+    if (this.animateOnHover) {
+      this.itemsElements.forEach((element) => {
+        element.addEventListener('mouseenter', this.handleHoverStart);
+      });
+    }
+
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
@@ -84,9 +127,27 @@ export class AnimatedNumbers {
    * Destroy component.
    */
   destroy() {
-    if (this.attachHoverListener && this.itemsElements) {
-      this.itemsElements.forEach((number) => {
-        number.removeEventListener('hover', this.animateNumber);
+    // Stop all ongoing animations and restore original widths
+    this.animatedElements.forEach((data, element) => {
+      if (data.animationId) {
+        cancelAnimationFrame(data.animationId);
+      }
+      // Reset to original value and restore original width
+      const originalValue = data.originalValue;
+      element.textContent = originalValue.toString();
+      element.style.width = data.originalWidth || '';
+    });
+
+    // Clean up Intersection Observer
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+      this.intersectionObserver = null;
+    }
+
+    // Clean up hover listeners
+    if (this.animateOnHover && this.itemsElements) {
+      this.itemsElements.forEach((element) => {
+        element.removeEventListener('mouseenter', this.handleHoverStart);
       });
     }
 
@@ -98,30 +159,138 @@ export class AnimatedNumbers {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
+
+    this.animatedElements.clear();
   }
 
   /**
-   *
+   * Handle intersection observer events for viewport visibility
    */
-  animateNumber({ from = 0, to, duration = 1000, onUpdate }) {
-    const startTime = performance.now();
+  handleIntersection(entries) {
+    entries.forEach((entry) => {
+      const element = entry.target;
+      const data = this.animatedElements.get(element);
 
-    function tick(now) {
+      if (entry.isIntersecting && !data.isAnimating) {
+        // Element became visible, start animation
+        this.startAnimation(element);
+      } else if (!entry.isIntersecting && data.isAnimating) {
+        // Element went out of view, reset to 0
+        this.resetAnimation(element);
+      }
+    });
+  }
+
+  /**
+   * Handle mouse enter for hover animation
+   */
+  handleHoverStart(event) {
+    const element = event.currentTarget;
+    const data = this.animatedElements.get(element);
+
+    if (!data.isAnimating) {
+      this.startAnimation(element);
+    }
+  }
+
+  /**
+   * Start animation for an element
+   */
+  startAnimation(element) {
+    const data = this.animatedElements.get(element);
+    if (data.isAnimating) return;
+
+    data.isAnimating = true;
+
+    // Calculate and set fixed width to prevent layout shift
+    const finalValue = data.originalValue.toString();
+    const tempText = element.textContent;
+    element.textContent = finalValue;
+    const finalWidth = element.offsetWidth;
+    element.textContent = tempText;
+
+    // Store original width and set fixed width
+    data.originalWidth = element.style.width;
+    element.style.width = `${finalWidth}px`;
+
+    this.animateNumber({
+      from: 0,
+      to: data.originalValue,
+      duration: this.animationDuration,
+      onUpdate: (value) => {
+        element.textContent = value.toString();
+      },
+      onComplete: () => {
+        // Restore original width
+        element.style.width = data.originalWidth || '';
+        data.isAnimating = false;
+        data.animationId = null;
+      },
+    });
+  }
+
+  /**
+   * Reset animation for an element (set back to 0)
+   */
+  resetAnimation(element) {
+    const data = this.animatedElements.get(element);
+    if (data.animationId) {
+      cancelAnimationFrame(data.animationId);
+    }
+    data.isAnimating = false;
+    data.animationId = null;
+    element.textContent = '0';
+    // Restore original width
+    element.style.width = data.originalWidth || '';
+  }
+
+  /**
+   * Animate number from a starting value to an ending value over a duration, with optional easing and randomization.
+   */
+  animateNumber({ from = 0, to, duration = 1000, onUpdate, onComplete }) {
+    const data = this.animatedElements.get(
+      Array.from(this.animatedElements.keys()).find((el) =>
+        el.contains(onUpdate ? null : document.activeElement),
+      ),
+    );
+
+    if (data) {
+      data.animationId = null;
+    }
+
+    let startTime = null;
+
+    const tick = (now) => {
+      if (startTime === null) {
+        startTime = now;
+      }
+
       const progress = Math.min((now - startTime) / duration, 1);
 
-      // easeOut (optional but nicer)
-      const eased = 1 - Math.pow(1 - progress, 3);
-
-      const value = from + (to - from) * eased;
+      let value;
+      if (this.animationStyle === 'random') {
+        // Random animation: show random numbers between 0 and final value
+        value = Math.floor(Math.random() * (to + 1));
+      } else {
+        // Linear animation: smooth progression from 0 to final value
+        const eased = 1 - Math.pow(1 - progress, 3);
+        value = from + (to - from) * eased;
+      }
 
       onUpdate(Math.floor(value));
 
       if (progress < 1) {
-        requestAnimationFrame(tick);
+        const animationId = requestAnimationFrame(tick);
+        if (data) {
+          data.animationId = animationId;
+        }
       } else {
         onUpdate(to);
+        if (onComplete) {
+          onComplete();
+        }
       }
-    }
+    };
 
     requestAnimationFrame(tick);
   }
@@ -132,8 +301,30 @@ export class AnimatedNumbers {
   handleResize() {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
-      this.check();
+      // Re-check visibility on resize
+      if (this.intersectionObserver) {
+        this.itemsElements.forEach((element) => {
+          const data = this.animatedElements.get(element);
+          if (!this.isElementInViewport(element) && data.isAnimating) {
+            this.resetAnimation(element);
+          }
+        });
+      }
     }, 200);
+  }
+
+  /**
+   * Check if element is in viewport
+   */
+  isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   }
 }
 
