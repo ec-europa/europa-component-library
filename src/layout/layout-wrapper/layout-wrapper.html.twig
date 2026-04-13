@@ -3,32 +3,40 @@
 
 {#
   Parameters:
-  - "configuration" (string) (default: 'col-3'): Layout configuration. Possible options:
-    - col-2
-    - col-3
-    - col-4
-    - highlight-col-2
-    - highlight-col-3
+  - "nb_columns" (int) (default: 3): Number of item columns (2, 3, or 4)
+  - "info_position" (string) (default: 'top'): Position of the heading/introduction block. Possible options:
+    - top: always stacked above the grid
+    - side: beside the grid at wider breakpoints; capped to 3 columns
+  - "heading" (object) (default: {}): Heading of the layout wrapper.  Structure:
+    - "level" (int) (default: 2): Heading level
+    - "label" (string) (default: ''): Heading content
+  - "introduction" (string) (default: ''): Introduction of the layout wrapper
   - "items" (array) (default: []): Items to be displayed in the wrapper.
       Each item can be either:
       - a string (rendered as-is)
-      - an object with a defining component key, e.g. { card: { ... } }, { heading: { level: 2, content: 'my heading' } }
-        Supported component keys: heading, card, navigation_list, content_item, file, list_illustration
+      - an object with a defining component key, e.g. { card: { ... } }
+        Supported component keys: card, navigation_list, content_item, file, list_illustration
   - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
   - "view_all" (object) (default: {}): Link display below the grid; Follows the ECL Link structure
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        },
-        ...
-      ],
+      {
+        "name" (string) (default: ''),
+        "value" (optional) (string)
+      },
+      ...
+    ],
 #}
 
 {# Internal properties #}
 
-{% set _configuration = configuration|default('col-3') %}
+{% set _nb_columns = nb_columns|default(3) %}
+{% set _info_position = info_position|default('top') %}
+{% set _heading = heading|default({})|merge({
+  level: heading.level|default(2),
+  label: heading.label|default('')
+}) %}
+{% set _introduction = introduction|default('') %}
 {% set _items = items|default([]) %}
 {% set _direction = direction|default('horizontal') %}
 {% set _view_all = view_all|default({}) %}
@@ -37,26 +45,26 @@
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ' ~ _configuration %}
+{% if _info_position == 'side' and _nb_columns > 3 %}
+  {% set _nb_columns = 3 %}
+{% endif %}
+
+{% set _css_class = _css_class ~ ' col-' ~ _nb_columns %}
+
+{% if _info_position == 'side' %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--info-side' %}
+{% endif %}
 
 {% if _direction != 'horizontal' %}
   {% set _css_class = _css_class ~ ' ecl-layout-wrapper--vertical' %}
-  {% if _configuration starts with 'col-' %}
-    {% set _col_count = _configuration|replace({'col-': ''}) %}
-    {% set _base_count = _items|length %}
-  {% elseif _configuration starts with 'highlight-col-' %}
-    {% set _col_count = _configuration|replace({'highlight-col-': ''}) %}
-    {% set _base_count = _items|length - 1 %}
+  {% set _base_count = _items|length %}
+  {% set _style_vars = [] %}
+  {% if _nb_columns > 2 %}
+    {% for n in range(2, _nb_columns - 1) %}
+      {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ n ~ ':' ~ (_base_count / n)|round(0, 'ceil')]) %}
+    {% endfor %}
   {% endif %}
-  {% if _col_count is defined %}
-    {% set _style_vars = [] %}
-    {% if _col_count > 2 %}
-      {% for n in range(2, _col_count - 1) %}
-        {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ n ~ ':' ~ (_base_count / n)|round(0, 'ceil')]) %}
-      {% endfor %}
-    {% endif %}
-    {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ _col_count ~ ':' ~ (_base_count / _col_count)|round(0, 'ceil')]) %}
-  {% endif %}
+  {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ _nb_columns ~ ':' ~ (_base_count / _nb_columns)|round(0, 'ceil')]) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -86,34 +94,10 @@
     {%- include '@ecl/file/file.html.twig' with item.file only -%}
   {%- elseif item.list_illustration is defined -%}
     {%- include '@ecl/list-illustration/list-illustration.html.twig' with item.list_illustration only -%}
-  {%- elseif item.heading is defined -%}
-    {% set level = item.heading.level|default(2) %}
-    <h{{ level }} class="ecl-u-type-heading-{{ level }} ecl-u-mt-none">{{- item.heading.content -}}</h{{ level }}>
   {%- else -%}
     {{- item -}}
   {%- endif -%}
 {% endapply %}{% endmacro %}
-
-{# Prepare markup #}
-
-{% set _view_all_markup = '' %}
-{% if _view_all.link is defined and _view_all.link is not empty %}
-  {% set _view_all_markup %}
-    <div class="ecl-layout-wrapper__view-all">
-      {% include '@ecl/link/link.html.twig' with _view_all|merge({
-        link: _view_all.link|merge({
-          type: 'standalone',
-        }),
-        icon: _view_all.link.external ? {} : _view_all.icon|default({})|merge({
-          name: 'arrow-left',
-          transform: 'flip-horizontal',
-          size: 'xs',
-        }),
-        extra_classes: 'ecl-layout-wrapper__view-all-link',
-      }) only %}
-    </div>
-  {% endset %}
-{% endif %}
 
 {# Print the result #}
 
@@ -123,36 +107,47 @@
   {% if _style_vars is defined and _style_vars is not empty %}style="{{ _style_vars|join('; ') }}"{% endif %}
   {{ _extra_attributes|raw }}
 >
-  {%- if _configuration starts with 'highlight-col-' -%}
-  {# Highlight #}
-    <div class="ecl-layout-wrapper__grid">
-      <div class="ecl-layout-wrapper__highlight">
-        <div class="ecl-layout-item ecl-layout-item--1">
-          {{- layout_wrapper.render_item(_items[0]) -}}
-        </div>
+  <div class="ecl-layout-wrapper__grid">
+    {# Heading and introduction #}
+    {%- if _heading.label is not empty or _introduction is not empty -%}
+      <div class="ecl-layout-wrapper__info">
+        {%- if _heading.label is not empty -%}
+          <h{{ _heading.level }} class="ecl-u-type-heading-{{ _heading.level }} ecl-layout-wrapper__heading">{{- _heading.label -}}</h{{ _heading.level }}/>
+        {%- endif -%}
+        {%- if _introduction is not empty -%}
+          <div class="ecl-layout-wrapper__introduction">{{- _introduction -}}</div>
+        {%- endif -%}
       </div>
-      <div class="ecl-layout-wrapper__container">
-        <div class="ecl-layout-wrapper__content">
-          {%- for item in _items|slice(1) -%}
-            <div class="ecl-layout-item ecl-layout-item--{{ loop.index + 1 }}">
-              {{- layout_wrapper.render_item(item) -}}
-            </div>
-          {%- endfor -%}
-        </div>
-        {{- _view_all_markup -}}
+    {%- endif -%}
+
+    {# Grid #}
+    <div class="ecl-layout-wrapper__container">
+      <div class="ecl-layout-wrapper__content">
+        {%- for item in _items -%}
+          <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
+            {{- layout_wrapper.render_item(item) -}}
+          </div>
+        {%- endfor -%}
       </div>
-    </div>
-  {%- else -%}
-  {# Default grid #}
-    <div class="ecl-layout-wrapper__grid">
-      {%- for item in _items -%}
-        <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
-          {{- layout_wrapper.render_item(item) -}}
+
+      {# View all #}
+      {% if _view_all.link is defined and _view_all.link is not empty %}
+        <div class="ecl-layout-wrapper__view-all">
+          {% include '@ecl/link/link.html.twig' with _view_all|merge({
+            link: _view_all.link|merge({
+              type: 'standalone',
+            }),
+            icon: _view_all.link.external ? {} : _view_all.icon|default({})|merge({
+              name: 'arrow-left',
+              transform: 'flip-horizontal',
+              size: 'xs',
+            }),
+            extra_classes: 'ecl-layout-wrapper__view-all-link',
+          }) only %}
         </div>
-      {%- endfor -%}
+      {% endif %}
     </div>
-    {{- _view_all_markup -}}
-  {%- endif -%}
+  </div>
 </div>
 {% endif %}
 

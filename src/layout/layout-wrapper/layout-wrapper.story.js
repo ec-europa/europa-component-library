@@ -1,4 +1,3 @@
-import { useArgs } from '@storybook/preview-api';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -6,26 +5,18 @@ import dataDemo from './demo/data';
 import layoutWrapper from './layout-wrapper.html.twig';
 import notes from './README.md';
 
-const configurations = {
-  columns: {
-    'col-2': '2 columns',
-    'col-3': '3 columns',
-    'col-4': '4 columns',
-  },
-  highlight: {
-    'highlight-col-2': 'highlight + 2 columns',
-    'highlight-col-3': 'highlight + 3 columns',
-  },
-};
-
-const getArgs = (defaultConfig, defaultNbItems = 6, firstItemType = 'card') => {
+const getArgs = (data) => {
   const args = {
-    configuration: defaultConfig,
-    nb_items: defaultNbItems,
+    info_position: 'top',
+    nb_columns: 3,
+    nb_items: 6,
     direction: 'horizontal',
     grid_content: false,
     show_view_all: true,
-    item_1: firstItemType,
+    heading_level: data.heading.level,
+    heading_label: data.heading.label,
+    introduction: data.introduction,
+    item_1: 'card',
     item_2: 'card',
     item_3: 'card',
     item_4: 'card',
@@ -35,32 +26,33 @@ const getArgs = (defaultConfig, defaultNbItems = 6, firstItemType = 'card') => {
     item_8: 'card',
   };
 
-  for (let i = 1; i <= 8; i++) {
-    args[`show_item_${i}`] = i <= defaultNbItems;
-  }
-
   return args;
 };
 
-const getArgTypes = (configGroup) => {
-  const configOptions = Object.keys(configGroup);
-  const configMapping = {};
-  for (const [key, label] of Object.entries(configGroup)) {
-    configMapping[label] = key;
-  }
-
+const getArgTypes = () => {
   const argTypes = {
-    configuration: {
-      name: 'Layout configuration',
+    info_position: {
+      name: 'Info position',
       type: 'select',
-      description: 'Change layout',
-      options: configOptions,
-      control: { labels: { ...configGroup } },
-      mapping: configMapping,
+      description: 'Position of the title/description block',
+      options: ['top', 'side'],
+      control: {
+        labels: { top: 'top', side: 'side' },
+      },
       table: {
         type: 'string',
+        defaultValue: { summary: 'top' },
         category: 'Configuration',
-        defaultValue: { summary: configOptions[0] },
+      },
+    },
+    nb_columns: {
+      name: 'Number of columns',
+      description:
+        'Number of item columns (max 3 when info position is "side")',
+      control: { type: 'range', min: 2, max: 4, step: 1 },
+      table: {
+        category: 'Configuration',
+        defaultValue: { summary: 3 },
       },
     },
     nb_items: {
@@ -111,6 +103,49 @@ const getArgTypes = (configGroup) => {
       category: 'Display',
     },
   };
+  argTypes.heading_level = {
+    name: 'Heading level',
+    type: 'select',
+    description: 'Heading level in the hieararchy',
+    options: [2, 3, 4],
+    control: {
+      labels: {
+        2: 'heading 2',
+        3: 'heading 3',
+        4: 'heading 4',
+      },
+    },
+    mapping: {
+      'heading 2': 2,
+      'heading 3': 3,
+      'heading 4': 4,
+    },
+    table: {
+      type: 'int',
+      defaultValue: { summary: '2' },
+      category: 'Content',
+    },
+  };
+  argTypes.heading_label = {
+    name: 'Heading label',
+    type: 'string',
+    description: 'Heading of the layout wrapper',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+  argTypes.introduction = {
+    name: 'Introduction',
+    type: 'string',
+    description: 'Introduction of the layout wrapper',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
 
   argTypes.grid_content = {
     name: 'Demo sidebar layout',
@@ -124,7 +159,6 @@ const getArgTypes = (configGroup) => {
   };
 
   for (let i = 1; i <= 8; i++) {
-    argTypes[`show_item_${i}`] = { table: { disable: true } };
     argTypes[`item_${i}`] = {
       name: `item ${i} content`,
       type: 'select',
@@ -132,9 +166,8 @@ const getArgTypes = (configGroup) => {
       options: contentTypeOptions,
       control: { labels: contentTypeLabels },
       mapping: contentTypeMapping,
-      if: { arg: `show_item_${i}` },
       table: {
-        category: 'Items content',
+        category: 'Content',
         type: 'string',
       },
     };
@@ -154,6 +187,11 @@ const prepareData = (data, args) => {
   if (!args.show_view_all) {
     delete clone.view_all;
   }
+
+  clone.heading = {
+    label: args.heading_label,
+    level: args.heading_level,
+  };
 
   return Object.assign(clone, args);
 };
@@ -175,42 +213,15 @@ const renderStory = async (data, args) => {
   return `<div class="ecl-container">${renderedLayout}</div>`;
 };
 
-const syncItemVisibility = (Story) => {
-  const [args, updateArgs] = useArgs();
-  const updates = {};
-  let needsUpdate = false;
-  for (let i = 1; i <= 8; i++) {
-    const shouldShow = i <= args.nb_items;
-    if (Boolean(args[`show_item_${i}`]) !== shouldShow) {
-      updates[`show_item_${i}`] = shouldShow;
-      needsUpdate = true;
-    }
-  }
-  if (needsUpdate) {
-    Promise.resolve().then(() => updateArgs(updates));
-  }
-  return Story();
-};
-
 export default {
   title: 'Layout/Layout Wrapper',
   decorators: [withNotes, withCode],
 };
 
-export const Columns = (_, { loaded: { component } }) => component;
+export const Default = (_, { loaded: { component } }) => component;
 
-Columns.render = async (args) => renderStory(dataDemo, args);
-Columns.storyName = 'columns';
-Columns.args = getArgs('col-3');
-Columns.argTypes = getArgTypes(configurations.columns);
-Columns.parameters = { notes: { markdown: notes, json: dataDemo } };
-Columns.decorators = [syncItemVisibility];
-
-export const Highlight = (_, { loaded: { component } }) => component;
-
-Highlight.render = async (args) => renderStory(dataDemo, args);
-Highlight.storyName = 'highlight';
-Highlight.args = getArgs('highlight-col-2', 6, 'heading');
-Highlight.argTypes = getArgTypes(configurations.highlight);
-Highlight.parameters = { notes: { markdown: notes, json: dataDemo } };
-Highlight.decorators = [syncItemVisibility];
+Default.render = async (args) => renderStory(dataDemo, args);
+Default.storyName = 'default';
+Default.args = getArgs(dataDemo);
+Default.argTypes = getArgTypes();
+Default.parameters = { notes: { markdown: notes, json: dataDemo } };

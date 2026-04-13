@@ -8,18 +8,19 @@ npm install --save @ecl/layout-wrapper
 
 ### Parameters
 
-- **"configuration"** (string) (default: 'col-3'): Layout configuration. Possible options:
-  - col-2
-  - col-3
-  - col-4
-  - highlight-col-2
-  - highlight-col-3
+- **"nb_columns"** (int) (default: 3): Number of item columns (2, 3, or 4)
+- **"info_position"** (string) (default: 'top'): Position of the heading/introduction block. Possible options:
+  - top: always stacked above the grid
+  - side: beside the grid at wider breakpoints; capped to 3 columns
+- **"heading"** (string) (default: ''): Heading of the layout wrapper
+- **"introduction"** (string) (default: ''): Introduction of the layout wrapper
 - **"items"** (array) (default: []): Items to be displayed in the wrapper.
   Each item can be either:
   - a string (rendered as-is)
-  - an object with a defining component key, e.g. { card: { ... } }, { heading: { level: 2, content: 'my heading' } }
-    Supported component keys: heading, card, navigation_list, content_item, file, list_illustration
+  - an object with a defining component key, e.g. { card: { ... } }
+    Supported component keys: card, navigation_list, content_item, file, list_illustration
 - **"direction"** (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
+- **"view_all"** (object) (default: {}): Link display below the grid; Follows the ECL Link structure
 - **"extra_classes"** (string) (default: '')
 - **"extra_attributes"** (array) (default: []): format: [
   {
@@ -34,8 +35,12 @@ npm install --save @ecl/layout-wrapper
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/layout-wrapper/layout-wrapper.html.twig' with { 
+  heading: {
+    level: 2,
+    label: 'Heading',
+  },
+  introduction: 'Introduction',
   items: [
-    heading: { level: 2, content: 'My heading' }',
     card: {
       // Card content, following the component structure 
       ... 
@@ -44,7 +49,13 @@ npm install --save @ecl/layout-wrapper
       // Navigation list content, following the component structure 
       ... 
     },
-  ]
+  ],
+  view_all: {
+    link: {
+      path: '#',
+      label: 'View all',
+    },
+  },
 } %}
 ```
 

@@ -7,6 +7,12 @@
   $theme: theme.$theme
 );
 
+// Functions and Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $theme: theme.$theme,
+  $typography: var.$typography
+);
+
 // Layout
 @use '@ecl/grid/grid' with (
   $theme: theme.$theme
@@ -14,12 +20,6 @@
 @use '@ecl/layout-wrapper/layout-wrapper' with (
   $theme: theme.$theme,
   $layout-wrapper: var.$layout-wrapper
-);
-
-// Functions and Mixins
-@use '@ecl/mixins-typography/mixins' with (
-  $theme: theme.$theme,
-  $typography: var.$typography
 );
 
 // Forms
