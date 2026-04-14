@@ -241,6 +241,16 @@ const renderStory = async (data, args, variant) => {
 export default {
   title: 'Components/Navigation/Link',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

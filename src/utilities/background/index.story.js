@@ -9,6 +9,7 @@ export default {
   decorators: [withCode],
   parameters: {
     EclNotes: { disable: true },
+    chromatic: { disable: true },
   },
 };
 

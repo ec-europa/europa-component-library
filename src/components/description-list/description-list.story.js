@@ -96,6 +96,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/List/Description list',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Vertical = (_, { loaded: { component } }) => component;

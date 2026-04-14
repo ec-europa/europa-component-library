@@ -126,6 +126,12 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Navigation list',
   decorators: [withCode, withNotes],
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

@@ -140,6 +140,7 @@ Visible.parameters = {
   },
 };
 Visible.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button');
   const popover = document.getElementById('popover-example1');

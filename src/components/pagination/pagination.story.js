@@ -11,7 +11,15 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
-    parameters: { layout: 'fullscreen' },
+    parameters: {
+      layout: 'fullscreen',
+      chromatic: {
+        modes: {
+          m: { disable: true },
+          xl: { disable: true },
+        },
+      },
+    },
   },
 };
 

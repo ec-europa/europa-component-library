@@ -242,6 +242,13 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Card',
   decorators: [withCode, withNotes],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

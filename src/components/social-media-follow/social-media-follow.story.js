@@ -98,6 +98,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Social Media Follow',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Horizontal = (_, { loaded: { component } }) => component;
