@@ -76,6 +76,13 @@ const prepareData = (data, args) => Object.assign(data, args);
 export default {
   title: 'Components/Date block',
   decorators: [withNotes, withCode],
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Ongoing = (_, { loaded: { component } }) => component;

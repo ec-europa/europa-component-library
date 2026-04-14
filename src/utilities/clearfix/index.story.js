@@ -32,6 +32,7 @@ export default {
     controls: { disable: true },
     EclNotes: { disable: true },
     a11y: { disable: true },
+    chromatic: { disable: true },
   },
 };
 

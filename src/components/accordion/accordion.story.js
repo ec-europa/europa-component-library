@@ -2,6 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
+import { userEvent, expect } from '@storybook/test';
 
 import demoData from './demo/data';
 import accordion from './accordion.html.twig';
@@ -84,6 +85,16 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Accordion',
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -102,3 +113,21 @@ Default.parameters = {
   },
 };
 Default.decorators = [withCode, withNotes];
+
+export const Opened = (_, { loaded: { component } }) => component;
+
+Opened.render = async () => {
+  const renderedOpened = await accordion(demoData);
+  return renderedOpened;
+};
+
+Opened.storyName = 'opened';
+Opened.tags = ['!dev'];
+Opened.play = async () => {
+  ECL.autoInit();
+  const item = document.querySelector('.is-first');
+  const button = item.querySelector('.ecl-accordion__toggle');
+  const content = item.querySelector('.ecl-accordion__content');
+  await userEvent.click(button);
+  expect(content).toBeVisible();
+};
