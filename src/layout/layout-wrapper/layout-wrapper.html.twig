@@ -7,10 +7,10 @@
   - "info_position" (string) (default: 'top'): Position of the heading/introduction block. Possible options:
     - top: always stacked above the grid
     - side: beside the grid at wider breakpoints; capped to 3 columns
-  - "heading" (object) (default: {}): Heading of the layout wrapper.  Structure:
+  - "title" (object) (default: {}): Title of the layout wrapper.  Structure:
     - "level" (int) (default: 2): Heading level
-    - "label" (string) (default: ''): Heading content
-  - "introduction" (string) (default: ''): Introduction of the layout wrapper
+    - "label" (string) (default: ''): Title content
+  - "description" (string) (default: ''): Description of the layout wrapper
   - "items" (array) (default: []): Items to be displayed in the wrapper.
       Each item can be either:
       - a string (rendered as-is)
@@ -32,11 +32,11 @@
 
 {% set _nb_columns = nb_columns|default(3) %}
 {% set _info_position = info_position|default('top') %}
-{% set _heading = heading|default({})|merge({
-  level: heading.level|default(2),
-  label: heading.label|default('')
+{% set _title = title|default({})|merge({
+  level: title.level|default(2),
+  label: title.label|default('')
 }) %}
-{% set _introduction = introduction|default('') %}
+{% set _description = description|default('') %}
 {% set _items = items|default([]) %}
 {% set _direction = direction|default('horizontal') %}
 {% set _view_all = view_all|default({}) %}
@@ -108,14 +108,14 @@
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-layout-wrapper__grid">
-    {# Heading and introduction #}
-    {%- if _heading.label is not empty or _introduction is not empty -%}
+    {# Title and description #}
+    {%- if _title.label is not empty or _description is not empty -%}
       <div class="ecl-layout-wrapper__info">
-        {%- if _heading.label is not empty -%}
-          <h{{ _heading.level }} class="ecl-u-type-heading-{{ _heading.level }} ecl-layout-wrapper__heading">{{- _heading.label -}}</h{{ _heading.level }}/>
+        {%- if _title.label is not empty -%}
+          <h{{ _title.level }} class="ecl-u-type-heading-{{ _title.level }} ecl-layout-wrapper__title">{{- _title.label -}}</h{{ _title.level }}/>
         {%- endif -%}
-        {%- if _introduction is not empty -%}
-          <div class="ecl-layout-wrapper__introduction">{{- _introduction -}}</div>
+        {%- if _description is not empty -%}
+          <div class="ecl-layout-wrapper__description">{{- _description -}}</div>
         {%- endif -%}
       </div>
     {%- endif -%}

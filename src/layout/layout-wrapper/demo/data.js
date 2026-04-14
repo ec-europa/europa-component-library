@@ -232,11 +232,11 @@ const contentTypes = {
 
 module.exports = {
   contentTypes,
-  heading: {
+  title: {
     level: 2,
     label: 'Heading',
   },
-  introduction:
+  description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus tellus nec iaculis commodo. Nulla facilisi. Duis at tortor ornare quam condimentum volutpat ac ac quam. Vivamus sed semper leo.',
   items: [
     cardData,

@@ -34,10 +34,8 @@ $layout-wrapper: null !default;
   margin-block-start: 0;
 }
 
-.ecl-layout-wrapper__introduction {
-  @include mixins.responsive-font(
-    map.get($layout-wrapper, 'introduction-font')
-  );
+.ecl-layout-wrapper__description {
+  @include mixins.responsive-font(map.get($layout-wrapper, 'description-font'));
 }
 
 .ecl-layout-wrapper__view-all {

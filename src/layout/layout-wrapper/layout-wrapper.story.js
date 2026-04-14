@@ -13,9 +13,9 @@ const getArgs = (data) => {
     direction: 'horizontal',
     grid_content: false,
     show_view_all: true,
-    heading_level: data.heading.level,
-    heading_label: data.heading.label,
-    introduction: data.introduction,
+    title_level: data.title.level,
+    title_label: data.title.label,
+    description: data.description,
     item_1: 'card',
     item_2: 'card',
     item_3: 'card',
@@ -103,7 +103,7 @@ const getArgTypes = () => {
       category: 'Display',
     },
   };
-  argTypes.heading_level = {
+  argTypes.title_level = {
     name: 'Heading level',
     type: 'select',
     description: 'Heading level in the hieararchy',
@@ -126,20 +126,20 @@ const getArgTypes = () => {
       category: 'Content',
     },
   };
-  argTypes.heading_label = {
-    name: 'Heading label',
+  argTypes.title_label = {
+    name: 'Title',
     type: 'string',
-    description: 'Heading of the layout wrapper',
+    description: 'Title of the layout wrapper',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
       category: 'Content',
     },
   };
-  argTypes.introduction = {
-    name: 'Introduction',
+  argTypes.description = {
+    name: 'Description',
     type: 'string',
-    description: 'Introduction of the layout wrapper',
+    description: 'Description of the layout wrapper',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -188,9 +188,9 @@ const prepareData = (data, args) => {
     delete clone.view_all;
   }
 
-  clone.heading = {
-    label: args.heading_label,
-    level: args.heading_level,
+  clone.title = {
+    label: args.title_label,
+    level: args.title_level,
   };
 
   return Object.assign(clone, args);

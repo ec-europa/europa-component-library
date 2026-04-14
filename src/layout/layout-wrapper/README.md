@@ -9,11 +9,13 @@ npm install --save @ecl/layout-wrapper
 ### Parameters
 
 - **"nb_columns"** (int) (default: 3): Number of item columns (2, 3, or 4)
-- **"info_position"** (string) (default: 'top'): Position of the heading/introduction block. Possible options:
+- **"info_position"** (string) (default: 'top'): Position of the title/description block. Possible options:
   - top: always stacked above the grid
   - side: beside the grid at wider breakpoints; capped to 3 columns
-- **"heading"** (string) (default: ''): Heading of the layout wrapper
-- **"introduction"** (string) (default: ''): Introduction of the layout wrapper
+- **"title"** (object) (default: {}): Title of the layout wrapper
+  - "level" (int) (default: 2): Heading level
+  - "label" (string) (default: ''): Title content
+- **"description"** (string) (default: ''): Description of the layout wrapper
 - **"items"** (array) (default: []): Items to be displayed in the wrapper.
   Each item can be either:
   - a string (rendered as-is)
@@ -35,11 +37,11 @@ npm install --save @ecl/layout-wrapper
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/layout-wrapper/layout-wrapper.html.twig' with { 
-  heading: {
+  title: {
     level: 2,
     label: 'Heading',
   },
-  introduction: 'Introduction',
+  description: 'Description',
   items: [
     card: {
       // Card content, following the component structure 
