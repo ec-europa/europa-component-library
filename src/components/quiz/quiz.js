@@ -19,6 +19,7 @@ import Accessibility from 'embla-carousel-accessibility';
  * @param {String} options.activeDotClass Css class to be assigned to the active dot
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
+ * @param {Boolean} options.attachKeyboardListener Whether or not to bind keyboard events
  */
 export class Quiz {
   /**
@@ -54,6 +55,7 @@ export class Quiz {
       flippedClass = 'ecl-quiz-card__flipped',
       questionClass = '.ecl-quiz-card__question',
       answerClass = '.ecl-quiz-card__answer',
+      optionClass = '.ecl-quiz-card__option',
       contentClass = '.ecl-quiz-card__content',
       frontClass = '.ecl-quiz-card__front',
       backClass = '.ecl-quiz-card__back',
@@ -64,6 +66,7 @@ export class Quiz {
       activeDotClass = 'ecl-quiz__dot--active',
       attachClickListener = true,
       attachResizeListener = true,
+      attachKeyboardListener = true,
     } = {},
   ) {
     // Check element
@@ -90,9 +93,11 @@ export class Quiz {
     this.dotClass = dotClass;
     this.frontClass = frontClass;
     this.backClass = backClass;
+    this.optionClass = optionClass;
     this.activeDotClass = activeDotClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
+    this.attachKeyboardListener = attachKeyboardListener;
     this.sliderSelector = sliderSelector;
 
     this.prevButtonNode = null;
@@ -103,10 +108,12 @@ export class Quiz {
 
     // Bind `this` for use in callbacks
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.checkHeight = this.checkHeight.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.initSlider = this.initSlider.bind(this);
     this.setCounter = this.setCounter.bind(this);
+    this.escapeSlider = this.escapeSlider.bind(this);
   }
 
   /**
@@ -127,6 +134,10 @@ export class Quiz {
       this.items.forEach((item) => {
         item.addEventListener('click', this.handleClickOnItem);
       });
+    }
+
+    if (this.attachKeyboardListener && this.sliderEl) {
+      this.sliderEl.addEventListener('keydown', this.handleKeyboard);
     }
 
     if (this.attachResizeListener) {
@@ -184,6 +195,12 @@ export class Quiz {
     if (this.attachClickListener && this.items) {
       this.items.forEach((item) => {
         item.removeEventListener('click', this.handleClickOnItem);
+      });
+    }
+
+    if (this.attachKeyboardListener && this.items) {
+      this.items.forEach((item) => {
+        item.removeEventListener('keydown', this.handleClickOnItem);
       });
     }
 
@@ -432,6 +449,86 @@ export class Quiz {
   }
 
   /**
+   * Handle keyboard events for accessibility.
+   *
+   * @memberof Quiz
+   */
+  handleKeyboard(e) {
+    if (e.key === 'Escape') {
+      this.escapeSlider();
+    }
+
+    const item = e.target;
+    const card = item.closest(this.cardSelector);
+    if (!card) return;
+
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.handleClickOnItem(e);
+    }
+
+    if (
+      e.key === 'Tab' &&
+      e.target.classList.contains(this.optionClass.slice(1))
+    ) {
+      const focusables = queryAll(
+        this.frontClass + ' ' + this.optionClass,
+        card,
+      );
+
+      const focusableArray = Array.from(focusables);
+      const currentIndex = focusableArray.indexOf(item);
+      const isFirst = currentIndex === 0;
+      const isLast = currentIndex === focusableArray.length - 1;
+
+      // Shift + Tab
+      if (e.shiftKey) {
+        console.log(item);
+        item.previousElementSibling?.setAttribute('tabindex', '0');
+        // Handle Shift + Tab on the first option of the card
+        if (isFirst || card.classList.contains(this.flippedClass)) {
+          const prevSlide = card.previousElementSibling;
+
+          if (prevSlide) {
+            e.preventDefault();
+            this.slider.goToPrev();
+            const previousFocusables = queryAll(
+              this.frontClass + ' ' + this.optionClass,
+              prevSlide,
+            );
+            const previousOption = Array.from(previousFocusables).pop();
+            if (previousOption) {
+              previousOption.setAttribute('tabindex', '0');
+              previousOption.focus();
+            }
+          }
+        }
+
+        return;
+      }
+
+      item.nextElementSibling?.setAttribute('tabindex', '0');
+      // Handle tab on the last option of the card
+      if (isLast || card.classList.contains(this.flippedClass)) {
+        const nextSlide = item.closest(this.cardSelector).nextElementSibling;
+
+        if (nextSlide) {
+          e.preventDefault();
+          this.slider.goToNext();
+          const nextOption = queryOne(
+            this.frontClass + ' ' + this.optionClass,
+            nextSlide,
+          );
+          if (nextOption) {
+            nextOption.setAttribute('tabindex', '0');
+            nextOption.focus();
+          }
+        }
+      }
+    }
+  }
+
+  /**
    * Trigger events on resize
    * Uses a debounce, for performance
    */
@@ -459,15 +556,22 @@ export class Quiz {
 
     if (card) {
       card.classList.toggle(this.flippedClass);
+      if (card.hasAttribute('aria-pressed')) {
+        card.setAttribute(
+          'aria-pressed',
+          card.classList.contains(this.flippedClass),
+        );
+      }
       const isFlipped = card.classList.contains(this.flippedClass);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
 
-      if (e.target.classList.contains('ecl-quiz-card__option')) {
+      if (e.target.classList.contains(this.optionClass.slice(1))) {
         const parent = e.target.parentNode;
         const items = Array.from(parent.children);
         const index = items.indexOf(e.target);
         const match = e.target.getAttribute('data-match') === 'true';
+        e.target.setAttribute('aria-pressed', 'true');
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
@@ -487,6 +591,22 @@ export class Quiz {
 
       const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);
+    }
+  }
+
+  /**
+   * Moves the focus out of the slider when Escape is pressed.
+   *
+   */
+  escapeSlider() {
+    if (!this.dotsNode) {
+      return;
+    }
+
+    const dots = queryAll(this.dotClass, this.dotsNode);
+    if (dots.length > 0) {
+      const lastDot = dots[dots.length - 1];
+      lastDot.focus();
     }
   }
 }

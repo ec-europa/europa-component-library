@@ -143,6 +143,20 @@ $quiz: null !default;
   min-width: 18rem;
   width: calc(100% - 3rem);
   perspective: 1000px;
+
+  &:focus-visible {
+    outline: none;
+
+    .ecl-quiz-card__front {
+      outline: 2px solid var(--cm-on-surface-inverted, #fff);
+      outline-offset: -4px;
+    }
+
+    .ecl-quiz-card__back {
+      outline: 2px solid var(--cm-on-surface-brand, var(--c-d));
+      outline-offset: -4px;
+    }
+  }
 }
 
 .ecl-quiz--reveal .ecl-quiz-card {
@@ -326,6 +340,10 @@ $quiz: null !default;
       margin-block-start: var(--s-xs);
     }
 
+    &:focus-visible {
+      outline: 2px solid var(--cm-on-surface-inverted, #fff);
+    }
+
     &::before {
       counter-increment: letter;
       content: counter(letter, upper-alpha) '. ';
@@ -355,10 +373,6 @@ $quiz: null !default;
 
   .ecl-quiz-card__flip {
     color: map.get($quiz, 'card', 'second-color');
-
-    &:focus-visible {
-      outline: 1px solid var(--cm-on-surface-brand, var(--c-d));
-    }
   }
 
   .ecl-quiz-card__option {

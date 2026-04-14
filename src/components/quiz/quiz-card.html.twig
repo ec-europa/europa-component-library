@@ -60,6 +60,9 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
   {% if _variant == 'reveal' %}
+    role="button"
+    tabindex="0"
+    aria-pressed="false"
     data-ecl-quiz-card-flip
   {% endif %}
 >
@@ -79,12 +82,14 @@
         {{-  _question -}}
       </div>
     {% if _options is not empty %}
-      <div class="ecl-quiz-card__options" role="list">
+      <div class="ecl-quiz-card__options">
       {% for _option in _options %}
         <div
           class="ecl-quiz-card__option"
           data-ecl-quiz-card-flip
-          role="listitem"
+          role="button"
+          tabindex="0"
+          aria-pressed="false"
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
           {{- _option.name -}}
@@ -93,7 +98,9 @@
       </div>
     {% endif %}
     {% if _flip_text is not empty %}
-      <div class="ecl-quiz-card__flip">
+      <div
+        class="ecl-quiz-card__flip"
+      >
         {{ _flip_text }}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </div>
