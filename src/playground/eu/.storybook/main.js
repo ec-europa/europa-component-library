@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const isChromatic = require('chromatic/isChromatic');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
@@ -25,8 +26,11 @@ const addons = [
   '@storybook/addon-measure',
   '@ecl/storybook-addon-system-switcher',
   'storybook-addon-rtl',
-  '@storybook/addon-interactions',
 ];
+
+if (isChromatic()) {
+  addons.push('@storybook/addon-interactions');
+}
 
 let staticDirs = [
   path.resolve(__dirname, '../../../presets/eu', outputFolder),

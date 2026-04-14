@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { userEvent } from '@storybook/test';
 
 // Get data
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
@@ -436,3 +437,56 @@ Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataHarmonised);
 Harmonised.argTypes = getArgTypes(dataHarmonised);
 Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };
+
+export const MegaMenuOpened = (_, { loaded: { component } }) => component;
+
+MegaMenuOpened.render = async (args) => {
+  const renderedMegaMenuOpened = await siteHeader(prepareData(dataCore, args));
+  return renderedMegaMenuOpened;
+};
+
+MegaMenuOpened.storyName = 'mega menu opened';
+MegaMenuOpened.args = getArgs(dataCore);
+MegaMenuOpened.argTypes = getArgTypes(dataCore);
+MegaMenuOpened.tags = ['!dev'];
+MegaMenuOpened.parameters = {
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      s: { disable: true },
+      l: { disable: true },
+    },
+  },
+};
+MegaMenuOpened.play = async () => {
+  ECL.autoInit();
+  const item = document.querySelector('.ecl-mega-menu__item--has-children');
+  const button = item.querySelector('button');
+  await userEvent.click(button);
+};
+
+export const MegaMenuOpenedMobile = (_, { loaded: { component } }) => component;
+
+MegaMenuOpenedMobile.render = async (args) => {
+  const renderedMegaMenuOpenedMobile = await siteHeader(
+    prepareData(dataCore, args),
+  );
+  return renderedMegaMenuOpenedMobile;
+};
+
+MegaMenuOpenedMobile.storyName = 'mega menu opened mobile';
+MegaMenuOpenedMobile.tags = ['!dev'];
+MegaMenuOpenedMobile.args = getArgs(dataCore);
+MegaMenuOpenedMobile.argTypes = getArgTypes(dataCore);
+MegaMenuOpenedMobile.parameters = {
+  chromatic: {
+    modes: {
+      xl: { disable: true },
+    },
+  },
+};
+MegaMenuOpenedMobile.play = async () => {
+  ECL.autoInit();
+  const button = document.querySelector('.ecl-mega-menu__open');
+  await userEvent.click(button);
+};

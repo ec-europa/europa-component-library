@@ -17,6 +17,7 @@ export default {
     viewport: {
       defaultViewport: 'responsive',
     },
+    chromatic: { disable: true },
   },
 };
 

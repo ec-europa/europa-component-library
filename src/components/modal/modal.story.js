@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import { within, userEvent, expect } from '@storybook/test';
 
 import dataDefault from './demo/data';
 import modal from './modal.html.twig';
@@ -142,4 +143,31 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: { markdown: notes, json: dataDefault },
+  chromatic: {
+    disable: true,
+  },
+};
+
+export const Opened = (_, { loaded: { component } }) => component;
+
+Opened.render = async (args) => {
+  const renderedOpened = `
+    <button class="ecl-button ecl-button--secondary" id="modal-toggle">Modal toggle</button>
+    ${await modal(prepareData(dataDefault, args))}
+  `;
+  return renderedOpened;
+};
+Opened.tags = ['!dev'];
+Opened.storyName = 'Opened';
+Opened.args = getArgs(dataDefault);
+Opened.argTypes = getArgTypes();
+Opened.play = async ({ canvasElement }) => {
+  ECL.autoInit();
+  const canvas = within(canvasElement);
+  const button = await canvas.findByRole('button');
+  await userEvent.click(button);
+  const dialog = document.querySelector('dialog');
+  await expect(dialog).toHaveAttribute('open');
+};
