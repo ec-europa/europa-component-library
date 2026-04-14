@@ -483,7 +483,6 @@ export class Quiz {
 
       // Shift + Tab
       if (e.shiftKey) {
-        console.log(item);
         item.previousElementSibling?.setAttribute('tabindex', '0');
         // Handle Shift + Tab on the first option of the card
         if (isFirst || card.classList.contains(this.flippedClass)) {
