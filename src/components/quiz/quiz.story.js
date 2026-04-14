@@ -27,10 +27,6 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   data.with_background = args.withBackground;
 
-  if (args.withBackground) {
-    data.full_width = true;
-  }
-
   return data;
 };
 

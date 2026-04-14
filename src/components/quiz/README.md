@@ -9,8 +9,6 @@ npm install --save @ecl/quiz
 ## Parameters
 
 - **"variant"** (string) (default: 'reveal')
-- **"full_width"** (boolean) (default: false)
-- **"slider"** (boolean) (default: true)
 - **"with_background"** (boolean) (default: false)
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
@@ -41,7 +39,7 @@ npm install --save @ecl/quiz
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/quiz/quiz.html.twig' with { 
+{% include '@ecl/quiz/quiz.html.twig' with {
     title: "Ut enim ad minim veniam ",
     description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n    Excepteur sint occaecat cupidatat non proident, sunt.",
     next_label: "Next",
