@@ -260,7 +260,15 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Spotlight',
   decorators: [withNotes, withCode],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

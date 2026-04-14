@@ -27,6 +27,16 @@ const prepareData = (data, args) => Object.assign(data, args);
 export default {
   title: 'Components/Label',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Low = (_, { loaded: { component } }) => component;

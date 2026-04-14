@@ -30,6 +30,14 @@ function debouncedEclInit() {
       eclAutoInitInstance.destroy();
     }
     eclAutoInitInstance = ECL.autoInit();
+    // Inject the webtools icon script so it always runs after the story
+    // content is in the DOM.
+    const LOAD_JS = 'https://webtools.europa.eu/load.js';
+    const existing = document.querySelector(`script[src="${LOAD_JS}"]`);
+    if (existing) existing.remove();
+    const s = document.createElement('script');
+    s.src = LOAD_JS;
+    document.head.appendChild(s);
   }, 50);
 }
 

@@ -570,6 +570,12 @@ VerticalImage.argTypes = getArgTypes(
 );
 VerticalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      l: { disable: true },
+    },
+  },
 };
 
 export const VerticalIcon = (_, { loaded: { component } }) => component;
@@ -585,6 +591,13 @@ VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
+  chromatic: {
+    modes: {
+      xl: { disable: true },
+      m: { disable: true },
+      s: { disable: true },
+    },
+  },
 };
 
 export const IconList = (_, { loaded: { component } }) => component;
@@ -616,6 +629,11 @@ IconList.argTypes = {
 };
 IconList.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIconList },
+  chromatic: {
+    modes: {
+      l: { disable: true },
+    },
+  },
 };
 
 export const NumberList = (_, { loaded: { component } }) => component;
@@ -641,4 +659,9 @@ NumberList.argTypes = {
 };
 NumberList.parameters = {
   notes: { markdown: notes, json: dataListIllustrationNumberList },
+  chromatic: {
+    modes: {
+      l: { disable: true },
+    },
+  },
 };
