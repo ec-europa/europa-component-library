@@ -49,6 +49,16 @@ const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
 export default {
   title: 'Components/Expandables',
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -75,6 +85,7 @@ Expanded.args = getArgs(demoData);
 Expanded.argTypes = getArgTypes();
 
 Expanded.play = async ({ canvasElement }) => {
+  ECL.autoInit();
   const canvas = within(canvasElement);
   const button = await canvas.findByRole('button', { name: /collapsed/i });
   await expect(button).toHaveAttribute('aria-expanded', 'false');

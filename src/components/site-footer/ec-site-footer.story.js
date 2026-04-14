@@ -141,7 +141,15 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Site-wide/Site footer',
   decorators: [withCode, withNotes],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Core = (_, { loaded: { component } }) => component;
