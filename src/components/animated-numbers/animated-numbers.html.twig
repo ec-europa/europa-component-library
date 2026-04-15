@@ -29,8 +29,6 @@
 
 {% set _css_class = 'ecl-animated-numbers' %}
 {% set _extra_attributes = '' %}
-{% set _with_background = with_background|default(false) %}
-{% set _full_width = full_width|default(false) %}
 {% set _counter_color = counter_color ?? true %}
 {% set _border = border|default(false) %}
 {% set _items = items|default([]) %}
@@ -46,10 +44,6 @@
 {% if _with_background %}
   {% set _css_class = _css_class ~ ' ecl-animated-numbers--with-background' %}
   {% set _counter_color = false %}
-{% endif %}
-
-{% if _full_width %}
-  {% set _css_class = _css_class ~ ' ecl-animated-numbers--full-width' %}
 {% endif %}
 
 {% if _counter_color %}
@@ -75,7 +69,7 @@
   {{ _extra_attributes|raw }}
   data-ecl-auto-init="AnimatedNumbers"
 >
-{% if _full_width or _with_background %}
+{% if _with_background %}
   <div class="ecl-container">
 {% endif %}
 {% if items is defined and items is not empty and items is iterable %}
@@ -155,7 +149,7 @@
     {% endfor %}
   </div>
 {% endif %}
-{% if _full_width or _with_background %}
+{% if _with_background %}
   </div>
 {% endif %}
 </div>

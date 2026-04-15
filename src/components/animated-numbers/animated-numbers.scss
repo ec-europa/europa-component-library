@@ -19,14 +19,11 @@ $animated-numbers: null !default;
   width: 100%;
 }
 
-.ecl-animated-numbers--full-width {
+.ecl-animated-numbers--with-background {
   position: absolute;
   inset-inline-start: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
-}
-
-.ecl-animated-numbers--with-background {
   background: var(--cm-surface-brand, var(--c-d));
   color: var(--cm-on-surface-inverted, #fff);
   padding: map.get($animated-numbers, 'background-spacing');
@@ -135,7 +132,7 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-number__value {
-  letter-spacing: -1px;
+  letter-spacing: 1px !important;
   text-align: center;
   margin: 0;
   white-space: nowrap;
@@ -166,7 +163,7 @@ $animated-numbers: null !default;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--s-xs);
   margin-block-start: map.get($animated-numbers, 'source-spacing');
 
   @include mixins.responsive-font(map.get($animated-numbers, 'source-font'));
