@@ -22,6 +22,7 @@ export * from '@ecl/news-ticker';
 export * from '@ecl/notification';
 export * from '@ecl/page-header';
 export * from '@ecl/popover';
+export * from '@ecl/quiz';
 export * from '@ecl/range';
 export * from '@ecl/select';
 export * from '@ecl/site-header';
