@@ -218,217 +218,213 @@ exports[`AnimatedNumbers renders correctly 1`] = `
 exports[`AnimatedNumbers renders correctly with a background 1`] = `
 <jest>
   <div
-    class="ecl-animated-numbers ecl-animated-numbers--with-background"
+    class="ecl-animated-numbers ecl-animated-numbers--counter-color"
     data-ecl-auto-init="AnimatedNumbers"
   >
     <div
-      class="ecl-container"
+      class="ecl-animated-numbers__items"
     >
       <div
-        class="ecl-animated-numbers__items"
+        class="ecl-animated-number is-first"
       >
         <div
-          class="ecl-animated-number is-first"
+          class="ecl-animated-number__header"
         >
           <div
-            class="ecl-animated-number__header"
+            class="ecl-animated-number__category"
+          >
+            Revenue
+          </div>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--users ecl-icon ecl-icon--xl ecl-icon--primary ecl-animated-number__icon ecl-icon-phosphor--users"
+          />
+        </div>
+        <div
+          class="ecl-animated-number__content"
+        >
+          <div
+            class="ecl-animated-number__number"
           >
             <div
-              class="ecl-animated-number__category"
+              class="ecl-animated-number__value"
+              data-ecl-animated-numbers-value=""
             >
-              Revenue
+              213
             </div>
-            <span
-              aria-hidden="true"
-              class="wt-icon-phosphor--users ecl-icon ecl-icon--xl ecl-animated-number__icon ecl-icon-phosphor--users"
-            />
-          </div>
-          <div
-            class="ecl-animated-number__content"
-          >
             <div
-              class="ecl-animated-number__number"
+              class="ecl-animated-number__currency"
             >
-              <div
-                class="ecl-animated-number__value"
-                data-ecl-animated-numbers-value=""
-              >
-                213
-              </div>
-              <div
-                class="ecl-animated-number__currency"
-              >
-                €
-              </div>
+              €
             </div>
-          </div>
-          <div
-            class="ecl-animated-number__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </div>
         </div>
         <div
-          class="ecl-animated-number"
+          class="ecl-animated-number__description"
         >
-          <div
-            class="ecl-animated-number__header"
-          >
-            <div
-              class="ecl-animated-number__category"
-            >
-              Revenue
-            </div>
-            <span
-              aria-hidden="true"
-              class="wt-icon-phosphor--currency-eur ecl-icon ecl-icon--xl ecl-animated-number__icon ecl-icon-phosphor--currency-eur"
-            />
-          </div>
-          <div
-            class="ecl-animated-number__content"
-          >
-            <div
-              class="ecl-animated-number__number"
-            >
-              <span
-                class="ecl-animated-number__amount"
-              >
-                billion
-              </span>
-              <div
-                class="ecl-animated-number__value"
-                data-ecl-animated-numbers-value=""
-              >
-                888.2
-              </div>
-              <div
-                class="ecl-animated-number__currency"
-              >
-                €
-              </div>
-            </div>
-          </div>
-          <div
-            class="ecl-animated-number__description"
-          >
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </div>
-        </div>
-        <div
-          class="ecl-animated-number"
-        >
-          <div
-            class="ecl-animated-number__header"
-          >
-            <span
-              aria-hidden="true"
-              class="wt-icon-phosphor--trend-up ecl-icon ecl-icon--xl ecl-animated-number__icon ecl-icon-phosphor--trend-up"
-            />
-          </div>
-          <div
-            class="ecl-animated-number__content"
-          >
-            <div
-              class="ecl-animated-number__number"
-            >
-              <span
-                class="ecl-animated-number__amount"
-              >
-                billion
-              </span>
-              <div
-                class="ecl-animated-number__value"
-                data-ecl-animated-numbers-value=""
-              >
-                975
-              </div>
-              <div
-                class="ecl-animated-number__currency"
-              >
-                &lt;
-              </div>
-            </div>
-          </div>
-          <div
-            class="ecl-animated-number__description"
-          >
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-          </div>
-        </div>
-        <div
-          class="ecl-animated-number"
-        >
-          <div
-            class="ecl-animated-number__header"
-          >
-            <div
-              class="ecl-animated-number__category"
-            >
-              Revenue
-            </div>
-            <span
-              aria-hidden="true"
-              class="wt-icon-phosphor--pulse ecl-icon ecl-icon--xl ecl-animated-number__icon ecl-icon-phosphor--pulse"
-            />
-          </div>
-          <div
-            class="ecl-animated-number__content"
-          >
-            <div
-              class="ecl-animated-number__number"
-            >
-              <span
-                class="ecl-animated-number__amount"
-              >
-                €
-              </span>
-              <div
-                class="ecl-animated-number__value"
-                data-ecl-animated-numbers-value=""
-              >
-                1250
-              </div>
-              <div
-                class="ecl-animated-number__currency"
-              >
-                billions
-              </div>
-            </div>
-          </div>
-          <div
-            class="ecl-animated-number__description"
-          >
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-          </div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </div>
       </div>
       <div
-        class="ecl-animated-numbers__sources"
+        class="ecl-animated-number"
       >
-        <span
-          class="ecl-animated-numbers__sources-label"
+        <div
+          class="ecl-animated-number__header"
         >
-          Sources:
-        </span>
-        <a
-          class="ecl-link ecl-animated-numbers__source"
-          href="/example"
+          <div
+            class="ecl-animated-number__category"
+          >
+            Revenue
+          </div>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--currency-eur ecl-icon ecl-icon--xl ecl-icon--primary ecl-animated-number__icon ecl-icon-phosphor--currency-eur"
+          />
+        </div>
+        <div
+          class="ecl-animated-number__content"
         >
-          Eurostat
-        </a>
-        <a
-          class="ecl-link ecl-animated-numbers__source"
-          href="/example"
+          <div
+            class="ecl-animated-number__number"
+          >
+            <span
+              class="ecl-animated-number__amount"
+            >
+              billion
+            </span>
+            <div
+              class="ecl-animated-number__value"
+              data-ecl-animated-numbers-value=""
+            >
+              888.2
+            </div>
+            <div
+              class="ecl-animated-number__currency"
+            >
+              €
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-animated-number__description"
         >
-          DG CNECT
-        </a>
-        <a
-          class="ecl-link ecl-animated-numbers__source"
-          href="/example"
-        >
-          Eurostat
-        </a>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
       </div>
+      <div
+        class="ecl-animated-number"
+      >
+        <div
+          class="ecl-animated-number__header"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--trend-up ecl-icon ecl-icon--xl ecl-icon--primary ecl-animated-number__icon ecl-icon-phosphor--trend-up"
+          />
+        </div>
+        <div
+          class="ecl-animated-number__content"
+        >
+          <div
+            class="ecl-animated-number__number"
+          >
+            <span
+              class="ecl-animated-number__amount"
+            >
+              billion
+            </span>
+            <div
+              class="ecl-animated-number__value"
+              data-ecl-animated-numbers-value=""
+            >
+              975
+            </div>
+            <div
+              class="ecl-animated-number__currency"
+            >
+              &lt;
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-animated-number__description"
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        </div>
+      </div>
+      <div
+        class="ecl-animated-number"
+      >
+        <div
+          class="ecl-animated-number__header"
+        >
+          <div
+            class="ecl-animated-number__category"
+          >
+            Revenue
+          </div>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--pulse ecl-icon ecl-icon--xl ecl-icon--primary ecl-animated-number__icon ecl-icon-phosphor--pulse"
+          />
+        </div>
+        <div
+          class="ecl-animated-number__content"
+        >
+          <div
+            class="ecl-animated-number__number"
+          >
+            <span
+              class="ecl-animated-number__amount"
+            >
+              €
+            </span>
+            <div
+              class="ecl-animated-number__value"
+              data-ecl-animated-numbers-value=""
+            >
+              1250
+            </div>
+            <div
+              class="ecl-animated-number__currency"
+            >
+              billions
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-animated-number__description"
+        >
+          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-animated-numbers__sources"
+    >
+      <span
+        class="ecl-animated-numbers__sources-label"
+      >
+        Sources:
+      </span>
+      <a
+        class="ecl-link ecl-animated-numbers__source"
+        href="/example"
+      >
+        Eurostat
+      </a>
+      <a
+        class="ecl-link ecl-animated-numbers__source"
+        href="/example"
+      >
+        DG CNECT
+      </a>
+      <a
+        class="ecl-link ecl-animated-numbers__source"
+        href="/example"
+      >
+        Eurostat
+      </a>
     </div>
   </div>
 </jest>
