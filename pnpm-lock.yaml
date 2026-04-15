@@ -208,10 +208,13 @@ importers:
         version: link:../icon
 
   src/components/add-to-calendar:
-    dependencies:
-      '@ecl/picture':
-        specifier: 5.0.0-RC1
-        version: 5.0.0-RC1
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
 
   src/components/banner:
     dependencies:
@@ -3826,9 +3829,6 @@ packages:
 
   '@ecl/mixins-typography@5.0.0-alpha.15':
     resolution: {integrity: sha512-wvgFHvQQAIJEwuQSyWXsqBjL4wY/63M+G/Q3kf6mkpBtMyMja+n6gKG5M8yBrBEgjvmuks8Yrb0HNC0WFdR5kA==}
-
-  '@ecl/picture@5.0.0-RC1':
-    resolution: {integrity: sha512-BpeBTlTWp/cx5aOEnp8yqDZvhJhsN3b/2wZ7nmEu+TuLgyNSZ7JYmTqwVjMoF9bbB6grYU6HYWJLtq9isarh3g==}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
@@ -13456,8 +13456,6 @@ snapshots:
   '@ecl/mixins-typography@5.0.0-alpha.15':
     dependencies:
       '@ecl/grid': 5.0.0-alpha.15
-
-  '@ecl/picture@5.0.0-RC1': {}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 
