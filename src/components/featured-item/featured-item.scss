@@ -48,7 +48,7 @@ $featured-item: null !default;
   );
 
   .ecl-featured-item__micro-title + & {
-    margin-block-start: map.get($featured-item, 'title', 'spacing');
+    margin-block-start: map.get($featured-item, 'title', 'spacing-mobile');
   }
 }
 
@@ -113,6 +113,10 @@ $featured-item: null !default;
 @include breakpoints.up('m') {
   .ecl-featured-item__container {
     flex-direction: row-reverse;
+  }
+
+  .ecl-featured-item__micro-title + .ecl-featured-item__title {
+    margin-block-start: map.get($featured-item, 'title', 'spacing-tablet');
   }
 
   .ecl-featured-item__item:first-child {
@@ -181,7 +185,6 @@ $featured-item: null !default;
     );
     display: flex;
     flex-direction: column;
-    margin-block-start: 0;
     padding-block: map.get(
       $featured-item,
       'highlight',
@@ -370,6 +373,7 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__item:first-child {
+      margin-block-start: 0;
       padding-block: map.get(
         $featured-item,
         'highlight',
