@@ -58,13 +58,11 @@ export class AnimatedNumbers {
     this.animationStyle = animationStyle;
 
     // Private variables
-    this.resizeTimer = null;
     this.intersectionObserver = null;
     this.animatedElements = new Map();
 
     // Bind `this` for use in callbacks
     this.animateNumber = this.animateNumber.bind(this);
-    this.handleResize = this.handleResize.bind(this);
     this.handleIntersection = this.handleIntersection.bind(this);
     this.handleHoverStart = this.handleHoverStart.bind(this);
   }
@@ -83,8 +81,9 @@ export class AnimatedNumbers {
 
     // Initialize animated elements map with original values
     this.itemsElements.forEach((element) => {
-      const originalValue =
-        parseFloat(element.textContent.replace(/[^\d.-]/g, '')) || 0;
+      const cleaned = element.textContent.replace(/[^\d.-]/g, '');
+      const originalValue = cleaned ? parseFloat(cleaned) : 0;
+
       this.animatedElements.set(element, {
         originalValue,
         isAnimating: false,
@@ -112,10 +111,6 @@ export class AnimatedNumbers {
       this.itemsElements.forEach((element) => {
         element.addEventListener('mouseenter', this.handleHoverStart);
       });
-    }
-
-    if (this.attachResizeListener) {
-      window.addEventListener('resize', this.handleResize);
     }
 
     // Set ecl initialized attribute
@@ -151,10 +146,6 @@ export class AnimatedNumbers {
       });
     }
 
-    if (this.attachResizeListener) {
-      window.removeEventListener('resize', this.handleResize);
-    }
-
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
@@ -174,9 +165,6 @@ export class AnimatedNumbers {
       if (entry.isIntersecting && !data.isAnimating) {
         // Element became visible, start animation
         this.startAnimation(element);
-      } else if (!entry.isIntersecting && data.isAnimating) {
-        // Element went out of view, reset to 0
-        this.resetAnimation(element);
       }
     });
   }
@@ -230,21 +218,6 @@ export class AnimatedNumbers {
   }
 
   /**
-   * Reset animation for an element (set back to 0)
-   */
-  resetAnimation(element) {
-    const data = this.animatedElements.get(element);
-    if (data.animationId) {
-      cancelAnimationFrame(data.animationId);
-    }
-    data.isAnimating = false;
-    data.animationId = null;
-    element.textContent = '0';
-    // Restore original width
-    element.style.width = data.originalWidth || '';
-  }
-
-  /**
    * Animate number from a starting value to an ending value over a duration, with optional easing and randomization.
    */
   animateNumber({ from = 0, to, duration = 1000, onUpdate, onComplete }) {
@@ -293,24 +266,6 @@ export class AnimatedNumbers {
     };
 
     requestAnimationFrame(tick);
-  }
-
-  /**
-   * Trigger events on resize
-   */
-  handleResize() {
-    clearTimeout(this.resizeTimer);
-    this.resizeTimer = setTimeout(() => {
-      // Re-check visibility on resize
-      if (this.intersectionObserver) {
-        this.itemsElements.forEach((element) => {
-          const data = this.animatedElements.get(element);
-          if (!this.isElementInViewport(element) && data.isAnimating) {
-            this.resetAnimation(element);
-          }
-        });
-      }
-    }, 200);
   }
 
   /**

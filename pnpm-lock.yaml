@@ -208,16 +208,17 @@ importers:
         version: link:../icon
 
   src/components/animated-numbers:
-    devDependencies:
-      '@ecl/dom-utils':
-        specifier: 5.0.0-RC2
-        version: link:../../tools/dom-utils
+    dependencies:
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/dom-utils':
+        specifier: 5.0.0-RC2
+        version: link:../../tools/dom-utils
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography

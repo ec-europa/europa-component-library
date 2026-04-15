@@ -9,7 +9,7 @@ import demoData from './demo/data';
 
 expect.extend(toHaveNoViolations);
 
-describe('AnimatedNumbers', () => {
+describe('Animated Numbers', () => {
   const template = '@ecl/animated-numbers/animated-numbers.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 

@@ -53,7 +53,7 @@ $animated-numbers: null !default;
   }
 }
 
-.ecl-animated-number__currency {
+.ecl-animated-number__suffix {
   font: map.get($theme, 'font-print', 'l');
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
@@ -71,7 +71,7 @@ $animated-numbers: null !default;
   gap: map.get($theme, 'spacing-print', 'xs');
 }
 
-.ecl-animated-number__amount {
+.ecl-animated-number__prefix {
   white-space: nowrap;
   font: map.get($theme, 'font-print', 'l');
   font-weight: map.get($theme, 'font-weight', 'bold');
@@ -93,10 +93,6 @@ $animated-numbers: null !default;
 .ecl-animated-number__description {
   color: map.get($animated-numbers, 'description-color');
   font: map.get($theme, 'font-print', 'm');
-
-  .ecl-animated-numbers--with-background & {
-    color: var(--cm-on-surface-inverted, #fff);
-  }
 }
 
 .ecl-animated-numbers__sources {
@@ -110,10 +106,6 @@ $animated-numbers: null !default;
 
 .ecl-animated-numbers__source {
   text-decoration: none;
-
-  .ecl-animated-numbers--with-background & {
-    color: var(--cm-on-surface-inverted, #fff);
-  }
 }
 
 .ecl-animated-numbers__source + .ecl-animated-numbers__source::before {

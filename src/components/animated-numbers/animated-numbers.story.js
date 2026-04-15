@@ -10,8 +10,8 @@ const getArgs = (data) => {
     with_background: false,
     border: false,
     counter_color: true,
-    currency: data.currency,
-    amount: data.amount,
+    suffix: data.suffix,
+    prefix: data.prefix,
     description: data.description,
     category: data.category,
     value: data.value,
@@ -50,6 +50,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: 'true' },
       category: 'Style',
     },
+    if: { arg: 'with_background', truthy: false },
   },
   description: {
     name: 'description',
@@ -74,10 +75,10 @@ const getArgTypes = () => ({
       type: 'text',
     },
   },
-  amount: {
-    name: 'amount',
+  prefix: {
+    name: 'prefix',
     type: { name: 'string', required: false },
-    description: 'Amount',
+    description: 'First part of the value, before the number',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -90,7 +91,20 @@ const getArgTypes = () => ({
   value: {
     name: 'value',
     type: { name: 'string', required: false },
-    description: 'Value',
+    description: 'Value (only numbers)',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    control: {
+      type: 'text',
+    },
+  },
+  suffix: {
+    name: 'suffix',
+    type: { name: 'string', required: false },
+    description: 'Last part of the value, after the number',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -106,12 +120,12 @@ const prepareData = (data, args) => {
   data.border = args.border;
   data.counter_color = args.counter_color;
   data.with_background = args.with_background;
-  data.full_width = args.with_background;
 
   data.items[0].description = args.description;
   data.items[0].category = args.category;
-  data.items[0].amount = args.amount;
+  data.items[0].prefix = args.prefix;
   data.items[0].value = args.value;
+  data.items[0].suffix = args.suffix;
 
   return data;
 };

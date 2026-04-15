@@ -2,21 +2,28 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  inverted: false,
+  with_background: false,
   border: false,
   counter_color: true,
+  sources_label: 'Sources:',
   sources: [
     {
-      name: 'Eurostat',
-      url: exampleLink,
+      link: {
+        label: 'Eurostat',
+        path: exampleLink,
+      },
     },
     {
-      name: 'DG CNECT',
-      url: exampleLink,
+      link: {
+        label: 'DG CNECT',
+        path: exampleLink,
+      },
     },
     {
-      name: 'Eurostat',
-      url: exampleLink,
+      link: {
+        label: 'Eurostat',
+        path: exampleLink,
+      },
     },
   ],
   items: [
@@ -26,9 +33,9 @@ module.exports = {
         name: 'users',
         family: 'phosphor',
       },
-      amount: '',
+      prefix: '',
       value: '213',
-      currency: '€',
+      suffix: '€',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     },
     {
@@ -37,9 +44,9 @@ module.exports = {
         name: 'currency-eur',
         family: 'phosphor',
       },
-      amount: 'billion',
+      prefix: 'billion',
       value: '888.2',
-      currency: '€',
+      suffix: '€',
       description:
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
@@ -48,9 +55,9 @@ module.exports = {
         name: 'trend-up',
         family: 'phosphor',
       },
-      amount: 'billion',
+      prefix: 'billion',
       value: '975',
-      currency: '<',
+      suffix: '<',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     },
@@ -60,9 +67,9 @@ module.exports = {
         name: 'pulse',
         family: 'phosphor',
       },
-      amount: '€',
+      prefix: '€',
       value: '1250',
-      currency: 'billions',
+      suffix: 'billions',
       description:
         'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
     },

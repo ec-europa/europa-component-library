@@ -20,7 +20,7 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers--with-background {
-  position: absolute;
+  position: relative;
   inset-inline-start: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
@@ -102,10 +102,10 @@ $animated-numbers: null !default;
   }
 }
 
-.ecl-animated-number__currency {
+.ecl-animated-number__suffix {
   @include mixins.responsive-font(
-    map.get($animated-numbers, 'amount-font'),
-    map.get($animated-numbers, 'amount-font-weight')
+    map.get($animated-numbers, 'prefix-font'),
+    map.get($animated-numbers, 'prefix-font-weight')
   );
 }
 
@@ -122,12 +122,12 @@ $animated-numbers: null !default;
   gap: var(--s-xs);
 }
 
-.ecl-animated-number__amount {
+.ecl-animated-number__prefix {
   white-space: nowrap;
 
   @include mixins.responsive-font(
-    map.get($animated-numbers, 'amount-font'),
-    map.get($animated-numbers, 'amount-font-weight')
+    map.get($animated-numbers, 'prefix-font'),
+    map.get($animated-numbers, 'prefix-font-weight')
   );
 }
 
