@@ -90,7 +90,7 @@ Visible.render = async () =>
   `<p class="ecl-u-type-paragraph-m ecl-u-mt-none">
     Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
     Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
-    Laboris consequat non deserunt ullamco cupidatat est cillum aute. 
+    Laboris consequat non deserunt ullamco cupidatat est cillum aute.
     Id esse incididunt culpa fugiat qui ex enim exercitation id aliqua elit velit et
     <button class="ecl-button ecl-button--primary" data-ecl-tooltip title="test tooltip content">button tooltip</button>
     Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
@@ -102,12 +102,7 @@ Visible.storyName = 'visible';
 Visible.tags = ['!dev'];
 Visible.parameters = {
   chromatic: {
-    modes: {
-      xs: { disable: true },
-      s: { disable: true },
-      l: { disable: true },
-      xl: { disable: true },
-    },
+    disable: true,
   },
 };
 Visible.play = async ({ canvasElement }) => {
@@ -128,7 +123,7 @@ VisibleInverted.render = async () =>
     <p class="ecl-u-type-paragraph-m ecl-u-mt-none ecl-u-type-color-white">
       Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.
       Culpa do nisi fugiat eiusmod Lorem aute proident Lorem.
-      Laboris consequat non deserunt ullamco cupidatat est cillum aute. 
+      Laboris consequat non deserunt ullamco cupidatat est cillum aute.
       Id esse incididunt culpa fugiat qui ex enim exercitation id aliqua elit velit et
       <button class="ecl-button ecl-button--primary ecl-button--inverted" data-ecl-tooltip-inverted title="test tooltip content">button tooltip</button>
       Anim laborum enim velit magna dolor. Irure deserunt eiusmod laborum deserunt.

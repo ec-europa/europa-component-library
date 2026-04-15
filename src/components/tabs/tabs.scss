@@ -280,11 +280,17 @@ $button-width: 44px;
     width: auto;
   }
 
+  .ecl-tabs__dropdown--show {
+    padding-inline: 0;
+  }
+
   .ecl-tabs__dropdown-list {
     grid-auto-flow: column;
     grid-template-rows: auto auto auto auto;
     height: auto;
+    margin-inline: 0;
     overflow-y: visible;
+    padding-inline: map.get($tabs, 'dropdown', 'container-padding');
     width: auto;
 
     .ecl-tabs__item {

@@ -61,6 +61,10 @@
   $notification-print: var.$notification-print
 );
 @use '@ecl/picture/picture';
+@use '@ecl/quiz/quiz-print' with (
+  $theme: theme.$theme,
+  $quiz-print: var.$quiz-print
+);
 @use '@ecl/skip-link/skip-link-print';
 @use '@ecl/spinner/spinner-print';
 @use '@ecl/table/table-print' with (
