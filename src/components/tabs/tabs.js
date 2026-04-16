@@ -666,12 +666,13 @@ export class Tabs {
         if (this.moreButton) {
           this.moreButton.classList.add('ecl-tabs__toggle--hidden');
         }
-        let listWidth = 0;
+        // Reset to auto so scrollWidth reflects the natural content width
+        this.list.style.width = 'auto';
         this.listItems.forEach((item) => {
           item.classList.remove('ecl-tabs__item--hidden');
-          listWidth += Math.ceil(item.getBoundingClientRect().width);
         });
-        this.list.style.width = `${listWidth}px`;
+        // Use scrollWidth to also include item margins
+        this.list.style.width = `${this.list.scrollWidth}px`;
         this.btnNext.style.display = 'flex';
         this.container.classList.add('ecl-tabs__container--right');
         this.btnPrev.style.display = 'none';
@@ -689,26 +690,51 @@ export class Tabs {
       this.list.style.width = 'auto';
 
       // Hide items that won't fit in the list
-      let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
+      // Temporarily show the more button to get its actual width
+      this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
+      const moreButtonWidth = this.moreButton.getBoundingClientRect().width;
+      this.moreItem.classList.add('ecl-tabs__item--hidden');
+      this.moreButton.classList.add('ecl-tabs__toggle--hidden');
+
       const hiddenItems = [];
       const listWidth =
         this.list.getBoundingClientRect().width || this.list.offsetWidth;
       this.moreButtonActive = false;
-      this.listItems.forEach((item, i) => {
-        item.classList.remove('ecl-tabs__item--hidden');
-        if (
-          listWidth >= stopWidth + item.getBoundingClientRect().width &&
-          !hiddenItems.includes(i - 1)
-        ) {
-          stopWidth += item.getBoundingClientRect().width;
-        } else {
-          item.classList.add('ecl-tabs__item--hidden');
-          if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
-            this.moreButtonActive = true;
-          }
-          hiddenItems.push(i);
-        }
+
+      // Measure all items first to check if they fit without the button
+      this.listItems.forEach((item) =>
+        item.classList.remove('ecl-tabs__item--hidden'),
+      );
+      const itemWidths = this.listItems.map((item) => {
+        const itemMargin =
+          parseFloat(getComputedStyle(item).marginInlineEnd) || 0;
+        return item.getBoundingClientRect().width + itemMargin;
       });
+      const totalWidth = itemWidths.reduce((sum, w) => sum + w, 0);
+
+      if (totalWidth > listWidth) {
+        // Reserve space for the more button and hide items that don't fit
+        this.listItems.forEach((item) =>
+          item.classList.add('ecl-tabs__item--hidden'),
+        );
+        let stopWidth = moreButtonWidth;
+        this.listItems.forEach((item, i) => {
+          item.classList.remove('ecl-tabs__item--hidden');
+          if (
+            listWidth >= stopWidth + itemWidths[i] &&
+            !hiddenItems.includes(i - 1)
+          ) {
+            stopWidth += itemWidths[i];
+          } else {
+            item.classList.add('ecl-tabs__item--hidden');
+            if (queryOne('.ecl-tabs__link--active', item)) {
+              this.moreButtonActive = true;
+            }
+            hiddenItems.push(i);
+          }
+        });
+      }
 
       // Add active class to the more button if it contains an active element
       if (this.moreButtonActive) {
