@@ -207,6 +207,15 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../icon
 
+  src/components/add-to-calendar:
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
+
   src/components/banner:
     dependencies:
       '@ecl/button':
@@ -1187,6 +1196,9 @@ importers:
 
   src/page-example/page-home:
     dependencies:
+      '@ecl/add-to-calendar':
+        specifier: 5.0.0-RC2
+        version: link:../../components/add-to-calendar
       '@ecl/banner':
         specifier: 5.0.0-RC2
         version: link:../../components/banner
@@ -1696,6 +1708,9 @@ importers:
       '@ecl/accordion':
         specifier: 5.0.0-RC2
         version: link:../../components/accordion
+      '@ecl/add-to-calendar':
+        specifier: 5.0.0-RC2
+        version: link:../../components/add-to-calendar
       '@ecl/banner':
         specifier: 5.0.0-RC2
         version: link:../../components/banner
@@ -1979,6 +1994,9 @@ importers:
       '@ecl/accordion':
         specifier: 5.0.0-RC2
         version: link:../../components/accordion
+      '@ecl/add-to-calendar':
+        specifier: 5.0.0-RC2
+        version: link:../../components/add-to-calendar
       '@ecl/banner':
         specifier: 5.0.0-RC2
         version: link:../../components/banner
