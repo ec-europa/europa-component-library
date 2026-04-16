@@ -125,6 +125,10 @@
 @use '@ecl/video/video';
 
 // Molecules
+@use '@ecl/add-to-calendar/add-to-calendar' with (
+  $theme: theme.$theme,
+  $add-to-calendar: var.$add-to-calendar
+);
 @use '@ecl/banner/banner' with (
   $theme: theme.$theme,
   $banner: var.$banner
