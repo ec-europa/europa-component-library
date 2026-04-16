@@ -30,3 +30,4 @@ export * from '@ecl/site-header';
 export * from '@ecl/table';
 export * from '@ecl/tabs';
 export * from '@ecl/timeline';
+export * from '@ecl/tooltip';
