@@ -3,7 +3,7 @@
 
 $featured-item: (
   gap-horizontal: var(--s-m),
-  gap-vertical: var(--s-m),
+  gap-vertical: var(--s-l),
   padding: 0,
   border-radius: map.get($border-radius, 's'),
   max-width: var(--max-w),
@@ -15,24 +15,18 @@ $featured-item: (
   ),
   title: (
     color: var(--c-d-140),
-    typography: (
-      'mobile': (
-        'size': var(--fs-l),
-        'line-height': var(--lh-l),
-      ),
-      'font-weight': map.get($font-weight, 'bold'),
-    ),
-    spacing-mobile: var(--s-m),
-    spacing-tablet: var(--s-l),
+    typography: 'heading3',
+    spacing-mobile: calc(var(--s-m) + var(--s-2xs)),
+    spacing-tablet: calc(var(--s-m) + var(--s-2xs)),
   ),
   description: (
     color: var(--c-d-80),
     font: var(--f-p-m),
-    spacing: var(--s-s),
+    spacing: calc(var(--s-m) + var(--s-2xs)),
   ),
   link: (
     font: var(--f-m),
-    spacing: var(--s-m),
+    spacing: calc(var(--s-m) + var(--s-2xs)),
   ),
   highlight: (
     container: (
