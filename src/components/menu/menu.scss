@@ -731,11 +731,11 @@ $menu: null !default;
 
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__item:not(.ecl-menu__items-previous, .ecl-menu__items-next) {
-      &[aria-expanded='true'] .ecl-button__icon {
+      &[data-expanded='true'] .ecl-button__icon {
         transform: rotate(0);
       }
 
-      &[aria-expanded='true'] {
+      &[data-expanded='true'] {
         background-color: transparent;
 
         .ecl-menu__link {
@@ -898,7 +898,7 @@ $menu: null !default;
       right: 0;
     }
 
-    .ecl-menu__item[aria-expanded='true'] .ecl-menu__mega {
+    .ecl-menu__item[data-expanded='true'] .ecl-menu__mega {
       transition-property: visibility;
       visibility: visible;
     }
