@@ -148,3 +148,27 @@ Default.storyName = 'default';
 Default.parameters = {
   notes: { markdown: notes, json: defaultData },
 };
+
+export const WithBackground = (_, { loaded: { component } }) => component;
+
+WithBackground.render = async (args) => {
+  const renderedAnimatedNumbersBackground = `<div class="ecl-container">
+  ${await AnimatedNumbers(prepareData(defaultData, { ...args, with_background: true }))}</div>`;
+  return renderedAnimatedNumbersBackground;
+};
+WithBackground.args = getArgs(defaultData.items[0]);
+WithBackground.argTypes = getArgTypes();
+WithBackground.storyName = 'with background';
+WithBackground.tags = ['!dev'];
+
+export const WithBorder = (_, { loaded: { component } }) => component;
+
+WithBorder.render = async (args) => {
+  const renderedAnimatedNumbersBorder = `<div class="ecl-container">
+  ${await AnimatedNumbers(prepareData(defaultData, { ...args, border: true }))}</div>`;
+  return renderedAnimatedNumbersBorder;
+};
+WithBorder.args = getArgs(defaultData.items[0]);
+WithBorder.argTypes = getArgTypes();
+WithBorder.storyName = 'with border';
+WithBorder.tags = ['!dev'];
