@@ -80,6 +80,10 @@
 @use '@ecl/tooltip/tooltip-print';
 
 // Molecules
+@use '@ecl/add-to-calendar/add-to-calendar-print' with (
+  $theme: theme.$theme,
+  $add-to-calendar: var.$add-to-calendar
+);
 @use '@ecl/banner/banner-print' with (
   $theme: theme.$theme,
   $banner: var.$banner,
