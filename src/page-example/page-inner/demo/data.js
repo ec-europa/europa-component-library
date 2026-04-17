@@ -46,7 +46,10 @@ const system = getSystem();
 const data = {
   system,
   icon_path: '/icons.svg',
-  animated_numbers: dataAnimationNumber.slice(0, 3),
+  animated_numbers: {
+    ...dataAnimationNumber,
+    items: dataAnimationNumber.items.slice(0, 3),
+  },
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
   page_header: pageHeader,
