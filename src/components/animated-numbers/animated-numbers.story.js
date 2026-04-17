@@ -149,7 +149,12 @@ export default {
   parameters: {
     chromatic: {
       modes: {
-        xs: allModes.xs,
+        xs: {
+          viewport: {
+            width: 360,
+            height: 900,
+          },
+        },
         m: allModes.m,
         xl: allModes.xl,
         xxl: {
