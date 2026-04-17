@@ -1,5 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { allModes } from '../../playground/ec/.storybook/modes';
 
 import defaultData from './demo/data';
 import AnimatedNumbers from './animated-numbers.html.twig';
@@ -145,6 +146,21 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Animated Numbers',
   decorators: [withCode, withNotes],
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: allModes.xs,
+        m: allModes.m,
+        xl: allModes.xl,
+        xxl: {
+          viewport: {
+            width: 1400,
+            height: 900,
+          },
+        },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
