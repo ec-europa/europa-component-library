@@ -30,10 +30,12 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers__items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(map.get($animated-numbers, 'min-width'), 1fr)
+  );
   gap: var(--gap);
-  justify-content: flex-start;
 }
 
 .ecl-animated-number {
@@ -43,10 +45,8 @@ $animated-numbers: null !default;
   border-radius: map.get($animated-numbers, 'border-radius');
   box-shadow: map.get($animated-numbers, 'shadow');
   display: flex;
-  flex: 1 1 calc(25% - var(--gap));
   flex-direction: column;
   gap: var(--s-m);
-  min-width: map.get($animated-numbers, 'min-width');
   padding: map.get($animated-numbers, 'item-spacing');
 
   .ecl-animated-numbers--border & {
@@ -124,11 +124,8 @@ $animated-numbers: null !default;
 
 .ecl-animated-number__prefix {
   white-space: nowrap;
-
-  @include mixins.responsive-font(
-    map.get($animated-numbers, 'prefix-font'),
-    map.get($animated-numbers, 'prefix-font-weight')
-  );
+  font: map.get($animated-numbers, 'prefix-font');
+  font-weight: map.get($animated-numbers, 'prefix-font-weight');
 }
 
 .ecl-animated-number__value {
@@ -136,11 +133,8 @@ $animated-numbers: null !default;
   text-align: center;
   margin: 0;
   white-space: nowrap;
-
-  @include mixins.responsive-font(
-    map.get($animated-numbers, 'value-font'),
-    map.get($animated-numbers, 'value-font-weight')
-  );
+  font: map.get($animated-numbers, 'value-font');
+  font-weight: map.get($animated-numbers, 'value-font-weight');
 
   .ecl-animated-numbers--counter-color & {
     color: var(--cm-on-surface-primary, var(--c-p));

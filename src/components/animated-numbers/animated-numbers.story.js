@@ -15,12 +15,18 @@ const getArgs = (data) => {
     description: data.description,
     category: data.category,
     value: data.value,
+    numberOfItems: 4,
   };
 
   return args;
 };
 
 const getArgTypes = () => ({
+  numberOfItems: {
+    name: 'number of items',
+    control: { type: 'range', min: 1, max: 8, step: 1 },
+    description: 'Number of items to display',
+  },
   with_background: {
     name: 'with a dark background',
     type: { name: 'boolean', required: false },
@@ -117,17 +123,23 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  data.border = args.border;
-  data.counter_color = args.counter_color;
-  data.with_background = args.with_background;
+  const cloned = structuredClone(data);
 
-  data.items[0].description = args.description;
-  data.items[0].category = args.category;
-  data.items[0].prefix = args.prefix;
-  data.items[0].value = args.value;
-  data.items[0].suffix = args.suffix;
+  cloned.border = args.border;
+  cloned.counter_color = args.counter_color;
+  cloned.with_background = args.with_background;
 
-  return data;
+  cloned.items[0].description = args.description;
+  cloned.items[0].category = args.category;
+  cloned.items[0].prefix = args.prefix;
+  cloned.items[0].value = args.value;
+  cloned.items[0].suffix = args.suffix;
+
+  const count = Math.min(Math.max(args.numberOfItems, 1), 8);
+
+  cloned.items = cloned.items.slice(0, count);
+
+  return cloned;
 };
 
 export default {

@@ -73,5 +73,50 @@ module.exports = {
       description:
         'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
     },
+    {
+      category: 'Revenue',
+      icon: {
+        name: 'aperture',
+        family: 'phosphor',
+      },
+      prefix: '€',
+      value: '50',
+      suffix: 'trillions',
+      description:
+        'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas',
+    },
+    {
+      category: 'Revenue',
+      icon: {
+        name: 'atom',
+        family: 'phosphor',
+      },
+      prefix: '€',
+      value: '4350',
+      suffix: 'millions',
+      description: 'Curabitur ut mauris quam. Fusce non consequat ipsum',
+    },
+    {
+      category: 'Revenue',
+      icon: {
+        name: 'bell-simple',
+        family: 'phosphor',
+      },
+      prefix: '€',
+      value: '125',
+      suffix: 'billions',
+      description: 'Curabitur ut mauris quam. Fusce non consequat ipsum',
+    },
+    {
+      category: 'Revenue',
+      icon: {
+        name: 'boat',
+        family: 'phosphor',
+      },
+      prefix: '€',
+      value: '8765',
+      suffix: 'billions',
+      description: 'Integer pharetra lacinia tristique',
+    },
   ],
 };
