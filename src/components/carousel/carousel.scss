@@ -143,8 +143,7 @@ $carousel: null !default;
   }
 
   .ecl-carousel--full-width .ecl-carousel__slide .ecl-banner__credit {
-    left: 0;
-    right: 0;
+    inset-inline: 0;
     width: 100vw;
   }
 
@@ -164,12 +163,6 @@ $carousel: null !default;
  * full width
  */
 .ecl-carousel--full-width {
-  left: 50%;
-  margin-inline-start: -50vw;
+  margin-inline: calc(50% - 50vw);
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }

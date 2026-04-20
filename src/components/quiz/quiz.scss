@@ -21,8 +21,7 @@ $quiz: null !default;
     padding-block-start: map.get($quiz, 'quiz', 'background-padding-top');
     padding-block-end: map.get($quiz, 'quiz', 'background-padding-bottom');
     border-radius: 0;
-    inset-inline-start: 50%;
-    margin-inline-start: -50vw;
+    margin-inline: calc(50% - 50vw);
     width: 100vw;
   }
 }
@@ -456,11 +455,11 @@ $quiz: null !default;
   .ecl-quiz-card__question {
     min-height: 5.5rem;
     padding-block: var(--s-l);
-    text-align: left;
+    text-align: start;
   }
 
   .ecl-quiz-card__answer {
-    text-align: left;
+    text-align: start;
     padding-block: var(--s-l);
 
     @include mixins.responsive-font(map.get($quiz, 'card', 'poll-answer-font'));
