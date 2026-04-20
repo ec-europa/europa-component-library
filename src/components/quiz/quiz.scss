@@ -251,6 +251,11 @@ $quiz: null !default;
 .ecl-quiz-card.ecl-quiz-card__flipped {
   .ecl-quiz-card__front {
     pointer-events: none;
+
+    // Fixing safari bug where the front face is still visible when rotated
+    .ecl-quiz-card__flip {
+      display: none;
+    }
   }
 
   .ecl-quiz-card__back {
