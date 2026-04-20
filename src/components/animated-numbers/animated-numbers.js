@@ -207,7 +207,7 @@ export class AnimatedNumbers {
       to: data.originalValue,
       duration: this.animationDuration,
       onUpdate: (value) => {
-        element.textContent = value.toString();
+        element.textContent = value;
       },
       onComplete: () => {
         // Restore original width
@@ -231,45 +231,64 @@ export class AnimatedNumbers {
   }) {
     const data = this.animatedElements.get(element);
 
-    if (data) {
-      data.animationId = null;
+    if (!data) return;
+
+    // Cancel any existing animation
+    if (data.animationId) {
+      cancelAnimationFrame(data.animationId);
     }
 
     let startTime = null;
+    let lastUpdateTime = 0;
+    let lastValue = null;
 
     const tick = (now) => {
       if (startTime === null) {
         startTime = now;
       }
 
-      const progress = Math.min((now - startTime) / duration, 1);
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Throttle updates (~every 50ms)
+      if (now - lastUpdateTime < 50 && progress < 1) {
+        data.animationId = requestAnimationFrame(tick);
+        return;
+      }
+
+      lastUpdateTime = now;
 
       let value;
+
       if (this.animationStyle === 'random') {
-        // Random animation: show random numbers between 0 and final value
         value = Math.floor(Math.random() * (to + 1));
       } else {
-        // Linear animation: smooth progression from 0 to final value
         const eased = 1 - Math.pow(1 - progress, 3);
         value = from + (to - from) * eased;
       }
 
-      onUpdate(Math.floor(value));
+      const rounded = Math.floor(value);
+
+      // Only update DOM if value actually changed
+      if (rounded !== lastValue) {
+        onUpdate(rounded);
+        lastValue = rounded;
+      }
 
       if (progress < 1) {
-        const animationId = requestAnimationFrame(tick);
-        if (data) {
-          data.animationId = animationId;
-        }
+        data.animationId = requestAnimationFrame(tick);
       } else {
         onUpdate(to);
+        data.animationId = null;
+
         if (onComplete) {
           onComplete();
         }
       }
     };
 
-    requestAnimationFrame(tick);
+    // Start animation
+    data.animationId = requestAnimationFrame(tick);
   }
 }
 
