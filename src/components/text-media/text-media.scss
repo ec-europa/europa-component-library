@@ -124,4 +124,63 @@ $text-media: null !default;
       aspect-ratio: 16/9;
     }
   }
+
+  // CSS variables for the full-width layout
+  .ecl-text-media--full-width {
+    --ecl-container-max: #{map.get($theme, 'container', 'xl')};
+    --ecl-container-gutter: #{map.get($theme, 'grid-gutter-width', 'xl')};
+
+    .ecl-text-media__media {
+      flex-basis: auto;
+      flex-grow: 1;
+    }
+  }
+
+  // Media on the right: background bleeds left, text aligns with container left inner edge
+  .ecl-text-media--full-width:not(.ecl-text-media--position-left) {
+    .ecl-text-media__content {
+      flex-basis: max(
+        calc(
+          var(--ecl-container-gutter) +
+            (100vw - 2 * var(--ecl-container-gutter)) / 3
+        ),
+        calc(
+          (100vw - var(--ecl-container-max)) / 2 + var(--ecl-container-gutter) +
+            (var(--ecl-container-max) - 2 * var(--ecl-container-gutter)) / 3
+        )
+      );
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding-inline-start: max(
+        var(--ecl-container-gutter),
+        calc(
+          (100vw - var(--ecl-container-max)) / 2 + var(--ecl-container-gutter)
+        )
+      );
+    }
+  }
+
+  // Media on the left: background bleeds right, text aligns with container right inner edge
+  .ecl-text-media--full-width.ecl-text-media--position-left {
+    .ecl-text-media__content {
+      flex-basis: max(
+        calc(
+          var(--ecl-container-gutter) +
+            (100vw - 2 * var(--ecl-container-gutter)) / 3
+        ),
+        calc(
+          (100vw - var(--ecl-container-max)) / 2 + var(--ecl-container-gutter) +
+            (var(--ecl-container-max) - 2 * var(--ecl-container-gutter)) / 3
+        )
+      );
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding-inline-end: max(
+        var(--ecl-container-gutter),
+        calc(
+          (100vw - var(--ecl-container-max)) / 2 + var(--ecl-container-gutter)
+        )
+      );
+    }
+  }
 }

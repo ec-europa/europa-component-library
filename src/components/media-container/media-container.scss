@@ -89,6 +89,15 @@ $media-container: null !default;
   }
 }
 
+// Caption hidden
+// if caption is not bottom, for video
+.ecl-media-container--caption-hidden {
+  .ecl-media-container__caption,
+  .ecl-media-container__credit {
+    @include screen-reader.sr-only;
+  }
+}
+
 .ecl-media-container__expandable {
   margin-top: map.get($media-container, 'expandable-spacing-top');
   position: relative;

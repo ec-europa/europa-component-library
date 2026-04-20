@@ -69,10 +69,27 @@
   {% set _sr_video_player = _sr_video_label %}
 {% endif %}
 
+{# Check media type #}
+
+{% set _media_type = '' %}
+{% if _embedded_media is not empty %}
+  {% set _media_type = 'embedded' %}
+{% endif %}
+{% if _video is not empty %}
+  {% set _media_type = 'video' %}
+{% endif %}
+{% if _picture is not empty %}
+  {% set _media_type = 'picture' %}
+{% endif %}
+
 {# Internal logic - Process properties #}
 
 {% if _caption_position != 'bottom' %}
-  {% set _css_class = _css_class ~ ' ecl-media-container--caption-' ~ _caption_position %}
+  {% if _media_type == 'picture' %}
+    {% set _css_class = _css_class ~ ' ecl-media-container--caption-' ~ _caption_position %}
+  {% else %}
+    {% set _css_class = _css_class ~ ' ecl-media-container--caption-hidden' %}
+  {% endif %}
 {% endif %}
 
 {% if _picture.img is empty and _image is not empty %}
@@ -145,14 +162,18 @@
 {% endif %}
 >
   <figure class="{{ _figure_class }}">
-  {% if _embedded_media is not empty %}
+
+  {# Embedded video #}
+  {% if _media_type == 'embedded' %}
     <div class="{{_embed_class}}">
       {% if _sr_video_audio is not empty %}
         <div class="{{_embed_class}}-audio">{{ _sr_video_audio }}</div>
       {% endif %}
       {%- block embedded_media _embedded_media -%}
     </div>
-  {% elseif _video is not empty %}
+
+  {# Video #}
+  {% elseif _media_type == 'video' %}
     {% if _autoplay %}
       {% set _video = _video|merge({
         controls: false,
@@ -200,13 +221,17 @@
       } only %}
     {% endif %}
     </div>
-  {% else %}
+
+  {# Picture #}
+  {% elseif _media_type == 'picture' %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
       extra_classes: 'ecl-media-container__picture',
       extra_image_classes: 'ecl-media-container__media',
     } only %}
   {% endif %}
+
+  {# Caption #}
   {% if _description is not empty %}
     <figcaption class="ecl-media-container__caption">
       {{- _description -}}

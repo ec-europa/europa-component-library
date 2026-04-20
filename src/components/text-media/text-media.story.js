@@ -254,6 +254,7 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Text and media',
   decorators: [withNotes, withCode],
+  parameters: { layout: 'fullscreen' },
 };
 
 export const Image = (_, { loaded: { component } }) => component;
