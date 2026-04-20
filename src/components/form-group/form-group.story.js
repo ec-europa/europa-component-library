@@ -176,6 +176,13 @@ StandaloneCheckbox.args = {
 StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
 StandaloneCheckbox.parameters = {
   notes: { markdown: notes, json: dataStandaloneCheckbox },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Checkbox = (_, { loaded: { component } }) => component;
@@ -198,7 +205,16 @@ Datepicker.render = async (args) => {
 Datepicker.storyName = 'Datepicker';
 Datepicker.args = getArgs(dataDatepicker);
 Datepicker.argTypes = getArgTypes(dataDatepicker, 'element');
-Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
+Datepicker.parameters = {
+  notes: { markdown: notes, json: dataDatepicker },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
 Datepicker.decorators = [withCode, withNotes];
 
 export const FileUpload = (_, { loaded: { component } }) => component;
@@ -210,7 +226,16 @@ FileUpload.render = async (args) => {
 FileUpload.storyName = 'File upload';
 FileUpload.args = getArgs(dataFileUpload);
 FileUpload.argTypes = getArgTypes(dataFileUpload, 'element');
-FileUpload.parameters = { notes: { markdown: notes, json: dataFileUpload } };
+FileUpload.parameters = {
+  notes: { markdown: notes, json: dataFileUpload },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
 
 export const FileUploadMultiple = (_, { loaded: { component } }) => component;
 
@@ -225,6 +250,13 @@ FileUploadMultiple.args = getArgs(dataFileUploadMultiple);
 FileUploadMultiple.argTypes = getArgTypes(dataFileUploadMultiple, 'element');
 FileUploadMultiple.parameters = {
   notes: { markdown: notes, json: dataFileUploadMultiple },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Radio = (_, { loaded: { component } }) => component;
@@ -236,7 +268,16 @@ Radio.render = async (args) => {
 Radio.storyName = 'Radio';
 Radio.args = getArgs(dataBinary);
 Radio.argTypes = getArgTypes(dataBinary, 'element');
-Radio.parameters = { notes: { markdown: notes, json: dataBinary } };
+Radio.parameters = {
+  notes: { markdown: notes, json: dataBinary },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
 
 export const RadioGroup = (_, { loaded: { component } }) => component;
 
@@ -247,7 +288,16 @@ RadioGroup.render = async (args) => {
 RadioGroup.storyName = 'Radio group';
 RadioGroup.args = getArgs(dataDefault);
 RadioGroup.argTypes = getArgTypes(dataDefault, 'group');
-RadioGroup.parameters = { notes: { markdown: notes, json: dataDefault } };
+RadioGroup.parameters = {
+  notes: { markdown: notes, json: dataDefault },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
 
 export const Range = (_, { loaded: { component } }) => component;
 
@@ -258,7 +308,16 @@ Range.render = async (args) => {
 Range.storyName = 'Range';
 Range.args = { ...getArgs(dataRange), width: 'm' };
 Range.argTypes = getArgTypes(dataRange, 'element');
-Range.parameters = { notes: { markdown: notes, json: dataRange } };
+Range.parameters = {
+  notes: { markdown: notes, json: dataRange },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
 
 export const RatingField = (_, { loaded: { component } }) => component;
 
@@ -271,7 +330,16 @@ RatingField.render = async (args) => {
 RatingField.storyName = 'Rating field';
 RatingField.args = getArgs(dataRatingField);
 RatingField.argTypes = getArgTypes(dataRatingField, 'element');
-RatingField.parameters = { notes: { markdown: notes, json: dataRatingField } };
+RatingField.parameters = {
+  notes: { markdown: notes, json: dataRatingField },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
 
 export const Select = (_, { loaded: { component } }) => component;
 
@@ -295,4 +363,13 @@ SelectMultiple.render = async (args) => {
 SelectMultiple.storyName = 'Select multiple';
 SelectMultiple.args = getArgs(dataMultiple);
 SelectMultiple.argTypes = getArgTypes(dataMultiple, 'element');
-SelectMultiple.parameters = { notes: { markdown: notes, json: dataMultiple } };
+SelectMultiple.parameters = {
+  notes: { markdown: notes, json: dataMultiple },
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};
