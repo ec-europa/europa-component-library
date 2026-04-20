@@ -5,7 +5,6 @@ import { queryAll } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.numberSelector
  * @param {Boolean} options.attachHoverListener
- * @param {Boolean} options.attachResizeListener
  * @param {Boolean} options.animateOnHover
  * @param {Boolean} options.animateOnVisible
  * @param {Number} options.animationDuration
@@ -32,7 +31,6 @@ export class AnimatedNumbers {
     {
       numberSelector = '[data-ecl-animated-numbers-value]',
       attachHoverListener = true,
-      attachResizeListener = true,
       animateOnHover = true,
       animateOnVisible = true,
       animationDuration = 1000,
@@ -51,7 +49,6 @@ export class AnimatedNumbers {
     // Options
     this.numberSelector = numberSelector;
     this.attachHoverListener = attachHoverListener;
-    this.attachResizeListener = attachResizeListener;
     this.animateOnHover = animateOnHover;
     this.animateOnVisible = animateOnVisible;
     this.animationDuration = animationDuration;
@@ -107,7 +104,7 @@ export class AnimatedNumbers {
       });
     }
 
-    if (this.animateOnHover) {
+    if (this.attachHoverListener && this.animateOnHover) {
       this.itemsElements.forEach((element) => {
         element.addEventListener('mouseenter', this.handleHoverStart);
       });
@@ -186,7 +183,10 @@ export class AnimatedNumbers {
    */
   startAnimation(element) {
     const data = this.animatedElements.get(element);
-    if (data.isAnimating) return;
+
+    if (data.animationId) {
+      cancelAnimationFrame(data.animationId);
+    }
 
     data.isAnimating = true;
 
@@ -202,6 +202,7 @@ export class AnimatedNumbers {
     element.style.width = `${finalWidth}px`;
 
     this.animateNumber({
+      element,
       from: 0,
       to: data.originalValue,
       duration: this.animationDuration,
@@ -220,12 +221,15 @@ export class AnimatedNumbers {
   /**
    * Animate number from a starting value to an ending value over a duration, with optional easing and randomization.
    */
-  animateNumber({ from = 0, to, duration = 1000, onUpdate, onComplete }) {
-    const data = this.animatedElements.get(
-      Array.from(this.animatedElements.keys()).find((el) =>
-        el.contains(onUpdate ? null : document.activeElement),
-      ),
-    );
+  animateNumber({
+    element,
+    from = 0,
+    to,
+    duration = 1000,
+    onUpdate,
+    onComplete,
+  }) {
+    const data = this.animatedElements.get(element);
 
     if (data) {
       data.animationId = null;
@@ -266,20 +270,6 @@ export class AnimatedNumbers {
     };
 
     requestAnimationFrame(tick);
-  }
-
-  /**
-   * Check if element is in viewport
-   */
-  isElementInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
   }
 }
 

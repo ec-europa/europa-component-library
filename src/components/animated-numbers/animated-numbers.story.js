@@ -66,7 +66,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first item)',
     },
   },
   category: {
@@ -76,7 +76,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first item)',
     },
     control: {
       type: 'text',
@@ -89,7 +89,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first item)',
     },
     control: {
       type: 'text',
@@ -102,7 +102,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first item)',
     },
     control: {
       type: 'text',
@@ -115,7 +115,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
+      category: 'Content (first item)',
     },
     control: {
       type: 'text',
