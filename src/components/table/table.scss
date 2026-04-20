@@ -138,16 +138,11 @@ $table: null !default;
   display: flex;
   flex-direction: column;
   height: auto;
-  left: map.get($table, 'sort', 'arrow-left');
+  inset-inline-start: map.get($table, 'sort', 'arrow-left');
   padding: 0;
   position: absolute;
   top: map.get($table, 'sort', 'arrow-top');
   width: auto;
-
-  &:dir(rtl) {
-    left: auto;
-    right: map.get($table, 'sort', 'arrow-left');
-  }
 
   &:focus-visible {
     outline: 2px solid var(--cm-border-primary, var(--c-p));
@@ -241,12 +236,11 @@ $table: null !default;
         display: block;
         font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
-        left: calc(-1 * #{map.get($table, 'multi-head', 'position')});
+        inset-inline: calc(-1 * #{map.get($table, 'multi-head', 'position')});
         margin-block-end: -1px;
         order: -1;
         padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
-        right: calc(-1 * #{map.get($table, 'multi-head', 'position')});
         top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 1px);
         width: 100%;
       }

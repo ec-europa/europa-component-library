@@ -275,14 +275,8 @@ $banner-print: null !default;
 // Full width
 .ecl-banner--full-width {
   border-radius: 0;
-  left: 50%;
-  margin-inline-start: -50vw;
+  margin-inline: calc(50% - 50vw);
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }
 
 // Medium banner - ratio 4:1
@@ -339,7 +333,7 @@ $banner-print: null !default;
 
   .ecl-banner__content {
     align-items: flex-end;
-    text-align: right;
+    text-align: end;
   }
 }
 
