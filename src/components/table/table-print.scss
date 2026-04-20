@@ -70,7 +70,7 @@ $table: null !default;
   color: map.get($table, 'caption', 'color');
   font: map.get($theme, 'font-print', 's');
   margin-top: map.get($theme, 'spacing-print', 'xs');
-  text-align: left;
+  text-align: start;
 }
 
 .ecl-table--zebra {

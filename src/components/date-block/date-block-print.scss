@@ -35,7 +35,7 @@ $date-block-print: null !default;
     content: '';
     display: block;
     height: map.get($date-block, 'circle-width');
-    left: var(--s-s);
+    inset-inline-start: var(--s-s);
     outline: 1px solid map.get($date-block, 'outline-color-default');
     position: absolute;
     top: -#{map.get($date-block, 'circle-width') * 0.5};
@@ -52,7 +52,7 @@ $date-block-print: null !default;
     height: map.get($date-block, 'circle-width');
     outline: 1px solid map.get($date-block, 'outline-color-default');
     position: absolute;
-    right: var(--s-s);
+    inset-inline-end: var(--s-s);
     top: -#{map.get($date-block, 'circle-width') * 0.5};
     width: map.get($date-block, 'circle-width');
   }
