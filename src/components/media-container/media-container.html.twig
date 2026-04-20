@@ -69,28 +69,7 @@
   {% set _sr_video_player = _sr_video_label %}
 {% endif %}
 
-{# Check media type #}
-
-{% set _media_type = '' %}
-{% if _embedded_media is not empty %}
-  {% set _media_type = 'embedded' %}
-{% endif %}
-{% if _video is not empty %}
-  {% set _media_type = 'video' %}
-{% endif %}
-{% if _picture is not empty %}
-  {% set _media_type = 'picture' %}
-{% endif %}
-
 {# Internal logic - Process properties #}
-
-{% if _caption_position != 'bottom' %}
-  {% if _media_type == 'picture' %}
-    {% set _css_class = _css_class ~ ' ecl-media-container--caption-' ~ _caption_position %}
-  {% else %}
-    {% set _css_class = _css_class ~ ' ecl-media-container--caption-hidden' %}
-  {% endif %}
-{% endif %}
 
 {% if _picture.img is empty and _image is not empty %}
   {% set _picture = {
@@ -111,6 +90,26 @@
     sr_video_audio: _sr_video_audio,
     sr_video_player: _sr_video_player,
   } %}
+{% endif %}
+
+{# Check media type (priority: embedded > video > picture) #}
+
+{% if _embedded_media is not empty %}
+  {% set _media_type = 'embedded' %}
+{% elseif _video is not empty %}
+  {% set _media_type = 'video' %}
+{% elseif _picture is not empty %}
+  {% set _media_type = 'picture' %}
+{% else %}
+  {% set _media_type = '' %}
+{% endif %}
+
+{% if _caption_position != 'bottom' %}
+  {% if _media_type == 'picture' %}
+    {% set _css_class = _css_class ~ ' ecl-media-container--caption-' ~ _caption_position %}
+  {% else %}
+    {% set _css_class = _css_class ~ ' ecl-media-container--caption-hidden' %}
+  {% endif %}
 {% endif %}
 
 {% if _full_width %}
