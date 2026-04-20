@@ -51,7 +51,7 @@ $language-list: null !default;
   box-shadow: map.get($language-switcher, 'shadow');
   color: map.get($language-list, 'color');
   font: var(--f-m);
-  left: 0;
+  inset-inline-start: 0;
   height: auto;
   margin-top: var(--s-m);
   padding-block-start: map.get(
@@ -73,8 +73,8 @@ $language-list: null !default;
     #{map.get($language-list, 'container-padding-mobile', 'inline-end')} +
       #{map.get($language-list, 'item-active-border-width')}
   );
+  inset-inline-end: 0;
   position: absolute;
-  right: 0;
   width: auto;
   z-index: map.get($theme, 'z-index', 'overlay');
 

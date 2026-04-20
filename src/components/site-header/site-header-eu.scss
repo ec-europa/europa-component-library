@@ -41,13 +41,8 @@ $language-list: null !default;
     top: var(--s-m);
     padding: 0;
     position: absolute;
-    right: var(--s-m);
+    inset-inline-end: var(--s-m);
     width: 44px;
-
-    &:dir(rtl) {
-      left: 0;
-      right: auto;
-    }
   }
 
   .ecl-site-header__cta {
@@ -205,8 +200,9 @@ $language-list: null !default;
   &::before {
     @include site-header-dropdown.arrow-up;
 
-    left: auto;
-    right: var(--ecl-login-arrow-position);
+    left: var(--ecl-login-arrow-position);
+    margin-left: 0;
+    right: auto;
   }
 
   &.ecl-site-header__login-box--active {
@@ -257,8 +253,8 @@ $language-list: null !default;
   }
 
   .ecl-indicator:not(:empty) {
-    left: -18px;
-    right: auto;
+    inset-inline-start: -18px;
+    inset-inline-end: auto;
   }
 }
 
@@ -270,8 +266,9 @@ $language-list: null !default;
     &::before {
       @include site-header-dropdown.arrow-up;
 
-      left: auto;
-      right: var(--ecl-search-arrow-position);
+      left: var(--ecl-search-arrow-position);
+      margin-left: 0;
+      right: auto;
     }
   }
 }
@@ -336,7 +333,7 @@ $language-list: null !default;
   .ecl-site-header .ecl-menu,
   .ecl-site-header .ecl-mega-menu {
     // container's padding-inline-end
-    right: var(--s-l);
+    inset-inline-end: var(--s-l);
   }
 }
 
@@ -410,14 +407,14 @@ $language-list: null !default;
       background: map.get($site-header, 'gradient-background');
       min-height: auto;
       position: static;
-      right: 0;
+      inset-inline-end: 0;
       width: 100%;
     }
 
     .ecl-mega-menu {
       background: map.get($site-header, 'gradient-background');
       position: relative;
-      right: 0;
+      inset-inline-end: 0;
       top: 0;
       width: 100%;
     }
