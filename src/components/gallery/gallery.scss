@@ -152,7 +152,7 @@ $_description-height-desktop: 108px;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
   font: map.get($gallery, 'description-font');
-  left: 0;
+  inset-inline-start: 0;
   overflow: hidden;
   padding: var(--s-2xs) var(--s-xs);
   pointer-events: none;
@@ -208,7 +208,7 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__footer-link {
-  text-align: right;
+  text-align: end;
   margin-top: var(--s-s);
   width: 100%;
 }
@@ -266,17 +266,16 @@ $_description-height-desktop: 108px;
 
   .ecl-gallery--full-width {
     border-radius: 0;
-    left: 50%;
-    margin-inline-start: -50vw;
+    margin-inline: calc(50% - 50vw);
     position: relative;
     width: 100vw;
 
     .ecl-gallery__footer-link {
-      margin-inline-start: ar(--s-m);
+      margin-inline-start: var(--s-m);
     }
 
     .ecl-gallery__view-all {
-      margin-inline-end: ar(--s-m);
+      margin-inline-end: var(--s-m);
     }
   }
 }
@@ -307,7 +306,7 @@ $_description-height-desktop: 108px;
   display: none;
   flex-direction: column;
   height: 100%;
-  left: 0;
+  inset-inline-start: 0;
   margin: 0;
   max-height: 100vh;
   max-width: 100%;
@@ -426,8 +425,7 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__detail-counter {
   align-self: center;
-  border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
+  border-inline: 1px solid #fff;
   display: inline-flex;
   margin: 0;
   padding: 0 var(--s-xs);

@@ -128,8 +128,7 @@ body {
   }
 
   .ecl-list-illustration--zebra {
-    left: auto;
-    margin-inline-start: 0;
+    margin-inline: 0;
     width: auto;
   }
 
@@ -222,8 +221,7 @@ body {
 
 // Zebra
 .ecl-list-illustration--zebra {
-  left: 50%;
-  margin-inline-start: -50vw;
+  margin-inline: calc(50% - 50vw);
   position: relative;
   width: 100vw;
 
@@ -247,8 +245,7 @@ body {
 
 @include breakpoints.up('s') {
   .ecl-list-illustration--zebra {
-    left: auto;
-    margin-inline-start: 0;
+    margin-inline: 0;
     width: auto;
   }
 }
@@ -482,7 +479,7 @@ body {
       box-sizing: border-box;
       flex-shrink: 0;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
     }
 
     .ecl-list-illustration__item-content {

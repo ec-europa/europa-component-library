@@ -31,7 +31,7 @@ $outline-width: 2px;
   overflow: hidden;
   padding-inline-end: map.get($select, 'arrow-width');
   padding-inline-start: map.get($select, 'padding-inline-start');
-  text-align: left;
+  text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
@@ -231,8 +231,7 @@ $outline-width: 2px;
 
   .ecl-select__multiple-group {
     border-bottom: 1px solid map.get($select, 'group-separator-color');
-    border-left: none;
-    border-right: none;
+    border-inline: none;
     border-top: 1px solid map.get($select, 'group-separator-color');
     margin: 0 var(--s-m);
     padding: var(--s-s) 0;
@@ -276,7 +275,7 @@ $outline-width: 2px;
 
   .ecl-select__multiple-group__title {
     color: map.get($select, 'group-title-color');
-    float: left;
+    float: inline-start;
     margin: 0 0 var(--s-2xs);
 
     @include mixins.responsive-font(
@@ -339,7 +338,7 @@ $outline-width: 2px;
 
   .ecl-select-multiple-selections-counter {
     display: none;
-    left: var(--s-m);
+    inset-inline-start: var(--s-m);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

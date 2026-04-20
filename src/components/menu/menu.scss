@@ -264,9 +264,8 @@ $menu: null !default;
     content: '';
     display: none;
     height: 100%;
-    left: 0;
+    inset-inline: 0;
     position: fixed;
-    right: 0;
     top: 0;
     width: 100%;
     z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -602,7 +601,11 @@ $menu: null !default;
         height: calc(
           100% + 2 * #{map.get($menu, 'desktop', 'overflow-separator-offset')}
         );
-        right: -#{map.get($menu, 'desktop', 'overflow-separator-offset')};
+        inset-inline-end: -#{map.get(
+            $menu,
+            'desktop',
+            'overflow-separator-offset'
+          )};
         margin: 0;
         position: absolute;
         top: -#{map.get($menu, 'desktop', 'overflow-separator-offset')};
@@ -626,7 +629,11 @@ $menu: null !default;
         height: calc(
           100% + 2 * #{map.get($menu, 'desktop', 'overflow-separator-offset')}
         );
-        left: -#{map.get($menu, 'desktop', 'overflow-separator-offset')};
+        inset-inline-start: -#{map.get(
+            $menu,
+            'desktop',
+            'overflow-separator-offset'
+          )};
         margin: 0;
         position: absolute;
         top: -#{map.get($menu, 'desktop', 'overflow-separator-offset')};
@@ -856,7 +863,7 @@ $menu: null !default;
         content: '';
         display: block;
         height: calc(100% + var(--s-l));
-        left: calc(-1 * var(--s-l));
+        inset-inline-start: calc(-1 * var(--s-l));
         position: absolute;
         top: 0;
         width: calc(100% + var(--s-l) + var(--s-l));
@@ -864,8 +871,7 @@ $menu: null !default;
     }
 
     .ecl-menu__item--full .ecl-menu__mega {
-      left: 0;
-      right: 0;
+      inset-inline: 0;
     }
 
     .ecl-menu__item[data-expanded='true'] .ecl-menu__mega {

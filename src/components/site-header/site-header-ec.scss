@@ -136,8 +136,8 @@ $language-list: null !default;
   }
 
   .ecl-indicator:not(:empty) {
-    left: -18px;
-    right: auto;
+    inset-inline-start: -18px;
+    inset-inline-end: auto;
   }
 }
 
@@ -171,8 +171,9 @@ $language-list: null !default;
   &::before {
     @include site-header-dropdown.arrow-up;
 
-    left: auto;
-    right: var(--ecl-login-arrow-position);
+    left: var(--ecl-login-arrow-position);
+    margin-left: 0;
+    right: auto;
   }
 
   &.ecl-site-header__login-box--active {
@@ -207,8 +208,9 @@ $language-list: null !default;
   &::before {
     @include site-header-dropdown.arrow-up;
 
-    left: auto;
-    right: var(--ecl-search-arrow-position);
+    left: var(--ecl-search-arrow-position);
+    margin-left: 0;
+    right: auto;
   }
 }
 
@@ -372,12 +374,12 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
     .ecl-mega-menu {
       position: relative;
-      right: 0;
+      inset-inline-end: 0;
       top: 0;
       width: 100%;
 
       &.ecl-mega-menu--rtl {
-        right: 0;
+        inset-inline-end: 0;
       }
     }
 

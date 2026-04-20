@@ -156,14 +156,14 @@ $button-width: 44px;
     content: '';
     display: block;
     height: map.get($tabs, 'more', 'highlight-width');
-    left: 0;
+    inset-inline-start: 0;
     position: absolute;
     top: -#{map.get($tabs, 'more', 'highlight-width')};
     width: 100%;
   }
 
   &:hover::before {
-    left: 1px;
+    inset-inline-start: 1px;
     top: calc(-#{map.get($tabs, 'more', 'highlight-width')} + 1px);
     width: calc(100% - 2px);
   }

@@ -236,12 +236,11 @@ $table: null !default;
         display: block;
         font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
-        left: calc(-1 * #{map.get($table, 'multi-head', 'position')});
+        inset-inline: calc(-1 * #{map.get($table, 'multi-head', 'position')});
         margin-block-end: -1px;
         order: -1;
         padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
-        right: calc(-1 * #{map.get($table, 'multi-head', 'position')});
         top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 1px);
         width: 100%;
       }
