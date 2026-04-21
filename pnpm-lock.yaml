@@ -200,14 +200,15 @@ importers:
 
   src/components/accordion:
     dependencies:
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
 
   src/components/add-to-calendar:
+    dependencies:
+      '@ecl/icon':
+        specifier: 5.0.0-RC2
+        version: link:../icon
     devDependencies:
       '@ecl/grid':
         specifier: 5.0.0-RC2
@@ -227,30 +228,35 @@ importers:
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
-      '@ecl/mixins-typography':
-        specifier: 5.0.0-RC2
-        version: link:../../mixins/typography
       '@ecl/picture':
         specifier: 5.0.0-RC2
         version: link:../picture
       '@ecl/video':
         specifier: 5.0.0-RC2
         version: link:../video
-
-  src/components/blockquote:
-    dependencies:
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
+
+  src/components/blockquote:
+    dependencies:
       '@ecl/picture':
         specifier: 5.0.0-RC2
         version: link:../picture
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
 
   src/components/breadcrumb:
     dependencies:
@@ -266,6 +272,10 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -294,12 +304,13 @@ importers:
       '@ecl/content-block':
         specifier: 5.0.0-RC2
         version: link:../content-block
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/picture':
         specifier: 5.0.0-RC2
         version: link:../picture
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/carousel:
     dependencies:
@@ -312,6 +323,10 @@ importers:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/category-filter:
     dependencies:
@@ -343,9 +358,6 @@ importers:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
@@ -355,6 +367,10 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -370,8 +386,19 @@ importers:
       '@ecl/picture':
         specifier: 5.0.0-RC2
         version: link:../picture
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
-  src/components/date-block: {}
+  src/components/date-block:
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-RC2
+        version: link:../../utilities/screen-reader
 
   src/components/datepicker:
     devDependencies:
@@ -394,6 +421,9 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../tag
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -419,6 +449,9 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../link
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/resources-icons':
         specifier: 5.0.0-RC2
         version: link:../../resources/icons
@@ -431,12 +464,13 @@ importers:
       '@ecl/media-container':
         specifier: 5.0.0-RC2
         version: link:../media-container
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
-      '@ecl/picture':
-        specifier: 5.0.0-RC2
-        version: link:../picture
 
   src/components/file:
     dependencies:
@@ -464,9 +498,6 @@ importers:
 
   src/components/file-upload:
     dependencies:
-      '@ecl/button':
-        specifier: 5.0.0-RC2
-        version: link:../button
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
@@ -544,6 +575,13 @@ importers:
       focus-trap:
         specifier: 8.0.1
         version: 8.0.1
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-RC2
+        version: link:../../utilities/screen-reader
 
   src/components/icon:
     devDependencies:
@@ -565,9 +603,6 @@ importers:
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
@@ -581,6 +616,9 @@ importers:
         specifier: 2.1.0
         version: 2.1.0
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       lorem-ipsum:
         specifier: 2.0.8
         version: 2.0.8
@@ -593,12 +631,12 @@ importers:
 
   src/components/link:
     dependencies:
-      '@ecl/button':
-        specifier: 5.0.0-RC2
-        version: link:../button
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
+      '@ecl/indicator':
+        specifier: 5.0.0-RC2
+        version: link:../indicator
     devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
@@ -616,6 +654,9 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../picture
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -625,6 +666,9 @@ importers:
 
   src/components/media-container:
     dependencies:
+      '@ecl/button':
+        specifier: 5.0.0-RC2
+        version: link:../button
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
@@ -640,6 +684,13 @@ importers:
       '@ecl/video':
         specifier: 5.0.0-RC2
         version: link:../video
+    devDependencies:
+      '@ecl/utility-media':
+        specifier: 5.0.0-RC2
+        version: link:../../utilities/media
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-RC2
+        version: link:../../utilities/screen-reader
 
   src/components/mega-menu:
     dependencies:
@@ -661,6 +712,10 @@ importers:
       focus-trap:
         specifier: 8.0.1
         version: 8.0.1
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/menu:
     dependencies:
@@ -683,6 +738,9 @@ importers:
         specifier: 8.0.1
         version: 8.0.1
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -698,12 +756,16 @@ importers:
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
-      '@ecl/mixins-typography':
-        specifier: 5.0.0-RC2
-        version: link:../../mixins/typography
       focus-trap:
         specifier: 8.0.1
         version: 8.0.1
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
 
   src/components/navigation-list:
     dependencies:
@@ -713,6 +775,10 @@ importers:
       '@ecl/picture':
         specifier: 5.0.0-RC2
         version: link:../picture
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/news-ticker:
     dependencies:
@@ -728,6 +794,10 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/notification:
     dependencies:
@@ -743,10 +813,16 @@ importers:
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
+      '@ecl/link':
+        specifier: 5.0.0-RC2
+        version: link:../link
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
-        specifier: 5.0.0-alpha.15
-        version: 5.0.0-alpha.15
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
 
   src/components/ordered-list:
     devDependencies:
@@ -759,28 +835,25 @@ importers:
       '@ecl/breadcrumb':
         specifier: 5.0.0-RC2
         version: link:../breadcrumb
-      '@ecl/grid':
+      '@ecl/button':
         specifier: 5.0.0-RC2
-        version: link:../../layout/grid
-      '@ecl/icon':
-        specifier: 5.0.0-RC2
-        version: link:../icon
-      '@ecl/link':
-        specifier: 5.0.0-RC2
-        version: link:../link
-      '@ecl/list-illustration':
-        specifier: 5.0.0-RC2
-        version: link:../list-illustration
-      '@ecl/picture':
-        specifier: 5.0.0-RC2
-        version: link:../picture
-    devDependencies:
+        version: link:../button
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
+      '@ecl/icon':
+        specifier: 5.0.0-RC2
+        version: link:../icon
+      '@ecl/picture':
+        specifier: 5.0.0-RC2
+        version: link:../picture
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -788,16 +861,21 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../../utilities/screen-reader
 
-  src/components/page-information: {}
+  src/components/page-information:
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
 
   src/components/pagination:
     dependencies:
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/picture: {}
 
@@ -812,37 +890,35 @@ importers:
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
 
   src/components/quiz:
     dependencies:
-      '@ecl/icon':
-        specifier: 5.0.0-RC2
-        version: link:../icon
-    devDependencies:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
-      '@ecl/mixins-typography':
-        specifier: 5.0.0-RC2
-        version: link:../../mixins/typography
-      '@ecl/utility-screen-reader':
-        specifier: 5.0.0-RC2
-        version: link:../../utilities/screen-reader
       embla-carousel:
         specifier: 9.0.0-rc01
         version: 9.0.0-rc01
       embla-carousel-accessibility:
         specifier: 9.0.0-rc01
         version: 9.0.0-rc01(embla-carousel@9.0.0-rc01)
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-RC2
+        version: link:../../utilities/screen-reader
 
   src/components/radio:
     devDependencies:
@@ -858,10 +934,10 @@ importers:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
+    devDependencies:
       '@ecl/layout-form':
         specifier: 5.0.0-RC2
         version: link:../../layout/form
-    devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -872,6 +948,9 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../icon
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/utility-screen-reader':
         specifier: 5.0.0-RC2
         version: link:../../utilities/screen-reader
@@ -884,6 +963,10 @@ importers:
       '@ecl/form-group':
         specifier: 5.0.0-RC2
         version: link:../form-group
+    devDependencies:
+      '@ecl/utility-screen-reader':
+        specifier: 5.0.0-RC2
+        version: link:../../utilities/screen-reader
 
   src/components/select:
     dependencies:
@@ -899,10 +982,10 @@ importers:
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
+    devDependencies:
       '@ecl/layout-form':
         specifier: 5.0.0-RC2
         version: link:../../layout/form
-    devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -921,6 +1004,9 @@ importers:
         specifier: 5.0.0-RC2
         version: link:../social-media-follow
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
@@ -939,9 +1025,6 @@ importers:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../icon
@@ -954,9 +1037,6 @@ importers:
       '@ecl/menu':
         specifier: 5.0.0-RC2
         version: link:../menu
-      '@ecl/mixins-typography':
-        specifier: 5.0.0-RC2
-        version: link:../../mixins/typography
       '@ecl/notification':
         specifier: 5.0.0-RC2
         version: link:../notification
@@ -970,6 +1050,12 @@ importers:
         specifier: 8.0.1
         version: 8.0.1
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
       '@ecl/resources-ec-logo':
         specifier: 5.0.0-RC2
         version: link:../../resources/logo-ec
@@ -982,6 +1068,7 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
       '@ecl/utility-screen-reader':
         specifier: 5.0.0-RC2
         version: link:../../utilities/screen-reader
@@ -1006,13 +1093,16 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
-      '@ecl/mixins-typography':
-        specifier: 5.0.0-RC2
-        version: link:../../mixins/typography
       '@ecl/picture':
         specifier: 5.0.0-RC2
         version: link:../picture
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC2
+        version: link:../../mixins/typography
       '@ecl/resources-ec-logo':
         specifier: 5.0.0-RC2
         version: link:../../resources/logo-ec
@@ -1022,15 +1112,16 @@ importers:
 
   src/components/spotlight:
     dependencies:
+      '@ecl/picture':
+        specifier: 5.0.0-RC2
+        version: link:../picture
+    devDependencies:
       '@ecl/grid':
         specifier: 5.0.0-RC2
         version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC2
         version: link:../../mixins/typography
-      '@ecl/picture':
-        specifier: 5.0.0-RC2
-        version: link:../picture
 
   src/components/table:
     dependencies:
@@ -1040,6 +1131,7 @@ importers:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
+    devDependencies:
       '@ecl/grid':
         specifier: 5.0.0-RC2
         version: link:../../layout/grid
@@ -1058,12 +1150,13 @@ importers:
       '@ecl/event-manager':
         specifier: 5.0.0-RC2
         version: link:../../tools/event-manager
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../link
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC2
+        version: link:../../layout/grid
       '@ecl/utility-screen-reader':
         specifier: 5.0.0-RC2
         version: link:../../utilities/screen-reader
@@ -1097,6 +1190,7 @@ importers:
       '@ecl/dom-utils':
         specifier: 5.0.0-RC2
         version: link:../../tools/dom-utils
+    devDependencies:
       '@ecl/grid':
         specifier: 5.0.0-RC2
         version: link:../../layout/grid
@@ -1122,7 +1216,17 @@ importers:
 
   src/components/video: {}
 
-  src/compositions/etrans: {}
+  src/compositions/etrans:
+    dependencies:
+      '@ecl/button':
+        specifier: 5.0.0-RC2
+        version: link:../../components/button
+      '@ecl/link':
+        specifier: 5.0.0-RC2
+        version: link:../../components/link
+      '@ecl/notification':
+        specifier: 5.0.0-RC2
+        version: link:../../components/notification
 
   src/compositions/file-upload-status:
     dependencies:
@@ -1157,9 +1261,6 @@ importers:
       '@ecl/blockquote':
         specifier: 5.0.0-RC2
         version: link:../../components/blockquote
-      '@ecl/breadcrumb':
-        specifier: 5.0.0-RC2
-        version: link:../../components/breadcrumb
       '@ecl/fact-figures':
         specifier: 5.0.0-RC2
         version: link:../../components/fact-figures
@@ -1169,15 +1270,12 @@ importers:
       '@ecl/list-illustration':
         specifier: 5.0.0-RC2
         version: link:../../components/list-illustration
-      '@ecl/mega-menu':
+      '@ecl/ordered-list':
         specifier: 5.0.0-RC2
-        version: link:../../components/mega-menu
+        version: link:../../components/ordered-list
       '@ecl/page-header':
         specifier: 5.0.0-RC2
         version: link:../../components/page-header
-      '@ecl/separator':
-        specifier: 5.0.0-RC2
-        version: link:../../components/separator
       '@ecl/site-footer':
         specifier: 5.0.0-RC2
         version: link:../../components/site-footer
@@ -1214,9 +1312,6 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../../components/link
-      '@ecl/mega-menu':
-        specifier: 5.0.0-RC2
-        version: link:../../components/mega-menu
       '@ecl/navigation-list':
         specifier: 5.0.0-RC2
         version: link:../../components/navigation-list
@@ -1229,18 +1324,9 @@ importers:
       '@ecl/site-header':
         specifier: 5.0.0-RC2
         version: link:../../components/site-header
-      '@ecl/unordered-list':
-        specifier: 5.0.0-RC2
-        version: link:../../components/unordered-list
 
   src/page-example/page-inner:
     dependencies:
-      '@ecl/accordion':
-        specifier: 5.0.0-RC2
-        version: link:../../components/accordion
-      '@ecl/breadcrumb':
-        specifier: 5.0.0-RC2
-        version: link:../../components/breadcrumb
       '@ecl/file':
         specifier: 5.0.0-RC2
         version: link:../../components/file
@@ -1250,9 +1336,6 @@ importers:
       '@ecl/inpage-navigation':
         specifier: 5.0.0-RC2
         version: link:../../components/inpage-navigation
-      '@ecl/mega-menu':
-        specifier: 5.0.0-RC2
-        version: link:../../components/mega-menu
       '@ecl/modal':
         specifier: 5.0.0-RC2
         version: link:../../components/modal
@@ -1280,9 +1363,6 @@ importers:
       '@ecl/blockquote':
         specifier: 5.0.0-RC2
         version: link:../../components/blockquote
-      '@ecl/breadcrumb':
-        specifier: 5.0.0-RC2
-        version: link:../../components/breadcrumb
       '@ecl/content-block':
         specifier: 5.0.0-RC2
         version: link:../../components/content-block
@@ -1298,9 +1378,6 @@ importers:
       '@ecl/link':
         specifier: 5.0.0-RC2
         version: link:../../components/link
-      '@ecl/mega-menu':
-        specifier: 5.0.0-RC2
-        version: link:../../components/mega-menu
       '@ecl/navigation-list':
         specifier: 5.0.0-RC2
         version: link:../../components/navigation-list
@@ -1323,30 +1400,9 @@ importers:
 
   src/page-example/page-rich-text:
     dependencies:
-      '@ecl/banner':
-        specifier: 5.0.0-RC2
-        version: link:../../components/banner
-      '@ecl/breadcrumb':
-        specifier: 5.0.0-RC2
-        version: link:../../components/breadcrumb
-      '@ecl/card':
-        specifier: 5.0.0-RC2
-        version: link:../../components/card
-      '@ecl/content-item':
-        specifier: 5.0.0-RC2
-        version: link:../../components/content-item
       '@ecl/featured-item':
         specifier: 5.0.0-RC2
         version: link:../../components/featured-item
-      '@ecl/link':
-        specifier: 5.0.0-RC2
-        version: link:../../components/link
-      '@ecl/mega-menu':
-        specifier: 5.0.0-RC2
-        version: link:../../components/mega-menu
-      '@ecl/navigation-list':
-        specifier: 5.0.0-RC2
-        version: link:../../components/navigation-list
       '@ecl/page-header':
         specifier: 5.0.0-RC2
         version: link:../../components/page-header
@@ -1356,48 +1412,30 @@ importers:
       '@ecl/site-header':
         specifier: 5.0.0-RC2
         version: link:../../components/site-header
-      '@ecl/unordered-list':
-        specifier: 5.0.0-RC2
-        version: link:../../components/unordered-list
 
   src/page-example/page-search:
     dependencies:
-      '@ecl/breadcrumb':
-        specifier: 5.0.0-RC2
-        version: link:../../components/breadcrumb
       '@ecl/button':
         specifier: 5.0.0-RC2
         version: link:../../components/button
-      '@ecl/checkbox':
-        specifier: 5.0.0-RC2
-        version: link:../../components/checkbox
       '@ecl/content-item':
         specifier: 5.0.0-RC2
         version: link:../../components/content-item
-      '@ecl/datepicker':
+      '@ecl/form-group':
         specifier: 5.0.0-RC2
-        version: link:../../components/datepicker
-      '@ecl/mega-menu':
-        specifier: 5.0.0-RC2
-        version: link:../../components/mega-menu
+        version: link:../../components/form-group
       '@ecl/page-header':
         specifier: 5.0.0-RC2
         version: link:../../components/page-header
       '@ecl/pagination':
         specifier: 5.0.0-RC2
         version: link:../../components/pagination
-      '@ecl/select':
-        specifier: 5.0.0-RC2
-        version: link:../../components/select
       '@ecl/site-footer':
         specifier: 5.0.0-RC2
         version: link:../../components/site-footer
       '@ecl/site-header':
         specifier: 5.0.0-RC2
         version: link:../../components/site-header
-      '@ecl/text-input':
-        specifier: 5.0.0-RC2
-        version: link:../../components/text-input
 
   src/playground/addons/story-utils:
     dependencies:
@@ -2186,9 +2224,9 @@ importers:
       '@ecl/text-input':
         specifier: 5.0.0-RC2
         version: link:../../components/text-input
-      '@ecl/theme-ec':
+      '@ecl/theme-eu':
         specifier: 5.0.0-RC2
-        version: link:../../themes/ec
+        version: link:../../themes/eu
       '@ecl/timeline':
         specifier: 5.0.0-RC2
         version: link:../../components/timeline
@@ -2259,9 +2297,6 @@ importers:
       '@ecl/resources-eu-logo':
         specifier: 5.0.0-RC2
         version: link:../../resources/logo-eu
-      '@ecl/theme-eu':
-        specifier: 5.0.0-RC2
-        version: link:../../themes/eu
       cross-env:
         specifier: 10.1.0
         version: 10.1.0
@@ -2426,6 +2461,9 @@ importers:
       '@ecl/accordion':
         specifier: 5.0.0-RC2
         version: link:../components/accordion
+      '@ecl/add-to-calendar':
+        specifier: 5.0.0-RC2
+        version: link:../components/add-to-calendar
       '@ecl/banner':
         specifier: 5.0.0-RC2
         version: link:../components/banner
@@ -2495,6 +2533,9 @@ importers:
       '@ecl/icon':
         specifier: 5.0.0-RC2
         version: link:../components/icon
+      '@ecl/indicator':
+        specifier: 5.0.0-RC2
+        version: link:../components/indicator
       '@ecl/inpage-navigation':
         specifier: 5.0.0-RC2
         version: link:../components/inpage-navigation
@@ -2510,6 +2551,12 @@ importers:
       '@ecl/media-container':
         specifier: 5.0.0-RC2
         version: link:../components/media-container
+      '@ecl/mega-menu':
+        specifier: 5.0.0-RC2
+        version: link:../components/mega-menu
+      '@ecl/menu':
+        specifier: 5.0.0-RC2
+        version: link:../components/menu
       '@ecl/modal':
         specifier: 5.0.0-RC2
         version: link:../components/modal
@@ -2528,9 +2575,15 @@ importers:
       '@ecl/page-header':
         specifier: 5.0.0-RC2
         version: link:../components/page-header
+      '@ecl/page-information':
+        specifier: 5.0.0-RC2
+        version: link:../components/page-information
       '@ecl/pagination':
         specifier: 5.0.0-RC2
         version: link:../components/pagination
+      '@ecl/picture':
+        specifier: 5.0.0-RC2
+        version: link:../components/picture
       '@ecl/popover':
         specifier: 5.0.0-RC2
         version: link:../components/popover
@@ -2597,6 +2650,9 @@ importers:
       '@ecl/unordered-list':
         specifier: 5.0.0-RC2
         version: link:../components/unordered-list
+      '@ecl/video':
+        specifier: 5.0.0-RC2
+        version: link:../components/video
       copyfiles:
         specifier: 2.4.1
         version: 2.4.1
@@ -2612,9 +2668,6 @@ importers:
 
   src/utilities/border:
     dependencies:
-      '@ecl/grid':
-        specifier: 5.0.0-RC2
-        version: link:../../layout/grid
       '@ecl/mixins-color':
         specifier: 5.0.0-RC2
         version: link:../../mixins/color
@@ -2676,6 +2729,9 @@ importers:
       '@ecl/accordion':
         specifier: 5.0.0-RC2
         version: link:../components/accordion
+      '@ecl/add-to-calendar':
+        specifier: 5.0.0-RC2
+        version: link:../components/add-to-calendar
       '@ecl/banner':
         specifier: 5.0.0-RC2
         version: link:../components/banner
@@ -2718,6 +2774,9 @@ importers:
       '@ecl/description-list':
         specifier: 5.0.0-RC2
         version: link:../components/description-list
+      '@ecl/etrans':
+        specifier: 5.0.0-RC2
+        version: link:../compositions/etrans
       '@ecl/expandable':
         specifier: 5.0.0-RC2
         version: link:../components/expandable
@@ -2733,6 +2792,9 @@ importers:
       '@ecl/file-upload':
         specifier: 5.0.0-RC2
         version: link:../components/file-upload
+      '@ecl/file-upload-status':
+        specifier: 5.0.0-RC2
+        version: link:../compositions/file-upload-status
       '@ecl/form-group':
         specifier: 5.0.0-RC2
         version: link:../components/form-group
@@ -2784,6 +2846,9 @@ importers:
       '@ecl/page-header':
         specifier: 5.0.0-RC2
         version: link:../components/page-header
+      '@ecl/page-information':
+        specifier: 5.0.0-RC2
+        version: link:../components/page-information
       '@ecl/pagination':
         specifier: 5.0.0-RC2
         version: link:../components/pagination
@@ -2853,6 +2918,9 @@ importers:
       '@ecl/splash-page':
         specifier: 5.0.0-RC2
         version: link:../components/splash-page
+      '@ecl/spotlight':
+        specifier: 5.0.0-RC2
+        version: link:../components/spotlight
       '@ecl/table':
         specifier: 5.0.0-RC2
         version: link:../components/table
@@ -2877,6 +2945,9 @@ importers:
       '@ecl/timeline':
         specifier: 5.0.0-RC2
         version: link:../components/timeline
+      '@ecl/tooltip':
+        specifier: 5.0.0-RC2
+        version: link:../components/tooltip
       '@ecl/unordered-list':
         specifier: 5.0.0-RC2
         version: link:../components/unordered-list
@@ -3860,12 +3931,6 @@ packages:
   '@duetds/date-picker@1.4.0':
     resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
     engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
-
-  '@ecl/grid@5.0.0-alpha.15':
-    resolution: {integrity: sha512-z1kgc+YriX3U4VRjGibM/NBMzp22NFBdK2QHLVXgNm2ZZ5GT+x/gOI17Sh3ZjTrRuKlGlVImjy+Sz1bI7mg+Ag==}
-
-  '@ecl/mixins-typography@5.0.0-alpha.15':
-    resolution: {integrity: sha512-wvgFHvQQAIJEwuQSyWXsqBjL4wY/63M+G/Q3kf6mkpBtMyMja+n6gKG5M8yBrBEgjvmuks8Yrb0HNC0WFdR5kA==}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
@@ -13721,12 +13786,6 @@ snapshots:
   '@duetds/date-picker@1.4.0':
     dependencies:
       '@stencil/core': 2.22.3
-
-  '@ecl/grid@5.0.0-alpha.15': {}
-
-  '@ecl/mixins-typography@5.0.0-alpha.15':
-    dependencies:
-      '@ecl/grid': 5.0.0-alpha.15
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 
