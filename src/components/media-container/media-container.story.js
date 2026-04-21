@@ -150,7 +150,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.caption_position = {
-    name: 'Caption position',
+    name: 'caption position',
     type: 'select',
     description:
       'Change description and credit position; if set to "over", description/credit will not be displayed for video',

@@ -50,7 +50,7 @@ const getArgTypes = (data) => {
   const argTypes = getColorModeControls({ arg: 'variant', eq: '' });
 
   argTypes.variant = {
-    name: 'Variant',
+    name: 'variant',
     type: 'select',
     description: 'Change variant',
     options: ['', 'primary'],
@@ -72,7 +72,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.show_micro_title = {
-    name: 'Show micro title',
+    name: 'show micro title',
     type: 'boolean',
     description: 'Toggle micro title visility',
     table: {
@@ -81,7 +81,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.show_description = {
-    name: 'Show description',
+    name: 'show description',
     type: 'boolean',
     description: 'Toggle description visility',
     table: {
@@ -90,7 +90,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.show_link = {
-    name: 'Show link',
+    name: 'show link',
     type: 'boolean',
     description: 'Toggle link visility',
     table: {
@@ -99,7 +99,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.micro_title = {
-    name: 'Micro title',
+    name: 'micro title',
     type: 'string',
     description: 'Content micro title',
     table: {
@@ -111,7 +111,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.title = {
-    name: 'Title',
+    name: 'title',
     type: { name: 'string', required: true },
     description: 'Content title',
     table: {
@@ -122,7 +122,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.description = {
-    name: 'Description',
+    name: 'description',
     type: 'string',
     description: 'Content description',
     table: {
@@ -134,7 +134,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.link_label = {
-    name: 'Link',
+    name: 'link',
     type: { name: 'string' },
     description: 'Label of the link',
     table: {
@@ -146,7 +146,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.full_width = {
-    name: 'Full width',
+    name: 'full width',
     type: { name: 'boolean' },
     description: 'Take the full width of the viewport when in a container',
     table: {
@@ -155,7 +155,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_position = {
-    name: 'Media position',
+    name: 'media position',
     type: { name: 'select' },
     description: 'Media position',
     options: ['left', 'right'],
@@ -172,7 +172,7 @@ const getArgTypes = (data) => {
 
   if (data.media_container.picture) {
     argTypes.media_anchor = {
-      name: 'Media anchor',
+      name: 'media anchor',
       type: { name: 'select' },
       description: 'Media anchor (sample)',
       options: ['center', 'top left', 'bottom right', '20% 20%'],
@@ -192,7 +192,7 @@ const getArgTypes = (data) => {
 
   if (data.media_container.video) {
     argTypes.autoplay = {
-      name: 'Auto play',
+      name: 'auto play',
       type: 'boolean',
       description:
         'Video will start playing once rendered, muted, in a loop and without controls',
