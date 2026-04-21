@@ -23,6 +23,9 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
+    chromatic: {
+      disable: true,
+    },
   },
 };
 

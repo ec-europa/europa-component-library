@@ -23,6 +23,7 @@
 {% set _link_id = _id ~ '-link' %}
 {% set _label_id = _link_id ~ '-label' %}
 {% set _lang_id = _id ~ '-lang' %}
+{% set _meta_id = _id ~ '-meta' %}
 
 {% set _title %}
   <div
@@ -40,7 +41,7 @@
     <div class="ecl-file__translation-info">
       {{- _title -}}
     {% if _meta is not empty %}
-      <div class="ecl-file__translation-meta">
+      <div class="ecl-file__translation-meta" id="{{ _meta_id }}">
         {{- _meta -}}
       </div>
     {% endif %}
@@ -49,7 +50,7 @@
     <div class="ecl-file__translation-action">
       {% set _download_link_attributes = _download.extra_attributes|default([])|merge([
         { name: 'id', value: _link_id },
-        { name: 'aria-labelledby', value:  _label_id ~ ' ' ~ _title_id ~ ' ' ~  _lang_id },
+        { name: 'aria-labelledby', value:  _label_id ~ ' ' ~ _title_id ~ ' ' ~  _lang_id ~ ' ' ~ _meta_id },
         { name: 'hreflang', value: _lang }
       ]) %}
       {% if _download_attribute %}

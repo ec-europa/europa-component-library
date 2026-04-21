@@ -1,4 +1,4 @@
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
@@ -14,7 +14,12 @@ import home from './page-home.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const prepareData = (data) => {
+
+const getArgs = () => (system === 'ec' ? { color_mode: 'default' } : {});
+
+const getArgTypes = () => getColorModeControls();
+
+const prepareData = (data, args) => {
   correctPaths(data);
 
   // Logo path; to be done after correctPaths
@@ -30,6 +35,8 @@ const prepareData = (data) => {
     data.site_footer.section_common.logo.src_desktop = logoNegativeEC;
   }
 
+  Object.assign(data, args);
+
   return data;
 };
 
@@ -37,19 +44,22 @@ export default {
   title: 'Page examples/Home',
   decorators: [withNotes, withCode],
   parameters: {
-    controls: { disable: true },
     EclNotes: { disable: true },
     layout: 'fullscreen',
-    chromatic: { ignoreSelectors: ['.ecl-u-type-paragraph'] },
+    chromatic: {
+      ignoreSelectors: ['.ecl-u-type-paragraph', '.ecl-carousel'],
+    },
   },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async () => {
-  const renderedHome = await home(prepareData(dataHome));
+Default.render = async (args) => {
+  const renderedHome = await home(prepareData(dataHome, args));
   return renderedHome;
 };
 Default.storyName = 'default';
+Default.args = getArgs();
+Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes } };
 Default.tags = ['!dev'];

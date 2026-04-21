@@ -139,6 +139,13 @@ $breadcrumb: null !default;
   }
 }
 
+// Hide breadcrumb with single item on mobile
+@include breakpoints.down('l') {
+  .ecl-breadcrumb:has(.ecl-breadcrumb__container > li:only-child) {
+    display: none;
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-breadcrumb__icon {

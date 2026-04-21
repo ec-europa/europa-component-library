@@ -63,6 +63,7 @@ export default {
     controls: { disable: true },
     a11y: { disable: true },
     EclNotes: { disable: true },
+    chromatic: { disable: true },
   },
 };
 

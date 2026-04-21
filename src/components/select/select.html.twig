@@ -26,6 +26,7 @@
   - "multiple_search_text" (string)(default: '') Label for the search box inside the multiple select
   - "multiple_search_no_results_text" (string)(default: '') Label label when there is no result by searching for an option
   - "multiple_select_all" (boolean) (default: true) Show the select all checkbox in the multiple select
+  - "multiple_submit" (boolean) (default: false) Make the primary button of the multiple select a submit button
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the select
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
@@ -48,6 +49,7 @@
 {% set _label = label|default('') %}
 {% set _toggle_label = toggle_label|default('Toggle dropdown') %}
 {% set _multiple = multiple|default(false) %}
+{% set _multiple_submit = multiple_submit|default(false) %}
 {% set _multiple_placeholder = multiple_placeholder|default('') %}
 {% set _multiple_all_text = multiple_all_text|default('') %}
 {% set _multiple_search = multiple_search ?? true %}
@@ -75,6 +77,10 @@
 
   {% if _multiple_select_all and _multiple_all_text is not empty %}
     {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-select-all', value: _multiple_all_text }]) %}
+  {% endif %}
+
+  {% if _multiple_submit %}
+    {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-select-submit'}]) %}
   {% endif %}
 
   {% if _multiple_search and _multiple_search_text is not empty %}

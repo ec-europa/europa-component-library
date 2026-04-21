@@ -127,13 +127,8 @@ $button-width: 44px;
 .ecl-tabs__toggle {
   font-weight: map.get($tabs, 'more', 'font-weight');
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   bottom: 0;
-
-  &:dir(rtl) {
-    left: 0;
-    right: auto;
-  }
 
   &:hover {
     box-shadow: none;
@@ -161,14 +156,14 @@ $button-width: 44px;
     content: '';
     display: block;
     height: map.get($tabs, 'more', 'highlight-width');
-    left: 0;
+    inset-inline-start: 0;
     position: absolute;
     top: -#{map.get($tabs, 'more', 'highlight-width')};
     width: 100%;
   }
 
   &:hover::before {
-    left: 1px;
+    inset-inline-start: 1px;
     top: calc(-#{map.get($tabs, 'more', 'highlight-width')} + 1px);
     width: calc(100% - 2px);
   }
@@ -190,15 +185,10 @@ $button-width: 44px;
   overflow-y: auto;
   padding: map.get($tabs, 'dropdown', 'container-padding');
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   text-align: start;
   top: calc(100% + map.get($tabs, 'separator-width'));
   width: 100%;
-
-  &:dir(rtl) {
-    left: 0;
-    right: auto;
-  }
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-tabs__link {
@@ -234,12 +224,12 @@ $button-width: 44px;
 
 .ecl-tabs__next {
   display: none;
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .ecl-tabs__prev {
   display: none;
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .ecl-tabs__prev,
@@ -260,16 +250,6 @@ $button-width: 44px;
   }
 }
 
-.ecl-tabs__next:dir(rtl) {
-  left: 0;
-  right: auto;
-}
-
-.ecl-tabs__prev:dir(rtl) {
-  left: auto;
-  right: 0;
-}
-
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-tabs__container {
@@ -280,11 +260,17 @@ $button-width: 44px;
     width: auto;
   }
 
+  .ecl-tabs__dropdown--show {
+    padding-inline: 0;
+  }
+
   .ecl-tabs__dropdown-list {
     grid-auto-flow: column;
     grid-template-rows: auto auto auto auto;
     height: auto;
+    margin-inline: 0;
     overflow-y: visible;
+    padding-inline: map.get($tabs, 'dropdown', 'container-padding');
     width: auto;
 
     .ecl-tabs__item {

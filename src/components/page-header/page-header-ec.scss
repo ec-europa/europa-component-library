@@ -50,10 +50,7 @@ $page-header: null !default;
   margin-block: 0;
   padding-block: var(--s-3xs) 0;
 
-  @include mixins.responsive-font(
-    map.get($page-header, 'title', 'font'),
-    $font-weight: map.get($page-header, 'title', 'font-weight')
-  );
+  @include mixins.responsive-font(map.get($page-header, 'title', 'font'));
 }
 
 .ecl-page-header__title--hidden {
@@ -303,7 +300,7 @@ $page-header: null !default;
 .ecl-page-header-expandable__toggle {
   height: 2.75rem;
   position: absolute;
-  right: var(--s-m);
+  inset-inline-end: var(--s-m);
   top: var(--s-3xs);
 
   .ecl-icon {
@@ -316,11 +313,6 @@ $page-header: null !default;
 
   &:focus-visible {
     outline-offset: 0 !important;
-  }
-
-  [dir='rtl'] & {
-    right: auto;
-    left: var(--s-m);
   }
 }
 
@@ -345,12 +337,7 @@ $page-header: null !default;
   }
 
   .ecl-page-header-expandable__toggle {
-    right: var(--s-xl);
-
-    [dir='rtl'] & {
-      right: auto;
-      left: var(--s-xl);
-    }
+    inset-inline-end: var(--s-xl);
   }
 }
 
@@ -360,12 +347,7 @@ $page-header: null !default;
   }
 
   .ecl-page-header-expandable__toggle {
-    right: var(--s-3xl);
-
-    [dir='rtl'] & {
-      right: auto;
-      left: var(--s-3xl);
-    }
+    inset-inline-end: var(--s-3xl);
   }
 
   .ecl-page-header-expandable__panel {

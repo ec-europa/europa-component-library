@@ -1,0 +1,111 @@
+{% apply spaceless %}
+{#
+  Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
+  - "title" (string) (default: ''): Event title
+  - "meta" (array) (default: []): format: [
+      {
+        "label" (string) (default: ''): Label of meta item
+        "icon" (array) (default: {}) Icon of the meta, following ECL Icon structure
+      },
+      ...
+    ]
+  - "button_add" (string) (default: '') Markup of the button to add to calendar (managed by Webtools)
+  - "full_width": (bool) (default: false) Full width display (inside the grid)
+  - "extra_classes" (string) (default: ''),
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (string) (default: '')
+      },
+      ...
+    ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-add-to-calendar' %}
+{% set _color_mode = color_mode|default('') %}
+{% set _title = title|default('') %}
+{% set _meta = meta|default([]) %}
+{% set _button_add = button_add|default([]) %}
+{% set _full_width = full_width|default(false) %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-add-to-calendar--full-width' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }} 
+>
+  {% set _info_class = "ecl-add-to-calendar__info" %}
+  {% if _full_width %}
+    {% set _info_class = _info_class ~ " ecl-container" %}
+  {% endif %}
+  <div class="{{ _info_class }}">
+    {% if _title is not empty or _meta is not empty or _button_add is not empty %}
+    <div class="ecl-add-to-calendar__info-content">
+      
+      {# Title #}
+      {% if _title is not empty %}
+        <div class="ecl-add-to-calendar__title">
+          {{- _title -}}
+        </div>
+      {% endif %}
+    
+      {# Meta #}
+      {% if _meta is not empty and _meta is iterable %}
+        {% set _meta_class = "ecl-add-to-calendar__meta-list" %}
+        {% set _tag_meta_list = _meta|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_meta_item = _meta|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_meta_list }} class="{{ _meta_class }}">
+          {% for _meta_item in _meta %}
+            <{{ _tag_meta_item }} class="ecl-add-to-calendar__meta-item">
+              {% if _meta_item.icon is not empty %}
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: _meta_item.icon|merge({
+                    size: 's',
+                  }),
+                  extra_classes: 'ecl-add-to-calendar__meta-icon'
+                } only %}
+              {% endif %}
+              <span class="ecl-add-to-calendar__meta-label">{{ _meta_item.label }}</span>
+            </{{ _tag_meta_item }}>
+          {% endfor %}
+        </{{ _tag_meta_list }}>
+      {% endif %}
+    </div>
+
+    {# Button #}
+    {% if _button_add is not empty %}
+      <div class="ecl-add-to-calendar__action">{{ _button_add }}</div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+{% endapply %}

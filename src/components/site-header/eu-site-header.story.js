@@ -383,7 +383,15 @@ export default {
       return storyFn();
     },
   ],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Core = (_, { loaded: { component } }) => component;

@@ -42,33 +42,58 @@ $banner: (
     'light': map.get($color, 'white'),
     'inverted': map.get($color, 'white'),
   ),
-  font: (
-    'title-s': (
-      'mobile-xs': var(--f-2xl),
-      'desktop': var(--f-4xl),
+  title: (
+    's': (
+      'font': (
+        'mobile-xs': var(--f-2xl),
+        'desktop': var(--f-4xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
-    'title-m': (
-      'font-weight': map.get($font-weight, 'regular'),
-      'mobile-xs': var(--f-2xl),
-      'desktop': var(--f-4xl),
+    'm': (
+      'font': (
+        'mobile-xs': var(--f-2xl),
+        'desktop': var(--f-4xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
-    'title-l': (
-      'mobile-xs': var(--f-2xl),
-      'desktop': var(--f-5xl),
-    ),
-    'description-s': 'heading4',
-    'description-s-font-weight': map.get($font-weight, 'regular'),
-    'description-m': 'heading4',
-    'description-l': (
-      'mobile-xs': var(--f-xl),
-      'desktop': var(--f-4xl),
-    ),
-    'credit': (
-      'mobile': var(--f-s),
-      'desktop': var(--f-s),
+    'l': (
+      'font': (
+        'mobile-xs': var(--f-2xl),
+        'desktop': var(--f-5xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
     ),
   ),
+  description: (
+    's': (
+      'font': 'heading4',
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
+    ),
+    'm': (
+      'font': 'heading4',
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
+    ),
+    'l': (
+      'font': (
+        'mobile-xs': var(--f-xl),
+        'desktop': var(--f-4xl),
+      ),
+      'font-weight-light': map.get($font-weight, 'regular'),
+      'font-weight-bold': map.get($font-weight, 'regular'),
+    ),
+  ),
+  credit: (
+    'mobile': var(--f-s),
+    'desktop': var(--f-s),
+  ),
   description-margin: var(--s-s),
+  overlay: var(--c-d-60),
   // DEPRECATED
   background: (
       'plain-background': linear-gradient(
@@ -91,20 +116,8 @@ $banner: (
     ),
 );
 $banner-print: (
-  font: (
-    'title': (
-      'desktop-m': map.get($font-print, '2xl'),
-      'desktop-l': map.get($font-print, '3xl'),
-    ),
-    'description': (
-      'desktop-m': map.get($font-print, 'l'),
-      'desktop-l': map.get($font-print, '2xl'),
-    ),
-    'credit': map.get($font-print, 's'),
-  ),
   container-padding-bottom: map.get($spacing-print, '3xl'),
   container-padding-top: map.get($spacing-print, '3xl'),
   container-padding-horizontal: map.get($spacing-print, 'm'),
   content-padding: map.get($spacing-print, 'm'),
-  content-width: 10cm,
 );

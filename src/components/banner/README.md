@@ -12,8 +12,10 @@ npm install --save @ecl/banner
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"font_size"** (string) (default: 'm') Size of the title and description (can be 's', 'm', 'l')
+- **"font_weight"** (string) (default: 'light') Font weight of the title and description (can be 'light', 'bold')
 - **"font_color"** (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
 - **"box_background"** (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
+- **"overlay"**: (bool) (default: false) Display semi-transparent overlay
 - **"title"** (string or Link) (default: '') Title of banner
 - **"picture"** (object) (default: {}): Image for the banner, following ECL Picture structure
 - **"video"** (object) (default: {}): Video for the banner

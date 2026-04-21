@@ -19,7 +19,6 @@ $language-list: null !default;
 
 .ecl-site-header {
   background-color: map.get($site-header, 'background-color');
-  background-image: url('https://d2o9p5vky89u4e.cloudfront.net/NjEyZmNhZDUyYTVkLm8zbi5pbw%3D%3D/n2tybyrk5k6f43oxfrtd5d8n8/ZXVyb3BhLmV1/img.gif');
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -42,13 +41,8 @@ $language-list: null !default;
     top: var(--s-m);
     padding: 0;
     position: absolute;
-    right: 0;
-    width: calc(44px + var(--s-m) * 2);
-
-    &:dir(rtl) {
-      left: 0;
-      right: auto;
-    }
+    inset-inline-end: var(--s-m);
+    width: 44px;
   }
 
   .ecl-site-header__cta {
@@ -109,10 +103,6 @@ $language-list: null !default;
   .ecl-menu__open .ecl-icon:last-of-type {
     height: 1.5rem;
     width: 1.5rem;
-  }
-
-  .ecl-mega-menu__open {
-    margin-inline-start: var(--s-m);
   }
 
   .ecl-menu[data-expanded] .ecl-menu__open,
@@ -210,8 +200,9 @@ $language-list: null !default;
   &::before {
     @include site-header-dropdown.arrow-up;
 
-    left: auto;
-    right: var(--ecl-login-arrow-position);
+    left: var(--ecl-login-arrow-position);
+    margin-left: 0;
+    right: auto;
   }
 
   &.ecl-site-header__login-box--active {
@@ -262,8 +253,8 @@ $language-list: null !default;
   }
 
   .ecl-indicator:not(:empty) {
-    left: -18px;
-    right: auto;
+    inset-inline-start: -18px;
+    inset-inline-end: auto;
   }
 }
 
@@ -275,8 +266,9 @@ $language-list: null !default;
     &::before {
       @include site-header-dropdown.arrow-up;
 
-      left: auto;
-      right: var(--ecl-search-arrow-position);
+      left: var(--ecl-search-arrow-position);
+      margin-left: 0;
+      right: auto;
     }
   }
 }
@@ -336,6 +328,14 @@ $language-list: null !default;
   display: block;
 }
 // stylelint-enable plugin/selector-bem-pattern
+
+@include breakpoints.up('m') {
+  .ecl-site-header .ecl-menu,
+  .ecl-site-header .ecl-mega-menu {
+    // container's padding-inline-end
+    inset-inline-end: var(--s-l);
+  }
+}
 
 @include breakpoints.down('l') {
   .ecl-site-header__custom-action-toggle,
@@ -407,12 +407,14 @@ $language-list: null !default;
       background: map.get($site-header, 'gradient-background');
       min-height: auto;
       position: static;
+      inset-inline-end: 0;
       width: 100%;
     }
 
     .ecl-mega-menu {
       background: map.get($site-header, 'gradient-background');
       position: relative;
+      inset-inline-end: 0;
       top: 0;
       width: 100%;
     }
