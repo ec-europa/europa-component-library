@@ -87,11 +87,8 @@ $animated-numbers: null !default;
 
 .ecl-animated-number__category {
   white-space: nowrap;
-
-  @include mixins.responsive-font(
-    map.get($animated-numbers, 'category-font'),
-    map.get($animated-numbers, 'category-font-weight')
-  );
+  font: map.get($animated-numbers, 'category-font');
+  font-weight: map.get($animated-numbers, 'category-font-weight');
 }
 
 .ecl-animated-number__icon {
@@ -103,10 +100,8 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-number__suffix {
-  @include mixins.responsive-font(
-    map.get($animated-numbers, 'prefix-font'),
-    map.get($animated-numbers, 'prefix-font-weight')
-  );
+  font: map.get($animated-numbers, 'prefix-font');
+  font-weight: map.get($animated-numbers, 'prefix-font-weight');
 }
 
 .ecl-animated-number__content {
@@ -143,10 +138,7 @@ $animated-numbers: null !default;
 
 .ecl-animated-number__description {
   color: map.get($animated-numbers, 'description-color');
-
-  @include mixins.responsive-font(
-    map.get($animated-numbers, 'description-font')
-  );
+  font: map.get($animated-numbers, 'description-font');
 
   .ecl-animated-numbers--with-background & {
     color: var(--cm-on-surface-inverted, #fff);
@@ -157,10 +149,9 @@ $animated-numbers: null !default;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  font: map.get($animated-numbers, 'source-font');
   gap: var(--s-xs);
   margin-block-start: map.get($animated-numbers, 'source-spacing');
-
-  @include mixins.responsive-font(map.get($animated-numbers, 'source-font'));
 }
 
 .ecl-animated-numbers__source {
