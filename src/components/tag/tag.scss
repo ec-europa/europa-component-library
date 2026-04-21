@@ -19,7 +19,7 @@ $tag: null !default;
   display: inline-flex;
   font: map.get($tag, 'font');
   padding: map.get($tag, 'padding');
-  text-align: left;
+  text-align: start;
   text-decoration: underline;
   text-underline-offset: 5px;
 
@@ -82,7 +82,7 @@ $tag: null !default;
 
 .ecl-tag__icon-close {
   fill: currentcolor;
-  left: 0;
+  inset-inline-start: 0;
   position: absolute;
   top: 0;
 }

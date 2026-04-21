@@ -214,7 +214,7 @@ $banner: null !default;
   outline: #fff;
   outline-offset: -4px;
   position: absolute;
-  right: var(--s-m);
+  inset-inline-end: var(--s-m);
   z-index: 2;
 
   &:hover,
@@ -240,14 +240,8 @@ $banner: null !default;
 // Full width
 .ecl-banner--full-width {
   border-radius: 0;
-  left: 50%;
-  margin-inline-start: -50vw;
+  margin-inline: calc(50% - 50vw);
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }
 
 // No media
@@ -473,7 +467,7 @@ $banner: null !default;
 
     .ecl-banner__content {
       align-items: flex-end;
-      text-align: right;
+      text-align: end;
     }
   }
 

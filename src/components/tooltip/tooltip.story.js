@@ -78,7 +78,7 @@ Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: { markdown: notes },
   chromatic: {
     disable: true,
   },

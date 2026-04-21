@@ -21,13 +21,13 @@ $theme: null !default;
   justify-content: center;
   overflow: hidden;
   position: absolute;
-  right: -18px;
+  inset-inline-end: -18px;
   top: -16px;
   width: 22px;
 
   &:not(:has(.ecl-indicator__value)) {
     height: 12px;
-    right: -8px;
+    inset-inline-end: -8px;
     top: -10px;
     width: 12px;
   }

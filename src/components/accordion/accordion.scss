@@ -82,16 +82,11 @@ $accordion: null !default;
         border-end-end-radius: map.get($theme, 'border-radius', 'xs');
         content: '';
         height: 4px;
-        left: var(--s-l);
+        inset-inline-start: var(--s-l);
         position: absolute;
         top: 0;
         width: 32px;
         z-index: 1;
-      }
-
-      &:dir(rtl)::before {
-        left: auto;
-        right: var(--s-l);
       }
     }
 
