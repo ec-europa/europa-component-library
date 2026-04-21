@@ -4,17 +4,20 @@
   "license": "EUPL-1.2",
   "version": "5.0.0-RC2",
   "description": "ECL Breadcrumb",
-  "style": "breadcrumb.scss",
-  "main": "breadcrumb.js",
-  "module": "breadcrumb.js",
   "publishConfig": {
     "access": "public"
   },
+  "main": "breadcrumb.js",
+  "module": "breadcrumb.js",
+  "style": "breadcrumb.scss",
   "dependencies": {
     "@ecl/button": "5.0.0-RC2",
     "@ecl/dom-utils": "5.0.0-RC2",
     "@ecl/icon": "5.0.0-RC2",
-    "@ecl/link": "5.0.0-RC2",
+    "@ecl/link": "5.0.0-RC2"
+  },
+  "devDependencies": {
+    "@ecl/grid": "5.0.0-RC2",
     "@ecl/mixins-typography": "5.0.0-RC2"
   },
   "repository": {
