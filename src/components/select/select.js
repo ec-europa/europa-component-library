@@ -22,6 +22,7 @@ const iconSize = system === 'eu' ? 's' : 'xs';
  * @param {String} options.defaultTextAttribute The data attribute for the default placeholder text
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
+ * @param {String} options.counterTextAttribute The data attribute for the default counter text
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
  * @param {String} options.closeLabelAttribute The data attribute for the close button
  * @param {String} options.submitAttribute The data attribute for the submit button
@@ -82,6 +83,7 @@ export class Select {
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
       selectAllTextAttribute = 'data-ecl-select-all',
+      counterTextAttribute = 'data-ecl-select-counter',
       noResultsTextAttribute = 'data-ecl-select-no-results',
       closeLabelAttribute = 'data-ecl-select-close',
       clearAllLabelAttribute = 'data-ecl-select-clear-all',
@@ -108,6 +110,7 @@ export class Select {
     this.defaultTextAttribute = defaultTextAttribute;
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
+    this.counterTextAttribute = counterTextAttribute;
     this.noResultsTextAttribute = noResultsTextAttribute;
     this.defaultText = defaultText;
     this.searchText = searchText;
@@ -129,6 +132,7 @@ export class Select {
     this.textDefault = null;
     this.textSearch = null;
     this.textSelectAll = null;
+    this.textCounter = null;
     this.textNoResults = null;
     this.selectMultiple = null;
     this.inputContainer = null;
@@ -324,6 +328,9 @@ export class Select {
       this.textSelectAll =
         this.selectAllText ||
         this.element.getAttribute(this.selectAllTextAttribute);
+      this.textCounter =
+        this.counterText ||
+        this.element.getAttribute(this.counterTextAttribute);
       this.textNoResults =
         this.noResultsText ||
         this.element.getAttribute(this.noResultsTextAttribute);
@@ -371,20 +378,12 @@ export class Select {
       }
 
       // Add accessibility attributes
-      if (this.label) {
-        this.input.setAttribute(
-          'aria-labelledby',
-          this.label.id + ' ' + this.input.id,
-        );
-      }
-      let describedby = '';
+      let describedby = `${this.element.id}-counter`;
       if (this.helper) {
-        describedby = this.helper.id;
+        describedby = `${describedby} ${this.helper.id}`;
       }
       if (this.invalid) {
-        describedby = describedby
-          ? `${describedby} ${this.invalid.id}`
-          : this.invalid.id;
+        describedby = `${describedby} ${this.invalid.id}`;
       }
       if (describedby) {
         this.input.setAttribute('aria-describedby', describedby);
@@ -392,16 +391,24 @@ export class Select {
 
       this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
       this.input.addEventListener('click', this.handleToggle);
+
       this.selectionCount = document.createElement('div');
       this.selectionCount.classList.add(
         this.selectMultiplesSelectionCountSelector,
       );
+      this.selectionCount.setAttribute('id', `${this.element.id}-counter`);
+      this.selectionCountLabel = document.createElement('div');
+      this.selectionCountLabel.classList.add(
+        'ecl-select-multiple-selections-counter__label',
+      );
+      this.selectionCount.appendChild(this.selectionCountLabel);
       this.selectionCountText = document.createElement('span');
       this.selectionCount.appendChild(this.selectionCountText);
 
       this.inputContainer.appendChild(this.selectionCount);
       this.inputContainer.appendChild(this.input);
       this.inputContainer.appendChild(Select.#createSelectIcon());
+
       this.searchContainer = document.createElement('div');
       this.searchContainer.style.display = 'none';
       this.searchContainer.classList.add(
@@ -785,6 +792,7 @@ export class Select {
     if (selectedOptionsCount > 0) {
       this.selectionCount.querySelector('span').innerHTML =
         selectedOptionsCount;
+      this.selectionCount.querySelector('div').innerHTML = this.textCounter;
       this.selectionCount.classList.add(
         'ecl-select-multiple-selections-counter--visible',
       );
@@ -837,15 +845,6 @@ export class Select {
       .join('|');
 
     this.input.innerHTML = optionSelected || this.textDefault || '';
-
-    if (optionSelected !== '' && this.label) {
-      this.label.setAttribute(
-        'aria-label',
-        `${this.label.innerText} ${optionSelected}`,
-      );
-    } else if (optionSelected === '' && this.label) {
-      this.label.removeAttribute('aria-label');
-    }
 
     this.trigger('onSelection', { selected: optionSelected });
     // Dispatch a change event once the value of the select has changed.
