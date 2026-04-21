@@ -250,6 +250,9 @@ export class MegaMenu {
         if (this.attachFocusListener) {
           infoLink.addEventListener('blur', this.handleFocusOut);
         }
+        if (this.attachClickListener) {
+          infoLink.addEventListener('click', this.closeOpenDropdown);
+        }
       });
     }
 
@@ -262,13 +265,21 @@ export class MegaMenu {
         if (this.attachFocusListener) {
           seeAll.addEventListener('blur', this.handleFocusOut);
         }
+        if (this.attachClickListener) {
+          seeAll.addEventListener('click', this.closeOpenDropdown);
+        }
       });
     }
 
     this.featuredLinks = queryAll(this.featuredLinkAttribute, this.element);
-    if (this.featuredLinks.length > 0 && this.attachFocusListener) {
+    if (this.featuredLinks.length > 0) {
       this.featuredLinks.forEach((featured) => {
-        featured.addEventListener('blur', this.handleFocusOut);
+        if (this.attachFocusListener) {
+          featured.addEventListener('blur', this.handleFocusOut);
+        }
+        if (this.attachClickListener) {
+          featured.addEventListener('click', this.closeOpenDropdown);
+        }
       });
     }
 
@@ -288,15 +299,18 @@ export class MegaMenu {
         // Check menu item display (right to left, full width, ...)
         this.totalItemsWidth += item.offsetWidth;
 
+        const link = queryOne(this.linkSelector, item);
         if (
           item.hasAttribute('data-ecl-has-children') ||
           item.hasAttribute('data-ecl-has-container')
         ) {
-          // Bind click event on menu links
-          const link = queryOne(this.linkSelector, item);
+          // Bind click event on menu links with sub-navigation
           if (this.attachClickListener && link) {
             link.addEventListener('click', this.handleClickOnItem);
           }
+        } else if (this.attachClickListener && link) {
+          // Final link - close dropdown on click for hash/dynamic navigation
+          link.addEventListener('click', this.closeOpenDropdown);
         }
       });
     }
@@ -365,6 +379,7 @@ export class MegaMenu {
       this.links.forEach((link) => {
         if (this.attachClickListener) {
           link.removeEventListener('click', this.handleClickOnItem);
+          link.removeEventListener('click', this.closeOpenDropdown);
         }
         if (this.attachFocusListener) {
           link.removeEventListener('focusout', this.handleFocusOut);
@@ -398,6 +413,9 @@ export class MegaMenu {
         if (this.attachKeyListener) {
           infoLink.removeEventListener('keyup', this.handleKeyboard);
         }
+        if (this.attachClickListener) {
+          infoLink.removeEventListener('click', this.closeOpenDropdown);
+        }
       });
     }
 
@@ -409,12 +427,20 @@ export class MegaMenu {
         if (this.attachKeyListener) {
           seeAll.removeEventListener('keyup', this.handleKeyboard);
         }
+        if (this.attachClickListener) {
+          seeAll.removeEventListener('click', this.closeOpenDropdown);
+        }
       });
     }
 
-    if (this.featuredLinks && this.attachFocusListener) {
+    if (this.featuredLinks) {
       this.featuredLinks.forEach((featuredLink) => {
-        featuredLink.removeEventListener('blur', this.handleFocusOut);
+        if (this.attachFocusListener) {
+          featuredLink.removeEventListener('blur', this.handleFocusOut);
+        }
+        if (this.attachClickListener) {
+          featuredLink.removeEventListener('click', this.closeOpenDropdown);
+        }
       });
     }
 
@@ -1614,6 +1640,8 @@ export class MegaMenu {
       } else {
         this.handleSecondPanel(menuItem, 'expand');
       }
+    } else if (menuItem) {
+      this.closeOpenDropdown();
     }
   }
 

@@ -135,6 +135,7 @@ export class Menu {
     this.itemsList = null;
     this.items = null;
     this.links = null;
+    this.subLinks = null;
     this.btnPrevious = null;
     this.btnNext = null;
     this.isOpen = false;
@@ -178,6 +179,7 @@ export class Menu {
     this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
+    this.handleClickOnLink = this.handleClickOnLink.bind(this);
   }
 
   /**
@@ -203,6 +205,7 @@ export class Menu {
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
+    this.subLinks = queryAll('.ecl-menu__sublink', this.element);
     this.carets = queryAll(this.caretSelector, this.element);
 
     // Get extra parameter from markup
@@ -260,6 +263,9 @@ export class Menu {
         if (this.attachKeyListener) {
           link.addEventListener('keyup', this.handleKeyboard);
         }
+        if (this.attachClickListener) {
+          link.addEventListener('click', this.handleClickOnLink);
+        }
       });
     }
 
@@ -289,9 +295,17 @@ export class Menu {
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
         const subLink = queryOne('.ecl-menu__sublink', subItem);
-        if (this.attachKeyListener && subLink) {
-          subLink.addEventListener('keyup', this.handleKeyboard);
+        if (subLink) {
+          if (this.attachKeyListener) {
+            subLink.addEventListener('keyup', this.handleKeyboard);
+          }
         }
+      });
+    }
+
+    if (this.subLinks && this.attachClickListener) {
+      this.subLinks.forEach((subLink) => {
+        subLink.addEventListener('click', this.handleClickOnLink);
       });
     }
 
@@ -448,6 +462,9 @@ export class Menu {
         if (this.attachKeyListener) {
           link.removeEventListener('keyup', this.handleKeyboard);
         }
+        if (this.attachClickListener) {
+          link.removeEventListener('click', this.handleClickOnLink);
+        }
       });
     }
 
@@ -471,6 +488,12 @@ export class Menu {
         if (this.attachKeyListener && subLink) {
           subLink.removeEventListener('keyup', this.handleKeyboard);
         }
+      });
+    }
+
+    if (this.subLinks && this.attachClickListener) {
+      this.subLinks.forEach((subLink) => {
+        subLink.removeEventListener('click', this.handleClickOnLink);
       });
     }
 
@@ -1024,6 +1047,19 @@ export class Menu {
     this.trigger('onClose', e);
 
     return this;
+  }
+
+  /**
+   * Click on a final menu link (no children or sub-link).
+   * Closes the menu to support hash-based and dynamic navigation.
+   * @param {Event} e
+   */
+  handleClickOnLink(e) {
+    if (this.isOpen) {
+      this.handleClickOnClose(e);
+    } else {
+      this.closeOpenDropdown();
+    }
   }
 
   /**
