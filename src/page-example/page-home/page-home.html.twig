@@ -7,7 +7,10 @@
 
   <div class="ecl-container">
     <!-- Banner -->
-    {%- include '@ecl/banner/banner.html.twig' with banner only -%}
+    {%- include '@ecl/banner/banner.html.twig' with banner -%}
+
+    <!-- Add to calendar -->
+    {%- include '@ecl/add-to-calendar/add-to-calendar.html.twig' with add_to_calendar -%}
 
     <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-2xl">Maecenas sagittis est</h2>
 
@@ -25,6 +28,11 @@
     </div>
 
     <h2 class="ecl-u-type-heading-2 ecl-u-mt-4xl ecl-u-mt-6xl ecl-u-mb-2xl">Orci varius natoque penatibus</h2>
+
+    <!-- Add to calendar -->
+    {% include '@ecl/add-to-calendar/add-to-calendar.html.twig' with add_to_calendar2|merge({
+      extra_classes: 'ecl-u-mb-2xl',
+    }) %}
 
     <!-- Content item -->
     <div class="ecl-row">

@@ -25,6 +25,7 @@ const iconSize = system === 'eu' ? 's' : 'xs';
  * @param {String} options.counterTextAttribute The data attribute for the default counter text
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
  * @param {String} options.closeLabelAttribute The data attribute for the close button
+ * @param {String} options.submitAttribute The data attribute for the submit button
  * @param {String} options.clearAllLabelAttribute The data attribute for the clear all button
  * @param {String} options.selectMultiplesSelectionCountSelector The selector for the counter of selected options
  * @param {String} options.closeButtonLabel The label of the close button
@@ -86,6 +87,7 @@ export class Select {
       noResultsTextAttribute = 'data-ecl-select-no-results',
       closeLabelAttribute = 'data-ecl-select-close',
       clearAllLabelAttribute = 'data-ecl-select-clear-all',
+      submitAttribute = 'data-ecl-select-submit',
       selectMultiplesSelectionCountSelector = 'ecl-select-multiple-selections-counter',
       closeButtonLabel = '',
       clearAllButtonLabel = '',
@@ -118,6 +120,7 @@ export class Select {
     this.closeButtonLabel = closeButtonLabel;
     this.closeLabelAttribute = closeLabelAttribute;
     this.clearAllLabelAttribute = clearAllLabelAttribute;
+    this.submitAttribute = submitAttribute;
 
     // Private variables
     this.input = null;
@@ -228,7 +231,6 @@ export class Select {
     input.classList.add('ecl-checkbox__input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('id', `${ctx}-${id}`);
-    input.setAttribute('name', `${ctx}-${id}`);
     checkbox.appendChild(input);
     label.classList.add('ecl-checkbox__label');
     label.setAttribute('for', `${ctx}-${id}`);
@@ -317,6 +319,7 @@ export class Select {
 
     if (this.multiple) {
       const containerClasses = Array.from(this.select.parentElement.classList);
+      this.willSubmit = this.element.hasAttribute(this.submitAttribute);
       this.textDefault =
         this.defaultText ||
         this.element.getAttribute(this.defaultTextAttribute);
@@ -462,6 +465,9 @@ export class Select {
 
         if (this.closeButtonLabel) {
           this.closeButton = document.createElement('button');
+          if (this.willSubmit) {
+            this.closeButton.setAttribute('type', 'submit');
+          }
           this.closeButton.textContent = this.closeButtonLabel;
           this.closeButton.classList.add('ecl-button', 'ecl-button--primary');
           this.closeButton.addEventListener('click', this.handleEsc);
@@ -1455,7 +1461,9 @@ export class Select {
    */
   handleEsc(e) {
     if (this.multiple) {
-      e.preventDefault();
+      if (!(this.willSubmit && e.target === this.closeButton)) {
+        e.preventDefault();
+      }
       this.searchContainer.style.display = 'none';
       this.input.setAttribute('aria-expanded', false);
       this.input.blur();

@@ -314,7 +314,7 @@ $page-header: null !default;
 .ecl-page-header-expandable__toggle {
   height: 2.75rem;
   position: absolute;
-  right: var(--s-m);
+  inset-inline-end: var(--s-m);
   top: var(--s-2xs);
 
   .ecl-icon {
@@ -327,11 +327,6 @@ $page-header: null !default;
 
   &:focus-visible {
     outline-offset: 0 !important;
-  }
-
-  [dir='rtl'] & {
-    right: auto;
-    left: var(--s-m);
   }
 }
 
