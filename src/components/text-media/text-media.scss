@@ -10,17 +10,23 @@
 // Exposed variables
 $theme: null !default;
 $text-media: null !default;
+$media-max-width: 75rem;
 
 .ecl-text-media {
+  background-color: map.get($text-media, 'background-default');
+  color: map.get($text-media, 'color-default');
   display: flex;
   flex-direction: column-reverse;
 }
 
+.ecl-text-media--primary {
+  background-color: map.get($text-media, 'background-primary');
+  color: map.get($text-media, 'color-primary');
+}
+
 .ecl-text-media__content {
   align-items: flex-start;
-  background-color: map.get($text-media, 'background-default');
   box-sizing: border-box;
-  color: map.get($text-media, 'color-default');
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -30,11 +36,6 @@ $text-media: null !default;
   & > *:first-child {
     margin-block-start: 0;
   }
-}
-
-.ecl-text-media--primary .ecl-text-media__content {
-  background-color: map.get($text-media, 'background-primary');
-  color: map.get($text-media, 'color-primary');
 }
 
 .ecl-text-media__micro-title {
@@ -64,6 +65,10 @@ $text-media: null !default;
 
 .ecl-text-media__link {
   margin-block-start: map.get($text-media, 'link', 'spacing');
+}
+
+.ecl-text-media__media {
+  max-width: $media-max-width;
 }
 
 .ecl-text-media__media_container {
