@@ -163,3 +163,23 @@ jobs:
           NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  chromatic-ec-dev:
+    name: Run Chromatic for EC on release branch
+    needs: deploy-release-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: dist/website/playground/ec
+  chromatic-eu-dev:
+    name: Run Chromatic for EU on release branch
+    needs: deploy-release-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
+          storybookBuildDir: dist/website/playground/eu
