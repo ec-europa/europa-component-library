@@ -29,7 +29,7 @@ const getArgTypes = () => {
   const argTypes = {
     ...getColorModeControls(),
     show_title: {
-      name: 'Title',
+      name: 'title',
       type: { name: 'boolean' },
       description: 'Show the title',
       table: {
@@ -37,7 +37,7 @@ const getArgTypes = () => {
       },
     },
     show_meta: {
-      name: 'Meta',
+      name: 'meta',
       type: { name: 'boolean' },
       description: 'Show the meta',
       table: {
@@ -45,7 +45,7 @@ const getArgTypes = () => {
       },
     },
     show_button: {
-      name: 'Button placeholder',
+      name: 'button placeholder',
       type: { name: 'boolean' },
       description:
         'Show the button placeholder (this button is managed by Webtools)',
@@ -54,7 +54,7 @@ const getArgTypes = () => {
       },
     },
     full_width: {
-      name: 'Full width',
+      name: 'full width',
       type: { name: 'boolean' },
       description: 'Take the full width of the viewport when in a container',
       table: {
@@ -62,7 +62,7 @@ const getArgTypes = () => {
       },
     },
     title: {
-      name: 'Title',
+      name: 'title',
       type: 'string',
       description: 'Event title',
       table: {
@@ -73,7 +73,7 @@ const getArgTypes = () => {
       if: { arg: 'show_title' },
     },
     meta: {
-      name: 'Meta',
+      name: 'meta',
       type: 'array',
       description: 'Meta content',
       table: {
