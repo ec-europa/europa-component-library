@@ -85,7 +85,6 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-number__category {
-  white-space: nowrap;
   font: map.get($animated-numbers, 'category-font');
   font-weight: map.get($animated-numbers, 'category-font-weight');
 }
@@ -117,7 +116,6 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-number__prefix {
-  white-space: nowrap;
   font: map.get($animated-numbers, 'prefix-font');
   font-weight: map.get($animated-numbers, 'prefix-font-weight');
 }
@@ -126,7 +124,6 @@ $animated-numbers: null !default;
   letter-spacing: 1px !important;
   text-align: center;
   margin: 0;
-  white-space: nowrap;
   font: map.get($animated-numbers, 'value-font');
   font-weight: map.get($animated-numbers, 'value-font-weight');
 
