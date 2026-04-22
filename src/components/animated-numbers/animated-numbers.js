@@ -4,8 +4,6 @@ import { queryAll } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.numberSelector
- * @param {Boolean} options.attachHoverListener
- * @param {Boolean} options.animateOnHover
  * @param {Boolean} options.animateOnVisible
  * @param {Number} options.animationDuration
  * @param {String} options.animationStyle - 'linear' or 'random'
@@ -30,8 +28,6 @@ export class AnimatedNumbers {
     element,
     {
       numberSelector = '[data-ecl-animated-numbers-value]',
-      attachHoverListener = true,
-      animateOnHover = true,
       animateOnVisible = true,
       animationDuration = 1000,
       animationStyle = 'random', // 'linear' or 'random'
@@ -48,8 +44,6 @@ export class AnimatedNumbers {
 
     // Options
     this.numberSelector = numberSelector;
-    this.attachHoverListener = attachHoverListener;
-    this.animateOnHover = animateOnHover;
     this.animateOnVisible = animateOnVisible;
     this.animationDuration = animationDuration;
     this.animationStyle = animationStyle;
@@ -61,7 +55,6 @@ export class AnimatedNumbers {
     // Bind `this` for use in callbacks
     this.animateNumber = this.animateNumber.bind(this);
     this.handleIntersection = this.handleIntersection.bind(this);
-    this.handleHoverStart = this.handleHoverStart.bind(this);
   }
 
   /**
@@ -104,12 +97,6 @@ export class AnimatedNumbers {
       });
     }
 
-    if (this.attachHoverListener && this.animateOnHover) {
-      this.itemsElements.forEach((element) => {
-        element.addEventListener('mouseenter', this.handleHoverStart);
-      });
-    }
-
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
@@ -136,13 +123,6 @@ export class AnimatedNumbers {
       this.intersectionObserver = null;
     }
 
-    // Clean up hover listeners
-    if (this.animateOnHover && this.itemsElements) {
-      this.itemsElements.forEach((element) => {
-        element.removeEventListener('mouseenter', this.handleHoverStart);
-      });
-    }
-
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
@@ -164,18 +144,6 @@ export class AnimatedNumbers {
         this.startAnimation(element);
       }
     });
-  }
-
-  /**
-   * Handle mouse enter for hover animation
-   */
-  handleHoverStart(event) {
-    const element = event.currentTarget;
-    const data = this.animatedElements.get(element);
-
-    if (!data.isAnimating) {
-      this.startAnimation(element);
-    }
   }
 
   /**
