@@ -153,6 +153,7 @@ jobs:
         run: pnpm build:icons
       - name: Package application
         run: pnpm dist
+      - uses: jpoehnelt/reusable-workspace/save@v1
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
