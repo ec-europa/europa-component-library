@@ -64,7 +64,7 @@ const getArgTypes = () => ({
     if: { arg: 'grid_template', eq: 0 },
   },
   ratio: {
-    name: 'Image ratio',
+    name: 'image ratio',
     type: { name: 'select' },
     description: 'Image ratio, for grid display',
     options: ['3-1', '3-2'],
