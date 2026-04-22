@@ -110,6 +110,7 @@ const getArgTypes = () => {
     if: { arg: 'show_icons' },
   };
   argTypes.icon_size = {
+    name: 'icon size',
     description: 'Size of the icon',
     type: 'select',
     options: ['medium', 'large'],
