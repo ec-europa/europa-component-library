@@ -138,8 +138,6 @@ export class MegaMenu {
     this.breakpointDesktop = 1140;
     this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
-    this.infoLinks = null;
-    this.seeAllLinks = null;
     this.featuredLinks = null;
 
     // Bind `this` for use in callbacks
@@ -229,44 +227,21 @@ export class MegaMenu {
     // Bind event on sub menu links
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
-        const subLink = queryOne('.ecl-mega-menu__sublink', subItem);
+        // Fall back to any link (e.g. see-all, info-link items have no sublink class)
+        const subLink =
+          queryOne('.ecl-mega-menu__sublink', subItem) ||
+          queryOne('a', subItem);
 
-        if (this.attachKeyListener && subLink) {
-          subLink.addEventListener('click', this.handleClickOnSubitem);
-          subLink.addEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener && subLink) {
-          subLink.addEventListener('focusout', this.handleFocusOut);
-        }
-      });
-    }
-
-    this.infoLinks = queryAll('.ecl-mega-menu__info-link a', this.element);
-    if (this.infoLinks.length > 0) {
-      this.infoLinks.forEach((infoLink) => {
-        if (this.attachKeyListener) {
-          infoLink.addEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener) {
-          infoLink.addEventListener('blur', this.handleFocusOut);
-        }
-        if (this.attachClickListener) {
-          infoLink.addEventListener('click', this.closeOpenDropdown);
-        }
-      });
-    }
-
-    this.seeAllLinks = queryAll('.ecl-mega-menu__see-all a', this.element);
-    if (this.seeAllLinks.length > 0) {
-      this.seeAllLinks.forEach((seeAll) => {
-        if (this.attachKeyListener) {
-          seeAll.addEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener) {
-          seeAll.addEventListener('blur', this.handleFocusOut);
-        }
-        if (this.attachClickListener) {
-          seeAll.addEventListener('click', this.closeOpenDropdown);
+        if (subLink) {
+          if (this.attachClickListener) {
+            subLink.addEventListener('click', this.handleClickOnSubitem);
+          }
+          if (this.attachKeyListener) {
+            subLink.addEventListener('keyup', this.handleKeyboard);
+          }
+          if (this.attachFocusListener) {
+            subLink.addEventListener('focusout', this.handleFocusOut);
+          }
         }
       });
     }
@@ -278,7 +253,7 @@ export class MegaMenu {
           featured.addEventListener('blur', this.handleFocusOut);
         }
         if (this.attachClickListener) {
-          featured.addEventListener('click', this.closeOpenDropdown);
+          featured.addEventListener('click', this.handleClickOnSubitem);
         }
       });
     }
@@ -300,17 +275,8 @@ export class MegaMenu {
         this.totalItemsWidth += item.offsetWidth;
 
         const link = queryOne(this.linkSelector, item);
-        if (
-          item.hasAttribute('data-ecl-has-children') ||
-          item.hasAttribute('data-ecl-has-container')
-        ) {
-          // Bind click event on menu links with sub-navigation
-          if (this.attachClickListener && link) {
-            link.addEventListener('click', this.handleClickOnItem);
-          }
-        } else if (this.attachClickListener && link) {
-          // Final link - close dropdown on click for hash/dynamic navigation
-          link.addEventListener('click', this.closeOpenDropdown);
+        if (this.attachClickListener && link) {
+          link.addEventListener('click', this.handleClickOnItem);
         }
       });
     }
@@ -379,7 +345,6 @@ export class MegaMenu {
       this.links.forEach((link) => {
         if (this.attachClickListener) {
           link.removeEventListener('click', this.handleClickOnItem);
-          link.removeEventListener('click', this.closeOpenDropdown);
         }
         if (this.attachFocusListener) {
           link.removeEventListener('focusout', this.handleFocusOut);
@@ -392,43 +357,19 @@ export class MegaMenu {
 
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
-        const subLink = queryOne('.ecl-mega-menu__sublink', subItem);
-        if (this.attachKeyListener && subLink) {
-          subLink.removeEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachClickListener && subLink) {
-          subLink.removeEventListener('click', this.handleClickOnSubitem);
-        }
-        if (this.attachFocusListener && subLink) {
-          subLink.removeEventListener('focusout', this.handleFocusOut);
-        }
-      });
-    }
-
-    if (this.infoLinks) {
-      this.infoLinks.forEach((infoLink) => {
-        if (this.attachFocusListener) {
-          infoLink.removeEventListener('blur', this.handleFocusOut);
-        }
-        if (this.attachKeyListener) {
-          infoLink.removeEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachClickListener) {
-          infoLink.removeEventListener('click', this.closeOpenDropdown);
-        }
-      });
-    }
-
-    if (this.seeAllLinks) {
-      this.seeAllLinks.forEach((seeAll) => {
-        if (this.attachFocusListener) {
-          seeAll.removeEventListener('blur', this.handleFocusOut);
-        }
-        if (this.attachKeyListener) {
-          seeAll.removeEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachClickListener) {
-          seeAll.removeEventListener('click', this.closeOpenDropdown);
+        const subLink =
+          queryOne('.ecl-mega-menu__sublink', subItem) ||
+          queryOne('a', subItem);
+        if (subLink) {
+          if (this.attachClickListener) {
+            subLink.removeEventListener('click', this.handleClickOnSubitem);
+          }
+          if (this.attachKeyListener) {
+            subLink.removeEventListener('keyup', this.handleKeyboard);
+          }
+          if (this.attachFocusListener) {
+            subLink.removeEventListener('focusout', this.handleFocusOut);
+          }
         }
       });
     }
@@ -439,7 +380,7 @@ export class MegaMenu {
           featuredLink.removeEventListener('blur', this.handleFocusOut);
         }
         if (this.attachClickListener) {
-          featuredLink.removeEventListener('click', this.closeOpenDropdown);
+          featuredLink.removeEventListener('click', this.handleClickOnSubitem);
         }
       });
     }
@@ -1614,6 +1555,8 @@ export class MegaMenu {
             this.handleFirstPanel(menuItem, 'expand');
           }
         }
+      } else {
+        this.closeOpenDropdown();
       }
     }
   }
@@ -1625,7 +1568,12 @@ export class MegaMenu {
    */
   handleClickOnSubitem(e) {
     const menuItem = e.target.closest(this.subItemSelector);
-    if (menuItem && menuItem.firstElementChild.hasAttribute('aria-expanded')) {
+    const isFeaturedLink = !!e.target.closest(this.featuredLinkAttribute);
+    if (
+      !isFeaturedLink &&
+      menuItem &&
+      menuItem.firstElementChild.hasAttribute('aria-expanded')
+    ) {
       const parentLink = queryOne('.ecl-mega-menu__parent-link', menuItem);
       if (parentLink) {
         return;
@@ -1640,7 +1588,7 @@ export class MegaMenu {
       } else {
         this.handleSecondPanel(menuItem, 'expand');
       }
-    } else if (menuItem) {
+    } else {
       this.closeOpenDropdown();
     }
   }
