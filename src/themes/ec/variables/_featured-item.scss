@@ -3,13 +3,21 @@
 
 $featured-item: (
   gap-horizontal: var(--s-xl),
-  gap-vertical: var(--s-xs),
+  gap-vertical: var(--s-xl),
   padding: var(--s-xl),
   border-radius: map.get($border-radius, 'xs'),
   max-width: 918px,
+  micro-title: (
+    color: var(--cm-on-surface-brand),
+    font: 'microcopy-s',
+    letter-spacing: map.get($letter-spacing, '3xl'),
+    font-weight: map.get($font-weight, 'medium'),
+  ),
   title: (
     color: var(--cm-on-surface-brand),
     typography: 'heading3',
+    spacing-mobile: var(--s-l),
+    spacing-tablet: var(--s-l),
   ),
   description: (
     color: var(--cm-on-surface-brand),
@@ -31,12 +39,15 @@ $featured-item: (
     item: (
       background-color: var(--cm-surface-0),
       padding-inline-mobile: var(--s-xl),
-      padding-block-mobile: var(--s-xl),
+      padding-block-mobile: var(--s-2xl),
       padding-inline-desktop: var(--s-5xl),
       padding-block-desktop: var(--s-5xl),
     ),
     border-size: 0,
     border-color: transparent,
+    micro-title: (
+      color: var(--cm-on-surface-swap-0),
+    ),
     title: (
       color: var(--cm-on-surface-swap-0),
     ),
@@ -59,8 +70,12 @@ $featured-item-print: (
   gap-horizontal: map.get($spacing-print, 'xl'),
   gap-vertical: map.get($spacing-print, 'xs'),
   padding: map.get($spacing-print, 'xl'),
+  micro-title: (
+    font: map.get($font-print, 's'),
+  ),
   title: (
     font: map.get($font-print, '2xl'),
+    spacing: map.get($spacing-print, 'm'),
   ),
   description: (
     font: map.get($font-print, 'm'),
