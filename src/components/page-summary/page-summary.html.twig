@@ -56,7 +56,9 @@
         <span class="ecl-page-summary__title">{{ _title }}</span>
       {% endif %}
     </div>
+  {% endif %}
 
+  {% if _description is not empty %}
     {# Description #}
     <div class="ecl-page-summary__description">
       {{- _description -}}
