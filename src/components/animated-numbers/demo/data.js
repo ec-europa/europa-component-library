@@ -51,6 +51,7 @@ module.exports = {
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
+      category: 'Revenue',
       icon: {
         name: 'trend-up',
         family: 'phosphor',
