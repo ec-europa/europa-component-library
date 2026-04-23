@@ -33,5 +33,7 @@ $page-summary: null !default;
 }
 
 .ecl-page-summary__description {
+  max-width: var(--max-w);
+
   @include mixins.responsive-font(map.get($page-summary, 'description-font'));
 }
