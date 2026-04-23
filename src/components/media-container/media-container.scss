@@ -53,10 +53,11 @@ $media-container: null !default;
   position: relative;
 }
 
+.ecl-media-container__caption:has(+ .ecl-media-container__credit) {
+  padding-block-end: 0;
+}
+
 .ecl-media-container__caption + .ecl-media-container__credit {
-  margin-block-start: calc(
-    -1 * #{map.get($media-container, 'caption-padding')}
-  );
   padding-block-start: 0;
 }
 
@@ -82,6 +83,10 @@ $media-container: null !default;
 
   .ecl-media-container__caption {
     bottom: var(--ecl-caption-bottom, 0);
+  }
+
+  .ecl-media-container__caption:has(+ .ecl-media-container__credit) {
+    padding-block-end: 0;
   }
 
   .ecl-media-container__caption + .ecl-media-container__credit {

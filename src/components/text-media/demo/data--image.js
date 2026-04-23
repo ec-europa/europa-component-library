@@ -26,8 +26,7 @@ module.exports = {
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
       },
     },
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elite tempore incididunt ut labore et dolore magna.',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing.',
     credit: '@Copyright',
   },
 };

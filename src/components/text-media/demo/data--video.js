@@ -32,8 +32,7 @@ module.exports = {
         },
       ],
     },
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elite tempore incididunt ut labore et dolore magna.',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing.',
     credit: '@Copyright',
   },
 };
