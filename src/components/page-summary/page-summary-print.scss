@@ -1,0 +1,38 @@
+/**
+ * Page summary print
+ * @define page-summary
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$page-summary: null !default;
+
+.ecl-page-summary {
+  background-color: map.get($page-summary, 'background');
+  border-inline-start: map.get($page-summary, 'border');
+  display: flex;
+  flex-direction: column;
+  gap: map.get($page-summary, 'vertical-spacing');
+  max-width: var(--max-w);
+  padding: map.get($page-summary, 'padding');
+}
+
+.ecl-page-summary__header {
+  align-items: center;
+  display: inline-flex;
+  gap: map.get($page-summary, 'icon-spacing');
+}
+
+.ecl-page-summary__title {
+  @include mixins.responsive-font(
+    map.get($page-summary, 'title-font'),
+    $font-weight: map.get($page-summary, 'title-font-weight')
+  );
+}
+
+.ecl-page-summary__description {
+  @include mixins.responsive-font(map.get($page-summary, 'description-font'));
+}

@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$page-summary: (
+  title-font: 'body-s',
+  title-font-weight: map.get($font-weight, 'semi-bold'),
+  description-font: 'body-s',
+  background: var(--cm-surface-grey-low-0-transparent),
+  border: 2px solid var(--cm-border-primary),
+  color: var(--cm-on-surface-brand),
+  padding: var(--s-xl) var(--s-2xl),
+  icon-spacing: var(--s-xs),
+  vertical-spacing: var(--s-s),
+);

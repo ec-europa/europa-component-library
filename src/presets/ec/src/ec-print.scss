@@ -157,6 +157,10 @@
   $theme: theme.$theme,
   $page-information: var.$page-information
 );
+@use '@ecl/page-summary/page-summary-print' with (
+  $theme: theme.$theme,
+  $page-summary: var.$page-summary
+);
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';
 @use '@ecl/separator/separator-print' with (
