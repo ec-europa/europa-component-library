@@ -142,6 +142,8 @@ jobs:
     if: github.event_name == 'push' && endsWith(github.ref, '-dev')
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22.12.0
@@ -153,6 +155,7 @@ jobs:
         run: pnpm build:icons
       - name: Package application
         run: pnpm dist
+      - uses: jpoehnelt/reusable-workspace/save@v1
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
