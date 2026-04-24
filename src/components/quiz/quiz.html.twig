@@ -8,6 +8,7 @@
     - "with_background" (boolean) (default: false)
     - "prev_label" (string) (default: '')
     - "next_label" (string) (default: '')
+    - "skip_text" (string) (default: 'Use ESC to skip the quiz' )
     - "items" (array) default([]) array of quiz-cards
       - "category" (string) (default: '') (poll variant)
       - "success_category" (string (default: '')
@@ -42,6 +43,7 @@
 {% set _css_class = 'ecl-quiz' %}
 {% set _prev_label = prev_label|default('') %}
 {% set _next_label = next_label|default('') %}
+{% set _skip_text = skip_text|default('Use ESC to skip the quiz') %}
 {% set _with_background = with_background|default(false) %}
 {% set _extra_attributes = '' %}
 
@@ -90,7 +92,11 @@
   >
     <div class="ecl-quiz__list">
     {% for _item in _items %}
-      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant}) only %}
+      {% set _esc_box = '' %}
+      {% if loop.first %}
+        {% set _esc_box = _skip_text %}
+      {% endif %}
+      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({esc_box: _esc_box, variant: _variant}) only %}
     {% endfor %}
     </div>
   </div>

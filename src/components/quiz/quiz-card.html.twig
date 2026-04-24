@@ -6,6 +6,7 @@
     - "success_category" (string (default: '')
     - "error_category" (string (default: '')
     - "question" (string) (default: '')
+    - "esc_box" (string) (default: '')
     - "answer" (string) (default: '')
     - "answer_title" (string) (default: '')
     - "options" (array) Array of options (poll variant)
@@ -30,6 +31,7 @@
 {% set _question = question|default('') %}
 {% set _icon = icon|default({}) %}
 {% set _back_icon = back_icon|default({}) %}
+{% set _esc_box = esc_box|default('') %}
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
@@ -93,6 +95,11 @@
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
           {{- _option.name -}}
+        {%- if loop.first and _esc_box is not empty -%}
+          <span class="ecl-quiz__skip">
+            {{- _esc_box -}}
+          </span> 
+        {%- endif -%}
         </div>
       {% endfor %}
       </div>
