@@ -474,7 +474,6 @@ export class Quiz {
       if (e.shiftKey) {
         if (this.slider.canGoToPrev()) {
           e.preventDefault();
-          console.log(e.target);
           e.target.previousElementSibling.focus();
           this.slider.goToPrev();
         }
@@ -483,7 +482,6 @@ export class Quiz {
 
       if (this.slider.canGoToNext()) {
         e.preventDefault();
-
         e.target.nextElementSibling.focus();
         this.slider.goToNext();
       }
