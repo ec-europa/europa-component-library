@@ -153,6 +153,11 @@ $animated-numbers: null !default;
 .ecl-animated-numbers__source {
   text-decoration: none;
 
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: clamp(3px, 0.245em, 10px);
+  }
+
   .ecl-animated-numbers--with-background & {
     color: var(--cm-on-surface-inverted, #fff);
   }
