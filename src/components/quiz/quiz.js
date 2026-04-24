@@ -598,6 +598,11 @@ export class Quiz {
    *
    */
   escapeSlider() {
+    if (this.slider.canGoToNext()) {
+      this.nextButtonNode.focus();
+      return;
+    }
+
     if (!this.dotsNode) {
       return;
     }
