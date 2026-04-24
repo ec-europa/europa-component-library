@@ -150,6 +150,13 @@ $animated-numbers: null !default;
   margin-block-start: map.get($animated-numbers, 'source-spacing');
 }
 
+.ecl-animated-numbers__sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
 .ecl-animated-numbers__source {
   text-decoration: none;
 
@@ -163,8 +170,9 @@ $animated-numbers: null !default;
   }
 }
 
-.ecl-animated-numbers__source + .ecl-animated-numbers__source::before {
+.ecl-animated-numbers__sources-item
+  + .ecl-animated-numbers__sources-item::before {
   color: map.get($animated-numbers, 'source-separator-color');
   content: '|';
-  margin-inline-end: var(--s-xs);
+  margin-inline: var(--s-xs);
 }

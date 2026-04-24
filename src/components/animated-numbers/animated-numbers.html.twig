@@ -138,18 +138,38 @@
       {{- _sources_label -}}
     </span>
     {% endif %}
-    {% for source in _sources %}
-      {% if source.link is defined and source.link is not empty %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: source.link,
-          extra_classes: 'ecl-animated-numbers__source'
-        } only -%}
-      {% else %}
-        <span class="ecl-animated-numbers__source">
-          {{- source.name -}}
-        </span>
-      {% endif %}
-    {% endfor %}
+{% if _sources|length == 1 %}
+  {% set source = _sources|first %}
+
+  {% if source.link is defined and source.link is not empty %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: source.link,
+      extra_classes: 'ecl-animated-numbers__source'
+    } only %}
+  {% else %}
+    <span class="ecl-animated-numbers__source">
+      {{ source.name }}
+    </span>
+  {% endif %}
+
+  {% elseif _sources|length > 1 %}
+    <ul class="ecl-animated-numbers__sources-list">
+      {% for source in _sources %}
+        <li class="ecl-animated-numbers__sources-item">
+          {% if source.link is defined and source.link is not empty %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: source.link,
+              extra_classes: 'ecl-animated-numbers__source'
+            } only %}
+          {% else %}
+            <span class="ecl-animated-numbers__source">
+              {{ source.name }}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
   </div>
 {% endif %}
 {% if _with_background %}
