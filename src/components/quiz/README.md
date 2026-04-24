@@ -12,6 +12,7 @@ npm install --save @ecl/quiz
 - **"with_background"** (boolean) (default: false)
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
+- **"skip_text"** (string) (default: 'Use ESC to skip the quiz')
 - **"items"** (array) array of quiz cards
   - "question" (string) (default: '')
   - "answer" (string) (default: '')
@@ -25,6 +26,7 @@ npm install --save @ecl/quiz
   - "back_text" (string) (default: '')
   - "prev_label" (string) (default: '')
   - "next_label" (string) (default: '')
+  - "esc_box" (string) (default: '')
   - "category" (string) (default: '')
   - "success_category" (string) (default: '')
   - "error_category" (string) (default: '')
