@@ -30,7 +30,7 @@ export class AnimatedNumbers {
       numberSelector = '[data-ecl-animated-numbers-value]',
       animateOnVisible = true,
       animationDuration = 1000,
-      animationStyle = 'random', // 'linear' or 'random'
+      animationStyle = 'linear', // 'linear' or 'random'
     } = {},
   ) {
     // Check element
