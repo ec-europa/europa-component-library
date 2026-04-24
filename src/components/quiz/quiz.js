@@ -469,6 +469,28 @@ export class Quiz {
 
     if (
       e.key === 'Tab' &&
+      e.target.classList.contains(this.cardSelector.slice(1))
+    ) {
+      if (e.shiftKey) {
+        if (this.slider.canGoToPrev()) {
+          e.preventDefault();
+          console.log(e.target);
+          e.target.previousElementSibling.focus();
+          this.slider.goToPrev();
+        }
+        return;
+      }
+
+      if (this.slider.canGoToNext()) {
+        e.preventDefault();
+
+        e.target.nextElementSibling.focus();
+        this.slider.goToNext();
+      }
+    }
+
+    if (
+      e.key === 'Tab' &&
       e.target.classList.contains(this.optionClass.slice(1))
     ) {
       const focusables = queryAll(
