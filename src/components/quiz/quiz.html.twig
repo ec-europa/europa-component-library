@@ -4,6 +4,7 @@
   Parameters:
     - "variant" (string) (default: reveal) poll otherwise
     - "title" (string) (default: '')
+    - "id" (string) (default: random())
     - "description" (string) (default: '')
     - "with_background" (boolean) (default: false)
     - "prev_label" (string) (default: '')
@@ -36,6 +37,7 @@
 {# Internal properties #}
 
 {% set _title = title|default('') %}
+{% set _id = id|default('ecl-quiz-' ~ random()) %}
 {% set _variant = variant|default('reveal') %}
 {% set _description = description|default('') %}
 {% set _items = items|default([]) %}
@@ -90,7 +92,7 @@
   >
     <div class="ecl-quiz__list">
     {% for _item in _items %}
-      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant, number: loop.index}) only %}
+      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant, quiz_id: _id, slide_number: loop.index}) only %}
     {% endfor %}
     </div>
   </div>

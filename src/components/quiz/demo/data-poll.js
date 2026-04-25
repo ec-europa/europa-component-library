@@ -6,6 +6,7 @@ module.exports = {
     Excepteur sint occaecat cupidatat non proident, sunt.`,
   next_label: 'Next',
   prev_label: 'Previous',
+  id: 'ecl-quiz-poll-demo',
   items: [
     {
       category: 'Quiz',

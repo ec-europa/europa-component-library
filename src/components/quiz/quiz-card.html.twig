@@ -33,9 +33,10 @@
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
-{% set _number = number|default(0) %}
+{% set _slide_number = slide_number|default(0) %}
+{% set _quiz_id = quiz_id|default(random(100, 999)) %}
 {% set _answer = answer|default('') %}
-{% set _name = name|default('quiz-' ~ random(100, 999) ~ '-card-' ~ _number) %}
+{% set _name = name|default(_quiz_id ~ '-card-' ~ _slide_number) %}
 {% set _answer_title = answer_title|default('') %}
 {% set _options = options|default([]) %}
 {% set _variant = variant|default('reveal') %}

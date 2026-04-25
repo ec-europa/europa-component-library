@@ -11,6 +11,7 @@ npm install --save @ecl/quiz
 - **"variant"** (string) (default: 'reveal')
 - **"with_background"** (boolean) (default: false)
 - **"title"** (string) (default: '')
+- **"id"** (string) (default: random())
 - **"description"** (string) (default: '')
 - **"items"** (array) array of quiz cards
   - "question" (string) (default: '')
