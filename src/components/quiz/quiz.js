@@ -8,6 +8,7 @@ import Accessibility from 'embla-carousel-accessibility';
  * @param {Object} options
  * @param {String} options.itemSelector Element used to trigger the animation
  * @param {String} options.sliderSelector Root element of the slider
+ * @param {String} options.inputSelector Data attribute for the radio inputs
  * @param {String} options.filppedClass Css class for the active dot element
  * @param {String} options.textClass Css class of the element containing the text
  * @param {String} options.frontClass Css class of the initially visible face of the card
@@ -51,6 +52,7 @@ export class Quiz {
     {
       cardSelector = '.ecl-quiz-card',
       sliderSelector = '[data-ecl-quiz-slider]',
+      inputSelector = 'data-ecl-quiz-card-input',
       itemSelector = '[data-ecl-quiz-card-flip]',
       flippedClass = 'ecl-quiz-card__flipped',
       questionClass = '.ecl-quiz-card__question',
@@ -83,6 +85,7 @@ export class Quiz {
     // Options
     this.cardSelector = cardSelector;
     this.itemSelector = itemSelector;
+    this.inputSelector = inputSelector;
     this.flippedClass = flippedClass;
     this.contentClass = contentClass;
     this.questionClass = questionClass;
@@ -468,31 +471,30 @@ export class Quiz {
     }
 
     if (
-      e.key === 'Tab' &&
-      e.target.classList.contains(this.optionClass.slice(1))
+      (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp') &&
+      e.target.hasAttribute(this.inputSelector)
     ) {
-      const focusables = queryAll(
-        this.frontClass + ' ' + this.optionClass,
-        card,
-      );
-
+      e.preventDefault();
+      const focusables = queryAll(`[${this.inputSelector}]`, card);
       const focusableArray = Array.from(focusables);
       const currentIndex = focusableArray.indexOf(item);
       const isFirst = currentIndex === 0;
       const isLast = currentIndex === focusableArray.length - 1;
 
-      // Shift + Tab
-      if (e.shiftKey) {
-        item.previousElementSibling?.setAttribute('tabindex', '0');
+      // Shift + Tab or arrow up
+      if (e.shiftKey || e.key === 'ArrowUp') {
+        if (!isFirst) {
+          focusableArray[currentIndex - 1].setAttribute('tabindex', '0');
+          focusableArray[currentIndex - 1].focus();
+        }
         // Handle Shift + Tab on the first option of the card
         if (isFirst || card.classList.contains(this.flippedClass)) {
           const prevSlide = card.previousElementSibling;
 
           if (prevSlide) {
-            e.preventDefault();
             this.slider.goToPrev();
             const previousFocusables = queryAll(
-              this.frontClass + ' ' + this.optionClass,
+              `[${this.inputSelector}]`,
               prevSlide,
             );
             const previousOption = Array.from(previousFocusables).pop();
@@ -506,18 +508,17 @@ export class Quiz {
         return;
       }
 
-      item.nextElementSibling?.setAttribute('tabindex', '0');
+      if (!isLast) {
+        focusableArray[currentIndex + 1].setAttribute('tabindex', '0');
+        focusableArray[currentIndex + 1].focus();
+      }
       // Handle tab on the last option of the card
       if (isLast || card.classList.contains(this.flippedClass)) {
         const nextSlide = item.closest(this.cardSelector).nextElementSibling;
 
         if (nextSlide) {
-          e.preventDefault();
           this.slider.goToNext();
-          const nextOption = queryOne(
-            this.frontClass + ' ' + this.optionClass,
-            nextSlide,
-          );
+          const nextOption = queryOne(`[${this.inputSelector}]`, nextSlide);
           if (nextOption) {
             nextOption.setAttribute('tabindex', '0');
             nextOption.focus();
@@ -565,10 +566,10 @@ export class Quiz {
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
 
-      if (e.target.classList.contains(this.optionClass.slice(1))) {
-        const parent = e.target.parentNode;
+      if (e.target.hasAttribute('data-match')) {
+        const parent = e.target.parentNode.parentNode;
         const items = Array.from(parent.children);
-        const index = items.indexOf(e.target);
+        const index = items.indexOf(e.target.parentNode);
         const match = e.target.getAttribute('data-match') === 'true';
         e.target.setAttribute('aria-pressed', 'true');
 

@@ -156,6 +156,12 @@ $quiz: null !default;
       outline-offset: -4px;
     }
   }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .ecl-quiz--reveal .ecl-quiz-card {
@@ -340,11 +346,15 @@ $quiz: null !default;
     gap: var(--s-s);
     padding: var(--s-xs) var(--s-m);
 
+    input {
+      @include screen-reader.sr-only;
+    }
+
     + .ecl-quiz-card__option {
       margin-block-start: var(--s-xs);
     }
 
-    &:focus-visible {
+    &:has(input[type='radio']:focus-visible) {
       outline: 2px solid var(--cm-on-surface-inverted, #fff);
     }
 

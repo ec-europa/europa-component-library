@@ -90,7 +90,7 @@
   >
     <div class="ecl-quiz__list">
     {% for _item in _items %}
-      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant}) only %}
+      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant, number: loop.index}) only %}
     {% endfor %}
     </div>
   </div>

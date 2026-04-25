@@ -14,7 +14,7 @@
     - "flip_text" (string) Helper text (reveal variant)
     - "flip_icon" (object) Object of type icon
     - "back_text" (string) Text on the back of the card
-    - "variant" (string) (default: ''): Variant of the quiz card ('reveal' or 'poll')
+    - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
     - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
     - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
     - "extra_attributes" (optional) (array) (default: [])
@@ -33,14 +33,17 @@
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
+{% set _number = number|default(0) %}
 {% set _answer = answer|default('') %}
+{% set _name = name|default('quiz-' ~ random(100, 999) ~ '-card-' ~ _number) %}
 {% set _answer_title = answer_title|default('') %}
 {% set _options = options|default([]) %}
-{% set _variant = variant|default('') %}
+{% set _variant = variant|default('reveal') %}
 {% set _css_class = 'ecl-quiz-card' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -78,24 +81,31 @@
         </span>
       {% endif %}
       </div>
+    {%  if _variant == 'reveal' %}
       <div class="ecl-quiz-card__question">
         {{-  _question -}}
       </div>
+    {% endif %}
     {% if _options is not empty %}
-      <div class="ecl-quiz-card__options">
-      {% for _option in _options %}
-        <div
-          class="ecl-quiz-card__option"
-          data-ecl-quiz-card-flip
-          role="button"
-          tabindex="0"
-          aria-pressed="false"
-          data-match="{{ _option.correct ? "true" : "false" }}"
-        >
-          {{- _option.name -}}
+      <fieldset>
+        <legend class="ecl-quiz-card__question">
+          {{-  _question -}}
+        </legend>
+        <div class="ecl-quiz-card__options">
+        {% for _option in _options %}
+          <label class="ecl-quiz-card__option">
+            <input
+              type="radio"
+              data-ecl-quiz-card-flip
+              data-ecl-quiz-card-input
+              name="{{ _name }}"
+              data-match="{{ _option.correct ? "true" : "false" }}"
+            >
+            {{- _option.name -}}
+          </label>
+        {% endfor %}
         </div>
-      {% endfor %}
-      </div>
+      </fieldset>
     {% endif %}
     {% if _flip_text is not empty %}
       <div
