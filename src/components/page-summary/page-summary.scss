@@ -36,4 +36,24 @@ $page-summary: null !default;
   max-width: var(--max-w);
 
   @include mixins.responsive-font(map.get($page-summary, 'description-font'));
+
+  .ecl-unordered-list,
+  .ecl ul {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($page-summary, 'list-vertical-spacing');
+    list-style-type: '•';
+    padding-inline-start: 0;
+  }
+
+  .ecl-unordered-list .ecl-unordered-list__item,
+  .ecl ul li {
+    margin-inline-start: 1.125rem;
+    padding-block: 0;
+    padding-inline-start: 1rem;
+
+    &::marker {
+      color: map.get($page-summary, 'list-marker-color');
+    }
+  }
 }
