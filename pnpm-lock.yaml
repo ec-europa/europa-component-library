@@ -1188,17 +1188,17 @@ importers:
   src/components/text-media:
     dependencies:
       '@ecl/link':
-        specifier: 5.0.0-RC1
-        version: 5.0.0-RC1
+        specifier: 5.0.0-RC3
+        version: link:../link
       '@ecl/media-container':
-        specifier: 5.0.0-RC1
-        version: 5.0.0-RC1
+        specifier: 5.0.0-RC3
+        version: link:../media-container
       '@ecl/mixins-typography':
-        specifier: 5.0.0-RC1
-        version: 5.0.0-RC1
+        specifier: 5.0.0-RC3
+        version: link:../../mixins/typography
       '@ecl/picture':
-        specifier: 5.0.0-RC1
-        version: 5.0.0-RC1
+        specifier: 5.0.0-RC3
+        version: link:../picture
 
   src/components/timeline:
     dependencies:
@@ -1960,7 +1960,7 @@ importers:
         specifier: 5.0.0-RC3
         version: link:../../components/text-input
       '@ecl/text-media':
-        specifier: 5.0.0-RC2
+        specifier: 5.0.0-RC3
         version: link:../../components/text-media
       '@ecl/theme-ec':
         specifier: 5.0.0-RC3
@@ -2246,7 +2246,7 @@ importers:
         specifier: 5.0.0-RC3
         version: link:../../components/text-input
       '@ecl/text-media':
-        specifier: 5.0.0-RC2
+        specifier: 5.0.0-RC3
         version: link:../../components/text-media
       '@ecl/theme-eu':
         specifier: 5.0.0-RC3
@@ -2669,7 +2669,7 @@ importers:
         specifier: 5.0.0-RC3
         version: link:../components/text-input
       '@ecl/text-media':
-        specifier: 5.0.0-RC2
+        specifier: 5.0.0-RC3
         version: link:../components/text-media
       '@ecl/timeline':
         specifier: 5.0.0-RC3
@@ -2964,7 +2964,7 @@ importers:
         specifier: 5.0.0-RC3
         version: link:../components/text-input
       '@ecl/text-media':
-        specifier: 5.0.0-RC2
+        specifier: 5.0.0-RC3
         version: link:../components/text-media
       '@ecl/theme-ec':
         specifier: 5.0.0-RC3
@@ -3962,39 +3962,6 @@ packages:
     resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
     engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
 
-  '@ecl/button@5.0.0-RC1':
-    resolution: {integrity: sha512-8SM/dh5xfmBlWMvbngN+pbdtJ53SQMpp6pNk2tVoCEcvCL6xDoZlDX3L83KlI251m/b+Yc1S/2EEWAITAjJkSg==}
-
-  '@ecl/dom-utils@5.0.0-RC1':
-    resolution: {integrity: sha512-lE8/HYM/WJ61dtlexM2nLJvHWpmesiSz7gwAeAS2nyRhvjdgIiw3mUs4eH/m579bFFJqaPubsrlIPsJ8GH2r9Q==}
-
-  '@ecl/event-manager@5.0.0-RC1':
-    resolution: {integrity: sha512-JCjZwyLfKv8F2aKpYofKt50aXnhTV1A3Qlj+PSKKcqIc6bjeK0bSUGIHuSitjj+45OEAFf48j62i5yh52CATXg==}
-
-  '@ecl/expandable@5.0.0-RC1':
-    resolution: {integrity: sha512-lJmSsB/cjPTD+YFm9QEMTzmWTUkACG8HXwBO0b0dBHtOuxqCVtf9vLt3pyhO91GRBBQFvm6gQVPWkInelQAe4Q==}
-
-  '@ecl/grid@5.0.0-RC1':
-    resolution: {integrity: sha512-SSlZu3DqgKYNa/eVELbm1mso+mNupA9OhxRB5lUMF7ttPnsV8/9LknB0ZIIfNhMgWNISjxP+BmAFmJ8njVDxsg==}
-
-  '@ecl/icon@5.0.0-RC1':
-    resolution: {integrity: sha512-Noslm2FuMGVQDzM85p+w9laxeO7Zr7xxTsheBxRv/F0lW9G1PCV82I1A5FPMDxdaW5bKcq+ElCm1Samom1hQwQ==}
-
-  '@ecl/indicator@5.0.0-RC1':
-    resolution: {integrity: sha512-fQJHkp//aQSBoapwXp4u+L/C4VKhkkUS06Nm6ebB+a5tZvRy6FMXMqr3b6pTgESyq68L/TC9KPZkBHlROYi26Q==}
-
-  '@ecl/link@5.0.0-RC1':
-    resolution: {integrity: sha512-h7YvgA4PiLFqZUoLE+6hDXDd/V3/bfbozgDN4ESIFWRzzlzF7qBJA/X98cyLQtYBwPUJh0dEeHmiAy8UMU7b9g==}
-
-  '@ecl/media-container@5.0.0-RC1':
-    resolution: {integrity: sha512-zkmy0Y1YH+zjUShPYnPXwZX9lSfnJzwy+eG9oYhRy104iaerkdyHNstY0ox5C2BpS2JZM2YfshgdnO9kA7Ku4w==}
-
-  '@ecl/mixins-typography@5.0.0-RC1':
-    resolution: {integrity: sha512-0KigVmJDp26BuSLjREyyI1zHTRI072zmnTVa1QV/eGLlOiPEP0rnno3Wt2N+6R0LvNutSd/VQQw2lJP72BzokA==}
-
-  '@ecl/picture@5.0.0-RC1':
-    resolution: {integrity: sha512-BpeBTlTWp/cx5aOEnp8yqDZvhJhsN3b/2wZ7nmEu+TuLgyNSZ7JYmTqwVjMoF9bbB6grYU6HYWJLtq9isarh3g==}
-
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
 
@@ -4003,9 +3970,6 @@ packages:
 
   '@ecl/resources-social-media-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-ruVrsu8ADIfrOPRaStG04de3RKHNuv5rQ3lbfsqH6aS1dsoPAEmG9QO10fkFstYBbFk7QbYpp5iuZbYB/uYdkw==}
-
-  '@ecl/video@5.0.0-RC1':
-    resolution: {integrity: sha512-3EYRqHOGMMSFdNOERCgDnU5vHP+w06YmMVElEDbBc33MbZAJ1QjSyEj/1Z3qZYB2jNXF7aNHg5+MS3GowPSQ5g==}
 
   '@emnapi/core@1.9.2':
     resolution: {integrity: sha512-UC+ZhH3XtczQYfOlu3lNEkdW/p4dsJ1r/bP7H8+rhao3TTTMO1ATq/4DdIi23XuGoFY+Cz0JmCbdVl0hz9jZcA==}
@@ -13853,53 +13817,11 @@ snapshots:
     dependencies:
       '@stencil/core': 2.22.3
 
-  '@ecl/button@5.0.0-RC1':
-    dependencies:
-      '@ecl/icon': 5.0.0-RC1
-      '@ecl/indicator': 5.0.0-RC1
-
-  '@ecl/dom-utils@5.0.0-RC1': {}
-
-  '@ecl/event-manager@5.0.0-RC1': {}
-
-  '@ecl/expandable@5.0.0-RC1':
-    dependencies:
-      '@ecl/button': 5.0.0-RC1
-      '@ecl/dom-utils': 5.0.0-RC1
-      '@ecl/event-manager': 5.0.0-RC1
-
-  '@ecl/grid@5.0.0-RC1': {}
-
-  '@ecl/icon@5.0.0-RC1': {}
-
-  '@ecl/indicator@5.0.0-RC1': {}
-
-  '@ecl/link@5.0.0-RC1':
-    dependencies:
-      '@ecl/button': 5.0.0-RC1
-      '@ecl/icon': 5.0.0-RC1
-
-  '@ecl/media-container@5.0.0-RC1':
-    dependencies:
-      '@ecl/dom-utils': 5.0.0-RC1
-      '@ecl/event-manager': 5.0.0-RC1
-      '@ecl/expandable': 5.0.0-RC1
-      '@ecl/picture': 5.0.0-RC1
-      '@ecl/video': 5.0.0-RC1
-
-  '@ecl/mixins-typography@5.0.0-RC1':
-    dependencies:
-      '@ecl/grid': 5.0.0-RC1
-
-  '@ecl/picture@5.0.0-RC1': {}
-
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 
   '@ecl/resources-flag-icons@5.0.0-alpha.10': {}
 
   '@ecl/resources-social-media-icons@5.0.0-alpha.10': {}
-
-  '@ecl/video@5.0.0-RC1': {}
 
   '@emnapi/core@1.9.2':
     dependencies:
