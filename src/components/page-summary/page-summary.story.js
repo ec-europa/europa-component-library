@@ -10,6 +10,7 @@ const getArgs = (data) => {
     show_icon: true,
     title: data.title,
     description: data.description,
+    demo_list: false,
   };
 
   return args;
@@ -44,6 +45,16 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'demo_list', neq: true },
+  },
+  demo_list: {
+    name: 'demo list',
+    type: { name: 'boolean' },
+    description: 'See an example with a list',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Content',
+    },
   },
 });
 
@@ -52,6 +63,11 @@ const prepareData = (data, args) => {
 
   if (!args.show_icon) {
     delete clone.icon;
+  }
+
+  if (args.demo_list) {
+    clone.description =
+      "<ul class='ecl-unordered-list'><li class='ecl-unordered-list__item'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li><li class='ecl-unordered-list__item'>Maecenas suscipit nisl porttitor nibh dictum, tempor aliquet quam porttitor. Suspendisse euismod aliquam lacinia. Vestibulum consequat auctor ante.</li><li class='ecl-unordered-list__item'>Integer eget feugiat quam, sed eleifend sapien</li></ul>";
   }
 
   return Object.assign(clone, args);
