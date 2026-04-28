@@ -105,6 +105,7 @@ export class Quiz {
     this.resizeTimer = null;
     this.slider = null;
     this.dotsNode = null;
+    this.ariaObserver = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
@@ -216,6 +217,11 @@ export class Quiz {
     if (this.slider) {
       this.slider.destroy();
     }
+
+    if (this.ariaObserver) {
+      this.ariaObserver.disconnect();
+      this.ariaObserver = null;
+    }
   }
 
   /**
@@ -234,6 +240,9 @@ export class Quiz {
       [
         Accessibility({
           carouselAriaLabel: 'Quiz slider',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
           announceChanges: true,
           dotButtonAriaLabel: (
             hasAnyGroupedSlides,
@@ -258,6 +267,23 @@ export class Quiz {
         }),
       ],
     );
+
+    // The accessibility plugin sets aria-hidden on inactive slides, which prevents
+    // screen readers from navigating all quiz questions. Remove it as it's set.
+    this.ariaObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'aria-hidden') {
+          mutation.target.removeAttribute('aria-hidden');
+        }
+      });
+    });
+    this.cards.forEach((card) => {
+      this.ariaObserver.observe(card, {
+        attributes: true,
+        attributeFilter: ['aria-hidden'],
+      });
+      card.removeAttribute('aria-hidden');
+    });
 
     const accessibility = this.slider.plugins().accessibility;
     this.prevButtonNode = queryOne(this.prevClass, this.element);

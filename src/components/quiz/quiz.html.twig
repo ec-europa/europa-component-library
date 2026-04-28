@@ -67,7 +67,7 @@
   {% endfor %}
 {% endif %}
 
-<div
+<section
   class="{{ _css_class }}"
   data-ecl-auto-init="Quiz"
   {{ _extra_attributes|raw }}
@@ -88,11 +88,11 @@
     class="ecl-quiz__viewport"
     data-ecl-quiz-slider
   >
-    <div class="ecl-quiz__list">
+    <ol class="ecl-quiz__list">
     {% for _item in _items %}
       {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge({variant: _variant}) only %}
     {% endfor %}
-    </div>
+    </ol>
   </div>
 {% endif %}
   <div class="ecl-quiz__pager">
@@ -136,6 +136,6 @@
 {% if _with_background %}
   </div>
 {% endif %}
-</div>
+</section>
 
 {% endapply %}

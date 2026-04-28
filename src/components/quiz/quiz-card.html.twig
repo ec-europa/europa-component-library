@@ -56,7 +56,7 @@
   {% endfor %}
 {% endif %}
 
-<div
+<li
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
   {% if _variant == 'reveal' %}
@@ -66,7 +66,7 @@
     data-ecl-quiz-card-flip
   {% endif %}
 >
-  <div class="ecl-quiz-card__content">
+  <article class="ecl-quiz-card__content">
     <div class="ecl-quiz-card__front">
       <div class="ecl-quiz-card__header">
         <div class="ecl-quiz-card__icon">
@@ -82,9 +82,9 @@
         {{-  _question -}}
       </div>
     {% if _options is not empty %}
-      <div class="ecl-quiz-card__options">
+      <ol class="ecl-quiz-card__options" type="A">
       {% for _option in _options %}
-        <div
+        <li
           class="ecl-quiz-card__option"
           data-ecl-quiz-card-flip
           role="button"
@@ -93,9 +93,9 @@
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
           {{- _option.name -}}
-        </div>
+        </li>
       {% endfor %}
-      </div>
+      </ol>
     {% endif %}
     {% if _flip_text is not empty %}
       <div
@@ -138,20 +138,16 @@
         {{-  _answer -}}
       </div>
     {% if _options is not empty %}
-      <div
-        class="ecl-quiz-card__options"
-        role="list"
-      >
+      <ol class="ecl-quiz-card__options" type="A">
       {% for _option in _options %}
-        <div
+        <li
           class="ecl-quiz-card__option"
-          role="listitem"
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
           {{- _option.name -}}
-        </div>
+        </li>
       {% endfor %}
-      </div>
+      </ol>
     {% endif %}
     {% if _back_text is not empty or _flip_icon is not empty %}
       <div class="ecl-quiz-card__flip">
@@ -160,7 +156,7 @@
       </div>
     {% endif %}
     </div>
-  </div>
-</div>
+  </article>
+</li>
 
 {% endapply %}
