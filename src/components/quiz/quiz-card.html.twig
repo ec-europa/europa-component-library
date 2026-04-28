@@ -2,9 +2,10 @@
 
 {#
   Parameters
+    - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
     - "category" (string) (default: '') (poll variant)
-    - "success_category" (string (default: '')
-    - "error_category" (string (default: '')
+    - "success_category" (string) (default: '')
+    - "error_category" (string) (default: '')
     - "question" (string) (default: '')
     - "answer" (string) (default: '')
     - "answer_title" (string) (default: '')
@@ -15,8 +16,7 @@
     - "flip_icon" (object) Object of type icon
     - "back_text" (string) Text on the back of the card
     - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
-    - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
-    - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
+    - "extra_classes" (string) (default: ''): Extra css classes
     - "extra_attributes" (optional) (array) (default: [])
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -24,6 +24,7 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('ecl-quiz-item-' ~ random()) %}
 {% set _category = category|default('') %}
 {% set _success_category = success_category|default('') %}
 {% set _error_category = error_category|default('') %}
@@ -33,10 +34,8 @@
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
-{% set _slide_number = slide_number|default(0) %}
-{% set _quiz_id = quiz_id|default(random(100, 999)) %}
 {% set _answer = answer|default('') %}
-{% set _name = name|default(_quiz_id ~ '-card-' ~ _slide_number) %}
+{% set _name = name|default(_id ~ '-options') %}
 {% set _answer_title = answer_title|default('') %}
 {% set _options = options|default([]) %}
 {% set _variant = variant|default('reveal') %}
@@ -60,17 +59,16 @@
   {% endfor %}
 {% endif %}
 
-<div
+<li
   class="{{ _css_class }}"
+  id="{{ _id }}"
   {{ _extra_attributes|raw }}
   {% if _variant == 'reveal' %}
-    role="button"
     tabindex="0"
-    aria-pressed="false"
     data-ecl-quiz-card-flip
   {% endif %}
 >
-  <div class="ecl-quiz-card__content">
+  <article class="ecl-quiz-card__content">
     <div class="ecl-quiz-card__front">
       <div class="ecl-quiz-card__header">
         <div class="ecl-quiz-card__icon">
@@ -83,29 +81,31 @@
       {% endif %}
       </div>
     {%  if _variant == 'reveal' %}
-      <div class="ecl-quiz-card__question">
-        {{-  _question -}}
+      <div class="ecl-quiz-card__question" id="{{ _id }}-question">
+        {{- _question -}}
       </div>
     {% endif %}
     {% if _options is not empty %}
       <fieldset>
-        <legend class="ecl-quiz-card__question">
-          {{-  _question -}}
+        <legend class="ecl-quiz-card__question" id="{{ _id }}-question">
+          {{- _question -}}
         </legend>
-        <div class="ecl-quiz-card__options">
+        <ol class="ecl-quiz-card__options" type="A">
         {% for _option in _options %}
-          <label class="ecl-quiz-card__option">
-            <input
-              type="radio"
-              data-ecl-quiz-card-flip
-              data-ecl-quiz-card-input
-              name="{{ _name }}"
-              data-match="{{ _option.correct ? "true" : "false" }}"
-            >
-            {{- _option.name -}}
-          </label>
+          <li class="ecl-quiz-card__option">
+            <label class="ecl-quiz-card__label">
+              <input
+                type="radio"
+                data-ecl-quiz-card-flip
+                data-ecl-quiz-card-input
+                name="{{ _name }}"
+                data-match="{{ _option.correct ? "true" : "false" }}"
+              >
+              {{- _option.name -}}
+            </label>
+          </li>
         {% endfor %}
-        </div>
+        </ol>
       </fieldset>
     {% endif %}
     {% if _flip_text is not empty %}
@@ -142,27 +142,23 @@
           </span>
         {% endif %}
       </div>
-      <div class="ecl-quiz-card__answer">
+      <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
       {%- if _answer_title is not empty -%}
         <div class="ecl-quiz-card__answer-title">{{ _answer_title }}</div>
       {%- endif -%}
         {{-  _answer -}}
       </div>
     {% if _options is not empty %}
-      <div
-        class="ecl-quiz-card__options"
-        role="list"
-      >
+      <ol class="ecl-quiz-card__options" type="A">
       {% for _option in _options %}
-        <div
+        <li
           class="ecl-quiz-card__option"
-          role="listitem"
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
           {{- _option.name -}}
-        </div>
+        </li>
       {% endfor %}
-      </div>
+      </ol>
     {% endif %}
     {% if _back_text is not empty or _flip_icon is not empty %}
       <div class="ecl-quiz-card__flip">
@@ -171,7 +167,7 @@
       </div>
     {% endif %}
     </div>
-  </div>
-</div>
+  </article>
+</li>
 
 {% endapply %}

@@ -1,4 +1,5 @@
 module.exports = {
+  id: 'quiz-poll',
   variant: 'poll',
   title: 'Ut enim ad minim veniam ',
   description: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -6,7 +7,6 @@ module.exports = {
     Excepteur sint occaecat cupidatat non proident, sunt.`,
   next_label: 'Next',
   prev_label: 'Previous',
-  id: 'ecl-quiz-poll-demo',
   items: [
     {
       category: 'Quiz',

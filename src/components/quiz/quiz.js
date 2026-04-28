@@ -108,6 +108,7 @@ export class Quiz {
     this.resizeTimer = null;
     this.slider = null;
     this.dotsNode = null;
+    this.ariaObserver = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
@@ -219,6 +220,11 @@ export class Quiz {
     if (this.slider) {
       this.slider.destroy();
     }
+
+    if (this.ariaObserver) {
+      this.ariaObserver.disconnect();
+      this.ariaObserver = null;
+    }
   }
 
   /**
@@ -237,6 +243,9 @@ export class Quiz {
       [
         Accessibility({
           carouselAriaLabel: 'Quiz slider',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
           announceChanges: true,
           dotButtonAriaLabel: (
             hasAnyGroupedSlides,
@@ -258,9 +267,27 @@ export class Quiz {
 
             return `Go to slide ${firstSlideIndex + 1} of ${totalSlides}`;
           },
+          slideAriaLabel: () => '',
         }),
       ],
     );
+
+    // The accessibility plugin sets aria-hidden on inactive slides, which prevents
+    // screen readers from navigating all quiz questions. Remove it as it's set.
+    this.ariaObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'aria-hidden') {
+          mutation.target.removeAttribute('aria-hidden');
+        }
+      });
+    });
+    this.cards.forEach((card) => {
+      this.ariaObserver.observe(card, {
+        attributes: true,
+        attributeFilter: ['aria-hidden'],
+      });
+      card.removeAttribute('aria-hidden');
+    });
 
     const accessibility = this.slider.plugins().accessibility;
     this.prevButtonNode = queryOne(this.prevClass, this.element);
@@ -363,6 +390,12 @@ export class Quiz {
       this.updateDots();
       this.slider.on('select', this.updateDots);
     }
+
+    // Add aria-labelledby
+    this.cards.forEach((card) => {
+      const question = queryOne(`#${card.id}-question`, card);
+      card.setAttribute('aria-labelledby', question.id);
+    });
 
     accessibility.setupLiveRegion(liveRegionNode);
   }
@@ -567,9 +600,10 @@ export class Quiz {
       const back = queryOne(this.backClass, card);
 
       if (e.target.hasAttribute('data-match')) {
-        const parent = e.target.parentNode.parentNode;
+        const li = e.target.closest(this.optionClass);
+        const parent = li.parentNode;
         const items = Array.from(parent.children);
-        const index = items.indexOf(e.target.parentNode);
+        const index = items.indexOf(li);
         const match = e.target.getAttribute('data-match') === 'true';
         e.target.setAttribute('aria-pressed', 'true');
 
@@ -588,6 +622,11 @@ export class Quiz {
 
       front.hidden = isFlipped;
       back.hidden = !isFlipped;
+
+      // Update aria-labelledby
+      const question = queryOne(`#${card.id}-question`, card);
+      const answer = queryOne(`#${card.id}-answer`, card);
+      card.setAttribute('aria-labelledby', isFlipped ? answer.id : question.id);
 
       const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);

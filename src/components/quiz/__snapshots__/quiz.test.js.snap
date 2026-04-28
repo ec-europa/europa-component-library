@@ -2,9 +2,10 @@
 
 exports[`Quiz Poll renders correctly 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--poll"
     data-ecl-auto-init="Quiz"
+    id="quiz-poll"
   >
     <div
       class="ecl-quiz__header"
@@ -26,13 +27,14 @@ exports[`Quiz Poll renders correctly 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
+        <li
           class="ecl-quiz-card"
+          id="quiz-poll-item1"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -58,61 +60,79 @@ exports[`Quiz Poll renders correctly 1`] = `
               <fieldset>
                 <legend
                   class="ecl-quiz-card__question"
+                  id="quiz-poll-item1-question"
                 >
                   Which institution proposes new EU laws?
                 </legend>
-                <div
+                <ol
                   class="ecl-quiz-card__options"
+                  type="A"
                 >
-                  <label
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="true"
-                      name="ecl-quiz-poll-demo-card-1"
-                      type="radio"
-                    />
-                    European commission
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="true"
+                        name="quiz-poll-item1-options"
+                        type="radio"
+                      />
+                      European commission
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-1"
-                      type="radio"
-                    />
-                    European parliament
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item1-options"
+                        type="radio"
+                      />
+                      European parliament
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-1"
-                      type="radio"
-                    />
-                    European Central Bank
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item1-options"
+                        type="radio"
+                      />
+                      European Central Bank
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-1"
-                      type="radio"
-                    />
-                    Court of Justice of the European Union
-                  </label>
-                </div>
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item1-options"
+                        type="radio"
+                      />
+                      Court of Justice of the European Union
+                    </label>
+                  </li>
+                </ol>
               </fieldset>
             </div>
             <div
@@ -147,6 +167,7 @@ exports[`Quiz Poll renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-poll-item1-answer"
               >
                 <div
                   class="ecl-quiz-card__answer-title"
@@ -155,46 +176,43 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 The European Commission has the exclusive right to propose new EU laws
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   European commission
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   European parliament
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   European Central Bank
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   Court of Justice of the European Union
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
+          id="quiz-poll-item2"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -220,61 +238,79 @@ exports[`Quiz Poll renders correctly 1`] = `
               <fieldset>
                 <legend
                   class="ecl-quiz-card__question"
+                  id="quiz-poll-item2-question"
                 >
                   What document allows EU citizens to travel freely between most EU countries?
                 </legend>
-                <div
+                <ol
                   class="ecl-quiz-card__options"
+                  type="A"
                 >
-                  <label
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-2"
-                      type="radio"
-                    />
-                    A valid ID card.
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item2-options"
+                        type="radio"
+                      />
+                      A valid ID card.
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="true"
-                      name="ecl-quiz-poll-demo-card-2"
-                      type="radio"
-                    />
-                    A valid ID card or passport
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="true"
+                        name="quiz-poll-item2-options"
+                        type="radio"
+                      />
+                      A valid ID card or passport
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-2"
-                      type="radio"
-                    />
-                    A valid passport.
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item2-options"
+                        type="radio"
+                      />
+                      A valid passport.
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-2"
-                      type="radio"
-                    />
-                    None of these
-                  </label>
-                </div>
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item2-options"
+                        type="radio"
+                      />
+                      None of these
+                    </label>
+                  </li>
+                </ol>
               </fieldset>
             </div>
             <div
@@ -309,6 +345,7 @@ exports[`Quiz Poll renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-poll-item2-answer"
               >
                 <div
                   class="ecl-quiz-card__answer-title"
@@ -317,46 +354,43 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 A valid ID card or passport is usually enough to travel freely between most EU countries.
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   A valid ID card.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   A valid ID card or passport
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   A valid passport.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   None of these
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
+          id="quiz-poll-item3"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -382,49 +416,63 @@ exports[`Quiz Poll renders correctly 1`] = `
               <fieldset>
                 <legend
                   class="ecl-quiz-card__question"
+                  id="quiz-poll-item3-question"
                 >
                   What currency is used in many EU countries?
                 </legend>
-                <div
+                <ol
                   class="ecl-quiz-card__options"
+                  type="A"
                 >
-                  <label
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-3"
-                      type="radio"
-                    />
-                    The pound is the most used currency in the EU
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item3-options"
+                        type="radio"
+                      />
+                      The pound is the most used currency in the EU
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-3"
-                      type="radio"
-                    />
-                    The Leu is by far the most used currency in the European Union 
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item3-options"
+                        type="radio"
+                      />
+                      The Leu is by far the most used currency in the European Union 
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="true"
-                      name="ecl-quiz-poll-demo-card-3"
-                      type="radio"
-                    />
-                    The euro (€) is used in many EU member states.
-                  </label>
-                </div>
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="true"
+                        name="quiz-poll-item3-options"
+                        type="radio"
+                      />
+                      The euro (€) is used in many EU member states.
+                    </label>
+                  </li>
+                </ol>
               </fieldset>
             </div>
             <div
@@ -459,6 +507,7 @@ exports[`Quiz Poll renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-poll-item3-answer"
               >
                 <div
                   class="ecl-quiz-card__answer-title"
@@ -467,39 +516,37 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 The Euro is the official currency used by many EU conutries
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   The pound is the most used currency in the EU
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   The Leu is by far the most used currency in the European Union 
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   The euro (€) is used in many EU member states.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
+          id="quiz-poll-item4"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -525,49 +572,63 @@ exports[`Quiz Poll renders correctly 1`] = `
               <fieldset>
                 <legend
                   class="ecl-quiz-card__question"
+                  id="quiz-poll-item4-question"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit?
                 </legend>
-                <div
+                <ol
                   class="ecl-quiz-card__options"
+                  type="A"
                 >
-                  <label
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-4"
-                      type="radio"
-                    />
-                    Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item4-options"
+                        type="radio"
+                      />
+                      Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="true"
-                      name="ecl-quiz-poll-demo-card-4"
-                      type="radio"
-                    />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="true"
+                        name="quiz-poll-item4-options"
+                        type="radio"
+                      />
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-4"
-                      type="radio"
-                    />
-                    ivamus auctor blandit auctor.
-                  </label>
-                </div>
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item4-options"
+                        type="radio"
+                      />
+                      ivamus auctor blandit auctor.
+                    </label>
+                  </li>
+                </ol>
               </fieldset>
             </div>
             <div
@@ -602,6 +663,7 @@ exports[`Quiz Poll renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-poll-item4-answer"
               >
                 <div
                   class="ecl-quiz-card__answer-title"
@@ -610,39 +672,37 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 Duis id mattis libero. Quisque accumsan nisi
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   ivamus auctor blandit auctor.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
+          id="quiz-poll-item5"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -668,49 +728,63 @@ exports[`Quiz Poll renders correctly 1`] = `
               <fieldset>
                 <legend
                   class="ecl-quiz-card__question"
+                  id="quiz-poll-item5-question"
                 >
                   Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.
                 </legend>
-                <div
+                <ol
                   class="ecl-quiz-card__options"
+                  type="A"
                 >
-                  <label
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-5"
-                      type="radio"
-                    />
-                    Aenean est metus, malesuada sed suscipit id, tempor non sapien.
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item5-options"
+                        type="radio"
+                      />
+                      Aenean est metus, malesuada sed suscipit id, tempor non sapien.
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="false"
-                      name="ecl-quiz-poll-demo-card-5"
-                      type="radio"
-                    />
-                    In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
-                  </label>
-                  <label
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="false"
+                        name="quiz-poll-item5-options"
+                        type="radio"
+                      />
+                      In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
+                    </label>
+                  </li>
+                  <li
                     class="ecl-quiz-card__option"
                   >
-                    <input
-                      data-ecl-quiz-card-flip=""
-                      data-ecl-quiz-card-input=""
-                      data-match="true"
-                      name="ecl-quiz-poll-demo-card-5"
-                      type="radio"
-                    />
-                    Aenean facilisis venenatis lacus, et egestas quam mattis eu.
-                  </label>
-                </div>
+                    <label
+                      class="ecl-quiz-card__label"
+                    >
+                      <input
+                        data-ecl-quiz-card-flip=""
+                        data-ecl-quiz-card-input=""
+                        data-match="true"
+                        name="quiz-poll-item5-options"
+                        type="radio"
+                      />
+                      Aenean facilisis venenatis lacus, et egestas quam mattis eu.
+                    </label>
+                  </li>
+                </ol>
               </fieldset>
             </div>
             <div
@@ -745,6 +819,7 @@ exports[`Quiz Poll renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-poll-item5-answer"
               >
                 <div
                   class="ecl-quiz-card__answer-title"
@@ -753,36 +828,33 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 Duis id mattis libero. Quisque accumsan nisi
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   Aenean est metus, malesuada sed suscipit id, tempor non sapien.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   Aenean facilisis venenatis lacus, et egestas quam mattis eu.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -835,15 +907,16 @@ exports[`Quiz Poll renders correctly 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Quiz Reveal renders correctly 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--reveal"
     data-ecl-auto-init="Quiz"
+    id="quiz-reveal"
   >
     <div
       class="ecl-quiz__header"
@@ -865,17 +938,16 @@ exports[`Quiz Reveal renders correctly 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
-          aria-pressed="false"
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item1"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -895,6 +967,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item1-question"
               >
                 When you travel in the EU, what happens to your roaming charges?
               </div>
@@ -928,6 +1001,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item1-answer"
               >
                 You usually pay the same at home, no extra roaming fees.
               </div>
@@ -943,16 +1017,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item2"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -972,6 +1045,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item2-question"
               >
                 What document allows EU citizens to travel freely between most EU countries?
               </div>
@@ -1005,6 +1079,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item2-answer"
               >
                 A valid ID card or passport is usually enough.
               </div>
@@ -1020,16 +1095,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item3"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1049,6 +1123,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item3-question"
               >
                 What currency is used in many EU countries?
               </div>
@@ -1082,6 +1157,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item3-answer"
               >
                 The euro (€) is used in many EU member states.
               </div>
@@ -1097,16 +1173,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item4"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1126,6 +1201,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item4-question"
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </div>
@@ -1159,6 +1235,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item4-answer"
               >
                 Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
               </div>
@@ -1174,16 +1251,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item5"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1203,6 +1279,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item5-question"
               >
                 Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.
               </div>
@@ -1236,6 +1313,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item5-answer"
               >
                 Aenean est metus, malesuada sed suscipit id, tempor non sapien. Donec viverra, odio id venenatis sollicitudin
               </div>
@@ -1251,9 +1329,9 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -1306,17 +1384,18 @@ exports[`Quiz Reveal renders correctly 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--reveal"
     data-ecl-auto-init="Quiz"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    id="quiz-reveal"
   >
     <div
       class="ecl-quiz__header"
@@ -1338,17 +1417,16 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
-          aria-pressed="false"
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item1"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1368,6 +1446,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item1-question"
               >
                 When you travel in the EU, what happens to your roaming charges?
               </div>
@@ -1401,6 +1480,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item1-answer"
               >
                 You usually pay the same at home, no extra roaming fees.
               </div>
@@ -1416,16 +1496,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item2"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1445,6 +1524,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item2-question"
               >
                 What document allows EU citizens to travel freely between most EU countries?
               </div>
@@ -1478,6 +1558,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item2-answer"
               >
                 A valid ID card or passport is usually enough.
               </div>
@@ -1493,16 +1574,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item3"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1522,6 +1602,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item3-question"
               >
                 What currency is used in many EU countries?
               </div>
@@ -1555,6 +1636,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item3-answer"
               >
                 The euro (€) is used in many EU member states.
               </div>
@@ -1570,16 +1652,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item4"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1599,6 +1680,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item4-question"
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </div>
@@ -1632,6 +1714,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item4-answer"
               >
                 Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
               </div>
@@ -1647,16 +1730,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item5"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1676,6 +1758,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item5-question"
               >
                 Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.
               </div>
@@ -1709,6 +1792,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item5-answer"
               >
                 Aenean est metus, malesuada sed suscipit id, tempor non sapien. Donec viverra, odio id venenatis sollicitudin
               </div>
@@ -1724,9 +1808,9 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -1783,15 +1867,16 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Quiz Reveal renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--reveal custom-class custom-class--test"
     data-ecl-auto-init="Quiz"
+    id="quiz-reveal"
   >
     <div
       class="ecl-quiz__header"
@@ -1813,17 +1898,16 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
-          aria-pressed="false"
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item1"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1843,6 +1927,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item1-question"
               >
                 When you travel in the EU, what happens to your roaming charges?
               </div>
@@ -1876,6 +1961,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item1-answer"
               >
                 You usually pay the same at home, no extra roaming fees.
               </div>
@@ -1891,16 +1977,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item2"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1920,6 +2005,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item2-question"
               >
                 What document allows EU citizens to travel freely between most EU countries?
               </div>
@@ -1953,6 +2039,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item2-answer"
               >
                 A valid ID card or passport is usually enough.
               </div>
@@ -1968,16 +2055,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item3"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1997,6 +2083,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item3-question"
               >
                 What currency is used in many EU countries?
               </div>
@@ -2030,6 +2117,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item3-answer"
               >
                 The euro (€) is used in many EU member states.
               </div>
@@ -2045,16 +2133,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item4"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -2074,6 +2161,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item4-question"
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </div>
@@ -2107,6 +2195,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item4-answer"
               >
                 Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
               </div>
@@ -2122,16 +2211,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
-          role="button"
+          id="quiz-reveal-item5"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -2151,6 +2239,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__question"
+                id="quiz-reveal-item5-question"
               >
                 Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.
               </div>
@@ -2184,6 +2273,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
               </div>
               <div
                 class="ecl-quiz-card__answer"
+                id="quiz-reveal-item5-answer"
               >
                 Aenean est metus, malesuada sed suscipit id, tempor non sapien. Donec viverra, odio id venenatis sollicitudin
               </div>
@@ -2199,9 +2289,9 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -2254,6 +2344,6 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
