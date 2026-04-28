@@ -255,6 +255,7 @@ export class Quiz {
 
             return `Go to slide ${firstSlideIndex + 1} of ${totalSlides}`;
           },
+          slideAriaLabel: () => '',
         }),
       ],
     );
@@ -360,6 +361,12 @@ export class Quiz {
       this.updateDots();
       this.slider.on('select', this.updateDots);
     }
+
+    // Add aria-labelledby
+    this.cards.forEach((card) => {
+      const question = queryOne(`#${card.id}-question`, card);
+      card.setAttribute('aria-labelledby', question.id);
+    });
 
     accessibility.setupLiveRegion(liveRegionNode);
   }
@@ -607,6 +614,11 @@ export class Quiz {
 
       front.hidden = isFlipped;
       back.hidden = !isFlipped;
+
+      // Update aria-labelledby
+      const question = queryOne(`#${card.id}-question`, card);
+      const answer = queryOne(`#${card.id}-answer`, card);
+      card.setAttribute('aria-labelledby', isFlipped ? answer.id : question.id);
 
       const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);

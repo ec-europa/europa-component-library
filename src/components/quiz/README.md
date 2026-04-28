@@ -8,6 +8,7 @@ npm install --save @ecl/quiz
 
 ## Parameters
 
+- **"id"** (string) (default: random): Unique id for the quiz
 - **"variant"** (string) (default: 'reveal')
 - **"with_background"** (boolean) (default: false)
 - **"title"** (string) (default: '')
