@@ -10,7 +10,6 @@
 // Exposed variables
 $theme: null !default;
 $inpage-navigation: null !default;
-$typography: null !default;
 
 @mixin with-scrollbar {
   overflow-y: auto;
@@ -380,18 +379,4 @@ $typography: null !default;
       );
     }
   }
-}
-
-// Heading styles coming from default css are removed if there is an ecl class on them
-// we have to manually apply the styles here
-h2.ecl-inpage-navigation__heading {
-  @include mixins.responsive-font('heading2');
-
-  margin: map.get($typography, 'heading-margin');
-}
-
-h3.ecl-inpage-navigation__heading {
-  @include mixins.responsive-font('heading3');
-
-  margin: map.get($typography, 'heading-margin');
 }
