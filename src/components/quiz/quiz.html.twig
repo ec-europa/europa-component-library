@@ -69,7 +69,7 @@
   {% endfor %}
 {% endif %}
 
-<div
+<section
   class="{{ _css_class }}"
   id="{{ _id }}"
   data-ecl-auto-init="Quiz"
@@ -91,7 +91,7 @@
     class="ecl-quiz__viewport"
     data-ecl-quiz-slider
   >
-    <div class="ecl-quiz__list">
+    <ol class="ecl-quiz__list">
     {% for _item in _items %}
       {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge(
         {
@@ -99,7 +99,7 @@
           id: _id ~ '-' ~ loop.index
         }) only %}
     {% endfor %}
-    </div>
+    </ol>
   </div>
 {% endif %}
   <div class="ecl-quiz__pager">
@@ -143,6 +143,6 @@
 {% if _with_background %}
   </div>
 {% endif %}
-</div>
+</section>
 
 {% endapply %}

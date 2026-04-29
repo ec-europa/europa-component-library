@@ -2,7 +2,7 @@
 
 exports[`Quiz Poll renders correctly 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--poll"
     data-ecl-auto-init="Quiz"
     id="quiz-poll"
@@ -27,14 +27,14 @@ exports[`Quiz Poll renders correctly 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
+        <li
           class="ecl-quiz-card"
           id="quiz-poll-1"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -63,50 +63,43 @@ exports[`Quiz Poll renders correctly 1`] = `
               >
                 Which institution proposes new EU laws?
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
+                type="A"
               >
-                <div
-                  aria-pressed="false"
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="true"
-                  role="button"
                   tabindex="0"
                 >
                   European commission
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   European parliament
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   European Central Bank
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   Court of Justice of the European Union
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
             <div
               class="ecl-quiz-card__back"
@@ -129,11 +122,13 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--success"
+                  tabindex="0"
                 >
                   Correct
                 </span>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--error"
+                  tabindex="0"
                 >
                   Incorrect
                 </span>
@@ -149,47 +144,43 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 The European Commission has the exclusive right to propose new EU laws
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   European commission
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   European parliament
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   European Central Bank
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   Court of Justice of the European Union
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           id="quiz-poll-2"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -218,50 +209,43 @@ exports[`Quiz Poll renders correctly 1`] = `
               >
                 What document allows EU citizens to travel freely between most EU countries?
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
+                type="A"
               >
-                <div
-                  aria-pressed="false"
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   A valid ID card.
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="true"
-                  role="button"
                   tabindex="0"
                 >
                   A valid ID card or passport
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   A valid passport.
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   None of these
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
             <div
               class="ecl-quiz-card__back"
@@ -284,11 +268,13 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--success"
+                  tabindex="0"
                 >
                   Correct
                 </span>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--error"
+                  tabindex="0"
                 >
                   Incorrect
                 </span>
@@ -304,47 +290,43 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 A valid ID card or passport is usually enough to travel freely between most EU countries.
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   A valid ID card.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   A valid ID card or passport
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   A valid passport.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   None of these
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           id="quiz-poll-3"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -373,40 +355,35 @@ exports[`Quiz Poll renders correctly 1`] = `
               >
                 What currency is used in many EU countries?
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
+                type="A"
               >
-                <div
-                  aria-pressed="false"
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   The pound is the most used currency in the EU
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   The Leu is by far the most used currency in the European Union 
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="true"
-                  role="button"
                   tabindex="0"
                 >
                   The euro (€) is used in many EU member states.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
             <div
               class="ecl-quiz-card__back"
@@ -429,11 +406,13 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--success"
+                  tabindex="0"
                 >
                   Correct
                 </span>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--error"
+                  tabindex="0"
                 >
                   Incorrect
                 </span>
@@ -449,40 +428,37 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 The Euro is the official currency used by many EU conutries
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   The pound is the most used currency in the EU
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   The Leu is by far the most used currency in the European Union 
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   The euro (€) is used in many EU member states.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           id="quiz-poll-4"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -511,40 +487,35 @@ exports[`Quiz Poll renders correctly 1`] = `
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit?
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
+                type="A"
               >
-                <div
-                  aria-pressed="false"
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="true"
-                  role="button"
                   tabindex="0"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   ivamus auctor blandit auctor.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
             <div
               class="ecl-quiz-card__back"
@@ -567,11 +538,13 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--success"
+                  tabindex="0"
                 >
                   Correct
                 </span>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--error"
+                  tabindex="0"
                 >
                   Incorrect
                 </span>
@@ -587,40 +560,37 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 Duis id mattis libero. Quisque accumsan nisi
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   ivamus auctor blandit auctor.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-        <div
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           id="quiz-poll-5"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -649,40 +619,35 @@ exports[`Quiz Poll renders correctly 1`] = `
               >
                 Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
+                type="A"
               >
-                <div
-                  aria-pressed="false"
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   Aenean est metus, malesuada sed suscipit id, tempor non sapien.
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="false"
-                  role="button"
                   tabindex="0"
                 >
                   In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
-                </div>
-                <div
-                  aria-pressed="false"
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-ecl-quiz-card-flip=""
                   data-match="true"
-                  role="button"
                   tabindex="0"
                 >
                   Aenean facilisis venenatis lacus, et egestas quam mattis eu.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
             <div
               class="ecl-quiz-card__back"
@@ -705,11 +670,13 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--success"
+                  tabindex="0"
                 >
                   Correct
                 </span>
                 <span
                   class="ecl-quiz-card__category ecl-quiz-card__category--error"
+                  tabindex="0"
                 >
                   Incorrect
                 </span>
@@ -725,36 +692,33 @@ exports[`Quiz Poll renders correctly 1`] = `
                 </div>
                 Duis id mattis libero. Quisque accumsan nisi
               </div>
-              <div
+              <ol
                 class="ecl-quiz-card__options"
-                role="list"
+                type="A"
               >
-                <div
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   Aenean est metus, malesuada sed suscipit id, tempor non sapien.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="false"
-                  role="listitem"
                 >
                   In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
-                </div>
-                <div
+                </li>
+                <li
                   class="ecl-quiz-card__option"
                   data-match="true"
-                  role="listitem"
                 >
                   Aenean facilisis venenatis lacus, et egestas quam mattis eu.
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -807,13 +771,13 @@ exports[`Quiz Poll renders correctly 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Quiz Reveal renders correctly 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--reveal"
     data-ecl-auto-init="Quiz"
     id="quiz-reveal"
@@ -838,18 +802,16 @@ exports[`Quiz Reveal renders correctly 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
-          aria-pressed="false"
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-1"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -919,17 +881,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-2"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -999,17 +959,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-3"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1079,17 +1037,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-4"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1159,17 +1115,15 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-5"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1239,9 +1193,9 @@ exports[`Quiz Reveal renders correctly 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -1294,13 +1248,13 @@ exports[`Quiz Reveal renders correctly 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--reveal"
     data-ecl-auto-init="Quiz"
     data-test="data-test-value"
@@ -1327,18 +1281,16 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
-          aria-pressed="false"
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-1"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1408,17 +1360,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-2"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1488,17 +1438,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-3"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1568,17 +1516,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-4"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1648,17 +1594,15 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-5"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1728,9 +1672,9 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -1787,13 +1731,13 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Quiz Reveal renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <section
     class="ecl-quiz ecl-quiz--reveal custom-class custom-class--test"
     data-ecl-auto-init="Quiz"
     id="quiz-reveal"
@@ -1818,18 +1762,16 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
       class="ecl-quiz__viewport"
       data-ecl-quiz-slider=""
     >
-      <div
+      <ol
         class="ecl-quiz__list"
       >
-        <div
-          aria-pressed="false"
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-1"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1899,17 +1841,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-2"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -1979,17 +1919,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-3"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -2059,17 +1997,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-4"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -2139,17 +2075,15 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          aria-pressed="false"
+          </article>
+        </li>
+        <li
           class="ecl-quiz-card"
           data-ecl-quiz-card-flip=""
           id="quiz-reveal-5"
-          role="button"
           tabindex="0"
         >
-          <div
+          <article
             class="ecl-quiz-card__content"
           >
             <div
@@ -2219,9 +2153,9 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ol>
     </div>
     <div
       class="ecl-quiz__pager"
@@ -2274,6 +2208,6 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
       aria-live="polite"
       class="ecl-quiz__live-region"
     />
-  </div>
+  </section>
 </jest>
 `;
