@@ -391,7 +391,12 @@ export class Quiz {
     // Add aria-labelledby
     this.cards.forEach((card) => {
       const question = queryOne(`#${card.id}-question`, card);
-      card.setAttribute('aria-labelledby', question.id);
+      const flip = queryOne(`#${card.id}-flip`, card);
+      let labelId = question.id;
+      if (flip) {
+        labelId = `${labelId} ${flip.id}`;
+      }
+      card.setAttribute('aria-labelledby', labelId);
     });
   }
 
@@ -643,8 +648,15 @@ export class Quiz {
 
       // Update aria-labelledby
       const question = queryOne(`#${card.id}-question`, card);
+      const flip = queryOne(`#${card.id}-flip`, card);
+      const backFlip = queryOne(`#${card.id}-back-flip`, card);
       const answer = queryOne(`#${card.id}-answer`, card);
-      card.setAttribute('aria-labelledby', isFlipped ? answer.id : question.id);
+      let labelId = isFlipped ? answer.id : question.id;
+      const flipEl = isFlipped ? backFlip : flip;
+      if (flipEl) {
+        labelId = `${labelId} ${flipEl.id}`;
+      }
+      card.setAttribute('aria-labelledby', labelId);
 
       const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);
