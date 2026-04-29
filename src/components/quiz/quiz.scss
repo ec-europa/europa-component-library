@@ -326,6 +326,7 @@ $quiz: null !default;
   counter-reset: letter;
   display: flex;
   flex-direction: column;
+  padding-inline: 0;
 
   @include mixins.responsive-font(map.get($quiz, 'card', 'option-font'));
 
@@ -450,6 +451,11 @@ $quiz: null !default;
       map.get($quiz, 'card', 'category-font'),
       map.get($quiz, 'card', 'category-font-weight')
     );
+
+    &:focus-visible {
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+      outline-offset: 2px;
+    }
   }
 
   .ecl-quiz-card__question {
