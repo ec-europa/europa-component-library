@@ -249,7 +249,8 @@
 );
 @use '@ecl/inpage-navigation/inpage-navigation' with (
   $theme: theme.$theme,
-  $inpage-navigation: var.$inpage-navigation
+  $inpage-navigation: var.$inpage-navigation,
+  $typography: var.$typography
 );
 @use '@ecl/menu/menu' with (
   $theme: theme.$theme,
