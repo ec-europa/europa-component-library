@@ -231,8 +231,6 @@ export class Quiz {
    * Init the slider.
    */
   initSlider(sliderEl) {
-    const liveRegionNode = queryOne('[aria-live]', this.element);
-
     this.slider = EmblaCarousel(
       sliderEl,
       {
@@ -246,7 +244,6 @@ export class Quiz {
           carouselAriaRoleDescription: '',
           slideAriaRoleDescription: '',
           slideRole: '',
-          announceChanges: true,
           dotButtonAriaLabel: (
             hasAnyGroupedSlides,
             firstSlideIndex,
@@ -396,8 +393,6 @@ export class Quiz {
       const question = queryOne(`#${card.id}-question`, card);
       card.setAttribute('aria-labelledby', question.id);
     });
-
-    accessibility.setupLiveRegion(liveRegionNode);
   }
 
   /**
