@@ -505,9 +505,12 @@ export class Quiz {
       e.target.classList.contains(this.cardSelector.slice(1))
     ) {
       if (e.shiftKey) {
-        if (this.slider.canGoToPrev()) {
-          e.preventDefault();
+        e.preventDefault();
+        if (e.target.previousElementSibling) {
           e.target.previousElementSibling.focus();
+        }
+
+        if (this.slider.canGoToPrev()) {
           this.slider.goToPrev();
         }
         return;
