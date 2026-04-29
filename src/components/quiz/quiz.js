@@ -502,6 +502,18 @@ export class Quiz {
 
     if (
       e.key === 'Tab' &&
+      e.target.classList.contains('ecl-quiz-card__category') &&
+      card.nextElementSibling
+    ) {
+      e.preventDefault();
+      const first = queryOne(this.optionClass, card.nextElementSibling);
+      if (first) {
+        first.focus();
+      }
+    }
+
+    if (
+      e.key === 'Tab' &&
       e.target.classList.contains(this.optionClass.slice(1))
     ) {
       const focusables = queryAll(
@@ -597,6 +609,7 @@ export class Quiz {
       const isFlipped = card.classList.contains(this.flippedClass);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
+      let category = queryOne('.ecl-quiz-card__category--error', back);
 
       if (e.target.classList.contains(this.optionClass.slice(1))) {
         const parent = e.target.parentNode;
@@ -607,6 +620,14 @@ export class Quiz {
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
+          category = queryOne('.ecl-quiz-card__category--success', back);
+        }
+
+        // FRONT-5298 Focus after answering
+        if (isFlipped) {
+          if (category) {
+            category.focus();
+          }
         }
 
         const options = queryOne('.ecl-quiz-card__options', back);
