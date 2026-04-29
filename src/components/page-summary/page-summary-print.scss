@@ -35,4 +35,25 @@ $page-summary: null !default;
 
 .ecl-page-summary__description {
   @include mixins.responsive-font(map.get($page-summary, 'description-font'));
+
+  .ecl-unordered-list,
+  .ecl ul {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($page-summary, 'list-vertical-spacing');
+    list-style-type: '•';
+    padding-inline-start: 0;
+  }
+
+  .ecl-unordered-list .ecl-unordered-list__item,
+  .ecl ul li {
+    margin-inline-start: calc(1.125rem - 1px);
+    padding-block: 0;
+    padding-inline-start: calc(1rem - 1px);
+
+    &::marker {
+      color: map.get($page-summary, 'list-marker-color');
+      font-size: 1.125rem;
+    }
+  }
 }
