@@ -48,9 +48,9 @@ $page-summary: null !default;
 
   .ecl-unordered-list .ecl-unordered-list__item,
   .ecl ul li {
-    margin-inline-start: calc(1.125rem - 1px);
+    margin-inline-start: map.get($page-summary, 'list-margin');
     padding-block: 0;
-    padding-inline-start: calc(1rem - 1px);
+    padding-inline-start: map.get($page-summary, 'list-padding');
 
     &::marker {
       color: map.get($page-summary, 'list-marker-color');
