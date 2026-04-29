@@ -577,11 +577,28 @@ export class Quiz {
         const items = Array.from(parent.children);
         const index = items.indexOf(e.target);
         const match = e.target.getAttribute('data-match') === 'true';
-        e.target.setAttribute('aria-pressed', 'true');
+        let successText = '';
+        let errorText = '';
+        const successEl = queryOne('.ecl-quiz-card__category--success', back);
+
+        if (successEl) {
+          successText = successEl.textContent;
+        }
+        const errorEl = queryOne('.ecl-quiz-card__category--error', back) || '';
+        if (errorEl) {
+          errorText = errorEl.textContent;
+        }
+        const message = match ? successText : errorText;
+        const statusEl = queryOne('.ecl-quiz-card__sr-status', back);
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
         }
+
+        statusEl.textContent = '';
+        requestAnimationFrame(() => {
+          statusEl.textContent = message;
+        });
 
         const options = queryOne('.ecl-quiz-card__options', back);
         Array.from(options.children).forEach((el) =>

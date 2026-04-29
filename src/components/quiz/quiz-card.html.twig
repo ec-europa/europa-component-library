@@ -113,7 +113,7 @@
       class="ecl-quiz-card__back"
       hidden
     >
-      <div class="ecl-quiz-card__header" role="status">
+      <div class="ecl-quiz-card__header">
         <div class="ecl-quiz-card__icon">
           {% if _back_icon %}
             {% include "@ecl/icon/icon.html.twig" with _back_icon.success|merge({
@@ -132,6 +132,13 @@
           <span class="ecl-quiz-card__category ecl-quiz-card__category--error">
             {{- _error_category -}}
           </span>
+        {% endif %}
+        {% if _variant == 'poll' %}
+          <span
+            class="ecl-quiz-card__sr-status"
+            role="status"
+            aria-atomic="true"
+          ></span>
         {% endif %}
       </div>
       <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
