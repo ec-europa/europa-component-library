@@ -105,6 +105,7 @@ export class Quiz {
     this.resizeTimer = null;
     this.slider = null;
     this.dotsNode = null;
+    this.ariaObserver = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
@@ -216,6 +217,11 @@ export class Quiz {
     if (this.slider) {
       this.slider.destroy();
     }
+
+    if (this.ariaObserver) {
+      this.ariaObserver.disconnect();
+      this.ariaObserver = null;
+    }
   }
 
   /**
@@ -234,6 +240,9 @@ export class Quiz {
       [
         Accessibility({
           carouselAriaLabel: 'Quiz slider',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
           announceChanges: true,
           dotButtonAriaLabel: (
             hasAnyGroupedSlides,
@@ -255,9 +264,27 @@ export class Quiz {
 
             return `Go to slide ${firstSlideIndex + 1} of ${totalSlides}`;
           },
+          slideAriaLabel: () => '',
         }),
       ],
     );
+
+    // The accessibility plugin sets aria-hidden on inactive slides, which prevents
+    // screen readers from navigating all quiz questions. Remove it as it's set.
+    this.ariaObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'aria-hidden') {
+          mutation.target.removeAttribute('aria-hidden');
+        }
+      });
+    });
+    this.cards.forEach((card) => {
+      this.ariaObserver.observe(card, {
+        attributes: true,
+        attributeFilter: ['aria-hidden'],
+      });
+      card.removeAttribute('aria-hidden');
+    });
 
     const accessibility = this.slider.plugins().accessibility;
     this.prevButtonNode = queryOne(this.prevClass, this.element);
@@ -360,6 +387,12 @@ export class Quiz {
       this.updateDots();
       this.slider.on('select', this.updateDots);
     }
+
+    // Add aria-labelledby
+    this.cards.forEach((card) => {
+      const question = queryOne(`#${card.id}-question`, card);
+      card.setAttribute('aria-labelledby', question.id);
+    });
 
     accessibility.setupLiveRegion(liveRegionNode);
   }
@@ -469,6 +502,18 @@ export class Quiz {
 
     if (
       e.key === 'Tab' &&
+      e.target.classList.contains('ecl-quiz-card__category') &&
+      card.nextElementSibling
+    ) {
+      e.preventDefault();
+      const first = queryOne(this.optionClass, card.nextElementSibling);
+      if (first) {
+        first.focus();
+      }
+    }
+
+    if (
+      e.key === 'Tab' &&
       e.target.classList.contains(this.optionClass.slice(1))
     ) {
       const focusables = queryAll(
@@ -564,6 +609,7 @@ export class Quiz {
       const isFlipped = card.classList.contains(this.flippedClass);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
+      let category = queryOne('.ecl-quiz-card__category--error', back);
 
       if (e.target.classList.contains(this.optionClass.slice(1))) {
         const parent = e.target.parentNode;
@@ -574,6 +620,14 @@ export class Quiz {
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
+          category = queryOne('.ecl-quiz-card__category--success', back);
+        }
+
+        // FRONT-5298 Focus after answering
+        if (isFlipped) {
+          if (category) {
+            category.focus();
+          }
         }
 
         const options = queryOne('.ecl-quiz-card__options', back);
@@ -587,6 +641,11 @@ export class Quiz {
 
       front.hidden = isFlipped;
       back.hidden = !isFlipped;
+
+      // Update aria-labelledby
+      const question = queryOne(`#${card.id}-question`, card);
+      const answer = queryOne(`#${card.id}-answer`, card);
+      card.setAttribute('aria-labelledby', isFlipped ? answer.id : question.id);
 
       const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);
