@@ -132,12 +132,18 @@
           {% include "@ecl/icon/icon.html.twig" with _icon only %}
         </div>
         {% if _success_category is not empty %}
-          <span class="ecl-quiz-card__category ecl-quiz-card__category--success">
+          <span
+            class="ecl-quiz-card__category ecl-quiz-card__category--success"
+            tabindex="0"
+          >
             {{- _success_category -}}
           </span>
         {% endif %}
         {% if _error_category is not empty %}
-          <span class="ecl-quiz-card__category ecl-quiz-card__category--error">
+          <span
+            class="ecl-quiz-card__category ecl-quiz-card__category--error"
+            tabindex="0"
+          >
             {{- _error_category -}}
           </span>
         {% endif %}
