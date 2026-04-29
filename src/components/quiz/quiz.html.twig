@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "id" (string) (default: random): Unique id for the quiz
+    - "id" (string) (default: random): Unique id for the quiz; randomized if empty
     - "variant" (string) (default: reveal) poll otherwise
     - "title" (string) (default: '')
     - "description" (string) (default: '')
@@ -11,9 +11,10 @@
     - "next_label" (string) (default: '')
     - "skip_text" (string) (default: 'Use ESC to skip the quiz' )
     - "items" (array) default([]) array of quiz-cards
+      - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
       - "category" (string) (default: '') (poll variant)
-      - "success_category" (string (default: '')
-      - "error_category" (string (default: '')
+      - "success_category" (string) (default: '')
+      - "error_category" (string) (default: '')
       - "question" (string) (default: '')
       - "answer" (string) (default: '')
       - "answer_title" (string) (default: '')
@@ -23,13 +24,12 @@
       - "flip_text" (string) Helper text (reveal variant)
       - "flip_icon" (object) Object of type icon
       - "back_text" (string) Text on the back of the card
-      - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
-      - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
-      - "extra_attributes" (optional) (array) (default: [])
+      - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
+      - "extra_classes" (string) (default: ''): Extra css classes for the card
+      - "extra_attributes" (optional) (array) (default: []):Extra attributes for the card
         - "name" (string) Attribute name, eg. 'data-test'
         - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-    - "extra_classes" (string) (default: ''): Extra css classes, added to the root picture tag
-    - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
+    - "extra_classes" (string) (default: ''): Extra css classes
     - "extra_attributes" (optional) (array) (default: [])
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -142,11 +142,6 @@
     </script>
   </div>
   <div class="ecl-quiz__counter"></div>
-  <div
-    class="ecl-quiz__live-region"
-    aria-live="polite"
-    aria-atomic="true"
-  ></div>
 {% if _with_background %}
   </div>
 {% endif %}

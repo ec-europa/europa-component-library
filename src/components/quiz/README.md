@@ -8,13 +8,16 @@ npm install --save @ecl/quiz
 
 ## Parameters
 
-- **"id"** (string) (default: random): Unique id for the quiz
+- **"id"** (string) (default: random): Unique id for the quiz; randomized if empty
 - **"variant"** (string) (default: 'reveal')
 - **"with_background"** (boolean) (default: false)
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
 - **"skip_text"** (string) (default: 'Use ESC to skip the quiz')
 - **"items"** (array) array of quiz cards
+  - "category" (string) (default: '') (poll variant)
+  - "success_category" (string) (default: '')
+  - "error_category" (string) (default: '')
   - "question" (string) (default: '')
   - "answer" (string) (default: '')
   - "answer_title" (string) (default: '')
