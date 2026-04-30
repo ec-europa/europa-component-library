@@ -205,6 +205,10 @@
   $theme: theme.$theme,
   $page-information: var.$page-information
 );
+@use '@ecl/page-summary/page-summary' with (
+  $theme: theme.$theme,
+  $page-summary: var.$page-summary
+);
 @use '@ecl/pagination/pagination' with (
   $theme: theme.$theme,
   $pagination: var.$pagination
