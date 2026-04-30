@@ -91,6 +91,7 @@ $animated-numbers: null !default;
 .ecl-animated-number__category {
   font: map.get($animated-numbers, 'category-font');
   font-weight: map.get($animated-numbers, 'category-font-weight');
+  line-height: map.get($theme, 'line-height', 'xs');
 }
 
 .ecl-animated-number__icon {
