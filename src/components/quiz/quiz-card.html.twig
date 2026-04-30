@@ -9,6 +9,8 @@
     - "question" (string) (default: '')
     - "answer" (string) (default: '')
     - "answer_title" (string) (default: '')
+    - "correct_label" (string) (default: '')
+    - "incorrect_label" (string) (default: '')
     - "options" (array) Array of options (poll variant)
     - "icon" (object) Object of type icon
     - "back_icon" (object) Object of type icon
@@ -34,6 +36,8 @@
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
+{% set _correct_label = correct_label|default('') %}
+{% set _incorrect_label = incorrect_label|default('') %}
 {% set _answer = answer|default('') %}
 {% set _name = name|default(_id ~ '-options') %}
 {% set _answer_title = answer_title|default('') %}
@@ -162,6 +166,19 @@
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
           {{- _option.name -}}
+          <span class="ecl-quiz-card__option-icon">
+          {% if _option.correct %}
+            {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
+              icon: _back_icon.success.icon|merge({ size: 'm' }),
+              extra_classes: 'ecl-quiz-card__option-icon--success'
+            }) only %}
+          {% else %}
+            {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
+              icon: _back_icon.error.icon|merge({ size: 'm' }),
+              extra_classes: 'ecl-quiz-card__option-icon--error'
+            }) only %}
+          {% endif %}
+          </span>
         </li>
       {% endfor %}
       </ol>
