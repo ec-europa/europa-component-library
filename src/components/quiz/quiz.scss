@@ -156,6 +156,12 @@ $quiz: null !default;
       outline-offset: -4px;
     }
   }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .ecl-quiz--reveal .ecl-quiz-card {
@@ -326,6 +332,7 @@ $quiz: null !default;
   counter-reset: letter;
   display: flex;
   flex-direction: column;
+  padding-inline: 0;
 
   @include mixins.responsive-font(map.get($quiz, 'card', 'option-font'));
 
@@ -333,6 +340,7 @@ $quiz: null !default;
     background: map.get($quiz, 'card', 'option-background');
     border: 1px solid map.get($quiz, 'card', 'option-border');
     border-radius: map.get($theme, 'border-radius', 's');
+    counter-increment: letter;
     cursor: pointer;
     display: grid;
     flex: 1;
@@ -340,20 +348,48 @@ $quiz: null !default;
     gap: var(--s-s);
     padding: var(--s-xs) var(--s-m);
 
+    input {
+      @include screen-reader.sr-only;
+    }
+
     + .ecl-quiz-card__option {
       margin-block-start: var(--s-xs);
     }
 
-    &:focus-visible {
+    &:has(input[type='radio']:focus-visible) {
       outline: 2px solid var(--cm-on-surface-inverted, #fff);
     }
 
     &::before {
-      counter-increment: letter;
       content: counter(letter, upper-alpha) '. ';
       font-weight: bold;
     }
+
+    &:has(.ecl-quiz-card__label) {
+      display: block;
+      padding: 0;
+
+      &::before {
+        display: none;
+      }
+
+      .ecl-quiz-card__label {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--s-s);
+        padding: var(--s-xs) var(--s-m);
+
+        &::before {
+          content: counter(letter, upper-alpha) '. ';
+          font-weight: bold;
+        }
+      }
+    }
   }
+}
+
+.ecl-quiz-card__label:hover {
+  cursor: pointer;
 }
 
 .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
@@ -420,10 +456,6 @@ $quiz: null !default;
   justify-content: center;
 }
 
-.ecl-quiz__live-region {
-  @include screen-reader.sr-only;
-}
-
 // Poll variant
 
 .ecl-quiz--poll {
@@ -450,6 +482,11 @@ $quiz: null !default;
       map.get($quiz, 'card', 'category-font'),
       map.get($quiz, 'card', 'category-font-weight')
     );
+
+    &:focus-visible {
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+      outline-offset: 2px;
+    }
   }
 
   .ecl-quiz-card__question {
