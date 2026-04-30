@@ -1,0 +1,115 @@
+/**
+ * Animated numbers component for ECL.
+ * @define animated-numbers
+ */
+
+@use 'sass:map';
+
+$theme: null !default;
+$animated-numbers: null !default;
+
+.ecl-animated-numbers {
+  --gap: #{map.get($animated-numbers, 'gap-desktop')};
+}
+
+.ecl-animated-numbers__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: flex-start;
+}
+
+.ecl-animated-number {
+  box-sizing: border-box;
+  background: map.get($animated-numbers, 'surface');
+  border: 2px solid map.get($animated-numbers, 'border-color');
+  border-radius: map.get($animated-numbers, 'border-radius');
+  display: flex;
+  flex: 1 1 calc(25% - var(--gap));
+  flex-direction: column;
+  gap: map.get($theme, 'spacing-print', 's');
+  min-width: map.get($animated-numbers, 'min-width');
+  padding: map.get($theme, 'spacing-print', 'l');
+}
+
+.ecl-animated-number__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: map.get($theme, 'spacing-print', 'm');
+}
+
+.ecl-animated-number__category {
+  white-space: nowrap;
+  font: map.get($theme, 'font-print', 's');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+}
+
+.ecl-animated-number__icon {
+  margin-inline-start: auto;
+
+  .ecl-animated-numbers--counter-color & {
+    color: var(--cm-on-surface-primary, var(--c-p));
+  }
+}
+
+.ecl-animated-number__suffix {
+  font: map.get($theme, 'font-print', 'l');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+}
+
+.ecl-animated-number__content {
+  align-items: center;
+  display: flex;
+  gap: map.get($theme, 'spacing-print', '2xs');
+  align-self: stretch;
+}
+
+.ecl-animated-number__number {
+  align-items: center;
+  display: flex;
+  gap: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-animated-number__prefix {
+  white-space: nowrap;
+  font: map.get($theme, 'font-print', 'l');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+}
+
+.ecl-animated-number__value {
+  letter-spacing: 1px !important;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+  font: map.get($theme, 'font-print', '4xl');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+
+  .ecl-animated-numbers--counter-color & {
+    color: var(--cm-on-surface-primary, var(--c-p));
+  }
+}
+
+.ecl-animated-number__description {
+  color: map.get($animated-numbers, 'description-color');
+  font: map.get($theme, 'font-print', 'm');
+}
+
+.ecl-animated-numbers__sources {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get($theme, 'spacing-print', 'xs');
+  margin-block-start: map.get($theme, 'spacing-print', 'm');
+  font: map.get($theme, 'font-print', 's');
+}
+
+.ecl-animated-numbers__source {
+  text-decoration: none;
+}
+
+.ecl-animated-numbers__source + .ecl-animated-numbers__source::before {
+  color: map.get($animated-numbers, 'source-separator-color');
+  content: '|';
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}

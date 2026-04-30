@@ -217,6 +217,19 @@ importers:
         specifier: 5.0.0-RC3
         version: link:../../mixins/typography
 
+  src/components/animated-numbers:
+    dependencies:
+      '@ecl/icon':
+        specifier: 5.0.0-RC3
+        version: link:../icon
+      '@ecl/link':
+        specifier: 5.0.0-RC3
+        version: link:../link
+    devDependencies:
+      '@ecl/dom-utils':
+        specifier: 5.0.0-RC3
+        version: link:../../tools/dom-utils
+
   src/components/banner:
     dependencies:
       '@ecl/button':
@@ -1358,6 +1371,9 @@ importers:
 
   src/page-example/page-inner:
     dependencies:
+      '@ecl/animated-numbers':
+        specifier: 5.0.0-RC3
+        version: link:../../components/animated-numbers
       '@ecl/file':
         specifier: 5.0.0-RC3
         version: link:../../components/file
@@ -1780,6 +1796,9 @@ importers:
       '@ecl/add-to-calendar':
         specifier: 5.0.0-RC3
         version: link:../../components/add-to-calendar
+      '@ecl/animated-numbers':
+        specifier: 5.0.0-RC3
+        version: link:../../components/animated-numbers
       '@ecl/banner':
         specifier: 5.0.0-RC3
         version: link:../../components/banner
@@ -2072,6 +2091,9 @@ importers:
       '@ecl/add-to-calendar':
         specifier: 5.0.0-RC3
         version: link:../../components/add-to-calendar
+      '@ecl/animated-numbers':
+        specifier: 5.0.0-RC3
+        version: link:../../components/animated-numbers
       '@ecl/banner':
         specifier: 5.0.0-RC3
         version: link:../../components/banner
@@ -2507,6 +2529,9 @@ importers:
       '@ecl/add-to-calendar':
         specifier: 5.0.0-RC3
         version: link:../components/add-to-calendar
+      '@ecl/animated-numbers':
+        specifier: 5.0.0-RC3
+        version: link:../components/animated-numbers
       '@ecl/banner':
         specifier: 5.0.0-RC3
         version: link:../components/banner
@@ -2781,6 +2806,9 @@ importers:
       '@ecl/add-to-calendar':
         specifier: 5.0.0-RC3
         version: link:../components/add-to-calendar
+      '@ecl/animated-numbers':
+        specifier: 5.0.0-RC3
+        version: link:../components/animated-numbers
       '@ecl/banner':
         specifier: 5.0.0-RC3
         version: link:../components/banner

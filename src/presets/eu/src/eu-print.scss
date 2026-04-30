@@ -185,6 +185,10 @@
   $accordion: var.$accordion,
   $accordion-print: var.$accordion-print
 );
+@use '@ecl/animated-numbers/animated-numbers-print' with (
+  $theme: theme.$theme,
+  $animated-numbers: var.$animated-numbers
+);
 @use '@ecl/carousel/carousel-print';
 @use '@ecl/category-filter/category-filter-print';
 @use '@ecl/gallery/gallery-print' with (

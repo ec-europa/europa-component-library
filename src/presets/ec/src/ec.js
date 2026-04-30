@@ -1,6 +1,7 @@
 import '@ecl/dom-utils/polyfills';
 
 export * from '@ecl/dom-utils/autoinit';
+export * from '@ecl/animated-numbers';
 export * from '@ecl/banner';
 export * from '@ecl/carousel';
 export * from '@ecl/category-filter';
