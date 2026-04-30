@@ -54,7 +54,7 @@ $page-summary: null !default;
 
     &::marker {
       color: map.get($page-summary, 'list-marker-color');
-      font-size: 1.125rem;
+      font-size: map.get($page-summary, 'list-marker-size');
     }
   }
 }
