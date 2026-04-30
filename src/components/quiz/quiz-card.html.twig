@@ -112,7 +112,7 @@
       <div
         class="ecl-quiz-card__flip"
       >
-        {{ _flip_text }}
+        {{- _flip_text -}}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </div>
     {% endif %}
@@ -168,7 +168,7 @@
     {% endif %}
     {% if _back_text is not empty or _flip_icon is not empty %}
       <div class="ecl-quiz-card__flip">
-        {{ _back_text }}
+        {{- _back_text -}}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </div>
     {% endif %}
