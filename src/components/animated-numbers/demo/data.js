@@ -36,7 +36,8 @@ module.exports = {
       prefix: '',
       value: '213',
       suffix: '€',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      description:
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     },
     {
       category: 'Revenue',
@@ -84,7 +85,7 @@ module.exports = {
       value: '50',
       suffix: 'trillions',
       description:
-        'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas',
+        'Pellentesque habitant morbi tristique senectus et netus et malesuada fames',
     },
     {
       category: 'Revenue',
