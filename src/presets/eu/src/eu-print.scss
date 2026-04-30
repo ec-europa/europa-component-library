@@ -165,6 +165,10 @@
   $separator: var.$separator
 );
 @use '@ecl/social-media-follow/social-media-follow-print';
+@use '@ecl/text-media/text-media-print' with (
+  $theme: theme.$theme,
+  $text-media: var.$text-media
+);
 @use '@ecl/timeline/timeline-print' with (
   $theme: theme.$theme,
   $timeline: var.$timeline,

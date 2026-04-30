@@ -221,6 +221,10 @@
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
 );
+@use '@ecl/text-media/text-media' with (
+  $theme: theme.$theme,
+  $text-media: var.$text-media
+);
 @use '@ecl/timeline/timeline' with (
   $theme: theme.$theme,
   $timeline: var.$timeline
