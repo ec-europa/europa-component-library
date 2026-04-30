@@ -1,14 +1,6 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-// Heading
-const headingData = {
-  heading: {
-    level: 2,
-    content: 'Heading',
-  },
-};
-
 // Card
 const cardData = {
   card: {
@@ -222,7 +214,6 @@ const listIllustrationData = {
 };
 
 const contentTypes = {
-  heading: headingData,
   card: cardData,
   navigation_list: navigationListData,
   file: fileData,

@@ -47,12 +47,16 @@ $layout-wrapper: null !default;
 // Switch items to 2 columns if possible
 @container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 's')}) {
   // Items grid
-  .ecl-layout-wrapper__content {
+  .ecl-layout-wrapper.col-2 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__content {
     grid-template-columns: repeat(2, 1fr);
   }
 
   // Vertical flow with 2 cols
-  .ecl-layout-wrapper--vertical .ecl-layout-wrapper__content {
+  .ecl-layout-wrapper--vertical.col-2 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__content {
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     grid-template-columns: none;
@@ -69,6 +73,11 @@ $layout-wrapper: null !default;
   }
 
   // Info beside container
+  .ecl-layout-wrapper.col-1.ecl-layout-wrapper--info-side
+    .ecl-layout-wrapper__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .ecl-layout-wrapper.col-2.ecl-layout-wrapper--info-side
     .ecl-layout-wrapper__grid {
     grid-template-columns: 1fr 2fr;

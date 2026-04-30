@@ -32,7 +32,7 @@ const getArgs = (data) => {
 const getArgTypes = () => {
   const argTypes = {
     info_position: {
-      name: 'Info position',
+      name: 'info position',
       type: 'select',
       description: 'Position of the title/description block',
       options: ['top', 'side'],
@@ -46,17 +46,17 @@ const getArgTypes = () => {
       },
     },
     nb_columns: {
-      name: 'Number of columns',
+      name: 'number of columns',
       description:
         'Number of item columns (max 3 when info position is "side")',
-      control: { type: 'range', min: 2, max: 4, step: 1 },
+      control: { type: 'range', min: 1, max: 4, step: 1 },
       table: {
         category: 'Configuration',
         defaultValue: { summary: 3 },
       },
     },
     nb_items: {
-      name: 'Number of items',
+      name: 'number of items',
       description: 'Number of items displayed',
       control: { type: 'range', min: 1, max: 8, step: 1 },
       table: {
@@ -64,7 +64,7 @@ const getArgTypes = () => {
       },
     },
     direction: {
-      name: 'Direction',
+      name: 'direction',
       type: 'select',
       description: 'Flow of items',
       options: ['horizontal', 'vertical'],
@@ -95,7 +95,7 @@ const getArgTypes = () => {
   }
 
   argTypes.show_view_all = {
-    name: 'View all',
+    name: 'view all',
     type: { name: 'boolean' },
     description: 'Display the "view all" link"',
     control: { type: 'boolean' },
@@ -104,7 +104,7 @@ const getArgTypes = () => {
     },
   };
   argTypes.title_level = {
-    name: 'Heading level',
+    name: 'heading level',
     type: 'select',
     description: 'Heading level in the hieararchy',
     options: [2, 3, 4],
@@ -127,7 +127,7 @@ const getArgTypes = () => {
     },
   };
   argTypes.title_label = {
-    name: 'Title',
+    name: 'title',
     type: 'string',
     description: 'Title of the layout wrapper',
     table: {
@@ -137,7 +137,7 @@ const getArgTypes = () => {
     },
   };
   argTypes.description = {
-    name: 'Description',
+    name: 'description',
     type: 'string',
     description: 'Description of the layout wrapper',
     table: {
@@ -148,7 +148,7 @@ const getArgTypes = () => {
   };
 
   argTypes.grid_content = {
-    name: 'Demo sidebar layout',
+    name: 'demo sidebar layout',
     type: { name: 'boolean' },
     description:
       'Display the layout wrapper inside a sidebar layout, to test container-query responsiveness',
@@ -203,7 +203,7 @@ const renderStory = async (data, args) => {
     return `<div class="ecl-container">
       <div class="ecl-row ecl-u-mt-l">
         <aside class="ecl-col-l-3 ecl-u-mb-l ecl-u-mb-l-none">
-          <div class="ecl-u-bg-dark-20 ecl-u-bg-grey-75 ecl-u-pa-m">Sidebar</div>
+          <div class="ecl-u-bg-dark-20 ecl-u-bg-grey-75 ecl-u-pa-m ecl-u-height-100 ecl-u-box-sizing-border">Sidebar</div>
         </aside>
         <div class="ecl-col-l-9">${renderedLayout}</div>
       </div>
