@@ -35,6 +35,10 @@ $animated-numbers: null !default;
     minmax(map.get($animated-numbers, 'min-width'), 1fr)
   );
   gap: var(--gap);
+
+  .ecl-animated-numbers--with-background.ecl-animated-numbers--border & {
+    gap: 3rem;
+  }
 }
 
 .ecl-animated-number {
@@ -175,4 +179,10 @@ $animated-numbers: null !default;
   color: map.get($animated-numbers, 'source-separator-color');
   content: '|';
   margin-inline: var(--s-xs);
+}
+
+.ecl-animated-numbers--with-background
+  .ecl-animated-numbers__sources-item
+  + .ecl-animated-numbers__sources-item::before {
+  color: var(--cm-on-surface-inverted, #fff);
 }
