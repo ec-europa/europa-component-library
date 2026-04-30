@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$add-to-calendar: (
+  info: (
+    background-color-mode: var(--cm-surface-0-add-to-calendar),
+    color: var(--cm-on-surface-add-to-calendar),
+    padding-mobile: var(--s-l) var(--s-m),
+    padding-tablet: var(--s-l) var(--s-xl),
+    padding-desktop: var(--s-l) var(--s-3xl),
+    gap-mobile: var(--s-l),
+    gap-tablet: var(--s-xl),
+    gap-desktop: var(--s-xl),
+    gap-content: var(--s-3xs),
+  ),
+  title: (
+    font: 'body-l',
+    font-weight: map.get($font-weight, 'semi-bold'),
+  ),
+  meta: (
+    font: 'microcopy-s',
+    icon-spacing: var(--s-3xs),
+    item-padding: var(--s-s),
+    separator-offset-inline-start: var(--s-3xs),
+    gap: var(--s-3xs),
+  ),
+);

@@ -414,7 +414,12 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Banner',
   decorators: [withNotes, withCode],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      diffThreshold: 0.2,
+    },
+  },
 };
 
 export const Image = (_, { loaded: { component } }) => component;

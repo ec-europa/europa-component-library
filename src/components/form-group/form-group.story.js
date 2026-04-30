@@ -56,6 +56,7 @@ const getArgs = (data) => {
   if (data.input.input_type === 'select' && data.input.multiple) {
     args.show_select_all = true;
     args.show_search = true;
+    args.submit = false;
   }
 
   Object.assign(args.input, data.input);
@@ -93,6 +94,18 @@ const getArgTypes = (data, type) => ({
             category: 'Optional',
           },
         },
+        submit: {
+          type: { name: 'boolean' },
+          mapping: {
+            0: false,
+            1: true,
+          },
+          table: {
+            type: { summary: 'boolean' },
+            defaultValue: { summary: 'false' },
+            category: 'Optional',
+          },
+        },
       }
     : {}),
 });
@@ -114,6 +127,7 @@ const prepareData = (data, args) => {
   if (clone.input.input_type === 'select' && clone.input.multiple) {
     clone.input.multiple_select_all = !!args.show_select_all;
     clone.input.multiple_search = !!args.show_search;
+    clone.input.multiple_submit = !!args.submit;
   }
   if (clone.input.input_type === 'checkbox') {
     if (clone.input.standalone && args.hide_label) {

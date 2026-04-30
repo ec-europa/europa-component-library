@@ -4,7 +4,8 @@
   - "color_mode" (string) (default: '') Name of the color mode
   - "id" (string) (default: random)
   - "type" (optional) (can be 'highlight'),
-  - "title" (string) (default: ''),
+  - "title" (string) (default: ''): Content title
+  - "micro_title" (string) (default: ''): Small additional title
   - "description" (string) (default: ''),
   - "link" (object) (default: {}): object of type Link
   - "link_highlighted" (bool) (default: false): display the link as highlighted
@@ -30,7 +31,8 @@
 {% set _css_container_class = 'ecl-featured-item__container' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _type = type|default('') %}
-{% set _title = title|default(false) %}
+{% set _title = title|default('') %}
+{% set _micro_title = micro_title|default('') %}
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
 {% set _link_highlighted = link_highlighted|default(false) %}
@@ -97,6 +99,9 @@
     <div class="ecl-featured-item__item">
       <div class="ecl-featured-item__content">
         <div class="ecl-featured-item__info">
+        {% if _micro_title is not empty %}
+          <div class="ecl-featured-item__micro-title">{{- _micro_title -}}</div>
+        {% endif %}
         {% if _title is not empty %}
           <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
         {% endif %}

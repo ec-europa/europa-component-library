@@ -25,7 +25,9 @@ import NotificationThumbnail from './notification/ec_comp_notifications.svg';
 import ModalThumbnail from './modal/ec_comp_modal.svg';
 import NewsTickerThumbnail from './news-ticker/ec_comp_news_ticker.svg';
 import PageInformationThumbnail from './page-information/ec_comp_page-information.svg';
+import PageSummaryThumbnail from './page-summary/ec_comp_page-summary.svg';
 import PopoverThumbnail from './popover/ec_comp_popover.svg';
+import QuizThumbnail from './quiz/ec_comp_quiz.svg';
 import SMFThumbnail from './social-media-follow/ec_comp_social_media_follow.svg';
 import SpinnerThumbnail from './loading-indicator/ec_comp_loading_indicator.svg';
 import SplashPageThumbnail from './splash-page/ec_comp_splash-page.svg';
@@ -38,6 +40,7 @@ import PageHeaderThumbnail from './site-wide/page-header/ec_comp_page-header.svg
 import SiteHeaderThumbnail from './site-wide/site-header/ec_comp_site-header.svg';
 import SiteFooterThumbnail from './site-wide/site-footer/ec_comp_site-footer.svg';
 
+import AddToCalendarThumbnail from './add-to-calendar/ec_comp_add_to_calendar.svg';
 import BannerThumbnail from './banner/ec_comp_banner.svg';
 import SpotlightThumbnail from './spotlight/ec_comp_spotlight.svg';
 import CarouselThumbnail from './carousel/ec_comp_carousel.svg';
@@ -56,6 +59,7 @@ import RatingFieldThumbnail from './forms/rating-field/ec_comp_rating_field.svg'
 import GalleryThumbnail from './media/gallery/ec_comp_gallery.svg';
 import MediaContainerThumbnail from './media/media-container/ec_comp_media_container.svg';
 import FeaturedItemThumbnail from './media/featured-item/ec_comp_featured_item.svg';
+import TextMediaThumbnail from './media/text-and-media/ec_comp_text_media.svg';
 
 import BreadcrumbThumbnail from './navigation/breadcrumb/ec_comp_breadcrumb.svg';
 import InpageNavigationThumbnail from './navigation/inpage-navigation/ec_comp_inpage_navigation.svg';
@@ -75,6 +79,13 @@ Every component is coded to serve a function and designed to solve a specific us
       image={AccordionThumbnail}
       link="./accordion/usage/"
       title="Accordion"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
+      image={AddToCalendarThumbnail}
+      link="./add-to-calendar/usage/"
+      title="Add to calendar"
     />
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
@@ -154,9 +165,23 @@ Every component is coded to serve a function and designed to solve a specific us
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
     <Thumbnail
+      image={PageSummaryThumbnail}
+      link="./page-summary/usage/"
+      title="Page summary"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
       image={PopoverThumbnail}
       link="./popover/usage/"
       title="Popover"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
+      image={QuizThumbnail}
+      link="./quiz/usage/"
+      title="Quiz"
     />
   </Col>
   <Col col="12 s-6 m-4 l-3" spacing="pv-m">
@@ -343,6 +368,13 @@ Every component is coded to serve a function and designed to solve a specific us
       image={FeaturedItemThumbnail}
       link="./media/featured-item/usage/"
       title="Featured item"
+    />
+  </Col>
+  <Col col="12 s-6 m-4 l-3" spacing="pv-m">
+    <Thumbnail
+      image={TextMediaThumbnail}
+      link="./media/text-and-media/usage/"
+      title="Text and media"
     />
   </Col>
 </Row>

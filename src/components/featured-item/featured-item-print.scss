@@ -27,11 +27,23 @@ $featured-item-print: null !default;
   }
 }
 
+.ecl-featured-item__micro-title {
+  color: map.get($featured-item, 'micro-title', 'color');
+  font: map.get($featured-item-print, 'micro-title', 'font');
+  font-weight: map.get($featured-item, 'title', 'font-weight');
+  letter-spacing: map.get($featured-item, 'micro-title', 'letter-spacing');
+  text-transform: uppercase;
+}
+
 .ecl-featured-item__title {
   color: map.get($featured-item, 'title', 'color');
   font: map.get($featured-item-print, 'title', 'font');
   font-weight: map.get($featured-item, 'title', 'font-weight');
   max-width: var(--max-w);
+
+  .ecl-featured-item__micro-title + & {
+    margin-block-start: map.get($featured-item-print, 'title', 'spacing');
+  }
 }
 
 .ecl-featured-item__description {
@@ -164,6 +176,10 @@ $featured-item-print: null !default;
       'padding-inline'
     );
     position: relative;
+  }
+
+  .ecl-featured-item__micro-title {
+    color: map.get($featured-item, 'highlight', 'micro-title', 'color');
   }
 
   .ecl-featured-item__title {

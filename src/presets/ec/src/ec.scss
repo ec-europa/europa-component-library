@@ -96,6 +96,10 @@
   $notification: var.$notification
 );
 @use '@ecl/picture/picture';
+@use '@ecl/quiz/quiz' with (
+  $theme: theme.$theme,
+  $quiz: var.$quiz
+);
 @use '@ecl/separator/separator' with (
   $separator: var.$separator
 );
@@ -125,6 +129,10 @@
 @use '@ecl/video/video';
 
 // Molecules
+@use '@ecl/add-to-calendar/add-to-calendar' with (
+  $theme: theme.$theme,
+  $add-to-calendar: var.$add-to-calendar
+);
 @use '@ecl/banner/banner' with (
   $theme: theme.$theme,
   $banner: var.$banner
@@ -201,6 +209,10 @@
   $theme: theme.$theme,
   $page-information: var.$page-information
 );
+@use '@ecl/page-summary/page-summary' with (
+  $theme: theme.$theme,
+  $page-summary: var.$page-summary
+);
 @use '@ecl/pagination/pagination' with (
   $theme: theme.$theme,
   $pagination: var.$pagination
@@ -216,6 +228,10 @@
 @use '@ecl/social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
+);
+@use '@ecl/text-media/text-media' with (
+  $theme: theme.$theme,
+  $text-media: var.$text-media
 );
 @use '@ecl/timeline/timeline' with (
   $theme: theme.$theme,
