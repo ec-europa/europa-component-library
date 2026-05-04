@@ -104,6 +104,11 @@
               >
               {{- _option.name -}}
             </label>
+          {%- if loop.first and _esc_box is not empty -%}
+            <span class="ecl-quiz__skip">
+              {{- _esc_box -}}
+            </span>
+          {%- endif -%}
           </li>
         {% endfor %}
         </ol>
