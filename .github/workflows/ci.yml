@@ -167,6 +167,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   chromatic-ec-dev:
+    if: ${{ vars.CHROMATIC_DISABLED != 'true' }}
     name: Run Chromatic for EC on release branch
     needs: deploy-release-branch
     runs-on: ubuntu-latest
@@ -177,6 +178,7 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
   chromatic-eu-dev:
+    if: ${{ vars.CHROMATIC_DISABLED != 'true' }}
     name: Run Chromatic for EU on release branch
     needs: deploy-release-branch
     runs-on: ubuntu-latest
