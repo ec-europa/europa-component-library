@@ -147,6 +147,13 @@
             {{- _error_category -}}
           </span>
         {% endif %}
+        {% if _variant == 'poll' %}
+          <span
+            class="ecl-quiz-card__sr-status"
+            role="status"
+            aria-atomic="true"
+          ></span>
+        {% endif %}
       </div>
       <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
       {%- if _answer_title is not empty -%}

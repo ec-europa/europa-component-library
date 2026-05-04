@@ -1,0 +1,69 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "title" (string) (default: ''): page summary title
+    - "description" (string) (default: ''): page summary description
+    - "icon" (object) (default: ''): icon for the title; follows the ECL Icon structure
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (optional) (array) (default: [])
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-page-summary' %}
+{% set _extra_attributes = '' %}
+{% set _title = title|default('') %}
+{% set _description = description|default('') %}
+{% set _icon = icon|default({}) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {% if _title is not empty or _icon is not empty %}
+    <div class="ecl-page-summary__header">
+      {# Icon #}
+      {% if _icon is not empty %}
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: _icon,
+          extra_classes: "ecl-page-summary__icon",
+        } only %}
+      {% endif %}
+
+      {# Title #}
+      {% if _title is not empty %}
+        <span class="ecl-page-summary__title">{{ _title }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if _description is not empty %}
+    {# Description #}
+    <div class="ecl-page-summary__description">
+      {{- _description -}}
+    </div>
+  {% endif %}
+</div>
+
+{% endapply %}
