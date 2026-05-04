@@ -500,6 +500,29 @@ export class Quiz {
 
     if (
       e.key === 'Tab' &&
+      e.target.classList.contains(this.cardSelector.slice(1))
+    ) {
+      if (e.shiftKey) {
+        e.preventDefault();
+        if (e.target.previousElementSibling) {
+          e.target.previousElementSibling.focus();
+        }
+
+        if (this.slider.canGoToPrev()) {
+          this.slider.goToPrev();
+        }
+        return;
+      }
+
+      if (this.slider.canGoToNext()) {
+        e.preventDefault();
+        e.target.nextElementSibling.focus();
+        this.slider.goToNext();
+      }
+    }
+
+    if (
+      e.key === 'Tab' &&
       e.target.classList.contains('ecl-quiz-card__category') &&
       card.nextElementSibling
     ) {
