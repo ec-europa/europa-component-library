@@ -11,6 +11,27 @@ module.exports = {
       icon_position: 'after',
     },
   },
+  sources_label: 'Sources:',
+  sources: [
+    {
+      link: {
+        label: 'Eurostat',
+        path: exampleLink,
+      },
+    },
+    {
+      link: {
+        label: 'DG CNECT',
+        path: exampleLink,
+      },
+    },
+    {
+      link: {
+        label: 'Eurostat',
+        path: exampleLink,
+      },
+    },
+  ],
   items: [
     {
       icon: {
