@@ -568,3 +568,7 @@ $quiz: null !default;
     }
   }
 }
+
+.ecl-quiz-card__sr-status {
+  @include screen-reader.sr-only;
+}
