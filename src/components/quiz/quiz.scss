@@ -28,6 +28,7 @@ $quiz: null !default;
 
 .ecl-quiz__viewport {
   overflow: hidden;
+  padding: 0.25rem;
 }
 
 .ecl-quiz__title {
@@ -146,14 +147,10 @@ $quiz: null !default;
   &:focus-visible {
     outline: none;
 
-    .ecl-quiz-card__front {
-      outline: 2px solid var(--cm-on-surface-inverted, #fff);
-      outline-offset: -4px;
-    }
-
+    .ecl-quiz-card__front,
     .ecl-quiz-card__back {
-      outline: 2px solid var(--cm-on-surface-brand, var(--c-d));
-      outline-offset: -4px;
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+      outline-offset: 2px;
     }
   }
 
@@ -605,4 +602,8 @@ $quiz: null !default;
       }
     }
   }
+}
+
+.ecl-quiz-card__sr-status {
+  @include screen-reader.sr-only;
 }

@@ -10,6 +10,12 @@ $media-container: (
   caption-line-height: map.get($line-height-prolonged, 'm'),
   caption-padding: var(--s-l),
   caption-before: true,
+  caption-over: (
+    background: color-mix(in srgb, var(--c-d) 60%, transparent),
+    color: #fff,
+    padding: var(--s-xs) var(--s-m),
+    line-height: map.get($line-height-prolonged, 's'),
+  ),
   expandable-spacing-top: var(--s-xs),
   scrollbar-width: 16px,
 );
