@@ -501,6 +501,29 @@ export class Quiz {
 
     if (
       e.key === 'Tab' &&
+      e.target.classList.contains(this.cardSelector.slice(1))
+    ) {
+      if (e.shiftKey) {
+        e.preventDefault();
+        if (e.target.previousElementSibling) {
+          e.target.previousElementSibling.focus();
+        }
+
+        if (this.slider.canGoToPrev()) {
+          this.slider.goToPrev();
+        }
+        return;
+      }
+
+      if (this.slider.canGoToNext()) {
+        e.preventDefault();
+        e.target.nextElementSibling.focus();
+        this.slider.goToNext();
+      }
+    }
+
+    if (
+      e.key === 'Tab' &&
       e.target.classList.contains('ecl-quiz-card__category') &&
       card.nextElementSibling
     ) {
@@ -617,6 +640,23 @@ export class Quiz {
         const items = Array.from(parent.children);
         const index = items.indexOf(li);
         const match = e.target.getAttribute('data-match') === 'true';
+        let successText = '';
+        let errorText = '';
+        const successEl = queryOne('.ecl-quiz-card__category--success', back);
+
+        if (successEl) {
+          successText = successEl.textContent;
+        }
+        const errorEl = queryOne('.ecl-quiz-card__category--error', back) || '';
+        if (errorEl) {
+          errorText = errorEl.textContent;
+        }
+        const message = match ? successText : errorText;
+        const statusEl = queryOne('.ecl-quiz-card__sr-status', back);
+        statusEl.textContent = '';
+        requestAnimationFrame(() => {
+          statusEl.textContent = message;
+        });
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
