@@ -504,6 +504,7 @@ export class Quiz {
       this.handleClickOnItem(e);
     }
 
+    // Keyboard navigation for the card "reveal" variant
     if (
       e.key === 'Tab' &&
       e.target.classList.contains(this.cardSelector.slice(1))
@@ -527,6 +528,7 @@ export class Quiz {
       }
     }
 
+    // Keyboard navigation for the "poll" variant
     if (
       (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp') &&
       (e.target.hasAttribute(this.inputSelector) ||
@@ -535,6 +537,7 @@ export class Quiz {
     ) {
       e.preventDefault();
       let focusables = [];
+      // Inputs on the front, options and category on the back
       if (isFront) {
         focusables = Array.from(queryAll(`[${this.inputSelector}]`, card));
       } else {
@@ -550,6 +553,7 @@ export class Quiz {
 
       // Shift + Tab or arrow up
       if (e.shiftKey || e.key === 'ArrowUp') {
+        // Internal navigation in a card element
         if (!isFirst) {
           focusables[currentIndex - 1].setAttribute('tabindex', '0');
           focusables[currentIndex - 1].focus();
@@ -564,6 +568,7 @@ export class Quiz {
             );
             let previousFocusables = [];
             this.slider.goToPrev();
+            // If the previous slide is not flipped, focus the last input, otherwise focus the last focusable option or category
             if (isPrevFront) {
               previousFocusables = Array.from(
                 queryAll(`[${this.inputSelector}]`, prevSlide),
@@ -585,7 +590,7 @@ export class Quiz {
 
         return;
       }
-
+      // Internal navigation in a card element with Tab or arrow down
       if (!isLast) {
         focusables[currentIndex + 1].setAttribute('tabindex', '0');
         focusables[currentIndex + 1].focus();
@@ -598,6 +603,7 @@ export class Quiz {
           let nextOption = null;
           const isNextFront = !nextSlide.classList.contains(this.flippedClass);
           this.slider.goToNext();
+          // If the next slide is not flipped, focus the first input, otherwise focus the first focusable option or category
           if (isNextFront) {
             nextOption = queryOne(`[${this.inputSelector}]`, nextSlide);
           } else {
