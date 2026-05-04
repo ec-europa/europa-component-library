@@ -345,6 +345,11 @@ $quiz: null !default;
     gap: var(--s-s);
     padding: var(--s-xs) var(--s-m);
 
+    &:hover,
+    &:active {
+      background-color: map.get($quiz, 'card', 'option-background-hover');
+    }
+
     input {
       @include screen-reader.sr-only;
     }
@@ -354,7 +359,10 @@ $quiz: null !default;
     }
 
     &:has(input[type='radio']:focus-visible) {
-      outline: 2px solid var(--cm-on-surface-inverted, #fff);
+      background-color: map.get($quiz, 'card', 'option-background-focus');
+      box-shadow: map.get($quiz, 'card', 'option-shadow-focus');
+      outline: map.get($quiz, 'card', 'option-outline-focus');
+      outline-offset: 2px;
     }
 
     &::before {
@@ -416,6 +424,25 @@ $quiz: null !default;
     .ecl-quiz-card__option {
       background: map.get($quiz, 'card', 'second-option-background');
       border-color: map.get($quiz, 'card', 'second-option-border');
+
+      &:hover,
+      &:active {
+        background-color: map.get(
+          $quiz,
+          'card',
+          'second-option-background-hover'
+        );
+      }
+
+      &:has(input[type='radio']:focus-visible) {
+        background-color: map.get(
+          $quiz,
+          'card',
+          'second-option-background-focus'
+        );
+        box-shadow: map.get($quiz, 'card', 'second-option-shadow-focus');
+        outline: map.get($quiz, 'card', 'second-option-outline-focus');
+      }
     }
   }
 }
