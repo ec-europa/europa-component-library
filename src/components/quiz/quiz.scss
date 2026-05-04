@@ -438,6 +438,13 @@ $quiz: null !default;
     &:has(:active) {
       box-shadow: 0 0 0 2px var(--cm-on-surface-inverted, #fff);
     }
+
+    &:has(input[type='radio']:focus-visible) {
+      box-shadow:
+        0 0 0 2px var(--cm-border-primary, var(--c-p)),
+        0 0 0 4px var(--cm-on-surface-inverted, #fff);
+      outline: none;
+    }
   }
 }
 
@@ -546,7 +553,7 @@ $quiz: null !default;
       display: flex;
 
       .ecl-quiz-card__option-icon {
-        align-self: center;
+        align-self: flex-start;
         margin-inline-start: auto;
       }
 
@@ -557,6 +564,10 @@ $quiz: null !default;
       &.ecl-quiz-card__option--selected .ecl-icon,
       &[data-match='true'] .ecl-icon {
         display: block;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--cm-border-primary, var(--c-p));
       }
     }
 

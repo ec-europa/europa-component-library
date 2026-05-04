@@ -493,7 +493,13 @@ export class Quiz {
     const card = item.closest(this.cardSelector);
     if (!card) return;
 
-    if (e.key === 'Enter' || e.key === ' ') {
+    const isFront = !card.classList.contains(this.flippedClass);
+
+    // Flip the card when pressing Enter or Space on the front face
+    if (
+      (e.key === 'Enter' || e.key === ' ') &&
+      (isFront || e.target.classList.contains(this.cardSelector.slice(1)))
+    ) {
       e.preventDefault();
       this.handleClickOnItem(e);
     }
@@ -522,48 +528,54 @@ export class Quiz {
     }
 
     if (
-      e.key === 'Tab' &&
-      e.target.classList.contains('ecl-quiz-card__category') &&
-      card.nextElementSibling
-    ) {
-      e.preventDefault();
-      const first = queryOne(
-        `[${this.inputSelector}]`,
-        card.nextElementSibling,
-      );
-      if (first) {
-        first.focus();
-      }
-    }
-
-    if (
       (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp') &&
-      e.target.hasAttribute(this.inputSelector)
+      (e.target.hasAttribute(this.inputSelector) ||
+        e.target.classList.contains(this.optionClass.slice(1)) ||
+        e.target.classList.contains('ecl-quiz-card__category'))
     ) {
       e.preventDefault();
-      const focusables = queryAll(`[${this.inputSelector}]`, card);
-      const focusableArray = Array.from(focusables);
-      const currentIndex = focusableArray.indexOf(item);
+      let focusables = [];
+      if (isFront) {
+        focusables = Array.from(queryAll(`[${this.inputSelector}]`, card));
+      } else {
+        const back = queryOne(this.backClass, card);
+        focusables = Array.from(queryAll('[tabindex="0"]', back)).filter(
+          (el) => getComputedStyle(el).display !== 'none',
+        );
+      }
+
+      const currentIndex = focusables.indexOf(item);
       const isFirst = currentIndex === 0;
-      const isLast = currentIndex === focusableArray.length - 1;
+      const isLast = currentIndex === focusables.length - 1;
 
       // Shift + Tab or arrow up
       if (e.shiftKey || e.key === 'ArrowUp') {
         if (!isFirst) {
-          focusableArray[currentIndex - 1].setAttribute('tabindex', '0');
-          focusableArray[currentIndex - 1].focus();
+          focusables[currentIndex - 1].setAttribute('tabindex', '0');
+          focusables[currentIndex - 1].focus();
         }
         // Handle Shift + Tab on the first option of the card
-        if (isFirst || card.classList.contains(this.flippedClass)) {
+        if (isFirst) {
           const prevSlide = card.previousElementSibling;
 
           if (prevSlide) {
-            this.slider.goToPrev();
-            const previousFocusables = queryAll(
-              `[${this.inputSelector}]`,
-              prevSlide,
+            const isPrevFront = !prevSlide.classList.contains(
+              this.flippedClass,
             );
-            const previousOption = Array.from(previousFocusables).pop();
+            let previousFocusables = [];
+            this.slider.goToPrev();
+            if (isPrevFront) {
+              previousFocusables = Array.from(
+                queryAll(`[${this.inputSelector}]`, prevSlide),
+              );
+            } else {
+              const prevBack = queryOne(this.backClass, prevSlide);
+              previousFocusables = Array.from(
+                queryAll('[tabindex="0"]', prevBack),
+              ).filter((el) => getComputedStyle(el).display !== 'none');
+            }
+
+            const previousOption = previousFocusables.pop();
             if (previousOption) {
               previousOption.setAttribute('tabindex', '0');
               previousOption.focus();
@@ -575,16 +587,26 @@ export class Quiz {
       }
 
       if (!isLast) {
-        focusableArray[currentIndex + 1].setAttribute('tabindex', '0');
-        focusableArray[currentIndex + 1].focus();
+        focusables[currentIndex + 1].setAttribute('tabindex', '0');
+        focusables[currentIndex + 1].focus();
       }
       // Handle tab on the last option of the card
-      if (isLast || card.classList.contains(this.flippedClass)) {
+      if (isLast) {
         const nextSlide = item.closest(this.cardSelector).nextElementSibling;
 
         if (nextSlide) {
+          let nextOption = null;
+          const isNextFront = !nextSlide.classList.contains(this.flippedClass);
           this.slider.goToNext();
-          const nextOption = queryOne(`[${this.inputSelector}]`, nextSlide);
+          if (isNextFront) {
+            nextOption = queryOne(`[${this.inputSelector}]`, nextSlide);
+          } else {
+            const nextBack = queryOne(this.backClass, nextSlide);
+            nextOption = Array.from(queryAll('[tabindex="0"]', nextBack)).find(
+              (el) => getComputedStyle(el).display !== 'none',
+            );
+          }
+
           if (nextOption) {
             nextOption.setAttribute('tabindex', '0');
             nextOption.focus();
@@ -670,12 +692,18 @@ export class Quiz {
         }
 
         const options = queryOne('.ecl-quiz-card__options', back);
-        Array.from(options.children).forEach((el) =>
-          el.classList.remove('ecl-quiz-card__option--selected'),
-        );
-        options.children[index].classList.add(
-          'ecl-quiz-card__option--selected',
-        );
+        Array.from(options.children).forEach((el, i) => {
+          const isSelected = i === index;
+          const isMatch = el.getAttribute('data-match') === 'true';
+
+          el.classList.toggle('ecl-quiz-card__option--selected', isSelected);
+
+          if (isSelected || isMatch) {
+            el.setAttribute('tabindex', '0');
+          } else {
+            el.removeAttribute('tabindex');
+          }
+        });
       }
 
       front.hidden = isFlipped;

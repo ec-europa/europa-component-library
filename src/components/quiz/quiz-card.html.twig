@@ -3,20 +3,22 @@
 {#
   Parameters
     - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
-    - "category" (string) (default: '') (poll variant)
-    - "success_category" (string) (default: '')
-    - "error_category" (string) (default: '')
-    - "question" (string) (default: '')
-    - "answer" (string) (default: '')
-    - "answer_title" (string) (default: '')
-    - "correct_label" (string) (default: '')
-    - "incorrect_label" (string) (default: '')
+    - "category" (string) (default: '') (poll variant) Category of the quiz item, eg: 'Geography'
+    - "success_category" (string) (default: '') Category to show on the back of the card in case of correct answer, eg: 'Correct'
+    - "error_category" (string) (default: '') Category to show on the back of the card in case of incorrect answer, eg: 'Incorrect'
+    - "question" (string) (default: '') Question to show on the front of the card
+    - "answer" (string) (default: '') Answer to show on the back of the card
+    - "answer_title" (string) (default: '') Title for the answer section on the back of the card
+    - "correct_label" (string) (default: '') Aria label for correct option icon
+    - "incorrect_label" (string) (default: '') Aria label for incorrect option icon
     - "options" (array) Array of options (poll variant)
-    - "icon" (object) Object of type icon
-    - "back_icon" (object) Object of type icon
+      - "name" (string) Name of the option, eg: 'Paris'
+      - "correct" (boolean) Whether the option is correct or not
+    - "icon" (object) Object of type icon to show on the front of the card
+    - "back_icon" (object) Object of type icon to show on the back of the card
     - "flip_text" (string) Helper text (reveal variant)
-    - "flip_icon" (object) Object of type icon
-    - "back_text" (string) Text on the back of the card
+    - "flip_icon" (object) Object of type icon to show next to the helper text
+    - "back_text" (string) Text on the back of the card next to the icon
     - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
     - "extra_classes" (string) (default: ''): Extra css classes
     - "extra_attributes" (optional) (array) (default: [])
@@ -171,18 +173,21 @@
         <li
           class="ecl-quiz-card__option"
           data-match="{{ _option.correct ? "true" : "false" }}"
+          aria-label="{{ _option.correct ? _correct_label : _incorrect_label }}"
         >
           {{- _option.name -}}
-          <span class="ecl-quiz-card__option-icon">
+          <span
+            class="ecl-quiz-card__option-icon"
+          >
           {% if _option.correct %}
             {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
               icon: _back_icon.success.icon|merge({ size: 'm' }),
-              extra_classes: 'ecl-quiz-card__option-icon--success'
+              extra_classes: 'ecl-quiz-card__option-icon--success',
             }) only %}
           {% else %}
             {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
               icon: _back_icon.error.icon|merge({ size: 'm' }),
-              extra_classes: 'ecl-quiz-card__option-icon--error'
+              extra_classes: 'ecl-quiz-card__option-icon--error',
             }) only %}
           {% endif %}
           </span>
