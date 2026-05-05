@@ -18,6 +18,7 @@ const getArgs = (data) => {
     credit: data.credit,
     show_expandable: false,
     full_width: false,
+    caption_position: 'bottom',
   };
   if (data.video) {
     args = {
@@ -144,6 +145,29 @@ const getArgTypes = (data) => {
     description: 'Extend the component to the full viewport width',
     table: {
       defaultValue: { summary: 'false' },
+      category: 'Display',
+    },
+  };
+
+  argTypes.caption_position = {
+    name: 'caption position',
+    type: 'select',
+    description:
+      'Change description and credit position; if set to "over", description/credit will not be displayed for video',
+    options: ['bottom', 'over'],
+    control: {
+      labels: {
+        bottom: 'bottom',
+        over: 'over',
+      },
+    },
+    mapping: {
+      bottom: 'bottom',
+      over: 'over',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'bottom' },
       category: 'Display',
     },
   };

@@ -774,6 +774,9 @@ export class Menu {
     // Max height: n * line-height + padding
     // We need to temporally change item alignments to get the height
     menuItem.style.alignItems = 'flex-start';
+    // Temporarily disable min-height so the measurement reflects only text
+    // wrapping, not the CSS minimum (e.g. 56px on EC desktop links).
+    menuLink.style.minHeight = '0';
     let linkWidth = menuLink.offsetWidth;
     const linkStyle = window.getComputedStyle(menuLink);
     const maxHeight =
@@ -787,6 +790,7 @@ export class Menu {
       // Safety exit
       if (linkWidth > 1000) break;
     }
+    menuLink.style.minHeight = '';
     menuItem.style.alignItems = 'unset';
   }
 

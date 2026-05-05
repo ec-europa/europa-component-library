@@ -14,6 +14,7 @@ import dataFile from '@ecl/file/demo/data--with-translation';
 import dataGallery from '@ecl/gallery/demo/data';
 import dataTabs from '@ecl/tabs/demo/data--with-content';
 import dataModal from '@ecl/modal/demo/data';
+import dataAnimationNumber from '@ecl/animated-numbers/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -45,6 +46,10 @@ const system = getSystem();
 const data = {
   system,
   icon_path: '/icons.svg',
+  animated_numbers: {
+    ...dataAnimationNumber,
+    items: dataAnimationNumber.items.slice(0, 3),
+  },
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
   page_header: pageHeader,

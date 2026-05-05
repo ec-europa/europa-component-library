@@ -28,6 +28,7 @@ $quiz: null !default;
 
 .ecl-quiz__viewport {
   overflow: hidden;
+  padding: 0.25rem;
 }
 
 .ecl-quiz__title {
@@ -146,15 +147,17 @@ $quiz: null !default;
   &:focus-visible {
     outline: none;
 
-    .ecl-quiz-card__front {
-      outline: 2px solid var(--cm-on-surface-inverted, #fff);
-      outline-offset: -4px;
-    }
-
+    .ecl-quiz-card__front,
     .ecl-quiz-card__back {
-      outline: 2px solid var(--cm-on-surface-brand, var(--c-d));
-      outline-offset: -4px;
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+      outline-offset: 2px;
     }
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -326,6 +329,7 @@ $quiz: null !default;
   counter-reset: letter;
   display: flex;
   flex-direction: column;
+  padding-inline: 0;
 
   @include mixins.responsive-font(map.get($quiz, 'card', 'option-font'));
 
@@ -333,6 +337,7 @@ $quiz: null !default;
     background: map.get($quiz, 'card', 'option-background');
     border: 1px solid map.get($quiz, 'card', 'option-border');
     border-radius: map.get($theme, 'border-radius', 's');
+    counter-increment: letter;
     cursor: pointer;
     display: grid;
     flex: 1;
@@ -340,20 +345,48 @@ $quiz: null !default;
     gap: var(--s-s);
     padding: var(--s-xs) var(--s-m);
 
+    input {
+      @include screen-reader.sr-only;
+    }
+
     + .ecl-quiz-card__option {
       margin-block-start: var(--s-xs);
     }
 
-    &:focus-visible {
+    &:has(input[type='radio']:focus-visible) {
       outline: 2px solid var(--cm-on-surface-inverted, #fff);
     }
 
     &::before {
-      counter-increment: letter;
       content: counter(letter, upper-alpha) '. ';
       font-weight: bold;
     }
+
+    &:has(.ecl-quiz-card__label) {
+      display: block;
+      padding: 0;
+
+      &::before {
+        display: none;
+      }
+
+      .ecl-quiz-card__label {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--s-s);
+        padding: var(--s-xs) var(--s-m);
+
+        &::before {
+          content: counter(letter, upper-alpha) '. ';
+          font-weight: bold;
+        }
+      }
+    }
   }
+}
+
+.ecl-quiz-card__label:hover {
+  cursor: pointer;
 }
 
 .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
@@ -367,21 +400,23 @@ $quiz: null !default;
   background: map.get($quiz, 'card', 'first-background');
 }
 
-.ecl-quiz-card:nth-child(3n + 2) .ecl-quiz-card__front {
-  background: map.get($quiz, 'card', 'second-background');
-  color: map.get($quiz, 'card', 'second-color');
-
-  .ecl-quiz-card__icon {
-    color: map.get($quiz, 'card', 'color');
-  }
-
-  .ecl-quiz-card__flip {
+.ecl-quiz-card:nth-child(3n + 2) {
+  .ecl-quiz-card__front {
+    background: map.get($quiz, 'card', 'second-background');
     color: map.get($quiz, 'card', 'second-color');
-  }
 
-  .ecl-quiz-card__option {
-    background: map.get($quiz, 'card', 'second-option-background');
-    border-color: map.get($quiz, 'card', 'second-option-border');
+    .ecl-quiz-card__icon {
+      color: map.get($quiz, 'card', 'color');
+    }
+
+    .ecl-quiz-card__flip {
+      color: map.get($quiz, 'card', 'second-color');
+    }
+
+    .ecl-quiz-card__option {
+      background: map.get($quiz, 'card', 'second-option-background');
+      border-color: map.get($quiz, 'card', 'second-option-border');
+    }
   }
 }
 
@@ -420,10 +455,6 @@ $quiz: null !default;
   justify-content: center;
 }
 
-.ecl-quiz__live-region {
-  @include screen-reader.sr-only;
-}
-
 // Poll variant
 
 .ecl-quiz--poll {
@@ -450,6 +481,11 @@ $quiz: null !default;
       map.get($quiz, 'card', 'category-font'),
       map.get($quiz, 'card', 'category-font-weight')
     );
+
+    &:focus-visible {
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+      outline-offset: 2px;
+    }
   }
 
   .ecl-quiz-card__question {
@@ -530,4 +566,8 @@ $quiz: null !default;
       }
     }
   }
+}
+
+.ecl-quiz-card__sr-status {
+  @include screen-reader.sr-only;
 }

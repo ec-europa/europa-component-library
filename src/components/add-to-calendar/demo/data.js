@@ -11,7 +11,7 @@ module.exports = {
       icon: {
         name: 'clock',
       },
-      label: '2:00 PM - 4:00 PM',
+      label: '2:00 PM - 4:00 PM (CET)',
     },
     {
       icon: {

@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$animated-numbers: (
+  background-spacing: var(--s-13xl) 0,
+  gap-mobile: var(--s-xl),
+  gap-tablet: var(--s-xl),
+  gap-desktop: var(--s-3xl),
+  surface: var(--cm-surface-inverted),
+  border-color: var(--cm-border-grey-lowest),
+  header-color: var(--cm-on-surface-brand),
+  category-font: var(--f-m),
+  prefix-font: var(--f-2xl),
+  prefix-font-weight: map.get($font-weight, 'semi-bold'),
+  category-font-weight: map.get($font-weight, 'semi-bold'),
+  source-spacing: var(--s-5xl),
+  value-color: var(--cm-on-surface-brand),
+  value-font: var(--f-6xl),
+  value-font-weight: map.get($font-weight, 'semi-bold'),
+  description-font: var(--f-m),
+  item-spacing: var(--s-l),
+  description-color: var(--c-g-600),
+  description-color-on-dark: var(--c-g-300),
+  source-color: var(--cm-on-surface-brand),
+  source-font: var(--f-xs),
+  source-link-color: var(--cm-on-surface),
+  source-separator-color: var(--cm-on-surface-brand),
+  border-radius: map.get($border-radius, 'xs'),
+  shadow: map.get($shadow, '2'),
+  min-width: 18rem,
+);
