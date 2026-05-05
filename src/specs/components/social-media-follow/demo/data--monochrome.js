@@ -6,28 +6,6 @@ module.exports = {
   links: [
     {
       link: {
-        label: 'Facebook',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'facebook',
-      },
-    },
-    {
-      link: {
-        label: 'Instagram',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'instagram',
-      },
-    },
-    {
-      link: {
         label: 'Mastodon',
         path: exampleLink,
         icon_position: 'before',
@@ -50,13 +28,35 @@ module.exports = {
     },
     {
       link: {
-        label: 'Telegram',
+        label: 'Bluesky',
         path: exampleLink,
         icon_position: 'before',
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'telegram',
+        name: 'bluesky',
+      },
+    },
+    {
+      link: {
+        label: 'Facebook',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'facebook',
+      },
+    },
+    {
+      link: {
+        label: 'Youtube',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'youtube',
       },
     },
     {
