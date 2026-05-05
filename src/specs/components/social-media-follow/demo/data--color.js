@@ -34,7 +34,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'mluesky-color',
+        name: 'bluesky-color',
       },
     },
     {

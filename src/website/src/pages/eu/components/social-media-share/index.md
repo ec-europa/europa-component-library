@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: eu
-  path: /story/components-social-media-share--horizontal
+  path: /story/components-deprecated-social-media-share--horizontal
 ---
