@@ -72,6 +72,7 @@ const getArgTypes = () => ({
     },
   },
   headline_label: {
+    name: 'headline label',
     type: { name: 'string' },
     description: 'Label of the timeline headline',
     table: {
@@ -82,6 +83,7 @@ const getArgTypes = () => ({
     if: { arg: 'show_headline' },
   },
   headline_title: {
+    name: 'headline title',
     type: { name: 'string' },
     description: 'Title of the timeline headline',
     table: {
@@ -92,6 +94,7 @@ const getArgTypes = () => ({
     if: { arg: 'show_headline' },
   },
   headline_content: {
+    name: 'headline content',
     type: { name: 'string' },
     description: 'Content of the timeline headline',
     table: {
@@ -129,7 +132,7 @@ const getArgTypes = () => ({
     },
   },
   showDummyContent: {
-    name: 'Add dummy content',
+    name: 'add dummy content',
     type: { name: 'boolean' },
     description: 'Add dummy content at the bottom of the timeline.',
     table: {

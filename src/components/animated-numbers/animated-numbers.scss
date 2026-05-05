@@ -1,0 +1,191 @@
+/**
+ * Animated numbers component for ECL.
+ * @define animated-numbers
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$animated-numbers: null !default;
+
+.ecl-animated-numbers {
+  container-type: inline-size;
+  container-name: ecl-animated-numbers;
+
+  --gap: #{map.get($animated-numbers, 'gap-mobile')};
+
+  width: 100%;
+}
+
+.ecl-animated-numbers--with-background {
+  box-sizing: border-box;
+  position: relative;
+  inset-inline-start: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+  background: var(--cm-surface-brand, var(--c-d));
+  color: var(--cm-on-surface-inverted, #fff);
+  padding: map.get($animated-numbers, 'background-spacing');
+}
+
+.ecl-animated-numbers__items {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(map.get($animated-numbers, 'min-width'), 1fr)
+  );
+  gap: var(--gap);
+
+  .ecl-animated-numbers--with-background.ecl-animated-numbers--border & {
+    gap: 3rem;
+  }
+}
+
+.ecl-animated-number {
+  box-sizing: border-box;
+  background: map.get($animated-numbers, 'surface');
+  border: 1px solid map.get($animated-numbers, 'border-color');
+  border-radius: map.get($animated-numbers, 'border-radius');
+  box-shadow: map.get($animated-numbers, 'shadow');
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-m);
+  padding: map.get($animated-numbers, 'item-spacing');
+
+  .ecl-animated-numbers--border & {
+    border: none;
+    border-inline-start: 1px solid var(--cm-border-brand, var(--c-d));
+    box-shadow: none;
+    padding: 0 map.get($animated-numbers, 'item-spacing');
+  }
+
+  .ecl-animated-numbers--with-background & {
+    background: transparent;
+    color: var(--cm-on-surface-inverted, #fff);
+  }
+
+  .ecl-animated-numbers--with-background.ecl-animated-numbers--border & {
+    border-inline-start: 1px solid var(--cm-on-surface-inverted, #fff);
+  }
+}
+
+@container (width >= 480px) {
+  .ecl-animated-numbers__items {
+    --gap: #{map.get($animated-numbers, 'gap-tablet')};
+  }
+}
+
+@container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-animated-numbers__items {
+    --gap: #{map.get($animated-numbers, 'gap-desktop')};
+  }
+}
+
+.ecl-animated-number__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-m);
+}
+
+.ecl-animated-number__category {
+  font: map.get($animated-numbers, 'category-font');
+  font-weight: map.get($animated-numbers, 'category-font-weight');
+  line-height: map.get($theme, 'line-height', 'xs');
+}
+
+.ecl-animated-number__icon {
+  margin-inline-start: auto;
+
+  .ecl-animated-numbers--counter-color & {
+    color: var(--cm-on-surface-primary, var(--c-p));
+  }
+}
+
+.ecl-animated-number__suffix {
+  font: map.get($animated-numbers, 'prefix-font');
+  font-weight: map.get($animated-numbers, 'prefix-font-weight');
+}
+
+.ecl-animated-number__content {
+  align-items: center;
+  display: flex;
+  gap: var(--s-2xs);
+  align-self: stretch;
+}
+
+.ecl-animated-number__number {
+  align-items: center;
+  display: flex;
+  gap: var(--s-xs);
+}
+
+.ecl-animated-number__prefix {
+  font: map.get($animated-numbers, 'prefix-font');
+  font-weight: map.get($animated-numbers, 'prefix-font-weight');
+}
+
+.ecl-animated-number__value {
+  letter-spacing: 1px !important;
+  text-align: center;
+  margin: 0;
+  font: map.get($animated-numbers, 'value-font');
+  font-weight: map.get($animated-numbers, 'value-font-weight');
+
+  .ecl-animated-numbers--counter-color & {
+    color: var(--cm-on-surface-primary, var(--c-p));
+  }
+}
+
+.ecl-animated-number__description {
+  color: map.get($animated-numbers, 'description-color');
+  font: map.get($animated-numbers, 'description-font');
+
+  .ecl-animated-numbers--with-background & {
+    color: map.get($animated-numbers, 'description-color-on-dark');
+  }
+}
+
+.ecl-animated-numbers__sources {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  font: map.get($animated-numbers, 'source-font');
+  gap: var(--s-xs);
+  margin-block-start: map.get($animated-numbers, 'source-spacing');
+}
+
+.ecl-animated-numbers__sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.ecl-animated-numbers__source {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: clamp(3px, 0.245em, 10px);
+  }
+
+  .ecl-animated-numbers--with-background & {
+    color: var(--cm-on-surface-inverted, #fff);
+    text-decoration: underline;
+  }
+}
+
+.ecl-animated-numbers__sources-item
+  + .ecl-animated-numbers__sources-item::before {
+  color: map.get($animated-numbers, 'source-separator-color');
+  content: '|';
+  margin-inline: var(--s-xs);
+}
+
+.ecl-animated-numbers--with-background
+  .ecl-animated-numbers__sources-item
+  + .ecl-animated-numbers__sources-item::before {
+  color: var(--cm-on-surface-inverted, #fff);
+}

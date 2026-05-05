@@ -15,7 +15,7 @@ const getArgs = (data) => ({
 
 const getArgTypes = () => ({
   label_collapsed: {
-    name: 'label of the button',
+    name: 'button label (collapsed)',
     type: { name: 'string', required: true },
     description: 'Used when the content is hidden',
     table: {
@@ -25,7 +25,7 @@ const getArgTypes = () => ({
     },
   },
   label_expanded: {
-    name: 'label of the button',
+    name: 'button label (expanded)',
     type: { name: 'string', required: true },
     description: 'Used when the content is visible',
     table: {

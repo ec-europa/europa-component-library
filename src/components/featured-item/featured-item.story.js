@@ -14,6 +14,7 @@ const system = getSystem();
 const getArgs = (data) => {
   const args = {
     show_media: true,
+    micro_title: data.micro_title,
     title: data.title,
     description: data.description,
     horizontal_alignment: 'left',
@@ -38,14 +39,26 @@ const getArgTypes = (data) => {
 
   argTypes.show_media = {
     type: 'boolean',
-    name: 'show media',
+    name: 'Show media',
     description: 'Toggle media visility',
     table: {
       category: 'Optional',
     },
   };
 
+  argTypes.micro_title = {
+    name: 'Micro title',
+    type: 'string',
+    description: 'Features item content micro title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
   argTypes.title = {
+    name: 'Title',
     type: 'string',
     description: 'Features item content title',
     table: {
@@ -56,6 +69,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.description = {
+    name: 'Description',
     type: 'string',
     description: 'Features item content description',
     table: {
@@ -67,7 +81,7 @@ const getArgTypes = (data) => {
 
   if (data.link.link.label) {
     argTypes.link_label = {
-      name: 'link label',
+      name: 'Link label',
       type: { name: 'string' },
       description: 'Label of the link',
       table: {
@@ -83,7 +97,7 @@ const getArgTypes = (data) => {
     (data.type === 'simple' || data.type === 'highlight')
   ) {
     argTypes.link_display = {
-      name: 'link display',
+      name: 'Link display',
       type: { name: 'select' },
       description: 'Optional link display',
       options: ['default', 'button', 'highlight'],
@@ -101,7 +115,7 @@ const getArgTypes = (data) => {
     };
   } else {
     argTypes.link_display = {
-      name: 'link display',
+      name: 'Link display',
       type: { name: 'select' },
       description: 'Optional link display',
       options: ['default', 'button'],
@@ -119,7 +133,7 @@ const getArgTypes = (data) => {
   }
 
   argTypes.horizontal_alignment = {
-    name: 'horizontal alignment',
+    name: 'Horizontal alignment',
     type: { name: 'select' },
     description: 'Content alignment (horizontal)',
     options: ['left', 'center'],
@@ -135,7 +149,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.vertical_alignment = {
-    name: 'vertical alignment',
+    name: 'Vertical alignment',
     type: { name: 'select' },
     description: 'Content alignment (vertical); tablet and desktop only',
     options: ['top', 'center'],
@@ -151,7 +165,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_position = {
-    name: 'media position',
+    name: 'Media position',
     type: { name: 'select' },
     description: 'Media position',
     options: ['left', 'right'],
@@ -168,7 +182,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_behavior = {
-    name: 'media fill behavior',
+    name: 'Media fill behavior',
     type: { name: 'select' },
     description: 'Media fill behavior',
     options: ['static', 'dynamic'],
@@ -185,15 +199,15 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_anchor = {
-    name: 'media anchor',
+    name: 'Media anchor',
     type: { name: 'select' },
     description: 'Media anchor (sample)',
-    options: ['center', 'left', 'right', '20%'],
+    options: ['center', 'top left', 'bottom right', '20% 20%'],
     mapping: {
       center: 'center',
-      left: 'left',
-      right: 'right',
-      '20%': '20%',
+      'top left': 'top left',
+      'bottom right': 'bottom right',
+      '20% 20%': '20% 20%',
     },
     table: {
       type: { summary: 'string' },

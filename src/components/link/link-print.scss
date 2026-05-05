@@ -42,7 +42,8 @@ $button: null !default;
       .ecl-link--primary-highlight,
       .ecl-link--primary-neutral,
       .ecl-link--primary,
-      .ecl-link--secondary
+      .ecl-link--secondary,
+      .ecl-link--secondary-inverted
     )
     .ecl-link__label {
     text-decoration: underline;
@@ -148,6 +149,10 @@ $button: null !default;
 
 .ecl-link--secondary {
   @include link-button(secondary);
+}
+
+.ecl-link--secondary-inverted {
+  @include link-button(secondary-inverted);
 }
 
 .ecl-link--primary-highlight {

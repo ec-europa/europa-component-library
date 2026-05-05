@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$page-summary: (
+  title-font: 'body-s',
+  title-font-weight: map.get($font-weight, 'semi-bold'),
+  description-font: 'body-s',
+  background: var(--cm-surface-grey-low-0-transparent),
+  border: 2px solid var(--cm-border-primary),
+  color: var(--cm-on-surface-brand),
+  padding: var(--s-xl) var(--s-xl) var(--s-2xl),
+  icon-spacing: var(--s-xs),
+  vertical-spacing: var(--s-s),
+  list-vertical-spacing: var(--s-2xs),
+  list-marker-color: var(--cm-on-surface-primary),
+  list-marker-size: 1.125rem,
+  list-margin: calc(1.125rem - 1px),
+  list-padding: calc(1rem - 1px),
+);
