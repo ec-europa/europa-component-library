@@ -87,7 +87,11 @@
       </div>
     {% endif %}
     {% if _options is not empty %}
-      <fieldset aria-describedby="quiz-{{ _id }}-skip-instructions">
+      <fieldset
+      {%- if _esc_box is not empty %}
+        aria-describedby="quiz-{{ _id }}-skip-instructions"
+      {%- endif -%}
+      >
         <legend class="ecl-quiz-card__question" id="{{ _id }}-question">
           {{- _question -}}
         </legend>
