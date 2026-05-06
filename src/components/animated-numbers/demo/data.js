@@ -57,9 +57,11 @@ module.exports = {
         name: 'trend-up',
         family: 'phosphor',
       },
-      prefix: 'billion',
+      prefix: 'M',
+      prefix_label: 'million',
       value: '975',
       suffix: '<',
+      suffix_label: 'less than',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     },

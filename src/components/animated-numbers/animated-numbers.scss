@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -124,6 +125,11 @@ $animated-numbers: null !default;
 .ecl-animated-number__prefix {
   font: map.get($animated-numbers, 'prefix-font');
   font-weight: map.get($animated-numbers, 'prefix-font-weight');
+}
+
+.ecl-animated-number__prefix-label,
+.ecl-animated-number__suffix-label {
+  @include screen-reader.sr-only;
 }
 
 .ecl-animated-number__value {
