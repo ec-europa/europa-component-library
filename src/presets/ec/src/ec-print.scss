@@ -126,7 +126,8 @@
 @use '@ecl/fact-figures/fact-figures-print' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures,
-  $fact-figures-print: var.$fact-figures-print
+  $fact-figures-print: var.$fact-figures-print,
+  $link: var.$link
 );
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme

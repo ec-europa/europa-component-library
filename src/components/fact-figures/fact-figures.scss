@@ -10,6 +10,7 @@
 // Exposed variables
 $theme: null !default;
 $fact-figures: null !default;
+$link: null !default;
 
 .ecl-fact-figures {
   background-color: map.get($fact-figures, 'background');
@@ -103,11 +104,14 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__source {
-  color: map.get($fact-figures, 'source-link-color');
-  text-decoration: map.get($fact-figures, 'source-link-underline');
-
-  &:hover {
-    text-decoration: map.get($fact-figures, 'source-link-underline-hover');
+  @if map.get($fact-figures, 'source-link-variant') == 'brand' {
+    --ecl-link-color: #{map.get($link, 'brand', 'color')};
+    --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
+    --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
+    --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+  } @else if map.get($fact-figures, 'source-link-variant') == 'standalone' {
+    --ecl-link-text-decoration: none;
+    --ecl-link-color-hover: var(--ecl-link-color);
   }
 }
 
