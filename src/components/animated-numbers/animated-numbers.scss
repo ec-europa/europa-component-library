@@ -24,7 +24,7 @@ $animated-numbers: null !default;
   inset-inline-start: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
-  background: var(--cm-surface-brand, var(--c-d));
+  background: var(--cm-surface-brand, var(--c-p-180));
   color: var(--cm-on-surface-inverted, #fff);
   padding: map.get($animated-numbers, 'background-spacing');
 }
@@ -57,7 +57,7 @@ $animated-numbers: null !default;
     border: none;
     border-inline-start: 1px solid var(--cm-border-brand, var(--c-d));
     box-shadow: none;
-    padding: 0 map.get($animated-numbers, 'item-spacing');
+    padding: map.get($animated-numbers, 'item-spacing');
   }
 
   .ecl-animated-numbers--with-background & {
@@ -164,16 +164,28 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers__source {
-  text-decoration: none;
+  text-decoration: underline;
 
   &:hover {
     text-decoration: underline;
-    text-underline-offset: clamp(3px, 0.245em, 10px);
   }
 
   .ecl-animated-numbers--with-background & {
     color: var(--cm-on-surface-inverted, #fff);
     text-decoration: underline;
+
+    &:hover,
+    &:active {
+      color: var(--c-g-300, map.get($theme, 'color', 'grey-40'));
+    }
+
+    &:focus-visible {
+      box-shadow:
+        0 0 0 2px var(--cm-border-primary, var(--c-p)),
+        0 0 0 4px var(--cm-on-surface-inverted, #fff);
+      outline: none;
+      text-decoration: none;
+    }
   }
 }
 
