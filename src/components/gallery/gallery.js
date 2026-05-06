@@ -595,7 +595,7 @@ export class Gallery {
     if (description) {
       this.overlayDescription.innerHTML = description.innerHTML;
     }
-    if (actionMobile.childNodes.length > 0) {
+    if (actionMobile.children.length > 0) {
       this.overlayDescription.prepend(actionMobile);
     }
   }
