@@ -79,11 +79,6 @@ $fact-figures-print: null !default;
   display: flex;
 }
 
-.ecl-fact-figures__source {
-  color: map.get($fact-figures, 'source-link-color');
-  text-decoration: map.get($fact-figures, 'source-link-underline');
-}
-
 .ecl-fact-figures__sources-item + .ecl-fact-figures__sources-item::before {
   color: map.get($fact-figures, 'source-separator-color');
   content: '|';
