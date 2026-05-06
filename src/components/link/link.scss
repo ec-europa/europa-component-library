@@ -12,6 +12,26 @@ $theme: null !default;
 $button: null !default;
 $link: null !default;
 
+@mixin brand-link {
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+}
+
+@mixin standalone-link {
+  --ecl-link-text-decoration: none;
+  --ecl-link-text-decoration-hover: underline;
+  --ecl-link-color-hover: var(--ecl-link-color);
+}
+
+@mixin inverted-link {
+  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
+}
+
 .ecl-link,
 %ecl-link {
   color: var(--ecl-link-color);
@@ -103,9 +123,7 @@ $link: null !default;
 * Standalone
 */
 .ecl-link--standalone {
-  --ecl-link-text-decoration: none;
-  --ecl-link-text-decoration-hover: underline;
-  --ecl-link-color-hover: var(--ecl-link-color);
+  @include standalone-link;
 
   display: inline-block;
 }
@@ -115,10 +133,7 @@ $link: null !default;
 */
 .ecl-link--brand,
 %ecl-link-brand {
-  --ecl-link-color: #{map.get($link, 'brand', 'color')};
-  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
-  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
-  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+  @include brand-link;
 
   &.ecl-link--standalone {
     --ecl-link-color-hover: #{map.get($link, 'brand', 'color')};
@@ -130,10 +145,7 @@ $link: null !default;
 */
 .ecl-link--inverted,
 %ecl-link-inverted {
-  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
-  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
-  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
-  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
+  @include inverted-link;
 
   &.ecl-link--standalone {
     --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
