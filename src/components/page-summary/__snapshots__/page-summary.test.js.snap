@@ -3,8 +3,9 @@
 exports[`Blockquote Default renders correctly 1`] = `
 <jest>
   <section
+    aria-labelledby="page-summary-title"
     class="ecl-page-summary"
-    id="ecl-page-summary"
+    id="page-summary"
   >
     <div
       class="ecl-page-summary__header"
@@ -15,7 +16,7 @@ exports[`Blockquote Default renders correctly 1`] = `
       />
       <h2
         class="ecl-page-summary__title"
-        id="ecl-page-summary-title"
+        id="page-summary-title"
       >
         Summary
       </h2>
@@ -32,10 +33,11 @@ exports[`Blockquote Default renders correctly 1`] = `
 exports[`Blockquote Default renders correctly with extra attributes 1`] = `
 <jest>
   <section
+    aria-labelledby="page-summary-title"
     class="ecl-page-summary"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
-    id="ecl-page-summary"
+    id="page-summary"
   >
     <div
       class="ecl-page-summary__header"
@@ -46,7 +48,7 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
       />
       <h2
         class="ecl-page-summary__title"
-        id="ecl-page-summary-title"
+        id="page-summary-title"
       >
         Summary
       </h2>
@@ -63,8 +65,9 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
 exports[`Blockquote Default renders correctly with extra class names 1`] = `
 <jest>
   <section
+    aria-labelledby="page-summary-title"
     class="ecl-page-summary custom-class custom-class--test"
-    id="ecl-page-summary"
+    id="page-summary"
   >
     <div
       class="ecl-page-summary__header"
@@ -75,7 +78,7 @@ exports[`Blockquote Default renders correctly with extra class names 1`] = `
       />
       <h2
         class="ecl-page-summary__title"
-        id="ecl-page-summary-title"
+        id="page-summary-title"
       >
         Summary
       </h2>
