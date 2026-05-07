@@ -103,7 +103,7 @@
       {% endif %}
       </div>
       <div class="ecl-animated-number__content">
-        <div class="ecl-animated-number__number">
+        <span class="ecl-animated-number__number">
         {% if item.prefix is defined and item.prefix is not empty %}
           <span class="ecl-animated-number__prefix">
             {%- if item.prefix_label is defined and item.prefix_label is not empty -%}
@@ -128,13 +128,13 @@
             {{- item.suffix -}}
           </span>
         {% endif %}
-        </div>
+        </span>
+        {% if item.description is defined and item.description is not empty %}
+          <span class="ecl-animated-number__description">
+            {{- item.description -}}
+          </span>
+        {% endif %}
       </div>
-    {% if item.description is defined and item.description is not empty %}
-      <div class="ecl-animated-number__description">
-        {{- item.description -}}
-      </div>
-    {% endif %}
     </div>
   {% endfor %}
   </div>
