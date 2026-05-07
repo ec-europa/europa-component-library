@@ -113,20 +113,20 @@
           </span>
         {% endif %}
         {% if item.value is defined and item.value is not empty %}
-          <div
+          <span
             class="ecl-animated-number__value"
             data-ecl-animated-numbers-value
           >
             {{- item.value -}}
-          </div>
+        </span>
         {% endif %}
         {% if item.suffix is defined and item.suffix is not empty %}
-          <div class="ecl-animated-number__suffix">
+          <span class="ecl-animated-number__suffix">
             {%- if item.suffix_label is defined and item.suffix_label is not empty -%}
               <span class="ecl-animated-number__suffix-label">{{- item.suffix_label -}}</span>
             {%- endif -%}
             {{- item.suffix -}}
-          </div>
+          </span>
         {% endif %}
         </div>
       </div>
