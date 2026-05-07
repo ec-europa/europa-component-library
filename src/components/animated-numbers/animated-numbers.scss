@@ -161,6 +161,8 @@ $animated-numbers: null !default;
   padding: 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--s-xs);
 }
 
 .ecl-animated-numbers__source {
@@ -177,15 +179,13 @@ $animated-numbers: null !default;
   }
 }
 
-.ecl-animated-numbers__sources-item
-  + .ecl-animated-numbers__sources-item::before {
+.ecl-animated-numbers__sources-item:not(:last-child)::after {
   color: map.get($animated-numbers, 'source-separator-color');
   content: '|';
   margin-inline: var(--s-xs);
 }
 
 .ecl-animated-numbers--with-background
-  .ecl-animated-numbers__sources-item
-  + .ecl-animated-numbers__sources-item::before {
+  .ecl-animated-numbers__sources-item:not(:last-child)::after {
   color: var(--cm-on-surface-inverted, #fff);
 }
