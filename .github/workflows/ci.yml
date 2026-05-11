@@ -94,6 +94,48 @@ jobs:
           NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  chromatic-ec:
+    if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-ec')) }}
+    name: Run Chromatic for EC
+    needs: deploy-pull-request-preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - name: Compute Chromatic stories
+        id: chromatic_args
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
+            STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
+            echo "stories=$STORIES" >> $GITHUB_OUTPUT
+          else
+            echo "stories=" >> $GITHUB_OUTPUT
+          fi
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: dist/website/playground/ec
+          onlyStoryNames: ${{ steps.chromatic_args.outputs.stories || '' }}
+  chromatic-eu:
+    name: Run Chromatic for EU
+    if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-eu')) }}
+    needs: deploy-pull-request-preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - name: Compute Chromatic stories
+        id: chromatic_args
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'chromatic-test') }}" == "true" ]]; then
+            STORIES=$(paste -sd "," .github/chromatic-test-stories.txt)
+            echo "stories=$STORIES" >> $GITHUB_OUTPUT
+          else
+            echo "stories=" >> $GITHUB_OUTPUT
+          fi
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
+          storybookBuildDir: dist/website/playground/eu
+          onlyStoryNames: ${{ steps.chromatic_args.outputs.stories || '' }}
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
@@ -124,3 +166,23 @@ jobs:
           NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  chromatic-ec-dev:
+    name: Run Chromatic for EC on release branch
+    needs: deploy-release-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: dist/website/playground/ec
+  chromatic-eu-dev:
+    name: Run Chromatic for EU on release branch
+    needs: deploy-release-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
+          storybookBuildDir: dist/website/playground/eu
