@@ -105,7 +105,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
-          onlyChanged: true
   chromatic-eu:
     name: Run Chromatic for EU
     if: ${{ github.event.pull_request && (contains(github.event.pull_request.labels.*.name, 'chromatic') || contains(github.event.pull_request.labels.*.name, 'chromatic-eu')) }}
@@ -117,7 +116,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
-          onlyChanged: true
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
@@ -158,7 +156,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
-          onlyChanged: true
   chromatic-eu-dev:
     name: Run Chromatic for EU on release branch
     needs: deploy-release-branch
@@ -169,4 +166,3 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
-          onlyChanged: true
