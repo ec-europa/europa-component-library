@@ -6,7 +6,7 @@
   "version": "5.0.0-RC4",
   "description": "Storybook EC Twig",
   "scripts": {
-    "build": "STORYBOOK_SYSTEM=EC ../../../node_modules/.pnpm/node_modules/.bin/sb build -c .storybook -o build",
+    "build": "STORYBOOK_SYSTEM=EC ../../../node_modules/.pnpm/node_modules/.bin/sb build -c .storybook -o build --webpack-stats-json",
     "postinstall": "ncp node_modules/@duetds/date-picker/dist/duet public/duet",
     "start": "STORYBOOK_SYSTEM=EC node start.js"
   },
