@@ -754,6 +754,7 @@ export class Menu {
     // Temporarily disable min-height so the measurement reflects only text
     // wrapping, not the CSS minimum (e.g. 56px on EC desktop links).
     menuLink.style.minHeight = '0';
+    menuLink.style.width = '';
     let linkWidth = menuLink.offsetWidth;
     const linkStyle = window.getComputedStyle(menuLink);
     const maxHeight =
@@ -1088,12 +1089,20 @@ export class Menu {
     this.btnNext.style.display = 'flex';
 
     // Refresh display
+    // ecl-menu--transition adds transition-delay to links, which prevents
+    // the min-height override in checkMenuItem from taking effect immediately.
+    // Temporarily remove it (same as handleResize does) so measurements are accurate.
+    const hadTransition = this.element.classList.contains(
+      'ecl-menu--transition',
+    );
+    if (hadTransition) this.element.classList.remove('ecl-menu--transition');
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
         item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
+    if (hadTransition) this.element.classList.add('ecl-menu--transition');
   }
 
   /**
@@ -1133,12 +1142,20 @@ export class Menu {
     }
 
     // Refresh display
+    // ecl-menu--transition adds transition-delay to links, which prevents
+    // the min-height override in checkMenuItem from taking effect immediately.
+    // Temporarily remove it (same as handleResize does) so measurements are accurate.
+    const hadTransition = this.element.classList.contains(
+      'ecl-menu--transition',
+    );
+    if (hadTransition) this.element.classList.remove('ecl-menu--transition');
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
         item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
+    if (hadTransition) this.element.classList.add('ecl-menu--transition');
   }
 
   /**
