@@ -2,8 +2,10 @@
 
 exports[`Blockquote Default renders correctly 1`] = `
 <jest>
-  <div
+  <section
+    aria-labelledby="page-summary-title"
     class="ecl-page-summary"
+    id="page-summary"
   >
     <div
       class="ecl-page-summary__header"
@@ -12,27 +14,30 @@ exports[`Blockquote Default renders correctly 1`] = `
         aria-hidden="true"
         class="wt-icon-phosphor--book-open ecl-icon ecl-icon--m ecl-page-summary__icon ecl-icon-phosphor--book-open"
       />
-      <span
+      <h2
         class="ecl-page-summary__title"
+        id="page-summary-title"
       >
         Summary
-      </span>
+      </h2>
     </div>
     <div
       class="ecl-page-summary__description"
     >
       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Blockquote Default renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <section
+    aria-labelledby="page-summary-title"
     class="ecl-page-summary"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    id="page-summary"
   >
     <div
       class="ecl-page-summary__header"
@@ -41,25 +46,28 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
         aria-hidden="true"
         class="wt-icon-phosphor--book-open ecl-icon ecl-icon--m ecl-page-summary__icon ecl-icon-phosphor--book-open"
       />
-      <span
+      <h2
         class="ecl-page-summary__title"
+        id="page-summary-title"
       >
         Summary
-      </span>
+      </h2>
     </div>
     <div
       class="ecl-page-summary__description"
     >
       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Blockquote Default renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <section
+    aria-labelledby="page-summary-title"
     class="ecl-page-summary custom-class custom-class--test"
+    id="page-summary"
   >
     <div
       class="ecl-page-summary__header"
@@ -68,17 +76,18 @@ exports[`Blockquote Default renders correctly with extra class names 1`] = `
         aria-hidden="true"
         class="wt-icon-phosphor--book-open ecl-icon ecl-icon--m ecl-page-summary__icon ecl-icon-phosphor--book-open"
       />
-      <span
+      <h2
         class="ecl-page-summary__title"
+        id="page-summary-title"
       >
         Summary
-      </span>
+      </h2>
     </div>
     <div
       class="ecl-page-summary__description"
     >
       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
-  </div>
+  </section>
 </jest>
 `;
