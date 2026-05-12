@@ -36,6 +36,10 @@ $animated-numbers: null !default;
     minmax(map.get($animated-numbers, 'min-width'), 1fr)
   );
   gap: var(--gap);
+
+  // FRONT-5318 - remove list styles when using ul for better semantics
+  list-style: none;
+  margin: 0;
   padding: 0;
 
   .ecl-animated-numbers--with-background.ecl-animated-numbers--border & {
