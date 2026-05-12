@@ -6,6 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from './demo/data';
+import demoSidebar from './demo/data--sidebar';
 
 expect.extend(toHaveNoViolations);
 
@@ -20,6 +21,12 @@ describe('Accordion', () => {
     expect.assertions(1);
 
     return expect(render(demoData)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly in the sidebar', () => {
+    expect.assertions(1);
+
+    return expect(render(demoSidebar)).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with old data', () => {

@@ -13,6 +13,7 @@
       },
       ...
     ]
+    - "sidebar" (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
     - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
     - "name" (string) (default: '') Optional name to link multiple accordion items
     - "extra_classes" (string) (default: '')
@@ -32,6 +33,7 @@
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
 {% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
+{% set _sidebar = sidebar|default(false) %}
 
 {% if _icons|length == 1 and _icons[0].name == 'plus' %}
   {% set _icons = _icons|merge([{'name': 'minus', 'path': _icons[0].path}]) %}
@@ -41,6 +43,10 @@
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if _sidebar %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-accordion--sidebar' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -72,10 +78,13 @@
         {% set _item_class = _item_class ~ ' is-last' %}
       {% endif %}
 
-      <details 
+      <details
         class="{{ _item_class }}"
         {% if _name is not empty %}
           name="{{ _name }}"
+        {% endif %}
+        {%- if _sidebar -%}
+          data-desktop-open
         {% endif %}
         >
         <summary class="ecl-accordion__toggle">

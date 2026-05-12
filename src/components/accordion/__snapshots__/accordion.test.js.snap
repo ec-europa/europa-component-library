@@ -97,6 +97,224 @@ exports[`Accordion renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Accordion renders correctly in the sidebar 1`] = `
+<jest>
+  <div
+    class="ecl-accordion ecl-accordion--sidebar"
+    data-desktop-open=""
+  >
+    <details
+      class="ecl-accordion__item is-first"
+      data-desktop-open=""
+    >
+      <summary
+        class="ecl-accordion__toggle"
+      >
+        Filter by            
+        <span
+          aria-hidden="true"
+          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+        />
+        <span
+          aria-hidden="true"
+          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+        />
+      </summary>
+      <div
+        class="ecl-accordion__content"
+      >
+        <form>
+          <div
+            class="ecl-form-group"
+          >
+            <label
+              class="ecl-form-label"
+              for="example-input-id-1"
+              id="example-input-id-1-label"
+            >
+              Label
+              <span
+                class="ecl-form-label__optional"
+              >
+                (optional)
+              </span>
+            </label>
+            <div
+              class="ecl-help-block"
+              id="example-input-id-1-helper"
+            >
+              Optional help text
+            </div>
+            <input
+              aria-describedby="example-input-id-1-helper"
+              class="ecl-text-input ecl-text-input--m"
+              id="example-input-id-1"
+              placeholder="Placeholder text"
+              type="text"
+            />
+          </div>
+          <div
+            class="ecl-form-group ecl-u-mt-m"
+          >
+            <label
+              class="ecl-form-label"
+              for="example-input-id-1"
+              id="example-input-id-1-label"
+            >
+              Label
+              <span
+                class="ecl-form-label__required"
+              >
+                *
+              </span>
+              <div
+                class="ecl-help-block--hidden"
+              >
+                Format: dd-mm-yyyy
+              </div>
+            </label>
+            <div
+              aria-hidden="true"
+              class="ecl-help-block"
+              id="example-input-id-1-helper"
+            >
+              Format: dd-mm-yyyy
+            </div>
+            <div
+              aria-describedby="example-input-id-1-helper"
+              class="ecl-datepicker ecl-datepicker--m"
+              data-ecl-auto-init="Datepicker"
+              data-ecl-datepicker-toggle=""
+              data-placeholder="DD-MM-YYYY"
+              data-value="2025-08-30 14:13:48 Europe/Brussels"
+            >
+              <duet-date-picker
+                first-day-of-week="1"
+                identifier="example-input-id-1"
+                max="2026-08-30"
+                min="2024-06-15"
+                name="example-input-name-1"
+                required=""
+              />
+            </div>
+          </div>
+          <fieldset
+            aria-required="true"
+            class="ecl-form-group ecl-u-mt-m"
+            role="radiogroup"
+          >
+            <legend
+              class="ecl-form-label"
+              id="radio-default-label"
+            >
+              Do you need help?
+              <span
+                class="ecl-form-label__required"
+              >
+                *
+              </span>
+              <div
+                class="ecl-help-block--hidden"
+              >
+                Optional help text
+              </div>
+            </legend>
+            <div
+              aria-hidden="true"
+              class="ecl-help-block"
+              id="radio-default-helper"
+            >
+              Optional help text
+            </div>
+            <div
+              class="ecl-radio ecl-radio--binary"
+            >
+              <input
+                checked=""
+                class="ecl-radio__input"
+                id="radio-binary-1"
+                name="radio-group-1"
+                required=""
+                type="radio"
+                value="yes"
+              />
+              <label
+                class="ecl-radio__label"
+                for="radio-binary-1"
+              >
+                <span
+                  class="ecl-radio__box"
+                >
+                  <span
+                    class="ecl-radio__box-inner"
+                  />
+                </span>
+                <span
+                  class="ecl-radio__text"
+                >
+                  Yes
+                </span>
+              </label>
+            </div>
+            <div
+              class="ecl-radio ecl-radio--binary"
+            >
+              <input
+                class="ecl-radio__input"
+                id="radio-binary-2"
+                name="radio-group-1"
+                required=""
+                type="radio"
+                value="no"
+              />
+              <label
+                class="ecl-radio__label"
+                for="radio-binary-2"
+              >
+                <span
+                  class="ecl-radio__box"
+                >
+                  <span
+                    class="ecl-radio__box-inner"
+                  />
+                </span>
+                <span
+                  class="ecl-radio__text"
+                >
+                  No
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <div
+            class="form-actions js-form-wrapper form-wrapper ecl-form-group ecl-u-mt-m"
+          >
+            <button
+              class="ecl-button ecl-button--primary button js-form-submit form-submit"
+              data-drupal-selector="edit-submit"
+              id="edit-submit"
+              name="op"
+              type="submit"
+              value="Search"
+            >
+              Search
+            </button>
+            <button
+              class="ecl-button ecl-button--secondary button button--secondary ecl-u-ml-s js-form-submit form-submit"
+              name="op"
+              type="submit"
+              value="Clear filters"
+            >
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
+    </details>
+  </div>
+</jest>
+`;
+
 exports[`Accordion renders correctly with a single icon 1`] = `
 <jest>
   <div

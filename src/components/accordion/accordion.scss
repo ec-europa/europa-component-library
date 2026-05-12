@@ -13,6 +13,14 @@ $accordion: null !default;
   border-radius: map.get($accordion, 'radius');
   box-shadow: map.get($accordion, 'shadow');
   margin: 0;
+
+  &.ecl-accordion--sidebar {
+    box-shadow: none;
+
+    .ecl-icon {
+      stroke-width: 2.5;
+    }
+  }
 }
 
 .ecl-accordion__toggle {
@@ -44,6 +52,19 @@ $accordion: null !default;
   }
 }
 
+.ecl-accordion--sidebar .ecl-accordion__toggle {
+  border-block-end: 1px solid var(--cm-border-brand, var(--c-d));
+  padding-inline: 0;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.ecl-accordion--sidebar .ecl-accordion__item[open] .ecl-accordion__toggle {
+  background-color: transparent;
+}
+
 .ecl-accordion__toggle-icon {
   fill: map.get($accordion, 'icon-color');
   flex-grow: 0;
@@ -68,6 +89,10 @@ $accordion: null !default;
   margin-inline-start: 0;
   max-width: var(--max-w);
   padding: map.get($accordion, 'content-padding');
+
+  .ecl-accordion--sidebar & {
+    padding-inline: 0;
+  }
 }
 
 .ecl-accordion__item {
@@ -114,6 +139,10 @@ $accordion: null !default;
       border-end-end-radius: map.get($accordion, 'radius');
       overflow: hidden;
     }
+  }
+
+  .ecl-accordion--sidebar & {
+    border: none;
   }
 }
 
