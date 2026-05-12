@@ -36,6 +36,7 @@ $animated-numbers: null !default;
     minmax(map.get($animated-numbers, 'min-width'), 1fr)
   );
   gap: var(--gap);
+  padding: 0;
 
   .ecl-animated-numbers--with-background.ecl-animated-numbers--border & {
     gap: 3rem;

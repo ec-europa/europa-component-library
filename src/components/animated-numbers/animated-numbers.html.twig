@@ -80,10 +80,10 @@
   <div class="ecl-container">
 {% endif %}
 {% if _items is not empty and _items is iterable %}
-  <div class="ecl-animated-numbers__items">
+  <ul class="ecl-animated-numbers__items">
   {% for item in _items %}
     {% set _item_class = 'ecl-animated-number' %}
-    <div class="{{ _item_class }}">
+    <li class="{{ _item_class }}">
       <div class="ecl-animated-number__header">
       {% if item.category is defined and item.category is not empty %}
         <div class="ecl-animated-number__category">
@@ -127,9 +127,9 @@
         {{- item.description -}}
       </div>
     {% endif %}
-    </div>
+    </li>
   {% endfor %}
-  </div>
+  </ul>
 {% endif %}
 {% if _sources is not empty and _sources is iterable %}
   <div class="ecl-animated-numbers__sources">
