@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -55,6 +56,8 @@ $accordion: null !default;
 .ecl-accordion--sidebar .ecl-accordion__toggle {
   border-block-end: 1px solid var(--cm-border-brand, var(--c-d));
   padding-inline: 0;
+
+  @include mixins.responsive-font('heading4');
 
   &:hover {
     background-color: transparent;

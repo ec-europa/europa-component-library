@@ -145,10 +145,10 @@ Sidebar.render = async () => {
           ${await accordion(demoSidebarData)}
         </div>
         <div class="ecl-col-l-9">
-          <h2 class="ecl-u-type-heading-2 ecl-u-mt-l-none">Collapsible Forms</h2>
+          <h4 class="ecl-u-type-heading-4 ecl-u-mt-l-m ecl-u-pb-m ecl-u-border-bottom">Collapsible Forms</h4>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
-          <h2 class="ecl-u-type-heading-2">Lorem ipsum</h2>
+          <h4 class="ecl-u-type-heading-4 ecl-u-border-bottom ecl-u-pb-m">Lorem ipsum</h4>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
         </div>
