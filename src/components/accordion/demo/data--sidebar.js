@@ -59,5 +59,4 @@ module.exports = {
       name: 'minus',
     },
   ],
-  extra_attributes: [{ name: 'data-desktop-open' }],
 };
