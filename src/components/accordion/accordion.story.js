@@ -158,6 +158,13 @@ Sidebar.render = async () => {
 };
 
 Sidebar.storyName = 'in a sidebar';
+Sidebar.parameters = {
+  notes: {
+    markdown: notes,
+    json: demoSidebarData,
+  },
+};
+Sidebar.decorators = [withCode, withNotes];
 Sidebar.play = async ({ canvasElement }) => {
   const mq = window.matchMedia('(min-width: 996px)');
 
