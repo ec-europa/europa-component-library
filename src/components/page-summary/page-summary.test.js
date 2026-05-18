@@ -7,6 +7,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from './demo/data';
 
+data.id = 'page-summary';
+
 expect.extend(toHaveNoViolations);
 
 describe('Blockquote', () => {
