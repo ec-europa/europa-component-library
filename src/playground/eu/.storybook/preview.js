@@ -217,8 +217,18 @@ export const loaders = [
       if (typeof component === 'string') {
         setTimeout(() => {
           const rootDiv = document.querySelector('#storybook-root');
+
           if (rootDiv) {
-            rootDiv.setAttribute('data-original-markup', component);
+            // Remove previous script if present
+            rootDiv.querySelector('.original-markup-source')?.remove();
+
+            const script = document.createElement('script');
+
+            script.type = 'text/plain';
+            script.className = 'original-markup-source';
+            script.textContent = component;
+
+            rootDiv.appendChild(script);
           }
         }, 0);
       }
