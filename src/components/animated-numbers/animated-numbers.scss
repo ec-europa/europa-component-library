@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -114,9 +115,10 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-number__content {
-  align-items: center;
   display: flex;
-  gap: var(--s-2xs);
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s-m);
   align-self: stretch;
 }
 
@@ -129,6 +131,11 @@ $animated-numbers: null !default;
 .ecl-animated-number__prefix {
   font: map.get($animated-numbers, 'prefix-font');
   font-weight: map.get($animated-numbers, 'prefix-font-weight');
+}
+
+.ecl-animated-number__prefix-label,
+.ecl-animated-number__suffix-label {
+  @include screen-reader.sr-only;
 }
 
 .ecl-animated-number__value {
