@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/link/link' as link-component;
 
 // Exposed variables
 $theme: null !default;
@@ -173,20 +174,12 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers__source {
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  @include link-component.standalone-link;
 
   .ecl-animated-numbers--with-background & {
-    color: var(--cm-on-surface-inverted, #fff);
-    text-decoration: underline;
+    @include link-component.inverted-link;
 
-    &:hover,
-    &:active {
-      color: var(--c-g-300, map.get($theme, 'color', 'grey-40'));
-    }
+    --ecl-link-text-decoration: underline;
 
     &:focus-visible {
       box-shadow:
