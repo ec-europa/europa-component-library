@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 $theme: null !default;
 $animated-numbers: null !default;
@@ -59,10 +60,16 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-number__content {
-  align-items: center;
   display: flex;
-  gap: map.get($theme, 'spacing-print', '2xs');
+  flex-direction: column;
+  justify-content: center;
+  gap: map.get($theme, 'spacing-print', 'm');
   align-self: stretch;
+}
+
+.ecl-animated-number__prefix-label,
+.ecl-animated-number__suffix-label {
+  @include screen-reader.sr-only;
 }
 
 .ecl-animated-number__number {
@@ -104,12 +111,26 @@ $animated-numbers: null !default;
   font: map.get($theme, 'font-print', 's');
 }
 
+.ecl-animated-numbers__sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
 .ecl-animated-numbers__source {
   text-decoration: none;
 }
 
-.ecl-animated-numbers__source + .ecl-animated-numbers__source::before {
+.ecl-animated-numbers__sources-item
+  + .ecl-animated-numbers__sources-item::before {
   color: map.get($animated-numbers, 'source-separator-color');
   content: '|';
-  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  margin-inline: var(--s-xs);
+}
+
+.ecl-animated-numbers--with-background
+  .ecl-animated-numbers__sources-item
+  + .ecl-animated-numbers__sources-item::before {
+  color: var(--cm-on-surface-inverted, #fff);
 }
