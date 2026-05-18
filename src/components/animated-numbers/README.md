@@ -15,8 +15,10 @@ npm install --save @ecl/animated-numbers
 - **"items"** (array) (default: []): format:
   - "category" (string) (default: '')
   - "prefix" (string) (default: '')
+  - "prefix_label" (string) (default: '') optional label to add extra information on the prefix (screen reader only)
   - "value" (string) (default: '')
   - "suffix" (string) (default: '')
+  - "suffix_label" (string) (default: '') optional label to add extra information on the suffix (screen reader only)
   - "description" (string) (default: '')
   - "icon" (string) (default: {}) Object of type ECL icon
 - **"sources"** (array) Array of items of type ECL link or string

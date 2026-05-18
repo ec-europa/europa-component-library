@@ -1,5 +1,31 @@
 # Changelog
 
+## 5.0.0-RC5 (2026-05-11)
+
+#### :bug: Bug Fix
+
+- [#4410](https://github.com/ec-europa/europa-component-library/pull/4410) fix(menu): fix display when sliding - FRONT-5307 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#4407](https://github.com/ec-europa/europa-component-library/pull/4407) feat(animated-numbers): Some style tweaks - FRONT-5329 ([@planctus](https://github.com/planctus))
+- [#4399](https://github.com/ec-europa/europa-component-library/pull/4399) fix(quiz): empty markup and css fix - FRONT-5326 ([@emeryro](https://github.com/emeryro))
+- [#4409](https://github.com/ec-europa/europa-component-library/pull/4409) feat(page-summary): add id, use h2 - FRONT-5328 ([@emeryro](https://github.com/emeryro))
+- [#4317](https://github.com/ec-europa/europa-component-library/pull/4317) feat(multi-select): add aria label on search input - FRONT-5250 ([@emeryro](https://github.com/emeryro))
+- [#4393](https://github.com/ec-europa/europa-component-library/pull/4393) feat(quiz): update flip labels - FRONT-5317 ([@emeryro](https://github.com/emeryro))
+- [#4397](https://github.com/ec-europa/europa-component-library/pull/4397) feat(social-media-follow): update demo - FRONT-5325 ([@emeryro](https://github.com/emeryro))
+- [#4384](https://github.com/ec-europa/europa-component-library/pull/4384) feat(quiz): Improving focus behavior and styles - FRONT-5311 ([@planctus](https://github.com/planctus))
+- [#4382](https://github.com/ec-europa/europa-component-library/pull/4382) feat(quiz): Adding status - FRONT-5299 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#4415](https://github.com/ec-europa/europa-component-library/pull/4415) chore(deps): Updates 11-05-26 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-RC4 (2026-04-30)
 
 #### :rocket: New Feature
