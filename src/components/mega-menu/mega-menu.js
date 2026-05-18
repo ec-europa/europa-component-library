@@ -567,7 +567,7 @@ export class MegaMenu {
         this.element,
       );
       if (currentSubItem) {
-        currentSubItem.firstElementChild.classList.remove(
+        queryOne(this.subLinkSelector, currentSubItem).classList.remove(
           'ecl-mega-menu__parent-link',
         );
       }
@@ -805,7 +805,7 @@ export class MegaMenu {
           mainPanel.style.height = `${height}px`;
           const seeAll = queryOne('.ecl-mega-menu__see-all', mainPanel);
           const firstOnly = mainPanel
-            .closest('li')
+            .closest('.ecl-mega-menu__item')
             .classList.contains('ecl-mega-menu__item--one-level-only');
           if (seeAll && firstOnly) {
             const remaining =
@@ -1554,7 +1554,7 @@ export class MegaMenu {
    */
   handleClickOnItem(e) {
     let isInTheContainer = false;
-    const menuItem = e.target.closest('li');
+    const menuItem = e.target.closest('.ecl-mega-menu__item');
 
     const container = queryOne(
       '.ecl-mega-menu__mega-container-scrollable',
