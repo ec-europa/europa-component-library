@@ -282,6 +282,7 @@ export class MegaMenu {
           item.hasAttribute('data-ecl-has-children') ||
           item.hasAttribute('data-ecl-has-container')
         ) {
+          // Bind click event on menu links
           const link = queryOne(this.linkSelector, item);
           if (this.attachClickListener && link) {
             link.addEventListener('click', this.handleClickOnItem);

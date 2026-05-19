@@ -290,10 +290,8 @@ export class Menu {
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
         const subLink = queryOne('.ecl-menu__sublink', subItem);
-        if (subLink) {
-          if (this.attachKeyListener) {
-            subLink.addEventListener('keyup', this.handleKeyboard);
-          }
+        if (this.attachKeyListener && subLink) {
+          subLink.addEventListener('keyup', this.handleKeyboard);
         }
       });
     }
