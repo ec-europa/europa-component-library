@@ -29,6 +29,7 @@ $link: null !default;
   --ecl-link-color: #{map.get($link, 'inverted', 'color')};
   --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
   --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
+  --ecl-link-focus-shadow: #{map.get($link, 'inverted', 'shadow-focus')};
   --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
 }
 
@@ -53,6 +54,7 @@ $link: null !default;
 
   &:focus-visible {
     border-radius: map.get($link, 'outline-radius');
+    box-shadow: var(--ecl-link-focus-shadow);
     outline: map.get($link, 'outline-width') solid
       var(--ecl-focus-outline-color);
     outline-offset: 2px;
