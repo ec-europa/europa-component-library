@@ -145,7 +145,7 @@ Sidebar.render = async () => {
           ${await accordion(demoSidebarData)}
         </div>
         <div class="ecl-col-l-9">
-          <h4 class="ecl-u-type-heading-4 ecl-u-mt-l-m ecl-u-pb-m ecl-u-border-bottom">Collapsible Forms</h4>
+          <h4 class="ecl-u-type-heading-4 ecl-u-mt-l-m ecl-u-pb-m ecl-u-border-bottom">Main content</h4>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
           <h4 class="ecl-u-type-heading-4 ecl-u-border-bottom ecl-u-pb-m">Lorem ipsum</h4>
@@ -157,7 +157,7 @@ Sidebar.render = async () => {
   return renderedSidebar;
 };
 
-Sidebar.storyName = 'in a sidebar';
+Sidebar.storyName = 'collapsible sidebar';
 Sidebar.parameters = {
   notes: {
     markdown: notes,

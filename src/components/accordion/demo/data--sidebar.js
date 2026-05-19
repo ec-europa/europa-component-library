@@ -53,10 +53,12 @@ module.exports = {
     {
       path: '/icons.svg',
       name: 'plus',
+      title: 'Expand',
     },
     {
       path: '/icons.svg',
       name: 'minus',
+      title: 'Collapse',
     },
   ],
 };
