@@ -51,13 +51,13 @@ module.exports = {
   ],
   icon: [
     {
-      path: '/icons.svg',
-      name: 'plus',
+      name: 'sliders-horizontal',
+      family: 'phosphor',
       title: 'Expand',
     },
     {
-      path: '/icons.svg',
       name: 'minus',
+      family: 'phosphor',
       title: 'Collapse',
     },
   ],
