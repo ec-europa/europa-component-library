@@ -23,6 +23,8 @@ npm install --save @ecl/fact-figures
     - "path" (string) (default: '')
 - **"display_icons"** (boolean) (default: true)
 - **"icon_size"** (string) (default: 'l') (l or 2xl)
+- **"sources_label"** (string) (default: ''): Label displayed before the sources
+- **"sources"**: (array) (default: []) array of objects of type ECL link or strings
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -53,7 +55,16 @@ npm install --save @ecl/fact-figures
       title: "Sed hendrerit", 
       description: "Turpis varius congue venenatis, erat dui feugiat felis." 
     }, 
-  ], 
+  ],
+  sources_label: 'Sources:',
+  sources: [
+    {
+      link: {
+        label: 'Eurostat',
+        path: exampleLink,
+      },
+    },
+  ],
   view_all: { 
     link: { 
       label: "View all", 
