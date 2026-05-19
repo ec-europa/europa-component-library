@@ -135,7 +135,6 @@ export class Menu {
     this.itemsList = null;
     this.items = null;
     this.links = null;
-    this.subLinks = null;
     this.btnPrevious = null;
     this.btnNext = null;
     this.isOpen = false;
@@ -205,7 +204,6 @@ export class Menu {
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
-    this.subLinks = queryAll('.ecl-menu__sublink', this.element);
     this.carets = queryAll(this.caretSelector, this.element);
 
     // Get extra parameter from markup
@@ -263,9 +261,6 @@ export class Menu {
         if (this.attachKeyListener) {
           link.addEventListener('keyup', this.handleKeyboard);
         }
-        if (this.attachClickListener) {
-          link.addEventListener('click', this.handleClickOnLink);
-        }
       });
     }
 
@@ -303,10 +298,8 @@ export class Menu {
       });
     }
 
-    if (this.subLinks && this.attachClickListener) {
-      this.subLinks.forEach((subLink) => {
-        subLink.addEventListener('click', this.handleClickOnLink);
-      });
+    if (this.attachClickListener) {
+      this.element.addEventListener('click', this.handleClickOnLink);
     }
 
     // Bind global keyboard events
@@ -462,9 +455,6 @@ export class Menu {
         if (this.attachKeyListener) {
           link.removeEventListener('keyup', this.handleKeyboard);
         }
-        if (this.attachClickListener) {
-          link.removeEventListener('click', this.handleClickOnLink);
-        }
       });
     }
 
@@ -491,10 +481,8 @@ export class Menu {
       });
     }
 
-    if (this.subLinks && this.attachClickListener) {
-      this.subLinks.forEach((subLink) => {
-        subLink.removeEventListener('click', this.handleClickOnLink);
-      });
+    if (this.attachClickListener) {
+      this.element.removeEventListener('click', this.handleClickOnLink);
     }
 
     if (this.attachKeyListener) {
@@ -1060,6 +1048,7 @@ export class Menu {
    * @param {Event} e
    */
   handleClickOnLink(e) {
+    if (!e.target.closest('a')) return;
     if (this.isOpen) {
       this.handleClickOnClose(e);
     } else {

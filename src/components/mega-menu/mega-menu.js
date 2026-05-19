@@ -139,7 +139,6 @@ export class MegaMenu {
     this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
     this.featuredLinks = null;
-    this.endLinks = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -161,7 +160,7 @@ export class MegaMenu {
     this.handleSecondPanel = this.handleSecondPanel.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
-    this.handleClickOnEndLink = this.handleClickOnEndLink.bind(this);
+    this.handleClickOnMenuLink = this.handleClickOnMenuLink.bind(this);
   }
 
   /**
@@ -259,13 +258,8 @@ export class MegaMenu {
       });
     }
 
-    // All <a> inside panels close the dropdown on click (covers leaf sublinks,
-    // see-all, info-links, and featured links)
-    this.endLinks = queryAll('.ecl-mega-menu__mega a', this.element);
-    if (this.endLinks.length > 0 && this.attachClickListener) {
-      this.endLinks.forEach((link) => {
-        link.addEventListener('click', this.handleClickOnEndLink);
-      });
+    if (this.attachClickListener) {
+      this.element.addEventListener('click', this.handleClickOnMenuLink);
     }
 
     // Bind global keyboard events
@@ -284,9 +278,14 @@ export class MegaMenu {
         // Check menu item display (right to left, full width, ...)
         this.totalItemsWidth += item.offsetWidth;
 
-        const link = queryOne(this.linkSelector, item);
-        if (this.attachClickListener && link) {
-          link.addEventListener('click', this.handleClickOnItem);
+        if (
+          item.hasAttribute('data-ecl-has-children') ||
+          item.hasAttribute('data-ecl-has-container')
+        ) {
+          const link = queryOne(this.linkSelector, item);
+          if (this.attachClickListener && link) {
+            link.addEventListener('click', this.handleClickOnItem);
+          }
         }
       });
     }
@@ -393,10 +392,8 @@ export class MegaMenu {
       });
     }
 
-    if (this.endLinks && this.attachClickListener) {
-      this.endLinks.forEach((link) => {
-        link.removeEventListener('click', this.handleClickOnEndLink);
-      });
+    if (this.attachClickListener) {
+      this.element.removeEventListener('click', this.handleClickOnMenuLink);
     }
 
     if (this.attachKeyListener) {
@@ -1569,20 +1566,15 @@ export class MegaMenu {
             this.handleFirstPanel(menuItem, 'expand');
           }
         }
-      } else {
-        this.closeOpenDropdown();
       }
     }
   }
 
-  /**
-   * Click on a final link inside a panel (leaf sublink, see-all, info-link, featured).
-   * Always closes the dropdown, on both mobile and desktop.
-   * Wrapper needed because closeOpenDropdown(esc) would receive the Event object as
-   * its first argument when used directly as a listener, triggering unwanted focus management.
-   */
-  handleClickOnEndLink() {
-    this.closeOpenDropdown();
+  handleClickOnMenuLink(e) {
+    const link = e.target.closest('a');
+    if (link && !link.hasAttribute('aria-expanded')) {
+      this.closeOpenDropdown();
+    }
   }
 
   /**
