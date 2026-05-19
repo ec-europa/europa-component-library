@@ -36,6 +36,7 @@ module.exports = {
       prefix: '',
       value: '213',
       suffix: '€',
+      suffix_label: 'euro',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     },
@@ -48,6 +49,7 @@ module.exports = {
       prefix: 'billion',
       value: '888.2',
       suffix: '€',
+      suffix_label: 'euro',
       description:
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
@@ -57,9 +59,11 @@ module.exports = {
         name: 'trend-up',
         family: 'phosphor',
       },
-      prefix: 'billion',
+      prefix: 'M',
+      prefix_label: 'million',
       value: '975',
       suffix: '<',
+      suffix_label: 'less than',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     },
@@ -70,6 +74,7 @@ module.exports = {
         family: 'phosphor',
       },
       prefix: '€',
+      prefix_label: 'euro',
       value: '1250',
       suffix: 'billions',
       description:
@@ -82,6 +87,7 @@ module.exports = {
         family: 'phosphor',
       },
       prefix: '€',
+      prefix_label: 'euro',
       value: '50',
       suffix: 'trillions',
       description:
@@ -94,6 +100,7 @@ module.exports = {
         family: 'phosphor',
       },
       prefix: '€',
+      prefix_label: 'euro',
       value: '4350',
       suffix: 'millions',
       description: 'Curabitur ut mauris quam. Fusce non consequat ipsum',
@@ -105,6 +112,7 @@ module.exports = {
         family: 'phosphor',
       },
       prefix: '€',
+      prefix_label: 'euro',
       value: '125',
       suffix: 'billions',
       description: 'Curabitur ut mauris quam. Fusce non consequat ipsum',
@@ -116,6 +124,7 @@ module.exports = {
         family: 'phosphor',
       },
       prefix: '€',
+      prefix_label: 'euro',
       value: '8765',
       suffix: 'billions',
       description: 'Integer pharetra lacinia tristique',
