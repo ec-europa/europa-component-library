@@ -138,8 +138,6 @@ export class MegaMenu {
     this.breakpointDesktop = 1140;
     this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
-    this.infoLinks = null;
-    this.seeAllLinks = null;
     this.featuredLinks = null;
 
     // Bind `this` for use in callbacks
@@ -162,6 +160,7 @@ export class MegaMenu {
     this.handleSecondPanel = this.handleSecondPanel.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
+    this.handleClickOnMenuLink = this.handleClickOnMenuLink.bind(this);
   }
 
   /**
@@ -229,38 +228,25 @@ export class MegaMenu {
     // Bind event on sub menu links
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
-        const subLink = queryOne('.ecl-mega-menu__sublink', subItem);
+        // Fall back to any link (e.g. see-all, info-link items have no sublink class)
+        const subLink =
+          queryOne('.ecl-mega-menu__sublink', subItem) ||
+          queryOne('a', subItem);
 
-        if (this.attachKeyListener && subLink) {
-          subLink.addEventListener('click', this.handleClickOnSubitem);
-          subLink.addEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener && subLink) {
-          subLink.addEventListener('focusout', this.handleFocusOut);
-        }
-      });
-    }
-
-    this.infoLinks = queryAll('.ecl-mega-menu__info-link a', this.element);
-    if (this.infoLinks.length > 0) {
-      this.infoLinks.forEach((infoLink) => {
-        if (this.attachKeyListener) {
-          infoLink.addEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener) {
-          infoLink.addEventListener('blur', this.handleFocusOut);
-        }
-      });
-    }
-
-    this.seeAllLinks = queryAll('.ecl-mega-menu__see-all a', this.element);
-    if (this.seeAllLinks.length > 0) {
-      this.seeAllLinks.forEach((seeAll) => {
-        if (this.attachKeyListener) {
-          seeAll.addEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener) {
-          seeAll.addEventListener('blur', this.handleFocusOut);
+        if (subLink) {
+          if (this.attachKeyListener) {
+            subLink.addEventListener('keyup', this.handleKeyboard);
+          }
+          if (this.attachFocusListener) {
+            subLink.addEventListener('focusout', this.handleFocusOut);
+          }
+          // Only expandable buttons (with aria-expanded) get the panel-toggle handler
+          if (
+            this.attachClickListener &&
+            subLink.hasAttribute('aria-expanded')
+          ) {
+            subLink.addEventListener('click', this.handleClickOnSubitem);
+          }
         }
       });
     }
@@ -270,6 +256,10 @@ export class MegaMenu {
       this.featuredLinks.forEach((featured) => {
         featured.addEventListener('blur', this.handleFocusOut);
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.addEventListener('click', this.handleClickOnMenuLink);
     }
 
     // Bind global keyboard events
@@ -377,37 +367,22 @@ export class MegaMenu {
 
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
-        const subLink = queryOne('.ecl-mega-menu__sublink', subItem);
-        if (this.attachKeyListener && subLink) {
-          subLink.removeEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachClickListener && subLink) {
-          subLink.removeEventListener('click', this.handleClickOnSubitem);
-        }
-        if (this.attachFocusListener && subLink) {
-          subLink.removeEventListener('focusout', this.handleFocusOut);
-        }
-      });
-    }
-
-    if (this.infoLinks) {
-      this.infoLinks.forEach((infoLink) => {
-        if (this.attachFocusListener) {
-          infoLink.removeEventListener('blur', this.handleFocusOut);
-        }
-        if (this.attachKeyListener) {
-          infoLink.removeEventListener('keyup', this.handleKeyboard);
-        }
-      });
-    }
-
-    if (this.seeAllLinks) {
-      this.seeAllLinks.forEach((seeAll) => {
-        if (this.attachFocusListener) {
-          seeAll.removeEventListener('blur', this.handleFocusOut);
-        }
-        if (this.attachKeyListener) {
-          seeAll.removeEventListener('keyup', this.handleKeyboard);
+        const subLink =
+          queryOne('.ecl-mega-menu__sublink', subItem) ||
+          queryOne('a', subItem);
+        if (subLink) {
+          if (
+            this.attachClickListener &&
+            subLink.hasAttribute('aria-expanded')
+          ) {
+            subLink.removeEventListener('click', this.handleClickOnSubitem);
+          }
+          if (this.attachKeyListener) {
+            subLink.removeEventListener('keyup', this.handleKeyboard);
+          }
+          if (this.attachFocusListener) {
+            subLink.removeEventListener('focusout', this.handleFocusOut);
+          }
         }
       });
     }
@@ -416,6 +391,10 @@ export class MegaMenu {
       this.featuredLinks.forEach((featuredLink) => {
         featuredLink.removeEventListener('blur', this.handleFocusOut);
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.removeEventListener('click', this.handleClickOnMenuLink);
     }
 
     if (this.attachKeyListener) {
@@ -1589,6 +1568,13 @@ export class MegaMenu {
           }
         }
       }
+    }
+  }
+
+  handleClickOnMenuLink(e) {
+    const link = e.target.closest('a');
+    if (link && !link.hasAttribute('aria-expanded')) {
+      this.closeOpenDropdown();
     }
   }
 
