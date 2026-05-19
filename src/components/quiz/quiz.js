@@ -685,8 +685,17 @@ export class Quiz {
         );
       }
 
-      front.hidden = isFlipped;
-      back.hidden = !isFlipped;
+      if (isFlipped) {
+        front.hidden = true;
+        front.setAttribute('aria-hidden', true);
+        back.hidden = false;
+        back.removeAttribute('aria-hidden');
+      } else {
+        front.hidden = false;
+        front.removeAttribute('aria-hidden');
+        back.hidden = true;
+        back.setAttribute('aria-hidden', true);
+      }
 
       // Update aria-labelledby
       const question = queryOne(`#${card.id}-question`, card);
