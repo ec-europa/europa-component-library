@@ -8,10 +8,11 @@ $link: (
   standalone-line-height: map.get($line-height, 'xs'),
   inverted: (
     color: var(--cm-on-surface-inverted),
-    color-hover: var(--cm-on-surface-secondary-medium),
+    color-hover: var(--c-g-300),
     color-visited: var(--cm-on-surface-inverted),
-    color-active: var(--cm-on-surface-secondary-medium),
+    color-active: var(--c-g-300),
     outline-color: var(--cm-on-surface-inverted),
+    shadow-focus: 0px 0px 0px 2px var(--cm-border-primary),
   ),
   brand: (
     color: var(--cm-on-surface-brand),

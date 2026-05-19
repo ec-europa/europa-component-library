@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -58,6 +59,30 @@ $fact-figures-print: null !default;
 
 .ecl-fact-figures__view-all {
   display: none;
+}
+
+.ecl-fact-figures__sources {
+  align-items: center;
+  color: map.get($fact-figures, 'source-color');
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-block-start: map.get($fact-figures, 'source-spacing');
+
+  @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
+}
+
+.ecl-fact-figures__sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.ecl-fact-figures__sources-item + .ecl-fact-figures__sources-item::before {
+  color: map.get($fact-figures, 'source-separator-color');
+  content: '|';
+  margin-inline: var(--s-xs);
 }
 
 .ecl-fact-figures__items {

@@ -490,6 +490,7 @@ export class Quiz {
   handleKeyboard(e) {
     if (e.key === 'Escape') {
       this.escapeSlider();
+      return;
     }
 
     const item = e.target;
@@ -702,11 +703,31 @@ export class Quiz {
    *
    */
   escapeSlider() {
-    if (!this.dotsNode) {
+    let dots = [];
+
+    if (this.slider.canGoToNext()) {
+      this.nextButtonNode.focus();
       return;
     }
 
-    const dots = queryAll(this.dotClass, this.dotsNode);
+    if (this.dotsNode) {
+      dots = queryAll(this.dotClass, this.dotsNode);
+    }
+
+    // Move focus on the disabled next button in case there are no dots.
+    if (
+      dots.length === 0 &&
+      !this.slider.canGoToNext() &&
+      this.nextButtonNode
+    ) {
+      this.nextButtonNode.disabled = false;
+      this.nextButtonNode.style.display = 'flex';
+      this.nextButtonNode.style.visibility = 'visible';
+      this.nextButtonNode.classList.add('.ecl-quiz__next--escape');
+      this.nextButtonNode.focus();
+      return;
+    }
+
     if (dots.length > 0) {
       const lastDot = dots[dots.length - 1];
       lastDot.focus();

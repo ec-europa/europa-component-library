@@ -370,6 +370,7 @@ $quiz: null !default;
     grid-template-columns: auto 1fr;
     gap: var(--s-s);
     padding: var(--s-xs) var(--s-m);
+    position: relative;
 
     input {
       @include screen-reader.sr-only;
@@ -379,8 +380,28 @@ $quiz: null !default;
       margin-block-start: var(--s-xs);
     }
 
+    .ecl-quiz__skip {
+      font: var(--f-s);
+      position: absolute;
+      padding: var(--s-4xs, 2px) var(--s-xs);
+      border-radius: map.get($theme, 'border-radius', 's');
+      background: var(--c-w-800);
+      color: var(--cm-on-surface-brand, var(--c-d));
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
     &:has(input[type='radio']:focus-visible) {
       outline: 2px solid var(--cm-on-surface-inverted, #fff);
+
+      .ecl-quiz__skip {
+        bottom: 120%;
+        width: auto;
+        height: auto;
+        clip-path: none;
+      }
     }
 
     &::before {
