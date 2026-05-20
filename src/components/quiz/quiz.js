@@ -699,13 +699,6 @@ export class Quiz {
           category = queryOne('.ecl-quiz-card__category--success', back);
         }
 
-        // FRONT-5298 Focus after answering
-        if (isFlipped) {
-          if (category) {
-            category.focus();
-          }
-        }
-
         const options = queryOne('.ecl-quiz-card__options', back);
         Array.from(options.children).forEach((el) =>
           el.classList.remove('ecl-quiz-card__option--selected'),
@@ -715,20 +708,14 @@ export class Quiz {
         );
       }
 
-      if (isFlipped) {
-        front.hidden = true;
-        front.inert = true;
-        front.setAttribute('aria-hidden', true);
-        back.hidden = false;
-        back.inert = false;
-        back.removeAttribute('aria-hidden');
-      } else {
-        front.hidden = false;
-        front.inert = false;
-        front.removeAttribute('aria-hidden');
-        back.hidden = true;
-        back.inert = true;
-        back.setAttribute('aria-hidden', true);
+      front.hidden = isFlipped;
+      front.inert = isFlipped;
+      back.hidden = !isFlipped;
+      back.inert = !isFlipped;
+
+      // FRONT-5298 Focus the status category after answering (poll variant only)
+      if (isFlipped && e.target.hasAttribute('data-match') && category) {
+        category.focus();
       }
 
       // Update aria-labelledby
