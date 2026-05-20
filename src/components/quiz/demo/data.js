@@ -18,8 +18,8 @@ module.exports = {
           size: 'xl',
         },
       },
-      back_text: 'Go back',
-      flip_text: 'Click to reveal',
+      back_text: 'Flip back',
+      flip_text: 'Reveal answer',
       flip_icon: {
         icon: {
           family: 'phosphor',
@@ -39,8 +39,8 @@ module.exports = {
           size: 'xl',
         },
       },
-      back_text: 'Go back',
-      flip_text: 'Click to reveal',
+      back_text: 'Flip back',
+      flip_text: 'Reveal answer',
       flip_icon: {
         icon: {
           family: 'phosphor',
@@ -59,8 +59,8 @@ module.exports = {
           size: 'xl',
         },
       },
-      back_text: 'Go back',
-      flip_text: 'Click to reveal',
+      back_text: 'Flip back',
+      flip_text: 'Reveal answer',
       flip_icon: {
         icon: {
           family: 'phosphor',
@@ -80,8 +80,8 @@ module.exports = {
           size: 'xl',
         },
       },
-      back_text: 'Go back',
-      flip_text: 'Click to reveal',
+      back_text: 'Flip back',
+      flip_text: 'Reveal answer',
       flip_icon: {
         icon: {
           name: 'arrow-clockwise',
@@ -102,8 +102,8 @@ module.exports = {
           size: 'xl',
         },
       },
-      back_text: 'Go back',
-      flip_text: 'Click to reveal',
+      back_text: 'Flip back',
+      flip_text: 'Reveal answer',
       flip_icon: {
         icon: {
           name: 'arrow-clockwise',

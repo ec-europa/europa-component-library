@@ -12,12 +12,33 @@ $theme: null !default;
 $button: null !default;
 $link: null !default;
 
+@mixin standalone-link {
+  --ecl-link-text-decoration: none;
+  --ecl-link-text-decoration-hover: underline;
+  --ecl-link-color-hover: var(--ecl-link-color);
+}
+
+@mixin brand-link {
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+}
+
+@mixin inverted-link {
+  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
+  --ecl-link-focus-shadow: #{map.get($link, 'inverted', 'shadow-focus')};
+  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
+}
+
 .ecl-link,
 %ecl-link {
   color: var(--ecl-link-color);
   font-family: var(--ff-d);
   margin: 0;
-  text-decoration: underline;
+  text-decoration: var(--ecl-link-text-decoration);
   text-decoration-thickness: from-font;
   text-underline-offset: clamp(3px, 0.245em, 10px);
 
@@ -27,10 +48,13 @@ $link: null !default;
 
   &:hover {
     color: var(--ecl-link-color-hover);
+    text-decoration: var(--ecl-link-text-decoration-hover);
+    text-decoration-thickness: from-font;
   }
 
   &:focus-visible {
     border-radius: map.get($link, 'outline-radius');
+    box-shadow: var(--ecl-link-focus-shadow);
     outline: map.get($link, 'outline-width') solid
       var(--ecl-focus-outline-color);
     outline-offset: 2px;
@@ -101,22 +125,9 @@ $link: null !default;
 * Standalone
 */
 .ecl-link--standalone {
+  @include standalone-link;
+
   display: inline-block;
-  text-decoration: none;
-
-  &:visited {
-    color: var(--ecl-link-color);
-  }
-
-  &:hover {
-    color: var(--ecl-link-color);
-    text-decoration: underline;
-    text-decoration-thickness: from-font;
-  }
-
-  &:active {
-    color: var(--ecl-link-color-active);
-  }
 }
 
 /**
@@ -124,13 +135,11 @@ $link: null !default;
 */
 .ecl-link--brand,
 %ecl-link-brand {
-  --ecl-link-color: #{map.get($link, 'brand', 'color')};
-  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
-  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
-  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+  @include brand-link;
 
   &.ecl-link--standalone {
-    --ecl-link-color-hover: #{map.get($link, 'brand', 'color')};
+    @include brand-link;
+    @include standalone-link;
   }
 }
 
@@ -139,13 +148,11 @@ $link: null !default;
 */
 .ecl-link--inverted,
 %ecl-link-inverted {
-  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
-  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
-  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
-  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
+  @include inverted-link;
 
   &.ecl-link--standalone {
-    --ecl-link-color-hover: #{map.get($link, 'inverted', 'color')};
+    @include inverted-link;
+    @include standalone-link;
   }
 }
 

@@ -9,6 +9,7 @@
     - "with_background" (boolean) (default: false)
     - "prev_label" (string) (default: '')
     - "next_label" (string) (default: '')
+    - "skip_text" (string) (default: 'Use ESC to skip the quiz' )
     - "items" (array) default([]) array of quiz-cards
       - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
       - "category" (string) (default: '') (poll variant)
@@ -46,6 +47,7 @@
 {% set _css_class = 'ecl-quiz' %}
 {% set _prev_label = prev_label|default('') %}
 {% set _next_label = next_label|default('') %}
+{% set _skip_text = skip_text|default('Use ESC to skip the quiz') %}
 {% set _with_background = with_background|default(false) %}
 {% set _extra_attributes = '' %}
 
@@ -80,14 +82,20 @@
 {% if _with_background %}
   <div class="ecl-container">
 {% endif %}
+{% if _title is not empty or _description is not empty %}
   <div class="ecl-quiz__header">
+    {% if _title is not empty %}
     <div class="ecl-quiz__title">
       {{-  _title -}}
     </div>
+    {% endif %}
+    {% if _description is not empty %}
     <div class="ecl-quiz__description">
       {{- _description -}}
     </div>
+    {% endif %}
   </div>
+{% endif %}
 {% if _items is not empty and _items is iterable %}
   <div
     class="ecl-quiz__viewport"
@@ -95,10 +103,15 @@
   >
     <ol class="ecl-quiz__list">
     {% for _item in _items %}
+      {% set _esc_box = '' %}
+      {% if loop.first %}
+        {% set _esc_box = _skip_text %}
+      {% endif %}
       {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge(
         {
           variant: _variant,
-          id: _id ~ '-item' ~ loop.index
+          id: _id ~ '-' ~ loop.index,
+          esc_box: _esc_box 
         }) only %}
     {% endfor %}
     </ol>

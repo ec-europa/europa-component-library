@@ -65,6 +65,7 @@ export class Quiz {
       backClass = '.ecl-quiz-card__back',
       prevClass = '.ecl-quiz__prev',
       nextClass = '.ecl-quiz__next',
+      pagerClass = '.ecl-quiz__pager',
       dotsClass = '.ecl-quiz__dots',
       dotClass = '.ecl-quiz__dot',
       activeDotClass = 'ecl-quiz__dot--active',
@@ -96,6 +97,7 @@ export class Quiz {
     this.answerClass = answerClass;
     this.prevClass = prevClass;
     this.nextClass = nextClass;
+    this.pagerClass = pagerClass;
     this.dotsClass = dotsClass;
     this.dotClass = dotClass;
     this.frontClass = frontClass;
@@ -114,6 +116,8 @@ export class Quiz {
     this.resizeTimer = null;
     this.slider = null;
     this.dotsNode = null;
+    this.pagerNode = null;
+    this.toggleButtonsDisabled = null;
     this.ariaObserver = null;
 
     // Bind `this` for use in callbacks
@@ -295,6 +299,7 @@ export class Quiz {
     const accessibility = this.slider.plugins().accessibility;
     this.prevButtonNode = queryOne(this.prevClass, this.element);
     this.nextButtonNode = queryOne(this.nextClass, this.element);
+    this.pagerNode = queryOne(this.pagerClass, this.element);
 
     if (this.prevButtonNode) {
       this.prevButtonNode.addEventListener(
@@ -312,7 +317,7 @@ export class Quiz {
     }
 
     if (this.prevButtonNode && this.nextButtonNode) {
-      const toggleButtonsDisabled = (emblaApi) => {
+      this.toggleButtonsDisabled = (emblaApi) => {
         const setButtonState = (button, enabled) => {
           button.toggleAttribute('disabled', !enabled);
         };
@@ -320,9 +325,9 @@ export class Quiz {
         setButtonState(this.nextButtonNode, emblaApi.canGoToNext());
       };
 
-      toggleButtonsDisabled(this.slider);
-      this.slider.on('select', toggleButtonsDisabled);
-      this.slider.on('reInit', toggleButtonsDisabled);
+      this.toggleButtonsDisabled(this.slider);
+      this.slider.on('select', this.toggleButtonsDisabled);
+      this.slider.on('reInit', this.toggleButtonsDisabled);
 
       accessibility.setupPrevAndNextButtons(
         this.prevButtonNode,
@@ -354,12 +359,10 @@ export class Quiz {
         const canScroll =
           this.slider.canGoToNext() || this.slider.canGoToPrev();
 
-        this.prevButtonNode.style.display = '';
-        this.nextButtonNode.style.display = '';
+        if (this.pagerNode) this.pagerNode.style.display = '';
 
         if (!canScroll) {
-          this.prevButtonNode.style.display = 'none';
-          this.nextButtonNode.style.display = 'none';
+          if (this.pagerNode) this.pagerNode.style.display = 'none';
 
           this.dotsNode.innerHTML = '';
           dotNodes = [];
@@ -742,6 +745,9 @@ export class Quiz {
       if (this.slider) {
         this.createAndSetupDotButtons(this.slider, this.dotsNode);
         this.updateDots();
+        if (this.toggleButtonsDisabled) {
+          this.toggleButtonsDisabled(this.slider);
+        }
       }
 
       this.checkHeight();
@@ -855,11 +861,31 @@ export class Quiz {
    *
    */
   escapeSlider() {
-    if (!this.dotsNode) {
+    let dots = [];
+
+    if (this.slider.canGoToNext()) {
+      this.nextButtonNode.focus();
       return;
     }
 
-    const dots = queryAll(this.dotClass, this.dotsNode);
+    if (this.dotsNode) {
+      dots = queryAll(this.dotClass, this.dotsNode);
+    }
+
+    // Move focus on the disabled next button in case there are no dots.
+    if (
+      dots.length === 0 &&
+      !this.slider.canGoToNext() &&
+      this.nextButtonNode
+    ) {
+      this.nextButtonNode.disabled = false;
+      this.nextButtonNode.style.display = 'flex';
+      this.nextButtonNode.style.visibility = 'visible';
+      this.nextButtonNode.classList.add('.ecl-quiz__next--escape');
+      this.nextButtonNode.focus();
+      return;
+    }
+
     if (dots.length > 0) {
       const lastDot = dots[dots.length - 1];
       lastDot.focus();

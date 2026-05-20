@@ -13,6 +13,7 @@
     - "correct_chosen_label" (string) (default)  label for sr only about the chosen option when correct
     - "incorrect_label" (string) (default: '') label for sr only about the incorrect option
     - "incorrect_chosen_label" (string) (default: '')  label for sr only about the chosen option when incorrect
+    - "esc_box" (string) (default: '')
     - "options" (array) Array of options (poll variant)
       - "name" (string) Name of the option, eg: 'Paris'
       - "correct" (boolean) Whether the option is correct or not
@@ -37,6 +38,7 @@
 {% set _question = question|default('') %}
 {% set _icon = icon|default({}) %}
 {% set _back_icon = back_icon|default({}) %}
+{% set _esc_box = esc_box|default('') %}
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
@@ -103,7 +105,11 @@
       </div>
     {% endif %}
     {% if _options is not empty %}
-      <fieldset>
+      <fieldset
+      {%- if _esc_box is not empty %}
+        aria-describedby="quiz-{{ _id }}-skip-instructions"
+      {%- endif -%}
+      >
         <legend class="ecl-quiz-card__question" id="{{ _id }}-question">
           {{- _question -}}
         </legend>
@@ -120,6 +126,14 @@
               >
               {{- _option.name -}}
             </label>
+          {%- if loop.first and _esc_box is not empty -%}
+            <span
+              class="ecl-quiz__skip"
+              id="quiz-{{ _id }}-skip-instructions"
+            >
+              {{- _esc_box -}}
+            </span>
+          {%- endif -%}
           </li>
         {% endfor %}
         </ol>
@@ -129,7 +143,7 @@
       <div
         class="ecl-quiz-card__flip"
       >
-        {{ _flip_text }}
+        {{- _flip_text -}}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </div>
     {% endif %}
@@ -210,7 +224,7 @@
     {% endif %}
     {% if _back_text is not empty or _flip_icon is not empty %}
       <div class="ecl-quiz-card__flip">
-        {{ _back_text }}
+        {{- _back_text -}}
         {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
       </div>
     {% endif %}
