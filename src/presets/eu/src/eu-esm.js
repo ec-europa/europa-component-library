@@ -1,6 +1,7 @@
 import '@ecl/dom-utils/polyfills';
 
 import autoInit from '@ecl/dom-utils/autoinit';
+import AnimatedNumbers from '@ecl/animated-numbers';
 import Banner from '@ecl/banner';
 import Carousel from '@ecl/carousel';
 import CategoryFilter from '@ecl/category-filter';
@@ -20,6 +21,7 @@ import Menu from '@ecl/menu';
 import Modal from '@ecl/modal';
 import NewsTicker from '@ecl/news-ticker';
 import Notification from '@ecl/notification';
+import Quiz from '@ecl/quiz';
 import PageHeaderExpandable from '@ecl/page-header';
 import Popover from '@ecl/popover';
 import Range from '@ecl/range';
@@ -32,6 +34,7 @@ import Tooltip from '@ecl/tooltip';
 
 const ECL = {
   autoInit,
+  AnimatedNumbers,
   Banner,
   Carousel,
   CategoryFilter,
@@ -51,6 +54,7 @@ const ECL = {
   Modal,
   NewsTicker,
   Notification,
+  Quiz,
   PageHeaderExpandable,
   Popover,
   Range,

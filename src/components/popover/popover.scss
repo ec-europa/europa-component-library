@@ -70,16 +70,11 @@ $_arrow-size: 1rem;
 .ecl-popover__close {
   position: absolute;
   top: map.get($popover, 'close-button-top');
-  right: map.get($popover, 'close-button-right');
+  inset-inline-end: map.get($popover, 'close-button-right');
 
   + .ecl-popover__content {
     padding-inline-end: map.get($popover, 'content-padding-end');
   }
-}
-
-[dir='rtl'] .ecl-popover__close {
-  left: var(--s-m);
-  right: auto;
 }
 
 .ecl-popover--bottom .ecl-popover__container,

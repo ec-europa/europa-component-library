@@ -355,9 +355,8 @@ $inpage-navigation: null !default;
     border-radius: 0 0 map.get($inpage-navigation, 'border-radius')
       map.get($inpage-navigation, 'border-radius');
     box-shadow: map.get($inpage-navigation, 'shadow');
-    left: 0;
+    inset-inline: 0;
     position: fixed;
-    right: 0;
     top: 0;
 
     /* stylelint-disable-next-line order/order */

@@ -61,6 +61,10 @@
   $notification-print: var.$notification-print
 );
 @use '@ecl/picture/picture';
+@use '@ecl/quiz/quiz-print' with (
+  $theme: theme.$theme,
+  $quiz-print: var.$quiz-print
+);
 @use '@ecl/skip-link/skip-link-print';
 @use '@ecl/spinner/spinner-print';
 @use '@ecl/table/table-print' with (
@@ -76,6 +80,10 @@
 @use '@ecl/tooltip/tooltip-print';
 
 // Molecules
+@use '@ecl/add-to-calendar/add-to-calendar-print' with (
+  $theme: theme.$theme,
+  $add-to-calendar: var.$add-to-calendar
+);
 @use '@ecl/banner/banner-print' with (
   $theme: theme.$theme,
   $banner: var.$banner,
@@ -149,6 +157,10 @@
   $theme: theme.$theme,
   $page-information: var.$page-information
 );
+@use '@ecl/page-summary/page-summary-print' with (
+  $theme: theme.$theme,
+  $page-summary: var.$page-summary
+);
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';
 @use '@ecl/search-form/search-form-print';
@@ -157,6 +169,10 @@
   $separator: var.$separator
 );
 @use '@ecl/social-media-follow/social-media-follow-print';
+@use '@ecl/text-media/text-media-print' with (
+  $theme: theme.$theme,
+  $text-media: var.$text-media
+);
 @use '@ecl/timeline/timeline-print' with (
   $theme: theme.$theme,
   $timeline: var.$timeline,
@@ -168,6 +184,10 @@
   $theme: theme.$theme,
   $accordion: var.$accordion,
   $accordion-print: var.$accordion-print
+);
+@use '@ecl/animated-numbers/animated-numbers-print' with (
+  $theme: theme.$theme,
+  $animated-numbers: var.$animated-numbers
 );
 @use '@ecl/carousel/carousel-print';
 @use '@ecl/category-filter/category-filter-print';

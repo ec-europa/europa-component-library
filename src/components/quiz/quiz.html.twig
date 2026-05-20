@@ -1,0 +1,156 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: random): Unique id for the quiz; randomized if empty
+    - "variant" (string) (default: reveal) poll otherwise
+    - "title" (string) (default: '')
+    - "description" (string) (default: '')
+    - "with_background" (boolean) (default: false)
+    - "prev_label" (string) (default: '')
+    - "next_label" (string) (default: '')
+    - "skip_text" (string) (default: 'Use ESC to skip the quiz' )
+    - "items" (array) default([]) array of quiz-cards
+      - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
+      - "category" (string) (default: '') (poll variant)
+      - "success_category" (string) (default: '')
+      - "error_category" (string) (default: '')
+      - "question" (string) (default: '')
+      - "answer" (string) (default: '')
+      - "answer_title" (string) (default: '')
+      - "options" (array) Array of options (poll variant)
+      - "icon" (object) Object of type icon
+      - "back_icon" (object) Object of type icon
+      - "flip_text" (string) Helper text (reveal variant)
+      - "flip_icon" (object) Object of type icon
+      - "back_text" (string) Text on the back of the card
+      - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
+      - "extra_classes" (string) (default: ''): Extra css classes for the card
+      - "extra_attributes" (optional) (array) (default: []):Extra attributes for the card
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "extra_classes" (string) (default: ''): Extra css classes
+    - "extra_attributes" (optional) (array) (default: [])
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('ecl-quiz-' ~ random()) %}
+{% set _title = title|default('') %}
+{% set _variant = variant|default('reveal') %}
+{% set _description = description|default('') %}
+{% set _items = items|default([]) %}
+{% set _css_class = 'ecl-quiz' %}
+{% set _prev_label = prev_label|default('') %}
+{% set _next_label = next_label|default('') %}
+{% set _skip_text = skip_text|default('Use ESC to skip the quiz') %}
+{% set _with_background = with_background|default(false) %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% set _css_class = _css_class  ~ ' ecl-quiz--' ~ _variant %}
+
+{% if _with_background %}
+  {% set _css_class = _css_class ~ ' ecl-quiz--background' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<section
+  class="{{ _css_class }}"
+  id="{{ _id }}"
+  data-ecl-auto-init="Quiz"
+  {{ _extra_attributes|raw }}
+>
+{% if _with_background %}
+  <div class="ecl-container">
+{% endif %}
+{% if _title is not empty or _description is not empty %}
+  <div class="ecl-quiz__header">
+    {% if _title is not empty %}
+    <div class="ecl-quiz__title">
+      {{-  _title -}}
+    </div>
+    {% endif %}
+    {% if _description is not empty %}
+    <div class="ecl-quiz__description">
+      {{- _description -}}
+    </div>
+    {% endif %}
+  </div>
+{% endif %}
+{% if _items is not empty and _items is iterable %}
+  <div
+    class="ecl-quiz__viewport"
+    data-ecl-quiz-slider
+  >
+    <ol class="ecl-quiz__list">
+    {% for _item in _items %}
+      {% set _esc_box = '' %}
+      {% if loop.first %}
+        {% set _esc_box = _skip_text %}
+      {% endif %}
+      {% include "@ecl/quiz/quiz-card.html.twig" with _item|merge(
+        {
+          variant: _variant,
+          id: _id ~ '-' ~ loop.index,
+          esc_box: _esc_box 
+        }) only %}
+    {% endfor %}
+    </ol>
+  </div>
+{% endif %}
+  <div class="ecl-quiz__pager">
+    <button class="ecl-quiz__prev">
+      {% include "@ecl/icon/icon.html.twig" with {
+        icon: {
+          name: 'corner-arrow',
+          transform: 'rotate-270',
+          size: 'xs',
+          style: 'monochrome',
+        }
+      } %}
+      <span class="ecl-quiz__prev-label">
+        {{ _prev_label }}
+      </span>
+    </button>
+    <div class="ecl-quiz__dots"></div>
+    <button class="ecl-quiz__next">
+      <span class="ecl-quiz__next-label">
+        {{ _next_label }}
+      </span>
+      {% include "@ecl/icon/icon.html.twig" with {
+        icon: {
+          name: 'corner-arrow',
+          transform: 'rotate-90',
+          size: 'xs',
+          style: 'monochrome',
+        }
+      } %}
+    </button>
+    <script type="text/template" id="ecl-quiz__dot-template">
+      <button class="ecl-quiz__dot"></button>
+    </script>
+  </div>
+  <div class="ecl-quiz__counter"></div>
+{% if _with_background %}
+  </div>
+{% endif %}
+</section>
+
+{% endapply %}

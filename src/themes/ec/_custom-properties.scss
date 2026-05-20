@@ -156,6 +156,7 @@
   --ecl-color-warning-75: #{map.get($color-default, 'warning-75')};
   --ecl-color-warning-50: #{map.get($color-default, 'warning-50')};
   --ecl-color-warning-25: #{map.get($color-default, 'warning-25')};
+  --ecl-color-corporate-gradient: #{map.get($color-other, 'corporate-gradient')};
 
   // font
   --ecl-font-family-default: #{map.get($font-family, 'default')};
@@ -492,6 +493,8 @@
   --ecl-link-color: var(--cm-on-surface-primary);
   --ecl-link-color-hover: var(--cm-on-surface-primary-highest);
   --ecl-link-color-active: var(--cm-on-surface-brand);
+  --ecl-link-text-decoration: underline;
+  --ecl-link-text-decoration-hover: underline;
   --ecl-text-field-height: 3rem;
 
   // Default color mode
@@ -516,6 +519,8 @@
   --cm-surface-medium-0: var(--c-p-200);
   --cm-surface-medium-1: var(--c-p-300);
   --cm-surface-0: var(--c-g-950);
+  --cm-surface-0-text-media: var(--c-g-950);
+  --cm-surface-0-add-to-calendar: var(--c-g-950);
   --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-100')};
   --cm-surface-variant-2: var(--c-g-950);
   --cm-surface-primary-lowest: var(--c-p-50);
@@ -558,6 +563,8 @@
   // on surface
   --cm-on-surface-brand: var(--c-g-950);
   --cm-on-surface-inverted: #fff;
+  --cm-on-surface-text-media: #fff;
+  --cm-on-surface-add-to-calendar: #fff;
   --cm-on-surface-swap-0: #fff;
   --cm-on-surface-swap-1: var(--c-g-950);
   --cm-on-surface: var(--c-p-600);

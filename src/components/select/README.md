@@ -28,6 +28,7 @@ npm install --save @ecl/select
 - **"multiple_search"** (boolean) (default: true) Show the text filter in the multiple select
 - **"multiple_search_text"** (string) (default: '') Text for the search box inside the multiple select
 - **"multiple_search_no_results_text"** (string) (default: '') Label label when there is no result by searching for an option
+- **"multiple_counter_text"** (string)(default: '') Label for the counter when multiple options are selected; for screen readers
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the select group
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

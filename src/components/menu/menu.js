@@ -178,6 +178,7 @@ export class Menu {
     this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
+    this.handleClickOnLink = this.handleClickOnLink.bind(this);
   }
 
   /**
@@ -293,6 +294,10 @@ export class Menu {
           subLink.addEventListener('keyup', this.handleKeyboard);
         }
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.addEventListener('click', this.handleClickOnLink);
     }
 
     // Bind global keyboard events
@@ -472,6 +477,10 @@ export class Menu {
           subLink.removeEventListener('keyup', this.handleKeyboard);
         }
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.removeEventListener('click', this.handleClickOnLink);
     }
 
     if (this.attachKeyListener) {
@@ -751,6 +760,10 @@ export class Menu {
     // Max height: n * line-height + padding
     // We need to temporally change item alignments to get the height
     menuItem.style.alignItems = 'flex-start';
+    // Temporarily disable min-height so the measurement reflects only text
+    // wrapping, not the CSS minimum (e.g. 56px on EC desktop links).
+    menuLink.style.minHeight = '0';
+    menuLink.style.width = '';
     let linkWidth = menuLink.offsetWidth;
     const linkStyle = window.getComputedStyle(menuLink);
     const maxHeight =
@@ -764,6 +777,7 @@ export class Menu {
       // Safety exit
       if (linkWidth > 1000) break;
     }
+    menuLink.style.minHeight = '';
     menuItem.style.alignItems = 'unset';
   }
 
@@ -924,7 +938,7 @@ export class Menu {
           }
         } else {
           const caretButton = queryOne(
-            `${this.itemSelector}[aria-expanded="true"] ${this.caretSelector}`,
+            `${this.itemSelector}[data-expanded="true"] ${this.caretSelector}`,
             this.element,
           );
 
@@ -950,7 +964,7 @@ export class Menu {
         this.handleClickOnClose();
       }
       this.items.forEach((item) => {
-        item.setAttribute('aria-expanded', 'false');
+        item.setAttribute('data-expanded', 'false');
       });
       this.carets.forEach((caret) => {
         caret.setAttribute('aria-expanded', 'false');
@@ -1007,7 +1021,7 @@ export class Menu {
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
       item.classList.remove('ecl-menu__item--expanded');
-      item.setAttribute('aria-expanded', 'false');
+      item.setAttribute('data-expanded', 'false');
     });
 
     // Update label
@@ -1024,6 +1038,20 @@ export class Menu {
     this.trigger('onClose', e);
 
     return this;
+  }
+
+  /**
+   * Click on a final menu link (no children or sub-link).
+   * Closes the menu to support hash-based and dynamic navigation.
+   * @param {Event} e
+   */
+  handleClickOnLink(e) {
+    if (!e.target.closest('a')) return;
+    if (this.isOpen) {
+      this.handleClickOnClose(e);
+    } else {
+      this.closeOpenDropdown();
+    }
   }
 
   /**
@@ -1050,7 +1078,7 @@ export class Menu {
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
       item.classList.remove('ecl-menu__item--expanded');
-      item.setAttribute('aria-expanded', 'false');
+      item.setAttribute('data-expanded', 'false');
     });
 
     // Focus previously selected item
@@ -1084,12 +1112,20 @@ export class Menu {
     this.btnNext.style.display = 'flex';
 
     // Refresh display
+    // ecl-menu--transition adds transition-delay to links, which prevents
+    // the min-height override in checkMenuItem from taking effect immediately.
+    // Temporarily remove it (same as handleResize does) so measurements are accurate.
+    const hadTransition = this.element.classList.contains(
+      'ecl-menu--transition',
+    );
+    if (hadTransition) this.element.classList.remove('ecl-menu--transition');
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
         item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
+    if (hadTransition) this.element.classList.add('ecl-menu--transition');
   }
 
   /**
@@ -1129,12 +1165,20 @@ export class Menu {
     }
 
     // Refresh display
+    // ecl-menu--transition adds transition-delay to links, which prevents
+    // the min-height override in checkMenuItem from taking effect immediately.
+    // Temporarily remove it (same as handleResize does) so measurements are accurate.
+    const hadTransition = this.element.classList.contains(
+      'ecl-menu--transition',
+    );
+    if (hadTransition) this.element.classList.remove('ecl-menu--transition');
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
         item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
+    if (hadTransition) this.element.classList.add('ecl-menu--transition');
   }
 
   /**
@@ -1146,7 +1190,7 @@ export class Menu {
     const menuItem = e.target.closest(this.itemSelector);
     // Desktop display
     if (!menuExpanded) {
-      if (menuItem.getAttribute('aria-expanded') === 'true') {
+      if (menuItem.getAttribute('data-expanded') === 'true') {
         this.closeItem(e);
       } else {
         this.openItem(e);
@@ -1163,11 +1207,11 @@ export class Menu {
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
-        item.setAttribute('aria-expanded', 'true');
+        item.setAttribute('data-expanded', 'true');
         this.backItem = item;
       } else {
         item.classList.remove('ecl-menu__item--expanded');
-        item.setAttribute('aria-expanded', 'false');
+        item.setAttribute('data-expanded', 'false');
       }
     });
     this.checkMegaMenu(menuItem);
@@ -1204,13 +1248,13 @@ export class Menu {
     this.items.forEach((item) => {
       const caretButton = queryOne(this.caretSelector, item);
       if (item === menuItem) {
-        item.setAttribute('aria-expanded', 'true');
+        item.setAttribute('data-expanded', 'true');
 
         if (caretButton) {
           caretButton.setAttribute('aria-expanded', 'true');
         }
       } else {
-        item.setAttribute('aria-expanded', 'false');
+        item.setAttribute('data-expanded', 'false');
 
         // Force remove focus on caret buttons
         if (caretButton) {
@@ -1230,7 +1274,7 @@ export class Menu {
   closeItem(e) {
     // Remove attribute to current item
     const menuItem = e.target.closest(this.itemSelector);
-    menuItem.setAttribute('aria-expanded', 'false');
+    menuItem.setAttribute('data-expanded', 'false');
 
     const caretButton = queryOne(this.caretSelector, menuItem);
     if (caretButton) {
@@ -1275,11 +1319,11 @@ export class Menu {
    */
   closeOpenDropdown() {
     const currentItem = queryOne(
-      `${this.itemSelector}[aria-expanded='true']`,
+      `${this.itemSelector}[data-expanded='true']`,
       this.element,
     );
     if (currentItem) {
-      currentItem.setAttribute('aria-expanded', 'false');
+      currentItem.setAttribute('data-expanded', 'false');
 
       const caretButton = queryOne(this.caretSelector, currentItem);
       if (caretButton) {

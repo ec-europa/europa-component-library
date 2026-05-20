@@ -5,6 +5,8 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+@use '@ecl/link/link' as link-component;
 
 // Exposed variables
 $theme: null !default;
@@ -29,7 +31,8 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures--centered {
-  .ecl-fact-figures__items {
+  .ecl-fact-figures__items,
+  .ecl-fact-figures__sources {
     justify-content: center;
   }
 
@@ -54,15 +57,19 @@ $fact-figures: null !default;
 
   .ecl-fact-figures__item--font-m & {
     font: map.get($fact-figures, 'value-font-mobile-m');
+    font-weight: map.get($fact-figures, 'value-font-weight');
   }
 }
 
 .ecl-fact-figures__title {
   display: block;
-  font: map.get($fact-figures, 'title-font');
-  font-weight: map.get($fact-figures, 'title-font-weight');
   margin-top: map.get($fact-figures, 'title-margin');
   max-width: var(--max-w);
+
+  @include mixins.responsive-font(
+    map.get($fact-figures, 'title-font'),
+    $font-weight: map.get($fact-figures, 'title-font-weight')
+  );
 }
 
 .ecl-fact-figures__description {
@@ -75,11 +82,45 @@ $fact-figures: null !default;
   border-top: 1px solid map.get($fact-figures, 'view-all-border-color');
   font: map.get($fact-figures, 'view-all-font');
   margin-top: map.get($fact-figures, 'view-all-margin');
-  padding-top: map.get($fact-figures, 'view-all-padding-mobile');
+  padding-top: map.get($fact-figures, 'view-all-padding');
 }
 
 .ecl-fact-figures__view-all-link {
   --ecl-link-color: #{map.get($fact-figures, 'view-all-color')};
+}
+
+.ecl-fact-figures__sources {
+  align-items: center;
+  color: map.get($fact-figures, 'source-color');
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-block-start: map.get($fact-figures, 'source-spacing');
+
+  @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
+}
+
+.ecl-fact-figures__sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--s-xs);
+}
+
+.ecl-fact-figures__source {
+  @if map.get($fact-figures, 'source-link-variant') == 'brand' {
+    @include link-component.brand-link;
+  } @else if map.get($fact-figures, 'source-link-variant') == 'standalone' {
+    @include link-component.standalone-link;
+  }
+}
+
+.ecl-fact-figures__sources-item:not(:last-child)::after {
+  color: map.get($fact-figures, 'source-separator-color');
+  content: '|';
+  margin-inline: var(--s-xs);
 }
 
 /* stylelint-disable-next-line order/order */
@@ -113,13 +154,11 @@ $fact-figures: null !default;
 
   .ecl-fact-figures__value {
     font: map.get($fact-figures, 'value-font-desktop-l');
+    font-weight: map.get($fact-figures, 'value-font-weight');
 
     .ecl-fact-figures__item--font-m & {
       font: map.get($fact-figures, 'value-font-desktop-m');
+      font-weight: map.get($fact-figures, 'value-font-weight');
     }
-  }
-
-  .ecl-fact-figures__view-all {
-    padding-top: map.get($fact-figures, 'view-all-padding-desktop');
   }
 }

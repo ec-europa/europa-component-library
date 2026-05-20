@@ -1,5 +1,6 @@
 import '@ecl/dom-utils/polyfills';
 
+export * from '@ecl/animated-numbers';
 export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/banner';
 export * from '@ecl/carousel';
@@ -20,6 +21,7 @@ export * from '@ecl/mega-menu';
 export * from '@ecl/modal';
 export * from '@ecl/news-ticker';
 export * from '@ecl/notification';
+export * from '@ecl/quiz';
 export * from '@ecl/page-header';
 export * from '@ecl/popover';
 export * from '@ecl/range';
