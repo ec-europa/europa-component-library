@@ -207,6 +207,42 @@ $link: null !default;
     }
   }
 
+  @if map.has-key($button, #{$variant}, 'border-width-focus') {
+    &:focus-visible {
+      border-width: map.get($button, #{$variant}, 'border-width-focus');
+      padding: calc(
+          #{map.get($button, 'large', 'padding-vertical')} -
+            #{map.get($button, #{$variant}, 'border-width-focus')}
+        )
+        calc(
+          #{map.get($button, 'large', 'padding-horizontal')} -
+            #{map.get($button, #{$variant}, 'border-width-focus')}
+        );
+    }
+
+    &.ecl-button--s:focus-visible {
+      padding: calc(
+          #{map.get($button, 'small', 'padding-vertical')} -
+            #{map.get($button, #{$variant}, 'border-width-focus')}
+        )
+        calc(
+          #{map.get($button, 'small', 'padding-horizontal')} -
+            #{map.get($button, #{$variant}, 'border-width-focus')}
+        );
+    }
+
+    &.ecl-button--m:focus-visible {
+      padding: calc(
+          #{map.get($button, 'medium', 'padding-vertical')} -
+            #{map.get($button, #{$variant}, 'border-width-focus')}
+        )
+        calc(
+          #{map.get($button, 'medium', 'padding-horizontal')} -
+            #{map.get($button, #{$variant}, 'border-width-focus')}
+        );
+    }
+  }
+
   &:active {
     background-color: map.get($button, #{$variant}, 'background-active');
     border-color: map.get($button, #{$variant}, 'border-color-active');
