@@ -823,18 +823,20 @@ export class Quiz {
               '.ecl-quiz-card__option-assistive-label',
               el,
             );
+            // If the chosen option is correct
             if (match) {
               const correctChosenText = card.getAttribute(
                 this.correctChosenOptionSelector,
               );
+
               if (correctChosenText && assistiveTextEl) {
                 assistiveTextEl.textContent = correctChosenText;
-              }
+              } // If the chosen option is incorrect
             } else {
               const incorrectChosenText = card.getAttribute(
                 this.incorrectChosenOptionSelector,
               );
-              console.log(incorrectChosenText);
+
               if (incorrectChosenText && assistiveTextEl) {
                 assistiveTextEl.textContent = incorrectChosenText;
               }

@@ -58,6 +58,8 @@ module.exports = {
         'What document allows EU citizens to travel freely between most EU countries?',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
+      correct_chosen_label: 'Your correct answer',
+      incorrect_chosen_label: 'Your incorrect answer',
       options: [
         { name: 'A valid ID card.' },
         { name: 'A valid ID card or passport', correct: true },
@@ -100,6 +102,8 @@ module.exports = {
       answer: 'The Euro is the official currency used by many EU conutries',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
+      correct_chosen_label: 'Your correct answer',
+      incorrect_chosen_label: 'Your incorrect answer',
       options: [
         { name: 'The pound is the most used currency in the EU' },
         {
@@ -143,6 +147,8 @@ module.exports = {
       answer: 'Duis id mattis libero. Quisque accumsan nisi',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
+      correct_chosen_label: 'Your correct answer',
+      incorrect_chosen_label: 'Your incorrect answer',
       options: [
         {
           name: 'Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum',
@@ -187,6 +193,8 @@ module.exports = {
       answer: 'Duis id mattis libero. Quisque accumsan nisi',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
+      correct_chosen_label: 'Your correct answer',
+      incorrect_chosen_label: 'Your incorrect answer',
       options: [
         {
           name: 'Aenean est metus, malesuada sed suscipit id, tempor non sapien.',
