@@ -14,6 +14,8 @@ module.exports = {
       error_category: 'Incorrect',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
+      correct_chosen_label: 'Your correct answer',
+      incorrect_chosen_label: 'Your incorrect answer',
       question: 'Which institution proposes new EU laws?',
       options: [
         { name: 'European commission', correct: true },

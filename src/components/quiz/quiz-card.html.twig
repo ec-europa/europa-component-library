@@ -9,8 +9,10 @@
     - "question" (string) (default: '') Question to show on the front of the card
     - "answer" (string) (default: '') Answer to show on the back of the card
     - "answer_title" (string) (default: '') Title for the answer section on the back of the card
-    - "correct_label" (string) (default: '') Aria label for correct option icon
-    - "incorrect_label" (string) (default: '') Aria label for incorrect option icon
+    - "correct_label" (string) (default: '') label for sr only about the correct option
+    - "correct_chosen_label" (string) (default)  label for sr only about the chosen option when correct
+    - "incorrect_label" (string) (default: '') label for sr only about the incorrect option
+    - "incorrect_chosen_label" (string) (default: '')  label for sr only about the chosen option when incorrect
     - "options" (array) Array of options (poll variant)
       - "name" (string) Name of the option, eg: 'Paris'
       - "correct" (boolean) Whether the option is correct or not
@@ -40,6 +42,8 @@
 {% set _back_text = back_text|default('') %}
 {% set _correct_label = correct_label|default('') %}
 {% set _incorrect_label = incorrect_label|default('') %}
+{% set _correct_chosen_label = correct_chosen_label|default('') %}
+{% set _incorrect_chosen_label = incorrect_chosen_label|default('') %}
 {% set _answer = answer|default('') %}
 {% set _name = name|default(_id ~ '-options') %}
 {% set _answer_title = answer_title|default('') %}
@@ -50,9 +54,16 @@
 
 {# Internal logic - Process properties #}
 
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _correct_chosen_label is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-quiz-chosen-option-correct', value: _correct_chosen_label}]) %}
+{% endif %}
+
+{% if _incorrect_chosen_label is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-quiz-chosen-option-incorrect', value: _incorrect_chosen_label}]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -173,8 +184,10 @@
         <li
           class="ecl-quiz-card__option"
           data-match="{{ _option.correct ? "true" : "false" }}"
-          aria-label="{{ _option.correct ? _correct_label : _incorrect_label }}"
         >
+          <span class="ecl-quiz-card__option-assistive-label">
+            {{- _option.correct ? _correct_label : _incorrect_label -}}
+          </span>
           {{- _option.name -}}
           <span
             class="ecl-quiz-card__option-icon"

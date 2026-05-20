@@ -345,7 +345,8 @@ $quiz: null !default;
     gap: var(--s-s);
     padding: var(--s-xs) var(--s-m);
 
-    input {
+    input,
+    .ecl-quiz-card__option-assistive-label {
       @include screen-reader.sr-only;
     }
 

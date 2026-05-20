@@ -32,6 +32,8 @@ exports[`Quiz Poll renders correctly 1`] = `
       >
         <li
           class="ecl-quiz-card"
+          data-ecl-quiz-chosen-option-correct="Your correct answer"
+          data-ecl-quiz-chosen-option-incorrect="Your incorrect answer"
           id="quiz-poll-item1"
         >
           <article
@@ -188,10 +190,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                 type="A"
               >
                 <li
-                  aria-label="Correct answer"
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   European commission
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -203,10 +209,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   European parliament
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -218,10 +228,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   European Central Bank
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -233,10 +247,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   Court of Justice of the European Union
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -409,10 +427,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                 type="A"
               >
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   A valid ID card.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -424,10 +446,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Correct answer"
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   A valid ID card or passport
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -439,10 +465,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   A valid passport.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -454,10 +484,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   None of these
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -614,10 +648,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                 type="A"
               >
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   The pound is the most used currency in the EU
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -629,10 +667,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   The Leu is by far the most used currency in the European Union 
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -644,10 +686,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Correct answer"
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   The euro (€) is used in many EU member states.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -804,10 +850,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                 type="A"
               >
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -819,10 +869,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Correct answer"
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -834,10 +888,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   ivamus auctor blandit auctor.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -994,10 +1052,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                 type="A"
               >
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   Aenean est metus, malesuada sed suscipit id, tempor non sapien.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -1009,10 +1071,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Incorrect answer"
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
                   <span
                     class="ecl-quiz-card__option-icon"
@@ -1024,10 +1090,14 @@ exports[`Quiz Poll renders correctly 1`] = `
                   </span>
                 </li>
                 <li
-                  aria-label="Correct answer"
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   Aenean facilisis venenatis lacus, et egestas quam mattis eu.
                   <span
                     class="ecl-quiz-card__option-icon"
