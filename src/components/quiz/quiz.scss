@@ -369,7 +369,7 @@ $quiz: null !default;
     flex: 1;
     grid-template-columns: auto 1fr;
     gap: var(--s-s);
-    padding: var(--s-xs) var(--s-m);
+    padding: var(--s-xs) var(--s-s) var(--s-xs) var(--s-m);
     position: relative;
 
     input,
@@ -573,9 +573,12 @@ $quiz: null !default;
   }
 
   @container (width >= #{map.get($theme, 'breakpoint', 'xl')}) {
-    .ecl-quiz-card__question,
-    .ecl-quiz-card__answer {
+    .ecl-quiz-card__question {
       padding-block: map.get($quiz, 'card', 'question-answer-poll-spacing');
+    }
+
+    .ecl-quiz-card__answer {
+      padding-block-end: map.get($quiz, 'card', 'question-answer-poll-spacing');
     }
   }
 

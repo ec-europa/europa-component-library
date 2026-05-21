@@ -209,12 +209,12 @@
           >
           {% if _option.correct %}
             {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
-              icon: _back_icon.success.icon|merge({ size: 'm' }),
+              icon: _back_icon.success.icon|merge({ size: 's' }),
               extra_classes: 'ecl-quiz-card__option-icon--success',
             }) only %}
           {% else %}
             {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
-              icon: _back_icon.error.icon|merge({ size: 'm' }),
+              icon: _back_icon.error.icon|merge({ size: 's' }),
               extra_classes: 'ecl-quiz-card__option-icon--error',
             }) only %}
           {% endif %}
