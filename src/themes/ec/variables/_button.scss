@@ -10,7 +10,12 @@ $button: (
     size: 2rem,
     padding-horizontal: var(--s-s),
     padding-vertical: var(--s-xs),
-    font: 'microcopy-s',
+    font: (
+      'mobile-xs': (
+        'size': var(--fs-xs),
+        'line-height': var(--lh-2xs),
+      ),
+    ),
     icon-only-size: map.get($icon, '2xs'),
     icon-spacing: var(--s-xs),
     icon-size: map.get($icon, '2xs'),
@@ -19,7 +24,12 @@ $button: (
     size: 2.5rem,
     padding-horizontal: var(--s-m),
     padding-vertical: var(--s-xs),
-    font: 'body-s',
+    font: (
+      'mobile-xs': (
+        'size': var(--fs-s),
+        'line-height': var(--lh-s),
+      ),
+    ),
     icon-only-size: map.get($icon, 's'),
     icon-spacing: var(--s-xs),
     icon-size: map.get($icon, 'xs'),
@@ -28,10 +38,15 @@ $button: (
     size: 2.75rem,
     padding-horizontal: var(--s-l),
     padding-vertical: var(--s-s),
-    font: 'body-m',
+    font: (
+      'mobile-xs': (
+        'size': var(--fs-m),
+        'line-height': var(--lh-m),
+      ),
+    ),
     icon-only-size: map.get($icon, 'm'),
     icon-spacing: var(--s-s),
-    icon-size: map.get($icon, 'xs'),
+    icon-size: map.get($icon, 's'),
   ),
   primary: (
     background: var(--cm-surface-primary),
