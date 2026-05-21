@@ -7,12 +7,12 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from './demo/data';
 
-data.id = 'page-summary';
+data.id = 'highlight-box';
 
 expect.extend(toHaveNoViolations);
 
-describe('Page summary', () => {
-  const template = '@ecl/page-summary/page-summary.html.twig';
+describe('Highlight box', () => {
+  const template = '@ecl/highlight-box/highlight-box.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

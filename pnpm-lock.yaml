@@ -599,6 +599,19 @@ importers:
         specifier: 5.0.0-RC5
         version: link:../../utilities/screen-reader
 
+  src/components/highlight-box:
+    dependencies:
+      '@ecl/icon':
+        specifier: 5.0.0-RC5
+        version: link:../icon
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC5
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC5
+        version: link:../../mixins/typography
+
   src/components/icon:
     devDependencies:
       '@ecl/resources-icons':
@@ -1871,6 +1884,9 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0-RC5
         version: link:../../layout/grid
+      '@ecl/highlight-box':
+        specifier: 5.0.0-RC5
+        version: link:../../components/highlight-box
       '@ecl/icon':
         specifier: 5.0.0-RC5
         version: link:../../components/icon
@@ -2163,6 +2179,9 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0-RC5
         version: link:../../layout/grid
+      '@ecl/highlight-box':
+        specifier: 5.0.0-RC5
+        version: link:../../components/highlight-box
       '@ecl/icon':
         specifier: 5.0.0-RC5
         version: link:../../components/icon
@@ -2601,6 +2620,9 @@ importers:
       '@ecl/gallery':
         specifier: 5.0.0-RC5
         version: link:../components/gallery
+      '@ecl/highlight-box':
+        specifier: 5.0.0-RC5
+        version: link:../components/highlight-box
       '@ecl/icon':
         specifier: 5.0.0-RC5
         version: link:../components/icon
