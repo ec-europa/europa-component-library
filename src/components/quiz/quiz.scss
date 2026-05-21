@@ -411,13 +411,15 @@ $quiz: null !default;
     }
 
     &:hover {
-      background: var(--c-w-200);
-      border-color: var(--c-w-300);
+      background: var(--c-w-300);
+      border-color: var(--c-w-600);
     }
 
-    &:has(:active) {
-      background: rgb(255, 255, 255, 0.25);
-      border-color: var(--c-w-300);
+    &:has(input[type='radio']:focus-visible) {
+      box-shadow:
+        0 0 0 2px var(--cm-border-primary, var(--c-p)),
+        0 0 0 4px var(--cm-on-surface-inverted, #fff);
+      outline: none;
     }
 
     &:has(.ecl-quiz-card__label) {
@@ -474,21 +476,9 @@ $quiz: null !default;
     background: map.get($quiz, 'card', 'second-option-background');
     border-color: map.get($quiz, 'card', 'second-option-border');
 
-    &:hover,
-    &:has(:active) {
-      background: var(--c-w-600);
-      border-color: var(--c-w-600);
-    }
-
-    &:has(:active) {
-      box-shadow: 0 0 0 2px var(--cm-on-surface-inverted, #fff);
-    }
-
-    &:has(input[type='radio']:focus-visible) {
-      box-shadow:
-        0 0 0 2px var(--cm-border-primary, var(--c-p)),
-        0 0 0 4px var(--cm-on-surface-inverted, #fff);
-      outline: none;
+    &:hover {
+      background: var(--c-w-500);
+      border-color: var(--c-w-950);
     }
   }
 }
