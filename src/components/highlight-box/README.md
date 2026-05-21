@@ -8,6 +8,10 @@ npm install --save @ecl/highlight-box
 
 ## Parameters
 
+- **"id"** (string) (default: random): highlight box id
+- **"title"** (string) (default: ''): highlight box title
+- **"description"** (string) (default: ''): highlight box description
+- **"icon"** (object) (default: ''): icon for the title; follows the ECL Icon structure
 - **"extra_classes"** (string) (default: '')
 - **"extra_attributes"** (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
@@ -18,6 +22,11 @@ npm install --save @ecl/highlight-box
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/highlight-box/highlight-box.html.twig' with { 
-
+  title: 'Summary',
+  description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  icon: {
+    name: 'book-open',
+    family: 'phosphor',
+  },
 } %}
 ```

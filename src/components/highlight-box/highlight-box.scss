@@ -9,3 +9,7 @@
 // Exposed variables
 $theme: null !default;
 $highlight-box: null !default;
+
+.ecl-highlight-box {
+  background-color: map.get($highlight-box, 'background-color');
+}
