@@ -128,11 +128,11 @@ const prepareData = (data, args) => {
     });
 
     // Example with twice the same network, when displayed vertically
-    clone.section_site_info.social_media.links[2].link.label =
+    clone.section_site_info.social_media.links[1].link.label =
       'Linkedin - link 1';
-    clone.section_site_info.social_media.links[3].link.label =
+    clone.section_site_info.social_media.links[2].link.label =
       'Linkedin - link 2';
-    clone.section_site_info.social_media.links[3].icon.name = 'linkedin';
+    clone.section_site_info.social_media.links[2].icon.name = 'linkedin';
   }
 
   return Object.assign(clone, args);
