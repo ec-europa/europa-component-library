@@ -1,4 +1,6 @@
-// Simple content for demo
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 module.exports = {
   title: 'Summary',
   description:
@@ -6,5 +8,16 @@ module.exports = {
   icon: {
     name: 'book-open',
     family: 'phosphor',
+  },
+  link: {
+    link: {
+      label: 'Read more',
+      path: exampleLink,
+    },
+    icon: {
+      name: 'arrow-right',
+      size: 'xs',
+      family: 'phosphor',
+    },
   },
 };
