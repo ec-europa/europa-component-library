@@ -24,22 +24,24 @@ npm install --save @ecl/highlight-box
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/highlight-box/highlight-box.html.twig' with { 
-  title: 'Summary',
-  description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  title: 'What are the next steps?',
+  description:
+    'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   icon: {
-    name: 'book-open',
+    name: 'arrow-right',
+    size: 'xs',
     family: 'phosphor',
   },
   link: {
     link: {
       label: 'Read more',
-      path: '#example,
+      path: exampleLink,
     },
     icon: {
       name: 'arrow-right',
       size: 'xs',
       family: 'phosphor',
     },
-  }
+  },
 } %}
 ```
