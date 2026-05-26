@@ -5,6 +5,8 @@ order: 2
 
 import { Playground } from '@ecl/website-components';
 
+Check the playground to see the different options.
+
 ## Default page header
 
 <Playground
@@ -14,20 +16,20 @@ import { Playground } from '@ecl/website-components';
   selectedArgs="show_thumbnail:!false"
 ></Playground>
 
-## News page header
+## Image on bottom
 
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="news"
-  selectedArgs="show_thumbnail:!false"
+  selectedStory="default"
+  selectedArgs="show_thumbnail:!false;description_position:bottom;picture_position:bottom;has_background:!true"
 ></Playground>
 
-## 50/50 page header
+## Image on side
 
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="fifty"
-  selectedArgs="show_thumbnail:!false"
+  selectedStory="default"
+  selectedArgs="show_thumbnail:!false;picture_position:beside;has_background:!true"
 ></Playground>
