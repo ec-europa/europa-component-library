@@ -490,6 +490,7 @@ export class Quiz {
   handleKeyboard(e) {
     if (e.key === 'Escape') {
       this.escapeSlider();
+      return;
     }
 
     const item = e.target;
@@ -526,73 +527,103 @@ export class Quiz {
 
     if (
       e.key === 'Tab' &&
-      e.target.classList.contains('ecl-quiz-card__category') &&
-      card.nextElementSibling
+      !e.shiftKey &&
+      e.target.classList.contains('ecl-quiz-card__category')
     ) {
-      e.preventDefault();
-      const first = queryOne(
-        `[${this.inputSelector}]`,
-        card.nextElementSibling,
-      );
-      if (first) {
-        first.focus();
+      let nextSlide = card.nextElementSibling;
+      while (nextSlide && nextSlide.classList.contains(this.flippedClass)) {
+        nextSlide = nextSlide.nextElementSibling;
       }
+      if (nextSlide) {
+        e.preventDefault();
+        const idx = Array.from(this.cards).indexOf(nextSlide);
+        if (idx !== -1) this.slider.goTo(idx);
+        const firstInput = queryOne(`[${this.inputSelector}]`, nextSlide);
+        if (firstInput) firstInput.focus();
+      }
+      // No unflipped card ahead: let native Tab exit the quiz naturally
     }
 
     if (
-      (e.key === 'Tab' || e.key === 'ArrowDown' || e.key === 'ArrowUp') &&
+      e.key === 'Tab' &&
+      e.shiftKey &&
+      card.classList.contains(this.flippedClass) &&
+      e.target.closest(this.backClass)
+    ) {
+      let prevSlide = card.previousElementSibling;
+      while (prevSlide && prevSlide.classList.contains(this.flippedClass)) {
+        prevSlide = prevSlide.previousElementSibling;
+      }
+      if (prevSlide) {
+        e.preventDefault();
+        const idx = Array.from(this.cards).indexOf(prevSlide);
+        if (idx !== -1) this.slider.goTo(idx);
+        const lastInput = Array.from(
+          queryAll(`[${this.inputSelector}]`, prevSlide),
+        ).pop();
+        if (lastInput) lastInput.focus();
+      }
+      // No unflipped card before: let native Shift+Tab exit the quiz naturally
+      return;
+    }
+
+    // Tab from a radio input: jump to the nearest unflipped card, skipping flipped ones
+    if (e.key === 'Tab' && e.target.hasAttribute(this.inputSelector)) {
+      if (!e.shiftKey) {
+        let nextSlide = card.nextElementSibling;
+        while (nextSlide && nextSlide.classList.contains(this.flippedClass)) {
+          nextSlide = nextSlide.nextElementSibling;
+        }
+        if (nextSlide) {
+          e.preventDefault();
+          const idx = Array.from(this.cards).indexOf(nextSlide);
+          if (idx !== -1) this.slider.goTo(idx);
+          const firstInput = queryOne(`[${this.inputSelector}]`, nextSlide);
+          if (firstInput) firstInput.focus();
+        }
+        // No unflipped card ahead: let native Tab exit the quiz naturally
+      } else {
+        let prevSlide = card.previousElementSibling;
+        while (prevSlide && prevSlide.classList.contains(this.flippedClass)) {
+          prevSlide = prevSlide.previousElementSibling;
+        }
+        if (prevSlide) {
+          e.preventDefault();
+          const idx = Array.from(this.cards).indexOf(prevSlide);
+          if (idx !== -1) this.slider.goTo(idx);
+          const lastInput = Array.from(
+            queryAll(`[${this.inputSelector}]`, prevSlide),
+          ).pop();
+          if (lastInput) lastInput.focus();
+        }
+        // No unflipped card before: let native Shift+Tab exit the quiz naturally
+      }
+    }
+
+    // Arrow keys: move focus within the card's options without selecting/flipping
+    if (
+      (e.key === 'ArrowDown' ||
+        e.key === 'ArrowUp' ||
+        e.key === 'ArrowRight' ||
+        e.key === 'ArrowLeft') &&
       e.target.hasAttribute(this.inputSelector)
     ) {
       e.preventDefault();
       const focusables = queryAll(`[${this.inputSelector}]`, card);
       const focusableArray = Array.from(focusables);
       const currentIndex = focusableArray.indexOf(item);
-      const isFirst = currentIndex === 0;
-      const isLast = currentIndex === focusableArray.length - 1;
 
-      // Shift + Tab or arrow up
-      if (e.shiftKey || e.key === 'ArrowUp') {
-        if (!isFirst) {
-          focusableArray[currentIndex - 1].setAttribute('tabindex', '0');
-          focusableArray[currentIndex - 1].focus();
-        }
-        // Handle Shift + Tab on the first option of the card
-        if (isFirst || card.classList.contains(this.flippedClass)) {
-          const prevSlide = card.previousElementSibling;
-
-          if (prevSlide) {
-            this.slider.goToPrev();
-            const previousFocusables = queryAll(
-              `[${this.inputSelector}]`,
-              prevSlide,
-            );
-            const previousOption = Array.from(previousFocusables).pop();
-            if (previousOption) {
-              previousOption.setAttribute('tabindex', '0');
-              previousOption.focus();
-            }
-          }
-        }
-
-        return;
-      }
-
-      if (!isLast) {
+      if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && currentIndex > 0) {
+        item.setAttribute('tabindex', '-1');
+        focusableArray[currentIndex - 1].setAttribute('tabindex', '0');
+        focusableArray[currentIndex - 1].focus();
+      } else if (
+        (e.key === 'ArrowDown' || e.key === 'ArrowRight') &&
+        currentIndex < focusableArray.length - 1
+      ) {
+        item.setAttribute('tabindex', '-1');
         focusableArray[currentIndex + 1].setAttribute('tabindex', '0');
         focusableArray[currentIndex + 1].focus();
-      }
-      // Handle tab on the last option of the card
-      if (isLast || card.classList.contains(this.flippedClass)) {
-        const nextSlide = item.closest(this.cardSelector).nextElementSibling;
-
-        if (nextSlide) {
-          this.slider.goToNext();
-          const nextOption = queryOne(`[${this.inputSelector}]`, nextSlide);
-          if (nextOption) {
-            nextOption.setAttribute('tabindex', '0');
-            nextOption.focus();
-          }
-        }
       }
     }
   }
@@ -668,13 +699,6 @@ export class Quiz {
           category = queryOne('.ecl-quiz-card__category--success', back);
         }
 
-        // FRONT-5298 Focus after answering
-        if (isFlipped) {
-          if (category) {
-            category.focus();
-          }
-        }
-
         const options = queryOne('.ecl-quiz-card__options', back);
         Array.from(options.children).forEach((el) =>
           el.classList.remove('ecl-quiz-card__option--selected'),
@@ -685,7 +709,14 @@ export class Quiz {
       }
 
       front.hidden = isFlipped;
+      front.inert = isFlipped;
       back.hidden = !isFlipped;
+      back.inert = !isFlipped;
+
+      // FRONT-5298 Focus the status category after answering (poll variant only)
+      if (isFlipped && e.target.hasAttribute('data-match') && category) {
+        category.focus();
+      }
 
       // Update aria-labelledby
       const question = queryOne(`#${card.id}-question`, card);
@@ -702,11 +733,31 @@ export class Quiz {
    *
    */
   escapeSlider() {
-    if (!this.dotsNode) {
+    let dots = [];
+
+    if (this.slider.canGoToNext()) {
+      this.nextButtonNode.focus();
       return;
     }
 
-    const dots = queryAll(this.dotClass, this.dotsNode);
+    if (this.dotsNode) {
+      dots = queryAll(this.dotClass, this.dotsNode);
+    }
+
+    // Move focus on the disabled next button in case there are no dots.
+    if (
+      dots.length === 0 &&
+      !this.slider.canGoToNext() &&
+      this.nextButtonNode
+    ) {
+      this.nextButtonNode.disabled = false;
+      this.nextButtonNode.style.display = 'flex';
+      this.nextButtonNode.style.visibility = 'visible';
+      this.nextButtonNode.classList.add('.ecl-quiz__next--escape');
+      this.nextButtonNode.focus();
+      return;
+    }
+
     if (dots.length > 0) {
       const lastDot = dots[dots.length - 1];
       lastDot.focus();

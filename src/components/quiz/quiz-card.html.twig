@@ -7,6 +7,7 @@
     - "success_category" (string) (default: '')
     - "error_category" (string) (default: '')
     - "question" (string) (default: '')
+    - "esc_box" (string) (default: '')
     - "answer" (string) (default: '')
     - "answer_title" (string) (default: '')
     - "options" (array) Array of options (poll variant)
@@ -31,6 +32,7 @@
 {% set _question = question|default('') %}
 {% set _icon = icon|default({}) %}
 {% set _back_icon = back_icon|default({}) %}
+{% set _esc_box = esc_box|default('') %}
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
@@ -43,7 +45,6 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
-
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -86,7 +87,11 @@
       </div>
     {% endif %}
     {% if _options is not empty %}
-      <fieldset>
+      <fieldset
+      {%- if _esc_box is not empty %}
+        aria-describedby="quiz-{{ _id }}-skip-instructions"
+      {%- endif -%}
+      >
         <legend class="ecl-quiz-card__question" id="{{ _id }}-question">
           {{- _question -}}
         </legend>
@@ -103,6 +108,14 @@
               >
               {{- _option.name -}}
             </label>
+          {%- if loop.first and _esc_box is not empty -%}
+            <span
+              class="ecl-quiz__skip"
+              id="quiz-{{ _id }}-skip-instructions"
+            >
+              {{- _esc_box -}}
+            </span>
+          {%- endif -%}
           </li>
         {% endfor %}
         </ol>
@@ -120,6 +133,7 @@
     <div
       class="ecl-quiz-card__back"
       hidden
+      inert
     >
       <div class="ecl-quiz-card__header">
         <div class="ecl-quiz-card__icon">

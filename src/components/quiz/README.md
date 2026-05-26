@@ -13,22 +13,28 @@ npm install --save @ecl/quiz
 - **"with_background"** (boolean) (default: false)
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
+- **"skip_text"** (string) (default: 'Use ESC to skip the quiz')
 - **"items"** (array) array of quiz cards
-  - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
   - "category" (string) (default: '') (poll variant)
   - "success_category" (string) (default: '')
   - "error_category" (string) (default: '')
   - "question" (string) (default: '')
   - "answer" (string) (default: '')
   - "answer_title" (string) (default: '')
-  - "options" (array) Array of options (poll variant)
-  - "icon" (object) Object of type icon
-  - "back_icon" (object) Object of type icon
-  - "flip_text" (string) Helper text (reveal variant)
-  - "flip_icon" (object) Object of type icon
-  - "back_text" (string) Text on the back of the card
-  - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
-  - "extra_classes" (string) (default: ''): Extra css classes for the card
+  - "options" (associative array)
+  - "name" (string) (default: '')
+  - "correct" (boolean)
+  - "icon" (object) Object of type ECL icon
+  - "flip_icon" (object) Object of type ECL icon
+  - "flip_text" (string) (default: '')
+  - "back_text" (string) (default: '')
+  - "prev_label" (string) (default: '')
+  - "next_label" (string) (default: '')
+  - "esc_box" (string) (default: '')
+  - "category" (string) (default: '')
+  - "success_category" (string) (default: '')
+  - "error_category" (string) (default: '')
+  - "extra_classes" (optional) (string) (default: ''): Extra css classes for the card
   - "extra_attributes" (optional) (array) (default: []): Extra attributes for the card
 - **"extra_classes"** (optional) (string) (default: ''): Extra css classes
 - **"extra_attributes"** (optional) (array) (default: [])
