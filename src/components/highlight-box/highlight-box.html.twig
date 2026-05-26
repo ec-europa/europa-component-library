@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "color_mode" (string) (default: '') name of the color mode
     - "id" (string) (default: random): highlight box id
     - "title" (string) (default: ''): highlight box title
     - "description" (string) (default: ''): highlight box description
@@ -17,6 +18,7 @@
 
 {% set _css_class = 'ecl-highlight-box' %}
 {% set _extra_attributes = '' %}
+{% set _color_mode = color_mode|default('') %}
 {% set _id = id|default('ecl-highlight-box-' ~ random()) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
@@ -24,6 +26,10 @@
 {% set _link = link|default({}) %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -51,10 +57,12 @@
     <header class="ecl-highlight-box__header">
       {# Icon #}
       {% if _icon is not empty %}
-        {% include '@ecl/icon/icon.html.twig' with {
-          icon: _icon,
-          extra_classes: "ecl-highlight-box__icon",
-        } only %}
+        <div class="ecl-highlight-box__icon-wrapper">
+          {% include '@ecl/icon/icon.html.twig' with {
+            icon: _icon,
+            extra_classes: "ecl-highlight-box__icon",
+          } only %}
+        </div>
       {% endif %}
 
       {# Title #}
@@ -65,7 +73,7 @@
   {% endif %}
 
   {% if _description is not empty or _link is not empty %}
-    <div class="ecl-highlight-box__content">
+    <div class="ecl-highlight-box__body">
       {% if _description is not empty %}
         {# Description #}
         <div class="ecl-highlight-box__description">

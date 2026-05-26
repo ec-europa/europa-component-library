@@ -10,6 +10,41 @@
 $theme: null !default;
 $highlight-box: null !default;
 
-.ecl-highlight-box {
-  background-color: map.get($highlight-box, 'background-color');
+.ecl-highlight-box__header {
+  align-items: center;
+  background-color: map.get($highlight-box, 'header', 'background-color');
+  color: map.get($highlight-box, 'header', 'color');
+  display: flex;
+  padding: map.get($highlight-box, 'header', 'padding');
+
+  @include mixins.responsive-font(
+    map.get($highlight-box, 'header', 'font'),
+    $font-weight: map.get($highlight-box, 'header', 'font-weight')
+  );
+}
+
+.ecl-highlight-box__icon-wrapper {
+  align-items: center;
+  background-color: map.get($highlight-box, 'header', 'icon-background-color');
+  border-radius: 50%;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  margin-inline-end: var(--s-m);
+  width: 2.5rem;
+}
+
+.ecl-highlight-box__body {
+  background-color: map.get($highlight-box, 'body', 'background-color');
+  color: map.get($highlight-box, 'body', 'color');
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-m);
+  padding: map.get($highlight-box, 'body', 'padding');
+
+  @include mixins.responsive-font(map.get($highlight-box, 'body', 'font'));
+}
+
+.ecl-highlight-box__link {
+  width: fit-content;
 }

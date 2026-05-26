@@ -2,5 +2,18 @@
 @use '../index' as *;
 
 $highlight-box: (
-  background-color: beige,
+  header: (
+    background-color: var(--c-p),
+    color: #fff,
+    font: 'heading5',
+    font-weight: map.get($font-weight, 'bold'),
+    padding: var(--s-m) calc(var(--s-m) + var(--s-2xs)),
+    icon-background-color: var(--c-w-200),
+  ),
+  body: (
+    background-color: var(--c-p-10),
+    color: var(--c-d-140),
+    font: var(--f-m),
+    padding: var(--s-l) calc(var(--s-m) + var(--s-2xs)),
+  ),
 );

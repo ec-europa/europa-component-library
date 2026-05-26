@@ -8,6 +8,7 @@ npm install --save @ecl/highlight-box
 
 ## Parameters
 
+- **"color_mode"** (string) (default: '') name of the color mode
 - **"id"** (string) (default: random): highlight box id
 - **"title"** (string) (default: ''): highlight box title
 - **"description"** (string) (default: ''): highlight box description

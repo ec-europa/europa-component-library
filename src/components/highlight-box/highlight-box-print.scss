@@ -9,3 +9,35 @@
 // Exposed variables
 $theme: null !default;
 $highlight-box: null !default;
+
+.ecl-highlight-box__header {
+  align-items: center;
+  border-block-end: 1px solid
+    var(--c-g-400, map.get($theme, 'color', 'dark-40'));
+  display: flex;
+  font: map.get($theme, 'font-print', 'l');
+  font-weight: map.get($theme, 'font-weight', 'semi-bold');
+  padding: map.get($theme, 'spacing-print', 'l') 0;
+}
+
+.ecl-highlight-box__icon-wrapper {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
+  width: 2.5rem;
+}
+
+.ecl-highlight-box__body {
+  display: flex;
+  flex-direction: column;
+  font: map.get($theme, 'font-print', 'm');
+  gap: map.get($theme, 'spacing-print', 'm');
+  padding: map.get($theme, 'spacing-print', 'xl') 0;
+}
+
+.ecl-highlight-box__link {
+  width: fit-content;
+}

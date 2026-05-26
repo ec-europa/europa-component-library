@@ -1,5 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import defaultData from './demo/data';
 import highlightBox from './highlight-box.html.twig';
@@ -8,18 +10,32 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {
     show_icon: true,
+    show_link: true,
     title: data.title,
     description: data.description,
   };
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
 
   return args;
 };
 
 const getArgTypes = () => ({
+  ...getColorModeControls(),
   show_icon: {
     name: 'icon',
     type: { name: 'boolean' },
     description: 'Toggle icon visibility',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Optional',
+    },
+  },
+  show_link: {
+    name: 'link',
+    type: { name: 'boolean' },
+    description: 'Toggle link visibility',
     table: {
       type: { summary: 'boolean' },
       category: 'Optional',
@@ -48,10 +64,15 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
+  correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
 
   if (!args.show_icon) {
     delete clone.icon;
+  }
+
+  if (!args.show_link) {
+    delete clone.link;
   }
 
   return Object.assign(clone, args);
