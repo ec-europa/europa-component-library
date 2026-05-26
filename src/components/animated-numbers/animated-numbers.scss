@@ -93,6 +93,7 @@ $animated-numbers: null !default;
   display: flex;
   justify-content: space-between;
   gap: var(--s-m);
+  min-height: map.get($theme, 'icon', 'xl');
 }
 
 .ecl-animated-number__category {
