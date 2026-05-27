@@ -60,12 +60,6 @@ $slogan-ticker: null !default;
   }
 }
 
-.ecl-slogan-ticker__link {
-  color: var(--cm-on-surface-primary, var(--c-p));
-  display: inline-flex;
-  text-decoration: none;
-}
-
 .ecl-slogan-ticker__button {
   background: var(--c-w-600);
   border: none;
@@ -75,7 +69,7 @@ $slogan-ticker: null !default;
   height: 100%;
   margin-inline-start: var(--s-xs);
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   top: 0;
 
   &:hover {

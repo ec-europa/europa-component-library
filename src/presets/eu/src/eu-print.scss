@@ -66,6 +66,10 @@
   $quiz-print: var.$quiz-print
 );
 @use '@ecl/skip-link/skip-link-print';
+@use '@ecl/slogan-ticker/slogan-ticker-print' with (
+  $theme: theme.$theme,
+  $slogan-ticker: var.$slogan-ticker
+);
 @use '@ecl/spinner/spinner-print';
 @use '@ecl/table/table-print' with (
   $theme: theme.$theme,
