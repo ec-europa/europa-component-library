@@ -17,6 +17,7 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 const getArgs = (data) => {
   const args = {
     centered: false,
+    show_source: true,
     show_view_all: true,
     show_icons: true,
     column: 3,
@@ -45,6 +46,16 @@ const getArgTypes = () => {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
       category: 'Layout',
+    },
+  };
+  argTypes.show_source = {
+    name: 'view sources',
+    type: { name: 'boolean' },
+    description: 'Sources in the component footer',
+    table: {
+      type: { summary: 'object' },
+      defaultValue: { summary: '' },
+      category: 'Optional',
     },
   };
   argTypes.show_view_all = {
@@ -161,6 +172,9 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
+  if (!args.show_source) {
+    delete clone.sources;
+  }
   if (!args.show_view_all) {
     delete clone.view_all;
   }

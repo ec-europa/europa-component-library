@@ -26,6 +26,8 @@ $page-summary: null !default;
 }
 
 .ecl-page-summary__title {
+  margin-block: 0;
+
   @include mixins.responsive-font(
     map.get($page-summary, 'title-font'),
     $font-weight: map.get($page-summary, 'title-font-weight')

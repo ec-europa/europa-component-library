@@ -178,6 +178,7 @@ export class Menu {
     this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
+    this.handleClickOnLink = this.handleClickOnLink.bind(this);
   }
 
   /**
@@ -293,6 +294,10 @@ export class Menu {
           subLink.addEventListener('keyup', this.handleKeyboard);
         }
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.addEventListener('click', this.handleClickOnLink);
     }
 
     // Bind global keyboard events
@@ -472,6 +477,10 @@ export class Menu {
           subLink.removeEventListener('keyup', this.handleKeyboard);
         }
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.removeEventListener('click', this.handleClickOnLink);
     }
 
     if (this.attachKeyListener) {
@@ -754,6 +763,7 @@ export class Menu {
     // Temporarily disable min-height so the measurement reflects only text
     // wrapping, not the CSS minimum (e.g. 56px on EC desktop links).
     menuLink.style.minHeight = '0';
+    menuLink.style.width = '';
     let linkWidth = menuLink.offsetWidth;
     const linkStyle = window.getComputedStyle(menuLink);
     const maxHeight =
@@ -1031,6 +1041,20 @@ export class Menu {
   }
 
   /**
+   * Click on a final menu link (no children or sub-link).
+   * Closes the menu to support hash-based and dynamic navigation.
+   * @param {Event} e
+   */
+  handleClickOnLink(e) {
+    if (!e.target.closest('a')) return;
+    if (this.isOpen) {
+      this.handleClickOnClose(e);
+    } else {
+      this.closeOpenDropdown();
+    }
+  }
+
+  /**
    * Toggle menu list.
    * @param {Event} e
    */
@@ -1088,12 +1112,20 @@ export class Menu {
     this.btnNext.style.display = 'flex';
 
     // Refresh display
+    // ecl-menu--transition adds transition-delay to links, which prevents
+    // the min-height override in checkMenuItem from taking effect immediately.
+    // Temporarily remove it (same as handleResize does) so measurements are accurate.
+    const hadTransition = this.element.classList.contains(
+      'ecl-menu--transition',
+    );
+    if (hadTransition) this.element.classList.remove('ecl-menu--transition');
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
         item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
+    if (hadTransition) this.element.classList.add('ecl-menu--transition');
   }
 
   /**
@@ -1133,12 +1165,20 @@ export class Menu {
     }
 
     // Refresh display
+    // ecl-menu--transition adds transition-delay to links, which prevents
+    // the min-height override in checkMenuItem from taking effect immediately.
+    // Temporarily remove it (same as handleResize does) so measurements are accurate.
+    const hadTransition = this.element.classList.contains(
+      'ecl-menu--transition',
+    );
+    if (hadTransition) this.element.classList.remove('ecl-menu--transition');
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
         item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
+    if (hadTransition) this.element.classList.add('ecl-menu--transition');
   }
 
   /**

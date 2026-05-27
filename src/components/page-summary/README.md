@@ -8,6 +8,7 @@ npm install --save @ecl/page-summary
 
 ## Parameters
 
+- **"id"** (string) (default: random): page summary id
 - **"title"** (string) (default: ''): page summary title
 - **"description"** (string) (default: ''): page summary description
 - **"icon"** (object) (default: ''): icon for the title; follows the ECL Icon structure
