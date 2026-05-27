@@ -34,6 +34,7 @@ const getArgs = (data) => {
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
+    args.media_anchor = 'center';
   }
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -348,6 +349,25 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_media' },
     };
+
+    argTypes.media_anchor = {
+      name: 'media anchor',
+      type: { name: 'select' },
+      description: 'Media anchor (sample)',
+      options: ['center', 'top left', 'bottom right', '20% 20%'],
+      mapping: {
+        center: 'center',
+        'top left': 'top left',
+        'bottom right': 'bottom right',
+        '20% 20%': '20% 20%',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'center' },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
+    };
   }
 
   return argTypes;
@@ -394,6 +414,7 @@ const prepareData = (data, args) => {
 
   if (clone.picture) {
     clone.picture.img.src = args.image;
+    clone.picture.image_anchor = args.media_anchor;
   }
 
   return clone;
