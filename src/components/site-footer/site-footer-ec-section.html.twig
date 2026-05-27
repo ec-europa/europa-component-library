@@ -81,6 +81,16 @@
     <div class="ecl-site-footer__description">{{ _section.description }}</div>
   {% endif %}
 
+  {# Action button #}
+  {% if _section.action_button is not empty %}
+    {% include '@ecl/link/link.html.twig' with _section.action_button|merge({
+      link: _section.action_button.link|default({})|merge({
+        type: 'secondary-inverted',
+      }),
+      extra_classes: 'ecl-site-footer__action-button ecl-button ecl-button--secondary ecl-button--m ecl-button--inverted'
+    }) only %}
+  {% endif %}
+
   {# Social media and extra links #}
   {% if _section.social_media is not empty or _section.extra_links is not empty %}
     {% if _section.extra_links is not empty %}
