@@ -17,6 +17,8 @@ import Accessibility from 'embla-carousel-accessibility';
  * @param {String} options.nextClass Css class of the next button
  * @param {String} options.dotsClass Css class of the dots wrapper
  * @param {String} options.dotClass Css class of the single dot
+ * @param {string} options.correctChosenOptionSelector Selector for correct option chosen
+ * @param {string} options.incorrectChosenOptionSelector Selector for incorrect option chosen
  * @param {String} options.activeDotClass Css class to be assigned to the active dot
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
@@ -67,6 +69,8 @@ export class Quiz {
       dotsClass = '.ecl-quiz__dots',
       dotClass = '.ecl-quiz__dot',
       activeDotClass = 'ecl-quiz__dot--active',
+      correctChosenOptionSelector = 'data-ecl-quiz-chosen-option-correct',
+      incorrectChosenOptionSelector = 'data-ecl-quiz-chosen-option-incorrect',
       attachClickListener = true,
       attachResizeListener = true,
       attachKeyboardListener = true,
@@ -104,6 +108,8 @@ export class Quiz {
     this.attachResizeListener = attachResizeListener;
     this.attachKeyboardListener = attachKeyboardListener;
     this.sliderSelector = sliderSelector;
+    this.correctChosenOptionSelector = correctChosenOptionSelector;
+    this.incorrectChosenOptionSelector = incorrectChosenOptionSelector;
 
     this.prevButtonNode = null;
     this.nextButtonNode = null;
@@ -676,12 +682,35 @@ export class Quiz {
         }
 
         const options = queryOne('.ecl-quiz-card__options', back);
-        Array.from(options.children).forEach((el) =>
-          el.classList.remove('ecl-quiz-card__option--selected'),
-        );
-        options.children[index].classList.add(
-          'ecl-quiz-card__option--selected',
-        );
+        Array.from(options.children).forEach((el, i) => {
+          const isSelected = i === index;
+          el.classList.toggle('ecl-quiz-card__option--selected', isSelected);
+          // Replace the assistive text for the chosen option
+          if (isSelected) {
+            const assistiveTextEl = queryOne(
+              '.ecl-quiz-card__option-assistive-label',
+              el,
+            );
+            // If the chosen option is correct
+            if (match) {
+              const correctChosenText = card.getAttribute(
+                this.correctChosenOptionSelector,
+              );
+
+              if (correctChosenText && assistiveTextEl) {
+                assistiveTextEl.textContent = correctChosenText;
+              } // If the chosen option is incorrect
+            } else {
+              const incorrectChosenText = card.getAttribute(
+                this.incorrectChosenOptionSelector,
+              );
+
+              if (incorrectChosenText && assistiveTextEl) {
+                assistiveTextEl.textContent = incorrectChosenText;
+              }
+            }
+          }
+        });
       }
 
       front.hidden = isFlipped;

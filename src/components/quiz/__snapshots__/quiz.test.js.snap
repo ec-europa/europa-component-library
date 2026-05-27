@@ -19,7 +19,7 @@ exports[`Quiz Poll renders correctly 1`] = `
         class="ecl-quiz__description"
       >
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt.
       </div>
     </div>
@@ -32,6 +32,8 @@ exports[`Quiz Poll renders correctly 1`] = `
       >
         <li
           class="ecl-quiz-card"
+          data-ecl-quiz-chosen-option-correct="Your correct answer"
+          data-ecl-quiz-chosen-option-incorrect="Your incorrect answer"
           id="quiz-poll-item1"
         >
           <article
@@ -138,6 +140,7 @@ exports[`Quiz Poll renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -191,25 +194,77 @@ exports[`Quiz Poll renders correctly 1`] = `
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   European commission
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--check-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--success ecl-icon-phosphor--check-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   European parliament
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   European Central Bank
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   Court of Justice of the European Union
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
               </ol>
             </div>
@@ -217,6 +272,8 @@ exports[`Quiz Poll renders correctly 1`] = `
         </li>
         <li
           class="ecl-quiz-card"
+          data-ecl-quiz-chosen-option-correct="Your correct answer"
+          data-ecl-quiz-chosen-option-incorrect="Your incorrect answer"
           id="quiz-poll-item2"
         >
           <article
@@ -323,6 +380,7 @@ exports[`Quiz Poll renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -376,25 +434,77 @@ exports[`Quiz Poll renders correctly 1`] = `
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   A valid ID card.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   A valid ID card or passport
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--check-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--success ecl-icon-phosphor--check-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   A valid passport.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   None of these
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
               </ol>
             </div>
@@ -402,6 +512,8 @@ exports[`Quiz Poll renders correctly 1`] = `
         </li>
         <li
           class="ecl-quiz-card"
+          data-ecl-quiz-chosen-option-correct="Your correct answer"
+          data-ecl-quiz-chosen-option-incorrect="Your incorrect answer"
           id="quiz-poll-item3"
         >
           <article
@@ -492,6 +604,7 @@ exports[`Quiz Poll renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -545,19 +658,58 @@ exports[`Quiz Poll renders correctly 1`] = `
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   The pound is the most used currency in the EU
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   The Leu is by far the most used currency in the European Union 
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   The euro (€) is used in many EU member states.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--check-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--success ecl-icon-phosphor--check-circle"
+                    />
+                  </span>
                 </li>
               </ol>
             </div>
@@ -565,6 +717,8 @@ exports[`Quiz Poll renders correctly 1`] = `
         </li>
         <li
           class="ecl-quiz-card"
+          data-ecl-quiz-chosen-option-correct="Your correct answer"
+          data-ecl-quiz-chosen-option-incorrect="Your incorrect answer"
           id="quiz-poll-item4"
         >
           <article
@@ -655,6 +809,7 @@ exports[`Quiz Poll renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -708,19 +863,58 @@ exports[`Quiz Poll renders correctly 1`] = `
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--check-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--success ecl-icon-phosphor--check-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   ivamus auctor blandit auctor.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
               </ol>
             </div>
@@ -728,6 +922,8 @@ exports[`Quiz Poll renders correctly 1`] = `
         </li>
         <li
           class="ecl-quiz-card"
+          data-ecl-quiz-chosen-option-correct="Your correct answer"
+          data-ecl-quiz-chosen-option-incorrect="Your incorrect answer"
           id="quiz-poll-item5"
         >
           <article
@@ -818,6 +1014,7 @@ exports[`Quiz Poll renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -871,19 +1068,58 @@ exports[`Quiz Poll renders correctly 1`] = `
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   Aenean est metus, malesuada sed suscipit id, tempor non sapien.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="false"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Incorrect answer
+                  </span>
                   In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--error ecl-icon-phosphor--x-circle"
+                    />
+                  </span>
                 </li>
                 <li
                   class="ecl-quiz-card__option"
                   data-match="true"
                 >
+                  <span
+                    class="ecl-quiz-card__option-assistive-label"
+                  >
+                    Correct answer
+                  </span>
                   Aenean facilisis venenatis lacus, et egestas quam mattis eu.
+                  <span
+                    class="ecl-quiz-card__option-icon"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-phosphor--check-circle ecl-icon ecl-icon--s ecl-quiz-card__option-icon--success ecl-icon-phosphor--check-circle"
+                    />
+                  </span>
                 </li>
               </ol>
             </div>
@@ -1014,6 +1250,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1088,6 +1325,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1162,6 +1400,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1236,6 +1475,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1310,6 +1550,7 @@ exports[`Quiz Reveal renders correctly 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1468,6 +1709,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1542,6 +1784,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1616,6 +1859,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1690,6 +1934,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1764,6 +2009,7 @@ exports[`Quiz Reveal renders correctly with extra attributes 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1924,6 +2170,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -1998,6 +2245,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -2072,6 +2320,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -2146,6 +2395,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
@@ -2220,6 +2470,7 @@ exports[`Quiz Reveal renders correctly with extra class names 1`] = `
             <div
               class="ecl-quiz-card__back"
               hidden=""
+              inert=""
             >
               <div
                 class="ecl-quiz-card__header"
