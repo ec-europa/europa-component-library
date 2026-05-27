@@ -179,7 +179,7 @@
           {% if _sections.action_button is not empty %}
             {% include '@ecl/link/link.html.twig' with _sections.action_button|merge({
               link: _sections.action_button.link|default({})|merge({
-                type: 'secondary',
+                type: 'secondary-neutral',
               }),
               extra_classes: 'ecl-site-footer__action-button ecl-button ecl-button--secondary ecl-button--m'
             }) only %}
