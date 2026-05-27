@@ -25,6 +25,9 @@ $quiz: null !default;
   }
 
   &.ecl-quiz--full-width {
+    background: map.get($quiz, 'quiz', 'background');
+    padding-block-start: map.get($quiz, 'quiz', 'background-padding-top');
+    padding-block-end: map.get($quiz, 'quiz', 'background-padding-bottom');
     margin-inline: calc(50% - 50vw);
     padding-inline: 0;
     width: 100vw;
