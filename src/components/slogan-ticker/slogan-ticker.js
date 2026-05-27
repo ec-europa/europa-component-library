@@ -2,7 +2,26 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
 import EmblaCarousel from 'embla-carousel';
 import AutoScroll from 'embla-carousel-auto-scroll';
 
+/**
+ * @param {HTMLElement} element DOM element for component instantiation and scope
+ * @param {Object} options
+ * @param {String} options.sliderSelector Selector for the slider element
+ * @param {String} options.playSelector Selector for the play button
+ * @param {String} options.pauseSelector Selector for the pause button
+ * @param {String} options.slideClass Selector for the slide items
+ * @param {Number} options.autoScrollSpeed Speed value for embla auto scroll plugin
+ * @param {Boolean} options.attachClickListener Whether to attach click listeners
+ * @param {Boolean} options.attachResizeListener Whether to attach resize listener
+ */
 export class SloganTicker {
+  /**
+   * @static
+   * Shorthand for instance creation and initialisation.
+   *
+   * @param {HTMLElement} root DOM element for component instantiation and scope
+   *
+   * @return {SloganTicker} An instance of SloganTicker.
+   */
   static autoInit(root, { SLOGAN_TICKER: defaultOptions = {} } = {}) {
     const sloganTicker = new SloganTicker(root, defaultOptions);
     sloganTicker.init();
@@ -10,6 +29,19 @@ export class SloganTicker {
     return sloganTicker;
   }
 
+  /**
+   * Create a SloganTicker instance.
+   *
+   * @param {HTMLElement} element DOM element for component scope
+   * @param {Object} options Configuration options
+   * @param {String} options.sliderSelector Selector for the slider element
+   * @param {String} options.playSelector Selector for the play button
+   * @param {String} options.pauseSelector Selector for the pause button
+   * @param {String} options.slideClass Selector for slide items
+   * @param {Number} options.autoScrollSpeed Speed passed to the embla autoScroll plugin
+   * @param {Boolean} options.attachClickListener Attach click event listeners
+   * @param {Boolean} options.attachResizeListener Attach window resize listener
+   */
   constructor(
     element,
     {
@@ -49,6 +81,10 @@ export class SloganTicker {
     this.handleResize = this.handleResize.bind(this);
   }
 
+  /**
+   * Initialise component: query DOM nodes, initialise slider and bind events.
+   * @return {SloganTicker|false} this instance or false if not initialised
+   */
   init() {
     if (!ECL) {
       throw new TypeError('Called init but ECL is not present');
@@ -85,6 +121,9 @@ export class SloganTicker {
     return this;
   }
 
+  /**
+   * Initialise the Embla slider instance and attach the auto-scroll plugin.
+   */
   initSlider() {
     this.slider = EmblaCarousel(
       this.sliderEl,
@@ -104,6 +143,9 @@ export class SloganTicker {
     );
   }
 
+  /**
+   * Start the auto-scroll behaviour and update buttons visibility.
+   */
   startAutoScroll() {
     this.isPlaying = true;
     this.updateButtonVisibility();
@@ -112,6 +154,9 @@ export class SloganTicker {
     autoScroll?.play();
   }
 
+  /**
+   * Stop the auto-scroll behaviour and update buttons visibility.
+   */
   stopAutoScroll() {
     this.isPlaying = false;
     this.updateButtonVisibility();
@@ -120,6 +165,10 @@ export class SloganTicker {
     autoScroll?.stop();
   }
 
+  /**
+   * Toggle the auto-scroll state (play / pause).
+   * @param {Event} [event] Click event that triggered the toggle
+   */
   toggleAutoScroll(event) {
     if (event && event.preventDefault) {
       event.preventDefault();
@@ -132,6 +181,9 @@ export class SloganTicker {
     }
   }
 
+  /**
+   * Update visibility of play and pause buttons according to `isPlaying`.
+   */
   updateButtonVisibility() {
     if (this.playButton) {
       this.playButton.style.display = this.isPlaying ? 'none' : 'flex';
@@ -141,6 +193,9 @@ export class SloganTicker {
     }
   }
 
+  /**
+   * Handle window resize: debounce re-initialisation of the slider and restart auto-scroll.
+   */
   handleResize() {
     if (this.resizeTimer) {
       clearTimeout(this.resizeTimer);
@@ -154,6 +209,9 @@ export class SloganTicker {
     }, 100);
   }
 
+  /**
+   * Destroy the component: remove listeners, cancel RAF, destroy slider and cleanup DOM attributes.
+   */
   destroy() {
     if (this.playButton) {
       this.playButton.replaceWith(this.playButton.cloneNode(true));
