@@ -175,15 +175,6 @@
           {% if _sections.description is defined and _sections.description is not empty %}
             <div class="ecl-site-footer__description">{{ _sections.description }}</div>
           {% endif %}
-          {# action button #}
-          {% if _sections.action_button is not empty %}
-            {% include '@ecl/link/link.html.twig' with _sections.action_button|merge({
-              link: _sections.action_button.link|default({})|merge({
-                type: 'secondary-neutral',
-              }),
-              extra_classes: 'ecl-site-footer__action-button ecl-button ecl-button--secondary ecl-button--m'
-            }) only %}
-          {% endif %}
           {# list #}
           {% if _sections.links is defined and _sections.links is not empty and _sections.links is iterable %}
             {% set _list_class_name = 'ecl-site-footer__list' %}
@@ -212,6 +203,15 @@
               </li>
             {% endfor %}
             </ul>
+          {% endif %}
+          {# action button #}
+          {% if _sections.action_button is not empty %}
+            {% include '@ecl/link/link.html.twig' with _sections.action_button|merge({
+              link: _sections.action_button.link|default({})|merge({
+                type: 'secondary-neutral',
+              }),
+              extra_classes: 'ecl-site-footer__action-button ecl-button ecl-button--secondary ecl-button--m'
+            }) only %}
           {% endif %}
           </div>
         {% endfor %}
