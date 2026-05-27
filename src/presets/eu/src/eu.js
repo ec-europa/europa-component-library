@@ -27,6 +27,7 @@ export * from '@ecl/popover';
 export * from '@ecl/range';
 export * from '@ecl/select';
 export * from '@ecl/site-header';
+export * from '@ecl/slogan-ticker';
 export * from '@ecl/table';
 export * from '@ecl/tabs';
 export * from '@ecl/timeline';

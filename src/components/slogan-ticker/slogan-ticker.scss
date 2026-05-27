@@ -1,0 +1,95 @@
+/**
+ * Slogan ticker
+ * @define slogan-ticker
+ */
+
+@use 'sass:map';
+
+$theme: null !default;
+$slogan-ticker: null !default;
+
+.ecl-slogan-ticker {
+  align-items: center;
+  background: var(--cm-surface-lowest, var(--c-p-10));
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  height: 8.5rem;
+  position: relative;
+  overflow: hidden;
+  padding: var(--s-l) 0;
+
+  // Full width of the viewport, it correctly used.
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+}
+
+.ecl-slogan-ticker__viewport {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.ecl-slogan-ticker__track {
+  display: flex;
+  min-width: 100%;
+  transform: translate3d(0, 0, 0);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ecl-slogan-ticker__slide {
+  align-items: center;
+  color: var(--cm-on-surface, var(--c-p));
+  display: inline-flex;
+  flex: 0 0 auto;
+  font: map.get($slogan-ticker, 'font');
+  font-weight: map.get($slogan-ticker, 'font-weight');
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    width: var(--s-xs);
+    height: var(--s-xs);
+    margin-inline: map.get($slogan-ticker, 'gap');
+    border-radius: 50%;
+    background: currentcolor;
+  }
+}
+
+.ecl-slogan-ticker__link {
+  color: var(--cm-on-surface-primary, var(--c-p));
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.ecl-slogan-ticker__button {
+  background: var(--c-w-600);
+  border: none;
+  border-radius: 0;
+  box-shadow: map.get($slogan-ticker, 'button-shadow');
+  color: var(--cm-on-surface-brand, var(--c-d));
+  height: 100%;
+  margin-inline-start: var(--s-xs);
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:hover {
+    background: var(--cm-on-surface-inverted, #fff);
+    box-shadow: map.get($slogan-ticker, 'button-shadow');
+  }
+
+  &:focus-visible {
+    background: var(--c-w-600);
+    color: var(--cm-on-surface-brand, var(--c-d));
+    outline-offset: -2px;
+  }
+}
+
+.ecl-slogan-ticker__pause {
+  display: none;
+}

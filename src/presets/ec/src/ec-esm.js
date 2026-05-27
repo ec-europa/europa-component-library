@@ -27,6 +27,7 @@ import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
 import SiteHeader from '@ecl/site-header';
+import SloganTicker from '@ecl/slogan-ticker';
 import Table from '@ecl/table';
 import Tabs from '@ecl/tabs';
 import Timeline from '@ecl/timeline';
@@ -60,6 +61,7 @@ const ECL = {
   Range,
   Select,
   SiteHeader,
+  SloganTicker,
   Tabs,
   Table,
   Timeline,
