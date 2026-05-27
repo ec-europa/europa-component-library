@@ -23,6 +23,7 @@ const getArgTypes = () => {
       control: {
         type: 'boolean',
       },
+      if: { arg: 'fullWidth', eq: false },
     },
     fullWidth: {
       name: 'full width',
@@ -75,7 +76,15 @@ RevealSidebar.args = {
   ...getArgs(),
   withBackground: true,
 };
-RevealSidebar.argTypes = getArgTypes();
+RevealSidebar.argTypes = {
+  ...getArgTypes(),
+  fullWidth: {
+    table: {
+      disable: true,
+    },
+  },
+};
+
 RevealSidebar.storyName = 'reveal-sidebar';
 RevealSidebar.parameters = { notes: { markdown: notes, json: specs } };
 RevealSidebar.decorators = [
