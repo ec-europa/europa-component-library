@@ -1,6 +1,6 @@
 ---
 title: Slogan ticker
-defaultTab: api
+defaultTab: usage
 status: ready
 playground:
   system: eu
