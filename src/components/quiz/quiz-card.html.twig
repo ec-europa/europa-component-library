@@ -3,19 +3,25 @@
 {#
   Parameters
     - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
-    - "category" (string) (default: '') (poll variant)
-    - "success_category" (string) (default: '')
-    - "error_category" (string) (default: '')
-    - "question" (string) (default: '')
+    - "category" (string) (default: '') (poll variant) Category of the quiz item, eg: 'Geography'
+    - "success_category" (string) (default: '') Category to show on the back of the card in case of correct answer, eg: 'Correct'
+    - "error_category" (string) (default: '') Category to show on the back of the card in case of incorrect answer, eg: 'Incorrect'
+    - "question" (string) (default: '') Question to show on the front of the card
+    - "answer" (string) (default: '') Answer to show on the back of the card
+    - "answer_title" (string) (default: '') Title for the answer section on the back of the card
+    - "correct_label" (string) (default: '') label for sr only about the correct option
+    - "correct_chosen_label" (string) (default)  label for sr only about the chosen option when correct
+    - "incorrect_label" (string) (default: '') label for sr only about the incorrect option
+    - "incorrect_chosen_label" (string) (default: '')  label for sr only about the chosen option when incorrect
     - "esc_box" (string) (default: '')
-    - "answer" (string) (default: '')
-    - "answer_title" (string) (default: '')
     - "options" (array) Array of options (poll variant)
-    - "icon" (object) Object of type icon
-    - "back_icon" (object) Object of type icon
+      - "name" (string) Name of the option, eg: 'Paris'
+      - "correct" (boolean) Whether the option is correct or not
+    - "icon" (object) Object of type icon to show on the front of the card
+    - "back_icon" (object) Object of type icon to show on the back of the card
     - "flip_text" (string) Helper text (reveal variant)
-    - "flip_icon" (object) Object of type icon
-    - "back_text" (string) Text on the back of the card
+    - "flip_icon" (object) Object of type icon to show next to the helper text
+    - "back_text" (string) Text on the back of the card next to the icon
     - "variant" (string) (default: 'reveal'): Variant of the quiz card ('reveal' or 'poll')
     - "extra_classes" (string) (default: ''): Extra css classes
     - "extra_attributes" (optional) (array) (default: [])
@@ -36,6 +42,10 @@
 {% set _flip_text =  flip_text|default('') %}
 {% set _flip_icon = flip_icon|default('') %}
 {% set _back_text = back_text|default('') %}
+{% set _correct_label = correct_label|default('') %}
+{% set _incorrect_label = incorrect_label|default('') %}
+{% set _correct_chosen_label = correct_chosen_label|default('') %}
+{% set _incorrect_chosen_label = incorrect_chosen_label|default('') %}
 {% set _answer = answer|default('') %}
 {% set _name = name|default(_id ~ '-options') %}
 {% set _answer_title = answer_title|default('') %}
@@ -48,6 +58,14 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _correct_chosen_label is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-quiz-chosen-option-correct', value: _correct_chosen_label}]) %}
+{% endif %}
+
+{% if _incorrect_chosen_label is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-quiz-chosen-option-incorrect', value: _incorrect_chosen_label}]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -182,7 +200,25 @@
           class="ecl-quiz-card__option"
           data-match="{{ _option.correct ? "true" : "false" }}"
         >
+          <span class="ecl-quiz-card__option-assistive-label">
+            {{- _option.correct ? _correct_label : _incorrect_label -}}
+          </span>
           {{- _option.name -}}
+          <span
+            class="ecl-quiz-card__option-icon"
+          >
+          {% if _option.correct %}
+            {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
+              icon: _back_icon.success.icon|merge({ size: 's' }),
+              extra_classes: 'ecl-quiz-card__option-icon--success',
+            }) only %}
+          {% else %}
+            {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
+              icon: _back_icon.error.icon|merge({ size: 's' }),
+              extra_classes: 'ecl-quiz-card__option-icon--error',
+            }) only %}
+          {% endif %}
+          </span>
         </li>
       {% endfor %}
       </ol>
