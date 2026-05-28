@@ -175,7 +175,8 @@ $accordion: null !default;
     align-items: center;
     border-block-end: map.get($accordion, 'sidebar', 'border');
     color: map.get($accordion, 'sidebar', 'title-text-color');
-    padding: map.get($accordion, 'sidebar', 'item-padding');
+    margin-block-start: calc(1.33em - var(--s-s));
+    padding: var(--s-s) 0;
 
     @include mixins.responsive-font('heading4');
 

@@ -37,6 +37,7 @@ export class Accordion {
     this.sidebarItemSelector = sidebarItemSelector;
     this.sidebarBreakpoint = sidebarBreakpoint;
     this.mediaQuery = null;
+    this.sidebarItems = null;
 
     this.syncSidebarItems = this.syncSidebarItems.bind(this);
   }
@@ -51,10 +52,8 @@ export class Accordion {
     ECL.components = ECL.components || new Map();
 
     // Sidebar variant: keep items open on desktop, collapsed on mobile
-    const sidebarItems = this.element.querySelectorAll(
-      this.sidebarItemSelector,
-    );
-    if (sidebarItems.length > 0) {
+    this.sidebarItems = this.element.querySelectorAll(this.sidebarItemSelector);
+    if (this.sidebarItems.length > 0) {
       this.mediaQuery = window.matchMedia(this.sidebarBreakpoint);
       this.mediaQuery.addEventListener('change', this.syncSidebarItems);
       this.syncSidebarItems();
@@ -82,7 +81,7 @@ export class Accordion {
    * Set each sidebar item's open state based on the current breakpoint.
    */
   syncSidebarItems() {
-    this.element.querySelectorAll(this.sidebarItemSelector).forEach((item) => {
+    this.sidebarItems.forEach((item) => {
       item.open = this.mediaQuery.matches;
     });
   }
