@@ -13,6 +13,7 @@ $slogan-ticker: null !default;
   height: 3cm;
   display: flex;
   align-items: center;
+  padding-inline: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-slogan-ticker__track {
@@ -35,9 +36,15 @@ $slogan-ticker: null !default;
   content: '';
   width: var(--s-xs);
   height: var(--s-xs);
-  margin-inline: map.get($slogan-ticker, 'gap');
+  margin-inline: map.get($theme, 'spacing-print', 'l');
   border-radius: 50%;
+  display: inline-flex;
   background: currentcolor;
+  vertical-align: middle;
+}
+
+.ecl-slogan-ticker__slide:last-child::after {
+  display: none;
 }
 
 .ecl-slogan-ticker__button {
