@@ -9,6 +9,7 @@ npm install --save @ecl/slogan-ticker
 ### Parameters:
 
 - **"id"** (string) (default: random)
+- **"autoplay"** (boolean) (default: true) By default it starts sliding automatically
 - **"items"** (array) (default: []) slide items
   - "content" (string)
   - "link" (string) (optional)

@@ -10,6 +10,7 @@
           "external" (boolean) (optional)
         },
       ]
+    - "autoplay": (boolean) (default: true)
     - "color_mode" (string) (default: '')
     - "sr_play" (string) (default: 'Play slogan ticker')
     - "sr_pause" (string) (default: 'Pause slogan ticker')
@@ -21,6 +22,7 @@
 
 {% set _id = id|default('ecl-slogan-ticker-' ~ random()) %}
 {% set _items = items|default([]) %}
+{% set _autoplay = autoplay ?? true %}
 {% set _color_mode = color_mode|default('') %}
 {% set _sr_play = sr_play|default('Play slogan ticker') %}
 {% set _sr_pause = sr_pause|default('Pause slogan ticker') %}
@@ -29,6 +31,10 @@
   'data-ecl-slogan-ticker="true"',
   'data-ecl-auto-init="SloganTicker"',
 ]|join(' ') %}
+
+{% if not _autoplay %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-slogan-ticker-autoplay="false"' %}
+{% endif %}
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}

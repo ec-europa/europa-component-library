@@ -9,6 +9,7 @@ import AutoScroll from 'embla-carousel-auto-scroll';
  * @param {String} options.playSelector Selector for the play button
  * @param {String} options.pauseSelector Selector for the pause button
  * @param {String} options.slideClass Selector for the slide items
+ * @param {String} options.autoplaySelector Selector for autoplay state (data attribute with boolean value)
  * @param {Number} options.autoScrollSpeed Speed value for embla auto scroll plugin
  * @param {Boolean} options.attachClickListener Whether to attach click listeners
  * @param {Boolean} options.attachResizeListener Whether to attach resize listener
@@ -29,19 +30,6 @@ export class SloganTicker {
     return sloganTicker;
   }
 
-  /**
-   * Create a SloganTicker instance.
-   *
-   * @param {HTMLElement} element DOM element for component scope
-   * @param {Object} options Configuration options
-   * @param {String} options.sliderSelector Selector for the slider element
-   * @param {String} options.playSelector Selector for the play button
-   * @param {String} options.pauseSelector Selector for the pause button
-   * @param {String} options.slideClass Selector for slide items
-   * @param {Number} options.autoScrollSpeed Speed passed to the embla autoScroll plugin
-   * @param {Boolean} options.attachClickListener Attach click event listeners
-   * @param {Boolean} options.attachResizeListener Attach window resize listener
-   */
   constructor(
     element,
     {
@@ -49,6 +37,7 @@ export class SloganTicker {
       playSelector = '[data-ecl-slogan-ticker-play]',
       pauseSelector = '[data-ecl-slogan-ticker-pause]',
       slideClass = '.ecl-slogan-ticker__slide',
+      autoplaySelector = 'data-ecl-slogan-ticker-autoplay',
       autoScrollSpeed = 0.9,
       attachClickListener = true,
       attachResizeListener = true,
@@ -64,6 +53,7 @@ export class SloganTicker {
     this.sliderSelector = sliderSelector;
     this.playSelector = playSelector;
     this.pauseSelector = pauseSelector;
+    this.autoplaySelector = autoplaySelector;
     this.slideClass = slideClass;
     this.autoScrollSpeed = autoScrollSpeed;
     this.attachClickListener = attachClickListener;
@@ -103,7 +93,10 @@ export class SloganTicker {
     }
 
     this.initSlider();
-    this.startAutoScroll();
+
+    if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
+      this.startAutoScroll();
+    }
 
     if (this.attachClickListener && this.playButton) {
       this.playButton.addEventListener('click', this.toggleAutoScroll, false);

@@ -1,9 +1,10 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import { getColorModeControls } from '@ecl/story-utils';
 import specs from './demo/data';
 import sloganTicker from './slogan-ticker.html.twig';
 import notes from './README.md';
+import isChromatic from 'chromatic/isChromatic';
 
 const getArgs = () => {
   return {
@@ -20,7 +21,12 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   const current = { ...data };
   current.color_mode = args.color_mode;
-  return correctPaths(current);
+
+  if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
+    current.autoplay = false;
+  }
+
+  return current;
 };
 
 export default {
