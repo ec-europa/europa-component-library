@@ -167,13 +167,15 @@ $accordion: null !default;
   box-shadow: none;
 
   .ecl-accordion__toggle-icon {
-    color: map.get($accordion, 'text-color');
+    color: map.get($accordion, 'sidebar', 'title-text-color');
     stroke-width: 2.5;
   }
 
   .ecl-accordion__toggle {
-    border-block-end: 1px solid var(--cm-border-brand, var(--c-d));
-    padding-inline: 0;
+    align-items: center;
+    border-block-end: map.get($accordion, 'sidebar', 'border');
+    color: map.get($accordion, 'sidebar', 'title-text-color');
+    padding: map.get($accordion, 'sidebar', 'item-padding');
 
     @include mixins.responsive-font('heading4');
 
@@ -184,6 +186,10 @@ $accordion: null !default;
 
   .ecl-accordion__item {
     border: none;
+
+    &::before {
+      display: none;
+    }
   }
 
   .ecl-accordion__item[open] .ecl-accordion__toggle {

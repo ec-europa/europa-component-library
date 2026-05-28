@@ -43,6 +43,18 @@ describe('Accordion', () => {
     return expect(render(oldData)).resolves.toMatchSnapshot();
   });
 
+  test('renders correctly with extra toggle class names', () => {
+    expect.assertions(1);
+
+    const optionsWithExtraToggleClasses = JSON.parse(JSON.stringify(demoData));
+    optionsWithExtraToggleClasses.items[0].toggle.extra_classes =
+      'custom-class custom-class--test';
+
+    return expect(
+      render(optionsWithExtraToggleClasses),
+    ).resolves.toMatchSnapshot();
+  });
+
   test('renders correctly with extra class names', () => {
     expect.assertions(1);
 

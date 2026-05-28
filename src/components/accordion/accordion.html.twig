@@ -5,11 +5,12 @@
     - "color_mode" (string)
     - "items" (array) (default: []): format: [
       {
-        "id": (string),
-        toggle: (predefined structure): see Button component, format: {
-          label: (string),
+        "id" (string),
+        "toggle" (predefined structure): see Button component, format: {
+          "label" (string),
+          "extra_classes" (string) (default: ''): extra classes for the toggle
         },
-        content: (block),
+        "content": (block),
       },
       ...
     ]
@@ -20,8 +21,8 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
+          "value" (optional) (string),
+        }
       ],
 #}
 
@@ -67,6 +68,7 @@
 
 <div
   class="{{ _css_class }}"
+  data-ecl-auto-init="Accordion"
   {{ _extra_attributes|raw }}
 >
   {% if _items is not empty %}
@@ -87,7 +89,11 @@
           data-desktop-open
         {% endif %}
         >
-        <summary class="ecl-accordion__toggle">
+        {% set _toggle_class = 'ecl-accordion__toggle' %}
+        {% if _item.toggle.extra_classes is defined and _item.toggle.extra_classes is not empty %}
+          {% set _toggle_class = _toggle_class ~ ' ' ~ _item.toggle.extra_classes %}
+        {% endif %}
+        <summary class="{{ _toggle_class }}">
           {{- _item.toggle.label -}}
 
           {% for icon in _icons %}

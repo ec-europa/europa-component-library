@@ -13,8 +13,9 @@ npm install --save @ecl/accordion
   - "id" (string) (default: '') Used for binding of togglable elements
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
+    - "extra_classes" (string) (default: ''): extra classes for the toggle
   - "content" (string) (default: '')
-- **"sidebar"** (boolean) (default: false)
+- **"sidebar"** (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
 - **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled
 - **"name"** (string) (default: '') Optional name to link multiple accordion items
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
