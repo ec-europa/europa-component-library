@@ -24,6 +24,7 @@ npm install --save @ecl/slogan-ticker
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
 {% include '@ecl/slogan-ticker/slogan-ticker.html.twig' with {
   id: 'slogan-ticker-example',

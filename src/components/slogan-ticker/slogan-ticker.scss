@@ -75,6 +75,7 @@ $slogan-ticker: null !default;
   &:hover {
     background: var(--cm-on-surface-inverted, #fff);
     box-shadow: map.get($slogan-ticker, 'button-shadow');
+    color: var(--cm-on-surface-brand, var(--c-d));
   }
 
   &:focus-visible {

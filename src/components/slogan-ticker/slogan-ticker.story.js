@@ -36,6 +36,10 @@ export default {
     controls: { sort: 'alpha' },
     chromatic: {
       modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
         xxl: {
           viewport: {
             width: 1400,
