@@ -57,7 +57,7 @@
 
 {% set _css_class = _css_class  ~ ' ecl-quiz--' ~ _variant %}
 
-{% if _with_background %}
+{% if _with_background or _full_width %}
   {% set _css_class = _css_class ~ ' ecl-quiz--background' %}
 {% endif %}
 

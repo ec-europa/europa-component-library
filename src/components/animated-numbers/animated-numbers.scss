@@ -22,12 +22,16 @@ $animated-numbers: null !default;
 .ecl-animated-numbers--with-background {
   box-sizing: border-box;
   position: relative;
-  inset-inline-start: 50%;
-  margin-inline-start: -50vw;
-  width: 100vw;
   background: var(--cm-surface-brand, var(--c-p-180));
   color: var(--cm-on-surface-inverted, #fff);
   padding: map.get($animated-numbers, 'background-spacing');
+}
+
+.ecl-animated-numbers--full-width {
+  inset-inline-start: 50%;
+  margin-inline-start: -50vw;
+  padding-inline: 0;
+  width: 100vw;
 }
 
 .ecl-animated-numbers__items {

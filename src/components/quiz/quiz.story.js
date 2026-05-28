@@ -37,6 +37,9 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   data.with_background = args.withBackground;
   data.full_width = args.fullWidth;
+  if (data.full_width) {
+    data.with_background = true;
+  }
 
   return data;
 };
