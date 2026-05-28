@@ -91,7 +91,7 @@ export class SloganTicker {
       if (this.pauseButton) this.pauseButton.style.display = 'none';
       return false;
     }
-
+    this.ensureEnoughContent();
     this.initSlider();
 
     if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
@@ -115,6 +115,29 @@ export class SloganTicker {
   }
 
   /**
+   * For the loop to work properly we need a decent amount of items
+   */
+  ensureEnoughContent() {
+    const track = queryOne('.ecl-slogan-ticker__track', this.sliderEl);
+    const slides = Array.from(track.children);
+
+    const containerWidth = this.sliderEl.offsetWidth;
+
+    let totalWidth = track.scrollWidth;
+
+    // duplicate until we exceed 2–3x viewport width
+    while (totalWidth < containerWidth * 3) {
+      slides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+
+      totalWidth = track.scrollWidth;
+    }
+  }
+
+  /**
    * Initialise the Embla slider instance and attach the auto-scroll plugin.
    */
   initSlider() {
@@ -123,8 +146,9 @@ export class SloganTicker {
       {
         loop: true,
         align: 'start',
-        containScroll: 'trimSnaps',
-        draggable: true,
+        dragFree: true,
+        draggable: false,
+        containScroll: false,
       },
       [
         AutoScroll({
