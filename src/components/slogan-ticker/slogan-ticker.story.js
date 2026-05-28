@@ -34,6 +34,16 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { sort: 'alpha' },
+    chromatic: {
+      modes: {
+        xxl: {
+          viewport: {
+            width: 1400,
+            height: 900,
+          },
+        },
+      },
+    },
   },
 };
 
