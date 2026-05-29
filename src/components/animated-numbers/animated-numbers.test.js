@@ -27,6 +27,14 @@ describe('Animated Numbers', () => {
     ).resolves.toMatchSnapshot();
   });
 
+  test('renders correctly in full width', () => {
+    expect.assertions(1);
+
+    return expect(
+      render({ ...demoData, full_width: true }),
+    ).resolves.toMatchSnapshot();
+  });
+
   test('renders correctly with a border', () => {
     expect.assertions(1);
 
