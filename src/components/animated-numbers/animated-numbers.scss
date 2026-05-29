@@ -21,7 +21,6 @@ $animated-numbers: null !default;
 
 .ecl-animated-numbers--with-background {
   box-sizing: border-box;
-  position: relative;
   background: var(--cm-surface-brand, var(--c-p-180));
   color: var(--cm-on-surface-inverted, #fff);
   padding: map.get($animated-numbers, 'background-spacing');
@@ -31,6 +30,7 @@ $animated-numbers: null !default;
   inset-inline-start: 50%;
   margin-inline-start: -50vw;
   padding-inline: 0;
+  position: relative;
   width: 100vw;
 }
 
