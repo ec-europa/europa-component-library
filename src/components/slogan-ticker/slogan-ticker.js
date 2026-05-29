@@ -66,6 +66,7 @@ export class SloganTicker {
     this.isPlaying = false;
     this.rafId = null;
     this.resizeTimer = null;
+    this.direction = null;
 
     this.toggleAutoScroll = this.toggleAutoScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -85,6 +86,7 @@ export class SloganTicker {
     this.playButton = queryOne(this.playSelector, this.element);
     this.pauseButton = queryOne(this.pauseSelector, this.element);
     this.slides = queryAll(this.slideClass, this.element);
+    this.direction = getComputedStyle(this.element).direction;
 
     if (!this.sliderEl || this.slides.length <= 1) {
       if (this.playButton) this.playButton.style.display = 'none';
@@ -93,6 +95,7 @@ export class SloganTicker {
     }
     this.ensureEnoughContent();
     this.initSlider();
+    this.setupVisibilityObserver();
 
     if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
       this.startAutoScroll();
@@ -112,6 +115,28 @@ export class SloganTicker {
     ECL.components.set(this.element, this);
 
     return this;
+  }
+
+  /**
+   * Stop the slider auto-scroll when the component is not visible in the viewport, and resume when it is visible again.
+   */
+  setupVisibilityObserver() {
+    this.visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!this.isPlaying) {
+            this.startAutoScroll();
+          }
+        } else {
+          this.stopAutoScroll();
+        }
+      },
+      {
+        threshold: 0,
+      },
+    );
+
+    this.visibilityObserver.observe(this.element);
   }
 
   /**
@@ -153,8 +178,10 @@ export class SloganTicker {
       [
         AutoScroll({
           speed: this.autoScrollSpeed,
+          startDelay: 0,
           stopOnInteraction: false,
           stopOnMouseEnter: false,
+          direction: this.direction === 'rtl' ? 'backward' : 'forward',
         }),
       ],
     );
@@ -166,7 +193,6 @@ export class SloganTicker {
   startAutoScroll() {
     this.isPlaying = true;
     this.updateButtonVisibility();
-
     const autoScroll = this.slider?.plugins()?.autoScroll;
     autoScroll?.play();
   }
@@ -233,20 +259,38 @@ export class SloganTicker {
     if (this.playButton) {
       this.playButton.replaceWith(this.playButton.cloneNode(true));
     }
+
     if (this.pauseButton) {
       this.pauseButton.replaceWith(this.pauseButton.cloneNode(true));
     }
+
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+
     if (this.rafId) {
       window.cancelAnimationFrame(this.rafId);
       this.rafId = null;
     }
+
     if (this.slider) {
       this.slider.destroy();
       this.slider = null;
     }
+
+    const track = queryOne('.ecl-slogan-ticker__track', this.sliderEl);
+    if (track) {
+      track.style.transform = '';
+      track.style.willChange = '';
+    }
+
+    if (this.sliderEl) {
+      this.sliderEl.style.pointerEvents = 'none';
+      // force reflow
+      this.sliderEl.getBoundingClientRect();
+      this.sliderEl.style.pointerEvents = '';
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
