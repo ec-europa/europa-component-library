@@ -13,6 +13,7 @@ const getArgs = (data) => {
     direction: 'horizontal',
     grid_content: false,
     show_view_all: true,
+    full_height: true,
     title_level: data.title.level,
     title_label: data.title.label,
     description: data.description,
@@ -94,10 +95,19 @@ const getArgTypes = () => {
     contentTypeMapping[key] = key;
   }
 
+  argTypes.full_height = {
+    name: 'full height',
+    type: { name: 'boolean' },
+    description: 'Display all the elements full height',
+    control: { type: 'boolean' },
+    table: {
+      category: 'Display',
+    },
+  };
   argTypes.show_view_all = {
     name: 'view all',
     type: { name: 'boolean' },
-    description: 'Display the "view all" link"',
+    description: 'Display the "view all" link',
     control: { type: 'boolean' },
     table: {
       category: 'Display',

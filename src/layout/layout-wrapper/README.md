@@ -23,6 +23,7 @@ npm install --save @ecl/layout-wrapper
     Supported component keys: card, navigation_list, content_item, file, list_illustration
 - **"direction"** (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
 - **"view_all"** (object) (default: {}): Link display below the grid; Follows the ECL Link structure
+- **"full_height"** (boolean) (default: true): Elements inside the layout wrapper would take the full height
 - **"extra_classes"** (string) (default: '')
 - **"extra_attributes"** (array) (default: []): format: [
   {

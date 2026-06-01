@@ -110,10 +110,8 @@ $layout-wrapper: null !default;
 }
 
 // Set 100% height for all items
-.ecl-layout-item {
-  height: 100%;
-
-  & > * {
+.ecl-layout-wrapper:not(.ecl-layout-wrapper--height-auto) {
+  .ecl-layout-item > * {
     height: 100%;
   }
 }
