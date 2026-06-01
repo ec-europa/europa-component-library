@@ -9,6 +9,7 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {
     with_background: false,
+    full_width: false,
     border: false,
     counter_color: true,
     suffix: data.suffix,
@@ -32,6 +33,17 @@ const getArgTypes = () => ({
     name: 'with a dark background',
     type: { name: 'boolean', required: false },
     description: 'On a dark background',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
+    },
+    if: { arg: 'full_width', eq: false },
+  },
+  full_width: {
+    name: 'full width',
+    type: { name: 'boolean', required: false },
+    description: 'Full width',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
@@ -129,6 +141,12 @@ const prepareData = (data, args) => {
   cloned.border = args.border;
   cloned.counter_color = args.counter_color;
   cloned.with_background = args.with_background;
+  cloned.full_width = args.full_width;
+
+  if (args.full_width) {
+    cloned.with_background = true;
+    cloned.counter_color = false;
+  }
 
   cloned.items[0].description = args.description;
   cloned.items[0].category = args.category;
@@ -189,7 +207,10 @@ WithBackground.render = async (args) => {
   ${await AnimatedNumbers(prepareData(defaultData, { ...args, with_background: true }))}</div>`;
   return renderedAnimatedNumbersBackground;
 };
-WithBackground.args = getArgs(defaultData.items[0]);
+WithBackground.args = {
+  ...getArgs(defaultData.items[0]),
+  full_width: true,
+};
 WithBackground.argTypes = getArgTypes();
 WithBackground.storyName = 'with background';
 WithBackground.tags = ['!dev'];

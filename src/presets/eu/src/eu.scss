@@ -185,6 +185,10 @@
   $theme: theme.$theme,
   $file: var.$file
 );
+@use '@ecl/highlight-box/highlight-box' with (
+  $theme: theme.$theme,
+  $highlight-box: var.$highlight-box
+);
 @use '@ecl/rating-field/rating-field' with (
   $theme: theme.$theme,
   $rating-field: var.$rating-field
