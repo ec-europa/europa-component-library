@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
@@ -26,8 +27,21 @@ $layout-wrapper: null !default;
 // Items sub-grid, single column by default (stacked, mobile-first)
 .ecl-layout-wrapper__content {
   display: grid;
-  gap: 2.5rem;
+  column-gap: map.get($theme, 'grid', 'gutter-s');
   grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+}
+
+@include breakpoints.up('m') {
+  .ecl-layout-wrapper__content {
+    column-gap: map.get($theme, 'grid', 'gutter-m');
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-layout-wrapper__content {
+    column-gap: map.get($theme, 'grid', 'gutter-l');
+  }
 }
 
 .ecl-layout-wrapper__grid .ecl-layout-wrapper__info > *:first-child {
