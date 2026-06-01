@@ -11,6 +11,7 @@ npm install --save @ecl/quiz
 - **"id"** (string) (default: random): Unique id for the quiz; randomized if empty
 - **"variant"** (string) (default: 'reveal')
 - **"with_background"** (boolean) (default: false)
+- **"full_width"** (boolean) (default: false)
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
 - **"skip_text"** (string) (default: 'Use ESC to skip the quiz')
