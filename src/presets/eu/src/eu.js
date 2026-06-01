@@ -1,5 +1,6 @@
 import '@ecl/dom-utils/polyfills';
 
+export * from '@ecl/accordion';
 export * from '@ecl/animated-numbers';
 export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/banner';
