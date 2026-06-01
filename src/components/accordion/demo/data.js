@@ -36,11 +36,9 @@ module.exports = {
   ],
   icon: [
     {
-      path: '/icons.svg',
       name: 'plus',
     },
     {
-      path: '/icons.svg',
       name: 'minus',
     },
   ],

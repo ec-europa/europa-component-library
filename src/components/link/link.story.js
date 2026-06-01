@@ -9,6 +9,7 @@ import dataPrimaryHighlight from './demo/data--primary-highlight';
 import dataPrimaryNeutral from './demo/data--primary-neutral';
 import dataPrimary from './demo/data--primary';
 import dataSecondary from './demo/data--secondary';
+import dataSecondaryInverted from './demo/data--secondary-inverted';
 import dataStandalone from './demo/data--standalone';
 
 import link from './link.html.twig';
@@ -231,7 +232,7 @@ const renderStory = async (data, args, variant) => {
     story = `<div class="ecl-u-type-m">${story}</div>`;
   }
 
-  if (args.style === 'inverted') {
+  if (args.style === 'inverted' || data.link.type === 'secondary-inverted') {
     story = `<div class="ecl-u-bg-black ecl-u-type-color-white ecl-u-pa-m">${story}</div>`;
   }
 
@@ -331,3 +332,19 @@ Secondary.storyName = 'secondary';
 Secondary.args = getArgs(dataSecondary, 'secondary');
 Secondary.argTypes = getArgTypes('secondary');
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
+
+export const SecondaryInverted = (_, { loaded: { component } }) => component;
+
+SecondaryInverted.render = async (args) => {
+  const renderedLinkSecondaryInverted = await renderStory(
+    dataSecondaryInverted,
+    args,
+  );
+  return renderedLinkSecondaryInverted;
+};
+SecondaryInverted.storyName = 'secondary inverted';
+SecondaryInverted.args = getArgs(dataSecondaryInverted, 'secondary inverted');
+SecondaryInverted.argTypes = getArgTypes('secondary inverted');
+SecondaryInverted.parameters = {
+  notes: { markdown: notes, json: dataSecondaryInverted },
+};

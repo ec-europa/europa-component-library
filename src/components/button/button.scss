@@ -118,51 +118,85 @@ $button: null !default;
 // Button styles
 // stylelint-disable nesting-selector-no-missing-scoping-root
 @mixin button($variant: null) {
+  --ecl-button-border-width: #{map.get($button, #{$variant}, 'border-width')};
+  --ecl-button-padding-horizontal: #{map.get(
+      $button,
+      'large',
+      'padding-horizontal'
+    )};
+  --ecl-button-padding-vertical: #{map.get(
+      $button,
+      'large',
+      'padding-vertical'
+    )};
+
   background-color: map.get($button, #{$variant}, 'background');
-  border: map.get($button, #{$variant}, 'border-width') solid
+  border: var(--ecl-button-border-width) solid
     map.get($button, #{$variant}, 'border-color');
   color: map.get($button, #{$variant}, 'color');
   min-height: map.get($button, 'large', 'size');
   min-width: map.get($button, 'large', 'size');
   padding: calc(
-      #{map.get($button, 'large', 'padding-vertical')} -
-        #{map.get($button, #{$variant}, 'border-width')}
+      var(--ecl-button-padding-vertical) - var(--ecl-button-border-width)
     )
-    calc(
-      #{map.get($button, 'large', 'padding-horizontal')} -
-        #{map.get($button, #{$variant}, 'border-width')}
-    );
+    calc(var(--ecl-button-padding-horizontal) - var(--ecl-button-border-width));
 
   @include mixins.responsive-font(map.get($button, 'large', 'font'));
 
   &.ecl-button--s {
+    --ecl-button-padding-horizontal: #{map.get(
+        $button,
+        'small',
+        'padding-horizontal'
+      )};
+    --ecl-button-padding-vertical: #{map.get(
+        $button,
+        'small',
+        'padding-vertical'
+      )};
+
     min-height: map.get($button, 'small', 'size');
     min-width: map.get($button, 'small', 'size');
-    padding: calc(
-        #{map.get($button, 'small', 'padding-vertical')} -
-          #{map.get($button, #{$variant}, 'border-width')}
-      )
-      calc(
-        #{map.get($button, 'small', 'padding-horizontal')} -
-          #{map.get($button, #{$variant}, 'border-width')}
-      );
 
     @include mixins.responsive-font(map.get($button, 'small', 'font'));
   }
 
+  @if map.has-key($button, #{$variant}, 'border-width-small') {
+    &.ecl-button--s {
+      --ecl-button-border-width: #{map.get(
+          $button,
+          #{$variant},
+          'border-width-small'
+        )};
+    }
+  }
+
   &.ecl-button--m {
+    --ecl-button-padding-horizontal: #{map.get(
+        $button,
+        'medium',
+        'padding-horizontal'
+      )};
+    --ecl-button-padding-vertical: #{map.get(
+        $button,
+        'medium',
+        'padding-vertical'
+      )};
+
     min-height: map.get($button, 'medium', 'size');
     min-width: map.get($button, 'medium', 'size');
-    padding: calc(
-        #{map.get($button, 'medium', 'padding-vertical')} -
-          #{map.get($button, #{$variant}, 'border-width')}
-      )
-      calc(
-        #{map.get($button, 'medium', 'padding-horizontal')} -
-          #{map.get($button, #{$variant}, 'border-width')}
-      );
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
+  }
+
+  @if map.has-key($button, #{$variant}, 'border-width-medium') {
+    &.ecl-button--m {
+      --ecl-button-border-width: #{map.get(
+          $button,
+          #{$variant},
+          'border-width-medium'
+        )};
+    }
   }
 
   &:hover {
@@ -186,37 +220,27 @@ $button: null !default;
 
   @if map.has-key($button, #{$variant}, 'border-width-focus') {
     &:focus-visible {
-      border-width: map.get($button, #{$variant}, 'border-width-focus');
-      padding: calc(
-          #{map.get($button, 'large', 'padding-vertical')} -
-            #{map.get($button, #{$variant}, 'border-width-focus')}
-        )
-        calc(
-          #{map.get($button, 'large', 'padding-horizontal')} -
-            #{map.get($button, #{$variant}, 'border-width-focus')}
-        );
+      --ecl-button-border-width: #{map.get(
+          $button,
+          #{$variant},
+          'border-width-focus'
+        )};
     }
 
     &.ecl-button--s:focus-visible {
-      padding: calc(
-          #{map.get($button, 'small', 'padding-vertical')} -
-            #{map.get($button, #{$variant}, 'border-width-focus')}
-        )
-        calc(
-          #{map.get($button, 'small', 'padding-horizontal')} -
-            #{map.get($button, #{$variant}, 'border-width-focus')}
-        );
+      --ecl-button-border-width: #{map.get(
+          $button,
+          #{$variant},
+          'border-width-focus'
+        )};
     }
 
     &.ecl-button--m:focus-visible {
-      padding: calc(
-          #{map.get($button, 'medium', 'padding-vertical')} -
-            #{map.get($button, #{$variant}, 'border-width-focus')}
-        )
-        calc(
-          #{map.get($button, 'medium', 'padding-horizontal')} -
-            #{map.get($button, #{$variant}, 'border-width-focus')}
-        );
+      --ecl-button-border-width: #{map.get(
+          $button,
+          #{$variant},
+          'border-width-focus'
+        )};
     }
   }
 
@@ -252,6 +276,10 @@ $button: null !default;
 
   &.ecl-button--inverted {
     @include button(primary-inverted);
+  }
+
+  &.ecl-button--highlight-inverted {
+    @include button(primary-highlight-inverted);
   }
 }
 
