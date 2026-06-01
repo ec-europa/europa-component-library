@@ -28,6 +28,17 @@ module.exports = {
     },
     description:
       'This site is managed by:<span class="ecl-site-footer__description-name">[name of the manager of the site]</span>',
+    action_button: {
+      link: {
+        label: 'Subscribe for updates',
+        path: exampleLink,
+      },
+      icon: {
+        name: 'envelope-simple',
+        family: 'phosphor',
+        style: 'inverted',
+      },
+    },
     social_media: {
       links: [
         {
