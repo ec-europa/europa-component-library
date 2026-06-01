@@ -69,42 +69,6 @@ Reveal.decorators = [
     </div>
   `,
 ];
-export const RevealSidebar = (_, { loaded: { component } }) => component;
-
-RevealSidebar.render = async (args) => {
-  const renderedQuiz = `${await quiz(prepareData(correctPaths(specs), args))}`;
-  return renderedQuiz;
-};
-RevealSidebar.args = {
-  ...getArgs(),
-  withBackground: true,
-};
-RevealSidebar.argTypes = {
-  ...getArgTypes(),
-  fullWidth: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
-RevealSidebar.storyName = 'reveal-sidebar';
-RevealSidebar.parameters = { notes: { markdown: notes, json: specs } };
-RevealSidebar.decorators = [
-  (Story) => `
-    <div class="ecl-container">
-      <div class="ecl-row">
-        <div class="ecl-col-l-3">
-          <div style="height: 250px; width: 100%; border: 1px solid grey;">
-          </div>
-        </div>
-        <div class="ecl-col-l-9">
-          ${Story()}
-        </div>
-      </div>
-    </div>
-  `,
-];
 
 export const Poll = (_, { loaded: { component } }) => component;
 
