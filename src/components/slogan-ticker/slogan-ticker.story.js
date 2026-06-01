@@ -5,11 +5,17 @@ import specs from './demo/data';
 import sloganTicker from './slogan-ticker.html.twig';
 import notes from './README.md';
 import isChromatic from 'chromatic/isChromatic';
+import getSystem from '@ecl/builder/utils/getSystem';
+
+const system = getSystem();
 
 const getArgs = () => {
-  return {
-    color_mode: 'default',
-  };
+  const args = {};
+
+  if (system === 'ec') {
+    args.color_mode = 'default';
+  }
+  return args;
 };
 
 const getArgTypes = () => {
