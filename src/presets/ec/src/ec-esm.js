@@ -1,6 +1,7 @@
 import '@ecl/dom-utils/polyfills';
 
 import autoInit from '@ecl/dom-utils/autoinit';
+import Accordion from '@ecl/accordion';
 import AnimatedNumbers from '@ecl/animated-numbers';
 import Banner from '@ecl/banner';
 import Carousel from '@ecl/carousel';
@@ -34,6 +35,7 @@ import Tooltip from '@ecl/tooltip';
 
 const ECL = {
   autoInit,
+  Accordion,
   AnimatedNumbers,
   Banner,
   Carousel,

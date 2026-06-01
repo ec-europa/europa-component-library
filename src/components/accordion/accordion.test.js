@@ -6,6 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from './demo/data';
+import demoSidebar from './demo/data--sidebar';
 
 expect.extend(toHaveNoViolations);
 
@@ -22,6 +23,12 @@ describe('Accordion', () => {
     return expect(render(demoData)).resolves.toMatchSnapshot();
   });
 
+  test('renders correctly in the sidebar', () => {
+    expect.assertions(1);
+
+    return expect(render(demoSidebar)).resolves.toMatchSnapshot();
+  });
+
   test('renders correctly with old data', () => {
     expect.assertions(1);
 
@@ -34,6 +41,18 @@ describe('Accordion', () => {
     oldData.icon[0].name = 'corner-arrow';
 
     return expect(render(oldData)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly with extra toggle class names', () => {
+    expect.assertions(1);
+
+    const optionsWithExtraToggleClasses = JSON.parse(JSON.stringify(demoData));
+    optionsWithExtraToggleClasses.items[0].toggle.extra_classes =
+      'custom-class custom-class--test';
+
+    return expect(
+      render(optionsWithExtraToggleClasses),
+    ).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with extra class names', () => {
