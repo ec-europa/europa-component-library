@@ -147,6 +147,11 @@ export class SloganTicker {
    */
   ensureEnoughContent() {
     const track = queryOne('.ecl-slogan-ticker__track', this.sliderEl);
+
+    queryAll('[data-ecl-clone="true"]', track).forEach((clone) => {
+      clone.remove();
+    });
+
     const slides = Array.from(track.children);
 
     const containerWidth = this.sliderEl.offsetWidth;
@@ -158,6 +163,7 @@ export class SloganTicker {
       slides.forEach((slide) => {
         const clone = slide.cloneNode(true);
         clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute('data-ecl-clone', 'true');
         track.appendChild(clone);
       });
 
@@ -306,6 +312,9 @@ export class SloganTicker {
 
     const track = queryOne('.ecl-slogan-ticker__track', this.sliderEl);
     if (track) {
+      queryAll('[data-ecl-clone="true"]', track).forEach((clone) => {
+        clone.remove();
+      });
       track.style.transform = '';
       track.style.willChange = '';
     }
