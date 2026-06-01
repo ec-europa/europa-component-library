@@ -97,16 +97,6 @@ export class SloganTicker {
 
     this.waitForLayoutReady();
 
-    if (
-      this.element.getAttribute(this.autoplaySelector) !== 'false' &&
-      !this.isPlaying
-    ) {
-      this.startAutoScroll();
-      this.isPlaying = true;
-    } else if (this.element.getAttribute(this.autoplaySelector) === 'false') {
-      this.isPaused = true;
-    }
-
     if (this.attachClickListener && this.playButton) {
       this.playButton.addEventListener('click', this.toggleAutoScroll, false);
     }
@@ -181,8 +171,16 @@ export class SloganTicker {
         this.initSlider();
         this.setupVisibilityObserver();
 
-        if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
+        if (
+          this.element.getAttribute(this.autoplaySelector) !== 'false' &&
+          !this.isPlaying
+        ) {
           this.startAutoScroll();
+          this.isPlaying = true;
+        } else if (
+          this.element.getAttribute(this.autoplaySelector) === 'false'
+        ) {
+          this.isPaused = true;
         }
 
         return;
