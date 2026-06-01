@@ -26,7 +26,7 @@ $layout-wrapper: null !default;
 // Items sub-grid, single column by default (stacked, mobile-first)
 .ecl-layout-wrapper__content {
   display: grid;
-  gap: map.get($theme, 'grid', 'gutter-l');
+  gap: 2.5rem;
   grid-template-columns: 1fr;
 }
 
