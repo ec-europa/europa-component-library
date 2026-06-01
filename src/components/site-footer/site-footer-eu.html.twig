@@ -17,6 +17,7 @@
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_with_separator" (optional) (bolean) (default: false)
     - "description" (optional) (string) (default: '')
+    - "action_button" (optional) (object) (default: '')
     - "content_before" (optional) (string) (default: '')
     - "links" (optional) (array of objects) (default: []),
       - "link" (link object)
@@ -202,6 +203,15 @@
               </li>
             {% endfor %}
             </ul>
+          {% endif %}
+          {# action button #}
+          {% if _sections.action_button is not empty %}
+            {% include '@ecl/link/link.html.twig' with _sections.action_button|merge({
+              link: _sections.action_button.link|default({})|merge({
+                type: 'secondary-neutral',
+              }),
+              extra_classes: 'ecl-site-footer__action-button ecl-button--m'
+            }) only %}
           {% endif %}
           </div>
         {% endfor %}
