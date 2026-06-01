@@ -94,13 +94,16 @@ export class SloganTicker {
       if (this.pauseButton) this.pauseButton.style.display = 'none';
       return false;
     }
-    this.ensureEnoughContent();
-    this.initSlider();
-    this.setupVisibilityObserver();
 
-    if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
+    this.waitForLayoutReady();
+
+    if (
+      this.element.getAttribute(this.autoplaySelector) !== 'false' &&
+      !this.isPlaying
+    ) {
       this.startAutoScroll();
-    } else {
+      this.isPlaying = true;
+    } else if (this.element.getAttribute(this.autoplaySelector) === 'false') {
       this.isPaused = true;
     }
 
@@ -169,6 +172,39 @@ export class SloganTicker {
 
       totalWidth = track.scrollWidth;
     }
+  }
+
+  waitForLayoutReady() {
+    const tick = () => {
+      if (this.isLayoutReady()) {
+        this.ensureEnoughContent();
+        this.initSlider();
+        this.setupVisibilityObserver();
+
+        if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
+          this.startAutoScroll();
+        }
+
+        return;
+      }
+
+      requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  }
+
+  isLayoutReady() {
+    const track = queryOne('.ecl-slogan-ticker__track', this.sliderEl);
+    if (!track) return false;
+
+    const trackStyles = getComputedStyle(track);
+
+    return (
+      trackStyles.display === 'flex' &&
+      this.sliderEl.offsetWidth > 0 &&
+      track.offsetHeight > 0
+    );
   }
 
   /**
