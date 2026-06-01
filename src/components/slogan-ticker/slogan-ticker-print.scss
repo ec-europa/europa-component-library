@@ -14,6 +14,7 @@ $slogan-ticker: null !default;
   display: flex;
   align-items: center;
   padding-inline: map.get($theme, 'spacing-print', 'm');
+  overflow: hidden;
 }
 
 .ecl-slogan-ticker__track {
@@ -27,6 +28,7 @@ $slogan-ticker: null !default;
 
 .ecl-slogan-ticker__slide {
   color: var(--cm-on-surface, var(--c-p));
+  flex: 0 0 auto;
   font: map.get($theme, 'font-print', 'xl');
   font-weight: map.get($theme, 'font-weight', 'bold');
   text-transform: uppercase;

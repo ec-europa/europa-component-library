@@ -313,6 +313,11 @@ export class SloganTicker {
       this.sliderEl.style.pointerEvents = '';
     }
 
+    if (this.visibilityObserver) {
+      this.visibilityObserver.disconnect();
+      this.visibilityObserver = null;
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
