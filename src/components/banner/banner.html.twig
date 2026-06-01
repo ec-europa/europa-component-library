@@ -270,7 +270,7 @@
           <div class="ecl-banner__cta">
           {% include '@ecl/link/link.html.twig' with _link|merge({
             link: _link.link|merge({
-              type: 'primary-highlight',
+              type: _box_background == 'dark' ? 'primary-highlight-inverted' : 'primary-highlight',
             }),
             extra_classes: _link_extra_classes,
             extra_attributes: _link_extra_attributes,
