@@ -69,7 +69,7 @@ const getArgTypes = () => {
       name: 'forced column',
       type: { name: 'boolean' },
       description:
-        'Force column display instead of dynamic management; use with caution',
+        'Force column number instead of dynamic management; use with caution',
       control: { type: 'boolean' },
       table: {
         category: 'Configuration',
