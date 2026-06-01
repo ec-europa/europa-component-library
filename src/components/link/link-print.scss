@@ -43,6 +43,7 @@ $button: null !default;
       .ecl-link--primary-neutral,
       .ecl-link--primary,
       .ecl-link--secondary,
+      .ecl-link--secondary-neutral,
       .ecl-link--secondary-inverted
     )
     .ecl-link__label {
@@ -151,6 +152,10 @@ $button: null !default;
   @include link-button(secondary);
 }
 
+.ecl-link--secondary-neutral {
+  @include link-button(secondary-neutral);
+}
+
 .ecl-link--secondary-inverted {
   @include link-button(secondary-inverted);
 }
@@ -161,4 +166,8 @@ $button: null !default;
 
 .ecl-link--primary-neutral {
   @include link-button(primary-neutral);
+}
+
+.ecl-link--primary-highlight-inverted {
+  @include link-button(primary-highlight-inverted);
 }
