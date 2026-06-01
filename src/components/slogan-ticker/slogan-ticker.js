@@ -202,9 +202,10 @@ export class SloganTicker {
 
     if (this.direction !== direction) {
       this.direction = direction;
+      this.slider?.plugins()?.autoScroll?.destroy();
       this.slider.destroy();
       this.initSlider();
-      this.slider?.plugins()?.autoScroll.play();
+      this.slider?.plugins()?.autoScroll?.play();
       return;
     }
 
@@ -269,7 +270,9 @@ export class SloganTicker {
     this.resizeTimer = setTimeout(() => {
       if (this.slider) {
         this.slider.reInit();
-        this.slider?.plugins()?.autoScroll.play();
+        if (!this.isPaused) {
+          this.slider?.plugins()?.autoScroll?.play();
+        }
       }
     }, 100);
   }
@@ -296,6 +299,7 @@ export class SloganTicker {
     }
 
     if (this.slider) {
+      this.slider?.plugins()?.autoScroll?.destroy();
       this.slider.destroy();
       this.slider = null;
     }
