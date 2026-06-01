@@ -4,6 +4,8 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -48,6 +50,7 @@ $accordion: null !default;
   fill: map.get($accordion, 'icon-color');
   flex-grow: 0;
   flex-shrink: 0;
+  margin-block-start: map.get($accordion, 'icon-offset');
   margin-inline-start: map.get($accordion, 'icon-margin');
 
   &:last-of-type,
@@ -155,6 +158,54 @@ $accordion: null !default;
     .ecl-accordion__item[open] &:last-child,
     .ecl-accordion__item[open] &:only-child {
       display: block;
+    }
+  }
+}
+
+// Sidebar display
+.ecl-accordion--sidebar {
+  box-shadow: none;
+
+  .ecl-accordion__toggle-icon {
+    color: map.get($accordion, 'sidebar', 'title-text-color');
+    stroke-width: 2.5;
+  }
+
+  .ecl-accordion__toggle {
+    align-items: center;
+    border-block-end: map.get($accordion, 'sidebar', 'border');
+    color: map.get($accordion, 'sidebar', 'title-text-color');
+    margin-block-start: calc(1.33em - var(--s-s));
+    padding: var(--s-s) 0;
+
+    @include mixins.responsive-font('heading4');
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .ecl-accordion__item {
+    border: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .ecl-accordion__item[open] .ecl-accordion__toggle {
+    background-color: transparent;
+  }
+
+  .ecl-accordion__content {
+    padding-inline: 0;
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-accordion--sidebar {
+    .ecl-accordion__item[open] .ecl-accordion__toggle-icon {
+      display: none;
     }
   }
 }

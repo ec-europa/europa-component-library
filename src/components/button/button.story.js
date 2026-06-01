@@ -36,13 +36,14 @@ const getArgs = (data) => ({
 });
 
 const stylePrimary = {
-  options: ['', 'highlight', 'neutral', 'inverted'],
+  options: ['', 'highlight', 'neutral', 'inverted', 'highlight-inverted'],
   control: {
     labels: {
       '': 'default',
       highlight: 'highlight',
       neutral: 'neutral',
       inverted: 'inverted',
+      'highlight-inverted': 'highlight inverted',
     },
   },
   mapping: {
@@ -50,6 +51,7 @@ const stylePrimary = {
     highlight: 'highlight',
     neutral: 'neutral',
     inverted: 'inverted',
+    'highlight inverted': 'highlight-inverted',
   },
 };
 
@@ -250,7 +252,7 @@ const prepareData = (data, args) => {
 const renderStory = async (data, args) => {
   let story = await button(prepareData(data, args));
 
-  if (args.style === 'inverted') {
+  if (args.style.includes('inverted')) {
     story = `<div class="ecl-u-bg-black ecl-u-pa-m">${story}</div>`;
   }
 
