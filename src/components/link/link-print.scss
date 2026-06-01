@@ -43,6 +43,7 @@ $button: null !default;
       .ecl-link--primary-neutral,
       .ecl-link--primary,
       .ecl-link--secondary,
+      .ecl-link--secondary-neutral,
       .ecl-link--secondary-inverted
     )
     .ecl-link__label {
@@ -149,6 +150,10 @@ $button: null !default;
 
 .ecl-link--secondary {
   @include link-button(secondary);
+}
+
+.ecl-link--secondary-neutral {
+  @include link-button(secondary-neutral);
 }
 
 .ecl-link--secondary-inverted {

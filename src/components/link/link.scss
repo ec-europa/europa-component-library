@@ -82,6 +82,7 @@ $link: null !default;
       .ecl-link--primary-neutral,
       .ecl-link--primary,
       .ecl-link--secondary,
+      .ecl-link--secondary-neutral,
       .ecl-link--secondary-inverted
     )
     .ecl-link__label {
@@ -351,6 +352,10 @@ $link: null !default;
       margin-inline-start: map.get($button, 'large', 'icon-spacing');
     }
   }
+
+  .ecl-link__icon {
+    top: 0;
+  }
 }
 /* stylelint-enable nesting-selector-no-missing-scoping-root */
 
@@ -360,6 +365,10 @@ $link: null !default;
 
 .ecl-link--secondary {
   @include link-button(secondary);
+}
+
+.ecl-link--secondary-neutral {
+  @include link-button(secondary-neutral);
 }
 
 .ecl-link--secondary-inverted {
