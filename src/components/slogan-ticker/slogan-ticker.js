@@ -67,6 +67,7 @@ export class SloganTicker {
     this.rafId = null;
     this.resizeTimer = null;
     this.direction = null;
+    this.isPaused = false;
 
     this.toggleAutoScroll = this.toggleAutoScroll.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -99,6 +100,8 @@ export class SloganTicker {
 
     if (this.element.getAttribute(this.autoplaySelector) !== 'false') {
       this.startAutoScroll();
+    } else {
+      this.isPaused = true;
     }
 
     if (this.attachClickListener && this.playButton) {
@@ -124,10 +127,10 @@ export class SloganTicker {
     this.visibilityObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (!this.isPlaying) {
+          if (!this.isPlaying && !this.isPaused) {
             this.startAutoScroll();
           }
-        } else {
+        } else if (this.isPlaying) {
           this.stopAutoScroll();
         }
       },
@@ -174,6 +177,7 @@ export class SloganTicker {
         dragFree: true,
         draggable: false,
         containScroll: false,
+        direction: this.direction === 'rtl' ? 'rtl' : 'ltr',
       },
       [
         AutoScroll({
@@ -194,6 +198,16 @@ export class SloganTicker {
     this.isPlaying = true;
     this.updateButtonVisibility();
     const autoScroll = this.slider?.plugins()?.autoScroll;
+    const direction = getComputedStyle(this.element).direction;
+
+    if (this.direction !== direction) {
+      this.direction = direction;
+      this.slider.destroy();
+      this.initSlider();
+      this.slider?.plugins()?.autoScroll.play();
+      return;
+    }
+
     autoScroll?.play();
   }
 
@@ -215,6 +229,14 @@ export class SloganTicker {
   toggleAutoScroll(event) {
     if (event && event.preventDefault) {
       event.preventDefault();
+    }
+
+    if (event?.currentTarget === this.pauseButton) {
+      this.isPaused = true;
+    }
+
+    if (event?.currentTarget === this.playButton) {
+      this.isPaused = false;
     }
 
     if (this.isPlaying) {
