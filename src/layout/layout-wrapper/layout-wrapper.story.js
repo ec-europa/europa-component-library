@@ -14,6 +14,7 @@ const getArgs = (data) => {
     grid_content: false,
     show_view_all: true,
     full_height: true,
+    forced_column: false,
     title_level: data.title.level,
     title_label: data.title.label,
     description: data.description,
@@ -62,6 +63,18 @@ const getArgTypes = () => {
       control: { type: 'range', min: 1, max: 8, step: 1 },
       table: {
         category: 'Configuration',
+      },
+    },
+    forced_column: {
+      name: 'forced column',
+      type: { name: 'boolean' },
+      description:
+        'Force column display instead of dynamic management; use with caution',
+      control: { type: 'boolean' },
+      table: {
+        category: 'Configuration',
+        type: 'bool',
+        defaultValue: { summary: 'false' },
       },
     },
     direction: {

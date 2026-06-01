@@ -123,6 +123,66 @@ $layout-wrapper: null !default;
   }
 }
 
+// Forced column: stay single column on mobile/tablet (override the s-breakpoint 2-col switch)
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 's')}) {
+  .ecl-layout-wrapper--forced.col-2 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--forced.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--forced.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: 1fr;
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-2
+    .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-3
+    .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-4
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: unset;
+    grid-auto-flow: unset;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+}
+
+// Forced column: exact column count at desktop (> breakpoint 'm')
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-layout-wrapper--forced.col-2 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-layout-wrapper--forced.col-3 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ecl-layout-wrapper--forced.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-2
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-2), auto);
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-3
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-3), auto);
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-4
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-4), auto);
+  }
+}
+
 // Set 100% height for all items
 .ecl-layout-wrapper:not(.ecl-layout-wrapper--height-auto) {
   .ecl-layout-item > * {

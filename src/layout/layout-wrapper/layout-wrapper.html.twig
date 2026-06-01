@@ -4,6 +4,7 @@
 {#
   Parameters:
   - "nb_columns" (int) (default: 3): Number of item columns (2, 3, or 4)
+  - "forced_column" (boolean) (default: false): If true, columns on desktop will always be with a fixed number, instead of dynamically adapting to the container; use with caution
   - "info_position" (string) (default: 'top'): Position of the heading/introduction block. Possible options:
     - top: always stacked above the grid
     - side: beside the grid at wider breakpoints; capped to 3 columns
@@ -32,6 +33,7 @@
 {# Internal properties #}
 
 {% set _nb_columns = nb_columns|default(3) %}
+{% set _forced_column = forced_column ?? false %}
 {% set _info_position = info_position|default('top') %}
 {% set _title = title|default({})|merge({
   level: title.level|default(2),
@@ -52,6 +54,10 @@
 {% endif %}
 
 {% set _css_class = _css_class ~ ' col-' ~ _nb_columns %}
+
+{% if _forced_column %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--forced' %}
+{% endif %}
 
 {% if _info_position == 'side' %}
   {% set _css_class = _css_class ~ ' ecl-layout-wrapper--info-side' %}

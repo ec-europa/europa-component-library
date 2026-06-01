@@ -9,6 +9,7 @@ npm install --save @ecl/layout-wrapper
 ### Parameters
 
 - **"nb_columns"** (int) (default: 3): Number of item columns (2, 3, or 4)
+- **"forced_column"** (boolean) (default: false): If true, columns on desktop will always be with a fixed number, instead of dynamically adapting to the container; use with caution
 - **"info_position"** (string) (default: 'top'): Position of the title/description block. Possible options:
   - top: always stacked above the grid
   - side: beside the grid at wider breakpoints; capped to 3 columns
