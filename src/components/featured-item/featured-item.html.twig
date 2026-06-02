@@ -63,6 +63,12 @@
 
 {# Internal logic - Process properties #}
 
+{% set _color_mode_light = ['blue', 'orange', 'green', 'blue-electric', 'blue-ocean', 'green-lemon', 'warm-grey', 'yellow-gold', 'purple-violet', 'red-tomato'] %}
+{% set _link_type = 'secondary-inverted' %}
+{% if _type == 'highlight' and _color_mode in _color_mode_light %}
+  {% set _link_type = 'secondary-neutral' %}
+{% endif %}
+
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
