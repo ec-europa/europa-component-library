@@ -182,22 +182,8 @@ $animated-numbers: null !default;
   row-gap: var(--s-xs);
 }
 
-.ecl-animated-numbers__source {
-  @include link-component.standalone-link;
-
-  .ecl-animated-numbers--with-background & {
-    @include link-component.inverted-link;
-
-    --ecl-link-text-decoration: underline;
-
-    &:focus-visible {
-      box-shadow:
-        0 0 0 2px var(--cm-border-primary, var(--c-p)),
-        0 0 0 4px var(--cm-on-surface-inverted, #fff);
-      outline: none;
-      text-decoration: none;
-    }
-  }
+.ecl-animated-numbers--with-background .ecl-animated-numbers__source {
+  @include link-component.inverted-link;
 }
 
 .ecl-animated-numbers__sources-item:not(:last-child)::after {
