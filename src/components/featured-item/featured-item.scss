@@ -210,17 +210,21 @@ $featured-item: null !default;
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
 
-    .ecl *,
-    .ecl a:hover,
-    .ecl a:focus-visible,
-    .ecl a:visited,
-    .ecl a:active,
-    .ecl-link,
-    .ecl-link:hover,
-    .ecl-link:focus-visible,
-    .ecl-link:visited,
-    .ecl-link:active {
+    .ecl * {
       color: map.get($featured-item, 'highlight', 'description', 'color');
+    }
+
+    .ecl a,
+    .ecl-link {
+      --ecl-link-color: #{map.get(
+          $featured-item,
+          'highlight',
+          'description',
+          'color'
+        )};
+      --ecl-link-color-hover: var(--ecl-link-color);
+      --ecl-link-color-active: var(--ecl-link-color);
+      --ecl-focus-outline-color: var(--ecl-link-color);
     }
   }
 

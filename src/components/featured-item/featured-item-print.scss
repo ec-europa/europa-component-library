@@ -188,6 +188,20 @@ $featured-item-print: null !default;
 
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
+
+    .ecl * {
+      color: map.get($featured-item, 'highlight', 'description', 'color');
+    }
+
+    .ecl a,
+    .ecl-link {
+      --ecl-link-color: #{map.get(
+          $featured-item,
+          'highlight',
+          'description',
+          'color'
+        )};
+    }
   }
 
   .ecl-featured-item__info + .ecl-featured-item__link {

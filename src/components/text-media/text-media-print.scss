@@ -68,6 +68,18 @@ $text-media: null !default;
     map.get($text-media, 'description', 'font'),
     $font-weight: map.get($text-media, 'description', 'font-weight')
   );
+
+  .ecl a,
+  .ecl-link {
+    --ecl-link-color: #{map.get($text-media, 'color-default')};
+  }
+
+  .ecl-text-media--primary & {
+    .ecl a,
+    .ecl-link {
+      --ecl-link-color: #{map.get($text-media, 'color-primary')};
+    }
+  }
 }
 
 .ecl-text-media__link {
