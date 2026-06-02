@@ -603,6 +603,19 @@ importers:
         specifier: 5.0.0-RC5
         version: link:../../utilities/screen-reader
 
+  src/components/highlight-box:
+    dependencies:
+      '@ecl/icon':
+        specifier: 5.0.0-RC5
+        version: link:../icon
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC5
+        version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC5
+        version: link:../../mixins/typography
+
   src/components/icon:
     devDependencies:
       '@ecl/resources-icons':
@@ -1296,6 +1309,34 @@ importers:
 
   src/layout/grid: {}
 
+  src/layout/layout-wrapper:
+    dependencies:
+      '@ecl/card':
+        specifier: 5.0.0-RC5
+        version: link:../../components/card
+      '@ecl/content-item':
+        specifier: 5.0.0-RC5
+        version: link:../../components/content-item
+      '@ecl/file':
+        specifier: 5.0.0-RC5
+        version: link:../../components/file
+      '@ecl/link':
+        specifier: 5.0.0-RC5
+        version: link:../../components/link
+      '@ecl/list-illustration':
+        specifier: 5.0.0-RC5
+        version: link:../../components/list-illustration
+      '@ecl/navigation-list':
+        specifier: 5.0.0-RC5
+        version: link:../../components/navigation-list
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.0.0-RC5
+        version: link:../grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0-RC5
+        version: link:../../mixins/typography
+
   src/mixins/color: {}
 
   src/mixins/typography:
@@ -1875,6 +1916,9 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0-RC5
         version: link:../../layout/grid
+      '@ecl/highlight-box':
+        specifier: 5.0.0-RC5
+        version: link:../../components/highlight-box
       '@ecl/icon':
         specifier: 5.0.0-RC5
         version: link:../../components/icon
@@ -1890,6 +1934,9 @@ importers:
       '@ecl/layout-form':
         specifier: 5.0.0-RC5
         version: link:../../layout/form
+      '@ecl/layout-wrapper':
+        specifier: 5.0.0-RC5
+        version: link:../../layout/layout-wrapper
       '@ecl/link':
         specifier: 5.0.0-RC5
         version: link:../../components/link
@@ -2167,6 +2214,9 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0-RC5
         version: link:../../layout/grid
+      '@ecl/highlight-box':
+        specifier: 5.0.0-RC5
+        version: link:../../components/highlight-box
       '@ecl/icon':
         specifier: 5.0.0-RC5
         version: link:../../components/icon
@@ -2182,6 +2232,9 @@ importers:
       '@ecl/layout-form':
         specifier: 5.0.0-RC5
         version: link:../../layout/form
+      '@ecl/layout-wrapper':
+        specifier: 5.0.0-RC5
+        version: link:../../layout/layout-wrapper
       '@ecl/link':
         specifier: 5.0.0-RC5
         version: link:../../components/link
@@ -2605,6 +2658,9 @@ importers:
       '@ecl/gallery':
         specifier: 5.0.0-RC5
         version: link:../components/gallery
+      '@ecl/highlight-box':
+        specifier: 5.0.0-RC5
+        version: link:../components/highlight-box
       '@ecl/icon':
         specifier: 5.0.0-RC5
         version: link:../components/icon

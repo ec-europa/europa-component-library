@@ -7,6 +7,7 @@
     - "title" (string) (default: '')
     - "description" (string) (default: '')
     - "with_background" (boolean) (default: false)
+    - "full_width" (boolean) (default: false)
     - "prev_label" (string) (default: '')
     - "next_label" (string) (default: '')
     - "skip_text" (string) (default: 'Use ESC to skip the quiz' )
@@ -49,14 +50,19 @@
 {% set _next_label = next_label|default('') %}
 {% set _skip_text = skip_text|default('Use ESC to skip the quiz') %}
 {% set _with_background = with_background|default(false) %}
+{% set _full_width = full_width|default(false) %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class  ~ ' ecl-quiz--' ~ _variant %}
 
-{% if _with_background %}
+{% if _with_background or _full_width %}
   {% set _css_class = _css_class ~ ' ecl-quiz--background' %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-quiz--full-width' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -79,7 +85,7 @@
   data-ecl-auto-init="Quiz"
   {{ _extra_attributes|raw }}
 >
-{% if _with_background %}
+{% if _full_width %}
   <div class="ecl-container">
 {% endif %}
 {% if _title is not empty or _description is not empty %}
@@ -111,7 +117,7 @@
         {
           variant: _variant,
           id: _id ~ '-' ~ loop.index,
-          esc_box: _esc_box 
+          esc_box: _esc_box
         }) only %}
     {% endfor %}
     </ol>
@@ -150,7 +156,7 @@
     </script>
   </div>
   <div class="ecl-quiz__counter"></div>
-{% if _with_background %}
+{% if _full_width %}
   </div>
 {% endif %}
 </section>

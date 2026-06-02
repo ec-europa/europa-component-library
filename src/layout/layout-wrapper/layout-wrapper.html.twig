@@ -1,0 +1,168 @@
+{% import _self as layout_wrapper %}
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "nb_columns" (int) (default: 3): Number of item columns (2, 3, or 4)
+  - "forced_column" (boolean) (default: false): If true, columns on desktop will always be with a fixed number, instead of dynamically adapting to the container; use with caution
+  - "info_position" (string) (default: 'top'): Position of the heading/introduction block. Possible options:
+    - top: always stacked above the grid
+    - side: beside the grid at wider breakpoints; capped to 3 columns
+  - "title" (object) (default: {}): Title of the layout wrapper.  Structure:
+    - "level" (int) (default: 2): Heading level
+    - "label" (string) (default: ''): Title content
+  - "description" (string) (default: ''): Description of the layout wrapper
+  - "items" (array) (default: []): Items to be displayed in the wrapper.
+      Each item can be either:
+      - a string (rendered as-is)
+      - an object with a defining component key, e.g. { card: { ... } }
+        Supported component keys: card, navigation_list, content_item, file, list_illustration
+  - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
+  - "view_all" (object) (default: {}): Link display below the grid; Follows the ECL Link structure
+  - "full_height" (boolean) (default: true): Elements inside the layout wrapper would take the full height
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (optional) (string)
+      },
+      ...
+    ],
+#}
+
+{# Internal properties #}
+
+{% set _nb_columns = nb_columns|default(3) %}
+{% set _forced_column = forced_column ?? false %}
+{% set _info_position = info_position|default('top') %}
+{% set _title = title|default({})|merge({
+  level: title.level|default(2),
+  label: title.label|default('')
+}) %}
+{% set _description = description|default('') %}
+{% set _items = items|default([]) %}
+{% set _direction = direction|default('horizontal') %}
+{% set _view_all = view_all|default({}) %}
+{% set _full_height = full_height ?? true %}
+{% set _css_class = 'ecl-layout-wrapper' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _info_position == 'side' and _nb_columns > 3 %}
+  {% set _nb_columns = 3 %}
+{% endif %}
+
+{% set _css_class = _css_class ~ ' col-' ~ _nb_columns %}
+
+{% if _forced_column %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--forced' %}
+{% endif %}
+
+{% if _info_position == 'side' %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--info-side' %}
+{% endif %}
+
+{% if _full_height == false %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--height-auto' %}
+{% endif %}
+
+{% if _direction != 'horizontal' %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--vertical' %}
+  {% set _base_count = _items|length %}
+  {% set _style_vars = [] %}
+  {% if _nb_columns > 2 %}
+    {% for n in range(2, _nb_columns - 1) %}
+      {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ n ~ ':' ~ (_base_count / n)|round(0, 'ceil')]) %}
+    {% endfor %}
+  {% endif %}
+  {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ _nb_columns ~ ':' ~ (_base_count / _nb_columns)|round(0, 'ceil')]) %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Item rendering macro - add elseif branches here to support more components #}
+
+{% macro render_item(item) %}{% apply spaceless %}
+  {%- if item.card is defined -%}
+    {%- include '@ecl/card/card.html.twig' with item.card only -%}
+  {%- elseif item.navigation_list is defined -%}
+    {%- include '@ecl/navigation-list/navigation-list.html.twig' with item.navigation_list only -%}
+  {%- elseif item.content_item is defined -%}
+    {%- include '@ecl/content-item/content-item.html.twig' with item.content_item only -%}
+  {%- elseif item.file is defined -%}
+    {%- include '@ecl/file/file.html.twig' with item.file only -%}
+  {%- elseif item.list_illustration is defined -%}
+    {%- include '@ecl/list-illustration/list-illustration.html.twig' with item.list_illustration only -%}
+  {%- else -%}
+    {{- item -}}
+  {%- endif -%}
+{% endapply %}{% endmacro %}
+
+{# Print the result #}
+
+{% if _items is not empty %}
+<div
+  class="{{ _css_class }}"
+  {% if _style_vars is defined and _style_vars is not empty %}style="{{ _style_vars|join('; ') }}"{% endif %}
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-layout-wrapper__grid">
+    {# Title and description #}
+    {%- if _title.label is not empty or _description is not empty -%}
+      <div class="ecl-layout-wrapper__info">
+        {%- if _title.label is not empty -%}
+          <h{{ _title.level }} class="ecl-u-type-heading-{{ _title.level }} ecl-layout-wrapper__title">{{- _title.label -}}</h{{ _title.level }}/>
+        {%- endif -%}
+        {%- if _description is not empty -%}
+          <div class="ecl-layout-wrapper__description">{{- _description -}}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {# Grid #}
+    <div class="ecl-layout-wrapper__container">
+      <div class="ecl-layout-wrapper__content">
+        {%- for item in _items -%}
+          <div class="ecl-layout-item ecl-layout-item--{{ loop.index }}">
+            {{- layout_wrapper.render_item(item) -}}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {# View all #}
+      {% if _view_all.link is defined and _view_all.link is not empty %}
+        <div class="ecl-layout-wrapper__view-all">
+          {% include '@ecl/link/link.html.twig' with _view_all|merge({
+            link: _view_all.link|merge({
+              type: 'standalone',
+            }),
+            icon: _view_all.link.external ? {} : _view_all.icon|default({})|merge({
+              name: 'arrow-left',
+              transform: 'flip-horizontal',
+              size: 'xs',
+            }),
+            extra_classes: 'ecl-layout-wrapper__view-all-link',
+          }) only %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endapply %}
+
+

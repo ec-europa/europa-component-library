@@ -148,18 +148,6 @@ $button: null !default;
   @include link-button(primary);
 }
 
-.ecl-link--secondary {
-  @include link-button(secondary);
-}
-
-.ecl-link--secondary-neutral {
-  @include link-button(secondary-neutral);
-}
-
-.ecl-link--secondary-inverted {
-  @include link-button(secondary-inverted);
-}
-
 .ecl-link--primary-highlight {
   @include link-button(primary-highlight);
 }
@@ -170,4 +158,16 @@ $button: null !default;
 
 .ecl-link--primary-highlight-inverted {
   @include link-button(primary-highlight-inverted);
+}
+
+.ecl-link--secondary {
+  @include link-button(secondary);
+}
+
+.ecl-link--secondary-neutral {
+  @include link-button(secondary-neutral);
+}
+
+.ecl-link--secondary-inverted {
+  @include link-button(secondary-inverted);
 }
