@@ -1,0 +1,191 @@
+/**
+ * Layout-wrapper
+ * @define layout-wrapper
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$layout-wrapper: null !default;
+
+.ecl-layout-wrapper {
+  container-name: ecl-layout-wrapper;
+  container-type: inline-size;
+}
+
+// Layout grid: single column by default (stacked, mobile-first)
+// With --info-side, info moves beside the container at wider breakpoints
+.ecl-layout-wrapper__grid {
+  display: grid;
+  gap: map.get($theme, 'grid', 'gutter-l');
+  grid-template-columns: 1fr;
+}
+
+// Items sub-grid, single column by default (stacked, mobile-first)
+.ecl-layout-wrapper__content {
+  display: grid;
+  column-gap: map.get($theme, 'grid', 'gutter-s');
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+}
+
+@include breakpoints.up('m') {
+  .ecl-layout-wrapper__content {
+    column-gap: map.get($theme, 'grid', 'gutter-m');
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-layout-wrapper__content {
+    column-gap: map.get($theme, 'grid', 'gutter-l');
+  }
+}
+
+.ecl-layout-wrapper__grid .ecl-layout-wrapper__info > *:first-child {
+  margin-block-start: 0;
+}
+
+.ecl-layout-wrapper__description {
+  @include mixins.responsive-font(map.get($layout-wrapper, 'description-font'));
+}
+
+.ecl-layout-wrapper__view-all {
+  border-block-start: map.get($layout-wrapper, 'view-all', 'border');
+  margin-block-start: map.get($layout-wrapper, 'view-all', 'margin');
+  padding-block-start: map.get($layout-wrapper, 'view-all', 'padding');
+}
+
+// Switch items to 2 columns if possible
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 's')}) {
+  // Items grid
+  .ecl-layout-wrapper.col-2 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Vertical flow with 2 cols
+  .ecl-layout-wrapper--vertical.col-2 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-2), auto);
+  }
+}
+
+// Switch to 3 columns / 2 columns with info beside grid
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
+  // Items grid
+  .ecl-layout-wrapper.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // Info beside container
+  .ecl-layout-wrapper.col-1.ecl-layout-wrapper--info-side
+    .ecl-layout-wrapper__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ecl-layout-wrapper.col-2.ecl-layout-wrapper--info-side
+    .ecl-layout-wrapper__grid {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  // Vertical flow with 3 cols
+  .ecl-layout-wrapper--vertical.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__content {
+    grid-template-rows: repeat(var(--ecl-layout-rows-3), auto);
+  }
+}
+
+// Switch to 4 columns / 3 columns with info beside grid
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'xl')}) {
+  // Items grid
+  .ecl-layout-wrapper.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // Info beside container
+  .ecl-layout-wrapper.col-3.ecl-layout-wrapper--info-side
+    .ecl-layout-wrapper__grid {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  // Vertical flow with 4 cols
+  .ecl-layout-wrapper--vertical.col-4 .ecl-layout-wrapper__content {
+    grid-template-rows: repeat(var(--ecl-layout-rows-4), auto);
+  }
+}
+
+// Forced column: stay single column on mobile/tablet (override the s-breakpoint 2-col switch)
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 's')}) {
+  .ecl-layout-wrapper--forced.col-2 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--forced.col-3 .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--forced.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: 1fr;
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-2
+    .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-3
+    .ecl-layout-wrapper__content,
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-4
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: unset;
+    grid-auto-flow: unset;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+}
+
+// Forced column: exact column count at desktop (> breakpoint 'm')
+@container ecl-layout-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-layout-wrapper--forced.col-2 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-layout-wrapper--forced.col-3 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ecl-layout-wrapper--forced.col-4 .ecl-layout-wrapper__content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-2
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-2), auto);
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-3
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-3), auto);
+  }
+
+  .ecl-layout-wrapper--vertical.ecl-layout-wrapper--forced.col-4
+    .ecl-layout-wrapper__content {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-template-rows: repeat(var(--ecl-layout-rows-4), auto);
+  }
+}
+
+// Set 100% height for all items
+.ecl-layout-wrapper:not(.ecl-layout-wrapper--height-auto) {
+  .ecl-layout-item > * {
+    height: 100%;
+  }
+}
