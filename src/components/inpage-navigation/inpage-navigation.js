@@ -275,12 +275,10 @@ export class InpageNavigation {
                   );
                   addedNode.setAttribute('tabindex', '-1');
                   const element =
-                    currentInpage.childNodes[addedNodeIndex - 1].cloneNode(
-                      true,
-                    );
-                  element.childNodes[0].textContent = addedNode.textContent;
-                  element.childNodes[0].href = `#${addedNode.id}`;
-                  currentInpage.childNodes[addedNodeIndex - 1].after(element);
+                    currentInpage.children[addedNodeIndex - 1].cloneNode(true);
+                  element.children[0].textContent = addedNode.textContent;
+                  element.children[0].href = `#${addedNode.id}`;
+                  currentInpage.children[addedNodeIndex - 1].after(element);
                 }
               });
             }
@@ -288,10 +286,8 @@ export class InpageNavigation {
             if (mutation.removedNodes.length > 0) {
               [].slice.call(mutation.removedNodes).forEach((removedNode) => {
                 if (removedNode.tagName === 'H2' && removedNode.id) {
-                  currentInpage.childNodes.forEach((item) => {
-                    if (
-                      item.childNodes[0].href.indexOf(removedNode.id) !== -1
-                    ) {
+                  currentInpage.children.forEach((item) => {
+                    if (item.children[0].href.indexOf(removedNode.id) !== -1) {
                       // Remove the element from the inpage.
                       item.remove();
                     }

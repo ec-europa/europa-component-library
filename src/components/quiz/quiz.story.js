@@ -8,7 +8,10 @@ import quiz from './quiz.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
-  const args = { withBackground: false };
+  const args = {
+    withBackground: false,
+    fullWidth: false,
+  };
 
   return args;
 };
@@ -20,27 +23,30 @@ const getArgTypes = () => {
       control: {
         type: 'boolean',
       },
+      if: { arg: 'fullWidth', eq: false },
+    },
+    fullWidth: {
+      name: 'full width',
+      control: {
+        type: 'boolean',
+      },
     },
   };
 };
 
 const prepareData = (data, args) => {
   data.with_background = args.withBackground;
+  data.full_width = args.fullWidth;
+  if (data.full_width) {
+    data.with_background = true;
+  }
 
   return data;
 };
 
 export default {
   title: 'Components/Quiz',
-  decorators: [
-    withNotes,
-    withCode,
-    (Story) => `
-      <div class="ecl-container">
-        ${Story()}
-      </div>
-    `,
-  ],
+  decorators: [withNotes, withCode],
   parameters: {
     parameters: { layout: 'fullscreen' },
   },
@@ -56,6 +62,13 @@ Reveal.args = getArgs();
 Reveal.argTypes = getArgTypes();
 Reveal.storyName = 'reveal';
 Reveal.parameters = { notes: { markdown: notes, json: specs } };
+Reveal.decorators = [
+  (Story) => `
+    <div class="ecl-container">
+      ${Story()}
+    </div>
+  `,
+];
 
 export const Poll = (_, { loaded: { component } }) => component;
 
@@ -67,3 +80,10 @@ Poll.args = getArgs();
 Poll.argTypes = getArgTypes();
 Poll.storyName = 'poll';
 Poll.parameters = { notes: { markdown: notes, json: specsPoll } };
+Poll.decorators = [
+  (Story) => `
+    <div class="ecl-container">
+      ${Story()}
+    </div>
+  `,
+];

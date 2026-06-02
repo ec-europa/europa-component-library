@@ -11,7 +11,7 @@ data.id = 'page-summary';
 
 expect.extend(toHaveNoViolations);
 
-describe('Blockquote', () => {
+describe('Page summary', () => {
   const template = '@ecl/page-summary/page-summary.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 

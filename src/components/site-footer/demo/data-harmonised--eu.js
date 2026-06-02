@@ -39,6 +39,17 @@ module.exports = {
               },
             },
           ],
+          action_button: {
+            link: {
+              label: 'Subscribe for updates',
+              path: exampleLink,
+            },
+            icon: {
+              name: 'envelope-simple',
+              family: 'phosphor',
+              style: 'inverted',
+            },
+          },
           section_class_name: 'ecl-site-footer__section--site-info',
         },
       ],
@@ -61,7 +72,43 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Social 1',
+                label: 'Mastodon',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'mastodon',
+                size: 'xs',
+                family: 'networks',
+              },
+            },
+            {
+              link: {
+                label: 'LinkedIn',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'linkedin',
+                size: 'xs',
+                family: 'networks',
+              },
+            },
+            {
+              link: {
+                label: 'Bluesky',
+                path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                name: 'bluesky',
+                size: 'xs',
+                family: 'networks',
+              },
+            },
+            {
+              link: {
+                label: 'Facebook',
                 path: exampleLink,
                 icon_position: 'before',
               },
@@ -71,26 +118,28 @@ module.exports = {
                 family: 'networks',
               },
             },
+
             {
               link: {
-                label: 'Social 2',
+                label: 'YouTube',
                 path: exampleLink,
                 icon_position: 'before',
               },
               icon: {
-                name: 'twitter',
+                name: 'youtube',
                 size: 'xs',
                 family: 'networks',
               },
             },
+
             {
               link: {
-                label: 'Social 3',
+                label: 'Other',
                 path: exampleLink,
                 icon_position: 'before',
               },
               icon: {
-                name: 'mastodon',
+                name: 'chain',
                 size: 'xs',
                 family: 'networks',
               },

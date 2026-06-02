@@ -28,39 +28,36 @@ module.exports = {
     },
     description:
       'This site is managed by:<span class="ecl-site-footer__description-name">[name of the manager of the site]</span>',
+    action_button: {
+      link: {
+        label: 'Subscribe for updates',
+        path: exampleLink,
+      },
+      icon: {
+        name: 'envelope-simple',
+        family: 'phosphor',
+        style: 'inverted',
+      },
+    },
     social_media: {
       links: [
         {
           link: {
-            label: 'Instagram',
+            label: 'Mastodon',
             path: exampleLink,
             hide_label: true,
             icon_position: 'before',
             inverted: true,
           },
           icon: {
-            name: 'instagram',
+            name: 'mastodon',
             family: 'networks',
             style: 'inverted',
           },
         },
         {
           link: {
-            label: 'X',
-            path: exampleLink,
-            hide_label: true,
-            icon_position: 'before',
-            inverted: true,
-          },
-          icon: {
-            name: 'x',
-            family: 'networks',
-            style: 'inverted',
-          },
-        },
-        {
-          link: {
-            label: 'Linkedin',
+            label: 'LinkedIn',
             path: exampleLink,
             hide_label: true,
             icon_position: 'before',
@@ -74,14 +71,42 @@ module.exports = {
         },
         {
           link: {
-            label: 'Telegram',
+            label: 'Bluesky',
             path: exampleLink,
             hide_label: true,
             icon_position: 'before',
             inverted: true,
           },
           icon: {
-            name: 'telegram',
+            name: 'bluesky',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'Facebook',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'facebook',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'YouTube',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'youtube',
             family: 'networks',
             style: 'inverted',
           },
@@ -252,34 +277,6 @@ module.exports = {
       links: [
         {
           link: {
-            label: 'Telegram',
-            path: exampleLink,
-            hide_label: true,
-            icon_position: 'before',
-            inverted: true,
-          },
-          icon: {
-            name: 'telegram',
-            family: 'networks',
-            style: 'inverted',
-          },
-        },
-        {
-          link: {
-            label: 'X',
-            path: exampleLink,
-            hide_label: true,
-            icon_position: 'before',
-            inverted: true,
-          },
-          icon: {
-            name: 'x',
-            family: 'networks',
-            style: 'inverted',
-          },
-        },
-        {
-          link: {
             label: 'Mastodon',
             path: exampleLink,
             hide_label: true,
@@ -294,7 +291,49 @@ module.exports = {
         },
         {
           link: {
-            label: 'Youtube',
+            label: 'LinkedIn',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'linkedin',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'Bluesky',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'bluesky',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'Facebook',
+            path: exampleLink,
+            hide_label: true,
+            icon_position: 'before',
+            inverted: true,
+          },
+          icon: {
+            name: 'facebook',
+            family: 'networks',
+            style: 'inverted',
+          },
+        },
+        {
+          link: {
+            label: 'YouTube',
             path: exampleLink,
             hide_label: true,
             icon_position: 'before',

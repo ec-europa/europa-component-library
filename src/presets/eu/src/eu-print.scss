@@ -8,15 +8,19 @@
   $theme: theme.$theme
 );
 
-// Layout
-@use '@ecl/grid/grid' with (
-  $theme: theme.$theme
-);
-
 // Functions and Mixins
 @use '@ecl/mixins-typography/mixins' with (
   $theme: theme.$theme,
   $typography: var.$typography
+);
+
+// Layout
+@use '@ecl/grid/grid' with (
+  $theme: theme.$theme
+);
+@use '@ecl/layout-wrapper/layout-wrapper' with (
+  $theme: theme.$theme,
+  $layout-wrapper: var.$layout-wrapper
 );
 
 // Forms
@@ -130,6 +134,10 @@
 );
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
+);
+@use '@ecl/highlight-box/highlight-box-print' with (
+  $theme: theme.$theme,
+  $highlight-box: var.$highlight-box
 );
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (

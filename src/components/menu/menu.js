@@ -178,6 +178,7 @@ export class Menu {
     this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
+    this.handleClickOnLink = this.handleClickOnLink.bind(this);
   }
 
   /**
@@ -293,6 +294,10 @@ export class Menu {
           subLink.addEventListener('keyup', this.handleKeyboard);
         }
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.addEventListener('click', this.handleClickOnLink);
     }
 
     // Bind global keyboard events
@@ -472,6 +477,10 @@ export class Menu {
           subLink.removeEventListener('keyup', this.handleKeyboard);
         }
       });
+    }
+
+    if (this.attachClickListener) {
+      this.element.removeEventListener('click', this.handleClickOnLink);
     }
 
     if (this.attachKeyListener) {
@@ -1029,6 +1038,20 @@ export class Menu {
     this.trigger('onClose', e);
 
     return this;
+  }
+
+  /**
+   * Click on a final menu link (no children or sub-link).
+   * Closes the menu to support hash-based and dynamic navigation.
+   * @param {Event} e
+   */
+  handleClickOnLink(e) {
+    if (!e.target.closest('a')) return;
+    if (this.isOpen) {
+      this.handleClickOnClose(e);
+    } else {
+      this.closeOpenDropdown();
+    }
   }
 
   /**
