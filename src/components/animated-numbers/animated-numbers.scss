@@ -182,10 +182,6 @@ $animated-numbers: null !default;
   row-gap: var(--s-xs);
 }
 
-.ecl-animated-numbers--with-background .ecl-animated-numbers__source {
-  @include link-component.inverted-link;
-}
-
 .ecl-animated-numbers__sources-item:not(:last-child)::after {
   color: map.get($animated-numbers, 'source-separator-color');
   content: '|';
