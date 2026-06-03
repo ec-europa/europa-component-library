@@ -1,0 +1,55 @@
+/*
+ * Quiz print
+ * @define quiz
+ */
+
+@use 'sass:map';
+
+$theme: null !default;
+$slogan-ticker: null !default;
+
+.ecl-slogan-ticker {
+  background: var(--cm-surface-lowest, var(--c-p-10));
+  height: 3cm;
+  display: flex;
+  align-items: center;
+  padding-inline: map.get($theme, 'spacing-print', 'm');
+  overflow: hidden;
+}
+
+.ecl-slogan-ticker__track {
+  display: flex;
+  min-width: 100%;
+  transform: translate3d(0, 0, 0);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ecl-slogan-ticker__slide {
+  color: var(--cm-on-surface, var(--c-p));
+  flex: 0 0 auto;
+  font: map.get($theme, 'font-print', 'xl');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  min-width: 0;
+  text-transform: uppercase;
+}
+
+.ecl-slogan-ticker__slide::after {
+  content: '';
+  width: var(--s-xs);
+  height: var(--s-xs);
+  margin-inline: map.get($theme, 'spacing-print', 'l');
+  border-radius: 50%;
+  display: inline-flex;
+  background: currentcolor;
+  vertical-align: middle;
+}
+
+.ecl-slogan-ticker__slide:last-child::after {
+  display: none;
+}
+
+.ecl-slogan-ticker__button {
+  display: none !important;
+}
