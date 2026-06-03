@@ -12,6 +12,7 @@ import dataCard from '@ecl/card/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--event';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
 import dataNavigationList from '@ecl/navigation-list/demo/data-illustration';
+import dataSloganTicker from '@ecl/slogan-ticker/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -100,6 +101,7 @@ const data = {
   content_item: dataContentItem,
   featured_item: dataFeaturedItem,
   navigation_list: navigationList,
+  slogan_ticker: dataSloganTicker,
 };
 
 export default data;

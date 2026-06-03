@@ -953,11 +953,11 @@ importers:
         specifier: 5.0.0-RC5
         version: link:../../tools/event-manager
       embla-carousel:
-        specifier: 9.0.0-rc01
-        version: 9.0.0-rc01
+        specifier: 9.0.0-rc02
+        version: 9.0.0-rc02
       embla-carousel-accessibility:
-        specifier: 9.0.0-rc01
-        version: 9.0.0-rc01(embla-carousel@9.0.0-rc01)
+        specifier: 9.0.0-rc02
+        version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
     devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0-RC5
@@ -1121,6 +1121,21 @@ importers:
       '@ecl/utility-screen-reader':
         specifier: 5.0.0-RC5
         version: link:../../utilities/screen-reader
+
+  src/components/slogan-ticker:
+    dependencies:
+      '@ecl/button':
+        specifier: 5.0.0-RC5
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 5.0.0-RC5
+        version: link:../../tools/dom-utils
+      embla-carousel:
+        specifier: 9.0.0-rc02
+        version: 9.0.0-rc02
+      embla-carousel-auto-scroll:
+        specifier: 9.0.0-rc02
+        version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
 
   src/components/social-media-follow:
     dependencies:
@@ -2021,6 +2036,9 @@ importers:
       '@ecl/skip-link':
         specifier: 5.0.0-RC5
         version: link:../../components/skip-link
+      '@ecl/slogan-ticker':
+        specifier: 5.0.0-RC5
+        version: link:../../components/slogan-ticker
       '@ecl/social-media-follow':
         specifier: 5.0.0-RC5
         version: link:../../components/social-media-follow
@@ -2319,6 +2337,9 @@ importers:
       '@ecl/skip-link':
         specifier: 5.0.0-RC5
         version: link:../../components/skip-link
+      '@ecl/slogan-ticker':
+        specifier: 5.0.0-RC5
+        version: link:../../components/slogan-ticker
       '@ecl/social-media-follow':
         specifier: 5.0.0-RC5
         version: link:../../components/social-media-follow
@@ -3052,6 +3073,9 @@ importers:
       '@ecl/skip-link':
         specifier: 5.0.0-RC5
         version: link:../components/skip-link
+      '@ecl/slogan-ticker':
+        specifier: 5.0.0-RC5
+        version: link:../components/slogan-ticker
       '@ecl/social-media-follow':
         specifier: 5.0.0-RC5
         version: link:../components/social-media-follow
@@ -7848,13 +7872,18 @@ packages:
   electron-to-chromium@1.5.334:
     resolution: {integrity: sha512-mgjZAz7Jyx1SRCwEpy9wefDS7GvNPazLthHg8eQMJ76wBdGQQDW33TCrUTvQ4wzpmOrv2zrFoD3oNufMdyMpog==}
 
-  embla-carousel-accessibility@9.0.0-rc01:
-    resolution: {integrity: sha512-H0ur9/ctEE5cc0/NLRD4aS2aNHLX1vJumFoPztcHpe6zmIZtg42pNlfpIuWwnAH9sqTs8J+puce9GAJTNsGI3g==}
+  embla-carousel-accessibility@9.0.0-rc02:
+    resolution: {integrity: sha512-i5Q2+MgCgbHyFTx5RaMkcldKaf7rYUXKm66IstPxSB8j2+gyncy5WyHOqKkZv6yPedygLF1XY4HOOPfFGx2YyQ==}
     peerDependencies:
-      embla-carousel: 9.0.0-rc01
+      embla-carousel: 9.0.0-rc02
 
-  embla-carousel@9.0.0-rc01:
-    resolution: {integrity: sha512-4BTERU1gAXgg4Vl0m7hQ1GzePGLNNfM2j030ww8i9idiPXumyRUpaNUDfT2zx1Hv8um1Ew7QKBy/HdNPz8L30g==}
+  embla-carousel-auto-scroll@9.0.0-rc02:
+    resolution: {integrity: sha512-np1uEHeagZKm+1A6cdTaufgUooxxE2I+wfzoJ4S5OxfyRLj+mOBeJG18HOrrusK+FiDcsZ+6ZkLgFVh2z3/K8Q==}
+    peerDependencies:
+      embla-carousel: 9.0.0-rc02
+
+  embla-carousel@9.0.0-rc02:
+    resolution: {integrity: sha512-GOQBX6v5cNk/ptfuHUoHhW9rvl5KeSGsBoppaUqtihu2kDmQAyzvnH/95r3TaSScFSJTj68V9AM6E5nq3jUVcQ==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -18323,11 +18352,15 @@ snapshots:
 
   electron-to-chromium@1.5.334: {}
 
-  embla-carousel-accessibility@9.0.0-rc01(embla-carousel@9.0.0-rc01):
+  embla-carousel-accessibility@9.0.0-rc02(embla-carousel@9.0.0-rc02):
     dependencies:
-      embla-carousel: 9.0.0-rc01
+      embla-carousel: 9.0.0-rc02
 
-  embla-carousel@9.0.0-rc01: {}
+  embla-carousel-auto-scroll@9.0.0-rc02(embla-carousel@9.0.0-rc02):
+    dependencies:
+      embla-carousel: 9.0.0-rc02
+
+  embla-carousel@9.0.0-rc02: {}
 
   emittery@0.13.1: {}
 
