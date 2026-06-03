@@ -22,12 +22,12 @@ const getArgs = (data) => {
     media_position: 'left',
     media_behavior: 'static',
     media_anchor: 'center',
-    link_display: 'default',
+    link_display: '',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  if (system === 'ec') {
+  if (system === 'ec' && data.type === 'highlight') {
     args.color_mode = 'default';
   }
 
@@ -35,7 +35,7 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = getColorModeControls();
+  const argTypes = data.type === 'highlight' ? getColorModeControls() : {};
 
   argTypes.show_media = {
     type: 'boolean',
@@ -92,19 +92,23 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (
-    system === 'ec' &&
-    (data.type === 'simple' || data.type === 'highlight')
-  ) {
+  if (system === 'ec' && data.type === 'highlight') {
     argTypes.link_display = {
       name: 'link display',
       type: { name: 'select' },
       description: 'Optional link display',
-      options: ['default', 'button', 'highlight'],
+      options: ['', 'button', 'highlighted'],
+      control: {
+        labels: {
+          '': 'default',
+          button: 'button',
+          highlighted: 'highlighted',
+        },
+      },
       mapping: {
-        default: 'default',
+        default: '',
         button: 'button',
-        highlight: 'highlight',
+        highlighted: 'highlighted',
       },
       table: {
         type: { summary: 'string' },
@@ -118,9 +122,15 @@ const getArgTypes = (data) => {
       name: 'link display',
       type: { name: 'select' },
       description: 'Optional link display',
-      options: ['default', 'button'],
+      options: ['', 'button'],
+      control: {
+        labels: {
+          '': 'default',
+          button: 'button',
+        },
+      },
       mapping: {
-        default: 'default',
+        default: '',
         button: 'button',
       },
       table: {
@@ -235,12 +245,6 @@ const prepareData = (data, args) => {
     clone.media_container.picture.image_anchor = args.media_anchor;
   } else {
     delete clone.media_container;
-  }
-
-  if (args.link_display === 'highlight') {
-    clone.link_highlighted = true;
-  } else if (args.link_display === 'button') {
-    clone.link.link.type = 'primary-neutral';
   }
 
   return Object.assign(correctPaths(clone), args);
