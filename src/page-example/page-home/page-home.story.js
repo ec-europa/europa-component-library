@@ -2,6 +2,7 @@ import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
+import isChromatic from 'chromatic/isChromatic';
 
 import logoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import logoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
@@ -14,6 +15,11 @@ import home from './page-home.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
+
+if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
+  // Ensure that the slogan ticker does not autoplay in Chromatic, to avoid random test failures
+  dataHome.slogan_ticker.autoplay = false;
+}
 
 const getArgs = () => (system === 'ec' ? { color_mode: 'default' } : {});
 
