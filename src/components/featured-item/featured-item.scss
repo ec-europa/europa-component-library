@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
@@ -250,6 +251,12 @@ $featured-item: null !default;
 
     text-align: start;
     text-decoration: underline;
+  }
+
+  @if map.has-key($featured-item, 'highlight', 'button-dark') {
+    .ecl-featured-item__link.ecl-link--secondary-inverted {
+      @include link-component.link-button(primary-neutral);
+    }
   }
 
   // Highlighted link
