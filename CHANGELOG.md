@@ -1,6 +1,6 @@
 # Changelog
 
-## 5.0.0-RC5 (2026-06-03)
+## 5.0.0-RC6 (2026-06-03)
 
 #### :rocket: New Feature
 
