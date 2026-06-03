@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$slogan-ticker: (
+  gap: var(--s-9xl),
+  font: var(--f-3xl),
+  font-weight: map.get($font-weight, 'semi-bold'),
+  padding: var(--s-l) 0,
+  button-shadow: map.get($shadow, '5'),
+);

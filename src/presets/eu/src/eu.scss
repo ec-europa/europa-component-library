@@ -103,6 +103,10 @@
 @use '@ecl/separator/separator' with (
   $separator: var.$separator
 );
+@use '@ecl/slogan-ticker/slogan-ticker' with (
+  $theme: theme.$theme,
+  $slogan-ticker: var.$slogan-ticker
+);
 @use '@ecl/spinner/spinner' with (
   $theme: theme.$theme,
   $spinner: var.$spinner

@@ -159,7 +159,9 @@
 
         {% if source.link is defined and source.link is not empty %}
           {% include '@ecl/link/link.html.twig' with {
-            link: source.link,
+            link: source.link|merge({
+              inverted: _with_background,
+            }),
             extra_classes: 'ecl-animated-numbers__source'
           } only %}
         {% else %}
@@ -174,7 +176,9 @@
               <li class="ecl-animated-numbers__sources-item">
                 {% if source.link is defined and source.link is not empty %}
                   {% include '@ecl/link/link.html.twig' with {
-                    link: source.link,
+                    link: source.link|merge({
+                      inverted: _with_background,
+                    }),
                     extra_classes: 'ecl-animated-numbers__source'
                   } only %}
                 {% else %}
