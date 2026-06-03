@@ -1,5 +1,49 @@
 # Changelog
 
+## 5.0.0-RC5 (2026-06-03)
+
+#### :rocket: New Feature
+
+- [#4437](https://github.com/ec-europa/europa-component-library/pull/4437) feat(components): Adding slogan ticker - FRONT-5341 ([@planctus](https://github.com/planctus))
+- [#4306](https://github.com/ec-europa/europa-component-library/pull/4306) feat(layout-wrapper): Universal grid display of components - FRONT-5242 ([@emeryro](https://github.com/emeryro))
+- [#4434](https://github.com/ec-europa/europa-component-library/pull/4434) feat(highlight-box): new component - FRONT-5340 ([@emeryro](https://github.com/emeryro))
+- [#4420](https://github.com/ec-europa/europa-component-library/pull/4420) feat(collapsible-forms): Accordion variant to handle content in the sidebar - FRONT-5294 ([@planctus](https://github.com/planctus))
+- [#4404](https://github.com/ec-europa/europa-component-library/pull/4404) feat(fact-figures): add sources - FRONT-5308 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4432](https://github.com/ec-europa/europa-component-library/pull/4432) fix(website): fix page header examples - FRONT-5343 ([@emeryro](https://github.com/emeryro))
+- [#4427](https://github.com/ec-europa/europa-component-library/pull/4427) fix(media-container): fix video button color - FRONT-5339 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#4439](https://github.com/ec-europa/europa-component-library/pull/4439) feat(quiz-animated-numbers): Allowing background without full width - FRONT-5347 ([@planctus](https://github.com/planctus))
+- [#4435](https://github.com/ec-europa/europa-component-library/pull/4435) feat(footer): add subscribe button - FRONT-5342 ([@emeryro](https://github.com/emeryro))
+- [#4367](https://github.com/ec-europa/europa-component-library/pull/4367) feat(button): update buttons display - FRONT-5285 ([@emeryro](https://github.com/emeryro))
+- [#4436](https://github.com/ec-europa/europa-component-library/pull/4436) feat(banner): add control for media anchor - FRONT-5345 ([@emeryro](https://github.com/emeryro))
+- [#4395](https://github.com/ec-europa/europa-component-library/pull/4395) feat(quiz): Making poll result accessible - FRONT-5296 ([@planctus](https://github.com/planctus))
+- [#4426](https://github.com/ec-europa/europa-component-library/pull/4426) feat(footer): update social media order - FRONT-5338 ([@emeryro](https://github.com/emeryro))
+- [#4418](https://github.com/ec-europa/europa-component-library/pull/4418) feat(animated-numbers): Using list markup and article - FRONT-5318 ([@planctus](https://github.com/planctus))
+- [#4424](https://github.com/ec-europa/europa-component-library/pull/4424) feat(quiz): improve keyboard navigation - FRONT-5316 ([@emeryro](https://github.com/emeryro))
+- [#4376](https://github.com/ec-europa/europa-component-library/pull/4376) feat(menu, mega-menu): close on click - FRONT-5265 ([@emeryro](https://github.com/emeryro))
+- [#4423](https://github.com/ec-europa/europa-component-library/pull/4423) feat(link): updated inverted style - FRONT-5333 ([@emeryro](https://github.com/emeryro))
+- [#4405](https://github.com/ec-europa/europa-component-library/pull/4405) chore(js): Replacing childNodes with children - FRONT-5293 ([@planctus](https://github.com/planctus))
+- [#4383](https://github.com/ec-europa/europa-component-library/pull/4383) feat(quiz): Showing a box to explain how to skip the quiz when using the keyboard - FRONT-5301 ([@planctus](https://github.com/planctus))
+- [#4406](https://github.com/ec-europa/europa-component-library/pull/4406) feat(animated numbers): add screen reader labels - FRONT-5320 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4442](https://github.com/ec-europa/europa-component-library/pull/4442) chore(website): Adding highlight box thumbnails ([@planctus](https://github.com/planctus))
+- [#4440](https://github.com/ec-europa/europa-component-library/pull/4440) chore(deps): Updates 01-06-26 ([@planctus](https://github.com/planctus))
+- [#4433](https://github.com/ec-europa/europa-component-library/pull/4433) chore(deps): Updates 26-05-26 ([@planctus](https://github.com/planctus))
+- [#4421](https://github.com/ec-europa/europa-component-library/pull/4421) chore(deps): Updates 18-05-2026 ([@planctus](https://github.com/planctus))
+- [#4419](https://github.com/ec-europa/europa-component-library/pull/4419) chore(html-source-plugin): Storing source markup in a script tag not to pollute the DOM ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-RC5 (2026-05-11)
 
 #### :bug: Bug Fix
