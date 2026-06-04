@@ -55,8 +55,7 @@ $link: null !default;
   &:focus-visible {
     border-radius: map.get($link, 'outline-radius');
     box-shadow: var(--ecl-link-focus-shadow);
-    outline: map.get($link, 'outline-width') solid
-      var(--ecl-focus-outline-color);
+    outline: var(--ecl-focus-outline-width) solid var(--ecl-focus-outline-color);
     outline-offset: 2px;
   }
 
