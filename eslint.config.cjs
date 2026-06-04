@@ -10,7 +10,6 @@ const prettierPlugin = require('eslint-plugin-prettier');
 const importPlugin = require('eslint-plugin-import');
 const nPlugin = require('eslint-plugin-n');
 const promisePlugin = require('eslint-plugin-promise');
-const jestPlugin = require('eslint-plugin-jest');
 
 module.exports = [
   js.configs.recommended,
@@ -32,7 +31,6 @@ module.exports = [
       },
     },
     plugins: {
-      jest: jestPlugin,
       import: importPlugin,
       react: reactPlugin,
       'jsx-a11y': jsxA11yPlugin,
