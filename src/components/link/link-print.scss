@@ -4,6 +4,7 @@
 */
 
 @use 'sass:map';
+@use '@ecl/button/button-print' as button-component;
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
@@ -100,45 +101,70 @@ $button: null !default;
 */
 /* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin link-button($variant: null) {
+  --ecl-button-padding-horizontal: #{map.get(
+      $button,
+      'large',
+      'padding-horizontal'
+    )};
+  --ecl-button-padding-vertical: #{map.get(
+      $button,
+      'large',
+      'padding-vertical'
+    )};
+  --ecl-button-min-size: #{map.get($button, 'large', 'size')};
+  --ecl-button-icon-size: #{map.get($button, 'large', 'icon-size')};
+
+  @include button-component.button($variant);
+
   align-items: center;
-  background-color: map.get($button, #{$variant}, 'background');
-  border: map.get($button, #{$variant}, 'border-width') solid
-    map.get($button, #{$variant}, 'border-color');
+  background: var(--ecl-button-bg-color);
+  border: var(--ecl-button-border-width) solid var(--ecl-button-border-color);
   border-radius: map.get($button, 'radius');
   box-sizing: border-box;
-  color: map.get($button, #{$variant}, 'color');
+  color: var(--ecl-button-color);
   display: inline-flex;
-  min-height: map.get($button, 'large', 'size');
-  min-width: map.get($button, 'large', 'size');
-  padding: calc(
-      #{map.get($button, 'large', 'padding-vertical')} -
-        #{map.get($button, #{$variant}, 'border-width')}
-    )
-    calc(
-      #{map.get($button, 'large', 'padding-horizontal')} -
-        #{map.get($button, #{$variant}, 'border-width')}
-    );
+  min-height: var(--ecl-button-min-size);
+  min-width: var(--ecl-button-min-size);
+  padding-block: calc(
+    var(--ecl-button-padding-vertical) - var(--ecl-button-border-width)
+  );
+  padding-inline: calc(
+    var(--ecl-button-padding-horizontal) - var(--ecl-button-border-width)
+  );
   text-decoration: none;
 
   @include mixins.responsive-font(map.get($button, 'large', 'font'));
 
+  .ecl-link__icon {
+    height: var(--ecl-button-icon-size);
+    width: var(--ecl-button-icon-size);
+  }
+
   &:visited {
-    color: map.get($button, #{$variant}, 'color');
+    color: var(--ecl-button-color);
   }
 
   &.ecl-link--icon-only {
     .ecl-link__icon {
-      height: map.get($button, 'large', 'icon-only-size');
-      width: map.get($button, 'large', 'icon-only-size');
+      --ecl-button-icon-only-size: #{map.get(
+          $button,
+          'large',
+          'icon-only-size'
+        )};
+
+      height: var(--ecl-button-icon-only-size);
+      width: var(--ecl-button-icon-only-size);
     }
   }
 
   &:not(.ecl-link--icon-only) {
+    --ecl-button-icon-spacing: #{map.get($button, 'large', 'icon-spacing')};
+
     .ecl-link__icon ~ .ecl-link__label,
     .ecl-link__icon-container ~ .ecl-link__label,
     .ecl-link__label ~ .ecl-link__icon,
     .ecl-link__label ~ .ecl-link__icon-container {
-      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+      margin-inline-start: var(--ecl-button-icon-spacing);
     }
   }
 }

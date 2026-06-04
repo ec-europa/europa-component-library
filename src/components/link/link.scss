@@ -4,6 +4,7 @@
 */
 
 @use 'sass:map';
+@use '@ecl/button/button' as button-component;
 @use '@ecl/utility-screen-reader/screen-reader';
 @use '@ecl/mixins-typography/mixins';
 
@@ -162,7 +163,6 @@ $link: null !default;
 */
 /* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin link-button($variant: null) {
-  --ecl-button-border-width: #{map.get($button, #{$variant}, 'border-width')};
   --ecl-button-padding-horizontal: #{map.get(
       $button,
       'large',
@@ -173,30 +173,35 @@ $link: null !default;
       'large',
       'padding-vertical'
     )};
+  --ecl-button-min-size: #{map.get($button, 'large', 'size')};
+  --ecl-button-icon-size: #{map.get($button, 'large', 'icon-size')};
+
+  @include button-component.button($variant);
 
   align-items: center;
-  background-color: map.get($button, #{$variant}, 'background');
-  border: var(--ecl-button-border-width) solid
-    map.get($button, #{$variant}, 'border-color');
+  background: var(--ecl-button-bg-color);
+  border: var(--ecl-button-border-width) solid var(--ecl-button-border-color);
   border-radius: map.get($button, 'radius');
   box-sizing: border-box;
-  color: map.get($button, #{$variant}, 'color');
+  color: var(--ecl-button-color);
   display: inline-flex;
-  min-height: map.get($button, 'large', 'size');
-  min-width: map.get($button, 'large', 'size');
-  padding: calc(
-      var(--ecl-button-padding-vertical) - var(--ecl-button-border-width)
-    )
-    calc(var(--ecl-button-padding-horizontal) - var(--ecl-button-border-width));
+  min-height: var(--ecl-button-min-size);
+  min-width: var(--ecl-button-min-size);
+  padding-block: calc(
+    var(--ecl-button-padding-vertical) - var(--ecl-button-border-width)
+  );
+  padding-inline: calc(
+    var(--ecl-button-padding-horizontal) - var(--ecl-button-border-width)
+  );
   text-decoration: none;
 
   @include mixins.responsive-font(map.get($button, 'large', 'font'));
 
   .ecl-link__icon {
     flex-shrink: 0;
-    height: map.get($button, 'large', 'icon-size');
+    height: var(--ecl-button-icon-size);
     top: 0;
-    width: map.get($button, 'large', 'icon-size');
+    width: var(--ecl-button-icon-size);
   }
 
   &.ecl-button--s {
@@ -210,26 +215,10 @@ $link: null !default;
         'small',
         'padding-vertical'
       )};
-
-    min-height: map.get($button, 'small', 'size');
-    min-width: map.get($button, 'small', 'size');
+    --ecl-button-min-size: #{map.get($button, 'small', 'size')};
+    --ecl-button-icon-size: #{map.get($button, 'small', 'icon-size')};
 
     @include mixins.responsive-font(map.get($button, 'small', 'font'));
-
-    .ecl-link__icon {
-      height: map.get($button, 'small', 'icon-size');
-      width: map.get($button, 'small', 'icon-size');
-    }
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-small') {
-    &.ecl-button--s {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-small'
-        )};
-    }
   }
 
   &.ecl-button--m {
@@ -243,118 +232,63 @@ $link: null !default;
         'medium',
         'padding-vertical'
       )};
-
-    min-height: map.get($button, 'medium', 'size');
-    min-width: map.get($button, 'medium', 'size');
+    --ecl-button-min-size: #{map.get($button, 'medium', 'size')};
+    --ecl-button-icon-size: #{map.get($button, 'medium', 'icon-size')};
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
-
-    .ecl-link__icon {
-      height: map.get($button, 'medium', 'icon-size');
-      width: map.get($button, 'medium', 'icon-size');
-    }
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-medium') {
-    &.ecl-button--m {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-medium'
-        )};
-    }
   }
 
   &:visited {
-    color: map.get($button, #{$variant}, 'color');
+    color: var(--ecl-button-color);
   }
 
   &:hover {
-    background-color: map.get($button, #{$variant}, 'background-hover');
-    border-color: map.get($button, #{$variant}, 'border-color-hover');
-    box-shadow: map.get($button, 'shadow');
     color: map.get($button, #{$variant}, 'color-hover');
+    box-shadow: map.get($button, 'shadow');
     text-decoration: none;
   }
 
-  &:focus-visible {
-    background-color: map.get($button, #{$variant}, 'background-focus');
-    border-color: map.get($button, #{$variant}, 'border-color-focus');
-    color: map.get($button, #{$variant}, 'color-focus');
-    outline: #{map.get($button, #{$variant}, 'outline-width')} solid
-      #{map.get($button, #{$variant}, 'outline-color')};
-    outline-offset: map.get($button, #{$variant}, 'outline-offset');
-
-    @if map.has-key($button, #{$variant}, 'shadow-focus') {
-      box-shadow: map.get($button, #{$variant}, 'shadow-focus');
-    }
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-focus') {
-    &:focus-visible {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-focus'
-        )};
-    }
-
-    &.ecl-button--s:focus-visible {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-focus'
-        )};
-    }
-
-    &.ecl-button--m:focus-visible {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-focus'
-        )};
-    }
-  }
-
-  &:active {
-    background-color: map.get($button, #{$variant}, 'background-active');
-    border-color: map.get($button, #{$variant}, 'border-color-active');
-    color: map.get($button, #{$variant}, 'color-active');
-  }
-
   &.ecl-link--icon-only {
-    align-items: center;
-    display: inline-flex;
     justify-content: center;
     padding: 0 !important;
 
     .ecl-link__icon {
-      height: map.get($button, 'large', 'icon-only-size');
-      width: map.get($button, 'large', 'icon-only-size');
+      --ecl-button-icon-only-size: #{map.get(
+          $button,
+          'large',
+          'icon-only-size'
+        )};
+
+      height: var(--ecl-button-icon-only-size);
+      width: var(--ecl-button-icon-only-size);
     }
   }
 
   &.ecl-link--icon-only.ecl-button--s .ecl-link__icon {
-    height: map.get($button, 'small', 'icon-only-size');
-    width: map.get($button, 'small', 'icon-only-size');
+    --ecl-button-icon-only-size: #{map.get($button, 'small', 'icon-only-size')};
   }
 
   &.ecl-link--icon-only.ecl-button--m .ecl-link__icon {
-    height: map.get($button, 'medium', 'icon-only-size');
-    width: map.get($button, 'medium', 'icon-only-size');
+    --ecl-button-icon-only-size: #{map.get($button, 'medium', 'icon-only-size')};
   }
 
   &:not(.ecl-link--icon-only) {
+    --ecl-button-icon-spacing: #{map.get($button, 'large', 'icon-spacing')};
+
     .ecl-link__icon ~ .ecl-link__label,
     .ecl-link__icon-container ~ .ecl-link__label,
     .ecl-link__label ~ .ecl-link__icon,
     .ecl-link__label ~ .ecl-link__icon-container {
-      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+      margin-inline-start: var(--ecl-button-icon-spacing);
     }
-  }
 
-  .ecl-link__icon {
-    top: 0;
+    &.ecl-button--s {
+      --ecl-button-icon-spacing: #{map.get($button, 'small', 'icon-spacing')};
+    }
+
+    &.ecl-button--m {
+      --ecl-button-icon-spacing: #{map.get($button, 'medium', 'icon-spacing')};
+    }
   }
 }
 /* stylelint-enable nesting-selector-no-missing-scoping-root */
