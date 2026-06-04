@@ -1,6 +1,41 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Button Primary button highlight - icon only renders correctly 1`] = `
+exports[`Button > Primary > renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button > Primary > renders correctly with extra attributes 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button > Primary > renders correctly with extra class names 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--primary custom-class custom-class--test"
+    type="button"
+  >
+    Button label
+  </button>
+</jest>
+`;
+
+exports[`Button > Primary button highlight - icon only > renders correctly 1`] = `
 <jest>
   <button
     class="ecl-button ecl-button--primary ecl-button--highlight ecl-button--icon-only"
@@ -25,7 +60,7 @@ exports[`Button Primary button highlight - icon only renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Button Primary button inverted - icon after renders correctly 1`] = `
+exports[`Button > Primary button inverted - icon after > renders correctly 1`] = `
 <jest>
   <button
     class="ecl-button ecl-button--primary ecl-button--inverted"
@@ -50,10 +85,10 @@ exports[`Button Primary button inverted - icon after renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Button Primary renders correctly 1`] = `
+exports[`Button > Secondary > renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--primary"
+    class="ecl-button ecl-button--secondary"
     type="button"
   >
     Button label
@@ -61,31 +96,7 @@ exports[`Button Primary renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Button Primary renders correctly with extra attributes 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--primary"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    type="button"
-  >
-    Button label
-  </button>
-</jest>
-`;
-
-exports[`Button Primary renders correctly with extra class names 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--primary custom-class custom-class--test"
-    type="button"
-  >
-    Button label
-  </button>
-</jest>
-`;
-
-exports[`Button Secondary button neutral - with indicator renders correctly 1`] = `
+exports[`Button > Secondary button neutral - with indicator > renders correctly 1`] = `
 <jest>
   <button
     class="ecl-button ecl-button--secondary ecl-button--neutral ecl-button--icon-only"
@@ -130,10 +141,10 @@ exports[`Button Secondary button neutral - with indicator renders correctly 1`] 
 </jest>
 `;
 
-exports[`Button Secondary renders correctly 1`] = `
+exports[`Button > Tertiary > renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--secondary"
+    class="ecl-button ecl-button--tertiary"
     type="button"
   >
     Button label
@@ -141,7 +152,7 @@ exports[`Button Secondary renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Button Tertiary button neutral - icon before renders correctly 1`] = `
+exports[`Button > Tertiary button neutral - icon before > renders correctly 1`] = `
 <jest>
   <button
     class="ecl-button ecl-button--tertiary ecl-button--neutral"
@@ -162,17 +173,6 @@ exports[`Button Tertiary button neutral - icon before renders correctly 1`] = `
         Button label
       </span>
     </span>
-  </button>
-</jest>
-`;
-
-exports[`Button Tertiary renders correctly 1`] = `
-<jest>
-  <button
-    class="ecl-button ecl-button--tertiary"
-    type="button"
-  >
-    Button label
   </button>
 </jest>
 `;

@@ -94,7 +94,7 @@ const data = {
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
   page_header: pageHeader,
-  banner: banner,
+  banner,
   add_to_calendar: addToCalendar,
   add_to_calendar2: addToCalendar2,
   card: dataCard,

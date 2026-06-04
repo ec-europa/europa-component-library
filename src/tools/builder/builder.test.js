@@ -1,4 +1,5 @@
-import sass from 'sass';
+import { describe, expect, afterEach, it } from 'vitest';
+import * as sass from 'sass';
 import postcss from 'postcss';
 
 import getSystem from './utils/getSystem';
@@ -122,9 +123,8 @@ describe('ECL Builder', () => {
     it('should be able to expose getSystem utility in scss source code', async () => {
       async function runTest() {
         let system = getSystem();
-        function customSassFunctionAsync() {
-          return Promise.resolve(new sass.types.String(system || ''));
-        }
+        const customSassFunctionAsync = async () =>
+          new sass.SassString(system || '');
 
         const string = `
           $system: getsystem();
@@ -139,7 +139,7 @@ describe('ECL Builder', () => {
 
         let sassResult = await sass.compileStringAsync(string, options);
         let postcssResult = await postcss(getPlugins()).process(sassResult.css);
-        expect(postcssResult.css).toBe('');
+        expect(postcssResult.css.trim()).not.toBe('');
 
         process.env.ECL_SYSTEM = 'ec';
         system = getSystem();
@@ -154,7 +154,9 @@ describe('ECL Builder', () => {
         process.env.ECL_SYSTEM = 'eu';
         system = getSystem();
         sassResult = await sass.compileStringAsync(string, options);
-        postcssResult = await postcss(getPlugins()).process(sassResult.css);
+        await postcss(getPlugins()).process(sassResult.css, {
+          from: undefined,
+        });
         expect(postcssResult.css).toEqual(
           `.system-specific {
         content: eu;

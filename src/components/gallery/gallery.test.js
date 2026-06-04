@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import {
   merge,
   renderTwigFileAsNode,
@@ -56,12 +57,12 @@ describe('Gallery', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-    jest.setTimeout(15000);
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
       ).toHaveNoViolations();
-    });
+    }, 15000);
   });
 
   describe('Grid', () => {
@@ -70,11 +71,10 @@ describe('Gallery', () => {
       return expect(render(demoDataGrid)).resolves.toMatchSnapshot();
     });
 
-    jest.setTimeout(15000);
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoDataGrid, true)),
       ).toHaveNoViolations();
-    });
+    }, 15000);
   });
 });

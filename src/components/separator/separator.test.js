@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { renderTwigFileAsNode, renderTwigFileAsHtml } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
