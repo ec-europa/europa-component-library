@@ -181,32 +181,6 @@ $animated-numbers: null !default;
   row-gap: var(--s-xs);
 }
 
-.ecl-animated-numbers__source {
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  .ecl-animated-numbers--with-background & {
-    color: var(--cm-on-surface-inverted, #fff);
-    text-decoration: underline;
-
-    &:hover,
-    &:active {
-      color: var(--c-g-300, map.get($theme, 'color', 'grey-40'));
-    }
-
-    &:focus-visible {
-      box-shadow:
-        0 0 0 2px var(--cm-border-primary, var(--c-p)),
-        0 0 0 4px var(--cm-on-surface-inverted, #fff);
-      outline: none;
-      text-decoration: none;
-    }
-  }
-}
-
 .ecl-animated-numbers__sources-item:not(:last-child)::after {
   color: map.get($animated-numbers, 'source-separator-color');
   content: '|';
