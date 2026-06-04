@@ -11,8 +11,8 @@
 $theme: null !default;
 $button: null !default;
 
-.ecl-button,
-%ecl-button {
+// stylelint-disable nesting-selector-no-missing-scoping-root
+@mixin button-base {
   --ecl-button-bg-color: none;
   --ecl-button-border-width: 0px;
   --ecl-button-border-color: transparent;
@@ -29,15 +29,11 @@ $button: null !default;
     )};
   --ecl-button-min-size: #{map.get($button, 'large', 'size')};
 
-  appearance: none;
   background: var(--ecl-button-bg-color);
   border: var(--ecl-button-border-width) solid var(--ecl-button-border-color);
   border-radius: map.get($button, 'radius');
   box-sizing: border-box;
   color: var(--ecl-button-color);
-  cursor: pointer;
-  display: inline-block;
-  margin: 0;
   min-height: var(--ecl-button-min-size);
   min-width: var(--ecl-button-min-size);
   padding-block: calc(
@@ -49,21 +45,6 @@ $button: null !default;
   text-decoration: none;
 
   @include mixins.responsive-font(map.get($button, 'large', 'font'));
-
-  &:hover {
-    box-shadow: map.get($button, 'shadow');
-    text-decoration: none;
-  }
-
-  &:focus-visible {
-    outline: var(--ecl-focus-outline-width) solid var(--ecl-focus-outline-color);
-    outline-offset: var(--ecl-focus-outline-offset);
-    text-decoration: none;
-  }
-
-  &:active {
-    outline-width: 0;
-  }
 
   &.ecl-button--s {
     --ecl-button-padding-horizontal: #{map.get(
@@ -95,6 +76,32 @@ $button: null !default;
     --ecl-button-min-size: #{map.get($button, 'medium', 'size')};
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
+  }
+}
+// stylelint-enable nesting-selector-no-missing-scoping-root
+
+.ecl-button,
+%ecl-button {
+  @include button-base;
+
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+
+  &:hover {
+    box-shadow: map.get($button, 'shadow');
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: var(--ecl-focus-outline-width) solid var(--ecl-focus-outline-color);
+    outline-offset: var(--ecl-focus-outline-offset);
+    text-decoration: none;
+  }
+
+  &:active {
+    outline-width: 0;
   }
 }
 

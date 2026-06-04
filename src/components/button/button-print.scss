@@ -10,8 +10,8 @@
 $theme: null !default;
 $button: null !default;
 
-.ecl-button,
-%ecl-button {
+// stylelint-disable nesting-selector-no-missing-scoping-root
+@mixin button-base {
   --ecl-button-bg-color: none;
   --ecl-button-border-width: 0px;
   --ecl-button-border-color: transparent;
@@ -28,14 +28,11 @@ $button: null !default;
     )};
   --ecl-button-min-size: #{map.get($button, 'large', 'size')};
 
-  appearance: none;
   background: var(--ecl-button-bg-color);
   border: var(--ecl-button-border-width) solid var(--ecl-button-border-color);
   border-radius: map.get($button, 'radius');
+  box-sizing: border-box;
   color: var(--ecl-button-color);
-  cursor: pointer;
-  display: inline-block;
-  margin: 0;
   min-height: var(--ecl-button-min-size);
   min-width: var(--ecl-button-min-size);
   padding-block: calc(
@@ -79,6 +76,17 @@ $button: null !default;
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
   }
+}
+// stylelint-enable nesting-selector-no-missing-scoping-root
+
+.ecl-button,
+%ecl-button {
+  @include button-base;
+
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
 }
 
 .ecl-button__container {
