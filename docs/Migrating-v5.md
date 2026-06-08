@@ -2,22 +2,38 @@
 
 The following guidelines aim to facilitate the migration from ECL v4 to v5.
 
+- [New components in ECL 5](#new-components-in-ecl-5)
 - [Style modifications](#style-modifications)
 - [Component modifications](#component-modifications)
-- [Js modifications](#js-modifications)
 - [Packages modifications](#packages-modifications)
+
+## New components in ECL 5
+
+The following components are new in ECL 5 and have no direct equivalent in ECL 4:
+
+- **Animated numbers** (`@ecl/animated-numbers`) — displays counters that animate into view
+- **Slogan ticker** (`@ecl/slogan-ticker`) — scrolling text banner
+- **News ticker** (`@ecl/news-ticker`) — cycling list of short news items
+- **Tooltip** (`@ecl/tooltip`) — contextual tooltip attached to an element
+- **Popover** (`@ecl/popover`) — floating panel with richer content than a tooltip
+- **Quiz** (`@ecl/quiz`) — interactive quiz / poll card
+- **Spotlight** (`@ecl/spotlight`) — highlighted content block with image and text
+- **Highlight box** (`@ecl/highlight-box`) — visually prominent box for key content
+- **Page summary** (`@ecl/page-summary`) — structured summary card for a page or article
+- **Page information** (`@ecl/page-information`) — metadata block (dates, authors, etc.)
+- **Add to calendar** (`@ecl/add-to-calendar`) — button that exports an event to calendar apps
+
+The **Tabs** component (`@ecl/tabs`) existed in ECL 4 as a static pattern; in ECL 5 it gained interactive JavaScript behaviour (responsive overflow, keyboard navigation).
 
 ## Style modifications
 
-Color definition and usage have greately changed for ECL5, with the introduction of color modes in EC.
+Color definition and usage have greatly changed for ECL5, with the introduction of color modes in EC.
 
 Typography has also changed quite drastically in EC.
 
 ### Grid
 
-- A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
-  All the responsive utilities have been updated to include also the new breakpoint.
-- Main container width has been updated on large breakpoints; now it uses available sace more efficiently
+- The main container max-width at the XL breakpoint has been extended to 1368px, making better use of wide screens. The breakpoint labels themselves (`xs`, `s`, `m`, `l`, `xl`) are unchanged.
 - Grid gutters are now changing based on the breakpoints
 
 ### [EC] Color scales
@@ -42,26 +58,7 @@ How it works:
 - EC css defines a default value for these color mode properties; EU does not use color mode currently, and so relies on the fallback
 - the new color modes css simply override the value of some properties
 
-Here is the list of variables used in the color modes:
-| Name | CSS custom property | Utilities |
-| ---------------------- | --------------------------- | ------------------------ |
-| surface lowest | --cm-surface-lowest | _-surface-lowest |
-| surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
-| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
-| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
-| surface medium | --cm-surface-medium | _-surface-medium |
-| surface | --cm-surface | _-surface |
-| surface-high | --cm-surface-high | _-surface-high |
-| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
-| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
-| on surface | --cm-on-surface | _-on-surface |
-| on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
-| on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
-| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
-| on surface swap 1 | --cm-on-surface-swap-1 | _-on-surface-swap-1 |
-| on surface swap-2 | --cm-on-surface-swap-2 | _-on-surface-swap-2 |
-| border low | --cm-border-low | _-border-low |
-| border | --cm-border | \_-border |
+The color mode custom properties all use the `--cm-` prefix. They cover surface backgrounds (e.g. `--cm-surface-0`, `--cm-surface-lowest`, `--cm-surface-low-1`, `--cm-surface-variant-1`), foreground/text colors (e.g. `--cm-on-surface`, `--cm-on-surface-highlight`, `--cm-on-surface-swap-1`) and borders (e.g. `--cm-border-low`, `--cm-border`). The full list is available in the theme's custom properties file (`src/themes/ec/_custom-properties.scss`).
 
 ### [EC] Typography
 
@@ -71,7 +68,7 @@ Font size now goes from `10xl` to `2xs`, line height goes from `10xl` to `3xs`.
 
 **Important note**: default font size (`m`) is now 18px/1.125rem, instead of 16px/1rem. It makes all content displayed larger.
 
-There are now 9 levels of font weight, from `thin` to `black`.
+There are now 11 levels of font weight, from `thin` to `black`: thin, extra-light, light, semi-regular, regular, medium, semi-bold, near-bold, bold, extra-bold, black.
 
 A new very large typography has been added, called `display`.
 
@@ -99,9 +96,9 @@ EU shadows have not been modified (name and value).
 
 ### [EC] Spacing
 
-The scale has been extended in EC, it now has all these values: `5xs`, `4xs`, `3xs`, `2xs`, `xs`, `s`, `m`, `l`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`, `8xl`, `9xl`, `10xl`
+The scale has been extended in EC, it now has all these values: `5xs`, `4xs`, `3xs`, `2xs`, `xs`, `s`, `m`, `l`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`, `8xl`, `9xl`, `10xl`, `11xl`, `12xl`, `13xl`
 
-The primary values used for spacing have largely remained unchanged: `m` is still `16px`, `s` is `12px`, and `l` is `20px`."
+The primary values used for spacing have largely remained unchanged: `m` is still `16px`, `s` is `12px`, and `l` is `20px`.
 
 ### Utilities
 
@@ -109,7 +106,7 @@ Utilities have been added for the color modes. They are available for background
 
 Here are a few examples:
 
-- `ecl-u-bg-surface`
+- `ecl-u-bg-surface-0`, `ecl-u-bg-surface-lowest`
 - `ecl-u-border-color-border-low`
 
 Other modification for the utilities:
@@ -130,19 +127,20 @@ If not specificed, the default reading direction remains left to right.
 
 Markup of accordion title has been updated
 
-- it relies on the use of default HTML tags `details` and `summary`. Javascript is no longer required as everything is handled by the browser.
+- it relies on the use of default HTML tags `details` and `summary`. For the standard accordion, Javascript is no longer required as the open/close behaviour is handled natively by the browser.
 - items no longer uses heading. Corresponding twig parameter `level` has been removed.
 - a selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
 
+**Note:** the sidebar variant of the accordion still requires the `Accordion` JS class to be initialized (it handles keeping items open on desktop and collapsed on mobile). The `data-ecl-auto-init="Accordion"` attribute is present on all accordion instances; if you don't use the sidebar variant you can safely skip loading the accordion JS.
+
 Event management:
 
-As there is no more ECL javascript for the accordion, javascript event are no longer provided by us. But the `details` element comes with a [build-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which could be used directly
+For the standard accordion, ECL no longer provides custom javascript events. But the `details` element comes with a [built-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which can be used directly.
 
 ### Banner
 
-- Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
-  Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
-- Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+- Aspect ratio of the banner is now fixed for mobile and tablet: **Mobile: 3/2, Tablet: 3/1**. On desktop the aspect ratio depends on the `size` parameter and differs from mobile/tablet.
+- Additional font size available for banners, now offering three values: `s`, `m` and `l` (via the `font_size` twig parameter)
 
 ### Breadcrumb
 
@@ -212,7 +210,7 @@ The markup is now using the custom element defined by duet js:
 - Variant `simple` has been removed (deprecated in v4)
 - Featured item footer has been removed, as it is no longer in use.
 - Markup has been updated: now it reflects the real element orders, extra container added around the text content, and `ecl-featured-item__title-content` has been removed
-- New parameter `link-highlighted` to have a different display for the link
+- New parameter `link_highlighted` to have a different display for the link
 - New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
 - New parameters `horizontal_alignment` and `vertical_alignment` to handle text alignment
 - New parameter `media_behavior` to allow the image to take the full height if needed
@@ -381,7 +379,7 @@ This element is managed by Webtools, and has been removed from ECL showcase
 
 ### Site footer
 
-Site footer EC has been completely revamped to accomodate new design (markup, css and data structure):
+Site footer EC has been completely revamped to accommodate new design (markup, css and data structure):
 
 - sections are now clearly identified
 - social media links are using the Social Media Follow component
@@ -398,8 +396,6 @@ EU footer hasn't changed, but is now using its own template file
 
 - new section available to add headline (larger first item). Corresponding twig parameter is `headline`
 - new way to group multiple timeline, in a timeline set. This is a separated template, just using an array of timelines.
-
-## Js modifications
 
 ## Packages modifications
 
