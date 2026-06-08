@@ -11,7 +11,13 @@ npm install --save @ecl/animated-numbers
 - **"with_background"** (boolean) (default: false)
 - **"counter_color"** (boolean) (default: true)
 - **"border"** (boolean) (default: false)
-- **"sources_label"** (string) (default: '')
+- **"sources_label"** (string) (default: '') label for global sources
+- **"sources"** (array) global sources; array of objects of type ECL link or strings
+  - "link"
+    - "label" (string) (default: '')
+    - "path" (string) (default: '')
+      or
+  - "name" (string) (default: '')
 - **"items"** (array) (default: []): format:
   - "category" (string) (default: '')
   - "prefix" (string) (default: '')
@@ -21,12 +27,13 @@ npm install --save @ecl/animated-numbers
   - "suffix_label" (string) (default: '') optional label to add extra information on the suffix (screen reader only)
   - "description" (string) (default: '')
   - "icon" (string) (default: {}) Object of type ECL icon
-- **"sources"** (array) Array of items of type ECL link or string
-  - "link"
+  - "sources_label" (string) (default: '') label for individual sources
+  - "sources": (array) (default: []) individual sources; array of objects of type ECL link or strings
+    "link":
     - "label" (string) (default: '')
     - "path" (string) (default: '')
       or
-  - "name" (string) (default: '')
+      "name" (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

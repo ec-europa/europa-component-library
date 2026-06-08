@@ -17,14 +17,21 @@ npm install --save @ecl/fact-figures
   - "value" (string) (default: '')
   - "title" (string) (default: '')
   - "description" (string) (default:'')
+  - "sources_label" (string) (default: '') label for individual sources
+  - "sources": (array) (default: []) individual sources; array of objects of type ECL link or strings
+    "link":
+    - "label" (string) (default: '')
+    - "path" (string) (default: '')
+      or
+      "name" (string) (default: '')
 - **"view_all"** (optional) (associative array) (default: {})
   - "link" (associative array)
     - "label" (string) (default: ''),
     - "path" (string) (default: '')
 - **"display_icons"** (boolean) (default: true)
 - **"icon_size"** (string) (default: 'l') (l or 2xl)
-- **"sources_label"** (string) (default: ''): Label displayed before the sources
-- **"sources"**: (array) (default: []) array of objects of type ECL link or strings
+- **"sources_label"** (string) (default: ''): label for global sources
+- **"sources"**: (array) (default: []) global sources; array of objects of type ECL link or strings
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

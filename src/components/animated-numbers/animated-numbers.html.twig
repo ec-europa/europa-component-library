@@ -6,7 +6,13 @@
   - "full_width" (boolean) (default: false)
   - "border" (boolean) (default: false)
   - "counter_color" (string) (default: 'true')
-  - "sources_label" (string) (default: '')
+  - "sources_label" (string) (default: '') label for global sources
+  - "sources": (array) (default: []) global sources; array of objects of type ECL link or strings
+      link:
+        - "label" (string) (default: '')
+        - "path" (string) (default: '')
+        or
+      name (string) (default: '')
   - "items" (array) (default: []):
     - category (string) default('')
     - icon (object) default({}) Object of type ECL icon
@@ -16,7 +22,8 @@
     - suffix (string) (default: '')
     - suffix_label (string) (default: '') optional label to add extra information on the suffix (screen reader only)
     - description (string (default: '')
-  - "sources": (array) (default: []) array of objects of type ECL link or strings
+    - sources_label (string) (default: '') label for individual sources
+    - sources: (array) (default: []) individual sources; array of objects of type ECL link or strings
       link:
         - "label" (string) (default: '')
         - "path" (string) (default: '')
