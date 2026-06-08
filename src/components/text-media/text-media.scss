@@ -61,32 +61,6 @@ $media-max-width: 75rem;
     map.get($text-media, 'description', 'font'),
     $font-weight: map.get($text-media, 'description', 'font-weight')
   );
-
-  .ecl * {
-    color: map.get($text-media, 'color-default');
-  }
-
-  .ecl a,
-  .ecl-link {
-    --ecl-link-color: #{map.get($text-media, 'color-default')};
-    --ecl-link-color-hover: var(--ecl-link-color);
-    --ecl-link-color-active: var(--ecl-link-color);
-    --ecl-focus-outline-color: var(--ecl-link-color);
-  }
-
-  .ecl-text-media--primary & {
-    .ecl * {
-      color: map.get($text-media, 'color-primary');
-    }
-
-    .ecl a,
-    .ecl-link {
-      --ecl-link-color: #{map.get($text-media, 'color-primary')};
-      --ecl-link-color-hover: var(--ecl-link-color);
-      --ecl-link-color-active: var(--ecl-link-color);
-      --ecl-focus-outline-color: var(--ecl-link-color);
-    }
-  }
 }
 
 .ecl-text-media__link {

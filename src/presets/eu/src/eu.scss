@@ -12,6 +12,7 @@
   $theme: theme.$theme,
   $typography: var.$typography
 );
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Layout
 @use '@ecl/grid/grid' with (
@@ -297,3 +298,8 @@
   $splash-page: var.$splash-page,
   $language-list: var.$language-list
 );
+
+// Global rules
+.ecl-content-color {
+  @include mixins-color.content-current-color;
+}
