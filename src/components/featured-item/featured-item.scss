@@ -7,6 +7,7 @@
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -211,13 +212,7 @@ $featured-item: null !default;
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
 
-    .ecl *,
-    .ecl a:hover,
-    .ecl a:focus-visible,
-    .ecl a:visited,
-    .ecl a:active {
-      color: map.get($featured-item, 'highlight', 'description', 'color');
-    }
+    @include mixins-color.content-current-color;
   }
 
   .ecl-featured-item__info + .ecl-featured-item__link {

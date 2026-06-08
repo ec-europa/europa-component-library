@@ -13,6 +13,7 @@
   $theme: theme.$theme,
   $typography: var.$typography
 );
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Layout
 @use '@ecl/grid/grid' with (
@@ -268,6 +269,11 @@
   $theme: theme.$theme
 );
 
+// Global rules
 html {
   font-family: #{map.get(theme.$font-family-print, 'default')};
+}
+
+.ecl-content-color {
+  @include mixins-color.content-current-color;
 }
