@@ -40,3 +40,19 @@
 
   @return $color;
 }
+
+// Mixin to set the content color to the current text color
+// Used mostly for element using wysiwyg
+@mixin content-current-color() {
+  .ecl * {
+    color: currentcolor;
+  }
+
+  .ecl a,
+  .ecl-link {
+    --ecl-link-color: currentcolor;
+    --ecl-link-color-hover: var(--ecl-link-color);
+    --ecl-link-color-active: var(--ecl-link-color);
+    --ecl-focus-outline-color: var(--ecl-link-color);
+  }
+}

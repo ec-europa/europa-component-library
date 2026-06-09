@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/link/link-print' as link-component;
 
 // Exposed variables
 $theme: null !default;
@@ -200,16 +201,19 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__link:not(
-    .ecl-link--primary-highlight,
     .ecl-link--primary-neutral,
-    .ecl-link--primary,
-    .ecl-link--secondary
+    .ecl-link--secondary-inverted,
+    .ecl-link--standalone
   ) {
-    color: map.get($featured-item, 'highlight', 'description', 'color');
-    text-decoration: underline;
+    --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
 
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'description', 'color');
+    text-align: start;
+    text-decoration: underline;
+  }
+
+  @if map.has-key($featured-item, 'highlight', 'button-dark') {
+    .ecl-featured-item__link {
+      @include link-component.link-button(primary-neutral);
     }
   }
 

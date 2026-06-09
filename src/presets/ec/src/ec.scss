@@ -12,6 +12,7 @@
   $theme: theme.$theme,
   $typography: var.$typography
 );
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Layout
 @use '@ecl/grid/grid' with (
@@ -320,4 +321,9 @@
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
+}
+
+// Global rules
+.ecl-content-color {
+  @include mixins-color.content-current-color;
 }
