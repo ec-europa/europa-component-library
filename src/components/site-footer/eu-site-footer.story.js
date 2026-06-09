@@ -12,6 +12,7 @@ import notes from './README.md';
 const getArgs = (variant) => {
   let args = {
     show_co_owner: true,
+    show_feedback: true,
   };
 
   if (variant !== 'core') {
@@ -34,6 +35,14 @@ const getArgTypes = (variant) => {
     name: 'co-owner',
     type: { name: 'boolean' },
     description: 'Show co-owner banner',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+  argTypes.show_feedback = {
+    name: 'feedback',
+    type: { name: 'boolean' },
+    description: 'Show feedback section',
     table: {
       category: 'Optional sections',
     },
@@ -97,8 +106,12 @@ const prepareCoreData = (data, args) => {
     delete clone.co_owner;
   }
 
-  clone.rows[0][0][0].logo.src_mobile = logoEuMobile;
-  clone.rows[0][0][0].logo.src_desktop = logoEuDesktop;
+  clone.rows[1][0][0].logo.src_mobile = logoEuMobile;
+  clone.rows[1][0][0].logo.src_desktop = logoEuDesktop;
+
+  if (!args.show_feedback) {
+    clone.rows.splice(0, 1);
+  }
 
   return clone;
 };
@@ -111,32 +124,35 @@ const prepareHarmonisedData = (data, args) => {
     delete clone.co_owner;
   }
 
-  clone.rows[1][0][0].logo.src_mobile = logoEuMobile;
-  clone.rows[1][0][0].logo.src_desktop = logoEuDesktop;
+  clone.rows[2][0][0].logo.src_mobile = logoEuMobile;
+  clone.rows[2][0][0].logo.src_desktop = logoEuDesktop;
 
-  if (!args.show_logo && clone.rows[1][0][0].logo) {
-    delete clone.rows[1][0][0].logo;
-  }
-  if (!args.show_logo && clone.rows[2]) {
+  if (!args.show_logo && clone.rows[2][0][0].logo) {
     delete clone.rows[2][0][0].logo;
   }
+  if (!args.show_logo && clone.rows[3]) {
+    delete clone.rows[3][0][0].logo;
+  }
   if (!args.show_contact) {
-    clone.rows[0][1].splice(0, 1);
+    clone.rows[1][1].splice(0, 1);
   }
   if (!args.show_follow) {
-    clone.rows[0][1].splice(1, 1);
+    clone.rows[1][1].splice(1, 1);
   }
   if (!args.show_about) {
-    clone.rows[0][2].splice(0, 1);
+    clone.rows[1][2].splice(0, 1);
   }
   if (!args.show_relate_site) {
-    clone.rows[0].splice(2, 1);
+    clone.rows[1].splice(2, 1);
   }
   if (!args.show_about && !args.show_relate_site) {
-    clone.rows[0].splice(2, 1);
+    clone.rows[1].splice(2, 1);
   }
   if (!args.show_contact && !args.show_follow) {
-    clone.rows[0].splice(1, 1);
+    clone.rows[1].splice(1, 1);
+  }
+  if (!args.show_feedback) {
+    clone.rows.splice(0, 1);
   }
 
   return clone;

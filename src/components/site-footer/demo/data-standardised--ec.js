@@ -25,7 +25,6 @@ module.exports = {
       link: {
         label: 'Fill in survey',
         path: exampleLink,
-        size: 'l',
         type: 'primary-highlight-inverted',
       },
       icon: {
