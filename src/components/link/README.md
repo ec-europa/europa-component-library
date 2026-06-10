@@ -8,24 +8,23 @@ npm install --save @ecl/link
 
 ### Parameters
 
-- **"link"** (associative array) (default: 'predefined structure below')
-  - "type" (string) (default: '') - type of link. Available types are '', 'standalone', 'primary', 'primary-highlight', 'primary-neutral', 'secondary', 'secondary-neutral', 'secondary-inverted'
+- **"link"** (object) (default: {}):
+  - "type" (string) (default: '') Link type; can be '', 'standalone', 'primary', 'primary-highlight', 'primary-neutral', 'secondary', 'secondary-neutral', 'secondary-inverted'
   - "inverted" (boolean) (default: false) Is the link inverted (displayed on dark background)?
   - "branded" (boolean) (default: false) Is the link using brand color (usually dark)?
-  - "label" (string) (default: '') - Content of link
-  - "path" (string) (default: '') - Link url (href attribute)
+  - "label" (string) (default: '') Link text content
+  - "path" (string) (default: '') Link href attribute
   - "external" (boolean) (default: false) Activates the external link icon
-  - "sr_external" (string) (default: '') Additional label for external icon
+  - "sr_external" (string) (default: '') Additional screen reader label for external icon
   - "aria_label" (string) (default: '') Aria label attribute value
-  - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
-  - "hide_label" (boolean) (default: false) hide link label, for screen reader only. Note: requires to have an icon defined
-  - "indicator" (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
-- **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
-  The name has to be non empty for the icon to be printed.
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "icon_position" (string) (default: 'after') Position of link icon; can be 'before' or 'after'
+  - "hide_label" (boolean) (default: false) Hide link label visually (screen reader only); requires an icon
+  - "indicator" (object) (default: {}) Indicator component object; only shown when there is an icon and no label
+- **"icon"** (object) OR (array) of objects ECL Icon structure; extra_classes is used internally for positioning
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1',
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 

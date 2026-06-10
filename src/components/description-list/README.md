@@ -16,11 +16,11 @@ npm install --save @ecl/description-list
   },
   ...
   ]
-- **variant** (string) (default: ''): global variant of the list (horizontal, vertical)
-- **visible_items** (optional) (integer) (default: 0) Number of visible items
-- **more_label** (optional) (string) (default: '') Label for the more button, if requested
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"variant"** (string) (default: ''): Global display variant; can be 'horizontal', 'vertical'
+- **"visible_items"** (integer) (default: 0) Number of initially visible items (0 to display all)
+- **"more_label"** (string) (default: '') Label for the "show more" button when visible_items is set
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

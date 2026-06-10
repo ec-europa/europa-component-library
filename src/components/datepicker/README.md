@@ -8,21 +8,22 @@ npm install --save @ecl/datepicker
 
 ### Parameters
 
-- **"autoinit"** (boolean) (default: false)
-- **"default_value"** (string) (default: '') (YYYY-MM-DD format)
-- **"required"** (boolean) (default: false)
-- **"invalid"** (boolean) (default: false)
-- **"disabled"** (boolean) (default: false)
-- **"width"** (string) (default: 'm') size of the text field (s, m or l)
-- **"id"** (string) (default: random)
-- **"min"** (string) (default: '')
-- **"max"** (string) (default: '')
-- **"first_day_of_week"** (string) (default: 1)
-- **"placeholder"**: (string) (default: 'DD-MM-YYYY')
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"autoinit"** (boolean) (default: false) Initialize the JS datepicker automatically
+- **"id"** (string) (default: random) Unique id for the input
+- **"name"** (string) (default: same as id) Name attribute for the input
+- **"default_value"** (string) (default: '') Pre-filled value in YYYY-MM-DD format
+- **"required"** (boolean) (default: false) Makes the field required
+- **"invalid"** (boolean) (default: false) Displays the field in invalid state
+- **"disabled"** (boolean) (default: false) Disables the input field
+- **"width"** (string) (default: 'm') Width size of the input; can be 's', 'm', 'l'
+- **"min"** (string) (default: '') Minimum selectable date in YYYY-MM-DD format
+- **"max"** (string) (default: '') Maximum selectable date in YYYY-MM-DD format
+- **"first_day_of_week"** (integer) (default: 1) First day of the week (0=Sunday, 1=Monday, etc.)
+- **"placeholder"** (string) (default: 'DD-MM-YYYY') Placeholder text for the input
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 

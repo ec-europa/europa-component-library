@@ -2,27 +2,28 @@
 
 {#
   Parameters:
-    - "color_mode" (string)
+    - "color_mode" (string) (default: '') Name of the color mode
     - "items" (array) (default: []): format: [
       {
-        "id" (string),
-        "toggle" (predefined structure): see Button component, format: {
-          "label" (string),
-          "extra_classes" (string) (default: ''): extra classes for the toggle
+        "id" (string) (default: '') Used for binding of togglable elements
+        "toggle" (object): Toggle button for the accordion item, format: {
+          "label" (string) (default: '') Label of the toggle button
+          "extra_classes" (string) (default: '') Extra classes for the toggle button
         },
-        "content": (block),
+        "content" (string) (default: '') Content inside the accordion item
       },
       ...
     ]
     - "sidebar" (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
-    - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
-    - "name" (string) (default: '') Optional name to link multiple accordion items
-    - "extra_classes" (string) (default: '')
+    - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled (open/close)
+    - "name" (string) (default: '') Optional name attribute to link multiple accordion items
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (optional) (string),
-        }
+          "value" (string) (default: '')
+        },
+        ...
       ],
 #}
 

@@ -8,18 +8,18 @@ npm install --save @ecl/accordion
 
 ### Parameters
 
-- **"color_mode"** (string)
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"items"** (array) (default: []): format:
   - "id" (string) (default: '') Used for binding of togglable elements
-  - "toggle" (predefined structure): see Button component
-    - "label" (string) (default: '')
-    - "extra_classes" (string) (default: ''): extra classes for the toggle
-  - "content" (string) (default: '')
+  - "toggle" (object): Toggle button for the accordion item
+    - "label" (string) (default: '') Label of the toggle button
+    - "extra_classes" (string) (default: '') Extra classes for the toggle button
+  - "content" (string) (default: '') Content inside the accordion item
 - **"sidebar"** (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
-- **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled
-- **"name"** (string) (default: '') Optional name to link multiple accordion items
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled (open/close)
+- **"name"** (string) (default: '') Optional name attribute to link multiple accordion items (HTML `name` on `<details>`)
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

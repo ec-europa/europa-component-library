@@ -5,17 +5,19 @@
     - "id" (string) (default: random)
     - "items" (array) (default: []): format: [
         {
-          "content" (string)
-        },
+          "content" (string) Slide text content
+          "link" (string) Optional link URL for the slide content
+          "external" (boolean) Whether the link is external
+        }, ...
       ]
-    - "autoplay": (boolean) (default: true)
-    - "color_mode" (string) (default: '')
-    - "sr_play" (string) (default: 'Play slogan ticker')
-    - "sr_pause" (string) (default: 'Pause slogan ticker')
-    - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: [])
-      - "name" (string)
-      - "value" (string)
+    - "autoplay" (boolean) (default: true) Start sliding automatically
+    - "color_mode" (string) (default: '') Name of the color mode
+    - "sr_play" (string) (default: 'Play slogan ticker') Screen reader label for play button
+    - "sr_pause" (string) (default: 'Pause slogan ticker') Screen reader label for pause button
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
+    - "extra_attributes" (array) (default: []) Extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
 {% set _id = id|default('ecl-slogan-ticker-' ~ random()) %}

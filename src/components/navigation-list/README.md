@@ -9,17 +9,17 @@ npm install --save @ecl/navigation-list
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"items"** (array) (default: []): array of list_illustration_item
-  - **"color_mode"** (string) (default: '') Name of the color mode
-  - **"variant"** (string) (default: '') - Can be "illustration" or "image-as-illustration"
-  - **"picture** (associative array) (default: {}): picture of the navigation list, following ECL Picture structure
-  - **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
-  - **"description"** (string) (default: ''): Description of the navigation list
-  - **"links"** (array) (default: []): Array or multi array of ECL Links
-- **"border"** (boolean) (default: true): Is there an extra border and padding?
-- **"column"** (number) (default: 2): number of columns (2 or 3)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"items"** (array) (default: []) Navigation list items; format:
+  - "color_mode" (string) (default: '') Color mode for this item
+  - "variant" (string) (default: '') Item variant; can be 'illustration', 'image-as-illustration'
+  - "picture" (object) (default: {}) Item image following ECL Picture structure
+  - "title" (object) (default: {}) Item title link following ECL Link structure
+  - "description" (string) (default: '') Item description text
+  - "links" (array) (default: []) Array of ECL Link groups (each group is an array of ECL Links)
+- **"border"** (boolean) (default: true) Show extra border and padding around items
+- **"column"** (number) (default: 2) Number of columns; can be 2 or 3
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

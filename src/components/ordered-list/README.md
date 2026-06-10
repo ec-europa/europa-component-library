@@ -8,12 +8,12 @@ npm install --save @ecl/ordered-list
 
 ### Parameters
 
-- **"items"** (array) (default: [])
-  - "label" (string)
-  - "nested" (optional) Object of type Ordered List
-- **"variant"** (optional) (string) (default: '') - Name of the variant
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"items"** (array) (default: []) List items; format:
+  - "label" (string) Item text
+  - "nested" (array) (default: []) Nested ordered list items (same structure)
+- **"variant"** (string) (default: '') List variant; can be 'no-marker', 'divider'
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
