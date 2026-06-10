@@ -20,7 +20,8 @@ pnpm start:website    # Documentation website
 
 pnpm test:components              # run all Jest tests
 pnpm test:components -- button    # test a single component
-pnpm test:components -- -u        # update snapshots after intentional changes
+npm run test:components -- button -u  # update snapshots for one component only
+npm run test:components -- -u         # update all snapshots
 
 pnpm lint             # ESLint + Stylelint
 pnpm prettier:write   # auto-format

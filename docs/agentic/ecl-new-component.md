@@ -19,6 +19,8 @@ templates and alphabetical-insertion rules.
 - [ ] Run `pnpm install` from the root after creating the package — this links the new
       workspace package before tests or Storybook can find it.
 - [ ] The `demo/data.js` file uses `module.exports`, not ES module `export default`.
+- [ ] The Twig template must render something visible — add the component name as static
+      text inside the root `<div>` so the story is not a blank canvas.
 - [ ] Thumbnail SVGs for the website index are hand-crafted; flag to the team if none exists.
 
 ## After creating all files

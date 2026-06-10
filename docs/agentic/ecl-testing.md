@@ -8,8 +8,8 @@ ECL tests are Jest-based. Each component has two kinds of assertions:
 ```bash
 pnpm test:components               # all components — slow, avoid unless needed
 pnpm test:components -- button     # single component by folder name
-pnpm test:components -- -u         # update snapshots (destructive — read first)
-pnpm test:components -- button -u  # update snapshots for one component only
+npm run test:components -- button -u  # update snapshots for one component only
+npm run test:components -- -u         # update all snapshots (use sparingly)
 ```
 
 ## Snapshot failures

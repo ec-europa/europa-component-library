@@ -51,7 +51,7 @@ pnpm test:components -- <name>   # run tests for this component only
 If snapshots fail, read the diff. If the change was intentional:
 
 ```bash
-pnpm test:components -- <name> -u   # update snapshots
+npm run test:components -- <name> -u   # update snapshots for this component only
 ```
 
 Never update snapshots without reading what changed. A snapshot update is a permanent
