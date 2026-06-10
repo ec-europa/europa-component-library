@@ -1,6 +1,7 @@
 import '@ecl/dom-utils/polyfills';
 
 import autoInit from '@ecl/dom-utils/autoinit';
+import Accordion from '@ecl/accordion';
 import AnimatedNumbers from '@ecl/animated-numbers';
 import Banner from '@ecl/banner';
 import Carousel from '@ecl/carousel';
@@ -27,6 +28,7 @@ import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
 import SiteHeader from '@ecl/site-header';
+import SloganTicker from '@ecl/slogan-ticker';
 import Table from '@ecl/table';
 import Tabs from '@ecl/tabs';
 import Timeline from '@ecl/timeline';
@@ -34,6 +36,7 @@ import Tooltip from '@ecl/tooltip';
 
 const ECL = {
   autoInit,
+  Accordion,
   AnimatedNumbers,
   Banner,
   Carousel,
@@ -60,6 +63,7 @@ const ECL = {
   Range,
   Select,
   SiteHeader,
+  SloganTicker,
   Tabs,
   Table,
   Timeline,

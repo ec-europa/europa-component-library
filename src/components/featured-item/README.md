@@ -15,7 +15,7 @@ npm install --save @ecl/featured-item
 - **"micro_title"** (string) (default: ''): Small additional title
 - **"description"** (string) (default: ''): Description of the content opposite the media container,
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
-- **"link_highlighted"** (bool) (default: false): display the link as highlighted
+- **"link_display"** (string) (default: ''): optional display for the link; can be 'button' (all types), highlighted' (type highlight only)
 - **"horizontal_alignment"** (string) (default: 'left'): content alignment (horizontal); can be 'left', 'center'
 - **"vertical_alignment"** (string) (default: 'top'): content alignment (vertical); can be 'top', 'center'
 - **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
@@ -25,6 +25,10 @@ npm install --save @ecl/featured-item
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'.
+
+### Deprecated
+
+- **"link_highlighted"** (bool) (default: false): display the link as highlighted
 
 ### Example for featured item:
 

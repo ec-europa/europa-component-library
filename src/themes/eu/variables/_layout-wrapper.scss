@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$layout-wrapper: (
+  description-font: var(--f-m),
+  view-all: (
+    margin: var(--s-l),
+    padding: var(--s-l),
+    border: 1px solid var(--c-d),
+  ),
+);

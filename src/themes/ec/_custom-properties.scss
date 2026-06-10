@@ -495,6 +495,9 @@
   --ecl-link-color-active: var(--cm-on-surface-brand);
   --ecl-link-text-decoration: underline;
   --ecl-link-text-decoration-hover: underline;
+  --ecl-button-border-width: 0px;
+  --ecl-button-padding-vertical: 0px;
+  --ecl-button-padding-horizontal: 0px;
   --ecl-text-field-height: 3rem;
 
   // Default color mode
@@ -513,6 +516,9 @@
     #{map.get($color-palette, 'warm-grey-50')} 50%,
     transparent
   );
+  --cm-surface-color-mode-lowest: #{map.get($color-palette, 'blue-50')};
+  --cm-surface-color-mode-low: #{map.get($color-palette, 'blue-100')};
+  --cm-surface-color-mode-high: #{map.get($color-palette, 'blue-700')};
   --cm-surface-low-0: var(--c-p-50);
   --cm-surface-low-1: var(--c-p-100);
   --cm-surface-low-2: var(--c-p-200);

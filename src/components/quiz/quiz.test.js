@@ -19,6 +19,22 @@ describe('Quiz', () => {
       return expect(render(demoData)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly in full width', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...demoData, full_width: true }),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly in with a background', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...demoData, with_background: true }),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

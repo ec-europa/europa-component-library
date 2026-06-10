@@ -32,6 +32,17 @@ module.exports = {
           },
           description:
             'This site is managed by: [name of the manager of the site]',
+          action_button: {
+            link: {
+              label: 'Subscribe for updates',
+              path: exampleLink,
+            },
+            icon: {
+              name: 'envelope-simple',
+              family: 'phosphor',
+              style: 'inverted',
+            },
+          },
         },
       ],
       [

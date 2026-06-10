@@ -8,15 +8,20 @@
   $theme: theme.$theme
 );
 
-// Layout
-@use '@ecl/grid/grid' with (
-  $theme: theme.$theme
-);
-
 // Functions and Mixins
 @use '@ecl/mixins-typography/mixins' with (
   $theme: theme.$theme,
   $typography: var.$typography
+);
+@use '@ecl/mixins-color/mixins' as mixins-color;
+
+// Layout
+@use '@ecl/grid/grid' with (
+  $theme: theme.$theme
+);
+@use '@ecl/layout-wrapper/layout-wrapper' with (
+  $theme: theme.$theme,
+  $layout-wrapper: var.$layout-wrapper
 );
 
 // Forms
@@ -66,6 +71,10 @@
   $quiz-print: var.$quiz-print
 );
 @use '@ecl/skip-link/skip-link-print';
+@use '@ecl/slogan-ticker/slogan-ticker-print' with (
+  $theme: theme.$theme,
+  $slogan-ticker: var.$slogan-ticker
+);
 @use '@ecl/spinner/spinner-print';
 @use '@ecl/table/table-print' with (
   $theme: theme.$theme,
@@ -130,6 +139,10 @@
 );
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
+);
+@use '@ecl/highlight-box/highlight-box-print' with (
+  $theme: theme.$theme,
+  $highlight-box: var.$highlight-box
 );
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (
@@ -256,6 +269,11 @@
   $theme: theme.$theme
 );
 
+// Global rules
 html {
   font-family: #{map.get(theme.$font-family-print, 'default')};
+}
+
+.ecl-content-color {
+  @include mixins-color.content-current-color;
 }

@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "with_background" (boolean) (default: false)
+  - "full_width" (boolean) (default: false)
   - "border" (boolean) (default: false)
   - "counter_color" (string) (default: 'true')
   - "sources_label" (string) (default: '')
@@ -39,6 +40,7 @@
 {% set _border = border|default(false) %}
 {% set _sources_label = sources_label|default('') %}
 {% set _with_background = with_background|default(false) %}
+{% set _full_width = full_width|default(false) %}
 {% set _items = items|default([]) %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _sources = sources|default([]) %}
@@ -49,9 +51,13 @@
   {% set _css_class = _css_class ~ ' ecl-animated-numbers--border' %}
 {% endif %}
 
-{% if _with_background %}
+{% if _with_background or _full_width %}
   {% set _css_class = _css_class ~ ' ecl-animated-numbers--with-background' %}
   {% set _counter_color = false %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-animated-numbers--full-width' %}
 {% endif %}
 
 {% if _counter_color %}
@@ -79,7 +85,7 @@
   data-ecl-auto-init="AnimatedNumbers"
 >
 {% if (_items is not empty and _items is iterable) or (_sources is not empty and _sources is iterable) %}
-  {% if _with_background %}
+  {% if _full_width %}
     <div class="ecl-container">
   {% endif %}
       <article class="ecl-animated-numbers__wrapper">
@@ -153,7 +159,9 @@
 
         {% if source.link is defined and source.link is not empty %}
           {% include '@ecl/link/link.html.twig' with {
-            link: source.link,
+            link: source.link|merge({
+              inverted: _with_background,
+            }),
             extra_classes: 'ecl-animated-numbers__source'
           } only %}
         {% else %}
@@ -168,7 +176,9 @@
               <li class="ecl-animated-numbers__sources-item">
                 {% if source.link is defined and source.link is not empty %}
                   {% include '@ecl/link/link.html.twig' with {
-                    link: source.link,
+                    link: source.link|merge({
+                      inverted: _with_background,
+                    }),
                     extra_classes: 'ecl-animated-numbers__source'
                   } only %}
                 {% else %}
@@ -183,7 +193,7 @@
         </footer>
       {% endif %}
       </article>
-  {% if _with_background %}
+  {% if _full_width %}
     </div>
   {% endif %}
 {% endif %}
