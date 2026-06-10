@@ -8,55 +8,63 @@ into `docs/conventions/` or `docs/decisions/`.
 
 ## Available skills
 
-| Skill                                        | When to use                                                    |
-| -------------------------------------------- | -------------------------------------------------------------- |
-| [new-component.md](./new-component.md)       | Scaffolding a brand-new component from scratch                 |
-| [modify-component.md](./modify-component.md) | Changing styles, markup, or behaviour of an existing component |
-| [testing.md](./testing.md)                   | Running tests, handling snapshot updates, fixing axe failures  |
-| [story-controls.md](./story-controls.md)     | Adding or modifying Storybook stories and controls             |
+| Skill                                                | When to use                                                    |
+| ---------------------------------------------------- | -------------------------------------------------------------- |
+| [ecl-new-component.md](./ecl-new-component.md)       | Scaffolding a brand-new component from scratch                 |
+| [ecl-modify-component.md](./ecl-modify-component.md) | Changing styles, markup, or behaviour of an existing component |
+| [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures  |
+| [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls             |
 
 ---
 
 ## How to use these skills
 
-Skills are plain markdown files. Every AI tool can read them — the only difference is
-how you point the tool to them.
+Skills are plain markdown files — every AI tool can read them. The `ecl-` prefix
+namespaces them so they stay unambiguous if multiple skill sets are installed together.
 
-### Claude Code
+### Claude Code — slash commands (no path needed)
 
-`AGENTS.md` at the repo root is loaded automatically by Claude Code at the start of
-every session. It already references the skills table, so Claude knows where to look.
+Project slash commands are defined in `.claude/commands/`. Each skill has a matching
+command, so you can invoke it directly without typing any file path:
 
-For a task-specific skill, you can also mention it explicitly in your prompt:
+| Slash command                   | Skill invoked             |
+| ------------------------------- | ------------------------- |
+| `/project:ecl-new-component`    | `ecl-new-component.md`    |
+| `/project:ecl-modify-component` | `ecl-modify-component.md` |
+| `/project:ecl-testing`          | `ecl-testing.md`          |
+| `/project:ecl-story-controls`   | `ecl-story-controls.md`   |
 
-> "Add a new `disabled` parameter to the banner component.
-> Follow the skill at `docs/agentic/modify-component.md`."
+Pass your task as the argument:
 
-### Kiro
+> `/project:ecl-modify-component Add a disabled state to the banner component`
 
-Open the relevant skill file and use **@mention** to include it in your prompt context,
-or paste the file path directly into the chat.
+`AGENTS.md` is also loaded automatically at session start, so Claude already knows
+the skills exist and will suggest the right one when relevant.
 
-A dedicated `ecl-skills` repository installable via `npx skills add` may be set up in
-the future to make this seamless. For now, reference files manually.
+### Kiro — add skills to project context
+
+Add `docs/agentic/` to Kiro's project context so all skill files are always available
+without explicit references. Then just describe your task naturally and Kiro will pull
+the relevant skill content.
+
+A dedicated `ecl-skills` repository installable via `npx skills add` may be set up
+in the future to make this even more seamless.
 
 ### Cursor / GitHub Copilot / other tools
 
-Paste the content of the relevant skill file into the chat, or reference it using
-whatever context-inclusion mechanism your tool provides (e.g. `@docs/agentic/modify-component.md`
-in Cursor).
+Add `docs/agentic/` to your tool's project rules or custom instructions file. With
+the folder indexed, you can reference skills by name only:
 
-You can also add `docs/agentic/` to your tool's project rules or custom instructions
-so the skills are always in context.
+> "Follow `ecl-modify-component` to add a disabled state to the banner component."
 
 ---
 
 ## Tips for effective use
 
-- **Name the skill explicitly.** "Fix the button styles" gives the agent less to work
-  with than "Fix the button styles — follow `docs/agentic/modify-component.md`."
+- **Use the slash command or name the skill.** "Fix the button styles" gives the agent
+  less to work with than `/project:ecl-modify-component Fix the button styles`.
 - **One skill per task.** If a task spans multiple skills (e.g. modifying a component
-  _and_ adding a story), mention both files.
+  _and_ adding a story), invoke both commands or name both files.
 - **Skills are a starting point.** If the agent's output doesn't match ECL conventions,
-  check whether the relevant convention is covered in `docs/conventions/` and consider
-  adding it to the skill file.
+  check whether the missing rule is in `docs/conventions/` and consider adding it to
+  the skill file.

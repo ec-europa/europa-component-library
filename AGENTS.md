@@ -97,12 +97,12 @@ See [`docs/ec-eu-systems.md`](./docs/ec-eu-systems.md) for full details.
 
 Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic/README.md):
 
-| Task                                | Skill file                                                               |
-| ----------------------------------- | ------------------------------------------------------------------------ |
-| Create a new component              | [`docs/agentic/new-component.md`](./docs/agentic/new-component.md)       |
-| Modify an existing component        | [`docs/agentic/modify-component.md`](./docs/agentic/modify-component.md) |
-| Run tests / fix snapshots / fix axe | [`docs/agentic/testing.md`](./docs/agentic/testing.md)                   |
-| Add or update Storybook stories     | [`docs/agentic/story-controls.md`](./docs/agentic/story-controls.md)     |
+| Task                                | Skill file                                                                       |
+| ----------------------------------- | -------------------------------------------------------------------------------- |
+| Create a new component              | [`docs/agentic/ecl-new-component.md`](./docs/agentic/ecl-new-component.md)       |
+| Modify an existing component        | [`docs/agentic/ecl-modify-component.md`](./docs/agentic/ecl-modify-component.md) |
+| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-testing.md`](./docs/agentic/ecl-testing.md)                   |
+| Add or update Storybook stories     | [`docs/agentic/ecl-story-controls.md`](./docs/agentic/ecl-story-controls.md)     |
 
 ---
 
