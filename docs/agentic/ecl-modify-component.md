@@ -66,12 +66,9 @@ then add the `@use` at the top of the SCSS file.
 
 ### Images
 
-ECL images are typically rendered via the **Picture sub-component** (`@ecl/picture`), not
-a plain `<img>` tag. If the task asks for an image but doesn't specify, **ask the user**:
-"Should this use the ECL Picture component or a plain `<img>`?"
-
-When using a plain `<img>` in demo data, use this standard example URL:
-`https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg`
+If the task involves adding an image, read [`docs/agentic/ecl-picture.md`](./ecl-picture.md)
+before making any changes — it covers the Picture vs plain `<img>` decision, Twig include
+pattern, demo data shape, and the SCSS overflow fix.
 
 ### Optional sub-objects in stories
 
