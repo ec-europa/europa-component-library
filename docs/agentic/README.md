@@ -19,52 +19,65 @@ into `docs/conventions/` or `docs/decisions/`.
 
 ## How to use these skills
 
-Skills are plain markdown files — every AI tool can read them. The `ecl-` prefix
+Skills are plain markdown files that any AI tool can read. The `ecl-` prefix
 namespaces them so they stay unambiguous if multiple skill sets are installed together.
 
-### Claude Code — slash commands (no path needed)
+### Generic usage
 
-Project slash commands are defined in `.claude/commands/`. Each skill has a matching
-command, so you can invoke it directly without typing any file path:
+The simplest approach works with any tool: reference the skill by name and describe
+your task.
 
-| Slash command                   | Skill invoked             |
-| ------------------------------- | ------------------------- |
-| `/project:ecl-new-component`    | `ecl-new-component.md`    |
-| `/project:ecl-modify-component` | `ecl-modify-component.md` |
-| `/project:ecl-testing`          | `ecl-testing.md`          |
-| `/project:ecl-story-controls`   | `ecl-story-controls.md`   |
+> "Follow `ecl-modify-component` to add a disabled state to the banner component."
+> "Use `ecl-new-component` to scaffold a new slider component with JS."
 
-Pass your task as the argument:
+Alternatively, just describe the task naturally — if the skill files are part of the
+agent's context, it will pick the right one automatically.
 
-> `/project:ecl-modify-component Add a disabled state to the banner component`
+---
 
-`AGENTS.md` is also loaded automatically at session start, so Claude already knows
-the skills exist and will suggest the right one when relevant.
+## Tool-specific setup
 
-### Kiro — add skills to project context
+### Claude Code (web / desktop / CLI)
 
-Add `docs/agentic/` to Kiro's project context so all skill files are always available
-without explicit references. Then just describe your task naturally and Kiro will pull
-the relevant skill content.
+Skills are registered as project slash commands in `.claude/commands/`. Type `/ecl`
+and let the autocomplete suggest the available commands — you do not need to type the
+full name.
 
-A dedicated `ecl-skills` repository installable via `npx skills add` may be set up
-in the future to make this even more seamless.
+```
+/ecl-new-component       scaffold a new component
+/ecl-modify-component    change an existing component
+/ecl-testing             run or fix tests
+/ecl-story-controls      add or update stories
+```
+
+Pass your task as the argument after the command name:
+
+> `/ecl-new-component Add a slider component with JS`
+
+**Note for CLI users:** the terminal requires a `/project:` prefix because project
+commands are namespaced there. Use `/project:ecl-new-component` instead of
+`/ecl-new-component`. The web and desktop apps do not need this prefix.
 
 ### Cursor / GitHub Copilot / other tools
 
-Add `docs/agentic/` to your tool's project rules or custom instructions file. With
-the folder indexed, you can reference skills by name only:
+Add `docs/agentic/` to your tool's project rules or custom instructions. With the
+folder indexed, reference skills by name only:
 
 > "Follow `ecl-modify-component` to add a disabled state to the banner component."
+
+### Kiro
+
+Add `docs/agentic/` to Kiro's project context so all skill files are always available
+without explicit references. Then just describe your task naturally.
 
 ---
 
 ## Tips for effective use
 
-- **Use the slash command or name the skill.** "Fix the button styles" gives the agent
-  less to work with than `/project:ecl-modify-component Fix the button styles`.
+- **Be specific about the task.** "Fix the button styles" gives the agent less to work
+  with than "Add a hover colour token to the button component".
 - **One skill per task.** If a task spans multiple skills (e.g. modifying a component
-  _and_ adding a story), invoke both commands or name both files.
+  _and_ adding a story), name both explicitly.
 - **Skills are a starting point.** If the agent's output doesn't match ECL conventions,
   check whether the missing rule is in `docs/conventions/` and consider adding it to
   the skill file.
