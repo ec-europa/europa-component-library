@@ -15,6 +15,17 @@ into `docs/conventions/` or `docs/decisions/`.
 | [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures  |
 | [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls             |
 
+## Potential future skills
+
+Not yet written — create when a real task requires it.
+
+| Skill              | When it would be used                                                               |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| `ecl-tokens`       | Adding or updating design tokens (CSS custom properties → Sass map → preset → SCSS) |
+| `ecl-javascript`   | Writing or modifying ECL JS class behaviour (autoInit, init, destroy, events, Map)  |
+| `ecl-website-page` | Adding or updating a component's documentation page (MDX, config.yml, thumbnail)    |
+| `ecl-rtl`          | RTL considerations when modifying layout or spacing (probably a reference fragment) |
+
 ---
 
 ## How to use these skills
