@@ -19,6 +19,20 @@ module.exports = {
       },
     ],
   },
+  section_feedback: {
+    description: 'Help us improve our website',
+    action_button: {
+      link: {
+        label: 'Fill in survey',
+        path: exampleLink,
+        type: 'primary-highlight-inverted',
+      },
+      icon: {
+        name: 'arrow-up-right',
+        family: 'phosphor',
+      },
+    },
+  },
   section_site_info: {
     logo: {
       picture: {

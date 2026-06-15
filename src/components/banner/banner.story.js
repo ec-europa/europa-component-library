@@ -21,6 +21,7 @@ const getArgs = (data) => {
     font_size: 'm',
     font_weight: 'light',
     box_background: 'light',
+    box_background_overlay: 'light',
     overlay: false,
     font_color: 'dark',
     title: data.title.link.label,
@@ -211,7 +212,29 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'light' },
         category: 'Display',
       },
-      if: { arg: 'show_media' },
+      if: { arg: 'overlay', truthy: false },
+    },
+    box_background_overlay: {
+      name: 'box background',
+      type: 'select',
+      description: 'Change box background (dark not available with overlay)',
+      options: ['none', 'light'],
+      control: {
+        labels: {
+          none: 'none',
+          light: 'light',
+        },
+      },
+      mapping: {
+        none: 'none',
+        light: 'light',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'light' },
+        category: 'Display',
+      },
+      if: { arg: 'overlay' },
     },
     horizontal: {
       name: 'horizontal',
@@ -388,6 +411,9 @@ const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
   Object.assign(clone, args);
+  if (args.overlay) {
+    clone.box_background = args.box_background_overlay;
+  }
 
   if (!showTitle) delete clone.title;
   if (!showDescription) delete clone.description;

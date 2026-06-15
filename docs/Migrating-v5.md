@@ -2,66 +2,70 @@
 
 The following guidelines aim to facilitate the migration from ECL v4 to v5.
 
+- [New components in ECL 5](#new-components-in-ecl-5)
 - [Style modifications](#style-modifications)
 - [Component modifications](#component-modifications)
-- [Js modifications](#js-modifications)
 - [Packages modifications](#packages-modifications)
+
+## New components in ECL 5
+
+The following components are new in ECL 5 and have no direct equivalent in ECL 4:
+
+- **Add to calendar** (`@ecl/add-to-calendar`) — button that exports an event to calendar apps
+- **Animated numbers** (`@ecl/animated-numbers`) — displays counters that animate into view
+- **Highlight box** (`@ecl/highlight-box`) — visually prominent box for key content
+- **News ticker** (`@ecl/news-ticker`) — cycling list of short news items
+- **Page information** (`@ecl/page-information`) — metadata block (dates, authors, etc.)
+- **Page summary** (`@ecl/page-summary`) — structured summary card for a page or article
+- **Popover** (`@ecl/popover`) — floating panel with richer content than a tooltip
+- **Quiz** (`@ecl/quiz`) — interactive quiz / poll card
+- **Slogan ticker** (`@ecl/slogan-ticker`) — scrolling text banner
+- **Spotlight** (`@ecl/spotlight`) — highlighted content block with image and text
+- **Text and media** (`@ecl/text-media`) — large media file with corresponding textual information
+- **Tooltip** (`@ecl/tooltip`) — contextual tooltip attached to an element
+
+The **Tabs** component (`@ecl/tabs`) existed in ECL 4 as a static pattern; in ECL 5 it gained interactive JavaScript behaviour (responsive overflow, keyboard navigation).
 
 ## Style modifications
 
-Color definition and usage have greately changed for ECL5, with the introduction of color modes in EC.
+Color definition and usage have greatly changed for ECL 5, with the introduction of color modes in EC.
 
 Typography has also changed quite drastically in EC.
 
 ### Grid
 
-- A new breakpoint has been added, it is labelled XXL and it is set at 1368px.
-  All the responsive utilities have been updated to include also the new breakpoint.
-- Main container width has been updated on large breakpoints; now it uses available sace more efficiently
-- Grid gutters are now changing based on the breakpoints
+- The main container max-width at the XL breakpoint has been extended to 1368px, making better use of wide screens. The breakpoint labels themselves (`xs`, `s`, `m`, `l`, `xl`) are unchanged.
+- Grid gutters are now changing based on the breakpoints.
 
 ### [EC] Color scales
 
 Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-25` to `[color]-950`. Color values have also been changed.
 Dark and neutral colors have been merged into a single palette: `neutral`.
 
-A few palettes are also provided for grey colors: `grey`, `grey-alpha` and ` monochrome`.
+A few palettes are also provided for grey and white colors: `grey`, `grey-alpha`, `monochrome` and `white-alpha`.
+
+Not all colors have a direct correspondence with ECL 4, but here are the main ones:
+| ECL4 | ECL5 |
+| -- | -- |
+| primary-100 | primary-600 |
+| secondary-100 | secondary-400 |
 
 ### [EC] Color modes
 
-A color mode is a set of color, applied to different elements, and giving a distinct identity to a specific page or site. Currently the color modes are used only on EC.
+A color mode is a set of colors, applied to different elements, and giving a distinct identity to a specific page or site. Currently the color modes are used only on EC.
 
 Every color mode is defined in a new file, called `ecl-ec-color-modes.css`. If this file is omitted, the default EC display is used.
 
-Components can use one mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components taking benefits of it (not all the components are affected by color modes).
+Components can use one mode or another by adding a CSS class to its root. The CSS class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components that benefit from it (not all the components are affected by color modes).
 
 How it works:
 
-- several colors are defined to be part of the color modes, via the use of new css proporties. It includes background (surface), content (on surface) and borders
-- some components have a new parameter `color-mode` to switch from one color mode to the other, and are using these new css color mode properties where needed, with a fallback to previously defined color
-- EC css defines a default value for these color mode properties; EU does not use color mode currently, and so relies on the fallback
-- the new color modes css simply override the value of some properties
+- several colors are defined to be part of the color modes, via the use of new CSS properties. It includes background (surface), content (on surface) and borders
+- some components have a new parameter `color_mode` to switch from one color mode to another, and are using these new CSS color mode properties where needed, with a fallback to previously defined color
+- EC CSS defines a default value for these color mode properties; EU does not currently use color modes
+- the new color modes CSS simply overrides the value of some properties
 
-Here is the list of variables used in the color modes:
-| Name | CSS custom property | Utilities |
-| ---------------------- | --------------------------- | ------------------------ |
-| surface lowest | --cm-surface-lowest | _-surface-lowest |
-| surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
-| surface low 1 | --cm-surface-low-1 | _-surface-low-1 |
-| surface low 2 | --cm-surface-low-2 | _-surface-low-2 |
-| surface medium | --cm-surface-medium | _-surface-medium |
-| surface | --cm-surface | _-surface |
-| surface-high | --cm-surface-high | _-surface-high |
-| surface variant 1 | --cm-surface-variant-1 | _-surface-variant-1 |
-| surface variant 2 | --cm-surface-variant-2 | _-surface-variant-2 |
-| on surface | --cm-on-surface | _-on-surface |
-| on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
-| on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
-| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
-| on surface swap 1 | --cm-on-surface-swap-1 | _-on-surface-swap-1 |
-| on surface swap-2 | --cm-on-surface-swap-2 | _-on-surface-swap-2 |
-| border low | --cm-border-low | _-border-low |
-| border | --cm-border | \_-border |
+The color mode custom properties all use the `--cm-` prefix. They cover surface backgrounds (e.g. `--cm-surface-0`, `--cm-surface-lowest`, `--cm-surface-low-1`, `--cm-surface-variant-1`), foreground/text colors (e.g. `--cm-on-surface`, `--cm-on-surface-highlight`, `--cm-on-surface-swap-1`) and borders (e.g. `--cm-border-low`, `--cm-border`). The full list is available in the theme's custom properties file (`src/themes/ec/_custom-properties.scss`).
 
 ### [EC] Typography
 
@@ -71,37 +75,37 @@ Font size now goes from `10xl` to `2xs`, line height goes from `10xl` to `3xs`.
 
 **Important note**: default font size (`m`) is now 18px/1.125rem, instead of 16px/1rem. It makes all content displayed larger.
 
-There are now 9 levels of font weight, from `thin` to `black`.
+There are now 11 levels of font weight, from `thin` to `black`: thin, extra-light, light, semi-regular, regular, medium, semi-bold, near-bold, bold, extra-bold, black.
 
 A new very large typography has been added, called `display`.
 
-Font variant have been updated too. The variant `font-ui`, previously used to have larger line height, has been removed.
+Font variants have been updated too. The variant `font-ui`, previously used to have larger line height, has been deprecated.
 
-Corresponding css properties and utilities have been updated accordingly:
+Corresponding CSS properties and utilities have been updated accordingly:
 
 - paragraph utilities now use the new font scale, and go from `ecl-u-type-paragraph-xs` to `ecl-u-type-paragraph-2xl` (previously existing utilities like `ecl-u-type-paragraph-lead` are still valid)
-- css properties are available to handle font-size and line-height directly
+- CSS properties are available to handle font-size and line-height directly
 
 ### [EC] Shadows
 
-EC shadows name have been updated to follow a more easy to read scale. This affect utilities and css properties, as they are now using the new names.
+EC shadow names have been updated to follow a more easy to read scale. This affects utilities and CSS properties, as they are now using the new names.
 
 Here are ECL 5 shadows, and the mapping with ECL 4.
-| ECL 5 | ECL 4 |
+| ECL 4 | ECL 5 |
 | -------------- | ---------------- |
 | ecl-u-shadow-1 | ecl-u-shadow-1 |
-| ecl-u-shadow-2 | ecl-u-shadow-6 |
-| ecl-u-shadow-3 | ecl-u-shadow-12 |
-| ecl-u-shadow-4 | ecl-u-shadow-16 |
-| ecl-u-shadow-5 | / (new in ECL 5) |
+| ecl-u-shadow-6 | ecl-u-shadow-2 |
+| ecl-u-shadow-12 | ecl-u-shadow-3 |
+| ecl-u-shadow-16 | ecl-u-shadow-4 |
+| / (new in ECL 5) | ecl-u-shadow-5 |
 
 EU shadows have not been modified (name and value).
 
 ### [EC] Spacing
 
-The scale has been extended in EC, it now has all these values: `5xs`, `4xs`, `3xs`, `2xs`, `xs`, `s`, `m`, `l`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`, `8xl`, `9xl`, `10xl`
+The scale has been extended in EC, it now has all these values: `5xs`, `4xs`, `3xs`, `2xs`, `xs`, `s`, `m`, `l`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`, `8xl`, `9xl`, `10xl`, `11xl`, `12xl`, `13xl`
 
-The primary values used for spacing have largely remained unchanged: `m` is still `16px`, `s` is `12px`, and `l` is `20px`."
+The primary values used for spacing have largely remained unchanged: `m` is still `16px`, `s` is `12px`, and `l` is `20px`.
 
 ### Utilities
 
@@ -109,40 +113,44 @@ Utilities have been added for the color modes. They are available for background
 
 Here are a few examples:
 
-- `ecl-u-bg-surface`
+- `ecl-u-bg-surface-0`, `ecl-u-bg-surface-lowest`
 - `ecl-u-border-color-border-low`
 
-Other modification for the utilities:
+Other modifications to the utilities:
 
 - `ecl-u-border-radius-1` has been removed, as it was barely visible
 
 ### Right to left
 
-The way ECL handles right to left has been updated. Previously, we were delivering an optional css for that, now the corresponding css has been integrated directly in the components.
+The way ECL handles right to left has been updated. Previously, we were delivering an optional CSS for that, now the corresponding CSS has been integrated directly in the components.
 
-To have the correct right to left display, you should make sure that the html `dir` attribute is correctly set on the page (it could be on the `html` or `body` tag for instance).
+To have the correct right to left display, you should make sure that the HTML `dir` attribute is correctly set on the page (it could be on the `html` or `body` tag for instance).
 
-If not specificed, the default reading direction remains left to right.
+If not specified, the default reading direction remains left to right.
 
 ## Component modifications
 
 ### Accordion
 
-Markup of accordion title has been updated
+Markup of the accordion title has been updated
 
-- it relies on the use of default HTML tags `details` and `summary`. Javascript is no longer required as everything is handled by the browser.
-- items no longer uses heading. Corresponding twig parameter `level` has been removed.
-- a selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the css is now expecting those classes instead of relying on the order of the sibling items in the markup.
+- It relies on the use of default HTML tags `details` and `summary`. For the standard accordion, Javascript is no longer required as the open/close behaviour is handled natively by the browser.
+- Items no longer use headings. Corresponding twig parameter `level` has been removed.
+- New parameter `name` added, enabling the browser-native "only one open at a time" behaviour.
+- A selector has been added to the first item `.is-first` and to the last item `.is-last` of the accordion, the CSS is now expecting those classes instead of relying on the order of the sibling items in the markup.
+
+**Note:** the sidebar variant of the accordion still requires the `Accordion` JS class to be initialized (it handles keeping items open on desktop and collapsed on mobile). The `data-ecl-auto-init="Accordion"` attribute is present on all accordion instances; if you don't use the sidebar variant you can safely skip loading the accordion JS.
 
 Event management:
 
-As there is no more ECL javascript for the accordion, javascript event are no longer provided by us. But the `details` element comes with a [build-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which could be used directly
+For the standard accordion, ECL no longer provides custom javascript events. But the `details` element comes with a [built-in toggle event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event), which can be used directly.
 
 ### Banner
 
-- Aspect ratio of the banner is now fixed for mobile and tablet. Note that it is a different aspect ratio than desktop banners.
-  Desktop banners are unchanged in terms of aspect ratio: **Mobile: 3/2, Tablet: 3/1**
-- Additional font size avaiable for banners, now offering three values: `s`, `m` and `l`
+- Aspect ratio of the banner is now fixed for mobile and tablet: **Mobile: 3/2, Tablet: 3/1**. On desktop the aspect ratio depends on the `size` parameter and differs from mobile/tablet.
+- Additional font size available for banners, now offering three values: `s`, `m` and `l` (via the `font_size` twig parameter)
+- New parameter `font_weight` to have light or bold text display
+- New parameter `overlay` to display a semi-transparent filter on the image
 
 ### Breadcrumb
 
@@ -151,19 +159,21 @@ As there is no more ECL javascript for the accordion, javascript event are no lo
 
 ### Button
 
-- Button variant have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
+- Button variants have been updated, to be more flexible. Available variants are `primary`, `secondary`, `tertiary`
 - On top of the variants different styles are available: `highlight`, `neutral` and `inverted`
 
 Depending on your usage, you may have to update the button classes to match the new ones.
 
 Here is the mapping to the new variant / style:
 
-- primary -> primary
-- secondary -> secondary
-- tertiary -> tertiary / neutral
-- cta -> primary / highlight
-- ghost -> tertiary
-- ghost-inverted -> tertiary / inverted
+| ECL v4         | ECL v5              |
+| -------------- | ------------------- |
+| primary        | primary             |
+| secondary      | secondary           |
+| tertiary       | tertiary / neutral  |
+| cta            | primary / highlight |
+| ghost          | tertiary            |
+| ghost-inverted | tertiary / inverted |
 
 ### Card
 
@@ -175,7 +185,7 @@ Here is the mapping to the new variant / style:
 
 ### Content block
 
-- The `data-ecl-title-link` attribute used by the js script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
+- The `data-ecl-title-link` attribute used by the JS script to identify titles containing links has been moved from the `div.content-block__title` to the link element itself.
 - New parameter `secondary_meta_direction` to change orientation of secondary meta (default vertical)
 
 ### Content item
@@ -184,9 +194,7 @@ Here is the mapping to the new variant / style:
 
 ### Datepicker
 
-ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Therefore the pikaday script needs to be replaced by:
-
-`<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>`
+ECL v5 uses [duet datepicker](https://duetds.github.io/date-picker/) which replaces the previous implementation using pikaday. Check the "getting started" page on the ECL website for more information.
 
 **Important:** Using an external CDN may not be allowed for your website (this is most probably the case if it is hosted under europa.eu).
 In that case, you would have to use one of the following options and use:
@@ -200,19 +208,20 @@ inside the `dist` folder there is the `duet.esm.js` script to be loaded in a scr
 The markup is now using the custom element defined by duet js:
 `<div class="ecl-datepicker" data-ecl-auto-init="Datepicker" data-ecl-datepicker-toggle=""><duet-date-picker identifier="example-input-id-1" /></div>`
 
-- Short months: The select to choose the month is now showing options using abbreviations for the month names, the default ones in english are provided by the ecl datepicker's js, the name of the option is `monthNamesShort`.
+- Short months: The select to choose the month is now showing options using abbreviations for the month names, the default ones in English are provided by the ecl datepicker's js, the name of the option is `monthNamesShort`.
 
 ### Fact & figures
 
 - A selector is added to the first item in the list, `.is-first`.
 - The selector used to reduce the font-size has changed, it's `.ecl-fact-figures__item--font-m` now and it's applied to each item instead of the root element.
+- New parameters `sources` and `sources_label` to add link to sources
 
 ### Featured item
 
 - Variant `simple` has been removed (deprecated in v4)
 - Featured item footer has been removed, as it is no longer in use.
 - Markup has been updated: now it reflects the real element orders, extra container added around the text content, and `ecl-featured-item__title-content` has been removed
-- New parameter `link-highlighted` to have a different display for the link
+- New parameter `link_highlighted` to have a different display for the link
 - New parameter `id` to provide a unique id for the element. It is used in aria attributes. Set to a random string by default.
 - New parameters `horizontal_alignment` and `vertical_alignment` to handle text alignment
 - New parameter `media_behavior` to allow the image to take the full height if needed
@@ -220,7 +229,7 @@ The markup is now using the custom element defined by duet js:
 ### Form
 
 - Icon for the invalid text has been changed to the outline one
-- The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo example have been updated in that sense. The parameter is still available in twig template, but left empy by default.
+- The label for required fields has been made more explicit ("required" instead of "\*"), so unless a custom label is used, it is no longer needed to provide an aria-label for it. Demo examples have been updated in that sense. The parameter is still available in twig template, but left empty by default.
 
 ### Gallery
 
@@ -230,18 +239,18 @@ The markup is now using the custom element defined by duet js:
 ### Icon
 
 ECL is no longer providing the icons directly: they are now hosted and distributed centrally by Webtools.
-Please make sure to check the documentation, as addition configuration or files may be needed to make the icons work.
+Please make sure to check the documentation, as additional configuration or files may be needed to make the icons work.
 
 Here is the official documentation: https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_use
 
 Twig templates have been updated to deliver the new markup for the icon, so this is mostly transparent, except for a few new parameters:
 
-- `family`, to specify the icon family when needed (social media and flags currently)
+- `family`, to specify the icon family when needed (social media, flags, phosphor)
 - `style`, if the icon has to be displayed in a specific style (primary, inverted, ...). This is only used for social media currently
 
 If you don't use the templates, this would have to be done manually:
 
-- keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style
+- keep the existing ECL classes, and append the Webtools classes (name, family, style). Pay extra attention to the social networks and flags, needing a family and possibly a style. The `wt-*` class should be the first in order, otherwise the script would not convert it.
 
   Examples:
   - `ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon` (v4) should become `wt-icon--plus ecl-icon ecl-icon--s ecl-icon--plus ecl-accordion__toggle-icon`
@@ -257,14 +266,15 @@ As the data structure of icons is slightly different on Webtools, here are a few
 
 Extra attention points:
 
-- flags are now names with the country code istead of the full name (`be` instead of `belgium`)
+- flags are now named with the country code instead of the full name (`be` instead of `belgium`)
 - flags squared are no longer available
 
 ### Link
 
-- following the button updates, type `cta` has ben renamed to `primary-highlight`
+- following the button updates, type `cta` has been renamed to `primary-highlight`
 - variant `ecl-link--no-visited` has been removed (it was marked as deprecated). Visited links have the same color as default link in ECL 5
 - new parameter `branded` added, to use an alternative display (using dark text instead of blue)
+- additional types provided for "link-buttons" (links disguised as buttons)
 
 ### List with illustration
 
@@ -273,17 +283,14 @@ Two new variants have been added:
 - icon list (twig param: `icon_list`)
 - number list (twig param: `number_list`)
 
-For the number list additional parameter are available:
+For the number list additional parameters are available:
 
 - `counter_reset` (default: true) Resets the counter of the list
 - `counter_start` (default: 0) Starting number of the counter when counter_reset is true
 
 These variants are supposed to be used with a description only and in a layout with a single column or two columns maximum
 
-An additional param has been added to place the icon on the left and not on top:
-
-- `icon_inline`
-  This cannot be used in combnation with the `centered` variant
+An additional parameter has been added to place the icon on the left and not on top: `icon_inline`. This cannot be used in combination with the `centered` variant
 
 ### Mega menu
 
@@ -323,7 +330,7 @@ featured: {
 
 The image will be clickable and will act as the associated link.
 
-It is now possible to highlight a menu link (first level) associated to a special event or page passing the "promotional" paramter as part of the item's data.
+It is now possible to highlight a menu link (first level) associated to a special event or page passing the "promotional" parameter as part of the item's data.
 The related styles can be customized defining:
 --ecl-mega-menu-item-promotional-bg
 --ecl-mega-menu-item-promotional-hover-bg
@@ -345,13 +352,13 @@ The modal variants now use the outline version of the icons, instead of the fill
 
 ### Notification
 
-The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default one are set in the template.
+The default notifications now use the outline version of the icons, instead of the filled one. It is still possible to use any icon if needed; the default ones are set in the template.
 
 ### Page header
 
-- Several new display option added. Corresponding twig parameters are: `has_background`, `color_mode`, `description_position`, `picture_position`
+- Several new display options added. Corresponding twig parameters are: `has_background`, `color_mode`, `description_position`, `picture_position`
 - Optional section added on top of the page header. It is filled with the parameter `expandable`
-- Meta now support a structure { label , icon } in addition to the existing string
+- Meta now supports a structure { label , icon } in addition to the existing string
 - Deprecated overlay on the image has been removed
 
 ### Picture
@@ -360,7 +367,7 @@ The default notifications now use the outline version of the icons, instead of t
 
 ### Radio
 
-- To be consistent with checkboxes, css class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
+- To be consistent with checkboxes, CSS class `ecl-radio--invalid` is added at the root of the component, when the radio is not correctly selected.
 - To keep the helper and invalid text accessible, they are duplicated into the `legend` tag, but kept hidden on screen
 
 ### Range
@@ -381,7 +388,7 @@ This element is managed by Webtools, and has been removed from ECL showcase
 
 ### Site footer
 
-Site footer EC has been completely revamped to accomodate new design (markup, css and data structure):
+Site footer EC has been completely revamped to accommodate new design (markup, css and data structure):
 
 - sections are now clearly identified
 - social media links are using the Social Media Follow component
@@ -396,15 +403,13 @@ EU footer hasn't changed, but is now using its own template file
 
 ### Timeline
 
-- new section available to add headline (larger first item). Corresponding twig parameter is `headline`
-- new way to group multiple timeline, in a timeline set. This is a separated template, just using an array of timelines.
-
-## Js modifications
+- new section available to add a headline (larger first item). Corresponding twig parameter is `headline`
+- new way to group multiple timelines, in a timeline set. This is a separate template, just using an array of timelines.
 
 ## Packages modifications
 
 The number of the distributed npm packages has been drastically reduced in ECL v5 by merging the ones defining the components into a single package containing scss, js and the twig template.
-The naming of those packages has been then simplified using only the name of the component still in the @ecl namespace.
+The naming of those packages has then been simplified using only the name of the component still in the @ecl namespace.
 Ex: `@ecl/button`, `@ecl/gallery`, `@ecl/site-header`
 
 In ECL v5 the twig templates can be retrieved all at once in a single package named `@ecl/twig-templates`, it contains the templates inside the respective component's folder to be compatible with the way ECL includes its own templates.

@@ -22,12 +22,12 @@ const getArgs = (data) => {
     media_position: 'left',
     media_behavior: 'static',
     media_anchor: 'center',
-    link_display: 'default',
+    link_display: '',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  if (system === 'ec') {
+  if (system === 'ec' && data.type === 'highlight') {
     args.color_mode = 'default';
   }
 
@@ -35,11 +35,11 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = getColorModeControls();
+  const argTypes = data.type === 'highlight' ? getColorModeControls() : {};
 
   argTypes.show_media = {
     type: 'boolean',
-    name: 'Show media',
+    name: 'show media',
     description: 'Toggle media visility',
     table: {
       category: 'Optional',
@@ -47,7 +47,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.micro_title = {
-    name: 'Micro title',
+    name: 'micro title',
     type: 'string',
     description: 'Features item content micro title',
     table: {
@@ -58,7 +58,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.title = {
-    name: 'Title',
+    name: 'title',
     type: 'string',
     description: 'Features item content title',
     table: {
@@ -69,7 +69,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.description = {
-    name: 'Description',
+    name: 'description',
     type: 'string',
     description: 'Features item content description',
     table: {
@@ -81,7 +81,7 @@ const getArgTypes = (data) => {
 
   if (data.link.link.label) {
     argTypes.link_label = {
-      name: 'Link label',
+      name: 'link label',
       type: { name: 'string' },
       description: 'Label of the link',
       table: {
@@ -92,19 +92,23 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (
-    system === 'ec' &&
-    (data.type === 'simple' || data.type === 'highlight')
-  ) {
+  if (system === 'ec' && data.type === 'highlight') {
     argTypes.link_display = {
-      name: 'Link display',
+      name: 'link display',
       type: { name: 'select' },
       description: 'Optional link display',
-      options: ['default', 'button', 'highlight'],
+      options: ['', 'button', 'highlighted'],
+      control: {
+        labels: {
+          '': 'default',
+          button: 'button',
+          highlighted: 'highlighted',
+        },
+      },
       mapping: {
-        default: 'default',
+        default: '',
         button: 'button',
-        highlight: 'highlight',
+        highlighted: 'highlighted',
       },
       table: {
         type: { summary: 'string' },
@@ -115,12 +119,18 @@ const getArgTypes = (data) => {
     };
   } else {
     argTypes.link_display = {
-      name: 'Link display',
+      name: 'link display',
       type: { name: 'select' },
       description: 'Optional link display',
-      options: ['default', 'button'],
+      options: ['', 'button'],
+      control: {
+        labels: {
+          '': 'default',
+          button: 'button',
+        },
+      },
       mapping: {
-        default: 'default',
+        default: '',
         button: 'button',
       },
       table: {
@@ -133,7 +143,7 @@ const getArgTypes = (data) => {
   }
 
   argTypes.horizontal_alignment = {
-    name: 'Horizontal alignment',
+    name: 'horizontal alignment',
     type: { name: 'select' },
     description: 'Content alignment (horizontal)',
     options: ['left', 'center'],
@@ -149,7 +159,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.vertical_alignment = {
-    name: 'Vertical alignment',
+    name: 'vertical alignment',
     type: { name: 'select' },
     description: 'Content alignment (vertical); tablet and desktop only',
     options: ['top', 'center'],
@@ -165,7 +175,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_position = {
-    name: 'Media position',
+    name: 'media position',
     type: { name: 'select' },
     description: 'Media position',
     options: ['left', 'right'],
@@ -182,7 +192,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_behavior = {
-    name: 'Media fill behavior',
+    name: 'media fill behavior',
     type: { name: 'select' },
     description: 'Media fill behavior',
     options: ['static', 'dynamic'],
@@ -199,7 +209,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.media_anchor = {
-    name: 'Media anchor',
+    name: 'media anchor',
     type: { name: 'select' },
     description: 'Media anchor (sample)',
     options: ['center', 'top left', 'bottom right', '20% 20%'],
@@ -235,12 +245,6 @@ const prepareData = (data, args) => {
     clone.media_container.picture.image_anchor = args.media_anchor;
   } else {
     delete clone.media_container;
-  }
-
-  if (args.link_display === 'highlight') {
-    clone.link_highlighted = true;
-  } else if (args.link_display === 'button') {
-    clone.link.link.type = 'primary-neutral';
   }
 
   return Object.assign(correctPaths(clone), args);

@@ -75,7 +75,7 @@ $site-footer: null !default;
 .ecl-site-footer__main {
   background-color: map.get($site-footer, 'background');
   color: map.get($site-footer, 'color');
-  padding-block: var(--s-8xl);
+  padding-block: var(--s-7xl) var(--s-13xl);
 }
 
 .ecl-site-footer__row {
@@ -146,6 +146,19 @@ $site-footer: null !default;
   margin-block-start: map.get($site-footer, 'row-gap-small');
 
   &:first-of-type {
+    margin-block-start: 0;
+  }
+}
+
+.ecl-site-footer__section--feedback {
+  align-items: center;
+  column-gap: var(--s-3xl);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: var(--s-s);
+
+  .ecl-site-footer__action-button {
     margin-block-start: 0;
   }
 }

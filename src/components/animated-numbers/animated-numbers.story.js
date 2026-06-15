@@ -18,6 +18,8 @@ const getArgs = (data) => {
     category: data.category,
     value: data.value,
     numberOfItems: 4,
+    icon_name: data.icon.name,
+    icon_title: '',
   };
 
   return args;
@@ -133,6 +135,50 @@ const getArgTypes = () => ({
       type: 'text',
     },
   },
+  icon_name: {
+    name: 'icon',
+    type: { name: 'select' },
+    description: 'Icon name (sample)',
+    options: [
+      'none',
+      'archive',
+      'article',
+      'chart-line',
+      'flag',
+      'globe-simple',
+      'lightbulb',
+      'users',
+    ],
+    mapping: {
+      none: 'none',
+      archive: 'archive',
+      article: 'article',
+      'chart-line': 'chart-line',
+      flag: 'flag',
+      'globe-simple': 'globe-simple',
+      lightbulb: 'lightbulb',
+      users: 'users',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content (first item)',
+    },
+  },
+  icon_title: {
+    name: 'icon title',
+    type: { name: 'string' },
+    description: 'Textual information for the icon, mostly for screen readers',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content (first item)',
+    },
+    control: {
+      type: 'text',
+    },
+    if: { arg: 'icon_name', neq: 'none' },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -153,6 +199,12 @@ const prepareData = (data, args) => {
   cloned.items[0].prefix = args.prefix;
   cloned.items[0].value = args.value;
   cloned.items[0].suffix = args.suffix;
+  if (args.icon_name !== 'none') {
+    cloned.items[0].icon.name = args.icon_name;
+    cloned.items[0].icon.title = args.icon_title;
+  } else {
+    delete cloned.items[0].icon;
+  }
 
   const count = Math.min(Math.max(args.numberOfItems, 1), 8);
 
