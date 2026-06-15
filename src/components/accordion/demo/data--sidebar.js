@@ -3,7 +3,6 @@ module.exports = {
   sidebar: true,
   items: [
     {
-      id: 'collapsible-form-example',
       toggle: {
         label: 'Filter by',
       },
