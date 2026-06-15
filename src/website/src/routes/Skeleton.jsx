@@ -42,6 +42,14 @@ class Skeleton extends Component {
       if (!element) {
         const head = document.head || document.getElementsByTagName('head')[0];
 
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.id = `${system}-css`;
+        link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}.css`;
+        link.media = 'screen';
+        head.appendChild(link);
+
         const utils = document.createElement('link');
         utils.rel = 'stylesheet';
         utils.type = 'text/css';
