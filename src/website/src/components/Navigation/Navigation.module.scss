@@ -2,8 +2,6 @@
 @use '@ecl/theme-ec/theme' as *;
 
 $_nav-width: 17rem;
-$_nav-logo-height: 2rem;
-$_nav-logo-max-width: 10rem;
 $_nav-toggle-size: 2.75rem; // 44px
 $_nav-toggle-bar-width: 1.5rem; // 24px
 $_nav-toggle-bar-height: 0.125rem; // 2px
@@ -15,6 +13,7 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
   bottom: 0;
   left: 0;
   overflow: auto;
+  padding-block-end: 15rem;
   position: fixed;
   top: 0;
   transition: transform 300ms ease;
@@ -59,22 +58,14 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .logo {
-  background-image: url('@ecl/preset-ec/dist/images/logo/positive/logo-ec--en.svg');
-  background-position: 0 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
   display: block;
-  height: $_nav-logo-height;
   margin-top: var(--ws-s-l);
-  max-width: $_nav-logo-max-width;
 }
 
-.logo--eu {
-  background-image: url('@ecl/preset-eu/dist/images/logo/standard-version/positive/logo-eu--en.svg');
-}
-
-.logo-sr {
-  display: none;
+.logo-img {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .title {

@@ -15,9 +15,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin-inline: -1rem;
   padding: 0;
-  width: 100%;
+  width: calc(100% + 2rem);
 }
 
 .showcase__content {
@@ -93,7 +93,7 @@
 }
 
 .more {
-  background-color: var(--ws-c-n-40);
+  background-color: #fff;
   display: flex;
   justify-content: flex-end;
 }

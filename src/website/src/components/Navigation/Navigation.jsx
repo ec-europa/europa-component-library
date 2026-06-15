@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router';
 
+import logoEc from '@ecl/preset-ec/dist/images/logo/positive/logo-ec--en.svg';
+import logoEu from '@ecl/preset-eu/dist/images/logo/standard-version/positive/logo-eu--en.svg';
 import LinkList from './LinkList';
 import styles from './Navigation.module.scss';
 
@@ -36,16 +38,20 @@ const Navigation = React.memo(
       <header className={styles.header}>
         <span className={styles.version}>v{process.env.ECL_VERSION}</span>
         {prefix === '/eu' ? (
-          <Link
-            to="/"
-            className={`${styles.logo} ${styles['logo--eu']}`}
-            title="European Union"
-          >
-            <span className={styles['logo-sr']}>European Union</span>
+          <Link to="/" className={styles.logo}>
+            <img
+              src={logoEu}
+              alt="European Union logo"
+              className={styles['logo-img']}
+            />
           </Link>
         ) : (
-          <Link to="/" className={styles.logo} title="European Commission">
-            <span className={styles['logo-sr']}>European Commission</span>
+          <Link to="/" className={styles.logo}>
+            <img
+              src={logoEc}
+              alt="European Commission logo"
+              className={styles['logo-img']}
+            />
           </Link>
         )}
         <div className={styles.title}>Europa Component Library</div>
