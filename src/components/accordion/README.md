@@ -10,7 +10,6 @@ npm install --save @ecl/accordion
 
 - **"color_mode"** (string)
 - **"items"** (array) (default: []): format:
-  - "id" (string) (default: '') Used for binding of togglable elements
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
     - "extra_classes" (string) (default: ''): extra classes for the toggle
