@@ -11,6 +11,7 @@ import notes from './README.md';
 const getArgs = (variant) => {
   let args = {
     show_co_owner: true,
+    show_feedback: true,
   };
 
   if (variant !== 'core') {
@@ -34,6 +35,14 @@ const getArgTypes = (variant) => {
     name: 'co-owner',
     type: { name: 'boolean' },
     description: 'Show co-owner banner',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+  argTypes.show_feedback = {
+    name: 'feedback',
+    type: { name: 'boolean' },
+    description: 'Show feedback section',
     table: {
       category: 'Optional sections',
     },
@@ -104,6 +113,9 @@ const prepareData = (data, args) => {
 
   if (!args.show_co_owner) {
     delete clone.co_owner;
+  }
+  if (!args.show_feedback) {
+    delete clone.section_feedback;
   }
   if (!args.show_contact) {
     delete clone.section_contact;
