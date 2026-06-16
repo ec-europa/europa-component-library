@@ -8,8 +8,6 @@ The component is available in a positive and a negative version. Harmonised and 
 
 ### Standardised & harmonised config.
 
-Anatomy table
-
 | N﻿o. | E﻿lement/Component | S﻿tandardised                    | H﻿armonised                      | D﻿escription                                                                                                                                                                                                  |
 | ---- | ------------------ | -------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1    | Breadcrumb         | mandatory                        | mandatory                        | Breadcrumb component provides information on the page and its relationship to the site's hierarchy and structure                                                                                              |
