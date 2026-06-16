@@ -8,14 +8,14 @@ npm install --save @ecl/page-summary
 
 ## Parameters
 
-- **"id"** (string) (default: random): page summary id
-- **"title"** (string) (default: ''): page summary title
-- **"description"** (string) (default: ''): page summary description
-- **"icon"** (object) (default: ''): icon for the title; follows the ECL Icon structure
-- **"extra_classes"** (string) (default: '')
-- **"extra_attributes"** (optional) (array) (default: [])
+- **"id"** (string) (default: random) Unique id for the section
+- **"title"** (string) (default: '') Page summary title
+- **"description"** (string) (default: '') Page summary description text
+- **"icon"** (object) (default: {}) Icon for the title following ECL Icon structure
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ## Example:
 

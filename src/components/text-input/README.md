@@ -8,16 +8,16 @@ npm install --save @ecl/text-input
 
 ### Parameters:
 
-- **"id"** (string) (default: random)
-- **"disabled"** (boolean) (default: false)
-- **"invalid"** (boolean) (default: false)
-- **"required"** (boolean) (default: false)
-- **"name"** (string) (default: '')
-- **"type"** (string) (default: '')
-- **"placeholder"** (string) (default: '')
-- **"width"** (string) (default: 'm') Input width size (s, m or l)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"id"** (string) (default: random) Unique id for the input
+- **"disabled"** (boolean) (default: false) Disables the input
+- **"invalid"** (boolean) (default: false) Displays the input in invalid state
+- **"required"** (boolean) (default: false) Marks the input as required
+- **"name"** (string) (default: '') Name attribute for the input
+- **"type"** (string) (default: 'text') Input type attribute (e.g. 'text', 'email', 'search')
+- **"placeholder"** (string) (default: '') Placeholder text
+- **"width"** (string) (default: 'm') Input width; can be 's', 'm', 'l'
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

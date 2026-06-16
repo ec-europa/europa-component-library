@@ -14,17 +14,17 @@ npm install --save @ecl/featured-item
 - **"title"** (string) (default: ''): Title of the content opposite the media container,
 - **"micro_title"** (string) (default: ''): Small additional title
 - **"description"** (string) (default: ''): Description of the content opposite the media container,
-- **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
-- **"link_display"** (string) (default: ''): optional display for the link; can be 'button' (all types), highlighted' (type highlight only)
-- **"horizontal_alignment"** (string) (default: 'left'): content alignment (horizontal); can be 'left', 'center'
-- **"vertical_alignment"** (string) (default: 'top'): content alignment (vertical); can be 'top', 'center'
-- **"media_container"** (associative array) (default: predefined structure) predefined structure for the Media container component
-- **"media_behavior"** (string) (default: 'static'): fill behavior of the media; can be 'static', 'dynamic'
-- **"position"** (string) (default: 'left'): Media position relative to the text; can be 'left', 'right'
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"link"** (object) (default: {}) Link displayed below the description, following ECL Link structure
+- **"link_display"** (string) (default: '') Display style for the link; can be 'button' (all types) or 'highlighted' (highlight type only)
+- **"horizontal_alignment"** (string) (default: 'left') Content alignment (horizontal); can be 'left', 'center'
+- **"vertical_alignment"** (string) (default: 'top') Content alignment (vertical); can be 'top', 'center'
+- **"media_container"** (object) (default: {}) Media displayed alongside the text, following ECL Media container structure
+- **"media_behavior"** (string) (default: 'static') Fill behavior of the media; can be 'static', 'dynamic'
+- **"position"** (string) (default: 'left') Media position relative to the text; can be 'left', 'right'
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'.
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Deprecated
 

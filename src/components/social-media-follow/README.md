@@ -13,8 +13,8 @@ npm install --save @ecl/social-media-follow
 - **"description_inline"** (boolean) (default: false) Should the description be displayed inline?
 - **"position"** (string) (default: 'left') Position (can be 'left', 'right')
 - **"links"** (array) (default: []) Array of links for social media, following ECL Link structure
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

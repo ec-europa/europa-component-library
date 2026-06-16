@@ -2,43 +2,41 @@
 
 {#
   Parameters:
-  - "id" (string) (default: randomized string)
-  - "variant" (string) (default: 'default') Name of the variant [default, thumbnail]
-  - "icon" (object) (default: {}): object of type Icon; file type
-  - "title" (string|object) (default: '') Plain text title or named link object 
-    Ex: title: {
-          link: {
-            label: 'Link label',
-            path: 'Url or path to a webpage'
-          }
-        }
-  - "description" (string) (default: '') Description text (thumbnail variant)
-  - "language" (string) (default: '')
-  - "meta" (string) (default: '')
-  - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
-  - "download" (object) (default: {}): object of type Link
-  - "download_attribute" (bool) (default: false): should the download link have the download attribute?
-  - "picture" (object) (default: {}): image for the thumbnail variant
-  - "label" (array) (default: {}) array of objects of type
-  ** still supported as an object with a single label **
-  - "lists" (array) (default: []) Array of objects of type "description list".
-  - "variant" (optional) (taxonomy or horizontal)
-  - "items" (array)
-    - "term" (string)
-  - "translation" (array) (default: []):
-    - "toggle" (object) (default: {}): object of type Button
-    - "items" (array) (default: []):
-      - "title" (string) (default: '')
-      - "meta" (string) (default: '')
-      - "lang" (string) (default: '')
-      - "download" (object) (default to the parent download property) object of type Link
-  - "extra_classes" (string) (default: '')
-  - "extra_attributes" (optional) (array) (default: []) [{
+  - "id" (string) (default: random) Unique id for the file component
+  - "variant" (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'
+  - "icon" (object) (default: {}): object of type Icon; indicates the file type
+  - "title" (string|object) (default: '') Plain text title or link object:
+    {
+      link: {
+        label: (string) Link label
+        path: (string) URL or path
+      }
+    }
+  - "description" (string) (default: '') Description text (thumbnail variant only)
+  - "language" (string) (default: '') Language label for the file
+  - "meta" (string) (default: '') File metadata (size, format, etc.)
+  - "detail_meta" (array) (default: []) Additional metadata for the thumbnail variant
+  - "download" (object) (default: {}): Download link, following ECL Link structure
+  - "download_attribute" (boolean) (default: false) Add the HTML download attribute to the download link
+  - "picture" (object) (default: {}): Thumbnail image, following ECL Picture structure
+  - "label" (array) (default: []) Array of ECL Label objects (also supported as a single label object)
+  - "lists" (array) (default: []) Array of description list objects; format:
+    - "variant" (string) Description list variant (taxonomy or horizontal)
+    - "items" (array) Description list items:
+      - "term" (string) Term label
+  - "translation" (array) (default: []) Translation panel for multiple language versions:
+    - "toggle" (object) (default: {}): Toggle button, following ECL Button structure
+    - "download_attribute" (boolean) (default: false) Add download attribute to all translation links
+    - "items" (array) (default: []) Translation items:
+      - "title" (string) (default: '') Language label
+      - "meta" (string) (default: '') File metadata for this language version
+      - "lang" (string) (default: '') Language code (ISO 639-1)
+      - "download" (object) Download link override for this language (falls back to parent download)
+      - "download_attribute" (boolean) Download attribute override for this language
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
+  - "extra_attributes" (array) (default: []) Extra attributes
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
-    },
-    ...
-  ],
 #}
 
 {# Internal properties #}

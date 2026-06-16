@@ -8,34 +8,33 @@ npm install --save @ecl/file
 
 ### Parameters
 
-- **"id"** (string) (default: random string)
-- **"icon"** (object) (default: {}): object of type Icon; file type
-- **"variant"** (string) (default: 'default') Name of the variant [default, thumbnail]
-- **"title"** (string|object) (default: '') Title as plain text or link object
-- **"description"** (string) (default: '')
-- **"language"** (string) (default: '')
-- **"meta"** (string) (default: '')
-- **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
-- **"download"** (object) (default: {}): object of type Link
-- **"download_attribute"** (bool) (default: false): should the download link have the download attribute?
-- **"picture"** (associative array) (default: {}): Image, following ECL Picture structure
-- **"label"** (array of objects of type Label) (default: []) labels
-  ** also supported as an object with a single label **
-- **"lists"** (array) (default: []) Array of objects of type "description list"
-  - "variant" (optional) (taxonomy or horizontal)
-  - "items" (array)
-    - term (string)
-- **"translation"** (array) (default: []):
-  - "toggle" (object) (default: {}): object of type Button
-  - "download_attribute" (bool) (default to false)
-  - "items" (array) (default: []):
-    - "title" (string) (default: '')
-    - "meta" (string) (default: '')
-    - "lang" (string) (default: '')
-    - "download" (object) (default to the parent download property) object of type Link
-    - "download_attribute" (bool) (default to the parent download attribute)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"id"** (string) (default: random) Unique id for the file component
+- **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'
+- **"icon"** (object) (default: {}): Object of type Icon; indicates the file type
+- **"title"** (string|object) (default: '') Plain text title, or link object following ECL Link structure
+- **"description"** (string) (default: '') Description text (thumbnail variant only)
+- **"language"** (string) (default: '') Language label for the file
+- **"meta"** (string) (default: '') File metadata (size, format, etc.)
+- **"detail_meta"** (array) (default: []) Additional metadata elements for the thumbnail variant
+- **"download"** (object) (default: {}): Download link, following ECL Link structure
+- **"download_attribute"** (boolean) (default: false) Add the HTML download attribute to the download link
+- **"picture"** (associative array) (default: {}): Thumbnail image, following ECL Picture structure
+- **"label"** (array) (default: []) Array of ECL Label objects (also supported as a single label object)
+- **"lists"** (array) (default: []) Array of description list objects:
+  - "variant" (string) Description list variant; can be 'taxonomy' or 'horizontal'
+  - "items" (array) Description list items:
+    - "term" (string) Term label
+- **"translation"** (array) (default: []) Translation panel for multiple language versions:
+  - "toggle" (object) (default: {}): Toggle button, following ECL Button structure
+  - "download_attribute" (boolean) (default: false) Add download attribute to all translation links
+  - "items" (array) (default: []) Translation items:
+    - "title" (string) (default: '') Language label
+    - "meta" (string) (default: '') File metadata for this language version
+    - "lang" (string) (default: '') Language code (ISO 639-1)
+    - "download" (object) Download link override for this language (falls back to parent download)
+    - "download_attribute" (boolean) Download attribute override for this language
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

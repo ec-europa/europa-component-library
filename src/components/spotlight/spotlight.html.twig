@@ -3,18 +3,18 @@
 {#
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
-  - "font_size" (string) (default: 'l') Size of the title (can be 'm', 'l')
+  - "font_size" (string) (default: 'm') Size of the title; can be 'm', 'l'
   - "title" (string) (default: '') Title of the spotlight
-  - "path" (string) (default: '') Link url
-  - "header" (string) (default: '') Header over the spotlight
-  - "picture" (object) (default: {}): Image for the spotlight, following ECL Picture structure
-  - "has_anchor" (boolean) (default: true): Should the visual anchor be displayed?
-  - "credit" (string) (default: '') Credit for the image
-  - "full_width" (boolean) (default: false) Full width spotlight (extend outside the grid)
-  - "extra_classes" (string) (default: '')
-  - "extra_attributes" (optional) (array) (default: [])
+  - "path" (string) (default: '') Link URL for the title
+  - "header" (string) (default: '') Header text above the spotlight title
+  - "picture" (object) (default: {}) Image following ECL Picture structure
+  - "has_anchor" (boolean) (default: true) Show the visual anchor indicator
+  - "credit" (string) (default: '') Credit text for the image
+  - "full_width" (boolean) (default: false) Full width spotlight (extends outside the grid)
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
+  - "extra_attributes" (array) (default: []) Extra attributes
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}

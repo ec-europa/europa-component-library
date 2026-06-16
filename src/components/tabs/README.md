@@ -9,16 +9,17 @@ npm install --save @ecl/tabs
 ### Parameters:
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"items"** (associative array) (default: []): The tabs items - format:
-  "label": (string) (default: '')
-  "path": (string) (default: '')
-  "is_current": (boolean) (optional)
-  "extra_classes": (string) (optional)
-- **"more_label"** (string) (default: 'More (%d)')
-- **"previous_label"** (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
-- **"next_label"** (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"tab_behaviour"** (boolean) (default: false) Enables tab behaviour with content panels
+- **"items"** (array) (default: []) Tab items; format:
+  - "label" (string) (default: '') Tab label
+  - "path" (string) (default: '') Tab link URL
+  - "is_current" (boolean) (default: false) Whether this tab is active
+  - "extra_classes" (string) (default: '') Extra classes for this tab item
+- **"more_label"** (string) (default: 'Show %d more items') Label for the overflow "more" button; `%d` is replaced with the count
+- **"previous_label"** (string) (default: 'Previous') Screen reader label for the previous button (mobile)
+- **"next_label"** (string) (default: 'Next') Screen reader label for the next button (mobile)
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

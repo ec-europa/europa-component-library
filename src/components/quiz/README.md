@@ -8,39 +8,38 @@ npm install --save @ecl/quiz
 
 ## Parameters
 
-- **"id"** (string) (default: random): Unique id for the quiz; randomized if empty
-- **"variant"** (string) (default: 'reveal')
-- **"with_background"** (boolean) (default: false)
-- **"full_width"** (boolean) (default: false)
-- **"title"** (string) (default: '')
-- **"description"** (string) (default: '')
-- **"skip_text"** (string) (default: 'Use ESC to skip the quiz')
-- **"items"** (array) array of quiz cards
-  - "category" (string) (default: '') (poll variant)
-  - "success_category" (string) (default: '')
-  - "error_category" (string) (default: '')
-  - "question" (string) (default: '')
-  - "answer" (string) (default: '')
-  - "answer_title" (string) (default: '')
-  - "options" (associative array)
-  - "name" (string) (default: '')
-  - "correct" (boolean)
-  - "icon" (object) Object of type ECL icon
-  - "flip_icon" (object) Object of type ECL icon
-  - "flip_text" (string) (default: '')
-  - "back_text" (string) (default: '')
-  - "prev_label" (string) (default: '')
-  - "next_label" (string) (default: '')
-  - "esc_box" (string) (default: '')
-  - "category" (string) (default: '')
-  - "success_category" (string) (default: '')
-  - "error_category" (string) (default: '')
-  - "extra_classes" (optional) (string) (default: ''): Extra css classes for the card
-  - "extra_attributes" (optional) (array) (default: []): Extra attributes for the card
-- **"extra_classes"** (optional) (string) (default: ''): Extra css classes
-- **"extra_attributes"** (optional) (array) (default: [])
+- **"id"** (string) (default: random) Unique id for the quiz
+- **"variant"** (string) (default: 'reveal') Quiz variant; can be 'reveal', 'poll'
+- **"with_background"** (boolean) (default: false) Use a background color
+- **"full_width"** (boolean) (default: false) Full width layout
+- **"title"** (string) (default: '') Quiz title
+- **"description"** (string) (default: '') Quiz description text
+- **"prev_label"** (string) (default: '') Label for the previous button
+- **"next_label"** (string) (default: '') Label for the next button
+- **"skip_text"** (string) (default: 'Use ESC to skip the quiz') Keyboard skip hint
+- **"items"** (array) (default: []) Quiz cards; format:
+  - "id" (string) (default: random) Unique id for the card
+  - "variant" (string) (default: 'reveal') Card variant; can be 'reveal', 'poll'
+  - "category" (string) (default: '') Category label shown on front of card (poll variant)
+  - "success_category" (string) (default: '') Category label shown when answer is correct
+  - "error_category" (string) (default: '') Category label shown when answer is wrong
+  - "question" (string) (default: '') Question text
+  - "answer" (string) (default: '') Answer text shown on the back of the card
+  - "answer_title" (string) (default: '') Title on the back of the card
+  - "correct_label" (string) (default: '') Label for the correct answer indicator
+  - "incorrect_label" (string) (default: '') Label for the incorrect answer indicator
+  - "options" (array) Answer options (poll variant)
+  - "icon" (object) Icon on the front of the card following ECL Icon structure
+  - "flip_icon" (object) Icon on the flip button following ECL Icon structure
+  - "flip_text" (string) (default: '') Flip button helper text (reveal variant)
+  - "back_icon" (object) Icon on the back of the card following ECL Icon structure
+  - "back_text" (string) (default: '') Text on the back of the card
+  - "extra_classes" (string) (default: '') Extra classes for the card
+  - "extra_attributes" (array) (default: []) Extra attributes for the card
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ## Example:
 
