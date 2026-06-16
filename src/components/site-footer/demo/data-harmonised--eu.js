@@ -23,6 +23,25 @@ module.exports = {
     [
       [
         {
+          section_class_name: 'ecl-site-footer__section--feedback',
+          description: 'Help us improve our website',
+          action_button: {
+            link: {
+              label: 'Fill in survey',
+              path: exampleLink,
+              type: 'primary-highlight-inverted',
+            },
+            icon: {
+              name: 'arrow-up-right',
+              family: 'phosphor',
+            },
+          },
+        },
+      ],
+    ],
+    [
+      [
+        {
           title: {
             link: {
               label: 'Site name',

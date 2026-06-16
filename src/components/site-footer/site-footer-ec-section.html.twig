@@ -83,11 +83,18 @@
 
   {# Action button #}
   {% if _section.action_button is not empty %}
+    {% set _button_size = _section.action_button.link.size|default('m') %}
+    {% set _button_class = 'ecl-site-footer__action-button' %}
+    {% if _button_size != 'l' %}
+      {% set _button_class = _button_class ~ ' ecl-button--' ~ _button_size %}
+    {% endif %}
+    {% set _button_type = _section.action_button.link.type|default('secondary-inverted') %}
+
     {% include '@ecl/link/link.html.twig' with _section.action_button|merge({
       link: _section.action_button.link|default({})|merge({
-        type: 'secondary-inverted',
+        type: _button_type,
       }),
-      extra_classes: 'ecl-site-footer__action-button ecl-button--m'
+      extra_classes: _button_class,
     }) only %}
   {% endif %}
 
