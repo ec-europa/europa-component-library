@@ -12,7 +12,7 @@ npm install --save @ecl/animated-numbers
 - **"full_width"** (boolean) (default: false) Full width display with background (inside the grid)
 - **"counter_color"** (boolean) (default: true) Apply color to the counter value
 - **"border"** (boolean) (default: false) Display with a border around each item
-- **"sources_label"** (string) (default: '') Label displayed before the sources list
+- **"sources_label"** (string) (default: '') Label displayed before the global sources list
 - **"sources"** (array) (default: []) Array of global source references (ECL link objects or plain strings)
   - "link" (object): ECL link object
     - "label" (string) (default: '') Link label
@@ -28,7 +28,7 @@ npm install --save @ecl/animated-numbers
   - "suffix" (string) (default: '') Text displayed after the value
   - "suffix_label" (string) (default: '') Screen reader text for the suffix
   - "description" (string) (default: '') Description below the value
-  - "sources_label" (string) (default: '') Label displayed before the sources list; uses global sources label if not provided
+  - "sources_label" (string) (default: '') Label displayed before the individual sources list; uses global sources label if not provided
   - "sources" (array) (default: []) Array of individual source references (ECL link objects or plain strings)
     - "link" (object): ECL link object
       - "label" (string) (default: '') Link label
