@@ -2,68 +2,28 @@
 title: Usage
 order: 1
 ---
-Tags are components that indicate a taxonomy type. They can be found in different variants, offering a different interaction type, based on the use-case.
+Tags communicate content classification in a compact, scannable form. They help users understand the category or topic associated with a piece of content, find related content. They are available in 3 variants.
 
-# Display tag(s)
+### **Do's**
 
-Display tags only indicate the taxonomy term, users cannot interact with them, as they are used only for display purposes.
+- use short, distinct labels that accurately represent the taxonomy term or filter option
+- ensure labels are consistent with the taxonomy used
+- for removable tags, match the label exactly to the filter option the user selected
+- ensure each link tag points to an internal destination page where users can find related content
 
-## Do's
+### **Don'ts**
 
-- use short, distinct and indicative labels, representative for the taxonomy term
+- do not use abstract, technical, or elaborate terms
+- do not mix interaction models within the same tag set - display, link, and removable tags should not appear together
+- do not use a link tag unless a valid internal destination exists
 
-## Don'ts
+### **When to use**
 
-- don't use abstract or elaborate terms, unless they are contextual to content presented on the page
+- use the **Link variant** when tags serve a navigational purpose, connecting the current page to other pages that share the same taxonomy term
+- use the **Removable variant** when users can view and modify their active search or listing query. This variant makes the current filter state visible and gives users the ability to remove individual items
 
-## When to use
+### **When not to use**
 
-- when tags can offer complementary information associated to the page's content
-
-## When not to use
-
-- do not use when you need to link to another page
-- do not use for search filters that can be removed
-
-  
-
-# Link tag(s)
-
-Link tags provide users with further navigation, related to the context in which they are used.
-
-## Do's
-
-- use **short, distinct and indicative links**, representative for the content you are linking to
-
-## Don'ts
-
-- do not use unless there is an internal page where further related information is found
-
-## When to use
-
-- for navigation, when the tags link to pages relevant to the content presented on the page
-
-## When not to use
-
-- do not use when the tags are only for display purposes
-- do not use for search filters that can be removed
-
-  
-
-# Removable tag(s)
-
-Removable tags are used as an indicator for performed searches. When they are removed (via the close button - icon), the taxonomy term used as a filter will be removed as well.
-
-## Do's
-
-- use short, distinct and indicative labels, representative for the content you are linking to
-- make sure the tag matches the filter option used in the search query
-
-## When to use
-
-- use where search queries can be viewed through the tags, and removed as needed
-
-## When not to use
-
-- do not use when the tags are only for display purposes
-- do not use when you need to link to another page
+- do not use a tag variant that implies an interaction the tag does not support
+- do not use tags to replace structured navigation, filtering components, or category headings - tags complement content classification, they are not a substitute for dedicated interface patterns
+- do not use tags when the taxonomy is absent, inconsistent, or not meaningful to the target audience
