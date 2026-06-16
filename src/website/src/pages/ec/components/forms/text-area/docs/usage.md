@@ -2,6 +2,7 @@
 title: Usage
 order: 1
 ---
+
 The Text Area component places no artificial constraint on the form of an answer - in contrast to all other ECL form inputs. Use the Text Area to solicit inputs when you cannot anticipate the structure or length of responses (e.g. description, explanation, comment, or any free-text feedback). the component's expanded canvas signals to users that a fuller response is expected and welcome, setting expectations before they begin typing.
 
 ### **Do's**
