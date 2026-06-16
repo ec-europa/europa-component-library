@@ -24,5 +24,5 @@ The range input is an interactive component through which users have a visual in
 
 ## When not to use
 
-- do not use for strings or other non-numerical items, use a [Text field](https://ec.europa.eu/component-library/ec/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/ec/components/forms/text-area/code/) instead
-- do not use when users might benefit more granularity (e.g. [Datepicker](https://ec.europa.eu/component-library/ec/components/forms/datepicker/code/) for specific dates, [Radio button](https://ec.europa.eu/component-library/ec/components/forms/radio/code/) or [Select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) for options)
+- do not use for strings or other non-numerical items, use a [Text field](https://ec.europa.eu/component-library/eu/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/eu/components/forms/text-area/code/) instead
+- do not use when users might benefit more granularity (e.g. [Datepicker](https://ec.europa.eu/component-library/eu/components/forms/datepicker/code/) for specific dates, [Radio button](https://ec.europa.eu/component-library/eu/components/forms/radio/code/) or [Select](https://ec.europa.eu/component-library/eu/components/forms/select/code/) for options)
