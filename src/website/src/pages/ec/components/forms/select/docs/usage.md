@@ -2,56 +2,29 @@
 title: Usage
 order: 1
 ---
-# Default single select
+The Select component is a dropdown form input that presents users with a list of options from which to choose.
 
-The select component, also known as a select or dropdown menu, is a widget which displays a list of selectable items from which the user can select one value.
+The Select component exists in two variants: **single select** (one choice only) and **multi-select** (one or more choices). The single select variant enforces exclusivity and is functionally equivalent to a [Radio](https://ec.europa.eu/component-library/ec/components/forms/radio/code/) group but is better suited to longer option lists. The multi-select variant permits accumulation and thus mirrors [Checkbox](https://ec.europa.eu/component-library/ec/components/forms/checkbox/code/) behaviour, in a space-efficient container. Both variants reduce visual noise when a wide range of options is available.
 
-Having the same functionality as a [Radio button](https://ec.europa.eu/component-library/ec/components/forms/radio/code/) but relatively more UI friendly from a screen real estate perspective, when there is a large (usually 5 or more) number of list items. These are hidden in a container that is made is available on interaction.
+### **Do's**
 
-## Do's
+- use placeholder text to indicate the type of input (single vs multiple select options) expected before the user opens the dropdown
+- choose an appropriate size (small, medium, large) to match the surrounding form layout
+- make the label a click target that opens the dropdown
+- ensure the clickable area is large enough to be comfortably usable with a cursor and with a finger on touch devices
+- group options into logical categories, where applicable, and provide a clear label for each group (option order follows HTML structure, so grouping should be planned)
 
-- allow placeholder text to indicate type of input desired
-- use the select component to limit the number of choices that the user can make
-- use appropriate size (small, medium, large) depending on the situation you are using the component in
-- use dropdown select menu labels as click targets (clicking the label will trigger the action)
-- ensure that the clickable area of the select component is large enough to be easily selectable with a cursor or finger
+### **Don'ts**
 
-## Don'ts
+- don't use the Select component for large items or data that requires complex analysis
+- don’t use the multi-select component to limit the number of choices that the user can make - use default instead
 
-- don't use the select component for large items or data that requires complex analysis
+### **When to use**
 
-## When to use
+- use **single select** to reduce the excessive vertical space when you have five or more **mutually exclusive options**
+- use **multi-select** to reduce the excessive vertical space when you have five or more **non-exclusive options**
 
-- use when you have 5 or more items that are mutually exclusive
+### **When not to use**
 
-## When not to use
-
-- do not use when you have 5 or more items from which users can select more than one - use Multi-select instead
-
-# Multi-select
-
-The multi-select component, is a variation of the select component, which displays a list of selectable items from which the user can select multiple values.
-
-It offers the same functionality as a [Checkbox](https://ec.europa.eu/component-library/ec/components/forms/checkbox/code/) but it is more UI friendly from a screen real estate perspective, when there is a large (usually 5+) number of list items. These are hidden in a container that is made is available on interaction.
-
-## Do's
-
-- allow placeholder text to indicate type of input desired
-- use the select component to limit the number of choices that the user can make
-- use appropriate size (small, medium, large) depending on the situation you are using the component in
-- use dropdown select menu labels as click targets (clicking the label will trigger the action)
-- ensure that the clickable area of the select component is large enough to be easily selectable with a cursor or finger
-- keep in mind that the order is based on the HTML structure, for this reason group select options into logical categories and provide a clear label for each group
-
-## Don'ts
-
-- don't use the select component for large items or data that requires complex analysis
-- don’t use the multi-select component to limit the number of choices that the user can make, use default instead
-
-## When to use
-
-- use when you have 5 or more items that are not mutually exclusive
-
-## When not to use
-
-- do not use when you have 5 or more items where you want to restrict selection to a single one - use Select instead
+- do not use for short lists of mutually exclusive options, where a [Radio](https://ec.europa.eu/component-library/ec/components/forms/radio/code/) group is superior by exposing available options without requiring interaction
+- do not use for short lists of non-exclusive options, where a [Checkbox](https://ec.europa.eu/component-library/ec/components/forms/radio/code/3) group is superior by exposing available options without requiring interaction
