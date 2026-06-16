@@ -39,6 +39,14 @@ module.exports = {
       suffix_label: 'euro',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -52,6 +60,14 @@ module.exports = {
       suffix_label: 'euro',
       description:
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',

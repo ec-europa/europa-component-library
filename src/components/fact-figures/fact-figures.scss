@@ -98,6 +98,10 @@ $fact-figures: null !default;
   margin-block-start: map.get($fact-figures, 'source-spacing');
 
   @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
+
+  .ecl-fact-figures__item & {
+    margin-block-start: var(--s-m);
+  }
 }
 
 .ecl-fact-figures__sources-list {

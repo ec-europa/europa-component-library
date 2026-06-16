@@ -70,6 +70,10 @@ $fact-figures-print: null !default;
   margin-block-start: map.get($fact-figures, 'source-spacing');
 
   @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
+
+  .ecl-fact-figures__item & {
+    margin-block-start: map.get($theme, 'spacing-print', 'm');
+  }
 }
 
 .ecl-fact-figures__sources-list {

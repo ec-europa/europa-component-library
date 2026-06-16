@@ -22,7 +22,7 @@
     - suffix (string) (default: '')
     - suffix_label (string) (default: '') optional label to add extra information on the suffix (screen reader only)
     - description (string (default: '')
-    - sources_label (string) (default: '') label for individual sources
+    - sources_label (string) (default: '') label for individual sources; uses global label if not provided
     - sources: (array) (default: []) individual sources; array of objects of type ECL link or strings
       link:
         - "label" (string) (default: '')
@@ -102,11 +102,14 @@
           {% set _item_class = 'ecl-animated-number' %}
           <li class="{{ _item_class }}">
             <div class="ecl-animated-number__header">
+            {# Category #}
             {% if item.category is defined and item.category is not empty %}
               <div class="ecl-animated-number__category">
                 {{- item.category -}}
               </div>
             {% endif %}
+
+            {# Icon #}
             {% if item.icon is defined and item.icon is not empty %}
               {% include '@ecl/icon/icon.html.twig' with {
                 icon: item.icon|merge({
@@ -118,6 +121,7 @@
             {% endif %}
             </div>
             <div class="ecl-animated-number__content">
+              {# Prefix #}
               <span class="ecl-animated-number__number">
               {% if item.prefix is defined and item.prefix is not empty %}
                 <span class="ecl-animated-number__prefix">
@@ -127,6 +131,8 @@
                   {{- item.prefix -}}
                 </span>
               {% endif %}
+
+              {# Value #}
               {% if item.value is defined and item.value is not empty %}
                 <span
                   class="ecl-animated-number__value"
@@ -135,6 +141,8 @@
                   {{- item.value -}}
               </span>
               {% endif %}
+
+              {# Suffix #}
               {% if item.suffix is defined and item.suffix is not empty %}
                 <span class="ecl-animated-number__suffix">
                   {%- if item.suffix_label is defined and item.suffix_label is not empty -%}
@@ -144,59 +152,111 @@
                 </span>
               {% endif %}
               </span>
+
+              {# Description #}
               {% if item.description is defined and item.description is not empty %}
                 <span class="ecl-animated-number__description">
                   {{- item.description -}}
                 </span>
+              {% endif %}
+
+              {# Individual sources #}
+              {% if item.sources is not empty and item.sources is iterable %}
+                <div class="ecl-animated-numbers__sources">
+                  {% if item.sources_label is not empty or _sources_label is not empty %}
+                    <span class="ecl-animated-numbers__sources-label">
+                      {{- item.sources_label|default(_sources_label) -}}
+                    </span>
+                  {% endif %}
+
+                  {% if item.sources|length == 1 %}
+                    {% set source = item.sources|first %}
+                    {% if source.link is defined and source.link is not empty %}
+                      {% include '@ecl/link/link.html.twig' with {
+                        link: source.link|merge({
+                          inverted: _with_background,
+                          branded: not _counter_color,
+                        }),
+                        extra_classes: 'ecl-animated-numbers__source'
+                      } only %}
+                    {% else %}
+                      <span class="ecl-animated-numbers__source">
+                        {{ source.name }}
+                      </span>
+                    {% endif %}
+
+                  {% elseif item.sources|length > 1 %}
+                    <ul class="ecl-animated-numbers__sources-list">
+                      {% for source in item.sources %}
+                        <li class="ecl-animated-numbers__sources-item">
+                          {% if source.link is defined and source.link is not empty %}
+                            {% include '@ecl/link/link.html.twig' with {
+                              link: source.link|merge({
+                                inverted: _with_background,
+                              }),
+                              extra_classes: 'ecl-animated-numbers__source'
+                            } only %}
+                          {% else %}
+                            <span class="ecl-animated-numbers__source">
+                              {{ source.name }}
+                            </span>
+                          {% endif %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
               {% endif %}
             </div>
           </li>
         {% endfor %}
         </ul>
       {% endif %}
+
+      {# Global sources #}
       {% if _sources is not empty and _sources is iterable %}
         <footer class="ecl-animated-numbers__sources">
           {% if _sources_label is not empty %}
-          <span class="ecl-animated-numbers__sources-label">
-            {{- _sources_label -}}
-          </span>
+            <span class="ecl-animated-numbers__sources-label">
+              {{- _sources_label -}}
+            </span>
           {% endif %}
-      {% if _sources|length == 1 %}
-        {% set source = _sources|first %}
 
-        {% if source.link is defined and source.link is not empty %}
-          {% include '@ecl/link/link.html.twig' with {
-            link: source.link|merge({
-              inverted: _with_background,
-            }),
-            extra_classes: 'ecl-animated-numbers__source'
-          } only %}
-        {% else %}
-          <span class="ecl-animated-numbers__source">
-            {{ source.name }}
-          </span>
-        {% endif %}
+          {% if _sources|length == 1 %}
+            {% set source = _sources|first %}
+            {% if source.link is defined and source.link is not empty %}
+              {% include '@ecl/link/link.html.twig' with {
+                link: source.link|merge({
+                  inverted: _with_background,
+                }),
+                extra_classes: 'ecl-animated-numbers__source'
+              } only %}
+            {% else %}
+              <span class="ecl-animated-numbers__source">
+                {{ source.name }}
+              </span>
+            {% endif %}
 
-        {% elseif _sources|length > 1 %}
-          <ul class="ecl-animated-numbers__sources-list">
-            {% for source in _sources %}
-              <li class="ecl-animated-numbers__sources-item">
-                {% if source.link is defined and source.link is not empty %}
-                  {% include '@ecl/link/link.html.twig' with {
-                    link: source.link|merge({
-                      inverted: _with_background,
-                    }),
-                    extra_classes: 'ecl-animated-numbers__source'
-                  } only %}
-                {% else %}
-                  <span class="ecl-animated-numbers__source">
-                    {{ source.name }}
-                  </span>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+          {% elseif _sources|length > 1 %}
+            <ul class="ecl-animated-numbers__sources-list">
+              {% for source in _sources %}
+                <li class="ecl-animated-numbers__sources-item">
+                  {% if source.link is defined and source.link is not empty %}
+                    {% include '@ecl/link/link.html.twig' with {
+                      link: source.link|merge({
+                        inverted: _with_background,
+                      }),
+                      extra_classes: 'ecl-animated-numbers__source'
+                    } only %}
+                  {% else %}
+                    <span class="ecl-animated-numbers__source">
+                      {{ source.name }}
+                    </span>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </footer>
       {% endif %}
       </article>

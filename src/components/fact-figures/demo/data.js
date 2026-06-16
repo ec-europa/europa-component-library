@@ -41,6 +41,14 @@ module.exports = {
       title: 'Lorem ipsum',
       description:
         'Nunc eu est nec orci rhoncus venenatis. Donec rutrum lacus eget lobortis eleifend. Duis cursus sapien ac felis bibendum, in sagittis turpis porttitor. Aliquam sed mauris et orci efficitur mollis. Donec eu dolor in turpis sollicitudin malesuada.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -49,6 +57,14 @@ module.exports = {
       value: '00.0 million',
       title: 'Sed hendrerit',
       description: 'Turpis varius congue venenatis, erat dui feugiat felis.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {

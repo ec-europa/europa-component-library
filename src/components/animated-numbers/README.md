@@ -27,7 +27,7 @@ npm install --save @ecl/animated-numbers
   - "suffix_label" (string) (default: '') optional label to add extra information on the suffix (screen reader only)
   - "description" (string) (default: '')
   - "icon" (string) (default: {}) Object of type ECL icon
-  - "sources_label" (string) (default: '') label for individual sources
+  - "sources_label" (string) (default: '') label for individual sources; uses global label if not provided
   - "sources": (array) (default: []) individual sources; array of objects of type ECL link or strings
     "link":
     - "label" (string) (default: '')

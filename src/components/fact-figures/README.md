@@ -17,7 +17,7 @@ npm install --save @ecl/fact-figures
   - "value" (string) (default: '')
   - "title" (string) (default: '')
   - "description" (string) (default:'')
-  - "sources_label" (string) (default: '') label for individual sources
+  - "sources_label" (string) (default: '') label for individual sources; uses global label if not provided
   - "sources": (array) (default: []) individual sources; array of objects of type ECL link or strings
     "link":
     - "label" (string) (default: '')

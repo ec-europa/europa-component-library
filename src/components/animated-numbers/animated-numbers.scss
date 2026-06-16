@@ -171,6 +171,10 @@ $animated-numbers: null !default;
   font: map.get($animated-numbers, 'source-font');
   gap: var(--s-xs);
   margin-block-start: map.get($animated-numbers, 'source-spacing');
+
+  .ecl-animated-number__content & {
+    margin-block-start: 0;
+  }
 }
 
 .ecl-animated-numbers__sources-list {
