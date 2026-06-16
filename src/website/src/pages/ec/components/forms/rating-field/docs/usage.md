@@ -2,24 +2,25 @@
 title: Usage
 order: 1
 ---
-The Rating field is an interactive component through which users can submit a easily quantifiable rating or feedback from on their experience with a process (e.g. waiting time, form completion, etc.), but can also be potentially used for content (e.g. media, translation quality, etc). Multiple sizes and/or icons are being considered.
+The Rating field is an interactive component that allows users to submit an easily quantifiable rating or feedback item from on their experience with a process (e.g. waiting time, form completion, etc.). It can also, potentially, be used for content - e.g. media, translation quality, etc. Multiple sizes and/or icons are being investigated.
 
-## Do's
+### **Do's**
 
-- always make sure you use a short, distinct and indicative label
-- ensure content is contextual and specific to the rating the user is expected to give (e.g. waiting time, translation quality, etc.)
-- indicate whether the input group is optional or mandatory
-- make use of helper text if there are further directions or hints the users may need in completing their goal
-- write specific and clear error messages, so users understand how to properly address and recover from the error
+- provide a short, distinct label that clearly describes what is being rated (e.g. 'Rate your experience with this form' or 'Translation quality')
+- ensure the rating context is properly specified
+- indicate whether the field is optional or mandatory
+- use helper text to add context where the rating criteria may not be self-evident
+- write specific error messages if validation is applied (e.g. when the field is mandatory and the user attempts to submit without rating)
 
-## Don'ts
+### **Don'ts**
 
-- although possible, usage without label or helper text is not recommended, and should be restricted to cases where the rating field is used in a pre-defined context, such as part of another component
+- avoid using the Rating Field without a label or helper text, unless embedded within another component where the context is already fully established
 
-## When to use
+### **When to use**
 
-- when there is a need/option for users to rate something
+- use when collecting feedback on processes or experiences (e.g. form completion, a waiting experience, a service transaction) where a simple numeric score captures the relevant signal
+- use when evaluating page or content quality (e.g. rating translation quality or the usefulness of a page), where a structured score is more actionable than a free-text response
 
-## When not to use
+### **When not to use**
 
-- do not use in cases where inputs are better being of qualitative input, use a [Text field](https://ec.europa.eu/component-library/ec/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/ec/components/forms/text-area/code/) instead
+- do not use in cases where qualitative inputs are more useful - use a [Text field](https://ec.europa.eu/component-library/ec/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/ec/components/forms/text-area/code/) instead
