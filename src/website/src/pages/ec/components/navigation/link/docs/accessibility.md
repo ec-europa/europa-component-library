@@ -2,6 +2,7 @@
 title: a11y
 order: 3
 ---
+
 ### Accessible names
 
 The icon indicating a link to an external domain is described to blind users as: "Link to an external domain."
