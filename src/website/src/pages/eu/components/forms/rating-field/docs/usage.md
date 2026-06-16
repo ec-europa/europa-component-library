@@ -22,4 +22,4 @@ The Rating field is an interactive component through which users can submit a ea
 
 ## When not to use
 
-- do not use in cases where inputs are better being of qualitative input, use a [Text field](https://ec.europa.eu/component-library/ec/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/ec/components/forms/text-area/code/) instead
+- do not use in cases where inputs are better being of qualitative input, use a [Text field](https://ec.europa.eu/component-library/eu/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/eu/components/forms/text-area/code/) instead

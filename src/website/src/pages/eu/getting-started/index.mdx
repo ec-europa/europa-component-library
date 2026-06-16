@@ -78,9 +78,9 @@ Example:
   <li>
     <a
       className="ecl-link"
-      href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/scripts/ecl-esm-eu.js`}
+      href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/scripts/ecl-esm-eu.js`}
     >
-      {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/scripts/ecl-esm-eu.js`}
+      {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/scripts/ecl-esm-eu.js`}
     </a>
   </li>
 </ul>
@@ -218,18 +218,18 @@ Add the `data-ecl-auto-init` attribute to any component's root element, specifyi
 ```html
 <div
   role="alert"
-  class="ecl-message ecl-message--info"
-  data-ecl-message
-  data-ecl-auto-init="Message"
+  class="ecl-notification ecl-notification--info"
+  data-ecl-notification
+  data-ecl-auto-init="Notification"
 >
-  <!-- Message component content -->
+  <!-- Notification component content -->
 </div>
 ```
 
 Then call `ECL.autoInit()` once the DOM is ready (typically at the end of `<body>`):
 
 ```html
-<script src="/scripts/ecl-eu.js"></script>
+<script type="module" src="/scripts/ecl-esm-eu.js"></script>
 <script>
   ECL.autoInit();
 </script>
@@ -262,7 +262,7 @@ https://webtools.europa.eu/showcase/demo/?comp=icons&section=about&demo=how_to_u
 ### Tooltip
 
 ECL's tooltips can be enabled by adding a `data-ecl-auto-init="Tooltip"` attribute to a container in the page, like the body.
-All the elements containing a `data-ecl-tooltip` or a `data-ecl-tooltip-inverted` inverted will have their tooltip associated, it will grab its content from the data attribute
+All the elements containing a `data-ecl-tooltip` or a `data-ecl-tooltip-inverted` will have their tooltip associated, it will grab its content from the data attribute
 or alternatively from the `title` attribute.
 
 ---
@@ -298,7 +298,7 @@ If you don't have restrictions on loading external scripts, you can include the 
 
 1. Install the package:
 
-```javascript
+```bash
 npm install @duetds/date-picker
 # or
 pnpm add @duetds/date-picker
@@ -316,7 +316,7 @@ import '@duetds/date-picker/dist/duet.esm.js';
 
 1. Install the package (or skip if you already have it):
 
-```javascript
+```bash
 npm install @duetds/date-picker
 ```
 
@@ -434,7 +434,7 @@ For server-side rendering, ECL provides **Twig templates** for all components, a
 npm install @ecl/{component-name}
 ```
 
-Template are usually called `{component-name}.html.twig`
+Templates are usually called `{component-name}.html.twig`
 
 Browse available packages on [npm](https://www.npmjs.com/org/ecl).
 

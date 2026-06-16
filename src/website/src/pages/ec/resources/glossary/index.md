@@ -28,7 +28,7 @@ Responsiveness means that web pages can be scaled from handheld devices to deskt
 
 ## Templates
 
-Templates are page layouts consist of components and underlying content structure. They are the basic structure to create cohesive designs.
+Templates are page layouts that consist of components and underlying content structure. They are the basic structure to create cohesive designs.
 
 ## Wireframe
 

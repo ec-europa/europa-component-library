@@ -24,4 +24,4 @@ The one-column layout also offers an optional zebra pattern, allowing users to e
 
 ## When not to use
 
-- do not use when the primary scope is navigation - use [](http://citnet.tech.ec.europa.eu/)[Content item](https://ec.europa.eu/component-library/eu/components/content-item/code/) or [](http://citnet.tech.ec.europa.eu/)[Cards](https://ec.europa.eu/component-library/eu/components/card/code/) component instead
+- do not use when the primary scope is navigation - use [Content item](https://ec.europa.eu/component-library/eu/components/content-item/code/) or [Cards](https://ec.europa.eu/component-library/eu/components/card/code/) component instead
