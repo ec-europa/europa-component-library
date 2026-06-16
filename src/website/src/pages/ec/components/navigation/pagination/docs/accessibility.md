@@ -2,6 +2,7 @@
 title: a11y
 order: 3
 ---
+
 ### Accessible names
 
 The pagination navigation is described to blind users as: "Pagination".
