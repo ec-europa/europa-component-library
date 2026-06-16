@@ -2,25 +2,24 @@
 
 {#
   Parameters:
-    - "color_mode" (string) The color mode name
-    - "id" (string) (default: random)
-    - "title" (string) (default: '')
-    - "trigger_aria_label": (default: '')
-    - "links" (array) (default: predefined structure): format: [
+  - "color_mode" (string) (default: '') Name of the color mode
+  - "id" (string) (default: random) Unique id for the component
+  - "title" (string) (default: '') Navigation section title
+  - "trigger_aria_label" (string) (default: '') Aria label for the mobile trigger button
+  - "links" (array) (default: []): format: [
       {
-        href: (string) (default: ''),
-        label: (string) (default: '')
-      },
-      ...
-      ]
-    - "icon_size" (string) (default: '2xs') EC: 2xs, EU: s
-    - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
-      ]
+        "href" (string) (default: '') Link target
+        "label" (string) (default: '') Link label
+      }, ...
+    ]
+  - "icon_size" (string) (default: 'xs') Size of the toggle icon
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) Attribute name, eg. 'data-test'
+        "value" (string) Attribute value, eg: 'data-test-1'
+      }, ...
+    ]
 #}
 
 {# Internal properties #}

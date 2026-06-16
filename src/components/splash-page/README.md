@@ -8,33 +8,23 @@ npm install --save @ecl/splash-page
 
 ### Parameters
 
-- **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
-  - "title" (string) (default: ''): Logo title attribute.
-  - "alt" (string) (default: ''): Logo alt attribute.
-  - "path" (string) (default: ''): Logo URL.
-  - "src_desktop" (string) (default: ''): Desktop logo image file path
-  - "src_mobile" (string) (default: ''): Mobile logo image file path for EU only
-- **"title"** (string) (default: ''): Page title, eg. 'Select your language'
-- **"eu_category"** (string) (default: ''): Label for EU languages
-- **"non_eu_category"** (string) (default: ''): Label for non-EU languages
-- **"items"** (array) (default: []): (array) (default: []): format: [
-  {
-  "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
-  "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
-  "path" (string) (default: '') Item language URL eg. '/example#language_en'.
-  "active" (boolean) (default: false) define if item is the active language.
-  },
-  ],
-- **"non_eu_items"** (array) (default: []): (array) (default: []): format: [
-  {
-  "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
-  "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
-  "path" (string) (default: '') Item language URL eg. '/example#language_en'.
-  "active" (boolean) (default: false) define if item is the active language.
-  },
-  ],
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"logo"** (object) (default: {}) Logo image settings:
+  - "title" (string) (default: '') Logo title attribute
+  - "alt" (string) (default: '') Logo alt attribute
+  - "path" (string) (default: '') Logo link URL
+  - "src_desktop" (string) (default: '') Desktop logo image path
+  - "src_mobile" (string) (default: '') Mobile logo image path (EU only)
+- **"title"** (string) (default: '') Page title, eg. 'Select your language'
+- **"eu_category"** (string) (default: '') Label for EU languages group
+- **"non_eu_category"** (string) (default: '') Label for non-EU languages group
+- **"items"** (array) (default: []) EU language items; format:
+  - "lang" (string) (default: '') Language code, eg. 'en', 'fr'
+  - "label" (string) (default: '') Language label, eg. 'English', 'Français'
+  - "path" (string) (default: '') Language URL, eg. '/example#language_en'
+  - "active" (boolean) (default: false) Whether this is the currently active language
+- **"non_eu_items"** (array) (default: []) Non-EU language items (same structure as items)
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

@@ -10,7 +10,7 @@
   - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
   - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
   - "see_all_label": (string) (default: ''): Label for the "view all" link
-  - "featured_priority": (string) (default: secondary) Can be primary otherwise: determines which featured panel will be visible in desktop 
+  - "featured_priority" (string) (default: 'secondary') Which featured panel is visible; can be 'primary', 'secondary'
   - "items": (array) (default: []): The menu items - format: [
     {
       "label": (string) (default: '')
@@ -65,9 +65,9 @@
     }
   ],
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the nav element
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+  - "extra_attributes" (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}

@@ -11,16 +11,16 @@
     - "number_list" (boolean) (default: false) renders as number list
     - "divider" (boolean) (default: false): Item separator, in the icon list
     - "counter_reset": (boolean) (default: true) In a number list, resets the counter so that it starts from counter_start
-    - "counter_start": (string) (default: '') An arbistrary number to start the counter from, depends on counter_reset
-    - "centered" (bool) (default: false) Define if the items should be centered
-    - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
-    - "extra_classes" (string) (default: '')
+    - "counter_start": (number) (default: 0) Number to start the counter from when counter_reset is true
+    - "centered" (boolean) (default: false) Center-align item content
+    - "font_size" (string) (default: 'l') Size of the value text; can be 'm', 'l'
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
-      ],
+          "name" (string) Attribute name, eg. 'data-test'
+          "value" (string) Attribute value, eg: 'data-test-1'
+        }, ...
+      ]
 #}
 
 {# Internal properties #}
