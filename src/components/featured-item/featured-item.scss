@@ -249,7 +249,7 @@ $featured-item: null !default;
   }
 
   @if map.has-key($featured-item, 'highlight', 'button-dark') {
-    .ecl-featured-item__link {
+    .ecl-featured-item__link.ecl-link--secondary-inverted {
       @include link-component.link-button(primary-neutral);
     }
   }

@@ -99,13 +99,8 @@ $button: null !default;
 /**
 * Link button
 */
-.ecl-link--primary,
-.ecl-link--primary-highlight,
-.ecl-link--primary-neutral,
-.ecl-link--primary-highlight-inverted,
-.ecl-link--secondary,
-.ecl-link--secondary-neutral,
-.ecl-link--secondary-inverted {
+// stylelint-disable nesting-selector-no-missing-scoping-root
+@mixin link-button-base {
   @include button-component.button-base;
 
   --ecl-button-icon-size: #{map.get($button, 'large', 'icon-size')};
@@ -147,30 +142,37 @@ $button: null !default;
   }
 }
 
+@mixin link-button($variant: null) {
+  @include link-button-base;
+  @include button-component.button($variant);
+}
+
+// stylelint-enable nesting-selector-no-missing-scoping-root
+
 .ecl-link--primary {
-  @include button-component.button(primary);
+  @include link-button(primary);
 }
 
 .ecl-link--primary-highlight {
-  @include button-component.button(primary-highlight);
+  @include link-button(primary-highlight);
 }
 
 .ecl-link--primary-neutral {
-  @include button-component.button(primary-neutral);
+  @include link-button(primary-neutral);
 }
 
 .ecl-link--primary-highlight-inverted {
-  @include button-component.button(primary-highlight-inverted);
+  @include link-button(primary-highlight-inverted);
 }
 
 .ecl-link--secondary {
-  @include button-component.button(secondary);
+  @include link-button(secondary);
 }
 
 .ecl-link--secondary-neutral {
-  @include button-component.button(secondary-neutral);
+  @include link-button(secondary-neutral);
 }
 
 .ecl-link--secondary-inverted {
-  @include button-component.button(secondary-inverted);
+  @include link-button(secondary-inverted);
 }
