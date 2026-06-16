@@ -2,6 +2,7 @@
 title: a11y
 order: 3
 ---
+
 ### Accessible names
 
 Most card images are decorative and don't need a description. However, if a card image contains text not repeated in the card title or description, it must be described, as it provides unique content.
