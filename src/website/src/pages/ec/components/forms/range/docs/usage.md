@@ -2,27 +2,30 @@
 title: Usage
 order: 1
 ---
-The range input is an interactive component through which users have a visual indicator of adjustable content, on a pre-defined range and for a pre-defined increment, between two items on a horizontal track. By default it is set between 0-100, however this can be changed to any numerical value (i.e. years slider).
+The Range component serves scenarios where a user needs to indicate a value or position within a continuous numerical scale, and where approximate or relative input is acceptable. By presenting a visual track, it communicates the available spectrum at a glance and allows quick, gestural adjustment, reducing the cognitive load on users.
 
-## Do's
+### **Do's**
 
-- always make sure you use a short, distinct and indicative label
-- indicate whether the input group is optional or mandatory
-- choose appropriate width (s, m, l)
-- make use of helper text if there are further directions or hints the users may need in completing their goal
-- write specific and clear error messages, so users understand how to properly address and recover from the error
-- use an appropriate range value label within the numerical context (e.g. Age, Years)
+- provide a short, clear label that describes the numerical dimension being adjusted (e.g. "Age", "Years", "Budget")
+- indicate whether the input is optional or mandatory
+- select an appropriate width (small, medium, large) to match the range and the expected precision required
+- use helper text to clarify the scale or any constraints the user should be aware of
+- write specific error messages when validation fails, so users understand how to correct their input
+- choose increments that are meaningful in the context
+- try to avoid steps so small that selecting the 'target' value becomes unnecessarily difficult
 
-## Don'ts
+### **Don'ts**
 
-- don't use extensive ranges; being mindful of the restricted width of the component, users might have difficulty selecting the precise value
-- don't limit potentially useful increments or steps (e.g. increments of 10 for a years filter)
+- do not use an excessively large range (i.e. track ranging over hundreds or thousands of distinct values) as the slider becomes imprecise and frustrating
+- do not define increments that skip values the user would reasonably need (e.g. steps of 10 on a scale where individual years matter)
 
-## When to use
+### **When to use**
 
-- when it is easier for users to add input via a slider
+- use for approximate or relative numerical input where the exact value matters less than the relative position (e.g. filtering results by year range or adjusting a preference level)
+- use when gestural, visual selection is preferred. For instance, when users benefit from seeing their selection in relation to a spectrum, a slider communicates position more intuitively than a typed number
 
-## When not to use
+### **When not to use**
 
-- do not use for strings or other non-numerical items, use a [Text field](https://ec.europa.eu/component-library/ec/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/ec/components/forms/text-area/code/) instead
-- do not use when users might benefit more granularity (e.g. [Datepicker](https://ec.europa.eu/component-library/ec/components/forms/datepicker/code/) for specific dates, [Radio button](https://ec.europa.eu/component-library/ec/components/forms/radio/code/) or [Select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) for options)
+- do not use when non-numerical input is required - instead opt for string or free-text input, such as [Text field](https://ec.europa.eu/component-library/ec/components/forms/text-field/code/) or [Text area](https://ec.europa.eu/component-library/ec/components/forms/text-area/code/)
+- do not use when high precision is essential
+- do not use to specify an exact value (e.g. specific date, a precise count, or a selection from a fixed list) - instead consider using a [Datepicker](https://ec.europa.eu/component-library/ec/components/forms/datepicker/code/) for dates, a [Radio](https://ec.europa.eu/component-library/ec/components/forms/radio/code/) button group for short discrete options, or a [Select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) for longer lists
