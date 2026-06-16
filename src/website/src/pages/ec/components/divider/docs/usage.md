@@ -2,22 +2,24 @@
 title: Usage
 order: 1
 ---
-The Divider component (implemented using the `<hr>` HTML tag) is designed to visually divide sections of content or components within a layout. It provides a simple and clean way to organise information without adding additional margins or padding, making it ideal for quick content separation.
+The Divider exists to create clear, unambiguous separation between distinct content sections or thematic groups on a page. It helps users mentally segment information, reducing cognitive effort when scanning or reading through dense or varied content.
 
-## Do's
+### **Do's**
 
-- ensure that the Divider is used to divide distinct content blocks or UI components in a way that enhances clarity and readability
+- use the Divider to separate semantically distinct content blocks, for example, between a main body section and a supporting information area
+- use headings and sub-headings as the primary way to divide the page, as it makes it easier for a user to scan
 
-## Don'ts
+### **Don'ts**
 
-- do not use Dividers excessively, as it may clutter the design and confuse the user about the structure of the content
-- avoid using the Divider for purely decorative purposes if it does not contribute to the content structure
+- do not use it as a substitute for proper heading structure or section landmarks
+- do not use the Divider as a decorative element or to fill visual space where no meaningful content boundary exists
+- avoid overusing it since placing a Divider between every content block flattens the hierarchy and removes its value
 
-## When to Use
+### **When to use**
 
-- use when you need to quickly add dividers between components without modifying spacing above or below
-- use within paragraphs to subtly separate ideas or sections of text that are conceptually distinct
+- use for long-form editorial content such as articles, news pages, or policy documents, where distinct topic areas follow one another in a single scrollable view
+- in page sections without headings, when a visual break is needed between content groups that do not each warrant their own heading level
 
-## When Not to Use
+### **When not to use**
 
-- do not use to separate large blocks of content where more complex visual distinction (such as a background color) is needed
+- do not use when headings already define the boundary, a prominent heading paired with adequate spacing makes a Divider redundant
