@@ -2,6 +2,7 @@
 title: a11y
 order: 4
 ---
+
 ### Accessible names
 
 Even if an icon has no visible label by design, it must be described to blind users. Provide a description of the icon's scope (e.g., "information", "download") so developers can insert it into the code.
