@@ -2,78 +2,40 @@
 title: Usage
 order: 1
 ---
-Used to present chunks of information in a concise and scannable way, lists help to organise content related to a single topic, grouping together a set of items or text options.
+Lists organise related items into a scannable, structured format that helps users process information efficiently. Rather than burying related points within text, lists surface discrete pieces of content in a form that supports quick reading, comparison, and comprehension.
 
-# Ordered lists
+ECL provides three list variants, each suited to a different relationship between items:
 
-Ordered lists display a set of items in a sequential and logical order, indicated by a number in front of the label. Common use cases include counting, ranking or sequencing, but can be used in everything that has a hierarchy.
+1. **ordered lists** for sequential or ranked content
+2. **unordered lists** for grouped content without hierarchy
+3. **description lists** for terms that require accompanying explanations.
 
-## Do's
+The structure should reflect the relationship between items. Choosing the right variant is a content, not a visual, decision.
 
-- make sure the items are placed in hierarchical order so that the relation, rank or order is obvious to the user
-- indicate the external links, if linking to any pages external to the European Commission
-- for easy to read purpose, try to use labels that are relatively consistent in characters & width
+### **Do's**
 
-## Don'ts
+- choose the list variant that accurately reflects the relationship between items
+- keep list item labels concise and consistent in length to aid scannability
+- order description list terms logically, by hierarchy, significance, or relatedness
+- if using an Ordered list, make sure the items are placed in sequential or hierarchical order
+- if using a Description list, keep list terms short and relevant, with descriptions that add context
 
-- do not nest lists deeper than 3 levels
+### **Don'ts**
 
-## When to use
+- do not nest lists beyond three levels. Deep nesting creates clutter and undermines the clarity that lists provide
+- do not use an Ordered list when items have equal value or importance - this falsely implies hierarchy or sequence
+- do not use an Unordered list when items can meaningfully be ranked, counted, or sequenced
+- do not use an active verb in Description lists, i.e. avoid instructions. Descriptions should be definitions or explanations
 
-- use ordered lists when you need to display items in a specific order or to indicate hierarchy
+### **When to use**
 
-## When not to use
+- use Ordered lists when the sequence of items carries meaning (e.g. for step-by-step instructions, ranked results, prioritised recommendations) or content where position within the list is significant
+- use Unordered lists when presenting a set of related items that have no inherent rank or order (e.g. features, requirements, considerations, or options). i.e. where all items carry roughly equal weight
+- use Description lists when each item requires a label paired with a description (e.g. glossaries, speaker listings with biographical notes, metadata summaries), and for items where users may find supplementary information such as publication dates or related links useful
 
-- do not use it for navigation purpose
-- do not use it when all items have equal value or importance
-- do not use when you have one or more overarching categories that require descriptions
+### **When not to use**
 
-# Unordered list
-
-Unordered lists are used to group related content without any particular order, with bullet points placed in front of the labels. Common use cases are much broader than ordered lists. They are used for a set of items that can be arranged in any specific order. Different bullet list styles are available to unordered list items, such as disc, circle, square or hyphen when nesting (eg. 2 sub-points under point 2).
-
-## Do's
-
-- indicate the external links, if linking to any pages external to the European Commission
-- for easy to read purpose, try to use labels that are relatively consistent in characters & width
-
-## Don'ts
-
-- do not nest lists deeper than 3 levels in order to avoid clutters
-
-## When to use
-
-- use it when you need to display items that do not have a specific order or hierarchy
-
-## When not to use
-
-- do not use it for navigation purpose
-- do not use it when items can be ranked, counted or sequenced
-- do not use when you have one or more overarching categories or terms require descriptions
-
-# Description lists
-
-Description lists are used to display and organise terms or content accompanied by descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need.
-
-## Do's
-
-- keep label short and meaningful
-- order logically according to their hierarchy, significance and degree of relatedness
-- avoid using long sentences
-- try to use labels that are relatively consistent in characters & width
-- add a meaningful description or explanation of each term
-
-## Don'ts
-
-- do not use an active voice
-- do not nest description lists
-
-## When to use
-
-- use a description list when the terms in the list require a specific description or explanation
-- on content pages to add additional information(such as latest update on the content of a page) or link to pages of interest
-
-## When not to use
-
-- do not use it for navigation purpose
-- do not use it when items can be ranked, counted or sequenced
+- do not use a list when items are few enough (typically two) that they read naturally as text - forcing minimal content into list format only adds structure without benefit
+- do not use when items share overarching categories that themselves require description. Instead consider using a [Table](https://ec.europa.eu/component-library/ec/components/table/code/) or a structured content layout that will communicate those relationships more clearly
+- do not use for lists of items that may benefit from supplementary imagery. Instead, consider using the [List with Illustrations](https://ec.europa.eu/component-library/ec/components/list-illustration/code/) component
+- do not use a description list when items can stand alone without explanation; an unordered list is simpler and more appropriate in that case
