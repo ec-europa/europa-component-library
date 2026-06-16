@@ -2,17 +2,23 @@
 title: Usage
 order: 1
 ---
-The date block is a visual display to support an event listing. It displays the day, month and year of an event and has a total of 5 states: upcoming, ongoing, cancelled, past and rescheduled. The date blocks cannot be used as a stand-alone component, always being complemented by informative tags, acting as an extra indicator for any given state of the event. Together with the event listing, they form the date block composition.
+The date block provides a consistent visual display for event dates within event listings, helping users quickly scan and identify information about timings. The component provides context in a visually consistent way, and uses distinct visual states (upcoming, past, etc.) to reduce cognitive load.
 
-## Do's
+### **Do's**
 
 - in the case of a multi-day event, make sure you input the starting date as this is the one that will be displayed
+- use the appropriate status state to accurately reflect the event's (upcoming, past, etc.) state
 
-## When to use
+### **Don'ts**
 
-- for any type of event (conference, meeting, forum, workshop, seminar, etc.)
+- don't use date blocks as standalone components without supporting context or event information
+
+### **When to use**
+
+- use for any type of event (conference, meeting, forum, workshop, seminar, etc.)
 - for single or multi-day events, currently ongoing events, cancelled events, future and past events
+- in content structures (i.e. Related section) where consistent date presentation improves scannability and reduces decision time
 
-## When not to use
+### **When not to use**
 
-- do not use for other occurrences such as historical milestones, achievements, biographies, etc
+- do not use to display information about timings such as historical milestones or biographical timelines. Use the [Timeline](https://ec.europa.eu/component-library/ec/components/timeline/code/) component instead
