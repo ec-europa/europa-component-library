@@ -2,30 +2,29 @@
 title: Usage
 order: 1
 ---
-Icons are helpful complementary visual cues that communicate meaning through the use of symbolic pictographs.
+Icons provide supplementary visual cues that reinforce meaning conveyed through text. They exist to aid recognition, guide attention, and reduce cognitive effort when scanning a page. They do not replace language or carry meaning independently.
 
-## Do's
+### **Do's**
 
-- use icons scarcely, only to complement already existing information, direct attention or offer visual cues
-- always use the icons that are symbolic and representative to the items they accompany
-- make sure the color, size, orientation and alignment are homogeneous with the other elements present on a particular page
-- ensure consistency is maintained (color, size and orientation) - users form mental models and thus having the same icon associated with a concept consistently helps create a robust and predictable system
-- place the icon at the left of the label (exceptions only apply to Arabic pages - where it will be placed to the right - and for Chinese, Japanese and Korean - placed above the label)
-- for social media icons, consider whether it is suitable to use Webtools social bookmarking or share buttons
+- use icons sparingly, reserving them for moments where a visual cue genuinely reinforces the accompanying label or action
+- always select icons that are immediately recognisable and semantically matched to the content they accompany
+- maintain consistent sizing, orientation, and alignment with surrounding elements
+- systematically apply the same icon for the same concept throughout - users build mental models from repeated associations
+- for social media icons specifically, evaluate whether [the social media component from Webtools](https://webgate.ec.europa.eu/fpfis/wikis/spaces/webtools/pages/105090808/Share+buttons) is appropriate
 
-## Don'ts
+### **Don'ts**
 
-- don't create new icons
-- don't use icons on their own without a label
-- don't use icons without an ALT tag
-- don't select icons that aren't symbolic or easily identifiable and recognisable
+- do not select icons based on visual appeal alone; an icon that is not immediately symbolic in its context adds noise rather than clarity
+- do not introduce custom icons outside the ECL icon set - bespoke icons can undermine the shared visual language
+- do not omit alternative text - icons rendered without proper accessibility attributes are invisible to assistive technologies
 
-## When to use
+### **When to use**
 
-- use to add a visual cue to content and supplement understanding of labels
+- use an icon when a label or navigational item benefits from a recognised visual anchor that speeds scanning and understanding
+- use when reinforcing the meaning of an action, category, or status where a suitable, unambiguous icon exists in the ECL set
+- use when visual differentiation between list items or sections helps users orient themselves
 
-## When not to use
+### **When not to use**
 
-- don't use icons to replace labels or navigation items
-- don't use when there are many elements on a page for which you want to use icons - leads to visual clutter, impedes scannability
-- if an icon is ambiguous in the context of your page then a text label is better
+- do not use an icon when its meaning is ambiguous. If in doubt, a text label alone is safer and more accessible
+- do not reach for icons simply to add visual interest or break up content. Their value is functional, not decorative. Instead, use [Labels](https://ec.europa.eu/component-library/ec/components/label/code/) or structured layout patterns where visual hierarchy is the underlying need
