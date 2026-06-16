@@ -8,24 +8,24 @@ npm install --save @ecl/news-ticker
 
 ### Parameters:
 
-- **"id"** (string) (default: '')
-- **"items"** (array) (default: []) slide items
-  - "content" (string)
-  - "link" (string) (optional)
-  - "icon" (object) Object of type icon
-    **OR**
-  - "img" (object)
-    - "path" (string) (default: '')
-    - "title" (string) (default: '')
-    - "alt" (string) (default: '')
-- **"counter_label"** (string) (default: 'of')
-- **"sr_external"** (string) (default: 'External link') screen reader label for external icon
-- **"sr_previous"** (string) (default: 'Previous news') screen reader label for previous button
-- **"sr_next"** (string) (default: 'Next news') screen reader label for next button
-- **"sr_play"** (string) (default: 'Play news ticker') screen reader label for the play button
-- **"sr_pause"** (string) (default: 'Pause news ticker') screen reader label for the pause button
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"id"** (string) (default: random) Unique id for the news ticker
+- **"items"** (array) (default: []) Slide items; format:
+  - "content" (string) Item text content
+  - "link" (string) Item link URL
+  - "external" (boolean) Whether the link is external
+  - "icon" (object) Icon following ECL Icon structure (used instead of img)
+  - "img" (object) Alternative to icon:
+    - "path" (string) (default: '') Image path
+    - "title" (string) (default: '') Image title
+    - "alt" (string) (default: '') Image alt text
+- **"counter_label"** (string) (default: 'of') Label between current and total count
+- **"sr_external"** (string) (default: 'External link') Screen reader label for external icon
+- **"sr_previous"** (string) (default: 'Previous news') Screen reader label for previous button
+- **"sr_next"** (string) (default: 'Next news') Screen reader label for next button
+- **"sr_play"** (string) (default: 'Play news ticker') Screen reader label for the play button
+- **"sr_pause"** (string) (default: 'Pause news ticker') Screen reader label for the pause button
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

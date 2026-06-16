@@ -12,10 +12,10 @@ npm install --save @ecl/date-block
 - **"month"** (string) (default: '') Abbreviated name of the month
 - **"year"** (string) (default: '') Year in four digits
 - **"month_full"** (string) (default: '') Full month name
-- **"date_time"** (mandatory) (string) (default: '') Machine-readable date/time
-- **"variant"** (string) (default: '') (ongoing, past, canceled) Variant of the component
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"date_time"** (string) (default: '') Machine-readable date in standard format (YYYY-MM-DD)
+- **"variant"** (string) (default: '') Visual variant of the component; can be 'ongoing', 'past', 'canceled'
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

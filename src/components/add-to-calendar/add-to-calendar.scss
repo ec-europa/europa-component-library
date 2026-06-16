@@ -53,7 +53,7 @@ $add-to-calendar: null !default;
 }
 
 .ecl-add-to-calendar__meta-list {
-  gap: map.get($add-to-calendar, 'meta', 'gap');
+  row-gap: map.get($add-to-calendar, 'meta', 'gap');
   display: flex;
   flex-direction: column;
   list-style: none;

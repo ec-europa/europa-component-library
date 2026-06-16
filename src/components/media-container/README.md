@@ -14,18 +14,18 @@ npm install --save @ecl/media-container
 - **"caption_position"** (string) (default: 'bottom'): Position of the description and credit; can be 'bottom', 'over'
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
 - **"sr_video_audio"** (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
-- **"picture"** (associative array) (default: {}): Image for the media container, following ECL Picture structure
-- **"video"** (associative array) (default: {}) An ECL video object
-- **"autoplay"**: (bool) (default: false) If the media is a video, makes it autoplay, with no sound and in a loop.
-- **"sr_play"** (string) (default: ''): Label for the play button (for the autoplay video)
-- **"sr_pause"** (string) (default: ''): Label for the pause button (for the autoplay video)
-- **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
-- **"ratio"** (string) (default: '') Ratio of the embedded media, if empty the ratio will be set by the js
-- **"expandable"** (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"picture"** (object) (default: {}) Image following ECL Picture structure
+- **"video"** (object) (default: {}) Video following ECL Video structure
+- **"autoplay"** (boolean) (default: false) Autoplay the video muted and looping (hides controls)
+- **"sr_play"** (string) (default: '') Screen reader label for the play button (autoplay video)
+- **"sr_pause"** (string) (default: '') Screen reader label for the pause button (autoplay video)
+- **"full_width"** (boolean) (default: false) Full width media container (inside the grid container)
+- **"ratio"** (string) (default: '') Ratio of the embedded media; if empty, set by JS
+- **"expandable"** (object) (default: {}) Optional expandable block following ECL Expandable structure
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'.
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Blocks:
 

@@ -15,7 +15,7 @@ npm install --save @ecl/banner
 - **"font_weight"** (string) (default: 'light') Font weight of the title and description (can be 'light', 'bold')
 - **"font_color"** (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
 - **"box_background"** (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
-- **"overlay"**: (bool) (default: false) Display semi-transparent overlay
+- **"overlay"** (boolean) (default: false) Display semi-transparent overlay
 - **"title"** (string or Link) (default: '') Title of banner
 - **"picture"** (object) (default: {}): Image for the banner, following ECL Picture structure
 - **"video"** (object) (default: {}): Video for the banner
@@ -42,10 +42,10 @@ npm install --save @ecl/banner
 - **"description"** (string or Link) (default: '') Description of the banner
 - **"horizontal"** (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
 - **"vertical"** (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
-- **"full_width"** (bool) (default: false) Extends the banner to whole viewport when used inside the grid
-- **"link"** (object) (default: predefined structure) predefined structure for the Link component
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"full_width"** (boolean) (default: false) Full width banner (inside the grid)
+- **"link"** (object) (default: {}) Optional link for the banner, following ECL Link structure
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

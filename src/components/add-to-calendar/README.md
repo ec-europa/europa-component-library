@@ -18,11 +18,11 @@ npm install --save @ecl/add-to-calendar
   ...
   ]
 - **"button_add"** (string) (default: '') Markup of the button to add to calendar (managed by Webtools)
-- **"full_width"**: (bool) (default: false) Full width display (inside the grid)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"full_width"** (boolean) (default: false) Full width display (inside the grid)
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'.
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 

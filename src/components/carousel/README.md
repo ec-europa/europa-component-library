@@ -8,16 +8,18 @@ npm install --save @ecl/carousel
 
 ### Parameters
 
-- **"items"** (array) (default: []): List of banner compatible with ECL banner component structure
-- **"counter_label"** (string) (default: 'of')
-- **"sr_description"** (string) (default: '') screen reader description of the carousel
-- **"sr_role"** (string) (default: 'carousel') screen reader localized role for the carousel
-- **"sr_slide_role"** (string) (default: 'slide') screen reader localized role for the slides
-- **"sr_play"** (string) (default: 'Play carousel') screen reader label for the play button
-- **"sr_pause"** (string) (default: 'Pause carousel') screen reader label for the pause button
-- **"full_width"** (bool) (default: false) Extends the banner to whole viewport when used inside the grid
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"color_mode"** (string) (default: '') Name of the color mode
+- **"items"** (array) (default: []): List of banners compatible with ECL Banner component structure
+- **"size"** (string) (default: 'm') Size of the carousel; can be 's', 'm', 'l'
+- **"counter_label"** (string) (default: 'of') Label used between current and total count
+- **"sr_description"** (string) (default: '') Screen reader description of the carousel
+- **"sr_role"** (string) (default: 'carousel') Screen reader localized role for the carousel
+- **"sr_slide_role"** (string) (default: 'slide') Screen reader localized role for each slide
+- **"sr_play"** (string) (default: 'Play carousel') Screen reader label for the play button
+- **"sr_pause"** (string) (default: 'Pause carousel') Screen reader label for the pause button
+- **"full_width"** (boolean) (default: false) Full width carousel (inside the grid)
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

@@ -8,21 +8,21 @@ npm install --save @ecl/radio
 
 ### Parameters:
 
-- **"items"** (array) (default: [])
-  - "id" (string) (default: random): id of the radio
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
-  - "disabled" (boolean) (default: false)
-  - "checked" (boolean) (default: false)
-  - "required" (boolean) (default: false)
-  - "helper_text" (block) (default: '')
-  - "label" (block) (default: '')
-- **"name"** (string) (default: '')
-- **"invalid"** (boolean) (default: false)
-- **"binary"** (boolean) (default: false)
-- **"required"** (boolean) (default: false)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"items"** (array) (default: []) Radio button items; format:
+  - "id" (string) (default: random) Id of the radio button
+  - "name" (string) (default: '') Name attribute for the radio input
+  - "value" (string) (default: '') Value attribute for the radio input
+  - "disabled" (boolean) (default: false) Disables this radio button
+  - "checked" (boolean) (default: false) Pre-checks this radio button
+  - "required" (boolean) (default: false) Marks this radio button as required
+  - "helper_text" (string) (default: '') Helper text displayed below the label
+  - "label" (string) (default: '') Label for this radio button
+- **"name"** (string) (default: '') Name attribute shared across all radio buttons
+- **"invalid"** (boolean) (default: false) Displays the radio group in invalid state
+- **"binary"** (boolean) (default: false) Use binary (yes/no) display style
+- **"required"** (boolean) (default: false) Marks the group as required
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

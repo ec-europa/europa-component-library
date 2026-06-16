@@ -5,7 +5,9 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -210,13 +212,7 @@ $featured-item: null !default;
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
 
-    .ecl *,
-    .ecl a:hover,
-    .ecl a:focus-visible,
-    .ecl a:visited,
-    .ecl a:active {
-      color: map.get($featured-item, 'highlight', 'description', 'color');
-    }
+    @include mixins-color.content-current-color;
   }
 
   .ecl-featured-item__info + .ecl-featured-item__link {
@@ -224,10 +220,9 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link:not(
-    .ecl-link--primary-highlight,
     .ecl-link--primary-neutral,
-    .ecl-link--primary,
-    .ecl-link--secondary
+    .ecl-link--secondary-inverted,
+    .ecl-link--standalone
   ) {
     --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
     --ecl-link-color-hover: #{map.get(
@@ -251,6 +246,12 @@ $featured-item: null !default;
 
     text-align: start;
     text-decoration: underline;
+  }
+
+  @if map.has-key($featured-item, 'highlight', 'button-dark') {
+    .ecl-featured-item__link {
+      @include link-component.link-button(primary-neutral);
+    }
   }
 
   // Highlighted link
