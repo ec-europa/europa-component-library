@@ -2,24 +2,26 @@
 title: Usage
 order: 1
 ---
-Social Media Follow component allows users to follow/join the social media pages of EU institutions. It showcases the most popular ones, while the rest can be found on the Europa site by clicking the "other social networks" link.
+The Social media follow component directs users to the official social media channels of an EU institution or body, helping support audience growth and engagement across platforms. It gives users a clear, consistent way to access content that may be updated more frequently, extending the organisation's communication beyond the web presence.
 
-## Do's
+### **Do's**
 
-- maintain the same order when using native social media buttons
-- follow the branding of the social media guideline
-- always display the icon and the name of the social media network
-- always place the component at the bottom of the page
+- follow the relevant social media branding guidelines for each platform
+- present social media channels in a consistent order across all pages where the component appears
+- place the component at the bottom of the section or page
+- use the 'Other social networks' link to surface additional accounts
 
-## Don'ts
+### **Don'ts**
 
-- don't display more than 4-6 social media networks, use the "_Other social networks_" link instead
+- avoid displaying more than six networks inline
+- exclude channels that are not officially endorsed or that the organisation does not actively maintain
 
-## When to use
+### **When to use**
 
-- use when you want to increase visibility of a campaign
-- when you want to offer your users access to real-time, more frequently updated content that may be pushed to social media
+- use when the organisation has active, maintained accounts on the platforms listed
+- use when the goal is to increase visibility for a campaign or initiative with an active social media presence
 
-## When not to use
+### **When not to use**
 
-- do not use if your organisation are not subscribed to the social media network
+- do not use if the organisation is not subscribed to or actively publishing on the social media network
+- do not use as a substitute for the [Social media share](https://ec.europa.eu/component-library/ec/components/social-media-share/usage/) component, which allows users to share a specific page
