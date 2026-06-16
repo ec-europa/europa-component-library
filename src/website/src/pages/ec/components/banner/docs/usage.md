@@ -2,30 +2,28 @@
 title: Usage
 order: 1
 ---
-Banners are a component that score highly in the visual hierarchy, used to convey a message to the user.. They typically consist of an image, with heading, additional information and CTA. The 4 variants are designed with the user experience and accessibility in mind, controlling for various degrees of image exposure and text-to-image contrast ratio. The sizes cover multiple aspect ratios, specifically 3:1 (large), 4:1 (medium) and 5:1 (small).
+The banner component serves as a high-impact, visually prominent vessel for conveying key messages, announcements, and navigation pathways within the information hierarchy.\
+Its primary value lies in drawing user attention to critical content by combining imagery with structured text content (heading, description, and call-to-action), that serves to guide users towards priority tasks or topics, particularly on entry/landing pages or parent-level navigation pages where establishing context and direction is essential.
 
-## Do's
+### **Do's**
 
-- ensure that the size follows the aspect ratio of 3:1 (large), 4:1 (medium) and 5:1 (small)
-- ensure that the component is optimised for different devices
-- use and indicate appropriate file formats (jpg, png), if restrictions are applied
-- keep in mind the file size as it may affect page loading time
-- indicate file size if restrictions are applied
-- use indicated HTML tags and attributes
+- Always try to maintain the corresponding aspect ratio of your media for your chosen size variant: 3:1 (large), 4:1 (medium), 5:1 (small), or 6:1 (extra small); this ensures a predictable layout behaviour and prevents distortion
+- Try to use in conjunction with a focal point selection mechanism to ensure that the media is optimised for different devices
+- Use and indicate appropriate file formats (.jpg, .png), if restrictions are applied
+- Keep in mind the file size as it may affect page loading time, make sure to indicate file size if restrictions are applied
+- In case the video banner is used, make sure to provide users with the option to pause the animation; additionally ensure the banner's content (Title, Description and CTA) remains legible throughout the animation cycle
 
-## Don'ts
+### **Don'ts**
 
-- do not use a size that is larger than the allotted space
-- do not use a size that is not in the correct aspect ratio
-- do not use an inappropriate file format (e.g. gif, tiff)
-- do not use an incorrect file size
-- do not use incorrect HTML tags and attributes for the banner
+- Avoid forcing different aspect ratio media into constrained spaces as it might result in important information being cropped, or quality of the media distorted
+- Avoid non-semantic or arbitrary HTML markup in banner implementations; this creates barriers for assistive technology users and complicates maintenance
+- Do not use banners as a container for dense, multi-paragraph content; this overwhelming cognitive load defeats the component's purpose as a high-level orientation tool
 
-## When to use
+### **When to use**
 
-- use on homepage or landing pages to increase the visual hierarchy of a message or page
-- use on pages that are high in the information architecture (usually parent pages) to highlight topics and link to related pages
+- Use on Homepage and Landing pages, where establishing visual hierarchy and page purpose is critical to user orientation
+- Use on Parent or section-level pages within your information architecture, where banners highlight key topics and provide logical navigation to related content areas
 
-## When not to use
+### **When not to use**
 
-- do not use for large pieces of content - use [Featured item](https://ec.europa.eu/component-library/eu/components/media/featured-item/code/) instead
+- Do not use in dense content scenarios, where you need to present large blocks of information — use the [Featured Item](https://ec.europa.eu/component-library/eu/components/media/featured-item/code/) component instead, which provides greater content capacity with appropriate visual prominence
