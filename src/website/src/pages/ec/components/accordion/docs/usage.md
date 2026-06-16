@@ -2,30 +2,30 @@
 title: Usage
 order: 1
 ---
-The accordion component is used to generate vertically stacked content in a page. It is intended to save vertical space by hiding content, reducing scrolling.
+Use the accordion as a progressive disclosure component, to generate vertically stacked content in a page. It can reduce scrolling and save vertical space by 'hiding' contextual information under a descriptive title.\
+\
+Accordions have two states - collapsed and expanded. In the collapsed state, users must be able to scan, and quickly understand from the label, what content to expect if they click to expand.
 
-Accordions contains labels with the relevant information. Users can click on the accordion to read additional information. For this reason, accordion labels (collapsed state) should be as descriptive and concise as possible.
+### **Do's**
 
-## Do's
+- Use labels that are short, easy to understand and convey the content inside the (hidden) container
+- Make sure the sequence of elements is logical and reflects user mental models or task flow (i.e. chronological, hierarchical, frequency of use, etc.)
+- Ensure this component solves the problem of reducing scrolling/shortening the page, without sacrificing page clarity
 
-- use labels that are representative of the content inside the (initially hidden) container
-- order logically (such as 1st quarter, 2nd quarter, 3rd quarter, 4th quarter)
-- make sure this component is required in order to shorten the page
+### **Don'ts**
 
-## Don'ts
+- Don't hide important information that should be present at all times
+- Don't use unless scan-ability is key
+- Don't use actionable items (i.e. forms, accordions, buttons, CTAs, etc.) or pictures in the content container
 
-- don't use unless users will benefit from hidden information
-- don't use actionable items (i.e. forms, accordions, buttons, CTAs, etc.) or pictures in the content container as they will have decreased visibility
-- don't hide important information that should be present at all times
-- don't use long labels, ideally keep it to one line, maximum 2
+### **When to use**
 
-## When to use
+- When you need to present multiple sections of content in a simple way on one page, without overwhelming the user (especially on mobile)
+- When information is contextual and not all users need all the content
+- When content variety is high and logical grouping is clear (e.g. frequently asked questions, eligibility criteria by user type)
+- When information is supplementary or progressive - the component can make extensive and complex content easier to digest
 
-- when you need to present multiple sections of content in a simple way on one page, without overwhelming the user (especially applicable to mobile)
-- when it’s not critical for every user to read every section of content, adding value
-- when you can make extensive and complex content easier to digest through descriptive labels
+### **When not to use**
 
-## When not to use
-
-- don't use when pages are short (reading time: under 3 minutes)
-- don't use when information would be better structured horizontally (does not need comparison between sections) - use tabs instead
+- Don't use when pages are short (reading time: under 3 minutes), and accordions add interaction overhead without benefit
+- Don't use when information is better structured horizontally (e.g. comparison between sections)
