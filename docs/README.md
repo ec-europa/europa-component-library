@@ -27,3 +27,4 @@ To maintain these it's important to have a good grasp of few concepts before div
   - [Linting](./conventions/linting.md) - ESLint and Stylelint configuration
   - [Markdown](./conventions/markdown.md) - Markdown formatting
 - **[Decisions](./decisions/README.md)**: Technical and non-technical decisions during the project's evolution
+- **[Agentic skills](./agentic/README.md)**: Task-oriented guides for AI assistants (Claude Code, Kiro, Cursor, etc.)
