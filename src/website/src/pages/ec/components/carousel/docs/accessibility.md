@@ -2,6 +2,7 @@
 title: a11y
 order: 4
 ---
+
 ### Content structure
 
 The carousel's code includes a global description to introduce it to blind users (e.g., 'Top news', Highlights', 'Coming events'). This should be properly filled in.
