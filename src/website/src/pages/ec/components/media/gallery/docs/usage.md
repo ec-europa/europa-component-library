@@ -2,35 +2,26 @@
 title: Usage
 order: 1
 ---
-A media gallery is a collection of images, videos or audio files that allows a user to browse media related to the page content. The media gallery can include multiple formats.
+The Gallery component presents a curated collection of media items - images, videos, and audio files - in a scannable format that does not overwhelm the page. The Gallery gives users a lightweight overview of available media through thumbnails and exposes full content through an overlay interaction. The component supports a range of display options - different layout templates control how items are arranged and whether/which specific items receive visual prominence.
 
-## Do's
+### **Do's**
 
-- always include thumbnails
-- always include ALT tag
-- write captions that are short, distinct and indicative and communicate the subject of the media content that is linked
-- select appropriate images for media thumbnails, they need to depict what is in the audio or video file
-- select matching icon overlays to indicate the type of media, i.e. audio icon, video icon
+- provide thumbnails for every item in the Gallery, make sure each thumbnail accurately represents the file's content
+- write descriptive, concise captions that communicate the subject of the media item clearly; captions should be distinct, so users can differentiate items at a glance
+- ensure all images include meaningful alternative text that describes the content of the image
 
-## Don'ts
+### **Don'ts**
 
-- don't automatically play audio or video files when a user arrives on a page (or scrolls to a media gallery)
-- don't automatically play next items after an audio or video item finished
-- don't choose images which are too complex to be distinguished in thumbnail size
+- do not use thumbnails that are visually complex or detailed - they need to be legible at small sizes
+- do not auto-play audio or video when a user arrives on the page or scrolls to the gallery
+- do not automatically advance to the next item after a video or audio file finishes playing; allow users to control playback
+- do not omit captions - unlabeled media collections force users to open each item to understand its content, significantly increasing the effort required
 
-## When to use
+### **When to use**
 
-- where there are several media files - if there are under 5 items, use an [unordered](/ec/components/list/usage/) list or a [media container](/ec/components/media/media-container/usage/)
-- where there is no need to prioritise or highlight specific media files, i.e. files are equally important in terms of content
+- use on resource pages where a range of media assets (recordings, explainer videos, image packs) are available for browsing or download
+- use on pages where the gallery can be a trigger for users
 
-## When not to use
+### **When not to use**
 
-- do not use the gallery when media items have a content hierarchy
-- do not use the gallery when specific items should be highlighted
-
-# Overlay
-
-The media gallery overlay component represents the interaction interface. It is complementary to the gallery component. Through the component users can view, download and share items present in the media gallery. All information displayed in this component is pulled directly from the gallery component and
-therefore offers no interaction through the CMS.
-
-Gallery rules apply here for dos, don'ts, what to use and when not to use.
+- do not use for non-linear browsing where inline media placement within the page content is more suitable. Use the [Media container](https://ec.europa.eu/component-library/ec/components/media/media-container/code/)
