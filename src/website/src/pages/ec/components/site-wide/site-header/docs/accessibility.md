@@ -2,6 +2,7 @@
 title: a11y
 order: 4
 ---
+
 ### Accessible names
 
 The language switcher is described for blind users as: "Change language, current language is English - EN".
