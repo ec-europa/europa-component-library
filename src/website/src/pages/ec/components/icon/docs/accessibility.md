@@ -2,6 +2,7 @@
 title: a11y
 order: 3
 ---
+
 ### Accessible names
 
 Icons can be used standalone (without visible text), especially in mobile interfaces with limited space or in narrow table cells. If an icon is used alone, it absolutely requires a short description for screen reader users.
