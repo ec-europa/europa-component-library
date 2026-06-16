@@ -12,7 +12,6 @@ Tooltips exist to serve users who require context without interrupting the prima
 - position the tooltip so it does not obscure adjacent interactive elements or critical content
 - write tooltip text in plain language, consistent in tone with the surrounding interface
 - ensure the trigger element is labelled in a relevant way, independent of the tooltip - it should not get in the way of users who never encounter the tooltip
-- ~~ensure the tooltip is accessible via keyboard focus, not only mouse hover~~
 
 ### **Don'ts**
 
