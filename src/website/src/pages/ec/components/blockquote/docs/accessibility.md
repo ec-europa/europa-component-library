@@ -2,6 +2,7 @@
 title: a11y
 order: 3
 ---
+
 ### Accessible names
 
 If an author's picture accompanies a quote, it can be marked as decorative, as the author's name will already be displayed - describing the photo would be redundant for screen reader users.
