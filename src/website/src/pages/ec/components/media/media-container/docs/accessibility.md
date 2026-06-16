@@ -2,6 +2,7 @@
 title: a11y
 order: 4
 ---
+
 ### Accessible names
 
 In addition to visible captions, each image must be briefly described for blind users. This should be a very short description, not a repetition of the entire caption.
