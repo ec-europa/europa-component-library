@@ -2,16 +2,24 @@
 title: Usage
 order: 1
 ---
-The file upload component is used to select and upload files. This uploading interface can be supplemented by additional resources such as the [File upload status](https://v4-dev--europa-component-library.netlify.app/playground/ec/?path=/story/compositions-file-upload-status--default) to monitor the progress and offer additional interaction such as removing files once uploaded
+The File Upload component enables users to select and attach one or more files from their device. It is part of the ECL forms suite and can be used alongside [File upload status](https://v4-dev--europa-component-library.netlify.app/playground/ec/?path=/story/compositions-file-upload-status--default) to communicate upload progress and allow file removal.
 
-## Do's
+### **Do's**
 
-- allow users to upload a file in the commonly accepted formats
+- provide a clear, descriptive label that tells users exactly what file or files are required
+- include helper text specifying accepted file formats file sizes, placed visibly before the input (not only in error messages after the submission takes place)
+- use the [File upload status](https://v4-dev--europa-component-library.netlify.app/playground/ec/?path=/story/compositions-file-upload-status--default) composition to communicate upload progress and allow users to review or remove files before final submission
+- present validation feedback, such as 'unsupported file format' or 'file size exceeded' consistent with other form error patterns in ECL
 
-## Don'ts
+### **Don'ts**
 
-- don't limit the file upload size or type, unless specifically mentioned in the file requirements
+- do not rely on placeholder text or button labels alone to communicate requirements - helper text must be explicit and persistent
+- do not impose file type or size restrictions without surfacing those constraints clearly before the user attempts to upload
 
-## When to use
+### **When to use**
 
-- use when users are asked to upload one or multiple files that are necessary to completing current task (e.g. Grants & funding applications)
+- use when users are asked to upload one or multiple files needed to complete their current task
+
+### **When not to use**
+
+- when structured input would serve better i.e. required information can be exposed and captured through dedicated standard form fields (text, date, select)
