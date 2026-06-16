@@ -16,17 +16,16 @@
         "path": "/example"
       },
     }],
-    - "more_label" (string) (default: 'More (%d)') Label for the more button (responsive)
-    - "previous_label" (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
-    - "next_label" (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
-    - "extra_classes" (string) (default: '')
+    - "more_label" (string) (default: 'Show %d more items') Label for the overflow "more" button; %d is replaced with the count
+    - "previous_label" (string) (default: 'Previous') Screen reader label for the previous button (mobile)
+    - "next_label" (string) (default: 'Next') Screen reader label for the next button (mobile)
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        },
-        ...
-      ],
+          "name" (string) Attribute name, eg. 'data-test'
+          "value" (string) Attribute value, eg: 'data-test-1'
+        }, ...
+      ]
 #}
 
 {# Internal properties #}

@@ -8,14 +8,14 @@ npm install --save @ecl/spinner
 
 ### Parameters:
 
-- **"variant"** (string) (default: primary): could be 'primary' or 'inverted'
-- **"size"** (string) (default: m): could be 's', 'm' or 'l'
-- **"text"** (string) (default: '')
-- **"centered"** (boolean) (default: false)
-- **"visible"** (boolean) (default false)
-- **"overlay"** (boolean) (default: false)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"variant"** (string) (default: 'primary') Spinner variant; can be 'primary', 'inverted'
+- **"size"** (string) (default: 'm') Spinner size; can be 's', 'm', 'l'
+- **"text"** (string) (default: '') Screen reader text for the spinner
+- **"centered"** (boolean) (default: false) Center the spinner horizontally
+- **"visible"** (boolean) (default: false) Make the spinner visible
+- **"overlay"** (boolean) (default: false) Show the spinner with an overlay backdrop
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

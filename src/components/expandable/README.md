@@ -8,13 +8,13 @@ npm install --save @ecl/expandable
 
 ### Parameters:
 
-- **"id"** (string) (default: random)
-- **"label_expanded"** (string) (default: '')
-- **"label_collapsed"** (string) (default: '')
-- **"button"** (predefined structure) : Button component structure
-- **"extra_dropdown_classes"** (optional) (string) (default: '') Extra dropdown classes (space separated)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"id"** (string) (default: random) Unique id for accessibility bindings
+- **"label_expanded"** (string) (default: '') Button label when the content is expanded
+- **"label_collapsed"** (string) (default: '') Button label when the content is collapsed
+- **"button"** (object) Button properties, following ECL Button structure
+- **"extra_dropdown_classes"** (string) (default: '') Extra classes for the expandable content panel
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

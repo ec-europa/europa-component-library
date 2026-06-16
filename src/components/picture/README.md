@@ -8,27 +8,22 @@ npm install --save @ecl/picture
 
 ## Parameters
 
-- **"picture"** (associative array) (default: {}):
-  - **"img"** (associative array) (default: {}):
-    - "src" (string) (default: ''): Path to the image
-    - "alt" (string) (default: ''): Alt text of the image
-    - "lazy" (boolean) (default: false): Should the image be loaded using lazy loading?
-  - **"image_anchor"** (string) (default: 'center'): initial position of the image when it should be cropped; can be any value allowed by object-position ('top left', '30% 50%', '100px 20px', ...),
-  - **"sources"** (array) (default: []): format: [
-    {
-    "src" (string) (default: ''): Path to the source image
-    "media" (string) (default: ''): Media condition to use this source. Can be a breakpoint (xs, s, m, l, xl, xxl) or a free string.
-    "type" (string) (default: ''): Type of this source
-    },
-    ...
-    ]
-  - **"lazy"** (boolean) (default: false): Should the picture be loaded using lazy loading?
-  - **"zoom"** (boolean) (default: false): Should the picture have a zoom animation?
-  - **"extra_classes"** (optional) (string) (default: ''): Extra css classes, added to the root picture tag
-  - **"extra_image_classes"** (optional) (string) (default: ''): Extra css classes, added to to the img tag
-  - **"extra_attributes"** (optional) (array) (default: [])
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+- **"picture"** (object) (default: {}):
+  - "img" (object) (default: {}):
+    - "src" (string) (default: '') Path to the image
+    - "alt" (string) (default: '') Alt text of the image
+  - "image_anchor" (string) (default: 'center') Initial position when the image is cropped; accepts any `object-position` value (e.g. 'top left', '30% 50%')
+  - "sources" (array) (default: []) Responsive image sources; format:
+    - "src" (string) (default: '') Path to the source image
+    - "media" (string) (default: '') Media condition; a breakpoint name ('xs', 's', 'm', 'l', 'xl', 'xxl') or a CSS media string
+    - "type" (string) (default: '') MIME type of the source
+- **"lazy"** (boolean) (default: false) Load the picture using lazy loading
+- **"zoom"** (boolean) (default: false) Apply a zoom animation on hover
+- **"extra_classes"** (string) (default: '') Extra classes on the root `<picture>` tag
+- **"extra_image_classes"** (string) (default: '') Extra classes on the `<img>` tag
+- **"extra_attributes"** (array) (default: []) Extra attributes on the `<picture>` tag
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ## Example:
 

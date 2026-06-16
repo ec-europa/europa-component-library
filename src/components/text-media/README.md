@@ -18,10 +18,10 @@ npm install --save @ecl/text-media
 - **"link"** (object) (default: {}): Content link, following ECL Link structure
 - **"media_container"** (object) (default: {}): Media used (picture or video), following ECL Media container structure
 - **"full_width"** (boolean) (default: false): Full width display (inside the grid)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'.
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example
 

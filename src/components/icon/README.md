@@ -8,22 +8,23 @@ npm install --save @ecl/icon
 
 ### Parameters
 
-- **"icon"** (associative array) (default: 'predefined structure below')
-  - "name" (string) (default: '') - name of icon, eg. 'facebook', 'twitter'.
-  - "size" (string) (default: 'm') size of icon. Available sizes are 'xs','s','m','l','xl','2xl','fluid'
-  - "transform" (string) (default: '') Transformation of icon. Available transformations are 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'
-  - "color" (string) (default: '') Color of icon. Available colors are 'default', 'inverted', 'primary'
-  - "title": '' (string) (default: '') Additional title for the icon; shortcut for extra accessibility title
-  - "family" (string) (default: ''): icon family
-- **"as_image"**: (boolean) (default: false) Whether the icon is used as an image
-- **"extra_accessibility"** (optional) (object) Extra tags for accessibility when used as an image
-  - description: '' (desc tag)
-  - description_id: '' (desc tag id)
-  - title: '' (title tag)
-  - title_id: '' (title tag id)
-  - role: '' (role attribute)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"icon"** (associative array) (default: {}):
+  - "name" (string) (default: '') Icon name, eg. 'facebook', 'twitter'
+  - "size" (string) (default: 'm') Icon size; can be 'xs', 's', 'm', 'l', 'xl', '2xl', 'fluid'
+  - "transform" (string) (default: '') Icon transformation; can be 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'
+  - "color" (string) (default: '') Icon color; can be 'default', 'inverted', 'primary'
+  - "title" (string) (default: '') Accessible title for the icon (shortcut for extra_accessibility.title)
+  - "family" (string) (default: '') Icon family (e.g. 'phosphor')
+  - "style" (string) (default: '') Icon style; mostly for social network icons; can be 'primary', 'monochrome', 'inverted'
+- **"as_image"** (boolean) (default: false) Whether the icon should be treated as an image for accessibility
+- **"extra_accessibility"** (object) (default: {}) Accessibility tags when used as an image:
+  - "description" (string) (default: '') Content for the `<desc>` tag
+  - "description_id" (string) (default: '') Id for the `<desc>` tag
+  - "title" (string) (default: '') Content for the `<title>` tag
+  - "title_id" (string) (default: '') Id for the `<title>` tag
+  - "role" (string) (default: '') Role attribute value
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
