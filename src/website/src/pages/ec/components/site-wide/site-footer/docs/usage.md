@@ -13,8 +13,6 @@ The standardised and harmonised configurations share structure and guidelines. B
 
 ### Standardised & Harmonised config.
 
-Anatomy table
-
 | No. | Element/component             | Standardised | Harmonised | Description                                                                |
 | --- | ----------------------------- | ------------ | ---------- | -------------------------------------------------------------------------- |
 | 1   | Co-owner banner               | optional     | optional   | Links to owners in case of multiple entities                               |
