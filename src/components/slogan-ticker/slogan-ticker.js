@@ -89,7 +89,7 @@ export class SloganTicker {
     this.slides = queryAll(this.slideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
 
-    if (!this.sliderEl || this.slides.length <= 1) {
+    if (!this.sliderEl || this.slides.length < 1) {
       if (this.playButton) this.playButton.style.display = 'none';
       if (this.pauseButton) this.pauseButton.style.display = 'none';
       return false;
