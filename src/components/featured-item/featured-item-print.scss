@@ -208,12 +208,17 @@ $featured-item-print: null !default;
     --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
 
     text-align: start;
-    text-decoration: underline;
   }
 
   @if map.has-key($featured-item, 'highlight', 'button-dark') {
     .ecl-featured-item__link {
-      @include link-component.link-button(primary-neutral);
+      .ecl-link__label {
+        text-decoration: none;
+      }
+
+      &.ecl-link--secondary-inverted {
+        @include link-component.link-button(primary-neutral);
+      }
     }
   }
 
