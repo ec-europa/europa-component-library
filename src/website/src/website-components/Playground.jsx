@@ -197,7 +197,9 @@ class Playground extends Component {
 
     return (
       <div className={styles.playground}>
-        <div className={styles.showcase}>
+        <div
+          className={`${styles.showcase}${showFrame && fullFrameUrl ? ` ${styles['showcase--framed']}` : ''}`}
+        >
           {!hideDemo && (
             <>
               {showFrame && fullFrameUrl ? (
