@@ -278,12 +278,6 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  banner_top: {
-    link: {
-      label: 'Aid, Development cooperation, Fundamental rights',
-      path: exampleLink,
-    },
-  },
   notification: {
     variant: 'info',
     icon: {

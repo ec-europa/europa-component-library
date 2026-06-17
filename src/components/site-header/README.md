@@ -10,7 +10,6 @@ npm install --save @ecl/site-header
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
-- **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"site_name"** (string) (default: '') Site name
 - **"site_name_mobile_only"** (boolean): Whether the site name should be hidden on desktop or not
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
@@ -68,12 +67,15 @@ npm install --save @ecl/site-header
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
+### Deprecated
+
+- **"banner_top"** (string) OR (object with Link component in property): Class name
+
 ### Example :
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/site-header/site-header.html.twig' with { 
-  banner_top: 'Class name', 
   site_name: 'This site name'
   logo: {
     alt: 'European Commission', 
