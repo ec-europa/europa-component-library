@@ -1,5 +1,46 @@
 # Changelog
 
+## 5.0.0 (2026-06-17)
+
+#### :bug: Bug Fix
+
+- [#4575](https://github.com/ec-europa/europa-component-library/pull/4575) fix(featured-item): fix display of link in EU - FRONT-5371 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#4568](https://github.com/ec-europa/europa-component-library/pull/4568) feat(site-header): remove core class name - FRONT-5367 ([@emeryro](https://github.com/emeryro))
+- [#4573](https://github.com/ec-europa/europa-component-library/pull/4573) fix(slogan-ticker): handle single item - FRONT-5366 ([@emeryro](https://github.com/emeryro))
+- [#4463](https://github.com/ec-europa/europa-component-library/pull/4463) docs(website): update display and navigation - FRONT-5364 ([@emeryro](https://github.com/emeryro))
+- [#4455](https://github.com/ec-europa/europa-component-library/pull/4455) feat(footer): add survey link - FRONT-5356 ([@emeryro](https://github.com/emeryro))
+- [#4457](https://github.com/ec-europa/europa-component-library/pull/4457) feat(colors): review color tokens - FRONT-5362 ([@emeryro](https://github.com/emeryro))
+- [#4453](https://github.com/ec-europa/europa-component-library/pull/4453) feat(add-to-calendar): update spacing - FRONT-5358 ([@emeryro](https://github.com/emeryro))
+- [#4431](https://github.com/ec-europa/europa-component-library/pull/4431) feat(animated-numbers): control for icon title - FRONT-5319 ([@emeryro](https://github.com/emeryro))
+- [#4441](https://github.com/ec-europa/europa-component-library/pull/4441) feat(featured-item, text-media): update link color - FRONT-5336 ([@emeryro](https://github.com/emeryro))
+- [#4444](https://github.com/ec-europa/europa-component-library/pull/4444) feat(featured-item): update link/button style - FRONT-5350 ([@emeryro](https://github.com/emeryro))
+- [#4450](https://github.com/ec-europa/europa-component-library/pull/4450) feat(banner): No dark box with overlay - FRONT-5337 ([@emeryro](https://github.com/emeryro))
+- [#4422](https://github.com/ec-europa/europa-component-library/pull/4422) feat(animated-numbers): use link css directly - FRONT-5332 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#4456](https://github.com/ec-europa/europa-component-library/pull/4456) docs(components): consolidate schema - FRONT-5359 ([@emeryro](https://github.com/emeryro))
+- [#4462](https://github.com/ec-europa/europa-component-library/pull/4462) fix(accordion): Removing outdated docs about the item's id - FRONT-5365 ([@planctus](https://github.com/planctus))
+- [#4454](https://github.com/ec-europa/europa-component-library/pull/4454) docs(v5): update migration doc ([@emeryro](https://github.com/emeryro))
+- [#4445](https://github.com/ec-europa/europa-component-library/pull/4445) docs(v5): update migration doc - FRONT-5214 ([@emeryro](https://github.com/emeryro))
+- [#4449](https://github.com/ec-europa/europa-component-library/pull/4449) docs(typography): update font weight - FRONT-5335 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4574](https://github.com/ec-europa/europa-component-library/pull/4574) chore(website): Copying EC pages into EU, updating cms config with the new files ([@planctus](https://github.com/planctus))
+- [#4535](https://github.com/ec-europa/europa-component-library/pull/4535) chore(website): Fixing cms config, aligning component naming ([@planctus](https://github.com/planctus))
+- [#4459](https://github.com/ec-europa/europa-component-library/pull/4459) feat(ai): add skills for ai agents - FRONT-5360 ([@emeryro](https://github.com/emeryro))
+- [#4461](https://github.com/ec-europa/europa-component-library/pull/4461) chore(deps): Updates 15-06-26 ([@planctus](https://github.com/planctus))
+- [#4448](https://github.com/ec-europa/europa-component-library/pull/4448) chore(deps): Updates 04-06-26 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-RC6 (2026-06-03)
 
 #### :rocket: New Feature
