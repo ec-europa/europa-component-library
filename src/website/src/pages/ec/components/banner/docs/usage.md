@@ -26,4 +26,4 @@ Its primary value lies in drawing user attention to critical content by combinin
 
 ### **When not to use**
 
-- Do not use in dense content scenarios, where you need to present large blocks of information — use the [Featured Item](https://ec.europa.eu/component-library/eu/components/media/featured-item/code/) component instead, which provides greater content capacity with appropriate visual prominence
+- Do not use in dense content scenarios, where you need to present large blocks of information — use the [Featured Item](../../media/featured-item/code/) component instead, which provides greater content capacity with appropriate visual prominence

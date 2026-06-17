@@ -26,7 +26,7 @@ It gives users the information they need to decide whether to download before co
 ### **When not to use**
 
 - do not use the Files component as the sole carrier of critical information. If content is essential for understanding the page, it must appear inline, not only as a download
-- do not use for navigation. Use the [Link](https://citnet.tech.ec.europa.eu/CITnet/confluence/spaces/ECL/pages/1500218582/2026-03+File+usage+page+v5#) component, [Content Item](https://citnet.tech.ec.europa.eu/CITnet/confluence/spaces/ECL/pages/1500218582/2026-03+File+usage+page+v5#) or [Cards](https://citnet.tech.ec.europa.eu/CITnet/confluence/spaces/ECL/pages/1500218582/2026-03+File+usage+page+v5#)
+- do not use for navigation. Use the [Link](../../navigation/link/usage) component, [Content Item](../../content-item/usage) or [Cards](../../card/usage)
 
 ## File download with thumbnail
 

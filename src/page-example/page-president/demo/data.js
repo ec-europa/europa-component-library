@@ -48,7 +48,7 @@ const breadcrumb = {
 const page_header = {
   title: 'Ursula von der Leyen',
   description: 'President of the European Commission',
-  breadcrumb: breadcrumb,
+  breadcrumb,
 };
 
 // Blockquote

@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The Site header offers easily recognisable elements (such as the logo) and essential functionality (such as Language switcher or [Search form](https://ecl-preview-2241--europa-component-library.netlify.app/ec/components/forms/search-form/code/)). The header is always placed at the top of the page.
+The Site header offers easily recognisable elements (such as the logo) and essential functionality (such as Language switcher or [Search form](../../../forms/search-form/code/)). The header is always placed at the top of the page.
 
 The elements required in the site header differ, depending whether it belongs to the core, or to a standardised or harmonised website.
 
