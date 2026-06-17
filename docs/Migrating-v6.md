@@ -6,3 +6,5 @@ The following guidelines aim to facilitate the migration from ECL v5 to v6.
 
 - featured item:
   - parameter `link_highlighted` (replaced by `link_display`)
+- site header:
+  - parameter `banner_top` (used for class name)
