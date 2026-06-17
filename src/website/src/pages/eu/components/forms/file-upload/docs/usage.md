@@ -2,13 +2,13 @@
 title: Usage
 order: 1
 ---
-The File Upload component enables users to select and attach one or more files from their device. It is part of the ECL forms suite and can be used alongside [File upload status](https://v4-dev--europa-component-library.netlify.app/playground/ec/?path=/story/compositions-file-upload-status--default) to communicate upload progress and allow file removal.
+The File Upload component enables users to select and attach one or more files from their device. It is part of the ECL forms suite and can be used alongside [File upload status](../../../../../playground/eu/?path=/story/compositions-file-upload-status--default) to communicate upload progress and allow file removal.
 
 ### **Do's**
 
 - provide a clear, descriptive label that tells users exactly what file or files are required
 - include helper text specifying accepted file formats file sizes, placed visibly before the input (not only in error messages after the submission takes place)
-- use the [File upload status](https://v4-dev--europa-component-library.netlify.app/playground/ec/?path=/story/compositions-file-upload-status--default) composition to communicate upload progress and allow users to review or remove files before final submission
+- use the [File upload status](../../../../../playground/eu/?path=/story/compositions-file-upload-status--default) composition to communicate upload progress and allow users to review or remove files before final submission
 - present validation feedback, such as 'unsupported file format' or 'file size exceeded' consistent with other form error patterns in ECL
 
 ### **Don'ts**
