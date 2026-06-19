@@ -42,8 +42,18 @@ const renderer = {
 function renderMarkdown(text, options, json) {
   if (json) {
     const example = { ...json };
+
+    Object.keys(example).forEach((key) => {
+      if (key.startsWith('show_')) {
+        delete example[key];
+      }
+    });
+
     if (example.extra_classes === '') {
       delete example.extra_classes;
+    }
+    if (example.gridContent != null) {
+      delete example.gridContent;
     }
     if (example.extra_attributes === undefined) {
       delete json.extra_attributes;
@@ -100,7 +110,11 @@ export const withNotes = makeDecorator({
   wrapper: (getStory, context, { options, parameters }) => {
     const channel = addons.getChannel();
     const story = getStory(context);
-    const { json } = parameters;
+    let { json } = parameters;
+
+    if (typeof json === 'function') {
+      json = structuredClone(json(context));
+    }
     const storyOptions = parameters || options;
 
     const { text, markdown, markdownOptions } =
