@@ -96,7 +96,7 @@ $typography: null !default;
 }
 
 %ecl-paragraph {
-  color: map.get($typography, 'text-color');
+  color: currentcolor;
   max-width: var(--max-w) !important;
 
   @include mixins.responsive-font(map.get($typography, 'paragraph', 'm'));
