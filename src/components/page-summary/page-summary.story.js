@@ -1,5 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import defaultData from './demo/data';
 import pageSummary from './page-summary.html.twig';
@@ -13,10 +15,15 @@ const getArgs = (data) => {
     demo_list: false,
   };
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = () => ({
+  ...getColorModeControls(),
   show_icon: {
     name: 'icon',
     type: { name: 'boolean' },
