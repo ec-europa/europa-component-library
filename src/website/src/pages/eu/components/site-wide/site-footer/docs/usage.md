@@ -2,25 +2,27 @@
 title: Usage
 order: 1
 ---
-The site footer is present on every page. It provides supplementary information such as a sitemap, copyright, legal, privacy, social media and contact information as well as various links to other important sections within the Europa ecosystem, to be placed at the end of the page.
+The site footer component is present on every page. Its content provides supplementary information such as a sitemap; copyright and legal notices; privacy and accessibility statements; social media and contact information, as well as links to other important sections.
 
-The content of the footer for the Core configuration is specific and all items mandatory.
+The Core site footer configuration and content are specific. All items are mandatory.
 
-The harmonised configuration shares the same structure and guidelines, and is organised in 2 main sections:
+The standardised and harmonised configurations share structure and guidelines. Both are organised in 2 main sections:
 
 - The local section: with information and links related to the current site. Its content is defined by the site owner, following the guidelines of DG COMM
 - The corporate part: with information applicable to the Commission as a whole. Its content is defined by DG COMM
 
-# Harmonised config.
+### Standardised & Harmonised config.
 
-### Anatomy table
-
-| No. | Element/component                        | Usage     | Description                                     |
-| --- | ---------------------------------------- | --------- | ----------------------------------------------- |
-| 1   | Site name                                | optional  | Logo & Site name and content owner details      |
-| 2   | Content owner details                    | optional  | Indicates **ownership over the site's content** |
-| 3   | Accessibility                            | mandatory | Links to the **accessibility statement**        |
-| 3   | DG-related navigation                    | optional  | Links to the **main content pages**             |
-| 4   | EU identity (flag)                       | mandatory | Logo of the European Union                      |
-| 5   | Contact, Social media & Legal navigation | mandatory | Links to the **main service pages**             |
-| 6   | EU Institutions                          | mandatory | Links to various institutions of interest       |
+| No. | Element/component             | Standardised | Harmonised | Description                                                                |
+| --- | ----------------------------- | ------------ | ---------- | -------------------------------------------------------------------------- |
+| 1   | Co-owner banner               | optional     | optional   | Links to owners in case of multiple entities                               |
+| 2   | Site survey                   | mandatory    | optional   | Link to site survey                                                        |
+| 3   | Site name                     | mandatory    | mandatory  | Name of the site                                                           |
+| 4   | Content owner details         | mandatory    | mandatory  | Indicates **ownership of site content**                                    |
+| 5   | Newsletter button             | optional     | optiona    | Button to newsletter subscription                                          |
+| 6   | DG-related Service navigation | optional     | optional   | Links to associated **services available** through the DG-site             |
+| 7   | DG-related navigation         | optional     | optional   | Links to **main content pages**                                            |
+| 8   | Logo                          | mandatory    | mandatory  | European Commission                                                        |
+| 9   | Service navigation            | mandatory    | mandatory  | Contains legal information links **\- consistent throughout family sites** |
+| 10  | Legal navigation              | mandatory    | mandatory  | Contains legal information links **\- consistent throughout family sites** |
+| 11  | Accessibility statement       | mandatory    | mandatory  | Links to the **accessibility statement**                                   |

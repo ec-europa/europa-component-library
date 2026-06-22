@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-    - "banner_top" (object): Object of type link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (associative array): Menu content, if any. Uses ECL Menu structure
     - "mega_menu" (associative array): Menu content, if any. Uses ECL Mega Menu structure
@@ -93,6 +92,10 @@
           "value" (optional) (string)
         ...
       ],
+#}
+
+{# DEPRECATED
+- "banner_top" (string) OR (object with Link component in property): Class name
 #}
 
 {# Default variables #}

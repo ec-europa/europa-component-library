@@ -24,7 +24,6 @@ const closeButton = { ...dataFull.notification.close };
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
 delete dataCore.login_box;
-delete dataCore.banner_top;
 delete dataCore.cta_link;
 dataCore.has_menu = true;
 
@@ -35,7 +34,6 @@ dataStandardised.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
-delete dataHarmonised.banner_top;
 dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
@@ -56,9 +54,6 @@ const getArgs = (data) => {
     defaultArgs.show_site_name = true;
     defaultArgs.site_name = data.site_name;
     defaultArgs.site_name_mobile_only = false;
-  }
-  if (data.banner_top) {
-    defaultArgs.show_banner_top = true;
   }
   if (data.has_menu) {
     defaultArgs.show_menu = 'mega-menu';
@@ -139,16 +134,6 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
       if: { arg: 'show_notification' },
-    };
-  }
-  if (data.banner_top) {
-    argTypes.show_banner_top = {
-      name: 'class name',
-      type: { name: 'boolean' },
-      description: 'Show the class name',
-      table: {
-        category: 'Optional',
-      },
     };
   }
   if (data.has_menu) {
@@ -350,12 +335,6 @@ const prepareData = (data, args) => {
     delete clone.cta_link;
   } else {
     clone.cta_link = clonedDataFull.cta_link;
-  }
-
-  if (!args.show_banner_top) {
-    delete clone.banner_top;
-  } else {
-    clone.banner_top = clonedDataFull.banner_top;
   }
 
   if (!args.show_notification) {

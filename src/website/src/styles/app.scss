@@ -1,7 +1,31 @@
 /* stylelint-disable no-descending-specificity */
 
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+      format('woff2'),
+    url('@ecl/preset-ec/dist/fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
+      format('woff2'),
+    url('@ecl/preset-ec/dist/fonts/InterVariable-Italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
-  background-color: var(--ws-c-n-40);
+  background-color: #fff;
   margin: 0;
   overflow-wrap: break-word;
 }

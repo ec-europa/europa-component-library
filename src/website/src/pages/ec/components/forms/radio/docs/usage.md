@@ -2,29 +2,28 @@
 title: Usage
 order: 1
 ---
-Radio buttons provides a selection with two or more options. Only one option can be selected.
+Use the Radio component where the choices presented are mutually exclusive. Selecting one option deselects any previously chosen value. The Radio component is appropriate when the available answers are known in advance, the options are relatively few, and only a single answer is required. Its persistent visibility (all options remain on screen at once) helps users compare choices before committing, supporting more confident, considered decision-making.
 
-## Do's
+### **Do's**
 
-- use labels as click targets (clicking the label will select that option)
-- group related fields
-- order logically (e.g. ages 18-25, ages 25-35, ages, 35-50, over 65)
-- indicate whether the input group is optional - _if it's mandatory, have a neutral option (e.g. other, n/a) selected by default_
-- make use of helper text if there are further directions or hints the users may need in completing their goal
-- write specific and clear error messages, so users understand how to address the error
+- make the label itself a click target, so users can select an option by clicking either the radio control or its associated text
+- group related radio buttons and order them logically (e.g. by age range, frequency, or natural sequence)
+- clearly indicate whether the group is optional or mandatory
+- include helper text placed visibly before the input, not only in error messages after the submission
+- write specific, actionable error messages so users can clearly understand what is expected
 
-## Don'ts
+### **Don'ts**
 
-- don't add them without grouping first
-- don't nest elements under radio buttons - keep all the options on the same level
+- do not present radio buttons outside a logical group - ungrouped options lose the mutual exclusivity that is the component's core function
+- do not nest content or sub-options beneath individual radio buttons - keep all options at the same hierarchy level to preserve clarity and accessibility
 
-## When to use
+### **When to use**
 
-- when you have under 10 items
-- when users need to select options or toggle settings
-- in forms with multiple non-exclusive options (e.g. search filters)
-- only one selection can be made
+- use when mutually exclusive selections with a small option set exist (i.e. 4 groups of up to around ten options where only one answer is valid)
+- use in settings and preference toggles when users need to choose one active state from a discrete set (e.g. either binary such as on/off, yes/no, or a tier selection) as radio buttons make the constraint explicit and visible
+- use in search filters with single-select constraints - where applying more than one value in a category would be contradictory, radio buttons correctly signal that the selection is exclusive (e.g. Local vs Global search)
 
-## When not to use
+### **When not to use**
 
-- avoid when more than one option can be selected - use [checkboxes](https://ec.europa.eu/component-library/ec/components/forms/checkbox/code/) or [multi-select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) instead
+- do not use if the option list is long, instead opt for [Select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) to keep the form manageable
+- do not use if users can choose more than one option, instead opt for [Checkbox](https://ec.europa.eu/component-library/ec/components/forms/checkbox/code/) in the case of short lists, or [Multi-select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) for longer ones
