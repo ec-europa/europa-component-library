@@ -56,7 +56,7 @@ export const Default = (args) => {
   return `
     <h2 class="ecl-u-type-heading-2">HTML tag styling</h2>
     <p class="ecl-u-type-paragraph">To see the following HTML tags styled with ECL, just activate the optional "ecl-${getSystem()}-default" or "ecl-${getSystem()}-default-print" css file in the "CSS resources" tab.</p>
-    <details">
+    <details>
       <summary class="ecl-u-type-s">Link and button</summary>
       <div class="ecl ecl-u-mt-xs">
         <a href="${exampleLink}">Link</a><br><br>
@@ -66,7 +66,7 @@ export const Default = (args) => {
 
     <hr class="ecl-u-mv-s">
 
-    <details id="typography"" ${detailsState.typography ? 'open' : ''}>
+    <details id="typography" ${detailsState.typography ? 'open' : ''}>
       <summary class="ecl-u-type-s">Typography</summary>
       <div class="ecl ecl-u-mt-xs ${wrapperClass}">
         <h1>Heading 1</h1>
