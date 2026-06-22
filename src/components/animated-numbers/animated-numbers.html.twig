@@ -193,6 +193,7 @@
                             {% include '@ecl/link/link.html.twig' with {
                               link: source.link|merge({
                                 inverted: _with_background,
+                                branded: not _counter_color,
                               }),
                               extra_classes: 'ecl-animated-numbers__source'
                             } only %}
@@ -228,6 +229,7 @@
               {% include '@ecl/link/link.html.twig' with {
                 link: source.link|merge({
                   inverted: _with_background,
+                  branded: not _counter_color,
                 }),
                 extra_classes: 'ecl-animated-numbers__source'
               } only %}
@@ -245,6 +247,7 @@
                     {% include '@ecl/link/link.html.twig' with {
                       link: source.link|merge({
                         inverted: _with_background,
+                        branded: not _counter_color,
                       }),
                       extra_classes: 'ecl-animated-numbers__source'
                     } only %}

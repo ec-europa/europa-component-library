@@ -116,8 +116,6 @@ $fact-figures: null !default;
 .ecl-fact-figures__source {
   @if map.get($fact-figures, 'source-link-variant') == 'brand' {
     @include link-component.brand-link;
-  } @else if map.get($fact-figures, 'source-link-variant') == 'standalone' {
-    @include link-component.standalone-link;
   }
 }
 

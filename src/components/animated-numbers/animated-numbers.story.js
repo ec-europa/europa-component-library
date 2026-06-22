@@ -8,6 +8,8 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    numberOfItems: 4,
+    source_type: 'individual',
     with_background: false,
     full_width: false,
     border: false,
@@ -17,7 +19,6 @@ const getArgs = (data) => {
     description: data.description,
     category: data.category,
     value: data.value,
-    numberOfItems: 4,
     icon_name: data.icon.name,
     icon_title: '',
   };
@@ -30,6 +31,9 @@ const getArgTypes = () => ({
     name: 'number of items',
     control: { type: 'range', min: 1, max: 8, step: 1 },
     description: 'Number of items to display',
+    table: {
+      category: 'Items',
+    },
   },
   with_background: {
     name: 'with a dark background',
@@ -179,6 +183,23 @@ const getArgTypes = () => ({
     },
     if: { arg: 'icon_name', neq: 'none' },
   },
+  source_type: {
+    name: 'source type',
+    type: { name: 'select' },
+    description:
+      'Display individual sources per item, a single global sources footer, or no sources',
+    options: ['individual', 'global', 'none'],
+    mapping: {
+      individual: 'individual',
+      global: 'global',
+      none: 'none',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'individual' },
+      category: 'Items',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -209,6 +230,19 @@ const prepareData = (data, args) => {
   const count = Math.min(Math.max(args.numberOfItems, 1), 8);
 
   cloned.items = cloned.items.slice(0, count);
+
+  if (args.source_type === 'global') {
+    cloned.items.forEach((item) => {
+      delete item.sources;
+    });
+  } else if (args.source_type === 'individual') {
+    cloned.sources = [];
+  } else {
+    cloned.sources = [];
+    cloned.items.forEach((item) => {
+      delete item.sources;
+    });
+  }
 
   return cloned;
 };
