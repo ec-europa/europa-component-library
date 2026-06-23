@@ -1,6 +1,7 @@
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
- * @param {Object} options.sidebarMediaQuerySelector Selector for the media query to match
+ * @param {Object} options
+ * @param {String} options.sidebarMediaQuerySelector Selector for the media query to match
  * @param {String} options.sidebarItemSelector Selector for sidebar items that open on desktop
  * @param {String} options.sidebarBreakpoint Media query for the desktop breakpoint
  */
