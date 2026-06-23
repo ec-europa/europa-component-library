@@ -15,7 +15,7 @@ npm install --save @ecl/accordion
     - "extra_classes" (string) (default: '') Extra classes for the toggle button
   - "content" (string) (default: '') Content inside the accordion item
 - **"sidebar"** (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
-- **"sidebar_media_query"** (default: '(width >= 996px)') Media query to be matched for expanding the accordion
+- **"sidebar_media_query"** (default: '') Media query to be matched for expanding the accordion
 - **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled (open/close)
 - **"name"** (string) (default: '') Optional name attribute to link multiple accordion items (HTML `name` on `<details>`)
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
