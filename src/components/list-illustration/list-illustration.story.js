@@ -533,7 +533,10 @@ HorizontalImage.argTypes = getArgTypes(
   'horizontal-image',
 );
 HorizontalImage.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationImage },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationImage, args),
+  },
 };
 
 export const HorizontalIcon = (_, { loaded: { component } }) => component;
@@ -551,7 +554,10 @@ HorizontalIcon.argTypes = getArgTypes(
   'horizontal-icon',
 );
 HorizontalIcon.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationIcon },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationIcon, args),
+  },
 };
 
 export const VerticalImage = (_, { loaded: { component } }) => component;
@@ -569,7 +575,10 @@ VerticalImage.argTypes = getArgTypes(
   'vertical-image',
 );
 VerticalImage.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationImage },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationImage, args),
+  },
   chromatic: {
     modes: {
       m: { disable: true },
@@ -590,7 +599,10 @@ VerticalIcon.storyName = 'vertical (icons)';
 VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationIcon },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationIcon, args),
+  },
   chromatic: {
     modes: {
       xl: { disable: true },
@@ -628,7 +640,10 @@ IconList.argTypes = {
   },
 };
 IconList.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationIconList },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareIconList(dataListIllustrationIconList, args),
+  },
   chromatic: {
     modes: {
       l: { disable: true },
@@ -658,7 +673,10 @@ NumberList.argTypes = {
   },
 };
 NumberList.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationNumberList },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareIconList(dataListIllustrationNumberList, args),
+  },
   chromatic: {
     modes: {
       l: { disable: true },
