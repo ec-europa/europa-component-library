@@ -254,6 +254,8 @@ export class Quiz {
           carouselAriaRoleDescription: '',
           slideAriaRoleDescription: '',
           slideRole: '',
+          previousButtonAriaLabel: 'Show previous Slide',
+          nextButtonAriaLabel: 'Show next Slide',
           dotButtonAriaLabel: (
             hasAnyGroupedSlides,
             firstSlideIndex,
@@ -269,10 +271,10 @@ export class Quiz {
                 firstSlideIndex + visibleSlides,
                 totalSlides,
               );
-              return `Go to slides ${start} to ${end} of ${totalSlides}`;
+              return `Show slides ${start} to ${end} of ${totalSlides}`;
             }
 
-            return `Go to slide ${firstSlideIndex + 1} of ${totalSlides}`;
+            return `Show slide ${firstSlideIndex + 1} of ${totalSlides}`;
           },
           slideAriaLabel: () => '',
         }),
