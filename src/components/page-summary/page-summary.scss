@@ -17,10 +17,6 @@ $page-summary: null !default;
   flex-direction: column;
   gap: map.get($page-summary, 'vertical-spacing');
   padding: map.get($page-summary, 'padding');
-
-  &:not([class*='ecl-color-mode--']) {
-    --cm-surface-lowest: var(--c-g-50);
-  }
 }
 
 .ecl-page-summary__header {
