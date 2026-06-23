@@ -1467,7 +1467,7 @@ export class Select {
       }
       this.searchContainer.style.display = 'none';
       this.input.setAttribute('aria-expanded', false);
-      this.input.blur();
+      this.input.focus();
       this.input.classList.remove('ecl-select--active');
     } else {
       this.select.classList.remove('ecl-select--active');
