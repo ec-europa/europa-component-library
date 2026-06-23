@@ -120,7 +120,10 @@ Horizontal.storyName = 'horizontal';
 Horizontal.args = getArgs(dataHorizontal);
 Horizontal.argTypes = getArgTypes();
 Horizontal.parameters = {
-  notes: { markdown: notes, json: dataHorizontal },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataHorizontal, args),
+  },
 };
 
 export const Vertical = (_, { loaded: { component } }) => component;
@@ -135,5 +138,8 @@ Vertical.storyName = 'vertical';
 Vertical.args = getArgs(dataVertical);
 Vertical.argTypes = getArgTypes();
 Vertical.parameters = {
-  notes: { markdown: notes, json: dataVertical },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataVertical, args),
+  },
 };
