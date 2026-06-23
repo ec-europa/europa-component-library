@@ -519,6 +519,9 @@ $menu: null !default;
     }
 
     // Hide separators in some cases
+    .ecl-menu__item--current:not(.ecl-menu__items-next)::before,
+    .ecl-menu__item--current
+      + .ecl-menu__item:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:hover:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:hover + .ecl-menu__item:not(.ecl-menu__items-next)::before,
     .ecl-menu__item:focus-within:not(.ecl-menu__items-next)::before,
