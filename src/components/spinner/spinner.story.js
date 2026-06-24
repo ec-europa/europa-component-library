@@ -133,7 +133,12 @@ Default.render = (args) => renderStory(dataDefault, args);
 Default.storyName = 'primary';
 Default.args = getArgs(dataDefault, 'primary');
 Default.argTypes = getArgTypes('primary');
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+};
 
 export const Inverted = (_, { loaded: { component } }) => component;
 
@@ -141,5 +146,10 @@ Inverted.render = async (args) => renderStory(dataInverted, args);
 Inverted.storyName = 'inverted';
 Inverted.args = getArgs(dataInverted, 'inverted');
 Inverted.argTypes = getArgTypes('inverted');
-Inverted.parameters = { notes: { markdown: notes, json: dataInverted } };
+Inverted.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataInverted, args),
+  },
+};
 Inverted.decorators = [withNotes, withCode, withInverted];

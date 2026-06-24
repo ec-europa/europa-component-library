@@ -30,4 +30,9 @@ Default.render = async () => {
   return renderedPagination;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: specs,
+  },
+};

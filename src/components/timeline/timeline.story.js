@@ -229,5 +229,10 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(demoDataSet.items[0]);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoDataSet } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDataSet, args),
+  },
+};
 Default.decorators = [withCode, withNotes];

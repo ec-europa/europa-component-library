@@ -171,7 +171,12 @@ Textarea.render = async (args) => {
 Textarea.storyName = 'Textarea';
 Textarea.args = { ...getArgs(dataTextarea), width: 'm' };
 Textarea.argTypes = getArgTypes(dataTextarea, 'element');
-Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
+Textarea.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataTextarea, args),
+  },
+};
 
 export const StandaloneCheckbox = (_, { loaded: { component } }) => component;
 
@@ -189,7 +194,10 @@ StandaloneCheckbox.args = {
 };
 StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
 StandaloneCheckbox.parameters = {
-  notes: { markdown: notes, json: dataStandaloneCheckbox },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataStandaloneCheckbox, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -208,7 +216,12 @@ Checkbox.render = async (args) => {
 Checkbox.storyName = 'Checkbox group';
 Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
-Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
+Checkbox.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataCheckbox, args),
+  },
+};
 
 export const Datepicker = (_, { loaded: { component } }) => component;
 
@@ -220,7 +233,10 @@ Datepicker.storyName = 'Datepicker';
 Datepicker.args = getArgs(dataDatepicker);
 Datepicker.argTypes = getArgTypes(dataDatepicker, 'element');
 Datepicker.parameters = {
-  notes: { markdown: notes, json: dataDatepicker },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDatepicker, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -241,7 +257,10 @@ FileUpload.storyName = 'File upload';
 FileUpload.args = getArgs(dataFileUpload);
 FileUpload.argTypes = getArgTypes(dataFileUpload, 'element');
 FileUpload.parameters = {
-  notes: { markdown: notes, json: dataFileUpload },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataFileUpload, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -263,7 +282,10 @@ FileUploadMultiple.storyName = 'File upload multiple';
 FileUploadMultiple.args = getArgs(dataFileUploadMultiple);
 FileUploadMultiple.argTypes = getArgTypes(dataFileUploadMultiple, 'element');
 FileUploadMultiple.parameters = {
-  notes: { markdown: notes, json: dataFileUploadMultiple },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataFileUploadMultiple, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -283,7 +305,10 @@ Radio.storyName = 'Radio';
 Radio.args = getArgs(dataBinary);
 Radio.argTypes = getArgTypes(dataBinary, 'element');
 Radio.parameters = {
-  notes: { markdown: notes, json: dataBinary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataBinary, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -303,7 +328,10 @@ RadioGroup.storyName = 'Radio group';
 RadioGroup.args = getArgs(dataDefault);
 RadioGroup.argTypes = getArgTypes(dataDefault, 'group');
 RadioGroup.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -323,7 +351,10 @@ Range.storyName = 'Range';
 Range.args = { ...getArgs(dataRange), width: 'm' };
 Range.argTypes = getArgTypes(dataRange, 'element');
 Range.parameters = {
-  notes: { markdown: notes, json: dataRange },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataRange, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -345,7 +376,10 @@ RatingField.storyName = 'Rating field';
 RatingField.args = getArgs(dataRatingField);
 RatingField.argTypes = getArgTypes(dataRatingField, 'element');
 RatingField.parameters = {
-  notes: { markdown: notes, json: dataRatingField },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataRatingField, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },
@@ -364,7 +398,12 @@ Select.render = async (args) => {
 Select.storyName = 'Select';
 Select.args = getArgs(dataSingle);
 Select.argTypes = getArgTypes(dataSingle, 'element');
-Select.parameters = { notes: { markdown: notes, json: dataSingle } };
+Select.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataSingle, args),
+  },
+};
 
 export const SelectMultiple = (_, { loaded: { component } }) => component;
 
@@ -378,7 +417,10 @@ SelectMultiple.storyName = 'Select multiple';
 SelectMultiple.args = getArgs(dataMultiple);
 SelectMultiple.argTypes = getArgTypes(dataMultiple, 'element');
 SelectMultiple.parameters = {
-  notes: { markdown: notes, json: dataMultiple },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataMultiple, args),
+  },
   chromatic: {
     modes: {
       s: { disable: true },

@@ -26,4 +26,9 @@ Default.render = async () => {
   return renderedNewsTicker;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: () => specs,
+  },
+};
