@@ -9,7 +9,7 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {
     numberOfItems: 4,
-    source_type: 'individual',
+    source_type: 'global',
     with_background: false,
     full_width: false,
     border: false,
@@ -196,7 +196,7 @@ const getArgTypes = () => ({
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'individual' },
+      defaultValue: { summary: 'global' },
       category: 'Items',
     },
   },

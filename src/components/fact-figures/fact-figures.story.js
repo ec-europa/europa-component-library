@@ -26,7 +26,7 @@ const getArgs = (data) => {
     value: data.items[0].value,
     title: data.items[0].title,
     description: data.items[0].description,
-    source_type: 'individual',
+    source_type: 'global',
   };
 
   if (getSystem() === 'ec') {
@@ -166,7 +166,7 @@ const getArgTypes = () => {
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'individual' },
+      defaultValue: { summary: 'global' },
       category: 'Optional',
     },
   };
