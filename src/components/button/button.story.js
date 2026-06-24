@@ -284,7 +284,10 @@ Primary.args = getArgs(dataButtonPrimary);
 Primary.storyName = 'primary';
 Primary.argTypes = getArgTypes('primary');
 Primary.parameters = {
-  notes: { markdown: notes, json: dataButtonPrimary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataButtonPrimary, args),
+  },
 };
 
 export const Secondary = (_, { loaded: { component } }) => component;
@@ -297,7 +300,10 @@ Secondary.args = getArgs(dataButtonSecondary);
 Secondary.storyName = 'secondary';
 Secondary.argTypes = getArgTypes('secondary');
 Secondary.parameters = {
-  notes: { markdown: notes, json: dataButtonSecondary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataButtonSecondary, args),
+  },
 };
 
 export const Tertiary = (_, { loaded: { component } }) => component;
@@ -310,7 +316,10 @@ Tertiary.args = getArgs(dataButtonTertiary);
 Tertiary.storyName = 'tertiary';
 Tertiary.argTypes = getArgTypes('tertiary');
 Tertiary.parameters = {
-  notes: { markdown: notes, json: dataButtonTertiary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataButtonTertiary, args),
+  },
 };
 
 export const WithIcon = (_, { loaded: { component } }) => component;

@@ -267,7 +267,10 @@ Image.storyName = 'image';
 Image.args = getArgs(demoDataImage);
 Image.argTypes = getArgTypes(demoDataImage);
 Image.parameters = {
-  notes: { markdown: notes, json: demoDataImage },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDataImage, args),
+  },
 };
 
 export const Video = (_, { loaded: { component } }) => component;
@@ -280,5 +283,8 @@ Video.storyName = 'video';
 Video.args = getArgs(demoDataVideo);
 Video.argTypes = getArgTypes(demoDataVideo);
 Video.parameters = {
-  notes: { markdown: notes, json: demoDataVideo },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDataVideo, args),
+  },
 };

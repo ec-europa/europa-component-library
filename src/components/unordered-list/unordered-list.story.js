@@ -81,7 +81,10 @@ Text.storyName = 'text';
 Text.args = getArgs(dataUnorderedListText);
 Text.argTypes = getArgTypes(dataUnorderedListText);
 Text.parameters = {
-  notes: { markdown: notes, json: dataUnorderedListText },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataUnorderedListText, args),
+  },
 };
 
 export const Link = (_, { loaded: { component } }) => component;
@@ -94,7 +97,10 @@ Link.storyName = 'links';
 Link.args = getArgs(dataUnorderedListLink);
 Link.argTypes = getArgTypes(dataUnorderedListLink);
 Link.parameters = {
-  notes: { markdown: notes, json: dataUnorderedListLink },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataUnorderedListLink, args),
+  },
 };
 
 export const Divider = (_, { loaded: { component } }) => component;
@@ -107,7 +113,10 @@ Divider.storyName = 'with divider';
 Divider.args = getArgs(dataUnorderedListDivider);
 Divider.argTypes = getArgTypes(dataUnorderedListDivider);
 Divider.parameters = {
-  notes: { markdown: notes, json: dataUnorderedListDivider },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataUnorderedListDivider, args),
+  },
 };
 
 export const Unstyled = (_, { loaded: { component } }) => component;
@@ -120,5 +129,8 @@ Unstyled.storyName = 'unstyled';
 Unstyled.args = getArgs(dataUnorderedListUnstyled);
 Unstyled.argTypes = getArgTypes(dataUnorderedListUnstyled);
 Unstyled.parameters = {
-  notes: { markdown: notes, json: dataUnorderedListUnstyled },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataUnorderedListUnstyled, args),
+  },
 };

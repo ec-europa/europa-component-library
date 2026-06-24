@@ -287,7 +287,10 @@ Default.render = async (args) => {
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
 };
 
 export const Thumbnail = (_, { loaded: { component } }) => component;
@@ -307,5 +310,8 @@ Thumbnail.argTypes = {
   },
 };
 Thumbnail.parameters = {
-  notes: { markdown: notes, json: dataThumbnailTaxonomy },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataThumbnailTaxonomy, args),
+  },
 };

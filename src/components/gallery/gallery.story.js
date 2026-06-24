@@ -170,7 +170,12 @@ Default.render = async (args) => {
   return renderedGallery;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+};
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
 
