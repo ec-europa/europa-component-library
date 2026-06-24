@@ -232,7 +232,7 @@ Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: {
     markdown: notes,
-    json: ({ args }) => prepareData(demoDataSet, args),
+    json: ({ args }) => prepareData(demoDataSet.items[0], args),
   },
 };
 Default.decorators = [withCode, withNotes];
