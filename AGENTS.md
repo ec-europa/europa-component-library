@@ -104,6 +104,7 @@ Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic
 | Modify an existing component        | [`docs/agentic/ecl-modify-component.md`](./docs/agentic/ecl-modify-component.md) |
 | Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-testing.md`](./docs/agentic/ecl-testing.md)                   |
 | Add or update Storybook stories     | [`docs/agentic/ecl-story-controls.md`](./docs/agentic/ecl-story-controls.md)     |
+| Update EC color tokens              | [`docs/agentic/ecl-update-token.md`](./docs/agentic/ecl-update-token.md)         |
 
 ---
 
