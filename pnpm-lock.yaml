@@ -1190,6 +1190,28 @@ importers:
         specifier: 5.0.0
         version: link:../../mixins/typography
 
+  src/components/story-card:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 5.0.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 5.0.0
+        version: link:../../tools/event-manager
+      embla-carousel:
+        specifier: 9.0.0-rc02
+        version: 9.0.0-rc02
+    devDependencies:
+      '@ecl/button':
+        specifier: 5.0.0
+        version: link:../button
+      '@ecl/grid':
+        specifier: 5.0.0
+        version: link:../../layout/grid
+      '@ecl/picture':
+        specifier: 5.0.0
+        version: link:../picture
+
   src/components/table:
     dependencies:
       '@ecl/builder':
@@ -2054,6 +2076,9 @@ importers:
       '@ecl/spotlight':
         specifier: 5.0.0
         version: link:../../components/spotlight
+      '@ecl/story-card':
+        specifier: 5.0.0
+        version: link:../../components/story-card
       '@ecl/table':
         specifier: 5.0.0
         version: link:../../components/table
@@ -2355,6 +2380,9 @@ importers:
       '@ecl/spotlight':
         specifier: 5.0.0
         version: link:../../components/spotlight
+      '@ecl/story-card':
+        specifier: 5.0.0
+        version: link:../../components/story-card
       '@ecl/table':
         specifier: 5.0.0
         version: link:../../components/table

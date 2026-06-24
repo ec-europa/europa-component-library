@@ -1,0 +1,51 @@
+@use '@ecl/mixins-typography/mixins/typography' as typography-mixins;
+
+// Print-specific styles for Story Card
+
+.ecl-story-card {
+  &__carousel--mobile {
+    display: none !important;
+  }
+
+  &__controls {
+    display: none !important;
+  }
+
+  &__grid--desktop {
+    display: block !important;
+  }
+
+  &__grid-container {
+    grid-template-columns: 1fr 1fr;
+
+    @media print and (width >= 210mm) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__grid-item {
+    break-inside: avoid;
+
+    &--expanded {
+      grid-column: auto !important;
+    }
+  }
+
+  &__grid-expand-icon {
+    display: none !important;
+  }
+
+  &__grid-details {
+    display: block !important;
+    padding: 0 var(--ecl-story-card-padding) var(--ecl-story-card-padding);
+  }
+
+  &__grid-card {
+    cursor: default;
+
+    &:hover {
+      border-color: var(--c-g-200);
+      box-shadow: none;
+    }
+  }
+}

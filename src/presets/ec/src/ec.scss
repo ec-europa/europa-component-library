@@ -242,6 +242,10 @@
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
 );
+@use '@ecl/story-card/story-card' with (
+  $theme: theme.$theme,
+  $story-card: var.$story-card
+);
 @use '@ecl/text-media/text-media' with (
   $theme: theme.$theme,
   $text-media: var.$text-media

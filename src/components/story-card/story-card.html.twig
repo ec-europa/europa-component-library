@@ -1,0 +1,206 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): List of story cards
+      - "id" (string): Unique identifier for the story card
+      - "image" (object): Picture component object with img properties
+      - "title" (string): Card title
+      - "description" (string): Card description
+      - "cta" (object): Call-to-action button
+        - "label" (string): Button label
+        - "path" (string): Button link path
+    - "color_mode" (string) (default: ''): Color mode name
+    - "sr_description" (string) (default: ''): Screen reader description
+    - "sr_prev" (string) (default: 'Previous card'): Previous button label
+    - "sr_next" (string) (default: 'Next card'): Next button label
+    - "sr_play" (string) (default: 'Play carousel'): Play button label
+    - "sr_pause" (string) (default: 'Pause carousel'): Pause button label
+    - "sr_expanded" (string) (default: 'Expand'): Expand button label
+    - "sr_collapsed" (string) (default: 'Collapse'): Collapse button label
+    - "extra_classes" (string) (default: ''): Extra CSS classes
+    - "extra_attributes" (array) (default: []): Extra HTML attributes
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-story-card' %}
+{% set _color_mode = color_mode|default('') %}
+{% set _extra_attributes = '' %}
+{% set _items = items|default([]) %}
+{% set _sr_description = sr_description|default('') %}
+{% set _sr_prev = sr_prev|default('Previous card') %}
+{% set _sr_next = sr_next|default('Next card') %}
+{% set _sr_play = sr_play|default('Play carousel') %}
+{% set _sr_pause = sr_pause|default('Pause carousel') %}
+{% set _sr_expanded = sr_expanded|default('Expand') %}
+{% set _sr_collapsed = sr_collapsed|default('Collapse') %}
+
+{# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+<div
+  class="{{ _css_class }}"
+  data-ecl-auto-init="StoryCard"
+  {% if _sr_description %}
+    aria-label="{{ _sr_description }}"
+  {% endif %}
+  {{- _extra_attributes|raw -}}
+>
+  <!-- Mobile: Embla Carousel -->
+  <div
+    class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+  >
+    <div
+      class="ecl-story-card__carousel-viewport"
+      data-ecl-story-card-viewport
+    >
+      <div
+        class="ecl-story-card__carousel-container"
+        data-ecl-story-card-container
+      >
+        {% for item in _items %}
+          <div
+            class="ecl-story-card__carousel-slide"
+            data-ecl-story-card-slide
+          >
+            <div class="ecl-story-card__card">
+              {% if item.picture is not empty %}
+                <div class="ecl-story-card__image-wrapper">
+                  {% include '@ecl/picture/picture.html.twig' with {
+                    picture: item.picture,
+                    extra_classes: 'ecl-story-card__picture',
+                  } only %}
+                </div>
+              {% endif %}
+              <div class="ecl-story-card__content">
+              {%- if item.title -%}
+                <h3 class="ecl-story-card__title">
+                  {{- item.title -}}
+                </h3>
+                {%- endif -%}
+                {%- if item.description -%}
+                  <p class="ecl-story-card__description">{{- item.description -}}</p>
+                {% endif %}
+                {% if item.cta %}
+                  {% include '@ecl/button/button.html.twig' with {
+                    label: item.cta.label,
+                    path: item.cta.path,
+                    type: 'standalone',
+                    extra_classes: 'ecl-story-card__cta',
+                  } only %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <div class="ecl-story-card__pager">
+      <button class="ecl-story-card__prev">
+        {% include "@ecl/icon/icon.html.twig" with {
+          icon: {
+            name: 'corner-arrow',
+            transform: 'rotate-270',
+            size: 'xs',
+            style: 'monochrome',
+          }
+        } %}
+        <span class="ecl-story-card__prev-label">
+          {{ _prev_label }}
+        </span>
+      </button>
+      <div class="ecl-story-card__dots"></div>
+      <button class="ecl-story-card__next">
+        <span class="ecl-story-card__next-label">
+          {{ _next_label }}
+        </span>
+        {% include "@ecl/icon/icon.html.twig" with {
+          icon: {
+            name: 'corner-arrow',
+            transform: 'rotate-90',
+            size: 'xs',
+            style: 'monochrome',
+          }
+        } %}
+      </button>
+      <script type="text/template" id="ecl-story-card__dot-template">
+        <button class="ecl-story-card__dot"></button>
+      </script>
+    </div>
+  </div>
+
+  <!-- Desktop: Grid with Accordion -->
+  <div class="ecl-story-card__grid ecl-story-card__grid--desktop">
+    <div class="ecl-story-card__grid-container">
+      {% for item in _items %}
+        <div class="ecl-story-card__grid-item" data-ecl-story-card-grid-item="{{ loop.index0 }}">
+          <button
+            class="ecl-story-card__grid-card"
+            data-ecl-story-card-grid-button="{{ loop.index0 }}"
+            aria-label="{{ item.title }}"
+            aria-expanded="false"
+            type="button"
+          >
+            {% if item.picture is not empty %}
+              <div class="ecl-story-card__grid-image">
+                {% include '@ecl/picture/picture.html.twig' with {
+                  picture: picture,
+                  extra_classes: 'ecl-story-card__picture',
+                } only %}
+              </div>
+            {% endif %}
+            <div class="ecl-story-card__grid-title-wrapper">
+              {% if item.title %}
+                <h3 class="ecl-story-card__grid-title">{{ item.title }}</h3>
+              {% endif %}
+              <div class="ecl-story-card__grid-expand-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                  <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+          <div class="ecl-story-card__grid-details" data-ecl-story-card-grid-details="{{ loop.index0 }}" style="display: none;">
+            {% if item.description %}
+              <p class="ecl-story-card__grid-description">{{ item.description }}</p>
+            {% endif %}
+            {% if item.cta %}
+              {% include '@ecl/button/button.html.twig' with {
+                label: item.cta.label,
+                path: item.cta.path,
+                type: 'standalone',
+                extra_classes: 'ecl-story-card__grid-cta',
+              } only %}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endapply %}
