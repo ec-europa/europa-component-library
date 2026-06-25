@@ -165,7 +165,7 @@
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="{{ loop.index0 }}"
             aria-label="{{ item.title }}"
-            aria-expanded="false"
+            aria-expanded="{{ not loop.first }}"
             type="button"
           >
             {% if item.picture is not empty %}

@@ -183,19 +183,17 @@ $story-card: null !default;
   }
 
   .ecl-story-card__grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--ecl-story-card-gap);
-
-    @container (width >= 1024px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    display: flex;
+    gap: var(--s-xs);
   }
 
   .ecl-story-card__grid-item {
     display: flex;
     flex-direction: column;
+    height: 21.25rem;
     transition: all 0.3s ease;
+    width: 5rem;
+    position: relative;
 
     &--expanded {
       grid-column: 1 / -1;
@@ -206,9 +204,8 @@ $story-card: null !default;
     all: unset;
     display: flex;
     flex-direction: column;
-    background: var(--c-w);
     border: 1px solid var(--c-g-200);
-    border-radius: var(--ecl-story-card-border-radius);
+    border-radius: map.get($theme, 'border-radius', 's');
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -225,10 +222,21 @@ $story-card: null !default;
   }
 
   .ecl-story-card__grid-image {
+    position: absolute;
+    top: 0;
+    height: 100%;
     width: 100%;
-    aspect-ratio: 16 / 9;
     overflow: hidden;
     flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--c-a-700);
+    }
 
     img {
       width: 100%;
@@ -242,20 +250,19 @@ $story-card: null !default;
     }
   }
 
-  .ecl-story-card__grid-title-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--ecl-story-card-padding);
-    gap: 1rem;
-    flex: 1;
-  }
-
   .ecl-story-card__grid-title {
+    position: absolute;
+    bottom: 0;
+    color: var(--cm-on-surface-inverted);
+    font: var(--f-xs);
+    text-transform: uppercase;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    transform-origin: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
     margin: 0;
-    color: var(--c-p-900);
-    flex: 1;
-    text-align: left;
+    padding-inline: var(--s-xl);
   }
 
   .ecl-story-card__grid-expand-icon {

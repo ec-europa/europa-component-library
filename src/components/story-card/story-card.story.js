@@ -40,7 +40,13 @@ const renderStory = async (data, args) => {
 
 export default {
   title: 'Components/Story Card',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (storyFn) => {
+      return `<div class="ecl-container">${storyFn()}</div>`;
+    },
+  ],
 };
 
 export const Default = (_, { loaded: { component } }) => component;
