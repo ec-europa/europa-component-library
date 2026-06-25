@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.1 (2026-06-25)
+
+#### :nail_care: Enhancement
+
+- [#4582](https://github.com/ec-europa/europa-component-library/pull/4582) fix(default-css): Not overriding color of text in typography - FRONT-5374 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0 (2026-06-17)
 
 #### :bug: Bug Fix
