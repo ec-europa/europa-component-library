@@ -102,13 +102,11 @@
                 {%- if item.description -%}
                   <p class="ecl-story-card__description">{{- item.description -}}</p>
                 {% endif %}
-                {% if item.cta %}
-                  {% include '@ecl/button/button.html.twig' with {
-                    label: item.cta.label,
-                    path: item.cta.path,
+                {% if item.link %}
+                  {% include '@ecl/link/link.html.twig' with item.link|merge({
                     type: 'standalone',
-                    extra_classes: 'ecl-story-card__cta',
-                  } only %}
+                    extra_classes: 'ecl-story-card__link',
+                  }) only %}
                 {% endif %}
               </div>
             </div>
@@ -119,12 +117,15 @@
 
     <!-- Carousel Controls -->
     <div class="ecl-story-card__pager">
-      <button class="ecl-story-card__prev">
+      <button
+        class="ecl-story-card__prev"
+        data-ecl-story-card-prev
+      >
         {% include "@ecl/icon/icon.html.twig" with {
           icon: {
             name: 'corner-arrow',
             transform: 'rotate-270',
-            size: 'xs',
+            size: 's',
             style: 'monochrome',
           }
         } %}
@@ -133,7 +134,10 @@
         </span>
       </button>
       <div class="ecl-story-card__dots"></div>
-      <button class="ecl-story-card__next">
+      <button
+        class="ecl-story-card__next"
+        data-ecl-story-card-next
+      >
         <span class="ecl-story-card__next-label">
           {{ _next_label }}
         </span>
@@ -141,7 +145,7 @@
           icon: {
             name: 'corner-arrow',
             transform: 'rotate-90',
-            size: 'xs',
+            size: 's',
             style: 'monochrome',
           }
         } %}
@@ -167,7 +171,7 @@
             {% if item.picture is not empty %}
               <div class="ecl-story-card__grid-image">
                 {% include '@ecl/picture/picture.html.twig' with {
-                  picture: picture,
+                  picture: item.picture,
                   extra_classes: 'ecl-story-card__picture',
                 } only %}
               </div>

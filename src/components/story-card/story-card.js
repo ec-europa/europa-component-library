@@ -116,6 +116,7 @@ export class StoryCard {
     this.total = 0;
     this.autoPlayInterval = null;
     this.isAutoPlaying = false;
+    this.toggleButtonsDisabled = null;
 
     // Private variables - Grid (Desktop)
     this.gridItems = null;
@@ -173,21 +174,6 @@ export class StoryCard {
       skipSnaps: false,
     });
 
-    if (this.btnPrev) {
-      this.btnPrev.addEventListener(
-        'click',
-        () => this.slider.goToPrev(),
-        false,
-      );
-    }
-    if (this.nextButtonNode) {
-      this.nextButtonNode.addEventListener(
-        'click',
-        () => this.slider.goToNext(),
-        false,
-      );
-    }
-
     if (this.btnPrev && this.btnNext) {
       this.toggleButtonsDisabled = (emblaApi) => {
         const setButtonState = (button, enabled) => {
@@ -197,7 +183,7 @@ export class StoryCard {
         setButtonState(this.btnNext, emblaApi.canGoToNext());
       };
 
-      this.toggleButtonsDisabled(this.slder);
+      this.toggleButtonsDisabled(this.slider);
       this.slider.on('select', this.toggleButtonsDisabled);
       this.slider.on('reInit', this.toggleButtonsDisabled);
     }
@@ -363,16 +349,16 @@ export class StoryCard {
   attachListeners() {
     if (this.btnPrev) {
       this.btnPrev.addEventListener('click', () => {
-        if (this.emblaApi) {
-          this.emblaApi.goToPrev();
+        if (this.slider) {
+          this.slider.goToPrev();
         }
       });
     }
 
     if (this.btnNext) {
       this.btnNext.addEventListener('click', () => {
-        if (this.emblaApi) {
-          this.emblaApi.goToNext();
+        if (this.slider) {
+          this.slider.goToNext();
         }
       });
     }
@@ -386,8 +372,8 @@ export class StoryCard {
     }
 
     // Auto-pause on interaction
-    if (this.emblaApi) {
-      this.emblaApi.on('pointerDown', () => {
+    if (this.slider) {
+      this.slider.on('pointerDown', () => {
         if (this.isAutoPlaying) {
           this.pause();
         }

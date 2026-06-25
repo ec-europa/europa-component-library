@@ -20,9 +20,15 @@ module.exports = {
       title: 'European Green Deal: Building a Sustainable Future',
       description:
         'The European Green Deal is a set of policy initiatives aimed at making Europe climate neutral by 2050. Learn about the key commitments and how they will transform our economy.',
-      cta: {
-        label: 'Read more',
-        path: exampleLink,
+      link: {
+        link: {
+          label: 'Read more',
+          path: exampleLink,
+        },
+        icon: {
+          name: 'arrow-right',
+          size: 'xs',
+        },
       },
     },
     {
@@ -36,9 +42,15 @@ module.exports = {
       title: 'Digital Europe: The Path Forward',
       description:
         'Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.',
-      cta: {
-        label: 'Explore',
-        path: exampleLink,
+      link: {
+        link: {
+          label: 'Read more',
+          path: exampleLink,
+        },
+        icon: {
+          name: 'arrow-right',
+          size: 'xs',
+        },
       },
     },
     {
@@ -52,9 +64,15 @@ module.exports = {
       title: 'Supporting European Startups',
       description:
         'The EU invests in innovative startups across the continent. Explore funding opportunities and success stories from entrepreneurs transforming their visions into reality.',
-      cta: {
-        label: 'Get involved',
-        path: exampleLink,
+      link: {
+        link: {
+          label: 'Read more',
+          path: exampleLink,
+        },
+        icon: {
+          name: 'arrow-right',
+          size: 'xs',
+        },
       },
     },
     {
@@ -68,9 +86,15 @@ module.exports = {
       title: 'Quality of Life: Initiatives for Citizens',
       description:
         'Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.',
-      cta: {
-        label: 'Learn more',
-        path: exampleLink,
+      link: {
+        link: {
+          label: 'Read more',
+          path: exampleLink,
+        },
+        icon: {
+          name: 'arrow-right',
+          size: 'xs',
+        },
       },
     },
   ],

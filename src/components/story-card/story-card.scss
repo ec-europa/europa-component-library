@@ -13,9 +13,9 @@ $story-card: null !default;
 // Story Card Component Styles
 
 .ecl-story-card {
-  --ecl-story-card-border-radius: 0.25rem;
-  --ecl-story-card-gap: 1rem;
-  --ecl-story-card-padding: 1rem;
+  container-type: inline-size;
+  container-name: ecl-quiz;
+  position: relative;
 
   .ecl-story-card__carousel {
     position: relative;
@@ -24,7 +24,7 @@ $story-card: null !default;
   .ecl-story-card__carousel--mobile {
     display: block;
 
-    @media (width >= 768px) {
+    @container (width >= 600px) {
       display: none;
     }
   }
@@ -47,15 +47,14 @@ $story-card: null !default;
     flex-direction: column;
     height: 100%;
     background: var(--c-w);
-    border-radius: var(--ecl-story-card-border-radius);
+    border-radius: map.get($theme, 'border-radius', 's');
     overflow: hidden;
-    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1);
     transition: all 0.3s ease;
   }
 
   .ecl-story-card__image-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3/2;
     overflow: hidden;
     flex-shrink: 0;
 
@@ -71,18 +70,21 @@ $story-card: null !default;
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: var(--ecl-story-card-padding);
-    gap: var(--ecl-story-card-gap);
+    padding: var(--s-5xl) var(--s-xl);
+    gap: var(--s-xl);
   }
 
   .ecl-story-card__title {
     margin: 0;
-    color: var(--c-p-900);
+    color: var(--c-g-950);
+    font: var(--f-xl);
+    font-weight: map.get($theme, 'font-weight', 'semi-bold');
   }
 
   .ecl-story-card__description {
+    font: var(--f-m);
     margin: 0;
-    color: var(--c-g-700);
+    color: var(--cm-on-urface-brand);
     flex: 1;
   }
 
@@ -90,87 +92,63 @@ $story-card: null !default;
     align-self: flex-start;
   }
 
-  // Controls
-  .ecl-story-card__controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--c-w);
-    border-top: 1px solid var(--c-g-200);
-    flex-wrap: wrap;
-
-    @media (width >= 768px) {
-      display: none;
-    }
-  }
-
-  .ecl-story-card__control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    background: transparent;
-    border: 1px solid var(--c-g-300);
-    border-radius: var(--ecl-story-card-border-radius);
-    cursor: pointer;
-    color: var(--c-p-600);
-    transition: all 0.2s ease;
-    padding: 0;
-
-    &:hover {
-      background: var(--c-g-50);
-      border-color: var(--c-p-600);
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-
-  .ecl-story-card__control-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
   .ecl-story-card__pager {
     background: map.get($story-card, 'background');
+    display: flex;
+    align-items: center;
+    padding: var(--s-xs);
 
     .ecl-story-card__prev,
     .ecl-story-card__next {
-      border-radius: map.get($theme, 'border-radius', 's');
-      margin-inline: map.get($story-card, 'story-card', 'prev-next-spacing');
+      background: transparent;
+      border: none !important;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: var(--s-xs);
+
+      &:focus-visible {
+        outline-color: map.get($story-card, 'story-card', 'outline-color');
+      }
+
+      &:disabled {
+        visibility: hidden;
+        cursor: default;
+        box-shadow: map.get($theme, 'shadow', '1');
+        opacity: 0.5;
+      }
 
       .ecl-story-card__prev-label,
       .ecl-story-card__next-label {
-        display: flex;
-      }
-
-      .ecl-icon {
+        color: map.get($story-card, 'story-card', 'prev-next-color');
         display: none;
-      }
-
-      &[disabled] {
-        visibility: hidden;
+        font: map.get($story-card, 'story-card', 'prev-next-font');
+        font-weight: map.get(
+          $story-card,
+          'story-card',
+          'prev-next-font-weight'
+        );
       }
     }
+  }
+
+  .ecl-story-card__prev {
+    margin-inline-end: auto;
+  }
+
+  .ecl-story-card__next {
+    margin-inline-start: auto;
   }
 
   .ecl-story-card__dots {
     .ecl-story-card__dot {
-      background: map.get($story-card, 'story-card', 'dot-background');
+      background: map.get($story-card, 'dot-background');
       border: none !important;
       border-radius: 50%;
       cursor: pointer;
       height: 0.5rem;
-      margin-inline-end: map.get($story-card, 'story-card', 'dot-spacing');
+      margin-inline-end: var(--s-2xs);
       min-height: 0;
       min-width: 0;
       padding: 0;
@@ -178,14 +156,14 @@ $story-card: null !default;
 
       &:focus-visible {
         outline-offset: 2px;
-        outline-color: map.get($story-card, 'story-card', 'outline-color');
+        outline-color: var(--c-p);
       }
     }
 
     .ecl-story-card__dot--active {
       border-radius: map.get($theme, 'border-radius', 'l');
       width: 2.5rem;
-      background: map.get($story-card, 'story-card', 'dot-active-background');
+      background: var(--c-p-600);
     }
 
     .ecl-story-card__dot--active + .ecl-story-card__dot,
@@ -199,7 +177,7 @@ $story-card: null !default;
   .ecl-story-card__grid--desktop {
     display: none;
 
-    @media (width >= 768px) {
+    @container (width >= 600px) {
       display: block;
     }
   }
@@ -209,7 +187,7 @@ $story-card: null !default;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--ecl-story-card-gap);
 
-    @media (width >= 1024px) {
+    @container (width >= 1024px) {
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -322,29 +300,5 @@ $story-card: null !default;
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-// Print styles
-@media print {
-  .ecl-story-card__controls,
-  .ecl-story-card__grid-expand-icon {
-    display: none !important;
-  }
-
-  .ecl-story-card__carousel--mobile {
-    display: none !important;
-  }
-
-  .ecl-story-card__grid--desktop {
-    display: block !important;
-
-    .ecl-story-card__grid-item {
-      grid-column: auto !important;
-    }
-
-    .ecl-story-card__grid-details {
-      display: block !important;
-    }
   }
 }
