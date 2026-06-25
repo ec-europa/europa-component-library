@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/link/link-print' as link-component;
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -189,6 +190,8 @@ $featured-item-print: null !default;
 
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
+
+    @include mixins-color.content-current-color;
   }
 
   .ecl-featured-item__info + .ecl-featured-item__link {
