@@ -365,7 +365,10 @@ Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
 };
 
 export const Image = (_, { loaded: { component } }) => component;
@@ -380,7 +383,10 @@ Image.storyName = 'image';
 Image.args = getArgs(dataImage);
 Image.argTypes = getArgTypes(dataImage);
 Image.parameters = {
-  notes: { markdown: notes, json: dataImage },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataImage, args),
+  },
 };
 
 export const Event = (_, { loaded: { component } }) => component;
@@ -395,5 +401,8 @@ Event.storyName = 'event';
 Event.args = getArgs(dataEvent);
 Event.argTypes = getArgTypes(dataEvent);
 Event.parameters = {
-  notes: { markdown: notes, json: dataEvent },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataEvent, args),
+  },
 };

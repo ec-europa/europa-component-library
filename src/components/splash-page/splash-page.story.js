@@ -98,7 +98,10 @@ Default.storyName = 'default';
 Default.args = getArgs(dataSplash);
 Default.argTypes = getArgTypes(dataSplash);
 Default.parameters = {
-  notes: { markdown: notes, json: dataSplash },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataSplash, args),
+  },
   layout: 'fullscreen',
 };
 Default.decorators = [withCode, withNotes];
