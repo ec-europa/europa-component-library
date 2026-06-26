@@ -275,6 +275,9 @@ export class StoryCard {
   initGridAccordion() {
     this.gridButtons.forEach((button, index) => {
       button.addEventListener('click', () => this.toggleGridItem(index));
+      if (button.getAttribute('aria-expanded') === 'true') {
+        this.expandedItem = index;
+      }
     });
   }
 

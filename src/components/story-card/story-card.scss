@@ -65,7 +65,8 @@ $story-card: null !default;
     }
   }
 
-  .ecl-story-card__content {
+  .ecl-story-card__content,
+  .ecl-story-card__grid-details {
     background: map.get($story-card, 'background');
     display: flex;
     flex-direction: column;
@@ -74,14 +75,16 @@ $story-card: null !default;
     gap: var(--s-xl);
   }
 
-  .ecl-story-card__title {
+  .ecl-story-card__title,
+  .ecl-story-card__grid-details-title {
     margin: 0;
     color: var(--c-g-950);
     font: var(--f-xl);
     font-weight: map.get($theme, 'font-weight', 'semi-bold');
   }
 
-  .ecl-story-card__description {
+  .ecl-story-card__description,
+  .ecl-story-card__grid-details-description {
     font: var(--f-m);
     margin: 0;
     color: var(--cm-on-urface-brand);
@@ -190,14 +193,7 @@ $story-card: null !default;
   .ecl-story-card__grid-item {
     display: flex;
     flex-direction: column;
-    height: 21.25rem;
     transition: all 0.3s ease;
-    width: 5rem;
-    position: relative;
-
-    &--expanded {
-      grid-column: 1 / -1;
-    }
   }
 
   .ecl-story-card__grid-card {
@@ -206,9 +202,16 @@ $story-card: null !default;
     flex-direction: column;
     border: 1px solid var(--c-g-200);
     border-radius: map.get($theme, 'border-radius', 's');
+    height: 21.25rem;
     overflow: hidden;
+    position: relative;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 5rem;
+
+    &[aria-expanded='true'] {
+      width: 600px;
+    }
 
     &:hover {
       border-color: var(--c-p-600);
@@ -219,50 +222,65 @@ $story-card: null !default;
       border-color: var(--c-p-600);
       background: var(--c-g-50);
     }
-  }
 
-  .ecl-story-card__grid-image {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    flex-shrink: 0;
-
-    &::after {
-      content: '';
+    .ecl-story-card__grid-image {
       position: absolute;
-      inset: 0;
-      width: 100%;
+      top: 0;
       height: 100%;
+      width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--c-a-700);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .ecl-story-card__grid-card:hover & img {
+        transform: scale(1.05);
+      }
+    }
+
+    &[aria-expanded='true'] .ecl-story-card__grid-image::after {
+      display: none;
+    }
+
+    .ecl-story-card__grid-title {
+      position: absolute;
+      bottom: 0;
+      color: var(--cm-on-surface-inverted);
+      font: var(--f-xs);
+      text-transform: uppercase;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+      transform-origin: center;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      margin: 0;
+      padding-inline: var(--s-xl);
+    }
+
+    &[aria-expanded='true'] .ecl-story-card__grid-title {
       background: var(--c-a-700);
+      border-start-end-radius: map.get($theme, 'border-radius', 's');
+      border-end-end-radius: map.get($theme, 'border-radius', 's');
+      bottom: var(--s-xl);
+      left: 1px;
+      writing-mode: horizontal-tb;
+      transform: none;
+      padding-block: var(--s-xs);
     }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .ecl-story-card__grid-card:hover & img {
-      transform: scale(1.05);
-    }
-  }
-
-  .ecl-story-card__grid-title {
-    position: absolute;
-    bottom: 0;
-    color: var(--cm-on-surface-inverted);
-    font: var(--f-xs);
-    text-transform: uppercase;
-    left: 50%;
-    transform: translateX(-50%) rotate(180deg);
-    transform-origin: center;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    margin: 0;
-    padding-inline: var(--s-xl);
   }
 
   .ecl-story-card__grid-expand-icon {
@@ -277,23 +295,13 @@ $story-card: null !default;
       height: 100%;
     }
 
-    .ecl-story-card__grid-item--expanded & {
+    .ecl-story-card__grid-item[aria-expanded='true'] & {
       transform: rotate(180deg);
     }
   }
 
   .ecl-story-card__grid-details {
-    padding: 0 var(--ecl-story-card-padding) var(--ecl-story-card-padding);
     animation: slide-down 0.3s ease;
-  }
-
-  .ecl-story-card__grid-description {
-    margin: 0 0 var(--ecl-story-card-gap) 0;
-    color: var(--c-g-700);
-  }
-
-  .ecl-story-card__grid-cta {
-    align-self: flex-start;
   }
 }
 

@@ -7,6 +7,8 @@
       - "image" (object): Picture component object with img properties
       - "title" (string): Card title
       - "description" (string): Card description
+      - "details_title" (string) Title of the details section
+      - "icon" (object) Object of type icon
       - "cta" (object): Call-to-action button
         - "label" (string): Button label
         - "path" (string): Button link path
@@ -35,6 +37,7 @@
 {% set _sr_pause = sr_pause|default('Pause carousel') %}
 {% set _sr_expanded = sr_expanded|default('Expand') %}
 {% set _sr_collapsed = sr_collapsed|default('Collapse') %}
+{% set _icon = icon|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -100,7 +103,7 @@
                 </h3>
                 {%- endif -%}
                 {%- if item.description -%}
-                  <p class="ecl-story-card__description">{{- item.description -}}</p>
+                  <div class="ecl-story-card__description">{{- item.description -}}</div>
                 {% endif %}
                 {% if item.link %}
                   {% include '@ecl/link/link.html.twig' with item.link|merge({
@@ -165,7 +168,7 @@
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="{{ loop.index0 }}"
             aria-label="{{ item.title }}"
-            aria-expanded="{{ not loop.first }}"
+            aria-expanded="{{ loop.first ? "true" : "false" }}"
             type="button"
           >
             {% if item.picture is not empty %}
@@ -188,17 +191,25 @@
             </div>
           </button>
           <div class="ecl-story-card__grid-details" data-ecl-story-card-grid-details="{{ loop.index0 }}" style="display: none;">
-            {% if item.description %}
-              <p class="ecl-story-card__grid-description">{{ item.description }}</p>
-            {% endif %}
-            {% if item.cta %}
-              {% include '@ecl/button/button.html.twig' with {
-                label: item.cta.label,
-                path: item.cta.path,
-                type: 'standalone',
-                extra_classes: 'ecl-story-card__grid-cta',
+          {% if _icon is not empty %}
+            <div class="ecl-story-card__grid-details-icon"></div>
+              {% include "@ecl/icon/icon.html.twig" with {
+                icon : _icon,
               } only %}
-            {% endif %}
+            </div>
+          {% endif %}
+          {% if item.details_title %}
+            <div class="ecl-story-card__grid-details-title">{{ item.details_title }}</div>
+          {% endif %}
+          {% if item.description %}
+            <div class="ecl-story-card__grid-details-description">{{ item.description }}</div>
+          {% endif %}
+          {% if item.link %}
+            {% include '@ecl/link/link.html.twig' with item.link|merge({
+              type: 'standalone',
+              extra_classes: 'ecl-story-card__grid-details-link',
+            }) only %}
+          {% endif %}
           </div>
         </div>
       {% endfor %}
