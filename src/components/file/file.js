@@ -4,7 +4,6 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.translationToggleSelector Selector for toggling translatoins section
- * @param {String} options.translationContainerSelector Selector for translations section container
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
  */
 export class FileDownload {
@@ -27,7 +26,6 @@ export class FileDownload {
     element,
     {
       translationToggleSelector = '[data-ecl-file-translation-toggle]',
-      translationContainerSelector = '[data-ecl-file-translation-container]',
       attachClickListener = true,
     } = {},
   ) {
@@ -42,7 +40,6 @@ export class FileDownload {
 
     // Options
     this.translationToggleSelector = translationToggleSelector;
-    this.translationContainerSelector = translationContainerSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -66,10 +63,13 @@ export class FileDownload {
       this.translationToggleSelector,
       this.element,
     );
-    this.translationContainer = queryOne(
-      this.translationContainerSelector,
-      this.element,
-    );
+
+    // Get target element
+    if (this.translationToggle) {
+      this.translationContainer = document.querySelector(
+        `#${this.translationToggle.getAttribute('aria-controls')}`,
+      );
+    }
 
     // Bind click event on toggle
     if (this.attachClickListener && this.translationToggle) {
@@ -106,9 +106,20 @@ export class FileDownload {
   handleClickOnToggle(e) {
     e.preventDefault();
 
+    // Exit if no target found
+    if (!this.translationContainer) {
+      throw new TypeError(
+        'Target has to be provided for file download (aria-controls)',
+      );
+    }
+
     if (this.translationToggle.getAttribute('aria-expanded') === 'true') {
+      this.element.classList.remove('ecl-file--open');
+      this.translationContainer.hidden = true;
       this.translationToggle.setAttribute('aria-expanded', 'false');
     } else {
+      this.element.classList.add('ecl-file--open');
+      this.translationContainer.hidden = false;
       this.translationToggle.setAttribute('aria-expanded', 'true');
     }
 

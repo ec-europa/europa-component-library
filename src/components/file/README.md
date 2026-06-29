@@ -12,18 +12,15 @@ npm install --save @ecl/file
 - **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'
 - **"icon"** (object) (default: {}): Object of type Icon; indicates the file type
 - **"title"** (string|object) (default: '') Plain text title, or link object following ECL Link structure
-- **"description"** (string) (default: '') Description text (thumbnail variant only)
+- **"description"** (string) (default: '') Description text
 - **"language"** (string) (default: '') Language label for the file
 - **"meta"** (string) (default: '') File metadata (size, format, etc.)
-- **"detail_meta"** (array) (default: []) Additional metadata elements for the thumbnail variant
+- **"primary_meta"** (array) (default: []) Primary meta of the file
 - **"download"** (object) (default: {}): Download link, following ECL Link structure
 - **"download_attribute"** (boolean) (default: false) Add the HTML download attribute to the download link
 - **"picture"** (associative array) (default: {}): Thumbnail image, following ECL Picture structure
 - **"label"** (array) (default: []) Array of ECL Label objects (also supported as a single label object)
-- **"lists"** (array) (default: []) Array of description list objects:
-  - "variant" (string) Description list variant; can be 'taxonomy' or 'horizontal'
-  - "items" (array) Description list items:
-    - "term" (string) Term label
+- **"lists"** (array) (default: []) Array of ECL Description list objects
 - **"translation"** (array) (default: []) Translation panel for multiple language versions:
   - "toggle" (object) (default: {}): Toggle button, following ECL Button structure
   - "download_attribute" (boolean) (default: false) Add download attribute to all translation links
@@ -37,6 +34,10 @@ npm install --save @ecl/file
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"detail_meta"** (array) (default: []) Additional metadata for the thumbnail variant
 
 ### Example:
 

@@ -4,379 +4,211 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $file: null !default;
 
 .ecl-file {
-  background-color: map.get($file, 'container-background');
+  background-color: map.get($file, 'background-color');
   border-radius: map.get($file, 'border-radius');
   box-shadow: map.get($file, 'shadow');
+  color: map.get($file, 'color');
   container-name: ecl-file;
   container-type: inline-size;
-  margin: 0;
   max-width: 823px;
-  overflow: hidden;
+  position: relative;
+
+  @include mixins.responsive-font(map.get($file, 'font'));
+}
+
+.ecl-file--open {
+  border-end-end-radius: 0;
+  border-end-start-radius: 0;
 }
 
 .ecl-file__container {
-  align-items: flex-start;
-  display: flex;
-  flex-wrap: nowrap;
-  padding: map.get($file, 'container-spacing');
+  padding: map.get($file, 'container-padding-mobile');
 }
 
-.ecl-file__icon {
-  align-self: map.get($file, 'file-icon-align-self');
-  fill: map.get($file, 'icon-color');
+.ecl-file__content > *:first-child {
+  margin-block-start: 0;
 }
 
 .ecl-file__info {
   display: flex;
-  flex-basis: 50%;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  margin-inline-start: map.get($file, 'file-info-margin-left');
-
-  > *:last-child:not(:only-child) {
-    padding-bottom: map.get($file, 'container-spacing-last');
-  }
-}
-
-.ecl-file__title {
-  color: map.get($file, 'file-color');
-  font: map.get($file, 'title-font');
-  font-weight: map.get($file, 'title-font-weight');
-  width: 100%;
-}
-
-.ecl-file__footer {
-  border-top: map.get($file, 'file-footer-border');
-  display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  margin-inline: map.get($file, 'file-footer-margin-inline');
-  padding-block: map.get($file, 'file-footer-padding-block');
-  padding-inline: map.get($file, 'file-footer-padding-inline');
+  gap: var(--s-m);
 }
 
-.ecl-file__language {
-  color: map.get($file, 'file-color');
-  font: map.get($file, 'file-language-font');
-  font-weight: map.get($file, 'file-language-font-weight');
-  margin-inline-end: var(--s-xs);
+.ecl-file__icon-box {
+  align-items: center;
+  align-self: flex-start;
+  background-color: map.get($file, 'icon', 'background-color');
+  border-radius: map.get($file, 'icon', 'border-radius');
+  display: flex;
+  justify-content: center;
+  padding: map.get($file, 'icon', 'padding');
 }
 
-.ecl-file__meta {
-  color: map.get($file, 'file-color');
-  font: map.get($file, 'file-meta-font');
-}
-
-.ecl-file__detail-meta {
-  color: map.get($file, 'file-detail-meta-color');
-  display: inline-block;
-  font: var(--f-ui-s, var(--f-s));
-  list-style: none;
-  margin-bottom: map.get($file, 'file-meta-margin');
-  margin-top: 0;
-  padding: 0;
-}
-
-.ecl-file__detail-meta-item {
-  border-inline-end: 1px solid var(--cm-on-surface-primary, var(--c-p));
-  display: inline;
-  margin-inline-end: var(--s-xs);
-  padding-inline-end: var(--s-xs);
-  unicode-bidi: isolate;
-
-  &:first-of-type {
-    text-transform: uppercase;
-  }
-
-  &:last-child {
-    border-inline-end-width: 0;
-    margin-inline-end: 0;
-    padding-inline-end: 0;
-  }
-}
-
-.ecl-file__description {
-  color: map.get($file, 'file-description-color');
-  font: map.get($file, 'file-description-font');
-  margin-top: var(--s-s);
-  max-width: var(--max-w);
-  white-space: pre-wrap;
+.ecl-file__icon {
+  color: map.get($file, 'icon', 'color');
 }
 
 .ecl-file__picture {
-  order: map.get($file, 'file-picture-order-mobile');
-  align-self: flex-start;
+  flex-shrink: 0;
+  width: 13.125rem;
 }
 
 .ecl-file__image {
-  display: block;
-  margin-top: var(--s-xl);
-  max-width: map.get($file, 'image-width');
-}
-
-.ecl-file__taxonomy {
-  padding: map.get($file, 'file-taxonomy-spacing');
   width: 100%;
 }
 
-.ecl-file__label {
-  display: inline-flex;
-  flex-basis: 100%;
-  margin-bottom: map.get($file, 'file-label-spacing');
-  margin-inline-end: var(--s-xs);
+.ecl-file__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+}
+
+.ecl-file__title {
+  margin-block-start: map.get($file, 'title', 'margin-mobile');
+  max-width: var(--max-w);
+  font-weight: map.get($file, 'title', 'font-weight');
+}
+
+.ecl-file__description {
+  margin-block-start: map.get($file, 'description-margin');
+  max-width: var(--max-w);
+}
+
+.ecl-file__primary-meta {
+  color: map.get($file, 'primary-meta', 'color');
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-block-start: map.get($file, 'primary-meta', 'margin');
+  padding: 0;
+}
+
+.ecl-file__primary-meta-item {
+  &:not(:last-child) {
+    border-inline-end: 1px solid map.get($file, 'primary-meta', 'color');
+    margin-inline-end: map.get($file, 'primary-meta', 'gap');
+    padding-inline-end: map.get($file, 'primary-meta', 'gap');
+  }
+}
+
+.ecl-file__lists {
+  margin-block-start: map.get($file, 'list-margin');
+}
+
+.ecl-file__footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: map.get($file, 'footer', 'gap');
+  margin-block-start: map.get($file, 'footer', 'margin');
+  row-gap: var(--s-xs);
+}
+
+.ecl-file__toggle-label {
+  display: flex;
+  gap: var(--s-xs);
 }
 
 .ecl-file__action {
-  font: var(--f-m);
-  margin-top: calc(
-    #{map.get($file, 'file-action-spacing-mobile')} - var(--s-xs)
-  );
-
-  // stylelint-disable-next-line no-descending-specificity
-  > * {
-    margin-top: var(--s-xs);
-  }
-}
-
-.ecl-file__translation-language {
-  color: map.get($file, 'file-description-color');
-  font: var(--f-s);
-  font-weight: map.get($theme, 'font-weight', 'bold');
-}
-
-.ecl-file__translation-container {
-  background: map.get($file, 'file-translation-background');
-  border: map.get($file, 'file-translation-border');
-  border-end-start-radius: map.get($file, 'border-radius');
-  border-end-end-radius: map.get($file, 'border-radius');
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: map.get($file, 'action-gap');
+  row-gap: var(--s-xs);
 }
 
-.ecl-file__translation-toggle {
-  align-self: flex-end;
-  font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'regular');
-  margin-bottom: map.get($file, 'file-translation-toggle-margin');
-  margin-inline-end: var(--s-xs);
-  margin-top: map.get($file, 'file-translation-toggle-margin');
-
-  &:focus-visible {
-    outline-offset: -5px;
-  }
-
-  .no-js & {
-    display: none;
+.ecl-file__translation-toggle[aria-expanded='true'] {
+  .ecl-button__icon {
+    transform: rotate(180deg);
   }
 }
 
+// Translations
 .ecl-file__translation-list {
-  display: none;
+  background-color: map.get($file, 'translation', 'background-color');
+  border-radius: 0 0 map.get($file, 'border-radius')
+    map.get($file, 'border-radius');
+  box-shadow: map.get($file, 'shadow');
   list-style: none;
   margin: 0;
-  padding-inline-start: 0;
-
-  .no-js & {
-    display: block;
-  }
+  max-height: 368px;
+  overflow-y: auto;
+  padding: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .ecl-file__translation-item {
-  border-top: 1px solid map.get($file, 'translation-border-color');
+  border-block-start: 1px solid map.get($file, 'translation', 'separator');
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 0 map.get($file, 'file-translation-item-margin');
-  padding: map.get($file, 'file-spacing')
-    map.get($file, 'file-translation-item-padding-h');
+  flex-wrap: wrap;
+  padding: map.get($file, 'translation', 'item-padding-mobile');
 
-  // Laco widget
-  > span[class*='wt'] {
-    align-self: center;
+  &:first-child {
+    border-block-start: none;
   }
 }
 
 .ecl-file__translation-info {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   flex-wrap: wrap;
 }
 
 .ecl-file__translation-title {
-  color: map.get($file, 'file-color');
-  font: var(--f-m);
-  font-weight: map.get($file, 'file-translation-font-weight');
-}
-
-.ecl-file__translation-meta {
-  color: map.get($file, 'file-color');
-  font: map.get($file, 'file-translation-meta-font');
+  font-weight: map.get($file, 'translation', 'title-font-weight');
 }
 
 .ecl-file__translation-action {
-  align-self: map.get($file, 'file-translation-download-alignment');
-  margin-top: 0;
-
-  // stylelint-disable-next-line no-descending-specificity
-  > * {
-    margin-top: var(--s-xs);
-  }
-}
-
-.ecl-file__translation-download {
-  font: var(--f-m);
-}
-
-.ecl-file__translation-description {
-  color: map.get($file, 'file-color');
-  display: block;
-  font: var(--f-m);
-  max-width: var(--max-w);
-}
-
-.ecl-file__translation-toggle[aria-expanded='true'] {
-  background: map.get($file, 'translation-toggle-open-background');
-  border-color: map.get($file, 'translation-toggle-open-border-color');
-  color: map.get($file, 'translation-toggle-open-color');
-
-  .ecl-button__icon {
-    transform: rotate(0);
-  }
-
-  + .ecl-file__translation-list {
-    display: block;
-  }
-}
-
-@container ecl-file (width >= #{map.get($theme, 'breakpoint', 's')}) {
-  .ecl-file__translation-action {
-    margin-top: 0;
-  }
-
-  .ecl-file__translation-item {
-    flex-direction: row;
-    max-width: 100%;
-  }
+  align-items: center;
+  column-gap: map.get($file, 'action-gap');
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-block-start: map.get($file, 'translation', 'action-margin');
+  row-gap: var(--s-xs);
 }
 
 @container ecl-file (width >= #{map.get($theme, 'breakpoint', 'm')}) {
-  .ecl-file__detail {
-    flex-direction: map.get($file, 'file-detail-flex-direction');
-  }
-
-  .ecl-file__detail-info {
-    flex-grow: 1;
-  }
-
-  .ecl-file__picture {
-    order: map.get($file, 'file-picture-order-desktop');
-  }
-
-  .ecl-file__footer {
-    flex-direction: map.get($file, 'file-footer-flex-direction');
-  }
-
-  .ecl-file__action {
-    align-self: flex-end;
-    margin-inline-start: auto;
-    margin-top: map.get($file, 'file-action-spacing-desktop');
-    position: map.get($file, 'file-action-position');
-
-    > * {
-      margin-top: 0;
-    }
-  }
-
-  .ecl-file__image {
-    align-self: flex-start;
-    margin-inline-start: map.get($file, 'file-image-margin-left');
-    margin-inline-end: map.get($file, 'file-image-margin-right');
-    margin-top: 0;
-  }
-}
-
-/*
-* thumbnail variant
-*/
-.ecl-file--thumbnail {
   .ecl-file__container {
-    flex-direction: column;
-    padding-bottom: map.get($file, 'file-thumbnail-container-padding');
+    padding: map.get($file, 'container-padding-desktop');
   }
 
   .ecl-file__info {
-    margin-inline-start: 0;
+    flex-direction: row;
+  }
 
-    > *:last-child:not(:only-child) {
-      padding-bottom: 0;
-    }
+  .ecl-file__title {
+    margin-block-start: map.get($file, 'title', 'margin-desktop');
   }
 
   .ecl-file__footer {
-    margin: map.get($file, 'file-thumbnail-footer-margin');
-    padding: map.get($file, 'file-thumbnail-footer-padding');
-    position: relative;
-
-    @if map.has-key($file, 'file-thumbnail-border') {
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        inset-inline: var(--s-l);
-        border-top: 1px solid var(--cm-border-neutral, var(--c-p-20));
-      }
-    }
-  }
-
-  .ecl-file__language,
-  .ecl-file__meta {
-    margin-top: 0;
-  }
-
-  .ecl-file__detail-meta {
-    margin-bottom: map.get($file, 'file-thumbnail-meta-margin');
+    justify-content: flex-end;
   }
 
   .ecl-file__action {
-    top: map.get($file, 'file-thumbnail-download-top-position');
+    border-inline-start: 1px solid map.get($file, 'color');
+    padding-inline-start: map.get($file, 'footer', 'gap');
   }
 
   .ecl-file__translation-item {
     flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: map.get($file, 'translation', 'item-padding-desktop');
   }
 
-  .ecl-file__translation-item:first-of-type {
-    border-top-width: map.get($file, 'file-translation-first-item-border');
-    padding-top: map.get($file, 'file-translation-first-item-padding');
-  }
-
-  .ecl-file__translation-detail {
-    flex-basis: 100%;
-    margin-bottom: map.get($file, 'file-translation-detail-margin-bottom');
-  }
-
-  .ecl-file__translation-title {
-    font: var(--f-m);
-    font-weight: map.get($file, 'file-translation-title-weight');
-    margin-bottom: map.get($file, 'file-translation-title-margin-bottom');
-  }
-
-  .ecl-file__translation-meta {
-    margin-inline-start: map.get($file, 'file-translation-meta-spacing');
-    margin-top: 0;
-  }
-}
-
-@container ecl-file (width >= #{map.get($theme, 'breakpoint', 'm')}) {
-  .ecl-file--thumbnail .ecl-file__container {
-    flex-direction: row;
+  .ecl-file__translation-action {
+    margin-block-start: 0;
   }
 }
