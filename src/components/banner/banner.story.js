@@ -478,7 +478,12 @@ Image.render = async (args) => {
 Image.storyName = 'image';
 Image.args = getArgs(bannerDataImage);
 Image.argTypes = getArgTypes(bannerDataImage);
-Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
+Image.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(bannerDataImage, args),
+  },
+};
 
 export const Video = (_, { loaded: { component } }) => component;
 
@@ -489,4 +494,9 @@ Video.render = async (args) => {
 Video.storyName = 'video';
 Video.args = getArgs(bannerDataVideo);
 Video.argTypes = getArgTypes(bannerDataVideo);
-Video.parameters = { notes: { markdown: notes, json: bannerDataVideo } };
+Video.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(bannerDataVideo, args),
+  },
+};

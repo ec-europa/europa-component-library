@@ -70,7 +70,12 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoData, args),
+  },
+};
 Default.decorators = [withCode, withNotes];
 
 export const Expanded = (_, { loaded: { component } }) => component;

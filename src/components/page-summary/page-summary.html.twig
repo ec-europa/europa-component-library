@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "id" (string) (default: random): page summary id
+    - "color_mode" (string) (default: '') Name of the color mode
     - "title" (string) (default: ''): page summary title
     - "description" (string) (default: ''): page summary description
     - "icon" (object) (default: ''): icon for the title; follows the ECL Icon structure
@@ -20,8 +21,13 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _icon = icon|default({}) %}
+{% set _color_mode = color_mode|default('') %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
