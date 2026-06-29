@@ -143,5 +143,5 @@ Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
 Default.parameters = {
-  notes: { markdown: notes, json: demoData },
+  notes: { markdown: notes, json: ({ args }) => prepareData(demoData, args) },
 };

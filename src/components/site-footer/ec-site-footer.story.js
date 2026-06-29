@@ -174,7 +174,10 @@ Core.storyName = 'core';
 Core.args = getArgs('core');
 Core.argTypes = getArgTypes('core');
 Core.parameters = {
-  notes: { markdown: notes, json: dataCore },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataCore, args),
+  },
 };
 
 export const Standardised = (_, { loaded: { component } }) => component;
@@ -189,7 +192,10 @@ Standardised.storyName = 'standardised';
 Standardised.args = getArgs('standardised');
 Standardised.argTypes = getArgTypes('standardised');
 Standardised.parameters = {
-  notes: { markdown: notes, json: dataStandardised },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataStandardised, args),
+  },
 };
 
 export const Harmonised = (_, { loaded: { component } }) => component;
@@ -201,4 +207,9 @@ Harmonised.render = async (args) => {
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs('harmonised');
 Harmonised.argTypes = getArgTypes('harmonised');
-Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };
+Harmonised.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataHarmonised, args),
+  },
+};

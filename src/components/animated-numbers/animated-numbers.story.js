@@ -283,7 +283,10 @@ Default.args = getArgs(defaultData.items[0]);
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
 Default.parameters = {
-  notes: { markdown: notes, json: defaultData },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(defaultData, args),
+  },
 };
 
 export const WithBackground = (_, { loaded: { component } }) => component;

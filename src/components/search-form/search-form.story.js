@@ -84,5 +84,10 @@ Search.render = async (args) => {
 Search.storyName = 'Search Form';
 Search.args = getArgs(dataSearch);
 Search.argTypes = getArgTypes();
-Search.parameters = { notes: { markdown: notes, json: dataSearch } };
+Search.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataSearch, args),
+  },
+};
 Search.decorators = [withNotes, withCode];
