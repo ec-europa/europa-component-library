@@ -188,10 +188,10 @@ const getArgTypes = () => ({
     type: { name: 'select' },
     description:
       'Display individual sources per item, a single global sources footer, or no sources',
-    options: ['individual', 'global', 'none'],
+    options: ['global', 'individual', 'none'],
     mapping: {
-      individual: 'individual',
       global: 'global',
+      individual: 'individual',
       none: 'none',
     },
     table: {

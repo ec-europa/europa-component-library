@@ -1,3 +1,4 @@
+{% import _self as fact_figures %}
 {% apply spaceless %}
 
 {#
@@ -65,7 +66,7 @@
 {% endif %}
 
 {% if _centered %}
-  {% set _css_class = _css_class ~ ' ecl-fact-figures--centered' %} 
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--centered' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -81,6 +82,47 @@
     {% endif %}
   {% endfor %}
 {% endif %}
+
+{# Define sources macro #}
+
+{% macro render_sources(sources, label) %}{% apply spaceless %}
+  {% if label is not empty %}
+    <span class="ecl-fact-figures__sources-label">
+      {{- label -}}
+    </span>
+  {% endif %}
+
+  {% if sources|length == 1 %}
+    {% set source = sources|first %}
+    {% if source.link is defined and source.link is not empty %}
+      {% include '@ecl/link/link.html.twig' with {
+        link: source.link,
+        extra_classes: 'ecl-fact-figures__source'
+      } only %}
+    {% else %}
+      <span class="ecl-fact-figures__source">
+        {{ source.name }}
+      </span>
+    {% endif %}
+  {% elseif sources|length > 1 %}
+    <ul class="ecl-fact-figures__sources-list">
+      {% for source in sources %}
+        <li class="ecl-fact-figures__sources-item">
+          {% if source.link is defined and source.link is not empty %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: source.link,
+              extra_classes: 'ecl-fact-figures__source'
+            } only %}
+          {% else %}
+            <span class="ecl-fact-figures__source">
+              {{ source.name }}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endapply %}{% endmacro %}
 
 <div
   class="{{ _css_class }}"
@@ -122,7 +164,7 @@
       {% elseif item.title is defined and item.title is not empty %}
         <div class="ecl-fact-figures__title">
           {{- item.title -}}
-        </div>    
+        </div>
       {% endif %}
 
       {# Description #}
@@ -135,43 +177,7 @@
       {# Individual sources #}
       {% if item.sources is not empty and item.sources is iterable %}
         <div class="ecl-fact-figures__sources">
-          {% if item.sources_label is not empty or _sources_label is not empty %}
-            <span class="ecl-fact-figures__sources-label">
-              {{- item.sources_label|default(_sources_label) -}}
-            </span>
-          {% endif %}
-          {% if item.sources|length == 1 %}
-            {% set source = item.sources|first %}
-
-            {% if source.link is defined and source.link is not empty %}
-              {% include '@ecl/link/link.html.twig' with {
-                link: source.link,
-                extra_classes: 'ecl-fact-figures__source'
-              } only %}
-            {% else %}
-              <span class="ecl-fact-figures__source">
-                {{ source.name }}
-              </span>
-            {% endif %}
-
-          {% elseif item.sources|length > 1 %}
-            <ul class="ecl-fact-figures__sources-list">
-              {% for source in item.sources %}
-                <li class="ecl-fact-figures__sources-item">
-                  {% if source.link is defined and source.link is not empty %}
-                    {% include '@ecl/link/link.html.twig' with {
-                      link: source.link,
-                      extra_classes: 'ecl-fact-figures__source'
-                    } only %}
-                  {% else %}
-                    <span class="ecl-fact-figures__source">
-                      {{ source.name }}
-                    </span>
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+          {{ fact_figures.render_sources(item.sources, item.sources_label|default(_sources_label)) }}
         </div>
       {% endif %}
     </div>
@@ -182,43 +188,7 @@
 {# Global sources #}
 {% if _sources is not empty and _sources is iterable %}
   <div class="ecl-fact-figures__sources">
-    {% if _sources_label is not empty %}
-      <span class="ecl-fact-figures__sources-label">
-        {{- _sources_label -}}
-      </span>
-    {% endif %}
-    {% if _sources|length == 1 %}
-      {% set source = _sources|first %}
-
-      {% if source.link is defined and source.link is not empty %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: source.link,
-          extra_classes: 'ecl-fact-figures__source'
-        } only %}
-      {% else %}
-        <span class="ecl-fact-figures__source">
-          {{ source.name }}
-        </span>
-      {% endif %}
-
-    {% elseif _sources|length > 1 %}
-      <ul class="ecl-fact-figures__sources-list">
-        {% for source in _sources %}
-          <li class="ecl-fact-figures__sources-item">
-            {% if source.link is defined and source.link is not empty %}
-              {% include '@ecl/link/link.html.twig' with {
-                link: source.link,
-                extra_classes: 'ecl-fact-figures__source'
-              } only %}
-            {% else %}
-              <span class="ecl-fact-figures__source">
-                {{ source.name }}
-              </span>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+    {{ fact_figures.render_sources(_sources, _sources_label) }}
   </div>
 {% endif %}
 

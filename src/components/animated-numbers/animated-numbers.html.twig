@@ -1,3 +1,4 @@
+{% import _self as animated_numbers %}
 {% apply spaceless %}
 
 {#
@@ -85,6 +86,53 @@
   {% endfor %}
 {% endif %}
 
+{# Define sources macro #}
+
+{% macro render_sources(sources, label, with_background, counter_color) %}{% apply spaceless %}
+  {% if label is not empty %}
+    <span class="ecl-animated-numbers__sources-label">
+      {{- label -}}
+    </span>
+  {% endif %}
+
+  {% if sources|length == 1 %}
+    {% set source = sources|first %}
+    {% if source.link is defined and source.link is not empty %}
+      {% include '@ecl/link/link.html.twig' with {
+        link: source.link|merge({
+          inverted: with_background,
+          branded: not counter_color,
+        }),
+        extra_classes: 'ecl-animated-numbers__source'
+      } only %}
+    {% else %}
+      <span class="ecl-animated-numbers__source">
+        {{ source.name }}
+      </span>
+    {% endif %}
+  {% elseif sources|length > 1 %}
+    <ul class="ecl-animated-numbers__sources-list">
+      {% for source in sources %}
+        <li class="ecl-animated-numbers__sources-item">
+          {% if source.link is defined and source.link is not empty %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: source.link|merge({
+                inverted: with_background,
+                branded: not counter_color,
+              }),
+              extra_classes: 'ecl-animated-numbers__source'
+            } only %}
+          {% else %}
+            <span class="ecl-animated-numbers__source">
+              {{ source.name }}
+            </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endapply %}{% endmacro %}
+
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
@@ -163,49 +211,7 @@
               {# Individual sources #}
               {% if item.sources is not empty and item.sources is iterable %}
                 <div class="ecl-animated-numbers__sources">
-                  {% if item.sources_label is not empty or _sources_label is not empty %}
-                    <span class="ecl-animated-numbers__sources-label">
-                      {{- item.sources_label|default(_sources_label) -}}
-                    </span>
-                  {% endif %}
-
-                  {% if item.sources|length == 1 %}
-                    {% set source = item.sources|first %}
-                    {% if source.link is defined and source.link is not empty %}
-                      {% include '@ecl/link/link.html.twig' with {
-                        link: source.link|merge({
-                          inverted: _with_background,
-                          branded: not _counter_color,
-                        }),
-                        extra_classes: 'ecl-animated-numbers__source'
-                      } only %}
-                    {% else %}
-                      <span class="ecl-animated-numbers__source">
-                        {{ source.name }}
-                      </span>
-                    {% endif %}
-
-                  {% elseif item.sources|length > 1 %}
-                    <ul class="ecl-animated-numbers__sources-list">
-                      {% for source in item.sources %}
-                        <li class="ecl-animated-numbers__sources-item">
-                          {% if source.link is defined and source.link is not empty %}
-                            {% include '@ecl/link/link.html.twig' with {
-                              link: source.link|merge({
-                                inverted: _with_background,
-                                branded: not _counter_color,
-                              }),
-                              extra_classes: 'ecl-animated-numbers__source'
-                            } only %}
-                          {% else %}
-                            <span class="ecl-animated-numbers__source">
-                              {{ source.name }}
-                            </span>
-                          {% endif %}
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
+                  {{ animated_numbers.render_sources(item.sources, item.sources_label|default(_sources_label), _with_background, _counter_color) }}
                 </div>
               {% endif %}
             </div>
@@ -217,49 +223,7 @@
       {# Global sources #}
       {% if _sources is not empty and _sources is iterable %}
         <footer class="ecl-animated-numbers__sources">
-          {% if _sources_label is not empty %}
-            <span class="ecl-animated-numbers__sources-label">
-              {{- _sources_label -}}
-            </span>
-          {% endif %}
-
-          {% if _sources|length == 1 %}
-            {% set source = _sources|first %}
-            {% if source.link is defined and source.link is not empty %}
-              {% include '@ecl/link/link.html.twig' with {
-                link: source.link|merge({
-                  inverted: _with_background,
-                  branded: not _counter_color,
-                }),
-                extra_classes: 'ecl-animated-numbers__source'
-              } only %}
-            {% else %}
-              <span class="ecl-animated-numbers__source">
-                {{ source.name }}
-              </span>
-            {% endif %}
-
-          {% elseif _sources|length > 1 %}
-            <ul class="ecl-animated-numbers__sources-list">
-              {% for source in _sources %}
-                <li class="ecl-animated-numbers__sources-item">
-                  {% if source.link is defined and source.link is not empty %}
-                    {% include '@ecl/link/link.html.twig' with {
-                      link: source.link|merge({
-                        inverted: _with_background,
-                        branded: not _counter_color,
-                      }),
-                      extra_classes: 'ecl-animated-numbers__source'
-                    } only %}
-                  {% else %}
-                    <span class="ecl-animated-numbers__source">
-                      {{ source.name }}
-                    </span>
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+          {{ animated_numbers.render_sources(_sources, _sources_label, _with_background, _counter_color) }}
         </footer>
       {% endif %}
       </article>
