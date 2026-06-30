@@ -194,7 +194,19 @@ $link: null !default;
   }
 
   &:hover {
+    box-shadow: map.get($button, 'shadow');
     color: var(--ecl-button-color);
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: var(--ecl-focus-outline-width) solid var(--ecl-focus-outline-color);
+    outline-offset: var(--ecl-focus-outline-offset);
+    text-decoration: none;
+  }
+
+  &:active {
+    outline-width: 0;
   }
 
   &.ecl-link--icon-only {

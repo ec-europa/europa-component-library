@@ -78,6 +78,17 @@ $button: null !default;
 
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
   }
+}
+
+// Button structure definition
+.ecl-button,
+%ecl-button {
+  @include button-base;
+
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
 
   &:hover {
     box-shadow: map.get($button, 'shadow');
@@ -93,17 +104,6 @@ $button: null !default;
   &:active {
     outline-width: 0;
   }
-}
-
-// Button structure definition
-.ecl-button,
-%ecl-button {
-  @include button-base;
-
-  appearance: none;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0;
 }
 
 .ecl-button__container {
