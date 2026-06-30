@@ -18,7 +18,7 @@ module.exports = {
       label: `<a class="ecl-link ecl-link--standalone" href="${exampleLink}">Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis feugiat. Vivamus eget turpis a est lacinia blandit</a>`,
     },
     {
-      label: `<a class="ecl-link" href="${exampleLink}">Vestibulum sed accumsan ipsum</a>`,
+      label: `<a class="ecl-link ecl-link--standalone" href="${exampleLink}">Vestibulum sed accumsan ipsum</a>`,
       nested: [
         {
           label: `<a class="ecl-link" href="${exampleLink}">Morbi vitae tortor accumsan</a>`,

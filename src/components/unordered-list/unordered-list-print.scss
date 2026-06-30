@@ -30,8 +30,9 @@ $list-print: null !default;
   margin-top: map.get($theme, 'spacing-print', 's');
   max-width: var(--max-w);
 
-  .ecl-link {
-    padding-top: map.get($theme, 'spacing-print', 's');
+  // inline-block elements (e.g. standalone link) shift the bullet to bottom; reset to top
+  .ecl-link--standalone {
+    vertical-align: top;
   }
 }
 

@@ -40,6 +40,11 @@ $list: null !default;
   max-width: var(--max-w);
   padding-inline-start: 0;
 
+  // inline-block elements (e.g. standalone link) shift the bullet to bottom; reset to top
+  .ecl-link--standalone {
+    vertical-align: top;
+  }
+
   &:first-of-type {
     padding-top: var(--s-2xs);
   }
