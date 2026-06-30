@@ -18,6 +18,11 @@ import EmblaCarousel from 'embla-carousel';
  * @param {String} options.gridItemSelector Selector for grid items
  * @param {String} options.gridButtonSelector Selector for grid buttons
  * @param {String} options.gridDetailsSelector Selector for grid details
+ * @param {String} options.gridPrevSelector Selector for grid previous button
+ * @param {String} options.gridNextSelector Selector for grid next button
+ * @param {String} options.gridPlaySelector Selector for grid play button
+ * @param {String} options.gridPauseSelector Selector for grid pause button
+ * @param {Number} options.gridAutoplayDelay Autoplay delay for grid items
  * @param {Boolean} options.attachClickListener Whether to attach click listeners
  * @param {Boolean} options.attachResizeListener Whether to attach resize listeners
  */
@@ -66,6 +71,11 @@ export class StoryCard {
       gridItemSelector = '[data-ecl-story-card-grid-item]',
       gridButtonSelector = '[data-ecl-story-card-grid-button]',
       gridDetailsSelector = '[data-ecl-story-card-grid-details]',
+      gridPrevSelector = '[data-ecl-story-card-grid-prev]',
+      gridNextSelector = '[data-ecl-story-card-grid-next]',
+      gridPlaySelector = '[data-ecl-story-card-grid-play]',
+      gridPauseSelector = '[data-ecl-story-card-grid-pause]',
+      gridAutoplayDelay = 10000,
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -98,6 +108,11 @@ export class StoryCard {
     this.gridItemSelector = gridItemSelector;
     this.gridButtonSelector = gridButtonSelector;
     this.gridDetailsSelector = gridDetailsSelector;
+    this.gridPrevSelector = gridPrevSelector;
+    this.gridNextSelector = gridNextSelector;
+    this.gridPlaySelector = gridPlaySelector;
+    this.gridPauseSelector = gridPauseSelector;
+    this.gridAutoplayDelay = gridAutoplayDelay;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -105,7 +120,7 @@ export class StoryCard {
     this.viewport = null;
     this.container = null;
     this.slides = null;
-    this.emblaApi = null;
+    this.slider = null;
     this.btnPrev = null;
     this.btnNext = null;
     this.btnPlay = null;
@@ -121,9 +136,18 @@ export class StoryCard {
     // Private variables - Grid (Desktop)
     this.gridItems = null;
     this.gridButtons = null;
+    this.gridDetails = null;
+    this.btnGridPrev = null;
+    this.btnGridNext = null;
+    this.btnGridPlay = null;
+    this.btnGridPause = null;
     this.expandedItem = null;
+    this.gridAutoplayInterval = null;
+    this.gridDetailsHeightFrame = null;
+    this.isGridAutoPlaying = false;
 
     this.setCounter = this.setCounter.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
   }
 
   /**
@@ -142,6 +166,11 @@ export class StoryCard {
     this.totalElement = queryOne(this.totalSelector, this.element);
     this.gridItems = queryAll(this.gridItemSelector, this.element);
     this.gridButtons = queryAll(this.gridButtonSelector, this.element);
+    this.gridDetails = queryAll(this.gridDetailsSelector, this.element);
+    this.btnGridPrev = queryOne(this.gridPrevSelector, this.element);
+    this.btnGridNext = queryOne(this.gridNextSelector, this.element);
+    this.btnGridPlay = queryOne(this.gridPlaySelector, this.element);
+    this.btnGridPause = queryOne(this.gridPauseSelector, this.element);
 
     this.total = this.slides ? this.slides.length : 0;
 
@@ -161,7 +190,7 @@ export class StoryCard {
     }
 
     if (this.attachResizeListener) {
-      window.addEventListener('resize', () => this.onWindowResize(), false);
+      window.addEventListener('resize', this.onWindowResize, false);
     }
   }
 
@@ -274,10 +303,95 @@ export class StoryCard {
    */
   initGridAccordion() {
     this.gridButtons.forEach((button, index) => {
-      button.addEventListener('click', () => this.toggleGridItem(index));
+      button.addEventListener('click', () => {
+        this.pauseGridAutoplay();
+        this.setGridItem(index);
+      });
+
       if (button.getAttribute('aria-expanded') === 'true') {
         this.expandedItem = index;
+        this.setGridItem(index);
       }
+    });
+
+    if (this.expandedItem === null) {
+      this.setGridItem(0);
+    }
+
+    this.setGridDetailsHeight();
+    this.scheduleGridDetailsHeight();
+    this.playGridAutoplay();
+  }
+
+  /**
+   * Schedule grid details height calculation after layout settles.
+   */
+  scheduleGridDetailsHeight() {
+    if (typeof window === 'undefined' || !window.requestAnimationFrame) {
+      this.setGridDetailsHeight();
+      return;
+    }
+
+    if (
+      this.gridDetailsHeightFrame &&
+      typeof window !== 'undefined' &&
+      window.cancelAnimationFrame
+    ) {
+      window.cancelAnimationFrame(this.gridDetailsHeightFrame);
+    }
+
+    this.gridDetailsHeightFrame = window.requestAnimationFrame(() => {
+      this.gridDetailsHeightFrame = null;
+      this.setGridDetailsHeight();
+    });
+  }
+
+  /**
+   * Set every grid details panel to the height of the tallest one.
+   */
+  setGridDetailsHeight() {
+    if (
+      typeof window === 'undefined' ||
+      !this.gridDetails ||
+      this.gridDetails.length === 0
+    ) {
+      return;
+    }
+
+    const activeIndex = this.expandedItem === null ? 0 : this.expandedItem;
+    let maxHeight = 0;
+
+    this.gridDetails.forEach((details) => {
+      details.style.height = '';
+      details.hidden = true;
+    });
+
+    this.gridDetails.forEach((details) => {
+      details.hidden = false;
+      details.style.visibility = 'hidden';
+      details.style.pointerEvents = 'none';
+
+      maxHeight = Math.max(maxHeight, details.getBoundingClientRect().height);
+
+      details.hidden = true;
+      details.style.visibility = '';
+      details.style.pointerEvents = '';
+    });
+
+    this.gridDetails.forEach((details, index) => {
+      const styles = window.getComputedStyle(details);
+      const verticalSpacing =
+        (parseFloat(styles.paddingTop) || 0) +
+        (parseFloat(styles.paddingBottom) || 0) +
+        (parseFloat(styles.borderTopWidth) || 0) +
+        (parseFloat(styles.borderBottomWidth) || 0);
+      const height =
+        styles.boxSizing === 'border-box'
+          ? maxHeight
+          : Math.max(maxHeight - verticalSpacing, 0);
+
+      details.style.height = `${Math.ceil(height)}px`;
+      details.hidden = index !== activeIndex;
     });
   }
 
@@ -285,64 +399,117 @@ export class StoryCard {
    * Update the carousel counter.
    */
   updateCounter() {
-    if (!this.emblaApi || !this.currentElement) return;
+    if (!this.slider || !this.currentElement) return;
 
-    const current = this.emblaApi.snapIndex() + 1;
+    const current = this.slider.snapIndex() + 1;
     if (this.currentElement) {
       this.currentElement.textContent = current;
     }
   }
 
   /**
-   * Toggle grid item expansion.
+   * Set the expanded grid item.
    *
    * @param {Number} index Index of the item to toggle
    */
-  toggleGridItem(index) {
-    const button = this.gridButtons[index];
-    const details = queryOne(
-      `${this.gridDetailsSelector}[data-ecl-story-card-grid-details="${index}"]`,
-      this.element,
-    );
-    const item = queryOne(
-      `${this.gridItemSelector}[data-ecl-story-card-grid-item="${index}"]`,
-      this.element,
-    );
+  setGridItem(index) {
+    if (!this.gridButtons || this.gridButtons.length === 0) return;
 
-    if (!button || !details || !item) return;
+    const nextIndex =
+      (index + this.gridButtons.length) % this.gridButtons.length;
+    const button = this.gridButtons[nextIndex];
 
-    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    if (!button) return;
 
-    // Close previously expanded item
-    if (this.expandedItem !== null && this.expandedItem !== index) {
-      const prevButton = this.gridButtons[this.expandedItem];
-      const prevDetails = queryOne(
-        `${this.gridDetailsSelector}[data-ecl-story-card-grid-details="${this.expandedItem}"]`,
+    this.gridButtons.forEach((gridButton, buttonIndex) => {
+      const item = queryOne(
+        `${this.gridItemSelector}[data-ecl-story-card-grid-item="${buttonIndex}"]`,
         this.element,
       );
-      const prevItem = queryOne(
-        `${this.gridItemSelector}[data-ecl-story-card-grid-item="${this.expandedItem}"]`,
-        this.element,
-      );
+      const details = this.gridDetails[buttonIndex];
+      const isActive = buttonIndex === nextIndex;
 
-      if (prevButton && prevDetails && prevItem) {
-        prevButton.setAttribute('aria-expanded', 'false');
-        prevDetails.style.display = 'none';
-        prevItem.classList.remove('ecl-story-card__grid-item--expanded');
+      gridButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+
+      if (item) {
+        item.classList.toggle('ecl-story-card__grid-item--expanded', isActive);
       }
+
+      if (details) {
+        details.hidden = !isActive;
+      }
+    });
+
+    this.expandedItem = nextIndex;
+  }
+
+  /**
+   * Move the grid accordion to the previous item.
+   */
+  goToPreviousGridItem() {
+    this.setGridItem((this.expandedItem || 0) - 1);
+  }
+
+  /**
+   * Move the grid accordion to the next item.
+   */
+  goToNextGridItem() {
+    this.setGridItem((this.expandedItem || 0) + 1);
+  }
+
+  /**
+   * Start the grid auto-play.
+   */
+  playGridAutoplay() {
+    if (
+      !this.gridButtons ||
+      this.gridButtons.length < 2 ||
+      this.gridAutoplayInterval
+    ) {
+      return;
     }
 
-    // Toggle current item
-    if (isExpanded) {
-      button.setAttribute('aria-expanded', 'false');
-      details.style.display = 'none';
-      item.classList.remove('ecl-story-card__grid-item--expanded');
-      this.expandedItem = null;
+    this.gridAutoplayInterval = setInterval(() => {
+      this.goToNextGridItem();
+    }, this.gridAutoplayDelay);
+    this.isGridAutoPlaying = true;
+
+    if (this.btnGridPlay) this.btnGridPlay.style.display = 'none';
+    if (this.btnGridPause) this.btnGridPause.style.display = 'flex';
+  }
+
+  /**
+   * Pause the grid auto-play.
+   */
+  pauseGridAutoplay() {
+    if (!this.gridAutoplayInterval) return;
+
+    clearInterval(this.gridAutoplayInterval);
+    this.gridAutoplayInterval = null;
+    this.isGridAutoPlaying = false;
+
+    if (this.btnGridPlay) this.btnGridPlay.style.display = 'flex';
+    if (this.btnGridPause) this.btnGridPause.style.display = 'none';
+  }
+
+  /**
+   * Toggle the grid auto-play state.
+   *
+   * @param {Boolean} shouldPlay Whether auto-play should start
+   */
+  toggleGridAutoplay(shouldPlay) {
+    if (shouldPlay) {
+      const isFocus = document.activeElement === this.btnGridPlay;
+      this.playGridAutoplay();
+      if (isFocus && this.btnGridPause) {
+        this.btnGridPause.focus();
+      }
     } else {
-      button.setAttribute('aria-expanded', 'true');
-      details.style.display = 'block';
-      item.classList.add('ecl-story-card__grid-item--expanded');
-      this.expandedItem = index;
+      const isFocus = document.activeElement === this.btnGridPause;
+      this.pauseGridAutoplay();
+      if (isFocus && this.btnGridPlay) {
+        this.btnGridPlay.focus();
+      }
     }
   }
 
@@ -374,6 +541,30 @@ export class StoryCard {
       this.btnPause.addEventListener('click', () => this.pause());
     }
 
+    if (this.btnGridPrev) {
+      this.btnGridPrev.addEventListener('click', () => {
+        this.goToPreviousGridItem();
+      });
+    }
+
+    if (this.btnGridNext) {
+      this.btnGridNext.addEventListener('click', () => {
+        this.goToNextGridItem();
+      });
+    }
+
+    if (this.btnGridPlay) {
+      this.btnGridPlay.addEventListener('click', () => {
+        this.toggleGridAutoplay(true);
+      });
+    }
+
+    if (this.btnGridPause) {
+      this.btnGridPause.addEventListener('click', () => {
+        this.toggleGridAutoplay(false);
+      });
+    }
+
     // Auto-pause on interaction
     if (this.slider) {
       this.slider.on('pointerDown', () => {
@@ -388,7 +579,7 @@ export class StoryCard {
    * Start auto-play.
    */
   play() {
-    if (!this.emblaApi || this.isAutoPlaying) return;
+    if (!this.slider || this.isAutoPlaying) return;
 
     this.isAutoPlaying = true;
 
@@ -396,17 +587,17 @@ export class StoryCard {
     if (this.btnPause) this.btnPause.style.display = 'block';
 
     this.autoPlayInterval = setInterval(() => {
-      if (this.emblaApi) {
-        this.emblaApi.scrollNext();
+      if (this.slider) {
+        this.slider.scrollNext();
       }
-    }, 4000);
+    }, 10000);
   }
 
   /**
    * Pause auto-play.
    */
   pause() {
-    if (!this.emblaApi || !this.isAutoPlaying) return;
+    if (!this.slider || !this.isAutoPlaying) return;
 
     this.isAutoPlaying = false;
 
@@ -423,26 +614,40 @@ export class StoryCard {
    * Handle window resize.
    */
   onWindowResize() {
-    if (this.emblaApi) {
-      this.emblaApi.reInit();
+    if (this.slider) {
+      this.slider.reInit();
       this.updateCounter();
     }
+
+    this.scheduleGridDetailsHeight();
   }
 
   /**
    * Destroy the component.
    */
   destroy() {
-    if (this.emblaApi) {
-      this.emblaApi.destroy();
+    if (this.slider) {
+      this.slider.destroy();
     }
 
     if (this.autoPlayInterval) {
       clearInterval(this.autoPlayInterval);
     }
 
+    if (this.gridAutoplayInterval) {
+      clearInterval(this.gridAutoplayInterval);
+    }
+
+    if (
+      this.gridDetailsHeightFrame &&
+      typeof window !== 'undefined' &&
+      window.cancelAnimationFrame
+    ) {
+      window.cancelAnimationFrame(this.gridDetailsHeightFrame);
+    }
+
     if (this.attachResizeListener) {
-      window.removeEventListener('resize', () => this.onWindowResize());
+      window.removeEventListener('resize', this.onWindowResize);
     }
 
     this.eventManager.destroy();

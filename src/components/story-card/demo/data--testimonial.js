@@ -2,27 +2,28 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  variant: 'story',
+  variant: 'testimonial',
   items: [
     {
       id: 'story-card-1',
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          src: 'https://i.pravatar.cc/800?img=18',
           alt: 'Story card example 1',
         },
         sources: [
           {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+            src: 'https://i.pravatar.cc/800?img=18',
             media: '(max-width: 50rem)',
           },
         ],
       },
-      teaser_label: 'why twelve',
+      teaser_label: 'RICHARD FELIX',
+      author: 'Richard Felix',
+      role: 'Lawier',
+      source: 'Published on The Observer',
       title:
-        'The European flag is one of the most recognised symbols in Europe.',
-      description:
-        'It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.',
+        'You can do the same by producing your own electricity and sharing it local',
       card_link: {
         link: {
           label: 'Read more',
@@ -38,15 +39,16 @@ module.exports = {
       id: 'story-card-2',
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+          src: 'https://i.pravatar.cc/800?img=17',
           alt: 'Story card example 2',
         },
       },
-      teaser_label: 'for everyone',
+      teaser_label: 'MARCUS LENNARD',
+      author: 'Marcus Lennard',
+      role: 'Commissioner',
+      source: 'Published on The Guardian',
       title:
         'You can do the same by producing your own electricity and sharing it local.',
-      description:
-        'Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.',
       card_link: {
         link: {
           label: 'Read more',
@@ -62,15 +64,16 @@ module.exports = {
       id: 'story-card-3',
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+          src: 'https://i.pravatar.cc/800?img=32',
           alt: 'Story card example 3',
         },
       },
-      teaser_label: 'the design',
+      teaser_label: 'RENATA BEER',
       title:
         'You can do the same by producing your own electricity and sharing it local',
-      description:
-        'It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.',
+      author: 'Renata Beer',
+      role: 'Commissioner',
+      source: 'Published on The Guardian',
       card_link: {
         link: {
           label: 'Read more',
@@ -86,15 +89,16 @@ module.exports = {
       id: 'story-card-4',
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          src: 'https://i.pravatar.cc/800?img=47n',
           alt: 'Story card example 4',
         },
       },
-      teaser_label: 'across europe',
+      teaser_label: 'DEBBY STARK',
       title:
         'You can do the same by producing your own electricity and sharing it local',
-      description:
-        'Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.',
+      author: 'Derby Stark',
+      role: 'Consultant',
+      source: 'Published on The Times',
       card_link: {
         link: {
           label: 'Read more',

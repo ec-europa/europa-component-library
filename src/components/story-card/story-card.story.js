@@ -4,11 +4,14 @@ import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
+import dataTestimonial from './demo/data--testimonial';
 import storyCard from './story-card.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
-  const args = {};
+  const args = {
+    variant: 'story',
+  };
 
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -20,6 +23,14 @@ const getArgs = () => {
 const getArgTypes = () => {
   const argTypes = {
     ...getColorModeControls(),
+    variant: {
+      control: { type: 'select' },
+      options: ['story', 'testimonial'],
+      table: {
+        type: 'string',
+        category: 'Content',
+      },
+    },
   };
 
   return argTypes;
@@ -55,9 +66,28 @@ Default.render = async (args) => {
   const renderedStoryCard = await renderStory(dataDefault, args);
   return renderedStoryCard;
 };
-Default.storyName = 'default';
+Default.storyName = 'story';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+};
+
+export const Testimonial = (_, { loaded: { component } }) => component;
+
+Testimonial.render = async (args) => {
+  const renderedStoryCardTestimonial = await renderStory(dataTestimonial, args);
+  return renderedStoryCardTestimonial;
+};
+Testimonial.storyName = 'testimonial';
+Testimonial.args = getArgs();
+Testimonial.argTypes = getArgTypes();
+Testimonial.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataTestimonial, args),
+  },
 };

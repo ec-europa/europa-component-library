@@ -47,7 +47,8 @@ $story-card: null !default;
     flex-direction: column;
     height: 100%;
     background: var(--c-w);
-    border-radius: map.get($theme, 'border-radius', 's');
+    border-radius: map.get($theme, 'border-radius', 's')
+      map.get($theme, 'border-radius', 's') 0 0;
     overflow: hidden;
     transition: all 0.3s ease;
   }
@@ -66,8 +67,9 @@ $story-card: null !default;
   }
 
   .ecl-story-card__content,
-  .ecl-story-card__grid-details {
+  .ecl-story-card__grid-details-content {
     background: map.get($story-card, 'background');
+    border-radius: map.get($theme, 'border-radius', 's');
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -75,28 +77,52 @@ $story-card: null !default;
     gap: var(--s-xl);
   }
 
+  .ecl-story-card__content-icon svg {
+    color: var(--cm-surface-medium);
+    margin-inline-end: var(--s-xs);
+  }
+
   .ecl-story-card__title,
   .ecl-story-card__grid-details-title {
-    margin: 0;
     color: var(--c-g-950);
     font: var(--f-xl);
     font-weight: map.get($theme, 'font-weight', 'semi-bold');
+    margin-block: 0;
+  }
+
+  .ecl-story-card__testimonial {
+    color: var(--cm-on-surface-brand);
+    font: var(--f-s);
+
+    .ecl-story-card__author::after {
+      content: ', ';
+      margin-inline-end: var(--s-2xs);
+    }
+
+    .ecl-story-card__role::after {
+      content: '-';
+      margin-inline: var(--s-2xs);
+    }
+
+    .ecl-story-card__source {
+      font-style: italic;
+    }
   }
 
   .ecl-story-card__description,
   .ecl-story-card__grid-details-description {
     font: var(--f-m);
-    margin: 0;
-    color: var(--cm-on-urface-brand);
-    flex: 1;
+    color: var(--cm-on-surface-brand);
   }
 
-  .ecl-story-card__cta {
+  .ecl-story-card__link {
     align-self: flex-start;
   }
 
   .ecl-story-card__pager {
     background: map.get($story-card, 'background');
+    border-radius: 0 0 map.get($theme, 'border-radius', 's')
+      map.get($theme, 'border-radius', 's');
     display: flex;
     align-items: center;
     padding: var(--s-xs);
@@ -105,7 +131,6 @@ $story-card: null !default;
     .ecl-story-card__next {
       background: transparent;
       border: none !important;
-      border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -150,7 +175,7 @@ $story-card: null !default;
       border: none !important;
       border-radius: 50%;
       cursor: pointer;
-      height: 0.5rem;
+      height: var(--s-xs);
       margin-inline-end: var(--s-2xs);
       min-height: 0;
       min-width: 0;
@@ -181,7 +206,31 @@ $story-card: null !default;
     display: none;
 
     @container (width >= 600px) {
-      display: block;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--s-m);
+
+      .ecl-story-card__grid-container,
+      .ecl-story-card__grid-details {
+        flex: 1;
+        margin-block-start: 0;
+      }
+
+      .ecl-story-card__grid-card {
+        height: 100%;
+        min-height: 34.25rem;
+        width: 4rem;
+      }
+
+      .ecl-story-card__grid-details-content {
+        justify-content: center;
+        padding: var(--s-11xl);
+      }
     }
   }
 
@@ -190,42 +239,51 @@ $story-card: null !default;
     gap: var(--s-xs);
   }
 
+  .ecl-story-card__grid-controls {
+    align-items: center;
+    display: flex;
+    gap: var(--s-m);
+    justify-content: end;
+    padding: var(--s-xs);
+
+    @container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+      flex: 0 0 100%;
+    }
+  }
+
+  .ecl-story-card__grid-play {
+    display: none;
+  }
+
+  .ecl-story-card__grid-pause {
+    display: flex;
+  }
+
   .ecl-story-card__grid-item {
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
+
+    &.ecl-story-card__grid-item--expanded {
+      flex: 1;
+    }
   }
 
   .ecl-story-card__grid-card {
     all: unset;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--c-g-200);
     border-radius: map.get($theme, 'border-radius', 's');
     height: 21.25rem;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    transition: all 0.3s ease;
     width: 5rem;
 
     &[aria-expanded='true'] {
-      width: 600px;
-    }
-
-    &:hover {
-      border-color: var(--c-p-600);
-      box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1);
-    }
-
-    .ecl-story-card__grid-item--expanded & {
-      border-color: var(--c-p-600);
-      background: var(--c-g-50);
+      width: auto;
     }
 
     .ecl-story-card__grid-image {
-      position: absolute;
-      top: 0;
       height: 100%;
       width: 100%;
       overflow: hidden;
@@ -250,6 +308,25 @@ $story-card: null !default;
       .ecl-story-card__grid-card:hover & img {
         transform: scale(1.05);
       }
+    }
+
+    .ecl-story-card__grid-loading-bar {
+      background: var(--c-a-200);
+      border-radius: map.get($theme, 'border-radius', 's');
+      display: none;
+      height: 8px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .ecl-story-card__grid-loading-bar-completion {
+      background: var(--cm-surface-medium);
+      height: 100%;
+    }
+
+    &[aria-expanded='true'] .ecl-story-card__grid-loading-bar {
+      display: block;
     }
 
     &[aria-expanded='true'] .ecl-story-card__grid-image::after {
@@ -283,37 +360,12 @@ $story-card: null !default;
     }
   }
 
-  .ecl-story-card__grid-expand-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
-    color: var(--c-g-600);
-    transition: transform 0.3s ease;
-
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .ecl-story-card__grid-item[aria-expanded='true'] & {
-      transform: rotate(180deg);
-    }
-  }
-
   .ecl-story-card__grid-details {
-    animation: slide-down 0.3s ease;
-  }
-}
+    margin-block-start: var(--s-m);
+    display: flex;
 
-// Animations
-@keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-0.5rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    &[hidden] {
+      display: none;
+    }
   }
 }

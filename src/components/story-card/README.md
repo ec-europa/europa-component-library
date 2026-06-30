@@ -5,7 +5,7 @@ The Story Card component presents content in an engaging, interactive format wit
 ## Features
 
 - **Mobile Experience**: Full-width horizontal carousel powered by Embla Carousel with touch support
-- **Desktop Experience**: Multi-card grid layout that expands selected cards inline (accordion-like behavior)
+- **Desktop Experience**: Multi-card grid layout that advances selected cards automatically (accordion-like behavior)
 - **Responsive Controls**: Prev/Next navigation buttons with auto-play/pause functionality
 - **Accessible**: Full ARIA support and keyboard navigation
 - **Flexible Content**: Support for images, titles, descriptions, and call-to-action buttons
@@ -24,6 +24,8 @@ The Story Card component presents content in an engaging, interactive format wit
 
 - Grid display (up to 4 columns)
 - Click to expand selected card
+- Previous, next, play and pause controls
+- Auto-play from the first card through the last card, looping back to the beginning
 - Details slide in with smooth animation
 - Only one card expanded at a time
 - Maintains card aspect ratio in grid
@@ -66,17 +68,17 @@ storyCard.init();
 
 ## Parameters
 
-| Parameter          | Type   | Required | Default            | Description                 |
-| ------------------ | ------ | -------- | ------------------ | --------------------------- |
-| `items`            | array  | Yes      | `[]`               | List of story cards         |
-| `color_mode`       | string | No       | `''`               | Color mode name (EC system) |
-| `sr_description`   | string | No       | `''`               | Screen reader description   |
-| `sr_prev`          | string | No       | `'Previous card'`  | Previous button label       |
-| `sr_next`          | string | No       | `'Next card'`      | Next button label           |
-| `sr_play`          | string | No       | `'Play carousel'`  | Play button label           |
-| `sr_pause`         | string | No       | `'Pause carousel'` | Pause button label          |
-| `extra_classes`    | string | No       | `''`               | Extra CSS classes           |
-| `extra_attributes` | array  | No       | `[]`               | Extra HTML attributes       |
+| Parameter          | Type   | Required | Default               | Description                 |
+| ------------------ | ------ | -------- | --------------------- | --------------------------- |
+| `items`            | array  | Yes      | `[]`                  | List of story cards         |
+| `color_mode`       | string | No       | `''`                  | Color mode name (EC system) |
+| `sr_description`   | string | No       | `''`                  | Screen reader description   |
+| `sr_prev`          | string | No       | `'Previous card'`     | Previous button label       |
+| `sr_next`          | string | No       | `'Next card'`         | Next button label           |
+| `sr_play`          | string | No       | `'Play story cards'`  | Play button label           |
+| `sr_pause`         | string | No       | `'Pause story cards'` | Pause button label          |
+| `extra_classes`    | string | No       | `''`                  | Extra CSS classes           |
+| `extra_attributes` | array  | No       | `[]`                  | Extra HTML attributes       |
 
 ### Item Object
 
