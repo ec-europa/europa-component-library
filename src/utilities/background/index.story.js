@@ -48,9 +48,11 @@ const getArgTypes = () => {
       options: [
         'surface-lowest',
         'surface-lowest-variant',
+        'surface-low',
         'surface-low-0',
         'surface-low-1',
         'surface-low-2',
+        'surface-medium',
         'surface-medium-0',
         'surface-medium-1',
         'surface-0',
@@ -65,9 +67,11 @@ const getArgTypes = () => {
       mapping: {
         'surface-lowest': 'surface-lowest',
         'surface-lowest-variant': 'surface-lowest-variant',
+        'surface-low': 'surface-low',
         'surface-low-0': 'surface-low-0',
         'surface-low-1': 'surface-low-1',
         'surface-low-2': 'surface-low-2',
+        'surface-medium': 'surface-medium',
         'surface-medium-0': 'surface-medium-0',
         'surface-medium-1': 'surface-medium-1',
         'surface-0': 'surface-0',
