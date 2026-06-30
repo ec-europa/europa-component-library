@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataDefault from './demo/data--default';
-import dataPrimaryHighlight from './demo/data--primary-highlight';
+import dataPrimary from './demo/data--primary';
 import dataStandalone from './demo/data--standalone';
 
 expect.extend(toHaveNoViolations);
@@ -217,8 +217,9 @@ describe('Link', () => {
   });
 
   describe('Primary highlight variant with icon', () => {
-    const options = merge(dataPrimaryHighlight, {
+    const options = merge(dataPrimary, {
       link: {
+        type: 'primary-highlight',
         label: 'Call to action link',
         icon_position: 'after',
       },
@@ -237,8 +238,9 @@ describe('Link', () => {
   });
 
   describe('with indicator', () => {
-    const options = merge(dataPrimaryHighlight, {
+    const options = merge(dataPrimary, {
       link: {
+        type: 'primary-highlight',
         label: 'Call to action link',
         icon_position: 'after',
         hide_label: true,

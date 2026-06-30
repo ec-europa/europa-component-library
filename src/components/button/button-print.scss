@@ -10,7 +10,8 @@
 $theme: null !default;
 $button: null !default;
 
-// stylelint-disable nesting-selector-no-missing-scoping-root
+// Base button mixin
+// Defines css variables and button shape. Also used for link-button to avoid duplication
 @mixin button-base {
   --ecl-button-bg-color: none;
   --ecl-button-border-width: 0px;
@@ -77,8 +78,8 @@ $button: null !default;
     @include mixins.responsive-font(map.get($button, 'medium', 'font'));
   }
 }
-// stylelint-enable nesting-selector-no-missing-scoping-root
 
+// Button structure definition
 .ecl-button,
 %ecl-button {
   @include button-base;
@@ -119,7 +120,7 @@ $button: null !default;
   display: none;
 }
 
-// Icon only
+// Icon only button
 .ecl-button--icon-only {
   align-items: center;
   display: flex;
@@ -165,8 +166,8 @@ $button: null !default;
   }
 }
 
-// Button styles
-// stylelint-disable nesting-selector-no-missing-scoping-root
+// Button styles mixin
+// Fill css variables values for each variant
 @mixin button($variant: null) {
   --ecl-button-bg-color: #{map.get($button, #{$variant}, 'background')};
   --ecl-button-border-width: #{map.get($button, #{$variant}, 'border-width')};
@@ -210,8 +211,8 @@ $button: null !default;
     opacity: map.get($button, #{$variant}, 'opacity-disabled');
   }
 }
-// stylelint-enable nesting-selector-no-missing-scoping-root
 
+// Button styles usage
 // Primary
 .ecl-button--primary {
   @include button(primary);
@@ -233,6 +234,7 @@ $button: null !default;
   }
 }
 
+// Secondary
 .ecl-button--secondary,
 %ecl-button {
   @include button(secondary);
@@ -246,6 +248,7 @@ $button: null !default;
   @include button(secondary-inverted);
 }
 
+// Tertiary
 .ecl-button--tertiary {
   @include button(tertiary);
 

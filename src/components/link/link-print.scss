@@ -40,12 +40,17 @@ $button: null !default;
 
   &:not(
       .ecl-link--standalone,
+      .ecl-link--primary,
       .ecl-link--primary-highlight,
       .ecl-link--primary-neutral,
-      .ecl-link--primary,
+      .ecl-link--primary-inverted,
+      .ecl-link--primary-highlight-inverted,
       .ecl-link--secondary,
       .ecl-link--secondary-neutral,
-      .ecl-link--secondary-inverted
+      .ecl-link--secondary-inverted,
+      .ecl-link--tertiary,
+      .ecl-link--tertiary-neutral,
+      .ecl-link--tertiary-inverted
     )
     .ecl-link__label {
     text-decoration: underline;
@@ -72,9 +77,7 @@ $button: null !default;
   }
 }
 
-/**
-* Branded link
-*/
+// Branded link
 .ecl-link--brand,
 %ecl-link-brand {
   --ecl-link-color: #{map.get($link, 'brand', 'color')};
@@ -84,9 +87,7 @@ $button: null !default;
   }
 }
 
-/**
-* Inverted link
-*/
+// Inverted link
 .ecl-link--inverted,
 %ecl-link-inverted {
   --ecl-link-color: #{map.get($link, 'inverted', 'color')};
@@ -96,10 +97,8 @@ $button: null !default;
   }
 }
 
-/**
-* Link button
-*/
-// stylelint-disable nesting-selector-no-missing-scoping-root
+// Link button base
+// Uses button base, plus extra rules specific to links
 @mixin link-button-base {
   @include button-component.button-base;
 
@@ -142,13 +141,15 @@ $button: null !default;
   }
 }
 
+// Link-button styles
+// Combines link-button base and variable definition of the button variant
+// No code duplication, uses directly the button
 @mixin link-button($variant: null) {
   @include link-button-base;
   @include button-component.button($variant);
 }
 
-// stylelint-enable nesting-selector-no-missing-scoping-root
-
+// Primary
 .ecl-link--primary {
   @include link-button(primary);
 }
@@ -161,10 +162,15 @@ $button: null !default;
   @include link-button(primary-neutral);
 }
 
+.ecl-link--primary-inverted {
+  @include link-button(primary-inverted);
+}
+
 .ecl-link--primary-highlight-inverted {
   @include link-button(primary-highlight-inverted);
 }
 
+// Secondary
 .ecl-link--secondary {
   @include link-button(secondary);
 }
@@ -175,4 +181,17 @@ $button: null !default;
 
 .ecl-link--secondary-inverted {
   @include link-button(secondary-inverted);
+}
+
+// Tertiary
+.ecl-link--tertiary {
+  @include link-button(tertiary);
+}
+
+.ecl-link--tertiary-neutral {
+  @include link-button(tertiary-neutral);
+}
+
+.ecl-link--tertiary-inverted {
+  @include link-button(tertiary-inverted);
 }
