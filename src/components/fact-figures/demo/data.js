@@ -41,6 +41,14 @@ module.exports = {
       title: 'Lorem ipsum',
       description:
         'Nunc eu est nec orci rhoncus venenatis. Donec rutrum lacus eget lobortis eleifend. Duis cursus sapien ac felis bibendum, in sagittis turpis porttitor. Aliquam sed mauris et orci efficitur mollis. Donec eu dolor in turpis sollicitudin malesuada.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -49,6 +57,14 @@ module.exports = {
       value: '00.0 million',
       title: 'Sed hendrerit',
       description: 'Turpis varius congue venenatis, erat dui feugiat felis.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -58,6 +74,14 @@ module.exports = {
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
       description:
         'Cras vestibulum efficitur mi, quis porta tellus rutrum ut. Quisque at pulvinar sem.',
+      sources: [
+        {
+          link: {
+            label: 'DG CNECT',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -67,6 +91,14 @@ module.exports = {
       title: 'Aenean dapibus',
       description:
         'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -76,6 +108,14 @@ module.exports = {
       title: 'Lorem ipsum',
       description:
         'Nunc condimentum sapien ut nibh finibus suscipit vitae at justo. Morbi quis odio faucibus, commodo tortor id, elementum libero.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -84,6 +124,14 @@ module.exports = {
       value: '00.0 million',
       title: 'Sed hendrerit',
       description: 'Turpis varius congue venenatis, erat dui feugiat felis.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -93,6 +141,14 @@ module.exports = {
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
       description:
         'Cras vestibulum efficitur mi, quis porta tellus rutrum ut. Quisque at pulvinar sem.',
+      sources: [
+        {
+          link: {
+            label: 'DG CNECT',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       icon: {
@@ -102,6 +158,14 @@ module.exports = {
       title: 'Aenean dapibus',
       description:
         'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
   ],
 };

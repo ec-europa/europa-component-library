@@ -109,6 +109,10 @@ $animated-numbers: null !default;
   gap: map.get($theme, 'spacing-print', 'xs');
   margin-block-start: map.get($theme, 'spacing-print', 'm');
   font: map.get($theme, 'font-print', 's');
+
+  .ecl-animated-number__content & {
+    margin-block-start: 0;
+  }
 }
 
 .ecl-animated-numbers__sources-list {
