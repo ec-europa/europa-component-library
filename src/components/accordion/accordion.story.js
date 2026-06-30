@@ -111,7 +111,7 @@ Default.storyName = 'default';
 Default.parameters = {
   notes: {
     markdown: notes,
-    json: demoData,
+    json: ({ args }) => prepareData(demoData, args),
   },
 };
 Default.decorators = [withCode, withNotes];

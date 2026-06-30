@@ -246,7 +246,10 @@ Image.storyName = 'image';
 Image.args = getArgs(dataImg);
 Image.argTypes = getArgTypes(dataImg);
 Image.parameters = {
-  notes: { markdown: notes, json: dataImg },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataImg, args),
+  },
 };
 
 export const Video = (_, { loaded: { component } }) => component;
@@ -259,7 +262,10 @@ Video.storyName = 'video';
 Video.args = getArgs(dataVideo);
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
-  notes: { markdown: notes, json: dataVideo },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataVideo, args),
+  },
   chromatic: {
     disable: true,
   },
@@ -326,5 +332,8 @@ Infographic.storyName = 'infographic';
 Infographic.args = getArgs(dataInfographic);
 Infographic.argTypes = getArgTypes(dataInfographic);
 Infographic.parameters = {
-  notes: { markdown: notes, json: dataInfographic },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataInfographic, args),
+  },
 };

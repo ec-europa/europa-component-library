@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-Similar to [Banners](http://citnet.tech.ec.europa.eu/), Carousels are a component that have high visibility on the page. You can use them to convey multiple messages to the visitor and/or provide quick access to a related page. Use only as presentation tools, not as primary navigation.
+Similar to [Banners](../../banner/usage), Carousels are a component that have high visibility on the page. You can use them to convey multiple messages to the visitor and/or provide quick access to a related page. Use only as presentation tools, not as primary navigation.
 
 Carousels typically consist of an image (copyright optional), heading, additional information and call to action (CTA), together with individual item indicators and controls. Available sizes and configurations cover the full range of options available in the Banner component.
 
@@ -28,5 +28,5 @@ Carousels typically consist of an image (copyright optional), heading, additiona
 
 ### **When not to use**
 
-- given the auto-rotating feature built into Carousels, avoid using them for critical or time-sensitive information (e.g. live updates, urgent announcements, critical deadlines) - there is a high risk that users miss content before scrolling past it. Use static navigation components with images (i.e. [Cards](https://ec.europa.eu/component-library/ec/components/card/code/), [Content items](https://ec.europa.eu/component-library/ec/components/content-item/code/)) or [Notifications](https://ec.europa.eu/component-library/ec/components/notification/code/) instead
-- do not use on pages presenting specific content which require a permanent title. Use [Banners](https://ec.europa.eu/component-library/ec/components/banner/code/) or [Page header with background image](https://ec.europa.eu/component-library/ec/components/site-wide/page-header/code/) instead
+- given the auto-rotating feature built into Carousels, avoid using them for critical or time-sensitive information (e.g. live updates, urgent announcements, critical deadlines) - there is a high risk that users miss content before scrolling past it. Use static navigation components with images (i.e. [Cards](../../card/code/), [Content items](../../content-item/code/)) or [Notifications](../../notification/code/) instead
+- do not use on pages presenting specific content which require a permanent title. Use [Banners](../../banner/code/) or [Page header with background image](../../site-wide/page-header/code/) instead

@@ -70,4 +70,9 @@ All.render = async (args) => {
 All.storyName = 'all icons';
 All.args = getArgs(dataAll);
 All.argTypes = getArgTypes(iconsAll, iconMapping);
-All.parameters = { notes: { markdown: notes, json: dataAll } };
+All.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataAll, args),
+  },
+};

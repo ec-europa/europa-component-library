@@ -52,7 +52,7 @@ const getArgTypes = () => {
       name: 'color mode border',
       type: 'select',
       description: 'Select a color mode border',
-      options: ['border-low', 'border-medium', 'border', 'border-high'],
+      options: ['border-low', 'border-medium', 'border'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -61,7 +61,6 @@ const getArgTypes = () => {
         'border-low': 'border-low',
         'border-medium': 'border-medium',
         border: 'border',
-        'border-high': 'border-high',
       },
       if: { arg: 'show_color_mode' },
     };

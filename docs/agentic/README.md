@@ -8,12 +8,13 @@ into `docs/conventions/` or `docs/decisions/`.
 
 ## Available skills
 
-| Skill                                                | When to use                                                    |
-| ---------------------------------------------------- | -------------------------------------------------------------- |
-| [ecl-new-component.md](./ecl-new-component.md)       | Scaffolding a brand-new component from scratch                 |
-| [ecl-modify-component.md](./ecl-modify-component.md) | Changing styles, markup, or behaviour of an existing component |
-| [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures  |
-| [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls             |
+| Skill                                                | When to use                                                        |
+| ---------------------------------------------------- | ------------------------------------------------------------------ |
+| [ecl-new-component.md](./ecl-new-component.md)       | Scaffolding a brand-new component from scratch                     |
+| [ecl-modify-component.md](./ecl-modify-component.md) | Changing styles, markup, or behaviour of an existing component     |
+| [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures      |
+| [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls                 |
+| [ecl-update-token.md](./ecl-update-token.md)         | Updating EC color tokens from a design export or inline value list |
 
 ## Potential future skills
 
@@ -21,7 +22,6 @@ Not yet written — create when a real task requires it.
 
 | Skill              | When it would be used                                                               |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| `ecl-tokens`       | Adding or updating design tokens (CSS custom properties → Sass map → preset → SCSS) |
 | `ecl-javascript`   | Writing or modifying ECL JS class behaviour (autoInit, init, destroy, events, Map)  |
 | `ecl-website-page` | Adding or updating a component's documentation page (MDX, config.yml, thumbnail)    |
 | `ecl-rtl`          | RTL considerations when modifying layout or spacing (probably a reference fragment) |
@@ -59,6 +59,7 @@ full name.
 /ecl-modify-component    change an existing component
 /ecl-testing             run or fix tests
 /ecl-story-controls      add or update stories
+/ecl-update-token        update EC color tokens
 ```
 
 Pass your task as the argument after the command name:

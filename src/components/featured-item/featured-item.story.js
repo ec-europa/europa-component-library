@@ -265,7 +265,10 @@ Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = {
-  notes: { markdown: notes, json: demoData },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoData, args),
+  },
   chromatic: {
     modes: {
       m: { disable: true },
@@ -286,7 +289,10 @@ Highlighted.storyName = 'highlighted';
 Highlighted.args = getArgs(demoDataHighlighted);
 Highlighted.argTypes = getArgTypes(demoDataHighlighted);
 Highlighted.parameters = {
-  notes: { markdown: notes, json: demoDataHighlighted },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDataHighlighted, args),
+  },
   chromatic: {
     modes: {
       m: { disable: true },

@@ -245,12 +245,17 @@ $featured-item: null !default;
       )};
 
     text-align: start;
-    text-decoration: underline;
   }
 
   @if map.has-key($featured-item, 'highlight', 'button-dark') {
-    .ecl-featured-item__link.ecl-link--secondary-inverted {
-      @include link-component.link-button(primary-neutral);
+    .ecl-featured-item__link {
+      .ecl-link__label {
+        text-decoration: none;
+      }
+
+      &.ecl-link--secondary-inverted {
+        @include link-component.link-button(primary-neutral);
+      }
     }
   }
 

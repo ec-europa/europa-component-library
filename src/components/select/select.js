@@ -513,6 +513,15 @@ export class Select {
         this.handleKeyboardOnOptions,
       );
 
+      // Display buttons if using submit
+      if (this.dropDownToolbar) {
+        if (this.willSubmit) {
+          this.dropDownToolbar.style.display = 'flex';
+        } else {
+          this.dropDownToolbar.style.display = 'none';
+        }
+      }
+
       if (this.select.options && this.select.options.length > 0) {
         this.checkboxes = Array.from(this.select.options).map((option) => {
           let optgroup = '';
@@ -804,7 +813,7 @@ export class Select {
       this.selectionCount.classList.remove(
         'ecl-select-multiple-selections-counter--visible',
       );
-      if (this.dropDownToolbar) {
+      if (this.dropDownToolbar && !this.willSubmit) {
         this.dropDownToolbar.style.display = 'none';
       }
     }
@@ -1467,7 +1476,7 @@ export class Select {
       }
       this.searchContainer.style.display = 'none';
       this.input.setAttribute('aria-expanded', false);
-      this.input.blur();
+      this.input.focus();
       this.input.classList.remove('ecl-select--active');
     } else {
       this.select.classList.remove('ecl-select--active');

@@ -22,5 +22,8 @@ Default.render = async () => {
 
 Default.storyName = 'default';
 Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: {
+    markdown: notes,
+    json: () => dataDefault,
+  },
 };
