@@ -280,4 +280,9 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(spotlightDataImage);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: spotlightDataImage } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(spotlightDataImage, args),
+  },
+};

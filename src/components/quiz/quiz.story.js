@@ -61,7 +61,12 @@ Reveal.render = async (args) => {
 Reveal.args = getArgs();
 Reveal.argTypes = getArgTypes();
 Reveal.storyName = 'reveal';
-Reveal.parameters = { notes: { markdown: notes, json: specs } };
+Reveal.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(specs, args),
+  },
+};
 Reveal.decorators = [
   (Story) => `
     <div class="ecl-container">
@@ -79,7 +84,12 @@ Poll.render = async (args) => {
 Poll.args = getArgs();
 Poll.argTypes = getArgTypes();
 Poll.storyName = 'poll';
-Poll.parameters = { notes: { markdown: notes, json: specsPoll } };
+Poll.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(specsPoll, args),
+  },
+};
 Poll.decorators = [
   (Story) => `
     <div class="ecl-container">

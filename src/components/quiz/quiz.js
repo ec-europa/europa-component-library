@@ -119,6 +119,7 @@ export class Quiz {
     this.pagerNode = null;
     this.toggleButtonsDisabled = null;
     this.ariaObserver = null;
+    this.accessibility = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
@@ -254,6 +255,8 @@ export class Quiz {
           carouselAriaRoleDescription: '',
           slideAriaRoleDescription: '',
           slideRole: '',
+          previousButtonAriaLabel: 'Show previous Slide',
+          nextButtonAriaLabel: 'Show next Slide',
           dotButtonAriaLabel: (
             hasAnyGroupedSlides,
             firstSlideIndex,
@@ -269,10 +272,10 @@ export class Quiz {
                 firstSlideIndex + visibleSlides,
                 totalSlides,
               );
-              return `Go to slides ${start} to ${end} of ${totalSlides}`;
+              return `Show slides ${start} to ${end} of ${totalSlides}`;
             }
 
-            return `Go to slide ${firstSlideIndex + 1} of ${totalSlides}`;
+            return `Show slide ${firstSlideIndex + 1} of ${totalSlides}`;
           },
           slideAriaLabel: () => '',
         }),
@@ -296,7 +299,7 @@ export class Quiz {
       card.removeAttribute('aria-hidden');
     });
 
-    const accessibility = this.slider.plugins().accessibility;
+    this.accessibility = this.slider.plugins().accessibility;
     this.prevButtonNode = queryOne(this.prevClass, this.element);
     this.nextButtonNode = queryOne(this.nextClass, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
@@ -329,7 +332,7 @@ export class Quiz {
       this.slider.on('select', this.toggleButtonsDisabled);
       this.slider.on('reInit', this.toggleButtonsDisabled);
 
-      accessibility.setupPrevAndNextButtons(
+      this.accessibility.setupPrevAndNextButtons(
         this.prevButtonNode,
         this.nextButtonNode,
       );
@@ -391,7 +394,7 @@ export class Quiz {
         this.setCounter();
       };
 
-      accessibility.setupDotButtons(this.dotsNode);
+      this.accessibility.setupDotButtons(this.dotsNode);
 
       this.updateDots();
       this.slider.on('select', this.updateDots);
@@ -643,6 +646,9 @@ export class Quiz {
     this.resizeTimer = setTimeout(() => {
       if (this.slider) {
         this.createAndSetupDotButtons(this.slider, this.dotsNode);
+        if (this.accessibility && this.dotsNode) {
+          this.accessibility.setupDotButtons(this.dotsNode);
+        }
         this.updateDots();
         if (this.toggleButtonsDisabled) {
           this.toggleButtonsDisabled(this.slider);

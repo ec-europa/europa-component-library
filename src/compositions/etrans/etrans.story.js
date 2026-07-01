@@ -36,7 +36,12 @@ Default.render = async (args) => {
   return renderedEtrans;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+};
 
 export const NoLanguage = (_, { loaded: { component } }) => component;
 
@@ -47,4 +52,9 @@ NoLanguage.render = async (args) => {
   return renderedEtransNoLanguage;
 };
 NoLanguage.storyName = 'no language list';
-NoLanguage.parameters = { notes: { markdown: notes, json: dataNoLanguage } };
+NoLanguage.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataNoLanguage, args),
+  },
+};

@@ -96,7 +96,12 @@ Link.render = async (args) => {
 Link.storyName = 'link tag';
 Link.args = getArgs(dataLink);
 Link.argTypes = getArgTypes(dataLink);
-Link.parameters = { notes: { markdown: notes, json: dataLink } };
+Link.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataLink, args),
+  },
+};
 
 export const Removable = (_, { loaded: { component } }) => component;
 
@@ -107,4 +112,9 @@ Removable.render = async (args) => {
 Removable.storyName = 'removable tag';
 Removable.args = getArgs(dataRemovable);
 Removable.argTypes = getArgTypes(dataRemovable);
-Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
+Removable.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataRemovable, args),
+  },
+};
