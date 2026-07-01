@@ -24,6 +24,7 @@ const getArgs = (data) => {
     translation_count: data.translation.items.length,
     download_attribute: false,
     title: data.title,
+    show_title_link: false,
     description: data.description,
     download_label: data.download.link.label,
     icon_name: data.icon.name,
@@ -115,6 +116,16 @@ const getArgTypes = () => {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  argTypes.show_title_link = {
+    name: 'title link',
+    type: { name: 'boolean' },
+    description: 'Make the title a link',
+    table: {
+      type: { summary: 'boolean' },
       category: 'Content',
     },
   };
@@ -289,7 +300,18 @@ const prepareData = (data, args, preview = false) => {
     delete clone.lists;
   }
 
-  return Object.assign(correctPaths(clone), args);
+  const result = Object.assign(correctPaths(clone), args);
+
+  if (args.show_title_link) {
+    result.title = {
+      link: {
+        label: args.title,
+        path: '#',
+      },
+    };
+  }
+
+  return result;
 };
 
 export default {
