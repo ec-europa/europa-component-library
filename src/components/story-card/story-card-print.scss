@@ -1,18 +1,48 @@
-@use '@ecl/mixins-typography/mixins/typography' as typography-mixins;
+/*
+ * Story card print
+ * @define story card
+ */
 
-// Print-specific styles for Story Card
+@use 'sass:map';
+
+$theme: null !default;
 
 .ecl-story-card {
   &__carousel--mobile {
-    display: none !important;
+    display: none;
   }
 
-  &__controls {
-    display: none !important;
+  .ecl-story-card__grid-controls,
+  .ecl-story-card__picture,
+  .ecl-story-card__grid-item {
+    display: none;
+  }
+
+  .ecl-story-card__grid-details {
+    display: block;
+    margin-block: map.get($theme, 'spacing-print', 'm');
+  }
+
+  .ecl-story-card__grid-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($theme, 'spacing-print', 'm');
+    font: map.get($theme, 'font-print', 'l');
+  }
+
+  .ecl-story-card__title {
+    font: map.get($theme, 'font-print', 'l');
+    font-weight: map.get($theme, 'font-weight', 'bold');
+  }
+
+  .ecl-story-card__link[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 90%;
+    word-break: break-all;
   }
 
   &__grid--desktop {
-    display: block !important;
+    display: block;
   }
 
   &__grid-container {
@@ -29,15 +59,6 @@
     &--expanded {
       grid-column: auto !important;
     }
-  }
-
-  &__grid-expand-icon {
-    display: none !important;
-  }
-
-  &__grid-details {
-    display: block !important;
-    padding: 0 var(--ecl-story-card-padding) var(--ecl-story-card-padding);
   }
 
   &__grid-card {

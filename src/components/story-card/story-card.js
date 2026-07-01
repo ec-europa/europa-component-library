@@ -146,7 +146,6 @@ export class StoryCard {
     this.gridDetailsHeightFrame = null;
     this.isGridAutoPlaying = false;
 
-    this.setCounter = this.setCounter.bind(this);
     this.onWindowResize = this.onWindowResize.bind(this);
   }
 
@@ -271,30 +270,10 @@ export class StoryCard {
           dot.classList.toggle(this.activeDotClass, i === index);
           dot.classList.toggle('is-prev', i === index - 1);
         });
-
-        this.setCounter();
       };
 
       this.updateDots();
       this.slider.on('select', this.updateDots);
-    }
-
-    this.updateCounter();
-    this.slider.on('select', () => {
-      this.updateCounter();
-    });
-  }
-
-  /**
-   * Sets the counter (in mobile).
-   */
-  setCounter() {
-    const currentIndex = this.slider.selectedSnap();
-    const total = this.slider.snapList().length;
-    const counter = queryOne('.ecl-story-card__counter', this.element);
-
-    if (counter) {
-      counter.textContent = `${currentIndex + 1} / ${total}`;
     }
   }
 
@@ -393,18 +372,6 @@ export class StoryCard {
       details.style.height = `${Math.ceil(height)}px`;
       details.hidden = index !== activeIndex;
     });
-  }
-
-  /**
-   * Update the carousel counter.
-   */
-  updateCounter() {
-    if (!this.slider || !this.currentElement) return;
-
-    const current = this.slider.snapIndex() + 1;
-    if (this.currentElement) {
-      this.currentElement.textContent = current;
-    }
   }
 
   /**
@@ -616,7 +583,6 @@ export class StoryCard {
   onWindowResize() {
     if (this.slider) {
       this.slider.reInit();
-      this.updateCounter();
     }
 
     this.scheduleGridDetailsHeight();

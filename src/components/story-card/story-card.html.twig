@@ -249,7 +249,7 @@
       {% endif %}
     >
       <div class="ecl-story-card__grid-details-content">
-        {% if _variant == 'testimonial' %}
+      {% if _variant == 'testimonial' %}
         <div class="ecl-story-card__content-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="45" viewBox="0 0 22 45" fill="none">
             <path d="M0 0H22V23.3143L0 44.5714V0Z" fill="currentColor"/>
@@ -258,13 +258,13 @@
             <path d="M0 0H22V23.3143L0 44.5714V0Z" fill="currentColor"/>
           </svg>
         </div>
-        {%- endif -%}
-        {%- if item.title -%}
-          <h3 class="ecl-story-card__title">
-            {{- item.title -}}
-          </h3>
-        {%- endif -%}
-        {% if item.author or item.role or item.source %}
+      {%- endif -%}
+      {%- if item.title -%}
+        <div class="ecl-story-card__title">
+          {{- item.title -}}
+        </div>
+      {%- endif -%}
+      {% if item.author or item.role or item.source %}
         <div class="ecl-story-card__testimonial">
           {%- if item.author -%}
             <span class="ecl-story-card__author">{{- item.author -}}</span>
@@ -276,10 +276,10 @@
             <span class="ecl-story-card__source">{{- item.source -}}</span>
           {% endif %}
         </div>
-        {% endif %}
-        {%- if item.description -%}
-          <div class="ecl-story-card__description">{{- item.description -}}</div>
-        {% endif %}
+      {% endif %}
+      {%- if item.description -%}
+        <div class="ecl-story-card__description">{{- item.description -}}</div>
+      {% endif %}
         {% if item.card_link %}
           {% include '@ecl/link/link.html.twig' with item.card_link|merge({
             type: 'standalone',
