@@ -132,7 +132,7 @@
                     <span class="ecl-story-card__role">{{- item.role -}}</span>
                   {% endif %}
                   {%- if item.source -%}
-                    <span class="ecl-story-card__source">{{- item.source -}}</span>
+                    <cite class="ecl-story-card__source">{{- item.source -}}</cite>
                   {% endif %}
                 </div>
                 {%- endif -%}
@@ -141,7 +141,9 @@
                 {% endif %}
                 {% if item.card_link %}
                   {% include '@ecl/link/link.html.twig' with item.card_link|merge({
-                    type: 'standalone',
+                    link: item.card_link.link|merge({
+                      type: 'standalone',
+                    }),
                     extra_classes: 'ecl-story-card__link',
                   }) only %}
                 {% endif %}
@@ -273,7 +275,7 @@
             <span class="ecl-story-card__role">{{- item.role -}}</span>
           {% endif %}
           {%- if item.source -%}
-            <span class="ecl-story-card__source">{{- item.source -}}</span>
+            <cite class="ecl-story-card__source">{{- item.source -}}</cite>
           {% endif %}
         </div>
       {% endif %}
@@ -282,7 +284,9 @@
       {% endif %}
         {% if item.card_link %}
           {% include '@ecl/link/link.html.twig' with item.card_link|merge({
-            type: 'standalone',
+            link: item.card_link.link|merge({
+              type: 'standalone',
+            }),
             extra_classes: 'ecl-story-card__link',
           }) only %}
         {% endif %}
