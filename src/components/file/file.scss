@@ -109,6 +109,7 @@ $file: null !default;
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: map.get($file, 'footer', 'gap');
+  justify-content: space-between;
   margin-block-start: map.get($file, 'footer', 'margin');
   row-gap: var(--s-xs);
 }
@@ -119,14 +120,18 @@ $file: null !default;
 }
 
 .ecl-file__action {
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: map.get($file, 'action-gap');
+  column-gap: map.get($file, 'footer', 'action-gap-mobile');
   row-gap: var(--s-xs);
 }
 
-.ecl-file__translation-toggle[aria-expanded='true'] {
+.ecl-file--open .ecl-file__translation-toggle {
+  background-color: map.get($file, 'toggle', 'open-background-color');
+  border-color: map.get($file, 'toggle', 'open-border-color');
+
   .ecl-button__icon {
     transform: rotate(180deg);
   }
@@ -171,7 +176,8 @@ $file: null !default;
 
 .ecl-file__translation-action {
   align-items: center;
-  column-gap: map.get($file, 'action-gap');
+  color: map.get($file, 'translation', 'action-color');
+  column-gap: map.get($file, 'footer', 'action-gap-mobile');
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -194,12 +200,26 @@ $file: null !default;
   }
 
   .ecl-file__footer {
+    column-gap: map.get($file, 'footer', 'separator-margin');
     justify-content: flex-end;
   }
 
   .ecl-file__action {
-    border-inline-start: 1px solid map.get($file, 'color');
-    padding-inline-start: map.get($file, 'footer', 'gap');
+    column-gap: 0;
+    margin-inline-end: var(--s-m);
+
+    > * + * {
+      margin-inline-start: map.get($file, 'footer', 'action-gap-desktop');
+    }
+
+    &::before {
+      background-color: currentcolor;
+      content: '';
+      display: block;
+      height: 1lh;
+      margin-inline-end: map.get($file, 'footer', 'separator-margin');
+      width: 1px;
+    }
   }
 
   .ecl-file__translation-item {
@@ -209,6 +229,8 @@ $file: null !default;
   }
 
   .ecl-file__translation-action {
+    column-gap: map.get($file, 'footer', 'action-gap-desktop');
     margin-block-start: 0;
+    margin-inline-end: var(--s-m);
   }
 }

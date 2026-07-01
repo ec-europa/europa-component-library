@@ -22,16 +22,22 @@ $file: (
   ),
   description-margin: var(--s-3xs),
   list-margin: var(--s-xl),
+  toggle: (
+    open-background-color: var(--cm-surface-grey-low-0),
+    open-border-color: var(--cm-border-brand),
+  ),
   footer: (
     margin: var(--s-3xl),
     gap: var(--s-3xl),
+    action-gap-mobile: var(--s-3xl),
+    action-gap-desktop: var(--s-7xl),
+    separator-margin: var(--s-3xl),
   ),
   primary-meta: (
     margin: var(--s-xs),
     color: var(--cm-on-surface-neutral-highest),
     gap: var(--s-m),
   ),
-  action-gap: var(--s-7xl),
   translation: (
     background-color: var(--cm-surface-low-0),
     item-padding-mobile: var(--s-m) var(--s-xl),
@@ -39,5 +45,6 @@ $file: (
     separator: var(--cm-border-neutral),
     title-font-weight: map.get($font-weight, 'semi-bold'),
     action-margin: var(--s-3xs),
+    action-color: var(--cm-on-surface-primary),
   ),
 );

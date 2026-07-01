@@ -10,6 +10,8 @@ import notes from './README.md';
 
 const system = getSystem();
 
+let previewTimeout = null;
+
 const getArgs = (data) => {
   const args = {
     show_image: false,
@@ -19,6 +21,7 @@ const getArgs = (data) => {
     show_lists: true,
     show_preview: false,
     show_translations: true,
+    translation_count: data.translation.items.length,
     download_attribute: false,
     title: data.title,
     description: data.description,
@@ -190,10 +193,27 @@ const getArgTypes = () => {
     if: { arg: 'show_image' },
   };
 
+  argTypes.translation_count = {
+    name: 'number of translations',
+    type: { name: 'number' },
+    description: 'Number of translation items to display',
+    control: {
+      type: 'range',
+      min: 1,
+      max: dataDefault.translation.items.length,
+      step: 1,
+    },
+    table: {
+      type: { summary: 'number' },
+      category: 'Content',
+    },
+    if: { arg: 'show_translations' },
+  };
+
   return argTypes;
 };
 
-const prepareData = (data, args) => {
+const prepareData = (data, args, preview = false) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
 
@@ -213,15 +233,16 @@ const prepareData = (data, args) => {
     delete clone.primary_meta;
   }
 
-  if (args.show_preview) {
+  if (args.show_preview && preview) {
     clone.download.extra_attributes = [{ name: 'data-wt-preview' }];
     // Add preview placeholder
-    setTimeout(() => {
+    clearTimeout(previewTimeout);
+    previewTimeout = setTimeout(() => {
       const downloadAction =
         document.getElementsByClassName('ecl-file__action')[0];
       if (downloadAction) {
         const previewLink = document.createElement('a');
-        previewLink.innerHTML = 'Preview (placeholder)';
+        previewLink.innerHTML = 'View (placeholder)';
         previewLink.setAttribute('href', '#');
         previewLink.classList.add(
           'ecl-link',
@@ -238,7 +259,7 @@ const prepareData = (data, args) => {
       if (translationAction) {
         for (let i = 0; i < translationAction.length; i += 1) {
           const previewLink = document.createElement('a');
-          previewLink.innerHTML = 'Preview (placeholder)';
+          previewLink.innerHTML = 'View (placeholder)';
           previewLink.setAttribute('href', '#');
           previewLink.classList.add('ecl-link', 'ecl-link--standalone');
           translationAction[i].prepend(previewLink);
@@ -257,6 +278,11 @@ const prepareData = (data, args) => {
 
   if (!args.show_translations) {
     delete clone.translation;
+  } else {
+    clone.translation.items = clone.translation.items.slice(
+      0,
+      args.translation_count,
+    );
   }
 
   if (!args.show_lists) {
@@ -282,7 +308,7 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedFile = await file(prepareData(dataDefault, args));
+  const renderedFile = await file(prepareData(dataDefault, args, true));
   return renderedFile;
 };
 Default.args = getArgs(dataDefault);
