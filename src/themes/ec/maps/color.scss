@@ -213,7 +213,7 @@ $color-palette: (
   'green-dark-800': #004d4d,
   'green-dark-900': #003d3d,
 
-  'orange-50': #fff3e9,
+  'orange-50': #fff0ed,
   'orange-100': #ffe9d6,
   'orange-200': #ffdbba,
   'orange-300': #ffc998,
@@ -324,7 +324,7 @@ $color-palette: (
   'purple-violet-800': #4c3f8c,
   'purple-violet-900': #3a306b,
 
-  'red-tomato-50': #fff0ed,
+  'red-tomato-50': #fff3e9,
   'red-tomato-100': #ffd0c7,
   'red-tomato-200': #ffbaac,
   'red-tomato-300': #ff9a86,
@@ -461,7 +461,7 @@ $color-modes: (
         transparent
       ),
     '--cm-surface-color-mode-lowest': #{map.get($color-palette, 'orange-50')},
-    '--cm-surface-color-mode-low': #{map.get($color-palette, 'orange-100')},
+    '--cm-surface-color-mode-low': #{map.get($color-palette, 'orange-50')},
     '--cm-surface-color-mode-high': #{map.get($color-palette, 'orange-800')},
     '--cm-surface-low-0': map.get($color-palette, 'orange-100'),
     '--cm-surface-low-1': map.get($color-palette, 'orange-200'),
@@ -997,8 +997,11 @@ $color-modes: (
         $color-palette,
         'yellow-gold-50'
       )},
-    '--cm-surface-color-mode-low': map.get($color-palette, 'yellow-gold-100'),
-    '--cm-surface-color-mode-high': map.get($color-palette, 'yellow-gold-900'),
+    '--cm-surface-color-mode-low': #{map.get($color-palette, 'yellow-gold-50')},
+    '--cm-surface-color-mode-high': #{map.get(
+        $color-palette,
+        'yellow-gold-900'
+      )},
     '--cm-surface-low-0': map.get($color-palette, 'yellow-gold-100'),
     '--cm-surface-low-1': map.get($color-palette, 'yellow-gold-200'),
     '--cm-surface-low-2': map.get($color-palette, 'yellow-gold-200'),
@@ -1111,8 +1114,8 @@ $color-modes: (
         $color-palette,
         'red-tomato-50'
       )},
-    '--cm-surface-color-mode-low': map.get($color-palette, 'red-tomato-100'),
-    '--cm-surface-color-mode-high': map.get($color-palette, 'red-tomato-700'),
+    '--cm-surface-color-mode-low': #{map.get($color-palette, 'red-tomato-50')},
+    '--cm-surface-color-mode-high': #{map.get($color-palette, 'red-tomato-700')},
     '--cm-surface-low-0': map.get($color-palette, 'red-tomato-100'),
     '--cm-surface-low-1': map.get($color-palette, 'red-tomato-200'),
     '--cm-surface-low-2': map.get($color-palette, 'red-tomato-100'),

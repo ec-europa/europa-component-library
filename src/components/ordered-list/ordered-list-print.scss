@@ -15,6 +15,7 @@ $list-print: null !default;
   color: map.get($list, 'text-color');
   font: map.get($theme, 'font-print', 'm');
   list-style-position: outside;
+  list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
   padding-inline-start: map.get($list-print, 'ordered', 'padding-start');
 
@@ -29,8 +30,9 @@ $list-print: null !default;
   margin-top: map.get($theme, 'spacing-print', 's');
   max-width: var(--max-w);
 
-  .ecl-link {
-    padding-top: map.get($theme, 'spacing-print', 's');
+  // inline-block elements (e.g. standalone link) shift the bullet to bottom; reset to top
+  .ecl-link--standalone {
+    vertical-align: text-top;
   }
 }
 
