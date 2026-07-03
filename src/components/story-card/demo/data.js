@@ -3,9 +3,17 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   variant: 'story',
+  title: 'Stories',
+  id: 'story-card-demo',
+  description: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.`,
+  sr_prev: 'Previous story',
+  sr_next: 'Next story',
+  sr_play: 'Play story cards',
+  sr_pause: 'Pause story cards',
   items: [
     {
-      id: 'story-card-1',
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
@@ -35,7 +43,6 @@ module.exports = {
       },
     },
     {
-      id: 'story-card-2',
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
@@ -59,7 +66,6 @@ module.exports = {
       },
     },
     {
-      id: 'story-card-3',
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
@@ -83,7 +89,6 @@ module.exports = {
       },
     },
     {
-      id: 'story-card-4',
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',

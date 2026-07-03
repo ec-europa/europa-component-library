@@ -2,23 +2,42 @@
 
 exports[`Story Card Story variant (default) renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-story-card"
+  <section
+    aria-labelledby="story-card-demo-title"
+    class="ecl-story-card ecl-story-card--has-description"
     data-ecl-auto-init="StoryCard"
+    id="story-card-demo"
   >
+    <div
+      class="ecl-story-card__header"
+    >
+      <div
+        class="ecl-story-card__title"
+        id="story-card-demo-title"
+      >
+        Stories
+      </div>
+      <div
+        class="ecl-story-card__description"
+      >
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.
+      </div>
+    </div>
     <!-- Mobile: Embla Carousel -->
     <div
-      class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+      class="ecl-story-card__carousel"
     >
       <div
         class="ecl-story-card__carousel-viewport"
         data-ecl-story-card-viewport=""
       >
-        <div
+        <ul
           class="ecl-story-card__carousel-container"
           data-ecl-story-card-container=""
         >
-          <div
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -45,12 +64,12 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   The European flag is one of the most recognised symbols in Europe.
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
                 </div>
@@ -70,8 +89,8 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -94,12 +113,12 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local.
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
                 </div>
@@ -119,8 +138,8 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -143,12 +162,12 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
                 </div>
@@ -168,8 +187,8 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -192,12 +211,12 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
                 </div>
@@ -217,8 +236,8 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <!-- Carousel Controls -->
       <div
@@ -236,7 +255,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             class="ecl-story-card__prev-label"
           >
             
-          Previous card
+          Previous story
         
           </span>
         </button>
@@ -251,7 +270,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             class="ecl-story-card__next-label"
           >
             
-          Next card
+          Next story
         
           </span>
           <span
@@ -260,7 +279,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
           />
         </button>
         <script
-          id="ecl-story-card__dot-template"
+          data-ecl-story-card-dot-template=""
           type="text/template"
         >
           &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
@@ -269,20 +288,25 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
     </div>
     <!-- Desktop: Grid with Accordion -->
     <div
-      class="ecl-story-card__grid ecl-story-card__grid--desktop"
+      class="ecl-story-card__grid"
     >
       <div
+        aria-label="Stories navigation"
         class="ecl-story-card__grid-container"
+        role="tablist"
       >
         <div
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
         >
           <button
-            aria-expanded="true"
-            aria-label="The European flag is one of the most recognised symbols in Europe."
+            aria-controls="story-card-demo-details-0"
+            aria-label="why twelve"
+            aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
+            id="story-card-demo-tab-0"
+            role="tab"
             type="button"
           >
             <div
@@ -325,10 +349,13 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
           data-ecl-story-card-grid-item="1"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local."
+            aria-controls="story-card-demo-details-1"
+            aria-label="for everyone"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
+            id="story-card-demo-tab-1"
+            role="tab"
             type="button"
           >
             <div
@@ -367,10 +394,13 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
           data-ecl-story-card-grid-item="2"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-demo-details-2"
+            aria-label="the design"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
+            id="story-card-demo-tab-2"
+            role="tab"
             type="button"
           >
             <div
@@ -409,10 +439,13 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
           data-ecl-story-card-grid-item="3"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-demo-details-3"
+            aria-label="across europe"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
+            id="story-card-demo-tab-3"
+            role="tab"
             type="button"
           >
             <div
@@ -448,138 +481,166 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-0"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="0"
+        id="story-card-demo-details-0"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            The European flag is one of the most recognised symbols in Europe.
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              The European flag is one of the most recognised symbols in Europe.
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-1"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="1"
         hidden=""
+        id="story-card-demo-details-1"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local.
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local.
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-2"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="2"
         hidden=""
+        id="story-card-demo-details-2"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-3"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="3"
         hidden=""
+        id="story-card-demo-details-3"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -597,7 +658,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Previous card
+              Previous story
             </span>
             <span
               aria-hidden="true"
@@ -660,7 +721,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Next card
+              Next story
             </span>
             <span
               aria-hidden="true"
@@ -671,31 +732,50 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Story Card Story variant (default) renders correctly with extra attributes 1`] = `
 <jest>
-  <div
-    class="ecl-story-card"
+  <section
+    aria-labelledby="story-card-demo-title"
+    class="ecl-story-card ecl-story-card--has-description"
     data-ecl-auto-init="StoryCard"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    id="story-card-demo"
   >
+    <div
+      class="ecl-story-card__header"
+    >
+      <div
+        class="ecl-story-card__title"
+        id="story-card-demo-title"
+      >
+        Stories
+      </div>
+      <div
+        class="ecl-story-card__description"
+      >
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.
+      </div>
+    </div>
     <!-- Mobile: Embla Carousel -->
     <div
-      class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+      class="ecl-story-card__carousel"
     >
       <div
         class="ecl-story-card__carousel-viewport"
         data-ecl-story-card-viewport=""
       >
-        <div
+        <ul
           class="ecl-story-card__carousel-container"
           data-ecl-story-card-container=""
         >
-          <div
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -722,12 +802,12 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   The European flag is one of the most recognised symbols in Europe.
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
                 </div>
@@ -747,8 +827,8 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -771,12 +851,12 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local.
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
                 </div>
@@ -796,8 +876,8 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -820,12 +900,12 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
                 </div>
@@ -845,8 +925,8 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -869,12 +949,12 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
                 </div>
@@ -894,8 +974,8 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <!-- Carousel Controls -->
       <div
@@ -915,7 +995,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             class="ecl-story-card__prev-label"
           >
             
-          Previous card
+          Previous story
         
           </span>
         </button>
@@ -930,7 +1010,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             class="ecl-story-card__next-label"
           >
             
-          Next card
+          Next story
         
           </span>
           <span
@@ -941,7 +1021,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
           />
         </button>
         <script
-          id="ecl-story-card__dot-template"
+          data-ecl-story-card-dot-template=""
           type="text/template"
         >
           &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
@@ -950,20 +1030,25 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
     </div>
     <!-- Desktop: Grid with Accordion -->
     <div
-      class="ecl-story-card__grid ecl-story-card__grid--desktop"
+      class="ecl-story-card__grid"
     >
       <div
+        aria-label="Stories navigation"
         class="ecl-story-card__grid-container"
+        role="tablist"
       >
         <div
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
         >
           <button
-            aria-expanded="true"
-            aria-label="The European flag is one of the most recognised symbols in Europe."
+            aria-controls="story-card-demo-details-0"
+            aria-label="why twelve"
+            aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
+            id="story-card-demo-tab-0"
+            role="tab"
             type="button"
           >
             <div
@@ -1006,10 +1091,13 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
           data-ecl-story-card-grid-item="1"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local."
+            aria-controls="story-card-demo-details-1"
+            aria-label="for everyone"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
+            id="story-card-demo-tab-1"
+            role="tab"
             type="button"
           >
             <div
@@ -1048,10 +1136,13 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
           data-ecl-story-card-grid-item="2"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-demo-details-2"
+            aria-label="the design"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
+            id="story-card-demo-tab-2"
+            role="tab"
             type="button"
           >
             <div
@@ -1090,10 +1181,13 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
           data-ecl-story-card-grid-item="3"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-demo-details-3"
+            aria-label="across europe"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
+            id="story-card-demo-tab-3"
+            role="tab"
             type="button"
           >
             <div
@@ -1129,138 +1223,166 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-0"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="0"
+        id="story-card-demo-details-0"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            The European flag is one of the most recognised symbols in Europe.
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              The European flag is one of the most recognised symbols in Europe.
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-1"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="1"
         hidden=""
+        id="story-card-demo-details-1"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local.
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local.
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-2"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="2"
         hidden=""
+        id="story-card-demo-details-2"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-3"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="3"
         hidden=""
+        id="story-card-demo-details-3"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -1278,7 +1400,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Previous card
+              Previous story
             </span>
             <span
               aria-hidden="true"
@@ -1341,7 +1463,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Next card
+              Next story
             </span>
             <span
               aria-hidden="true"
@@ -1352,29 +1474,48 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Story Card Story variant (default) renders correctly with extra class names 1`] = `
 <jest>
-  <div
-    class="ecl-story-card custom-class custom-class--test"
+  <section
+    aria-labelledby="story-card-demo-title"
+    class="ecl-story-card ecl-story-card--has-description custom-class custom-class--test"
     data-ecl-auto-init="StoryCard"
+    id="story-card-demo"
   >
+    <div
+      class="ecl-story-card__header"
+    >
+      <div
+        class="ecl-story-card__title"
+        id="story-card-demo-title"
+      >
+        Stories
+      </div>
+      <div
+        class="ecl-story-card__description"
+      >
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.
+      </div>
+    </div>
     <!-- Mobile: Embla Carousel -->
     <div
-      class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+      class="ecl-story-card__carousel"
     >
       <div
         class="ecl-story-card__carousel-viewport"
         data-ecl-story-card-viewport=""
       >
-        <div
+        <ul
           class="ecl-story-card__carousel-container"
           data-ecl-story-card-container=""
         >
-          <div
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -1401,12 +1542,12 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   The European flag is one of the most recognised symbols in Europe.
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
                 </div>
@@ -1426,8 +1567,8 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -1450,12 +1591,12 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local.
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
                 </div>
@@ -1475,8 +1616,8 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -1499,12 +1640,12 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
                 </div>
@@ -1524,8 +1665,8 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -1548,12 +1689,12 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-story-card__content"
               >
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
                 <div
-                  class="ecl-story-card__description"
+                  class="ecl-story-card__card-description"
                 >
                   Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
                 </div>
@@ -1573,8 +1714,8 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <!-- Carousel Controls -->
       <div
@@ -1592,7 +1733,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             class="ecl-story-card__prev-label"
           >
             
-          Previous card
+          Previous story
         
           </span>
         </button>
@@ -1607,7 +1748,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             class="ecl-story-card__next-label"
           >
             
-          Next card
+          Next story
         
           </span>
           <span
@@ -1616,7 +1757,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
           />
         </button>
         <script
-          id="ecl-story-card__dot-template"
+          data-ecl-story-card-dot-template=""
           type="text/template"
         >
           &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
@@ -1625,20 +1766,25 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
     </div>
     <!-- Desktop: Grid with Accordion -->
     <div
-      class="ecl-story-card__grid ecl-story-card__grid--desktop"
+      class="ecl-story-card__grid"
     >
       <div
+        aria-label="Stories navigation"
         class="ecl-story-card__grid-container"
+        role="tablist"
       >
         <div
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
         >
           <button
-            aria-expanded="true"
-            aria-label="The European flag is one of the most recognised symbols in Europe."
+            aria-controls="story-card-demo-details-0"
+            aria-label="why twelve"
+            aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
+            id="story-card-demo-tab-0"
+            role="tab"
             type="button"
           >
             <div
@@ -1681,10 +1827,13 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
           data-ecl-story-card-grid-item="1"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local."
+            aria-controls="story-card-demo-details-1"
+            aria-label="for everyone"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
+            id="story-card-demo-tab-1"
+            role="tab"
             type="button"
           >
             <div
@@ -1723,10 +1872,13 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
           data-ecl-story-card-grid-item="2"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-demo-details-2"
+            aria-label="the design"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
+            id="story-card-demo-tab-2"
+            role="tab"
             type="button"
           >
             <div
@@ -1765,10 +1917,13 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
           data-ecl-story-card-grid-item="3"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-demo-details-3"
+            aria-label="across europe"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
+            id="story-card-demo-tab-3"
+            role="tab"
             type="button"
           >
             <div
@@ -1804,138 +1959,166 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-0"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="0"
+        id="story-card-demo-details-0"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            The European flag is one of the most recognised symbols in Europe.
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              The European flag is one of the most recognised symbols in Europe.
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-1"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="1"
         hidden=""
+        id="story-card-demo-details-1"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local.
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local.
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-2"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="2"
         hidden=""
+        id="story-card-demo-details-2"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-demo-tab-3"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="3"
         hidden=""
+        id="story-card-demo-details-3"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__title"
+            class="ecl-story-card__content"
           >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__description"
-          >
-            Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
+            <div
+              class="ecl-story-card__card-title"
             >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__card-description"
+            >
+              Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -1953,7 +2136,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Previous card
+              Previous story
             </span>
             <span
               aria-hidden="true"
@@ -2016,7 +2199,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Next card
+              Next story
             </span>
             <span
               aria-hidden="true"
@@ -2027,29 +2210,48 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Story Card Testimonial variant renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-story-card ecl-story-card--testimonial"
+  <section
+    aria-labelledby="story-card-testimonial-demo-title"
+    class="ecl-story-card ecl-story-card--testimonial ecl-story-card--has-description"
     data-ecl-auto-init="StoryCard"
+    id="story-card-testimonial-demo"
   >
+    <div
+      class="ecl-story-card__header"
+    >
+      <div
+        class="ecl-story-card__title"
+        id="story-card-testimonial-demo-title"
+      >
+        Testimonials
+      </div>
+      <div
+        class="ecl-story-card__description"
+      >
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.
+      </div>
+    </div>
     <!-- Mobile: Embla Carousel -->
     <div
-      class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+      class="ecl-story-card__carousel"
     >
       <div
         class="ecl-story-card__carousel-viewport"
         data-ecl-story-card-viewport=""
       >
-        <div
+        <ul
           class="ecl-story-card__carousel-container"
           data-ecl-story-card-container=""
         >
-          <div
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -2104,7 +2306,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -2143,8 +2345,8 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -2195,7 +2397,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local.
                 </div>
@@ -2234,8 +2436,8 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -2286,7 +2488,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -2325,8 +2527,8 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -2377,7 +2579,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -2416,8 +2618,8 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <!-- Carousel Controls -->
       <div
@@ -2435,7 +2637,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             class="ecl-story-card__prev-label"
           >
             
-          Previous card
+          Previous story
         
           </span>
         </button>
@@ -2450,7 +2652,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             class="ecl-story-card__next-label"
           >
             
-          Next card
+          Next story
         
           </span>
           <span
@@ -2459,7 +2661,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
           />
         </button>
         <script
-          id="ecl-story-card__dot-template"
+          data-ecl-story-card-dot-template=""
           type="text/template"
         >
           &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
@@ -2468,20 +2670,25 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
     </div>
     <!-- Desktop: Grid with Accordion -->
     <div
-      class="ecl-story-card__grid ecl-story-card__grid--desktop"
+      class="ecl-story-card__grid"
     >
       <div
+        aria-label="Testimonials navigation"
         class="ecl-story-card__grid-container"
+        role="tablist"
       >
         <div
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
         >
           <button
-            aria-expanded="true"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-0"
+            aria-label="RICHARD FELIX"
+            aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
+            id="story-card-testimonial-demo-tab-0"
+            role="tab"
             type="button"
           >
             <div
@@ -2524,10 +2731,13 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
           data-ecl-story-card-grid-item="1"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local."
+            aria-controls="story-card-testimonial-demo-details-1"
+            aria-label="MARCUS LENNARD"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
+            id="story-card-testimonial-demo-tab-1"
+            role="tab"
             type="button"
           >
             <div
@@ -2566,10 +2776,13 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
           data-ecl-story-card-grid-item="2"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-2"
+            aria-label="RENATA BEER"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
+            id="story-card-testimonial-demo-tab-2"
+            role="tab"
             type="button"
           >
             <div
@@ -2608,10 +2821,13 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
           data-ecl-story-card-grid-item="3"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-3"
+            aria-label="DEBBY STARK"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
+            id="story-card-testimonial-demo-tab-3"
+            role="tab"
             type="button"
           >
             <div
@@ -2647,306 +2863,334 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-0"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="0"
+        id="story-card-testimonial-demo-details-0"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Richard Felix
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Lawier
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Observer
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Richard Felix
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Lawier
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Observer
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-1"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="1"
         hidden=""
+        id="story-card-testimonial-demo-details-1"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local.
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Marcus Lennard
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Commissioner
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Guardian
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local.
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Marcus Lennard
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Commissioner
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Guardian
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-2"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="2"
         hidden=""
+        id="story-card-testimonial-demo-details-2"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Renata Beer
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Commissioner
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Guardian
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Renata Beer
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Commissioner
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Guardian
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-3"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="3"
         hidden=""
+        id="story-card-testimonial-demo-details-3"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Derby Stark
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Consultant
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Times
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Derby Stark
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Consultant
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Times
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
@@ -2964,7 +3208,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Previous card
+              Previous story
             </span>
             <span
               aria-hidden="true"
@@ -3027,7 +3271,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Next card
+              Next story
             </span>
             <span
               aria-hidden="true"
@@ -3038,31 +3282,50 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Story Card Testimonial variant renders correctly with extra attributes 1`] = `
 <jest>
-  <div
-    class="ecl-story-card ecl-story-card--testimonial"
+  <section
+    aria-labelledby="story-card-testimonial-demo-title"
+    class="ecl-story-card ecl-story-card--testimonial ecl-story-card--has-description"
     data-ecl-auto-init="StoryCard"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    id="story-card-testimonial-demo"
   >
+    <div
+      class="ecl-story-card__header"
+    >
+      <div
+        class="ecl-story-card__title"
+        id="story-card-testimonial-demo-title"
+      >
+        Testimonials
+      </div>
+      <div
+        class="ecl-story-card__description"
+      >
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.
+      </div>
+    </div>
     <!-- Mobile: Embla Carousel -->
     <div
-      class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+      class="ecl-story-card__carousel"
     >
       <div
         class="ecl-story-card__carousel-viewport"
         data-ecl-story-card-viewport=""
       >
-        <div
+        <ul
           class="ecl-story-card__carousel-container"
           data-ecl-story-card-container=""
         >
-          <div
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -3117,7 +3380,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -3156,8 +3419,8 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -3208,7 +3471,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local.
                 </div>
@@ -3247,8 +3510,8 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -3299,7 +3562,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -3338,8 +3601,8 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -3390,7 +3653,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -3429,8 +3692,8 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <!-- Carousel Controls -->
       <div
@@ -3450,7 +3713,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             class="ecl-story-card__prev-label"
           >
             
-          Previous card
+          Previous story
         
           </span>
         </button>
@@ -3465,7 +3728,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             class="ecl-story-card__next-label"
           >
             
-          Next card
+          Next story
         
           </span>
           <span
@@ -3476,7 +3739,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
           />
         </button>
         <script
-          id="ecl-story-card__dot-template"
+          data-ecl-story-card-dot-template=""
           type="text/template"
         >
           &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
@@ -3485,20 +3748,25 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
     </div>
     <!-- Desktop: Grid with Accordion -->
     <div
-      class="ecl-story-card__grid ecl-story-card__grid--desktop"
+      class="ecl-story-card__grid"
     >
       <div
+        aria-label="Testimonials navigation"
         class="ecl-story-card__grid-container"
+        role="tablist"
       >
         <div
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
         >
           <button
-            aria-expanded="true"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-0"
+            aria-label="RICHARD FELIX"
+            aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
+            id="story-card-testimonial-demo-tab-0"
+            role="tab"
             type="button"
           >
             <div
@@ -3541,10 +3809,13 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
           data-ecl-story-card-grid-item="1"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local."
+            aria-controls="story-card-testimonial-demo-details-1"
+            aria-label="MARCUS LENNARD"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
+            id="story-card-testimonial-demo-tab-1"
+            role="tab"
             type="button"
           >
             <div
@@ -3583,10 +3854,13 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
           data-ecl-story-card-grid-item="2"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-2"
+            aria-label="RENATA BEER"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
+            id="story-card-testimonial-demo-tab-2"
+            role="tab"
             type="button"
           >
             <div
@@ -3625,10 +3899,13 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
           data-ecl-story-card-grid-item="3"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-3"
+            aria-label="DEBBY STARK"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
+            id="story-card-testimonial-demo-tab-3"
+            role="tab"
             type="button"
           >
             <div
@@ -3664,306 +3941,334 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-0"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="0"
+        id="story-card-testimonial-demo-details-0"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Richard Felix
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Lawier
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Observer
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Richard Felix
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Lawier
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Observer
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-1"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="1"
         hidden=""
+        id="story-card-testimonial-demo-details-1"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local.
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Marcus Lennard
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Commissioner
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Guardian
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local.
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Marcus Lennard
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Commissioner
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Guardian
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-2"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="2"
         hidden=""
+        id="story-card-testimonial-demo-details-2"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Renata Beer
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Commissioner
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Guardian
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Renata Beer
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Commissioner
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Guardian
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-3"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="3"
         hidden=""
+        id="story-card-testimonial-demo-details-3"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Derby Stark
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Consultant
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Times
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Derby Stark
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Consultant
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Times
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
@@ -3981,7 +4286,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Previous card
+              Previous story
             </span>
             <span
               aria-hidden="true"
@@ -4044,7 +4349,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Next card
+              Next story
             </span>
             <span
               aria-hidden="true"
@@ -4055,29 +4360,48 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Story Card Testimonial variant renders correctly with extra class names 1`] = `
 <jest>
-  <div
-    class="ecl-story-card ecl-story-card--testimonial custom-class custom-class--test"
+  <section
+    aria-labelledby="story-card-testimonial-demo-title"
+    class="ecl-story-card ecl-story-card--testimonial ecl-story-card--has-description custom-class custom-class--test"
     data-ecl-auto-init="StoryCard"
+    id="story-card-testimonial-demo"
   >
+    <div
+      class="ecl-story-card__header"
+    >
+      <div
+        class="ecl-story-card__title"
+        id="story-card-testimonial-demo-title"
+      >
+        Testimonials
+      </div>
+      <div
+        class="ecl-story-card__description"
+      >
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt.
+      </div>
+    </div>
     <!-- Mobile: Embla Carousel -->
     <div
-      class="ecl-story-card__carousel ecl-story-card__carousel--mobile"
+      class="ecl-story-card__carousel"
     >
       <div
         class="ecl-story-card__carousel-viewport"
         data-ecl-story-card-viewport=""
       >
-        <div
+        <ul
           class="ecl-story-card__carousel-container"
           data-ecl-story-card-container=""
         >
-          <div
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -4132,7 +4456,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -4171,8 +4495,8 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -4223,7 +4547,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local.
                 </div>
@@ -4262,8 +4586,8 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -4314,7 +4638,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -4353,8 +4677,8 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                 </a>
               </div>
             </div>
-          </div>
-          <div
+          </li>
+          <li
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide=""
           >
@@ -4405,7 +4729,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                   </svg>
                 </div>
                 <div
-                  class="ecl-story-card__title"
+                  class="ecl-story-card__card-title"
                 >
                   You can do the same by producing your own electricity and sharing it local
                 </div>
@@ -4444,8 +4768,8 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <!-- Carousel Controls -->
       <div
@@ -4463,7 +4787,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             class="ecl-story-card__prev-label"
           >
             
-          Previous card
+          Previous story
         
           </span>
         </button>
@@ -4478,7 +4802,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             class="ecl-story-card__next-label"
           >
             
-          Next card
+          Next story
         
           </span>
           <span
@@ -4487,7 +4811,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
           />
         </button>
         <script
-          id="ecl-story-card__dot-template"
+          data-ecl-story-card-dot-template=""
           type="text/template"
         >
           &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
@@ -4496,20 +4820,25 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
     </div>
     <!-- Desktop: Grid with Accordion -->
     <div
-      class="ecl-story-card__grid ecl-story-card__grid--desktop"
+      class="ecl-story-card__grid"
     >
       <div
+        aria-label="Testimonials navigation"
         class="ecl-story-card__grid-container"
+        role="tablist"
       >
         <div
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
         >
           <button
-            aria-expanded="true"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-0"
+            aria-label="RICHARD FELIX"
+            aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
+            id="story-card-testimonial-demo-tab-0"
+            role="tab"
             type="button"
           >
             <div
@@ -4552,10 +4881,13 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
           data-ecl-story-card-grid-item="1"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local."
+            aria-controls="story-card-testimonial-demo-details-1"
+            aria-label="MARCUS LENNARD"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
+            id="story-card-testimonial-demo-tab-1"
+            role="tab"
             type="button"
           >
             <div
@@ -4594,10 +4926,13 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
           data-ecl-story-card-grid-item="2"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-2"
+            aria-label="RENATA BEER"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
+            id="story-card-testimonial-demo-tab-2"
+            role="tab"
             type="button"
           >
             <div
@@ -4636,10 +4971,13 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
           data-ecl-story-card-grid-item="3"
         >
           <button
-            aria-expanded="false"
-            aria-label="You can do the same by producing your own electricity and sharing it local"
+            aria-controls="story-card-testimonial-demo-details-3"
+            aria-label="DEBBY STARK"
+            aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
+            id="story-card-testimonial-demo-tab-3"
+            role="tab"
             type="button"
           >
             <div
@@ -4675,306 +5013,334 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-0"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="0"
+        id="story-card-testimonial-demo-details-0"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Richard Felix
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Lawier
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Observer
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Richard Felix
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Lawier
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Observer
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-1"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="1"
         hidden=""
+        id="story-card-testimonial-demo-details-1"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local.
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Marcus Lennard
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Commissioner
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Guardian
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local.
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Marcus Lennard
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Commissioner
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Guardian
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-2"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="2"
         hidden=""
+        id="story-card-testimonial-demo-details-2"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Renata Beer
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Commissioner
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Guardian
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Renata Beer
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Commissioner
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Guardian
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
+        aria-labelledby="story-card-testimonial-demo-tab-3"
         class="ecl-story-card__grid-details"
         data-ecl-story-card-grid-details="3"
         hidden=""
+        id="story-card-testimonial-demo-details-3"
+        role="tabpanel"
       >
         <div
           class="ecl-story-card__grid-details-content"
         >
           <div
-            class="ecl-story-card__content-icon"
+            class="ecl-story-card__content"
           >
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ecl-story-card__content-icon"
             >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <svg
+                fill="none"
+                height="45"
+                viewBox="0 0 22 45"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H22V23.3143L0 44.5714V0Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="ecl-story-card__card-title"
+            >
+              You can do the same by producing your own electricity and sharing it local
+            </div>
+            <div
+              class="ecl-story-card__testimonial"
+            >
+              <span
+                class="ecl-story-card__author"
+              >
+                Derby Stark
+              </span>
+              <span
+                class="ecl-story-card__role"
+              >
+                Consultant
+              </span>
+              <cite
+                class="ecl-story-card__source"
+              >
+                Published on The Times
+              </cite>
+            </div>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Read more
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
               />
-            </svg>
-            <svg
-              fill="none"
-              height="45"
-              viewBox="0 0 22 45"
-              width="22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0H22V23.3143L0 44.5714V0Z"
-                fill="currentColor"
-              />
-            </svg>
+            </a>
           </div>
-          <div
-            class="ecl-story-card__title"
-          >
-            You can do the same by producing your own electricity and sharing it local
-          </div>
-          <div
-            class="ecl-story-card__testimonial"
-          >
-            <span
-              class="ecl-story-card__author"
-            >
-              Derby Stark
-            </span>
-            <span
-              class="ecl-story-card__role"
-            >
-              Consultant
-            </span>
-            <cite
-              class="ecl-story-card__source"
-            >
-              Published on The Times
-            </cite>
-          </div>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
-            href="/example"
-          >
-            <span
-              class="ecl-link__label"
-            >
-              Read more
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon--arrow-right"
-            />
-          </a>
         </div>
       </div>
       <div
@@ -4992,7 +5358,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Previous card
+              Previous story
             </span>
             <span
               aria-hidden="true"
@@ -5055,7 +5421,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               class="ecl-button__label"
               data-ecl-label="true"
             >
-              Next card
+              Next story
             </span>
             <span
               aria-hidden="true"
@@ -5066,6 +5432,6 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </jest>
 `;

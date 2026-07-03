@@ -2,6 +2,30 @@
 @use '../index' as *;
 
 $story-card: (
-  background: var(--cm-surface-color-mode-low),
-  dot-background: var(--c-g-400),
+  story-card: (
+    description-font: 'body-m',
+    description-spacing: var(--s-xl),
+    dot-background: var(--c-g-400),
+    dot-active-background: var(--c-p-600),
+    list-spacing-desktop: var(--s-6xl),
+    list-spacing-tablet: var(--s-3xl),
+    list-spacing-mobile: var(--s-xl),
+    controls-spacing: var(--s-xl),
+    outline-color: var(--cm-border-primary),
+    title-font: 'heading2',
+    title-font-weight: map.get($font-weight, 'semi-bold'),
+  ),
+  card: (
+    background: var(--cm-surface-color-mode-low),
+    content-padding: var(--s-5xl) var(--s-xl),
+    content-gap: var(--s-xl),
+    content-padding-tablet: var(--s-5xl) var(--s-xl),
+    content-padding-desktop: var(--s-11xl),
+    overlay-color: var(--c-a-700),
+    overlay-color-hover: var(--c-a-800),
+    teaser-label-font: var(--f-xs),
+    title-color: var(--c-g-950),
+    title-font: var(--f-xl),
+    title-font-weight: map.get($font-weight, 'semi-bold'),
+  ),
 );

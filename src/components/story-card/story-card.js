@@ -1,6 +1,7 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import EmblaCarousel from 'embla-carousel';
+import Accessibility from 'embla-carousel-accessibility';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -12,7 +13,6 @@ import EmblaCarousel from 'embla-carousel';
  * @param {String} options.nextSelector Selector for next button
  * @param {String} options.playSelector Selector for play button
  * @param {String} options.pauseSelector Selector for pause button
- * @param {String} options.counterSelector Selector for counter element
  * @param {String} options.currentSelector Selector for current slide number
  * @param {String} options.totalSelector Selector for total slides
  * @param {String} options.gridItemSelector Selector for grid items
@@ -23,6 +23,10 @@ import EmblaCarousel from 'embla-carousel';
  * @param {String} options.gridPlaySelector Selector for grid play button
  * @param {String} options.gridPauseSelector Selector for grid pause button
  * @param {Number} options.gridAutoplayDelay Autoplay delay for grid items
+ * @param {String} options.pagerClass Selector for the pager container
+ * @param {String} options.dotsClass Selector for the dots container
+ * @param {String} options.dotClass Selector for a dot button
+ * @param {String} options.activeDotClass Class applied to the active dot
  * @param {Boolean} options.attachClickListener Whether to attach click listeners
  * @param {Boolean} options.attachResizeListener Whether to attach resize listeners
  */
@@ -46,10 +50,19 @@ export class StoryCard {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event StoryCard#onClick
+   * @event StoryCard#onSelection
    * @memberof StoryCard
+   *
    */
-  supportedEvents = ['onClick'];
+  supportedEvents = ['onSelection'];
+
+  /**
+   * @event StoryCard#onSelection
+   * @type {Object}
+   * @property {number} index
+   * @property {HTMLElement} button
+   * @property {?HTMLElement} details
+   */
 
   constructor(
     element,
@@ -65,7 +78,6 @@ export class StoryCard {
       dotsClass = '.ecl-story-card__dots',
       dotClass = '.ecl-story-card__dot',
       activeDotClass = 'ecl-story-card__dot--active',
-      counterSelector = '[data-ecl-story-card-counter]',
       currentSelector = '[data-ecl-story-card-current]',
       totalSelector = '[data-ecl-story-card-total]',
       gridItemSelector = '[data-ecl-story-card-grid-item]',
@@ -102,7 +114,6 @@ export class StoryCard {
     this.dotsClass = dotsClass;
     this.dotClass = dotClass;
     this.activeDotClass = activeDotClass;
-    this.counterSelector = counterSelector;
     this.currentSelector = currentSelector;
     this.totalSelector = totalSelector;
     this.gridItemSelector = gridItemSelector;
@@ -129,9 +140,9 @@ export class StoryCard {
     this.totalElement = null;
     this.index = 1;
     this.total = 0;
-    this.autoPlayInterval = null;
-    this.isAutoPlaying = false;
     this.toggleButtonsDisabled = null;
+    this.accessibility = null;
+    this.direction = getComputedStyle(this.element).direction;
 
     // Private variables - Grid (Desktop)
     this.gridItems = null;
@@ -194,13 +205,65 @@ export class StoryCard {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof StoryCard
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onSelection' event
+   * storyCard.on('onSelection', (event) => {
+   *   console.log('Selection event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof StoryCard
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Initialize Embla carousel.
    */
   initCarousel() {
-    this.slider = EmblaCarousel(this.viewport, {
-      loop: true,
-      skipSnaps: false,
-    });
+    this.slider = EmblaCarousel(
+      this.viewport,
+      {
+        loop: true,
+        skipSnaps: false,
+        direction: this.direction,
+      },
+      [
+        Accessibility({
+          carouselAriaLabel: 'Story card slider',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
+          previousButtonAriaLabel: 'Show previous Slide',
+          nextButtonAriaLabel: 'Show next Slide',
+          dotButtonAriaLabel: (
+            hasAnyGroupedSlides,
+            firstSlideIndex,
+            lastSlideIndex,
+            totalSlides,
+          ) => `Show slide ${firstSlideIndex + 1} of ${totalSlides}`,
+          slideAriaLabel: () => '',
+        }),
+      ],
+    );
 
     if (this.btnPrev && this.btnNext) {
       this.toggleButtonsDisabled = (emblaApi) => {
@@ -212,6 +275,7 @@ export class StoryCard {
       };
 
       this.toggleButtonsDisabled(this.slider);
+
       this.slider.on('select', this.toggleButtonsDisabled);
       this.slider.on('reInit', this.toggleButtonsDisabled);
     }
@@ -221,8 +285,9 @@ export class StoryCard {
 
     if (this.dotsNode) {
       const createDotButtonHtml = (emblaApi) => {
-        const dotTemplate = document.getElementById(
-          'ecl-story-card__dot-template',
+        const dotTemplate = queryOne(
+          '[data-ecl-story-card-dot-template]',
+          this.element,
         );
         const snapList = emblaApi.snapList();
         this.dotsNode.innerHTML = snapList.reduce(
@@ -232,7 +297,7 @@ export class StoryCard {
         return Array.from(queryAll(this.dotClass, this.dotsNode));
       };
 
-      const addDotButtonClickHandlers = (emblaApi, dotNodes) => {
+      const addDotButtonSelectionHandlers = (emblaApi, dotNodes) => {
         dotNodes.forEach((dotNode, index) => {
           dotNode.addEventListener('click', () => emblaApi.goTo(index), false);
         });
@@ -253,7 +318,7 @@ export class StoryCard {
         }
 
         dotNodes = createDotButtonHtml(emblaApi);
-        addDotButtonClickHandlers(emblaApi, dotNodes);
+        addDotButtonSelectionHandlers(emblaApi, dotNodes);
       };
 
       this.createAndSetupDotButtons(this.slider, this.dotsNode);
@@ -272,6 +337,12 @@ export class StoryCard {
         });
       };
 
+      this.accessibility = this.slider.plugins().accessibility;
+
+      this.accessibility.setupPrevAndNextButtons(this.btnPrev, this.btnNext);
+
+      this.accessibility.setupDotButtons(this.dotsNode);
+
       this.updateDots();
       this.slider.on('select', this.updateDots);
     }
@@ -287,7 +358,7 @@ export class StoryCard {
         this.setGridItem(index);
       });
 
-      if (button.getAttribute('aria-expanded') === 'true') {
+      if (button.getAttribute('aria-selected') === 'true') {
         this.expandedItem = index;
         this.setGridItem(index);
       }
@@ -378,6 +449,7 @@ export class StoryCard {
    * Set the expanded grid item.
    *
    * @param {Number} index Index of the item to toggle
+   * @fires StoryCard#onSelection
    */
   setGridItem(index) {
     if (!this.gridButtons || this.gridButtons.length === 0) return;
@@ -396,7 +468,7 @@ export class StoryCard {
       const details = this.gridDetails[buttonIndex];
       const isActive = buttonIndex === nextIndex;
 
-      gridButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      gridButton.setAttribute('aria-selected', isActive ? 'true' : 'false');
 
       if (item) {
         item.classList.toggle('ecl-story-card__grid-item--expanded', isActive);
@@ -408,6 +480,16 @@ export class StoryCard {
     });
 
     this.expandedItem = nextIndex;
+
+    const activeButton = this.gridButtons[nextIndex];
+
+    const eventData = {
+      index: nextIndex,
+      button: activeButton,
+      details: this.gridDetails?.[nextIndex] ?? null,
+    };
+
+    this.trigger('onSelection', eventData);
   }
 
   /**
@@ -531,50 +613,6 @@ export class StoryCard {
         this.toggleGridAutoplay(false);
       });
     }
-
-    // Auto-pause on interaction
-    if (this.slider) {
-      this.slider.on('pointerDown', () => {
-        if (this.isAutoPlaying) {
-          this.pause();
-        }
-      });
-    }
-  }
-
-  /**
-   * Start auto-play.
-   */
-  play() {
-    if (!this.slider || this.isAutoPlaying) return;
-
-    this.isAutoPlaying = true;
-
-    if (this.btnPlay) this.btnPlay.style.display = 'none';
-    if (this.btnPause) this.btnPause.style.display = 'block';
-
-    this.autoPlayInterval = setInterval(() => {
-      if (this.slider) {
-        this.slider.scrollNext();
-      }
-    }, 10000);
-  }
-
-  /**
-   * Pause auto-play.
-   */
-  pause() {
-    if (!this.slider || !this.isAutoPlaying) return;
-
-    this.isAutoPlaying = false;
-
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlayInterval = null;
-    }
-
-    if (this.btnPlay) this.btnPlay.style.display = 'block';
-    if (this.btnPause) this.btnPause.style.display = 'none';
   }
 
   /**
@@ -594,10 +632,6 @@ export class StoryCard {
   destroy() {
     if (this.slider) {
       this.slider.destroy();
-    }
-
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
     }
 
     if (this.gridAutoplayInterval) {

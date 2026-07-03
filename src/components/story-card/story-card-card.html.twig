@@ -1,0 +1,137 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "variant": (string) (default: story) story or testimonial
+    - "picture" (object): Picture component object with img properties
+    - "teaser_label" (string): Card title
+    - "picture" (object): Picture component object
+    - "show_picture" (boolean) (default: false): Internal parameter to show picture or not
+    - "author" (string): Author of the item
+    - "role" (string): Role of the author
+    - "source" (string): Source of the item
+    - "description" (string): Card description
+    - "title" (string) Title of the details section
+    - "card_link" (object): Read more link
+      - "label" (string): Button label
+      - "path" (string): Button link path
+    - "extra_classes" (string) (default: ''): Extra CSS classes
+    - "extra_attributes" (array) (default: []): Extra HTML attributes
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-story-card__content' %}
+{% set _variant = variant|default('story') %}
+{% set _show_picture = show_picture|default(false) %}
+{% set _picture = picture|default({}) %}
+{% set _teaser_label = teaser_label|default('') %}
+{% set _description = description|default('') %}
+{% set _title = title|default('') %}
+{% set _source = source|default('') %}
+{% set _author = author|default('') %}
+{% set _role = role|default('') %}
+{% set _card_link = card_link|default({}) %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if _show_picture and _picture is not empty %}
+  <div class="ecl-story-card__image-wrapper">
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: 'ecl-story-card__picture',
+    } only %}
+  </div>
+{% endif %}
+
+<div
+  class="{{ _css_class }}"
+  {{- _extra_attributes|raw -}}
+>
+{% if _variant == 'testimonial' %}
+  <div class="ecl-story-card__content-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="45" viewBox="0 0 22 45" fill="none">
+      <path d="M0 0H22V23.3143L0 44.5714V0Z" fill="currentColor"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="45" viewBox="0 0 22 45" fill="none">
+      <path d="M0 0H22V23.3143L0 44.5714V0Z" fill="currentColor"/>
+    </svg>
+  </div>
+{% endif %}
+
+{% if _title %}
+  <div class="ecl-story-card__card-title">
+    {{- _title -}}
+  </div>
+{% endif %}
+
+{%- if _author or _role or _source -%}
+  <div class="ecl-story-card__testimonial">
+    {% if _author %}
+      <span class="ecl-story-card__author">
+        {{- _author -}}
+      </span>
+    {% endif %}
+
+    {% if _role %}
+      <span class="ecl-story-card__role">
+        {{- _role -}}
+      </span>
+    {% endif %}
+
+    {% if _source %}
+      <cite class="ecl-story-card__source">
+        {{- _source -}}
+      </cite>
+    {% endif %}
+  </div>
+{%- endif -%}
+
+{%- if _description -%}
+  <div class="ecl-story-card__card-description">
+    {{- _description -}}
+  </div>
+{%- endif -%}
+
+{%- if _card_link -%}
+  {% include '@ecl/link/link.html.twig' with _card_link|merge({
+    link: _card_link.link|merge({
+      type: 'standalone',
+    }),
+    extra_classes: 'ecl-story-card__link',
+  }) only %}
+{%- endif -%}
+</div>
+
+{% endapply %}

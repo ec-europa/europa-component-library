@@ -1,45 +1,45 @@
 # Story Card
 
-The Story Card component presents content in an engaging, interactive format with different layouts optimized for mobile and desktop experiences.
+npm package: `@ecl/story-card`
 
-## Features
+```shell
+npm install --save @ecl/story-card
+```
 
-- **Mobile Experience**: Full-width horizontal carousel powered by Embla Carousel with touch support
-- **Desktop Experience**: Multi-card grid layout that advances selected cards automatically (accordion-like behavior)
-- **Responsive Controls**: Prev/Next navigation buttons with auto-play/pause functionality
-- **Accessible**: Full ARIA support and keyboard navigation
-- **Flexible Content**: Support for images, titles, descriptions, and call-to-action buttons
+## Parameters
 
-## Structure
+- **"color_mode"** (string) (default: '') Name of the color mode
+- **"variant"** (string) (default: story) story or testimonial
+- **"id"** (string) (default: 'random') Id of the element
+- **"title"** (string) (default: '') Title of the story card
+- **"description"** (string) (default: '') Description of the story card
+- **"items"** (array) (default: [])
+  - "teaser_label" (string): label displayed on the image
+  - "title" (string): Title displayed in the details panel
+  - "description" (string): Description
+  - "picture" (object) (default: {}) Image following ECL Picture structure
+  - "author" (string): Author of the quote
+  - "role" (string): Role of the author
+  - "source" (string): Source of the quote
+  - "card_link" (object) Object of type ECL link
+- **"sr_prev"** (string) (default: 'Previous card'): Previous button label
+- **"sr_next"** (string) (default: 'Next card'): Next button label
+- **"sr_play"** (string) (default: 'Play story cards'): Play button label
+- **"sr_pause"** (string) (default: 'Pause story cards'): Pause button label
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
-### Mobile Layout
-
-- Single card visible at a time
-- Swipeable carousel with Embla
-- Navigation controls below the card
-- Counter showing current and total cards
-- Play/Pause auto-play functionality
-
-### Desktop Layout
-
-- Grid display (up to 4 columns)
-- Click to expand selected card
-- Previous, next, play and pause controls
-- Auto-play from the first card through the last card, looping back to the beginning
-- Details slide in with smooth animation
-- Only one card expanded at a time
-- Maintains card aspect ratio in grid
-
-## Usage
-
-### Basic Example
+### Example
 
 ```twig
 {% include '@ecl/story-card/story-card.html.twig' with {
+  id: 'story-card',
   items: [
     {
-      id: 'story-1',
-      image: {
+
+      picture: {
         img: {
           src: 'image-url.jpg',
           alt: 'Story description',
@@ -47,7 +47,7 @@ The Story Card component presents content in an engaging, interactive format wit
       },
       title: 'Story Title',
       description: 'Story description text here',
-      cta: {
+      card_link: {
         label: 'Read more',
         path: '/path/to/story',
       },
@@ -55,63 +55,3 @@ The Story Card component presents content in an engaging, interactive format wit
   ],
 } only %}
 ```
-
-### JavaScript Initialization
-
-```javascript
-import { StoryCard } from '@ecl/story-card';
-
-const element = document.querySelector('[data-ecl-auto-init="StoryCard"]');
-const storyCard = new StoryCard(element);
-storyCard.init();
-```
-
-## Parameters
-
-| Parameter          | Type   | Required | Default               | Description                 |
-| ------------------ | ------ | -------- | --------------------- | --------------------------- |
-| `items`            | array  | Yes      | `[]`                  | List of story cards         |
-| `color_mode`       | string | No       | `''`                  | Color mode name (EC system) |
-| `sr_description`   | string | No       | `''`                  | Screen reader description   |
-| `sr_prev`          | string | No       | `'Previous card'`     | Previous button label       |
-| `sr_next`          | string | No       | `'Next card'`         | Next button label           |
-| `sr_play`          | string | No       | `'Play story cards'`  | Play button label           |
-| `sr_pause`         | string | No       | `'Pause story cards'` | Pause button label          |
-| `extra_classes`    | string | No       | `''`                  | Extra CSS classes           |
-| `extra_attributes` | array  | No       | `[]`                  | Extra HTML attributes       |
-
-### Item Object
-
-Each item in the `items` array should have:
-
-| Field         | Type   | Required | Description              |
-| ------------- | ------ | -------- | ------------------------ |
-| `id`          | string | Yes      | Unique identifier        |
-| `image`       | object | Yes      | Picture component object |
-| `title`       | string | Yes      | Card title               |
-| `description` | string | Yes      | Card description         |
-| `cta`         | object | No       | Call-to-action button    |
-
-## Accessibility
-
-- Semantic HTML with proper ARIA labels
-- Keyboard navigation support
-- Screen reader friendly
-- Focus management
-- Color contrast compliant
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Dependencies
-
-- `@ecl/dom-utils` - DOM utilities
-- `@ecl/event-manager` - Event handling
-- `embla-carousel` - Carousel engine
-- `@ecl/button` - Button component
-- `@ecl/picture` - Picture component

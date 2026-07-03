@@ -15,6 +15,7 @@ import dataGallery from '@ecl/gallery/demo/data';
 import dataTabs from '@ecl/tabs/demo/data--with-content';
 import dataModal from '@ecl/modal/demo/data';
 import dataAnimationNumber from '@ecl/animated-numbers/demo/data';
+import dataStoryCard from '@ecl/story-card/demo/data--testimonial';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -59,6 +60,7 @@ const data = {
   unordered_list: dataUnorderedList,
   file: dataFile,
   gallery: dataGallery,
+  story_card: dataStoryCard,
   modal: dataModal,
 };
 
