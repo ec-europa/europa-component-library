@@ -48,7 +48,6 @@ const getArgTypes = () => {
       options: [
         'surface-lowest',
         'surface-lowest-variant',
-        'surface-low',
         'surface-low-0',
         'surface-low-1',
         'surface-low-2',
