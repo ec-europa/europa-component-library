@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getColorModeControls } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
@@ -59,7 +59,9 @@ const prepareData = (data, args) => {
 };
 
 const renderStory = async (data, args) => {
-  const renderedStoryCard = await storyCard(prepareData(data, args));
+  const renderedStoryCard = await storyCard(
+    correctPaths(prepareData(data, args)),
+  );
   return renderedStoryCard;
 };
 

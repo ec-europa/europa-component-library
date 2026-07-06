@@ -385,12 +385,8 @@ export class Tabs {
     }
     if (this.tabsKey) {
       this.tabsKey.forEach((item) => {
-        item.addEventListener('keydown', this.handleKeyboardOnTabs);
-      });
-    }
-    if (this.hasContent) {
-      this.tabs.forEach((tab) => {
-        tab.removeEventListener('click', this.handleClickOnTabs);
+        item.removeEventListener('click', this.handleClickOnTabs);
+        item.removeEventListener('keydown', this.handleKeyboardOnTabs);
       });
     }
     if (this.element) {

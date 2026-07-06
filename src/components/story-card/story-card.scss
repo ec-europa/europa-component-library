@@ -11,6 +11,12 @@
 $theme: null !default;
 $story-card: null !default;
 $col-9-width: 970px;
+$min-height-desktop: 548px;
+
+:root {
+  --story-card-grid-breakpoint: $col-9-width;
+  --story-card-min-height: $min-height-desktop;
+}
 
 .ecl-story-card {
   container-type: inline-size;
@@ -273,13 +279,14 @@ $col-9-width: 970px;
 
       .ecl-story-card__grid-container,
       .ecl-story-card__grid-details {
+        box-sizing: border-box;
         flex: 1;
         margin-block-start: 0;
       }
 
       .ecl-story-card__grid-card {
         height: 100%;
-        min-height: 34.25rem;
+        min-height: $min-height-desktop;
         width: 4rem;
       }
 
@@ -372,7 +379,8 @@ $col-9-width: 970px;
 
     .ecl-story-card__grid-loading-bar {
       background: var(--c-a-200);
-      border-radius: map.get($theme, 'border-radius', 's');
+      border-end-end-radius: map.get($theme, 'border-radius', 's');
+      border-end-start-radius: map.get($theme, 'border-radius', 's');
       display: none;
       height: 8px;
       width: 100%;
@@ -397,6 +405,7 @@ $col-9-width: 970px;
       position: absolute;
       bottom: 0;
       color: var(--cm-on-surface-inverted, #fff);
+      cursor: pointer;
       font: map.get($story-card, 'card', 'teaser-label-font');
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -414,6 +423,7 @@ $col-9-width: 970px;
       border-start-end-radius: map.get($theme, 'border-radius', 's');
       border-end-end-radius: map.get($theme, 'border-radius', 's');
       bottom: var(--s-xl);
+      cursor: default;
       left: 0;
       writing-mode: horizontal-tb;
       transform: none;

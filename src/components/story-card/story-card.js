@@ -22,6 +22,8 @@ import Accessibility from 'embla-carousel-accessibility';
  * @param {String} options.gridNextSelector Selector for grid next button
  * @param {String} options.gridPlaySelector Selector for grid play button
  * @param {String} options.gridPauseSelector Selector for grid pause button
+ * @param {String} options.desktopBreakpointCssVar CSS variable for the desktop breakpoint
+ * @param {String} options.minHeightDesktopCssVar CSS variable for the minimum desktop height
  * @param {Number} options.gridAutoplayDelay Autoplay delay for grid items
  * @param {String} options.pagerClass Selector for the pager container
  * @param {String} options.dotsClass Selector for the dots container
@@ -50,7 +52,6 @@ export class StoryCard {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event StoryCard#onSelection
    * @memberof StoryCard
    *
    */
@@ -90,6 +91,8 @@ export class StoryCard {
       gridAutoplayDelay = 10000,
       attachClickListener = true,
       attachResizeListener = true,
+      desktopBreakpointCssVar = '--story-card-grid-breakpoint',
+      minHeightDesktopCssVar = '--story-card-min-height',
     } = {},
   ) {
     // Check element
@@ -126,6 +129,8 @@ export class StoryCard {
     this.gridAutoplayDelay = gridAutoplayDelay;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
+    this.desktopBreakpointCssVar = desktopBreakpointCssVar;
+    this.minHeightDesktopCssVar = minHeightDesktopCssVar;
 
     // Private variables - Carousel
     this.viewport = null;
@@ -153,6 +158,8 @@ export class StoryCard {
     this.btnGridPlay = null;
     this.btnGridPause = null;
     this.expandedItem = null;
+    this.desktopBreakpoint = null;
+    this.minHeightDesktop = null;
     this.gridAutoplayInterval = null;
     this.gridDetailsHeightFrame = null;
     this.isGridAutoPlaying = false;
@@ -181,6 +188,14 @@ export class StoryCard {
     this.btnGridNext = queryOne(this.gridNextSelector, this.element);
     this.btnGridPlay = queryOne(this.gridPlaySelector, this.element);
     this.btnGridPause = queryOne(this.gridPauseSelector, this.element);
+    this.desktopBreakpoint =
+      getComputedStyle(this.element)
+        .getPropertyValue(this.desktopBreakpointCssVar)
+        .trim() || '970px';
+    this.minHeightDesktop =
+      getComputedStyle(this.element)
+        .getPropertyValue(this.minHeightDesktopCssVar)
+        .trim() || '548px';
 
     this.total = this.slides ? this.slides.length : 0;
 
@@ -368,7 +383,6 @@ export class StoryCard {
       this.setGridItem(0);
     }
 
-    this.setGridDetailsHeight();
     this.scheduleGridDetailsHeight();
     this.playGridAutoplay();
   }
@@ -397,9 +411,36 @@ export class StoryCard {
   }
 
   /**
-   * Set every grid details panel to the height of the tallest one.
+   * Based on the checks decides whether to apply or reset the grid details height.
    */
   setGridDetailsHeight() {
+    if (typeof window === 'undefined' || !this.gridDetails?.length) return;
+
+    const containerWidth = this.element.getBoundingClientRect().width;
+
+    if (containerWidth < this.desktopBreakpoint) {
+      this.resetGridDetailsHeight();
+      return;
+    }
+
+    this.applyGridDetailsHeight();
+  }
+
+  /**
+   * Reset every grid details panel height and properties previously set.
+   */
+  resetGridDetailsHeight() {
+    this.gridDetails.forEach((details) => {
+      details.style.height = '';
+      details.style.visibility = '';
+      details.style.pointerEvents = '';
+    });
+  }
+
+  /**
+   * Set every grid details panel to the height of the tallest one.
+   */
+  applyGridDetailsHeight() {
     if (
       typeof window === 'undefined' ||
       !this.gridDetails ||
@@ -413,7 +454,6 @@ export class StoryCard {
 
     this.gridDetails.forEach((details) => {
       details.style.height = '';
-      details.hidden = true;
     });
 
     this.gridDetails.forEach((details) => {
@@ -424,25 +464,17 @@ export class StoryCard {
       maxHeight = Math.max(maxHeight, details.getBoundingClientRect().height);
 
       details.hidden = true;
-      details.style.visibility = '';
       details.style.pointerEvents = '';
+      details.style.visibility = '';
     });
 
-    this.gridDetails.forEach((details, index) => {
-      const styles = window.getComputedStyle(details);
-      const verticalSpacing =
-        (parseFloat(styles.paddingTop) || 0) +
-        (parseFloat(styles.paddingBottom) || 0) +
-        (parseFloat(styles.borderTopWidth) || 0) +
-        (parseFloat(styles.borderBottomWidth) || 0);
-      const height =
-        styles.boxSizing === 'border-box'
-          ? maxHeight
-          : Math.max(maxHeight - verticalSpacing, 0);
+    this.gridDetails[activeIndex].hidden = false;
 
-      details.style.height = `${Math.ceil(height)}px`;
-      details.hidden = index !== activeIndex;
-    });
+    if (maxHeight > parseFloat(this.minHeightDesktop)) {
+      this.gridDetails.forEach((details) => {
+        details.style.height = `${Math.ceil(maxHeight)}px`;
+      });
+    }
   }
 
   /**
@@ -619,10 +651,6 @@ export class StoryCard {
    * Handle window resize.
    */
   onWindowResize() {
-    if (this.slider) {
-      this.slider.reInit();
-    }
-
     this.scheduleGridDetailsHeight();
   }
 
@@ -649,8 +677,6 @@ export class StoryCard {
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.onWindowResize);
     }
-
-    this.eventManager.destroy();
   }
 }
 
