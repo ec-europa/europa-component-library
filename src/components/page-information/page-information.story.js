@@ -51,5 +51,8 @@ Default.storyName = 'default';
 Default.args = getArgs(demoContent);
 Default.argTypes = getArgTypes();
 Default.parameters = {
-  notes: { markdown: notes, json: demoContent },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoContent, args),
+  },
 };

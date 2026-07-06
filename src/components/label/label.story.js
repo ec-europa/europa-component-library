@@ -51,7 +51,10 @@ Low.storyName = 'low importance';
 Low.args = getArgs(dataDefault);
 Low.argTypes = getArgTypes();
 Low.parameters = {
-  notes: { markdown: notes, json: { ...dataDefault, variant: 'low' } },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData({ ...dataDefault, variant: 'low' }, args),
+  },
 };
 
 export const Medium = (_, { loaded: { component } }) => component;
@@ -66,7 +69,11 @@ Medium.storyName = 'medium importance';
 Medium.args = getArgs(dataDefault);
 Medium.argTypes = getArgTypes();
 Medium.parameters = {
-  notes: { markdown: notes, json: { ...dataDefault, variant: 'medium' } },
+  notes: {
+    markdown: notes,
+    json: ({ args }) =>
+      prepareData({ ...dataDefault, variant: 'medium' }, args),
+  },
 };
 
 export const High = (_, { loaded: { component } }) => component;
@@ -81,7 +88,10 @@ High.storyName = 'high importance';
 High.args = getArgs(dataDefault);
 High.argTypes = getArgTypes();
 High.parameters = {
-  notes: { markdown: notes, json: { ...dataDefault, variant: 'high' } },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData({ ...dataDefault, variant: 'high' }, args),
+  },
 };
 
 export const Highlight = (_, { loaded: { component } }) => component;
@@ -96,5 +106,9 @@ Highlight.storyName = 'highlight';
 Highlight.args = getArgs(dataDefault);
 Highlight.argTypes = getArgTypes();
 Highlight.parameters = {
-  notes: { markdown: notes, json: { ...dataDefault, variant: 'highlight' } },
+  notes: {
+    markdown: notes,
+    json: ({ args }) =>
+      prepareData({ ...dataDefault, variant: 'highlight' }, args),
+  },
 };

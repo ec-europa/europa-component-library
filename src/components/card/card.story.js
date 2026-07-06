@@ -270,5 +270,8 @@ Default.storyName = 'default';
 Default.args = getArgs(dataCard);
 Default.argTypes = getArgTypes(dataCard);
 Default.parameters = {
-  notes: { markdown: notes, json: dataCard },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataCard, args),
+  },
 };

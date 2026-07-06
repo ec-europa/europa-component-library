@@ -39,6 +39,14 @@ module.exports = {
       suffix_label: 'euro',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -52,6 +60,14 @@ module.exports = {
       suffix_label: 'euro',
       description:
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -66,6 +82,14 @@ module.exports = {
       suffix_label: 'less than',
       description:
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      sources: [
+        {
+          link: {
+            label: 'DG CNECT',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -79,6 +103,14 @@ module.exports = {
       suffix: 'billions',
       description:
         'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -92,6 +124,14 @@ module.exports = {
       suffix: 'trillions',
       description:
         'Pellentesque habitant morbi tristique senectus et netus et malesuada fames',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -104,6 +144,14 @@ module.exports = {
       value: '4350',
       suffix: 'millions',
       description: 'Curabitur ut mauris quam. Fusce non consequat ipsum',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -116,6 +164,14 @@ module.exports = {
       value: '125',
       suffix: 'billions',
       description: 'Curabitur ut mauris quam. Fusce non consequat ipsum',
+      sources: [
+        {
+          link: {
+            label: 'DG CNECT',
+            path: exampleLink,
+          },
+        },
+      ],
     },
     {
       category: 'Revenue',
@@ -128,6 +184,14 @@ module.exports = {
       value: '8765',
       suffix: 'billions',
       description: 'Integer pharetra lacinia tristique',
+      sources: [
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+          },
+        },
+      ],
     },
   ],
 };

@@ -8,6 +8,7 @@ npm install --save @ecl/page-summary
 
 ## Parameters
 
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"id"** (string) (default: random) Unique id for the section
 - **"title"** (string) (default: '') Page summary title
 - **"description"** (string) (default: '') Page summary description text
@@ -21,7 +22,7 @@ npm install --save @ecl/page-summary
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/page-summary/page-summary.html.twig' with { 
+{% include '@ecl/page-summary/page-summary.html.twig' with {
   title: 'Summary',
   description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   icon: {

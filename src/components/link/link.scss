@@ -16,6 +16,8 @@ $link: null !default;
   --ecl-link-text-decoration: none;
   --ecl-link-text-decoration-hover: underline;
   --ecl-link-color-hover: var(--ecl-link-color);
+
+  display: inline-block;
 }
 
 @mixin brand-link {
@@ -128,8 +130,6 @@ $link: null !default;
 */
 .ecl-link--standalone {
   @include standalone-link;
-
-  display: inline-block;
 }
 
 /**
