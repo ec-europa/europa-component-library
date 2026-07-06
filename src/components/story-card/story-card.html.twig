@@ -121,12 +121,12 @@
             class="ecl-story-card__carousel-slide"
             data-ecl-story-card-slide
           >
-            <div class="ecl-story-card__card">
+            <article class="ecl-story-card__card">
               {% include '@ecl/story-card/story-card-card.html.twig' with item|merge({
                 variant: _variant,
                 show_picture: true,
               }) only %}
-            </div>
+            </article>
           </li>
         {% endfor %}
       </ul>
@@ -243,12 +243,12 @@
         hidden
       {% endif %}
     >
-      <div class="ecl-story-card__grid-details-content">
+      <article class="ecl-story-card__grid-details-content">
         {% include '@ecl/story-card/story-card-card.html.twig' with item|merge({
           variant: _variant,
           show_picture: false,
         }) only %}
-      </div>
+      </article>
     </div>
     {% endfor %}
     {% if _items|length > 1 %}
