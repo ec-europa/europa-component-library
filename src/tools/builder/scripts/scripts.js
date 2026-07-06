@@ -1,4 +1,5 @@
 import { rollup } from 'rollup';
+import path from 'node:path';
 import babelPresetEnv from '@babel/preset-env';
 import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
@@ -6,6 +7,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import svg from 'rollup-plugin-svg';
+import { visualizer } from 'rollup-plugin-visualizer';
 import externalGlobals from 'rollup-plugin-external-globals';
 import { promises as fs } from 'node:fs';
 import getSystem from '../utils/getSystem.js';
@@ -55,6 +57,24 @@ export default async (input, dest, options) => {
       minifyCode && terser(terserOptions),
     ].filter(Boolean),
   };
+
+  const outDir = path.dirname(dest);
+  const statsDir = path.join(outDir, 'stats');
+
+  await fs.mkdir(statsDir, { recursive: true });
+
+  const statsFile = path.join(statsDir, `js-stats-${format}.html`);
+
+  if (options.visualizer) {
+    inputOptions.plugins.push(
+      visualizer({
+        filename: statsFile,
+        open: false,
+        gzipSize: true,
+        brotliSize: true,
+      }),
+    );
+  }
 
   const outputOptions = {
     file: dest,
