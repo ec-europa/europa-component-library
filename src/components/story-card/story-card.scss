@@ -13,12 +13,10 @@ $story-card: null !default;
 $col-9-width: 970px;
 $min-height-desktop: 548px;
 
-:root {
+.ecl-story-card {
   --story-card-grid-breakpoint: $col-9-width;
   --story-card-min-height: $min-height-desktop;
-}
 
-.ecl-story-card {
   container-type: inline-size;
   container-name: ecl-story-card;
   position: relative;
