@@ -32,6 +32,7 @@ export default {
         banner,
         moduleName: 'ECL',
         sourceMap: isProd ? false : 'inline',
+        visualizer: !isProd,
       },
     },
     {
@@ -42,6 +43,7 @@ export default {
         banner,
         moduleName: 'ECL',
         sourceMap: isProd ? false : 'inline',
+        visualizer: !isProd,
       },
     },
   ],
