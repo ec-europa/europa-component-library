@@ -1,0 +1,31 @@
+# ECL Banner search component
+
+npm package: `@ecl/banner-search`
+
+```shell
+npm install --save @ecl/banner-search
+```
+
+## Parameters
+
+- **"id"** (string) (default: random) Unique id for the component
+- **"title"** (string) (default: '') Title of search banner
+- **"description"** (string) (default: '') Description of search banner
+- **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
+- **"search_label"** (string) (default: '') Search label; for screen readers; falls back to the placeholder if not provided
+- **"search_button"** (object) (default: {}) Search button, following ECL Button structure
+- **"suggestion_label"** (string) (default: '') Label for the suggestions
+- **"suggestion"** (object) (default: {}) List of tags, following the ECL Tag Set structure
+- **"extra_classes"** (string) (default: '')
+- **"extra_attributes"** (optional) (array) (default: [])
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
+## Example:
+
+<!-- prettier-ignore -->
+```twig
+{% include '@ecl/banner-search/banner-search.html.twig' with {
+
+} %}
+```

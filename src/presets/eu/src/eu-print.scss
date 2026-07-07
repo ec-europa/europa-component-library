@@ -98,6 +98,10 @@
   $banner: var.$banner,
   $banner-print: var.$banner-print
 );
+@use '@ecl/banner-search/banner-search-print' with (
+  $theme: theme.$theme,
+  $banner-search: var.$banner-search
+);
 @use '@ecl/spotlight/spotlight-print' with (
   $theme: theme.$theme,
   $spotlight: var.$spotlight

@@ -265,6 +265,25 @@ importers:
         specifier: 5.0.0
         version: link:../../mixins/typography
 
+  src/components/banner-search:
+    dependencies:
+      '@ecl/button':
+        specifier: 5.0.0
+        version: link:../button
+      '@ecl/form-group':
+        specifier: 5.0.0
+        version: link:../form-group
+      '@ecl/icon':
+        specifier: 5.0.0
+        version: link:../icon
+      '@ecl/tag':
+        specifier: 5.0.0
+        version: link:../tag
+    devDependencies:
+      '@ecl/mixins-typography':
+        specifier: 5.0.0
+        version: link:../../mixins/typography
+
   src/components/blockquote:
     dependencies:
       '@ecl/picture':
@@ -1868,6 +1887,9 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0
         version: link:../../components/banner
+      '@ecl/banner-search':
+        specifier: 5.0.0
+        version: link:../../components/banner-search
       '@ecl/blockquote':
         specifier: 5.0.0
         version: link:../../components/blockquote
@@ -2172,6 +2194,9 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0
         version: link:../../components/banner
+      '@ecl/banner-search':
+        specifier: 5.0.0
+        version: link:../../components/banner-search
       '@ecl/blockquote':
         specifier: 5.0.0
         version: link:../../components/blockquote
@@ -2619,6 +2644,9 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0
         version: link:../components/banner
+      '@ecl/banner-search':
+        specifier: 5.0.0
+        version: link:../components/banner-search
       '@ecl/blockquote':
         specifier: 5.0.0
         version: link:../components/blockquote

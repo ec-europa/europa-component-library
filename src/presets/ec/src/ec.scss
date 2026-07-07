@@ -142,6 +142,10 @@
   $theme: theme.$theme,
   $banner: var.$banner
 );
+@use '@ecl/banner-search/banner-search' with (
+  $theme: theme.$theme,
+  $banner-search: var.$banner-search
+);
 @use '@ecl/spotlight/spotlight' with (
   $theme: theme.$theme,
   $spotlight: var.$spotlight

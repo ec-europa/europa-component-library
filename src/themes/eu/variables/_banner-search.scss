@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$banner-search: (
+  background-color: var(--c-p),
+  color: #fff,
+  padding-block: var(--s-2xl),
+  separator-color: var(--c-s),
+  title-font: var(--f-xl),
+  description-font: var(--f-l),
+  icon-color: var(--c-d),
+  form: (
+    padding: var(--s-s),
+    margin: var(--s-xl),
+    background-color: #fff,
+    shadow-focus: var(--c-p),
+    outline-color: #fff,
+    input-padding: var(--s-xs) var(--s-s),
+  ),
+  suggestion: (
+    font: var(--f-s),
+    label-padding: var(--s-xs),
+  ),
+);
