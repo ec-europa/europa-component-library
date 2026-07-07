@@ -4,6 +4,7 @@
 */
 
 @use 'sass:map';
+@use '@ecl/button/button' as button-component;
 @use '@ecl/utility-screen-reader/screen-reader';
 @use '@ecl/mixins-typography/mixins';
 
@@ -12,29 +13,7 @@ $theme: null !default;
 $button: null !default;
 $link: null !default;
 
-@mixin standalone-link {
-  --ecl-link-text-decoration: none;
-  --ecl-link-text-decoration-hover: underline;
-  --ecl-link-color-hover: var(--ecl-link-color);
-
-  display: inline-block;
-}
-
-@mixin brand-link {
-  --ecl-link-color: #{map.get($link, 'brand', 'color')};
-  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
-  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
-  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
-}
-
-@mixin inverted-link {
-  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
-  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
-  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
-  --ecl-link-focus-shadow: #{map.get($link, 'inverted', 'shadow-focus')};
-  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
-}
-
+// Links structure definition
 .ecl-link,
 %ecl-link {
   color: var(--ecl-link-color);
@@ -57,8 +36,7 @@ $link: null !default;
   &:focus-visible {
     border-radius: map.get($link, 'outline-radius');
     box-shadow: var(--ecl-link-focus-shadow);
-    outline: map.get($link, 'outline-width') solid
-      var(--ecl-focus-outline-color);
+    outline: var(--ecl-focus-outline-width) solid var(--ecl-focus-outline-color);
     outline-offset: 2px;
   }
 
@@ -80,13 +58,17 @@ $link: null !default;
 
   &:not(
       .ecl-link--standalone,
+      .ecl-link--primary,
       .ecl-link--primary-highlight,
       .ecl-link--primary-neutral,
+      .ecl-link--primary-inverted,
       .ecl-link--primary-highlight-inverted,
-      .ecl-link--primary,
       .ecl-link--secondary,
       .ecl-link--secondary-neutral,
-      .ecl-link--secondary-inverted
+      .ecl-link--secondary-inverted,
+      .ecl-link--tertiary,
+      .ecl-link--tertiary-neutral,
+      .ecl-link--tertiary-inverted
     )
     .ecl-link__label {
     text-decoration: underline;
@@ -112,7 +94,7 @@ $link: null !default;
 }
 // stylelint-enable no-descending-specificity
 
-// Icon only
+// Icon only link
 .ecl-link--icon-only {
   // stylelint-disable-next-line no-descending-specificity
   .ecl-link__label {
@@ -125,265 +107,217 @@ $link: null !default;
   }
 }
 
-/**
-* Standalone
-*/
+// Link styles definition
+// Fill css variables values for each variant
+// Put in mixin to be available in other components (when switching style between EC and EU for instance)
+
+// Standalone link
+@mixin standalone-link {
+  --ecl-link-text-decoration: none;
+  --ecl-link-text-decoration-hover: underline;
+  --ecl-link-color-hover: var(--ecl-link-color);
+
+  display: inline-block;
+}
+
 .ecl-link--standalone {
   @include standalone-link;
 }
 
-/**
-* Branded link
-*/
+// Branded link
+@mixin brand-link {
+  --ecl-link-color: #{map.get($link, 'brand', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'brand', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'brand', 'color-active')};
+  --ecl-focus-outline-color: #{map.get($link, 'brand', 'outline-color')};
+}
+
 .ecl-link--brand,
 %ecl-link-brand {
   @include brand-link;
 
   &.ecl-link--standalone {
-    @include brand-link;
     @include standalone-link;
   }
 }
 
-/**
-* Inverted link
-*/
+// Inverted link
+@mixin inverted-link {
+  --ecl-link-color: #{map.get($link, 'inverted', 'color')};
+  --ecl-link-color-hover: #{map.get($link, 'inverted', 'color-hover')};
+  --ecl-link-color-active: #{map.get($link, 'inverted', 'color-active')};
+  --ecl-link-focus-shadow: #{map.get($link, 'inverted', 'shadow-focus')};
+  --ecl-focus-outline-color: #{map.get($link, 'inverted', 'outline-color')};
+}
+
 .ecl-link--inverted,
 %ecl-link-inverted {
   @include inverted-link;
 
   &.ecl-link--standalone {
-    @include inverted-link;
     @include standalone-link;
   }
 }
 
-/**
-* Link button
-*/
-/* stylelint-disable nesting-selector-no-missing-scoping-root */
-@mixin link-button($variant: null) {
-  --ecl-button-border-width: #{map.get($button, #{$variant}, 'border-width')};
-  --ecl-button-padding-horizontal: #{map.get(
-      $button,
-      'large',
-      'padding-horizontal'
-    )};
-  --ecl-button-padding-vertical: #{map.get(
-      $button,
-      'large',
-      'padding-vertical'
-    )};
+// Link button base
+// Uses button base, plus extra rules specific to links
+@mixin link-button-base {
+  @include button-component.button-base;
+
+  --ecl-button-icon-size: #{map.get($button, 'large', 'icon-size')};
 
   align-items: center;
-  background-color: map.get($button, #{$variant}, 'background');
-  border: var(--ecl-button-border-width) solid
-    map.get($button, #{$variant}, 'border-color');
-  border-radius: map.get($button, 'radius');
-  box-sizing: border-box;
-  color: map.get($button, #{$variant}, 'color');
   display: inline-flex;
-  min-height: map.get($button, 'large', 'size');
-  min-width: map.get($button, 'large', 'size');
-  padding: calc(
-      var(--ecl-button-padding-vertical) - var(--ecl-button-border-width)
-    )
-    calc(var(--ecl-button-padding-horizontal) - var(--ecl-button-border-width));
   text-decoration: none;
 
-  @include mixins.responsive-font(map.get($button, 'large', 'font'));
+  .ecl-link__label {
+    text-decoration: none;
+  }
 
   .ecl-link__icon {
     flex-shrink: 0;
-    height: map.get($button, 'large', 'icon-size');
+    height: var(--ecl-button-icon-size);
     top: 0;
-    width: map.get($button, 'large', 'icon-size');
+    width: var(--ecl-button-icon-size);
   }
 
   &.ecl-button--s {
-    --ecl-button-padding-horizontal: #{map.get(
-        $button,
-        'small',
-        'padding-horizontal'
-      )};
-    --ecl-button-padding-vertical: #{map.get(
-        $button,
-        'small',
-        'padding-vertical'
-      )};
-
-    min-height: map.get($button, 'small', 'size');
-    min-width: map.get($button, 'small', 'size');
-
-    @include mixins.responsive-font(map.get($button, 'small', 'font'));
-
-    .ecl-link__icon {
-      height: map.get($button, 'small', 'icon-size');
-      width: map.get($button, 'small', 'icon-size');
-    }
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-small') {
-    &.ecl-button--s {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-small'
-        )};
-    }
+    --ecl-button-icon-size: #{map.get($button, 'small', 'icon-size')};
   }
 
   &.ecl-button--m {
-    --ecl-button-padding-horizontal: #{map.get(
-        $button,
-        'medium',
-        'padding-horizontal'
-      )};
-    --ecl-button-padding-vertical: #{map.get(
-        $button,
-        'medium',
-        'padding-vertical'
-      )};
-
-    min-height: map.get($button, 'medium', 'size');
-    min-width: map.get($button, 'medium', 'size');
-
-    @include mixins.responsive-font(map.get($button, 'medium', 'font'));
-
-    .ecl-link__icon {
-      height: map.get($button, 'medium', 'icon-size');
-      width: map.get($button, 'medium', 'icon-size');
-    }
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-medium') {
-    &.ecl-button--m {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-medium'
-        )};
-    }
+    --ecl-button-icon-size: #{map.get($button, 'medium', 'icon-size')};
   }
 
   &:visited {
-    color: map.get($button, #{$variant}, 'color');
+    color: var(--ecl-button-color);
   }
 
   &:hover {
-    background-color: map.get($button, #{$variant}, 'background-hover');
-    border-color: map.get($button, #{$variant}, 'border-color-hover');
     box-shadow: map.get($button, 'shadow');
-    color: map.get($button, #{$variant}, 'color-hover');
+    color: var(--ecl-button-color);
     text-decoration: none;
   }
 
   &:focus-visible {
-    background-color: map.get($button, #{$variant}, 'background-focus');
-    border-color: map.get($button, #{$variant}, 'border-color-focus');
-    color: map.get($button, #{$variant}, 'color-focus');
-    outline: #{map.get($button, #{$variant}, 'outline-width')} solid
-      #{map.get($button, #{$variant}, 'outline-color')};
-    outline-offset: map.get($button, #{$variant}, 'outline-offset');
-
-    @if map.has-key($button, #{$variant}, 'shadow-focus') {
-      box-shadow: map.get($button, #{$variant}, 'shadow-focus');
-    }
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-focus') {
-    &:focus-visible {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-focus'
-        )};
-    }
-
-    &.ecl-button--s:focus-visible {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-focus'
-        )};
-    }
-
-    &.ecl-button--m:focus-visible {
-      --ecl-button-border-width: #{map.get(
-          $button,
-          #{$variant},
-          'border-width-focus'
-        )};
-    }
+    outline: var(--ecl-focus-outline-width) solid var(--ecl-focus-outline-color);
+    outline-offset: var(--ecl-focus-outline-offset);
+    text-decoration: none;
   }
 
   &:active {
-    background-color: map.get($button, #{$variant}, 'background-active');
-    border-color: map.get($button, #{$variant}, 'border-color-active');
-    color: map.get($button, #{$variant}, 'color-active');
+    outline-width: 0;
   }
 
   &.ecl-link--icon-only {
-    align-items: center;
-    display: inline-flex;
     justify-content: center;
     padding: 0 !important;
 
     .ecl-link__icon {
-      height: map.get($button, 'large', 'icon-only-size');
-      width: map.get($button, 'large', 'icon-only-size');
+      --ecl-button-icon-only-size: #{map.get(
+          $button,
+          'large',
+          'icon-only-size'
+        )};
+
+      height: var(--ecl-button-icon-only-size);
+      width: var(--ecl-button-icon-only-size);
     }
   }
 
   &.ecl-link--icon-only.ecl-button--s .ecl-link__icon {
-    height: map.get($button, 'small', 'icon-only-size');
-    width: map.get($button, 'small', 'icon-only-size');
+    --ecl-button-icon-only-size: #{map.get($button, 'small', 'icon-only-size')};
   }
 
   &.ecl-link--icon-only.ecl-button--m .ecl-link__icon {
-    height: map.get($button, 'medium', 'icon-only-size');
-    width: map.get($button, 'medium', 'icon-only-size');
+    --ecl-button-icon-only-size: #{map.get($button, 'medium', 'icon-only-size')};
   }
 
   &:not(.ecl-link--icon-only) {
+    --ecl-button-icon-spacing: #{map.get($button, 'large', 'icon-spacing')};
+
     .ecl-link__icon ~ .ecl-link__label,
     .ecl-link__icon-container ~ .ecl-link__label,
     .ecl-link__label ~ .ecl-link__icon,
     .ecl-link__label ~ .ecl-link__icon-container {
-      margin-inline-start: map.get($button, 'large', 'icon-spacing');
+      margin-inline-start: var(--ecl-button-icon-spacing);
+    }
+
+    &.ecl-button--s {
+      --ecl-button-icon-spacing: #{map.get($button, 'small', 'icon-spacing')};
+    }
+
+    &.ecl-button--m {
+      --ecl-button-icon-spacing: #{map.get($button, 'medium', 'icon-spacing')};
     }
   }
-
-  .ecl-link__icon {
-    top: 0;
-  }
 }
-/* stylelint-enable nesting-selector-no-missing-scoping-root */
 
+// Link-button mixin — for external use by other components (e.g. featured-item)
+@mixin link-button($variant: null) {
+  @include link-button-base;
+  @include button-component.button($variant);
+}
+
+// Link-button shared base - emitted once, extended by all variants
+%link-button {
+  @include link-button-base;
+}
+
+// Primary
 .ecl-link--primary {
-  @include link-button(primary);
+  @extend %link-button;
+  @include button-component.button(primary);
 }
 
 .ecl-link--primary-highlight {
-  @include link-button(primary-highlight);
+  @extend %link-button;
+  @include button-component.button(primary-highlight);
 }
 
 .ecl-link--primary-neutral {
-  @include link-button(primary-neutral);
+  @extend %link-button;
+  @include button-component.button(primary-neutral);
+}
+
+.ecl-link--primary-inverted {
+  @extend %link-button;
+  @include button-component.button(primary-inverted);
 }
 
 .ecl-link--primary-highlight-inverted {
-  @include link-button(primary-highlight-inverted);
+  @extend %link-button;
+  @include button-component.button(primary-highlight-inverted);
 }
 
+// Secondary
 .ecl-link--secondary {
-  @include link-button(secondary);
+  @extend %link-button;
+  @include button-component.button(secondary);
 }
 
 .ecl-link--secondary-neutral {
-  @include link-button(secondary-neutral);
+  @extend %link-button;
+  @include button-component.button(secondary-neutral);
 }
 
 .ecl-link--secondary-inverted {
-  @include link-button(secondary-inverted);
+  @extend %link-button;
+  @include button-component.button(secondary-inverted);
+}
+
+// Tertiary
+.ecl-link--tertiary {
+  @extend %link-button;
+  @include button-component.button(tertiary);
+}
+
+.ecl-link--tertiary-neutral {
+  @extend %link-button;
+  @include button-component.button(tertiary-neutral);
+}
+
+.ecl-link--tertiary-inverted {
+  @extend %link-button;
+  @include button-component.button(tertiary-inverted);
 }

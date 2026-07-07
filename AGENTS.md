@@ -28,6 +28,11 @@ pnpm prettier:write   # auto-format
 
 pnpm dist             # full build (presets + components + resources)
 pnpm --filter '@ecl/button' run dist  # build a single package
+
+# Component packages don't always have a dist script. To verify SCSS compiles
+# correctly for a component, build the preset(s) that include it:
+pnpm --filter '@ecl/preset-ec' run dist
+pnpm --filter '@ecl/preset-eu' run dist
 ```
 
 ---

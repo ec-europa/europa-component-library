@@ -5,11 +5,7 @@ import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list.json';
 import dataDefault from './demo/data--default';
-import dataPrimaryHighlight from './demo/data--primary-highlight';
-import dataPrimaryNeutral from './demo/data--primary-neutral';
 import dataPrimary from './demo/data--primary';
-import dataSecondary from './demo/data--secondary';
-import dataSecondaryInverted from './demo/data--secondary-inverted';
 import dataStandalone from './demo/data--standalone';
 
 import link from './link.html.twig';
@@ -180,6 +176,9 @@ const getArgTypes = (variant) => {
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
+  if (args.link_type) {
+    data.link.type = args.link_type;
+  }
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
@@ -232,7 +231,10 @@ const renderStory = async (data, args, variant) => {
     story = `<div class="ecl-u-type-m">${story}</div>`;
   }
 
-  if (args.style === 'inverted' || data.link.type === 'secondary-inverted') {
+  if (
+    args.style === 'inverted' ||
+    (data.link.type && data.link.type.endsWith('-inverted'))
+  ) {
     story = `<div class="ecl-u-bg-black ecl-u-type-color-white ecl-u-pa-m">${story}</div>`;
   }
 
@@ -290,90 +292,59 @@ Standalone.parameters = {
   },
 };
 
-export const Primary = (_, { loaded: { component } }) => component;
+export const LinkButton = (_, { loaded: { component } }) => component;
 
-Primary.render = async (args) => {
-  const renderedLinkPrimary = await renderStory(dataPrimary, args);
-  return renderedLinkPrimary;
+LinkButton.render = async (args) => {
+  const renderedLinkButton = await renderStory(dataPrimary, args);
+  return renderedLinkButton;
 };
-Primary.storyName = 'primary';
-Primary.args = getArgs(dataPrimary, 'primary');
-Primary.argTypes = getArgTypes('primary');
-Primary.parameters = {
+LinkButton.storyName = 'link button';
+LinkButton.args = {
+  ...getArgs(dataPrimary),
+  link_type: 'primary',
+};
+LinkButton.argTypes = {
+  ...getArgTypes(),
+  link_type: {
+    name: 'variant',
+    type: 'select',
+    description: 'Link button variant',
+    options: [
+      'primary',
+      'primary-highlight',
+      'primary-neutral',
+      'primary-inverted',
+      'primary-highlight-inverted',
+      'secondary',
+      'secondary-neutral',
+      'secondary-inverted',
+      'tertiary',
+      'tertiary-neutral',
+      'tertiary-inverted',
+    ],
+    mapping: {
+      primary: 'primary',
+      'primary-highlight': 'primary-highlight',
+      'primary-neutral': 'primary-neutral',
+      'primary-inverted': 'primary-inverted',
+      'primary-highlight-inverted': 'primary-highlight-inverted',
+      secondary: 'secondary',
+      'secondary-neutral': 'secondary-neutral',
+      'secondary-inverted': 'secondary-inverted',
+      tertiary: 'tertiary',
+      'tertiary-neutral': 'tertiary-neutral',
+      'tertiary-inverted': 'tertiary-inverted',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'primary' },
+      category: 'Display',
+    },
+  },
+};
+LinkButton.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(dataPrimary, args),
-  },
-};
-
-export const PrimaryHighlight = (_, { loaded: { component } }) => component;
-
-PrimaryHighlight.render = async (args) => {
-  const renderedLinkPrimaryHighlight = await renderStory(
-    dataPrimaryHighlight,
-    args,
-  );
-  return renderedLinkPrimaryHighlight;
-};
-PrimaryHighlight.storyName = 'primary highlight';
-PrimaryHighlight.args = getArgs(dataPrimaryHighlight, 'primary highlight');
-PrimaryHighlight.argTypes = getArgTypes('primary highlight');
-PrimaryHighlight.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataPrimaryHighlight, args),
-  },
-};
-
-export const PrimaryNeutral = (_, { loaded: { component } }) => component;
-
-PrimaryNeutral.render = async (args) => {
-  const renderedLinkPrimaryNeutral = await link(
-    prepareData(dataPrimaryNeutral, args),
-  );
-  return renderedLinkPrimaryNeutral;
-};
-PrimaryNeutral.storyName = 'primary neutral';
-PrimaryNeutral.args = getArgs(dataPrimaryNeutral);
-PrimaryNeutral.argTypes = getArgTypes();
-PrimaryNeutral.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataPrimaryNeutral, args),
-  },
-};
-
-export const Secondary = (_, { loaded: { component } }) => component;
-
-Secondary.render = async (args) => {
-  const renderedLinkSecondary = await renderStory(dataSecondary, args);
-  return renderedLinkSecondary;
-};
-Secondary.storyName = 'secondary';
-Secondary.args = getArgs(dataSecondary, 'secondary');
-Secondary.argTypes = getArgTypes('secondary');
-Secondary.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataSecondary, args),
-  },
-};
-
-export const SecondaryInverted = (_, { loaded: { component } }) => component;
-
-SecondaryInverted.render = async (args) => {
-  const renderedLinkSecondaryInverted = await renderStory(
-    dataSecondaryInverted,
-    args,
-  );
-  return renderedLinkSecondaryInverted;
-};
-SecondaryInverted.storyName = 'secondary inverted';
-SecondaryInverted.args = getArgs(dataSecondaryInverted, 'secondary inverted');
-SecondaryInverted.argTypes = getArgTypes('secondary inverted');
-SecondaryInverted.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataSecondaryInverted, args),
   },
 };

@@ -9,7 +9,7 @@ npm install --save @ecl/link
 ### Parameters
 
 - **"link"** (object) (default: {}):
-  - "type" (string) (default: '') Link type; can be '', 'standalone', 'primary', 'primary-highlight', 'primary-neutral', 'secondary', 'secondary-neutral', 'secondary-inverted'
+  - "type" (string) (default: '') Link type; can be '', 'standalone', 'primary', 'primary-highlight', 'primary-neutral', 'primary-inverted', 'primary-highlight-inverted', 'secondary', 'secondary-neutral', 'secondary-inverted', 'tertiary', 'tertiary-neutral', 'tertiary-inverted'
   - "inverted" (boolean) (default: false) Is the link inverted (displayed on dark background)?
   - "branded" (boolean) (default: false) Is the link using brand color (usually dark)?
   - "label" (string) (default: '') Link text content
