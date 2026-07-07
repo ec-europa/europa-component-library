@@ -1,18 +1,28 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import defaultData from './demo/data';
 import BannerSearch from './banner-search.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => ({
-  title: data.title,
-  description: data.description,
-  nb_suggestions: data.suggestion.items.length,
-});
+const getArgs = (data) => {
+  const args = {
+    title: data.title,
+    description: data.description,
+    nb_suggestions: data.suggestion.items.length,
+  };
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
+  return args;
+};
 
 const getArgTypes = () => ({
+  ...getColorModeControls(),
   title: {
     name: 'title',
     type: { name: 'string' },
@@ -49,6 +59,7 @@ const prepareData = (data, args) => {
 
   clone.title = args.title;
   clone.description = args.description;
+  clone.color_mode = args.color_mode;
 
   if (args.nb_suggestions === 0) {
     delete clone.suggestion;

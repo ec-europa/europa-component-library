@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "id" (string) (default: random) Unique id for the component
+    - "color_mode" (string) The color mode name
     - "title" (string) (default: '') Title of search banner
     - "description" (string) (default: '') Description of search banner
     - "search_input" (object) (default: {}) Search field, following ECL Text Input structure.
@@ -22,6 +23,7 @@
 {% set _extra_attributes = '' %}
 
 {% set _id = id|default('ecl-banner-search-' ~ random()) %}
+{% set _color_mode = color_mode|default('') %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _search_input = search_input|default({}) %}
@@ -31,6 +33,10 @@
 {% set _suggestion = suggestion|default({}) %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -52,7 +58,7 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-banner-search__content ecl-container">
+  <div class="ecl-banner-search__content">
     {# Title #}
     {% if _title is not empty %}
       <div class="ecl-banner-search__title">
@@ -97,6 +103,10 @@
         } only %}
 
         {% include '@ecl/button/button.html.twig' with _search_button|merge({
+          size: _search_button.size|default('m'),
+          variant: _search_button.variant|default('primary'),
+          style: _search_button.style|default('highlight'),
+          type: _search_button.type|default('submit'),
           extra_classes: 'ecl-banner-search__form-button'
         }) only %}
       {% endif %}

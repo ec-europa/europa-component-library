@@ -20,6 +20,8 @@ $banner-search: null !default;
   align-items: center;
   display: flex;
   flex-direction: column;
+  max-width: 600px;
+  margin-inline: auto;
   text-align: center;
 
   &::before {
@@ -62,6 +64,7 @@ $banner-search: null !default;
   justify-content: center;
   margin-block-start: map.get($banner-search, 'form', 'margin');
   padding: map.get($banner-search, 'form', 'padding');
+  width: 100%;
 
   &:has(
     .ecl-banner-search__form-input:focus-visible:is(
@@ -73,6 +76,10 @@ $banner-search: null !default;
     outline: 2px solid map.get($banner-search, 'form', 'outline-color');
     outline-offset: 2px;
   }
+}
+
+.ecl-banner-search__form-group {
+  width: 100%;
 }
 
 .ecl-banner-search__form-icon {
@@ -88,6 +95,7 @@ $banner-search: null !default;
   border: none;
   height: auto;
   padding: map.get($banner-search, 'form', 'input-padding');
+  width: 100%;
 
   &:hover {
     box-shadow: none;

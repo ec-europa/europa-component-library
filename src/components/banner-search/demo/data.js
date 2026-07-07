@@ -11,10 +11,6 @@ module.exports = {
   },
   search_button: {
     label: 'Search',
-    size: 'm',
-    variant: 'primary',
-    style: 'highlight',
-    type: 'submit',
   },
   suggestion_label: 'Or explore:',
   suggestion: {

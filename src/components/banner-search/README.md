@@ -9,6 +9,7 @@ npm install --save @ecl/banner-search
 ## Parameters
 
 - **"id"** (string) (default: random) Unique id for the component
+- **"color_mode"** (string) The color mode name
 - **"title"** (string) (default: '') Title of search banner
 - **"description"** (string) (default: '') Description of search banner
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
@@ -26,6 +27,34 @@ npm install --save @ecl/banner-search
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/banner-search/banner-search.html.twig' with {
-
+title: 'Find your next role',
+  description: 'Discover job opportunities in the EU institutions',
+  search_input: {
+    id: 'banner-search-input-id',
+    name: 'banner-search-input-name',
+    placeholder: 'Enter a search keyword',
+  },
+  search_button: {
+    label: 'Search',
+  },
+  suggestion_label: 'Or explore:',
+  suggestion: {
+    items: [
+      {
+        tag: {
+          type: 'link',
+          path: '#',
+          label: 'Traineeships',
+        },
+      },
+      {
+        tag: {
+          type: 'link',
+          path: '#',
+          label: 'IT & Digital',
+        },
+      },
+    ],
+  },
 } %}
 ```
