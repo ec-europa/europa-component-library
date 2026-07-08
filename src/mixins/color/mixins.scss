@@ -56,3 +56,21 @@
     --ecl-focus-outline-color: var(--ecl-link-color);
   }
 }
+
+// Mixin to set default focus on an element
+@mixin focus-default() {
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--cm-border-inverted, #fff);
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
+    outline-offset: 2px;
+  }
+}
+
+// Mixin to set "inverted" focus on an element
+@mixin focus-inverted() {
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--cm-border-primary, var(--c-p));
+    outline: 2px solid var(--cm-border-inverted, #fff);
+    outline-offset: 2px;
+  }
+}
