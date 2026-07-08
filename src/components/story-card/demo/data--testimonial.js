@@ -28,7 +28,7 @@ module.exports = {
       },
       teaser_label: 'RICHARD FELIX',
       author: 'Richard Felix',
-      role: 'Lawier',
+      role: 'Lawyer',
       source: 'Published on The Observer',
       title:
         'You can do the same by producing your own electricity and sharing it local',
