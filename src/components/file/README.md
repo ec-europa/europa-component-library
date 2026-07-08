@@ -9,7 +9,6 @@ npm install --save @ecl/file
 ### Parameters
 
 - **"id"** (string) (default: random) Unique id for the file component
-- **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'
 - **"icon"** (object) (default: {}): Object of type Icon; indicates the file type
 - **"title"** (string|object) (default: '') Plain text title, or link object following ECL Link structure
 - **"description"** (string) (default: '') Description text
@@ -37,7 +36,8 @@ npm install --save @ecl/file
 
 ### Deprecated
 
-- **"detail_meta"** (array) (default: []) Additional metadata for the thumbnail variant
+- **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'; not used anmore
+- **"detail_meta"** (array) (default: []) Additional metadata for the thumbnail variant; replaced by 'primary_meta'
 
 ### Example:
 

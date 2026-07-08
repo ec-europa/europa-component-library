@@ -31,8 +31,8 @@
 #}
 
 {# DEPRECATED 
-- "variant" (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'
-- "detail_meta" (array) (default: []) Additional metadata for the thumbnail variant
+- "variant" (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'; not used anmore
+- "detail_meta" (array) (default: []) Additional metadata for the thumbnail variant; replaced by 'primary_meta'
 #}
 {% set _detail_meta = detail_meta|default([]) %}
 {% set _variant = variant|default('default') %}
@@ -59,7 +59,7 @@
 {% set _title_id = _id ~ '-title' %}
 {% set _meta_id = _id ~ '-meta' %}
 {% set _download_id = _id ~ '-link' %}
-{% set _download_label_id = _id ~ '-link-label' %}
+{% set _download_text_id = _id ~ '-link-label-text' %}
 {% set _translation_list_id = _id ~ '-translations' %}
 
 {% if _label.label is defined %}
@@ -218,12 +218,9 @@
     <footer class="ecl-file__footer">
       {# Translation toggle #}
       {% set _toggle_label = '' %}
-      {% if _language is not empty or _meta is not empty %}
+      {% if _language is not empty %}
         {% set _toggle_label %}
-          <div class="ecl-file__toggle-label">
-            <span class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</span>
-            <span class="ecl-file__meta" id="{{ _meta_id }}">{{ _meta }}</span>
-          </div>
+          <span class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</span>
         {% endset %}
       {% endif %}
 
@@ -254,10 +251,17 @@
 
       {# Actions #}
       <div class="ecl-file__action">
+        {% set _download_label %}
+          <span id="{{ _download_text_id }}">{{- _download.link.label|default('') -}}</span>
+          {%- if _meta is not empty -%}
+            <span class="ecl-file__meta" id="{{ _meta_id }}"> {{ _meta }}</span>
+          {% endif %}
+        {% endset %}
+
         {{ file.download_link(
-          _download,
+          _download|merge({ link: (_download.link|default({}))|merge({ label: _download_label }) }),
           _download_id,
-          _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id ~ ' ' ~ _meta_id,
+          _download_text_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id ~ ' ' ~ _meta_id,
           'ecl-file__download',
           _download_attribute,
           '',
