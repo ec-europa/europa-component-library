@@ -23,6 +23,7 @@ export * from '@ecl/modal';
 export * from '@ecl/news-ticker';
 export * from '@ecl/notification';
 export * from '@ecl/page-header';
+export * from '@ecl/picture';
 export * from '@ecl/popover';
 export * from '@ecl/quiz';
 export * from '@ecl/range';

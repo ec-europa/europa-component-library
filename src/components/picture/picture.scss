@@ -5,6 +5,10 @@
 
 .ecl-picture img {
   object-position: var(--ecl-image-anchor, 'center');
+
+  &[data-picture-focal-pending] {
+    visibility: hidden;
+  }
 }
 
 .ecl-picture--zoom {
