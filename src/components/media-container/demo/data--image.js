@@ -1,6 +1,5 @@
 module.exports = {
   picture: {
-    image_anchor: '72, 28',
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       alt: 'Jean Monnet banner',
