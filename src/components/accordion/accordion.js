@@ -1,6 +1,7 @@
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.sidebarMediaQuerySelector Selector for the media query to match
  * @param {String} options.sidebarItemSelector Selector for sidebar items that open on desktop
  * @param {String} options.sidebarBreakpoint Media query for the desktop breakpoint
  */
@@ -23,8 +24,9 @@ export class Accordion {
   constructor(
     element,
     {
+      sidebarMediaQuerySelector = 'data-ecl-accordion-sidebar-media-query',
       sidebarItemSelector = '[data-desktop-open]',
-      sidebarBreakpoint = '(min-width: 996px)',
+      sidebarBreakpoint,
     } = {},
   ) {
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
@@ -35,10 +37,14 @@ export class Accordion {
 
     this.element = element;
     this.sidebarItemSelector = sidebarItemSelector;
-    this.sidebarBreakpoint = sidebarBreakpoint;
+    this.sidebarMediaQuerySelector = sidebarMediaQuerySelector;
+    this.sidebarBreakpoint =
+      sidebarBreakpoint !== undefined
+        ? sidebarBreakpoint
+        : (this.element.getAttribute(this.sidebarMediaQuerySelector) ??
+          '(width >= 996px)');
     this.mediaQuery = null;
     this.sidebarItems = null;
-
     this.syncSidebarItems = this.syncSidebarItems.bind(this);
   }
 
