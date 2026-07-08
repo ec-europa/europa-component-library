@@ -21,7 +21,7 @@ npm install --save @ecl/file
 - **"label"** (array) (default: []) Array of ECL Label objects (also supported as a single label object)
 - **"lists"** (array) (default: []) Array of ECL Description list objects
 - **"translation"** (array) (default: []) Translation panel for multiple language versions:
-  - "toggle" (object) (default: {}): Toggle button, following ECL Button structure
+  - "sr_toggle" (string) (default: ''): Additional toggle label; for screen readers
   - "download_attribute" (boolean) (default: false) Add download attribute to all translation links
   - "items" (array) (default: []) Translation items:
     - "title" (string) (default: '') Language label
@@ -38,6 +38,7 @@ npm install --save @ecl/file
 
 - **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'; not used anmore
 - **"detail_meta"** (array) (default: []) Additional metadata for the thumbnail variant; replaced by 'primary_meta'
+- **"translation.toggle"** (object) (default: {}): Toggle button, following ECL Button structure; now set in the template directly
 
 ### Example:
 
@@ -58,14 +59,7 @@ npm install --save @ecl/file
     },
   },
   translation: {
-    toggle: {
-      label: 'Other languages (3)',
-      icon: {
-        name: 'corner-arrow',
-        size: 'fluid',
-        transform: 'rotate-180',
-      },
-    },
+    sr_toggle: 'Other languages',
     items: [
       {
         title: 'български',

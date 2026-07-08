@@ -145,6 +145,7 @@ $file: null !default;
   padding: 0;
   position: absolute;
   width: 100%;
+  z-index: map.get($theme, 'z-index', 'overlay');
 }
 
 .ecl-file__translation-item {

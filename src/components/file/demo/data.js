@@ -63,9 +63,7 @@ module.exports = {
     },
   },
   translation: {
-    toggle: {
-      label: 'Translations (3)',
-    },
+    sr_toggle: 'Translations',
     items: [
       {
         title: 'български',

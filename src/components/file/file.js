@@ -48,6 +48,7 @@ export class FileDownload {
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   /**
@@ -77,6 +78,7 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle,
       );
+      this.element.addEventListener('keydown', this.handleKeyboard);
     }
 
     // Set ecl initialized attribute
@@ -93,6 +95,7 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle,
       );
+      this.element.removeEventListener('keydown', this.handleKeyboard);
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -159,6 +162,20 @@ export class FileDownload {
     }
 
     return this;
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboard(e) {
+    // When pressing Esc close the translation dropdown, if open
+    if (
+      e.key === 'Escape' &&
+      this.translationToggle.getAttribute('aria-expanded') === 'true'
+    ) {
+      this.handleClickOnToggle(e);
+      this.translationToggle.focus();
+    }
   }
 }
 

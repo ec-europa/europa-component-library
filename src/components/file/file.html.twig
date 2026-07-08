@@ -16,7 +16,7 @@
   - "label" (array) (default: []) Array of ECL Label objects (also supported as a single label object)
   - "lists" (array) (default: []) Array of ECL Description list objects
   - "translation" (array) (default: []) Translation panel for multiple language versions:
-    - "toggle" (object) (default: {}): Toggle button, following ECL Button structure
+    - "sr_toggle" (string) (default: ''): Additional toggle label; for screen readers
     - "download_attribute" (boolean) (default: false) Add download attribute to all translation links
     - "items" (array) (default: []) Translation items:
       - "title" (string) (default: '') Language label
@@ -33,6 +33,7 @@
 {# DEPRECATED 
 - "variant" (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'; not used anmore
 - "detail_meta" (array) (default: []) Additional metadata for the thumbnail variant; replaced by 'primary_meta'
+- "translation.toggle" (object) (default: {}): Toggle button, following ECL Button structure; now set in the template directly
 #}
 {% set _detail_meta = detail_meta|default([]) %}
 {% set _variant = variant|default('default') %}
@@ -53,7 +54,6 @@
 {% set _translation = translation|default([]) %}
 {% set _picture = picture|default({}) %}
 {% set _description = description|default('') %}
-
 {% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
 {% set _lang_id = _id ~ '-lang' %}
 {% set _title_id = _id ~ '-title' %}
@@ -242,6 +242,7 @@
               { name: 'data-ecl-file-translation-toggle' },
               { name: 'aria-expanded', value: 'false' },
               { name: 'aria-controls', value: _translation_list_id },
+              { name: 'aria-label', value: _translation.sr_toggle|default(_language) },
             ],
           } only %}
         {% else %}

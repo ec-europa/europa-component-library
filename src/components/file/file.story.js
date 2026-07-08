@@ -3,7 +3,7 @@ import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from './demo/data--with-translation';
+import dataDefault from './demo/data';
 
 import file from './file.html.twig';
 import notes from './README.md';

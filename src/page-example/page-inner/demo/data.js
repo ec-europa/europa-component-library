@@ -10,7 +10,7 @@ import dataPageHeader from '@ecl/page-header/demo/data';
 import dataInpageNavigation from '@ecl/inpage-navigation/demo/data';
 import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
-import dataFile from '@ecl/file/demo/data--with-translation';
+import dataFile from '@ecl/file/demo/data';
 import dataGallery from '@ecl/gallery/demo/data';
 import dataTabs from '@ecl/tabs/demo/data--with-content';
 import dataModal from '@ecl/modal/demo/data';
@@ -40,6 +40,7 @@ dataInpageNavigation.links[2].label =
 dataInpageNavigation.links[3].label = 'Nullam';
 
 dataFile.id = 'file-id';
+delete dataFile.picture;
 
 const system = getSystem();
 
