@@ -8,6 +8,7 @@
     - "description" (string) (default: '') Description of search banner
     - "search_input" (object) (default: {}) Search field, following ECL Text Input structure.
     - "search_label" (string) (default: '') Search label; for screen readers; falls back to the placeholder if not provided
+    - "search_helper" (string) (default: '') Search helper, for additional information
     - "search_button" (object) (default: {}) Search button, following ECL Button structure
     - "suggestion_label" (string) (default: '') Label for the suggestions
     - "suggestion" (object) (default: {}) List of tags, following the ECL Tag Set structure
@@ -28,9 +29,13 @@
 {% set _description = description|default('') %}
 {% set _search_input = search_input|default({}) %}
 {% set _search_label = search_label|default('') %}
+{% set _search_helper = search_helper|default('') %}
 {% set _search_button = search_button|default({}) %}
 {% set _suggestion_label = suggestion_label|default({}) %}
 {% set _suggestion = suggestion|default({}) %}
+
+{% set _helper_id = _id ~ '-helper' %}
+{% set _suggestion_label_id = _id ~ '-suggestion-label' %}
 
 {# Internal logic - Process properties #}
 
@@ -74,47 +79,54 @@
     {% endif %}
 
     {# Input field and button #}
-    <form
-      class="ecl-banner-search__form"
-      role="search"
-      {% if _title is not empty %}
-        aria-label="{{ _title }}"
-      {% endif %}
-    >
-      {% if _search_input is not empty %}
-        {% include '@ecl/icon/icon.html.twig' with {
-          icon: {
-            name: 'magnifying-glass',
-            family: 'phosphor',
-            size: 'm',
-          },
-          extra_classes: 'ecl-banner-search__form-icon'
-        } only %}
+    {% if _search_input is not empty %}
+      <form
+        class="ecl-banner-search__form"
+        role="search"
+        {% if _search_helper is not empty %}
+          aria-describedby="{{ _helper_id }}"
+        {% endif %}
+      >
+        <div class="ecl-banner-search__form-content">
+          {% include '@ecl/icon/icon.html.twig' with {
+            icon: {
+              name: 'magnifying-glass',
+              family: 'phosphor',
+              size: 'm',
+            },
+            extra_classes: 'ecl-banner-search__form-icon'
+          } only %}
 
-        {% include '@ecl/form-group/form-group.html.twig' with {
-          label: _search_label|default(_search_input.placeholder|default('')),
-          hide_label: true,
-          extra_classes: 'ecl-banner-search__form-group',
-          input: _search_input|merge({
-            width: 'l',
-            input_type: 'search',
-            extra_classes: 'ecl-banner-search__form-input' ~ ( _search_input.extra_classes ? ' ' ~ _search_input.extra_classes : '' ),
-          }),
-        } only %}
+          {% include '@ecl/form-group/form-group.html.twig' with {
+            label: _search_label|default(_search_input.placeholder|default('')),
+            hide_label: true,
+            extra_classes: 'ecl-banner-search__form-group',
+            input: _search_input|merge({
+              width: 'l',
+              input_type: 'search',
+              extra_classes: 'ecl-banner-search__form-input' ~ ( _search_input.extra_classes ? ' ' ~ _search_input.extra_classes : '' ),
+            }),
+          } only %}
 
-        {% include '@ecl/button/button.html.twig' with _search_button|merge({
-          size: _search_button.size|default('m'),
-          variant: _search_button.variant|default('primary'),
-          style: _search_button.style|default('highlight'),
-          type: _search_button.type|default('submit'),
-          extra_classes: 'ecl-banner-search__form-button'
-        }) only %}
-      {% endif %}
-    </form>
+          {% include '@ecl/button/button.html.twig' with _search_button|merge({
+            size: _search_button.size|default('m'),
+            variant: _search_button.variant|default('primary'),
+            style: _search_button.style|default('highlight'),
+            type: _search_button.type|default('submit'),
+            extra_classes: 'ecl-banner-search__form-button'
+          }) only %}
+        </div>
+        
+        {% if _search_helper is not empty %}
+          <div class="ecl-banner-search__form-helper" id="{{ _helper_id }}">
+            {{- _search_helper -}}
+          </div>
+        {% endif %}
+      </form>
+    {% endif %}
 
     {# Suggestion #}
     {% if _suggestion is not empty %}
-      {% set _suggestion_label_id = _id ~ '-suggestion-label' %}
       <div class="ecl-banner-search__suggestion">
         {% if _suggestion_label is not empty %}
           <span class="ecl-banner-search__suggestion-label" id="{{ _suggestion_label_id }}">

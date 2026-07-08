@@ -12,7 +12,7 @@ $banner-search: null !default;
 
 .ecl-banner-search {
   color: var(--cm-on-surface-brand, var(--c-d));
-  padding-block: map.get($banner-search, 'padding-block');
+  padding: map.get($banner-search, 'padding');
 }
 
 .ecl-banner-search__content {
@@ -32,18 +32,20 @@ $banner-search: null !default;
   }
 
   & > *:first-child {
-    margin-block-start: var(--s-xs);
+    margin-block-start: map.get($banner-search, 'title', 'spacing');
   }
 }
 
 .ecl-banner-search__title {
-  @include mixins.responsive-font(map.get($banner-search, 'title-font'));
+  @include mixins.responsive-font(map.get($banner-search, 'title', 'font'));
 }
 
 .ecl-banner-search__description {
-  margin-block-start: var(--s-xs);
+  margin-block-start: map.get($banner-search, 'description', 'spacing');
 
-  @include mixins.responsive-font(map.get($banner-search, 'description-font'));
+  @include mixins.responsive-font(
+    map.get($banner-search, 'description', 'font')
+  );
 
   & > *:first-child {
     margin-block-start: 0;

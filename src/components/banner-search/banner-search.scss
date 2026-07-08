@@ -13,7 +13,7 @@ $banner-search: null !default;
 .ecl-banner-search {
   background-color: map.get($banner-search, 'background-color');
   color: map.get($banner-search, 'color');
-  padding-block: map.get($banner-search, 'padding-block');
+  padding: map.get($banner-search, 'padding');
 }
 
 .ecl-banner-search__content {
@@ -22,7 +22,6 @@ $banner-search: null !default;
   flex-direction: column;
   max-width: 600px;
   margin-inline: auto;
-  text-align: center;
 
   &::before {
     background-color: map.get($banner-search, 'separator-color');
@@ -33,18 +32,20 @@ $banner-search: null !default;
   }
 
   & > *:first-child {
-    margin-block-start: var(--s-xs);
+    margin-block-start: map.get($banner-search, 'title', 'spacing');
   }
 }
 
 .ecl-banner-search__title {
-  @include mixins.responsive-font(map.get($banner-search, 'title-font'));
+  @include mixins.responsive-font(map.get($banner-search, 'title', 'font'));
 }
 
 .ecl-banner-search__description {
-  margin-block-start: var(--s-xs);
+  margin-block-start: map.get($banner-search, 'description', 'spacing');
 
-  @include mixins.responsive-font(map.get($banner-search, 'description-font'));
+  @include mixins.responsive-font(
+    map.get($banner-search, 'description', 'font')
+  );
 
   & > *:first-child {
     margin-block-start: 0;
@@ -57,9 +58,14 @@ $banner-search: null !default;
 
 // Form
 .ecl-banner-search__form {
+  width: 100%;
+}
+
+.ecl-banner-search__form-content {
   align-items: center;
   background-color: map.get($banner-search, 'form', 'background-color');
   border-radius: map.get($theme, 'border-radius', 's');
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   margin-block-start: map.get($banner-search, 'form', 'margin');
@@ -93,6 +99,7 @@ $banner-search: null !default;
 
 .ecl-banner-search__form-input {
   border: none;
+  box-shadow: none;
   height: auto;
   padding: map.get($banner-search, 'form', 'input-padding');
   width: 100%;
@@ -106,9 +113,17 @@ $banner-search: null !default;
   }
 }
 
+.ecl-banner-search__form-helper {
+  align-self: flex-start;
+  margin-block-start: map.get($banner-search, 'helper', 'spacing');
+
+  @include mixins.responsive-font(map.get($banner-search, 'helper', 'font'));
+}
+
 // Suggestion
 .ecl-banner-search__suggestion {
   align-items: flex-start;
+  align-self: flex-start;
   display: flex;
   flex-wrap: nowrap;
   gap: var(--s-m);

@@ -14,6 +14,7 @@ npm install --save @ecl/banner-search
 - **"description"** (string) (default: '') Description of search banner
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
 - **"search_label"** (string) (default: '') Search label; for screen readers; falls back to the placeholder if not provided
+- **"search_helper"** (string) (default: '') Search helper, for additional information
 - **"search_button"** (object) (default: {}) Search button, following ECL Button structure
 - **"suggestion_label"** (string) (default: '') Label for the suggestions
 - **"suggestion"** (object) (default: {}) List of tags, following the ECL Tag Set structure

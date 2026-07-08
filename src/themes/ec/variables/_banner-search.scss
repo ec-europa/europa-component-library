@@ -4,11 +4,21 @@
 $banner-search: (
   background-color: var(--cm-surface-color-mode-high),
   color: var(--cm-on-surface-inverted),
-  padding-block: var(--s-13xl),
+  padding: var(--s-13xl) var(--s-xl),
   separator-color: var(--cm-surface-secondary),
-  title-font: 'heading2',
-  description-font: 'body-xl',
   icon-color: var(--c-g-600),
+  title: (
+    font: 'heading2',
+    spacing: var(--s-xs),
+  ),
+  description: (
+    font: 'body-xl',
+    spacing: var(--s-xs),
+  ),
+  helper: (
+    font: 'microcopy-xs',
+    spacing: var(--s-3xs),
+  ),
   form: (
     padding: var(--s-s),
     margin: var(--s-3xl),
