@@ -295,7 +295,8 @@ $min-height-desktop: 548px;
   .ecl-story-card__grid-container {
     display: flex;
     gap: var(--s-xs);
-    margin-block: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .ecl-story-card__grid-controls {
@@ -304,7 +305,7 @@ $min-height-desktop: 548px;
     gap: var(--s-m);
     justify-content: end;
     margin-block-start: map.get($story-card, 'story-card', 'controls-spacing');
-    padding: var(--s-xs);
+    padding-block: 0;
 
     @container ecl-story-card (width >= #{$col-9-width}) {
       flex: 0 0 100%;
