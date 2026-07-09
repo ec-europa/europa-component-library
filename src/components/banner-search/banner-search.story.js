@@ -75,9 +75,13 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Banner search',
-  parameters: {
-    layout: 'fullscreen',
-  },
+  decorators: [
+    withNotes,
+    withCode,
+    (storyFn) => {
+      return `<div class="ecl-container">${storyFn()}</div>`;
+    },
+  ],
 };
 
 export const Default = (_, { loaded: { component } }) => component;

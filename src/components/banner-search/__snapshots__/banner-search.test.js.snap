@@ -19,38 +19,48 @@ exports[`Banner search Default renders correctly 1`] = `
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-label="Find your next role"
+        aria-describedby="banner-search-helper"
         class="ecl-banner-search__form"
         role="search"
       >
-        <span
-          aria-hidden="true"
-          class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-banner-search__form-icon ecl-icon-phosphor--magnifying-glass"
-        />
         <div
-          class="ecl-form-group ecl-banner-search__form-group"
+          class="ecl-banner-search__form-content"
         >
-          <label
-            class="ecl-form-label ecl-form-label--hidden"
-            for="banner-search-input-id"
-            id="banner-search-input-id-label"
-          >
-            Enter a search keyword
-          </label>
-          <input
-            class="ecl-text-input ecl-text-input--l ecl-banner-search__form-input"
-            id="banner-search-input-id"
-            name="banner-search-input-name"
-            placeholder="Enter a search keyword"
-            type="search"
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-banner-search__form-icon ecl-icon-phosphor--magnifying-glass"
           />
+          <div
+            class="ecl-form-group ecl-banner-search__form-group"
+          >
+            <label
+              class="ecl-form-label ecl-form-label--hidden"
+              for="banner-search-input-id"
+              id="banner-search-input-id-label"
+            >
+              Enter a search keyword
+            </label>
+            <input
+              class="ecl-text-input ecl-text-input--l ecl-banner-search__form-input"
+              id="banner-search-input-id"
+              name="banner-search-input-name"
+              placeholder="Enter a search keyword"
+              type="search"
+            />
+          </div>
+          <button
+            class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-banner-search__form-button"
+            type="submit"
+          >
+            Search
+          </button>
         </div>
-        <button
-          class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-banner-search__form-button"
-          type="submit"
+        <div
+          class="ecl-banner-search__form-helper"
+          id="banner-search-helper"
         >
-          Search
-        </button>
+          Enter the job you're looking for
+        </div>
       </form>
       <div
         class="ecl-banner-search__suggestion"
@@ -153,38 +163,48 @@ exports[`Banner search Default renders correctly with extra attributes 1`] = `
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-label="Find your next role"
+        aria-describedby="banner-search-helper"
         class="ecl-banner-search__form"
         role="search"
       >
-        <span
-          aria-hidden="true"
-          class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-banner-search__form-icon ecl-icon-phosphor--magnifying-glass"
-        />
         <div
-          class="ecl-form-group ecl-banner-search__form-group"
+          class="ecl-banner-search__form-content"
         >
-          <label
-            class="ecl-form-label ecl-form-label--hidden"
-            for="banner-search-input-id"
-            id="banner-search-input-id-label"
-          >
-            Enter a search keyword
-          </label>
-          <input
-            class="ecl-text-input ecl-text-input--l ecl-banner-search__form-input"
-            id="banner-search-input-id"
-            name="banner-search-input-name"
-            placeholder="Enter a search keyword"
-            type="search"
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-banner-search__form-icon ecl-icon-phosphor--magnifying-glass"
           />
+          <div
+            class="ecl-form-group ecl-banner-search__form-group"
+          >
+            <label
+              class="ecl-form-label ecl-form-label--hidden"
+              for="banner-search-input-id"
+              id="banner-search-input-id-label"
+            >
+              Enter a search keyword
+            </label>
+            <input
+              class="ecl-text-input ecl-text-input--l ecl-banner-search__form-input"
+              id="banner-search-input-id"
+              name="banner-search-input-name"
+              placeholder="Enter a search keyword"
+              type="search"
+            />
+          </div>
+          <button
+            class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-banner-search__form-button"
+            type="submit"
+          >
+            Search
+          </button>
         </div>
-        <button
-          class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-banner-search__form-button"
-          type="submit"
+        <div
+          class="ecl-banner-search__form-helper"
+          id="banner-search-helper"
         >
-          Search
-        </button>
+          Enter the job you're looking for
+        </div>
       </form>
       <div
         class="ecl-banner-search__suggestion"
@@ -285,38 +305,48 @@ exports[`Banner search Default renders correctly with extra class names 1`] = `
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-label="Find your next role"
+        aria-describedby="banner-search-helper"
         class="ecl-banner-search__form"
         role="search"
       >
-        <span
-          aria-hidden="true"
-          class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-banner-search__form-icon ecl-icon-phosphor--magnifying-glass"
-        />
         <div
-          class="ecl-form-group ecl-banner-search__form-group"
+          class="ecl-banner-search__form-content"
         >
-          <label
-            class="ecl-form-label ecl-form-label--hidden"
-            for="banner-search-input-id"
-            id="banner-search-input-id-label"
-          >
-            Enter a search keyword
-          </label>
-          <input
-            class="ecl-text-input ecl-text-input--l ecl-banner-search__form-input"
-            id="banner-search-input-id"
-            name="banner-search-input-name"
-            placeholder="Enter a search keyword"
-            type="search"
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-banner-search__form-icon ecl-icon-phosphor--magnifying-glass"
           />
+          <div
+            class="ecl-form-group ecl-banner-search__form-group"
+          >
+            <label
+              class="ecl-form-label ecl-form-label--hidden"
+              for="banner-search-input-id"
+              id="banner-search-input-id-label"
+            >
+              Enter a search keyword
+            </label>
+            <input
+              class="ecl-text-input ecl-text-input--l ecl-banner-search__form-input"
+              id="banner-search-input-id"
+              name="banner-search-input-name"
+              placeholder="Enter a search keyword"
+              type="search"
+            />
+          </div>
+          <button
+            class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-banner-search__form-button"
+            type="submit"
+          >
+            Search
+          </button>
         </div>
-        <button
-          class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-banner-search__form-button"
-          type="submit"
+        <div
+          class="ecl-banner-search__form-helper"
+          id="banner-search-helper"
         >
-          Search
-        </button>
+          Enter the job you're looking for
+        </div>
       </form>
       <div
         class="ecl-banner-search__suggestion"

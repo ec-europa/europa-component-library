@@ -2,8 +2,8 @@
 @use '../index' as *;
 
 $banner-search: (
-  background-color: var(--c-p),
-  color: #fff,
+  background-color: var(--c-p-10),
+  color: var(--c-d),
   padding: var(--s-4xl) var(--s-m),
   separator-color: var(--c-s),
   icon-color: var(--c-d-80),
@@ -22,10 +22,11 @@ $banner-search: (
   form: (
     padding: var(--s-s),
     margin: var(--s-xl),
+    border-color: var(--c-d-40),
     background-color: #fff,
     shadow-focus: var(--c-p),
     outline-color: #fff,
-    input-padding: var(--s-xs) var(--s-s),
+    input-padding: var(--s-2xs) var(--s-s),
   ),
   suggestion: (
     font: var(--f-m),
