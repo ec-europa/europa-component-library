@@ -8,9 +8,14 @@ import dataTestimonial from './demo/data--testimonial';
 import storyCard from './story-card.html.twig';
 import notes from './README.md';
 
-const getArgs = () => {
+const getArgs = (data) => {
   const args = {
     numberOfItems: 4,
+    title: data.title,
+    description: data.description,
+    card_title: data.items[0].title,
+    teaser_label: data.items[0].teaser_label,
+    card_link: data.items[0].card_link,
   };
 
   if (getSystem() === 'ec') {
@@ -34,6 +39,36 @@ const getArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
+      },
+    },
+    card_title: {
+      name: 'title',
+      type: 'string',
+      description: 'Title of the first item',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'First item',
+      },
+    },
+    teaser_label: {
+      name: 'teaser label',
+      type: 'string',
+      description: 'Teaser label of the first item',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'First item',
+      },
+    },
+    card_link: {
+      name: 'link',
+      type: 'object',
+      description: 'Link of the first item',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: { summary: '' },
+        category: 'First item',
       },
     },
   };
@@ -89,41 +124,17 @@ Default.render = async (args) => {
 };
 Default.storyName = 'story';
 Default.args = {
-  ...getArgs(),
-  title: dataDefault.title,
-  description: dataDefault.description,
-  card_title: dataDefault.items[0].title,
+  ...getArgs(dataDefault),
   card_description: dataDefault.items[0].description,
-  card_link: dataDefault.items[0].card_link,
 };
 Default.argTypes = {
   ...getArgTypes(),
-  card_title: {
-    name: 'title',
-    type: 'string',
-    description: 'Title of the first item',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'First item',
-    },
-  },
   card_description: {
     name: 'description',
     type: 'string',
     description: 'Description of the first item',
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'First item',
-    },
-  },
-  card_link: {
-    name: 'link',
-    type: 'object',
-    description: 'Link of the first item',
-    table: {
-      type: { summary: 'object' },
       defaultValue: { summary: '' },
       category: 'First item',
     },
@@ -145,39 +156,14 @@ Testimonial.render = async (args) => {
 };
 Testimonial.storyName = 'testimonial';
 Testimonial.args = {
-  ...getArgs(),
-  title: dataTestimonial.title,
-  description: dataTestimonial.description,
-  teaser_label: dataTestimonial.items[0].teaser_label,
-  card_title: dataTestimonial.items[0].title,
+  ...getArgs(dataTestimonial),
   author: dataTestimonial.items[0].author,
   role: dataTestimonial.items[0].role,
   source: dataTestimonial.items[0].source,
-  card_link: dataTestimonial.items[0].card_link,
 };
 
 Testimonial.argTypes = {
   ...getArgTypes(),
-  teaser_label: {
-    name: 'teaser label',
-    type: 'string',
-    description: 'Teaser label of the first item',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'First item',
-    },
-  },
-  card_title: {
-    name: 'title',
-    type: 'string',
-    description: 'Title of the first item',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'First item',
-    },
-  },
   author: {
     name: 'author name',
     type: 'string',
@@ -204,16 +190,6 @@ Testimonial.argTypes = {
     description: 'Source of the quote in the first item',
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'First item',
-    },
-  },
-  card_link: {
-    name: 'link',
-    type: 'object',
-    description: 'Link of the first item',
-    table: {
-      type: { summary: 'object' },
       defaultValue: { summary: '' },
       category: 'First item',
     },
