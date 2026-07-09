@@ -35,6 +35,7 @@ title: 'Find your next role',
     name: 'banner-search-input-name',
     placeholder: 'Enter a search keyword',
   },
+  search_helper: "Enter the job you're looking for",
   search_button: {
     label: 'Search',
   },
