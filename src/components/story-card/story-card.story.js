@@ -54,6 +54,7 @@ const prepareData = (data, args) => {
   cloned.items[0].teaser_label = args.teaser_label;
   cloned.items[0].source = args.source;
   cloned.items[0].role = args.role;
+  cloned.items[0].author = args.author;
 
   const count = Math.min(Math.max(args.numberOfItems, 1), 4);
 
@@ -108,6 +109,7 @@ Default.argTypes = {
     },
   },
   card_description: {
+    name: 'description',
     type: 'string',
     description: 'Description of the first item',
     table: {
