@@ -29,6 +29,14 @@ describe('Accordion', () => {
     return expect(render(demoSidebar)).resolves.toMatchSnapshot();
   });
 
+  test('renders correctly in the sidebar with a custom media query', () => {
+    expect.assertions(1);
+
+    return expect(
+      render({ ...demoSidebar, sidebar_media_query: '(min-width: 768px)' }),
+    ).resolves.toMatchSnapshot();
+  });
+
   test('renders correctly with old data', () => {
     expect.assertions(1);
 
