@@ -40,6 +40,10 @@ describe('Story Card', () => {
         ],
       });
 
+      withExtraAttributes.items[0].picture.extra_attributes = [
+        { name: 'data-ecl-story-card-picture' },
+      ];
+
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });

@@ -71,6 +71,7 @@
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
       extra_classes: 'ecl-story-card__picture',
+      extra_attributes: _picture.extra_attributes|default([])
     } only %}
   </div>
 {% endif %}
