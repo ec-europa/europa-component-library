@@ -46,10 +46,14 @@ const prepareData = (data, args) => {
 
   cloned.color_mode = args.color_mode;
   cloned.title = args.title;
+  cloned.description = args.description;
 
   cloned.items[0].title = args.card_title;
   cloned.items[0].description = args.card_description;
   cloned.items[0].card_link = args.card_link;
+  cloned.items[0].teaser_label = args.teaser_label;
+  cloned.items[0].source = args.source;
+  cloned.items[0].role = args.role;
 
   const count = Math.min(Math.max(args.numberOfItems, 1), 4);
 

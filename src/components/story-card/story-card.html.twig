@@ -180,58 +180,56 @@
 
   <!-- Desktop: Grid with Accordion -->
   <div class="ecl-story-card__grid">
-    <div
+    <ul
       class="ecl-story-card__grid-container"
       role="tablist"
       {% if _title is not empty %}
         aria-label="{{ _title }} navigation"
       {% endif %}
     >
-      {% for item in _items %}
-        {% set item_class = 'ecl-story-card__grid-item' %}
-        {% if loop.first %}
-          {% set item_class = item_class ~ ' ' ~ 'ecl-story-card__grid-item--expanded' %}
-        {% endif %}
-        <div
-          class="{{ item_class }}"
-          data-ecl-story-card-grid-item="{{ loop.index0 }}"
+    {% for item in _items %}
+      {% set item_class = 'ecl-story-card__grid-item' %}
+      {% if loop.first %}
+        {% set item_class = item_class ~ ' ' ~ 'ecl-story-card__grid-item--expanded' %}
+      {% endif %}
+      <li
+        class="{{ item_class }}"
+        data-ecl-story-card-grid-item="{{ loop.index0 }}"
+        role="presentation"
+      >
+        <button
+          class="ecl-story-card__grid-card"
+          data-ecl-story-card-grid-button="{{ loop.index0 }}"
+          type="button"
+          id="{{ _id }}-tab-{{ loop.index0 }}"
+          role="tab"
+          aria-selected="{{ loop.first ? "true" : "false" }}"
+          aria-controls="{{ _id }}-details-{{ loop.index0 }}"
         >
-          <button
-            class="ecl-story-card__grid-card"
-            data-ecl-story-card-grid-button="{{ loop.index0 }}"
-            aria-label="{{ item.teaser_label }}"
-            type="button"
-            id="{{ _id }}-tab-{{ loop.index0 }}"
-            role="tab"
-            aria-selected="{{ loop.first ? "true" : "false" }}"
-            aria-controls="{{ _id }}-details-{{ loop.index0 }}"
-          >
-            {% if item.picture is not empty %}
-              <div class="ecl-story-card__grid-image">
-                {% include '@ecl/picture/picture.html.twig' with {
-                  picture: item.picture,
-                  extra_classes: 'ecl-story-card__picture',
-                } only %}
-              {% if _items|length > 1 %}
-                <div class="ecl-story-card__grid-loading-bar">
-                  {% set _completion = ((loop.index0 + 1) / _items|length) * 100 %}
-                  <div
-                    class="ecl-story-card__grid-loading-bar-completion"
-                    style="width: {{ _completion }}%;"
-                  ></div>
-                </div>
-              {% endif %}
+          {% if item.picture is not empty %}
+            <div class="ecl-story-card__grid-image">
+              {% include '@ecl/picture/picture.html.twig' with {
+                picture: item.picture,
+                extra_classes: 'ecl-story-card__picture',
+              } only %}
+            {% if _items|length > 1 %}
+              <div class="ecl-story-card__grid-loading-bar">
+                <div
+                  class="ecl-story-card__grid-loading-bar-completion"
+                ></div>
               </div>
             {% endif %}
-            <div class="ecl-story-card__grid-title-wrapper">
-              {% if item.teaser_label %}
-                <div class="ecl-story-card__grid-title">{{ item.teaser_label }}</div>
-              {% endif %}
             </div>
-          </button>
-        </div>
+          {% endif %}
+          <div class="ecl-story-card__grid-title-wrapper">
+            {% if item.teaser_label %}
+              <div class="ecl-story-card__grid-title">{{ item.teaser_label }}</div>
+            {% endif %}
+          </div>
+        </button>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
     {% for item in _items %}
     <div
       class="ecl-story-card__grid-details"

@@ -90,27 +90,27 @@
   </div>
 {% endif %}
 
-{% if _title %}
+{% if _title is not empty %}
   <div class="ecl-story-card__card-title">
     {{- _title -}}
   </div>
 {% endif %}
 
-{%- if _author or _role or _source -%}
+{%- if _author is not empty or _role is not empty or _source is not empty -%}
   <div class="ecl-story-card__testimonial">
-    {% if _author %}
+    {% if _author is not empty %}
       <span class="ecl-story-card__author">
         {{- _author -}}
       </span>
     {% endif %}
 
-    {% if _role %}
+    {% if _role is not empty %}
       <span class="ecl-story-card__role">
         {{- _role -}}
       </span>
     {% endif %}
 
-    {% if _source %}
+    {% if _source is not empty %}
       <cite class="ecl-story-card__source">
         {{- _source -}}
       </cite>
@@ -118,13 +118,13 @@
   </div>
 {%- endif -%}
 
-{%- if _description -%}
+{%- if _description is not empty -%}
   <div class="ecl-story-card__card-description">
     {{- _description -}}
   </div>
 {%- endif -%}
 
-{%- if _card_link -%}
+{%- if _card_link is not empty -%}
   {% include '@ecl/link/link.html.twig' with _card_link|merge({
     link: _card_link.link|merge({
       type: 'standalone',

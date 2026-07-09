@@ -290,18 +290,18 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
     <div
       class="ecl-story-card__grid"
     >
-      <div
+      <ul
         aria-label="Stories navigation"
         class="ecl-story-card__grid-container"
         role="tablist"
       >
-        <div
+        <li
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-0"
-            aria-label="why twelve"
             aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
@@ -329,7 +329,6 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 25%;"
                 />
               </div>
             </div>
@@ -343,14 +342,14 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="1"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-1"
-            aria-label="for everyone"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
@@ -374,7 +373,6 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 50%;"
                 />
               </div>
             </div>
@@ -388,14 +386,14 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="2"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-2"
-            aria-label="the design"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
@@ -419,7 +417,6 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 75%;"
                 />
               </div>
             </div>
@@ -433,14 +430,14 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="3"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-3"
-            aria-label="across europe"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
@@ -464,7 +461,6 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -478,8 +474,8 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         aria-labelledby="story-card-demo-tab-0"
         class="ecl-story-card__grid-details"
@@ -1032,18 +1028,18 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
     <div
       class="ecl-story-card__grid"
     >
-      <div
+      <ul
         aria-label="Stories navigation"
         class="ecl-story-card__grid-container"
         role="tablist"
       >
-        <div
+        <li
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-0"
-            aria-label="why twelve"
             aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
@@ -1071,7 +1067,6 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 25%;"
                 />
               </div>
             </div>
@@ -1085,14 +1080,14 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="1"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-1"
-            aria-label="for everyone"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
@@ -1116,7 +1111,6 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 50%;"
                 />
               </div>
             </div>
@@ -1130,14 +1124,14 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="2"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-2"
-            aria-label="the design"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
@@ -1161,7 +1155,6 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 75%;"
                 />
               </div>
             </div>
@@ -1175,14 +1168,14 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="3"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-3"
-            aria-label="across europe"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
@@ -1206,7 +1199,6 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -1220,8 +1212,8 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               </div>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         aria-labelledby="story-card-demo-tab-0"
         class="ecl-story-card__grid-details"
@@ -1768,18 +1760,18 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
     <div
       class="ecl-story-card__grid"
     >
-      <div
+      <ul
         aria-label="Stories navigation"
         class="ecl-story-card__grid-container"
         role="tablist"
       >
-        <div
+        <li
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-0"
-            aria-label="why twelve"
             aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
@@ -1807,7 +1799,6 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 25%;"
                 />
               </div>
             </div>
@@ -1821,14 +1812,14 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="1"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-1"
-            aria-label="for everyone"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
@@ -1852,7 +1843,6 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 50%;"
                 />
               </div>
             </div>
@@ -1866,14 +1856,14 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="2"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-2"
-            aria-label="the design"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
@@ -1897,7 +1887,6 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 75%;"
                 />
               </div>
             </div>
@@ -1911,14 +1900,14 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="3"
+          role="presentation"
         >
           <button
             aria-controls="story-card-demo-details-3"
-            aria-label="across europe"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
@@ -1942,7 +1931,6 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -1956,8 +1944,8 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               </div>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         aria-labelledby="story-card-demo-tab-0"
         class="ecl-story-card__grid-details"
@@ -2321,7 +2309,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
                   <span
                     class="ecl-story-card__role"
                   >
-                    Lawier
+                    Lawyer
                   </span>
                   <cite
                     class="ecl-story-card__source"
@@ -2672,18 +2660,18 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
     <div
       class="ecl-story-card__grid"
     >
-      <div
+      <ul
         aria-label="Testimonials navigation"
         class="ecl-story-card__grid-container"
         role="tablist"
       >
-        <div
+        <li
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-0"
-            aria-label="RICHARD FELIX"
             aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
@@ -2711,7 +2699,6 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 25%;"
                 />
               </div>
             </div>
@@ -2725,14 +2712,14 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="1"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-1"
-            aria-label="MARCUS LENNARD"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
@@ -2756,7 +2743,6 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 50%;"
                 />
               </div>
             </div>
@@ -2770,14 +2756,14 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="2"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-2"
-            aria-label="RENATA BEER"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
@@ -2801,7 +2787,6 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 75%;"
                 />
               </div>
             </div>
@@ -2815,14 +2800,14 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="3"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-3"
-            aria-label="DEBBY STARK"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
@@ -2846,7 +2831,6 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -2860,8 +2844,8 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </div>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         aria-labelledby="story-card-testimonial-demo-tab-0"
         class="ecl-story-card__grid-details"
@@ -2919,7 +2903,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               <span
                 class="ecl-story-card__role"
               >
-                Lawier
+                Lawyer
               </span>
               <cite
                 class="ecl-story-card__source"
@@ -3395,7 +3379,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
                   <span
                     class="ecl-story-card__role"
                   >
-                    Lawier
+                    Lawyer
                   </span>
                   <cite
                     class="ecl-story-card__source"
@@ -3750,18 +3734,18 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
     <div
       class="ecl-story-card__grid"
     >
-      <div
+      <ul
         aria-label="Testimonials navigation"
         class="ecl-story-card__grid-container"
         role="tablist"
       >
-        <div
+        <li
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-0"
-            aria-label="RICHARD FELIX"
             aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
@@ -3789,7 +3773,6 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 25%;"
                 />
               </div>
             </div>
@@ -3803,14 +3786,14 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="1"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-1"
-            aria-label="MARCUS LENNARD"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
@@ -3834,7 +3817,6 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 50%;"
                 />
               </div>
             </div>
@@ -3848,14 +3830,14 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="2"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-2"
-            aria-label="RENATA BEER"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
@@ -3879,7 +3861,6 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 75%;"
                 />
               </div>
             </div>
@@ -3893,14 +3874,14 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="3"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-3"
-            aria-label="DEBBY STARK"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
@@ -3924,7 +3905,6 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -3938,8 +3918,8 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </div>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         aria-labelledby="story-card-testimonial-demo-tab-0"
         class="ecl-story-card__grid-details"
@@ -3997,7 +3977,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               <span
                 class="ecl-story-card__role"
               >
-                Lawier
+                Lawyer
               </span>
               <cite
                 class="ecl-story-card__source"
@@ -4471,7 +4451,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
                   <span
                     class="ecl-story-card__role"
                   >
-                    Lawier
+                    Lawyer
                   </span>
                   <cite
                     class="ecl-story-card__source"
@@ -4822,18 +4802,18 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
     <div
       class="ecl-story-card__grid"
     >
-      <div
+      <ul
         aria-label="Testimonials navigation"
         class="ecl-story-card__grid-container"
         role="tablist"
       >
-        <div
+        <li
           class="ecl-story-card__grid-item ecl-story-card__grid-item--expanded"
           data-ecl-story-card-grid-item="0"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-0"
-            aria-label="RICHARD FELIX"
             aria-selected="true"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="0"
@@ -4861,7 +4841,6 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 25%;"
                 />
               </div>
             </div>
@@ -4875,14 +4854,14 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="1"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-1"
-            aria-label="MARCUS LENNARD"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="1"
@@ -4906,7 +4885,6 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 50%;"
                 />
               </div>
             </div>
@@ -4920,14 +4898,14 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="2"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-2"
-            aria-label="RENATA BEER"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="2"
@@ -4951,7 +4929,6 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 75%;"
                 />
               </div>
             </div>
@@ -4965,14 +4942,14 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </div>
             </div>
           </button>
-        </div>
-        <div
+        </li>
+        <li
           class="ecl-story-card__grid-item"
           data-ecl-story-card-grid-item="3"
+          role="presentation"
         >
           <button
             aria-controls="story-card-testimonial-demo-details-3"
-            aria-label="DEBBY STARK"
             aria-selected="false"
             class="ecl-story-card__grid-card"
             data-ecl-story-card-grid-button="3"
@@ -4996,7 +4973,6 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               >
                 <div
                   class="ecl-story-card__grid-loading-bar-completion"
-                  style="width: 100%;"
                 />
               </div>
             </div>
@@ -5010,8 +4986,8 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </div>
             </div>
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         aria-labelledby="story-card-testimonial-demo-tab-0"
         class="ecl-story-card__grid-details"
@@ -5069,7 +5045,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               <span
                 class="ecl-story-card__role"
               >
-                Lawier
+                Lawyer
               </span>
               <cite
                 class="ecl-story-card__source"

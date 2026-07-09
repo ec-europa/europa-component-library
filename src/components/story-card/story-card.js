@@ -73,9 +73,8 @@ export class StoryCard {
       slideSelector = '[data-ecl-story-card-slide]',
       prevSelector = '[data-ecl-story-card-prev]',
       nextSelector = '[data-ecl-story-card-next]',
-      playSelector = '[data-ecl-story-card-play]',
-      pauseSelector = '[data-ecl-story-card-pause]',
       pagerClass = '.ecl-story-card__pager',
+      completionBarClass = '.ecl-story-card__grid-loading-bar-completion',
       dotsClass = '.ecl-story-card__dots',
       dotClass = '.ecl-story-card__dot',
       activeDotClass = 'ecl-story-card__dot--active',
@@ -111,8 +110,6 @@ export class StoryCard {
     this.slideSelector = slideSelector;
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
-    this.playSelector = playSelector;
-    this.pauseSelector = pauseSelector;
     this.pagerClass = pagerClass;
     this.dotsClass = dotsClass;
     this.dotClass = dotClass;
@@ -122,6 +119,7 @@ export class StoryCard {
     this.gridItemSelector = gridItemSelector;
     this.gridButtonSelector = gridButtonSelector;
     this.gridDetailsSelector = gridDetailsSelector;
+    this.completionBarClass = completionBarClass;
     this.gridPrevSelector = gridPrevSelector;
     this.gridNextSelector = gridNextSelector;
     this.gridPlaySelector = gridPlaySelector;
@@ -139,8 +137,6 @@ export class StoryCard {
     this.slider = null;
     this.btnPrev = null;
     this.btnNext = null;
-    this.btnPlay = null;
-    this.btnPause = null;
     this.currentElement = null;
     this.totalElement = null;
     this.index = 1;
@@ -160,11 +156,12 @@ export class StoryCard {
     this.expandedItem = null;
     this.desktopBreakpoint = null;
     this.minHeightDesktop = null;
-    this.gridAutoplayInterval = null;
     this.gridDetailsHeightFrame = null;
     this.isGridAutoPlaying = false;
 
     this.onWindowResize = this.onWindowResize.bind(this);
+    this.pauseGridAutoplay = this.pauseGridAutoplay.bind(this);
+    this.toggleGridAutoplay = this.toggleGridAutoplay.bind(this);
   }
 
   /**
@@ -176,8 +173,6 @@ export class StoryCard {
     this.slides = queryAll(this.slideSelector, this.element);
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
-    this.btnPlay = queryOne(this.playSelector, this.element);
-    this.btnPause = queryOne(this.pauseSelector, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
     this.currentElement = queryOne(this.currentSelector, this.element);
     this.totalElement = queryOne(this.totalSelector, this.element);
@@ -188,6 +183,11 @@ export class StoryCard {
     this.btnGridNext = queryOne(this.gridNextSelector, this.element);
     this.btnGridPlay = queryOne(this.gridPlaySelector, this.element);
     this.btnGridPause = queryOne(this.gridPauseSelector, this.element);
+    this.completionBars = queryAll(this.completionBarClass, this.element);
+    this.element.style.setProperty(
+      '--ecl-story-card-slide-duration',
+      `${this.gridAutoplayDelay}ms`,
+    );
     this.desktopBreakpoint =
       getComputedStyle(this.element)
         .getPropertyValue(this.desktopBreakpointCssVar)
@@ -368,11 +368,6 @@ export class StoryCard {
    */
   initGridAccordion() {
     this.gridButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        this.pauseGridAutoplay();
-        this.setGridItem(index);
-      });
-
       if (button.getAttribute('aria-selected') === 'true') {
         this.expandedItem = index;
         this.setGridItem(index);
@@ -527,33 +522,37 @@ export class StoryCard {
   /**
    * Move the grid accordion to the previous item.
    */
-  goToPreviousGridItem() {
+  goToPreviousGridItem = () => {
     this.setGridItem((this.expandedItem || 0) - 1);
-  }
+  };
 
   /**
    * Move the grid accordion to the next item.
    */
-  goToNextGridItem() {
+  goToNextGridItem = () => {
     this.setGridItem((this.expandedItem || 0) + 1);
-  }
+  };
+
+  /**
+   * Move the grid accordion to the next item when the css animation ends.
+   */
+  handleProgressEnd = () => {
+    this.goToNextGridItem();
+  };
 
   /**
    * Start the grid auto-play.
    */
   playGridAutoplay() {
-    if (
-      !this.gridButtons ||
-      this.gridButtons.length < 2 ||
-      this.gridAutoplayInterval
-    ) {
+    if (!this.gridButtons || this.gridButtons.length < 2) {
       return;
     }
 
-    this.gridAutoplayInterval = setInterval(() => {
-      this.goToNextGridItem();
-    }, this.gridAutoplayDelay);
     this.isGridAutoPlaying = true;
+
+    this.completionBars.forEach((bar) => {
+      bar.classList.remove('is-paused');
+    });
 
     if (this.btnGridPlay) this.btnGridPlay.style.display = 'none';
     if (this.btnGridPause) this.btnGridPause.style.display = 'flex';
@@ -563,11 +562,11 @@ export class StoryCard {
    * Pause the grid auto-play.
    */
   pauseGridAutoplay() {
-    if (!this.gridAutoplayInterval) return;
-
-    clearInterval(this.gridAutoplayInterval);
-    this.gridAutoplayInterval = null;
     this.isGridAutoPlaying = false;
+
+    this.completionBars.forEach((bar) => {
+      bar.classList.add('is-paused');
+    });
 
     if (this.btnGridPlay) this.btnGridPlay.style.display = 'flex';
     if (this.btnGridPause) this.btnGridPause.style.display = 'none';
@@ -595,56 +594,55 @@ export class StoryCard {
   }
 
   /**
+   * Handle the click on the next button.
+   */
+  handleNextClick = () => {
+    this.slider?.goToNext();
+  };
+
+  /**
+   * Handle the click on the prev button.
+   */
+  handlePrevClick = () => {
+    this.slider?.goToPrev();
+  };
+
+  /**
+   * Handle the click on the pause button.
+   */
+  handleGridPauseClick = () => {
+    this.toggleGridAutoplay(false);
+  };
+
+  /**
+   * Handle the click on the  pause button.
+   */
+  handleGridPlayClick = () => {
+    this.toggleGridAutoplay(true);
+  };
+
+  handleClickOnGridButtons = (event) => {
+    this.pauseGridAutoplay();
+    const index = this.gridButtons.indexOf(event.currentTarget);
+    this.setGridItem(index);
+  };
+
+  /**
    * Attach event listeners.
    */
   attachListeners() {
-    if (this.btnPrev) {
-      this.btnPrev.addEventListener('click', () => {
-        if (this.slider) {
-          this.slider.goToPrev();
-        }
-      });
-    }
-
-    if (this.btnNext) {
-      this.btnNext.addEventListener('click', () => {
-        if (this.slider) {
-          this.slider.goToNext();
-        }
-      });
-    }
-
-    if (this.btnPlay) {
-      this.btnPlay.addEventListener('click', () => this.play());
-    }
-
-    if (this.btnPause) {
-      this.btnPause.addEventListener('click', () => this.pause());
-    }
-
-    if (this.btnGridPrev) {
-      this.btnGridPrev.addEventListener('click', () => {
-        this.goToPreviousGridItem();
-      });
-    }
-
-    if (this.btnGridNext) {
-      this.btnGridNext.addEventListener('click', () => {
-        this.goToNextGridItem();
-      });
-    }
-
-    if (this.btnGridPlay) {
-      this.btnGridPlay.addEventListener('click', () => {
-        this.toggleGridAutoplay(true);
-      });
-    }
-
-    if (this.btnGridPause) {
-      this.btnGridPause.addEventListener('click', () => {
-        this.toggleGridAutoplay(false);
-      });
-    }
+    this.btnPrev?.addEventListener('click', this.handlePrevClick);
+    this.btnNext?.addEventListener('click', this.handleNextClick);
+    this.btnGridPrev?.addEventListener('click', this.goToPreviousGridItem);
+    this.btnGridNext?.addEventListener('click', this.goToNextGridItem);
+    this.btnGridPlay?.addEventListener('click', this.handleGridPlayClick);
+    this.btnGridPause?.addEventListener('click', this.handleGridPauseClick);
+    this.gridButtons.forEach((button) => {
+      button.addEventListener('click', this.handleClickOnGridButtons);
+    });
+    this.completionBars.forEach((bar) => {
+      bar.addEventListener('animationend', this.handleProgressEnd);
+    });
   }
 
   /**
@@ -662,10 +660,6 @@ export class StoryCard {
       this.slider.destroy();
     }
 
-    if (this.gridAutoplayInterval) {
-      clearInterval(this.gridAutoplayInterval);
-    }
-
     if (
       this.gridDetailsHeightFrame &&
       typeof window !== 'undefined' &&
@@ -677,6 +671,19 @@ export class StoryCard {
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.onWindowResize);
     }
+
+    this.btnPrev?.removeEventListener('click', this.handlePrevClick);
+    this.btnNext?.removeEventListener('click', this.handleNextClick);
+    this.btnGridPrev?.removeEventListener('click', this.goToPreviousGridItem);
+    this.btnGridNext?.removeEventListener('click', this.goToNextGridItem);
+    this.btnGridPlay?.removeEventListener('click', this.handleGridPlayClick);
+    this.btnGridPause?.removeEventListener('click', this.handleGridPauseClick);
+    this.completionBars?.forEach((bar) => {
+      bar.removeEventListener('animationend', this.handleProgressEnd);
+    });
+    this.gridButtons?.forEach((button) => {
+      button.removeEventListener('click', this.handleClickOnGridButtons);
+    });
   }
 }
 

@@ -14,8 +14,8 @@ $col-9-width: 970px;
 $min-height-desktop: 548px;
 
 .ecl-story-card {
-  --story-card-grid-breakpoint: $col-9-width;
-  --story-card-min-height: $min-height-desktop;
+  --story-card-grid-breakpoint: #{$col-9-width};
+  --story-card-min-height: #{$min-height-desktop};
 
   container-type: inline-size;
   container-name: ecl-story-card;
@@ -55,7 +55,7 @@ $min-height-desktop: 548px;
   .ecl-story-card__carousel {
     display: block;
 
-    @container (width >= 600px) {
+    @container ecl-story-card (width >= 600px) {
       display: none;
     }
   }
@@ -80,11 +80,9 @@ $min-height-desktop: 548px;
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: var(--c-w);
     border-radius: map.get($theme, 'border-radius', 's')
       map.get($theme, 'border-radius', 's') 0 0;
     overflow: hidden;
-    transition: all 0.3s ease;
   }
 
   .ecl-story-card__image-wrapper {
@@ -224,7 +222,7 @@ $min-height-desktop: 548px;
     }
   }
 
-  @container (width >= 600px) {
+  @container ecl-story-card(width >= 600px) {
     .ecl-story-card__header {
       margin-block-end: map.get(
         $story-card,
@@ -243,7 +241,7 @@ $min-height-desktop: 548px;
     }
   }
 
-  @container (width >= #{$col-9-width}) {
+  @container ecl-story-card (width >= #{$col-9-width}) {
     .ecl-story-card__header {
       margin-block-end: map.get(
         $story-card,
@@ -265,12 +263,12 @@ $min-height-desktop: 548px;
   .ecl-story-card__grid {
     display: none;
 
-    @container (width >= 600px) {
+    @container ecl-story-card (width >= 600px) {
       display: flex;
       flex-direction: column;
     }
 
-    @container (width >= #{$col-9-width}) {
+    @container ecl-story-card (width >= #{$col-9-width}) {
       flex-direction: row;
       flex-wrap: wrap;
       gap: 0 var(--s-m);
@@ -284,7 +282,7 @@ $min-height-desktop: 548px;
 
       .ecl-story-card__grid-card {
         height: 100%;
-        min-height: $min-height-desktop;
+        min-height: var(--story-card-min-height);
         width: 4rem;
       }
 
@@ -297,6 +295,7 @@ $min-height-desktop: 548px;
   .ecl-story-card__grid-container {
     display: flex;
     gap: var(--s-xs);
+    margin-block: 0;
   }
 
   .ecl-story-card__grid-controls {
@@ -307,7 +306,7 @@ $min-height-desktop: 548px;
     margin-block-start: map.get($story-card, 'story-card', 'controls-spacing');
     padding: var(--s-xs);
 
-    @container (width >= #{$col-9-width}) {
+    @container ecl-story-card (width >= #{$col-9-width}) {
       flex: 0 0 100%;
     }
   }
@@ -389,6 +388,23 @@ $min-height-desktop: 548px;
     .ecl-story-card__grid-loading-bar-completion {
       background: var(--cm-surface-medium, var(--c-p));
       height: 100%;
+      width: 0;
+      animation: loading #{var(--ecl-story-card-slide-duration)} linear forwards;
+      animation-play-state: running;
+
+      &.is-paused {
+        animation-play-state: paused;
+      }
+    }
+
+    @keyframes loading {
+      from {
+        width: 0%;
+      }
+
+      to {
+        width: 100%;
+      }
     }
 
     &[aria-selected='true'] .ecl-story-card__grid-loading-bar {
