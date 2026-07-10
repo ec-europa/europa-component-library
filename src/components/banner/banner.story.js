@@ -35,7 +35,9 @@ const getArgs = (data) => {
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
-    args.media_anchor = 'center';
+    args.image_anchor = '50,90';
+    args.smartcrop = false;
+    args.use_obj_position = false;
   }
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -363,7 +365,12 @@ const getArgTypes = (data) => {
 
   if (data.picture) {
     argTypes.image = {
-      type: 'string',
+      type: 'select',
+      options: [
+        'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1429704658776-3d38c9990511?q=80&w=1679&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      ],
       description: 'Path or Url of the background image',
       table: {
         type: { summary: 'string' },
@@ -372,22 +379,77 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_media' },
     };
-
-    argTypes.media_anchor = {
-      name: 'media anchor',
+    argTypes.image_anchor = {
+      name: 'focal point',
+      description:
+        'With object-fit: cover, only the axis where cropping occurs has an effect. For landscape images horizontal values affect the crop; for portrait images vertical values affect the crop.',
       type: { name: 'select' },
-      description: 'Media anchor (sample)',
-      options: ['center', 'top left', 'bottom right', '20% 20%'],
-      mapping: {
-        center: 'center',
-        'top left': 'top left',
-        'bottom right': 'bottom right',
-        '20% 20%': '20% 20%',
+      options: [
+        '',
+        '10,10',
+        '50,10',
+        '90,10',
+        '10,50',
+        '30,50',
+        '50,50',
+        '50,30',
+        '70,50',
+        '90,50',
+        '10,90',
+        '50,90',
+        '90,90',
+        '30,30',
+        '70,30',
+        '30,70',
+        '70,70',
+      ],
+      control: {
+        labels: {
+          '': 'none',
+          '10,10': 'x: 10%, y: 10% - Top left',
+          '50,10': 'x: 50%, y: 10% - Top',
+          '90,10': 'x: 90%, y: 10% - Top right',
+          '10,50': 'x: 10%, y: 50% - Left',
+          '30,50': 'x: 30%, y: 50% - Left-center',
+          '50,50': 'x: 50%, y: 50% - Center',
+          '50,30': 'x: 50%, y: 30% - Center top',
+          '70,50': 'x: 70%, y: 50% - Right-center',
+          '90,50': 'x: 90%, y: 50% - Right',
+          '10,90': 'x: 10%, y: 90% - Bottom left',
+          '50,90': 'x: 50%, y: 90% - Bottom',
+          '90,90': 'x: 90%, y: 90% - Bottom right',
+          '30,30': 'x: 30%, y: 30% - Upper left',
+          '70,30': 'x: 70%, y: 30% - Upper right',
+          '30,70': 'x: 30%, y: 70% - Lower left',
+          '70,70': 'x: 70%, y: 70% - Lower right',
+        },
       },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'center' },
-        category: 'Display',
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_media' },
+    };
+    argTypes.use_obj_position = {
+      name: 'use css only',
+      type: 'boolean',
+      description: 'Use the current solution with css only',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+      if: { arg: 'show_media' },
+    };
+    argTypes.smartcrop = {
+      type: 'boolean',
+      description:
+        'Use smartcrop script to crop the image, might non follow the focal point if it finds something more revelant.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
       },
       if: { arg: 'show_media' },
     };
@@ -440,7 +502,9 @@ const prepareData = (data, args) => {
 
   if (clone.picture) {
     clone.picture.img.src = args.image;
-    clone.picture.image_anchor = args.media_anchor;
+    clone.picture.image_anchor = args.image_anchor;
+    clone.picture.smartcrop = args.smartcrop;
+    clone.picture.use_obj_position = args.use_obj_position;
   }
 
   return clone;
@@ -479,6 +543,25 @@ Image.storyName = 'image';
 Image.args = getArgs(bannerDataImage);
 Image.argTypes = getArgTypes(bannerDataImage);
 Image.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(bannerDataImage, args),
+  },
+};
+
+export const FocalPoint = (_, { loaded: { component } }) => component;
+
+FocalPoint.render = async (args) => {
+  const renderedBannerFocalPoint = await renderStory(bannerDataImage, {
+    ...args,
+    media_anchor: '30,70',
+  });
+  return renderedBannerFocalPoint;
+};
+FocalPoint.storyName = 'focal point';
+FocalPoint.args = getArgs(bannerDataImage);
+FocalPoint.argTypes = getArgTypes(bannerDataImage);
+FocalPoint.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(bannerDataImage, args),

@@ -20,9 +20,13 @@ const getArgs = (data) => {
     horizontal_alignment: 'left',
     vertical_alignment: 'top',
     media_position: 'left',
-    media_behavior: 'static',
-    media_anchor: 'center',
+    media_behavior: 'dynamic',
+    media_anchor: '50,30',
+    use_obj_position: false,
+    smartcrop: false,
     link_display: '',
+    picture:
+      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=900&fit=crop',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
@@ -208,21 +212,128 @@ const getArgTypes = (data) => {
     if: { arg: 'show_media' },
   };
 
-  argTypes.media_anchor = {
-    name: 'media anchor',
+  argTypes.picture = {
     type: { name: 'select' },
-    description: 'Media anchor (sample)',
-    options: ['center', 'top left', 'bottom right', '20% 20%'],
-    mapping: {
-      center: 'center',
-      'top left': 'top left',
-      'bottom right': 'bottom right',
-      '20% 20%': '20% 20%',
+    options: [
+      // landscape
+      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=900&fit=crop', // airplane
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=900&fit=crop', // classic car
+      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1500&h=1200&fit=crop', // cabin
+
+      // square
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1000&h=1000&fit=crop', // portrait
+
+      // portrait
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&h=1200&fit=crop', // woman
+      'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&h=1600&fit=crop', // lighthouse
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&h=1400&fit=crop', // tree
+
+      // extreme landscape
+      'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1800&h=600&fit=crop', // train
+
+      // extreme portrait
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=1800&fit=crop', // balloon
+    ],
+    control: {
+      labels: {
+        'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=900&fit=crop':
+          '16:9 Landcape · Airplane',
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=900&fit=crop':
+          '4:3 Landcape · Car',
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1500&h=1200&fit=crop':
+          '5:4 Landcape · Wood',
+        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1000&h=1000&fit=crop':
+          '1:1 · Portrait',
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&h=1200&fit=crop':
+          '3:4 Portrait · Person',
+        'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&h=1600&fit=crop':
+          '9:16 Portrait · Lake with house',
+        'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&h=1400&fit=crop':
+          '1:2 Portrait · Mountain',
+        'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1800&h=600&fit=crop':
+          '3:1 Landcape · Forest',
+        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=1800&fit=crop':
+          '1:3 Portrait · Road with car',
+      },
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'center' },
-      category: 'Display',
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
+  argTypes.media_anchor = {
+    name: 'focal point',
+    description:
+      'With object-fit: cover, only the axis where cropping occurs has an effect. For landscape images horizontal values affect the crop; for portrait images vertical values affect the crop.',
+    type: { name: 'select' },
+    options: [
+      '10,10',
+      '50,10',
+      '90,10',
+      '10,50',
+      '30,50',
+      '50,50',
+      '50,30',
+      '70,50',
+      '90,50',
+      '10,90',
+      '50,90',
+      '90,90',
+      '30,30',
+      '70,30',
+      '30,70',
+      '70,70',
+    ],
+    control: {
+      labels: {
+        '10,10': 'x: 10%, y: 10% - Top left',
+        '50,10': 'x: 50%, y: 10% - Top',
+        '90,10': 'x: 90%, y: 10% - Top right',
+        '10,50': 'x: 10%, y: 50% - Left',
+        '30,50': 'x: 30%, y: 50% - Left-center',
+        '50,50': 'x: 50%, y: 50% - Center',
+        '50,30': 'x: 50%, y: 30% - Center top',
+        '70,50': 'x: 70%, y: 50% - Right-center',
+        '90,50': 'x: 90%, y: 50% - Right',
+        '10,90': 'x: 10%, y: 90% - Bottom left',
+        '50,90': 'x: 50%, y: 90% - Bottom',
+        '90,90': 'x: 90%, y: 90% - Bottom right',
+        '30,30': 'x: 30%, y: 30% - Upper left',
+        '70,30': 'x: 70%, y: 30% - Upper right',
+        '30,70': 'x: 30%, y: 70% - Lower left',
+        '70,70': 'x: 70%, y: 70% - Lower right',
+      },
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    if: { arg: 'media_behavior', eq: 'dynamic' },
+  };
+
+  argTypes.use_obj_position = {
+    name: 'Use object-position with the value provided',
+    type: 'boolean',
+    description: 'Use the current approach, css only',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+    if: { arg: 'media_behavior', eq: 'dynamic' },
+  };
+
+  argTypes.smartcrop = {
+    type: 'boolean',
+    description:
+      'Use smartcrop script to crop the image, might non follow the focal point if it finds something more revelant.',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
     },
     if: { arg: 'media_behavior', eq: 'dynamic' },
   };
@@ -242,7 +353,10 @@ const prepareData = (data, args) => {
   if (args.show_media) {
     clone.position = args.media_position;
     clone.media_container = mediaContainer;
+    clone.media_container.picture.img.src = args.picture;
     clone.media_container.picture.image_anchor = args.media_anchor;
+    clone.media_container.picture.use_obj_position = args.use_obj_position;
+    clone.media_container.picture.smartcrop = args.smartcrop;
   } else {
     delete clone.media_container;
   }

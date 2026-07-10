@@ -17,6 +17,7 @@ const getArgs = (data) => {
         : '';
     args.picture_zoom = false;
     args.image_anchor = '50,30';
+    args.smartcrop = false;
   }
   if (data.labels) {
     args.show_labels = true;
@@ -221,6 +222,16 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     };
+    argTypes.smartcrop = {
+      type: 'boolean',
+      description:
+        'Use smartcrop script to crop the image, might non follow the focal point if it finds something more revelant.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Content',
+      },
+    };
     argTypes.picture_zoom = {
       name: 'picture zoom',
       type: 'boolean',
@@ -316,6 +327,7 @@ const prepareData = (data, args) => {
     clone.picture.img.src = args.picture;
     clone.picture.image_anchor = args.image_anchor;
     clone.picture_zoom = args.picture_zoom;
+    clone.picture.smartcrop = args.smartcrop;
   }
   if (clone.description) {
     clone.description = args.description;

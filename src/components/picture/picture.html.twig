@@ -57,7 +57,7 @@
 
 <picture
   class="{{ _css_class }}"
-  {%- if _picture.image_anchor is not empty -%}
+  {%- if _picture.image_anchor is not empty or _picture.smartcrop is not empty -%}
     {%- if not _picture.use_obj_position -%}
       data-ecl-auto-init="Picture"
       data-picture-focal-point="{{ _picture.image_anchor}}"
@@ -66,6 +66,9 @@
       {% set position =  _picture.image_anchor|split(',') %}
       style="--ecl-image-anchor: {{ position[0] }}% {{ position[1] }}%;"
     {%- endif -%}
+    {% if _picture.smartcrop %}
+      smartcrop
+    {% endif %}
   {%- endif -%}
   {{ _extra_attributes|raw }}
 >
