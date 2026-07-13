@@ -69,6 +69,10 @@
     {% if _picture.smartcrop %}
       smartcrop
     {% endif %}
+    {%- if _picture.debug_position -%}
+      data-picture-debug
+    {%- endif -%}
+
   {%- endif -%}
   {{ _extra_attributes|raw }}
 >

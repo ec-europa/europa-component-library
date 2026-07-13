@@ -4,6 +4,9 @@ import smartcrop from 'smartcrop';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.imgSelector Selector for the image element
+ * @param {String} options.debugSelector Selector for enabling the debug
+ * @param {String} options.smartcropSelector Selector for enabling smartcrop
+ * @param {String} options.imagePendingAttribute Selector for hiding the image before calculations are done
  * @param {String} options.focalPointAttribute Attribute containing the focal point
  */
 export class Picture {
@@ -27,6 +30,9 @@ export class Picture {
     {
       imgSelector = 'img',
       focalPointAttribute = 'data-picture-focal-point',
+      debugSelector = 'data-picture-debug',
+      smartcropSelector = 'smartcrop',
+      imagePendingAttribute = 'data-picture-focal-pending',
     } = {},
   ) {
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
@@ -38,14 +44,23 @@ export class Picture {
     this.element = element;
 
     this.imgSelector = imgSelector;
+    this.debugSelector = debugSelector;
     this.focalPointAttribute = focalPointAttribute;
+    this.smartcropSelector = smartcropSelector;
+    this.imagePendingAttribute = imagePendingAttribute;
 
     this.image = null;
     this.resizeObserver = null;
     this.hadPendingAttribute = false;
     this.smartcrop = false;
+    this.currentCrop = null;
+    this.debug = false;
+    this.debugMarker = null;
+    this.resizeTimeout = null;
+    this.resizeObserver = null;
 
     this.updateFocalPoint = this.updateFocalPoint.bind(this);
+    this.updateDebugMarker = this.updateDebugMarker.bind(this);
   }
 
   /**
@@ -53,6 +68,8 @@ export class Picture {
    */
   init() {
     this.image = this.element.querySelector(this.imgSelector);
+    this.debug = this.element.hasAttribute(this.debugSelector);
+    this.smartcrop = this.element.hasAttribute(this.smartcropSelector);
 
     if (!this.image) {
       return;
@@ -61,18 +78,16 @@ export class Picture {
     this.image.addEventListener('load', this.updateFocalPoint);
     this.image.crossOrigin = 'anonymous';
 
-    this.smartcrop = this.element.hasAttribute('smartcrop');
-
     if (this.image.complete) {
       this.updateFocalPoint();
     }
 
     this.hadPendingAttribute = this.image.hasAttribute(
-      'data-picture-focal-pending',
+      this.imagePendingAttribute,
     );
 
-    this.resizeObserver = new ResizeObserver(this.updateFocalPoint);
-    this.resizeObserver.observe(this.element);
+    this.resizeObserver = new ResizeObserver(this.handleResize);
+    this.resizeObserver.observe(this.image);
 
     if (this.smartcrop) {
       this.canvas = document.createElement('canvas');
@@ -90,7 +105,7 @@ export class Picture {
   /**
    * Update the image object-position.
    */
-  updateFocalPoint() {
+  async updateFocalPoint() {
     if (!this.image?.naturalWidth || !this.image?.naturalHeight) {
       return;
     }
@@ -99,14 +114,14 @@ export class Picture {
 
     if (!focalPoint && !this.smartcrop) {
       this.image.style.objectPosition = '';
-      this.image.removeAttribute('data-picture-focal-pending');
+      this.image.removeAttribute(this.imagePendingAttribute);
       return;
     }
 
     const container = this.element.getBoundingClientRect();
 
     if (this.smartcrop) {
-      this.executeCrop({
+      await this.executeCrop({
         containerWidth: container.width,
         containerHeight: container.height,
         focalX: focalPoint?.x || '',
@@ -125,7 +140,15 @@ export class Picture {
       this.image.style.objectPosition = `${objectPosition.x}% ${objectPosition.y}%`;
     }
 
-    this.image.removeAttribute('data-picture-focal-pending');
+    if (this.debug) {
+      const position = getComputedStyle(this.element).position;
+      if (position === 'static') {
+        this.element.style.position = 'relative';
+      }
+      this.updateDebugMarker();
+    }
+
+    this.image.removeAttribute(this.imagePendingAttribute);
   }
 
   /**
@@ -153,7 +176,7 @@ export class Picture {
    * @param {Number} imageWidth Width of the image
    * @param {Number} imageHeight Height of the image
    * @param {Number} containerWidth Width of the container
-   * @param {Number} imageHeight Height of the container
+   * @param {Number} containerHeight Height of the container
    * @param {Number} focalX Value in percentage of the horizontal position of the focal point
    * @param {Number} focalY Value in percentage of the vertical position of the focal point
    */
@@ -194,7 +217,6 @@ export class Picture {
 
     return {
       x: overflowX > 0 ? (-translateX / overflowX) * 100 : 50,
-
       y: overflowY > 0 ? (-translateY / overflowY) * 100 : 50,
     };
   }
@@ -209,7 +231,6 @@ export class Picture {
    */
   executeCrop = async ({ containerWidth, containerHeight, focalX, focalY }) => {
     try {
-      // 1. Configure default options based on target container size
       const options = {
         width: containerWidth,
         height: containerHeight,
@@ -224,7 +245,6 @@ export class Picture {
       const boostSize =
         Math.min(this.image.naturalWidth, this.image.naturalHeight) * 0.2;
 
-      // 2. Inject custom focal point logic using smartcrop's 'boost' feature
       options.boost = [
         {
           x: focalPxX - boostSize / 2,
@@ -235,26 +255,25 @@ export class Picture {
         },
       ];
 
-      // 3. Process the smart crop asynchronously
       const result = await smartcrop.crop(this.image, options);
       const crop = result.topCrop;
 
-      // 4. Update canvas internal resolution to prevent blurriness
+      this.currentCrop = crop;
+
       this.canvas.width = containerWidth;
       this.canvas.height = containerHeight;
 
-      // 5. Clear and paint the specific smart-cropped slice onto the canvas
       this.ctx.clearRect(0, 0, containerWidth, containerHeight);
       this.ctx.drawImage(
         this.image,
         crop.x,
         crop.y,
         crop.width,
-        crop.height, // Source crop slice
+        crop.height,
         0,
         0,
         containerWidth,
-        containerHeight, // Target canvas bounds
+        containerHeight,
       );
 
       this.image.style.display = 'none';
@@ -267,6 +286,150 @@ export class Picture {
     }
   };
 
+  /**
+   * Debounced call to the update function when resizing.
+   */
+  handleResize = () => {
+    clearTimeout(this.resizeTimeout);
+
+    this.resizeTimeout = setTimeout(() => {
+      this.updateFocalPoint();
+    }, 100);
+  };
+
+  /**
+   * Decide whether to run the smartcrop or standard debug.
+   */
+  getRenderedFocalPoint() {
+    if (this.smartcrop) {
+      return this.getSmartcropRenderedFocalPoint();
+    }
+
+    return this.getObjectPositionRenderedFocalPoint();
+  }
+
+  /**
+   * Get the rendered coordinates of the focal point inside the container.
+   *
+   * @returns {{x: number, y: number, visible: boolean}|null}
+   */
+  getObjectPositionRenderedFocalPoint = () => {
+    if (!this.image?.naturalWidth || !this.image?.naturalHeight) {
+      return null;
+    }
+
+    const focalPoint = this.getFocalPoint();
+
+    if (!focalPoint) {
+      return null;
+    }
+
+    const container = this.element.getBoundingClientRect();
+
+    const imageWidth = this.image.naturalWidth;
+    const imageHeight = this.image.naturalHeight;
+
+    const containerWidth = container.width;
+    const containerHeight = container.height;
+
+    const scale = Math.max(
+      containerWidth / imageWidth,
+      containerHeight / imageHeight,
+    );
+
+    const renderedWidth = imageWidth * scale;
+    const renderedHeight = imageHeight * scale;
+
+    const objectPosition = this.calculateObjectPosition({
+      imageWidth,
+      imageHeight,
+      containerWidth,
+      containerHeight,
+      focalX: focalPoint.x,
+      focalY: focalPoint.y,
+    });
+
+    const overflowX = renderedWidth - containerWidth;
+    const overflowY = renderedHeight - containerHeight;
+
+    const translateX =
+      overflowX > 0 ? -(objectPosition.x / 100) * overflowX : 0;
+
+    const translateY =
+      overflowY > 0 ? -(objectPosition.y / 100) * overflowY : 0;
+
+    const x = renderedWidth * (focalPoint.x / 100) + translateX;
+
+    const y = renderedHeight * (focalPoint.y / 100) + translateY;
+
+    return {
+      x,
+      y,
+      visible: x >= 0 && x <= containerWidth && y >= 0 && y <= containerHeight,
+    };
+  };
+
+  /**
+   * Get the focal point position in the rendered canvas.
+   *
+   */
+  getSmartcropRenderedFocalPoint = () => {
+    const container = this.element.getBoundingClientRect();
+    const containerWidth = container.width;
+    const containerHeight = container.height;
+    const focalPoint = this.getFocalPoint();
+    const focalPxX = this.image.naturalWidth * (focalPoint?.x / 100);
+    const focalPxY = this.image.naturalHeight * (focalPoint?.y / 100);
+
+    const x =
+      ((focalPxX - this.currentCrop.x) / this.currentCrop.width) *
+      this.canvas.width;
+
+    const y =
+      ((focalPxY - this.currentCrop.y) / this.currentCrop.height) *
+      this.canvas.height;
+
+    return {
+      x,
+      y,
+      visible: x >= 0 && x <= containerWidth && y >= 0 && y <= containerHeight,
+    };
+  };
+
+  /**
+   * Set the marker at the right position in the image.
+   */
+  updateDebugMarker() {
+    const point = this.getRenderedFocalPoint();
+
+    if (!point) {
+      return;
+    }
+
+    if (!this.debugMarker) {
+      this.debugMarker = document.createElement('span');
+
+      Object.assign(this.debugMarker.style, {
+        position: 'absolute',
+        width: '16px',
+        height: '16px',
+        borderRadius: '50%',
+        background: '#e43',
+        border: '3px solid white',
+        transform: 'translate(-50%, -50%)',
+        boxShadow: '0 0 0 1px rgba(0,0,0,.3)',
+        pointerEvents: 'none',
+        zIndex: 9999,
+      });
+
+      this.element.appendChild(this.debugMarker);
+    }
+
+    this.debugMarker.style.left = `${point.x}px`;
+    this.debugMarker.style.top = `${point.y}px`;
+    this.debugMarker.style.display = point.visible ? '' : 'none';
+  }
+
   /*
    * Destroy the instance
    */
@@ -277,7 +440,7 @@ export class Picture {
       this.image.style.removeProperty('object-position');
 
       if (this.hadPendingAttribute) {
-        this.image.setAttribute('data-ecl-focal-pending', '');
+        this.image.setAttribute(this.imagePendingAttribute, '');
       }
 
       if (this.smartcrop) {
@@ -289,6 +452,10 @@ export class Picture {
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
       this.resizeObserver = null;
+    }
+
+    if (this.debugMarker) {
+      this.debugMarker.remove();
     }
 
     if (this.element) {

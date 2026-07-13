@@ -219,20 +219,10 @@ const getArgTypes = (data) => {
       'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=900&fit=crop', // airplane
       'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=900&fit=crop', // classic car
       'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1500&h=1200&fit=crop', // cabin
-
       // square
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1000&h=1000&fit=crop', // portrait
-
-      // portrait
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&h=1200&fit=crop', // woman
-      'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&h=1600&fit=crop', // lighthouse
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&h=1400&fit=crop', // tree
-
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1000&h=1000&fit=crop',
       // extreme landscape
       'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1800&h=600&fit=crop', // train
-
-      // extreme portrait
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=1800&fit=crop', // balloon
     ],
     control: {
       labels: {
@@ -244,16 +234,8 @@ const getArgTypes = (data) => {
           '5:4 Landcape · Wood',
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1000&h=1000&fit=crop':
           '1:1 · Portrait',
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&h=1200&fit=crop':
-          '3:4 Portrait · Person',
-        'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&h=1600&fit=crop':
-          '9:16 Portrait · Lake with house',
-        'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&h=1400&fit=crop':
-          '1:2 Portrait · Mountain',
         'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1800&h=600&fit=crop':
           '3:1 Landcape · Forest',
-        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=1800&fit=crop':
-          '1:3 Portrait · Road with car',
       },
     },
     table: {
@@ -269,6 +251,7 @@ const getArgTypes = (data) => {
       'With object-fit: cover, only the axis where cropping occurs has an effect. For landscape images horizontal values affect the crop; for portrait images vertical values affect the crop.',
     type: { name: 'select' },
     options: [
+      '',
       '10,10',
       '50,10',
       '90,10',
@@ -288,6 +271,7 @@ const getArgTypes = (data) => {
     ],
     control: {
       labels: {
+        '': 'none',
         '10,10': 'x: 10%, y: 10% - Top left',
         '50,10': 'x: 50%, y: 10% - Top',
         '90,10': 'x: 90%, y: 10% - Top right',
@@ -357,6 +341,7 @@ const prepareData = (data, args) => {
     clone.media_container.picture.image_anchor = args.media_anchor;
     clone.media_container.picture.use_obj_position = args.use_obj_position;
     clone.media_container.picture.smartcrop = args.smartcrop;
+    clone.media_container.picture.debug_position = true;
   } else {
     delete clone.media_container;
   }

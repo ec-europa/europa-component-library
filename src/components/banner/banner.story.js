@@ -1,4 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
+import { useArgs } from '@storybook/preview-api';
 import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
@@ -35,9 +36,6 @@ const getArgs = (data) => {
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
-    args.image_anchor = '50,90';
-    args.smartcrop = false;
-    args.use_obj_position = false;
   }
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -365,90 +363,11 @@ const getArgTypes = (data) => {
 
   if (data.picture) {
     argTypes.image = {
-      type: 'select',
-      options: [
-        'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1429704658776-3d38c9990511?q=80&w=1679&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      ],
+      type: 'string',
       description: 'Path or Url of the background image',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      if: { arg: 'show_media' },
-    };
-    argTypes.image_anchor = {
-      name: 'focal point',
-      description:
-        'With object-fit: cover, only the axis where cropping occurs has an effect. For landscape images horizontal values affect the crop; for portrait images vertical values affect the crop.',
-      type: { name: 'select' },
-      options: [
-        '',
-        '10,10',
-        '50,10',
-        '90,10',
-        '10,50',
-        '30,50',
-        '50,50',
-        '50,30',
-        '70,50',
-        '90,50',
-        '10,90',
-        '50,90',
-        '90,90',
-        '30,30',
-        '70,30',
-        '30,70',
-        '70,70',
-      ],
-      control: {
-        labels: {
-          '': 'none',
-          '10,10': 'x: 10%, y: 10% - Top left',
-          '50,10': 'x: 50%, y: 10% - Top',
-          '90,10': 'x: 90%, y: 10% - Top right',
-          '10,50': 'x: 10%, y: 50% - Left',
-          '30,50': 'x: 30%, y: 50% - Left-center',
-          '50,50': 'x: 50%, y: 50% - Center',
-          '50,30': 'x: 50%, y: 30% - Center top',
-          '70,50': 'x: 70%, y: 50% - Right-center',
-          '90,50': 'x: 90%, y: 50% - Right',
-          '10,90': 'x: 10%, y: 90% - Bottom left',
-          '50,90': 'x: 50%, y: 90% - Bottom',
-          '90,90': 'x: 90%, y: 90% - Bottom right',
-          '30,30': 'x: 30%, y: 30% - Upper left',
-          '70,30': 'x: 70%, y: 30% - Upper right',
-          '30,70': 'x: 30%, y: 70% - Lower left',
-          '70,70': 'x: 70%, y: 70% - Lower right',
-        },
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      if: { arg: 'show_media' },
-    };
-    argTypes.use_obj_position = {
-      name: 'use css only',
-      type: 'boolean',
-      description: 'Use the current solution with css only',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Content',
-      },
-      if: { arg: 'show_media' },
-    };
-    argTypes.smartcrop = {
-      type: 'boolean',
-      description:
-        'Use smartcrop script to crop the image, might non follow the focal point if it finds something more revelant.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
         category: 'Content',
       },
       if: { arg: 'show_media' },
@@ -505,6 +424,7 @@ const prepareData = (data, args) => {
     clone.picture.image_anchor = args.image_anchor;
     clone.picture.smartcrop = args.smartcrop;
     clone.picture.use_obj_position = args.use_obj_position;
+    clone.picture.debug_position = true;
   }
 
   return clone;
@@ -552,21 +472,194 @@ Image.parameters = {
 export const FocalPoint = (_, { loaded: { component } }) => component;
 
 FocalPoint.render = async (args) => {
-  const renderedBannerFocalPoint = await renderStory(bannerDataImage, {
-    ...args,
-    media_anchor: '30,70',
-  });
-  return renderedBannerFocalPoint;
+  const [x, y] = args.image_anchor.split(',').map(Number);
+  const renderedBannerFocalPoint = await renderStory(bannerDataImage, args);
+
+  return `${renderedBannerFocalPoint}
+    <h4>Original image</h4>
+    <div style="position: relative; display: inline-block; cursor: crosshair;">
+      <img
+        id="focal-image"
+        src="${args.image}"
+        style="display: block; max-width: 100%;"
+      />
+
+      <span id="focal-marker"
+        style="
+          position: absolute;
+          left: ${x}%;
+          top: ${y}%;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: #e43;
+          border: 3px solid white;
+          transform: translate(-50%, -50%);
+          box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+          pointer-events: none;
+        "
+      ></span>
+    </div>`;
 };
 FocalPoint.storyName = 'focal point';
-FocalPoint.args = getArgs(bannerDataImage);
-FocalPoint.argTypes = getArgTypes(bannerDataImage);
+FocalPoint.args = {
+  show_media: true,
+  show_description: false,
+  show_title: true,
+  show_credit: true,
+  horizontal: 'right',
+  vertical: 'bottom',
+  size: 'm',
+  image:
+    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  image_anchor: '17,80',
+  smartcrop: false,
+  use_obj_position: false,
+};
+FocalPoint.argTypes = {
+  show_title: {
+    name: 'title',
+    type: { name: 'boolean' },
+    description: 'Show the title',
+    table: {
+      category: 'Optional',
+    },
+  },
+  show_description: {
+    name: 'description',
+    type: { name: 'boolean' },
+    description: 'Show the description',
+    table: {
+      category: 'Optional',
+    },
+  },
+  show_credit: {
+    name: 'credit',
+    type: { name: 'boolean' },
+    description: 'Show the credit',
+    table: {
+      category: 'Optional',
+    },
+    if: { arg: 'show_media' },
+  },
+  size: {
+    name: 'banner size',
+    type: 'select',
+    description: 'Change banner size',
+    options: ['xs', 's', 'm', 'l'],
+    control: {
+      labels: {
+        xs: 'extra small',
+        s: 'small',
+        m: 'medium',
+        l: 'large',
+      },
+    },
+    mapping: {
+      'extra small': 'xs',
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'm' },
+      category: 'Display',
+    },
+  },
+  show_media: {
+    name: 'media',
+    type: { name: 'boolean' },
+    description: 'Show the media',
+    table: {
+      category: 'Optional',
+    },
+  },
+  image: {
+    type: 'select',
+    options: [
+      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.pexels.com/photos/27254733/pexels-photo-27254733.jpeg?_gl=1*y3l02p*_ga*MjExOTQ1MjY0Ny4xNzgzODY3MzIy*_ga_8JE65Q40S6*czE3ODM4NjczMjIkbzEkZzEkdDE3ODM4Njc0ODEkajYkbDAkaDA.',
+      'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    ],
+    description: 'Path or Url of the background image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
+  image_anchor: {
+    name: 'focal point',
+    description:
+      'With object-fit: cover, only the axis where cropping occurs has an effect. For landscape images horizontal values affect the crop; for portrait images vertical values affect the crop.',
+    type: { name: 'string' },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  },
+  use_obj_position: {
+    name: 'use css only',
+    type: 'boolean',
+    description: 'Use the current solution with css only',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
+    },
+  },
+  smartcrop: {
+    type: 'boolean',
+    description:
+      'Use smartcrop script to crop the image, might non follow the focal point if it finds something more revelant.',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
+    },
+  },
+};
 FocalPoint.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(bannerDataImage, args),
   },
 };
+FocalPoint.decorators = [
+  (Story) => {
+    const [, updateArgs] = useArgs();
+
+    setTimeout(() => {
+      const image = document.querySelector('#focal-image');
+
+      if (!image) {
+        return;
+      }
+
+      image.onclick = (event) => {
+        const rect = image.getBoundingClientRect();
+
+        const x = Math.min(
+          100,
+          Math.max(0, ((event.clientX - rect.left) / rect.width) * 100),
+        );
+
+        const y = Math.min(
+          100,
+          Math.max(0, ((event.clientY - rect.top) / rect.height) * 100),
+        );
+
+        updateArgs({
+          image_anchor: `${x.toFixed(1)},${y.toFixed(1)}`,
+        });
+      };
+    });
+
+    return Story();
+  },
+];
 
 export const Video = (_, { loaded: { component } }) => component;
 

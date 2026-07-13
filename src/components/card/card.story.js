@@ -369,7 +369,7 @@ Default.render = async (args) => {
   const renderedCard = `<div class="ecl-row">
       <div class="ecl-col-12 ecl-col-l-4">
         <h4>Focal point <strong>${args.image_anchor}</strong></h4>
-        ${await card(prepareData(dataCard, args))}
+        ${await card(prepareData({ ...dataCard, picture: { ...dataCard.picture, debug_position: true } }, args))}
       </div>
       <div class="ecl-col-12 ecl-col-l-4">
         <h4>Object position (current) <strong>${args.image_anchor}</strong></h4>
