@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/dom-utils';
+import { queryOne, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 
 /**
@@ -52,7 +52,7 @@ export class Banner {
       bannerVideo = '[data-ecl-banner-video]',
       bannerPlay = '[data-ecl-banner-play]',
       bannerPause = '[data-ecl-banner-pause]',
-      breakpoint = '996',
+      breakpoint = getBreakpoint('l'),
       attachResizeListener = true,
       maxIterations = 10,
     } = {},

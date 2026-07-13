@@ -1,3 +1,5 @@
+import { getBreakpoint } from '@ecl/dom-utils';
+
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -42,7 +44,7 @@ export class Accordion {
       sidebarBreakpoint !== undefined
         ? sidebarBreakpoint
         : (this.element.getAttribute(this.sidebarMediaQuerySelector) ??
-          '(width >= 996px)');
+          `(width >= ${getBreakpoint('l', true)})`);
     this.mediaQuery = null;
     this.sidebarItems = null;
     this.syncSidebarItems = this.syncSidebarItems.bind(this);
