@@ -30,12 +30,4 @@ module.exports = {
         'Building a robust foreign policy based on an ambitious neighbourhood policy with 16 of its closest eastern and southern neighbours and a comprehensive partnership with Africa. Promoting global peace, stability, democracy and human rights. Ensuring a robust trade policy in line with multilateralism and the global rules-based international order. Taking greater responsibility for security and defence, while cooperating closely with NATO.',
     },
   ],
-  icon: [
-    {
-      name: 'plus',
-    },
-    {
-      name: 'minus',
-    },
-  ],
 };

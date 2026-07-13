@@ -15,7 +15,7 @@
     ]
     - "sidebar" (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
     - "sidebar_media_query" (default: '') Media query to be matched for expanding the accordion
-    - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled (open/close)
+    - "icon" (array) OR (object) (default: phosphor 'plus' / 'minus' pair) Two icons in an array that will be toggled (open/close)
     - "name" (string) (default: '') Optional name attribute to link multiple accordion items
     - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
@@ -34,7 +34,12 @@
 {% set _extra_attributes = '' %}
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
-{% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
+{% set _default_icons = [
+  { name: 'plus', family: 'phosphor' },
+  { name: 'minus', family: 'phosphor' },
+] %}
+{% set _icon = icon|default([]) is not empty ? icon : _default_icons %}
+{% set _icons = _icon is iterable and _icon|keys is not empty ? _icon : [_icon] %}
 {% set _sidebar = sidebar|default(false) %}
 {% set _sidebar_media_query = sidebar_media_query|default('') %}
 
@@ -45,10 +50,6 @@
       value: _sidebar_media_query
     }
   ] %}
-{% endif %}
-
-{% if _icons|length == 1 and _icons[0].name == 'plus' %}
-  {% set _icons = _icons|merge([{'name': 'minus', 'path': _icons[0].path}]) %}
 {% endif %}
 
 {# Internal logic - Process properties #}
