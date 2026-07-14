@@ -41,9 +41,9 @@ npm install --save @ecl/carousel
           icon_position: 'after', 
         }, 
         icon: { 
-          name: 'corner-arrow', 
+          name: 'caret-right', 
+          family: 'phosphor',
           size: 'xs', 
-          transform: 'rotate-90', 
         }, 
       }, 
       image:
