@@ -304,4 +304,9 @@
   --f-p-l: var(--ecl-font-prolonged-l);
   --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
   --f-p-xl: var(--ecl-font-prolonged-xl);
+
+  // Breakpoints
+  @each $name, $value in $breakpoint {
+    --ecl-breakpoint-#{$name}: #{$value};
+  }
 }

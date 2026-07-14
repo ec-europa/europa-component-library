@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -129,8 +129,8 @@ export class Gallery {
     this.isDesktop = false;
     this.resizeTimer = null;
     this.visibleItems = 0;
-    this.breakpointMd = 768;
-    this.breakpointLg = 996;
+    this.breakpointMd = getBreakpoint('m');
+    this.breakpointLg = getBreakpoint('l');
     this.imageHeight = 185;
     this.imageHeightBig = 260;
 
