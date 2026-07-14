@@ -24,6 +24,9 @@ $featured-item: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
+  // FRONT-5368: min-width
+  min-width: 50%;
+
   &:first-child {
     margin-block-start: map.get($featured-item, 'gap-vertical');
     padding-bottom: map.get($featured-item, 'padding');
