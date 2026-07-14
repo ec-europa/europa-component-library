@@ -104,16 +104,19 @@
             input: _search_input|merge({
               width: 'l',
               input_type: 'search',
-              extra_classes: 'ecl-banner-search__form-input' ~ ( _search_input.extra_classes ? ' ' ~ _search_input.extra_classes : '' ),
+              extra_classes: ('ecl-banner-search__form-input ' ~ _search_input.extra_classes|default(''))|trim,
             }),
           } only %}
 
-          {% include '@ecl/button/button.html.twig' with _search_button|merge({
-            size: _search_button.size|default('m'),
-            variant: _search_button.variant|default('primary'),
-            style: _search_button.style|default('highlight'),
-            type: _search_button.type|default('submit'),
-            extra_classes: 'ecl-banner-search__form-button'
+          {% set _default_button = {
+              size: 'm',
+              variant: 'primary',
+              style: 'highlight',
+              type: 'submit',
+            }
+          %}
+          {% include '@ecl/button/button.html.twig' with _default_button|merge(_search_button)|merge({
+            extra_classes: ('ecl-banner-search__form-button ' ~ _search_button.extra_classes|default(''))|trim,
           }) only %}
         </div>
         
