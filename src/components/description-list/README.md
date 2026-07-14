@@ -50,6 +50,7 @@ npm install --save @ecl/description-list
           },
           icon: {
             name: 'copy',
+            family: 'phosphor',
             size: 's',
           },
         },
@@ -60,7 +61,8 @@ npm install --save @ecl/description-list
             icon_position: 'before',
           },
           icon: {
-            name: 'download',
+            name: 'download-simple',
+            family: 'phosphor',
             size: 's',
           },
         },
