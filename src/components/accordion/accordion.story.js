@@ -134,7 +134,7 @@ Sidebar.render = async () => {
           ${await accordion(demoSidebarData)}
         </div>
         <div class="ecl-col-l-9">
-          <h4 class="ecl-u-type-heading-4 ecl-u-pb-s ecl-u-border-bottom ecl-u-border-width-2" style="margin-block-start: 1.33em">Main content</h4>
+          <h4 class="ecl-u-type-heading-4 ecl-u-pb-s ecl-u-mt-3xl ecl-u-border-bottom ecl-u-border-width-2">Main content</h4>
           <p class="ecl-u-type-paragraph-m ecl-u-mt-m">${lorem}</p>
           <p class="ecl-u-type-paragraph-m">${lorem}</p>
           <h4 class="ecl-u-type-heading-4">Lorem ipsum</h4>
