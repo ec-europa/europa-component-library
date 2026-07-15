@@ -32,3 +32,24 @@ export const styled = (stylesObject) =>
       return `${key}:${stylesObject[prop]}`;
     })
     .join(';');
+
+const cache = new Map();
+
+/**
+ * @param {String} breakpoint Short name of a breakpoint Ex: l
+ * @param {Boolean} withUnit Return the value with px if true
+ * @returns {String} Value of the breakpoint
+ */
+export const getBreakpoint = (breakpoint, withUnit = false) => {
+  let value = cache.get(breakpoint);
+
+  if (!value) {
+    value = getComputedStyle(document.documentElement)
+      .getPropertyValue(`--ecl-breakpoint-${breakpoint}`)
+      .trim();
+
+    cache.set(breakpoint, value);
+  }
+
+  return withUnit ? value : Number.parseFloat(value);
+};

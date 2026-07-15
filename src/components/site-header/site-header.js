@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -52,7 +52,7 @@ export class SiteHeader {
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
-      tabletBreakpoint = 768,
+      tabletBreakpoint = getBreakpoint('m'),
       customActionToggleSelector = '[data-ecl-custom-action]',
       customActionOverlaySelector = '[data-ecl-custom-action-overlay]',
       customActionCloseSelector = '[data-ecl-custom-action-close]',
