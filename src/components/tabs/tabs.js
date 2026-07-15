@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 
 /**
@@ -651,7 +651,7 @@ export class Tabs {
         window.innerWidth || 0,
       );
 
-      if (vw <= 480) {
+      if (vw <= getBreakpoint('s')) {
         this.isMobile = true;
         this.index = 1;
         this.list.style.transitionDuration = '0.4s';

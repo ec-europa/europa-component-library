@@ -623,4 +623,9 @@
   --cm-border-status-warning: var(--c-wa-600);
   --cm-border-status-success: var(--c-su-700);
   --cm-border-status-info: var(--c-in-800);
+
+  // Breakpoints
+  @each $name, $value in $breakpoint {
+    --ecl-breakpoint-#{$name}: #{$value};
+  }
 }
