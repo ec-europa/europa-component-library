@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import { createFocusTrap } from 'focus-trap';
 
@@ -135,7 +135,7 @@ export class MegaMenu {
     this.menuOverlay = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointDesktop = 1140;
+    this.breakpointDesktop = getBreakpoint('xl');
     this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
     this.featuredLinks = null;
