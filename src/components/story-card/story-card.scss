@@ -376,7 +376,7 @@ $min-height-desktop: 548px;
     }
 
     .ecl-story-card__grid-loading-bar {
-      background: var(--c-a-200);
+      background: map.get($story-card, 'card', 'loading-bar-background');
       border-end-end-radius: map.get($theme, 'border-radius', 's');
       border-end-start-radius: map.get($theme, 'border-radius', 's');
       display: none;
