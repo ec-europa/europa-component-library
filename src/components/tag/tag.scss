@@ -20,7 +20,8 @@ $tag: null !default;
   font: map.get($tag, 'font');
   padding: map.get($tag, 'padding');
   text-align: start;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');
@@ -30,9 +31,11 @@ $tag: null !default;
   }
 
   &:hover {
-    background-color: map.get($tag, 'background-color-hover');
+    background-color: var(
+      --cm-surface-medium,
+      #{map.get($tag, 'background-color-hover')}
+    );
     color: map.get($tag, 'color-hover');
-    cursor: pointer;
   }
 
   &:active {
@@ -54,6 +57,10 @@ $tag: null !default;
 }
 
 // Removable tag
+.ecl-tag--removable {
+  text-decoration: none;
+}
+
 .ecl-tag__icon {
   appearance: none;
   background: none;
