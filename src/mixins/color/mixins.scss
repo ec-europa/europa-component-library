@@ -58,19 +58,19 @@
 }
 
 // Mixin to set default focus on an element
-@mixin focus-default() {
+@mixin focus-default($offset: 2px) {
   &:focus-visible {
     box-shadow: 0 0 0 2px var(--cm-border-inverted, #fff);
     outline: 2px solid var(--cm-border-primary, var(--c-p));
-    outline-offset: 2px;
+    outline-offset: $offset;
   }
 }
 
 // Mixin to set "inverted" focus on an element
-@mixin focus-inverted() {
+@mixin focus-inverted($offset: 2px) {
   &:focus-visible {
     box-shadow: 0 0 0 2px var(--cm-border-primary, var(--c-p));
     outline: 2px solid var(--cm-border-inverted, #fff);
-    outline-offset: 2px;
+    outline-offset: $offset;
   }
 }
