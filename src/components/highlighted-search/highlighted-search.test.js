@@ -7,12 +7,12 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from './demo/data';
 
-data.id = 'banner-search';
+data.id = 'highlighted-search';
 
 expect.extend(toHaveNoViolations);
 
-describe('Banner search', () => {
-  const template = '@ecl/banner-search/banner-search.html.twig';
+describe('Highlighted search', () => {
+  const template = '@ecl/highlighted-search/highlighted-search.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

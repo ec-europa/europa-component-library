@@ -268,25 +268,6 @@ importers:
         specifier: 5.0.0
         version: link:../../mixins/typography
 
-  src/components/banner-search:
-    dependencies:
-      '@ecl/button':
-        specifier: 5.0.0
-        version: link:../button
-      '@ecl/form-group':
-        specifier: 5.0.0
-        version: link:../form-group
-      '@ecl/icon':
-        specifier: 5.0.0
-        version: link:../icon
-      '@ecl/tag':
-        specifier: 5.0.0
-        version: link:../tag
-    devDependencies:
-      '@ecl/mixins-typography':
-        specifier: 5.0.0
-        version: link:../../mixins/typography
-
   src/components/blockquote:
     dependencies:
       '@ecl/picture':
@@ -637,6 +618,25 @@ importers:
       '@ecl/grid':
         specifier: 5.0.0
         version: link:../../layout/grid
+      '@ecl/mixins-typography':
+        specifier: 5.0.0
+        version: link:../../mixins/typography
+
+  src/components/highlighted-search:
+    dependencies:
+      '@ecl/button':
+        specifier: 5.0.0
+        version: link:../button
+      '@ecl/form-group':
+        specifier: 5.0.0
+        version: link:../form-group
+      '@ecl/icon':
+        specifier: 5.0.0
+        version: link:../icon
+      '@ecl/tag':
+        specifier: 5.0.0
+        version: link:../tag
+    devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.0.0
         version: link:../../mixins/typography
@@ -1890,9 +1890,6 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0
         version: link:../../components/banner
-      '@ecl/banner-search':
-        specifier: 5.0.0
-        version: link:../../components/banner-search
       '@ecl/blockquote':
         specifier: 5.0.0
         version: link:../../components/blockquote
@@ -1962,6 +1959,9 @@ importers:
       '@ecl/highlight-box':
         specifier: 5.0.0
         version: link:../../components/highlight-box
+      '@ecl/highlighted-search':
+        specifier: 5.0.0
+        version: link:../../components/highlighted-search
       '@ecl/icon':
         specifier: 5.0.0
         version: link:../../components/icon
@@ -2197,9 +2197,6 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0
         version: link:../../components/banner
-      '@ecl/banner-search':
-        specifier: 5.0.0
-        version: link:../../components/banner-search
       '@ecl/blockquote':
         specifier: 5.0.0
         version: link:../../components/blockquote
@@ -2266,6 +2263,9 @@ importers:
       '@ecl/highlight-box':
         specifier: 5.0.0
         version: link:../../components/highlight-box
+      '@ecl/highlighted-search':
+        specifier: 5.0.0
+        version: link:../../components/highlighted-search
       '@ecl/icon':
         specifier: 5.0.0
         version: link:../../components/icon
@@ -2650,9 +2650,6 @@ importers:
       '@ecl/banner':
         specifier: 5.0.0
         version: link:../components/banner
-      '@ecl/banner-search':
-        specifier: 5.0.0
-        version: link:../components/banner-search
       '@ecl/blockquote':
         specifier: 5.0.0
         version: link:../components/blockquote
@@ -2719,6 +2716,9 @@ importers:
       '@ecl/highlight-box':
         specifier: 5.0.0
         version: link:../components/highlight-box
+      '@ecl/highlighted-search':
+        specifier: 5.0.0
+        version: link:../components/highlighted-search
       '@ecl/icon':
         specifier: 5.0.0
         version: link:../components/icon

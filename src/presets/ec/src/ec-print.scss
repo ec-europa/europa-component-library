@@ -98,10 +98,6 @@
   $banner: var.$banner,
   $banner-print: var.$banner-print
 );
-@use '@ecl/banner-search/banner-search-print' with (
-  $theme: theme.$theme,
-  $banner-search: var.$banner-search
-);
 @use '@ecl/spotlight/spotlight-print' with (
   $theme: theme.$theme,
   $spotlight: var.$spotlight
@@ -147,6 +143,10 @@
 @use '@ecl/highlight-box/highlight-box-print' with (
   $theme: theme.$theme,
   $highlight-box: var.$highlight-box
+);
+@use '@ecl/highlighted-search/highlighted-search-print' with (
+  $theme: theme.$theme,
+  $highlighted-search: var.$highlighted-search
 );
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (

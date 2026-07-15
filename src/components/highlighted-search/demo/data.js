@@ -5,8 +5,8 @@ module.exports = {
   title: 'Find your next role',
   description: 'Discover job opportunities in the EU institutions',
   search_input: {
-    id: 'banner-search-input-id',
-    name: 'banner-search-input-name',
+    id: 'highlighted-search-input-id',
+    name: 'highlighted-search-input-name',
     placeholder: 'Enter a search keyword',
   },
   search_helper: "Enter the job you're looking for",

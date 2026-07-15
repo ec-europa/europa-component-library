@@ -447,7 +447,7 @@ These files are **not** alphabetically ordered — they're grouped by category/r
 (e.g. `banner`, `spotlight`, `carousel`, `slogan-ticker` are clustered together because
 they're all "banners"-type components, not because their names are alphabetical). Find
 your component's closest sibling (the existing component it's most similar to, or a
-component whose name it extends, e.g. `banner-search` next to `banner`) and insert
+component whose name it extends, e.g. `highlighted-search` next to `banner`) and insert
 immediately after its block:
 
 ```bash

@@ -4,8 +4,8 @@
   Parameters:
     - "id" (string) (default: random) Unique id for the component
     - "color_mode" (string) The color mode name
-    - "title" (string) (default: '') Title of search banner
-    - "description" (string) (default: '') Description of search banner
+    - "title" (string) (default: '') Title of highlighted search
+    - "description" (string) (default: '') Description of highlighted search
     - "search_input" (object) (default: {}) Search field, following ECL Text Input structure.
     - "search_label" (string) (default: '') Search label; for screen readers; falls back to the placeholder if not provided
     - "search_helper" (string) (default: '') Search helper, for additional information
@@ -20,10 +20,10 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-banner-search' %}
+{% set _css_class = 'ecl-highlighted-search' %}
 {% set _extra_attributes = '' %}
 
-{% set _id = id|default('ecl-banner-search-' ~ random()) %}
+{% set _id = id|default('ecl-highlighted-search-' ~ random()) %}
 {% set _color_mode = color_mode|default('') %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
@@ -63,17 +63,17 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-banner-search__content">
+  <div class="ecl-highlighted-search__content">
     {# Title #}
     {% if _title is not empty %}
-      <div class="ecl-banner-search__title">
+      <div class="ecl-highlighted-search__title">
         {{- _title -}}
       </div>
     {% endif %}
 
     {# Description #}
     {% if _description is not empty %}
-      <div class="ecl-banner-search__description ecl-content-color">
+      <div class="ecl-highlighted-search__description ecl-content-color">
         {{- _description -}}
       </div>
     {% endif %}
@@ -81,30 +81,30 @@
     {# Input field and button #}
     {% if _search_input is not empty %}
       <form
-        class="ecl-banner-search__form"
+        class="ecl-highlighted-search__form"
         role="search"
         {% if _search_helper is not empty %}
           aria-describedby="{{ _helper_id }}"
         {% endif %}
       >
-        <div class="ecl-banner-search__form-content">
+        <div class="ecl-highlighted-search__form-content">
           {% include '@ecl/icon/icon.html.twig' with {
             icon: {
               name: 'magnifying-glass',
               family: 'phosphor',
               size: 'm',
             },
-            extra_classes: 'ecl-banner-search__form-icon'
+            extra_classes: 'ecl-highlighted-search__form-icon'
           } only %}
 
           {% include '@ecl/form-group/form-group.html.twig' with {
             label: _search_label|default(_search_input.placeholder|default('')),
             hide_label: true,
-            extra_classes: 'ecl-banner-search__form-group',
+            extra_classes: 'ecl-highlighted-search__form-group',
             input: _search_input|merge({
               width: 'l',
               input_type: 'search',
-              extra_classes: ('ecl-banner-search__form-input ' ~ _search_input.extra_classes|default(''))|trim,
+              extra_classes: ('ecl-highlighted-search__form-input ' ~ _search_input.extra_classes|default(''))|trim,
             }),
           } only %}
 
@@ -116,12 +116,12 @@
             }
           %}
           {% include '@ecl/button/button.html.twig' with _default_button|merge(_search_button)|merge({
-            extra_classes: ('ecl-banner-search__form-button ' ~ _search_button.extra_classes|default(''))|trim,
+            extra_classes: ('ecl-highlighted-search__form-button ' ~ _search_button.extra_classes|default(''))|trim,
           }) only %}
         </div>
         
         {% if _search_helper is not empty %}
-          <div class="ecl-banner-search__form-helper" id="{{ _helper_id }}">
+          <div class="ecl-highlighted-search__form-helper" id="{{ _helper_id }}">
             {{- _search_helper -}}
           </div>
         {% endif %}
@@ -130,15 +130,15 @@
 
     {# Suggestion #}
     {% if _suggestion is not empty %}
-      <div class="ecl-banner-search__suggestion">
+      <div class="ecl-highlighted-search__suggestion">
         {% if _suggestion_label is not empty %}
-          <span class="ecl-banner-search__suggestion-label" id="{{ _suggestion_label_id }}">
+          <span class="ecl-highlighted-search__suggestion-label" id="{{ _suggestion_label_id }}">
             {{- _suggestion_label -}}
           </span>
         {% endif %}
 
         {% include '@ecl/tag/tag-set.html.twig' with _suggestion|merge({
-          extra_classes: ('ecl-banner-search__suggestion-list ' ~ _suggestion.extra_classes|default(''))|trim,
+          extra_classes: ('ecl-highlighted-search__suggestion-list ' ~ _suggestion.extra_classes|default(''))|trim,
           extra_attributes: _suggestion.extra_attributes|default([])|merge(
             _suggestion_label is not empty ? [{ name: 'aria-labelledby', value: _suggestion_label_id }] : []
           ),

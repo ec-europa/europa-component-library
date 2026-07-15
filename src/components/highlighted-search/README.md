@@ -1,17 +1,17 @@
-# ECL Banner search component
+# ECL Highlighted search component
 
-npm package: `@ecl/banner-search`
+npm package: `@ecl/highlighted-search`
 
 ```shell
-npm install --save @ecl/banner-search
+npm install --save @ecl/highlighted-search
 ```
 
 ## Parameters
 
 - **"id"** (string) (default: random) Unique id for the component
 - **"color_mode"** (string) The color mode name
-- **"title"** (string) (default: '') Title of search banner
-- **"description"** (string) (default: '') Description of search banner
+- **"title"** (string) (default: '') Title of highlighted search
+- **"description"** (string) (default: '') Description of highlighted search
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
 - **"search_label"** (string) (default: '') Search label; for screen readers; falls back to the placeholder if not provided
 - **"search_helper"** (string) (default: '') Search helper, for additional information
@@ -27,12 +27,12 @@ npm install --save @ecl/banner-search
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/banner-search/banner-search.html.twig' with {
+{% include '@ecl/highlighted-search/highlighted-search.html.twig' with {
 title: 'Find your next role',
   description: 'Discover job opportunities in the EU institutions',
   search_input: {
-    id: 'banner-search-input-id',
-    name: 'banner-search-input-name',
+    id: 'highlighted-search-input-id',
+    name: 'highlighted-search-input-name',
     placeholder: 'Enter a search keyword',
   },
   search_helper: "Enter the job you're looking for",

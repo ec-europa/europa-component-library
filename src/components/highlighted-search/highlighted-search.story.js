@@ -4,7 +4,7 @@ import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 import defaultData from './demo/data';
-import BannerSearch from './banner-search.html.twig';
+import HighlightedSearch from './highlighted-search.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
@@ -26,7 +26,7 @@ const getArgTypes = () => ({
   title: {
     name: 'title',
     type: { name: 'string' },
-    description: 'Title of the search banner',
+    description: 'Title of the highlighted search',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -36,7 +36,7 @@ const getArgTypes = () => ({
   description: {
     name: 'description',
     type: { name: 'string' },
-    description: 'Description of the search banner',
+    description: 'Description of the highlighted search',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -74,7 +74,7 @@ const prepareData = (data, args) => {
 };
 
 export default {
-  title: 'Components/Banner search',
+  title: 'Components/Highlighted search',
   decorators: [
     withNotes,
     withCode,
@@ -87,7 +87,7 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const rendered = await BannerSearch(prepareData(defaultData, args));
+  const rendered = await HighlightedSearch(prepareData(defaultData, args));
   return rendered;
 };
 Default.storyName = 'default';
