@@ -138,8 +138,10 @@
         {% endif %}
 
         {% include '@ecl/tag/tag-set.html.twig' with _suggestion|merge({
-          extra_classes: 'ecl-banner-search__suggestion-list',
-          extra_attributes: _suggestion_label is not empty ? [{ name: 'aria-labelledby', value: _suggestion_label_id }] : [],
+          extra_classes: ('ecl-banner-search__suggestion-list ' ~ _suggestion.extra_classes|default(''))|trim,
+          extra_attributes: _suggestion.extra_attributes|default([])|merge(
+            _suggestion_label is not empty ? [{ name: 'aria-labelledby', value: _suggestion_label_id }] : []
+          ),
         }) only %}
       </div>
     {% endif %}
