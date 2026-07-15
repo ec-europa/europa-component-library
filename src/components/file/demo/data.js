@@ -5,7 +5,7 @@ module.exports = {
   title:
     'In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond',
   language: 'English',
-  meta: '(16.2 MB)',
+  meta: '(16.2 MB - PDF)',
   primary_meta: ['Meta info', 'DD Month YYYY'],
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
