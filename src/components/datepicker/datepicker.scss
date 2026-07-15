@@ -160,17 +160,13 @@ $text-input: null !default;
       background: var(--duet-color-button);
       border: 0;
       color: var(--duet-color-text);
-      outline: 0;
+      outline-offset: 0;
       padding: 0;
     }
 
     &:hover {
       background: var(--duet-color-button);
       color: var(--duet-color-text);
-
-      &:focus {
-        box-shadow: 0 0 0 2px var(--duet-color-primary);
-      }
     }
 
     svg {
@@ -231,7 +227,6 @@ $text-input: null !default;
         border-width: 2px;
         box-shadow: none;
         color: var(--cm-on-surface-inverted, #fff);
-        outline: 0;
         padding: 0;
       }
 
