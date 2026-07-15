@@ -52,8 +52,6 @@ module.exports = {
       teaser_label: 'for everyone',
       title:
         'You can do the same by producing your own electricity and sharing it local.',
-      description:
-        'Discover how digital innovation is reshaping the European landscape. From 5G connectivity to artificial intelligence, explore the technologies that will define the next decade.',
       card_link: {
         link: {
           label: 'Read more',
@@ -77,16 +75,6 @@ module.exports = {
         'You can do the same by producing your own electricity and sharing it local',
       description:
         'It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.',
-      card_link: {
-        link: {
-          label: 'Read more',
-          path: exampleLink,
-        },
-        icon: {
-          name: 'arrow-right',
-          size: 'xs',
-        },
-      },
     },
     {
       picture: {
