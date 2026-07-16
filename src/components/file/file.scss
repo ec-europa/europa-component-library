@@ -144,6 +144,10 @@ $file: null !default;
   border-radius: 0 0 map.get($file, 'border-radius')
     map.get($file, 'border-radius');
   box-shadow: map.get($file, 'shadow');
+
+  // Crop the shadow on the top edge only, so it reads as a continuation of
+  // the main file element's own shadow rather than a separate floating box.
+  clip-path: inset(0 -20px -20px -20px);
   list-style: none;
   margin: 0;
   max-height: 368px;
