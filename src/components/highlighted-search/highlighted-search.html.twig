@@ -7,7 +7,6 @@
     - "title" (string) (default: '') Title of highlighted search
     - "description" (string) (default: '') Description of highlighted search
     - "search_input" (object) (default: {}) Search field, following ECL Text Input structure.
-    - "search_label" (string) (default: '') Search label; for screen readers; falls back to the placeholder if not provided
     - "search_helper" (string) (default: '') Search helper, for additional information
     - "search_button" (object) (default: {}) Search button, following ECL Button structure
     - "suggestion_label" (string) (default: '') Label for the suggestions
@@ -28,7 +27,6 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _search_input = search_input|default({}) %}
-{% set _search_label = search_label|default('') %}
 {% set _search_helper = search_helper|default('') %}
 {% set _search_button = search_button|default({}) %}
 {% set _suggestion_label = suggestion_label|default({}) %}
@@ -98,7 +96,7 @@
           } only %}
 
           {% include '@ecl/form-group/form-group.html.twig' with {
-            label: _search_label|default(_search_input.placeholder|default('')),
+            label: _search_input.placeholder|default(_search_button.label)|default(''),
             hide_label: true,
             extra_classes: 'ecl-highlighted-search__form-group',
             input: _search_input|merge({
