@@ -25,7 +25,6 @@ const getArgs = (data) => {
     description: data.description,
     download_label: data.download.link.label,
     icon_name: data.icon.name,
-    image: data.picture.img.src,
   };
 
   return args;
@@ -184,34 +183,6 @@ const getArgTypes = () => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
-  };
-
-  argTypes.image = {
-    name: 'image example',
-    type: 'select',
-    description: 'Select different image variant to test thumbnail size',
-    options: [
-      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
-    ],
-    control: {
-      labels: {
-        none: 'none',
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg':
-          'landscape',
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg':
-          'portrait',
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg':
-          'square',
-      },
-    },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Content',
-    },
-    if: { arg: 'show_image' },
   };
 
   argTypes.translation_count = {
