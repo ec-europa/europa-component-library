@@ -74,7 +74,11 @@ $file: null !default;
 .ecl-file__title {
   margin-block-start: map.get($file, 'title', 'margin-mobile');
   max-width: var(--max-w);
-  font-weight: map.get($file, 'title', 'font-weight');
+
+  @include mixins.responsive-font(
+    map.get($file, 'title', 'font'),
+    $font-weight: map.get($file, 'title', 'font-weight')
+  );
 }
 
 .ecl-file__description {
@@ -90,6 +94,8 @@ $file: null !default;
   margin: 0;
   margin-block-start: map.get($file, 'primary-meta', 'margin');
   padding: 0;
+
+  @include mixins.responsive-font(map.get($file, 'primary-meta', 'font'));
 }
 
 .ecl-file__primary-meta-item {
@@ -154,10 +160,6 @@ $file: null !default;
   flex-direction: column;
   flex-wrap: wrap;
   padding: map.get($file, 'translation', 'item-padding-mobile');
-
-  &:first-child {
-    border-block-start: none;
-  }
 }
 
 .ecl-file__translation-info {
@@ -206,6 +208,10 @@ $file: null !default;
 
     > * + * {
       margin-inline-start: map.get($file, 'footer', 'action-gap-desktop');
+    }
+
+    > *:first-child {
+      margin-inline-start: var(--s-m);
     }
 
     &::before {

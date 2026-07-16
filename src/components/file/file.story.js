@@ -1,14 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
 
 import file from './file.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
 
 let previewTimeout = null;
 
@@ -146,18 +143,31 @@ const getArgTypes = () => {
     name: 'icon',
     type: { name: 'select' },
     description: 'File type icon (sample)',
-    options: ['file-pdf', 'file-doc', 'file-xls'],
+    options: [
+      'file-pdf',
+      'file-doc',
+      'file-xls',
+      'file-txt',
+      'file-zip',
+      'file',
+    ],
     control: {
       labels: {
         'file-pdf': 'pdf',
         'file-doc': 'doc',
         'file-xls': 'xls',
+        'file-txt': 'txt',
+        'file-zip': 'zip',
+        file: 'default file',
       },
     },
     mapping: {
       pdf: 'file-pdf',
       doc: 'file-doc',
       xls: 'file-xls',
+      txt: 'file-txt',
+      zip: 'file-zip',
+      file: 'file',
     },
     table: {
       type: { summary: 'string' },
@@ -227,10 +237,6 @@ const getArgTypes = () => {
 const prepareData = (data, args, preview = false) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
-
-  if (system === 'eu') {
-    clone.icon.size = 'm';
-  }
 
   clone.icon.name = args.icon_name;
   clone.download.link.label = args.download_label;

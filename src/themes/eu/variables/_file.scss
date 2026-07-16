@@ -2,15 +2,15 @@
 @use '../index' as *;
 
 $file: (
-  background-color: var(--c-p-5),
+  background-color: #fff,
   border-radius: map.get($border-radius, 's'),
-  color: var(--c-d-80),
-  shadow: none,
+  color: var(--c-d),
+  shadow: var(--sh-1),
   container-padding-mobile: var(--s-l),
   container-padding-desktop: var(--s-m),
   font: var(--f-m),
   icon: (
-    background: #fff,
+    background-color: var(--c-p-10),
     border-radius: map.get($border-radius, 's'),
     padding: var(--s-s),
     color: var(--c-p),
@@ -18,9 +18,10 @@ $file: (
   title: (
     margin-mobile: var(--s-m),
     margin-desktop: var(--s-s),
+    font: var(--f-l),
     font-weight: map.get($font-weight, 'bold'),
   ),
-  description-margin: var(--s-xs),
+  description-margin: var(--s-2xs),
   list-margin: var(--s-l),
   toggle: (
     open-background-color: #fff,
@@ -29,19 +30,20 @@ $file: (
   footer: (
     margin: var(--s-xl),
     gap: var(--s-xl),
-    action-gap-mobile: var(--s-l),
-    action-gap-desktop: var(--s-xl),
-    separator-margin: var(--s-m),
+    action-gap-mobile: var(--s-xl),
+    action-gap-desktop: var(--s-3xl),
+    separator-margin: var(--s-xl),
   ),
   primary-meta: (
-    margin: var(--s-xs),
+    margin: var(--s-s),
     color: var(--c-d),
     gap: var(--s-m),
+    font: var(--f-s),
   ),
   translation: (
     background-color: var(--c-p-5),
     item-padding-mobile: var(--s-m) var(--s-l),
-    item-padding-desktop: var(--s-m),
+    item-padding-desktop: var(--s-m) var(--s-m) var(--s-m) var(--s-xl),
     separator: var(--c-p-20),
     title-font-weight: map.get($font-weight, 'bold'),
     action-margin: var(--s-xs),
