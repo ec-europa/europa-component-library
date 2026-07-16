@@ -76,6 +76,11 @@
 {% if _detail_meta is not empty %}
   {% set _primary_meta = _detail_meta %}
 {% endif %}
+{% if _translation.toggle is defined and _translation.toggle.label is not empty %}
+  {% set _translation = _translation|merge({
+    sr_toggle: _translation.toggle.label,
+  }) %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 {% if _variant != 'default' %}
