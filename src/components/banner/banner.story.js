@@ -35,7 +35,8 @@ const getArgs = (data) => {
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
-    args.media_anchor = 'center';
+    args.media_anchor = '';
+    args.debug_position = false;
   }
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -376,17 +377,39 @@ const getArgTypes = (data) => {
     argTypes.media_anchor = {
       name: 'media anchor',
       type: { name: 'select' },
-      description: 'Media anchor (sample)',
-      options: ['center', 'top left', 'bottom right', '20% 20%'],
+      description:
+        'Media anchor (in this example the image can only be moved vertically in desktop, horizontally in mobile)',
+      options: ['', '20% 80%', '40% 40%', '80% 20%'],
+      control: {
+        labels: {
+          '': 'none (center)',
+          '20% 80%': 'bottom left (20% x, 80% y)',
+          '40% 40%': 'slightly top left (40% x, 40% y)',
+          '80% 20%': 'top right (80% x, 20% y)',
+        },
+      },
       mapping: {
-        center: 'center',
-        'top left': 'top left',
-        'bottom right': 'bottom right',
-        '20% 20%': '20% 20%',
+        'none (center)': '',
+        'bottom left (20% x, 80% y)': '20% 80%',
+        'slightly top left (40% x, 40% y)': '40% 40%',
+        'top right (80% x, 20% y)': '80% 20%',
       },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'center' },
+        defaultValue: { summary: '' },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
+    };
+
+    argTypes.debug_position = {
+      name: 'debug focal point',
+      description:
+        'It shows a marker indicating where the focal point is in the rendered image',
+      type: { name: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Display',
       },
       if: { arg: 'show_media' },
@@ -441,6 +464,7 @@ const prepareData = (data, args) => {
   if (clone.picture) {
     clone.picture.img.src = args.image;
     clone.picture.image_anchor = args.media_anchor;
+    clone.picture.debug_position = args.debug_position;
   }
 
   return clone;
