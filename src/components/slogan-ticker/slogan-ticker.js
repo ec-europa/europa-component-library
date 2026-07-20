@@ -297,6 +297,11 @@ export class SloganTicker {
     if (this.pauseButton) {
       this.pauseButton.style.display = this.isPlaying ? 'flex' : 'none';
     }
+    if (this.isPlaying) {
+      this.pauseButton.focus({ focusVisible: true });
+    } else {
+      this.playButton.focus({ focusVisible: true });
+    }
   }
 
   /**
