@@ -233,10 +233,12 @@ export class SloganTicker {
 
   /**
    * Start the auto-scroll behaviour and update buttons visibility.
+   *
+   * @param {Boolean} [start] Whether this is the first load of the component.
    */
-  startAutoScroll() {
+  startAutoScroll(start = true) {
     this.isPlaying = true;
-    this.updateButtonVisibility();
+    this.updateButtonVisibility(start);
     const autoScroll = this.slider?.plugins()?.autoScroll;
     const direction = getComputedStyle(this.element).direction;
 
@@ -283,21 +285,23 @@ export class SloganTicker {
     if (this.isPlaying) {
       this.stopAutoScroll();
     } else {
-      this.startAutoScroll();
+      this.startAutoScroll(false);
     }
   }
 
   /**
    * Update visibility of play and pause buttons according to `isPlaying`.
+   *
+   * @param {Boolean} [start] Whether this is the first load of the component.
    */
-  updateButtonVisibility() {
+  updateButtonVisibility(start) {
     if (this.playButton) {
       this.playButton.style.display = this.isPlaying ? 'none' : 'flex';
     }
     if (this.pauseButton) {
       this.pauseButton.style.display = this.isPlaying ? 'flex' : 'none';
     }
-    if (this.isPlaying) {
+    if (this.isPlaying && !start) {
       this.pauseButton.focus({ focusVisible: true });
     } else {
       this.playButton.focus({ focusVisible: true });
