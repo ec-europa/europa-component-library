@@ -76,7 +76,6 @@ export class Picture {
     }
 
     this.image.addEventListener('load', this.updateFocalPoint);
-    this.image.crossOrigin = 'anonymous';
 
     if (this.image.complete) {
       this.updateFocalPoint();
