@@ -41,16 +41,23 @@ describe('Picture', () => {
       expect(img.hasAttribute('alt')).toBe(true);
     });
 
-    test('does not add style attribute when img.picture_anchor is empty', async () => {
-      expect.assertions(1);
+    test('Adds the needed attributes when img.picture_anchor is set and debug_position is true', async () => {
+      const dataAnchor = JSON.parse(JSON.stringify(data));
+      dataAnchor.picture.image_anchor = '30% 60%';
+      dataAnchor.picture.debug_position = true;
 
-      const dataEmptyAnchor = JSON.parse(JSON.stringify(data));
-      dataEmptyAnchor.picture.img.picture_anchor = '';
+      const html = await render(dataAnchor);
+      const picture = html.querySelector('picture.ecl-picture');
+      const img = html.querySelector('picture img');
 
-      const html = await render(dataEmptyAnchor);
-      const img = html.querySelector('picture.ecl-picture img');
+      expect(img.hasAttribute('data-image-focal-pending')).toBe(true);
+      expect(getComputedStyle(img).getPropertyValue('--ecl-image-anchor')).toBe(
+        '30% 60%',
+      );
+      expect(picture.getAttribute('data-ecl-auto-init')).toBe('Picture');
+      expect(picture.hasAttribute('data-picture-debug')).toBe(true);
 
-      expect(img.hasAttribute('style')).toBe(false);
+      return expect(render(dataAnchor)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
