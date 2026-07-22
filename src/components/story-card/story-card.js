@@ -622,7 +622,16 @@ export class StoryCard {
   };
 
   handleClickOnGridButtons = (event) => {
-    this.pauseGridAutoplay();
+    if (
+      event.currentTarget
+        .closest('.ecl-story-card__grid-item')
+        .classList.contains('ecl-story-card__grid-item--expanded') &&
+      !this.isGridAutoPlaying
+    ) {
+      this.playGridAutoplay();
+    } else {
+      this.pauseGridAutoplay();
+    }
     const index = this.gridButtons.indexOf(event.currentTarget);
     this.setGridItem(index);
   };
