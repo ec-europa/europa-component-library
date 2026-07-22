@@ -9,6 +9,15 @@ import notes from './README.md';
 
 let previewTimeout = null;
 
+const iconExtensions = {
+  'file-pdf': 'pdf',
+  'file-doc': 'doc',
+  'file-xls': 'xls',
+  'file-txt': 'txt',
+  'file-zip': 'zip',
+  file: '',
+};
+
 const getArgs = (data) => {
   const args = {
     show_image: false,
@@ -210,6 +219,7 @@ const prepareData = (data, args, preview = false) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   clone.icon.name = args.icon_name;
+  clone.icon.title = iconExtensions[args.icon_name] || '';
   clone.download.link.label = args.download_label;
   clone.download_attribute = args.download_attribute;
 

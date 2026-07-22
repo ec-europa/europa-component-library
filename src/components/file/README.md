@@ -9,7 +9,7 @@ npm install --save @ecl/file
 ### Parameters
 
 - **"id"** (string) (default: random) Unique id for the file component
-- **"icon"** (object) (default: {}): Object of type Icon; indicates the file type
+- **"icon"** (object) (default: {}): Object of type Icon; indicates the file type (should also have the file type as title)
 - **"title"** (string|object) (default: '') Plain text title, or link object following ECL Link structure
 - **"description"** (string) (default: '') Description text
 - **"language"** (string) (default: '') Language label for the file
@@ -45,12 +45,21 @@ npm install --save @ecl/file
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/file/file.html.twig' with {
-  title: 'State of the Union 2018 brochure',
+  title: 'File title',
   language: 'English',
   meta: '(16.2 MB - PDF)',
+  primary_meta: ['Meta info', 'DD Month YYYY'],  
+  description: 'File description',
+  label: [
+    {
+      variant: 'highlight',
+      label: 'Highlight',
+    },
+  ],
   icon: {
-    name: 'copy',
-    size: '2xl',
+    name: 'file-pdf',
+    family: 'phosphor',
+    title: 'pdf',
   },
   download: {
     link: {
@@ -59,12 +68,18 @@ npm install --save @ecl/file
     },
   },
   translation: {
-    sr_toggle: 'Other languages',
+    sr_toggle: 'Translations',
     items: [
       {
         title: 'български',
         meta: '(15.7 MB - PDF)',
         lang: 'bg',
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#bg',
+          },
+        },
       },
       ...
     ],

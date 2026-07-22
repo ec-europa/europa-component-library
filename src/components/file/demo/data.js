@@ -18,6 +18,7 @@ module.exports = {
   icon: {
     name: 'file-pdf',
     family: 'phosphor',
+    title: 'pdf',
   },
   picture: {
     img: {
