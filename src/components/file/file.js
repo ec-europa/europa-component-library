@@ -48,8 +48,7 @@ export class FileDownload {
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
-    this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
-    this.handleClickGlobal = this.handleClickGlobal.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   /**
@@ -79,8 +78,7 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle,
       );
-      document.addEventListener('keyup', this.handleKeyboardGlobal);
-      document.addEventListener('click', this.handleClickGlobal);
+      this.element.addEventListener('keyup', this.handleKeyboard);
     }
 
     // Set ecl initialized attribute
@@ -97,8 +95,7 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle,
       );
-      document.removeEventListener('keyup', this.handleKeyboardGlobal);
-      document.removeEventListener('click', this.handleClickGlobal);
+      this.element.removeEventListener('keyup', this.handleKeyboard);
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -182,11 +179,11 @@ export class FileDownload {
   }
 
   /**
-   * Handles global keyboard events, triggered outside of the component.
+   * Handles keyboard events.
    *
    * @param {Event} e
    */
-  handleKeyboardGlobal(e) {
+  handleKeyboard(e) {
     if (!this.translationToggle) return;
 
     // When pressing Esc close the translation dropdown, if open
@@ -196,26 +193,6 @@ export class FileDownload {
     ) {
       this.closeTranslation();
       this.translationToggle.focus();
-    }
-  }
-
-  /**
-   * Handles global click events, triggered outside of the component.
-   *
-   * @param {Event} e
-   */
-  handleClickGlobal(e) {
-    if (!this.translationToggle || !this.translationContainer) return;
-
-    // Check if the translation dropdown is open
-    if (this.translationToggle.getAttribute('aria-expanded') === 'true') {
-      // Check if the click occurred outside of the dropdown and its toggle
-      if (
-        !this.translationContainer.contains(e.target) &&
-        !this.translationToggle.contains(e.target)
-      ) {
-        this.closeTranslation();
-      }
     }
   }
 }

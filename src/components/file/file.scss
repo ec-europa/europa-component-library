@@ -143,19 +143,12 @@ $file: null !default;
   background-color: map.get($file, 'translation', 'background-color');
   border-radius: 0 0 map.get($file, 'border-radius')
     map.get($file, 'border-radius');
-  box-shadow: map.get($file, 'shadow');
-
-  // Crop the shadow on the top edge only, so it reads as a continuation of
-  // the main file element's own shadow rather than a separate floating box.
-  clip-path: inset(0 -20px -20px -20px);
   list-style: none;
   margin: 0;
   max-height: 368px;
   overflow-y: auto;
   padding: 0;
-  position: absolute;
   width: 100%;
-  z-index: map.get($theme, 'z-index', 'overlay');
 }
 
 .ecl-file__translation-item {
