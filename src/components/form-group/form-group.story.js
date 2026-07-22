@@ -160,7 +160,9 @@ Text.render = async (args) => {
 Text.storyName = 'Text input';
 Text.args = getArgs(dataText);
 Text.argTypes = getArgTypes(dataText, 'element');
-Text.parameters = { notes: { markdown: notes, json: dataText } };
+Text.parameters = {
+  notes: { markdown: notes, json: ({ args }) => prepareData(dataText, args) },
+};
 
 export const Textarea = (_, { loaded: { component } }) => component;
 
