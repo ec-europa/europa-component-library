@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`Picture Default Adds the needed attributes when img.picture_anchor is set and debug_position is true 1`] = `
+<jest>
+  <picture
+    class="ecl-picture"
+    data-ecl-auto-init="Picture"
+    data-picture-debug=""
+    data-picture-focal-point="30% 60%"
+  >
+    <source
+      media="(min-width: 90rem)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+    />
+    <source
+      media="(min-width: 1140px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
+    />
+    <source
+      media="(min-width: 996px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+    />
+    <source
+      media="(min-width: 480px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+    />
+    <img
+      alt="Image alternative text"
+      data-image-focal-pending=""
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      style="--ecl-image-anchor: 30% 60%"
+    />
+  </picture>
+</jest>
+`;
+
 exports[`Picture Default renders correctly 1`] = `
 <jest>
   <picture

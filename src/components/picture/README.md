@@ -12,7 +12,9 @@ npm install --save @ecl/picture
   - "img" (object) (default: {}):
     - "src" (string) (default: '') Path to the image
     - "alt" (string) (default: '') Alt text of the image
-  - "image_anchor" (string) (default: 'center') Initial position when the image is cropped; accepts any `object-position` value (e.g. 'top left', '30% 50%')
+  - "image_anchor" (string) (default: 'center') Position of the image when cropped. Can be any value allowed by
+    object-position
+  - "debug_position": (boolean) (default: false) Shows a marker where the focal point is in the rendered image
   - "sources" (array) (default: []) Responsive image sources; format:
     - "src" (string) (default: '') Path to the source image
     - "media" (string) (default: '') Media condition; a breakpoint name ('xs', 's', 'm', 'l', 'xl', 'xxl') or a CSS media string
@@ -29,7 +31,7 @@ npm install --save @ecl/picture
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/picture/picture.html.twig' with { 
+{% include '@ecl/picture/picture.html.twig' with {
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
