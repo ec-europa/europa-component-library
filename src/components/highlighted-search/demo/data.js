@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  id: 'highlighted-search',
   title: 'Find your next role',
   description: 'Discover job opportunities in the EU institutions',
   search_input: {

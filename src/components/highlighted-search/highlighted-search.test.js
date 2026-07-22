@@ -7,8 +7,6 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from './demo/data';
 
-data.id = 'highlighted-search';
-
 expect.extend(toHaveNoViolations);
 
 describe('Highlighted search', () => {
