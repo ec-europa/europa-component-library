@@ -511,7 +511,7 @@ FocalPoint.args = {
   vertical: 'bottom',
   size: 'm',
   image:
-    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://commission.europa.eu/sites/default/files/2026-07/Social-Pillar-action-plan_banner_1.jpg',
   image_anchor: '17,80',
   smartcrop: false,
   use_obj_position: false,
@@ -578,7 +578,7 @@ FocalPoint.argTypes = {
   image: {
     type: 'select',
     options: [
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://commission.europa.eu/sites/default/files/2026-07/Social-Pillar-action-plan_banner_1.jpg',
       'https://images.pexels.com/photos/27254733/pexels-photo-27254733.jpeg?_gl=1*y3l02p*_ga*MjExOTQ1MjY0Ny4xNzgzODY3MzIy*_ga_8JE65Q40S6*czE3ODM4NjczMjIkbzEkZzEkdDE3ODM4Njc0ODEkajYkbDAkaDA.',
       'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ],
