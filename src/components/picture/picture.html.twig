@@ -2,11 +2,14 @@
 
 {#
   Parameters:
-    - "picture" (associative array) (default: {}): 
+    - "picture" (associative array) (default: {}):
       - "img" (associative array) (default: {}):
         - "src" (string) (default: ''): Path to the image
         - "alt" (string) (default: ''): Alt text of the image
-      - "image_anchor" (string) (default: 'center'): initial position of the image when it should be cropped; can be any value allowed by object-position ('top left', '30% 50%', '100px 20px', ...),
+      - "image_anchor" (string) (default: 'center'): Position of the image when it is cropped by the browser.
+          Can be any value allowed by object-position ('top left', '30% 50%', '100px 20px', ...)
+          if percentages are provided the values will be used as a focal point
+      - "debug_position" (boolean) (default: false): Shows a marker on the focal point
       - "sources" (array) (default: []): format: [
         {
           "src" (string) (default: ''): Path to the source image
@@ -57,6 +60,13 @@
 
 <picture
   class="{{ _css_class }}"
+{%- if _picture.image_anchor is not empty -%}
+  data-picture-focal-point="{{ _picture.image_anchor|e('html_attr') }}"
+  data-ecl-auto-init="Picture"
+  {% if _picture.debug_position %}
+  data-picture-debug
+  {% endif %}
+{%- endif -%}
   {{ _extra_attributes|raw }}
 >
   {% if _picture.sources is not empty and _picture.sources is iterable %}
@@ -74,7 +84,7 @@
       {% elseif _source.media == 'xxl' %}
         {% set _source = _source|merge({'media': '(min-width: 1368px)'}) %}
       {% endif %}
-      <source 
+      <source
         {% if _source.src is not empty %}
           srcset="{{ _source.src }}"
         {% endif %}
@@ -89,9 +99,10 @@
   {% endif %}
 
   {% if _picture.img is not empty %}
-  <img 
+  <img
     {% if _picture.image_anchor is not empty %}
       style="--ecl-image-anchor: {{ _picture.image_anchor|e('html_attr') }}"
+      data-image-focal-pending
     {% endif %}
     {% if _extra_image_classes is not empty %}
       class="{{ _extra_image_classes }}"
@@ -107,6 +118,6 @@
     {% endif %}
   >
   {% endif %}
-</picture> 
+</picture>
 
 {% endapply %}
