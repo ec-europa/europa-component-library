@@ -10,6 +10,7 @@ npm install --save @ecl/accordion
 
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"items"** (array) (default: []): format:
+  - "open" (boolean): The item can be opened by default
   - "toggle" (object): Toggle button for the accordion item
     - "label" (string) (default: '') Label of the toggle button
     - "extra_classes" (string) (default: '') Extra classes for the toggle button
