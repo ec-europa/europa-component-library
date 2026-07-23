@@ -1,4 +1,4 @@
 ---
-title: a11y
+title: Accessibility
 order: 4
 ---
