@@ -32,6 +32,7 @@
 {% set _suggestion_label = suggestion_label|default({}) %}
 {% set _suggestion = suggestion|default({}) %}
 
+{% set _title_id = _id ~ '-title' %}
 {% set _helper_id = _id ~ '-helper' %}
 {% set _suggestion_label_id = _id ~ '-suggestion-label' %}
 
@@ -64,7 +65,7 @@
   <div class="ecl-highlighted-search__content">
     {# Title #}
     {% if _title is not empty %}
-      <div class="ecl-highlighted-search__title">
+      <div class="ecl-highlighted-search__title" id="{{ _title_id }}">
         {{- _title -}}
       </div>
     {% endif %}
@@ -81,8 +82,8 @@
       <form
         class="ecl-highlighted-search__form"
         role="search"
-        {% if _search_helper is not empty %}
-          aria-describedby="{{ _helper_id }}"
+        {% if _title is not empty %}
+          aria-describedby="{{ _title_id }}"
         {% endif %}
       >
         <div class="ecl-highlighted-search__form-content">
@@ -103,6 +104,9 @@
               width: 'l',
               input_type: 'search',
               extra_classes: ('ecl-highlighted-search__form-input ' ~ _search_input.extra_classes|default(''))|trim,
+              extra_attributes: _search_input.extra_attributes|default([])|merge([
+                { name: 'aria-describedby', value: _helper_id },
+              ])
             }),
           } only %}
 

@@ -10,6 +10,7 @@ exports[`Highlighted search Default renders correctly 1`] = `
     >
       <div
         class="ecl-highlighted-search__title"
+        id="highlighted-search-title"
       >
         Find your next role
       </div>
@@ -19,7 +20,7 @@ exports[`Highlighted search Default renders correctly 1`] = `
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-describedby="highlighted-search-helper"
+        aria-describedby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         role="search"
       >
@@ -41,6 +42,7 @@ exports[`Highlighted search Default renders correctly 1`] = `
               Enter a search keyword
             </label>
             <input
+              aria-describedby="highlighted-search-helper"
               class="ecl-text-input ecl-text-input--l ecl-highlighted-search__form-input"
               id="highlighted-search-input-id"
               name="highlighted-search-input-name"
@@ -154,6 +156,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
     >
       <div
         class="ecl-highlighted-search__title"
+        id="highlighted-search-title"
       >
         Find your next role
       </div>
@@ -163,7 +166,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-describedby="highlighted-search-helper"
+        aria-describedby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         role="search"
       >
@@ -185,6 +188,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               Enter a search keyword
             </label>
             <input
+              aria-describedby="highlighted-search-helper"
               class="ecl-text-input ecl-text-input--l ecl-highlighted-search__form-input"
               id="highlighted-search-input-id"
               name="highlighted-search-input-name"
@@ -296,6 +300,7 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
     >
       <div
         class="ecl-highlighted-search__title"
+        id="highlighted-search-title"
       >
         Find your next role
       </div>
@@ -305,7 +310,7 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-describedby="highlighted-search-helper"
+        aria-describedby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         role="search"
       >
@@ -327,6 +332,7 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               Enter a search keyword
             </label>
             <input
+              aria-describedby="highlighted-search-helper"
               class="ecl-text-input ecl-text-input--l ecl-highlighted-search__form-input"
               id="highlighted-search-input-id"
               name="highlighted-search-input-name"
