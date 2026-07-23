@@ -16,6 +16,7 @@ module.exports = {
         "Building a resilient economy by deepening the Economic and Monetary Union to ensure that Europe is better prepared for future shocks, completing the banking and capital markets union, strengthening the international role of the euro, investing in skills and education, supporting Europe's businesses, embracing digital transformation, and developing a robust industrial policy.",
     },
     {
+      open: true,
       toggle: {
         label: 'Building a climate-neutral, green, fair and social Europe',
       },

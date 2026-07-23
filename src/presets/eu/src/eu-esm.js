@@ -24,6 +24,7 @@ import NewsTicker from '@ecl/news-ticker';
 import Notification from '@ecl/notification';
 import Quiz from '@ecl/quiz';
 import PageHeaderExpandable from '@ecl/page-header';
+import Picture from '@ecl/picture';
 import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
@@ -59,6 +60,7 @@ const ECL = {
   Notification,
   Quiz,
   PageHeaderExpandable,
+  Picture,
   Popover,
   Range,
   Select,
