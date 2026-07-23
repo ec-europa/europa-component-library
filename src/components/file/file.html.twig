@@ -224,8 +224,12 @@
       {# Translation toggle #}
       {% set _toggle_label = '' %}
       {% if _language is not empty %}
+        {% set _language_class = 'ecl-file__language' %}
+        {% if _translation is empty %}
+          {% set _language_class = _language_class ~ ' ecl-file__language--no-toggle' %}
+        {% endif %}
         {% set _toggle_label %}
-          <span class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</span>
+          <span class="{{ _language_class }}" id="{{ _lang_id }}">{{ _language }}</span>
         {% endset %}
       {% endif %}
 

@@ -129,6 +129,10 @@ $file: null !default;
   row-gap: var(--s-xs);
 }
 
+.ecl-file__language--no-toggle {
+  padding-inline-end: map.get($file, 'toggle', 'padding-horizontal');
+}
+
 .ecl-file--open .ecl-file__translation-toggle {
   background-color: map.get($file, 'toggle', 'open-background-color');
   border-color: map.get($file, 'toggle', 'open-border-color');
