@@ -4,7 +4,6 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.translationToggleSelector Selector for toggling translatoins section
- * @param {String} options.translationContainerSelector Selector for translations section container
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
  */
 export class FileDownload {
@@ -27,7 +26,6 @@ export class FileDownload {
     element,
     {
       translationToggleSelector = '[data-ecl-file-translation-toggle]',
-      translationContainerSelector = '[data-ecl-file-translation-container]',
       attachClickListener = true,
     } = {},
   ) {
@@ -42,7 +40,6 @@ export class FileDownload {
 
     // Options
     this.translationToggleSelector = translationToggleSelector;
-    this.translationContainerSelector = translationContainerSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -51,6 +48,7 @@ export class FileDownload {
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   /**
@@ -66,10 +64,13 @@ export class FileDownload {
       this.translationToggleSelector,
       this.element,
     );
-    this.translationContainer = queryOne(
-      this.translationContainerSelector,
-      this.element,
-    );
+
+    // Get target element
+    if (this.translationToggle) {
+      this.translationContainer = document.querySelector(
+        `#${this.translationToggle.getAttribute('aria-controls')}`,
+      );
+    }
 
     // Bind click event on toggle
     if (this.attachClickListener && this.translationToggle) {
@@ -77,6 +78,7 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle,
       );
+      this.element.addEventListener('keyup', this.handleKeyboard);
     }
 
     // Set ecl initialized attribute
@@ -93,10 +95,40 @@ export class FileDownload {
         'click',
         this.handleClickOnToggle,
       );
+      this.element.removeEventListener('keyup', this.handleKeyboard);
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
+    }
+  }
+
+  /**
+   * Adjusts translation item padding to keep actions aligned with the footer
+   * when the list is tall enough to show a scrollbar.
+   */
+  alignTranslationActions() {
+    const scrollbarWidth =
+      this.translationContainer.offsetWidth -
+      this.translationContainer.clientWidth;
+    const items = this.translationContainer.querySelectorAll(
+      '.ecl-file__translation-item',
+    );
+
+    if (items.length === 0) return;
+
+    if (scrollbarWidth > 0) {
+      const naturalPadding = parseFloat(
+        getComputedStyle(items[0]).paddingInlineEnd,
+      );
+      const newPadding = Math.max(0, naturalPadding - scrollbarWidth);
+      items.forEach((item) => {
+        item.style.paddingInlineEnd = `${newPadding}px`;
+      });
+    } else {
+      items.forEach((item) => {
+        item.style.paddingInlineEnd = '';
+      });
     }
   }
 
@@ -106,13 +138,62 @@ export class FileDownload {
   handleClickOnToggle(e) {
     e.preventDefault();
 
+    // Exit if no target found
+    if (!this.translationContainer) {
+      throw new TypeError(
+        'Target has to be provided for file download (aria-controls)',
+      );
+    }
+
     if (this.translationToggle.getAttribute('aria-expanded') === 'true') {
-      this.translationToggle.setAttribute('aria-expanded', 'false');
+      this.closeTranslation();
     } else {
-      this.translationToggle.setAttribute('aria-expanded', 'true');
+      this.openTranslation();
     }
 
     return this;
+  }
+
+  /**
+   * Open the translation dropdown.
+   */
+  openTranslation() {
+    this.element.classList.add('ecl-file--open');
+    this.translationContainer.hidden = false;
+    this.translationToggle.setAttribute('aria-expanded', 'true');
+    this.alignTranslationActions();
+  }
+
+  /**
+   * Close the translation dropdown.
+   */
+  closeTranslation() {
+    this.element.classList.remove('ecl-file--open');
+    this.translationContainer.hidden = true;
+    this.translationToggle.setAttribute('aria-expanded', 'false');
+    this.translationContainer
+      .querySelectorAll('.ecl-file__translation-item')
+      .forEach((item) => {
+        item.style.paddingInlineEnd = '';
+      });
+  }
+
+  /**
+   * Handles keyboard events.
+   *
+   * @param {Event} e
+   */
+  handleKeyboard(e) {
+    if (!this.translationToggle) return;
+
+    // When pressing Esc close the translation dropdown, if open
+    if (
+      (e.key === 'Escape' || e.key === 'Esc') &&
+      this.translationToggle.getAttribute('aria-expanded') === 'true'
+    ) {
+      this.closeTranslation();
+      this.translationToggle.focus();
+    }
   }
 }
 

@@ -62,9 +62,23 @@ Default.args = getArgs(defaultData);
 Default.argTypes = getArgTypes(defaultData);
 Default.storyName = 'default';
 Default.parameters = {
-  notes: { markdown: notes, json: defaultData },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(defaultData, args),
+  },
 };
 ```
+
+**`parameters.notes.json` must be a function, never a static data reference.** The
+notes/code addon uses this value to render the Twig include example shown alongside
+the story. If a story has any controls (`getArgTypes` returns anything beyond a bare
+`{}`), pass `({ args }) => prepareData(data, args)` so the example updates live as
+controls change. A static reference (`json: defaultData`) freezes the example at the
+initial data and silently goes stale the moment a control is touched — this is a
+regression of FRONT-5377, watch for it when adding new stories or copying an older
+one as a template. A static reference is only acceptable when the story truly has no
+controls that affect the rendered data (e.g. `controls: { disable: true }`, or an arg
+like a JS-only focus toggle that never flows into `prepareData`).
 
 ## Multiple stories (variants)
 

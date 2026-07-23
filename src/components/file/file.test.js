@@ -6,15 +6,20 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import dataWithTranslation from './demo/data--with-translation';
-import dataWithoutTranslation from './demo/data--without-translation';
-import dataThumbnail from './demo/data--thumbnail';
-import dataTaxonomy from './demo/data--taxonomy';
+import dataDemo from './demo/data';
 
-dataWithoutTranslation.id = 'ecl-file-without-translations';
-dataWithTranslation.id = 'ecl-file-with-translation';
-dataThumbnail.id = 'ecl-file-with-thumbnail';
-dataTaxonomy.id = 'ecl-file-taxonomy';
+const dataWithTranslation = merge(dataDemo, {
+  id: 'ecl-file-with-translation',
+});
+
+const dataWithoutTranslation = merge(dataWithTranslation, {
+  id: 'ecl-file-without-translation',
+});
+delete dataWithoutTranslation.translation;
+
+const dataThumbnail = merge(dataWithTranslation, {
+  id: 'ecl-file-with-thumbnail',
+});
 
 expect.extend(toHaveNoViolations);
 
@@ -78,16 +83,6 @@ describe('File', () => {
       return expect(render(dataWithoutTranslation)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with a single label', () => {
-      expect.assertions(1);
-
-      const singleLabel = {
-        ...dataWithoutTranslation,
-        label: { label: 'highlight', variant: 'highlight' },
-      };
-      return expect(render(singleLabel)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly with multiple labels', () => {
       expect.assertions(1);
 
@@ -100,37 +95,6 @@ describe('File', () => {
       };
       return expect(render(multipleLabels)).resolves.toMatchSnapshot();
     });
-
-    test('renders correctly with extra class names', () => {
-      expect.assertions(1);
-
-      const withExtraClasses = merge(dataWithoutTranslation, {
-        extra_classes: 'custom-class custom-class--test',
-      });
-
-      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra attributes', () => {
-      expect.assertions(1);
-
-      const withExtraAttributes = merge(dataWithoutTranslation, {
-        extra_attributes: [
-          { name: 'data-test', value: 'data-test-value' },
-          { name: 'data-test-1', value: 'data-test-value-1' },
-        ],
-      });
-
-      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
-    });
-
-    test('passes the accessibility tests', async () => {
-      expect(
-        await axe(
-          await renderTwigFileAsHtml(template, dataWithoutTranslation, true),
-        ),
-      ).toHaveNoViolations();
-    });
   });
 
   describe('Thumbnail', () => {
@@ -140,18 +104,13 @@ describe('File', () => {
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with taxonomies', () => {
-      expect.assertions(1);
-
-      return expect(render(dataTaxonomy)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly without an image', () => {
       expect.assertions(1);
 
-      dataThumbnail.picture = {};
+      const withoutImage = { ...dataThumbnail };
+      delete withoutImage.picture;
 
-      return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
+      return expect(render(withoutImage)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {

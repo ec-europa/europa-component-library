@@ -9,23 +9,19 @@ npm install --save @ecl/file
 ### Parameters
 
 - **"id"** (string) (default: random) Unique id for the file component
-- **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'
-- **"icon"** (object) (default: {}): Object of type Icon; indicates the file type
+- **"icon"** (object) (default: {}): Object of type Icon; indicates the file type (should also have the file type as title)
 - **"title"** (string|object) (default: '') Plain text title, or link object following ECL Link structure
-- **"description"** (string) (default: '') Description text (thumbnail variant only)
+- **"description"** (string) (default: '') Description text
 - **"language"** (string) (default: '') Language label for the file
 - **"meta"** (string) (default: '') File metadata (size, format, etc.)
-- **"detail_meta"** (array) (default: []) Additional metadata elements for the thumbnail variant
+- **"primary_meta"** (array) (default: []) Primary meta of the file
 - **"download"** (object) (default: {}): Download link, following ECL Link structure
 - **"download_attribute"** (boolean) (default: false) Add the HTML download attribute to the download link
 - **"picture"** (associative array) (default: {}): Thumbnail image, following ECL Picture structure
 - **"label"** (array) (default: []) Array of ECL Label objects (also supported as a single label object)
-- **"lists"** (array) (default: []) Array of description list objects:
-  - "variant" (string) Description list variant; can be 'taxonomy' or 'horizontal'
-  - "items" (array) Description list items:
-    - "term" (string) Term label
+- **"lists"** (array) (default: []) Array of ECL Description list objects
 - **"translation"** (array) (default: []) Translation panel for multiple language versions:
-  - "toggle" (object) (default: {}): Toggle button, following ECL Button structure
+  - "sr_toggle" (string) (default: ''): Additional toggle label; for screen readers
   - "download_attribute" (boolean) (default: false) Add download attribute to all translation links
   - "items" (array) (default: []) Translation items:
     - "title" (string) (default: '') Language label
@@ -38,17 +34,32 @@ npm install --save @ecl/file
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
+### Deprecated
+
+- **"variant"** (string) (default: 'default') Display variant; can be 'default' or 'thumbnail'; not used anmore
+- **"detail_meta"** (array) (default: []) Additional metadata for the thumbnail variant; replaced by 'primary_meta'
+- **"translation.toggle"** (object) (default: {}): Toggle button, following ECL Button structure; now set in the template directly
+
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/file/file.html.twig' with {
-  title: 'State of the Union 2018 brochure',
+  title: 'File title',
   language: 'English',
   meta: '(16.2 MB - PDF)',
+  primary_meta: ['Meta info', 'DD Month YYYY'],  
+  description: 'File description',
+  label: [
+    {
+      variant: 'highlight',
+      label: 'Highlight',
+    },
+  ],
   icon: {
-    name: 'copy',
-    size: '2xl',
+    name: 'file-pdf',
+    family: 'phosphor',
+    title: 'pdf',
   },
   download: {
     link: {
@@ -57,19 +68,18 @@ npm install --save @ecl/file
     },
   },
   translation: {
-    toggle: {
-      label: 'Other languages (3)',
-      icon: {
-        name: 'corner-arrow',
-        size: 'fluid',
-        transform: 'rotate-180',
-      },
-    },
+    sr_toggle: 'Translations',
     items: [
       {
         title: 'български',
         meta: '(15.7 MB - PDF)',
         lang: 'bg',
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#bg',
+          },
+        },
       },
       ...
     ],

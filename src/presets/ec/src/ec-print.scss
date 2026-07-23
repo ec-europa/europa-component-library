@@ -138,11 +138,16 @@
   $fact-figures-print: var.$fact-figures-print
 );
 @use '@ecl/file/file-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $file: var.$file
 );
 @use '@ecl/highlight-box/highlight-box-print' with (
   $theme: theme.$theme,
   $highlight-box: var.$highlight-box
+);
+@use '@ecl/highlighted-search/highlighted-search-print' with (
+  $theme: theme.$theme,
+  $highlighted-search: var.$highlighted-search
 );
 @use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (
