@@ -138,7 +138,8 @@
   $fact-figures-print: var.$fact-figures-print
 );
 @use '@ecl/file/file-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $file: var.$file
 );
 @use '@ecl/highlight-box/highlight-box-print' with (
   $theme: theme.$theme,
