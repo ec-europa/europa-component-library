@@ -1,6 +1,6 @@
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 
 /**
@@ -449,7 +449,7 @@ export class InpageNavigation {
     let topPosition = 0;
     // Mobile
     setTimeout(() => {
-      if (viewportWidth < 996) {
+      if (viewportWidth < getBreakpoint('l')) {
         const toggleWrapper = this.toggleElement.parentElement;
         if (toggleWrapper) {
           // EC has currently a negative margin set on the wrapper.

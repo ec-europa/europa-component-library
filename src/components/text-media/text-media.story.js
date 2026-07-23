@@ -32,7 +32,7 @@ const getArgs = (data) => {
   if (data.media_container.picture) {
     args = {
       ...args,
-      media_anchor: 'center',
+      media_anchor: '',
     };
   }
 
@@ -174,17 +174,26 @@ const getArgTypes = (data) => {
     argTypes.media_anchor = {
       name: 'media anchor',
       type: { name: 'select' },
-      description: 'Media anchor (sample)',
-      options: ['center', 'top left', 'bottom right', '20% 20%'],
+      description:
+        'Media anchor (the image can only be moved in one axis depending on the aspect-ratio)',
+      options: ['', '20% 80%', '40% 40%', '80% 20%'],
+      control: {
+        labels: {
+          '': 'none (center)',
+          '20% 80%': 'bottom left (20% x, 80% y)',
+          '40% 40%': 'slightly top left (40% x, 40% y)',
+          '80% 20%': 'top right (80% x, 20% y)',
+        },
+      },
       mapping: {
-        center: 'center',
-        'top left': 'top left',
-        'bottom right': 'bottom right',
-        '20% 20%': '20% 20%',
+        'none (center)': '',
+        'bottom left (20% x, 80% y)': '20% 80%',
+        'slightly top left (40% x, 40% y)': '40% 40%',
+        'top right (80% x, 20% y)': '80% 20%',
       },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'center' },
+        defaultValue: { summary: '' },
         category: 'Display',
       },
     };

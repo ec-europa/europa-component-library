@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import Bowser from 'bowser';
 import { createFocusTrap } from 'focus-trap';
@@ -146,8 +146,8 @@ export class Menu {
     this.lastVisibleItem = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
-    this.breakpointTablet = 768;
-    this.breakpointDesktop = 1140;
+    this.breakpointTablet = getBreakpoint('m');
+    this.breakpointDesktop = getBreakpoint('xl');
     this.windowWidth = null;
     this.ignorehover = false;
 

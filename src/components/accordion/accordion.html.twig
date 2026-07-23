@@ -5,6 +5,7 @@
     - "color_mode" (string) (default: '') Name of the color mode
     - "items" (array) (default: []): format: [
       {
+        "open" (boolean): The item will be opened by default
         "toggle" (object): Toggle button for the accordion item, format: {
           "label" (string) (default: '') Label of the toggle button
           "extra_classes" (string) (default: '') Extra classes for the toggle button
@@ -100,7 +101,10 @@
         {%- if _sidebar -%}
           data-desktop-open
         {% endif %}
-        >
+        {%- if _item.open -%}
+          open
+        {%- endif -%}
+      >
         {% set _toggle_class = 'ecl-accordion__toggle' %}
         {% if _item.toggle.extra_classes is defined and _item.toggle.extra_classes is not empty %}
           {% set _toggle_class = _toggle_class ~ ' ' ~ _item.toggle.extra_classes %}

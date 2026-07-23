@@ -2,7 +2,7 @@
 
 This directory contains the script to analyze CM- design token usage across the ECL codebase.
 
-## Script
+## Scripts
 
 ### `analyse-ec-token.py`
 
@@ -28,6 +28,47 @@ python3 scripts/token-analysis/analyse-ec-token.py /path/to/ecl/repo
 ```
 
 **Output:** `scripts/token-analysis/reports/token-usage-YYYY-MM-DD.md` with detailed matrices and analysis
+
+### `list-ecl-token.js`
+
+**Node script** that compiles the EC and EU theme packages with Sass (the same
+way the real presets do) and exports every resolved color design token to a
+single JSON file - handy for diffing against an external source of truth
+(e.g. a Figma color-styles export).
+
+**Features:**
+
+- Compiles `@ecl/theme-ec` and `@ecl/theme-eu` for real, so `map.get()`,
+  `color-mix()` and CSS `var()` chains all resolve to final literal values
+  (no raw Sass expressions or unresolved `var(--x)` references)
+- Exports EC's flat palette tokens plus every `--cm-` color-mode token,
+  including the base/default mode and all 15 named modes (blue, green,
+  orange, purple, blue-navy, blue-electric, blue-ocean, green-lemon,
+  green-pine, warm-grey, red-crayola, yellow-gold, purple-violet,
+  red-tomato, green-dark)
+- Exports EU's flat palette tokens (EU has no color-mode system)
+- Drops short internal `--c-*` aliases (e.g. `--c-p-600`) since they are
+  plain duplicates of the long `--ecl-color-*` names
+
+**Usage:**
+
+```bash
+# Run from repository root
+node scripts/token-analysis/list-ecl-token.js
+
+# Or specify a different repository path
+node scripts/token-analysis/list-ecl-token.js /path/to/ecl/repo
+
+# Or write to a specific file instead of the dated default
+node scripts/token-analysis/list-ecl-token.js --out /tmp/ecl-color-tokens.json
+```
+
+**Requirements:** run after `pnpm install` (needs the workspace's `sass`
+dependency and the `@ecl/theme-ec` / `@ecl/theme-eu` / `@ecl/color-modes`
+package symlinks that `pnpm install` sets up).
+
+**Output:** `scripts/token-analysis/reports/ecl-color-tokens-YYYY-MM-DD.json`
+with `ec.tokens`, `ec.colorModes` (per mode) and `eu.tokens`.
 
 ## Reports Directory
 
