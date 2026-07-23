@@ -73,12 +73,12 @@
     label: _label,
     variant: 'tertiary',
     type: 'button',
-    icon_position: "after",
-    icon: _button.icon|merge({
-      name: 'corner-arrow',
-      size: 'fluid',
-      transform: 'rotate-180'
-    }),
+    icon_position: 'after',
+    icon: {
+      name: 'caret-down',
+      family: 'phosphor',
+      size: 'fluid'
+    },
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
   }) only %}

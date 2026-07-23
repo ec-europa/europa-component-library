@@ -44,11 +44,11 @@ npm install --save @ecl/featured-item
       variant: 'standalone', 
       path: exampleLink, 
       label: 'Standalone link', 
-      icon_position: 'after', 
     }, 
     icon: { 
-      name: 'external', 
-      size: 'xs', 
+      name: 'arrow-right',
+      family: 'phosphor',
+      size: 'm', 
     }, 
   }, 
   media_container: {
