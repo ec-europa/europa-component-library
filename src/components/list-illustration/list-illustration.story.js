@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getColorModeControls } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataListIllustrationImage from './demo/data--image';
 import dataListIllustrationIcon from './demo/data--icon';
@@ -420,7 +420,9 @@ const prepareDataItem = (data, args) => {
   if (!args.show_icon) {
     delete clone.icon;
   } else {
-    clone.icon = {};
+    clone.icon = {
+      family: 'phosphor',
+    };
     clone.icon.name = args.icon;
     clone.icon.title = args.icon_title;
     clone.media_size = args.icon_size;
@@ -502,6 +504,7 @@ const prepareIconList = (data, args) => {
 
     if (args.icon) {
       item.icon.name = args.icon;
+      item.icon.family = 'phopshor';
     }
   });
 
