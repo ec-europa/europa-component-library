@@ -207,6 +207,9 @@
   $theme: theme.$theme,
   $animated-numbers: var.$animated-numbers
 );
+@use '@ecl/story-card/story-card-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/carousel/carousel-print';
 @use '@ecl/category-filter/category-filter-print';
 @use '@ecl/gallery/gallery-print' with (

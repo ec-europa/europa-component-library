@@ -385,6 +385,7 @@ export class Tabs {
     }
     if (this.tabsKey) {
       this.tabsKey.forEach((item) => {
+        item.removeEventListener('click', this.handleClickOnTabs);
         item.removeEventListener('keydown', this.handleKeyboardOnTabs);
       });
     }
