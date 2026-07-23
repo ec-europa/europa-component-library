@@ -66,7 +66,9 @@ Default.render = async (args) => {
 Default.storyName = 'tabs only';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: { markdown: notes, json: ({ args }) => prepareData(demoData, args) },
+};
 
 export const WithTabbedContent = (_, { loaded: { component } }) => component;
 
@@ -85,7 +87,10 @@ WithTabbedContent.storyName = 'with content management';
 WithTabbedContent.args = getArgs(demoDtaWithContent);
 WithTabbedContent.argTypes = getArgTypes(demoDtaWithContent);
 WithTabbedContent.parameters = {
-  notes: { markdown: notes, json: demoDtaWithContent },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDtaWithContent, args),
+  },
   chromatic: {
     disable: true,
   },

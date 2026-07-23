@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$highlighted-search: (
+  background-color: var(--cm-surface-color-mode-high),
+  color: var(--cm-on-surface-inverted),
+  padding: var(--s-13xl) var(--s-xl),
+  separator-color: var(--cm-surface-secondary),
+  icon-color: var(--c-g-600),
+  title: (
+    font: 'heading2',
+    spacing: var(--s-xs),
+  ),
+  description: (
+    font: 'body-xl',
+    spacing: var(--s-xs),
+  ),
+  helper: (
+    font: 'microcopy-xs',
+    spacing: var(--s-3xs),
+  ),
+  form: (
+    padding: var(--s-s),
+    margin: var(--s-3xl),
+    border-color: var(--cm-border-grey),
+    background-color: var(--cm-surface-inverted),
+    shadow-focus: var(--cm-border-primary),
+    outline-color: var(--cm-border-inverted),
+    input-padding: var(--s-xs) var(--s-s),
+  ),
+  suggestion: (
+    font: 'body-s',
+    label-padding: var(--s-2xs),
+    focus-inverted: true,
+  ),
+);
