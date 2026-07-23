@@ -74,11 +74,11 @@
     variant: 'tertiary',
     type: 'button',
     icon_position: 'after',
-    icon: {
+    icon: _button.icon|default({})|merge({
       name: 'caret-down',
       family: 'phosphor',
       size: 'fluid'
-    },
+    }),
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
   }) only %}

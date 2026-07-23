@@ -59,6 +59,11 @@
       variant: 'tertiary',
       style: 'inverted',
       type: 'submit',
+      icon: _overlay.close.icon|default({})|merge({
+        name: 'x',
+        family: 'phosphor',
+        size: 'm',
+      }),
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
       ],
@@ -89,27 +94,28 @@
               variant: 'tertiary',
               icon_position: 'before',
               hide_label: true,
-              icon: _overlay.previous.icon|merge({
+              icon: _overlay.previous.icon|default({})|merge({
                 size: 'm',
-                transform: 'rotate-270',
-                name: 'corner-arrow',
+                name: 'caret-left',
+                family: 'phosphor',
+                transform: '',
               }),
               extra_attributes: [
                 { name: 'data-ecl-gallery-overlay-previous' },
               ],
             }) only %}
           {% endif %}
-          {% if (_overlay.next is defined and _overlay.next is not empty) and
-            (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
+          {% if _overlay.next is defined and _overlay.next is not empty %}
             {% include '@ecl/button/button.html.twig' with _overlay.next|merge({
               extra_classes: 'ecl-gallery__slider-next',
               type: _button_type,
               variant: 'tertiary',
               hide_label: true,
-              icon: _overlay.next.icon|merge({
+              icon: _overlay.next.icon|default({})|merge({
                 size: 'm',
-                transform: 'rotate-90',
-                name: 'corner-arrow',
+                name: 'caret-right',
+                family: 'phosphor',
+                transform: '',
               }),
               extra_attributes: [
                 { name: 'data-ecl-gallery-overlay-next' },
@@ -129,7 +135,8 @@
               label: _overlay.full_screen_label ?: _overlay.download.link.label|default(''),
             },
             icon: {
-              name: 'fullscreen',
+              name: 'arrows-out',
+              family: 'phosphor',
               size: 'fluid',
             },
             extra_classes: 'ecl-gallery__download',
@@ -147,8 +154,9 @@
               type: 'standalone',
               inverted: true,
             }),
-            icon: _overlay.share.icon|merge({
-              name: 'share',
+            icon: _overlay.share.icon|default({})|merge({
+              name: 'share-network',
+              family: 'phosphor',
               size: 'fluid',
             }),
             extra_classes: 'ecl-gallery__share',

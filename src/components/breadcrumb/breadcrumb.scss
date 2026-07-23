@@ -111,7 +111,7 @@ $breadcrumb: null !default;
 }
 
 .ecl-breadcrumb__icon {
-  fill: map.get($breadcrumb, 'icon-color');
+  color: map.get($breadcrumb, 'icon-color');
   flex-shrink: 0;
   margin-inline: map.get($breadcrumb, 'icon-spacing-mobile');
   transform: rotateZ(180deg);

@@ -267,29 +267,14 @@ module.exports = {
       variant: 'ghost',
       hide_label: true,
       label: 'Close',
-      icon: {
-        name: 'close',
-        size: 'm',
-      },
     },
     previous: {
       variant: 'tertiary',
       label: 'Previous',
-      icon: {
-        name: 'corner-arrow',
-        size: 's',
-        transform: 'rotate-270',
-      },
-      icon_position: 'before',
     },
     next: {
       variant: 'tertiary',
       label: 'Next',
-      icon: {
-        name: 'corner-arrow',
-        size: 's',
-        transform: 'rotate-90',
-      },
     },
     counter_separator: 'of',
     full_screen_label: 'View original',
@@ -297,10 +282,6 @@ module.exports = {
       link: {
         label: 'Share',
         path: exampleLink,
-      },
-      icon: {
-        name: 'share',
-        size: 'fluid',
       },
     },
     sr_overlay_label: 'Gallery overlay',
