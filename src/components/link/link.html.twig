@@ -76,7 +76,8 @@
 
 {% if _link.external %}
   {% set _icons = [_icon|merge({
-    name: 'external',
+    name: 'arrow-square-out',
+    family: 'phosphor',
     size: '2xs',
     title: _extra_accessibility.title is empty and _icon.title is empty and _link.sr_external is not empty ? _link.sr_external : '',
   })] %}

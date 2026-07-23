@@ -1,6 +1,7 @@
 module.exports = {
   icon: {
-    name: 'audio',
+    name: 'arrow-down',
+    family: 'phosphor',
     size: 'm',
   },
 };

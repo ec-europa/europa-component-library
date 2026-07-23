@@ -20,5 +20,4 @@ module.exports = {
       label: 'Heading 4',
     },
   ],
-  icon_size: '2xs',
 };
