@@ -1358,18 +1358,6 @@ importers:
 
   src/components/video: {}
 
-  src/compositions/etrans:
-    dependencies:
-      '@ecl/button':
-        specifier: 5.1.0
-        version: link:../../components/button
-      '@ecl/link':
-        specifier: 5.1.0
-        version: link:../../components/link
-      '@ecl/notification':
-        specifier: 5.1.0
-        version: link:../../components/notification
-
   src/compositions/file-upload-status:
     dependencies:
       '@ecl/link':
@@ -2735,7 +2723,7 @@ importers:
         version: link:../components/description-list
       '@ecl/etrans':
         specifier: 5.1.0
-        version: link:../compositions/etrans
+        version: 5.1.0
       '@ecl/expandable':
         specifier: 5.1.0
         version: link:../components/expandable
@@ -3027,7 +3015,7 @@ importers:
         version: link:../components/description-list
       '@ecl/etrans':
         specifier: 5.1.0
-        version: link:../compositions/etrans
+        version: 5.1.0
       '@ecl/expandable':
         specifier: 5.1.0
         version: link:../components/expandable
@@ -4315,6 +4303,9 @@ packages:
   '@duetds/date-picker@1.4.0':
     resolution: {integrity: sha512-jx4oSIrZAVsXYLyQGXbEmuo0gEXAqrNIGp3rG8L03XSxFFFca/bTpCj5v6yd48vVWOtAXD8y04S/+flOimra0A==}
     engines: {node: '>= 12.17.0', npm: '>= 6.14.0'}
+
+  '@ecl/etrans@5.1.0':
+    resolution: {integrity: sha512-PAoGiZ+cAkFNB/2M5m2Tu5/GU2kpYJtaKNcjTvLsRE3QGonZzybAFO3AaA32HFpntRcSFk6nXq+GJEGdTHtEMw==}
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10':
     resolution: {integrity: sha512-meS00TluwPluXIIS7lWS5Icu0TOm7g7lqDWAA3jwn2t0qSvHleSKSnLgPFeEUdyeUJDM6hmWtmgLVd86JzTjyA==}
@@ -14461,6 +14452,12 @@ snapshots:
   '@duetds/date-picker@1.4.0':
     dependencies:
       '@stencil/core': 2.22.3
+
+  '@ecl/etrans@5.1.0':
+    dependencies:
+      '@ecl/button': link:src/components/button
+      '@ecl/link': link:src/components/link
+      '@ecl/notification': link:src/components/notification
 
   '@ecl/resources-ec-social-icons@5.0.0-alpha.10': {}
 
