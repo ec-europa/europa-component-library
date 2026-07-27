@@ -10,14 +10,16 @@ module.exports = {
   toggle: {
     label: 'Menu',
     icon: {
-      name: 'hamburger',
+      name: 'list',
+      family: 'phosphor',
       size: 'm',
     },
   },
   close: {
     label: 'Close',
     icon: {
-      name: 'close',
+      name: 'x',
+      family: 'phosphor',
       size: 'm',
     },
   },

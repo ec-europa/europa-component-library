@@ -58,7 +58,8 @@ npm install --save @ecl/mega-menu
     },
     icon:
       {
-        name: 'hamburger',
+        name: 'list',
+        family: 'phosphor',
         size: 'm',
       },
     }, 
@@ -66,7 +67,8 @@ npm install --save @ecl/mega-menu
   close: { 
     label: 'Close', 
     icon: { 
-      name: 'close', 
+      name: 'x',
+      family: 'phosphor', 
       size: 'm', 
     }, 
   }, 

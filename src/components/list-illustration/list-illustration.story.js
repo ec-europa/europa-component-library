@@ -504,7 +504,6 @@ const prepareIconList = (data, args) => {
 
     if (args.icon) {
       item.icon.name = args.icon;
-      item.icon.family = 'phopshor';
     }
   });
 

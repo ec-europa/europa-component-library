@@ -33,7 +33,6 @@
         - "label" (string) Label of the item
         - "description" (string) Description for the item
         - "external" (boolean) Whether the link is external
-        - "icon_path" (string) Path to the icons sprite
         - "sr_external" (string) (default: '') Additional label for the external icon
         - "extra_attributes" (array)
           - "name" (string) Attribute name, eg. 'data-test'
@@ -112,14 +111,16 @@
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
   {% set _can_be_external = false %}
   {% set _icon = [{
-    name: 'corner-arrow',
-    transform: 'rotate-90',
+    name: 'caret-down',
+    family: 'phosphor',
     size: '2xs',
+    extra_classes: 'ecl-mega-menu__link-icon--desktop',
   },
   {
-    name: 'arrow-left',
-    transform: 'flip-horizontal',
+    name: 'arrow-right',
+    family: 'phosphor',
     size: 's',
+    extra_classes: 'ecl-mega-menu__link-icon--mobile',
   }] %}
 {% endif %}
 
@@ -246,8 +247,8 @@
 
             {% set _can_be_external = false %}
             {% set _icon = {
-              name: 'corner-arrow',
-              transform: 'rotate-90',
+              name: 'caret-right',
+              family: 'phosphor',
               size: '2xs',
             } %}
           {% endif %}
@@ -305,9 +306,9 @@
                 path: _item.path,
               },
               icon: {
-                name: 'arrow-left',
+                name: 'arrow-right',
+                family: 'phosphor',
                 size: 'xs',
-                transform: 'rotate-180',
               },
               extra_attributes: [{
                name: 'aria-describedby',
@@ -327,8 +328,8 @@
               path: _path,
             }),
             icon: {
-              name: 'arrow-left',
-              transform: 'flip-horizontal',
+              name: 'arrow-right',
+              family: 'phosphor',
               size: 'xs',
             },
             extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
