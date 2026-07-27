@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '../index' as *;
+
+$story-card: (
+  story-card: (
+    description-font: var(--f-m),
+    description-spacing: var(--s-l),
+    dot-background: var(--c-d-60),
+    dot-active-background: var(--c-p),
+    list-spacing-desktop: var(--s-2xl),
+    list-spacing-tablet: var(--s-xl),
+    list-spacing-mobile: var(--s-l),
+    controls-spacing: var(--s-l),
+    outline-color: var(--c-p),
+    title-font: 'heading2',
+    title-font-weight: map.get($font-weight, 'bold'),
+  ),
+  card: (
+    background: var(--c-p-10),
+    content-padding: var(--s-2xl) var(--s-m),
+    content-padding-tablet: var(--s-4xl),
+    content-padding-desktop: var(--s-4xl),
+    content-gap: var(--s-l),
+    loading-bar-background: var(--c-da-200),
+    title-color: var(--c-g-950),
+    title-font: var(--f-l),
+    title-font-weight: map.get($font-weight, 'bold'),
+    teaser-label-font: var(--f-s),
+    overlay-color: color.adjust(#3c414c, $alpha: -0.2),
+    overlay-color-hover: var(--ecl-color-overlay-light),
+  ),
+);

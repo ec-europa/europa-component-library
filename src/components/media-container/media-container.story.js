@@ -311,7 +311,7 @@ EmbeddedVideo.argTypes = {
   },
 };
 EmbeddedVideo.parameters = {
-  notes: { markdown: notes, json: dataEmbed },
+  notes: { markdown: notes, json: ({ args }) => prepareData(dataEmbed, args) },
   a11y: {
     config: {
       rules: [{ id: 'frame-tested', enabled: false }],

@@ -52,6 +52,9 @@ $description-list: null !default;
   margin-inline-start: 0;
   max-width: var(--max-w);
 
+  // FRONT-5420 Text not wrapping correctly otherwise
+  min-width: 0;
+
   @include mixins.responsive-font(
     map.get($description-list, 'definition-font')
   );

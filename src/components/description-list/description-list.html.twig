@@ -122,20 +122,24 @@
             </dd>
 
           {# links inline #}
-          {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
+          {% elseif _item.type is not empty and _item.type == 'link-inline' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--inline">
-              <ul class="ecl-description-list__definition-list" 
+              <ul class="ecl-description-list__definition-list"
               {%- if _visible_items > 0 -%}
                 data-ecl-description-list-collapsible
               {%- endif -%}
               >
-              {% for _definition in _item.definition %}  
+              {%- for _definition in _item.definition -%}
                 <li class="ecl-description-list__definition-item">
-                {% include '@ecl/link/link.html.twig' with _definition|merge({
-                  link: _definition.link|merge({ type: 'standalone' }),
-                }) only %}
+                {%- if _definition.link is defined -%}
+                  {% include '@ecl/link/link.html.twig' with _definition|merge({
+                    link: _definition.link|merge({ type: 'standalone' }),
+                  }) only %}
+                {%- else -%}
+                  {{- _definition -}}
+                {%- endif -%}
                 </li>
-              {% endfor %}
+              {%- endfor -%}
               </ul>
             </dd>
 
