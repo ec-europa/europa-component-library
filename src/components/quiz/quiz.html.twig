@@ -128,25 +128,25 @@
     {% endfor %}
     </ol>
   </div>
-{% endif %}
   {% include "@ecl/slider/slider-pager.html.twig" with {
     prev_label: _prev_label,
     next_label: _next_label,
     hide_label: true,
-    extra_classes:  'ecl-quiz__pager"',
+    extra_classes:  'ecl-quiz__pager',
     prev_extra_classes: 'ecl-quiz__prev',
     prev_extra_attributes: [{
       name: 'data-ecl-quiz-prev'
     }],
     next_extra_classes: 'ecl-quiz__next',
     next_extra_attributes: [{
-      name: 'data-ecl-quiz-prev'
+      name: 'data-ecl-quiz-next'
     }],
     dots_extra_classes: 'ecl-quiz__dots',
     dot_extra_classes: 'ecl-quiz__dot',
     template_data_attribute: 'data-ecl-quiz-dot-template',
   } only %}
   <div class="ecl-quiz__counter"></div>
+{% endif %}
 {% if _full_width %}
   </div>
 {% endif %}
