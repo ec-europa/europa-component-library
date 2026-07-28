@@ -83,11 +83,19 @@
 
       {% if _link is not empty %}
         {# Link #}
+        {% set _link_attributes = _link.extra_attributes|default({}) %}
+        {% if _title is not empty %}
+          {% set _link_attributes = _link_attributes|merge([
+            { name: 'aria-describedby', value: _id ~ '-title' },
+            ])
+          %}
+        {% endif %}
         {% include '@ecl/link/link.html.twig' with _link|merge({
           link: _link.link|merge({
             type: 'secondary-neutral',
           }),
           extra_classes: "ecl-highlight-box__link",
+          extra_attributes: _link_attributes,
         }) only %}
       {% endif %}
     </div>
