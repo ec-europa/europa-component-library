@@ -301,6 +301,10 @@
   $site-header: var.$site-header,
   $language-list: var.$language-list
 );
+@use '@ecl/slider/slider' with (
+  $theme: theme.$theme,
+  $slider: var.$slider
+);
 @use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,
   $splash-page: var.$splash-page,

@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "id" (string) (default: random): Unique id for the quiz; randomized if empty
+    - "color_mode" (string) (default: '') name of the color mode
     - "variant" (string) (default: reveal) poll otherwise
     - "title" (string) (default: '')
     - "description" (string) (default: '')
@@ -41,6 +42,7 @@
 {# Internal properties #}
 
 {% set _id = id|default('ecl-quiz-' ~ random()) %}
+{% set _color_mode = color_mode|default('') %}
 {% set _title = title|default('') %}
 {% set _variant = variant|default('reveal') %}
 {% set _description = description|default('') %}
@@ -56,6 +58,10 @@
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class  ~ ' ecl-quiz--' ~ _variant %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if _with_background or _full_width %}
   {% set _css_class = _css_class ~ ' ecl-quiz--background' %}
@@ -123,38 +129,23 @@
     </ol>
   </div>
 {% endif %}
-  <div class="ecl-quiz__pager">
-    <button class="ecl-quiz__prev">
-      {% include "@ecl/icon/icon.html.twig" with {
-        icon: {
-          name: 'corner-arrow',
-          transform: 'rotate-270',
-          size: 'xs',
-          style: 'monochrome',
-        }
-      } %}
-      <span class="ecl-quiz__prev-label">
-        {{ _prev_label }}
-      </span>
-    </button>
-    <div class="ecl-quiz__dots"></div>
-    <button class="ecl-quiz__next">
-      <span class="ecl-quiz__next-label">
-        {{ _next_label }}
-      </span>
-      {% include "@ecl/icon/icon.html.twig" with {
-        icon: {
-          name: 'corner-arrow',
-          transform: 'rotate-90',
-          size: 'xs',
-          style: 'monochrome',
-        }
-      } %}
-    </button>
-    <script type="text/template" id="ecl-quiz__dot-template">
-      <button class="ecl-quiz__dot"></button>
-    </script>
-  </div>
+  {% include "@ecl/slider/slider-pager.html.twig" with {
+    prev_label: _prev_label,
+    next_label: _next_label,
+    hide_label: true,
+    extra_classes:  'ecl-quiz__pager"',
+    prev_extra_classes: 'ecl-quiz__prev',
+    prev_extra_attributes: [{
+      name: 'data-ecl-quiz-prev'
+    }],
+    next_extra_classes: 'ecl-quiz__next',
+    next_extra_attributes: [{
+      name: 'data-ecl-quiz-prev'
+    }],
+    dots_extra_classes: 'ecl-quiz__dots',
+    dot_extra_classes: 'ecl-quiz__dot',
+    template_data_attribute: 'data-ecl-quiz-dot-template',
+  } only %}
   <div class="ecl-quiz__counter"></div>
 {% if _full_width %}
   </div>

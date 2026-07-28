@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import EmblaCarousel from 'embla-carousel';
 import Accessibility from 'embla-carousel-accessibility';
@@ -68,7 +68,7 @@ export class Quiz {
       pagerClass = '.ecl-quiz__pager',
       dotsClass = '.ecl-quiz__dots',
       dotClass = '.ecl-quiz__dot',
-      activeDotClass = 'ecl-quiz__dot--active',
+      activeDotClass = 'ecl-slider__dot--active',
       correctChosenOptionSelector = 'data-ecl-quiz-chosen-option-correct',
       incorrectChosenOptionSelector = 'data-ecl-quiz-chosen-option-incorrect',
       attachClickListener = true,
@@ -125,6 +125,7 @@ export class Quiz {
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.checkHeight = this.checkHeight.bind(this);
+    this.checkPager = this.checkPager.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.initSlider = this.initSlider.bind(this);
     this.setCounter = this.setCounter.bind(this);
@@ -303,6 +304,7 @@ export class Quiz {
     this.prevButtonNode = queryOne(this.prevClass, this.element);
     this.nextButtonNode = queryOne(this.nextClass, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
+    this.checkPager();
 
     if (this.prevButtonNode) {
       this.prevButtonNode.addEventListener(
@@ -343,7 +345,10 @@ export class Quiz {
 
     if (this.dotsNode) {
       const createDotButtonHtml = (emblaApi) => {
-        const dotTemplate = document.getElementById('ecl-quiz__dot-template');
+        const dotTemplate = queryOne(
+          '[data-ecl-quiz-dot-template]',
+          this.element,
+        );
         const snapList = emblaApi.snapList();
         this.dotsNode.innerHTML = snapList.reduce(
           (acc) => acc + dotTemplate.innerHTML,
@@ -417,6 +422,21 @@ export class Quiz {
 
     if (counter) {
       counter.textContent = `${currentIndex + 1} / ${total}`;
+    }
+  }
+
+  /**
+   * Show pager's buttons label in desktop
+   *
+   * @memberof Quiz
+   */
+  checkPager() {
+    if (this.element.offsetWidth >= getBreakpoint('m')) {
+      this.nextButtonNode.classList.remove('ecl-button--icon-only');
+      this.prevButtonNode.classList.remove('ecl-button--icon-only');
+    } else {
+      this.nextButtonNode.classList.add('ecl-button--icon-only');
+      this.prevButtonNode.classList.add('ecl-button--icon-only');
     }
   }
 
@@ -654,7 +674,7 @@ export class Quiz {
           this.toggleButtonsDisabled(this.slider);
         }
       }
-
+      this.checkPager();
       this.checkHeight();
     }, 100);
   }
