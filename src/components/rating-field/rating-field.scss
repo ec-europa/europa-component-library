@@ -16,45 +16,38 @@ $stroke-width: 4px;
 
 .ecl-rating-field {
   display: inline-flex;
-  flex-direction: row-reverse;
 
-  &--disabled .ecl-rating-field__input + .ecl-rating-field__label {
+  &--disabled .ecl-rating-field__label {
     cursor: not-allowed;
     opacity: 0.5;
   }
 
-  .ecl-rating-field__input {
-    &:checked,
-    &:active {
-      ~ .ecl-rating-field__label {
-        .ecl-rating-field__icon-outline {
-          display: none;
-        }
+  .ecl-rating-field__label {
+    &:has(~ .ecl-rating-field__input:checked),
+    &:has(~ .ecl-rating-field__input:active) {
+      .ecl-rating-field__icon-outline {
+        display: none;
+      }
 
-        .ecl-rating-field__icon-filled {
-          display: inline-block;
-        }
+      .ecl-rating-field__icon-filled {
+        display: inline-block;
+      }
 
-        &:hover .ecl-rating-field__icon-filled {
-          fill: map.get($rating-field, 'checked-hover-color');
-        }
+      &:hover .ecl-rating-field__icon-filled {
+        fill: map.get($rating-field, 'checked-hover-color');
       }
     }
   }
 
   &:not(.ecl-rating-field--disabled) {
-    .ecl-rating-field__input
-      + .ecl-rating-field__label:hover
-      .ecl-rating-field__icon-outline {
+    .ecl-rating-field__label:hover .ecl-rating-field__icon-outline {
       fill: map.get($rating-field, 'hover-stroke-color');
     }
 
-    .ecl-rating-field__input:focus-visible {
-      + .ecl-rating-field__label {
-        outline: 1px solid map.get($rating-field, 'focus-outline');
-        outline-offset: -1px;
-        border-radius: 50%;
-      }
+    .ecl-rating-field__label:has(+ .ecl-rating-field__input:focus-visible) {
+      outline: 1px solid map.get($rating-field, 'focus-outline');
+      outline-offset: -1px;
+      border-radius: 50%;
     }
   }
 }
