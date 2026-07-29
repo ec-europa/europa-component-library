@@ -218,19 +218,17 @@ export default class SliderPager {
    * @memberof SliderPager
    */
   escapeSlider() {
-    let dots = [];
-
     if (this.slider.canGoToNext()) {
       this.nextButton.focus();
       return;
     }
 
-    if (this.dotsContainer) {
-      dots = queryAll(this.dotSelector, this.dotsContainer);
-    }
-
     // Move focus on the disabled next button in case there are no dots.
-    if (dots.length === 0 && !this.slider.canGoToNext() && this.nextButton) {
+    if (
+      this.dotNodes.length === 0 &&
+      !this.slider.canGoToNext() &&
+      this.nextButton
+    ) {
       this.nextButton.disabled = false;
       this.nextButton.style.display = 'flex';
       this.nextButton.style.visibility = 'visible';
@@ -239,8 +237,8 @@ export default class SliderPager {
       return;
     }
 
-    if (dots.length > 0) {
-      const lastDot = dots[dots.length - 1];
+    if (this.dotNodes.length > 0) {
+      const lastDot = this.dotNodes[this.dotNodes.length - 1];
       lastDot.focus();
     }
   }

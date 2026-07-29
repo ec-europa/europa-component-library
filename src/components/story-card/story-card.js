@@ -529,20 +529,6 @@ export class StoryCard {
   }
 
   /**
-   * Handle the click on the next button.
-   */
-  handleNextClick = () => {
-    this.slider?.goToNext();
-  };
-
-  /**
-   * Handle the click on the prev button.
-   */
-  handlePrevClick = () => {
-    this.slider?.goToPrev();
-  };
-
-  /**
    * Handle the click on the pause button.
    */
   handleGridPauseClick = () => {
@@ -575,8 +561,6 @@ export class StoryCard {
    * Attach event listeners.
    */
   attachListeners() {
-    this.btnPrev?.addEventListener('click', this.handlePrevClick);
-    this.btnNext?.addEventListener('click', this.handleNextClick);
     this.btnGridPrev?.addEventListener('click', this.goToPreviousGridItem);
     this.btnGridNext?.addEventListener('click', this.goToNextGridItem);
     this.btnGridPlay?.addEventListener('click', this.handleGridPlayClick);
@@ -616,8 +600,6 @@ export class StoryCard {
       window.removeEventListener('resize', this.onWindowResize);
     }
 
-    this.btnPrev?.removeEventListener('click', this.handlePrevClick);
-    this.btnNext?.removeEventListener('click', this.handleNextClick);
     this.btnGridPrev?.removeEventListener('click', this.goToPreviousGridItem);
     this.btnGridNext?.removeEventListener('click', this.goToNextGridItem);
     this.btnGridPlay?.removeEventListener('click', this.handleGridPlayClick);
