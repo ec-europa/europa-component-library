@@ -82,6 +82,18 @@ describe('Site Header', () => {
       return expect(render(loggedInWithHref)).resolves.toMatchSnapshot();
     });
 
+    test('renders the language selector as a link when an href is provided', () => {
+      expect.assertions(1);
+
+      const withLanguageSelectorHref = merge(dataEC, {
+        language_selector: { href: '/example' },
+      });
+
+      return expect(
+        render(withLanguageSelectorHref),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEC)),

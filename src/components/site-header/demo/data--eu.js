@@ -56,7 +56,6 @@ module.exports = {
     href: exampleLink,
   },
   language_selector: {
-    href: exampleLink,
     label: 'EN',
     aria_label: 'Change language, current language is English',
     overlay: {

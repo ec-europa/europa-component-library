@@ -20,7 +20,7 @@
         },
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
-          "href": (string) (default: ''): URL for switcher
+          "href": (string) (optional) (default: ''): URL for switcher. If not provided, the toggle renders as a button
           "label": (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
           "aria_label": (string) (default: ''): Switcher language aria label
           "code": (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
@@ -128,22 +128,6 @@
   { name: 'data-ecl-auto-init', value: 'SiteHeader' }
   ]|merge(extra_attributes|default([]))
 %}
-
-{% if logo is defined and logo is not empty %}
-  {% set _logo = _logo|merge(logo) %}
-{% endif %}
-
-{% if login_toggle is defined and login_toggle is not empty %}
-  {% set _login_toggle = _login_toggle|merge(login_toggle) %}
-{% endif %}
-
-{% if login_box is defined and login_box is not empty %}
-  {% set _login_box = _login_box|merge(login_box) %}
-{% endif %}
-
-{% if language_selector is defined and language_selector is not empty %}
-  {% set _language_selector = _language_selector|merge(language_selector) %}
-{% endif %}
 
 {% if search_form is defined and search_form is not empty %}
   {% if search_form.extra_attributes is defined and search_form.extra_attributes is not empty %}

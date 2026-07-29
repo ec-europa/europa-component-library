@@ -39,7 +39,7 @@ npm install --save @ecl/site-header
     - "close": (associative array) (default: {})
     - "content": (string) (default: '') HTML for the popover
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
-  - "href" (string) (default: ''): URL for switcher
+  - "href" (optional) (string) (default: ''): URL for switcher. If not provided, the toggle renders as a button
   - "label" (string) (default: ''): Switcher language label, eg. 'English' in eu, 'EN' in ec
   - "aria_label" (string) (default: ''): Switcher language aria label
   - "eu_category" (string) (default: ''): Label for EU languages
