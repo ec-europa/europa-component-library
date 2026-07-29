@@ -70,7 +70,7 @@ describe('Site Header', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataEC, true)),
+        await axe(await renderTwigFileAsHtml(template, dataEC)),
       ).toHaveNoViolations();
     });
   });
@@ -83,7 +83,7 @@ describe('Site Header', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataEU, true)),
+        await axe(await renderTwigFileAsHtml(template, dataEU)),
       ).toHaveNoViolations();
     });
   });
