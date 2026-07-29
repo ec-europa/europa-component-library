@@ -13,7 +13,8 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.activeDotSelector Css class to be assigned to the active dot
  * @param {String} options.dotTemplateSelector Dots template selector
  */
-export default class SliderPager {
+
+export class SliderPager {
   constructor({
     slider,
     accessibility,
@@ -24,8 +25,8 @@ export default class SliderPager {
     dotTemplateSelector,
     dotSelector,
     activeDotSelector,
-    onUpdate = null,
-  }) {
+    onUpdate,
+  } = {}) {
     this.slider = slider;
     this.accessibility = accessibility;
     this.prevSelector = prevSelector;
@@ -46,6 +47,8 @@ export default class SliderPager {
     this.handleResize = this.handleResize.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.escapeSlider = this.escapeSlider.bind(this);
+    this.onPrevClick = this.onPrevClick.bind(this);
+    this.onNextClick = this.onNextClick.bind(this);
   }
 
   /**
@@ -69,9 +72,8 @@ export default class SliderPager {
       this.slider.on('select', this.toggleButtonsDisabled);
       this.slider.on('reInit', this.toggleButtonsDisabled);
 
-      this.prevButton.addEventListener('click', () => this.slider.goToPrev());
-
-      this.nextButton.addEventListener('click', () => this.slider.goToNext());
+      this.prevButton.addEventListener('click', this.onPrevClick);
+      this.nextButton.addEventListener('click', this.onNextClick);
 
       this.accessibility?.setupPrevAndNextButtons(
         this.prevButton,
@@ -81,13 +83,9 @@ export default class SliderPager {
 
     if (this.dotsContainer) {
       this.rebuildDots();
-
       this.slider.on('reInit', this.rebuildDots);
-
       this.updateDots();
-
       this.slider.on('select', this.updateDots);
-
       this.accessibility?.setupDotButtons(this.dotsContainer);
     }
 
@@ -101,14 +99,37 @@ export default class SliderPager {
    * @memberof SliderPager
    */
   destroy() {
+    this.slider.rootNode().removeEventListener('keydown', this.handleKeyboard);
     this.slider.off('select', this.toggleButtonsDisabled);
     this.slider.off('reInit', this.toggleButtonsDisabled);
 
     this.slider.off('select', this.updateDots);
     this.slider.off('reInit', this.rebuildDots);
 
-    this.slider.removeEventListener('keydown', this.handleKeyboard);
+    if (this.prevButton && this.nextButton) {
+      this.prevButton.removeEventListener('click', this.onPrevClick);
+      this.nextButton.removeEventListener('click', this.onNextClick);
+    }
+
     window.removeEventListener('resize', this.handleResize);
+  }
+
+  /**
+   * Prev button click handler
+   *
+   * @memberof SliderPager
+   */
+  onPrevClick() {
+    this.slider.goToPrev();
+  }
+
+  /**
+   * Next button click handler.
+   *
+   * @memberof SliderPager
+   */
+  onNextClick() {
+    this.slider.goToNext();
   }
 
   /**
@@ -243,3 +264,5 @@ export default class SliderPager {
     }
   }
 }
+
+export default SliderPager;

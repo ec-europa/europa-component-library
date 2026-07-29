@@ -218,6 +218,10 @@ export class StoryCard {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.onWindowResize, false);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -584,6 +588,10 @@ export class StoryCard {
    * Destroy the component.
    */
   destroy() {
+    if (this.pager) {
+      this.pager.destroy();
+    }
+
     if (this.slider) {
       this.slider.destroy();
     }
@@ -610,6 +618,11 @@ export class StoryCard {
     this.gridButtons?.forEach((button) => {
       button.removeEventListener('click', this.handleClickOnGridButtons);
     });
+
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
+    }
   }
 }
 

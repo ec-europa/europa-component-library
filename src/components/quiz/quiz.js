@@ -229,6 +229,10 @@ export class Quiz {
       ECL.components.delete(this.element);
     }
 
+    if (this.pager) {
+      this.pager.destroy();
+    }
+
     if (this.slider) {
       this.slider.destroy();
     }
