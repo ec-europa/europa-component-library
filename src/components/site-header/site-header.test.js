@@ -51,6 +51,16 @@ describe('Site Header', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders the search toggle as a link when an href is provided', () => {
+      expect.assertions(1);
+
+      const withSearchToggleHref = merge(dataEC, {
+        search_toggle: { href: '/example' },
+      });
+
+      return expect(render(withSearchToggleHref)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEC)),

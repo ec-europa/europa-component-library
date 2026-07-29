@@ -245,14 +245,12 @@ module.exports = {
   },
   search_toggle: {
     label: 'Search',
-    href: exampleLink,
   },
   search_form: {
     label: 'Search',
     text_input: {
       id: 'search-input-id',
       label: 'Search',
-      placeholder: 'Placeholder text',
     },
     button: {
       variant: 'tertiary',

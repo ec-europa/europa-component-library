@@ -59,7 +59,7 @@ npm install --save @ecl/site-header
       - "active" (boolean) (default: false) define if item is the active language.
 - **"search_toggle"** (associative array) format:
   - "label" (string) Label of the element
-  - "href" (string) Link of the element
+  - "href" (optional) (string) Link of the element. If not provided, the toggle renders as a button
 - **"search_form"** (associative array) (default: predefined structure): ECL Search Form component structure
 - **"notification"** (object) (default: {}): Optional notification compatible with ECL Notification component structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
