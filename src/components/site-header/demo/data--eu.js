@@ -23,7 +23,6 @@ module.exports = {
   },
   custom_action: {
     link: {
-      path: exampleLink,
       label: 'Custom label',
       hide_label: true,
       indicator: {

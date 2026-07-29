@@ -31,7 +31,7 @@ npm install --save @ecl/site-header
   - "label_logged" (string) Label for the logged in users
   - "href_logged" (optional) (string) Link to the logout form. If not provided, the toggle renders as a button
 - **"custom_action"** (associative array) (default: {}):
-  - "link" (object) (default: predefined structure) predefined structure for the Link component
+  - "link" (object) (default: predefined structure) predefined structure for the Link component. If "path" is not provided, the toggle renders as a button
   - "icon" (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
     The name has to be non empty for the icon to be printed.
   - "overlay": (associative array) (optional):

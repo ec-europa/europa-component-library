@@ -50,7 +50,7 @@
         },
     - "custom_action" (associative array) (default: {}): optional custom link with optional popover, e.g.:
       {
-        "link": (object) (default: predefined structure) predefined structure for the Link component
+        "link": (object) (default: predefined structure) predefined structure for the Link component. If "path" is not provided, the toggle renders as a button
         "icon" (associative array) OR (array) of associative arrays : format
           {
             name: (string) (default: ''),
@@ -264,13 +264,17 @@
               {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
               {% set has_hidden_label = _custom_action.link.hide_label is defined and _custom_action.link.hide_label is not empty %}
 
-              {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
-              {% set link_extra_attributes = link_extra_attributes|merge([
-                { name: 'role', value: 'button' },
+              {% set shared_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
+              {% set shared_extra_attributes = shared_extra_attributes|merge([
                 { name: 'data-ecl-custom-action', value: '' }
               ]) %}
+              {% if _custom_action.link.aria_label is defined and _custom_action.link.aria_label is not empty %}
+                {% set shared_extra_attributes = shared_extra_attributes|merge([
+                  { name: 'aria-label', value: _custom_action.link.aria_label }
+                ]) %}
+              {% endif %}
               {% if is_overlay %}
-                {% set link_extra_attributes = link_extra_attributes|merge([
+                {% set shared_extra_attributes = shared_extra_attributes|merge([
                   { name: 'aria-controls', value: 'custom-action-overlay' },
                   { name: 'aria-expanded', value: 'false' }
                 ]) %}
@@ -284,21 +288,36 @@
                 {% set icon = null %}
               {% endif %}
 
-              {% set base_classes = 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral' %}
-              {% if has_icon and has_hidden_label %}
-                {% set base_classes = base_classes ~ ' ecl-button--icon-only' %}
-              {% endif %}
               {% set user_classes = _custom_action.link.extra_classes|default('') %}
-              {% set full_classes = (user_classes ? user_classes ~ ' ' : '') ~ base_classes %}
+              {% set full_extra_classes = (user_classes ? user_classes ~ ' ' : '') ~ 'ecl-site-header__custom-action-toggle' %}
 
-              {% set custom_action_link = {
-                link: _custom_action.link|merge({ type: 'standalone' }),
-                icon: icon,
-                extra_attributes: link_extra_attributes,
-                extra_classes: full_classes
-              } %}
+              {% if _custom_action.link.path is not empty %}
+                {% set link_extra_classes = 'ecl-button ecl-button--tertiary ecl-button--neutral ' ~ full_extra_classes %}
+                {% if has_icon and has_hidden_label %}
+                  {% set link_extra_classes = link_extra_classes ~ ' ecl-button--icon-only' %}
+                {% endif %}
+                {% set custom_action_link = {
+                  link: _custom_action.link|merge({ type: 'standalone' }),
+                  icon: icon,
+                  extra_attributes: shared_extra_attributes|merge([{ name: 'role', value: 'button' }]),
+                  extra_classes: link_extra_classes
+                } %}
 
-              {% include '@ecl/link/link.html.twig' with custom_action_link only %}
+                {% include '@ecl/link/link.html.twig' with custom_action_link only %}
+              {% else %}
+                {% include '@ecl/button/button.html.twig' with {
+                  label: _custom_action.link.label|default(''),
+                  type: 'button',
+                  variant: 'tertiary',
+                  style: 'neutral',
+                  hide_label: has_hidden_label,
+                  icon_position: _custom_action.link.icon_position|default('after'),
+                  icon: icon,
+                  indicator: _custom_action.link.indicator|default({}),
+                  extra_classes: full_extra_classes,
+                  extra_attributes: shared_extra_attributes,
+                } only %}
+              {% endif %}
 
               {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
                 <div

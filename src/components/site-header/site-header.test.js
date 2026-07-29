@@ -94,6 +94,16 @@ describe('Site Header', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders the custom action toggle as a link when a path is provided', () => {
+      expect.assertions(1);
+
+      const withCustomActionPath = merge(dataEC, {
+        custom_action: { link: { path: '/example' } },
+      });
+
+      return expect(render(withCustomActionPath)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEC)),
