@@ -61,6 +61,27 @@ describe('Site Header', () => {
       return expect(render(withSearchToggleHref)).resolves.toMatchSnapshot();
     });
 
+    test('renders the login toggle as a button when no href is provided', () => {
+      expect.assertions(1);
+
+      const withoutLoginToggleHref = merge(dataEC, {
+        login_toggle: { href_not_logged: '' },
+      });
+
+      return expect(render(withoutLoginToggleHref)).resolves.toMatchSnapshot();
+    });
+
+    test('renders the login toggle as a link when logged in and an href is provided', () => {
+      expect.assertions(1);
+
+      const loggedInWithHref = merge(dataEC, {
+        logged: true,
+        login_toggle: { href_logged: '/example' },
+      });
+
+      return expect(render(loggedInWithHref)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEC)),

@@ -14,7 +14,6 @@ module.exports = {
     label_not_logged: 'Log in',
     href_not_logged: exampleLink,
     label_logged: 'Logged in',
-    href_logged: exampleLink,
   },
   banner_top: {
     link: {

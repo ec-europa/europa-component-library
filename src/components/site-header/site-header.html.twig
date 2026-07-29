@@ -79,9 +79,9 @@
     - "login_toggle" (associate array) (default: {}) format:
       {
         "label_not_logged": (string) Label for the anonymous users
-        "href_not_logged": (string) Link to the login form
+        "href_not_logged": (string) (optional) Link to the login form. If not provided, the toggle renders as a button
         "label_logged": (string) Label for the logged in users
-        "href_logged": (string) Link to the logout form
+        "href_logged": (string) (optional) Link to the logout form. If not provided, the toggle renders as a button
       }
     - "search_form" (associative array) (default: predefined structure): ECL Search Form component structure
     - "notification" (object) (default: {}): Optional notification compatible with ECL Notification component structure
@@ -353,26 +353,48 @@
           {% if _login_toggle is not empty and _login_box is not empty %}
             <div class="ecl-site-header__login-container">
             {% if _logged %}
-              <a
-                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
-                href="{{ _login_toggle.href_logged }}"
-                aria-controls="{{ _login_box.id }}"
-                data-ecl-login-toggle
-                aria-expanded="false"
-              >
-                {% include '@ecl/icon/icon.html.twig' with {
+              {% if _login_toggle.href_logged is not empty %}
+                {% include '@ecl/link/link.html.twig' with {
+                  link: {
+                    path: _login_toggle.href_logged,
+                    label: _login_toggle.label_logged,
+                    type: 'standalone',
+                    icon_position: 'before',
+                  },
                   icon: {
                     name: 'logged-in',
-                    size: 'm'
+                    size: 'm',
+                    title: _login_toggle.label_logged,
+                    extra_classes: 'ecl-site-header__icon',
                   },
-                  as_image: true,
-                  extra_classes: 'ecl-site-header__icon',
-                  extra_accessibility: {
-                    title: login_toggle.label_logged,
-                  },
+                  extra_classes: 'ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle',
+                  extra_attributes: [
+                    { name: 'aria-controls', value: _login_box.id },
+                    { name: 'data-ecl-login-toggle' },
+                    { name: 'aria-expanded', value: 'false' },
+                  ],
                 } only %}
-                {{- login_toggle.label_logged -}}
-              </a>
+              {% else %}
+                {% include '@ecl/button/button.html.twig' with {
+                  label: _login_toggle.label_logged,
+                  type: 'button',
+                  variant: 'tertiary',
+                  style: 'neutral',
+                  icon_position: 'before',
+                  icon: {
+                    name: 'logged-in',
+                    size: 'm',
+                    title: _login_toggle.label_logged,
+                    extra_classes: 'ecl-site-header__icon',
+                  },
+                  extra_classes: 'ecl-site-header__login-toggle',
+                  extra_attributes: [
+                    { name: 'aria-controls', value: _login_box.id },
+                    { name: 'data-ecl-login-toggle' },
+                    { name: 'aria-expanded', value: 'false' },
+                  ],
+                } only %}
+              {% endif %}
               <div
                 id="{{ _login_box.id }}"
                 class="ecl-site-header__login-box"
@@ -391,25 +413,46 @@
                 } only %}
               </div>
             {% else %}
-              <a
-                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
-                href="{{ _login_toggle.href_not_logged }}"
-                data-ecl-login-toggle
-              >
-                {% include '@ecl/icon/icon.html.twig' with {
+              {% if _login_toggle.href_not_logged is not empty %}
+                {% include '@ecl/link/link.html.twig' with {
+                  link: {
+                    path: _login_toggle.href_not_logged,
+                    label: _login_toggle.label_not_logged,
+                    type: 'standalone',
+                    icon_position: 'before',
+                  },
                   icon: {
-                    path: _icon_path,
                     name: 'log-in',
-                    size: 'm'
+                    path: _icon_path,
+                    size: 'm',
+                    title: _login_toggle.label_not_logged,
+                    extra_classes: 'ecl-site-header__icon',
                   },
-                  as_image: true,
-                  extra_classes: 'ecl-site-header__icon',
-                  extra_accessibility: {
-                    title: login_toggle.label_not_logged,
-                  },
+                  extra_classes: 'ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle',
+                  extra_attributes: [
+                    { name: 'data-ecl-login-toggle' },
+                  ],
                 } only %}
-                {{- login_toggle.label_not_logged -}}
-              </a>
+              {% else %}
+                {% include '@ecl/button/button.html.twig' with {
+                  label: _login_toggle.label_not_logged,
+                  type: 'button',
+                  variant: 'tertiary',
+                  style: 'neutral',
+                  icon_position: 'before',
+                  icon: {
+                    name: 'log-in',
+                    path: _icon_path,
+                    size: 'm',
+                    title: _login_toggle.label_not_logged,
+                    extra_classes: 'ecl-site-header__icon',
+                  },
+                  extra_classes: 'ecl-site-header__login-toggle',
+                  extra_attributes: [
+                    { name: 'data-ecl-login-toggle' },
+                  ],
+                } only %}
+              {% endif %}
             {% endif %}
             </div>
           {% endif %}

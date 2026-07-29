@@ -27,9 +27,9 @@ npm install --save @ecl/site-header
   - "href" (string) Url of the link
 - **"login_toggle"** (associative array) format:
   - "label_not_logged" (string) Label for the anonymous users
-  - "href_not_logged" (string) Link to the login form
+  - "href_not_logged" (optional) (string) Link to the login form. If not provided, the toggle renders as a button
   - "label_logged" (string) Label for the logged in users
-  - "href_logged" (string) Link to the logout form
+  - "href_logged" (optional) (string) Link to the logout form. If not provided, the toggle renders as a button
 - **"custom_action"** (associative array) (default: {}):
   - "link" (object) (default: predefined structure) predefined structure for the Link component
   - "icon" (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
