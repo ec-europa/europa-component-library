@@ -2,6 +2,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import EmblaCarousel from 'embla-carousel';
 import Accessibility from 'embla-carousel-accessibility';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -280,87 +281,21 @@ export class StoryCard {
       ],
     );
 
-    if (this.btnPrev && this.btnNext) {
-      this.toggleButtonsDisabled = (emblaApi) => {
-        const setButtonState = (button, enabled) => {
-          button.toggleAttribute('disabled', !enabled);
-        };
-        setButtonState(this.btnPrev, emblaApi.canGoToPrev());
-        setButtonState(this.btnNext, emblaApi.canGoToNext());
-      };
+    this.accessibility = this.slider.plugins().accessibility;
 
-      this.toggleButtonsDisabled(this.slider);
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.accessibility,
+      prevSelector: this.prevSelector,
+      nextSelector: this.nextSelector,
+      dotsSelector: this.dotsClass,
+      dotTemplateSelector: '[data-ecl-slider-dot-template]',
+      dotSelector: this.dotClass,
+      activeDotSelector: this.activeDotClass,
+    });
 
-      this.slider.on('select', this.toggleButtonsDisabled);
-      this.slider.on('reInit', this.toggleButtonsDisabled);
-    }
-
-    let dotNodes = [];
-    this.dotsNode = queryOne(this.dotsClass, this.element);
-
-    if (this.dotsNode) {
-      const createDotButtonHtml = (emblaApi) => {
-        const dotTemplate = queryOne(
-          '[data-ecl-story-card-dot-template]',
-          this.element,
-        );
-        const snapList = emblaApi.snapList();
-        this.dotsNode.innerHTML = snapList.reduce(
-          (acc) => acc + dotTemplate.innerHTML,
-          '',
-        );
-        return Array.from(queryAll(this.dotClass, this.dotsNode));
-      };
-
-      const addDotButtonSelectionHandlers = (emblaApi, dotNodes) => {
-        dotNodes.forEach((dotNode, index) => {
-          dotNode.addEventListener('click', () => emblaApi.goTo(index), false);
-        });
-      };
-
-      this.createAndSetupDotButtons = (emblaApi) => {
-        const canScroll =
-          this.slider.canGoToNext() || this.slider.canGoToPrev();
-
-        if (this.pagerNode) this.pagerNode.style.display = '';
-
-        if (!canScroll) {
-          if (this.pagerNode) this.pagerNode.style.display = 'none';
-
-          this.dotsNode.innerHTML = '';
-          dotNodes = [];
-          return;
-        }
-
-        dotNodes = createDotButtonHtml(emblaApi);
-        addDotButtonSelectionHandlers(emblaApi, dotNodes);
-      };
-
-      this.createAndSetupDotButtons(this.slider, this.dotsNode);
-      this.slider.on('reInit', () => {
-        this.createAndSetupDotButtons(this.slider, this.dotsNode);
-      });
-
-      this.updateDots = () => {
-        if (!dotNodes.length) return;
-
-        const index = this.slider.selectedSnap();
-
-        dotNodes.forEach((dot, i) => {
-          dot.classList.toggle(this.activeDotClass, i === index);
-          dot.classList.toggle('is-prev', i === index - 1);
-        });
-      };
-
-      this.accessibility = this.slider.plugins().accessibility;
-
-      this.accessibility.setupPrevAndNextButtons(this.btnPrev, this.btnNext);
-
-      this.accessibility.setupDotButtons(this.dotsNode);
-
-      this.updateDots();
-      this.slider.on('select', this.updateDots);
-    }
+    this.pager.init();
   }
 
   /**
