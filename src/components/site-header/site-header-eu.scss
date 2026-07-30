@@ -233,6 +233,12 @@ $language-list: null !default;
       margin: 0;
     }
   }
+
+  .ecl-link__label,
+  .ecl-button__label {
+    margin-inline-start: 0 !important;
+  }
+
   // stylelint-disable-next-line no-descending-specificity
   .ecl-icon {
     height: map.get($theme, 'icon', 'm');
@@ -347,6 +353,12 @@ $language-list: null !default;
 
     &.ecl-link {
       .ecl-link__label {
+        display: none;
+      }
+    }
+
+    &.ecl-button {
+      .ecl-button__label {
         display: none;
       }
     }
