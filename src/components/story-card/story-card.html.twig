@@ -180,6 +180,77 @@
 
   <!-- Desktop: Grid with Accordion -->
   <div class="ecl-story-card__grid">
+    {% if _items|length > 1 %}
+    <div class="ecl-story-card__grid-controls">
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        label: _sr_prev,
+        hide_label: true,
+        icon: {
+          name: 'caret-left',
+          size: 'l',
+          family: 'phosphor',
+        },
+        extra_classes: 'ecl-story-card__grid-prev',
+        extra_attributes: [{
+          name: 'data-ecl-story-card-grid-prev',
+        }],
+      } only %}
+
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'secondary',
+        style: 'neutral',
+        label: _sr_play,
+        hide_label: true,
+        icon: {
+          name: 'play-filled',
+          size: 'l',
+          family: 'phosphor',
+        },
+        extra_classes: 'ecl-story-card__grid-play',
+        extra_attributes: [{
+          name: 'data-ecl-story-card-grid-play',
+        }],
+      } only %}
+
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'secondary',
+        style: 'neutral',
+        label: _sr_pause,
+        hide_label: true,
+        icon: {
+          name: 'pause-filled',
+          family: 'phosphor',
+          size: 'l',
+        },
+        extra_classes: 'ecl-story-card__grid-pause',
+        extra_attributes: [{
+          name: 'data-ecl-story-card-grid-pause',
+        }],
+      } only %}
+
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        style: 'neutral',
+        label: _sr_next,
+        hide_label: true,
+        icon: {
+          name: 'caret-right',
+          size: 'l',
+          family: 'phosphor',
+        },
+        extra_classes: 'ecl-story-card__grid-next',
+        extra_attributes: [{
+          name: 'data-ecl-story-card-grid-next',
+        }],
+      } only %}
+    </div>
+  {% endif %}
     <ul
       class="ecl-story-card__grid-container"
       role="tablist"
@@ -249,77 +320,6 @@
       </article>
     </div>
     {% endfor %}
-    {% if _items|length > 1 %}
-      <div class="ecl-story-card__grid-controls">
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'tertiary',
-          style: 'neutral',
-          label: _sr_prev,
-          hide_label: true,
-          icon: {
-            name: 'caret-left',
-            size: 'l',
-            family: 'phosphor',
-          },
-          extra_classes: 'ecl-story-card__grid-prev',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-prev',
-          }],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'secondary',
-          style: 'neutral',
-          label: _sr_play,
-          hide_label: true,
-          icon: {
-            name: 'play-filled',
-            size: 'l',
-            family: 'phosphor',
-          },
-          extra_classes: 'ecl-story-card__grid-play',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-play',
-          }],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'secondary',
-          style: 'neutral',
-          label: _sr_pause,
-          hide_label: true,
-          icon: {
-            name: 'pause-filled',
-            family: 'phosphor',
-            size: 'l',
-          },
-          extra_classes: 'ecl-story-card__grid-pause',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-pause',
-          }],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'tertiary',
-          style: 'neutral',
-          label: _sr_next,
-          hide_label: true,
-          icon: {
-            name: 'caret-right',
-            size: 'l',
-            family: 'phosphor',
-          },
-          extra_classes: 'ecl-story-card__grid-next',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-next',
-          }],
-        } only %}
-      </div>
-    {% endif %}
   </div>
 </section>
 

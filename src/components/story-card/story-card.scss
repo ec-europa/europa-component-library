@@ -308,6 +308,7 @@ $min-height-desktop: 548px;
     gap: var(--s-m);
     justify-content: end;
     margin-block-start: map.get($story-card, 'story-card', 'controls-spacing');
+    order: 1;
     padding-block: 0;
 
     @container ecl-story-card (width >= #{$col-9-width}) {
