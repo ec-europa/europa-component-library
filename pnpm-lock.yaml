@@ -70,7 +70,7 @@ importers:
         version: 3.4.2(prettier@3.9.6)
       '@size-limit/preset-big-lib':
         specifier: 12.1.0
-        version: 12.1.0(esbuild@0.24.2)(size-limit@13.0.1)
+        version: 12.1.0(esbuild@0.24.2)(size-limit@13.0.2)
       babel-jest:
         specifier: 30.4.1
         version: 30.4.1(@babel/core@7.29.7)
@@ -171,8 +171,8 @@ importers:
         specifier: 6.1.3
         version: 6.1.3
       size-limit:
-        specifier: 13.0.1
-        version: 13.0.1
+        specifier: 13.0.2
+        version: 13.0.2
       ssri:
         specifier: 14.0.0
         version: 14.0.0
@@ -1855,7 +1855,7 @@ importers:
         version: 8.6.17(storybook@8.6.17(prettier@3.9.6))
       '@storybook/addon-links':
         specifier: 8.6.17
-        version: 8.6.17(react@19.2.7)(storybook@8.6.17(prettier@3.9.6))
+        version: 8.6.17(react@19.2.8)(storybook@8.6.17(prettier@3.9.6))
       '@storybook/builder-webpack5':
         specifier: 8.6.17
         version: 8.6.17(esbuild@0.24.2)(storybook@8.6.17(prettier@3.9.6))(typescript@5.9.3)
@@ -1884,11 +1884,11 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
       react:
-        specifier: 19.2.7
-        version: 19.2.7
+        specifier: 19.2.8
+        version: 19.2.8
       react-dom:
-        specifier: 19.2.7
-        version: 19.2.7(react@19.2.7)
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
       storybook:
         specifier: 8.6.17
         version: 8.6.17(prettier@3.9.6)
@@ -1897,7 +1897,7 @@ importers:
         version: 1.1.0
       storybook-dark-mode:
         specifier: 4.0.2
-        version: 4.0.2(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@8.6.17(prettier@3.9.6))
+        version: 4.0.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@8.6.17(prettier@3.9.6))
       twing:
         specifier: 5.2.2
         version: 5.2.2
@@ -11502,11 +11502,6 @@ packages:
       typescript:
         optional: true
 
-  react-dom@19.2.7:
-    resolution: {integrity: sha512-t0BRVXvbiE/o20Hfw669rLbMCDWtYZLvmJigy2f0MxsXF+71pxhR3xOkspmsO8h3ZlNzyibAmtCa3l4lYKk6gQ==}
-    peerDependencies:
-      react: ^19.2.7
-
   react-dom@19.2.8:
     resolution: {integrity: sha512-rVprimfGBG3DR+Tq0IQG2DT5PxKth1WIGDmj5yPmlzr4YBe7uyE+Du4oVqTDXZSHGGGXRtTJEGSSePyQCMBglQ==}
     peerDependencies:
@@ -11562,10 +11557,6 @@ packages:
     engines: {node: '>= 16.20.2'}
     peerDependencies:
       react: '>= 0.14.0'
-
-  react@19.2.7:
-    resolution: {integrity: sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==}
-    engines: {node: '>=0.10.0'}
 
   react@19.2.8:
     resolution: {integrity: sha512-PWaYA1L/q9u2u7xYQi+Y3L3Yfnie7XyLeaJICV1MGD6LprsBxcAqGjYyr0eY3p+QdsA+x/Irkt4Qif8D63+Sbw==}
@@ -12042,8 +12033,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  size-limit@13.0.1:
-    resolution: {integrity: sha512-LKWgnVUfw79W5gcKGIHqjEqBMoZ+YgfYYzlDheYwbRJq1DaaRgOjotFm61YOI/4hbgh4V1Es0uGGp6HLktI3Vw==}
+  size-limit@13.0.2:
+    resolution: {integrity: sha512-bB8Hv6g7nBtmWW+mB9Y1lkyJoDOxk6pO6p7xPsK8Y6t9CyKvBWhzTRXLlhhv1H2Ru9HIyLKbCaVswXGHwVXiwg==}
     engines: {node: ^22.18.0 || ^24.0.0 || >=26.0.0}
     hasBin: true
 
@@ -15822,16 +15813,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@size-limit/file@12.1.0(size-limit@13.0.1)':
+  '@size-limit/file@12.1.0(size-limit@13.0.2)':
     dependencies:
-      size-limit: 13.0.1
+      size-limit: 13.0.2
 
-  '@size-limit/preset-big-lib@12.1.0(esbuild@0.24.2)(size-limit@13.0.1)':
+  '@size-limit/preset-big-lib@12.1.0(esbuild@0.24.2)(size-limit@13.0.2)':
     dependencies:
-      '@size-limit/file': 12.1.0(size-limit@13.0.1)
-      '@size-limit/time': 12.1.0(size-limit@13.0.1)
-      '@size-limit/webpack': 12.1.0(esbuild@0.24.2)(size-limit@13.0.1)
-      size-limit: 13.0.1
+      '@size-limit/file': 12.1.0(size-limit@13.0.2)
+      '@size-limit/time': 12.1.0(size-limit@13.0.2)
+      '@size-limit/webpack': 12.1.0(esbuild@0.24.2)(size-limit@13.0.2)
+      size-limit: 13.0.2
     transitivePeerDependencies:
       - '@swc/core'
       - bare-abort-controller
@@ -15844,10 +15835,10 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@size-limit/time@12.1.0(size-limit@13.0.1)':
+  '@size-limit/time@12.1.0(size-limit@13.0.2)':
     dependencies:
       estimo: 3.0.5
-      size-limit: 13.0.1
+      size-limit: 13.0.2
     transitivePeerDependencies:
       - bare-abort-controller
       - bare-buffer
@@ -15856,10 +15847,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@size-limit/webpack@12.1.0(esbuild@0.24.2)(size-limit@13.0.1)':
+  '@size-limit/webpack@12.1.0(esbuild@0.24.2)(size-limit@13.0.2)':
     dependencies:
       nanoid: 3.3.8
-      size-limit: 13.0.1
+      size-limit: 13.0.2
       webpack: 5.106.0(esbuild@0.24.2)
     transitivePeerDependencies:
       - '@swc/core'
@@ -15958,13 +15949,13 @@ snapshots:
     optionalDependencies:
       react: 19.2.8
 
-  '@storybook/addon-links@8.6.17(react@19.2.7)(storybook@8.6.17(prettier@3.9.6))':
+  '@storybook/addon-links@8.6.17(react@19.2.8)(storybook@8.6.17(prettier@3.9.6))':
     dependencies:
       '@storybook/global': 5.0.0
       storybook: 8.6.17(prettier@3.9.6)
       ts-dedent: 2.2.0
     optionalDependencies:
-      react: 19.2.7
+      react: 19.2.8
 
   '@storybook/addon-measure@8.6.17(storybook@8.6.17(prettier@3.9.6))':
     dependencies:
@@ -16151,11 +16142,6 @@ snapshots:
       '@storybook/theming': 8.6.17(storybook@8.6.17(prettier@3.9.6))
       storybook: 8.6.17(prettier@3.9.6)
       ts-dedent: 2.2.0
-
-  '@storybook/icons@1.6.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
-    dependencies:
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
 
   '@storybook/icons@1.6.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
@@ -23052,11 +23038,6 @@ snapshots:
       - supports-color
       - vue-template-compiler
 
-  react-dom@19.2.7(react@19.2.7):
-    dependencies:
-      react: 19.2.7
-      scheduler: 0.27.0
-
   react-dom@19.2.8(react@19.2.8):
     dependencies:
       react: 19.2.8
@@ -23107,8 +23088,6 @@ snapshots:
       prismjs: 1.30.0
       react: 19.2.8
       refractor: 5.0.0
-
-  react@19.2.7: {}
 
   react@19.2.8: {}
 
@@ -23795,7 +23774,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  size-limit@13.0.1:
+  size-limit@13.0.2:
     dependencies:
       bytes-iec: 3.1.1
       lilconfig: 3.1.3
@@ -23966,21 +23945,6 @@ snapshots:
       internal-slot: 1.1.0
 
   storybook-addon-rtl@1.1.0: {}
-
-  storybook-dark-mode@4.0.2(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@8.6.17(prettier@3.9.6)):
-    dependencies:
-      '@storybook/components': 8.6.17(storybook@8.6.17(prettier@3.9.6))
-      '@storybook/core-events': 8.6.14(storybook@8.6.17(prettier@3.9.6))
-      '@storybook/global': 5.0.0
-      '@storybook/icons': 1.6.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@storybook/manager-api': 8.6.17(storybook@8.6.17(prettier@3.9.6))
-      '@storybook/theming': 8.6.17(storybook@8.6.17(prettier@3.9.6))
-      fast-deep-equal: 3.1.3
-      memoizerific: 1.11.3
-    transitivePeerDependencies:
-      - react
-      - react-dom
-      - storybook
 
   storybook-dark-mode@4.0.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(storybook@8.6.17(prettier@3.9.6)):
     dependencies:
