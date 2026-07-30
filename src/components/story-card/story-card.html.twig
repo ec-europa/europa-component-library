@@ -182,20 +182,21 @@
   <div class="ecl-story-card__grid">
     {% if _items|length > 1 %}
     <div class="ecl-story-card__grid-controls">
+
       {% include '@ecl/button/button.html.twig' with {
         type: 'button',
-        variant: 'tertiary',
+        variant: 'secondary',
         style: 'neutral',
-        label: _sr_prev,
+        label: _sr_pause,
         hide_label: true,
         icon: {
-          name: 'caret-left',
-          size: 'l',
+          name: 'pause-filled',
           family: 'phosphor',
+          size: 'l',
         },
-        extra_classes: 'ecl-story-card__grid-prev',
+        extra_classes: 'ecl-story-card__grid-pause',
         extra_attributes: [{
-          name: 'data-ecl-story-card-grid-prev',
+          name: 'data-ecl-story-card-grid-pause',
         }],
       } only %}
 
@@ -218,18 +219,18 @@
 
       {% include '@ecl/button/button.html.twig' with {
         type: 'button',
-        variant: 'secondary',
+        variant: 'tertiary',
         style: 'neutral',
-        label: _sr_pause,
+        label: _sr_prev,
         hide_label: true,
         icon: {
-          name: 'pause-filled',
-          family: 'phosphor',
+          name: 'caret-left',
           size: 'l',
+          family: 'phosphor',
         },
-        extra_classes: 'ecl-story-card__grid-pause',
+        extra_classes: 'ecl-story-card__grid-prev',
         extra_attributes: [{
-          name: 'data-ecl-story-card-grid-pause',
+          name: 'data-ecl-story-card-grid-prev',
         }],
       } only %}
 

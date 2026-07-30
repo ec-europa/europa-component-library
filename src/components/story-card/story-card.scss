@@ -318,10 +318,20 @@ $min-height-desktop: 548px;
 
   .ecl-story-card__grid-play {
     display: none;
+    order: 1;
   }
 
   .ecl-story-card__grid-pause {
     display: flex;
+    order: 1;
+  }
+
+  .ecl-story-card__grid-prev {
+    order: 0;
+  }
+
+  .ecl-story-card__grid-next {
+    order: 2;
   }
 
   .ecl-story-card__grid-item {
