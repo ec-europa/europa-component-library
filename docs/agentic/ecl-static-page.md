@@ -42,9 +42,20 @@ For anything below not already given in the request, ask — batch into one
 
 ## Step 1 — derive structure from rules, not from copying an example
 
-**Don't copy a `src/page-example/*` composition wholesale** — they're fixed
-Storybook demos, fine for inspiration, not for reuse as-is. Rules that hold
-for every page:
+**Don't copy a `src/page-example/*` composition wholesale — and don't copy
+your own most recent build of the same page type either.** The second one is
+the easier trap: once one page of a given type exists, it's tempting to
+reuse it as an implicit template for "efficiency," which is the exact same
+mistake with a different source. Two same-type pages landing on an
+identical component skeleton (same hero component, same set of content
+sections, same layout) with only the text swapped means structure wasn't
+actually re-derived — go back through Step 1's rules and the matrix's
+alternatives (Banner vs Carousel vs a visible page-header for the hero;
+Card vs Content-item vs Featured-item vs Story-card vs Spotlight for content
+highlights) and make an independent choice. Some repetition across pages is
+fine and expected where there's no real alternative for a role (Navigation-
+list for site wayfinding, Fact-figures for stats) — that's not the same
+failure as reusing a whole skeleton. Rules that hold for every page:
 
 - `site-header` first, `site-footer` last, always. Use `lib.js`'s
   `standardSiteHeader()`/`standardSiteFooter()` — they already wire logos and
