@@ -486,6 +486,13 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     }
   }
 
+  .ecl-site-header__custom-action-toggle.ecl-button--icon-only,
+  .ecl-site-header__custom-action-toggle.ecl-link--icon-only {
+    .ecl-site-header__icon {
+      margin-inline-end: 0;
+    }
+  }
+
   .ecl-site-header__search-toggle {
     display: none;
   }
