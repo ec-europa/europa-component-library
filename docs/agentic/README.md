@@ -8,13 +8,14 @@ into `docs/conventions/` or `docs/decisions/`.
 
 ## Available skills
 
-| Skill                                                | When to use                                                        |
-| ---------------------------------------------------- | ------------------------------------------------------------------ |
-| [ecl-new-component.md](./ecl-new-component.md)       | Scaffolding a brand-new component from scratch                     |
-| [ecl-modify-component.md](./ecl-modify-component.md) | Changing styles, markup, or behaviour of an existing component     |
-| [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures      |
-| [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls                 |
-| [ecl-update-token.md](./ecl-update-token.md)         | Updating EC color tokens from a design export or inline value list |
+| Skill                                                | When to use                                                           |
+| ---------------------------------------------------- | --------------------------------------------------------------------- |
+| [ecl-new-component.md](./ecl-new-component.md)       | Scaffolding a brand-new component from scratch                        |
+| [ecl-modify-component.md](./ecl-modify-component.md) | Changing styles, markup, or behaviour of an existing component        |
+| [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures         |
+| [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls                    |
+| [ecl-update-token.md](./ecl-update-token.md)         | Updating EC color tokens from a design export or inline value list    |
+| [ecl-static-page.md](./ecl-static-page.md)           | Composing a standalone static HTML page/prototype from ECL components |
 
 ## Potential future skills
 
@@ -60,6 +61,7 @@ full name.
 /ecl-testing             run or fix tests
 /ecl-story-controls      add or update stories
 /ecl-update-token        update EC color tokens
+/ecl-static-page         compose a static HTML page prototype
 ```
 
 Pass your task as the argument after the command name:
