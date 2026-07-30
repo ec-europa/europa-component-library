@@ -62,6 +62,10 @@ Shared helpers used by `build.js` and by every `{page}.data.js`:
   stripped. `page-header` itself is structurally mandatory (it's where the
   page's one `<h1>` lives) even though nothing in it is visually shown on a
   homepage — see the skill doc's Step 1 for why it's never omitted outright.
+- `STOCK_IMAGES` — the 10-image fixed stock set on the ECL S3 bucket
+  (`example-image.jpg` through `example-image10.jpg`), for themed-generation
+  passes to rotate through instead of repeating one image everywhere — see
+  the skill doc's Step 2, "Themed generation".
 
 ## Current state: PoC — only the pipeline is tracked
 

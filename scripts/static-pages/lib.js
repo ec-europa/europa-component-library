@@ -26,6 +26,16 @@ function copyPresetAssets(REPO, ASSETS_DIR, SYSTEM) {
 
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
+// Fixed stock image set for themed generation (docs/agentic/
+// ecl-static-page.md, Step 2's "Themed generation" subsection) — vary which
+// one a section uses instead of repeating the same URL everywhere. Not
+// topic-specific; more sources can be added later if needed.
+const STOCK_IMAGES = Array.from(
+  { length: 10 },
+  (_, i) =>
+    `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`,
+);
+
 function makeReq(REPO) {
   // Some demo/data.js files are `export default {...}` (ESM), transpiled on
   // the fly to a CJS interop wrapper; others are plain `module.exports = {}`.
@@ -52,4 +62,48 @@ function homepagePageHeader(req, clone) {
   return pageHeader;
 }
 
-module.exports = { copyPresetAssets, clone, makeReq, homepagePageHeader };
+// Standard site-header: logo wired to self-hosted assets, and the rarely-
+// used blocks (login, custom action) stripped by default — not every real
+// site needs them, so don't include them unless a page specifically wants
+// to demonstrate one. Nav (menu vs mega_menu) is deliberately NOT set here
+// — pick per page (docs/agentic/ecl-static-page.md, Step 1) and assign
+// `.menu` or `.mega_menu` on the returned object.
+function standardSiteHeader(req, clone, suffix, system) {
+  const siteHeader = clone(req(`site-header/demo/data--${suffix}.js`));
+  delete siteHeader.cta_link;
+  delete siteHeader.notification;
+  delete siteHeader.site_name;
+  delete siteHeader.login_toggle;
+  delete siteHeader.login_box;
+  delete siteHeader.custom_action;
+  siteHeader.logo.src_desktop = `assets/${system}/images/logo/positive/logo-${suffix}--en.svg`;
+  siteHeader.logo.src_mobile =
+    suffix === 'ec'
+      ? `assets/${system}/images/logo/logo-ec--mute.svg`
+      : `assets/${system}/images/logo/condensed-version/positive/logo-eu--en.svg`;
+  return siteHeader;
+}
+
+// Standard site-footer: logo wired to self-hosted assets (path differs by
+// system — EC nests it under section_common, EU under a specific footer row).
+function standardSiteFooter(req, clone, suffix, system) {
+  const siteFooter = clone(
+    req(`site-footer/demo/data-harmonised--${suffix}.js`),
+  );
+  if (suffix === 'ec') {
+    siteFooter.section_common.logo.picture.img.src = `assets/${system}/images/logo/negative/logo-ec--en.svg`;
+  } else {
+    siteFooter.rows[2][0][0].logo.src_desktop = `assets/${system}/images/logo/positive/logo-eu--en.svg`;
+  }
+  return siteFooter;
+}
+
+module.exports = {
+  copyPresetAssets,
+  clone,
+  makeReq,
+  homepagePageHeader,
+  standardSiteHeader,
+  standardSiteFooter,
+  STOCK_IMAGES,
+};
