@@ -130,12 +130,15 @@ label, path } }`, not a flat `{ type, label, path }`; get it wrong and it
   does this (`highlight-box`, `quiz`) — match that pattern. If nothing
   on-topic exists at all, fall back to a neutral icon already used elsewhere
   on the page rather than inventing a name.
-- **Images**: rotate through the fixed stock set on the ECL S3 bucket —
-  `https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg`
-  through `example-image10.jpg` (10 images, `lib.js`'s `STOCK_IMAGES`).
-  Vary which one each section uses instead of repeating the same URL
-  everywhere. No on-topic photography beyond this — more sources can be
-  added later if needed.
+- **Images**: use `lib.js`'s `picsumImage(seed, width, height)` (free,
+  no API key, hotlink-safe — `<img>` isn't subject to the CORS rules that
+  make self-hosting mandatory for CSS/JS/fonts). **Same width/height for
+  every image within one row/grid, a distinct `seed` per image** — that's
+  the actual fix for a section looking visually inconsistent, not just
+  "use different images". `lib.js`'s older `STOCK_IMAGES` (10 fixed ECL S3
+  photos) is a fallback only — those are deliberately mixed aspect ratios
+  (Storybook demo assets, meant to show different crop scenarios), which
+  looks odd once several land in the same row.
 - **Invented facts/stats are expected and fine here** — this mode is
   explicitly illustrative, not the real-content path (Step 0). Keep numbers
   clearly illustrative rather than presenting invented figures with false

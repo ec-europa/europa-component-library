@@ -26,15 +26,27 @@ function copyPresetAssets(REPO, ASSETS_DIR, SYSTEM) {
 
 const clone = (o) => JSON.parse(JSON.stringify(o));
 
-// Fixed stock image set for themed generation (docs/agentic/
-// ecl-static-page.md, Step 2's "Themed generation" subsection) — vary which
-// one a section uses instead of repeating the same URL everywhere. Not
-// topic-specific; more sources can be added later if needed.
+// Fixed stock image set (docs/agentic/ecl-static-page.md, Step 2's "Themed
+// generation" subsection) — kept as a fallback/alternative. These 10 images
+// are deliberately mixed aspect ratios (they're Storybook demo assets, meant
+// to show different crop scenarios), which looks inconsistent when several
+// land in the same row/grid — prefer `picsumImage()` below for that case.
 const STOCK_IMAGES = Array.from(
   { length: 10 },
   (_, i) =>
     `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`,
 );
+
+// Free, no-API-key stock photo, sized to order — `<img>` isn't subject to
+// the CORS restrictions that make self-hosting mandatory for CSS/JS/fonts,
+// so hotlinking is fine here (same as STOCK_IMAGES always was). Pass the
+// SAME width/height to every image within one row/grid (consistent aspect
+// ratio — the actual fix for the "odd looking row" problem) and a distinct
+// `seed` per image (different photo content, but reproducible: same seed +
+// size always returns the same photo).
+function picsumImage(seed, width, height) {
+  return `https://picsum.photos/seed/${seed}/${width}/${height}`;
+}
 
 function makeReq(REPO) {
   // Some demo/data.js files are `export default {...}` (ESM), transpiled on
@@ -106,4 +118,5 @@ module.exports = {
   standardSiteHeader,
   standardSiteFooter,
   STOCK_IMAGES,
+  picsumImage,
 };
