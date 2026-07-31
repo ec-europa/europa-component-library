@@ -293,6 +293,11 @@ export class StoryCard {
 
       this.slider.on('select', this.toggleButtonsDisabled);
       this.slider.on('reInit', this.toggleButtonsDisabled);
+
+      this.accessibility.setupPrevAndNextButtons(
+        this.prevButtonNode,
+        this.nextButtonNode,
+      );
     }
 
     let dotNodes = [];
