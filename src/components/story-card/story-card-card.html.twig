@@ -128,14 +128,18 @@
 {%- endif -%}
 
 {%- if _card_link is not empty -%}
+  {% set _link_extra_attributes = _card_link.extra_attributes|default([]) %}
+  {% if _tab_id is not empty %}
+    {% set _link_extra_attributes = _link_extra_attributes|merge([{
+      name: 'aria-describedby', value: _tab_id,
+    }]) %}
+  {% endif %}
   {% include '@ecl/link/link.html.twig' with _card_link|merge({
     link: _card_link.link|merge({
       type: 'standalone',
     }),
     extra_classes: 'ecl-story-card__link',
-    extra_attributes: [{
-      name: 'aria-describedby', value: _tab_id,
-    }]
+    extra_attributes: _link_extra_attributes,
   }) only %}
 {%- endif -%}
 </div>
