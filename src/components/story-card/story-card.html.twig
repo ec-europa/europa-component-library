@@ -51,10 +51,6 @@
   {% set _css_class = _css_class ~ ' ecl-story-card--testimonial' %}
 {% endif %}
 
-{% if _title is not empty %}
-  {% set _title_id = _id ~ '-title' %}
-{% endif %}
-
 {% if _description is not empty %}
   {% set _css_class = _css_class ~ ' ecl-story-card--has-description' %}
 {% endif %}
@@ -78,9 +74,6 @@
 <section
   class="{{ _css_class }}"
   id="{{ _id }}"
-  {% if _title is not empty %}
-    aria-labelledby="{{ _title_id }}"
-  {% endif %}
 {% if _items|length > 1 %}
   data-ecl-auto-init="StoryCard"
 {% endif %}
@@ -91,7 +84,6 @@
     {% if _title is not empty %}
       <div
         class="ecl-story-card__title"
-        id="{{ _title_id }}"
       >
         {{- _title -}}
       </div>
