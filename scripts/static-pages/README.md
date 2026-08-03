@@ -83,11 +83,18 @@ of either. Don't clean `dist/` wholesale without checking whether what's in
 there is worth keeping (or worth walking through Steps 1–3 of the skill
 again to rebuild).
 
-Two pages have been built this way so far, both EC: `homepage` and
-`homepage-alt` — two structurally different takes on the same page type
-(different hero component, different navigation/content component choices),
-built to exercise the skill's "derive structure from rules, not from a copied
-example" principle.
+### EC vs EU: the pipeline isn't equally battle-tested
+
+The EC path tends to get exercised first and more often, so the EU path can
+lag behind. In practice this has meant `build.js`/`lib.js` running against EU
+surfacing bugs baked in by EC-only assumptions — e.g. `copyPresetAssets`
+crashing on a `fonts/` dir EU doesn't have (EU ships no self-hosted
+`@font-face`, unlike EC's Inter), or a logo path hardcoded to EC's flatter
+layout (`images/logo/positive/...`) when EU nests one level deeper, under
+`standard-version/`/`condensed-version/`. Before trusting a `lib.js` helper
+for a system (or a future third system) it hasn't actually been run against,
+check the real asset layout under `src/presets/{system}/dist/` rather than
+assuming it mirrors EC's.
 
 ## Directory structure
 

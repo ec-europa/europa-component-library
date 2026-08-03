@@ -5,6 +5,10 @@ const path = require('path');
 const fs = require('fs');
 
 function copyDir(src, dest, { skip = [] } = {}) {
+  // Not every system ships every asset subfolder — EU has no self-hosted
+  // font (@font-face), unlike EC's Inter — so a missing source dir here is
+  // expected, not an error.
+  if (!fs.existsSync(src)) return;
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     if (skip.includes(entry.name)) continue;
@@ -88,7 +92,13 @@ function standardSiteHeader(req, clone, suffix, system) {
   delete siteHeader.login_toggle;
   delete siteHeader.login_box;
   delete siteHeader.custom_action;
-  siteHeader.logo.src_desktop = `assets/${system}/images/logo/positive/logo-${suffix}--en.svg`;
+  // EC's positive logo sits flat under images/logo/; EU nests it one level
+  // deeper under standard-version/ (condensed-version/ is the EU mobile
+  // variant, already handled below).
+  siteHeader.logo.src_desktop =
+    suffix === 'ec'
+      ? `assets/${system}/images/logo/positive/logo-${suffix}--en.svg`
+      : `assets/${system}/images/logo/standard-version/positive/logo-${suffix}--en.svg`;
   siteHeader.logo.src_mobile =
     suffix === 'ec'
       ? `assets/${system}/images/logo/logo-ec--mute.svg`
@@ -105,7 +115,8 @@ function standardSiteFooter(req, clone, suffix, system) {
   if (suffix === 'ec') {
     siteFooter.section_common.logo.picture.img.src = `assets/${system}/images/logo/negative/logo-ec--en.svg`;
   } else {
-    siteFooter.rows[2][0][0].logo.src_desktop = `assets/${system}/images/logo/positive/logo-eu--en.svg`;
+    siteFooter.rows[2][0][0].logo.src_desktop = `assets/${system}/images/logo/standard-version/positive/logo-eu--en.svg`;
+    siteFooter.rows[2][0][0].logo.src_mobile = `assets/${system}/images/logo/condensed-version/positive/logo-eu--en.svg`;
   }
   return siteFooter;
 }

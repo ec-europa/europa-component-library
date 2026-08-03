@@ -224,8 +224,9 @@ is unnecessary unless `build.js`/`lib.js` themselves changed.
   ```
 
   Verify it actually works before handing off — start it backgrounded,
-  `curl` the HTML page, the module script, the main CSS, and a font file,
-  check for `200`/sane `Content-Type`, then stop it.
+  `curl` the HTML page, the module script, the main CSS, and (EC only — EU
+  ships no self-hosted fonts, see `scripts/static-pages/README.md`) a font
+  file; check for `200`/sane `Content-Type`, then stop it.
 
 - Don't reach for `claude-in-chrome` unless the user asks for it — they can
   check the visual result themselves once `serve.js` is running.
