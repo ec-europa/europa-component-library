@@ -80,7 +80,10 @@ failure as reusing a whole skeleton. Rules that hold for every page:
   Spotlight, despite it sitting next to Banner/Carousel in the source tree
   and reading hero-ish in its own `usage.md`. Spotlight is a content-area
   callout (see the matrix). This is current guidance direct from the ECL
-  team, ahead of that doc being tightened on their side.
+  team, ahead of that doc being tightened on their side. When the hero is a
+  Banner or Carousel, set `full_width: true` on it — both default to `false`
+  (constrained to the grid), which reads as an undersized hero; a hero should
+  span the full container.
 - For each content section: read the component's `README.md` (params) and
   its `usage.md` (when to use it). The matrix below is a shortcut for this,
   not a replacement — check the actual doc when a pick matters.
@@ -164,6 +167,13 @@ million"` placeholder — is a reasonable model to follow), and drop fields
 ---
 
 ## Step 3 — write and build the page
+
+**Check first: does `dist/{page}.html.twig` or `dist/{page}.data.js` already
+exist?** `dist/` is gitignored (Step 4) — there is no tracked copy to recover
+from, so overwriting either file destroys the previous composition for good.
+If they exist and this isn't explicitly a throwaway/test iteration on the
+same page, confirm with the user before overwriting (or write under a
+different `{page}` name instead).
 
 Write two files into `scripts/static-pages/dist/` (not tracked — Step 4):
 

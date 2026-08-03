@@ -81,7 +81,10 @@ answer for where real pages should live long-term.
 data along with its generated output — there is currently no tracked copy
 of either. Don't clean `dist/` wholesale without checking whether what's in
 there is worth keeping (or worth walking through Steps 1–3 of the skill
-again to rebuild).
+again to rebuild). The same applies to a single page: rebuilding an existing
+`{page}` silently overwrites its `.html.twig`/`.data.js` with no way back —
+fine while iterating/testing, but check what's already there before
+overwriting once a page is meant to be kept.
 
 ### EC vs EU: the pipeline isn't equally battle-tested
 
