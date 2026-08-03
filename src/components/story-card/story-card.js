@@ -31,6 +31,7 @@ import Accessibility from 'embla-carousel-accessibility';
  * @param {String} options.activeDotClass Class applied to the active dot
  * @param {Boolean} options.attachClickListener Whether to attach click listeners
  * @param {Boolean} options.attachResizeListener Whether to attach resize listeners
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  */
 export class StoryCard {
   /**
@@ -90,6 +91,7 @@ export class StoryCard {
       gridAutoplayDelay = 10000,
       attachClickListener = true,
       attachResizeListener = true,
+      attachKeyListener = true,
       desktopBreakpointCssVar = '--story-card-grid-breakpoint',
       minHeightDesktopCssVar = '--story-card-min-height',
     } = {},
@@ -127,6 +129,7 @@ export class StoryCard {
     this.gridAutoplayDelay = gridAutoplayDelay;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
+    this.attachKeyListener = attachKeyListener;
     this.desktopBreakpointCssVar = desktopBreakpointCssVar;
     this.minHeightDesktopCssVar = minHeightDesktopCssVar;
 
@@ -146,6 +149,7 @@ export class StoryCard {
     this.direction = getComputedStyle(this.element).direction;
 
     // Private variables - Grid (Desktop)
+    this.grid = null;
     this.gridItems = null;
     this.gridButtons = null;
     this.gridDetails = null;
@@ -162,6 +166,7 @@ export class StoryCard {
     this.onWindowResize = this.onWindowResize.bind(this);
     this.pauseGridAutoplay = this.pauseGridAutoplay.bind(this);
     this.toggleGridAutoplay = this.toggleGridAutoplay.bind(this);
+    this.handleKeyboardOnTab = this.handleKeyboardOnTab.bind(this);
   }
 
   /**
@@ -176,6 +181,7 @@ export class StoryCard {
     this.pagerNode = queryOne(this.pagerClass, this.element);
     this.currentElement = queryOne(this.currentSelector, this.element);
     this.totalElement = queryOne(this.totalSelector, this.element);
+    this.grid = queryOne('.ecl-story-card__grid', this.element);
     this.gridItems = queryAll(this.gridItemSelector, this.element);
     this.gridButtons = queryAll(this.gridButtonSelector, this.element);
     this.gridDetails = queryAll(this.gridDetailsSelector, this.element);
@@ -216,6 +222,10 @@ export class StoryCard {
 
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.onWindowResize, false);
+    }
+
+    if (this.attachKeyListener) {
+      this.element.addEventListener('keydown', this.handleKeyboardOnTab);
     }
   }
 
@@ -496,6 +506,7 @@ export class StoryCard {
       const isActive = buttonIndex === nextIndex;
 
       gridButton.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      gridButton.setAttribute('tabindex', isActive ? '0' : '-1');
 
       if (item) {
         item.classList.toggle('ecl-story-card__grid-item--expanded', isActive);
@@ -655,6 +666,67 @@ export class StoryCard {
   }
 
   /**
+   * Handle keyboard navigation on tabs.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardOnTab(e) {
+    if (e.target.classList.contains('ecl-story-card__grid-card')) {
+      const focusedIndex = this.gridButtons.indexOf(e.target);
+
+      // Arrow keys navigation for tab items
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        if (e.target.parentElement.nextElementSibling) {
+          this.gridButtons[focusedIndex + 1].focus();
+        } else {
+          this.gridButtons[0].focus();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (e.target.parentElement.previousElementSibling) {
+          this.gridButtons[focusedIndex - 1].focus();
+        } else {
+          this.gridButtons[this.gridButtons.length - 1].focus();
+        }
+      }
+
+      if (e.key === 'Tab') {
+        // Shift + Tab
+        if (e.shiftKey) {
+          if (this.gridButtons.indexOf(e.target) > this.expandedItem) {
+            e.preventDefault();
+            this.gridButtons[this.expandedItem].focus();
+          }
+        } else {
+          if (e.target !== this.gridButtons[this.expandedItem]) {
+            const nextButton = queryOne(
+              '.ecl-story-card__grid-next',
+              this.element,
+            );
+            if (nextButton) {
+              e.preventDefault();
+              nextButton.focus();
+            }
+          }
+        }
+      }
+
+      // Home
+      if (e.key === 'Home') {
+        e.preventDefault();
+        this.gridButtons[0].focus();
+      }
+
+      // End
+      if (e.key === 'End') {
+        e.preventDefault();
+        this.gridButtons[this.gridButtons.length - 1].focus();
+      }
+    }
+  }
+
+  /**
    * Handle window resize.
    */
   onWindowResize() {
@@ -679,6 +751,10 @@ export class StoryCard {
 
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.onWindowResize);
+    }
+
+    if (this.attachKeyListener && this.element) {
+      this.element.removeEventListener('keydown', this.handleKeyboardOnTab);
     }
 
     this.btnPrev?.removeEventListener('click', this.handlePrevClick);
