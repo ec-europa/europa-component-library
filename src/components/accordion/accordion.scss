@@ -98,10 +98,6 @@ $accordion: null !default;
       border-start-start-radius: map.get($accordion, 'radius');
       border-start-end-radius: map.get($accordion, 'radius');
     }
-
-    .ecl-accordion--sidebar & {
-      background: transparent;
-    }
   }
 
   &.is-last {
@@ -191,6 +187,7 @@ $accordion: null !default;
   }
 
   .ecl-accordion__item {
+    background: transparent;
     border: none;
 
     &::before {
