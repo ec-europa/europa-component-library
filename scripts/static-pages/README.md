@@ -12,12 +12,12 @@ works when opened outside this repo's tooling.
 ### `build.js`
 
 Renders a page composition into a self-contained static HTML file: takes
-`{page}.html.twig` + `{page}.data.js` (both in `dist/` — see "Current state"
-below), renders the Twig composition against the data through the repo's own
-Twing/Storybook environment, self-hosts the matching preset's CSS/JS/fonts/
-images alongside it, and wraps the result in a standalone HTML skeleton
-(Webtools icon script, module-safe `ECL.autoInit()` wiring, correct optional
-stylesheet order).
+`{page}.html.twig` + `{page}.data.js` (both in `dist/{page}/` — see "Current
+state" below), renders the Twig composition against the data through the
+repo's own Twing/Storybook environment, self-hosts the matching preset's
+CSS/JS/fonts/images alongside it, and wraps the result in a standalone HTML
+skeleton (Webtools icon script, module-safe `ECL.autoInit()` wiring, correct
+optional stylesheet order).
 
 **Usage:**
 
@@ -27,8 +27,9 @@ node scripts/static-pages/build.js [page] [ec|eu]
 
 `page` defaults to `homepage`, system defaults to `ec`.
 
-**Output:** `scripts/static-pages/dist/{page}.html` plus
-`scripts/static-pages/dist/assets/{ec|eu}/{styles,scripts,fonts,images}/`.
+**Output:** `scripts/static-pages/dist/{page}/{page}.html` plus
+`scripts/static-pages/dist/{page}/assets/{ec|eu}/{styles,scripts,fonts,images}/`
+— each page's own copy, not shared across pages (see "Current state").
 
 ### `serve.js`
 
@@ -44,7 +45,7 @@ silently don't work. Serving locally sidesteps both.
 
 ```bash
 node scripts/static-pages/serve.js [port]   # defaults to 8080
-# then open http://localhost:8080/{page}.html
+# then open http://localhost:8080/{page}/{page}.html
 ```
 
 ### `lib.js`
@@ -70,21 +71,33 @@ Shared helpers used by `build.js` and by every `{page}.data.js`:
 ## Current state: PoC — only the pipeline is tracked
 
 **Only `build.js`, `serve.js`, and `lib.js` are committed to the repo.**
-Every page-specific file — `{page}.html.twig` (the composition) and
-`{page}.data.js` (its placeholder-content assembly) — lives in `dist/`,
-which is gitignored (`dist` is a blanket-ignored dirname repo-wide, so this
-needed no `.gitignore` changes). This is a deliberate, current-stage choice:
-no per-page content is meant to sit in the repo yet, until there's a clearer
-answer for where real pages should live long-term.
+Every page gets its own subfolder, `dist/{page}/`, holding its composition
+(`{page}.html.twig`), its data assembly (`{page}.data.js`), any derived data
+file that `.data.js` reads, the generated `{page}.html`, and its own copy of
+the self-hosted preset assets. That per-page assets copy (rather than one
+shared `dist/assets/`) is deliberate: it's what makes `dist/{page}/`
+deployable standalone by itself — you can zip up just that folder and it's
+complete. The whole `dist/` tree is gitignored (`dist` is a blanket-ignored
+dirname repo-wide, so this needed no `.gitignore` changes). This is a
+deliberate, current-stage choice: no per-page content is meant to sit in the
+repo yet, until there's a clearer answer for where real pages should live
+long-term.
 
-**Practical consequence:** wiping `dist/` deletes a page's composition and
-data along with its generated output — there is currently no tracked copy
-of either. Don't clean `dist/` wholesale without checking whether what's in
-there is worth keeping (or worth walking through Steps 1–3 of the skill
-again to rebuild). The same applies to a single page: rebuilding an existing
-`{page}` silently overwrites its `.html.twig`/`.data.js` with no way back —
-fine while iterating/testing, but check what's already there before
-overwriting once a page is meant to be kept.
+**Practical consequence:** wiping `dist/` (or one `dist/{page}/`) deletes
+that page's composition and data along with its generated output — there is
+currently no tracked copy of either. Don't clean `dist/` wholesale without
+checking whether what's in there is worth keeping (or worth walking through
+Steps 1–3 of the skill again to rebuild). The same applies to a single page:
+rebuilding an existing `{page}` silently overwrites its `.html.twig`/
+`.data.js` with no way back — fine while iterating/testing, but check what's
+already there before overwriting once a page is meant to be kept.
+
+**`scripts/static-pages/demo/` is the one exception** — real-content source
+material (e.g. a sitemap/content export) the user wants to keep across
+rebuilds lives there instead, and unlike `dist/` it is _not_ gitignored. A
+JSON file _derived_ from that source (e.g. extracted for a `.data.js` to
+read) isn't itself source-of-truth, though — that belongs in `dist/{page}/`
+alongside the page that consumes it, not in `demo/`.
 
 ### EC vs EU: the pipeline isn't equally battle-tested
 
@@ -107,15 +120,23 @@ scripts/static-pages/
 ├── serve.js               # local preview server — TRACKED
 ├── lib.js                  # shared helpers — TRACKED
 ├── README.md                # this file — TRACKED
+├── demo/                       # real-content SOURCE files — NOT gitignored
+│   ├── eu-portal-sitemap.xlsx
+│   └── eu-portal-teasers.docx
 └── dist/                      # generated — gitignored, nothing here is committed
-    ├── homepage.html.twig         # composition
-    ├── homepage.data.js            # placeholder data
-    ├── homepage.html                 # generated output
-    ├── homepage-alt.html.twig
-    ├── homepage-alt.data.js
-    ├── homepage-alt.html
-    └── assets/
-        └── ec/{styles,scripts,fonts,images}/   (or eu/)
+    ├── homepage/                  # everything for this one page, self-contained
+    │   ├── homepage.html.twig         # composition
+    │   ├── homepage.data.js            # data assembly
+    │   ├── eu-portal-content.json        # derived from demo/ — not source itself
+    │   ├── homepage.html                   # generated output
+    │   └── assets/
+    │       └── eu/{styles,scripts,fonts,images}/   (or ec/)
+    └── homepage-batteries/         # a different page — its own folder, own assets copy
+        ├── homepage-batteries.html.twig
+        ├── homepage-batteries.data.js
+        ├── homepage-batteries.html
+        └── assets/
+            └── ec/{styles,scripts,fonts,images}/
 ```
 
 ## Requirements
@@ -135,19 +156,19 @@ scripts/static-pages/
 
 ## Troubleshooting
 
-**`Missing {page}.html.twig or {page}.data.js in .../dist`**
+**`Missing {page}.html.twig or {page}.data.js in .../dist/{page}`**
 
 That page hasn't been composed yet — follow the skill doc's Steps 1–3 to
-create both in `dist/` first.
+create both in `dist/{page}/` first.
 
 **Icons not rendering, or component JS not initializing (e.g. mega-menu
 doesn't open)**
 
 You're almost certainly opening the file via `file://`. Use `serve.js`
-instead — see this file's `serve.js` section, or Step 8 of the skill doc.
+instead — see this file's `serve.js` section, or Step 5 of the skill doc.
 
 **A rebuilt page looks unchanged after editing its `.twig`/`.data.js`**
 
-`build.js` doesn't cache anything, but make sure you re-ran it — `dist/*.html`
-is not a live/watched output, each edit needs `node scripts/static-pages/
-build.js [page] [ec|eu]` run again.
+`build.js` doesn't cache anything, but make sure you re-ran it —
+`dist/{page}/{page}.html` is not a live/watched output, each edit needs
+`node scripts/static-pages/build.js [page] [ec|eu]` run again.

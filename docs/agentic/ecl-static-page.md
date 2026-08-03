@@ -32,11 +32,18 @@ For anything below not already given in the request, ask — batch into one
   2. **Themed generation** — the user gives a topic (e.g. "electric cars in
      Europe"); content is invented on-topic but explicitly illustrative, not
      real. See Step 2's "Themed generation" subsection.
-  3. **Real content** — supplied by the user. Not built out beyond "don't
-     invent copy" (Step 2) — treat a first real run of it as exploratory.
-     A prompt that names a topic directly (as in the example above) already
-     answers this question — don't ask it again, just confirm the topic if it's
+  3. **Real content** — supplied by the user, e.g. as a sitemap/content
+     export. See Step 2's "Real content" subsection. A prompt that names a
+     topic directly (as in the example above) already answers this
+     question — don't ask it again, just confirm the topic if it's
      ambiguous.
+- **Project name**: the `{page}` slug used for `dist/{page}/` and its
+  filenames (Step 3/4). Always propose one rather than picking it silently
+  — derive it from whatever's already known (system/page type/topic), e.g.
+  `homepage-batteries` for an EC homepage about batteries, plain `homepage`
+  for a generic placeholder pass. If `dist/{page}/` already exists under the
+  proposed name, surface that now rather than waiting for Step 3's overwrite
+  check to catch it.
 
 ---
 
@@ -164,22 +171,61 @@ million"` placeholder — is a reasonable model to follow), and drop fields
   is illustrative (e.g. an HTML comment near the top of the body) is
   optional, at your judgment — not required.
 
+### Real content
+
+When Step 0's content source is real material the user supplies (a
+sitemap, a content export, a spreadsheet/doc of real pages) rather than a
+topic to generate from:
+
+- **Raw source files live outside `dist/`, in `scripts/static-pages/demo/`**
+  (unlike `dist/`, not gitignored) — they're meant to be kept, not
+  regenerated. A _derived_ intermediate you extract from them (e.g. a JSON
+  dump of an `.xlsx`/`.docx`) is not itself a source, though — it belongs
+  next to the page that consumes it, under `dist/{page}/` (Step 4), since
+  it's just as regenerable as the composition itself.
+- **Don't hand-retype tabular/document source into JS.** Transcribing an
+  `.xlsx`/`.docx` by eye risks silent drift from the source (wrong date, a
+  paraphrased title). Extract it programmatically instead — e.g. a short
+  Python script (`openpyxl`/`python-docx`, installed into a throwaway venv
+  if not already available — no need to add them as repo dependencies) or
+  equivalent, writing a JSON file under `dist/{page}/` for `.data.js` to
+  `require()` as data, not retyped as literals.
+- **No hotlinking the source site's own images.** Themed generation has
+  `picsumImage()` for a reason — real content has real photos, but their
+  licensing/hotlinking terms aren't yours to assume, and external hosts
+  routinely block hotlinked `<img>` requests anyway. Fall back to the same
+  placeholder strategy as themed generation (component demo images or
+  `picsumImage()`) even though the text is real.
+- **A recommended component with no real data behind it gets dropped, not
+  invented.** E.g. Fact-figures wants numeric stats — if the real content
+  pulled doesn't include any, leave Fact-figures out rather than filling it
+  with a plausible-looking number. "Don't invent copy" (Step 0) applies
+  harder here than in themed generation, which is explicitly allowed to
+  invent illustrative figures.
+- **Link teasers to their real destination URL when known.** That's more
+  honest than a `#example` placeholder for content that has a genuine
+  source page, even when this build only covers the homepage and not the
+  destination page itself.
+
 ---
 
 ## Step 3 — write and build the page
 
-**Check first: does `dist/{page}.html.twig` or `dist/{page}.data.js` already
-exist?** `dist/` is gitignored (Step 4) — there is no tracked copy to recover
-from, so overwriting either file destroys the previous composition for good.
-If they exist and this isn't explicitly a throwaway/test iteration on the
-same page, confirm with the user before overwriting (or write under a
-different `{page}` name instead).
+**Check first: does `dist/{page}/{page}.html.twig` or
+`dist/{page}/{page}.data.js` already exist?** `dist/` is gitignored (Step 4)
+— there is no tracked copy to recover from, so overwriting either file
+destroys the previous composition for good. If they exist and this isn't
+explicitly a throwaway/test iteration on the same page, confirm with the
+user before overwriting (or write under a different `{page}` name instead).
 
-Write two files into `scripts/static-pages/dist/` (not tracked — Step 4):
+Write two files into `scripts/static-pages/dist/{page}/` (not tracked —
+Step 4):
 
 - `{page}.html.twig` — your Step 1 composition.
 - `{page}.data.js` — `module.exports = function buildData({ REPO,
-ASSETS_DIR, SYSTEM, req, clone }) { ... return data; }`.
+ASSETS_DIR, SYSTEM, req, clone }) { ... return data; }`. Any derived data
+  file it needs (Step 2's "Real content") sits in this same folder —
+  `require('./whatever.json')` rather than an absolute/`REPO`-relative path.
 
 Then run:
 
@@ -201,23 +247,40 @@ is, read `build.js`'s own comments before re-deriving it.
 Everything lives under `scripts/static-pages/` — not a top-level `examples/`
 folder (`scripts/` is this repo's existing convention, see
 `scripts/token-analysis/`). Only `build.js`, `serve.js`, `lib.js`,
-`README.md` are committed. Every page-specific file — `{page}.html.twig`,
-`{page}.data.js`, and all generated output — lives in `dist/`, gitignored
-("dist" is a blanket-ignored dirname repo-wide, no `.gitignore` edits
-needed). This is a deliberate PoC-stage choice (see `build.js`'s header
-comment for the reasoning) — no per-page content is meant to sit in the repo
+`README.md` are committed.
+
+Each page gets its own subfolder, `dist/{page}/`, holding **everything**
+specific to it — `{page}.html.twig`, `{page}.data.js`, any derived data file
+`.data.js` reads, the generated `{page}.html`, and its own copy of the
+self-hosted preset assets (`assets/{system}/{styles,scripts,fonts,images}/`,
+copied fresh per page rather than shared from one top-level `dist/assets/`).
+That duplication is deliberate: it's what makes `dist/{page}/` deployable
+standalone by itself — zip it up and it's complete, matching the whole
+pipeline's actual goal (see this doc's intro). The whole `dist/` tree is
+gitignored ("dist" is a blanket-ignored dirname repo-wide, no `.gitignore`
+edits needed) — a deliberate PoC-stage choice (see `build.js`'s header
+comment for the reasoning); no per-page content is meant to sit in the repo
 yet.
 
-**Consequence**: wiping `dist/` deletes a page's composition and data along
-with its output — there's no tracked copy of either. Don't clean it wholesale
-without checking what's in there first.
+**Consequence**: wiping `dist/` (or one `dist/{page}/`) deletes that page's
+composition and data along with its output — there's no tracked copy of
+either. Don't clean it wholesale without checking what's in there first.
 
-For a new page, add its `.twig`/`.data.js` into `dist/` and reuse the
+For a new page, add `dist/{page}/{page}.twig`/`.data.js` and reuse the
 existing `build.js`/`lib.js` — don't start a new layout per page. **Working
-on one page shouldn't touch another** — don't edit a sibling page's files,
+on one page shouldn't touch another** — don't edit a sibling page's folder,
 and don't reference one page's file from another's comments (point at this
 doc or a component's own docs instead); rebuilding a page you didn't change
 is unnecessary unless `build.js`/`lib.js` themselves changed.
+
+**Real-content source material is the exception to "nothing persists" — and
+lives outside any `dist/{page}/` folder entirely.** A sitemap/content
+export the user wants to keep across rebuilds belongs in
+`scripts/static-pages/demo/`, which is not gitignored (see Step 2's "Real
+content" subsection). Anything _derived_ from that source (e.g. a JSON
+extraction meant for one `.data.js` to `require()`) is page-specific output,
+not source-of-truth — that goes in `dist/{page}/` alongside the rest of
+that page's files, not in `demo/`.
 
 ---
 
@@ -261,13 +324,13 @@ page types (add one as each gets built out via Step 0).
 | Card                | Recommended        | teaser grid, news/events/shallow content                                                                                                                                                                                                                                                                                                             |
 | Content-item        | Recommended        | teaser; picture **or** `date` block, never both (both render independently if both are set) — pick one, stay consistent within a grid                                                                                                                                                                                                                |
 | Featured-item       | Recommended        | single denser highlight                                                                                                                                                                                                                                                                                                                              |
-| Story-card          | Recommended        | self-contained editorial mini-carousel                                                                                                                                                                                                                                                                                                               |
+| Story-card          | Recommended        | self-contained editorial mini-carousel; description per item is optional but include one anyway — title+link-only items look visually thin                                                                                                                                                                                                           |
 | Spotlight           | Content only       | **not** a hero, despite looking like one — "In focus"-style callout                                                                                                                                                                                                                                                                                  |
 | Fact-figures        | Recommended        | stats/credibility, quick orientation; use icons; 3 items/columns reads better than 4; suffix (thousand/million/%) only where the number actually warrants one, not on every item                                                                                                                                                                     |
 | Slogan-ticker       | Recommended        | short rotating taglines                                                                                                                                                                                                                                                                                                                              |
 | Social-media-follow | Recommended        | own usage.md: place at the bottom                                                                                                                                                                                                                                                                                                                    |
 | Highlight-box       | Recommended        | compact single title+description+link callout (e.g. feedback prompt)                                                                                                                                                                                                                                                                                 |
-| Add-to-calendar     | Situational        | events-heavy homepages only                                                                                                                                                                                                                                                                                                                          |
+| Add-to-calendar     | Situational        | **a single spotlighted event, not a grid** — it's meant to highlight one important upcoming event, not to be repeated side by side for several; `full_width: true` only when it's paired with a full-width element like the hero banner, otherwise let it take the full container width (not a column)                                               |
 | List-illustration   | Not recommended    | editorial/informational — own usage.md explicitly rules out navigational use                                                                                                                                                                                                                                                                         |
 | Category-filter     | Not recommended    | list/search/filtered-results pages, not homepage                                                                                                                                                                                                                                                                                                     |
 | Mega-menu / Menu    | N/A                | header navigation only, never a standalone section (already inside site-header)                                                                                                                                                                                                                                                                      |

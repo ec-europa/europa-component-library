@@ -37,7 +37,7 @@ http
     const reqPath = decodeURIComponent(req.url.split('?')[0]);
     const filePath = path.join(
       ROOT,
-      reqPath === '/' ? '/homepage.html' : reqPath,
+      reqPath === '/' ? '/homepage/homepage.html' : reqPath,
     );
 
     // Don't serve anything outside ROOT.
@@ -59,6 +59,7 @@ http
     });
   })
   .listen(PORT, () => {
-    console.log(`Serving ${ROOT} at http://localhost:${PORT}/homepage.html`);
+    console.log(`Serving ${ROOT} at http://localhost:${PORT}/`);
+    console.log('Open a specific page, e.g. /homepage/homepage.html');
     console.log('Ctrl+C to stop.');
   });

@@ -1,8 +1,8 @@
 /* eslint-disable */
-// Regenerable build script for scripts/static-pages/dist/*.html.
+// Regenerable build script for scripts/static-pages/dist/{page}/*.html.
 // Run: node scripts/static-pages/build.js [page] [ec|eu]
 //   page defaults to "homepage"; looks for {page}.html.twig and
-//   {page}.data.js, both in dist/ (not tracked — see below). system
+//   {page}.data.js, both in dist/{page}/ (not tracked — see below). system
 //   defaults to "ec".
 //
 // Renders {page}.html.twig (a rule-derived composition — see
@@ -10,12 +10,18 @@
 // self-hosts the built preset assets alongside it, and wraps the result in
 // a standalone HTML skeleton.
 //
-// Everything page-specific — the .twig composition, the .data.js, and the
-// generated output — lives in dist/, which is gitignored ("dist" is a
-// blanket-ignored dirname repo-wide). Only build.js/lib.js/serve.js (the
-// reusable pipeline itself) are tracked for now; this is still a PoC, so no
-// per-page content is kept in the repo yet — see docs/agentic/
-// ecl-static-page.md, Step 7, before wiping dist/ wholesale.
+// Everything page-specific — the .twig composition, the .data.js, any
+// page-specific derived data (e.g. content extracted from a real-content
+// source), and the generated output — lives in its own dist/{page}/
+// subfolder, gitignored ("dist" is a blanket-ignored dirname repo-wide).
+// Each page folder is self-contained on purpose (its own copy of the
+// preset assets, not a shared top-level dist/assets/) — that's what makes
+// `dist/{page}/` deployable standalone by itself, matching this whole
+// pipeline's actual goal (see the skill doc's intro). Only
+// build.js/lib.js/serve.js (the reusable pipeline itself) are tracked for
+// now; this is still a PoC, so no per-page content is kept in the repo
+// yet — see docs/agentic/ecl-static-page.md, Step 4, before wiping dist/
+// wholesale.
 
 const path = require('path');
 const fs = require('fs');
@@ -29,7 +35,7 @@ if (!['ec', 'eu'].includes(SYSTEM)) {
 }
 
 const REPO = path.resolve(__dirname, '../..');
-const OUT_DIR = path.join(__dirname, 'dist');
+const OUT_DIR = path.join(__dirname, 'dist', PAGE);
 const ASSETS_DIR = path.join(OUT_DIR, 'assets', SYSTEM);
 
 const twigPath = path.join(OUT_DIR, `${PAGE}.html.twig`);
