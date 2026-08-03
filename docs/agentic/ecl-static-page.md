@@ -121,6 +121,35 @@ failure as reusing a whole skeleton. Rules that hold for every page:
   without checking that component's own README — e.g. Banner has a
   documented `full_width` variant, Spotlight doesn't, despite both acting as
   page-top visuals.
+- Any `date` block (Content-item, Card, etc.) needs its `variant` set
+  explicitly (`'ongoing'`, `'past'`, or `'canceled'`) — the README lists it
+  as optional/default `''`, but a date block with no variant renders with no
+  visual state at all, and nothing errors to flag the omission. For a
+  real-content date, derive it from whether the item's date is before/after
+  the source's own fetch/snapshot date (e.g. a news article dated before
+  the source docx's stated "fetched" date is `'past'`).
+- Before wrapping a content section in an external `<h2>` for its heading,
+  check the component's own `.html.twig` for whether it already renders its
+  own internal title — Story-card does (its `title`/`description` params
+  render as `.ecl-story-card__title`/`__description` inside the component),
+  so an external `<h2>{{ story_card.title }}</h2>` above it duplicates the
+  heading. Card, Content-item, Navigation-list, Featured-item, etc. don't
+  render their own heading and do need the external `<h2>`.
+- EC and EU ship different spacing-utility scales — don't assume an
+  `ecl-u-*-{n}xl` class exists on both. EU's compiled
+  `src/presets/eu/dist/styles/optional/ecl-eu-utilities.css` only defines
+  spacing up to `4xl` (`xl`/`2xl`/`3xl`/`4xl`); EC's goes up to `13xl`. An
+  unmatched class (e.g. `ecl-u-mt-6xl` on EU) silently no-ops — nothing
+  errors, the spacing just doesn't apply, easy to miss without checking.
+  `src/page-example/page-home/page-home.html.twig` is a template _shared_
+  across both systems, and works around this by pairing
+  `ecl-u-mt-4xl ecl-u-mt-6xl` together (4xl is the real fallback, 6xl
+  silently overrides it only where it exists, i.e. EC) — that pairing trick
+  only makes sense for a shared template. A single-system static page
+  should grep the actual compiled
+  `src/presets/{system}/dist/styles/optional/ecl-{system}-utilities.css`
+  for the token it wants and use only what that system actually ships,
+  rather than copying the paired-class fallback in from a shared example.
 
 ### Themed generation
 
