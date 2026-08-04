@@ -987,6 +987,9 @@ importers:
       '@ecl/event-manager':
         specifier: 5.1.0
         version: link:../../tools/event-manager
+      '@ecl/slider':
+        specifier: 5.1.0
+        version: link:../slider
       embla-carousel:
         specifier: 9.0.0-rc02
         version: 9.0.0-rc02
@@ -1157,6 +1160,16 @@ importers:
         specifier: 5.1.0
         version: link:../../utilities/screen-reader
 
+  src/components/slider:
+    dependencies:
+      '@ecl/button':
+        specifier: 5.1.0
+        version: link:../button
+    devDependencies:
+      '@ecl/dom-utils':
+        specifier: 5.1.0
+        version: link:../../tools/dom-utils
+
   src/components/slogan-ticker:
     dependencies:
       '@ecl/button':
@@ -1230,6 +1243,9 @@ importers:
       '@ecl/event-manager':
         specifier: 5.1.0
         version: link:../../tools/event-manager
+      '@ecl/slider':
+        specifier: 5.1.0
+        version: link:../slider
       embla-carousel:
         specifier: 9.0.0-rc02
         version: 9.0.0-rc02
@@ -2093,6 +2109,9 @@ importers:
       '@ecl/skip-link':
         specifier: 5.1.0
         version: link:../../components/skip-link
+      '@ecl/slider':
+        specifier: 5.1.0
+        version: link:../../components/slider
       '@ecl/slogan-ticker':
         specifier: 5.1.0
         version: link:../../components/slogan-ticker
@@ -2400,6 +2419,9 @@ importers:
       '@ecl/skip-link':
         specifier: 5.1.0
         version: link:../../components/skip-link
+      '@ecl/slider':
+        specifier: 5.1.0
+        version: link:../../components/slider
       '@ecl/slogan-ticker':
         specifier: 5.1.0
         version: link:../../components/slogan-ticker
