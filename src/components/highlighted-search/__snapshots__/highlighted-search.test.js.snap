@@ -22,6 +22,152 @@ exports[`Highlighted search Default renders correctly 1`] = `
       <form
         aria-describedby="highlighted-search-title"
         class="ecl-highlighted-search__form"
+        method="GET"
+        role="search"
+      >
+        <div
+          class="ecl-highlighted-search__form-content"
+        >
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-highlighted-search__form-icon ecl-icon-phosphor--magnifying-glass"
+          />
+          <div
+            class="ecl-form-group ecl-highlighted-search__form-group"
+          >
+            <label
+              class="ecl-form-label ecl-form-label--hidden"
+              for="highlighted-search-input-id"
+              id="highlighted-search-input-id-label"
+            >
+              Search
+            </label>
+            <input
+              aria-describedby="highlighted-search-helper"
+              class="ecl-text-input ecl-text-input--l ecl-highlighted-search__form-input"
+              id="highlighted-search-input-id"
+              name="highlighted-search-input-name"
+              type="search"
+            />
+          </div>
+          <button
+            class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-highlighted-search__form-button"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+        <div
+          class="ecl-highlighted-search__form-helper"
+          id="highlighted-search-helper"
+        >
+          e.g. full time, designer, writer
+        </div>
+      </form>
+      <div
+        class="ecl-highlighted-search__suggestion"
+      >
+        <span
+          class="ecl-highlighted-search__suggestion-label"
+          id="highlighted-search-suggestion-label"
+        >
+          Or explore:
+        </span>
+        <ul
+          aria-labelledby="highlighted-search-suggestion-label"
+          class="ecl-tag-set ecl-highlighted-search__suggestion-list"
+        >
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Traineeships
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              IT & Digital
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Policy & Law
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Translation
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Communication
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Finance & Economics
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Highlighted search Default renders correctly with a form action 1`] = `
+<jest>
+  <div
+    class="ecl-highlighted-search"
+  >
+    <div
+      class="ecl-highlighted-search__content"
+    >
+      <div
+        class="ecl-highlighted-search__title"
+        id="highlighted-search-title"
+      >
+        Find your next role
+      </div>
+      <div
+        class="ecl-highlighted-search__description ecl-content-color"
+      >
+        Discover job opportunities in the EU institutions
+      </div>
+      <form
+        action="/search-results?category=jobs&lang=en"
+        aria-describedby="highlighted-search-title"
+        class="ecl-highlighted-search__form"
+        method="GET"
         role="search"
       >
         <div
@@ -167,6 +313,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
       <form
         aria-describedby="highlighted-search-title"
         class="ecl-highlighted-search__form"
+        method="GET"
         role="search"
       >
         <div
@@ -310,6 +457,7 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
       <form
         aria-describedby="highlighted-search-title"
         class="ecl-highlighted-search__form"
+        method="GET"
         role="search"
       >
         <div
