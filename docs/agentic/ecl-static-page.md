@@ -14,55 +14,79 @@ what each does. This doc is mostly about the parts that stay
 judgment-driven per page: what structure a page should have, and which
 components fit it.
 
+**This skill is split by page type — only read what the current page
+needs.** This file covers the steps that are the same regardless of page
+type (input gathering, data-gathering gotchas, build/output/verify).
+Step 1 — the actual structural rules and component matrix, which differ a
+lot per type — lives in its own file per type:
+
+- [`ecl-static-page-homepage.md`](./ecl-static-page-homepage.md)
+- [`ecl-static-page-inner.md`](./ecl-static-page-inner.md)
+
+Don't `Read` a type doc you're not currently building — that's the entire
+point of the split. Once Step 0 below has settled on a page type, open only
+that one type's doc.
+
 ---
 
-## Step 0 — collect inputs, interactively
+## Step 0 — collect inputs, as a decision tree
 
-For anything below not already given in the request, ask — batch into one
-`AskUserQuestion` call:
+**Don't front-load every question into one `AskUserQuestion` call.** Later
+questions in this list depend on an earlier answer — which options even
+exist, what a sane default looks like — so this is a decision tree, not a
+form: ask, get the answer, then decide what to ask next. Only questions
+that are genuinely independent of every prior (and pending) answer belong
+in the same call. Skip anything already answered by the request itself
+(a prompt naming a topic already answers "content source"; "inner page
+about batteries" answers two questions at once) — the tree only visits
+what's still unknown.
+
+**1. System + page type** — independent of each other, so batch these two:
 
 - **System**: EC or EU. Never mixed. No default — present both neutrally,
   don't label either "recommended", both are equally valid.
-- **Page type**: which preset. Homepage is the only one built out so far
-  (see the matrix below). Anything else: no existing composition to lean
-  on, do full component research per Step 1.
-- **Content source**: three options —
-  1. **Placeholder/demo** (default) — each component's own `demo/data*.js`,
-     unmodified.
-  2. **Themed generation** — the user gives a topic (e.g. "electric cars in
-     Europe"); content is invented on-topic but explicitly illustrative, not
-     real. See Step 2's "Themed generation" subsection.
-  3. **Real content** — supplied by the user, e.g. as a sitemap/content
-     export. See Step 2's "Real content" subsection. A prompt that names a
-     topic directly (as in the example above) already answers this
-     question — don't ask it again, just confirm the topic if it's
-     ambiguous.
-- **Project name**: the `{page}` slug used for `dist/{page}/` and its
-  filenames (Step 3/4). Always propose one rather than picking it silently
-  — derive it from whatever's already known (system/page type/topic), e.g.
-  `homepage-batteries` for an EC homepage about batteries, plain `homepage`
-  for a generic placeholder pass. If `dist/{page}/` already exists under the
-  proposed name, surface that now rather than waiting for Step 3's overwrite
-  check to catch it.
+- **Page type**: which skeleton to build. Two are built out so far:
+  **Homepage** or **Inner page** — each has its own doc (this file's intro)
+  with a component matrix. Anything else: no existing composition to lean
+  on, do full component research per that doc's Step 1 principles rather
+  than picking from a matrix.
+
+**2. Content source** — doesn't depend on page type, so batch this on its
+own once step 1 has an answer:
+
+1. **Placeholder/demo** (default) — each component's own `demo/data*.js`,
+   unmodified.
+2. **Themed generation** — the user gives a topic (e.g. "electric cars in
+   Europe"); content is invented on-topic but explicitly illustrative, not
+   real. See Step 2's "Themed generation" subsection.
+3. **Real content** — supplied by the user, e.g. as a sitemap/content
+   export. See Step 2's "Real content" subsection. A prompt that names a
+   topic directly (as in the example above) already answers this
+   question — don't ask it again, just confirm the topic if it's
+   ambiguous.
+
+**3. Project name — always last.** A sane default depends on every answer
+above (system, page type, topic), so this is never asked before them.
+Always propose one rather than picking it silently — the `{page}` slug used
+for `dist/{page}/` and its filenames (Step 3/4), e.g. `homepage-batteries`
+for an EC homepage about batteries, `inner-batteries` for an EU inner page
+on the same topic, plain `homepage`/`inner` for a generic placeholder pass.
+If `dist/{page}/` already exists under the proposed name, surface that now
+rather than waiting for Step 3's overwrite check to catch it.
+
+**Once these are answered, open the doc matching the chosen page type**
+(this file's intro) and follow its Step 1 — it may ask its own further
+follow-up question first (e.g. the inner-page doc asks a layout-shape
+question before it can state its structural rules), then covers structure
+and gives that type's component matrix. Come back to this file for Step 2
+onward once Step 1 is done.
 
 ---
 
-## Step 1 — derive structure from rules, not from copying an example
+## Step 1 — derive structure (page-type-specific)
 
-**Don't copy a `src/page-example/*` composition wholesale — and don't copy
-your own most recent build of the same page type either.** The second one is
-the easier trap: once one page of a given type exists, it's tempting to
-reuse it as an implicit template for "efficiency," which is the exact same
-mistake with a different source. Two same-type pages landing on an
-identical component skeleton (same hero component, same set of content
-sections, same layout) with only the text swapped means structure wasn't
-actually re-derived — go back through Step 1's rules and the matrix's
-alternatives (Banner vs Carousel vs a visible page-header for the hero;
-Card vs Content-item vs Featured-item vs Story-card vs Spotlight for content
-highlights) and make an independent choice. Some repetition across pages is
-fine and expected where there's no real alternative for a role (Navigation-
-list for site wayfinding, Fact-figures for stats) — that's not the same
-failure as reusing a whole skeleton. Rules that hold for every page:
+Two rules hold regardless of page type — kept here rather than repeated in
+every type doc:
 
 - `site-header` first, `site-footer` last, always. Use `lib.js`'s
   `standardSiteHeader()`/`standardSiteFooter()` — they already wire logos and
@@ -76,28 +100,36 @@ failure as reusing a whole skeleton. Rules that hold for every page:
   recursively, not just on the items you touch. Re-theme at least the
   top-level/topic-flexible item labels for a themed pass (deep nested items
   can stay generic — see Step 2).
-- `page-header` is **always present**, even when nothing in it is visible —
-  it's where the page's one `<h1>` lives. What varies per page is which of
-  its _elements_ are used (check its own `usage.md` for standardised/
-  harmonised rules). On a homepage: title hidden (`hide_title: true`),
-  breadcrumb/description/meta/pictures stripped — already implemented as
-  `lib.js`'s `homepagePageHeader()`, reuse it rather than re-deriving.
-- Main content: `<main>` → `.ecl-container` → `.ecl-row`/`.ecl-col-*` grid.
-- **The hero is Banner, Carousel, or a visible page-header** — never
-  Spotlight, despite it sitting next to Banner/Carousel in the source tree
-  and reading hero-ish in its own `usage.md`. Spotlight is a content-area
-  callout (see the matrix). This is current guidance direct from the ECL
-  team, ahead of that doc being tightened on their side. When the hero is a
-  Banner or Carousel, set `full_width: true` on it — both default to `false`
-  (constrained to the grid), which reads as an undersized hero; a hero should
-  span the full container.
 - For each content section: read the component's `README.md` (params) and
-  its `usage.md` (when to use it). The matrix below is a shortcut for this,
-  not a replacement — check the actual doc when a pick matters.
+  its `usage.md` (when to use it). A type doc's matrix is a shortcut for
+  this, not a replacement — check the actual doc when a pick matters.
+
+**Don't copy a `src/page-example/*` composition wholesale — and don't copy
+your own most recent build of the same page type either.** The second one is
+the easier trap: once one page of a given type exists, it's tempting to
+reuse it as an implicit template for "efficiency," which is the exact same
+mistake with a different source. Two same-type pages landing on an
+identical component skeleton (same hero/top-of-page choice, same set of
+content sections, same layout) with only the text swapped means structure
+wasn't actually re-derived — go back through the type doc's rules and
+matrix alternatives and make an independent choice. Some repetition across
+pages is fine and expected where there's no real alternative for a role —
+that's not the same failure as reusing a whole skeleton.
+
+**Everything else — the page-header's visible/hidden stance, whether
+there's a hero, the content grid shape, and the full component matrix — is
+page-type-specific.** Read the doc for the page type chosen in Step 0
+before writing any markup:
+[`ecl-static-page-homepage.md`](./ecl-static-page-homepage.md) or
+[`ecl-static-page-inner.md`](./ecl-static-page-inner.md).
 
 ---
 
 ## Step 2 — gather data
+
+A type doc may add its own short Step 2 addendum (check it if you haven't
+already, e.g. inner pages need body-length prose — see its own doc). The
+rest below is page-type-agnostic:
 
 - Placeholder pass: reuse each component's own `demo/data*.js` as content.
   Require it via `lib.js`'s `makeReq(REPO)` — already handles the ESM/CJS
@@ -134,7 +166,27 @@ failure as reusing a whole skeleton. Rules that hold for every page:
   render as `.ecl-story-card__title`/`__description` inside the component),
   so an external `<h2>{{ story_card.title }}</h2>` above it duplicates the
   heading. Card, Content-item, Navigation-list, Featured-item, etc. don't
-  render their own heading and do need the external `<h2>`.
+  render their own heading and do need the external `<h2>`. This is easy to
+  miss even after reading this rule once — actually check the rendered
+  output (Step 5), don't just trust the plan.
+- List-illustration's `zebra` (alternating-background) treatment is a
+  vertical, single-column layout only — its CSS makes the list break out to
+  full viewport width and stripe alternating rows, which conflicts with the
+  `--col-2`/`--col-3`/`--col-4` grid `column` sets. If `column` is anything
+  other than `1` (e.g. reusing `demo/data--icon.js`, which ships `zebra:
+true` at column 1), explicitly set `zebra: false` — don't leave a source
+  demo's `zebra` value in place after changing `column` away from `1`.
+- Any body-copy `<p>` needs an explicit `ecl-u-type-paragraph` (or
+  `-paragraph-lead`) class — that's what sets its font size/color/max-width.
+  A bare `<p>` picks this up for free only when it sits inside a wrapper
+  literally classed `.ecl` (a global `.ecl p:not([class*='ecl-'])` rule
+  extends the same styling) — `src/page-example/page-fact-sheet`'s intro
+  paragraphs rely on exactly that. Don't copy that specific detail: it's an
+  implicit, easy-to-lose dependency (breaks the moment the wrapper class or
+  the `<p>`'s own class changes) and it's inconsistent with how every other
+  paragraph on the same page is written (with the explicit class, no `.ecl`
+  wrapper). Add the class directly instead, on every `<p>`, regardless of
+  what wraps it.
 - EC and EU ship different spacing-utility scales — don't assume an
   `ecl-u-*-{n}xl` class exists on both. EU's compiled
   `src/presets/eu/dist/styles/optional/ecl-eu-utilities.css` only defines
@@ -233,7 +285,7 @@ topic to generate from:
   invent illustrative figures.
 - **Link teasers to their real destination URL when known.** That's more
   honest than a `#example` placeholder for content that has a genuine
-  source page, even when this build only covers the homepage and not the
+  source page, even when this build only covers one page and not the
   destination page itself.
 
 ---
@@ -252,9 +304,13 @@ Step 4):
 
 - `{page}.html.twig` — your Step 1 composition.
 - `{page}.data.js` — `module.exports = function buildData({ REPO,
-ASSETS_DIR, SYSTEM, req, clone }) { ... return data; }`. Any derived data
-  file it needs (Step 2's "Real content") sits in this same folder —
-  `require('./whatever.json')` rather than an absolute/`REPO`-relative path.
+ASSETS_DIR, SYSTEM, req, clone }) { ... return data; }`. Require `lib.js`
+  for page-type-agnostic helpers and the matching `lib-{type}.js` (e.g.
+  `lib-homepage.js`, `lib-inner.js`) for that type's page-header helper —
+  don't require a `lib-{type}.js` for a type other than the one you're
+  building. Any derived data file it needs (Step 2's "Real content") sits
+  in this same folder — `require('./whatever.json')` rather than an
+  absolute/`REPO`-relative path.
 
 Then run:
 
@@ -276,7 +332,7 @@ is, read `build.js`'s own comments before re-deriving it.
 Everything lives under `scripts/static-pages/` — not a top-level `examples/`
 folder (`scripts/` is this repo's existing convention, see
 `scripts/token-analysis/`). Only `build.js`, `serve.js`, `lib.js`,
-`README.md` are committed.
+`lib-homepage.js`, `lib-inner.js`, `README.md` are committed.
 
 Each page gets its own subfolder, `dist/{page}/`, holding **everything**
 specific to it — `{page}.html.twig`, `{page}.data.js`, any derived data file
@@ -296,11 +352,12 @@ composition and data along with its output — there's no tracked copy of
 either. Don't clean it wholesale without checking what's in there first.
 
 For a new page, add `dist/{page}/{page}.twig`/`.data.js` and reuse the
-existing `build.js`/`lib.js` — don't start a new layout per page. **Working
-on one page shouldn't touch another** — don't edit a sibling page's folder,
-and don't reference one page's file from another's comments (point at this
-doc or a component's own docs instead); rebuilding a page you didn't change
-is unnecessary unless `build.js`/`lib.js` themselves changed.
+existing `build.js`/`lib.js`/`lib-{type}.js` — don't start a new layout per
+page. **Working on one page shouldn't touch another** — don't edit a
+sibling page's folder, and don't reference one page's file from another's
+comments (point at this doc, a type doc, or a component's own docs
+instead); rebuilding a page you didn't change is unnecessary unless
+`build.js`/`lib.js`/`lib-{type}.js` themselves changed.
 
 **Real-content source material is the exception to "nothing persists" — and
 lives outside any `dist/{page}/` folder entirely.** A sitemap/content
@@ -332,39 +389,3 @@ that page's files, not in `demo/`.
 
 - Don't reach for `claude-in-chrome` unless the user asks for it — they can
   check the visual result themselves once `serve.js` is running.
-
----
-
-## Reference: recommended components per page type
-
-Non-binding — a lookup to speed up Step 1, not a checklist. Still
-sanity-check a pick against its own `usage.md` when it matters. Columns are
-page types (add one as each gets built out via Step 0).
-
-| Component           | Homepage           | Notes                                                                                                                                                                                                                                                                                                                                                |
-| ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| site-header         | Always             | `lib.js`'s `standardSiteHeader()`; nav = `menu` or `mega_menu`, no login/custom action by default                                                                                                                                                                                                                                                    |
-| page-header         | Always             | title hidden; holds the page's one h1                                                                                                                                                                                                                                                                                                                |
-| site-footer         | Always             | `lib.js`'s `standardSiteFooter()`; `-ec`/`-eu` Twig entry point per system                                                                                                                                                                                                                                                                           |
-| Banner              | Hero               | general-purpose default                                                                                                                                                                                                                                                                                                                              |
-| Carousel            | Hero / ticker      | multiple rotating messages; own usage.md names homepage use                                                                                                                                                                                                                                                                                          |
-| Highlighted-search  | Hero (situational) | only if the page is search-driven; no usage.md yet                                                                                                                                                                                                                                                                                                   |
-| Navigation-list     | Recommended        | **the** site-wayfinding component — not List-illustration. Default (no `variant`/`picture`) is the safe default — `image-as-illustration` is valid but needs images actually sized for the slot, which generic stock images usually aren't; `illustration` is for small vector-style graphics (its own demo uses an inline base64 image), not photos |
-| Card                | Recommended        | teaser grid, news/events/shallow content                                                                                                                                                                                                                                                                                                             |
-| Content-item        | Recommended        | teaser; picture **or** `date` block, never both (both render independently if both are set) — pick one, stay consistent within a grid                                                                                                                                                                                                                |
-| Featured-item       | Recommended        | single denser highlight                                                                                                                                                                                                                                                                                                                              |
-| Story-card          | Recommended        | self-contained editorial mini-carousel; description per item is optional but include one anyway — title+link-only items look visually thin                                                                                                                                                                                                           |
-| Spotlight           | Content only       | **not** a hero, despite looking like one — "In focus"-style callout                                                                                                                                                                                                                                                                                  |
-| Fact-figures        | Recommended        | stats/credibility, quick orientation; use icons; 3 items/columns reads better than 4; suffix (thousand/million/%) only where the number actually warrants one, not on every item                                                                                                                                                                     |
-| Slogan-ticker       | Recommended        | short rotating taglines                                                                                                                                                                                                                                                                                                                              |
-| Social-media-follow | Recommended        | own usage.md: place at the bottom                                                                                                                                                                                                                                                                                                                    |
-| Highlight-box       | Recommended        | compact single title+description+link callout (e.g. feedback prompt)                                                                                                                                                                                                                                                                                 |
-| Add-to-calendar     | Situational        | **a single spotlighted event, not a grid** — it's meant to highlight one important upcoming event, not to be repeated side by side for several; `full_width: true` only when it's paired with a full-width element like the hero banner, otherwise let it take the full container width (not a column)                                               |
-| List-illustration   | Not recommended    | editorial/informational — own usage.md explicitly rules out navigational use                                                                                                                                                                                                                                                                         |
-| Category-filter     | Not recommended    | list/search/filtered-results pages, not homepage                                                                                                                                                                                                                                                                                                     |
-| Mega-menu / Menu    | N/A                | header navigation only, never a standalone section (already inside site-header)                                                                                                                                                                                                                                                                      |
-
-Every homepage built so far omits `Mega-menu`/`Menu`/`Category-filter`/
-`List-illustration` as standalone sections for the reasons above — if one of
-those looks tempting for a new page, that's the signal to check its
-`usage.md` before including it.

@@ -1,5 +1,10 @@
 /* eslint-disable */
-// Shared helpers for build.js, used by every {page}.data.js.
+// Shared, page-type-agnostic helpers for build.js and every {page}.data.js.
+// Page-type-specific helpers (e.g. the page-header shape for a given page
+// type) live in their own lib-{type}.js instead — see
+// docs/agentic/ecl-static-page.md's intro for why: a data.js only pulls in
+// the helper file(s) for the page type it's actually building, not every
+// type's worth of helpers at once.
 
 const path = require('path');
 const fs = require('fs');
@@ -61,23 +66,6 @@ function makeReq(REPO) {
   };
 }
 
-// page-header is structurally mandatory (docs/agentic/ecl-static-page.md,
-// Step 1) — it's where the page's one-and-only h1 lives, whether or not the
-// title is visually shown. On a homepage there's usually nothing meaningful
-// for the title/breadcrumb/meta to say, so hide/strip them rather than
-// dropping the component itself.
-function homepagePageHeader(req, clone) {
-  const pageHeader = clone(req('page-header/demo/data.js'));
-  pageHeader.hide_title = true;
-  delete pageHeader.breadcrumb;
-  delete pageHeader.description;
-  delete pageHeader.meta;
-  delete pageHeader.picture_background;
-  delete pageHeader.picture_thumbnail;
-  delete pageHeader.expandable;
-  return pageHeader;
-}
-
 // Standard site-header: logo wired to self-hosted assets, and the rarely-
 // used blocks (login, custom action) stripped by default — not every real
 // site needs them, so don't include them unless a page specifically wants
@@ -125,7 +113,6 @@ module.exports = {
   copyPresetAssets,
   clone,
   makeReq,
-  homepagePageHeader,
   standardSiteHeader,
   standardSiteFooter,
   STOCK_IMAGES,

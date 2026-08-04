@@ -50,7 +50,8 @@ node scripts/static-pages/serve.js [port]   # defaults to 8080
 
 ### `lib.js`
 
-Shared helpers used by `build.js` and by every `{page}.data.js`:
+Shared, page-type-**agnostic** helpers used by `build.js` and by every
+`{page}.data.js` regardless of page type:
 
 - `copyPresetAssets(REPO, ASSETS_DIR, SYSTEM)` — copies the built preset's
   `styles/scripts/fonts/images` into the output folder.
@@ -58,19 +59,46 @@ Shared helpers used by `build.js` and by every `{page}.data.js`:
 - `makeReq(REPO)` — returns a `require()`-style helper for a component's
   `demo/data*.js`, unwrapping the `{ __esModule, default }` interop shape
   some of those files get transpiled into.
-- `homepagePageHeader(req, clone)` — the page-header block shared by every
-  homepage-type page: title hidden, breadcrumb/description/meta/pictures
-  stripped. `page-header` itself is structurally mandatory (it's where the
-  page's one `<h1>` lives) even though nothing in it is visually shown on a
-  homepage — see the skill doc's Step 1 for why it's never omitted outright.
+- `standardSiteHeader(req, clone, suffix, system)` /
+  `standardSiteFooter(req, clone, suffix, system)` — logo wiring + stripped
+  rarely-used blocks, shared across every page type.
 - `STOCK_IMAGES` — the 10-image fixed stock set on the ECL S3 bucket
   (`example-image.jpg` through `example-image10.jpg`), for themed-generation
   passes to rotate through instead of repeating one image everywhere — see
-  the skill doc's Step 2, "Themed generation".
+  the homepage/inner-page skill docs' Step 2, "Themed generation".
+- `picsumImage(seed, width, height)` — the preferred alternative to
+  `STOCK_IMAGES` for a themed pass.
+
+### `lib-{type}.js` (`lib-homepage.js`, `lib-inner.js`)
+
+**Page-type-specific** helpers — a `{page}.data.js` only requires the one
+matching the page it's building, not every type's helpers at once (that's
+the whole point of the split: reading/requiring only what's relevant to the
+page type in hand). Each currently exports one function, the page-header
+shape for that type:
+
+- `lib-homepage.js`'s `homepagePageHeader(req, clone)` — title hidden,
+  breadcrumb/description/meta/pictures stripped. `page-header` itself is
+  structurally mandatory (it's where the page's one `<h1>` lives) even
+  though nothing in it is visually shown on a homepage — see
+  [`docs/agentic/ecl-static-page-homepage.md`](../../docs/agentic/ecl-static-page-homepage.md)'s
+  Step 1 for why it's never omitted outright.
+- `lib-inner.js`'s `innerPageHeader(req, clone)` — the opposite stance:
+  title shown, breadcrumb kept, only the rarely-used picture/expandable
+  blocks stripped. An inner page isn't the site root, so both are
+  meaningful there — see
+  [`docs/agentic/ecl-static-page-inner.md`](../../docs/agentic/ecl-static-page-inner.md)'s
+  Step 1.
+
+Adding a third page type means adding its own `lib-{type}.js` here (plus
+its own `docs/agentic/ecl-static-page-{type}.md`) rather than growing
+`lib.js`/the main skill doc further — see that doc's intro for the
+reasoning.
 
 ## Current state: PoC — only the pipeline is tracked
 
-**Only `build.js`, `serve.js`, and `lib.js` are committed to the repo.**
+**Only `build.js`, `serve.js`, `lib.js`, `lib-homepage.js`, `lib-inner.js`
+are committed to the repo.**
 Every page gets its own subfolder, `dist/{page}/`, holding its composition
 (`{page}.html.twig`), its data assembly (`{page}.data.js`), any derived data
 file that `.data.js` reads, the generated `{page}.html`, and its own copy of
@@ -118,8 +146,10 @@ assuming it mirrors EC's.
 scripts/static-pages/
 ├── build.js              # shared render pipeline — TRACKED
 ├── serve.js               # local preview server — TRACKED
-├── lib.js                  # shared helpers — TRACKED
-├── README.md                # this file — TRACKED
+├── lib.js                  # page-type-agnostic shared helpers — TRACKED
+├── lib-homepage.js          # homepage-only helper (page-header shape) — TRACKED
+├── lib-inner.js              # inner-page-only helper (page-header shape) — TRACKED
+├── README.md                   # this file — TRACKED
 ├── demo/                       # real-content SOURCE files — NOT gitignored
 │   ├── eu-portal-sitemap.xlsx
 │   └── eu-portal-teasers.docx
@@ -148,18 +178,28 @@ scripts/static-pages/
 
 ## Related docs
 
+The skill is split by concern, so start with the main doc and follow its
+pointers rather than reading all three up front:
+
 - [`docs/agentic/ecl-static-page.md`](../../docs/agentic/ecl-static-page.md)
-  — the full skill: how a page gets composed step by step, why each
-  technical decision here was made (icons, fonts, JS init ordering, asset
-  self-hosting), and a non-binding reference list of recommended components
-  per page type.
+  — the entry point: page-type-agnostic steps (input gathering, data-
+  gathering gotchas, build/output/verify), and why each technical decision
+  in this directory's scripts was made (icons, fonts, JS init ordering,
+  asset self-hosting).
+- [`docs/agentic/ecl-static-page-homepage.md`](../../docs/agentic/ecl-static-page-homepage.md)
+  — homepage-only structural rules and its component matrix.
+- [`docs/agentic/ecl-static-page-inner.md`](../../docs/agentic/ecl-static-page-inner.md)
+  — inner-page-only structural rules (including the sidebar vs
+  single-column layout-shape choice) and its component matrix.
 
 ## Troubleshooting
 
 **`Missing {page}.html.twig or {page}.data.js in .../dist/{page}`**
 
-That page hasn't been composed yet — follow the skill doc's Steps 1–3 to
-create both in `dist/{page}/` first.
+That page hasn't been composed yet — follow the main skill doc's Step 0 to
+pick a page type, then that type's own doc (`ecl-static-page-{homepage,
+inner}.md`) for Step 1, then the main doc's Step 3 to create both in
+`dist/{page}/`.
 
 **Icons not rendering, or component JS not initializing (e.g. mega-menu
 doesn't open)**
