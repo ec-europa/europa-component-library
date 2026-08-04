@@ -59,7 +59,6 @@ npm install --save @ecl/site-header
       - "active" (boolean) (default: false) define if item is the active language.
 - **"search_toggle"** (associative array) format:
   - "label" (string) Label of the element
-  - "href" (string) Link of the element
 - **"search_form"** (associative array) (default: predefined structure): ECL Search Form component structure
 - **"notification"** (object) (default: {}): Optional notification compatible with ECL Notification component structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -75,72 +74,72 @@ npm install --save @ecl/site-header
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/site-header/site-header.html.twig' with { 
+{% include '@ecl/site-header/site-header.html.twig' with {
   site_name: 'This site name'
   logo: {
-    alt: 'European Commission', 
-    href: '/example', 
-    src: '/logo-ec--en.svg', 
-  }, 
-  language_selector: { 
-    href: '/example', 
-    label: 'English', 
-    aria_label: 'Change language',
-    code: 'en', 
-    overlay: { 
-      close_label: 'Close', 
-      title: 'Select your language', 
-      items: [ 
-        { lang: 'bg', label: 'български', path: '/example#language_bg' }, 
-        { lang: 'es', label: 'español', path: '/example#language_es', active: true }, 
-        ... 
-      ], 
-    }, 
+    alt: 'European Commission',
+    href: '/example',
+    src: '/logo-ec--en.svg',
   },
-  custom_action: { 
-    href: '/notifications', 
-    icon: 'bell', 
-    label: 'Notifications', 
-    aria_label: 'View notifications', 
-    indicator: true, 
-    overlay: { 
-      title: 'Notifications', 
-      close: { 
-        label: 'Close' 
-      }, 
-      content: '<p>You have new notifications.</p>', 
-    }, 
-  }, 
-  login_toggle: { 
-    label_not_logged: 'Log in', 
-    href_not_logged: '/example', 
-    label_logged: 'Logged in', 
-    href_logged: '/example', 
-  }, 
-  login_box: { 
-    id: 'login-box-id', 
-    description: 'Logged in as <last name>, <first name>', 
-    label: 'Log out', 
-    href: '/example', 
-  }, 
-  search_toggle: { 
-    label: 'Search', 
-    href: '#', 
-  }, 
-  search_form: { 
-    text_input: { 
-      id: 'input-search', 
-      name: 'search', 
-    }, 
-    button: { 
-      label: 'Search', 
-    }, 
-  }, 
-  extra_classes: 'my-extra-class-1 my-extra-class-2', 
-  extra_attributes: [ 
-    { name: 'data-test', value: 'data-test-value' }, 
-    { name: 'data-test-1', value: 'data-test-value-1' }, 
-    ... 
-  ], 
-} %} 
+  language_selector: {
+    href: '/example',
+    label: 'English',
+    aria_label: 'Change language',
+    code: 'en',
+    overlay: {
+      close_label: 'Close',
+      title: 'Select your language',
+      items: [
+        { lang: 'bg', label: 'български', path: '/example#language_bg' },
+        { lang: 'es', label: 'español', path: '/example#language_es', active: true },
+        ...
+      ],
+    },
+  },
+  custom_action: {
+    href: '/notifications',
+    icon: 'bell',
+    label: 'Notifications',
+    aria_label: 'View notifications',
+    indicator: true,
+    overlay: {
+      title: 'Notifications',
+      close: {
+        label: 'Close'
+      },
+      content: '<p>You have new notifications.</p>',
+    },
+  },
+  login_toggle: {
+    label_not_logged: 'Log in',
+    href_not_logged: '/example',
+    label_logged: 'Logged in',
+    href_logged: '/example',
+  },
+  login_box: {
+    id: 'login-box-id',
+    description: 'Logged in as <last name>, <first name>',
+    label: 'Log out',
+    href: '/example',
+  },
+  search_toggle: {
+    label: 'Search',
+    href: '#',
+  },
+  search_form: {
+    text_input: {
+      id: 'input-search',
+      name: 'search',
+    },
+    button: {
+      label: 'Search',
+    },
+  },
+  extra_classes: 'my-extra-class-1 my-extra-class-2',
+  extra_attributes: [
+    { name: 'data-test', value: 'data-test-value' },
+    { name: 'data-test-1', value: 'data-test-value-1' },
+    ...
+  ],
+} %}
 ```
