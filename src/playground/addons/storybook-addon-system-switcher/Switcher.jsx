@@ -27,7 +27,7 @@ function Switcher() {
               fontWeight: 'bold',
               textDecoration: 'none',
             }}
-            href={`${beforePlayground}/playground/ec${queryString}`}
+            href={`${beforePlayground}/playground/ec/${queryString}`}
           >
             <span>EC</span>
           </a>
@@ -48,7 +48,7 @@ function Switcher() {
               fontWeight: 'bold',
               textDecoration: 'none',
             }}
-            href={`${beforePlayground}/playground/eu${queryString}`}
+            href={`${beforePlayground}/playground/eu/${queryString}`}
           >
             <span>EU</span>
           </a>
