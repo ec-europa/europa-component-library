@@ -301,9 +301,9 @@
   $site-header: var.$site-header,
   $language-list: var.$language-list
 );
-@use '@ecl/slider/slider' with (
+@use '@ecl/slider/slider-pager' with (
   $theme: theme.$theme,
-  $slider: var.$slider
+  $slider-pager: var.$slider-pager
 );
 @use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,

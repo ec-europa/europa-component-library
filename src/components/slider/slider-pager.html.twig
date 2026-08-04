@@ -35,7 +35,7 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-slider__pager' %}
+{% set _css_class = 'ecl-slider-pager' %}
 {% set _prev_label = prev_label|default('') %}
 {% set _next_label = next_label|default('') %}
 {% set _pause_label = pause_label|default('') %}
@@ -90,13 +90,13 @@
       style: 'monochrome',
       family: 'phosphor',
     },
-    extra_classes: 'ecl-slider__prev' ~ (_prev_extra_classes ? ' ' ~ _prev_extra_classes : ''),
+    extra_classes: 'ecl-slider-pager__prev' ~ (_prev_extra_classes ? ' ' ~ _prev_extra_classes : ''),
     extra_attributes: _prev_extra_attributes,
   } only %}
 
 {% if _dots %}
   <!-- Dots -->
-  <div class="ecl-slider__dots{{ _dots_extra_classes ? ' ' ~ _dots_extra_classes : '' }}"></div>
+  <div class="ecl-slider-pager__dots{{ _dots_extra_classes ? ' ' ~ _dots_extra_classes : '' }}"></div>
 {% endif %}
 
 {% if _play_pause %}
@@ -112,7 +112,7 @@
       name: 'play-filled',
       family: 'phosphor',
     },
-    extra_classes: 'ecl-slider__play' ~ (_play_extra_classes ? ' ' ~ _play_extra_classes : ''),
+    extra_classes: 'ecl-slider-pager__play' ~ (_play_extra_classes ? ' ' ~ _play_extra_classes : ''),
     extra_attributes: _play_extra_attributes,
   } only %}
 
@@ -128,7 +128,7 @@
       name: 'pause-filled',
       family: 'phosphor',
     },
-    extra_classes: 'ecl-slider__pause' ~ (_pause_extra_classes ? ' ' ~ _pause_extra_classes : ''),
+    extra_classes: 'ecl-slider-pager__pause' ~ (_pause_extra_classes ? ' ' ~ _pause_extra_classes : ''),
     extra_attributes: _pause_extra_attributes
   } only %}
 {% endif %}
@@ -146,7 +146,7 @@
       style: 'monochrome',
       family: 'phosphor'
     },
-    extra_classes: 'ecl-slider__next' ~ (_next_extra_classes ? ' ' ~ _next_extra_classes : ''),
+    extra_classes: 'ecl-slider-pager__next' ~ (_next_extra_classes ? ' ' ~ _next_extra_classes : ''),
     extra_attributes: _next_extra_attributes
   } only %}
 
@@ -156,7 +156,7 @@
     data-ecl-slider-dot-template
     {{ _template_data_attribute }}
   >
-    <button class="ecl-slider__dot{{ _dot_extra_classes ? ' ' ~ _dot_extra_classes : '' }}"></button>
+    <button class="ecl-slider-pager__dot{{ _dot_extra_classes ? ' ' ~ _dot_extra_classes : '' }}"></button>
   </script>
 {% endif %}
 </div>

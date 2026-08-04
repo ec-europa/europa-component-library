@@ -69,7 +69,7 @@ export class Quiz {
       pagerClass = '.ecl-quiz__pager',
       dotsClass = '.ecl-quiz__dots',
       dotClass = '.ecl-quiz__dot',
-      activeDotClass = 'ecl-slider__dot--active',
+      activeDotClass = 'ecl-slider-pager__dot--active',
       correctChosenOptionSelector = 'data-ecl-quiz-chosen-option-correct',
       incorrectChosenOptionSelector = 'data-ecl-quiz-chosen-option-incorrect',
       attachClickListener = true,

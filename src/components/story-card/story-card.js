@@ -78,7 +78,7 @@ export class StoryCard {
       completionBarClass = '.ecl-story-card__grid-loading-bar-completion',
       dotsClass = '.ecl-story-card__dots',
       dotClass = '.ecl-story-card__dot',
-      activeDotClass = 'ecl-slider__dot--active',
+      activeDotClass = 'ecl-slider-pager__dot--active',
       currentSelector = '[data-ecl-story-card-current]',
       totalSelector = '[data-ecl-story-card-total]',
       gridItemSelector = '[data-ecl-story-card-grid-item]',
