@@ -154,32 +154,6 @@ $min-height-desktop: 548px;
     display: flex;
     align-items: center;
     padding: var(--s-xs);
-
-    .ecl-story-card__prev,
-    .ecl-story-card__next {
-      background: transparent;
-      border: none !important;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      padding: var(--s-xs);
-
-      &:focus-visible {
-        outline-color: map.get($story-card, 'story-card', 'outline-color');
-      }
-
-      &:disabled {
-        visibility: hidden;
-        cursor: default;
-        box-shadow: map.get($theme, 'shadow', '1');
-        opacity: 0.5;
-      }
-
-      .ecl-story-card__prev-label,
-      .ecl-story-card__next-label {
-        @include screen-reader.sr-only;
-      }
-    }
   }
 
   .ecl-story-card__prev {
@@ -188,38 +162,6 @@ $min-height-desktop: 548px;
 
   .ecl-story-card__next {
     margin-inline-start: auto;
-  }
-
-  .ecl-story-card__dots {
-    .ecl-story-card__dot {
-      background: map.get($story-card, 'story-card', 'dot-background');
-      border: none !important;
-      border-radius: 50%;
-      cursor: pointer;
-      height: var(--s-xs);
-      margin-inline-end: var(--s-2xs);
-      min-height: 0;
-      min-width: 0;
-      padding: 0;
-      width: 0.5rem;
-
-      &:focus-visible {
-        outline-offset: 2px;
-        outline-color: var(--cm-border-primary, var(--c-p));
-      }
-    }
-
-    .ecl-story-card__dot--active {
-      border-radius: map.get($theme, 'border-radius', 'l');
-      width: 2.5rem;
-      background: map.get($story-card, 'story-card', 'dot-active-background');
-    }
-
-    .ecl-story-card__dot--active + .ecl-story-card__dot,
-    .ecl-story-card__dot.is-prev {
-      border-radius: map.get($theme, 'border-radius', 'm');
-      width: 1rem;
-    }
   }
 
   @container ecl-story-card (width >= 600px) {
