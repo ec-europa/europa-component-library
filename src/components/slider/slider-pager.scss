@@ -1,0 +1,61 @@
+/**
+ * Slider pager
+ * @define slider
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-color/mixins' as mixins-color;
+
+// Exposed variables
+$theme: null !default;
+$slider-pager: null !default;
+
+.ecl-slider-pager {
+  display: flex;
+  align-items: center;
+}
+
+.ecl-slider-pager__prev {
+  margin-inline-end: auto;
+}
+
+.ecl-slider-pager__next {
+  margin-inline-start: auto;
+}
+
+.ecl-slider-pager__play {
+  display: none;
+}
+
+.ecl-slider-pager__pause {
+  display: flex;
+}
+
+.ecl-slider-pager__dots {
+  .ecl-slider-pager__dot {
+    background: map.get($slider-pager, 'dot-background');
+    border: none !important;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 0.5rem;
+    margin-inline-end: map.get($slider-pager, 'dot-spacing');
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    width: 0.5rem;
+
+    @include mixins-color.focus-default;
+  }
+
+  .ecl-slider-pager__dot--active {
+    border-radius: map.get($theme, 'border-radius', 'l');
+    width: 2.5rem;
+    background: map.get($slider-pager, 'dot-active-background');
+  }
+
+  .ecl-slider-pager__dot--active + .ecl-slider-pager__dot,
+  .ecl-slider-pager__dot.is-prev {
+    border-radius: map.get($theme, 'border-radius', 'm');
+    width: 1rem;
+  }
+}

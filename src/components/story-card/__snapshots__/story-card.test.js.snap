@@ -220,48 +220,62 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
       </div>
       <!-- Carousel Controls -->
       <div
-        class="ecl-story-card__pager"
+        class="ecl-slider-pager ecl-story-card__pager"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-story-card__prev"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-story-card__prev ecl-button--icon-only"
           data-ecl-story-card-prev=""
+          type="button"
         >
           <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-icon--corner-arrow"
-          />
-          <span
-            class="ecl-story-card__prev-label"
+            class="ecl-button__container"
           >
-            
-          Previous story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+              data-ecl-icon=""
+            />
           </span>
         </button>
+        <!-- Dots -->
         <div
-          class="ecl-story-card__dots"
+          class="ecl-slider-pager__dots ecl-story-card__dots"
         />
+        <!-- Next button -->
         <button
-          class="ecl-story-card__next"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-story-card__next ecl-button--icon-only"
           data-ecl-story-card-next=""
+          type="button"
         >
           <span
-            class="ecl-story-card__next-label"
+            class="ecl-button__container"
           >
-            
-          Next story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-icon--corner-arrow"
-          />
         </button>
         <script
+          data-ecl-slider-dot-template=""
           data-ecl-story-card-dot-template=""
           type="text/template"
         >
-          &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
+          &lt;button class="ecl-slider-pager__dot ecl-story-card__dot"&gt;&lt;/button&gt;
         </script>
       </div>
     </div>
@@ -600,10 +614,11 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
         </article>
       </div>
       <div
-        class="ecl-story-card__grid-controls"
+        class="ecl-slider-pager ecl-story-card__grid-controls"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-prev ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-story-card__grid-prev ecl-button--icon-only"
           data-ecl-story-card-grid-prev=""
           type="button"
         >
@@ -618,13 +633,14 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-left"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Play button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-play ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-story-card__grid-play ecl-button--icon-only"
           data-ecl-story-card-grid-play=""
           type="button"
         >
@@ -639,13 +655,14 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--play-filled"
+              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Pause button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-pause ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-story-card__grid-pause ecl-button--icon-only"
           data-ecl-story-card-grid-pause=""
           type="button"
         >
@@ -660,13 +677,14 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--pause-filled"
+              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Next button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-next ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-story-card__grid-next ecl-button--icon-only"
           data-ecl-story-card-grid-next=""
           type="button"
         >
@@ -681,7 +699,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-right"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
               data-ecl-icon=""
             />
           </span>
@@ -915,52 +933,62 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
       </div>
       <!-- Carousel Controls -->
       <div
-        class="ecl-story-card__pager"
+        class="ecl-slider-pager ecl-story-card__pager"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-story-card__prev"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-story-card__prev ecl-button--icon-only"
           data-ecl-story-card-prev=""
+          type="button"
         >
           <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-icon--corner-arrow"
-            data-test="data-test-value"
-            data-test-1="data-test-value-1"
-          />
-          <span
-            class="ecl-story-card__prev-label"
+            class="ecl-button__container"
           >
-            
-          Previous story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+              data-ecl-icon=""
+            />
           </span>
         </button>
+        <!-- Dots -->
         <div
-          class="ecl-story-card__dots"
+          class="ecl-slider-pager__dots ecl-story-card__dots"
         />
+        <!-- Next button -->
         <button
-          class="ecl-story-card__next"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-story-card__next ecl-button--icon-only"
           data-ecl-story-card-next=""
+          type="button"
         >
           <span
-            class="ecl-story-card__next-label"
+            class="ecl-button__container"
           >
-            
-          Next story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-icon--corner-arrow"
-            data-test="data-test-value"
-            data-test-1="data-test-value-1"
-          />
         </button>
         <script
+          data-ecl-slider-dot-template=""
           data-ecl-story-card-dot-template=""
           type="text/template"
         >
-          &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
+          &lt;button class="ecl-slider-pager__dot ecl-story-card__dot"&gt;&lt;/button&gt;
         </script>
       </div>
     </div>
@@ -1299,10 +1327,11 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
         </article>
       </div>
       <div
-        class="ecl-story-card__grid-controls"
+        class="ecl-slider-pager ecl-story-card__grid-controls"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-prev ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-story-card__grid-prev ecl-button--icon-only"
           data-ecl-story-card-grid-prev=""
           type="button"
         >
@@ -1317,13 +1346,14 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-left"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Play button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-play ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-story-card__grid-play ecl-button--icon-only"
           data-ecl-story-card-grid-play=""
           type="button"
         >
@@ -1338,13 +1368,14 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--play-filled"
+              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Pause button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-pause ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-story-card__grid-pause ecl-button--icon-only"
           data-ecl-story-card-grid-pause=""
           type="button"
         >
@@ -1359,13 +1390,14 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--pause-filled"
+              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Next button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-next ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-story-card__grid-next ecl-button--icon-only"
           data-ecl-story-card-grid-next=""
           type="button"
         >
@@ -1380,7 +1412,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-right"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
               data-ecl-icon=""
             />
           </span>
@@ -1611,48 +1643,62 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
       </div>
       <!-- Carousel Controls -->
       <div
-        class="ecl-story-card__pager"
+        class="ecl-slider-pager ecl-story-card__pager"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-story-card__prev"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-story-card__prev ecl-button--icon-only"
           data-ecl-story-card-prev=""
+          type="button"
         >
           <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-270 custom-class custom-class--test ecl-icon--corner-arrow"
-          />
-          <span
-            class="ecl-story-card__prev-label"
+            class="ecl-button__container"
           >
-            
-          Previous story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+              data-ecl-icon=""
+            />
           </span>
         </button>
+        <!-- Dots -->
         <div
-          class="ecl-story-card__dots"
+          class="ecl-slider-pager__dots ecl-story-card__dots"
         />
+        <!-- Next button -->
         <button
-          class="ecl-story-card__next"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-story-card__next ecl-button--icon-only"
           data-ecl-story-card-next=""
+          type="button"
         >
           <span
-            class="ecl-story-card__next-label"
+            class="ecl-button__container"
           >
-            
-          Next story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-90 custom-class custom-class--test ecl-icon--corner-arrow"
-          />
         </button>
         <script
+          data-ecl-slider-dot-template=""
           data-ecl-story-card-dot-template=""
           type="text/template"
         >
-          &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
+          &lt;button class="ecl-slider-pager__dot ecl-story-card__dot"&gt;&lt;/button&gt;
         </script>
       </div>
     </div>
@@ -1991,10 +2037,11 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
         </article>
       </div>
       <div
-        class="ecl-story-card__grid-controls"
+        class="ecl-slider-pager ecl-story-card__grid-controls"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-prev ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-story-card__grid-prev ecl-button--icon-only"
           data-ecl-story-card-grid-prev=""
           type="button"
         >
@@ -2009,13 +2056,14 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-left"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Play button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-play ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-story-card__grid-play ecl-button--icon-only"
           data-ecl-story-card-grid-play=""
           type="button"
         >
@@ -2030,13 +2078,14 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--play-filled"
+              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Pause button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-pause ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-story-card__grid-pause ecl-button--icon-only"
           data-ecl-story-card-grid-pause=""
           type="button"
         >
@@ -2051,13 +2100,14 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--pause-filled"
+              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Next button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-next ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-story-card__grid-next ecl-button--icon-only"
           data-ecl-story-card-grid-next=""
           type="button"
         >
@@ -2072,7 +2122,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-right"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
               data-ecl-icon=""
             />
           </span>
@@ -2490,48 +2540,62 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
       </div>
       <!-- Carousel Controls -->
       <div
-        class="ecl-story-card__pager"
+        class="ecl-slider-pager ecl-story-card__pager"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-story-card__prev"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-story-card__prev ecl-button--icon-only"
           data-ecl-story-card-prev=""
+          type="button"
         >
           <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-icon--corner-arrow"
-          />
-          <span
-            class="ecl-story-card__prev-label"
+            class="ecl-button__container"
           >
-            
-          Previous story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+              data-ecl-icon=""
+            />
           </span>
         </button>
+        <!-- Dots -->
         <div
-          class="ecl-story-card__dots"
+          class="ecl-slider-pager__dots ecl-story-card__dots"
         />
+        <!-- Next button -->
         <button
-          class="ecl-story-card__next"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-story-card__next ecl-button--icon-only"
           data-ecl-story-card-next=""
+          type="button"
         >
           <span
-            class="ecl-story-card__next-label"
+            class="ecl-button__container"
           >
-            
-          Next story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-icon--corner-arrow"
-          />
         </button>
         <script
+          data-ecl-slider-dot-template=""
           data-ecl-story-card-dot-template=""
           type="text/template"
         >
-          &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
+          &lt;button class="ecl-slider-pager__dot ecl-story-card__dot"&gt;&lt;/button&gt;
         </script>
       </div>
     </div>
@@ -3057,10 +3121,11 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
         </article>
       </div>
       <div
-        class="ecl-story-card__grid-controls"
+        class="ecl-slider-pager ecl-story-card__grid-controls"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-prev ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-story-card__grid-prev ecl-button--icon-only"
           data-ecl-story-card-grid-prev=""
           type="button"
         >
@@ -3075,13 +3140,14 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-left"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Play button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-play ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-story-card__grid-play ecl-button--icon-only"
           data-ecl-story-card-grid-play=""
           type="button"
         >
@@ -3096,13 +3162,14 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--play-filled"
+              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Pause button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-pause ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-story-card__grid-pause ecl-button--icon-only"
           data-ecl-story-card-grid-pause=""
           type="button"
         >
@@ -3117,13 +3184,14 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--pause-filled"
+              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Next button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-next ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-story-card__grid-next ecl-button--icon-only"
           data-ecl-story-card-grid-next=""
           type="button"
         >
@@ -3138,7 +3206,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-right"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
               data-ecl-icon=""
             />
           </span>
@@ -3558,52 +3626,62 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
       </div>
       <!-- Carousel Controls -->
       <div
-        class="ecl-story-card__pager"
+        class="ecl-slider-pager ecl-story-card__pager"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-story-card__prev"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-story-card__prev ecl-button--icon-only"
           data-ecl-story-card-prev=""
+          type="button"
         >
           <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-icon--corner-arrow"
-            data-test="data-test-value"
-            data-test-1="data-test-value-1"
-          />
-          <span
-            class="ecl-story-card__prev-label"
+            class="ecl-button__container"
           >
-            
-          Previous story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+              data-ecl-icon=""
+            />
           </span>
         </button>
+        <!-- Dots -->
         <div
-          class="ecl-story-card__dots"
+          class="ecl-slider-pager__dots ecl-story-card__dots"
         />
+        <!-- Next button -->
         <button
-          class="ecl-story-card__next"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-story-card__next ecl-button--icon-only"
           data-ecl-story-card-next=""
+          type="button"
         >
           <span
-            class="ecl-story-card__next-label"
+            class="ecl-button__container"
           >
-            
-          Next story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-icon--corner-arrow"
-            data-test="data-test-value"
-            data-test-1="data-test-value-1"
-          />
         </button>
         <script
+          data-ecl-slider-dot-template=""
           data-ecl-story-card-dot-template=""
           type="text/template"
         >
-          &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
+          &lt;button class="ecl-slider-pager__dot ecl-story-card__dot"&gt;&lt;/button&gt;
         </script>
       </div>
     </div>
@@ -4129,10 +4207,11 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
         </article>
       </div>
       <div
-        class="ecl-story-card__grid-controls"
+        class="ecl-slider-pager ecl-story-card__grid-controls"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-prev ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-story-card__grid-prev ecl-button--icon-only"
           data-ecl-story-card-grid-prev=""
           type="button"
         >
@@ -4147,13 +4226,14 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-left"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Play button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-play ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-story-card__grid-play ecl-button--icon-only"
           data-ecl-story-card-grid-play=""
           type="button"
         >
@@ -4168,13 +4248,14 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--play-filled"
+              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Pause button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-pause ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-story-card__grid-pause ecl-button--icon-only"
           data-ecl-story-card-grid-pause=""
           type="button"
         >
@@ -4189,13 +4270,14 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--pause-filled"
+              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Next button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-next ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-story-card__grid-next ecl-button--icon-only"
           data-ecl-story-card-grid-next=""
           type="button"
         >
@@ -4210,7 +4292,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-right"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
               data-ecl-icon=""
             />
           </span>
@@ -4628,48 +4710,62 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
       </div>
       <!-- Carousel Controls -->
       <div
-        class="ecl-story-card__pager"
+        class="ecl-slider-pager ecl-story-card__pager"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-story-card__prev"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-story-card__prev ecl-button--icon-only"
           data-ecl-story-card-prev=""
+          type="button"
         >
           <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-270 custom-class custom-class--test ecl-icon--corner-arrow"
-          />
-          <span
-            class="ecl-story-card__prev-label"
+            class="ecl-button__container"
           >
-            
-          Previous story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+              data-ecl-icon=""
+            />
           </span>
         </button>
+        <!-- Dots -->
         <div
-          class="ecl-story-card__dots"
+          class="ecl-slider-pager__dots ecl-story-card__dots"
         />
+        <!-- Next button -->
         <button
-          class="ecl-story-card__next"
+          class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-story-card__next ecl-button--icon-only"
           data-ecl-story-card-next=""
+          type="button"
         >
           <span
-            class="ecl-story-card__next-label"
+            class="ecl-button__container"
           >
-            
-          Next story
-        
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next story
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow wt-icon--monochrome ecl-icon ecl-icon--s ecl-icon--rotate-90 custom-class custom-class--test ecl-icon--corner-arrow"
-          />
         </button>
         <script
+          data-ecl-slider-dot-template=""
           data-ecl-story-card-dot-template=""
           type="text/template"
         >
-          &lt;button class="ecl-story-card__dot"&gt;&lt;/button&gt;
+          &lt;button class="ecl-slider-pager__dot ecl-story-card__dot"&gt;&lt;/button&gt;
         </script>
       </div>
     </div>
@@ -5195,10 +5291,11 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
         </article>
       </div>
       <div
-        class="ecl-story-card__grid-controls"
+        class="ecl-slider-pager ecl-story-card__grid-controls"
       >
+        <!-- Prev button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-prev ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-story-card__grid-prev ecl-button--icon-only"
           data-ecl-story-card-grid-prev=""
           type="button"
         >
@@ -5213,13 +5310,14 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-left"
+              class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Play button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-play ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-story-card__grid-play ecl-button--icon-only"
           data-ecl-story-card-grid-play=""
           type="button"
         >
@@ -5234,13 +5332,14 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--play-filled"
+              class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Pause button -->
         <button
-          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-story-card__grid-pause ecl-button--icon-only"
+          class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-story-card__grid-pause ecl-button--icon-only"
           data-ecl-story-card-grid-pause=""
           type="button"
         >
@@ -5255,13 +5354,14 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--pause-filled"
+              class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
               data-ecl-icon=""
             />
           </span>
         </button>
+        <!-- Next button -->
         <button
-          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-story-card__grid-next ecl-button--icon-only"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-story-card__grid-next ecl-button--icon-only"
           data-ecl-story-card-grid-next=""
           type="button"
         >
@@ -5276,7 +5376,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--l ecl-button__icon ecl-icon-phosphor--caret-right"
+              class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
               data-ecl-icon=""
             />
           </span>

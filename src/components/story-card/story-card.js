@@ -2,6 +2,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import EmblaCarousel from 'embla-carousel';
 import Accessibility from 'embla-carousel-accessibility';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -77,7 +78,7 @@ export class StoryCard {
       completionBarClass = '.ecl-story-card__grid-loading-bar-completion',
       dotsClass = '.ecl-story-card__dots',
       dotClass = '.ecl-story-card__dot',
-      activeDotClass = 'ecl-story-card__dot--active',
+      activeDotClass = 'ecl-slider-pager__dot--active',
       currentSelector = '[data-ecl-story-card-current]',
       totalSelector = '[data-ecl-story-card-total]',
       gridItemSelector = '[data-ecl-story-card-grid-item]',
@@ -217,6 +218,10 @@ export class StoryCard {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.onWindowResize, false);
     }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -280,87 +285,21 @@ export class StoryCard {
       ],
     );
 
-    if (this.btnPrev && this.btnNext) {
-      this.toggleButtonsDisabled = (emblaApi) => {
-        const setButtonState = (button, enabled) => {
-          button.toggleAttribute('disabled', !enabled);
-        };
-        setButtonState(this.btnPrev, emblaApi.canGoToPrev());
-        setButtonState(this.btnNext, emblaApi.canGoToNext());
-      };
+    this.accessibility = this.slider.plugins().accessibility;
 
-      this.toggleButtonsDisabled(this.slider);
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.accessibility,
+      prevSelector: this.prevSelector,
+      nextSelector: this.nextSelector,
+      dotsSelector: this.dotsClass,
+      dotTemplateSelector: '[data-ecl-slider-dot-template]',
+      dotSelector: this.dotClass,
+      activeDotSelector: this.activeDotClass,
+    });
 
-      this.slider.on('select', this.toggleButtonsDisabled);
-      this.slider.on('reInit', this.toggleButtonsDisabled);
-    }
-
-    let dotNodes = [];
-    this.dotsNode = queryOne(this.dotsClass, this.element);
-
-    if (this.dotsNode) {
-      const createDotButtonHtml = (emblaApi) => {
-        const dotTemplate = queryOne(
-          '[data-ecl-story-card-dot-template]',
-          this.element,
-        );
-        const snapList = emblaApi.snapList();
-        this.dotsNode.innerHTML = snapList.reduce(
-          (acc) => acc + dotTemplate.innerHTML,
-          '',
-        );
-        return Array.from(queryAll(this.dotClass, this.dotsNode));
-      };
-
-      const addDotButtonSelectionHandlers = (emblaApi, dotNodes) => {
-        dotNodes.forEach((dotNode, index) => {
-          dotNode.addEventListener('click', () => emblaApi.goTo(index), false);
-        });
-      };
-
-      this.createAndSetupDotButtons = (emblaApi) => {
-        const canScroll =
-          this.slider.canGoToNext() || this.slider.canGoToPrev();
-
-        if (this.pagerNode) this.pagerNode.style.display = '';
-
-        if (!canScroll) {
-          if (this.pagerNode) this.pagerNode.style.display = 'none';
-
-          this.dotsNode.innerHTML = '';
-          dotNodes = [];
-          return;
-        }
-
-        dotNodes = createDotButtonHtml(emblaApi);
-        addDotButtonSelectionHandlers(emblaApi, dotNodes);
-      };
-
-      this.createAndSetupDotButtons(this.slider, this.dotsNode);
-      this.slider.on('reInit', () => {
-        this.createAndSetupDotButtons(this.slider, this.dotsNode);
-      });
-
-      this.updateDots = () => {
-        if (!dotNodes.length) return;
-
-        const index = this.slider.selectedSnap();
-
-        dotNodes.forEach((dot, i) => {
-          dot.classList.toggle(this.activeDotClass, i === index);
-          dot.classList.toggle('is-prev', i === index - 1);
-        });
-      };
-
-      this.accessibility = this.slider.plugins().accessibility;
-
-      this.accessibility.setupPrevAndNextButtons(this.btnPrev, this.btnNext);
-
-      this.accessibility.setupDotButtons(this.dotsNode);
-
-      this.updateDots();
-      this.slider.on('select', this.updateDots);
-    }
+    this.pager.init();
   }
 
   /**
@@ -594,20 +533,6 @@ export class StoryCard {
   }
 
   /**
-   * Handle the click on the next button.
-   */
-  handleNextClick = () => {
-    this.slider?.goToNext();
-  };
-
-  /**
-   * Handle the click on the prev button.
-   */
-  handlePrevClick = () => {
-    this.slider?.goToPrev();
-  };
-
-  /**
    * Handle the click on the pause button.
    */
   handleGridPauseClick = () => {
@@ -640,8 +565,6 @@ export class StoryCard {
    * Attach event listeners.
    */
   attachListeners() {
-    this.btnPrev?.addEventListener('click', this.handlePrevClick);
-    this.btnNext?.addEventListener('click', this.handleNextClick);
     this.btnGridPrev?.addEventListener('click', this.goToPreviousGridItem);
     this.btnGridNext?.addEventListener('click', this.goToNextGridItem);
     this.btnGridPlay?.addEventListener('click', this.handleGridPlayClick);
@@ -665,6 +588,10 @@ export class StoryCard {
    * Destroy the component.
    */
   destroy() {
+    if (this.pager) {
+      this.pager.destroy();
+    }
+
     if (this.slider) {
       this.slider.destroy();
     }
@@ -681,8 +608,6 @@ export class StoryCard {
       window.removeEventListener('resize', this.onWindowResize);
     }
 
-    this.btnPrev?.removeEventListener('click', this.handlePrevClick);
-    this.btnNext?.removeEventListener('click', this.handleNextClick);
     this.btnGridPrev?.removeEventListener('click', this.goToPreviousGridItem);
     this.btnGridNext?.removeEventListener('click', this.goToNextGridItem);
     this.btnGridPlay?.removeEventListener('click', this.handleGridPlayClick);
@@ -693,6 +618,11 @@ export class StoryCard {
     this.gridButtons?.forEach((button) => {
       button.removeEventListener('click', this.handleClickOnGridButtons);
     });
+
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
+    }
   }
 }
 
