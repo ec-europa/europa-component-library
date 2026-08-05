@@ -11,9 +11,20 @@ effort.
 - `tokens/source/*.json` — raw Figma "W3C Design Tokens" exports, committed
   as-is: `Primitives.json` (atomic values), `Light.tokens.json` /
   `Dark.tokens.json` (semantic tokens, one per mode).
-- `maps/*.scss`, `_custom-properties.scss`, `tokens/tokens.json` — generated
-  from the files above by `scripts/generate-tokens.js`. **Do not hand-edit**
-  these — re-run the generator and commit the diff instead.
+- `maps/*.scss`, `_custom-properties.scss`, `tokens/tokens.json`,
+  `showcase/*` — generated from the files above by
+  `scripts/generate-tokens.js`. **Do not hand-edit** these — re-run the
+  generator and commit the diff instead.
+
+## Showcase
+
+`showcase/index.html` is a standalone, dependency-free token browser — open
+it directly in a browser (no build step, no server) to see every color,
+type-scale step, spacing/sizing step, border-radius/width, shadow elevation,
+and opacity step rendered live, with a light/dark toggle. It links
+`showcase/tokens.css`, a plain-CSS copy of `_custom-properties.scss` (same
+content, `/* */` comments instead of Sass' `//` so a browser can parse it
+directly without going through Sass).
 
 ## Regenerating
 
