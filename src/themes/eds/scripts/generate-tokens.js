@@ -655,6 +655,26 @@ function buildShowcaseHtml() {
     <title>EDS design tokens</title>
     <link rel="stylesheet" href="tokens.css" />
     <style>
+      /* CDN-only source (no local fallback woff2, unlike ec.scss's
+         @font-face - this showcase has no asset-copy build step to land
+         a local file next to it). Real font loading belongs in a future
+         eds preset, mirroring src/presets/ec/src/ec.scss. */
+      @font-face {
+        font-family: 'Inter';
+        src: url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+          format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
+          format('woff2');
+        font-weight: 100 900;
+        font-style: italic;
+        font-display: swap;
+      }
       * {
         box-sizing: border-box;
       }
