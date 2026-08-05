@@ -1,13 +1,31 @@
-import { flatten, cssVarName, groupColorTokens } from './scripts/token-names';
+import {
+  flatten,
+  cssVarName,
+  groupColorTokens,
+  groupPrimitiveColorTokens,
+  colorToHex,
+} from './scripts/token-names';
 import lightTokens from './tokens/source/Light.tokens.json';
+import primitivesTokens from './tokens/source/Primitives.json';
 
-// Only need the *names* of the tokens here, not their resolved values - the
-// real compiled `ecl-eds.css` (loaded globally via .storybook/preview-head.html,
-// built from `@ecl/preset-eds`) resolves every `var(--eds-*)` reference below,
-// light and dark alike. Light.tokens.json is enough: Light and Dark share an
-// identical key set (verified when the theme package was built), so no need
-// to import Dark.tokens.json just to enumerate names.
+// Only need the *names* of the semantic tokens here, not their resolved
+// values - the real compiled `ecl-eds.css` (loaded globally via
+// .storybook/preview-head.html, built from `@ecl/preset-eds`) resolves
+// every `var(--eds-*)` reference below, light and dark alike.
+// Light.tokens.json is enough: Light and Dark share an identical key set
+// (verified when the theme package was built), so no need to import
+// Dark.tokens.json just to enumerate names.
 const light = flatten(lightTokens);
+
+// Primitives are deliberately NOT exposed as CSS custom properties (they're
+// Figma implementation detail - see src/themes/eds/README.md), so there's
+// no `var(--eds-*)` to reference for these. Shown here for reference via
+// resolved inline styles instead, using the actual hex value.
+const primitiveColors = Object.fromEntries(
+  Object.entries(flatten(primitivesTokens)).filter(
+    ([key, node]) => node.$type === 'color' && !key.startsWith('system'),
+  ),
+);
 
 function escapeHtml(str) {
   return String(str)
@@ -35,6 +53,36 @@ function buildColorSections() {
           <div class="swatch-color" style="background: var(${varName})"></div>
           <div class="swatch-label">${escapeHtml(label)}</div>
           <code class="swatch-var">${varName}</code>
+        </div>`;
+        })
+        .join('\n');
+      return `      <div class="group">
+        <h3>${escapeHtml(groupName)}</h3>
+        <div class="swatch-grid">
+${swatches}
+        </div>
+      </div>`;
+    })
+    .join('\n');
+}
+
+// No `var(--eds-*)` to reference for these (see the `primitiveColors`
+// comment above) - each swatch gets its background as a plain resolved
+// hex, and shows that hex (instead of a custom property name) as its label.
+function buildPrimitiveColorSections() {
+  const groups = groupPrimitiveColorTokens(primitiveColors);
+  return Object.keys(groups)
+    .sort()
+    .map((groupName) => {
+      const swatches = groups[groupName]
+        .map((segments) => {
+          const key = segments.join('/');
+          const hex = colorToHex(primitiveColors[key].$value);
+          const label = segments[segments.length - 1];
+          return `        <div class="swatch">
+          <div class="swatch-color" style="background: ${hex}"></div>
+          <div class="swatch-label">${escapeHtml(label)}</div>
+          <code class="swatch-var">${hex}</code>
         </div>`;
         })
         .join('\n');
@@ -168,6 +216,11 @@ const markup = `<style>
     color: var(--eds-c-foreground-default);
     cursor: pointer;
   }
+  .eds-tokens .section-note {
+    font-size: var(--eds-f-size-xs);
+    color: var(--eds-c-foreground-subtle);
+    margin: calc(-1 * var(--eds-sp-s)) 0 var(--eds-sp-m);
+  }
   .eds-tokens section {
     margin-bottom: var(--eds-sp-2xl);
   }
@@ -254,6 +307,15 @@ const markup = `<style>
   <section>
     <h2>Color</h2>
 ${buildColorSections()}
+  </section>
+
+  <section>
+    <h2>Primitive colors</h2>
+    <p class="section-note">
+      Reference only — not exposed as CSS custom properties, shown here as
+      resolved hex values rather than <code>var(--eds-*)</code>.
+    </p>
+${buildPrimitiveColorSections()}
   </section>
 
   <section>

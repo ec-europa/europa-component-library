@@ -29,7 +29,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { flatten, cssVarName } = require('./token-names');
+const { flatten, cssVarName, colorToHex } = require('./token-names');
 
 const ROOT = path.join(__dirname, '..');
 const SOURCE_DIR = path.join(ROOT, 'tokens/source');
@@ -58,26 +58,6 @@ function percentStringToEm(value) {
   if (!match) return value === '0' ? '0' : value;
   const fraction = parseFloat(match[1]) / 100;
   return fraction === 0 ? '0' : `${parseFloat(fraction.toFixed(4))}em`;
-}
-
-// Shortens a #RRGGBB[AA] hex string to #RGB[A] when every channel pair
-// repeats its digit (stylelint's color-hex-length rule requires this).
-function shortenHex(hex) {
-  const pairs = hex.slice(1).match(/.{2}/g);
-  const canShorten = pairs.every((pair) => pair[0] === pair[1]);
-  if (!canShorten) return hex;
-  return `#${pairs.map((pair) => pair[0]).join('')}`;
-}
-
-function colorToHex(value) {
-  const alphaHex =
-    value.alpha === 1
-      ? ''
-      : Math.round(value.alpha * 255)
-          .toString(16)
-          .padStart(2, '0')
-          .toUpperCase();
-  return shortenHex(`${value.hex}${alphaHex}`);
 }
 
 /** Renders a token's $value as a Sass literal, per its $type / path. */
