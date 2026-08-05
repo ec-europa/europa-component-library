@@ -1,0 +1,29 @@
+@use '@ecl/theme-eds/theme' as theme;
+@use '@ecl/theme-eds/custom-properties';
+
+// Real Inter font, mirroring src/presets/ec/src/ec.scss: CDN first, local
+// woff2 (copied into dist/fonts by ecl-builder.config.js's `copy` step) as
+// a fallback for consumers that can't reach the CDN.
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+      format('woff2'),
+    url('../fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
+      format('woff2'),
+    url('../fonts/InterVariable-Italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
