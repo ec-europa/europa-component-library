@@ -1,0 +1,32 @@
+@forward 'index';
+@use 'index' as index;
+
+// TODO: build this dynamically (if possible) — mirrors src/themes/ec/theme.scss
+$theme: (
+  // primitives
+  primitive-color: index.$eds-primitive-color,
+  primitive-dimension: index.$eds-primitive-dimension,
+  primitive-border-radius: index.$eds-primitive-border-radius,
+  primitive-border-width: index.$eds-primitive-border-width,
+  primitive-opacity: index.$eds-primitive-opacity,
+  primitive-shadow: index.$eds-primitive-shadow,
+  primitive-font: index.$eds-primitive-font,
+
+  // semantic color (mode-dependent)
+  color-light: index.$eds-color-light,
+  color-dark: index.$eds-color-dark,
+
+  // spacing
+  spacing: index.$eds-spacing,
+  sizing: index.$eds-sizing,
+
+  // typography
+  font: index.$eds-font,
+
+  // shape
+  border-radius: index.$eds-border-radius,
+  border-width: index.$eds-border-width,
+
+  // opacity
+  opacity: index.$eds-opacity
+) !default;
