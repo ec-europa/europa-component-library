@@ -20,6 +20,7 @@
   - "multiple" (boolean) (optional) (default: false) For the multiple select
   - "multiple_placeholder" (string)(default: '') Label for the multiple select placeholder
   - "multiple_all_text" (string)(default: '') Label for the select all option
+  - "multiple_nb_options" (string) (default: '') Label for the number of options (screen reader only)
   - "multiple_clear_all_text" (string)(default: '') Label for the clear all button
   - "multiple_search" (boolean) (default: true) Show the text filter in the multiselect
   - "multiple_close_text" (string)(default: '') Label for the close button
@@ -53,6 +54,7 @@
 {% set _multiple_submit = multiple_submit|default(false) %}
 {% set _multiple_placeholder = multiple_placeholder|default('') %}
 {% set _multiple_all_text = multiple_all_text|default('') %}
+{% set _multiple_nb_options = multiple_nb_options|default('') %}
 {% set _multiple_search = multiple_search ?? true %}
 {% set _multiple_search_text = multiple_search_text|default('') %}
 {% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
@@ -75,7 +77,8 @@
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
     { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
     { name: 'data-ecl-select-close', value: _multiple_close_text },
-    { name: 'data-ecl-select-counter', value: _multiple_counter_text }
+    { name: 'data-ecl-select-counter', value: _multiple_counter_text },
+    { name: 'data-ecl-select-nb-options', value: _multiple_nb_options }
   ]) %}
 
   {% if _multiple_select_all and _multiple_all_text is not empty %}

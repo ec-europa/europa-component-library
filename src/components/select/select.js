@@ -23,6 +23,7 @@ const iconSize = system === 'eu' ? 's' : 'xs';
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
  * @param {String} options.counterTextAttribute The data attribute for the default counter text
+ * @param {String} options.nbOptionsTextAttribute The data attribute for the screen reader label of the number of options found
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
  * @param {String} options.closeLabelAttribute The data attribute for the close button
  * @param {String} options.submitAttribute The data attribute for the submit button
@@ -79,11 +80,13 @@ export class Select {
       searchText = '',
       selectAllText = '',
       noResultsText = '',
+      nbOptionsText = '',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
       selectAllTextAttribute = 'data-ecl-select-all',
       counterTextAttribute = 'data-ecl-select-counter',
+      nbOptionsTextAttribute = 'data-ecl-select-nb-options',
       noResultsTextAttribute = 'data-ecl-select-no-results',
       closeLabelAttribute = 'data-ecl-select-close',
       clearAllLabelAttribute = 'data-ecl-select-clear-all',
@@ -111,10 +114,12 @@ export class Select {
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
     this.counterTextAttribute = counterTextAttribute;
+    this.nbOptionsTextAttribute = nbOptionsTextAttribute;
     this.noResultsTextAttribute = noResultsTextAttribute;
     this.defaultText = defaultText;
     this.searchText = searchText;
     this.selectAllText = selectAllText;
+    this.nbOptionsText = nbOptionsText;
     this.noResultsText = noResultsText;
     this.clearAllButtonLabel = clearAllButtonLabel;
     this.closeButtonLabel = closeButtonLabel;
@@ -133,10 +138,12 @@ export class Select {
     this.textSearch = null;
     this.textSelectAll = null;
     this.textCounter = null;
+    this.textNbOptions = null;
     this.textNoResults = null;
     this.selectMultiple = null;
     this.inputContainer = null;
     this.optionsContainer = null;
+    this.optionsCount = null;
     this.visibleOptions = null;
     this.searchContainer = null;
     this.countSelections = null;
@@ -331,6 +338,9 @@ export class Select {
       this.textCounter =
         this.counterText ||
         this.element.getAttribute(this.counterTextAttribute);
+      this.textNbOptions =
+        this.nbOptionsText ||
+        this.element.getAttribute(this.nbOptionsTextAttribute);
       this.textNoResults =
         this.noResultsText ||
         this.element.getAttribute(this.noResultsTextAttribute);
@@ -458,6 +468,12 @@ export class Select {
       this.optionsContainer.classList.add('ecl-select__multiple-options');
       this.optionsContainer.setAttribute('aria-live', 'polite');
       this.searchContainer.appendChild(this.optionsContainer);
+
+      if (this.textNbOptions) {
+        this.optionsCount = document.createElement('span');
+        this.optionsCount.classList.add('ecl-select__multiple-options-nb');
+        this.optionsContainer.appendChild(this.optionsCount);
+      }
 
       // Toolbar
       if (this.clearAllButtonLabel || this.closeButtonLabel) {
@@ -590,6 +606,7 @@ export class Select {
         this.checkboxes = [];
       }
       this.visibleOptions = this.checkboxes;
+      this.#updateOptionsCount();
 
       this.select.parentNode.parentNode.insertBefore(
         this.selectMultiple,
@@ -823,6 +840,20 @@ export class Select {
         'ecl-select-multiple-selections-counter--xxl',
       );
     }
+  }
+
+  /**
+   * Private method to update the screen reader only count of options found.
+   *
+   * @private
+   */
+  #updateOptionsCount() {
+    if (!this.optionsCount) return;
+
+    const availableOptions = (this.visibleOptions || this.checkboxes).filter(
+      (checkbox) => !checkbox.querySelector('input').disabled,
+    );
+    this.optionsCount.textContent = `${this.textNbOptions} ${availableOptions.length}`;
   }
 
   /**
@@ -1060,6 +1091,7 @@ export class Select {
         this.visibleOptions.push(checkbox);
       }
     });
+    this.#updateOptionsCount();
     // Select all checkbox follows along.
     const checked = this.visibleOptions.filter(
       (c) => c.querySelector('input').checked,
