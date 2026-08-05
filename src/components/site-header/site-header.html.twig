@@ -67,6 +67,7 @@
     - "search_toggle" (associate array) (default: {}) format:
       {
         "label": (string) Label of the element
+        "path": (string) Link of the element
       }
     - "login_box" (associate array) (default: {}) format:
         {
@@ -275,7 +276,7 @@
 
           {# Header actions #}
           <div class="ecl-site-header__action">
-
+          
           {# Custom action #}
           {% if _custom_action is not empty %}
             <div class="ecl-site-header__custom-action" aria-live="polite">
@@ -427,26 +428,29 @@
 
           {# Search form #}
           {% if _search_form is defined %}
-          {% set _search_form_id = 'search-form-' ~ random() %}
             <div class="ecl-site-header__search-container" role="search">
             {% if _search_toggle is not empty %}
-              {% include '@ecl/button/button.html.twig' with {
-                type: 'button',
-                variant: 'tertiary',
-                style: 'neutral',
-                label: _search_toggle.label,
-                hide_label: true,
-                size: 'l',
+              <a
+                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
+                href="{{ _search_toggle.href }}"
+                data-ecl-search-toggle="true"
+                aria-controls="search-form-id"
+                aria-expanded="false"
+              >
+              {%- include '@ecl/icon/icon.html.twig' with {
                 icon: {
                   name: 'search',
+                  path: _icon_path,
+                  size: 'm',
                 },
-                extra_classes: 'ecl-site-header__search-toggle',
-                extra_attributes: [
-                  { name: 'data-ecl-search-toggle' },
-                  { name: 'aria-controls', value: 'search_form_id' },
-                  { name: 'aria-expanded', value: 'false' },
-                ],
-              } only %}
+                as_image: true,
+                extra_classes: 'ecl-site-header__icon',
+                extra_accessibility: {
+                  title: _search_toggle.label,
+                },
+              } only -%}
+              {{- _search_toggle.label -}}
+              </a>
             {% endif %}
               {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
             </div>
