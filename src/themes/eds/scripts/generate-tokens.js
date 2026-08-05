@@ -121,6 +121,13 @@ function toScssValue(pathSegments, type, value) {
     if (category === 'font' && pathSegments[1] === 'text-decoration') {
       return value.toLowerCase();
     }
+    // The source only names the typeface itself ("Inter") with no fallback
+    // stack, so a browser that hasn't loaded it falls back to whatever
+    // default the UA picks (often a serif) instead of a plain sans-serif.
+    // Append a generic fallback, matching ec's own $font-family convention.
+    if (category === 'font' && pathSegments[1] === 'family') {
+      return `'${value}', arial, sans-serif`;
+    }
     return `'${value}'`;
   }
 
@@ -152,15 +159,17 @@ function renderScssMap(node, indent = 0) {
   const pad = '  '.repeat(indent);
   const innerPad = '  '.repeat(indent + 1);
   const isLeaf = typeof node !== 'object';
-  if (isLeaf) return node;
+  if (isLeaf) {
+    // A leaf value with a top-level comma (e.g. a 'Inter', arial,
+    // sans-serif font stack) would otherwise be misread as multiple map
+    // entries by the Sass parser - wrap it as a single list value instead.
+    if (typeof node === 'string' && node.includes(',')) return `(${node})`;
+    return node;
+  }
 
   const entries = Object.keys(node).map((key) => {
     const quotedKey = `'${key}'`;
-    const value = node[key];
-    if (value && typeof value === 'object') {
-      return `${innerPad}${quotedKey}: ${renderScssMap(value, indent + 1)}`;
-    }
-    return `${innerPad}${quotedKey}: ${value}`;
+    return `${innerPad}${quotedKey}: ${renderScssMap(node[key], indent + 1)}`;
   });
   return `(\n${entries.join(',\n')},\n${pad})`;
 }
