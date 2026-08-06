@@ -1,96 +1,69 @@
 # ECL - EDS theme (design tokens)
 
-Design tokens for the EDS design system, exported from Figma. Unlike the `ec`
-and `eu` themes, this package is a **parallel track**: its tokens are not
-prefixed `ecl-`, and it is not (yet) wired into any ECL preset or component —
-this is tokens only. Component/composition support is a separate, later
-effort.
+Design tokens for the EDS design system, exported from Figma.
 
-## What's here
+This package is a **parallel track**: tokens are not prefixed `ecl-`, and
+the theme isn't wired into any ECL preset or component yet — tokens only.
 
-- `tokens/source/*.json` — raw Figma "W3C Design Tokens" exports, committed
-  as-is: `Primitives.json` (atomic values), `Light.tokens.json` /
-  `Dark.tokens.json` (semantic tokens, one per color mode), and
-  `Mobile.tokens.json` / `Tablet.tokens.json` / `Desktop.tokens.json`
-  (responsive typography + grid tokens, one per breakpoint).
-- `maps/*.scss`, `_custom-properties.scss`, `tokens/tokens.json` — generated
-  from the files above by `scripts/generate-tokens.js`. **Do not hand-edit**
-  these — re-run the generator and commit the diff instead.
+## Contents
 
-## Showcase
+- `tokens/source/*.json` — raw Figma exports, committed as-is:
+  - `Primitives.json` — atomic values
+  - `Light.tokens.json` / `Dark.tokens.json` — semantic tokens, one per
+    color mode
+  - `Mobile.tokens.json` / `Tablet.tokens.json` / `Desktop.tokens.json` —
+    responsive typography + grid, one per breakpoint
+- `maps/*.scss`, `_custom-properties.scss`, `tokens/tokens.json` —
+  generated from the files above. **Don't hand-edit** — re-run the
+  generator and commit the diff.
 
-There's no standalone static showcase page (an earlier one was retired) —
-browse the tokens via Storybook instead: `pnpm start:eds` (root
-`package.json`, port 6008), which serves `src/themes/eds/eds-tokens.
-story.js`'s stories under "EDS / Design tokens".
-
-## Regenerating
+## Regenerate
 
 ```bash
 pnpm --filter @ecl/theme-eds run generate
 ```
 
-Do this after replacing any of the `tokens/source/*.json` files with a fresh
-Figma export. Review the diff before committing — a renamed or removed token
-in Figma will change or drop the corresponding Sass variable / CSS custom
-property.
+Run after replacing any `tokens/source/*.json` file. Review the diff
+before committing — a renamed/removed Figma token changes or drops the
+matching Sass variable / CSS custom property.
 
-## Shape of the tokens
+## Browse
 
-- **Primitives** (`$eds-primitive-*` Sass maps only, not exposed as CSS
-  custom properties): the atomic palette/scale values semantic tokens alias
-  into. Internal implementation detail — consume the semantic layer instead.
-- **Semantic tokens** (`$eds-color-light` / `$eds-color-dark` Sass maps,
-  `--eds-*` CSS custom properties): the intended public API. Of the 257
-  semantic tokens, only `color`-typed ones differ between Light and Dark —
-  spacing, sizing, typography, border-radius/width, opacity, and shadow
-  offset/blur/spread are mode-invariant.
-- **Mode switching**: `_custom-properties.scss` emits mode-invariant tokens
-  and light-mode color tokens under `:root`, and dark-mode color token
-  overrides under `[data-theme="dark"]`. Consumers opt into dark mode by
-  setting `data-theme="dark"` on a container (typically `<html>`).
-- **Shadow**: each elevation level is emitted as a ready-to-use `box-shadow`
-  composite (`--eds-sh-elevation-level-1`, etc.), combining the mode-scoped
-  shadow color with the mode-invariant offset/blur/spread.
-- **Responsive typography + grid** (`--eds-ty-*` / `--eds-gr-*` CSS custom
-  properties, `$eds-typography-responsive` / `$eds-grid` Sass maps): a
-  _third_ dimension of theming, alongside light/dark color mode - the same
-  token name resolves to a different value depending on viewport width, not
-  a user-toggled state. Mobile-first: `_custom-properties.scss` emits the
-  Mobile values under the base `:root`, then overrides them for Tablet and
-  Desktop inside `@media (width >= 768px)` / `@media (width >= 1140px)`
-  blocks (CSS custom properties can't gate a media query condition
-  themselves, so unlike color mode this can't be done with an attribute
-  selector). `$eds-breakpoint` (a flat `mobile`/`tablet`/`desktop` → min-
-  width map, shaped like `ec`'s own `$breakpoint` map) is there for Sass
-  consumers who want to gate their own `@media` blocks on the same
-  thresholds - eds doesn't ship `ec`'s `up`/`down`/`between`/`only` mixins,
-  just the raw breakpoint values.
-  - `typography/size/*` (`--eds-ty-size-{scale}-{step}-font-size` /
-    `-line-height`, e.g. `--eds-ty-size-heading-l-font-size`) is a
-    responsive **role** scale (display/heading/paragraph/label/microcopy/
-    supportive × a size step) that at every breakpoint resolves to one of
-    the _existing_ `--eds-f-size-*` / `--eds-f-line-height-*` steps -
-    verified against all 3 breakpoint exports, every single `font-size`/
-    `line-height` value in them is a Figma alias into that same scale, so
-    these are emitted as `var(--eds-f-size-m)` references rather than
-    duplicating the literal px value a second time. Resizing the viewport
-    changes which step a given role points at (e.g. `heading/l`'s font-size
-    is `--eds-f-size-xl` on Mobile but `--eds-f-size-4xl` on Desktop), not
-    the underlying scale itself.
-  - `typography/letter-spacing/*` (`--eds-ty-letter-spacing-s`, etc.)
-    aliases into `Primitives.json` instead (`font/letter-spacing/*`), which
-    - like all primitives - isn't exposed as its own custom property, so
-      these are inlined as resolved `em` values per breakpoint.
-  - `grid/*` (`--eds-gr-min-width`, `-max-width`, `-gutter`, `-margin`,
-    `-columns`) is the per-breakpoint layout grid definition.
+```bash
+pnpm start:eds
+```
+
+Storybook on port 6008, stories under "EDS / Design tokens".
+
+## Token shape
+
+- **Primitives** — Sass maps only (`$eds-primitive-*`), not exposed as CSS
+  custom properties. Internal; semantic tokens alias into them.
+- **Semantic tokens** — the public API: `$eds-color-light` /
+  `$eds-color-dark` Sass maps, `--eds-*` CSS custom properties.
+- **Color mode** — `_custom-properties.scss` emits light-mode colors (plus
+  all mode-invariant tokens) under `:root`, dark-mode overrides under
+  `[data-theme="dark"]`.
+- **Responsive typography + grid** — a third theming dimension, keyed by
+  viewport width. Mobile values sit in the base `:root`; Tablet/Desktop
+  override inside `@media (width >= 768px)` / `@media (width >= 1140px)`.
+  - `--eds-ty-size-*-font-size` / `-line-height` — a responsive type scale
+    (display/heading/paragraph/label/microcopy/supportive) that references
+    the existing `--eds-f-size-*` / `--eds-f-line-height-*` steps rather
+    than duplicating values.
+  - `--eds-ty-letter-spacing-*` — inlined `em` values, per breakpoint.
+  - `--eds-gr-*` — per-breakpoint grid (min/max-width, gutter, margin,
+    columns).
+  - `$eds-breakpoint` — flat `mobile`/`tablet`/`desktop` → min-width Sass
+    map, for consumers writing their own `@media` blocks.
+- **Shadow** — each elevation level is a ready-to-use `box-shadow`
+  composite (`--eds-sh-elevation-level-1`), combining the mode-scoped
+  color with the mode-invariant offset/blur/spread.
 
 ## CSS custom property naming
 
-Sass map keys keep the token's full category name (`$eds-color-light`,
-`$eds-spacing`, ...). Generated CSS custom properties abbreviate the
-top-level category to 1–2 characters instead, to keep the compiled CSS size
-down given how many custom properties this theme emits:
+Sass maps keep the full category name (`$eds-color-light`, `$eds-spacing`,
+...); generated CSS custom properties abbreviate it to 1–2 characters:
 
 | Category        | Abbreviation | Example                                    |
 | --------------- | ------------ | ------------------------------------------ |
@@ -105,15 +78,12 @@ down given how many custom properties this theme emits:
 | `typography`    | `ty`         | `--eds-ty-size-heading-l-font-size`        |
 | `grid`          | `gr`         | `--eds-gr-gutter`                          |
 
-The rest of the path (everything after the category) stays full-length. This
-mapping lives in `CATEGORY_ABBREVIATIONS` in `scripts/generate-tokens.js`.
+The rest of the path stays full-length. Mapping lives in
+`CATEGORY_ABBREVIATIONS` in `scripts/generate-tokens.js`.
 
-## Known conversions from the source JSON
+## Unit conversions
 
-- Unitless px numbers → `rem` (÷16) for spacing, sizing, font-size,
-  line-height, dimension; kept as `px` for border-radius, border-width, and
-  shadow offset/blur/spread (mirrors the `ec`/`eu` themes' own convention).
-- `opacity` 0–100 → decimal 0–1.
-- `letter-spacing` / `paragraph-spacing`, exported as percentage-of-font-size
-  strings (e.g. `"2%"`) → `em` (`0.02em`), since that is what a CSS `em`
-  means relative to the current font-size.
+- px → `rem` (÷16) for spacing, sizing, font-size, line-height, dimension.
+- px kept as-is for border-radius, border-width, shadow offsets.
+- opacity 0–100 → decimal 0–1.
+- letter-spacing / paragraph-spacing (`"2%"`) → `em` (`0.02em`).
