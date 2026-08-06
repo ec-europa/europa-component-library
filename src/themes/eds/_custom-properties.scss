@@ -130,6 +130,52 @@
   --eds-sp-xl: 1.5rem;
   --eds-sp-xs: 0.5rem;
 
+  // Responsive typography + grid — Mobile (default, mobile-first)
+  --eds-ty-letter-spacing-default: 0;
+  --eds-ty-letter-spacing-neg-s: 0.02em;
+  --eds-ty-letter-spacing-neg-xs: -0.01em;
+  --eds-ty-letter-spacing-s: 0.02em;
+  --eds-ty-letter-spacing-xs: 0.01em;
+  --eds-ty-size-display-l-font-size: var(--eds-f-size-5xl);
+  --eds-ty-size-display-l-line-height: var(--eds-f-line-height-2xl);
+  --eds-ty-size-display-xl-font-size: var(--eds-f-size-6xl);
+  --eds-ty-size-display-xl-line-height: var(--eds-f-line-height-4xl);
+  --eds-ty-size-heading-2xl-font-size: var(--eds-f-size-4xl);
+  --eds-ty-size-heading-2xl-line-height: var(--eds-f-line-height-2xl);
+  --eds-ty-size-heading-l-font-size: var(--eds-f-size-xl);
+  --eds-ty-size-heading-l-line-height: var(--eds-f-line-height-m);
+  --eds-ty-size-heading-m-font-size: var(--eds-f-size-l);
+  --eds-ty-size-heading-m-line-height: var(--eds-f-line-height-m);
+  --eds-ty-size-heading-s-font-size: var(--eds-f-size-m);
+  --eds-ty-size-heading-s-line-height: var(--eds-f-line-height-m);
+  --eds-ty-size-heading-xl-font-size: var(--eds-f-size-2xl);
+  --eds-ty-size-heading-xl-line-height: var(--eds-f-line-height-l);
+  --eds-ty-size-heading-xs-font-size: var(--eds-f-size-m);
+  --eds-ty-size-heading-xs-line-height: var(--eds-f-line-height-m);
+  --eds-ty-size-label-l-font-size: var(--eds-f-size-l);
+  --eds-ty-size-label-l-line-height: var(--eds-f-line-height-l);
+  --eds-ty-size-label-m-font-size: var(--eds-f-size-m);
+  --eds-ty-size-label-m-line-height: var(--eds-f-line-height-m);
+  --eds-ty-size-label-s-font-size: var(--eds-f-size-s);
+  --eds-ty-size-label-s-line-height: var(--eds-f-line-height-s);
+  --eds-ty-size-microcopy-m-font-size: var(--eds-f-size-xs);
+  --eds-ty-size-microcopy-m-line-height: var(--eds-f-line-height-xs);
+  --eds-ty-size-paragraph-l-font-size: var(--eds-f-size-l);
+  --eds-ty-size-paragraph-l-line-height: var(--eds-f-line-height-l);
+  --eds-ty-size-paragraph-m-font-size: var(--eds-f-size-m);
+  --eds-ty-size-paragraph-m-line-height: var(--eds-f-line-height-m);
+  --eds-ty-size-paragraph-s-font-size: var(--eds-f-size-s);
+  --eds-ty-size-paragraph-s-line-height: var(--eds-f-line-height-s);
+  --eds-ty-size-paragraph-xl-font-size: var(--eds-f-size-xl);
+  --eds-ty-size-paragraph-xl-line-height: var(--eds-f-line-height-l);
+  --eds-ty-size-supportive-m-font-size: var(--eds-f-size-2xs);
+  --eds-ty-size-supportive-m-line-height: var(--eds-f-line-height-2xs);
+  --eds-gr-min-width: 320px;
+  --eds-gr-max-width: 480px;
+  --eds-gr-gutter: 0.75rem;
+  --eds-gr-margin: 1rem;
+  --eds-gr-columns: 4;
+
   // Semantic color tokens — light mode (default)
   --eds-c-alpha-backdrop-default: #00002e4d;
   --eds-c-alpha-backdrop-inverted-default: #ffffff24;
@@ -409,4 +455,104 @@
   --eds-sh-elevation-level-2: 0px 10px 22px 0px #0d0d121a;
   --eds-sh-elevation-level-3: 0px 12px 32px 0px #0d0d121f;
   --eds-sh-elevation-level-4: 0px 14px 42px 0px #0d0d1224;
+}
+
+@media (width >= 768px) {
+  :root {
+    // Responsive typography + grid — Tablet
+    --eds-ty-letter-spacing-default: 0;
+    --eds-ty-letter-spacing-neg-s: 0.02em;
+    --eds-ty-letter-spacing-neg-xs: -0.01em;
+    --eds-ty-letter-spacing-s: 0.02em;
+    --eds-ty-letter-spacing-xs: 0.01em;
+    --eds-ty-size-display-l-font-size: var(--eds-f-size-7xl);
+    --eds-ty-size-display-l-line-height: var(--eds-f-line-height-6xl);
+    --eds-ty-size-display-xl-font-size: var(--eds-f-size-8xl);
+    --eds-ty-size-display-xl-line-height: var(--eds-f-line-height-9xl);
+    --eds-ty-size-heading-2xl-font-size: var(--eds-f-size-5xl);
+    --eds-ty-size-heading-2xl-line-height: var(--eds-f-line-height-4xl);
+    --eds-ty-size-heading-l-font-size: var(--eds-f-size-2xl);
+    --eds-ty-size-heading-l-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-heading-m-font-size: var(--eds-f-size-xl);
+    --eds-ty-size-heading-m-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-heading-s-font-size: var(--eds-f-size-l);
+    --eds-ty-size-heading-s-line-height: var(--eds-f-line-height-m);
+    --eds-ty-size-heading-xl-font-size: var(--eds-f-size-4xl);
+    --eds-ty-size-heading-xl-line-height: var(--eds-f-line-height-2xl);
+    --eds-ty-size-heading-xs-font-size: var(--eds-f-size-m);
+    --eds-ty-size-heading-xs-line-height: var(--eds-f-line-height-m);
+    --eds-ty-size-label-l-font-size: var(--eds-f-size-l);
+    --eds-ty-size-label-l-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-label-m-font-size: var(--eds-f-size-m);
+    --eds-ty-size-label-m-line-height: var(--eds-f-line-height-m);
+    --eds-ty-size-label-s-font-size: var(--eds-f-size-s);
+    --eds-ty-size-label-s-line-height: var(--eds-f-line-height-s);
+    --eds-ty-size-microcopy-m-font-size: var(--eds-f-size-xs);
+    --eds-ty-size-microcopy-m-line-height: var(--eds-f-line-height-xs);
+    --eds-ty-size-paragraph-l-font-size: var(--eds-f-size-l);
+    --eds-ty-size-paragraph-l-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-paragraph-m-font-size: var(--eds-f-size-m);
+    --eds-ty-size-paragraph-m-line-height: var(--eds-f-line-height-m);
+    --eds-ty-size-paragraph-s-font-size: var(--eds-f-size-s);
+    --eds-ty-size-paragraph-s-line-height: var(--eds-f-line-height-s);
+    --eds-ty-size-paragraph-xl-font-size: var(--eds-f-size-2xl);
+    --eds-ty-size-paragraph-xl-line-height: var(--eds-f-line-height-xl);
+    --eds-ty-size-supportive-m-font-size: var(--eds-f-size-2xs);
+    --eds-ty-size-supportive-m-line-height: var(--eds-f-line-height-2xs);
+    --eds-gr-min-width: 768px;
+    --eds-gr-max-width: 996px;
+    --eds-gr-gutter: 1.5rem;
+    --eds-gr-margin: 1.5rem;
+    --eds-gr-columns: 10;
+  }
+}
+
+@media (width >= 1140px) {
+  :root {
+    // Responsive typography + grid — Desktop
+    --eds-ty-letter-spacing-default: 0;
+    --eds-ty-letter-spacing-neg-s: -0.02em;
+    --eds-ty-letter-spacing-neg-xs: -0.01em;
+    --eds-ty-letter-spacing-s: 0.02em;
+    --eds-ty-letter-spacing-xs: 0.01em;
+    --eds-ty-size-display-l-font-size: var(--eds-f-size-8xl);
+    --eds-ty-size-display-l-line-height: var(--eds-f-line-height-9xl);
+    --eds-ty-size-display-xl-font-size: var(--eds-f-size-9xl);
+    --eds-ty-size-display-xl-line-height: var(--eds-f-line-height-10xl);
+    --eds-ty-size-heading-2xl-font-size: var(--eds-f-size-6xl);
+    --eds-ty-size-heading-2xl-line-height: var(--eds-f-line-height-6xl);
+    --eds-ty-size-heading-l-font-size: var(--eds-f-size-4xl);
+    --eds-ty-size-heading-l-line-height: var(--eds-f-line-height-2xl);
+    --eds-ty-size-heading-m-font-size: var(--eds-f-size-3xl);
+    --eds-ty-size-heading-m-line-height: var(--eds-f-line-height-xl);
+    --eds-ty-size-heading-s-font-size: var(--eds-f-size-xl);
+    --eds-ty-size-heading-s-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-heading-xl-font-size: var(--eds-f-size-5xl);
+    --eds-ty-size-heading-xl-line-height: var(--eds-f-line-height-4xl);
+    --eds-ty-size-heading-xs-font-size: var(--eds-f-size-l);
+    --eds-ty-size-heading-xs-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-label-l-font-size: var(--eds-f-size-l);
+    --eds-ty-size-label-l-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-label-m-font-size: var(--eds-f-size-m);
+    --eds-ty-size-label-m-line-height: var(--eds-f-line-height-m);
+    --eds-ty-size-label-s-font-size: var(--eds-f-size-s);
+    --eds-ty-size-label-s-line-height: var(--eds-f-line-height-s);
+    --eds-ty-size-microcopy-m-font-size: var(--eds-f-size-xs);
+    --eds-ty-size-microcopy-m-line-height: var(--eds-f-line-height-xs);
+    --eds-ty-size-paragraph-l-font-size: var(--eds-f-size-l);
+    --eds-ty-size-paragraph-l-line-height: var(--eds-f-line-height-l);
+    --eds-ty-size-paragraph-m-font-size: var(--eds-f-size-m);
+    --eds-ty-size-paragraph-m-line-height: var(--eds-f-line-height-m);
+    --eds-ty-size-paragraph-s-font-size: var(--eds-f-size-s);
+    --eds-ty-size-paragraph-s-line-height: var(--eds-f-line-height-s);
+    --eds-ty-size-paragraph-xl-font-size: var(--eds-f-size-3xl);
+    --eds-ty-size-paragraph-xl-line-height: var(--eds-f-line-height-2xl);
+    --eds-ty-size-supportive-m-font-size: var(--eds-f-size-2xs);
+    --eds-ty-size-supportive-m-line-height: var(--eds-f-line-height-2xs);
+    --eds-gr-min-width: 1140px;
+    --eds-gr-max-width: 1440px;
+    --eds-gr-gutter: 1.5rem;
+    --eds-gr-margin: 2rem;
+    --eds-gr-columns: 12;
+  }
 }

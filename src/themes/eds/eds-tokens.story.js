@@ -7,6 +7,9 @@ import {
 } from './scripts/token-names';
 import lightTokens from './tokens/source/Light.tokens.json';
 import primitivesTokens from './tokens/source/Primitives.json';
+import mobileTokens from './tokens/source/Mobile.tokens.json';
+import tabletTokens from './tokens/source/Tablet.tokens.json';
+import desktopTokens from './tokens/source/Desktop.tokens.json';
 
 // Only need the *names* of the semantic tokens here, not their resolved
 // values - the real compiled `ecl-eds.css` (loaded globally via
@@ -32,6 +35,19 @@ const primitiveColors = Object.fromEntries(
 // reused everywhere below rather than re-walking `light` per section.
 const semanticGroups = groupColorTokens(light);
 
+// Breakpoint-scoped tokens (grid + responsive typography). Mobile/Tablet/
+// Desktop share an identical key set (verified when this was integrated),
+// so - same rationale as only importing Light.tokens.json above - only
+// `mobile` is used to enumerate *names* (which scale/step combos exist);
+// the actual per-breakpoint *values* come from the real compiled
+// `ecl-eds.css`'s `var(--eds-ty-*)`/`var(--eds-gr-*)`, live per breakpoint.
+const mobileFlat = flatten(mobileTokens);
+const BREAKPOINTS = [
+  ['mobile', 'Mobile', mobileFlat],
+  ['tablet', 'Tablet', flatten(tabletTokens)],
+  ['desktop', 'Desktop', flatten(desktopTokens)],
+];
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -55,11 +71,15 @@ ${innerHtml}
       </div>`;
 }
 
-function renderSwatchGrid(items) {
-  return `        <div class="swatch-grid">
+function renderSwatchGrid(items, { compact = false } = {}) {
+  const gridClass = compact
+    ? 'swatch-grid swatch-grid--compact'
+    : 'swatch-grid';
+  const swatchClass = compact ? 'swatch swatch--compact' : 'swatch';
+  return `        <div class="${gridClass}">
 ${items
   .map(
-    (item) => `          <div class="swatch">
+    (item) => `          <div class="${swatchClass}">
             <div class="swatch-color" style="background: ${item.background}"></div>
             <div class="swatch-label">${escapeHtml(item.label)}</div>
             <code class="swatch-var">${escapeHtml(item.code)}</code>
@@ -87,7 +107,11 @@ function buildSemanticColorGroup(title, segmentsList) {
 // Primitive color group (`groupPrimitiveColorTokens`'s groups). No
 // `var(--eds-*)` to reference for these (see the `primitiveColors` comment
 // above) - each swatch gets its background as a plain resolved hex, shown
-// as its label too.
+// as its label too. Primitive families run 11-15 shades deep (vs. a
+// semantic group's handful of role/state variants), and each swatch only
+// ever needs a short numeric step + a short hex string - the semantic
+// swatch-grid's wide (9.5rem+) cells just make a family wrap across
+// several rows for no benefit, so these render compact instead.
 function buildPrimitiveColorGroup(title, segmentsList) {
   const items = segmentsList.map((segments) => {
     const key = segments.join('/');
@@ -98,7 +122,7 @@ function buildPrimitiveColorGroup(title, segmentsList) {
       code: hex,
     };
   });
-  return renderGroup(title, renderSwatchGrid(items));
+  return renderGroup(title, renderSwatchGrid(items, { compact: true }));
 }
 
 // Renders an explicitly ordered subset of a groups dict (as opposed to the
@@ -540,6 +564,125 @@ function buildShadowSection() {
     .join('\n');
 }
 
+// Reference table of each breakpoint's `grid/*` values. Unlike everything
+// else in this story, this reads the raw imported JSON directly (like the
+// primitive color swatches do) rather than a `var(--eds-*)` reference -
+// the whole point is to compare all 3 breakpoints side by side in one
+// static render, which a live custom property (only ever resolved to
+// *one* breakpoint's value at a time, whichever currently matches the
+// preview's viewport width) can't do.
+function buildBreakpointTable() {
+  const rows = BREAKPOINTS.map(([, label, flat]) => {
+    const grid = {
+      'min-width': flat['grid/min-width'].$value,
+      'max-width': flat['grid/max-width'].$value,
+      gutter: flat['grid/gutter'].$value,
+      margin: flat['grid/margin'].$value,
+      columns: flat['grid/columns'].$value,
+    };
+    return `          <tr>
+            <th scope="row">${escapeHtml(label)}</th>
+            <td>${grid['min-width']}px</td>
+            <td>${grid['max-width']}px</td>
+            <td>${grid.gutter}px</td>
+            <td>${grid.margin}px</td>
+            <td>${grid.columns}</td>
+          </tr>`;
+  }).join('\n');
+  return `        <table class="breakpoint-table">
+          <thead>
+            <tr>
+              <th scope="col">Breakpoint</th>
+              <th scope="col">Min-width</th>
+              <th scope="col">Max-width</th>
+              <th scope="col">Gutter</th>
+              <th scope="col">Margin</th>
+              <th scope="col">Columns</th>
+            </tr>
+          </thead>
+          <tbody>
+${rows}
+          </tbody>
+        </table>`;
+}
+
+// Live responsive type scale, grouped by role (display/heading/paragraph/
+// label/microcopy/supportive - the same 6 names as the `font/family/*`
+// tokens, so each group can use its own matching family). Unlike the
+// breakpoint table above, this *does* use `var(--eds-ty-*)` - resize the
+// browser/preview past 768px or 1140px to see each row's font-size/
+// line-height actually change, live, via the real compiled `ecl-eds.css`
+// media queries.
+function buildResponsiveTypographySection() {
+  const scales = {};
+  Object.keys(mobileFlat)
+    .filter((key) => /^typography\/size\/[^/]+\/[^/]+\/font-size$/.test(key))
+    .forEach((key) => {
+      const [, , scale, step] = key.split('/');
+      scales[scale] = scales[scale] || [];
+      scales[scale].push(step);
+    });
+
+  return Object.keys(scales)
+    .map((scale) => {
+      const rows = scales[scale]
+        .map((step) => {
+          const fontSizeVar = cssVarName('eds', [
+            'typography',
+            'size',
+            scale,
+            step,
+            'font-size',
+          ]);
+          const lineHeightVar = cssVarName('eds', [
+            'typography',
+            'size',
+            scale,
+            step,
+            'line-height',
+          ]);
+          return `        <div class="type-row">
+          <code class="type-step">${escapeHtml(step)}</code>
+          <p style="font-size: var(${fontSizeVar}); line-height: var(${lineHeightVar}); font-family: var(--eds-f-family-${escapeHtml(scale)}); margin: 0;">
+            The quick brown fox jumps over the lazy dog
+          </p>
+        </div>`;
+        })
+        .join('\n');
+      return `      <div class="group">
+        <h3>${escapeHtml(scale)}</h3>
+        <div class="type-list">
+${rows}
+        </div>
+      </div>`;
+    })
+    .join('\n');
+}
+
+// Live per-breakpoint letter-spacing (also `var(--eds-ty-*)`-driven).
+function buildResponsiveLetterSpacingSection() {
+  const steps = Object.keys(mobileFlat)
+    .filter((key) => key.startsWith('typography/letter-spacing/'))
+    .map((key) => key.split('/')[2]);
+  const rows = steps
+    .map((step) => {
+      const varName = cssVarName('eds', ['typography', 'letter-spacing', step]);
+      return `        <div class="type-row">
+          <code class="type-step">${escapeHtml(step)}</code>
+          <p style="letter-spacing: var(${varName}); font-family: var(--eds-f-family-paragraph); margin: 0;">
+            The quick brown fox jumps over the lazy dog
+          </p>
+        </div>`;
+    })
+    .join('\n');
+  return `      <div class="group">
+        <h3>letter-spacing</h3>
+        <div class="type-list">
+${rows}
+        </div>
+      </div>`;
+}
+
 const SHARED_STYLES = `<style>
   .eds-tokens * {
     box-sizing: border-box;
@@ -601,6 +744,19 @@ const SHARED_STYLES = `<style>
     color: var(--eds-c-foreground-subtler);
     word-break: break-all;
   }
+  .eds-tokens .swatch-grid--compact {
+    grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+    gap: var(--eds-sp-xs);
+  }
+  .eds-tokens .swatch--compact .swatch-color {
+    height: 2rem;
+  }
+  .eds-tokens .swatch--compact .swatch-label,
+  .eds-tokens .swatch--compact .swatch-var {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   .eds-tokens .pair-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
@@ -643,7 +799,12 @@ const SHARED_STYLES = `<style>
     flex-direction: column;
     gap: var(--eds-sp-s);
   }
-  .eds-tokens .type-row,
+  .eds-tokens .type-row {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    align-items: center;
+    gap: var(--eds-sp-m);
+  }
   .eds-tokens .scale-row {
     display: grid;
     grid-template-columns: 5rem 1fr 14rem;
@@ -687,6 +848,21 @@ const SHARED_STYLES = `<style>
       0 0.5rem,
       0.5rem -0.5rem,
       -0.5rem 0px;
+  }
+  .eds-tokens .breakpoint-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--eds-f-size-s);
+  }
+  .eds-tokens .breakpoint-table th,
+  .eds-tokens .breakpoint-table td {
+    text-align: left;
+    padding: var(--eds-sp-s) var(--eds-sp-m);
+    border-bottom: var(--eds-bw-xs) solid var(--eds-c-border-divider);
+  }
+  .eds-tokens .breakpoint-table thead th {
+    color: var(--eds-c-foreground-subtle);
+    font-weight: var(--eds-f-weight-medium);
   }
 </style>`;
 
@@ -857,5 +1033,29 @@ export const Typography = renderTokensPage(`
     <h2>Typography</h2>
 ${buildTypographySection()}
   </section>
+
+  <section>
+    <h2>Responsive typography</h2>
+    <p class="section-note">
+      Each row uses the real <code>var(--eds-ty-*)</code> custom properties
+      — resize the browser window (or this preview's viewport) past 768px
+      and 1140px to see the font-size/line-height actually change, live.
+    </p>
+${buildResponsiveTypographySection()}
+${buildResponsiveLetterSpacingSection()}
+  </section>
 `);
 Typography.storyName = 'Typography';
+
+export const Breakpoints = renderTokensPage(`
+  <section>
+    <h2>Breakpoints</h2>
+    <p class="section-note">
+      Reference only — not exposed as CSS custom properties (media queries
+      can't be gated by a custom property), shown here as the raw values
+      from each breakpoint's export.
+    </p>
+${buildBreakpointTable()}
+  </section>
+`);
+Breakpoints.storyName = 'Breakpoints';

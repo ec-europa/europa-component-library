@@ -10,21 +10,19 @@ effort.
 
 - `tokens/source/*.json` — raw Figma "W3C Design Tokens" exports, committed
   as-is: `Primitives.json` (atomic values), `Light.tokens.json` /
-  `Dark.tokens.json` (semantic tokens, one per mode).
-- `maps/*.scss`, `_custom-properties.scss`, `tokens/tokens.json`,
-  `showcase/*` — generated from the files above by
-  `scripts/generate-tokens.js`. **Do not hand-edit** these — re-run the
-  generator and commit the diff instead.
+  `Dark.tokens.json` (semantic tokens, one per color mode), and
+  `Mobile.tokens.json` / `Tablet.tokens.json` / `Desktop.tokens.json`
+  (responsive typography + grid tokens, one per breakpoint).
+- `maps/*.scss`, `_custom-properties.scss`, `tokens/tokens.json` — generated
+  from the files above by `scripts/generate-tokens.js`. **Do not hand-edit**
+  these — re-run the generator and commit the diff instead.
 
 ## Showcase
 
-`showcase/index.html` is a standalone, dependency-free token browser — open
-it directly in a browser (no build step, no server) to see every color,
-type-scale step, spacing/sizing step, border-radius/width, shadow elevation,
-and opacity step rendered live, with a light/dark toggle. It links
-`showcase/tokens.css`, a plain-CSS copy of `_custom-properties.scss` (same
-content, `/* */` comments instead of Sass' `//` so a browser can parse it
-directly without going through Sass).
+There's no standalone static showcase page (an earlier one was retired) —
+browse the tokens via Storybook instead: `pnpm start:eds` (root
+`package.json`, port 6008), which serves `src/themes/eds/eds-tokens.
+story.js`'s stories under "EDS / Design tokens".
 
 ## Regenerating
 
@@ -54,6 +52,38 @@ property.
 - **Shadow**: each elevation level is emitted as a ready-to-use `box-shadow`
   composite (`--eds-sh-elevation-level-1`, etc.), combining the mode-scoped
   shadow color with the mode-invariant offset/blur/spread.
+- **Responsive typography + grid** (`--eds-ty-*` / `--eds-gr-*` CSS custom
+  properties, `$eds-typography-responsive` / `$eds-grid` Sass maps): a
+  _third_ dimension of theming, alongside light/dark color mode - the same
+  token name resolves to a different value depending on viewport width, not
+  a user-toggled state. Mobile-first: `_custom-properties.scss` emits the
+  Mobile values under the base `:root`, then overrides them for Tablet and
+  Desktop inside `@media (width >= 768px)` / `@media (width >= 1140px)`
+  blocks (CSS custom properties can't gate a media query condition
+  themselves, so unlike color mode this can't be done with an attribute
+  selector). `$eds-breakpoint` (a flat `mobile`/`tablet`/`desktop` → min-
+  width map, shaped like `ec`'s own `$breakpoint` map) is there for Sass
+  consumers who want to gate their own `@media` blocks on the same
+  thresholds - eds doesn't ship `ec`'s `up`/`down`/`between`/`only` mixins,
+  just the raw breakpoint values.
+  - `typography/size/*` (`--eds-ty-size-{scale}-{step}-font-size` /
+    `-line-height`, e.g. `--eds-ty-size-heading-l-font-size`) is a
+    responsive **role** scale (display/heading/paragraph/label/microcopy/
+    supportive × a size step) that at every breakpoint resolves to one of
+    the _existing_ `--eds-f-size-*` / `--eds-f-line-height-*` steps -
+    verified against all 3 breakpoint exports, every single `font-size`/
+    `line-height` value in them is a Figma alias into that same scale, so
+    these are emitted as `var(--eds-f-size-m)` references rather than
+    duplicating the literal px value a second time. Resizing the viewport
+    changes which step a given role points at (e.g. `heading/l`'s font-size
+    is `--eds-f-size-xl` on Mobile but `--eds-f-size-4xl` on Desktop), not
+    the underlying scale itself.
+  - `typography/letter-spacing/*` (`--eds-ty-letter-spacing-s`, etc.)
+    aliases into `Primitives.json` instead (`font/letter-spacing/*`), which
+    - like all primitives - isn't exposed as its own custom property, so
+      these are inlined as resolved `em` values per breakpoint.
+  - `grid/*` (`--eds-gr-min-width`, `-max-width`, `-gutter`, `-margin`,
+    `-columns`) is the per-breakpoint layout grid definition.
 
 ## CSS custom property naming
 
@@ -72,6 +102,8 @@ down given how many custom properties this theme emits:
 | `border-width`  | `bw`         | `--eds-bw-s`                               |
 | `opacity`       | `op`         | `--eds-op-50`                              |
 | `shadow`        | `sh`         | `--eds-sh-elevation-level-1`               |
+| `typography`    | `ty`         | `--eds-ty-size-heading-l-font-size`        |
+| `grid`          | `gr`         | `--eds-gr-gutter`                          |
 
 The rest of the path (everything after the category) stays full-length. This
 mapping lives in `CATEGORY_ABBREVIATIONS` in `scripts/generate-tokens.js`.

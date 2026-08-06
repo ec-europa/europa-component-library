@@ -155,6 +155,86 @@ Object.keys(primitives).forEach((key) => {
 const light = flatten(lightRaw);
 const dark = flatten(darkRaw);
 
+// Breakpoint-scoped tokens ('grid' + responsive 'typography') - a third
+// Figma mode collection alongside Light/Dark, one file per breakpoint
+// rather than one file per mode. Every `typography/size/*/*/{font-size,
+// line-height}` leaf here is an alias into the *same* `font/size` /
+// `font/line-height` semantic scale already in Light.tokens.json (verified
+// against every entry in all 3 files when this was integrated - see
+// `sizeEntries` below), so those get emitted as `var(--eds-f-*)`
+// references rather than duplicated literal values. `typography/letter-
+// spacing/*` aliases into `Primitives.json` instead (`font/letter-spacing/
+// *`), which - like all primitives - isn't exposed as its own custom
+// property, so those get inlined as resolved `em` values instead.
+const BREAKPOINTS = [
+  [
+    'mobile',
+    flatten(
+      JSON.parse(
+        fs.readFileSync(path.join(SOURCE_DIR, 'Mobile.tokens.json'), 'utf8'),
+      ),
+    ),
+  ],
+  [
+    'tablet',
+    flatten(
+      JSON.parse(
+        fs.readFileSync(path.join(SOURCE_DIR, 'Tablet.tokens.json'), 'utf8'),
+      ),
+    ),
+  ],
+  [
+    'desktop',
+    flatten(
+      JSON.parse(
+        fs.readFileSync(path.join(SOURCE_DIR, 'Desktop.tokens.json'), 'utf8'),
+      ),
+    ),
+  ],
+];
+
+function breakpointGrid(flat) {
+  return {
+    'min-width': flat['grid/min-width'].$value,
+    'max-width': flat['grid/max-width'].$value,
+    gutter: flat['grid/gutter'].$value,
+    margin: flat['grid/margin'].$value,
+    columns: flat['grid/columns'].$value,
+  };
+}
+
+function letterSpacingEntries(flat) {
+  const entries = {};
+  Object.keys(flat)
+    .filter((key) => key.startsWith('typography/letter-spacing/'))
+    .forEach((key) => {
+      const step = key.split('/')[2];
+      entries[step] = percentStringToEm(flat[key].$value);
+    });
+  return entries;
+}
+
+// Reads the `com.figma.aliasData.targetVariableName` off each
+// `typography/size/*/*/{font-size,line-height}` leaf (e.g. 'font/size/m')
+// and turns it into a `var(--eds-f-size-m)` reference into the existing
+// invariant font scale, instead of re-emitting the literal px value a
+// second time.
+function sizeEntries(flat) {
+  const entries = {};
+  Object.keys(flat)
+    .filter((key) => key.startsWith('typography/size/'))
+    .forEach((key) => {
+      const [, , scale, step, prop] = key.split('/');
+      const alias =
+        flat[key].$extensions['com.figma.aliasData'].targetVariableName;
+      const varRef = `var(${cssVarName('eds', alias.split('/'))})`;
+      entries[scale] = entries[scale] || {};
+      entries[scale][step] = entries[scale][step] || {};
+      entries[scale][step][prop] = varRef;
+    });
+  return entries;
+}
+
 // -----------------------------------------------------------------------
 // 1. Primitives Sass map
 // -----------------------------------------------------------------------
@@ -331,6 +411,75 @@ function buildInvariantScss(prefix, restDict, categories, banner) {
 }
 
 // -----------------------------------------------------------------------
+// 2b. Breakpoints + responsive typography (maps/breakpoint.scss,
+//     maps/typography.scss)
+// -----------------------------------------------------------------------
+
+// $eds-breakpoint: a flat { mobile/tablet/desktop: <min-width>px } map, for
+// Sass consumers writing their own `@media (min-width: map.get($eds-
+// breakpoint, 'tablet'))` - CSS custom properties can't gate a media query
+// condition, so unlike everything else in this theme these breakpoint
+// values only exist in Sass, not as `--eds-*` custom properties. Mirrors
+// the shape of ec's own `$breakpoint` map (`src/themes/ec/maps/layout.
+// scss`), just with eds' own literal Mobile/Tablet/Desktop mode names
+// instead of ec's xs/s/m/l/xl.
+function buildBreakpointMapsScss() {
+  const breakpointEntries = {};
+  const gridEntries = {};
+  BREAKPOINTS.forEach(([name, flat]) => {
+    const grid = breakpointGrid(flat);
+    breakpointEntries[name] = `${grid['min-width']}px`;
+    gridEntries[name] = {
+      'min-width': `${grid['min-width']}px`,
+      'max-width': `${grid['max-width']}px`,
+      gutter: pxToRem(grid.gutter),
+      margin: pxToRem(grid.margin),
+      columns: `${grid.columns}`,
+    };
+  });
+
+  let out = GENERATED_BANNER;
+  out +=
+    '\n// Breakpoint min-widths, one per Mobile/Tablet/Desktop export, for\n';
+  out += "// gating Sass' own `@media (min-width: ...)` blocks.\n";
+  out +=
+    '// $eds-grid holds the full per-breakpoint layout grid (min/max width,\n';
+  out += '// gutter, margin, column count).\n\n';
+  out += `$eds-breakpoint: ${renderScssMap(breakpointEntries)} !default;\n`;
+  out += `$eds-grid: ${renderScssMap(gridEntries)} !default;\n`;
+  return out;
+}
+
+// $eds-typography-responsive: mobile/tablet/desktop -> { letter-spacing,
+// size } - the same shape emitted as CSS custom properties in
+// _custom-properties.scss (mobile-first `:root`, tablet/desktop as
+// `@media (min-width: ...)` overrides).
+function buildResponsiveTypographyScss() {
+  const nested = {};
+  BREAKPOINTS.forEach(([name, flat]) => {
+    nested[name] = {
+      'letter-spacing': letterSpacingEntries(flat),
+      size: sizeEntries(flat),
+    };
+  });
+
+  let out =
+    '\n// Responsive typography: per-breakpoint letter-spacing (inlined `em`\n';
+  out +=
+    '// values, aliased from Primitives.json) and a font-size/line-height\n';
+  out +=
+    '// scale that references the invariant font scale above (`var(--eds-f-\n';
+  out +=
+    '// size-*)` / `var(--eds-f-line-height-*)`) rather than duplicating its\n';
+  out +=
+    '// values. Mobile-first: `mobile` is the default, `tablet`/`desktop` are\n';
+  out +=
+    '// overrides applied via `@media (min-width: ...)` in _custom-properties.scss.\n\n';
+  out += `$eds-typography-responsive: ${renderScssMap(nested)} !default;\n`;
+  return out;
+}
+
+// -----------------------------------------------------------------------
 // 3. _custom-properties.scss
 // -----------------------------------------------------------------------
 
@@ -376,22 +525,79 @@ function buildCustomPropertyLines() {
   };
 }
 
+// CSS custom property lines for one breakpoint's letter-spacing + size
+// tokens - see `letterSpacingEntries`/`sizeEntries` above for how each
+// value is derived (inlined `em` for letter-spacing, `var(--eds-f-*)`
+// reference for size).
+function responsiveTypographyLines(flat) {
+  return Object.keys(flat)
+    .filter(
+      (key) =>
+        key.startsWith('typography/letter-spacing/') ||
+        key.startsWith('typography/size/'),
+    )
+    .sort()
+    .map((key) => {
+      const segments = key.split('/');
+      const varName = cssVarName('eds', segments);
+      const value =
+        segments[1] === 'letter-spacing'
+          ? percentStringToEm(flat[key].$value)
+          : `var(${cssVarName('eds', flat[key].$extensions['com.figma.aliasData'].targetVariableName.split('/'))})`;
+      return `  ${varName}: ${value};`;
+    });
+}
+
+// CSS custom property lines for one breakpoint's grid tokens.
+function gridLines(flat) {
+  const grid = breakpointGrid(flat);
+  return Object.keys(grid).map((key) => {
+    const varName = cssVarName('eds', ['grid', key]);
+    const raw = grid[key];
+    let value;
+    if (key === 'columns') value = `${raw}`;
+    else if (key === 'gutter' || key === 'margin') value = pxToRem(raw);
+    else value = `${raw}px`; // min-width / max-width
+    return `  ${varName}: ${value};`;
+  });
+}
+
 function buildCustomPropertiesScss() {
   const { restLines, lightColorLines, darkColorLines } =
     buildCustomPropertyLines();
+  const [, mobileFlat] = BREAKPOINTS.find(([name]) => name === 'mobile');
+  const [, tabletFlat] = BREAKPOINTS.find(([name]) => name === 'tablet');
+  const [, desktopFlat] = BREAKPOINTS.find(([name]) => name === 'desktop');
+  const tabletMinWidth = breakpointGrid(tabletFlat)['min-width'];
+  const desktopMinWidth = breakpointGrid(desktopFlat)['min-width'];
 
   let out = GENERATED_BANNER;
   out += '\n:root {\n';
   out += '  // Mode-invariant tokens (spacing, sizing, font, border-radius,\n';
   out += '  // border-width, opacity, shadow offset/blur/spread)\n';
   out += `${restLines.join('\n')}\n\n`;
+  out += '  // Responsive typography + grid — Mobile (default, mobile-first)\n';
+  out += `${responsiveTypographyLines(mobileFlat).join('\n')}\n`;
+  out += `${gridLines(mobileFlat).join('\n')}\n\n`;
   out += '  // Semantic color tokens — light mode (default)\n';
   out += `${lightColorLines.join('\n')}\n`;
   out += '}\n\n';
   out += '[data-theme="dark"] {\n';
   out += '  // Semantic color tokens — dark mode\n';
   out += `${darkColorLines.join('\n')}\n`;
-  out += '}\n';
+  out += '}\n\n';
+  out += `@media (width >= ${tabletMinWidth}px) {\n`;
+  out += '  :root {\n';
+  out += '    // Responsive typography + grid — Tablet\n';
+  out += `${responsiveTypographyLines(tabletFlat).join('\n')}\n`;
+  out += `${gridLines(tabletFlat).join('\n')}\n`;
+  out += '  }\n}\n\n';
+  out += `@media (width >= ${desktopMinWidth}px) {\n`;
+  out += '  :root {\n';
+  out += '    // Responsive typography + grid — Desktop\n';
+  out += `${responsiveTypographyLines(desktopFlat).join('\n')}\n`;
+  out += `${gridLines(desktopFlat).join('\n')}\n`;
+  out += '  }\n}\n';
   return out;
 }
 
@@ -400,7 +606,7 @@ function buildCustomPropertiesScss() {
 // -----------------------------------------------------------------------
 
 function buildTokensJson() {
-  const out = { primitives: {}, light: {}, dark: {} };
+  const out = { primitives: {}, light: {}, dark: {}, breakpoints: {} };
   Object.keys(primitives).forEach((key) => {
     const node = primitives[key];
     out.primitives[key] = { type: node.$type, value: node.$value };
@@ -413,6 +619,18 @@ function buildTokensJson() {
       const node = dict[key];
       const alias = node.$extensions && node.$extensions['com.figma.aliasData'];
       out[modeName][key] = {
+        type: node.$type,
+        value: node.$value,
+        ...(alias ? { aliasOf: alias.targetVariableName } : {}),
+      };
+    });
+  });
+  BREAKPOINTS.forEach(([name, flat]) => {
+    out.breakpoints[name] = {};
+    Object.keys(flat).forEach((key) => {
+      const node = flat[key];
+      const alias = node.$extensions && node.$extensions['com.figma.aliasData'];
+      out.breakpoints[name][key] = {
         type: node.$type,
         value: node.$value,
         ...(alias ? { aliasOf: alias.targetVariableName } : {}),
@@ -450,7 +668,11 @@ async function main() {
       lightSplit.rest,
       ['font'],
       '// Mode-invariant typography scale.',
-    ),
+    ) + buildResponsiveTypographyScss(),
+  );
+  fs.writeFileSync(
+    path.join(MAPS_DIR, 'breakpoint.scss'),
+    buildBreakpointMapsScss(),
   );
   fs.writeFileSync(
     path.join(MAPS_DIR, 'shape.scss'),
@@ -486,6 +708,7 @@ async function main() {
     path.join(MAPS_DIR, 'color.scss'),
     path.join(MAPS_DIR, 'spacing.scss'),
     path.join(MAPS_DIR, 'typography.scss'),
+    path.join(MAPS_DIR, 'breakpoint.scss'),
     path.join(MAPS_DIR, 'shape.scss'),
     path.join(MAPS_DIR, 'opacity.scss'),
     path.join(ROOT, '_custom-properties.scss'),

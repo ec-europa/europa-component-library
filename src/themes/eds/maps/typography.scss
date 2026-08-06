@@ -86,3 +86,286 @@ $eds-font: (
     'paragraph': 1.5em,
   ),
 ) !default;
+
+// Responsive typography: per-breakpoint letter-spacing (inlined `em`
+// values, aliased from Primitives.json) and a font-size/line-height
+// scale that references the invariant font scale above (`var(--eds-f-
+// size-*)` / `var(--eds-f-line-height-*)`) rather than duplicating its
+// values. Mobile-first: `mobile` is the default, `tablet`/`desktop` are
+// overrides applied via `@media (min-width: ...)` in _custom-properties.scss.
+
+$eds-typography-responsive: (
+  'mobile': (
+    'letter-spacing': (
+      's': 0.02em,
+      'xs': 0.01em,
+      'default': 0,
+      'neg-xs': -0.01em,
+      'neg-s': 0.02em,
+    ),
+    'size': (
+      'display': (
+        'l': (
+          'font-size': var(--eds-f-size-5xl),
+          'line-height': var(--eds-f-line-height-2xl),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-6xl),
+          'line-height': var(--eds-f-line-height-4xl),
+        ),
+      ),
+      'heading': (
+        'xs': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        's': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-xl),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-2xl),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        '2xl': (
+          'font-size': var(--eds-f-size-4xl),
+          'line-height': var(--eds-f-line-height-2xl),
+        ),
+      ),
+      'paragraph': (
+        's': (
+          'font-size': var(--eds-f-size-s),
+          'line-height': var(--eds-f-line-height-s),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-xl),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+      ),
+      'label': (
+        's': (
+          'font-size': var(--eds-f-size-s),
+          'line-height': var(--eds-f-line-height-s),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+      ),
+      'microcopy': (
+        'm': (
+          'font-size': var(--eds-f-size-xs),
+          'line-height': var(--eds-f-line-height-xs),
+        ),
+      ),
+      'supportive': (
+        'm': (
+          'font-size': var(--eds-f-size-2xs),
+          'line-height': var(--eds-f-line-height-2xs),
+        ),
+      ),
+    ),
+  ),
+  'tablet': (
+    'letter-spacing': (
+      's': 0.02em,
+      'xs': 0.01em,
+      'default': 0,
+      'neg-xs': -0.01em,
+      'neg-s': 0.02em,
+    ),
+    'size': (
+      'display': (
+        'l': (
+          'font-size': var(--eds-f-size-7xl),
+          'line-height': var(--eds-f-line-height-6xl),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-8xl),
+          'line-height': var(--eds-f-line-height-9xl),
+        ),
+      ),
+      'heading': (
+        'xs': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        's': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-xl),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-2xl),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-4xl),
+          'line-height': var(--eds-f-line-height-2xl),
+        ),
+        '2xl': (
+          'font-size': var(--eds-f-size-5xl),
+          'line-height': var(--eds-f-line-height-4xl),
+        ),
+      ),
+      'paragraph': (
+        's': (
+          'font-size': var(--eds-f-size-s),
+          'line-height': var(--eds-f-line-height-s),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-2xl),
+          'line-height': var(--eds-f-line-height-xl),
+        ),
+      ),
+      'label': (
+        's': (
+          'font-size': var(--eds-f-size-s),
+          'line-height': var(--eds-f-line-height-s),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+      ),
+      'microcopy': (
+        'm': (
+          'font-size': var(--eds-f-size-xs),
+          'line-height': var(--eds-f-line-height-xs),
+        ),
+      ),
+      'supportive': (
+        'm': (
+          'font-size': var(--eds-f-size-2xs),
+          'line-height': var(--eds-f-line-height-2xs),
+        ),
+      ),
+    ),
+  ),
+  'desktop': (
+    'letter-spacing': (
+      's': 0.02em,
+      'xs': 0.01em,
+      'default': 0,
+      'neg-xs': -0.01em,
+      'neg-s': -0.02em,
+    ),
+    'size': (
+      'display': (
+        'l': (
+          'font-size': var(--eds-f-size-8xl),
+          'line-height': var(--eds-f-line-height-9xl),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-9xl),
+          'line-height': var(--eds-f-line-height-10xl),
+        ),
+      ),
+      'heading': (
+        'xs': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        's': (
+          'font-size': var(--eds-f-size-xl),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-3xl),
+          'line-height': var(--eds-f-line-height-xl),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-4xl),
+          'line-height': var(--eds-f-line-height-2xl),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-5xl),
+          'line-height': var(--eds-f-line-height-4xl),
+        ),
+        '2xl': (
+          'font-size': var(--eds-f-size-6xl),
+          'line-height': var(--eds-f-line-height-6xl),
+        ),
+      ),
+      'paragraph': (
+        's': (
+          'font-size': var(--eds-f-size-s),
+          'line-height': var(--eds-f-line-height-s),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+        'xl': (
+          'font-size': var(--eds-f-size-3xl),
+          'line-height': var(--eds-f-line-height-2xl),
+        ),
+      ),
+      'label': (
+        's': (
+          'font-size': var(--eds-f-size-s),
+          'line-height': var(--eds-f-line-height-s),
+        ),
+        'm': (
+          'font-size': var(--eds-f-size-m),
+          'line-height': var(--eds-f-line-height-m),
+        ),
+        'l': (
+          'font-size': var(--eds-f-size-l),
+          'line-height': var(--eds-f-line-height-l),
+        ),
+      ),
+      'microcopy': (
+        'm': (
+          'font-size': var(--eds-f-size-xs),
+          'line-height': var(--eds-f-line-height-xs),
+        ),
+      ),
+      'supportive': (
+        'm': (
+          'font-size': var(--eds-f-size-2xs),
+          'line-height': var(--eds-f-line-height-2xs),
+        ),
+      ),
+    ),
+  ),
+) !default;

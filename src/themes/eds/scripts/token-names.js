@@ -39,6 +39,12 @@ const CATEGORY_ABBREVIATIONS = {
   'border-width': 'bw',
   opacity: 'op',
   shadow: 'sh',
+  // Breakpoint-scoped tokens (see Mobile/Tablet/Desktop.tokens.json):
+  // 'typography' is a distinct, responsive type scale (font-size +
+  // line-height per breakpoint, referencing the 'font' scale above rather
+  // than duplicating it) and 'grid' is the per-breakpoint layout grid.
+  typography: 'ty',
+  grid: 'gr',
 };
 
 function cssVarName(prefix, pathSegments) {
