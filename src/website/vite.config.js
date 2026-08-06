@@ -101,6 +101,8 @@ export default defineConfig(({ command }) => {
                 targetUrl = `http://localhost:6006${req.url.replace('/playground/ec', '')}`;
               } else if (req.url.startsWith('/playground/eu/')) {
                 targetUrl = `http://localhost:6006${req.url.replace('/playground/eu', '')}`;
+              } else if (req.url.startsWith('/playground/eds/')) {
+                targetUrl = `http://localhost:6006${req.url.replace('/playground/eds', '')}`;
               } else if (req.url.startsWith('/apis/')) {
                 targetUrl = `http://localhost:6006${req.url.replace('/apis', '')}`;
               }
