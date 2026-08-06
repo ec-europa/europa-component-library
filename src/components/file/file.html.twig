@@ -198,11 +198,13 @@
 
           {# Primary meta #}
           {% if _primary_meta is not empty and _primary_meta is iterable %}
-            <ul class="ecl-file__primary-meta">
+            {% set _tag_meta_list = _primary_meta|length == 1 ? 'div' : 'ul' %}
+            {% set _tag_meta_item = _primary_meta|length == 1 ? 'div' : 'li' %}
+            <{{ _tag_meta_list }} class="ecl-file__primary-meta">
               {% for _meta_item in _primary_meta %}
-                <li class="ecl-file__primary-meta-item">{{ _meta_item }}</li>
+                <{{ _tag_meta_item }} class="ecl-file__primary-meta-item">{{ _meta_item }}</{{ _tag_meta_item }}>
               {% endfor %}
-            </ul>
+            </{{ _tag_meta_list }}>
           {% endif %}
 
           {# List #}

@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import specs from './demo/data';
 import specsPoll from './demo/data-poll';
@@ -13,11 +14,16 @@ const getArgs = () => {
     fullWidth: false,
   };
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = () => {
   return {
+    ...getColorModeControls(),
     withBackground: {
       name: 'with background',
       control: {
@@ -37,6 +43,8 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   data.with_background = args.withBackground;
   data.full_width = args.fullWidth;
+  data.color_mode = args.color_mode;
+
   if (data.full_width) {
     data.with_background = true;
   }
