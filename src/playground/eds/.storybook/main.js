@@ -9,6 +9,7 @@ const addons = [
   '@storybook/addon-essentials',
   '@storybook/addon-links',
   '@storybook/addon-a11y',
+  '@storybook/addon-themes',
 ];
 
 let staticDirs = [

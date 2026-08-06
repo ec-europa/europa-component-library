@@ -34,66 +34,211 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;');
 }
 
-function restKeysByPrefix(prefix) {
+function restKeysByPrefix(prefix, excludePrefix) {
   return Object.keys(light).filter(
-    (key) => key.startsWith(prefix) && light[key].$type !== 'color',
+    (key) =>
+      key.startsWith(prefix) &&
+      light[key].$type !== 'color' &&
+      !(excludePrefix && key.startsWith(excludePrefix)),
   );
 }
 
-function buildColorSections() {
-  const groups = groupColorTokens(light);
-  return Object.keys(groups)
-    .sort()
-    .map((groupName) => {
-      const swatches = groups[groupName]
-        .map((segments) => {
-          const varName = cssVarName('eds', segments);
-          const label = segments.slice(2).join(' / ') || segments[1];
-          return `        <div class="swatch">
-          <div class="swatch-color" style="background: var(${varName})"></div>
-          <div class="swatch-label">${escapeHtml(label)}</div>
-          <code class="swatch-var">${varName}</code>
-        </div>`;
-        })
-        .join('\n');
-      return `      <div class="group">
-        <h3>${escapeHtml(groupName)}</h3>
-        <div class="swatch-grid">
-${swatches}
-        </div>
+function renderGroup(title, innerHtml) {
+  return `      <div class="group">
+        <h3>${escapeHtml(title)}</h3>
+${innerHtml}
       </div>`;
-    })
+}
+
+function renderSwatchGrid(items) {
+  return `        <div class="swatch-grid">
+${items
+  .map(
+    (item) => `          <div class="swatch">
+            <div class="swatch-color" style="background: ${item.background}"></div>
+            <div class="swatch-label">${escapeHtml(item.label)}</div>
+            <code class="swatch-var">${escapeHtml(item.code)}</code>
+          </div>`,
+  )
+  .join('\n')}
+        </div>`;
+}
+
+// Semantic color group (`groupColorTokens`'s `segments[1]` groups, e.g.
+// 'surface', 'on-surface', ...) - swatches reference the real
+// `var(--eds-*)` custom property, resolved live by the compiled `ecl-eds.css`.
+function buildSemanticColorGroup(title, segmentsList) {
+  const items = segmentsList.map((segments) => {
+    const varName = cssVarName('eds', segments);
+    return {
+      background: `var(${varName})`,
+      label: segments.slice(2).join(' / ') || segments[1],
+      code: varName,
+    };
+  });
+  return renderGroup(title, renderSwatchGrid(items));
+}
+
+// Primitive color group (`groupPrimitiveColorTokens`'s groups). No
+// `var(--eds-*)` to reference for these (see the `primitiveColors` comment
+// above) - each swatch gets its background as a plain resolved hex, shown
+// as its label too.
+function buildPrimitiveColorGroup(title, segmentsList) {
+  const items = segmentsList.map((segments) => {
+    const key = segments.join('/');
+    const hex = colorToHex(primitiveColors[key].$value);
+    return {
+      background: hex,
+      label: segments[segments.length - 1],
+      code: hex,
+    };
+  });
+  return renderGroup(title, renderSwatchGrid(items));
+}
+
+// Renders an explicitly ordered subset of a groups dict (as opposed to the
+// dict's own, alphabetical, key order) with curated display labels - used
+// so each story can follow the design team's intended reading order (e.g.
+// domain colors grouped by hue family, not alphabetically) instead of
+// whatever order the source JSON happens to produce. A given groups dict is
+// legitimately split across several stories (e.g. primitives span "UI
+// color primitives" / "Functional colors" / "Alpha colors" / "Domain
+// colors"), so this only flags order entries with no matching tokens - it
+// does NOT flag "unlisted" tokens, since any single call only ever sees its
+// own story's slice of the full dict. See `warnOnUncoveredGroups` for the
+// full-coverage check.
+function buildOrderedGroupSections(order, groups, buildFn) {
+  const missing = order.filter(([key]) => !groups[key]);
+  if (missing.length) {
+    console.warn(
+      `[eds-tokens] no tokens found for: ${missing.map(([key]) => key).join(', ')}`,
+    );
+  }
+  return order
+    .filter(([key]) => groups[key])
+    .map(([key, label]) => buildFn(label, groups[key]))
     .join('\n');
 }
 
-// No `var(--eds-*)` to reference for these (see the `primitiveColors`
-// comment above) - each swatch gets its background as a plain resolved
-// hex, and shows that hex (instead of a custom property name) as its label.
-function buildPrimitiveColorSections() {
+// Full-coverage check: warns if the source tokens ever grow a new group
+// (e.g. a new domain palette added in Figma) that none of the curated
+// ORDER lists below account for - run once against the *union* of every
+// order list that draws from the same `groups` dict, not per-story.
+function warnOnUncoveredGroups(description, groups, coveredKeys) {
+  const covered = new Set(coveredKeys);
+  const uncovered = Object.keys(groups).filter((key) => !covered.has(key));
+  if (uncovered.length) {
+    console.warn(
+      `[eds-tokens] ${description} present but not shown in any story: ${uncovered.join(', ')}`,
+    );
+  }
+}
+
+// Display order + curated labels, per the design team's requested reading
+// order (UI primitives, then functional, alpha, domain palettes; semantic
+// colors grouped by role, border color living under "Border" instead).
+const UI_PRIMITIVE_COLOR_ORDER = [
+  ['european-blue', 'European Blue'],
+  ['silver-fog', 'Silver Fog'],
+  ['graphite', 'Graphite'],
+  ['sunrise-orange', 'Sunrise Orange'],
+];
+
+const FUNCTIONAL_COLOR_ORDER = [
+  ['functional/red', 'Red'],
+  ['functional/orange', 'Orange'],
+  ['functional/green', 'Green'],
+  ['functional/blue', 'Blue'],
+];
+
+const ALPHA_COLOR_ORDER = [
+  ['alpha/silver-fog/0', 'Silver Fog / 0'],
+  ['alpha/silver-fog/950', 'Silver Fog / 950'],
+  ['alpha/graphite/0', 'Graphite / 0'],
+  ['alpha/graphite/950', 'Graphite / 950'],
+];
+
+const DOMAIN_COLOR_ORDER = [
+  ['domain/purple-violet', 'Purple violet'],
+  ['domain/purple', 'Purple'],
+  ['domain/blue-navy', 'Blue navy'],
+  ['domain/blue-electric', 'Blue electric'],
+  ['domain/green-dark', 'Green dark'],
+  ['domain/green-pine', 'Green pine'],
+  ['domain/blue-ocean', 'Blue ocean'],
+  ['domain/green', 'Green'],
+  ['domain/green-lemon', 'Green lemon'],
+  ['domain/yellow-gold', 'Yellow gold'],
+  ['domain/orange', 'Orange'],
+  ['domain/orange-abricot', 'Orange abricot'],
+  ['domain/red-tomato', 'Red tomato'],
+  ['domain/red-crayola', 'Red crayola'],
+  ['domain/warm-grey', 'Warm grey'],
+];
+
+const SEMANTIC_COLOR_ORDER = [
+  ['surface', 'Surface'],
+  ['on-surface', 'On surface'],
+  ['foreground', 'Foreground'],
+  ['link', 'Link'],
+  ['focus', 'Focus'],
+  ['alpha', 'Alpha'],
+];
+
+warnOnUncoveredGroups(
+  'primitive color groups',
+  groupPrimitiveColorTokens(primitiveColors),
+  [
+    ...UI_PRIMITIVE_COLOR_ORDER,
+    ...FUNCTIONAL_COLOR_ORDER,
+    ...ALPHA_COLOR_ORDER,
+    ...DOMAIN_COLOR_ORDER,
+  ].map(([key]) => key),
+);
+
+// 'border' is deliberately excluded from SEMANTIC_COLOR_ORDER - it's shown
+// in the "Border" story instead (see `buildBorderColorSection`).
+warnOnUncoveredGroups('semantic color groups', groupColorTokens(light), [
+  ...SEMANTIC_COLOR_ORDER.map(([key]) => key),
+  'border',
+]);
+
+function buildPrimitiveColorSections(order) {
   const groups = groupPrimitiveColorTokens(primitiveColors);
-  return Object.keys(groups)
-    .sort()
-    .map((groupName) => {
-      const swatches = groups[groupName]
-        .map((segments) => {
-          const key = segments.join('/');
-          const hex = colorToHex(primitiveColors[key].$value);
-          const label = segments[segments.length - 1];
-          return `        <div class="swatch">
-          <div class="swatch-color" style="background: ${hex}"></div>
-          <div class="swatch-label">${escapeHtml(label)}</div>
-          <code class="swatch-var">${hex}</code>
-        </div>`;
-        })
-        .join('\n');
-      return `      <div class="group">
-        <h3>${escapeHtml(groupName)}</h3>
-        <div class="swatch-grid">
-${swatches}
-        </div>
-      </div>`;
+  return buildOrderedGroupSections(order, groups, buildPrimitiveColorGroup);
+}
+
+function buildSemanticColorSections(order) {
+  const groups = groupColorTokens(light);
+  return buildOrderedGroupSections(order, groups, buildSemanticColorGroup);
+}
+
+// The semantic 'border' group is shown in the "Border" story (next to
+// border-radius/border-width) rather than "Semantic colors", so it's the
+// one semantic color group excluded from SEMANTIC_COLOR_ORDER above.
+function buildBorderColorSection() {
+  const groups = groupColorTokens(light);
+  return buildSemanticColorGroup('Border color', groups.border);
+}
+
+function buildScaleRows(keys, renderPreview) {
+  const rows = keys
+    .map((key) => {
+      const segments = key.split('/');
+      const step = segments[segments.length - 1];
+      const varName = cssVarName('eds', segments);
+      return `          <div class="scale-row">
+            <code class="scale-step">${escapeHtml(step)}</code>
+            ${renderPreview(varName)}
+            <code class="scale-var">${varName}</code>
+          </div>`;
     })
     .join('\n');
+  return `        <div class="scale-list">\n${rows}\n        </div>`;
+}
+
+function buildScaleGroup(title, keys, renderPreview) {
+  return renderGroup(title, buildScaleRows(keys, renderPreview));
 }
 
 function buildTypographySection() {
@@ -141,21 +286,6 @@ ${rows}
       </div>`;
 }
 
-function buildScaleSection(prefix, renderPreview) {
-  return restKeysByPrefix(prefix)
-    .map((key) => {
-      const segments = key.split('/');
-      const step = segments[segments.length - 1];
-      const varName = cssVarName('eds', segments);
-      return `        <div class="scale-row">
-          <code class="scale-step">${escapeHtml(step)}</code>
-          ${renderPreview(varName)}
-          <code class="scale-var">${varName}</code>
-        </div>`;
-    })
-    .join('\n');
-}
-
 function buildShadowSection() {
   const levels = Object.keys(light)
     .filter((key) => /^shadow\/elevation\/level-\d+\/color$/.test(key))
@@ -172,7 +302,7 @@ function buildShadowSection() {
     .join('\n');
 }
 
-const markup = `<style>
+const SHARED_STYLES = `<style>
   .eds-tokens * {
     box-sizing: border-box;
   }
@@ -184,10 +314,6 @@ const markup = `<style>
     min-height: 100vh;
   }
   .eds-tokens header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--eds-sp-m);
     margin-bottom: var(--eds-sp-xl);
     padding-bottom: var(--eds-sp-m);
     border-bottom: var(--eds-bw-xs) solid var(--eds-c-border-divider);
@@ -206,15 +332,6 @@ const markup = `<style>
     letter-spacing: 0.04em;
     color: var(--eds-c-foreground-subtle);
     margin: 0 0 var(--eds-sp-s);
-  }
-  .eds-tokens button {
-    font: inherit;
-    padding: var(--eds-sp-xs) var(--eds-sp-m);
-    border-radius: var(--eds-br-s);
-    border: var(--eds-bw-xs) solid var(--eds-c-border-default);
-    background: var(--eds-c-surface-elevation-default);
-    color: var(--eds-c-foreground-default);
-    cursor: pointer;
   }
   .eds-tokens .section-note {
     font-size: var(--eds-f-size-xs);
@@ -297,109 +414,141 @@ const markup = `<style>
       0.5rem -0.5rem,
       -0.5rem 0px;
   }
-</style>
+</style>`;
+
+// Wraps a single story's `<section>...</section>` body with the shared
+// style block and page header, and returns a Storybook HTML-framework
+// render function for it - every named export below is just
+// `renderTokensPage(sectionHtml)`.
+function renderTokensPage(sectionHtml) {
+  const markup = `${SHARED_STYLES}
 <div class="eds-tokens">
   <header>
     <h1>EDS design tokens</h1>
-    <button type="button" id="eds-theme-toggle">Toggle dark mode</button>
   </header>
+${sectionHtml}
+</div>`;
+  return () => {
+    const container = document.createElement('div');
+    container.innerHTML = markup;
+    return container;
+  };
+}
 
-  <section>
-    <h2>Color</h2>
-${buildColorSections()}
-  </section>
+export default {
+  title: 'EDS/Design tokens',
+};
 
+// One named export per token category (mirrors how e.g. button.story.js
+// splits Primary/Secondary/Tertiary into separate named exports/stories
+// within a single file, rather than one file per variant) - this got split
+// out of a single giant "everything on one page" story once that page grew
+// too big to load/scan comfortably.
+
+export const UiColorPrimitives = renderTokensPage(`
   <section>
-    <h2>Primitive colors</h2>
+    <h2>UI color primitives</h2>
     <p class="section-note">
-      Reference only — not exposed as CSS custom properties, shown here as
-      resolved hex values rather than <code>var(--eds-*)</code>.
+      Reference only — primitive colors are not exposed as CSS custom
+      properties, shown here as resolved hex values rather than
+      <code>var(--eds-*)</code>.
     </p>
-${buildPrimitiveColorSections()}
+${buildPrimitiveColorSections(UI_PRIMITIVE_COLOR_ORDER)}
   </section>
+`);
+UiColorPrimitives.storyName = 'UI color primitives';
 
+export const FunctionalColors = renderTokensPage(`
   <section>
-    <h2>Typography</h2>
-${buildTypographySection()}
+    <h2>Functional colors</h2>
+${buildPrimitiveColorSections(FUNCTIONAL_COLOR_ORDER)}
   </section>
+`);
+FunctionalColors.storyName = 'Functional colors';
 
+export const AlphaColors = renderTokensPage(`
   <section>
-    <h2>Spacing</h2>
-    <div class="scale-list">
-${buildScaleSection(
-  'spacing/',
-  (varName) => `<div class="scale-bar" style="width: var(${varName});"></div>`,
-)}
-    </div>
+    <h2>Alpha colors</h2>
+${buildPrimitiveColorSections(ALPHA_COLOR_ORDER)}
   </section>
+`);
+AlphaColors.storyName = 'Alpha colors';
 
+export const DomainColors = renderTokensPage(`
+  <section>
+    <h2>Domain colors</h2>
+${buildPrimitiveColorSections(DOMAIN_COLOR_ORDER)}
+  </section>
+`);
+DomainColors.storyName = 'Domain colors';
+
+export const SemanticColors = renderTokensPage(`
+  <section>
+    <h2>Semantic colors</h2>
+${buildSemanticColorSections(SEMANTIC_COLOR_ORDER)}
+  </section>
+`);
+SemanticColors.storyName = 'Semantic colors';
+
+const scaleBarPreview = (varName) =>
+  `<div class="scale-bar" style="width: var(${varName});"></div>`;
+
+export const Sizing = renderTokensPage(`
   <section>
     <h2>Sizing</h2>
-    <div class="scale-list">
-${buildScaleSection(
-  'sizing/',
-  (varName) => `<div class="scale-bar" style="width: var(${varName});"></div>`,
-)}
-    </div>
+${buildScaleGroup('Spacers', restKeysByPrefix('spacing/'), scaleBarPreview)}
+${buildScaleGroup('Width and height', restKeysByPrefix('sizing/', 'sizing/icon/'), scaleBarPreview)}
+${buildScaleGroup('Icon size', restKeysByPrefix('sizing/icon/'), scaleBarPreview)}
   </section>
+`);
+Sizing.storyName = 'Sizing';
 
+export const Border = renderTokensPage(`
   <section>
-    <h2>Border radius</h2>
-    <div class="scale-list">
-${buildScaleSection(
-  'border-radius/',
+    <h2>Border</h2>
+${buildScaleGroup(
+  'Border radius',
+  restKeysByPrefix('border-radius/'),
   (varName) =>
     `<div class="shape-box" style="border-radius: var(${varName});"></div>`,
 )}
-    </div>
-  </section>
-
-  <section>
-    <h2>Border width</h2>
-    <div class="scale-list">
-${buildScaleSection(
-  'border-width/',
+${buildScaleGroup(
+  'Border width',
+  restKeysByPrefix('border-width/'),
   (varName) =>
     `<div class="shape-box" style="border: var(${varName}) solid var(--eds-c-border-default);"></div>`,
 )}
-    </div>
+${buildBorderColorSection()}
   </section>
+`);
+Border.storyName = 'Border';
 
+export const Opacity = renderTokensPage(`
+  <section>
+    <h2>Opacity</h2>
+${buildScaleRows(
+  restKeysByPrefix('opacity/'),
+  (varName) =>
+    `<div class="opacity-box" style="opacity: var(${varName});"></div>`,
+)}
+  </section>
+`);
+Opacity.storyName = 'Opacity';
+
+export const Shadow = renderTokensPage(`
   <section>
     <h2>Shadow</h2>
     <div class="scale-list">
 ${buildShadowSection()}
     </div>
   </section>
+`);
+Shadow.storyName = 'Shadow';
 
+export const Typography = renderTokensPage(`
   <section>
-    <h2>Opacity</h2>
-    <div class="scale-list">
-${buildScaleSection(
-  'opacity/',
-  (varName) =>
-    `<div class="opacity-box" style="opacity: var(${varName});"></div>`,
-)}
-    </div>
+    <h2>Typography</h2>
+${buildTypographySection()}
   </section>
-</div>`;
-
-export default {
-  title: 'EDS/Design tokens',
-};
-
-export const TokensShowcase = () => {
-  const container = document.createElement('div');
-  container.innerHTML = markup;
-  // A <script> tag would be inert here (innerHTML never executes embedded
-  // scripts), so the toggle is wired up imperatively after insertion instead.
-  const toggle = container.querySelector('#eds-theme-toggle');
-  toggle.addEventListener('click', () => {
-    const root = document.documentElement;
-    const isDark = root.getAttribute('data-theme') === 'dark';
-    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  });
-  return container;
-};
-
-TokensShowcase.storyName = 'EDS tokens';
+`);
+Typography.storyName = 'Typography';
