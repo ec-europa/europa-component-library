@@ -107,9 +107,11 @@
           {{- _language_selector.eu_category -}}
         </div>
         {% endif %}
-        <ul class="ecl-site-header__language-list" translate="no">
+        {% set _tag_eu_list = _language_selector.overlay.items|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_eu_item = _language_selector.overlay.items|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_eu_list }} class="ecl-site-header__language-list" translate="no">
           {% for _item in _language_selector.overlay.items %}
-          <li class="ecl-site-header__language-item">
+          <{{ _tag_eu_item }} class="ecl-site-header__language-item">
             {% set _link_label %}
               <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
               <span class="ecl-site-header__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label|default('') }}</span>
@@ -128,9 +130,9 @@
                 { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
               ],
             } only %}
-          </li>
+          </{{ _tag_eu_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_eu_list }}>
       </div>
       {% endif %}
 
@@ -142,9 +144,11 @@
           {{- _language_selector.non_eu_category -}}
         </div>
         {% endif %}
-        <ul class="ecl-site-header__language-list" translate="no">
+        {% set _tag_non_eu_list = _language_selector.overlay.non_eu_items|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_non_eu_item = _language_selector.overlay.non_eu_items|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_non_eu_list }} class="ecl-site-header__language-list" translate="no">
           {% for _item in _language_selector.overlay.non_eu_items %}
-          <li class="ecl-site-header__language-item">
+          <{{ _tag_non_eu_item }} class="ecl-site-header__language-item">
           {% set _link_label %}
             <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
             <span class="ecl-site-header__language-link-label">{{ _item.label|default('') }}</span>
@@ -165,9 +169,9 @@
                 { name: 'hreflang', value: _item.lang|default('') },
               ],
             } only %}
-          </li>
+          </{{ _tag_non_eu_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_non_eu_list }}>
       </div>
       {% endif %}
     </div>
