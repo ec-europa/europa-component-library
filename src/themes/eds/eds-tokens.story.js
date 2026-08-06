@@ -708,19 +708,26 @@ const SHARED_STYLES = `<style>
     margin: var(--eds-sp-2xl) 0 var(--eds-sp-m);
   }
   .eds-tokens h3 {
-    font-size: var(--eds-f-size-s);
+    font-size: var(--eds-f-size-l);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--eds-c-foreground-subtle);
     margin: 0 0 var(--eds-sp-s);
   }
   .eds-tokens .section-note {
-    font-size: var(--eds-f-size-xs);
+    font-size: var(--eds-f-size-m);
     color: var(--eds-c-foreground-subtle);
     margin: calc(-1 * var(--eds-sp-s)) 0 var(--eds-sp-m);
   }
   .eds-tokens section {
     margin-bottom: var(--eds-sp-2xl);
+  }
+  .eds-tokens .section--gap-before {
+    /* Padding, not margin: an adjacent section's margin-bottom would
+       otherwise collapse straight through with this section's own h2
+       margin-top, so a plain margin-top here wouldn't add any *extra*
+       visible space over the standard section gap. */
+    padding-top: var(--eds-sp-2xl);
   }
   .eds-tokens .group {
     margin-bottom: var(--eds-sp-xl);
@@ -745,7 +752,7 @@ const SHARED_STYLES = `<style>
     word-break: break-all;
   }
   .eds-tokens .swatch-grid--compact {
-    grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
     gap: var(--eds-sp-xs);
   }
   .eds-tokens .swatch--compact .swatch-color {
@@ -759,7 +766,7 @@ const SHARED_STYLES = `<style>
   }
   .eds-tokens .pair-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: var(--eds-sp-m);
   }
   .eds-tokens .pair-item {
@@ -807,7 +814,13 @@ const SHARED_STYLES = `<style>
   }
   .eds-tokens .scale-row {
     display: grid;
-    grid-template-columns: 5rem 1fr 14rem;
+    /* The demo (scale-bar/shape-box/shadow-box/opacity-box) never exceeds
+       --eds-sz-9xl (4rem) - a fixed column sized just past that keeps the
+       var name right next to it. Giving the demo column the flexible 1fr
+       instead (as this used to) left it small and left-aligned inside a
+       wide column, pushing the var name - in a separate fixed-width
+       column after it - far off to the right. */
+    grid-template-columns: 5rem 6rem 1fr;
     align-items: center;
     gap: var(--eds-sp-m);
   }
@@ -1034,7 +1047,7 @@ export const Typography = renderTokensPage(`
 ${buildTypographySection()}
   </section>
 
-  <section>
+  <section class="section--gap-before">
     <h2>Responsive typography</h2>
     <p class="section-note">
       Each row uses the real <code>var(--eds-ty-*)</code> custom properties
