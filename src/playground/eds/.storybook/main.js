@@ -12,15 +12,16 @@ const addons = [
   '@storybook/addon-themes',
 ];
 
-let staticDirs = [
+// Unlike ec/eu (see their own main.js's FRONT-3789 comment), eds has no
+// external deploy step that copies the preset's compiled CSS/fonts in
+// after the fact - so, deliberately diverging from their pattern, always
+// include the preset's build/dist output as a staticDir, prod build or
+// not. Verified: without this, `npm run build`'s output has no `styles/`
+// or `fonts/` folder at all and the deployed Storybook renders unstyled.
+const staticDirs = [
   path.resolve(__dirname, '../../../presets/eds', outputFolder),
   path.resolve(__dirname, '../public'),
 ];
-
-// FRONT-3789 - No need for static dirs, we manually copy the files.
-if (isProd) {
-  staticDirs = [path.resolve(__dirname, '../public')];
-}
 
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons

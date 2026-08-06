@@ -13,9 +13,11 @@ cd ..
 # Build storybook
 pnpm --filter "@ecl/twig-ec-storybook" build
 pnpm --filter "@ecl/twig-eu-storybook" build
+pnpm --filter "@ecl/eds-storybook" build
 
 # Copy builds
 rm -rf ./dist/playground
 mkdir -p ./dist/playground
 cp -r ./src/playground/ec/build ./dist/playground/ec
 cp -r ./src/playground/eu/build ./dist/playground/eu
+cp -r ./src/playground/eds/build ./dist/playground/eds
