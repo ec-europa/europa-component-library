@@ -27,6 +27,11 @@ const primitiveColors = Object.fromEntries(
   ),
 );
 
+// Semantic color tokens grouped by their top-level category (surface,
+// on-surface, foreground, link, focus, alpha, border) - computed once and
+// reused everywhere below rather than re-walking `light` per section.
+const semanticGroups = groupColorTokens(light);
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -176,15 +181,6 @@ const DOMAIN_COLOR_ORDER = [
   ['domain/warm-grey', 'Warm grey'],
 ];
 
-const SEMANTIC_COLOR_ORDER = [
-  ['surface', 'Surface'],
-  ['on-surface', 'On surface'],
-  ['foreground', 'Foreground'],
-  ['link', 'Link'],
-  ['focus', 'Focus'],
-  ['alpha', 'Alpha'],
-];
-
 warnOnUncoveredGroups(
   'primitive color groups',
   groupPrimitiveColorTokens(primitiveColors),
@@ -196,10 +192,16 @@ warnOnUncoveredGroups(
   ].map(([key]) => key),
 );
 
-// 'border' is deliberately excluded from SEMANTIC_COLOR_ORDER - it's shown
-// in the "Border" story instead (see `buildBorderColorSection`).
-warnOnUncoveredGroups('semantic color groups', groupColorTokens(light), [
-  ...SEMANTIC_COLOR_ORDER.map(([key]) => key),
+// Border colors live in the "Semantic colors" story (grouped with the rest
+// of the semantic palette) rather than a separate section, so all 7
+// semantic color categories are expected here.
+warnOnUncoveredGroups('semantic color groups', semanticGroups, [
+  'surface',
+  'on-surface',
+  'foreground',
+  'link',
+  'focus',
+  'alpha',
   'border',
 ]);
 
@@ -208,17 +210,253 @@ function buildPrimitiveColorSections(order) {
   return buildOrderedGroupSections(order, groups, buildPrimitiveColorGroup);
 }
 
-function buildSemanticColorSections(order) {
-  const groups = groupColorTokens(light);
-  return buildOrderedGroupSections(order, groups, buildSemanticColorGroup);
+// Role taxonomy used to sub-group semantic color tokens within each
+// category (Surface, On-surface, Foreground, Focus, Alpha, Border) - e.g.
+// "Primary", "Highlight", "Neutral", "Inverted", "Info", "Success",
+// "Warning", "Critical", plus a few roles that exist in the source tokens
+// but weren't singled out by name: Brand, Disabled, Base (the tokens with
+// no role prefix at all, e.g. `border/default`), and a handful of
+// surface-only roles with no on-surface equivalent (Elevation, Accent,
+// Selected, Skeleton, Invisible).
+const ROLE_ORDER = [
+  'primary',
+  'highlight',
+  'neutral',
+  'inverted',
+  'info',
+  'success',
+  'warning',
+  'critical',
+  'brand',
+  'disabled',
+  'base',
+  'elevation',
+  'accent',
+  'selected',
+  'skeleton',
+  'invisible',
+];
+
+const ROLE_LABELS = {
+  primary: 'Primary',
+  highlight: 'Highlight',
+  neutral: 'Neutral',
+  inverted: 'Inverted',
+  info: 'Info',
+  success: 'Success',
+  warning: 'Warning',
+  critical: 'Critical',
+  brand: 'Brand',
+  disabled: 'Disabled',
+  base: 'Base',
+  elevation: 'Elevation',
+  accent: 'Accent',
+  selected: 'Selected',
+  skeleton: 'Skeleton',
+  invisible: 'Invisible',
+  default: 'Default',
+  contrast: 'Contrast',
+};
+
+// Link uses its own 3-way taxonomy (the base link color vs. its "inverted"
+// and "contrast" variants) rather than the general ROLE_ORDER above.
+const LINK_ROLE_ORDER = ['default', 'inverted', 'contrast'];
+
+// --- Role/step parsers --------------------------------------------------
+// Each semantic color category nests its tokens a little differently (e.g.
+// `surface/primary/default--hover` vs. `foreground/primary--hover` vs.
+// `link/inverted/default--hover`) - these pull a `{ role, step }` pair out
+// of a token's path segments so same-role tokens can be grouped (and, for
+// surface/on-surface, paired together) regardless of exactly how many path
+// levels deep that role sits, or whether a hover/pressed/etc. state is a
+// separate segment or a `--suffix` on the last one.
+
+function surfaceRoleStep(segments) {
+  const rest = segments.slice(2);
+  return rest.length === 1
+    ? { role: rest[0], step: 'default' }
+    : { role: rest[0], step: rest[1] };
 }
 
-// The semantic 'border' group is shown in the "Border" story (next to
-// border-radius/border-width) rather than "Semantic colors", so it's the
-// one semantic color group excluded from SEMANTIC_COLOR_ORDER above.
-function buildBorderColorSection() {
-  const groups = groupColorTokens(light);
-  return buildSemanticColorGroup('Border color', groups.border);
+function onSurfaceRoleStep(segments) {
+  const [role, step] = segments.slice(2);
+  return { role, step };
+}
+
+function foregroundRoleStep(segments) {
+  const leaf = segments[2];
+  if (leaf === 'disabled') return { role: 'disabled', step: 'default' };
+  if (['default', 'subtle', 'subtler', 'placeholder'].includes(leaf)) {
+    return { role: 'base', step: leaf };
+  }
+  const [role, state] = leaf.split('--');
+  return { role, step: state || 'default' };
+}
+
+function linkRoleStep(segments) {
+  const rest = segments.slice(2);
+  if (rest.length === 1) {
+    const [, state] = rest[0].split('--');
+    return { role: 'default', step: state || 'default' };
+  }
+  const [role, leaf] = rest;
+  const [, state] = leaf.split('--');
+  return { role, step: state || 'default' };
+}
+
+function focusRoleStep(segments) {
+  const leaf = segments[2];
+  return { role: leaf === 'default' ? 'base' : leaf, step: 'default' };
+}
+
+// Semantic 'alpha' is a small, distinct group from the primitive alpha
+// palettes (see UI_PRIMITIVE_COLOR_ORDER etc.) - all its tokens nest under
+// 'backdrop'.
+function alphaRoleStep(segments) {
+  const rest = segments.slice(2);
+  return rest.length === 2
+    ? { role: 'base', step: rest[1] }
+    : { role: rest[1], step: rest[2] };
+}
+
+function borderRoleStep(segments) {
+  const rest = segments.slice(2);
+  if (rest.length === 1) {
+    return rest[0] === 'disabled'
+      ? { role: 'disabled', step: 'default' }
+      : { role: 'base', step: rest[0] };
+  }
+  return { role: rest[0], step: rest[1] };
+}
+
+function indexByRoleStep(segmentsList, roleStepFn) {
+  const index = {};
+  segmentsList.forEach((segments) => {
+    const { role, step } = roleStepFn(segments);
+    index[role] = index[role] || {};
+    index[role][step] = segments;
+  });
+  return index;
+}
+
+// The role/step parsers above key a plain object by `{ role, step }`, so
+// two tokens that parse to the same pair would silently collide (the
+// second overwrites the first) instead of erroring - warn if that ever
+// happens, e.g. after a future token rename changes how a parser splits a
+// segment.
+function warnOnRoleStepCollisions(description, segmentsList, index) {
+  const indexed = Object.values(index).reduce(
+    (sum, steps) => sum + Object.keys(steps).length,
+    0,
+  );
+  if (indexed !== segmentsList.length) {
+    console.warn(
+      `[eds-tokens] ${description}: ${segmentsList.length} tokens parsed into only ${indexed} role/step slots - check for role/step collisions`,
+    );
+  }
+}
+
+function buildRoleGroupedSection(segmentsList, roleStepFn, order, description) {
+  const index = indexByRoleStep(segmentsList, roleStepFn);
+  warnOnRoleStepCollisions(description, segmentsList, index);
+  const known = new Set(order);
+  const extraRoles = Object.keys(index).filter((role) => !known.has(role));
+  if (extraRoles.length) {
+    console.warn(
+      `[eds-tokens] ${description}: roles present but not in the display order: ${extraRoles.join(', ')}`,
+    );
+  }
+  return [...order, ...extraRoles]
+    .filter((role) => index[role])
+    .map((role) =>
+      buildSemanticColorGroup(
+        ROLE_LABELS[role] || role,
+        Object.values(index[role]),
+      ),
+    )
+    .join('\n');
+}
+
+// Surface and on-surface tokens are designed to be used in pairs (a
+// background plus the text/icon color meant to sit on top of it), so
+// rather than two disconnected flat swatch grids, render one demo card per
+// pair - grouped by role like the other semantic categories, but showing
+// the actual background+foreground combination.
+function baseStepOf(step) {
+  return step.split('--')[0];
+}
+
+function pickToken(steps, step) {
+  return steps[step] || steps[baseStepOf(step)] || steps.default;
+}
+
+function buildSurfaceOnSurfacePairs(role, surfaceSteps, onSurfaceSteps) {
+  const steps = Array.from(
+    new Set([...Object.keys(surfaceSteps), ...Object.keys(onSurfaceSteps)]),
+  );
+  const items = steps
+    .map((step) => {
+      const surfaceVar = cssVarName('eds', pickToken(surfaceSteps, step));
+      const onSurfaceVar = cssVarName('eds', pickToken(onSurfaceSteps, step));
+      return `          <div class="pair-item">
+            <div class="pair-card" style="background: var(${surfaceVar}); color: var(${onSurfaceVar});">
+              <div class="pair-card-label">${escapeHtml(step)}</div>
+              <p class="pair-card-sample">The quick brown fox jumps over the lazy dog</p>
+            </div>
+            <code class="pair-card-var">${surfaceVar}</code>
+            <code class="pair-card-var">${onSurfaceVar}</code>
+          </div>`;
+    })
+    .join('\n');
+  return renderGroup(
+    ROLE_LABELS[role] || role,
+    `        <div class="pair-grid">\n${items}\n        </div>`,
+  );
+}
+
+function buildSurfaceOnSurfaceSection() {
+  const surfaceIndex = indexByRoleStep(semanticGroups.surface, surfaceRoleStep);
+  const onSurfaceIndex = indexByRoleStep(
+    semanticGroups['on-surface'],
+    onSurfaceRoleStep,
+  );
+  warnOnRoleStepCollisions('surface', semanticGroups.surface, surfaceIndex);
+  warnOnRoleStepCollisions(
+    'on-surface',
+    semanticGroups['on-surface'],
+    onSurfaceIndex,
+  );
+
+  const known = new Set(ROLE_ORDER);
+  const extraRoles = Object.keys(surfaceIndex).filter(
+    (role) => !known.has(role),
+  );
+  if (extraRoles.length) {
+    console.warn(
+      `[eds-tokens] surface: roles present but not in the display order: ${extraRoles.join(', ')}`,
+    );
+  }
+
+  return [...ROLE_ORDER, ...extraRoles]
+    .filter((role) => surfaceIndex[role])
+    .map((role) => {
+      const onSurfaceSteps = onSurfaceIndex[role];
+      if (!onSurfaceSteps) {
+        // No on-surface counterpart for this role (Elevation, Accent,
+        // Selected, Skeleton, Invisible) - plain swatches instead of
+        // fabricating a pairing the design system doesn't define.
+        return buildSemanticColorGroup(
+          ROLE_LABELS[role] || role,
+          Object.values(surfaceIndex[role]),
+        );
+      }
+      return buildSurfaceOnSurfacePairs(
+        role,
+        surfaceIndex[role],
+        onSurfaceSteps,
+      );
+    })
+    .join('\n');
 }
 
 function buildScaleRows(keys, renderPreview) {
@@ -363,6 +601,42 @@ const SHARED_STYLES = `<style>
     color: var(--eds-c-foreground-subtler);
     word-break: break-all;
   }
+  .eds-tokens .pair-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: var(--eds-sp-m);
+  }
+  .eds-tokens .pair-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--eds-sp-3xs);
+  }
+  .eds-tokens .pair-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--eds-sp-s);
+    min-height: 6rem;
+    padding: var(--eds-sp-m);
+    border-radius: var(--eds-br-s);
+    border: var(--eds-bw-xs) solid var(--eds-c-border-divider);
+  }
+  .eds-tokens .pair-card-label {
+    font-size: var(--eds-f-size-2xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+  }
+  .eds-tokens .pair-card-sample {
+    font-size: var(--eds-f-size-s);
+    margin: 0;
+  }
+  .eds-tokens .pair-card-var {
+    display: block;
+    font-size: var(--eds-f-size-2xs);
+    color: var(--eds-c-foreground-subtler);
+    word-break: break-all;
+  }
   .eds-tokens .type-list,
   .eds-tokens .scale-list {
     display: flex;
@@ -484,8 +758,38 @@ DomainColors.storyName = 'Domain colors';
 
 export const SemanticColors = renderTokensPage(`
   <section>
-    <h2>Semantic colors</h2>
-${buildSemanticColorSections(SEMANTIC_COLOR_ORDER)}
+    <h2>Surface &amp; On-surface</h2>
+    <p class="section-note">
+      Surface and on-surface colors are designed to be used as a pair - each
+      card below shows the surface color as a background with its matching
+      on-surface color as the content on top of it.
+    </p>
+${buildSurfaceOnSurfaceSection()}
+  </section>
+
+  <section>
+    <h2>Foreground</h2>
+${buildRoleGroupedSection(semanticGroups.foreground, foregroundRoleStep, ROLE_ORDER, 'foreground')}
+  </section>
+
+  <section>
+    <h2>Link</h2>
+${buildRoleGroupedSection(semanticGroups.link, linkRoleStep, LINK_ROLE_ORDER, 'link')}
+  </section>
+
+  <section>
+    <h2>Focus</h2>
+${buildRoleGroupedSection(semanticGroups.focus, focusRoleStep, ROLE_ORDER, 'focus')}
+  </section>
+
+  <section>
+    <h2>Alpha</h2>
+${buildRoleGroupedSection(semanticGroups.alpha, alphaRoleStep, ROLE_ORDER, 'alpha')}
+  </section>
+
+  <section>
+    <h2>Border</h2>
+${buildRoleGroupedSection(semanticGroups.border, borderRoleStep, ROLE_ORDER, 'border')}
   </section>
 `);
 SemanticColors.storyName = 'Semantic colors';
@@ -506,6 +810,10 @@ Sizing.storyName = 'Sizing';
 export const Border = renderTokensPage(`
   <section>
     <h2>Border</h2>
+    <p class="section-note">
+      Border colors are shown alongside the rest of the semantic palette in
+      the "Semantic colors" story.
+    </p>
 ${buildScaleGroup(
   'Border radius',
   restKeysByPrefix('border-radius/'),
@@ -518,7 +826,6 @@ ${buildScaleGroup(
   (varName) =>
     `<div class="shape-box" style="border: var(${varName}) solid var(--eds-c-border-default);"></div>`,
 )}
-${buildBorderColorSection()}
   </section>
 `);
 Border.storyName = 'Border';
