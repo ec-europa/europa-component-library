@@ -1,5 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
-import * as getSystem from '@ecl/builder/utils/getSystem';
+import getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
 
 const system = getSystem();
