@@ -591,7 +591,7 @@ export class Select {
       }
       this.visibleOptions = this.checkboxes;
 
-      this.select.parentNode.parentNode.insertBefore(
+      this.formGroup.insertBefore(
         this.selectMultiple,
         this.select.parentNode.nextSibling,
       );
