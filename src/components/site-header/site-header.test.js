@@ -38,6 +38,23 @@ describe('Site Header', () => {
       return expect(render(loggedIn)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single language item', () => {
+      expect.assertions(1);
+
+      const singleLanguageItem = {
+        ...dataEC,
+        language_selector: {
+          ...dataEC.language_selector,
+          overlay: {
+            ...dataEC.language_selector.overlay,
+            items: [dataEC.language_selector.overlay.items[0]],
+          },
+        },
+      };
+
+      return expect(render(singleLanguageItem)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
@@ -53,7 +70,7 @@ describe('Site Header', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataEC, true)),
+        await axe(await renderTwigFileAsHtml(template, dataEC)),
       ).toHaveNoViolations();
     });
   });
@@ -66,7 +83,7 @@ describe('Site Header', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataEU, true)),
+        await axe(await renderTwigFileAsHtml(template, dataEU)),
       ).toHaveNoViolations();
     });
   });

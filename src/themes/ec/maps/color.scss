@@ -391,6 +391,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'blue-400'),
     '--cm-border': map.get($color-palette, 'blue-500'),
     '--cm-border-high': map.get($color-palette, 'blue-600'),
+    '--cm-border-active': map.get($color-palette, 'blue-500'),
   ),
   'green-dark': (
     // surface
@@ -442,6 +443,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'green-dark-400'),
     '--cm-border': map.get($color-palette, 'green-dark-500'),
     '--cm-border-high': map.get($color-palette, 'green-dark-600'),
+    '--cm-border-active': map.get($color-palette, 'green-dark-600'),
   ),
   'orange': (
     // surface
@@ -494,6 +496,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'orange-400'),
     '--cm-border': map.get($color-palette, 'orange-500'),
     '--cm-border-high': map.get($color-palette, 'orange-600'),
+    '--cm-border-active': var(--c-wa-600),
   ),
   'green': (
     // surface
@@ -543,6 +546,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'green-500'),
     '--cm-border': map.get($color-palette, 'green-500'),
     '--cm-border-high': #fff,
+    '--cm-border-active': var(--c-su-700),
   ),
   'purple': (
     // surface
@@ -596,6 +600,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'purple-400'),
     '--cm-border': map.get($color-palette, 'purple-500'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'purple-600'),
   ),
   'blue-navy': (
     // surface
@@ -649,6 +654,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'blue-navy-500'),
     '--cm-border': map.get($color-palette, 'blue-navy-700'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'blue-navy-600'),
   ),
   'blue-electric': (
     // surface
@@ -713,6 +719,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'blue-electric-400'),
     '--cm-border': map.get($color-palette, 'blue-electric-400'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'blue-electric-600'),
   ),
   'blue-ocean': (
     // surface
@@ -765,6 +772,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'blue-ocean-400'),
     '--cm-border': map.get($color-palette, 'blue-ocean-400'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'blue-ocean-800'),
   ),
   'green-lemon': (
     // surface
@@ -817,6 +825,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'green-lemon-500'),
     '--cm-border': map.get($color-palette, 'green-lemon-500'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'green-lemon-800'),
   ),
   'green-pine': (
     // surface
@@ -869,6 +878,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'green-pine-500'),
     '--cm-border': map.get($color-palette, 'green-pine-600'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'green-pine-600'),
   ),
   'warm-grey': (
     // surface
@@ -922,6 +932,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'warm-grey-300'),
     '--cm-border': map.get($color-palette, 'warm-grey-400'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'warm-grey-600'),
   ),
   'red-crayola': (
     // surface
@@ -975,6 +986,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'red-crayola-300'),
     '--cm-border': map.get($color-palette, 'red-crayola-400'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'red-crayola-700'),
   ),
   'yellow-gold': (
     // surface
@@ -1030,6 +1042,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'yellow-gold-400'),
     '--cm-border': map.get($color-palette, 'yellow-gold-400'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'yellow-gold-700'),
   ),
   'purple-violet': (
     // surface
@@ -1092,6 +1105,7 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'purple-violet-300'),
     '--cm-border': map.get($color-palette, 'purple-violet-300'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'purple-violet-600'),
   ),
   'red-tomato': (
     // surface
@@ -1148,5 +1162,6 @@ $color-modes: (
     '--cm-border-medium': map.get($color-palette, 'red-tomato-400'),
     '--cm-border': map.get($color-palette, 'red-tomato-500'),
     '--cm-border-high': #fff,
+    '--cm-border-active': map.get($color-palette, 'red-tomato-700'),
   ),
 ) !default;

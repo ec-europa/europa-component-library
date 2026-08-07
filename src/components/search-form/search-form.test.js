@@ -73,7 +73,7 @@ describe('Search Form', () => {
 
     test('passes the accessibility tests', async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, data)),
+        await axe(await renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();
     });
   });
