@@ -30,6 +30,14 @@ describe('Page Header', () => {
       return expect(render(noTitle)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single meta item', () => {
+      expect.assertions(1);
+      const singleMeta = JSON.parse(JSON.stringify(demoDefault));
+      singleMeta.meta = [singleMeta.meta[0]];
+
+      return expect(render(singleMeta)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with description bottom', () => {
       expect.assertions(1);
       const descriptionBottom = JSON.parse(JSON.stringify(demoDefault));

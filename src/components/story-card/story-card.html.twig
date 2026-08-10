@@ -134,48 +134,24 @@
 
     <!-- Carousel Controls -->
   {% if _items|length > 1 %}
-    <div class="ecl-story-card__pager">
-      <button
-        class="ecl-story-card__prev"
-        data-ecl-story-card-prev
-      >
-        {% include "@ecl/icon/icon.html.twig" with {
-          icon: {
-            name: 'corner-arrow',
-            transform: 'rotate-270',
-            size: 's',
-            style: 'monochrome',
-          }
-        } %}
-        <span class="ecl-story-card__prev-label">
-          {{ _sr_prev }}
-        </span>
-      </button>
-      <div class="ecl-story-card__dots"></div>
-      <button
-        class="ecl-story-card__next"
-        data-ecl-story-card-next
-      >
-        <span class="ecl-story-card__next-label">
-          {{ _sr_next }}
-        </span>
-        {% include "@ecl/icon/icon.html.twig" with {
-          icon: {
-            name: 'corner-arrow',
-            transform: 'rotate-90',
-            size: 's',
-            style: 'monochrome',
-          }
-        } %}
-      </button>
-      <script
-        type="text/template"
-        data-ecl-story-card-dot-template
-      >
-        <button class="ecl-story-card__dot"></button>
-      </script>
-    </div>
-    {% endif %}
+    {% include "@ecl/slider/slider-pager.html.twig" with {
+      prev_label: _sr_prev,
+      next_label: _sr_next,
+      hide_label: true,
+      extra_classes:  'ecl-story-card__pager',
+      prev_extra_classes: 'ecl-story-card__prev',
+      prev_extra_attributes: [{
+        name: 'data-ecl-story-card-prev'
+      }],
+      next_extra_classes: 'ecl-story-card__next',
+      next_extra_attributes: [{
+        name: 'data-ecl-story-card-next'
+      }],
+      dots_extra_classes: 'ecl-story-card__dots',
+      dot_extra_classes: 'ecl-story-card__dot',
+      template_data_attribute: 'data-ecl-story-card-dot-template',
+    } only %}
+  {% endif %}
   </div>
 
   <!-- Desktop: Grid with Accordion -->
@@ -250,75 +226,33 @@
     </div>
     {% endfor %}
     {% if _items|length > 1 %}
-      <div class="ecl-story-card__grid-controls">
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'tertiary',
-          style: 'neutral',
-          label: _sr_prev,
-          hide_label: true,
-          icon: {
-            name: 'caret-left',
-            size: 'l',
-            family: 'phosphor',
-          },
-          extra_classes: 'ecl-story-card__grid-prev',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-prev',
-          }],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'secondary',
-          style: 'neutral',
-          label: _sr_play,
-          hide_label: true,
-          icon: {
-            name: 'play-filled',
-            size: 'l',
-            family: 'phosphor',
-          },
-          extra_classes: 'ecl-story-card__grid-play',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-play',
-          }],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'secondary',
-          style: 'neutral',
-          label: _sr_pause,
-          hide_label: true,
-          icon: {
-            name: 'pause-filled',
-            family: 'phosphor',
-            size: 'l',
-          },
-          extra_classes: 'ecl-story-card__grid-pause',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-pause',
-          }],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          type: 'button',
-          variant: 'tertiary',
-          style: 'neutral',
-          label: _sr_next,
-          hide_label: true,
-          icon: {
-            name: 'caret-right',
-            size: 'l',
-            family: 'phosphor',
-          },
-          extra_classes: 'ecl-story-card__grid-next',
-          extra_attributes: [{
-            name: 'data-ecl-story-card-grid-next',
-          }],
-        } only %}
-      </div>
+      {% include "@ecl/slider/slider-pager.html.twig" with {
+        prev_label: _sr_prev,
+        next_label: _sr_next,
+        pause_label: _sr_pause,
+        play_label: _sr_play,
+        dots: false,
+        size: 'l',
+        play_pause: true,
+        hide_label: true,
+        extra_classes: 'ecl-story-card__grid-controls',
+        prev_extra_classes: 'ecl-story-card__grid-prev',
+        prev_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-prev'
+        }],
+        next_extra_classes: 'ecl-story-card__grid-next',
+        next_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-next'
+        }],
+        play_extra_classes: 'ecl-story-card__grid-play',
+        play_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-play',
+        }],
+        pause_extra_classes: 'ecl-story-card__grid-pause',
+        pause_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-pause',
+        }],
+      } only %}
     {% endif %}
   </div>
 </section>

@@ -8,9 +8,8 @@ module.exports = {
   search_input: {
     id: 'highlighted-search-input-id',
     name: 'highlighted-search-input-name',
-    placeholder: 'Enter a search keyword',
   },
-  search_helper: "Enter the job you're looking for",
+  search_helper: 'e.g. full time, designer, writer',
   search_button: {
     label: 'Search',
   },

@@ -131,11 +131,13 @@
 
 {% set _meta_markup = '' %}
 {% if _meta is not empty %}
+  {% set _tag_meta_list = _meta|length == 1 ? 'div' : 'ul' %}
+  {% set _tag_meta_item = _meta|length == 1 ? 'div' : 'li' %}
   {% set _meta_markup %}
-    <ul class="ecl-page-header__meta">
+    <{{ _tag_meta_list }} class="ecl-page-header__meta">
       {% for _item in _meta %}
         {% if _item.label is defined %}
-          <li class="ecl-page-header__meta-item">
+          <{{ _tag_meta_item }} class="ecl-page-header__meta-item">
             {%- if _item.icon is defined -%}
               {%- include '@ecl/icon/icon.html.twig' with _item.icon|merge({
                 icon: _item.icon|merge({ size: '2xs' }),
@@ -143,12 +145,12 @@
               }) only -%}
             {%- endif -%}
             {{- _item.label -}}
-          </li>
+          </{{ _tag_meta_item }}>
         {% else %}
-          <li class="ecl-page-header__meta-item">{{- _item -}}</li>
+          <{{ _tag_meta_item }} class="ecl-page-header__meta-item">{{- _item -}}</{{ _tag_meta_item }}>
         {% endif %}
       {% endfor %}
-    </ul>
+    </{{ _tag_meta_list }}>
   {% endset %}
 {% endif %}
 

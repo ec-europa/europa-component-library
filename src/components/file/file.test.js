@@ -95,6 +95,16 @@ describe('File', () => {
       };
       return expect(render(multipleLabels)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly with a single primary meta item', () => {
+      expect.assertions(1);
+
+      const singlePrimaryMeta = {
+        ...dataWithoutTranslation,
+        primary_meta: [dataWithoutTranslation.primary_meta[0]],
+      };
+      return expect(render(singlePrimaryMeta)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Thumbnail', () => {

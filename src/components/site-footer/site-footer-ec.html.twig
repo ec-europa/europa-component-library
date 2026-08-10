@@ -72,23 +72,25 @@
         {%- endif -%}
 
         {%- if _co_owner.links is not empty and _co_owner.links is iterable -%}
-          <ul class="ecl-site-footer__co-owner-list">
+          {% set _tag_co_owner_list = _co_owner.links|length == 1 ? 'div' : 'ul' %}
+          {% set _tag_co_owner_item = _co_owner.links|length == 1 ? 'div' : 'li' %}
+          <{{ _tag_co_owner_list }} class="ecl-site-footer__co-owner-list">
             {%- for _item in _co_owner.links -%}
               {% set _item_class = 'ecl-site-footer__co-owner-item' %}
               {% if loop.index == 1 %}
                 {% set _item_class = _item_class ~ ' is-first' %}
               {% endif %}
 
-              <li class="{{ _item_class }}">
+              <{{ _tag_co_owner_item }} class="{{ _item_class }}">
                 {% include '@ecl/link/link.html.twig' with _item|merge({
                   link: _item.link|merge({
                     branded: true,
                   }),
                   extra_classes: 'ecl-site-footer__co-owner-link',
                 }) only %}
-              </li>
+              </{{ _tag_co_owner_item }}>
             {%- endfor -%}
-          </ul>
+          </{{ _tag_co_owner_list }}>
         {%- endif -%}
       </div>
     </div>

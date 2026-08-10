@@ -7,7 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import specs from './demo/data';
 
-const specDefault = specs.input;
+const specDefault = { ...specs.input, placeholder: 'Placeholder text' };
 
 const specInvalid = { ...specDefault, invalid: true };
 const specDisabled = { ...specDefault, disabled: true };
