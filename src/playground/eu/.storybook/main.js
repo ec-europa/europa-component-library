@@ -6,11 +6,13 @@ const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 const publicUrl = process.env.PUBLIC_URL || '';
 const stories = [
-  '../../../components/*/!(ec*).story.js',
-  '../../../utilities/*/!(ec*).story.js',
-  '../../../compositions/*/!(ec*).story.js',
-  '../../../layout/*/!(ec*).story.js',
-  '../../../page-example/*/!(ec*).story.js',
+  // eds* excluded too: it's a third, separate parallel-track playground
+  // (src/playground/eds), same reasoning as the pre-existing ec* exclusion.
+  '../../../components/*/!(ec*|eds*).story.js',
+  '../../../utilities/*/!(ec*|eds*).story.js',
+  '../../../compositions/*/!(ec*|eds*).story.js',
+  '../../../layout/*/!(ec*|eds*).story.js',
+  '../../../page-example/*/!(ec*|eds*).story.js',
 ];
 
 const addons = [
