@@ -688,9 +688,9 @@ const SHARED_STYLES = `<style>
     box-sizing: border-box;
   }
   .eds-tokens {
+    /* background/color inherited from .storybook/preview-head.html's
+       global html/body rule, which uses these same two tokens. */
     padding: var(--eds-sp-xl);
-    background: var(--eds-c-surface-elevation-default);
-    color: var(--eds-c-foreground-default);
     font-family: var(--eds-f-family-paragraph);
     min-height: 100vh;
   }
