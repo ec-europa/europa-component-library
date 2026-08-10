@@ -66,6 +66,8 @@ export class Picture {
       return;
     }
 
+    ECL.components = ECL.components || new Map();
+
     this.image.addEventListener('load', this.updateFocalPoint);
 
     if (this.image.complete) {
