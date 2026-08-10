@@ -37,6 +37,8 @@ $highlighted-search: null !default;
 }
 
 .ecl-highlighted-search__title {
+  text-align: center;
+
   @include mixins.responsive-font(
     map.get($highlighted-search, 'title', 'font')
   );
@@ -44,6 +46,7 @@ $highlighted-search: null !default;
 
 .ecl-highlighted-search__description {
   margin-block-start: map.get($highlighted-search, 'description', 'spacing');
+  text-align: center;
 
   @include mixins.responsive-font(
     map.get($highlighted-search, 'description', 'font')
