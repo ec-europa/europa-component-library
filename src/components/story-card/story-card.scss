@@ -109,6 +109,11 @@ $min-height-desktop: 548px;
     gap: map.get($story-card, 'card', 'content-gap');
   }
 
+  .ecl-story-card__content {
+    border-end-end-radius: 0;
+    border-end-start-radius: 0;
+  }
+
   .ecl-story-card__content-icon svg {
     color: var(--cm-surface-medium, var(--c-p));
     margin-inline-end: var(--s-xs);
