@@ -3,15 +3,6 @@
 @use 'sass:map';
 @use '../index' as *;
 
-// PLACEHOLDER: colour/typography values below still reference the *EC*
-// theme's CSS custom properties (--cm-*, --s-*, --fs-*, --lh-*, --c-w-*),
-// copied as-is from src/themes/ec/variables/_button.scss so the button
-// compiles and can be wired into the eds preset/Storybook using the real
-// ECL Button component + workflow. Those custom properties are not
-// defined by the eds theme, so the button will not display correctly
-// until this file is updated to reference real --eds-* tokens instead.
-// Structural (non-colour) values — border-radius, icon sizes — already
-// pull from the real eds token maps ($eds-border-radius, $eds-sizing).
 $button: (
   radius: var(--eds-br-s),
   large: (

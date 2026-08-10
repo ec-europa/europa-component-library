@@ -1,13 +1,14 @@
 {
-  "name": "@ecl/theme-eds",
+  "name": "@ecl/eds-button",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "0.1.0",
-  "description": "ECL — EDS design tokens",
+  "description": "EDS Button",
   "publishConfig": {
     "access": "public"
   },
-  "style": "theme.scss",
+  "style": "eds-button.scss",
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
@@ -16,15 +17,5 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": [
-    "ecl",
-    "europa-component-library",
-    "design-system",
-    "theme",
-    "design-tokens",
-    "eds"
-  ],
-  "scripts": {
-    "generate": "node scripts/generate-tokens.js"
-  }
+  "keywords": ["ecl", "europa-component-library", "design-system", "eds"]
 }

@@ -1,0 +1,127 @@
+/**
+ * EDS Button
+ * @define eds-button
+ *
+ * Approach #2 of the EDS component-integration comparison: dedicated
+ * markup + dedicated css, referencing eds theme --eds-* custom properties
+ * directly - no $theme/$<component> Sass map, no `with (...)` config from
+ * a preset. Compare against @ecl/button's eds-button.story.js (approach
+ * #1: the real, shared @ecl/button themed via src/themes/eds/variables/
+ * _button.scss).
+ */
+
+.eds-button {
+  --eds-button-background: transparent;
+  --eds-button-border-color: transparent;
+  --eds-button-border-width: 0px;
+  --eds-button-color: inherit;
+  --eds-button-padding-horizontal: var(--eds-sp-xs);
+  --eds-button-padding-vertical: var(--eds-sp-xs);
+
+  appearance: none;
+  background-color: var(--eds-button-background);
+  border-color: var(--eds-button-border-color);
+  border-radius: var(--eds-br-s);
+  border-style: solid;
+  border-width: var(--eds-button-border-width);
+  box-sizing: border-box;
+  color: var(--eds-button-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--eds-f-family-paragraph);
+  font-size: var(--eds-ty-size-label-m-font-size);
+  justify-content: center;
+  line-height: var(--eds-ty-size-label-m-line-height);
+  margin: 0;
+  min-height: 2.5rem;
+  padding: calc(
+      var(--eds-button-padding-vertical) - var(--eds-button-border-width)
+    )
+    calc(var(--eds-button-padding-horizontal) - var(--eds-button-border-width));
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--eds-c-surface-elevation-default);
+    outline: 2px solid var(--eds-c-focus-default);
+    outline-offset: 2px;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.eds-button--primary {
+  --eds-button-background: var(--eds-c-surface-primary-default);
+  --eds-button-border-color: transparent;
+  --eds-button-border-width: 0px;
+  --eds-button-color: var(--eds-c-on-surface-primary-default);
+
+  &:hover {
+    --eds-button-background: var(--eds-c-surface-primary-default-hover);
+  }
+
+  &:active {
+    --eds-button-background: var(--eds-c-surface-primary-default-pressed);
+  }
+
+  &[disabled] {
+    --eds-button-background: var(--eds-c-surface-disabled-default);
+    --eds-button-color: var(--eds-c-foreground-disabled);
+  }
+}
+
+.eds-button--secondary {
+  --eds-button-background: var(--eds-c-surface-elevation-default);
+  --eds-button-border-color: var(--eds-c-border-primary-default);
+  --eds-button-border-width: 1px;
+  --eds-button-color: var(--eds-c-foreground-primary);
+
+  &:hover {
+    --eds-button-background: var(--eds-c-surface-accent);
+    --eds-button-border-color: var(--eds-c-border-primary-default-hover);
+    --eds-button-color: var(--eds-c-foreground-primary-hover);
+  }
+
+  &:active {
+    --eds-button-background: var(--eds-c-surface-elevation-default);
+    --eds-button-border-color: var(--eds-c-border-primary-default-pressed);
+    --eds-button-color: var(--eds-c-foreground-primary-pressed);
+  }
+
+  &:focus-visible {
+    --eds-button-background: var(--eds-c-surface-accent);
+    --eds-button-border-color: var(--eds-c-border-primary-subtle);
+  }
+
+  &[disabled] {
+    --eds-button-background: var(--eds-c-surface-elevation-default);
+    --eds-button-border-color: var(--eds-c-border-disabled);
+    --eds-button-color: var(--eds-c-foreground-disabled);
+  }
+}
+
+.eds-button--tertiary {
+  --eds-button-background: transparent;
+  --eds-button-border-color: transparent;
+  --eds-button-border-width: 1px;
+  --eds-button-color: var(--eds-c-foreground-primary);
+
+  &:hover {
+    --eds-button-background: var(--eds-c-surface-accent);
+    --eds-button-color: var(--eds-c-foreground-primary-hover);
+  }
+
+  &:active {
+    --eds-button-color: var(--eds-c-foreground-primary-pressed);
+  }
+
+  &[disabled] {
+    --eds-button-color: var(--eds-c-foreground-disabled);
+  }
+}

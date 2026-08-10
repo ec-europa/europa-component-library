@@ -9,16 +9,21 @@
 );
 
 // Components
-// PLACEHOLDER: @ecl/button is themed here using $button from
-// src/themes/eds/variables/_button.scss, which still references EC's CSS
-// custom properties as a stand-in (see that file's header comment) — the
-// twig template + build workflow are the real ECL ones, only the token
-// values are not real eds tokens yet. Backs the eds-button Storybook demo
-// (src/components/button/eds-button.story.js).
+// Two parallel approaches to EDS component integration, kept side by side
+// for comparison (see each one's eds-button Storybook demo).
+// Approach #1 - the real, shared @ecl/button, themed via the $button map
+// in src/themes/eds/variables/_button.scss (same twig template + build
+// workflow ec/eu use). Backs src/components/button/eds-button.story.js.
 @use '@ecl/button/button' with (
   $theme: theme.$theme,
   $button: var.$button
 );
+
+// Approach #2 - @ecl/eds-button, a dedicated component with its own
+// markup/css referencing --eds-* custom properties directly, no $theme/
+// $<component> map or `with (...)` config. Backs src/components/
+// eds-button/eds-button.story.js.
+@use '@ecl/eds-button/eds-button';
 
 // Real Inter font, mirroring src/presets/ec/src/ec.scss: CDN first, local
 // woff2 (copied into dist/fonts by ecl-builder.config.js's `copy` step) as

@@ -1,0 +1,59 @@
+{% apply spaceless %}
+
+{#
+  Dedicated eds markup - deliberately not the same template as @ecl/button
+  (approach #2 of the EDS component-integration comparison: own markup +
+  own css, referencing --eds-* custom properties directly, no ec/eu-style
+  theme variable indirection).
+
+  Parameters:
+    - "label" (string) (default: '')
+    - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'tertiary'
+    - "type" (string) (default: 'button'): can be the same type as HTML button - 'submit', 'reset', 'button'
+    - "disabled" (bool) (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (optional) (array) (default: [])
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'eds-button' %}
+{% set _extra_attributes = '' %}
+{% set _label = label|default('') %}
+{% set _variant = variant|default('') %}
+{% set _type = type|default('button') %}
+{% set _disabled = disabled|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% set _css_class = _css_class ~ ' eds-button--' ~ _variant %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if _disabled %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
+{% endif %}
+
+{# Print the result #}
+
+<button
+  class="{{ _css_class }}"
+  type="{{ _type }}"
+  {{ _extra_attributes|raw }}
+>{{ _label }}</button>
+
+{% endapply %}
