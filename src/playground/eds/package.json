@@ -4,7 +4,7 @@
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "0.1.0",
-  "description": "Storybook for EDS design tokens",
+  "description": "Storybook for EDS design tokens and eds-themed ECL components",
   "scripts": {
     "build": "../../../node_modules/.pnpm/node_modules/.bin/sb build -c .storybook -o build --webpack-stats-json",
     "start": "node start.js"
@@ -22,7 +22,10 @@
     "@storybook/html-webpack5": "8.6.17",
     "babel-loader": "10.1.1",
     "browser-update": "3.3.63",
+    "buffer": "6.0.3",
     "core-js": "3.49.0",
-    "storybook": "8.6.17"
+    "storybook": "8.6.17",
+    "twing": "5.2.2",
+    "twing-loader": "4.0.1"
   }
 }

@@ -1,0 +1,98 @@
+// stylelint-disable length-zero-no-unit
+
+@use 'sass:map';
+@use '../index' as *;
+
+// PLACEHOLDER: colour/typography values below still reference the *EC*
+// theme's CSS custom properties (--cm-*, --s-*, --fs-*, --lh-*, --c-w-*),
+// copied as-is from src/themes/ec/variables/_button.scss so the button
+// compiles and can be wired into the eds preset/Storybook using the real
+// ECL Button component + workflow. Those custom properties are not
+// defined by the eds theme, so the button will not display correctly
+// until this file is updated to reference real --eds-* tokens instead.
+// Structural (non-colour) values — border-radius, icon sizes — already
+// pull from the real eds token maps ($eds-border-radius, $eds-sizing).
+$button: (
+  radius: var(--eds-br-s),
+  large: (
+    size: 2.5rem,
+    padding-horizontal: var(--eds-sp-xs),
+    padding-vertical: var(--eds-sp-xs),
+    font: (
+      'mobile-xs': (
+        'size': var(--eds-ty-size-label-m-font-size),
+        'line-height': var(--eds-ty-size-label-m-line-height),
+      ),
+    ),
+  ),
+  primary: (
+    background: var(--eds-c-surface-primary-default),
+    color: var(--eds-c-on-surface-primary-default),
+    border-color: transparent,
+    border-width: 0px,
+    background-hover: var(--eds-c-surface-primary-default-hover),
+    color-hover: var(--eds-c-on-surface-primary-default),
+    border-color-hover: transparent,
+    background-active: var(--eds-c-surface-primary-default-pressed),
+    color-active: var(--eds-c-on-surface-primary-default),
+    border-color-active: transparent,
+    background-focus: var(--eds-c-surface-primary-default),
+    color-focus: var(--eds-c-on-surface-primary-default),
+    border-color-focus: transparent,
+    shadow-focus: 0px 0px 0px 2px var(--eds-c-surface-elevation-default),
+    outline-color: var(--eds-c-focus-default),
+    outline-offset: 2px,
+    outline-width: 2px,
+    background-disabled: var(--eds-c-surface-disabled-default),
+    color-disabled: var(--eds-c-foreground-disabled),
+    border-color-disabled: transparent,
+    opacity-disabled: 1,
+  ),
+  secondary: (
+    background: transparent,
+    color: var(--cm-on-surface),
+    border-color: var(--cm-border-primary),
+    border-width: 1px,
+    background-hover: var(--cm-surface-primary-lowest),
+    color-hover: var(--cm-on-surface-primary-highest),
+    border-color-hover: var(--cm-border-primary-highest),
+    background-active: var(--cm-surface-primary-low-0),
+    color-active: var(--cm-on-surface-primary-highest),
+    border-color-active: var(--cm-border-primary-highest),
+    background-focus: transparent,
+    color-focus: var(--cm-on-surface),
+    border-color-focus: var(--cm-border-primary),
+    border-width-focus: 1px,
+    shadow-focus: 0px 0px 0px 2px var(--cm-border-inverted),
+    outline-color: var(--cm-border-primary),
+    outline-offset: 2px,
+    outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: var(--cm-on-surface),
+    border-color-disabled: var(--cm-border-primary),
+    opacity-disabled: 0.5,
+  ),
+  tertiary: (
+    background: transparent,
+    color: var(--cm-on-surface),
+    border-color: transparent,
+    border-width: 1px,
+    background-hover: var(--cm-surface-primary-lowest),
+    color-hover: var(--cm-on-surface-primary-highest),
+    border-color-hover: var(--cm-border-primary-highest),
+    background-active: var(--cm-surface-primary-low-0),
+    color-active: var(--cm-on-surface-primary-highest),
+    border-color-active: var(--cm-border-primary-highest),
+    background-focus: transparent,
+    color-focus: var(--cm-on-surface),
+    border-color-focus: transparent,
+    shadow-focus: 0px 0px 0px 2px var(--cm-border-inverted),
+    outline-color: var(--cm-border-primary),
+    outline-offset: 2px,
+    outline-width: 2px,
+    background-disabled: transparent,
+    color-disabled: var(--cm-on-surface),
+    border-color-disabled: transparent,
+    opacity-disabled: 0.5,
+  ),
+);

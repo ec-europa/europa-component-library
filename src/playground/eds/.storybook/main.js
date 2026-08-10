@@ -3,7 +3,13 @@ const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 
-const stories = ['../../../themes/eds/*.story.js'];
+const stories = [
+  '../../../themes/eds/*.story.js',
+  // Real ECL components integration-tested against eds: each such demo
+  // lives alongside its component, named `eds-<component>.story.js`
+  // (mirrors the existing ec-*/eu-* per-system story convention).
+  '../../../components/*/eds-*.story.js',
+];
 
 const addons = [
   '@storybook/addon-essentials',
@@ -26,6 +32,14 @@ const staticDirs = [
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons
   config.module.rules[0].exclude = /node_modules\/(?!@ecl\/).*/;
+
+  config.module.rules.push({
+    test: /\.twig$/,
+    loader: 'twing-loader',
+    options: {
+      environmentModulePath: path.resolve(__dirname, 'environment.js'),
+    },
+  });
 
   config.plugins.forEach((plugin, i) => {
     if (plugin.constructor.name === 'ProgressPlugin') {

@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../index' as *;
+
+// Minimal typography config — just enough for @ecl/mixins-typography's
+// responsive-font mixin (currently only consumed by the button variables
+// above) to resolve a font-family. Unlike _button.scss this uses real eds
+// tokens, not an EC placeholder, since font-family is already known.
+$typography: (
+  font-family: map.get($eds-font, 'family', 'paragraph'),
+);

@@ -1,7 +1,12 @@
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
+import { Buffer } from 'buffer';
+
+// twing (used to render .twig components, e.g. eds-button.story.js) expects
+// a global Buffer, same as ec/eu's own preview.js.
+global.Buffer = Buffer;
 
 export const parameters = {
-  layout: 'fullscreen',
+  layout: 'padded',
   docs: {
     toc: false,
   },
@@ -17,4 +22,17 @@ export const decorators = [
     defaultTheme: 'light',
     attributeName: 'data-theme',
   }),
+];
+
+// @storybook/html-webpack5 does not await a story's `render` function on
+// its own - a story returning a Promise<string> (e.g. eds-button.story.js's
+// twig render) fails with "Expecting an HTML snippet or DOM node" unless
+// something awaits it first. Mirrors ec/eu's own preview.js loaders.
+export const loaders = [
+  async ({ args, originalStoryFn }) => {
+    if (originalStoryFn.render) {
+      const component = await originalStoryFn.render(args);
+      return { component };
+    }
+  },
 ];

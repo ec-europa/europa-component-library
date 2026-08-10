@@ -1875,12 +1875,21 @@ importers:
       browser-update:
         specifier: 3.3.63
         version: 3.3.63
+      buffer:
+        specifier: 6.0.3
+        version: 6.0.3
       core-js:
         specifier: 3.49.0
         version: 3.49.0
       storybook:
         specifier: 8.6.17
         version: 8.6.17(prettier@3.9.6)
+      twing:
+        specifier: 5.2.2
+        version: 5.2.2
+      twing-loader:
+        specifier: 4.0.1
+        version: 4.0.1(twing@5.2.2)
 
   src/playground/eu:
     devDependencies:
@@ -2281,9 +2290,18 @@ importers:
 
   src/presets/eds:
     dependencies:
+      '@ecl/button':
+        specifier: 5.1.0
+        version: link:../../components/button
+      '@ecl/mixins-typography':
+        specifier: 5.1.0
+        version: link:../../mixins/typography
       '@ecl/theme-eds':
         specifier: 0.1.0
         version: link:../../themes/eds
+      '@ecl/utility-screen-reader':
+        specifier: 5.1.0
+        version: link:../../utilities/screen-reader
     devDependencies:
       '@ecl/builder':
         specifier: 5.1.0

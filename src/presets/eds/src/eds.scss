@@ -1,5 +1,24 @@
 @use '@ecl/theme-eds/theme' as theme;
 @use '@ecl/theme-eds/custom-properties';
+@use '@ecl/theme-eds/variables' as var;
+
+// Functions and Mixins
+@use '@ecl/mixins-typography/mixins' with (
+  $theme: theme.$theme,
+  $typography: var.$typography
+);
+
+// Components
+// PLACEHOLDER: @ecl/button is themed here using $button from
+// src/themes/eds/variables/_button.scss, which still references EC's CSS
+// custom properties as a stand-in (see that file's header comment) — the
+// twig template + build workflow are the real ECL ones, only the token
+// values are not real eds tokens yet. Backs the eds-button Storybook demo
+// (src/components/button/eds-button.story.js).
+@use '@ecl/button/button' with (
+  $theme: theme.$theme,
+  $button: var.$button
+);
 
 // Real Inter font, mirroring src/presets/ec/src/ec.scss: CDN first, local
 // woff2 (copied into dist/fonts by ecl-builder.config.js's `copy` step) as
