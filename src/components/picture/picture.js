@@ -59,14 +59,17 @@ export class Picture {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.image = this.element.querySelector(this.imgSelector);
     this.debug = this.element.hasAttribute(this.debugSelector);
 
     if (!this.image) {
       return;
     }
-
-    ECL.components = ECL.components || new Map();
 
     this.image.addEventListener('load', this.updateFocalPoint);
 
