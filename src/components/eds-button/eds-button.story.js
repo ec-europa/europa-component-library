@@ -1,8 +1,8 @@
 // EDS integration approach #2: a dedicated component (own twig, own css
 // referencing --eds-* directly - see eds-button.scss) rather than the
-// shared, themed @ecl/button (approach #1: src/components/button/
-// eds-button.story.js). Kept just as small/minimal as that one, for a
-// fair comparison.
+// shared, themed @ecl/button used by approach #1
+// (src/components/button/eds-button.story.js). See
+// docs/eds-integration-poc.md for the full comparison.
 import button from './eds-button.html.twig';
 import dataButton from './demo/data';
 

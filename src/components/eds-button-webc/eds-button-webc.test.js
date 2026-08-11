@@ -6,15 +6,14 @@ import dataButton from './demo/data';
 
 expect.extend(toHaveNoViolations);
 
-// No snapshot tests here (unlike the twig approaches' *.test.js) -
-// outerHTML snapshots are brittle for a Lit-rendered component;
-// explicit assertions are clearer for what actually matters here: a real
-// semantic <button>, the right classes, attribute reactivity, and the
-// captured-label behaviour on connect.
+// No snapshot tests here - outerHTML snapshots are brittle for a
+// Lit-rendered component; explicit assertions are clearer for what
+// actually matters here: a real semantic <button>, the right classes,
+// attribute reactivity, and the captured-label behaviour on connect.
 //
-// Unlike the original vanilla version, Lit renders asynchronously (a
-// microtask after connect, or after any reactive property changes) -
-// every assertion below awaits `el.updateComplete` first.
+// Lit renders asynchronously (a microtask after connect, or after any
+// reactive property changes) - every assertion below awaits
+// `el.updateComplete` first.
 function renderButton({ label, variant, type, disabled }) {
   const el = document.createElement('eds-button-webc');
   if (variant) el.setAttribute('variant', variant);

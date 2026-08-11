@@ -1,9 +1,8 @@
 // EDS integration approach #1: the real @ecl/button component (same
 // button.html.twig, same build workflow as ec/eu) themed through the eds
-// preset. See src/themes/eds/variables/_button.scss for the current
-// (placeholder) token wiring. Kept deliberately small — no controls/notes
-// addons — this exists to compare against an alternative, more
-// hand-styled approach being tested in parallel.
+// preset's $theme/$button Sass-map config - see
+// src/themes/eds/variables/_button.scss. Compared against approaches #2
+// and #3, see docs/eds-integration-poc.md.
 import button from './button.html.twig';
 import dataButton from './demo/data';
 

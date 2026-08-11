@@ -4,12 +4,12 @@ Compiles `@ecl/theme-eds` into real, distributable CSS: the `--eds-*` custom
 properties plus a real `@font-face` for Inter (CDN + local woff2 fallback,
 mirroring `src/presets/ec/src/ec.scss`).
 
-Unlike `@ecl/preset-ec` / `@ecl/preset-eu`, this preset does **not** bundle
-any components — `theme-eds` has no per-component variable wiring yet
-(component adoption is a separate, later effort). It exists so anything that
-needs the tokens as real compiled CSS - starting with
-`src/themes/eds/showcase/` - has something reliable to consume instead of
-the CDN-only font attempt that fails outside an approved origin.
+Unlike `@ecl/preset-ec` / `@ecl/preset-eu`, this preset bundles only the
+components used to compare EDS integration approaches (see
+`docs/eds-integration-poc.md`) — `@ecl/button` (themed via
+`src/themes/eds/variables/_button.scss`) and `@ecl/eds-button`. It's what
+`playground/eds`'s Storybook loads to render those components and the
+design-token stories.
 
 ## Build
 

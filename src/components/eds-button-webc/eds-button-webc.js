@@ -2,14 +2,9 @@
 // that renders a real <button> from attributes, reusing @ecl/eds-button's
 // markup contract and compiled CSS as-is (.eds-button/.eds-button--
 // <variant> - see that package's eds-button.scss) - no new styling, no
-// $theme/Sass indirection, no Shadow DOM. Compare against approach #1
-// (src/components/button/eds-button.story.js) and approach #2
-// (src/components/eds-button/eds-button.story.js).
-//
-// This is the "tier 1" rewrite of the original hand-rolled vanilla
-// version (declarative `LitElement`/`html` template instead of manual
-// `querySelector`/`createElement` DOM patching) - see
-// docs/eds-integration-poc.md for the cost comparison that led here.
+// Shadow DOM. Built with Lit (LitElement + a declarative `html`
+// template). See docs/eds-integration-poc.md for the full comparison
+// against approaches #1 and #2.
 
 import { LitElement, html } from 'lit';
 
@@ -44,13 +39,12 @@ class EdsButtonWebc extends LitElement {
     // display: contents }`, just without Shadow DOM.
     this.style.display = 'contents';
 
-    // Unlike the original vanilla version, Lit owns whatever it renders
-    // into - it doesn't patch pre-existing light-DOM markup in place. So
-    // instead of "enhancing" a server-rendered <button>, the most it can
-    // faithfully do is capture that button's label once, then let Lit's
-    // own template render the real button from there on. Guarded so a
-    // later disconnect/reconnect (e.g. moving the element in the DOM)
-    // doesn't re-capture from - and clear - Lit's own rendered output.
+    // Lit owns whatever it renders into - it doesn't patch pre-existing
+    // light-DOM markup in place. If the element already contains a
+    // server-rendered <button>, its label is captured here so it still
+    // shows up once Lit's own template takes over. Guarded so a later
+    // disconnect/reconnect (e.g. moving the element in the DOM) doesn't
+    // re-capture from, and clear, Lit's own rendered output.
     if (this._label === undefined) {
       const existingButton = this.querySelector('button');
       this._label = (

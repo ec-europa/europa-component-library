@@ -6,13 +6,13 @@ npm package: `@ecl/eds-button`
 npm install --save @ecl/eds-button
 ```
 
-Approach #2 of an EDS component-integration comparison: dedicated markup
-(`eds-button.html.twig`) and dedicated css (`eds-button.scss`) that
-reference the eds theme's `--eds-*` CSS custom properties directly - no
-`$theme`/`$eds-button` Sass map, no `with (...)` config wired through a
-preset, unlike the rest of ECL's ec/eu components. Compare against
-approach #1, which reuses the real `@ecl/button` component themed via
-`src/themes/eds/variables/_button.scss` (see its `eds-button.story.js`).
+EDS integration approach #2: dedicated markup (`eds-button.html.twig`)
+and dedicated css (`eds-button.scss`) that reference the eds theme's
+`--eds-*` CSS custom properties directly - no `$theme`/`$eds-button` Sass
+map, no `with (...)` config wired through a preset, unlike the rest of
+ECL's ec/eu components. See
+[`docs/eds-integration-poc.md`](../../../docs/eds-integration-poc.md)
+for the full comparison against the other approaches.
 
 ## Parameters
 

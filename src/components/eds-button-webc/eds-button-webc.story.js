@@ -1,9 +1,6 @@
-// EDS integration approach #3: the light custom element (no Twig, no
-// Shadow DOM, no new CSS - see eds-button-webc.js) rendered directly as a
-// DOM node. Compare against approach #1 (src/components/button/
-// eds-button.story.js) and approach #2 (src/components/eds-button/
-// eds-button.story.js). Kept just as small/minimal as those, for a fair
-// comparison.
+// EDS integration approach #3: the light custom element (see
+// eds-button-webc.js) rendered directly as a DOM node. See
+// docs/eds-integration-poc.md for the full comparison.
 import './eds-button-webc';
 import dataButton from './demo/data';
 

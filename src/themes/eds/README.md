@@ -2,8 +2,11 @@
 
 Design tokens for the EDS design system, exported from Figma.
 
-This package is a **parallel track**: tokens are not prefixed `ecl-`, and
-the theme isn't wired into any ECL preset or component yet — tokens only.
+This package is a **parallel track**: tokens are not prefixed `ecl-`,
+separate from the `ec`/`eu` theming convention. It's compiled into real
+CSS by `@ecl/preset-eds` and used by the comparison components under
+`src/components/` (`button/eds-button.story.js`, `eds-button/`,
+`eds-button-webc/` — see `docs/eds-integration-poc.md`).
 
 ## Contents
 

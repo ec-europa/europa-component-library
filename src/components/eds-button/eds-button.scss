@@ -2,12 +2,10 @@
  * EDS Button
  * @define eds-button
  *
- * Approach #2 of the EDS component-integration comparison: dedicated
- * markup + dedicated css, referencing eds theme --eds-* custom properties
- * directly - no $theme/$<component> Sass map, no `with (...)` config from
- * a preset. Compare against @ecl/button's eds-button.story.js (approach
- * #1: the real, shared @ecl/button themed via src/themes/eds/variables/
- * _button.scss).
+ * EDS integration approach #2: dedicated markup + css, referencing eds
+ * theme --eds-* custom properties directly - no $theme/$<component> Sass
+ * map, no `with (...)` config from a preset. See
+ * docs/eds-integration-poc.md for the full comparison.
  */
 
 .eds-button {
