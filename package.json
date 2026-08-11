@@ -154,7 +154,10 @@
   },
   "jest": {
     "verbose": true,
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "transformIgnorePatterns": [
+      "/node_modules/\\.pnpm/(?!(lit|lit-html|lit-element|@lit\\+reactive-element)@)"
+    ]
   },
   "apps": {
     "storybook-ec": {
