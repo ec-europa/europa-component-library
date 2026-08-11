@@ -81,6 +81,7 @@
       aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
     {% if _has_overlay is defined %}
       aria-controls="language-list-overlay"
+      aria-haspopup="dialog"
     {% endif %}
     >
       <span class="ecl-site-header__language-icon">

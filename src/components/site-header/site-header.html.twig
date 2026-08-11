@@ -315,6 +315,7 @@
               {% endif %}
               {% if is_overlay %}
                 {% set shared_extra_attributes = shared_extra_attributes|merge([
+                  { name: 'aria-haspopup', value: 'dialog' },
                   { name: 'aria-controls', value: 'custom-action-overlay' },
                   { name: 'aria-expanded', value: 'false' }
                 ]) %}
@@ -394,6 +395,7 @@
                   { name: 'aria-controls', value: _login_box.id },
                   { name: 'data-ecl-login-toggle' },
                   { name: 'aria-expanded', value: 'false' },
+                  { name: 'aria-haspopup', value: 'dialog' },
                 ],
                 false,
                 'before'
@@ -402,6 +404,7 @@
                 id="{{ _login_box.id }}"
                 class="ecl-site-header__login-box"
                 data-ecl-login-box
+                role="dialog"
               >
                 <p class="ecl-site-header__login-description">
                   {{- _login_box.description -}}

@@ -47,6 +47,7 @@ exports[`Site Header EC renders correctly 1`] = `
                 <button
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   aria-label="Custom aria label"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-toggle ecl-button--icon-only"
                   data-ecl-custom-action=""
@@ -172,6 +173,7 @@ exports[`Site Header EC renders correctly 1`] = `
               >
                 <button
                   aria-controls="language-list-overlay"
+                  aria-haspopup="dialog"
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
@@ -1209,6 +1211,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 <button
                   aria-controls="login-box-id"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   type="button"
@@ -1235,6 +1238,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                   class="ecl-site-header__login-box"
                   data-ecl-login-box=""
                   id="login-box-id"
+                  role="dialog"
                 >
                   <p
                     class="ecl-site-header__login-description"
@@ -1403,45 +1407,51 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                 aria-live="polite"
                 class="ecl-site-header__custom-action"
               >
-                <a
+                <button
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   aria-label="Custom aria label"
-                  class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral ecl-button--icon-only ecl-link--icon-only"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-toggle ecl-button--icon-only"
                   data-ecl-custom-action=""
-                  href="/example"
-                  role="button"
+                  type="button"
                 >
                   <span
-                    class="ecl-link__label"
-                  >
-                    Custom label
-                  </span>
-                  <span
-                    class="ecl-link__icon-container"
+                    class="ecl-button__container"
                   >
                     <span
-                      aria-hidden="true"
-                      class="wt-icon--brochure ecl-icon ecl-icon--m ecl-link__icon  ecl-site-header__icon ecl-icon--brochure"
-                    />
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Custom label
+                    </span>
                     <span
-                      class="ecl-indicator"
-                      data-ecl-auto-init="Indicator"
-                      data-ecl-indicator=""
+                      class="ecl-button__icon-container"
                     >
                       <span
-                        class="ecl-indicator__value"
-                      >
-                        10
-                      </span>
+                        aria-hidden="true"
+                        class="wt-icon--brochure ecl-icon ecl-icon--m ecl-button__icon  ecl-site-header__icon ecl-icon--brochure"
+                        data-ecl-icon=""
+                      />
                       <span
-                        class="ecl-indicator__label"
+                        class="ecl-indicator"
+                        data-ecl-auto-init="Indicator"
+                        data-ecl-indicator=""
                       >
-                        Items not read
+                        <span
+                          class="ecl-indicator__value"
+                        >
+                          10
+                        </span>
+                        <span
+                          class="ecl-indicator__label"
+                        >
+                          Items not read
+                        </span>
                       </span>
                     </span>
                   </span>
-                </a>
+                </button>
                 <div
                   aria-labelledby="custom-action-overlay-title"
                   class="ecl-site-header__custom-action-overlay"
@@ -1504,29 +1514,33 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                 class="ecl-site-header__login-container"
               >
                 <a
-                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
+                  class="ecl-link ecl-link--tertiary-neutral ecl-link--icon ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
                 >
                   <span
                     aria-hidden="false"
-                    class="wt-icon--log-in ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--log-in"
+                    class="wt-icon--log-in ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon ecl-icon--log-in"
                     role="img"
                     title="Log in"
                   />
-                  Log in
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Log in
+                  </span>
                 </a>
               </div>
               <div
                 class="ecl-site-header__language"
               >
-                <a
+                <button
                   aria-controls="language-list-overlay"
+                  aria-haspopup="dialog"
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
-                  href="/example"
-                  role="button"
+                  type="button"
                 >
                   <span
                     class="ecl-site-header__language-icon"
@@ -1539,7 +1553,7 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                     />
                   </span>
                   EN
-                </a>
+                </button>
                 <div
                   aria-labelledby="ecl-site-header__language-title"
                   class="ecl-site-header__language-container"
@@ -1851,21 +1865,29 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                 class="ecl-site-header__search-container"
                 role="search"
               >
-                <a
+                <button
                   aria-controls="search-form-id"
                   aria-expanded="false"
-                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
+                  class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
-                  href="/example"
+                  type="button"
                 >
                   <span
-                    aria-hidden="false"
-                    class="wt-icon--search ecl-icon ecl-icon--m ecl-site-header__icon ecl-icon--search"
-                    role="img"
-                    title="Search"
-                  />
-                  Search
-                </a>
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Search
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-site-header__icon ecl-icon--search"
+                      data-ecl-icon=""
+                    />
+                  </span>
+                </button>
                 <form
                   class="ecl-search-form ecl-site-header__search"
                   data-ecl-search-form=""
@@ -1884,7 +1906,6 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                     <input
                       class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                       id="search-input-id"
-                      placeholder="Placeholder text"
                       type="search"
                     />
                   </div>
@@ -2978,6 +2999,7 @@ exports[`Site Header EC renders the login toggle as a link when logged in and an
                 <a
                   aria-controls="login-box-id"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-link ecl-link--tertiary-neutral ecl-link--icon ecl-site-header__login-toggle"
                   data-ecl-login-toggle=""
                   href="/example"
@@ -2998,6 +3020,7 @@ exports[`Site Header EC renders the login toggle as a link when logged in and an
                   class="ecl-site-header__login-box"
                   data-ecl-login-box=""
                   id="login-box-id"
+                  role="dialog"
                 >
                   <p
                     class="ecl-site-header__login-description"
@@ -3345,6 +3368,7 @@ exports[`Site Header EU renders correctly 1`] = `
                 <button
                   aria-controls="custom-action-overlay"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   aria-label="Custom aria label"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__custom-action-toggle ecl-button--icon-only"
                   data-ecl-custom-action=""
@@ -3470,6 +3494,7 @@ exports[`Site Header EU renders correctly 1`] = `
               >
                 <button
                   aria-controls="language-list-overlay"
+                  aria-haspopup="dialog"
                   aria-label="Change language, current language is English - EN"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
                   data-ecl-language-selector=""
