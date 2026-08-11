@@ -13,6 +13,7 @@ $slogan-ticker: null !default;
   background: var(--cm-surface-color-mode-lowest, var(--c-p-10));
   border: none;
   border-radius: 0;
+  box-shadow: map.get($slogan-ticker, 'shadow');
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
