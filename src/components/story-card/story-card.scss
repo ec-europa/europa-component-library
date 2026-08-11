@@ -101,7 +101,6 @@ $min-height-desktop: 548px;
   .ecl-story-card__content,
   .ecl-story-card__grid-details-content {
     background: map.get($story-card, 'card', 'background');
-    border-radius: map.get($theme, 'border-radius', 's');
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -109,9 +108,8 @@ $min-height-desktop: 548px;
     gap: map.get($story-card, 'card', 'content-gap');
   }
 
-  .ecl-story-card__content {
-    border-end-end-radius: 0;
-    border-end-start-radius: 0;
+  .ecl-story-card__grid-details-content {
+    border-radius: map.get($theme, 'border-radius', 's');
   }
 
   .ecl-story-card__content-icon svg {
