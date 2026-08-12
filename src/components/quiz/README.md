@@ -56,7 +56,8 @@ npm install --save @ecl/quiz
         answer: "You usually pay the same at home, no extra roaming fees.",
         icon: {
           icon: {
-            name: "star-outline",
+            name: "sparkle",
+            family: "phosphor",
             size: "xl"
           }
         },
@@ -64,7 +65,8 @@ npm install --save @ecl/quiz
         flip_text: "Click to reveal",
         flip_icon: {
           icon: {
-            name: "refresh",
+            name: "arrow-clockwise",
+            family: "phosphor",
             size: "m"
           }
         }
