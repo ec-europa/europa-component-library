@@ -3,12 +3,12 @@
 {#
   Parameters:
   - "variant" (string) (default: 'info'): could be 'info, 'success', 'warning' or 'error'
-  - "icon" (object of type "icon") (default: {})
+  - "icon" (object of type "icon") (default: phosphor icon matching "variant" - 'info', 'check-circle', 'warning' or 'warning-circle')
   - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
   - "title" (string) (default: '')
   - "description" (string) (default: '')
   - "links" (array) (default: []) Array of ECL Link objects shown below the description
-  - "close" (object) (default: {}) Close button following ECL Button structure
+  - "close" (object) (default: phosphor 'x' icon) Close button following ECL Button structure
   - "extra_classes" (string) (default: '') Extra classes (space separated)
   - "extra_attributes" (array) (default: []) Extra attributes
     - "name" (string) Attribute name, eg. 'data-test'
@@ -22,9 +22,18 @@
 
 {% set _variant = variant|default('info') %}
 {% set _icon = icon|default({}) %}
+{% set _default_icon_name = 'info' %}
+{% if _variant == 'success' %}
+  {% set _default_icon_name = 'check-circle' %}
+{% elseif _variant == 'warning' %}
+  {% set _default_icon_name = 'warning' %}
+{% elseif _variant == 'error' %}
+  {% set _default_icon_name = 'warning-circle' %}
+{% endif %}
 {% set _sr_icon = sr_icon|default('') %}
 {% set _title = title|default('') %}
 {% set _close = close|default({}) %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 {% set _links = links|default([]) %}
 {% set _description = description|default('') %}
 {% set _css_class = 'ecl-notification' %}
@@ -36,16 +45,11 @@
   {% set _css_class = _css_class ~ ' ecl-notification--' ~ _variant %}
 {% endif %}
 
-{% if _variant == 'info' %}
-  {% set _icon = _icon|merge({ name: _icon.name|default('information-outline')}) %}
-{% elseif _variant == 'success' %}
-  {% set _icon = _icon|merge({ name: _icon.name|default('success-outline')}) %}
-{% elseif _variant == 'warning' %}
-  {% set _icon = _icon|merge({ name: _icon.name|default('warning-outline')}) %}
-{% elseif _variant == 'error' %}
-  {% set _icon = _icon|merge({ name: _icon.name|default('error-outline')}) %}
-{% endif %}
-{% set _icon = _icon|merge({ size: _icon.size|default('l')}) %}
+{% set _icon = _icon|merge({
+  name: _icon.name|default(_default_icon_name),
+  family: _icon.family|default('phosphor'),
+  size: _icon.size|default('l'),
+}) %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -84,6 +88,7 @@
       size: 'm',
       variant: 'tertiary',
       style: 'neutral',
+      icon: _close.icon|default([]) is not empty ? _close.icon : _default_close_icon,
       extra_classes: 'ecl-notification__close',
       extra_attributes: [{
         name: 'data-ecl-notification-close',

@@ -95,7 +95,7 @@ $notification: null !default;
     map.get($notification, 'info', 'border-start-color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'info', 'color');
+    color: map.get($notification, 'info', 'color');
   }
 }
 
@@ -107,7 +107,7 @@ $notification: null !default;
     map.get($notification, 'success', 'border-start-color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'success', 'color');
+    color: map.get($notification, 'success', 'color');
   }
 }
 
@@ -119,7 +119,7 @@ $notification: null !default;
     map.get($notification, 'warning', 'border-start-color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'warning', 'color');
+    color: map.get($notification, 'warning', 'color');
   }
 }
 
@@ -131,6 +131,6 @@ $notification: null !default;
     map.get($notification, 'error', 'border-start-color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'error', 'color');
+    color: map.get($notification, 'error', 'color');
   }
 }

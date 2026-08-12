@@ -1,10 +1,6 @@
 // Simple content for demo
 module.exports = {
   variant: 'info',
-  icon: {
-    name: 'information-outline',
-    size: 'l',
-  },
   links: [
     {
       link: {
@@ -27,10 +23,6 @@ module.exports = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
     hide_label: true,
   },
 };
