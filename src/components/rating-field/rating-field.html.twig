@@ -50,26 +50,10 @@
 {% if _items is not empty and _items is iterable %}
   <div class="ecl-rating-field
     {{- _disabled ? ' ecl-rating-field--disabled' -}}">
-  {%- for _item in _items|reverse %}
+  {%- for _item in _items %}
     {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
-    <input
-      id="{{ _item_id }}" 
-      name="{{ _name }}" 
-      class="ecl-rating-field__input" 
-      type="radio" 
-      value="{{ _item.value }}" 
-      {% if _item.checked %}
-        checked 
-      {% endif %}
-      {% if _required %}
-        required 
-      {% endif %}
-      {% if _disabled %}
-        disabled
-      {% endif %}
-    >
-    <label 
-      class="ecl-rating-field__label" 
+    <label
+      class="ecl-rating-field__label"
       for="{{ _item_id }}">
     {% if _item.label %}
       <span class="ecl-rating-field__sr-label">{{ _item.label }}</span>
@@ -83,6 +67,22 @@
         extra_classes: 'ecl-rating-field__icon-outline',
       } only %}
     </label>
+    <input
+      id="{{ _item_id }}"
+      name="{{ _name }}"
+      class="ecl-rating-field__input"
+      type="radio"
+      value="{{ _item.value }}"
+      {% if _item.checked %}
+        checked
+      {% endif %}
+      {% if _required %}
+        required
+      {% endif %}
+      {% if _disabled %}
+        disabled
+      {% endif %}
+    >
   {% endfor -%}
   </div>
   {% endif %}
