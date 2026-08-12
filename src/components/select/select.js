@@ -180,7 +180,10 @@ export class Select {
    */
   static #createSvgIcon(name, classes) {
     const markup = document.createElement('span');
-    markup.setAttribute('class', `wt-icon--${name} ${classes}`);
+    markup.setAttribute(
+      'class',
+      `wt-icon-phosphor--${name} ${classes} ecl-icon-phosphor--${name}`,
+    );
 
     return markup;
   }
@@ -272,8 +275,8 @@ export class Select {
     labelWrapper.appendChild(label);
 
     const icon = Select.#createSvgIcon(
-      'corner-arrow',
-      `ecl-icon ecl-icon--${iconSize} ecl-icon--rotate-180`,
+      'caret-down',
+      `ecl-icon ecl-icon--${iconSize}`,
     );
 
     labelWrapper.appendChild(icon);
