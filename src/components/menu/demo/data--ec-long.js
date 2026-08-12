@@ -8,17 +8,9 @@ module.exports = {
   title: 'Menu',
   toggle: {
     label: 'Menu',
-    icon: {
-      name: 'hamburger',
-      size: 'm',
-    },
   },
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
     hide_label: true,
   },
   back_label: 'Back',

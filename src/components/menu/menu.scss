@@ -216,7 +216,7 @@ $menu: null !default;
   @include mixins.responsive-font(map.get($menu, 'global', 'header-font'));
 
   &:dir(rtl) .ecl-icon {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 
   &:hover {
@@ -373,10 +373,6 @@ $menu: null !default;
   margin-inline-start: 2px;
   z-index: 0;
 
-  &:dir(rtl) {
-    transform: rotate(180deg);
-  }
-
   .ecl-button__container {
     align-self: center;
   }
@@ -387,7 +383,7 @@ $menu: null !default;
     height: map.get($menu, 'mobile', 'caret-size');
     transition: none;
     transition-property: transform, fill;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     width: map.get($menu, 'mobile', 'caret-size');
   }
 
@@ -416,11 +412,11 @@ $menu: null !default;
 
 .ecl-menu--rtl {
   .ecl-menu__button-caret .ecl-button__icon {
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
   }
 
   .ecl-menu__see-all .ecl-icon {
-    transform: rotateZ(0);
+    transform: rotate(180deg);
   }
 
   .ecl-menu__item--current .ecl-menu__link,
@@ -689,7 +685,7 @@ $menu: null !default;
 
       .ecl-button__icon {
         fill: currentcolor;
-        transform: rotate(180deg);
+        transform: rotate(0);
       }
 
       &:hover {
@@ -712,7 +708,7 @@ $menu: null !default;
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__item:not(.ecl-menu__items-previous, .ecl-menu__items-next) {
       &[data-expanded='true'] .ecl-button__icon {
-        transform: rotate(0);
+        transform: rotate(180deg);
       }
 
       &[data-expanded='true'] {
@@ -737,7 +733,7 @@ $menu: null !default;
         .ecl-menu__button-caret {
           background-color: #fff;
           margin-bottom: -2px;
-          padding-bottom: 2px;
+          padding-block: 1px;
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
       }

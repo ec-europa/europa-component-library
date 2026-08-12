@@ -9,8 +9,8 @@ npm install --save @ecl/mega-menu
 ### Parameters
 
 - **"id"** (string) (default: random) Unique id for the menu
-- **"toggle"** (object) (default: {}) Toggle (hamburger) button following ECL Button structure
-- **"close"** (object) (default: {}) Close button following ECL Button structure
+- **"toggle"** (object) (default: phosphor 'list' icon) Toggle (hamburger) button following ECL Button structure
+- **"close"** (object) (default: phosphor 'x' icon) Close button following ECL Button structure
 - **"aria_label"** (string) (default: '') Aria label for the main nav element
 - **"second_level_aria_label"** (string) (default: '') Aria label for second-level sub-lists
 - **"third_level_aria_label"** (string) (default: '') Aria label for third-level sub-lists
@@ -56,22 +56,10 @@ npm install --save @ecl/mega-menu
       label: 'Menu',
       path: exampleLink,
     },
-    icon:
-      {
-        name: 'list',
-        family: 'phosphor',
-        size: 'm',
-      },
-    }, 
   },
-  close: { 
-    label: 'Close', 
-    icon: { 
-      name: 'x',
-      family: 'phosphor', 
-      size: 'm', 
-    }, 
-  }, 
+  close: {
+    label: 'Close',
+  },
   back_label: 'Back',
   items: [
     {

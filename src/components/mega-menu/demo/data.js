@@ -9,19 +9,9 @@ module.exports = {
   third_level_aria_label: 'Sub-pages in this section',
   toggle: {
     label: 'Menu',
-    icon: {
-      name: 'list',
-      family: 'phosphor',
-      size: 'm',
-    },
   },
   close: {
     label: 'Close',
-    icon: {
-      name: 'x',
-      family: 'phosphor',
-      size: 'm',
-    },
   },
   back_label: 'Back',
   items: [
