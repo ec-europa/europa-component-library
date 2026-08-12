@@ -296,7 +296,7 @@
 
           {# Header actions #}
           <div class="ecl-site-header__action">
-          
+
           {# Custom action #}
           {% if _custom_action is not empty %}
             <div class="ecl-site-header__custom-action" aria-live="polite">
@@ -466,11 +466,20 @@
                   { name: 'data-ecl-search-toggle', value: 'true' },
                   { name: 'aria-controls', value: 'search-form-id' },
                   { name: 'aria-expanded', value: 'false' },
+                  { name: 'aria-haspopup', value: 'dialog' },
                 ],
                 true
               ) }}
             {% endif %}
-              {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
+              <div
+                class="ecl-site-header__search-dialog"
+                role="dialog"
+              {% if _search_form.text_input.id|default('') is not empty %}
+                aria-labelledby="{{ _search_form.text_input.id }}-label"
+              {% endif %}
+              >
+                {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
+              </div>
             </div>
           {% endif %}
           </div>
