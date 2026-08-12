@@ -74,9 +74,9 @@ export class DescriptionList {
           const listItem = document.createElement('li');
           listItem.classList.add('ecl-description-list__see_more');
 
-          const button = document.createElement('a');
+          const button = document.createElement('button');
           button.classList.add('ecl-link', 'ecl-link--standalone');
-          button.href = '#';
+          button.type = 'button';
           button.innerHTML = this.moreItemLabel;
           listItem.appendChild(button);
           list.appendChild(listItem);

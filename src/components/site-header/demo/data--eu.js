@@ -14,7 +14,6 @@ module.exports = {
     label_not_logged: 'Log in',
     href_not_logged: exampleLink,
     label_logged: 'Logged in',
-    href_logged: exampleLink,
   },
   banner_top: {
     link: {
@@ -24,7 +23,6 @@ module.exports = {
   },
   custom_action: {
     link: {
-      path: exampleLink,
       label: 'Custom label',
       hide_label: true,
       indicator: {
@@ -57,7 +55,6 @@ module.exports = {
     href: exampleLink,
   },
   language_selector: {
-    href: exampleLink,
     label: 'EN',
     aria_label: 'Change language, current language is English',
     overlay: {
@@ -251,14 +248,12 @@ module.exports = {
   },
   search_toggle: {
     label: 'Search',
-    href: exampleLink,
   },
   search_form: {
     label: 'Search',
     text_input: {
       id: 'search-input-id',
       label: 'Search',
-      placeholder: 'Placeholder text',
     },
     button: {
       variant: 'primary',

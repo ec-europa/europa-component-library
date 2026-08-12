@@ -8,9 +8,6 @@
 $theme: null !default;
 $quiz-print: null !default;
 
-.ecl-quiz__pager,
-.ecl-quiz__prev,
-.ecl-quiz__next,
 .ecl-quiz__counter,
 .ecl-quiz-card__flip {
   display: none;
@@ -26,6 +23,12 @@ $quiz-print: null !default;
   font: map.get($theme, 'font-print', 'l');
   margin-block-end: map.get($theme, 'spacing-print', 'l');
   max-width: var(--max-w);
+}
+
+.ecl-quiz__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ecl-quiz-card {
@@ -50,12 +53,20 @@ $quiz-print: null !default;
     display: flex;
   }
 
+  .ecl-quiz-card__answer {
+    margin-block-start: map.get($theme, 'spacing-print', 's');
+  }
+
   .ecl-quiz-card__category {
     display: none;
   }
 
   .ecl-quiz-card__header {
     height: map.get($theme, 'icon-print', '2xl');
+  }
+
+  fieldset {
+    all: unset;
   }
 
   .ecl-quiz-card__header,
