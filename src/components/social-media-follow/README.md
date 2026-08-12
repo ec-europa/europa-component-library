@@ -33,7 +33,8 @@ npm install --save @ecl/social-media-follow
         icon_position: 'before',
       },
       icon: {
-        name: 'twitter',
+        name: 'x',
+        family: 'networks',
         size: 'm',
       },
     },
@@ -45,6 +46,7 @@ npm install --save @ecl/social-media-follow
       },
       icon: {
         name: 'facebook',
+        family: 'networks',
         size: 'm',
       },
     },
