@@ -1,0 +1,165 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "prev_label" (string) (default: '') Previous button label
+    - "next_label" (string) (default: '') Next button label
+    - "hide_label" (boolean) (default: false) Icon only buttons
+    - "play_label" (string) (default: '') Play button label
+    - "pause_label" (string) (default: '') Pause button label
+    - "size": (string) (default: s) s, m or l Buttons size
+    - "prev_extra_classes" (string) (default: '') Previous button extra classes (space separated)
+    - "prev_extra_attributes" (array) (default: []) Previous button extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
+    - "next_extra_classes" (string) (default: '') Next button extra classes (space separated)
+    - "next_extra_attributes" (array) (default: []) Next button extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
+    - "play_extra_classes" (string) (default: '') Play button extra classes (space separated)
+    - "play_extra_attributes" (array) (default: []) Play button extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
+    - "pause_extra_classes" (string) (default: '') Pause button extra classes (space separated)
+    - "pause_extra_attributes" (array) (default: []) Pause button extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
+    - "dots_extra_classes" (string) (defult: '') Dots container extra classes (space separated)
+    - "dot_extra_classes" (string) (defult: '') Dot extra classes (space separated)
+    - "template_data_attribute" (string) (default: '')
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
+    - "extra_attributes" (array) (default: []) Extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-slider-pager' %}
+{% set _prev_label = prev_label|default('') %}
+{% set _next_label = next_label|default('') %}
+{% set _pause_label = pause_label|default('') %}
+{% set _play_label = play_label|default('') %}
+{% set _hide_label = hide_label|default(false) %}
+{% set _size = size|default('s') %}
+{% set _dots = dots ?? true %}
+{% set _play_pause = play_pause|default(false) %}
+{% set _prev_extra_classes = prev_extra_classes|default('') %}
+{% set _next_extra_classes = next_extra_classes|default('') %}
+{% set _dots_extra_classes = dots_extra_classes|default('') %}
+{% set _dot_extra_classes = dot_extra_classes|default('') %}
+{% set _play_extra_classes = play_extra_classes|default('') %}
+{% set _pause_extra_classes = pause_extra_classes|default('') %}
+{% set _prev_extra_attributes = prev_extra_attributes|default([]) %}
+{% set _next_extra_attributes = next_extra_attributes|default([]) %}
+{% set _play_extra_attributes = play_extra_attributes|default([]) %}
+{% set _pause_extra_attributes = pause_extra_attributes|default([]) %}
+{% set _template_data_attribute = template_data_attribute|default('') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+
+{% if _play_pause %}
+  <!-- Play button -->
+  {% include '@ecl/button/button.html.twig' with {
+    type: 'button',
+    variant: 'secondary',
+    style: 'neutral',
+    label: _play_label,
+    hide_label: true,
+    size: _size,
+    icon: {
+      name: 'play-filled',
+      family: 'phosphor',
+    },
+    extra_classes: 'ecl-slider-pager__play' ~ (_play_extra_classes ? ' ' ~ _play_extra_classes : ''),
+    extra_attributes: _play_extra_attributes,
+  } only %}
+
+  <!-- Pause button -->
+  {% include '@ecl/button/button.html.twig' with {
+    type: 'button',
+    variant: 'secondary',
+    style: 'neutral',
+    size: _size,
+    label: _pause_label,
+    hide_label: true,
+    icon: {
+      name: 'pause-filled',
+      family: 'phosphor',
+    },
+    extra_classes: 'ecl-slider-pager__pause' ~ (_pause_extra_classes ? ' ' ~ _pause_extra_classes : ''),
+    extra_attributes: _pause_extra_attributes
+  } only %}
+{% endif %}
+
+  <!-- Prev button -->
+  {% include "@ecl/button/button.html.twig" with {
+    hide_label: _hide_label,
+    label: _prev_label,
+    size: _size,
+    style: 'neutral',
+    type: 'button',
+    variant: 'tertiary',
+    icon: {
+      name: 'caret-left',
+      style: 'monochrome',
+      family: 'phosphor',
+    },
+    extra_classes: 'ecl-slider-pager__prev' ~ (_prev_extra_classes ? ' ' ~ _prev_extra_classes : ''),
+    extra_attributes: _prev_extra_attributes,
+  } only %}
+
+{% if _dots %}
+  <!-- Dots -->
+  <div class="ecl-slider-pager__dots{{ _dots_extra_classes ? ' ' ~ _dots_extra_classes : '' }}"></div>
+{% endif %}
+
+  <!-- Next button -->
+  {% include "@ecl/button/button.html.twig" with {
+    hide_label: _hide_label,
+    label: _next_label,
+    size: _size,
+    style: 'neutral',
+    type: 'button',
+    variant: 'tertiary',
+    icon: {
+      name: 'caret-right',
+      style: 'monochrome',
+      family: 'phosphor'
+    },
+    extra_classes: 'ecl-slider-pager__next' ~ (_next_extra_classes ? ' ' ~ _next_extra_classes : ''),
+    extra_attributes: _next_extra_attributes
+  } only %}
+
+{% if _dots %}
+  <script
+    type="text/template"
+    data-ecl-slider-dot-template
+    {{ _template_data_attribute }}
+  >
+    <button class="ecl-slider-pager__dot{{ _dot_extra_classes ? ' ' ~ _dot_extra_classes : '' }}"></button>
+  </script>
+{% endif %}
+</div>
+
+{% endapply %}

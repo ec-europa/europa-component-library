@@ -47,6 +47,17 @@ describe('Social Media Follow', () => {
       return expect(render(withLinkExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single link', () => {
+      expect.assertions(1);
+
+      const singleLink = {
+        ...demoData,
+        links: [demoData.links[0]],
+      };
+
+      return expect(render(singleLink)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),

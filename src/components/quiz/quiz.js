@@ -1,7 +1,8 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import EmblaCarousel from 'embla-carousel';
 import Accessibility from 'embla-carousel-accessibility';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -68,7 +69,7 @@ export class Quiz {
       pagerClass = '.ecl-quiz__pager',
       dotsClass = '.ecl-quiz__dots',
       dotClass = '.ecl-quiz__dot',
-      activeDotClass = 'ecl-quiz__dot--active',
+      activeDotClass = 'ecl-slider-pager__dot--active',
       correctChosenOptionSelector = 'data-ecl-quiz-chosen-option-correct',
       incorrectChosenOptionSelector = 'data-ecl-quiz-chosen-option-incorrect',
       attachClickListener = true,
@@ -125,10 +126,10 @@ export class Quiz {
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.checkHeight = this.checkHeight.bind(this);
+    this.checkPager = this.checkPager.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.initSlider = this.initSlider.bind(this);
     this.setCounter = this.setCounter.bind(this);
-    this.escapeSlider = this.escapeSlider.bind(this);
   }
 
   /**
@@ -228,6 +229,10 @@ export class Quiz {
       ECL.components.delete(this.element);
     }
 
+    if (this.pager) {
+      this.pager.destroy();
+    }
+
     if (this.slider) {
       this.slider.destroy();
     }
@@ -304,107 +309,27 @@ export class Quiz {
     this.nextButtonNode = queryOne(this.nextClass, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
 
-    if (this.prevButtonNode) {
-      this.prevButtonNode.addEventListener(
-        'click',
-        () => this.slider.goToPrev(),
-        false,
-      );
-    }
-    if (this.nextButtonNode) {
-      this.nextButtonNode.addEventListener(
-        'click',
-        () => this.slider.goToNext(),
-        false,
-      );
-    }
-
-    if (this.prevButtonNode && this.nextButtonNode) {
-      this.toggleButtonsDisabled = (emblaApi) => {
-        const setButtonState = (button, enabled) => {
-          button.toggleAttribute('disabled', !enabled);
-        };
-        setButtonState(this.prevButtonNode, emblaApi.canGoToPrev());
-        setButtonState(this.nextButtonNode, emblaApi.canGoToNext());
-      };
-
-      this.toggleButtonsDisabled(this.slider);
-      this.slider.on('select', this.toggleButtonsDisabled);
-      this.slider.on('reInit', this.toggleButtonsDisabled);
-
-      this.accessibility.setupPrevAndNextButtons(
-        this.prevButtonNode,
-        this.nextButtonNode,
-      );
-    }
-
-    let dotNodes = [];
-    this.dotsNode = queryOne(this.dotsClass, this.element);
-
-    if (this.dotsNode) {
-      const createDotButtonHtml = (emblaApi) => {
-        const dotTemplate = document.getElementById('ecl-quiz__dot-template');
-        const snapList = emblaApi.snapList();
-        this.dotsNode.innerHTML = snapList.reduce(
-          (acc) => acc + dotTemplate.innerHTML,
-          '',
-        );
-        return Array.from(queryAll(this.dotClass, this.dotsNode));
-      };
-
-      const addDotButtonClickHandlers = (emblaApi, dotNodes) => {
-        dotNodes.forEach((dotNode, index) => {
-          dotNode.addEventListener('click', () => emblaApi.goTo(index), false);
-        });
-      };
-
-      this.createAndSetupDotButtons = (emblaApi) => {
-        const canScroll =
-          this.slider.canGoToNext() || this.slider.canGoToPrev();
-
-        if (this.pagerNode) this.pagerNode.style.display = '';
-
-        if (!canScroll) {
-          if (this.pagerNode) this.pagerNode.style.display = 'none';
-
-          this.dotsNode.innerHTML = '';
-          dotNodes = [];
-          return;
-        }
-
-        dotNodes = createDotButtonHtml(emblaApi);
-        addDotButtonClickHandlers(emblaApi, dotNodes);
-      };
-
-      this.createAndSetupDotButtons(this.slider, this.dotsNode);
-      this.slider.on('reInit', () => {
-        this.createAndSetupDotButtons(this.slider, this.dotsNode);
-      });
-
-      this.updateDots = () => {
-        if (!dotNodes.length) return;
-
-        const index = this.slider.selectedSnap();
-
-        dotNodes.forEach((dot, i) => {
-          dot.classList.toggle(this.activeDotClass, i === index);
-          dot.classList.toggle('is-prev', i === index - 1);
-        });
-
-        this.setCounter();
-      };
-
-      this.accessibility.setupDotButtons(this.dotsNode);
-
-      this.updateDots();
-      this.slider.on('select', this.updateDots);
-    }
-
     // Add aria-labelledby
     this.cards.forEach((card) => {
       const question = queryOne(`#${card.id}-question`, card);
       card.setAttribute('aria-labelledby', question.id);
     });
+
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.accessibility,
+      prevSelector: this.prevClass,
+      nextSelector: this.nextClass,
+      dotsSelector: this.dotsClass,
+      dotTemplateSelector: '[data-ecl-slider-dot-template]',
+      dotSelector: this.dotClass,
+      activeDotSelector: this.activeDotClass,
+      onUpdate: () => this.setCounter(),
+    });
+
+    this.pager.init();
+    this.checkPager();
   }
 
   /**
@@ -417,6 +342,21 @@ export class Quiz {
 
     if (counter) {
       counter.textContent = `${currentIndex + 1} / ${total}`;
+    }
+  }
+
+  /**
+   * Show pager's buttons label in desktop
+   *
+   * @memberof Quiz
+   */
+  checkPager() {
+    if (this.element.offsetWidth >= getBreakpoint('m')) {
+      this.nextButtonNode.classList.remove('ecl-button--icon-only');
+      this.prevButtonNode.classList.remove('ecl-button--icon-only');
+    } else {
+      this.nextButtonNode.classList.add('ecl-button--icon-only');
+      this.prevButtonNode.classList.add('ecl-button--icon-only');
     }
   }
 
@@ -497,11 +437,6 @@ export class Quiz {
    * @memberof Quiz
    */
   handleKeyboard(e) {
-    if (e.key === 'Escape') {
-      this.escapeSlider();
-      return;
-    }
-
     const item = e.target;
     const card = item.closest(this.cardSelector);
     if (!card) return;
@@ -644,17 +579,7 @@ export class Quiz {
   handleResize() {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
-      if (this.slider) {
-        this.createAndSetupDotButtons(this.slider, this.dotsNode);
-        if (this.accessibility && this.dotsNode) {
-          this.accessibility.setupDotButtons(this.dotsNode);
-        }
-        this.updateDots();
-        if (this.toggleButtonsDisabled) {
-          this.toggleButtonsDisabled(this.slider);
-        }
-      }
-
+      this.checkPager();
       this.checkHeight();
     }, 100);
   }
@@ -760,42 +685,6 @@ export class Quiz {
 
       const eventData = { flipped: !isFlipped, e };
       this.trigger('onClick', eventData);
-    }
-  }
-
-  /**
-   * Moves the focus out of the slider when Escape is pressed.
-   *
-   */
-  escapeSlider() {
-    let dots = [];
-
-    if (this.slider.canGoToNext()) {
-      this.nextButtonNode.focus();
-      return;
-    }
-
-    if (this.dotsNode) {
-      dots = queryAll(this.dotClass, this.dotsNode);
-    }
-
-    // Move focus on the disabled next button in case there are no dots.
-    if (
-      dots.length === 0 &&
-      !this.slider.canGoToNext() &&
-      this.nextButtonNode
-    ) {
-      this.nextButtonNode.disabled = false;
-      this.nextButtonNode.style.display = 'flex';
-      this.nextButtonNode.style.visibility = 'visible';
-      this.nextButtonNode.classList.add('.ecl-quiz__next--escape');
-      this.nextButtonNode.focus();
-      return;
-    }
-
-    if (dots.length > 0) {
-      const lastDot = dots[dots.length - 1];
-      lastDot.focus();
     }
   }
 }

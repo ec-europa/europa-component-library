@@ -15,7 +15,6 @@ module.exports = {
   input: {
     input_type: 'textarea',
     id: 'example-textarea-id-1',
-    placeholder: 'Placeholder text',
     rows: 4,
     width: 'm',
   },
