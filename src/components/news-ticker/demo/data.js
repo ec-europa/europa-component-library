@@ -15,7 +15,8 @@ module.exports = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis.',
       link: exampleLink,
       icon: {
-        name: 'euro',
+        name: 'currency-eur',
+        family: 'phosphor',
       },
     },
     {
@@ -24,7 +25,8 @@ module.exports = {
       link: exampleLink,
       external: true,
       icon: {
-        name: 'global',
+        name: 'globe',
+        family: 'phosphor',
       },
     },
     {
@@ -42,7 +44,8 @@ module.exports = {
         'Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum',
       link: exampleLink,
       icon: {
-        name: 'information-outline',
+        name: 'info',
+        family: 'phosphor',
       },
     },
     {
@@ -50,7 +53,8 @@ module.exports = {
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
       link: exampleLink,
       icon: {
-        name: 'livestreaming',
+        name: 'broadcast',
+        family: 'phosphor',
       },
     },
     {
@@ -58,7 +62,8 @@ module.exports = {
         'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores',
       link: exampleLink,
       icon: {
-        name: 'euro',
+        name: 'currency-eur',
+        family: 'phosphor',
       },
     },
   ],

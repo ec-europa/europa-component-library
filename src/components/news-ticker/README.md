@@ -41,7 +41,8 @@ npm install --save @ecl/news-ticker
       content: 'EMA starts rolling review of COVID-19 vaccine Vidprevtyn', 
       link: 'https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn',
       icon: { 
-        name: 'euro', 
+        name: 'currency-eur', 
+        family: 'phosphor', 
       }, 
     }, 
     {
@@ -49,14 +50,16 @@ npm install --save @ecl/news-ticker
         'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August',
       link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362',
       icon: { 
-        name: 'euro', 
+        name: 'currency-eur', 
+        family: 'phosphor', 
       }, 
     }, 
     { 
       content:
         'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August', 
       icon: { 
-        name: 'euro', 
+        name: 'currency-eur', 
+        family: 'phosphor', 
       }, 
     }, 
     ...
