@@ -43,6 +43,17 @@ describe('Splash page', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single language item', () => {
+      expect.assertions(1);
+
+      const singleLanguageItem = {
+        ...dataEC,
+        items: [dataEC.items[0]],
+      };
+
+      return expect(render(singleLanguageItem)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataEC, true)),

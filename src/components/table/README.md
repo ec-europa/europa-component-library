@@ -23,20 +23,17 @@ npm install --save @ecl/table
   - "rowspan" (string) (default: ''),
   - "data-ecl-table-header-group" (string) (default: ''),
   - "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
-- **"rows"** (array) (default: []): [
-  { - "extra_attributes": (string) (default: ''), - "extra_classes": (string) (default: '') Extra classes for the table row (space separated) - "data: [
-  {
-  - "label" (string or array of string),
-  - "data-ecl-table-header" (string) (default: ''),
-  - "data-ecl-table-header-group" (string) (default: ''),
-  - "group" (bool) (default: false),
-  - "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
-    }
-    ]
-    }
-    ],
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"rows"** (array) (default: []) Table rows; format:
+  - "extra_classes" (string) (default: '') Extra classes for the row
+  - "extra_attributes" (array) (default: []) Extra attributes for the row
+  - "data" (array) Row cells:
+    - "label" (string or array) Cell content
+    - "data-ecl-table-header" (string) (default: '') Mobile header reference
+    - "data-ecl-table-header-group" (string) (default: '') Mobile header group reference
+    - "group" (boolean) (default: false) Mark as a grouped cell
+    - "headers" (string) (default: '') `headers` attribute for multi-header tables
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

@@ -32,7 +32,8 @@ const prepareHtmlContent = (data) =>
     <div id="ecl-tabs-${index + 1}">
       <h2 class="ecl-u-type-heading-2">${label} content</h2>
       <img src="https://picsum.photos/300/200?${Math.random()}" alt="Random image">
-      ${loremIpsum({ count: 3, format: 'html', units: 'paragraphs', random: Math.random })}
+      <div><button class="ecl-button ecl-button--primary">Button</button></div>
+      <p>${loremIpsum({ count: 3, format: 'html', units: 'paragraphs', random: Math.random })}</p>
     </div>`,
     )
     .join('');
@@ -46,6 +47,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Tabs',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -54,10 +63,12 @@ Default.render = async (args) => {
   const renderedTabs = await Tabs(prepareData(demoData, args));
   return renderedTabs;
 };
-Default.storyName = 'as a navigational element';
+Default.storyName = 'tabs only';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: { markdown: notes, json: ({ args }) => prepareData(demoData, args) },
+};
 
 export const WithTabbedContent = (_, { loaded: { component } }) => component;
 
@@ -72,9 +83,15 @@ WithTabbedContent.render = async (args) => {
 
   return renderedStory;
 };
-WithTabbedContent.storyName = 'as tabbed interface';
+WithTabbedContent.storyName = 'with content management';
 WithTabbedContent.args = getArgs(demoDtaWithContent);
 WithTabbedContent.argTypes = getArgTypes(demoDtaWithContent);
 WithTabbedContent.parameters = {
-  notes: { markdown: notes, json: demoDtaWithContent },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDtaWithContent, args),
+  },
+  chromatic: {
+    disable: true,
+  },
 };

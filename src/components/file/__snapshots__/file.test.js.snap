@@ -3,577 +3,510 @@
 exports[`File Thumbnail renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-file ecl-file--thumbnail"
+    class="ecl-file"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
     id="ecl-file-with-thumbnail"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <picture
-        class="ecl-picture ecl-file__picture"
-      >
-        <img
-          alt=""
-          class="ecl-file__image"
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-        />
-      </picture>
       <div
         class="ecl-file__info"
       >
+        <picture
+          class="ecl-picture ecl-file__picture"
+        >
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
         <div
-          class="ecl-file__label"
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-with-thumbnail-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <footer
+        class="ecl-file__footer"
+      >
+        <button
+          aria-controls="ecl-file-with-thumbnail-translations"
+          aria-expanded="false"
+          aria-label="Translations"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-file__translation-toggle"
+          data-ecl-file-translation-toggle=""
+          type="button"
         >
           <span
-            class="ecl-label ecl-label--highlight"
+            class="ecl-button__container"
           >
-            highlighted
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              <span
+                class="ecl-file__language"
+                id="ecl-file-with-thumbnail-lang"
+              >
+                English
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+              data-ecl-icon=""
+            />
           </span>
-        </div>
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
+        </button>
         <div
-          class="ecl-file__title"
-          id="ecl-file-with-thumbnail-title"
+          class="ecl-file__action"
         >
           <a
-            class="ecl-link ecl-link--standalone"
+            aria-labelledby="ecl-file-with-thumbnail-link-label-text ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang ecl-file-with-thumbnail-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
             href="/example"
+            id="ecl-file-with-thumbnail-link"
           >
-            State of the Union 2018 brochure
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-link-label"
+            >
+              <span
+                id="ecl-file-with-thumbnail-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-with-thumbnail-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
           </a>
         </div>
+      </footer>
+    </article>
+    <ul
+      class="ecl-file__translation-list"
+      hidden=""
+      id="ecl-file-with-thumbnail-translations"
+    >
+      <li
+        class="ecl-file__translation-item"
+      >
         <div
-          class="ecl-file__description"
+          class="ecl-file__translation-info"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-0-title"
+            lang="bg"
+          >
+            български
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-0-meta"
+          >
+            (15.7 MB - PDF)
+          </div>
         </div>
-      </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-with-thumbnail-lang"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-with-thumbnail-link"
-        >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-with-thumbnail-link-label"
-          >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
-    >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Other languages (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
-      >
-        <li
-          class="ecl-file__translation-item"
-        >
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-thumbnail-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-action"
-          >
-            <a
-              aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-with-thumbnail-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-thumbnail-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
-          </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
-        >
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-thumbnail-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-action"
-          >
-            <a
-              aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-with-thumbnail-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-thumbnail-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
-          </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
-        >
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-thumbnail-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-action"
-          >
-            <a
-              aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-with-thumbnail-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-thumbnail-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`File Thumbnail renders correctly with taxonomies 1`] = `
-<jest>
-  <div
-    class="ecl-file ecl-file--thumbnail"
-    data-ecl-auto-init="FileDownload"
-    data-ecl-file=""
-    id="ecl-file-taxonomy"
-  >
-    <div
-      class="ecl-file__container"
-    >
-      <picture
-        class="ecl-picture ecl-file__picture"
-      >
-        <img
-          alt=""
-          class="ecl-file__image"
-          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-        />
-      </picture>
-      <div
-        class="ecl-file__info"
-      >
         <div
-          class="ecl-file__label"
-        >
-          <span
-            class="ecl-label ecl-label--highlight"
-          >
-            highlighted
-          </span>
-        </div>
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <div
-          class="ecl-file__title"
-          id="ecl-file-taxonomy-title"
+          class="ecl-file__translation-action"
         >
           <a
-            class="ecl-link ecl-link--standalone"
-            href="/example"
+            aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-translation-0-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#bg"
+            hreflang="bg"
+            id="ecl-file-with-thumbnail-translation-0-link"
           >
-            State of the Union 2018 brochure
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-0-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
           </a>
         </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
         <div
-          class="ecl-file__description"
+          class="ecl-file__translation-info"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-1-title"
+            lang="es"
+          >
+            español
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-1-meta"
+          >
+            (15.8 MB - PDF)
+          </div>
         </div>
         <div
-          class="ecl-file__taxonomy"
+          class="ecl-file__translation-action"
         >
-          <dl
-            class="ecl-description-list"
-            data-ecl-auto-init="DescriptionList"
-            data-ecl-description-list=""
-            data-ecl-description-list-more-label="Show more items"
-            data-ecl-description-list-visible-items="2"
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-translation-1-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#es"
+            hreflang="es"
+            id="ecl-file-with-thumbnail-translation-1-link"
           >
-            <dt
-              class="ecl-description-list__term"
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-1-link-label"
             >
-              Taxonomy list
-            </dt>
-            <dd
-              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-            >
-              <ul
-                class="ecl-description-list__definition-list"
-                data-ecl-description-list-collapsible=""
-              >
-                <li
-                  class="ecl-description-list__definition-item"
-                >
-                  Taxonomy item 1
-                </li>
-                <li
-                  class="ecl-description-list__definition-item"
-                >
-                  Taxonomy item 2
-                </li>
-                <li
-                  class="ecl-description-list__definition-item"
-                >
-                  Taxonomy item 3
-                </li>
-                <li
-                  class="ecl-description-list__definition-item"
-                >
-                  Taxonomy item 4
-                </li>
-                <li
-                  class="ecl-description-list__definition-item"
-                >
-                  Taxonomy item 5
-                </li>
-                <li
-                  class="ecl-description-list__definition-item"
-                >
-                  Taxonomy item 6
-                </li>
-              </ul>
-            </dd>
-          </dl>
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
         </div>
-      </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-taxonomy-lang"
+      </li>
+      <li
+        class="ecl-file__translation-item"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-taxonomy-link-label ecl-file-taxonomy-title ecl-file-taxonomy-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-taxonomy-link"
-        >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-taxonomy-link-label"
-          >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
-    >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Translations (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
-      >
-        <li
-          class="ecl-file__translation-item"
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-2-title"
+            lang="da"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-taxonomy-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
+            dansk
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-2-meta"
           >
-            <a
-              aria-labelledby="ecl-file-taxonomy-translation-0-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-taxonomy-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-taxonomy-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-translation-2-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#da"
+            hreflang="da"
+            id="ecl-file-with-thumbnail-translation-2-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-2-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-3-title"
+            lang="de"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-taxonomy-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
+            Deutsch
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-3-meta"
           >
-            <a
-              aria-labelledby="ecl-file-taxonomy-translation-1-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-taxonomy-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-taxonomy-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-3-link-label ecl-file-with-thumbnail-translation-3-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-3-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#de"
+            hreflang="de"
+            id="ecl-file-with-thumbnail-translation-3-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-3-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-4-title"
+            lang="fr"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-taxonomy-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
+            français
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-4-meta"
           >
-            <a
-              aria-labelledby="ecl-file-taxonomy-translation-2-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-taxonomy-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-taxonomy-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-4-link-label ecl-file-with-thumbnail-translation-4-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-4-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#fr"
+            hreflang="fr"
+            id="ecl-file-with-thumbnail-translation-4-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-4-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-5-title"
+            lang="it"
+          >
+            italiano
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-5-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-5-link-label ecl-file-with-thumbnail-translation-5-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-5-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#it"
+            hreflang="it"
+            id="ecl-file-with-thumbnail-translation-5-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-5-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-6-title"
+            lang="sl"
+          >
+            slovenščina
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-6-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-6-link-label ecl-file-with-thumbnail-translation-6-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-6-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#sl"
+            hreflang="sl"
+            id="ecl-file-with-thumbnail-translation-6-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-6-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
@@ -581,251 +514,511 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
 exports[`File Thumbnail renders correctly without an image 1`] = `
 <jest>
   <div
-    class="ecl-file ecl-file--thumbnail"
+    class="ecl-file"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
     id="ecl-file-with-thumbnail"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
       <div
         class="ecl-file__info"
       >
         <div
-          class="ecl-file__label"
+          class="ecl-file__icon-box"
         >
           <span
-            class="ecl-label ecl-label--highlight"
-          >
-            highlighted
-          </span>
+            aria-hidden="false"
+            class="wt-icon-phosphor--file-pdf ecl-icon ecl-icon--l ecl-file__icon ecl-icon-phosphor--file-pdf"
+            role="img"
+            title="pdf"
+          />
         </div>
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
         <div
-          class="ecl-file__title"
-          id="ecl-file-with-thumbnail-title"
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-with-thumbnail-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <footer
+        class="ecl-file__footer"
+      >
+        <button
+          aria-controls="ecl-file-with-thumbnail-translations"
+          aria-expanded="false"
+          aria-label="Translations"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-file__translation-toggle"
+          data-ecl-file-translation-toggle=""
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              <span
+                class="ecl-file__language"
+                id="ecl-file-with-thumbnail-lang"
+              >
+                English
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+              data-ecl-icon=""
+            />
+          </span>
+        </button>
+        <div
+          class="ecl-file__action"
         >
           <a
-            class="ecl-link ecl-link--standalone"
+            aria-labelledby="ecl-file-with-thumbnail-link-label-text ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang ecl-file-with-thumbnail-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
             href="/example"
+            id="ecl-file-with-thumbnail-link"
           >
-            State of the Union 2018 brochure
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-link-label"
+            >
+              <span
+                id="ecl-file-with-thumbnail-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-with-thumbnail-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
           </a>
         </div>
+      </footer>
+    </article>
+    <ul
+      class="ecl-file__translation-list"
+      hidden=""
+      id="ecl-file-with-thumbnail-translations"
+    >
+      <li
+        class="ecl-file__translation-item"
+      >
         <div
-          class="ecl-file__description"
+          class="ecl-file__translation-info"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-0-title"
+            lang="bg"
+          >
+            български
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-0-meta"
+          >
+            (15.7 MB - PDF)
+          </div>
         </div>
-      </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-with-thumbnail-lang"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-with-thumbnail-link"
+        <div
+          class="ecl-file__translation-action"
         >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-with-thumbnail-link-label"
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-translation-0-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#bg"
+            hreflang="bg"
+            id="ecl-file-with-thumbnail-translation-0-link"
           >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
-    >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-0-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
       >
-        <span
-          class="ecl-button__container"
-        >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
-          >
-            Other languages (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
-      >
-        <li
-          class="ecl-file__translation-item"
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-1-title"
+            lang="es"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-thumbnail-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
+            español
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-1-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-with-thumbnail-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-thumbnail-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.8 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-translation-1-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#es"
+            hreflang="es"
+            id="ecl-file-with-thumbnail-translation-1-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-1-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-2-title"
+            lang="da"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-thumbnail-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
+            dansk
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-2-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-with-thumbnail-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-thumbnail-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-translation-2-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#da"
+            hreflang="da"
+            id="ecl-file-with-thumbnail-translation-2-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-2-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-3-title"
+            lang="de"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-thumbnail-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
+            Deutsch
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-3-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-with-thumbnail-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-thumbnail-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-3-link-label ecl-file-with-thumbnail-translation-3-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-3-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#de"
+            hreflang="de"
+            id="ecl-file-with-thumbnail-translation-3-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-3-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-4-title"
+            lang="fr"
+          >
+            français
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-4-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-4-link-label ecl-file-with-thumbnail-translation-4-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-4-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#fr"
+            hreflang="fr"
+            id="ecl-file-with-thumbnail-translation-4-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-4-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-5-title"
+            lang="it"
+          >
+            italiano
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-5-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-5-link-label ecl-file-with-thumbnail-translation-5-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-5-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#it"
+            hreflang="it"
+            id="ecl-file-with-thumbnail-translation-5-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-5-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-thumbnail-translation-6-title"
+            lang="sl"
+          >
+            slovenščina
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-thumbnail-translation-6-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-thumbnail-translation-6-link-label ecl-file-with-thumbnail-translation-6-title ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-6-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#sl"
+            hreflang="sl"
+            id="ecl-file-with-thumbnail-translation-6-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-6-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
@@ -838,218 +1031,505 @@ exports[`File With translation renders correctly 1`] = `
     data-ecl-file=""
     id="ecl-file-with-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <div
-          class="ecl-file__title"
-          id="ecl-file-with-translation-title"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          State of the Union 2018 brochure
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-with-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-with-translation-lang"
+      <footer
+        class="ecl-file__footer"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-with-translation-link"
+        <button
+          aria-controls="ecl-file-with-translation-translations"
+          aria-expanded="false"
+          aria-label="Translations"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-file__translation-toggle"
+          data-ecl-file-translation-toggle=""
+          type="button"
         >
           <span
-            class="ecl-link__label"
-            id="ecl-file-with-translation-link-label"
+            class="ecl-button__container"
           >
-            Download
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              <span
+                class="ecl-file__language"
+                id="ecl-file-with-translation-lang"
+              >
+                English
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
+        </button>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-link-label-text ecl-file-with-translation-title ecl-file-with-translation-lang ecl-file-with-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-with-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-link-label"
+            >
+              <span
+                id="ecl-file-with-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-with-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
+    <ul
+      class="ecl-file__translation-list"
+      hidden=""
+      id="ecl-file-with-translation-translations"
     >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
+      <li
+        class="ecl-file__translation-item"
       >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-file__translation-info"
         >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-0-title"
+            lang="bg"
           >
-            Translations (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
+            български
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-0-meta"
+          >
+            (15.7 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-translation-0-title ecl-file-with-translation-title ecl-file-with-translation-translation-0-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#bg"
+            hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
       >
-        <li
-          class="ecl-file__translation-item"
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-1-title"
+            lang="es"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
+            español
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-1-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-with-translation-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.8 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-translation-1-title ecl-file-with-translation-title ecl-file-with-translation-translation-1-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#es"
+            hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-2-title"
+            lang="da"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
+            dansk
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-2-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              download=""
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-with-translation-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-translation-2-title ecl-file-with-translation-title ecl-file-with-translation-translation-2-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#da"
+            hreflang="da"
+            id="ecl-file-with-translation-translation-2-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-3-title"
+            lang="de"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
+            Deutsch
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-3-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-with-translation-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-3-link-label ecl-file-with-translation-translation-3-title ecl-file-with-translation-title ecl-file-with-translation-translation-3-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#de"
+            hreflang="de"
+            id="ecl-file-with-translation-translation-3-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-3-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-4-title"
+            lang="fr"
+          >
+            français
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-4-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-4-link-label ecl-file-with-translation-translation-4-title ecl-file-with-translation-title ecl-file-with-translation-translation-4-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#fr"
+            hreflang="fr"
+            id="ecl-file-with-translation-translation-4-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-4-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-5-title"
+            lang="it"
+          >
+            italiano
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-5-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-5-link-label ecl-file-with-translation-translation-5-title ecl-file-with-translation-title ecl-file-with-translation-translation-5-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#it"
+            hreflang="it"
+            id="ecl-file-with-translation-translation-5-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-5-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-6-title"
+            lang="sl"
+          >
+            slovenščina
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-6-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-6-link-label ecl-file-with-translation-translation-6-title ecl-file-with-translation-title ecl-file-with-translation-translation-6-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#sl"
+            hreflang="sl"
+            id="ecl-file-with-translation-translation-6-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-6-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
@@ -1062,221 +1542,506 @@ exports[`File With translation renders correctly with download attribute 1`] = `
     data-ecl-file=""
     id="ecl-file-with-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <div
-          class="ecl-file__title"
-          id="ecl-file-with-translation-title"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          State of the Union 2018 brochure
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-with-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-with-translation-lang"
+      <footer
+        class="ecl-file__footer"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          download=""
-          href="/example"
-          id="ecl-file-with-translation-link"
+        <button
+          aria-controls="ecl-file-with-translation-translations"
+          aria-expanded="false"
+          aria-label="Translations"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-file__translation-toggle"
+          data-ecl-file-translation-toggle=""
+          type="button"
         >
           <span
-            class="ecl-link__label"
-            id="ecl-file-with-translation-link-label"
+            class="ecl-button__container"
           >
-            Download
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              <span
+                class="ecl-file__language"
+                id="ecl-file-with-translation-lang"
+              >
+                English
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
+        </button>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-link-label-text ecl-file-with-translation-title ecl-file-with-translation-lang ecl-file-with-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            download=""
+            href="/example"
+            id="ecl-file-with-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-link-label"
+            >
+              <span
+                id="ecl-file-with-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-with-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
+    <ul
+      class="ecl-file__translation-list"
+      hidden=""
+      id="ecl-file-with-translation-translations"
     >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
+      <li
+        class="ecl-file__translation-item"
       >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-file__translation-info"
         >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-0-title"
+            lang="bg"
           >
-            Translations (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
+            български
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-0-meta"
+          >
+            (15.7 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-translation-0-title ecl-file-with-translation-title ecl-file-with-translation-translation-0-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#bg"
+            hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
       >
-        <li
-          class="ecl-file__translation-item"
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-1-title"
+            lang="es"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
+            español
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-1-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              download=""
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-with-translation-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.8 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-translation-1-title ecl-file-with-translation-title ecl-file-with-translation-translation-1-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#es"
+            hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-2-title"
+            lang="da"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
+            dansk
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-2-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              download=""
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-with-translation-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-translation-2-title ecl-file-with-translation-title ecl-file-with-translation-translation-2-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#da"
+            hreflang="da"
+            id="ecl-file-with-translation-translation-2-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-3-title"
+            lang="de"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
+            Deutsch
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-3-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              download=""
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-with-translation-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-3-link-label ecl-file-with-translation-translation-3-title ecl-file-with-translation-title ecl-file-with-translation-translation-3-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#de"
+            hreflang="de"
+            id="ecl-file-with-translation-translation-3-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-3-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-4-title"
+            lang="fr"
+          >
+            français
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-4-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-4-link-label ecl-file-with-translation-translation-4-title ecl-file-with-translation-title ecl-file-with-translation-translation-4-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#fr"
+            hreflang="fr"
+            id="ecl-file-with-translation-translation-4-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-4-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-5-title"
+            lang="it"
+          >
+            italiano
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-5-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-5-link-label ecl-file-with-translation-translation-5-title ecl-file-with-translation-title ecl-file-with-translation-translation-5-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#it"
+            hreflang="it"
+            id="ecl-file-with-translation-translation-5-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-5-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-6-title"
+            lang="sl"
+          >
+            slovenščina
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-6-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-6-link-label ecl-file-with-translation-translation-6-title ecl-file-with-translation-title ecl-file-with-translation-translation-6-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#sl"
+            hreflang="sl"
+            id="ecl-file-with-translation-translation-6-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-6-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
@@ -1291,218 +2056,505 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
     data-test-1="data-test-value-1"
     id="ecl-file-with-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <div
-          class="ecl-file__title"
-          id="ecl-file-with-translation-title"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          State of the Union 2018 brochure
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-with-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-with-translation-lang"
+      <footer
+        class="ecl-file__footer"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-with-translation-link"
+        <button
+          aria-controls="ecl-file-with-translation-translations"
+          aria-expanded="false"
+          aria-label="Translations"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-file__translation-toggle"
+          data-ecl-file-translation-toggle=""
+          type="button"
         >
           <span
-            class="ecl-link__label"
-            id="ecl-file-with-translation-link-label"
+            class="ecl-button__container"
           >
-            Download
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              <span
+                class="ecl-file__language"
+                id="ecl-file-with-translation-lang"
+              >
+                English
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
+        </button>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-link-label-text ecl-file-with-translation-title ecl-file-with-translation-lang ecl-file-with-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-with-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-link-label"
+            >
+              <span
+                id="ecl-file-with-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-with-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
+    <ul
+      class="ecl-file__translation-list"
+      hidden=""
+      id="ecl-file-with-translation-translations"
     >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
+      <li
+        class="ecl-file__translation-item"
       >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-file__translation-info"
         >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-0-title"
+            lang="bg"
           >
-            Translations (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
+            български
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-0-meta"
+          >
+            (15.7 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-translation-0-title ecl-file-with-translation-title ecl-file-with-translation-translation-0-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#bg"
+            hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
       >
-        <li
-          class="ecl-file__translation-item"
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-1-title"
+            lang="es"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
+            español
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-1-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-with-translation-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.8 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-translation-1-title ecl-file-with-translation-title ecl-file-with-translation-translation-1-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#es"
+            hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-2-title"
+            lang="da"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
+            dansk
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-2-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              download=""
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-with-translation-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-translation-2-title ecl-file-with-translation-title ecl-file-with-translation-translation-2-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#da"
+            hreflang="da"
+            id="ecl-file-with-translation-translation-2-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-3-title"
+            lang="de"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
+            Deutsch
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-3-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-with-translation-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-3-link-label ecl-file-with-translation-translation-3-title ecl-file-with-translation-title ecl-file-with-translation-translation-3-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#de"
+            hreflang="de"
+            id="ecl-file-with-translation-translation-3-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-3-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-4-title"
+            lang="fr"
+          >
+            français
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-4-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-4-link-label ecl-file-with-translation-translation-4-title ecl-file-with-translation-title ecl-file-with-translation-translation-4-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#fr"
+            hreflang="fr"
+            id="ecl-file-with-translation-translation-4-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-4-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-5-title"
+            lang="it"
+          >
+            italiano
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-5-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-5-link-label ecl-file-with-translation-translation-5-title ecl-file-with-translation-title ecl-file-with-translation-translation-5-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#it"
+            hreflang="it"
+            id="ecl-file-with-translation-translation-5-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-5-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-6-title"
+            lang="sl"
+          >
+            slovenščina
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-6-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-6-link-label ecl-file-with-translation-translation-6-title ecl-file-with-translation-title ecl-file-with-translation-translation-6-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#sl"
+            hreflang="sl"
+            id="ecl-file-with-translation-translation-6-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-6-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
@@ -1515,218 +2567,505 @@ exports[`File With translation renders correctly with extra class names 1`] = `
     data-ecl-file=""
     id="ecl-file-with-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <div
-          class="ecl-file__title"
-          id="ecl-file-with-translation-title"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          State of the Union 2018 brochure
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-with-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-with-translation-lang"
+      <footer
+        class="ecl-file__footer"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-with-translation-link"
+        <button
+          aria-controls="ecl-file-with-translation-translations"
+          aria-expanded="false"
+          aria-label="Translations"
+          class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-file__translation-toggle"
+          data-ecl-file-translation-toggle=""
+          type="button"
         >
           <span
-            class="ecl-link__label"
-            id="ecl-file-with-translation-link-label"
+            class="ecl-button__container"
           >
-            Download
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              <span
+                class="ecl-file__language"
+                id="ecl-file-with-translation-lang"
+              >
+                English
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+              data-ecl-icon=""
+            />
           </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="ecl-file__translation-container"
-      data-ecl-file-translation-container=""
+        </button>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-link-label-text ecl-file-with-translation-title ecl-file-with-translation-lang ecl-file-with-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-with-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-link-label"
+            >
+              <span
+                id="ecl-file-with-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-with-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
+    <ul
+      class="ecl-file__translation-list"
+      hidden=""
+      id="ecl-file-with-translation-translations"
     >
-      <button
-        aria-expanded="false"
-        class="ecl-button ecl-button--tertiary ecl-file__translation-toggle"
-        data-ecl-file-translation-toggle=""
-        type="button"
+      <li
+        class="ecl-file__translation-item"
       >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-file__translation-info"
         >
-          <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-0-title"
+            lang="bg"
           >
-            Translations (3)
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-icon--corner-arrow"
-            data-ecl-icon=""
-          />
-        </span>
-      </button>
-      <ul
-        class="ecl-file__translation-list"
+            български
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-0-meta"
+          >
+            (15.7 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-translation-0-title ecl-file-with-translation-title ecl-file-with-translation-translation-0-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#bg"
+            hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
       >
-        <li
-          class="ecl-file__translation-item"
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-1-title"
+            lang="es"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-0-lang"
-              lang="bg"
-            >
-              български
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.7 MB - PDF)
-            </div>
+            español
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-1-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#bg"
-              hreflang="bg"
-              id="ecl-file-with-translation-translation-0-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-0-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.8 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-translation-1-title ecl-file-with-translation-title ecl-file-with-translation-translation-1-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#es"
+            hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-2-title"
+            lang="da"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-1-lang"
-              lang="es"
-            >
-              español
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.8 MB - PDF)
-            </div>
+            dansk
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-2-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              download=""
-              href="/example#es"
-              hreflang="es"
-              id="ecl-file-with-translation-translation-1-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-1-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-        <li
-          class="ecl-file__translation-item"
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-translation-2-title ecl-file-with-translation-title ecl-file-with-translation-translation-2-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#da"
+            hreflang="da"
+            id="ecl-file-with-translation-translation-2-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
         >
           <div
-            class="ecl-file__translation-info"
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-3-title"
+            lang="de"
           >
-            <div
-              class="ecl-file__translation-title"
-              id="ecl-file-with-translation-translation-2-lang"
-              lang="fr"
-            >
-              français
-            </div>
-            <div
-              class="ecl-file__translation-meta"
-            >
-              (15.4 MB - PDF)
-            </div>
+            Deutsch
           </div>
           <div
-            class="ecl-file__translation-action"
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-3-meta"
           >
-            <a
-              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-              href="/example#fr"
-              hreflang="fr"
-              id="ecl-file-with-translation-translation-2-link"
-            >
-              <span
-                class="ecl-link__label"
-                id="ecl-file-with-translation-translation-2-link-label"
-              >
-                Download
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-              />
-            </a>
+            (15.4 MB - PDF)
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-3-link-label ecl-file-with-translation-translation-3-title ecl-file-with-translation-title ecl-file-with-translation-translation-3-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#de"
+            hreflang="de"
+            id="ecl-file-with-translation-translation-3-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-3-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-4-title"
+            lang="fr"
+          >
+            français
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-4-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-4-link-label ecl-file-with-translation-translation-4-title ecl-file-with-translation-title ecl-file-with-translation-translation-4-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#fr"
+            hreflang="fr"
+            id="ecl-file-with-translation-translation-4-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-4-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-5-title"
+            lang="it"
+          >
+            italiano
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-5-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-5-link-label ecl-file-with-translation-translation-5-title ecl-file-with-translation-title ecl-file-with-translation-translation-5-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#it"
+            hreflang="it"
+            id="ecl-file-with-translation-translation-5-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-5-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+      <li
+        class="ecl-file__translation-item"
+      >
+        <div
+          class="ecl-file__translation-info"
+        >
+          <div
+            class="ecl-file__translation-title"
+            id="ecl-file-with-translation-translation-6-title"
+            lang="sl"
+          >
+            slovenščina
+          </div>
+          <div
+            class="ecl-file__translation-meta"
+            id="ecl-file-with-translation-translation-6-meta"
+          >
+            (15.4 MB - PDF)
+          </div>
+        </div>
+        <div
+          class="ecl-file__translation-action"
+        >
+          <a
+            aria-labelledby="ecl-file-with-translation-translation-6-link-label ecl-file-with-translation-translation-6-title ecl-file-with-translation-title ecl-file-with-translation-translation-6-meta"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+            href="/example#sl"
+            hreflang="sl"
+            id="ecl-file-with-translation-translation-6-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-with-translation-translation-6-link-label"
+            >
+              Download
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
@@ -1736,324 +3075,352 @@ exports[`File Without translation renders correctly 1`] = `
   <div
     class="ecl-file"
     data-ecl-file=""
-    id="ecl-file-without-translations"
+    id="ecl-file-without-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <ul
-          class="ecl-file__detail-meta"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
         <div
-          class="ecl-file__title"
-          id="ecl-file-without-translations-title"
+          class="ecl-file__content"
         >
-          State of the Union 2018 brochure
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-without-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-without-translations-lang"
+      <footer
+        class="ecl-file__footer"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-without-translations-link"
+        <span
+          class="ecl-file__language ecl-file__language--no-toggle"
+          id="ecl-file-without-translation-lang"
         >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-without-translations-link-label"
+          English
+        </span>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-without-translation-link"
           >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
+            <span
+              class="ecl-link__label"
+              id="ecl-file-without-translation-link-label"
+            >
+              <span
+                id="ecl-file-without-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-without-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
   </div>
 </jest>
 `;
 
-exports[`File Without translation renders correctly with a single label 1`] = `
+exports[`File Without translation renders correctly with a single primary meta item 1`] = `
 <jest>
   <div
     class="ecl-file"
     data-ecl-file=""
-    id="ecl-file-without-translations"
+    id="ecl-file-without-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <div
-          class="ecl-file__label"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          <span
-            class="ecl-label ecl-label--highlight"
-          >
-            highlight
-          </span>
-        </div>
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <div
-          class="ecl-file__title"
-          id="ecl-file-without-translations-title"
-        >
-          State of the Union 2018 brochure
-        </div>
-      </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-without-translations-lang"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-without-translations-link"
-        >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-without-translations-link-label"
-          >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
           />
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`File Without translation renders correctly with extra attributes 1`] = `
-<jest>
-  <div
-    class="ecl-file"
-    data-ecl-file=""
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="ecl-file-without-translations"
-  >
-    <div
-      class="ecl-file__container"
-    >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
-      <div
-        class="ecl-file__info"
-      >
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
+        </picture>
         <div
-          class="ecl-file__title"
-          id="ecl-file-without-translations-title"
+          class="ecl-file__content"
         >
-          State of the Union 2018 brochure
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                Highlight
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-without-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <div
+            class="ecl-file__primary-meta"
+          >
+            <div
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </div>
+          </div>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-without-translations-lang"
+      <footer
+        class="ecl-file__footer"
       >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-without-translations-link"
+        <span
+          class="ecl-file__language ecl-file__language--no-toggle"
+          id="ecl-file-without-translation-lang"
         >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-without-translations-link-label"
-          >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`File Without translation renders correctly with extra class names 1`] = `
-<jest>
-  <div
-    class="ecl-file custom-class custom-class--test"
-    data-ecl-file=""
-    id="ecl-file-without-translations"
-  >
-    <div
-      class="ecl-file__container"
-    >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
-      <div
-        class="ecl-file__info"
-      >
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
+          English
+        </span>
         <div
-          class="ecl-file__title"
-          id="ecl-file-without-translations-title"
+          class="ecl-file__action"
         >
-          State of the Union 2018 brochure
-        </div>
-      </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-without-translations-lang"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-without-translations-link"
-        >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-without-translations-link-label"
+          <a
+            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-without-translation-link"
           >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
-          />
-        </a>
-      </div>
-    </div>
+            <span
+              class="ecl-link__label"
+              id="ecl-file-without-translation-link-label"
+            >
+              <span
+                id="ecl-file-without-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-without-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
   </div>
 </jest>
 `;
@@ -2063,94 +3430,186 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
   <div
     class="ecl-file"
     data-ecl-file=""
-    id="ecl-file-without-translations"
+    id="ecl-file-without-translation"
   >
-    <div
+    <article
       class="ecl-file__container"
     >
-      <span
-        aria-hidden="true"
-        class="wt-icon--file ecl-icon ecl-icon--2xl ecl-file__icon ecl-icon--file"
-      />
       <div
         class="ecl-file__info"
       >
-        <div
-          class="ecl-file__label"
+        <picture
+          class="ecl-picture ecl-file__picture"
         >
-          <span
-            class="ecl-label ecl-label--highlight"
-          >
-            highlight
-          </span>
-        </div>
-        <div
-          class="ecl-file__label"
-        >
-          <span
-            class="ecl-label ecl-label--low"
-          >
-            important
-          </span>
-        </div>
-        <ul
-          class="ecl-file__detail-meta"
-        >
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            META INFO
-          </li>
-          <li
-            class="ecl-file__detail-meta-item"
-          >
-            DD Month YYYY
-          </li>
-        </ul>
-        <div
-          class="ecl-file__title"
-          id="ecl-file-without-translations-title"
-        >
-          State of the Union 2018 brochure
-        </div>
-      </div>
-    </div>
-    <div
-      class="ecl-file__footer"
-    >
-      <div
-        class="ecl-file__language"
-        id="ecl-file-without-translations-lang"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-      <div
-        class="ecl-file__action"
-      >
-        <a
-          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-          href="/example"
-          id="ecl-file-without-translations-link"
-        >
-          <span
-            class="ecl-link__label"
-            id="ecl-file-without-translations-link-label"
-          >
-            Download
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon--download ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--download"
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
           />
-        </a>
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <div
+            class="ecl-file__labels"
+          >
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                highlight
+              </span>
+            </div>
+            <div
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--low"
+              >
+                important
+              </span>
+            </div>
+          </div>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-without-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <dl
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dt
+                class="ecl-description-list__term"
+              >
+                List
+              </dt>
+              <dd
+                class="ecl-description-list__definition ecl-description-list__definition--inline"
+              >
+                <ul
+                  class="ecl-description-list__definition-list"
+                  data-ecl-description-list-collapsible=""
+                >
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--icon"
+                      href="#"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        List item 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 2
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 3
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 4
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 5
+                  </li>
+                  <li
+                    class="ecl-description-list__definition-item"
+                  >
+                    List item 6
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
       </div>
-    </div>
+      <footer
+        class="ecl-file__footer"
+      >
+        <span
+          class="ecl-file__language ecl-file__language--no-toggle"
+          id="ecl-file-without-translation-lang"
+        >
+          English
+        </span>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-without-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-without-translation-link-label"
+            >
+              <span
+                id="ecl-file-without-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-without-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
   </div>
 </jest>
 `;

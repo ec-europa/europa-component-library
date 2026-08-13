@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import { userEvent } from '@storybook/test';
 
 // Get data
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
@@ -23,7 +24,6 @@ const closeButton = { ...dataFull.notification.close };
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
 delete dataCore.login_box;
-delete dataCore.banner_top;
 delete dataCore.cta_link;
 dataCore.has_menu = true;
 
@@ -34,7 +34,6 @@ dataStandardised.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
-delete dataHarmonised.banner_top;
 dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
@@ -55,9 +54,6 @@ const getArgs = (data) => {
     defaultArgs.show_site_name = true;
     defaultArgs.site_name = data.site_name;
     defaultArgs.site_name_mobile_only = false;
-  }
-  if (data.banner_top) {
-    defaultArgs.show_banner_top = true;
   }
   if (data.has_menu) {
     defaultArgs.show_menu = 'mega-menu';
@@ -138,16 +134,6 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
       if: { arg: 'show_notification' },
-    };
-  }
-  if (data.banner_top) {
-    argTypes.show_banner_top = {
-      name: 'class name',
-      type: { name: 'boolean' },
-      description: 'Show the class name',
-      table: {
-        category: 'Optional',
-      },
     };
   }
   if (data.has_menu) {
@@ -351,12 +337,6 @@ const prepareData = (data, args) => {
     clone.cta_link = clonedDataFull.cta_link;
   }
 
-  if (!args.show_banner_top) {
-    delete clone.banner_top;
-  } else {
-    clone.banner_top = clonedDataFull.banner_top;
-  }
-
   if (!args.show_notification) {
     delete clone.notification;
   } else {
@@ -405,7 +385,12 @@ Core.render = async (args) => {
 Core.storyName = 'core';
 Core.args = getArgs(dataCore);
 Core.argTypes = getArgTypes(dataCore);
-Core.parameters = { notes: { markdown: notes, json: dataCore } };
+Core.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataCore, args),
+  },
+};
 
 export const Standardised = (_, { loaded: { component } }) => component;
 
@@ -420,7 +405,10 @@ Standardised.storyName = 'standardised';
 Standardised.args = getArgs(dataStandardised);
 Standardised.argTypes = getArgTypes(dataStandardised);
 Standardised.parameters = {
-  notes: { markdown: notes, json: dataStandardised },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataStandardised, args),
+  },
 };
 
 export const Harmonised = (_, { loaded: { component } }) => component;
@@ -435,4 +423,62 @@ Harmonised.render = async (args) => {
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataHarmonised);
 Harmonised.argTypes = getArgTypes(dataHarmonised);
-Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };
+Harmonised.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataHarmonised, args),
+  },
+};
+
+export const MegaMenuOpened = (_, { loaded: { component } }) => component;
+
+MegaMenuOpened.render = async (args) => {
+  const renderedMegaMenuOpened = await siteHeader(prepareData(dataCore, args));
+  return renderedMegaMenuOpened;
+};
+
+MegaMenuOpened.storyName = 'mega menu opened';
+MegaMenuOpened.args = getArgs(dataCore);
+MegaMenuOpened.argTypes = getArgTypes(dataCore);
+MegaMenuOpened.tags = ['!dev'];
+MegaMenuOpened.parameters = {
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      s: { disable: true },
+      l: { disable: true },
+    },
+  },
+};
+MegaMenuOpened.play = async () => {
+  ECL.autoInit();
+  const item = document.querySelector('.ecl-mega-menu__item--has-children');
+  const button = item.querySelector('button');
+  await userEvent.click(button);
+};
+
+export const MegaMenuOpenedMobile = (_, { loaded: { component } }) => component;
+
+MegaMenuOpenedMobile.render = async (args) => {
+  const renderedMegaMenuOpenedMobile = await siteHeader(
+    prepareData(dataCore, args),
+  );
+  return renderedMegaMenuOpenedMobile;
+};
+
+MegaMenuOpenedMobile.storyName = 'mega menu opened mobile';
+MegaMenuOpenedMobile.tags = ['!dev'];
+MegaMenuOpenedMobile.args = getArgs(dataCore);
+MegaMenuOpenedMobile.argTypes = getArgTypes(dataCore);
+MegaMenuOpenedMobile.parameters = {
+  chromatic: {
+    modes: {
+      xl: { disable: true },
+    },
+  },
+};
+MegaMenuOpenedMobile.play = async () => {
+  ECL.autoInit();
+  const button = document.querySelector('.ecl-mega-menu__open');
+  await userEvent.click(button);
+};

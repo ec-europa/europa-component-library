@@ -63,6 +63,16 @@ collections:
         file: 'src/website/src/pages/ec/components/accordion/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Add to calendar'
+        name: 'ec_add_to_calendar'
+        file: 'src/website/src/pages/ec/components/add-to-calendar/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Animated Numbers'
+        name: 'ec_animated_numbers'
+        file: 'src/website/src/pages/ec/components/animated-numbers/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Banner'
         name: 'ec_banner'
         file: 'src/website/src/pages/ec/components/banner/docs/usage.md'
@@ -138,6 +148,11 @@ collections:
         file: 'src/website/src/pages/ec/components/page-information/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Page summary'
+        name: 'ec_page_summary'
+        file: 'src/website/src/pages/ec/components/page-summary/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Popover'
         name: 'ec_popover'
         file: 'src/website/src/pages/ec/components/popover/docs/usage.md'
@@ -161,6 +176,16 @@ collections:
       - label: 'File'
         name: 'ec_file'
         file: 'src/website/src/pages/ec/components/file/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlight box'
+        name: 'ec_highlight_box'
+        file: 'src/website/src/pages/ec/components/highlight-box/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlighted search'
+        name: 'ec_highlighted_search'
+        file: 'src/website/src/pages/ec/components/highlighted-search/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Rating field'
@@ -213,9 +238,9 @@ collections:
         file: 'src/website/src/pages/ec/components/navigation/menu/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Message'
-        name: 'ec_message'
-        file: 'src/website/src/pages/ec/components/message/docs/usage.md'
+      - label: 'Notification'
+        name: 'ec_notification'
+        file: 'src/website/src/pages/ec/components/notification/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Modal'
@@ -241,6 +266,11 @@ collections:
       - label: 'Pagination'
         name: 'ec_pagination'
         file: 'src/website/src/pages/ec/components/navigation/pagination/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Quiz'
+        name: 'ec_quiz'
+        file: 'src/website/src/pages/ec/components/quiz/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Radio'
@@ -283,19 +313,29 @@ collections:
         file: 'src/website/src/pages/ec/components/navigation/skip-link/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Slogan ticker'
+        name: 'ec_slogan_ticker'
+        file: 'src/website/src/pages/ec/components/slogan-ticker/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Social media follow'
         name: 'ec_social_media_follow'
         file: 'src/website/src/pages/ec/components/social-media-follow/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Spinner'
-        name: 'ec_spinner'
-        file: 'src/website/src/pages/ec/components/spinner/docs/usage.md'
+      - label: 'Loading indicator'
+        name: 'ec_loading_indicator'
+        file: 'src/website/src/pages/ec/components/loading-indicator/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Splash page'
         name: 'ec_splash_page'
         file: 'src/website/src/pages/ec/components/splash-page/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Story card'
+        name: 'ec_story_card'
+        file: 'src/website/src/pages/ec/components/story-card/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Table'
@@ -318,6 +358,11 @@ collections:
         file: 'src/website/src/pages/ec/components/forms/text-area/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Text and media'
+        name: 'ec_text-and-media'
+        file: 'src/website/src/pages/ec/components/media/text-and-media/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Text field'
         name: 'ec_text-field'
         file: 'src/website/src/pages/ec/components/forms/text-field/docs/usage.md'
@@ -328,12 +373,332 @@ collections:
         file: 'src/website/src/pages/ec/components/timeline/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Tooltip'
+        name: 'ec_tooltip'
+        file: 'src/website/src/pages/ec/components/tooltip/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
   - label: 'EC a11y pages for components'
     name: 'ec_accessibility_pages'
     files:
       - label: 'Accordion'
         name: 'ec_accordion_a11y'
         file: 'src/website/src/pages/ec/components/accordion/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Add to calendar'
+        name: 'ec_add_to_calendar_a11y'
+        file: 'src/website/src/pages/ec/components/add-to-calendar/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Animated Numbers'
+        name: 'ec_animated_numbers_a11y'
+        file: 'src/website/src/pages/ec/components/animated-numbers/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Banner'
+        name: 'ec_banner_a11y'
+        file: 'src/website/src/pages/ec/components/banner/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Spotlight'
+        name: 'ec_spotlight_a11y'
+        file: 'src/website/src/pages/ec/components/spotlight/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Breadcrumbs (site-wide)'
+        name: 'ec_breadcrumbs_site_wide_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/breadcrumb/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Blockquote'
+        name: 'ec_blockquote_a11y'
+        file: 'src/website/src/pages/ec/components/blockquote/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Button'
+        name: 'ec_button_a11y'
+        file: 'src/website/src/pages/ec/components/button/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Card'
+        name: 'ec_card_a11y'
+        file: 'src/website/src/pages/ec/components/card/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Carousel'
+        name: 'ec_carousel_a11y'
+        file: 'src/website/src/pages/ec/components/carousel/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Category filter'
+        name: 'ec_category-filter_a11y'
+        file: 'src/website/src/pages/ec/components/category-filter/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Checkbox'
+        name: 'ec_checkbox_a11y'
+        file: 'src/website/src/pages/ec/components/forms/checkbox/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Content item'
+        name: 'ec_content-item_a11y'
+        file: 'src/website/src/pages/ec/components/content-item/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Date block'
+        name: 'ec_date_block_a11y'
+        file: 'src/website/src/pages/ec/components/date-block/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Datepicker'
+        name: 'ec_datepicker_a11y'
+        file: 'src/website/src/pages/ec/components/forms/datepicker/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File upload'
+        name: 'ec_file_upload_a11y'
+        file: 'src/website/src/pages/ec/components/forms/file-upload/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'List illustration'
+        name: 'ec_list_illustration_a11y'
+        file: 'src/website/src/pages/ec/components/list-illustration/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page information'
+        name: 'ec_page_information_a11y'
+        file: 'src/website/src/pages/ec/components/page-information/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page summary'
+        name: 'ec_page_summary_a11y'
+        file: 'src/website/src/pages/ec/components/page-summary/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Popover'
+        name: 'ec_popover_a11y'
+        file: 'src/website/src/pages/ec/components/popover/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Expandable'
+        name: 'ec_expandable_a11y'
+        file: 'src/website/src/pages/ec/components/expandable/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Fact & figures'
+        name: 'ec_fact_figures_a11y'
+        file: 'src/website/src/pages/ec/components/fact-figures/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Featured item'
+        name: 'ec_featured_item_a11y'
+        file: 'src/website/src/pages/ec/components/media/featured-item/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File'
+        name: 'ec_file_a11y'
+        file: 'src/website/src/pages/ec/components/file/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlight box'
+        name: 'ec_highlight_box_a11y'
+        file: 'src/website/src/pages/ec/components/highlight-box/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlighted search'
+        name: 'ec_highlighted_search_a11y'
+        file: 'src/website/src/pages/ec/components/highlighted-search/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Rating field'
+        name: 'ec_rating_field_a11y'
+        file: 'src/website/src/pages/ec/components/forms/rating-field/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Gallery'
+        name: 'ec_gallery_a11y'
+        file: 'src/website/src/pages/ec/components/media/gallery/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Icon'
+        name: 'ec_icon_a11y'
+        file: 'src/website/src/pages/ec/components/icon/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Inpage navigation'
+        name: 'ec_inpage_navigation_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/inpage-navigation/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Label'
+        name: 'ec_label_a11y'
+        file: 'src/website/src/pages/ec/components/label/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Link'
+        name: 'ec_link_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/link/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'List'
+        name: 'ec_list_a11y'
+        file: 'src/website/src/pages/ec/components/list/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Media container'
+        name: 'ec_media_container_a11y'
+        file: 'src/website/src/pages/ec/components/media/media-container/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Mega Menu'
+        name: 'ec_mega_menu_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/mega-menu/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Menu'
+        name: 'ec_menu_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/menu/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Notification'
+        name: 'ec_notification_a11y'
+        file: 'src/website/src/pages/ec/components/notification/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Modal'
+        name: 'ec_modal_a11y'
+        file: 'src/website/src/pages/ec/components/modal/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Navigation list'
+        name: 'ec_navigation-list_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/navigation-list/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'News ticker'
+        name: 'ec_news_ticker_a11y'
+        file: 'src/website/src/pages/ec/components/news-ticker/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page Header'
+        name: 'ec_page_header_a11y'
+        file: 'src/website/src/pages/ec/components/site-wide/page-header/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Pagination'
+        name: 'ec_pagination_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/pagination/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Quiz'
+        name: 'ec_quiz_a11y'
+        file: 'src/website/src/pages/ec/components/quiz/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Radio'
+        name: 'ec_radio_a11y'
+        file: 'src/website/src/pages/ec/components/forms/radio/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Range'
+        name: 'ec_range_a11y'
+        file: 'src/website/src/pages/ec/components/forms/range/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Search form'
+        name: 'ec_search_form_a11y'
+        file: 'src/website/src/pages/ec/components/forms/search-form/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Select'
+        name: 'ec_select_a11y'
+        file: 'src/website/src/pages/ec/components/forms/select/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Divider'
+        name: 'ec_divider_a11y'
+        file: 'src/website/src/pages/ec/components/divider/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Header'
+        name: 'ec_site_header_a11y'
+        file: 'src/website/src/pages/ec/components/site-wide/site-header/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Footer'
+        name: 'ec_site_footer_a11y'
+        file: 'src/website/src/pages/ec/components/site-wide/site-footer/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Skip link'
+        name: 'ec_skip_link_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/skip-link/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Social media follow'
+        name: 'ec_social_media_follow_a11y'
+        file: 'src/website/src/pages/ec/components/social-media-follow/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Loading indicator'
+        name: 'ec_loading_indicator_a11y'
+        file: 'src/website/src/pages/ec/components/loading-indicator/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Slogan ticker'
+        name: 'ec_slogan_ticker_a11y'
+        file: 'src/website/src/pages/ec/components/slogan-ticker/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Splash page'
+        name: 'ec_splash_page_a11y'
+        file: 'src/website/src/pages/ec/components/splash-page/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Story card'
+        name: 'ec_story_card_a11y'
+        file: 'src/website/src/pages/ec/components/story-card/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Table'
+        name: 'ec_table_a11y'
+        file: 'src/website/src/pages/ec/components/table/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Tabs'
+        name: 'ec_tabs_a11y'
+        file: 'src/website/src/pages/ec/components/navigation/tabs/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Tags'
+        name: 'ec_tag_a11y'
+        file: 'src/website/src/pages/ec/components/tag/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Textarea'
+        name: 'ec_textarea_a11y'
+        file: 'src/website/src/pages/ec/components/forms/text-area/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Text and media'
+        name: 'ec_text-and-media_a11y'
+        file: 'src/website/src/pages/ec/components/media/text-and-media/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Text field'
+        name: 'ec_text-field_a11y'
+        file: 'src/website/src/pages/ec/components/forms/text-field/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Timeline'
+        name: 'ec_timeline_a11y'
+        file: 'src/website/src/pages/ec/components/timeline/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Tooltip'
+        name: 'ec_tooltip_a11y'
+        file: 'src/website/src/pages/ec/components/tooltip/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EC Guidelines'
@@ -398,6 +763,16 @@ collections:
       - label: 'Accordion'
         name: 'eu_accordion'
         file: 'src/website/src/pages/eu/components/accordion/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Add to calendar'
+        name: 'eu_add_to_calendar'
+        file: 'src/website/src/pages/eu/components/add-to-calendar/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Animated Numbers'
+        name: 'eu_animated_numbers'
+        file: 'src/website/src/pages/eu/components/animated-numbers/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Banner'
@@ -475,6 +850,11 @@ collections:
         file: 'src/website/src/pages/eu/components/page-information/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Page summary'
+        name: 'eu_page_summary'
+        file: 'src/website/src/pages/eu/components/page-summary/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Popover'
         name: 'eu_popover'
         file: 'src/website/src/pages/eu/components/popover/docs/usage.md'
@@ -498,6 +878,16 @@ collections:
       - label: 'File'
         name: 'eu_file'
         file: 'src/website/src/pages/eu/components/file/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlight box'
+        name: 'eu_highlight_box'
+        file: 'src/website/src/pages/eu/components/highlight-box/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlighted search'
+        name: 'eu_highlighted_search'
+        file: 'src/website/src/pages/eu/components/highlighted-search/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Rating field'
@@ -550,9 +940,9 @@ collections:
         file: 'src/website/src/pages/eu/components/navigation/menu/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Message'
-        name: 'eu_message'
-        file: 'src/website/src/pages/eu/components/message/docs/usage.md'
+      - label: 'Notification'
+        name: 'eu_notification'
+        file: 'src/website/src/pages/eu/components/notification/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Modal'
@@ -579,6 +969,11 @@ collections:
       - label: 'Pagination'
         name: 'eu_pagination'
         file: 'src/website/src/pages/eu/components/navigation/pagination/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Quiz'
+        name: 'eu_quiz'
+        file: 'src/website/src/pages/eu/components/quiz/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Radio'
@@ -626,9 +1021,14 @@ collections:
         file: 'src/website/src/pages/eu/components/social-media-follow/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
-      - label: 'Spinner'
-        name: 'eu_spinner'
-        file: 'src/website/src/pages/eu/components/spinner/docs/usage.md'
+      - label: 'Slogan ticker'
+        name: 'eu_slogan_ticker'
+        file: 'src/website/src/pages/eu/components/slogan-ticker/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Loading indicator'
+        name: 'eu_loading_indicator'
+        file: 'src/website/src/pages/eu/components/loading-indicator/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Splash page'
@@ -639,6 +1039,11 @@ collections:
       - label: 'Table'
         name: 'eu_table'
         file: 'src/website/src/pages/eu/components/table/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Story card'
+        name: 'eu_story_card'
+        file: 'src/website/src/pages/eu/components/story-card/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Tabs'
@@ -656,6 +1061,11 @@ collections:
         file: 'src/website/src/pages/eu/components/forms/text-area/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Text and media'
+        name: 'eu_text-and-media'
+        file: 'src/website/src/pages/eu/components/media/text-and-media/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
       - label: 'Text field'
         name: 'eu_text-field'
         file: 'src/website/src/pages/eu/components/forms/text-field/docs/usage.md'
@@ -666,12 +1076,327 @@ collections:
         file: 'src/website/src/pages/eu/components/timeline/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Tooltip'
+        name: 'eu_tooltip'
+        file: 'src/website/src/pages/eu/components/tooltip/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
   - label: 'EU a11y pages for components'
     name: 'eu_accessibility_pages'
     files:
       - label: 'Accordion'
         name: 'eu_accordion_a11y'
         file: 'src/website/src/pages/eu/components/accordion/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Add to calendar'
+        name: 'eu_add_to_calendar_a11y'
+        file: 'src/website/src/pages/eu/components/add-to-calendar/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Animated Numbers'
+        name: 'eu_animated_numbers_a11y'
+        file: 'src/website/src/pages/eu/components/animated-numbers/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Banner'
+        name: 'eu_banner_a11y'
+        file: 'src/website/src/pages/eu/components/banner/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Spotlight'
+        name: 'eu_spotlight_a11y'
+        file: 'src/website/src/pages/eu/components/spotlight/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Breadcrumbs (site-wide)'
+        name: 'eu_breadcrumbs_site_wide_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/breadcrumb/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Blockquote'
+        name: 'eu_blockquote_a11y'
+        file: 'src/website/src/pages/eu/components/blockquote/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Button'
+        name: 'eu_button_a11y'
+        file: 'src/website/src/pages/eu/components/button/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Card'
+        name: 'eu_card_a11y'
+        file: 'src/website/src/pages/eu/components/card/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Carousel'
+        name: 'eu_carousel_a11y'
+        file: 'src/website/src/pages/eu/components/carousel/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Category filter'
+        name: 'eu_category-filter_a11y'
+        file: 'src/website/src/pages/eu/components/category-filter/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Checkbox'
+        name: 'eu_checkbox_a11y'
+        file: 'src/website/src/pages/eu/components/forms/checkbox/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Content item'
+        name: 'eu_content-item_a11y'
+        file: 'src/website/src/pages/eu/components/content-item/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Date block'
+        name: 'eu_date_block_a11y'
+        file: 'src/website/src/pages/eu/components/date-block/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Datepicker'
+        name: 'eu_datepicker_a11y'
+        file: 'src/website/src/pages/eu/components/forms/datepicker/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File upload'
+        name: 'eu_file_upload_a11y'
+        file: 'src/website/src/pages/eu/components/forms/file-upload/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'List illustration'
+        name: 'eu_list_illustration_a11y'
+        file: 'src/website/src/pages/eu/components/list-illustration/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page information'
+        name: 'eu_page_information_a11y'
+        file: 'src/website/src/pages/eu/components/page-information/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page summary'
+        name: 'eu_page_summary_a11y'
+        file: 'src/website/src/pages/eu/components/page-summary/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Popover'
+        name: 'eu_popover_a11y'
+        file: 'src/website/src/pages/eu/components/popover/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Expandable'
+        name: 'eu_expandable_a11y'
+        file: 'src/website/src/pages/eu/components/expandable/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Fact & figures'
+        name: 'eu_fact_figures_a11y'
+        file: 'src/website/src/pages/eu/components/fact-figures/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Featured item'
+        name: 'eu_featured_item_a11y'
+        file: 'src/website/src/pages/eu/components/media/featured-item/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'File'
+        name: 'eu_file_a11y'
+        file: 'src/website/src/pages/eu/components/file/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlight box'
+        name: 'eu_highlight_box_a11y'
+        file: 'src/website/src/pages/eu/components/highlight-box/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Highlighted search'
+        name: 'eu_highlighted_search_a11y'
+        file: 'src/website/src/pages/eu/components/highlighted-search/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Rating field'
+        name: 'eu_rating_field_a11y'
+        file: 'src/website/src/pages/eu/components/forms/rating-field/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Gallery'
+        name: 'eu_gallery_a11y'
+        file: 'src/website/src/pages/eu/components/media/gallery/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Icon'
+        name: 'eu_icon_a11y'
+        file: 'src/website/src/pages/eu/components/icon/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Inpage navigation'
+        name: 'eu_inpage_navigation_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/inpage-navigation/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Label'
+        name: 'eu_label_a11y'
+        file: 'src/website/src/pages/eu/components/label/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Link'
+        name: 'eu_link_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/link/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'List'
+        name: 'eu_list_a11y'
+        file: 'src/website/src/pages/eu/components/list/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Media container'
+        name: 'eu_media_container_a11y'
+        file: 'src/website/src/pages/eu/components/media/media-container/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Mega Menu'
+        name: 'eu_mega_menu_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/mega-menu/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Menu'
+        name: 'eu_menu_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/menu/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Notification'
+        name: 'eu_notification_a11y'
+        file: 'src/website/src/pages/eu/components/notification/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Modal'
+        name: 'eu_modal_a11y'
+        file: 'src/website/src/pages/eu/components/modal/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Navigation list'
+        name: 'eu_navigation-list_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/navigation-list/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'News ticker'
+        name: 'eu_news_ticker_a11y'
+        file: 'src/website/src/pages/eu/components/news-ticker/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Page Header'
+        name: 'eu_page_header_a11y'
+        file: 'src/website/src/pages/eu/components/site-wide/page-header/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Pagination'
+        name: 'eu_pagination_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/pagination/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Quiz'
+        name: 'eu_quiz_a11y'
+        file: 'src/website/src/pages/eu/components/quiz/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Radio'
+        name: 'eu_radio_a11y'
+        file: 'src/website/src/pages/eu/components/forms/radio/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Range'
+        name: 'eu_range_a11y'
+        file: 'src/website/src/pages/eu/components/forms/range/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Search form'
+        name: 'eu_search_form_a11y'
+        file: 'src/website/src/pages/eu/components/forms/search-form/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Select'
+        name: 'eu_select_a11y'
+        file: 'src/website/src/pages/eu/components/forms/select/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Divider'
+        name: 'eu_divider_a11y'
+        file: 'src/website/src/pages/eu/components/divider/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Header'
+        name: 'eu_site_header_a11y'
+        file: 'src/website/src/pages/eu/components/site-wide/site-header/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Site Footer'
+        name: 'eu_site_footer_a11y'
+        file: 'src/website/src/pages/eu/components/site-wide/site-footer/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Skip link'
+        name: 'eu_skip_link_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/skip-link/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Social media follow'
+        name: 'eu_social_media_follow_a11y'
+        file: 'src/website/src/pages/eu/components/social-media-follow/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Loading indicator'
+        name: 'eu_loading_indicator_a11y'
+        file: 'src/website/src/pages/eu/components/loading-indicator/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Slogan ticker'
+        name: 'eu_slogan_ticker_a11y'
+        file: 'src/website/src/pages/eu/components/slogan-ticker/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Splash page'
+        name: 'eu_splash_page_a11y'
+        file: 'src/website/src/pages/eu/components/splash-page/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Table'
+        name: 'eu_table_a11y'
+        file: 'src/website/src/pages/eu/components/table/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Tabs'
+        name: 'eu_tabs_a11y'
+        file: 'src/website/src/pages/eu/components/navigation/tabs/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Tags'
+        name: 'eu_tag_a11y'
+        file: 'src/website/src/pages/eu/components/tag/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Textarea'
+        name: 'eu_textarea_a11y'
+        file: 'src/website/src/pages/eu/components/forms/text-area/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Text and media'
+        name: 'eu_text-and-media_a11y'
+        file: 'src/website/src/pages/eu/components/media/text-and-media/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Text field'
+        name: 'eu_text-field_a11y'
+        file: 'src/website/src/pages/eu/components/forms/text-field/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Timeline'
+        name: 'eu_timeline_a11y'
+        file: 'src/website/src/pages/eu/components/timeline/docs/accessibility.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Tooltip'
+        name: 'eu_tooltip_a11y'
+        file: 'src/website/src/pages/eu/components/tooltip/docs/accessibility.md'
         fields:
           - { label: Body, name: body, widget: markdown }
   - label: 'EU Guidelines'

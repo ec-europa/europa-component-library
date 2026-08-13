@@ -9,7 +9,14 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
-    parameters: { layout: 'fullscreen' },
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
   },
 };
 

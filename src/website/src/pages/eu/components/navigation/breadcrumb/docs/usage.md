@@ -2,20 +2,27 @@
 title: Usage
 order: 1
 ---
-The Breadcrumb informs the users on their current location relative to the homepage of the website and allows them to navigate to higher levels. It is a series links except the last item in the group, which is the current page.
+On desktop the breadcrumb display reveals a user's current location within a site's hierarchy, serving as a persistent way-finding aid that reduces cognitive load by offering direct shortcuts to higher-level pages without relying on browser history or menus.
 
-## Dos 
+On mobile the breadcrumb display is a simplified one, that indicates and offers navigation to the parent page.
 
-- the first element of the breadcrumb must always be labelled "Home" and must link to the homepage of the actual site where the current user page is located
+### **Do's**
 
-## Don'ts
+- always present the current page, without a link, as the final item
+- display breadcrumbs consistently in the same location across all eligible pages
+- keep labels concise and meaningful, reflecting page titles or section names
 
-- use long labels which creates visual clutter
+### **Don'ts**
 
-## When to use
+- do not use breadcrumbs as a replacement for primary navigation
+- avoid verbose labels that create visual clutter or wrap across multiple lines
 
-- if your website's navigational structure is a tree of more than 2 levels
+### **When to use**
 
-## When not to use
+- useful in a large, multi-level information architecture where users may enter deep pages through search or external links
+- use on pages that are 2nd or lower in the site hierarchy
 
-- if your website's navigational structure has less than 3 levels of depth
+### **When not to use**
+
+- avoid if there is no clearly defined site hierarchy (i.e. hub-and-spoke model) where pages have a non-hierarchical relationship
+- do not use if your website's navigational structure is less than 3 levels deep - it may add complexity without navigational benefit

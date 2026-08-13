@@ -58,7 +58,6 @@ export class Range {
     this.rangeInput = null;
     this.currentValue = null;
     this.bubble = null;
-    this.direction = 'ltr';
 
     // Bind `this` for use in callbacks
     this.placeBubble = this.placeBubble.bind(this);
@@ -95,9 +94,6 @@ export class Range {
         this.rangeInput.addEventListener('mouseout', this.handleHoverOff);
       }
     }
-
-    // RTL
-    this.direction = getComputedStyle(this.element).direction;
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -160,8 +156,11 @@ export class Range {
     // FRONT-5161 Fix bubble position when inside a container
     const leftFromParent = rect.left - containerLeft;
 
+    // Read direction at call time to handle dynamic RTL switching
+    const isRtl = getComputedStyle(this.element).direction === 'rtl';
+
     let pos = 0;
-    if (this.direction === 'rtl') {
+    if (isRtl) {
       pos =
         leftFromParent +
         (rect.width - valuePxPosition) -

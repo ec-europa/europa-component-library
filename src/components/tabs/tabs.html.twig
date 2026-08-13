@@ -16,17 +16,16 @@
         "path": "/example"
       },
     }],
-    - "more_label" (string) (default: 'More (%d)') Label for the more button (responsive)
-    - "previous_label" (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
-    - "next_label" (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
-    - "extra_classes" (string) (default: '')
+    - "more_label" (string) (default: 'Show %d more items') Label for the overflow "more" button; %d is replaced with the count
+    - "previous_label" (string) (default: 'Previous') Screen reader label for the previous button (mobile)
+    - "next_label" (string) (default: 'Next') Screen reader label for the next button (mobile)
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        },
-        ...
-      ],
+          "name" (string) Attribute name, eg. 'data-test'
+          "value" (string) Attribute value, eg: 'data-test-1'
+        }, ...
+      ]
 #}
 
 {# Internal properties #}
@@ -82,7 +81,9 @@
           <div class="ecl-tabs__item">
           {% set _item_extra_classes = 'ecl-tabs__link' %}
           {% set _item_extra_attributes = [{ name: 'id', value: _id }, { name: 'role', value: 'tab' }] %}
-          {% if loop.index != 1 %}
+          {% if _item.is_current is defined and _item.is_current is not empty %}
+            {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '0' }]) %}
+          {% else %}
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'tabindex', value: '-1' }]) %}
           {% endif %}
           {% if _item.is_current is defined and _item.is_current is not empty %}
@@ -135,6 +136,7 @@
         transform: 'rotate-270',
       },
       extra_classes: 'ecl-tabs__prev ecl-tabs__item--hidden',
+      extra_attributes: [{ name: 'tabindex', value: '-1' }],
     } only %}
     {% include '@ecl/button/button.html.twig' with {
       label: _next_label,
@@ -147,6 +149,7 @@
         transform: 'rotate-90',
       },
       extra_classes: 'ecl-tabs__next ecl-tabs__item--hidden',
+      extra_attributes: [{ name: 'tabindex', value: '-1' }],
     } only %}
   </div>
 </div>

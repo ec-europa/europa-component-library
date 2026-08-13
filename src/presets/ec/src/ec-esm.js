@@ -1,7 +1,8 @@
 import '@ecl/dom-utils/polyfills';
 
-import Accordion from '@ecl/accordion';
 import autoInit from '@ecl/dom-utils/autoinit';
+import Accordion from '@ecl/accordion';
+import AnimatedNumbers from '@ecl/animated-numbers';
 import Banner from '@ecl/banner';
 import Carousel from '@ecl/carousel';
 import CategoryFilter from '@ecl/category-filter';
@@ -21,18 +22,24 @@ import Menu from '@ecl/menu';
 import Modal from '@ecl/modal';
 import NewsTicker from '@ecl/news-ticker';
 import Notification from '@ecl/notification';
+import Quiz from '@ecl/quiz';
 import PageHeaderExpandable from '@ecl/page-header';
+import Picture from '@ecl/picture';
 import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
 import SiteHeader from '@ecl/site-header';
+import SloganTicker from '@ecl/slogan-ticker';
+import StoryCard from '@ecl/story-card';
 import Table from '@ecl/table';
 import Tabs from '@ecl/tabs';
 import Timeline from '@ecl/timeline';
+import Tooltip from '@ecl/tooltip';
 
 const ECL = {
   autoInit,
   Accordion,
+  AnimatedNumbers,
   Banner,
   Carousel,
   CategoryFilter,
@@ -52,14 +59,19 @@ const ECL = {
   Modal,
   NewsTicker,
   Notification,
+  Quiz,
   PageHeaderExpandable,
+  Picture,
   Popover,
   Range,
   Select,
   SiteHeader,
+  SloganTicker,
+  StoryCard,
   Tabs,
   Table,
   Timeline,
+  Tooltip,
 };
 
 export { ECL };

@@ -77,11 +77,9 @@ $_spinner-sizes: (
 
 // Centered
 .ecl-spinner--centered {
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
+  inset-inline: 0;
+  margin-inline: auto;
   position: absolute;
-  right: 0;
   top: var(--s-2xl);
 }
 
@@ -126,7 +124,7 @@ $_spinner-sizes: (
   background-color: rgb(255 255 255 / 0.9);
   display: none;
   height: 100%;
-  left: 0;
+  inset-inline-start: 0;
   position: fixed;
   top: 0;
   width: 100%;

@@ -43,6 +43,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/News ticker',
   decorators: [withNotes, withCode],
+  parameters: {
+    controls: { disable: true },
+    chromatic: {
+      modes: {
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -54,4 +62,9 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: () => specs,
+  },
+};

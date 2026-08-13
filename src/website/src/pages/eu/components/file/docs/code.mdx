@@ -3,7 +3,7 @@ title: Showcase
 order: 2
 ---
 
-import { Link, Playground } from '@ecl/website-components';
+import { Playground } from '@ecl/website-components';
 
 ## Without translations
 
@@ -11,7 +11,7 @@ import { Link, Playground } from '@ecl/website-components';
   system="eu"
   selectedKind="components-file"
   selectedStory="default"
-  selectedArgs="show_translations:!false"
+  selectedArgs="show_lists:!false;show_translations:!false"
 ></Playground>
 
 ## With translations
@@ -20,23 +20,22 @@ import { Link, Playground } from '@ecl/website-components';
   system="eu"
   selectedKind="components-file"
   selectedStory="default"
-  selectedArgs="show_translations:!true"
+  selectedArgs="show_lists:!false"
 ></Playground>
 
-## With thumbnail
+## With lists
 
 <Playground
   system="eu"
   selectedKind="components-file"
-  selectedStory="thumbnail"
-  selectedArgs="show_taxonomy:!false"
+  selectedStory="default"
 ></Playground>
 
-## With taxonomy
+## With image
 
 <Playground
   system="eu"
   selectedKind="components-file"
-  selectedStory="thumbnail"
-  selectedArgs="show_taxonomy:!true"
+  selectedStory="default"
+  selectedArgs="show_lists:!false;show_image:!true"
 ></Playground>

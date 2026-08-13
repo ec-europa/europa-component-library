@@ -23,6 +23,25 @@ module.exports = {
     [
       [
         {
+          section_class_name: 'ecl-site-footer__section--feedback',
+          description: 'Help us improve our website',
+          action_button: {
+            link: {
+              label: 'Fill in survey',
+              path: exampleLink,
+              type: 'primary-highlight-inverted',
+            },
+            icon: {
+              name: 'arrow-up-right',
+              family: 'phosphor',
+            },
+          },
+        },
+      ],
+    ],
+    [
+      [
+        {
           logo: {
             alt: 'European Union',
             language: 'en',
@@ -32,6 +51,17 @@ module.exports = {
           },
           description:
             'This site is managed by: [name of the manager of the site]',
+          action_button: {
+            link: {
+              label: 'Subscribe for updates',
+              path: exampleLink,
+            },
+            icon: {
+              name: 'envelope-simple',
+              family: 'phosphor',
+              style: 'inverted',
+            },
+          },
         },
       ],
       [

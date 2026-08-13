@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$tooltip: (
+  background: var(--c-d),
+  color: #fff,
+  background-inverted: #fff,
+  color-inverted: var(--c-d),
+  padding: var(--s-2xs) var(--s-s),
+  font: var(--f-2xs),
+  border-radius: map.get($border-radius, 'xs'),
+  shadow: var(--sh-2),
+);

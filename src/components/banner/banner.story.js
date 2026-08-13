@@ -19,7 +19,10 @@ const getArgs = (data) => {
     credit: data.credit || '',
     size: 'm',
     font_size: 'm',
+    font_weight: 'light',
     box_background: 'light',
+    box_background_overlay: 'light',
+    overlay: false,
     font_color: 'dark',
     title: data.title.link.label,
     description: data.description.link.label,
@@ -32,6 +35,8 @@ const getArgs = (data) => {
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
+    args.media_anchor = '';
+    args.debug_position = false;
   }
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -132,10 +137,31 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
+    font_weight: {
+      name: 'font weight',
+      type: 'select',
+      description: 'Change font weight',
+      options: ['light', 'bold'],
+      control: {
+        labels: {
+          light: 'light',
+          bold: 'bold',
+        },
+      },
+      mapping: {
+        light: 'light',
+        bold: 'bold',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'light' },
+        category: 'Display',
+      },
+    },
     font_color: {
       name: 'font color',
       type: 'select',
-      description: 'Change font color',
+      description: 'Change font color (no effect when overlay is enabled)',
       options: ['dark', 'light'],
       control: {
         labels: {
@@ -153,6 +179,17 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
       if: { arg: 'box_background', eq: 'none' },
+    },
+    overlay: {
+      name: 'overlay',
+      type: { name: 'boolean' },
+      description: 'Display overlay on the image',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
     },
     box_background: {
       name: 'box background',
@@ -176,7 +213,29 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'light' },
         category: 'Display',
       },
-      if: { arg: 'show_media' },
+      if: { arg: 'overlay', truthy: false },
+    },
+    box_background_overlay: {
+      name: 'box background',
+      type: 'select',
+      description: 'Change box background (dark not available with overlay)',
+      options: ['none', 'light'],
+      control: {
+        labels: {
+          none: 'none',
+          light: 'light',
+        },
+      },
+      mapping: {
+        none: 'none',
+        light: 'light',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'light' },
+        category: 'Display',
+      },
+      if: { arg: 'overlay' },
     },
     horizontal: {
       name: 'horizontal',
@@ -314,6 +373,47 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_media' },
     };
+
+    argTypes.media_anchor = {
+      name: 'media anchor',
+      type: { name: 'select' },
+      description:
+        'Media anchor (in this example the image can only be moved vertically in desktop, horizontally in mobile)',
+      options: ['', '20% 80%', '40% 40%', '80% 20%'],
+      control: {
+        labels: {
+          '': 'none (center)',
+          '20% 80%': 'bottom left (20% x, 80% y)',
+          '40% 40%': 'slightly top left (40% x, 40% y)',
+          '80% 20%': 'top right (80% x, 20% y)',
+        },
+      },
+      mapping: {
+        'none (center)': '',
+        'bottom left (20% x, 80% y)': '20% 80%',
+        'slightly top left (40% x, 40% y)': '40% 40%',
+        'top right (80% x, 20% y)': '80% 20%',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
+    };
+
+    argTypes.debug_position = {
+      name: 'debug focal point',
+      description:
+        'It shows a marker indicating where the focal point is in the rendered image',
+      type: { name: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Display',
+      },
+      if: { arg: 'show_media' },
+    };
   }
 
   return argTypes;
@@ -334,6 +434,9 @@ const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
   Object.assign(clone, args);
+  if (args.overlay) {
+    clone.box_background = args.box_background_overlay;
+  }
 
   if (!showTitle) delete clone.title;
   if (!showDescription) delete clone.description;
@@ -360,6 +463,8 @@ const prepareData = (data, args) => {
 
   if (clone.picture) {
     clone.picture.img.src = args.image;
+    clone.picture.image_anchor = args.media_anchor;
+    clone.picture.debug_position = args.debug_position;
   }
 
   return clone;
@@ -380,7 +485,12 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Banner',
   decorators: [withNotes, withCode],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      diffThreshold: 0.2,
+    },
+  },
 };
 
 export const Image = (_, { loaded: { component } }) => component;
@@ -392,7 +502,12 @@ Image.render = async (args) => {
 Image.storyName = 'image';
 Image.args = getArgs(bannerDataImage);
 Image.argTypes = getArgTypes(bannerDataImage);
-Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
+Image.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(bannerDataImage, args),
+  },
+};
 
 export const Video = (_, { loaded: { component } }) => component;
 
@@ -403,4 +518,9 @@ Video.render = async (args) => {
 Video.storyName = 'video';
 Video.args = getArgs(bannerDataVideo);
 Video.argTypes = getArgTypes(bannerDataVideo);
-Video.parameters = { notes: { markdown: notes, json: bannerDataVideo } };
+Video.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(bannerDataVideo, args),
+  },
+};

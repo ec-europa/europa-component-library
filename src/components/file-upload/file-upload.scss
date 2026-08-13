@@ -10,6 +10,7 @@
 // Exposed variables
 $theme: null !default;
 $file-upload: null !default;
+$button: null !default;
 
 .ecl-file-upload:not(.no-js .ecl-file-upload) {
   @include screen-reader.sr-only;
@@ -70,6 +71,7 @@ $file-upload: null !default;
 .ecl-file-upload:focus-visible
   + .ecl-file-upload__button-container
   .ecl-file-upload__button {
-  outline: 1px solid #fff;
-  outline-offset: -3px;
+  outline: #{map.get($button, 'primary', 'outline-width')} solid
+    #{map.get($button, 'primary', 'outline-color')};
+  outline-offset: map.get($button, 'primary', 'outline-offset');
 }

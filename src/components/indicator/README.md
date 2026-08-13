@@ -10,8 +10,8 @@ npm install --save @ecl/indicator
 
 - **"value"** (string) (default: '') Indicator value
 - **"sr_label"** (string) (default: '') Additional label for screen readers
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

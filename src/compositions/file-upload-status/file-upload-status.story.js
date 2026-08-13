@@ -15,6 +15,7 @@ export default {
   parameters: {
     controls: { disable: true },
     EclNotes: { disable: true },
+    chromatic: { disable: true },
   },
 };
 
@@ -26,3 +27,4 @@ Default.render = async () => {
 };
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };
+Default.tags = ['!dev'];

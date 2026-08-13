@@ -56,6 +56,7 @@ export class Modal {
     this.close = null;
     this.scroll = null;
     this.focusTrap = null;
+    this.previousOverflow = null;
 
     // Bind `this` for use in callbacks
     this.openModal = this.openModal.bind(this);
@@ -187,6 +188,10 @@ export class Modal {
       this.element.setAttribute('open', '');
     }
 
+    // Lock body scroll
+    this.previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     // Check scroll
     this.checkScroll();
 
@@ -203,6 +208,9 @@ export class Modal {
     } else {
       this.element.removeAttribute('open');
     }
+
+    // Unock body scroll
+    document.body.style.overflow = this.previousOverflow;
 
     // Untrap focus
     if (this.focusTrap.active) {

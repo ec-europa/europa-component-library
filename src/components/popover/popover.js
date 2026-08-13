@@ -241,6 +241,11 @@ export class Popover {
     this.toggle.setAttribute('aria-expanded', 'true');
     this.target.hidden = false;
     this.trigger('onOpen', { event: e, target: this.target });
+
+    // Focus close button
+    if (this.close) {
+      this.close.focus();
+    }
   }
 
   /**
@@ -250,6 +255,7 @@ export class Popover {
    */
   closePopover(e) {
     this.toggle.setAttribute('aria-expanded', 'false');
+    this.toggle.focus();
     // Reset all the selectors and styles
     this.resetStyles();
     this.target.hidden = true;
@@ -551,7 +557,9 @@ export class Popover {
 
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
-      this.closePopover();
+      if (this.toggle.getAttribute('aria-expanded') === 'true') {
+        this.closePopover(e);
+      }
     }
   }
 
@@ -567,7 +575,7 @@ export class Popover {
     if (this.toggle.getAttribute('aria-expanded') === 'true') {
       // Check if the click occured on the popover
       if (!this.target.contains(e.target) && !this.toggle.contains(e.target)) {
-        this.closePopover();
+        this.closePopover(e);
       }
     }
   }

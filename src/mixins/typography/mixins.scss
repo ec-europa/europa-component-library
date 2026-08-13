@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use 'sass:string';
-@use '@ecl/grid/mixins/breakpoints';
 
 $theme: null !default;
 $typography: null !default;
@@ -167,7 +166,13 @@ $font-breakpoints: (
             @include responsive-font-emit($current, $important);
           }
         } @else {
-          @include breakpoints.up($bp-name) {
+          $bp-val: map.get($theme, 'breakpoint', $bp-name);
+
+          @if $bp-val {
+            @media (min-width: $bp-val) {
+              @include responsive-font-emit($current, $important);
+            }
+          } @else {
             @include responsive-font-emit($current, $important);
           }
         }

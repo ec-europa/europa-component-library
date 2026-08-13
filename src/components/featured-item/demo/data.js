@@ -4,9 +4,10 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   id: 'featured-item-example',
   title:
-    'Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
+    'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
+  micro_title: 'about',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, <a class="ecl-link" href="#">sed do eiusmod tempor</a> incididunt ut labore et dolore magna aliqua. <div class="ecl"><a href="#">Ut enim ad minim veniam</a>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>',
   link: {
     link: {
       type: 'standalone',
@@ -26,7 +27,7 @@ module.exports = {
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       },
     },
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing.<br />@Copyright',
+    description: 'Lorem ipsum dolor amet consectetur adipiscing.',
+    credit: '@Copyright',
   },
 };

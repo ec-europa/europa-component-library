@@ -255,4 +255,15 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};

@@ -2,25 +2,32 @@
 title: Usage
 order: 1
 ---
-Notifications component contains important information to alert users to take a certain actions.
+Notifications communicate system or process states directly relevant to the user's current task or situation. They alert users to successes, warnings, errors, or important information they need to proceed.\
+\
+The component is action-oriented - it exists to help users understand what has happened, what might go wrong, or what they need to do next, rather than to surface general editorial content.
 
-## Do's
+### **Do's**
 
-- keep the notification brief and clear
-- use consistent notifications for the same information/success/warning/error throughout your site
+- keep notification messages brief, clear, and directly relevant to the user's current context, including links where relevant
+- consistently match the notification variant (information, success, warning, error) to the type of message
+- write messages in an action-oriented and constructive tone - informing users of the action(s) required
+- use notifications sparingly so that each one retains its signal value and users are less likely to ignore them
 
-## Don'ts
+### **Don'ts**
 
-- overuse notifications - users may ignore them and they can get in the way of a user completing their task
-- write notifications that are neutral. For example, instead of *The postal code you entered is invalid,* the notification should say *Please enter a valid postal code*
+- do not overuse notifications as frequent or unnecessary alerts reduce the likelihood users will act on them
+- do not write neutral or descriptive messages - every notification needs to be framed so the user understands
+- do not use notifications for non-critical or informational content that does not affect task completion
 
-## When to use
+### **When to use**
 
-- when the information is essential to convey to the users in order to go to the next step
-- success notification: the user has performed an action which was successfully completed
-- warning notification: the user needs to know about the potential dangers of completing their task (for example: "you are about replace/erase your data")
-- error notification: the user tried to perform an action that failed because of a problem (for example: a file could not be uploaded because it wasn't the correct type of file)
+- when information is essential for the user to proceed to the next step
+- use **success** states for when a user-initiated action has completed successfully and confirmation helps user confidence
+- use **warning** states for when a user is about to take an action with potentially significant consequences, such as overwriting or deleting data
+- use **error** states for when an action has failed and the user needs to understand why and how to recover
+- use **information** states for when something has changed in the system that the user needs to be aware of in order to continue effectively
 
-## When not to use
+### **When not to use**
 
-- don't use to show non critical information
+- do not use to surface non-critical information that has no bearing on the user's immediate task. Instead, consider inline text or contextual help patterns instead
+- do not use as a substitute for permanent page content - information that needs to be always visible should be part of the body of the page

@@ -96,6 +96,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/List/Description list',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Vertical = (_, { loaded: { component } }) => component;
@@ -110,7 +118,10 @@ Vertical.storyName = 'description';
 Vertical.args = getArgs(dataDescriptionListDefault);
 Vertical.argTypes = getArgTypes();
 Vertical.parameters = {
-  notes: { markdown: notes, json: dataDescriptionListDefault },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDescriptionListDefault, args),
+  },
 };
 
 export const Horizontal = (_, { loaded: { component } }) => component;
@@ -125,5 +136,8 @@ Horizontal.storyName = 'description (horizontal)';
 Horizontal.args = getArgs(dataDescriptionListHorizontal);
 Horizontal.argTypes = getArgTypes();
 Horizontal.parameters = {
-  notes: { markdown: notes, json: dataDescriptionListHorizontal },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDescriptionListHorizontal, args),
+  },
 };

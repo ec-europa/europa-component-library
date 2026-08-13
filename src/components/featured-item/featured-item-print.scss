@@ -4,6 +4,8 @@
  */
 
 @use 'sass:map';
+@use '@ecl/link/link-print' as link-component;
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -27,11 +29,23 @@ $featured-item-print: null !default;
   }
 }
 
+.ecl-featured-item__micro-title {
+  color: map.get($featured-item, 'micro-title', 'color');
+  font: map.get($featured-item-print, 'micro-title', 'font');
+  font-weight: map.get($featured-item, 'title', 'font-weight');
+  letter-spacing: map.get($featured-item, 'micro-title', 'letter-spacing');
+  text-transform: uppercase;
+}
+
 .ecl-featured-item__title {
   color: map.get($featured-item, 'title', 'color');
   font: map.get($featured-item-print, 'title', 'font');
   font-weight: map.get($featured-item, 'title', 'font-weight');
   max-width: var(--max-w);
+
+  .ecl-featured-item__micro-title + & {
+    margin-block-start: map.get($featured-item-print, 'title', 'spacing');
+  }
 }
 
 .ecl-featured-item__description {
@@ -166,12 +180,18 @@ $featured-item-print: null !default;
     position: relative;
   }
 
+  .ecl-featured-item__micro-title {
+    color: map.get($featured-item, 'highlight', 'micro-title', 'color');
+  }
+
   .ecl-featured-item__title {
     color: map.get($featured-item, 'highlight', 'title', 'color');
   }
 
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
+
+    @include mixins-color.content-current-color;
   }
 
   .ecl-featured-item__info + .ecl-featured-item__link {
@@ -184,16 +204,24 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__link:not(
-    .ecl-link--primary-highlight,
     .ecl-link--primary-neutral,
-    .ecl-link--primary,
-    .ecl-link--secondary
+    .ecl-link--secondary-inverted,
+    .ecl-link--standalone
   ) {
-    color: map.get($featured-item, 'highlight', 'description', 'color');
-    text-decoration: underline;
+    --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
 
-    &:visited {
-      color: map.get($featured-item, 'highlight', 'description', 'color');
+    text-align: start;
+  }
+
+  @if map.has-key($featured-item, 'highlight', 'button-dark') {
+    .ecl-featured-item__link {
+      .ecl-link__label {
+        text-decoration: none;
+      }
+
+      &.ecl-link--secondary-inverted {
+        @include link-component.link-button(primary-neutral);
+      }
     }
   }
 

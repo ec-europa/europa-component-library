@@ -7,12 +7,12 @@
   - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
   - "title" (string) (default: '')
   - "description" (string) (default: '')
-  - "links" (array): An array of ECL links objects
-  - "close" (object of type "button") (default: {}): close button (optional)
-  - "extra_classes" (string) (default: '') Extra classes (space separated) for the select
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+  - "links" (array) (default: []) Array of ECL Link objects shown below the description
+  - "close" (object) (default: {}) Close button following ECL Button structure
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
+  - "extra_attributes" (array) (default: []) Extra attributes
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "value" (string) Attribute value, eg: 'data-test-1'
 
   Blocks:
   - "description": content of the notification

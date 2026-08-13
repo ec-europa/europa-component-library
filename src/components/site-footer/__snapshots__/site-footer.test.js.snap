@@ -49,6 +49,33 @@ exports[`Site Footer EC Core renders correctly 1`] = `
         class="ecl-container ecl-site-footer__container"
       >
         <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
           class="ecl-site-footer__row ecl-site-footer__row--specific"
         >
           <div
@@ -78,6 +105,20 @@ exports[`Site Footer EC Core renders correctly 1`] = `
                 [name of the manager of the site]
               </span>
             </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
           </div>
           <div
             class="ecl-site-footer__section ecl-site-footer__section--core"
@@ -194,30 +235,12 @@ exports[`Site Footer EC Core renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--instagram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--instagram"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Instagram
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-social-media-follow__item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      X
+                      Mastodon
                     </span>
                   </a>
                 </li>
@@ -235,7 +258,7 @@ exports[`Site Footer EC Core renders correctly 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Linkedin
+                      LinkedIn
                     </span>
                   </a>
                 </li>
@@ -248,12 +271,446 @@ exports[`Site Footer EC Core renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Telegram
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Other
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ul
+              class="ecl-site-footer__list ecl-site-footer__list--inline"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="#"
+                >
+                  Report an IT vulnerability
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/languages-our-websites_en"
+                >
+                  Languages on our websites
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/cookies_en"
+                >
+                  Cookies
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/privacy-policy_en"
+                >
+                  Privacy policy
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/legal-notice_en"
+                >
+                  Legal notice
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</jest>
+`;
+
+exports[`Site Footer EC Core renders correctly with a single co-owner link 1`] = `
+<jest>
+  <footer
+    class="ecl-site-footer"
+  >
+    <div
+      class="ecl-site-footer__co-owner"
+    >
+      <div
+        class="ecl-container ecl-site-footer__co-owner-container"
+      >
+        <div
+          class="ecl-site-footer__co-owner-title"
+        >
+          This page is managed by:
+        </div>
+        <div
+          class="ecl-site-footer__co-owner-list"
+        >
+          <div
+            class="ecl-site-footer__co-owner-item is-first"
+          >
+            <a
+              class="ecl-link ecl-link--brand ecl-site-footer__co-owner-link"
+              href="/example"
+            >
+              Directorate-General for [DG role]
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-footer__main"
+    >
+      <div
+        class="ecl-container ecl-site-footer__container"
+      >
+        <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row ecl-site-footer__row--specific"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__logo-link"
+              href="/example"
+            >
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
+              >
+                <img
+                  alt="European Commission"
+                  class="ecl-site-footer__logo-image"
+                  src="/logo.svg#negative"
+                />
+              </picture>
+            </a>
+            <div
+              class="ecl-site-footer__description"
+            >
+              This site is managed by:
+              <span
+                class="ecl-site-footer__description-name"
+              >
+                [name of the manager of the site]
+              </span>
+            </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
+          </div>
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--core"
+          >
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/about-european-commission_en"
+                >
+                  About us
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/about-european-commission/contact_en"
+                >
+                  Contact us
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="/example"
+                >
+                  Priorities
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="/example"
+                >
+                  Topics
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/funding-tenders_en"
+                >
+                  Funding and tenders
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/jobs-european-commission_en"
+                >
+                  Jobs
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://ec.europa.eu/commission/presscorner/home/en"
+                >
+                  Press corner
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/events_en"
+                >
+                  Events
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row ecl-site-footer__row--common"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--common"
+          >
+            <div
+              class="ecl-social-media-follow ecl-social-media-follow--left ecl-social-media-follow--description_inline ecl-site-footer__social-media"
+            >
+              <p
+                class="ecl-social-media-follow__description"
+              >
+                Follow us
+              </p>
+              <ul
+                class="ecl-social-media-follow__list"
+              >
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--linkedin wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--linkedin"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      LinkedIn
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
                     </span>
                   </a>
                 </li>
@@ -400,6 +857,33 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
         class="ecl-container ecl-site-footer__container"
       >
         <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
           class="ecl-site-footer__row ecl-site-footer__row--specific"
         >
           <div
@@ -429,6 +913,20 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
                 [name of the manager of the site]
               </span>
             </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
           </div>
           <div
             class="ecl-site-footer__section ecl-site-footer__section--core"
@@ -545,30 +1043,12 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--instagram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--instagram"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Instagram
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-social-media-follow__item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      X
+                      Mastodon
                     </span>
                   </a>
                 </li>
@@ -586,7 +1066,7 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Linkedin
+                      LinkedIn
                     </span>
                   </a>
                 </li>
@@ -599,12 +1079,48 @@ exports[`Site Footer EC Core renders correctly with extra attributes 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Telegram
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
                     </span>
                   </a>
                 </li>
@@ -749,6 +1265,33 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
         class="ecl-container ecl-site-footer__container"
       >
         <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
           class="ecl-site-footer__row ecl-site-footer__row--specific"
         >
           <div
@@ -778,6 +1321,20 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
                 [name of the manager of the site]
               </span>
             </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
           </div>
           <div
             class="ecl-site-footer__section ecl-site-footer__section--core"
@@ -894,30 +1451,12 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--instagram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--instagram"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Instagram
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-social-media-follow__item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      X
+                      Mastodon
                     </span>
                   </a>
                 </li>
@@ -935,7 +1474,7 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Linkedin
+                      LinkedIn
                     </span>
                   </a>
                 </li>
@@ -948,12 +1487,48 @@ exports[`Site Footer EC Core renders correctly with extra class names 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Telegram
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
                     </span>
                   </a>
                 </li>
@@ -1098,6 +1673,33 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
         class="ecl-container ecl-site-footer__container"
       >
         <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
           class="ecl-site-footer__row ecl-site-footer__row--specific"
         >
           <div
@@ -1123,6 +1725,20 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                 [name of the manager of the site]
               </span>
             </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
             <div
               class="ecl-social-media-follow ecl-social-media-follow--left ecl-site-footer__social-media"
             >
@@ -1138,30 +1754,12 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--instagram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--instagram"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Instagram
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-social-media-follow__item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      X
+                      Mastodon
                     </span>
                   </a>
                 </li>
@@ -1179,7 +1777,7 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Linkedin
+                      LinkedIn
                     </span>
                   </a>
                 </li>
@@ -1192,12 +1790,48 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Telegram
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
                     </span>
                   </a>
                 </li>
@@ -1237,10 +1871,10 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                   
     Contact us  
                 </div>
-                <ul
+                <div
                   class="ecl-site-footer__list"
                 >
-                  <li
+                  <div
                     class="ecl-site-footer__list-item"
                   >
                     <a
@@ -1249,8 +1883,8 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                     >
                       Contact information of the DG
                     </a>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
               <div
                 class="ecl-site-footer__section ecl-site-footer__section--about"
@@ -1544,12 +2178,12 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                     >
                       <span
                         aria-hidden="true"
-                        class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
+                        class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                       />
                       <span
                         class="ecl-link__label"
                       >
-                        Telegram
+                        Mastodon
                       </span>
                     </a>
                   </li>
@@ -1562,15 +2196,711 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                     >
                       <span
                         aria-hidden="true"
-                        class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
+                        class="wt-icon-networks--linkedin wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--linkedin"
                       />
                       <span
                         class="ecl-link__label"
                       >
-                        X
+                        LinkedIn
                       </span>
                     </a>
                   </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Bluesky
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Facebook
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        YouTube
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Other
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="ecl-site-footer__list ecl-site-footer__list--inline"
+              >
+                <div
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                    href="https://commission.europa.eu/about-european-commission/contact_en"
+                  >
+                    Contact
+                  </a>
+                </div>
+              </div>
+            </div>
+            <ul
+              class="ecl-site-footer__list ecl-site-footer__list--inline"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="#"
+                >
+                  Report an IT vulnerability
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/languages-our-websites_en"
+                >
+                  Languages on our websites
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/cookies_en"
+                >
+                  Cookies
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/privacy-policy_en"
+                >
+                  Privacy policy
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="https://commission.europa.eu/legal-notice_en"
+                >
+                  Legal notice
+                </a>
+              </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</jest>
+`;
+
+exports[`Site Footer EC Harmonised renders correctly with a single section link 1`] = `
+<jest>
+  <footer
+    class="ecl-site-footer"
+  >
+    <div
+      class="ecl-site-footer__co-owner"
+    >
+      <div
+        class="ecl-container ecl-site-footer__co-owner-container"
+      >
+        <div
+          class="ecl-site-footer__co-owner-title"
+        >
+          This page is managed by:
+        </div>
+        <ul
+          class="ecl-site-footer__co-owner-list"
+        >
+          <li
+            class="ecl-site-footer__co-owner-item is-first"
+          >
+            <a
+              class="ecl-link ecl-link--brand ecl-site-footer__co-owner-link"
+              href="/example"
+            >
+              Directorate-General for [DG role]
+            </a>
+          </li>
+          <li
+            class="ecl-site-footer__co-owner-item"
+          >
+            <a
+              class="ecl-link ecl-link--brand ecl-site-footer__co-owner-link"
+              href="/example"
+            >
+              Directorate-General for [DG role]
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ecl-site-footer__main"
+    >
+      <div
+        class="ecl-container ecl-site-footer__container"
+      >
+        <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row ecl-site-footer__row--specific"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
+          >
+            <div
+              class="ecl-site-footer__title"
+            >
+              <a
+                class="ecl-link ecl-link--inverted ecl-site-footer__title-link"
+                href="/example"
+              >
+                Site name
+              </a>
+            </div>
+            <div
+              class="ecl-site-footer__description"
+            >
+              This site is managed by:
+              <span
+                class="ecl-site-footer__description-name"
+              >
+                [name of the manager of the site]
+              </span>
+            </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
+            <div
+              class="ecl-social-media-follow ecl-social-media-follow--left ecl-site-footer__social-media"
+            >
+              <ul
+                class="ecl-social-media-follow__list"
+              >
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--linkedin wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--linkedin"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      LinkedIn
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--chain wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--chain"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Other
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--links"
+          >
+            <div
+              class="ecl-site-footer__row"
+            >
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--contact"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    Contact us  
+                </div>
+                <div
+                  class="ecl-site-footer__list"
+                >
+                  <div
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Contact information of the DG
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--about"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    About us  
+                </div>
+                <div
+                  class="ecl-site-footer__list"
+                >
+                  <div
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Information about the DG
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ecl-site-footer__row"
+            >
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--more"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    More information on  
+                </div>
+                <ul
+                  class="ecl-site-footer__list"
+                >
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Class name 1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Class name 2
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--related"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    Related links  
+                </div>
+                <ul
+                  class="ecl-site-footer__list"
+                >
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Related link 1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Related link 2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Related link 3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Related link 4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Related link 5
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="ecl-site-footer__row"
+            >
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--custom-1"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    Custom links  
+                </div>
+                <ul
+                  class="ecl-site-footer__list"
+                >
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Custom link
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Custom link
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--custom-2"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    Custom links  
+                </div>
+                <ul
+                  class="ecl-site-footer__list"
+                >
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Custom link
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Custom link
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="ecl-site-footer__row"
+            >
+              <div
+                class="ecl-site-footer__section ecl-site-footer__section--custom-3"
+              >
+                <div
+                  class="ecl-site-footer__title"
+                >
+                  
+    Custom links  
+                </div>
+                <ul
+                  class="ecl-site-footer__list"
+                >
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Custom link
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-site-footer__list-item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__link"
+                      href="/example"
+                    >
+                      Custom link
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row ecl-site-footer__row--common"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--common"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-site-footer__logo-link"
+              href="/example"
+            >
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
+              >
+                <img
+                  alt="European Commission"
+                  class="ecl-site-footer__logo-image"
+                  src="/logo.svg#negative"
+                />
+              </picture>
+            </a>
+            <div
+              class="ecl-site-footer__extra-links-container"
+            >
+              <div
+                class="ecl-social-media-follow ecl-social-media-follow--left ecl-social-media-follow--description_inline ecl-site-footer__social-media"
+              >
+                <p
+                  class="ecl-social-media-follow__description"
+                >
+                  Follow the European Commission
+                </p>
+                <ul
+                  class="ecl-social-media-follow__list"
+                >
                   <li
                     class="ecl-social-media-follow__item"
                   >
@@ -1598,12 +2928,66 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="wt-icon-networks--linkedin wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--linkedin"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        LinkedIn
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Bluesky
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Facebook
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
                         class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
                       />
                       <span
                         class="ecl-link__label"
                       >
-                        Youtube
+                        YouTube
                       </span>
                     </a>
                   </li>
@@ -1627,10 +3011,10 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                   </li>
                 </ul>
               </div>
-              <ul
+              <div
                 class="ecl-site-footer__list ecl-site-footer__list--inline"
               >
-                <li
+                <div
                   class="ecl-site-footer__list-item"
                 >
                   <a
@@ -1639,8 +3023,8 @@ exports[`Site Footer EC Harmonised renders correctly 1`] = `
                   >
                     Contact
                   </a>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -1763,6 +3147,33 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
         class="ecl-container ecl-site-footer__container"
       >
         <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__section ecl-site-footer__section--feedback"
+          >
+            <div
+              class="ecl-site-footer__description"
+            >
+              Help us improve our website
+            </div>
+            <a
+              class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Fill in survey
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+              />
+            </a>
+          </div>
+        </div>
+        <div
           class="ecl-site-footer__row ecl-site-footer__row--specific"
         >
           <div
@@ -1788,6 +3199,20 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                 [name of the manager of the site]
               </span>
             </div>
+            <a
+              class="ecl-link ecl-link--secondary-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Subscribe for updates
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+              />
+            </a>
             <div
               class="ecl-social-media-follow ecl-social-media-follow--left ecl-site-footer__social-media"
             >
@@ -1803,30 +3228,12 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--instagram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--instagram"
+                      class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Instagram
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-social-media-follow__item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      X
+                      Mastodon
                     </span>
                   </a>
                 </li>
@@ -1844,7 +3251,7 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Linkedin
+                      LinkedIn
                     </span>
                   </a>
                 </li>
@@ -1857,12 +3264,48 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
+                      class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Telegram
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-social-media-follow__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
                     </span>
                   </a>
                 </li>
@@ -1902,10 +3345,10 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                   
     Contact us  
                 </div>
-                <ul
+                <div
                   class="ecl-site-footer__list"
                 >
-                  <li
+                  <div
                     class="ecl-site-footer__list-item"
                   >
                     <a
@@ -1914,8 +3357,8 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                     >
                       Contact information of the DG
                     </a>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
               <div
                 class="ecl-site-footer__section ecl-site-footer__section--about"
@@ -2209,42 +3652,6 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                     >
                       <span
                         aria-hidden="true"
-                        class="wt-icon-networks--telegram wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--telegram"
-                      />
-                      <span
-                        class="ecl-link__label"
-                      >
-                        Telegram
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-social-media-follow__item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                      href="/example"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-networks--x wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--x"
-                      />
-                      <span
-                        class="ecl-link__label"
-                      >
-                        X
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-social-media-follow__item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
-                      href="/example"
-                    >
-                      <span
-                        aria-hidden="true"
                         class="wt-icon-networks--mastodon wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--mastodon"
                       />
                       <span
@@ -2263,12 +3670,66 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="wt-icon-networks--linkedin wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--linkedin"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        LinkedIn
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--bluesky wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--bluesky"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Bluesky
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-networks--facebook wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--facebook"
+                      />
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Facebook
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-social-media-follow__item"
+                  >
+                    <a
+                      class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-social-media-follow__link ecl-link--icon-only"
+                      href="/example"
+                    >
+                      <span
+                        aria-hidden="true"
                         class="wt-icon-networks--youtube wt-icon--inverted ecl-icon ecl-icon--s ecl-link__icon ecl-social-media-follow__icon ecl-icon-networks--youtube"
                       />
                       <span
                         class="ecl-link__label"
                       >
-                        Youtube
+                        YouTube
                       </span>
                     </a>
                   </li>
@@ -2292,10 +3753,10 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                   </li>
                 </ul>
               </div>
-              <ul
+              <div
                 class="ecl-site-footer__list ecl-site-footer__list--inline"
               >
-                <li
+                <div
                   class="ecl-site-footer__list-item"
                 >
                   <a
@@ -2304,8 +3765,8 @@ exports[`Site Footer EC Standardised renders correctly 1`] = `
                   >
                     Contact
                   </a>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -2434,6 +3895,37 @@ exports[`Site Footer EU Core renders correctly 1`] = `
             class="ecl-site-footer__column"
           >
             <div
+              class="ecl-site-footer__section ecl-site-footer__section--feedback"
+            >
+              <div
+                class="ecl-site-footer__description"
+              >
+                Help us improve our website
+              </div>
+              <a
+                class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+                href="/example"
+              >
+                <span
+                  class="ecl-link__label"
+                >
+                  Fill in survey
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__column"
+          >
+            <div
               class="ecl-site-footer__section"
             >
               <a
@@ -2459,6 +3951,314 @@ exports[`Site Footer EU Core renders correctly 1`] = `
               >
                 This site is managed by: [name of the manager of the site]
               </div>
+              <a
+                class="ecl-link ecl-link--secondary-neutral ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+                href="/example"
+              >
+                <span
+                  class="ecl-link__label"
+                >
+                  Subscribe for updates
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            class="ecl-site-footer__column"
+          >
+            <div
+              class="ecl-site-footer__section"
+            >
+              <div
+                class="ecl-site-footer__title ecl-site-footer__title--separator"
+              >
+                Contact the EU
+              </div>
+              <ul
+                class="ecl-site-footer__list"
+              >
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="tel:0080067891011"
+                  >
+                    Call us 00 800 6 7 8 9 10 11
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/contact-eu/call-us_en"
+                  >
+                    Use other telephone options
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/contact-eu/write-us_en"
+                  >
+                    Write us via our contact form
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/contact-eu/meet-us_en"
+                  >
+                    Meet us at one of the EU centres
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="ecl-site-footer__section"
+            >
+              <div
+                class="ecl-site-footer__title ecl-site-footer__title--separator"
+              >
+                Social media
+              </div>
+              <ul
+                class="ecl-site-footer__list"
+              >
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/contact-eu/social-media-channels_en"
+                  >
+                    Search for EU social media channels
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="ecl-site-footer__column"
+          >
+            <div
+              class="ecl-site-footer__section"
+            >
+              <div
+                class="ecl-site-footer__title ecl-site-footer__title--separator"
+              >
+                Legal
+              </div>
+              <ul
+                class="ecl-site-footer__list"
+              >
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/languages-our-websites_en"
+                  >
+                    Languages on our websites
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/privacy-policy_en"
+                  >
+                    Privacy policy
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/legal-notice_en"
+                  >
+                    Legal notice
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/cookies_en"
+                  >
+                    Cookies
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/web-accessibility-policy_en"
+                  >
+                    Accessibility
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="ecl-site-footer__section"
+            >
+              <div
+                class="ecl-site-footer__title ecl-site-footer__title--separator"
+              >
+                EU institutions and bodies
+              </div>
+              <ul
+                class="ecl-site-footer__list"
+              >
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                    href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en"
+                  >
+                    Search all EU institutions and bodies
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</jest>
+`;
+
+exports[`Site Footer EU Core renders correctly with a single co-owner link 1`] = `
+<jest>
+  <footer
+    class="ecl-site-footer"
+  >
+    <div
+      class="ecl-site-footer__co-owner"
+    >
+      <div
+        class="ecl-container ecl-site-footer__co-owner-container"
+      >
+        <div
+          class="ecl-site-footer__co-owner-title"
+        >
+          This page is managed by:
+        </div>
+        <div
+          class="ecl-site-footer__co-owner-list"
+        >
+          <div
+            class="ecl-site-footer__co-owner-item is-first"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-site-footer__co-owner-link"
+              href="/example"
+            >
+              Directorate-General for [DG role]
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-footer__main"
+    >
+      <div
+        class="ecl-container ecl-site-footer__container"
+      >
+        <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__column"
+          >
+            <div
+              class="ecl-site-footer__section ecl-site-footer__section--feedback"
+            >
+              <div
+                class="ecl-site-footer__description"
+              >
+                Help us improve our website
+              </div>
+              <a
+                class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+                href="/example"
+              >
+                <span
+                  class="ecl-link__label"
+                >
+                  Fill in survey
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__column"
+          >
+            <div
+              class="ecl-site-footer__section"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
+                href="/example"
+              >
+                <picture
+                  class="ecl-picture ecl-site-footer__picture"
+                >
+                  <source
+                    media="(min-width: 996px)"
+                    srcset="/logo-eu.svg"
+                  />
+                  <img
+                    alt="European Union"
+                    class="ecl-site-footer__logo-image"
+                    src="/logo-mobile-eu.svg"
+                  />
+                </picture>
+              </a>
+              <div
+                class="ecl-site-footer__description"
+              >
+                This site is managed by: [name of the manager of the site]
+              </div>
+              <a
+                class="ecl-link ecl-link--secondary-neutral ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+                href="/example"
+              >
+                <span
+                  class="ecl-link__label"
+                >
+                  Subscribe for updates
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+                />
+              </a>
             </div>
           </div>
           <div
@@ -2693,6 +4493,37 @@ exports[`Site Footer EU Harmonised renders correctly 1`] = `
             class="ecl-site-footer__column"
           >
             <div
+              class="ecl-site-footer__section ecl-site-footer__section--feedback"
+            >
+              <div
+                class="ecl-site-footer__description"
+              >
+                Help us improve our website
+              </div>
+              <a
+                class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+                href="/example"
+              >
+                <span
+                  class="ecl-link__label"
+                >
+                  Fill in survey
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="wt-icon-phosphor--arrow-up-right ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--arrow-up-right"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ecl-site-footer__row"
+        >
+          <div
+            class="ecl-site-footer__column"
+          >
+            <div
               class="ecl-site-footer__section ecl-site-footer__section--site-info"
             >
               <div
@@ -2724,6 +4555,20 @@ exports[`Site Footer EU Harmonised renders correctly 1`] = `
                   </a>
                 </li>
               </ul>
+              <a
+                class="ecl-link ecl-link--secondary-neutral ecl-link--icon ecl-site-footer__action-button ecl-button--m"
+                href="/example"
+              >
+                <span
+                  class="ecl-link__label"
+                >
+                  Subscribe for updates
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="wt-icon-phosphor--envelope-simple wt-icon--inverted ecl-icon ecl-icon--m ecl-link__icon ecl-icon-phosphor--envelope-simple"
+                />
+              </a>
             </div>
           </div>
           <div
@@ -2772,48 +4617,102 @@ exports[`Site Footer EU Harmonised renders correctly 1`] = `
                   >
                     <span
                       aria-hidden="true"
-                      class="wt-icon-networks--facebook ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--facebook"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      Social 1
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-site-footer__list-item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon-networks--twitter ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--twitter"
-                    />
-                    <span
-                      class="ecl-link__label"
-                    >
-                      Social 2
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ecl-site-footer__list-item"
-                >
-                  <a
-                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
-                    href="/example"
-                  >
-                    <span
-                      aria-hidden="true"
                       class="wt-icon-networks--mastodon ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--mastodon"
                     />
                     <span
                       class="ecl-link__label"
                     >
-                      Social 3
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--linkedin ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--linkedin"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      LinkedIn
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--bluesky ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--bluesky"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Bluesky
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--facebook ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--facebook"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--youtube ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--youtube"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      YouTube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-site-footer__list-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-site-footer__link"
+                    href="/example"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="wt-icon-networks--chain ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-networks--chain"
+                    />
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Other
                     </span>
                   </a>
                 </li>

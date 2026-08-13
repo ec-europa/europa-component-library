@@ -58,6 +58,13 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/List/Ordered list',
   decorators: [withNotes, withCode],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -70,7 +77,10 @@ Default.storyName = 'text';
 Default.args = getArgs(dataOrderedList);
 Default.argTypes = getArgTypes(dataOrderedList);
 Default.parameters = {
-  notes: { markdown: notes, json: dataOrderedList },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataOrderedList, args),
+  },
 };
 
 export const Links = (_, { loaded: { component } }) => component;
@@ -83,7 +93,10 @@ Links.storyName = 'links';
 Links.args = getArgs(dataLink);
 Links.argTypes = getArgTypes(dataLink);
 Links.parameters = {
-  notes: { markdown: notes, json: dataLink },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataLink, args),
+  },
 };
 
 export const Divider = (_, { loaded: { component } }) => component;
@@ -96,7 +109,10 @@ Divider.storyName = 'with divider';
 Divider.args = getArgs(dataDivider);
 Divider.argTypes = getArgTypes(dataDivider);
 Divider.parameters = {
-  notes: { markdown: notes, json: dataDivider },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDivider, args),
+  },
 };
 
 export const Unstyled = (_, { loaded: { component } }) => component;
@@ -109,5 +125,8 @@ Unstyled.storyName = 'unstyled';
 Unstyled.args = getArgs(dataUnstyled);
 Unstyled.argTypes = getArgTypes(dataUnstyled);
 Unstyled.parameters = {
-  notes: { markdown: notes, json: dataUnstyled },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataUnstyled, args),
+  },
 };

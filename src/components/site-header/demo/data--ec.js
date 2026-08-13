@@ -14,7 +14,6 @@ module.exports = {
     label_not_logged: 'Log in',
     href_not_logged: exampleLink,
     label_logged: 'Logged in',
-    href_logged: exampleLink,
   },
   login_box: {
     id: 'login-box-id',
@@ -24,7 +23,6 @@ module.exports = {
   },
   custom_action: {
     link: {
-      path: exampleLink,
       label: 'Custom label',
       hide_label: true,
       indicator: {
@@ -51,7 +49,6 @@ module.exports = {
     },
   },
   language_selector: {
-    href: exampleLink,
     label: 'EN',
     aria_label: 'Change language, current language is English',
     overlay: {
@@ -245,14 +242,12 @@ module.exports = {
   },
   search_toggle: {
     label: 'Search',
-    href: exampleLink,
   },
   search_form: {
     label: 'Search',
     text_input: {
       id: 'search-input-id',
       label: 'Search',
-      placeholder: 'Placeholder text',
     },
     button: {
       variant: 'tertiary',
@@ -276,12 +271,6 @@ module.exports = {
       name: 'corner-arrow',
       size: 'fluid',
       transform: 'rotate-90',
-    },
-  },
-  banner_top: {
-    link: {
-      label: 'Aid, Development cooperation, Fundamental rights',
-      path: exampleLink,
     },
   },
   notification: {

@@ -10,9 +10,12 @@ import dataPageHeader from '@ecl/page-header/demo/data';
 import dataInpageNavigation from '@ecl/inpage-navigation/demo/data';
 import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
-import dataFile from '@ecl/file/demo/data--with-translation';
+import dataFile from '@ecl/file/demo/data';
 import dataGallery from '@ecl/gallery/demo/data';
 import dataTabs from '@ecl/tabs/demo/data--with-content';
+import dataModal from '@ecl/modal/demo/data';
+import dataAnimationNumber from '@ecl/animated-numbers/demo/data';
+import dataStoryCard from '@ecl/story-card/demo/data--testimonial';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -28,7 +31,7 @@ delete dataSiteHeaderEU.site_name;
 
 const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
 pageHeader.breadcrumb = dataBreadcrumb;
-pageHeader.variant = '50-50';
+pageHeader.picture_position = 'top';
 delete pageHeader.picture_thumbnail;
 
 dataInpageNavigation.links[0].label = 'Donec nec ex condimentum';
@@ -38,12 +41,17 @@ dataInpageNavigation.links[2].label =
 dataInpageNavigation.links[3].label = 'Nullam';
 
 dataFile.id = 'file-id';
+delete dataFile.picture;
 
 const system = getSystem();
 
 const data = {
   system,
   icon_path: '/icons.svg',
+  animated_numbers: {
+    ...dataAnimationNumber,
+    items: dataAnimationNumber.items.slice(0, 3),
+  },
   site_header: system === 'eu' ? dataSiteHeaderEU : dataSiteHeaderEC,
   site_footer: system === 'eu' ? dataSiteFooterEU : dataSiteFooterEC,
   page_header: pageHeader,
@@ -53,6 +61,8 @@ const data = {
   unordered_list: dataUnorderedList,
   file: dataFile,
   gallery: dataGallery,
+  story_card: dataStoryCard,
+  modal: dataModal,
 };
 
 export default data;

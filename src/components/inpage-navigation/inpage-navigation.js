@@ -1,8 +1,7 @@
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
-import { createFocusTrap } from 'focus-trap';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -60,14 +59,14 @@ export class InpageNavigation {
       toggleSelector = '[data-ecl-inpage-navigation-trigger]',
       linksSelector = '[data-ecl-inpage-navigation-link]',
       spyActiveContainer = 'ecl-inpage-navigation--visible',
-      spyOffset = 20,
+      spyOffset = 80,
       spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       attachResizeListener = true,
       attachScrollListener = true,
       attachKeyListener = true,
-      contentClass = 'inpage-navigation__heading--active',
+      contentClass = 'ecl-inpage-navigation__heading--active',
     } = {},
   ) {
     // Check element
@@ -104,7 +103,7 @@ export class InpageNavigation {
     this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.initScrollSpy = this.initScrollSpy.bind(this);
@@ -274,13 +273,12 @@ export class InpageNavigation {
                   const addedNodeIndex = H2s.findIndex(
                     (H2) => H2.id === addedNode.id,
                   );
+                  addedNode.setAttribute('tabindex', '-1');
                   const element =
-                    currentInpage.childNodes[addedNodeIndex - 1].cloneNode(
-                      true,
-                    );
-                  element.childNodes[0].textContent = addedNode.textContent;
-                  element.childNodes[0].href = `#${addedNode.id}`;
-                  currentInpage.childNodes[addedNodeIndex - 1].after(element);
+                    currentInpage.children[addedNodeIndex - 1].cloneNode(true);
+                  element.children[0].textContent = addedNode.textContent;
+                  element.children[0].href = `#${addedNode.id}`;
+                  currentInpage.children[addedNodeIndex - 1].after(element);
                 }
               });
             }
@@ -288,10 +286,8 @@ export class InpageNavigation {
             if (mutation.removedNodes.length > 0) {
               [].slice.call(mutation.removedNodes).forEach((removedNode) => {
                 if (removedNode.tagName === 'H2' && removedNode.id) {
-                  currentInpage.childNodes.forEach((item) => {
-                    if (
-                      item.childNodes[0].href.indexOf(removedNode.id) !== -1
-                    ) {
+                  currentInpage.children.forEach((item) => {
+                    if (item.children[0].href.indexOf(removedNode.id) !== -1) {
                       // Remove the element from the inpage.
                       item.remove();
                     }
@@ -332,6 +328,25 @@ export class InpageNavigation {
 
     this.toggleElement = queryOne(this.toggleSelector, this.element);
     this.navLinks = queryAll(this.linksSelector, this.element);
+    // Build a map of links and targets
+    this.navLinksMap = new Map();
+    this.navLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      const hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+
+      const targetId = href.slice(hashIndex + 1);
+      const targetEl = queryOne(`#${targetId}`, document);
+
+      if (targetEl) {
+        targetEl.setAttribute('tabindex', '-1');
+        targetEl.classList.add('ecl-inpage-navigation__heading');
+        this.navLinksMap.set(link, targetEl);
+      }
+    });
+
     this.currentList = queryOne(this.inPageList, this.element);
     this.direction = getComputedStyle(this.element).direction;
 
@@ -344,14 +359,8 @@ export class InpageNavigation {
     this.initScrollSpy();
     this.initObserver();
 
-    // Create focus trap
-    this.focusTrap = createFocusTrap(this.element, {
-      onActivate: () => this.openList(),
-      onDeactivate: () => this.closeList(),
-    });
-
     if (this.attachClickListener && this.toggleElement) {
-      this.toggleElement.addEventListener('click', this.handleClickOnToggler);
+      this.toggleElement.addEventListener('click', this.handleClickOnToggle);
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -364,7 +373,7 @@ export class InpageNavigation {
         link.addEventListener('click', this.handleClickOnLink),
       );
       this.element.addEventListener('keydown', this.handleShiftTab);
-      this.toggleElement.addEventListener('click', this.handleClickOnToggler);
+      this.toggleElement.addEventListener('click', this.handleClickOnToggle);
     }
 
     if (this.attachKeyListener) {
@@ -440,7 +449,7 @@ export class InpageNavigation {
     let topPosition = 0;
     // Mobile
     setTimeout(() => {
-      if (viewportWidth < 996) {
+      if (viewportWidth < getBreakpoint('l')) {
         const toggleWrapper = this.toggleElement.parentElement;
         if (toggleWrapper) {
           // EC has currently a negative margin set on the wrapper.
@@ -467,7 +476,7 @@ export class InpageNavigation {
    *
    * @param {Event} e
    */
-  handleClickOnToggler(e) {
+  handleClickOnToggle(e) {
     e.preventDefault();
 
     if (this.toggleElement) {
@@ -481,16 +490,21 @@ export class InpageNavigation {
         this.isExpanded ? 'false' : 'true',
       );
       if (this.isExpanded) {
-        // Untrap focus
-        this.focusTrap.deactivate();
+        this.closeList();
+        this.toggleElement.focus();
       } else {
         this.setListHeight();
-        // Trap focus
-        this.focusTrap.activate();
+        this.openList();
 
-        // Focus first item
         if (this.navLinks && this.navLinks.length > 0) {
-          this.navLinks[0].focus();
+          const activeEl = queryOne(`.${this.spyClass}`, this.element);
+          if (activeEl) {
+            // If there is an active element set focus on it
+            activeEl.firstElementChild.focus();
+          } else {
+            // Otherwise set it on the first link.
+            this.navLinks[0].focus();
+          }
         }
       }
 
@@ -499,26 +513,19 @@ export class InpageNavigation {
   }
 
   /**
-   * Sets the necessary attributes to collapse inpage navigation list.
+   * Moves the focus on the target element
    *
    * @param {Event} e
    */
   handleClickOnLink(e) {
-    const { href } = e.target;
-    let heading = null;
-
-    if (href) {
-      const id = href.split('#')[1];
-
-      if (id) {
-        heading = queryOne(`#${id}`, document);
-      }
+    const targetEl = this.navLinksMap.get(e.target);
+    this.closeList();
+    // Set the focus on the target
+    if (targetEl) {
+      targetEl.focus();
     }
 
-    // Untrap focus
-    this.focusTrap.deactivate();
-
-    const eventData = { target: heading || href, e };
+    const eventData = { target: targetEl || e };
     this.trigger('onClick', eventData);
   }
 
@@ -541,10 +548,25 @@ export class InpageNavigation {
   handleKeyboard(e) {
     const element = e.target;
 
+    // When pressing Esc close the inpage
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      this.handleClickOnToggle(e);
+    }
+
+    // When using Tab close the inpage if moving the focus out of it
+    if (e.key === 'Tab') {
+      if (element === this.navLinks.at(-1)) {
+        this.closeList();
+      }
+    }
+
+    // When using arrow keys, make them loop around the list of items, as in
+    // https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (element === this.navLinks[0]) {
-        this.handleClickOnToggler(e);
+        this.navLinks.at(-1).focus();
       } else {
         const prevItem = element.parentElement.previousSibling;
         if (
@@ -562,7 +584,14 @@ export class InpageNavigation {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (element === this.toggleElement) {
-        this.handleClickOnToggler(e);
+        const activeEl = this.navLinks.find((link) =>
+          link.parentElement.classList.contains(this.spyClass),
+        );
+        if (activeEl) {
+          this.navLinksMap.get(activeEl).focus();
+        } else {
+          [...this.navLinksMap.values()][0].focus();
+        }
       } else {
         const nextItem = element.parentElement.nextSibling;
         if (
@@ -573,6 +602,8 @@ export class InpageNavigation {
           if (nextLink) {
             nextLink.focus();
           }
+        } else {
+          this.navLinks[0].focus();
         }
       }
     }
@@ -583,10 +614,7 @@ export class InpageNavigation {
    */
   destroy() {
     if (this.attachClickListener && this.toggleElement) {
-      this.toggleElement.removeEventListener(
-        'click',
-        this.handleClickOnToggler,
-      );
+      this.toggleElement.removeEventListener('click', this.handleClickOnToggle);
     }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>

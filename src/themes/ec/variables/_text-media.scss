@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$text-media: (
+  background-default: var(--cm-surface-0-text-media),
+  background-primary: var(--c-p-500),
+  color-default: var(--cm-on-surface-text-media),
+  color-primary: var(--cm-on-surface-brand),
+  padding-content-mobile: var(--s-7xl) var(--s-m),
+  padding-content-tablet: var(--s-7xl) var(--s-xl),
+  padding-content-desktop: 5rem var(--s-3xl),
+  micro-title: (
+    font: 'microcopy-s',
+    letter-spacing: map.get($letter-spacing, '3xl'),
+    font-weight: map.get($font-weight, 'medium'),
+  ),
+  title: (
+    font: 'heading2',
+    spacing: var(--s-m),
+  ),
+  description: (
+    font: 'body-m',
+    font-weight: map.get($font-weight, 'medium'),
+    spacing: var(--s-m),
+  ),
+  link: (
+    spacing: var(--s-3xl),
+  ),
+);

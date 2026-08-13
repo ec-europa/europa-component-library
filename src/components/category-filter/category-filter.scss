@@ -32,7 +32,7 @@ $category-filter: null !default;
   justify-content: space-between;
   min-height: 44px;
   padding: var(--s-xs) var(--s-m);
-  text-align: left;
+  text-align: start;
   text-decoration: none;
 
   &:hover {
@@ -101,16 +101,11 @@ $category-filter: null !default;
     content: '';
     display: inline-block;
     height: 100%;
-    left: 0;
+    inset-inline-start: 0;
     position: absolute;
     top: 0;
     width: 4px;
     z-index: 1;
-  }
-
-  &:dir(rtl)::before {
-    left: auto;
-    right: 0;
   }
 
   // stylelint-disable-next-line no-descending-specificity

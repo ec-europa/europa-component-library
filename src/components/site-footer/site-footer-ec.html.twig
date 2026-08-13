@@ -6,12 +6,13 @@
     - "title" (string) (default: ''): Co-owner title
     - "links" (array of objects): List of links, using the ECL Link structure
   - "section_xx" (object) (default: {}): Specific section of the footer, all using the same structure
-    Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related" and "section_common"
+    Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related", "section_feedback", and "section_common"
     - "title" (optional) (string or object): Section title; can be a simple string or a link using the ECL Link structure
     - "logo" (optional) (object): Logo image
       - "picture" (object): Images(s) used for the logo, using the ECL Picture structure
       - "path" (string): Url for the logo link
     - "description" (optional) (string): Free text
+    - "action_button" (optional) (object): Higlighted link, displayed as a button
     - "links" (optional) (array of objects): List of links, using the ECL Link structure
     - "links_inline" (optional) (boolean) (default: false): Should the links be displayed inline?
     - "social_media" (optional) (object): List of social media links, using the ECL Social Media Follow structure
@@ -33,6 +34,7 @@
 {% set _section_about = section_about|default({}) %}
 {% set _section_more = section_more|default({}) %}
 {% set _section_related = section_related|default({}) %}
+{% set _section_feedback = section_feedback|default([]) %}
 {% set _sections_custom = sections_custom|default([]) %}
 {% set _css_class = 'ecl-site-footer' %}
 {% set _extra_attributes = '' %}
@@ -70,23 +72,25 @@
         {%- endif -%}
 
         {%- if _co_owner.links is not empty and _co_owner.links is iterable -%}
-          <ul class="ecl-site-footer__co-owner-list">
+          {% set _tag_co_owner_list = _co_owner.links|length == 1 ? 'div' : 'ul' %}
+          {% set _tag_co_owner_item = _co_owner.links|length == 1 ? 'div' : 'li' %}
+          <{{ _tag_co_owner_list }} class="ecl-site-footer__co-owner-list">
             {%- for _item in _co_owner.links -%}
               {% set _item_class = 'ecl-site-footer__co-owner-item' %}
               {% if loop.index == 1 %}
                 {% set _item_class = _item_class ~ ' is-first' %}
               {% endif %}
 
-              <li class="{{ _item_class }}">
+              <{{ _tag_co_owner_item }} class="{{ _item_class }}">
                 {% include '@ecl/link/link.html.twig' with _item|merge({
                   link: _item.link|merge({
                     branded: true,
                   }),
                   extra_classes: 'ecl-site-footer__co-owner-link',
                 }) only %}
-              </li>
+              </{{ _tag_co_owner_item }}>
             {%- endfor -%}
-          </ul>
+          </{{ _tag_co_owner_list }}>
         {%- endif -%}
       </div>
     </div>
@@ -94,6 +98,17 @@
 
   <div class="ecl-site-footer__main">
     <div class="ecl-container ecl-site-footer__container">
+      {# Feedback #}
+      {%- if _section_feedback is not empty -%}
+        <div class="ecl-site-footer__row">
+          {% include '@ecl/site-footer/site-footer-ec-section.html.twig' with {
+            section: _section_feedback|merge({ name: 'feedback' }),
+            extra_classes: _section_feedback.extra_classes|default(''),
+            extra_attributes: _section_feedback.extra_attributes|default([])
+          } only %}
+        </div>
+      {%- endif -%}
+
       <div class="ecl-site-footer__row ecl-site-footer__row--specific">
         {# Site info #}
         {%- if _section_site_info is not empty -%}

@@ -36,13 +36,14 @@ const getArgs = (data) => ({
 });
 
 const stylePrimary = {
-  options: ['', 'highlight', 'neutral', 'inverted'],
+  options: ['', 'highlight', 'neutral', 'inverted', 'highlight-inverted'],
   control: {
     labels: {
       '': 'default',
       highlight: 'highlight',
       neutral: 'neutral',
       inverted: 'inverted',
+      'highlight-inverted': 'highlight inverted',
     },
   },
   mapping: {
@@ -50,6 +51,7 @@ const stylePrimary = {
     highlight: 'highlight',
     neutral: 'neutral',
     inverted: 'inverted',
+    'highlight inverted': 'highlight-inverted',
   },
 };
 
@@ -250,7 +252,7 @@ const prepareData = (data, args) => {
 const renderStory = async (data, args) => {
   let story = await button(prepareData(data, args));
 
-  if (args.style === 'inverted') {
+  if (args.style.includes('inverted')) {
     story = `<div class="ecl-u-bg-black ecl-u-pa-m">${story}</div>`;
   }
 
@@ -260,6 +262,16 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Button',
   decorators: [withCode, withNotes],
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        m: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Primary = (_, { loaded: { component } }) => component;
@@ -272,7 +284,10 @@ Primary.args = getArgs(dataButtonPrimary);
 Primary.storyName = 'primary';
 Primary.argTypes = getArgTypes('primary');
 Primary.parameters = {
-  notes: { markdown: notes, json: dataButtonPrimary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataButtonPrimary, args),
+  },
 };
 
 export const Secondary = (_, { loaded: { component } }) => component;
@@ -285,7 +300,10 @@ Secondary.args = getArgs(dataButtonSecondary);
 Secondary.storyName = 'secondary';
 Secondary.argTypes = getArgTypes('secondary');
 Secondary.parameters = {
-  notes: { markdown: notes, json: dataButtonSecondary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataButtonSecondary, args),
+  },
 };
 
 export const Tertiary = (_, { loaded: { component } }) => component;
@@ -298,5 +316,62 @@ Tertiary.args = getArgs(dataButtonTertiary);
 Tertiary.storyName = 'tertiary';
 Tertiary.argTypes = getArgTypes('tertiary');
 Tertiary.parameters = {
-  notes: { markdown: notes, json: dataButtonTertiary },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataButtonTertiary, args),
+  },
 };
+
+export const WithIcon = (_, { loaded: { component } }) => component;
+
+WithIcon.render = async () => {
+  const renderedButtonIcon = await button({
+    ...dataButtonPrimary,
+    icon_position: 'after',
+    style: 'highlight',
+    icon: {
+      name: 'arrow-left',
+      transform: 'rotate-180',
+    },
+  });
+
+  return renderedButtonIcon;
+};
+WithIcon.tags = ['!dev'];
+WithIcon.storyName = 'with icon and style';
+
+export const IconOnly = (_, { loaded: { component } }) => component;
+
+IconOnly.render = async () => {
+  const renderedButtonIconOnly = await button({
+    ...dataButtonPrimary,
+    hide_label: true,
+    icon: {
+      name: 'camera',
+    },
+  });
+
+  return renderedButtonIconOnly;
+};
+IconOnly.tags = ['!dev'];
+IconOnly.storyName = 'icon only';
+
+export const WithIndicator = (_, { loaded: { component } }) => component;
+
+WithIndicator.render = async () => {
+  const renderedButtonIndicator = await button({
+    ...dataButtonPrimary,
+    hide_label: true,
+    style: 'neutral',
+    icon: {
+      name: 'calendar',
+    },
+    indicator: {
+      value: '31',
+    },
+  });
+
+  return renderedButtonIndicator;
+};
+WithIndicator.tags = ['!dev'];
+WithIndicator.storyName = 'with indicator';

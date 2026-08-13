@@ -2,11 +2,12 @@
   box-sizing: border-box;
   max-width: 100%;
   overflow-x: hidden;
+  padding-block-end: 15rem;
   transition: margin-left 300ms ease;
 
   :global(.no-js) & {
     @media screen and (width >= 996px) {
-      margin-left: 15rem;
+      margin-left: 17rem;
     }
   }
 }
@@ -14,6 +15,6 @@
 .container--with-sidebar,
 [data-container-with-sidebar] {
   @media screen and (width >= 996px) {
-    margin-left: 15rem;
+    margin-left: 17rem;
   }
 }

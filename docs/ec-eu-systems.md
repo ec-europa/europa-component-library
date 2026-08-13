@@ -21,6 +21,59 @@ The colour palette will be the same as used on Europa.eu, but with enlarged set 
 
 In the end, users and stakeholders will benefit from this. By using the same set of components (tested for accessibility and usability) we will improve efficiency, support DGs in their online communication and increase the quality of the whole «Europa Web Family».
 
+## Key Differences Between EC and EU Systems
+
+### Visual & Branding
+
+**EC System:**
+
+- European Commission branding and color scheme
+- EC flag logo
+- Supports color modes (light and dark themes)
+
+**EU System:**
+
+- European Union branding and color scheme
+- EU flag logo (circle of stars)
+- Light mode only (no dark mode support)
+
+### Technical Differences
+
+**EC System specific features:**
+
+- Color mode CSS file: `ecl-ec-color-modes.css`
+- Additional color mode variables and theme switching capabilities
+- EC-specific component variants
+
+**EU System specific features:**
+
+- Simpler color system without mode switching
+- EU-specific branding elements
+- Shared component base with EC but different theming
+
+### Package Names
+
+- EC preset: `@ecl/preset-ec`
+- EU preset: `@ecl/preset-eu`
+- Component packages are shared: `@ecl/button`, `@ecl/accordion`, etc.
+- Styling differs based on which preset/theme is loaded
+
+## When to Use Which System
+
+### Use EC System when:
+
+- Building European Commission websites and applications
+- Official EC communications and portals
+- Projects explicitly commissioned by the European Commission
+
+### Use EU System when:
+
+- Building European Union institutional websites
+- Europa.eu family sites
+- Projects that represent the broader EU institutional family
+
+**Important**: If you're unsure which system to use, consult with your project stakeholders or the ECL team before starting development.
+
 ### Final notes
 
 As the topic is a moving target and details can change greatly in time, the information shared above is succinct. Please synchronise with team members regarding latest developments before taking on system-specific tasks.

@@ -12,12 +12,13 @@ npm install --save @ecl/site-footer
   - "title" (string) (default: ''): Co-owner title
   - "links" (array of objects): List of links, using the ECL Link structure
 - **"section_xx"** (object) (default: {}): Specific section of the footer, all using the same structure
-  Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related" and "section_common"
+  Available sections: "section_site_info", "section_core", "section_contact", "section_about", "section_more", "section_related", "section_feedback", and "section_common"
   - **"title"** (optional) (string or object): Section title; can be a simple string or a link using the ECL Link structure
   - **"logo"** (optional) (object): Logo image
     - "picture" (object): Images(s) used for the logo, using the ECL Picture structure
     - "path" (string): Url for the logo link
   - **"description"** (optional) (string): Free text
+  - **"action_button"** (optional) (object): Higlighted link, displayed as a button
   - **"links"** (optional) (array of objects): List of links, using the ECL Link structure
   - **"links_inline"** (optional) (boolean) (default: false): Should the links be displayed inline?
   - **"social_media"** (optional) (object): List of social media links, using the ECL Social Media Follow structure

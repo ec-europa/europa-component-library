@@ -52,6 +52,9 @@ $description-list: null !default;
   margin-inline-start: 0;
   max-width: var(--max-w);
 
+  // FRONT-5420 Text not wrapping correctly otherwise
+  min-width: 0;
+
   @include mixins.responsive-font(
     map.get($description-list, 'definition-font')
   );
@@ -60,6 +63,15 @@ $description-list: null !default;
 .ecl-description-list__see_more {
   display: block;
   margin-top: map.get($description-list, 'see-more-spacing');
+
+  .ecl-link {
+    appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+  }
 }
 
 // Links
@@ -164,15 +176,10 @@ $description-list: null !default;
     content: '';
     display: block;
     height: 4px;
-    left: -2px;
+    inset-inline-start: -2px;
     position: absolute;
     top: map.get($description-list, 'taxonomy-separator-offset');
     width: 4px;
-  }
-
-  &:dir(rtl)::before {
-    left: auto;
-    right: -2px;
   }
 
   &:first-child {

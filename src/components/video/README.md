@@ -8,29 +8,26 @@ npm install --save @ecl/video
 
 ## Parameters
 
-- **"poster"** (associative array) (default: {}):
-- **"controls"** (boolean) (default: true)
-- **"autoplay"** (boolean) (default: false)
-- **"muted"** (boolean) (default: false)
-- **"loop"** (boolean) (default: false)
-- **"sr_video_label"** (string) (default: '')
-- **"sr_video_player"** (string) (default: '')
-- **"tracks"** (associative array) (default: {}):
-  - "src" (string) (default: '')
-  - "type" (string) (default: '')
-- **"sources"** (array) (default: []): format: [
-  {
-  - "src" (string) (default: ''),
-  - "kind" (string) (default: ''),
-  - "src_lang" (string) (default: ''),
-  - "label" (string) (default: ''),
-    },
-    ...
-    ]
-  - **"extra_classes"** (optional) (string) (default: ''): Extra css classes, added to the video tag
-  - **"extra_attributes"** (optional) (array) (default: [])
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+- **"poster"** (string) (default: '') URL of the video poster image
+- **"controls"** (boolean) (default: true) Show video controls
+- **"autoplay"** (boolean) (default: false) Autoplay the video
+- **"muted"** (boolean) (default: false) Mute the video
+- **"loop"** (boolean) (default: false) Loop the video
+- **"zoom"** (boolean) (default: false) Apply zoom animation on the poster picture
+- **"sr_video_label"** (string) (default: '') Screen reader label for the video item
+- **"sr_video_player"** (string) (default: '') Screen reader label for the video player
+- **"sources"** (array) (default: []) Video source files; format:
+  - "src" (string) (default: '') Source file URL
+  - "type" (string) (default: '') MIME type, eg. 'video/mp4'
+- **"tracks"** (array) (default: []) Caption/subtitle tracks; format:
+  - "src" (string) (default: '') Track file URL
+  - "kind" (string) (default: '') Track kind, eg. 'captions', 'subtitles'
+  - "src_lang" (string) (default: '') Track language code, eg. 'en'
+  - "label" (string) (default: '') Track label, eg. 'English'
+- **"extra_classes"** (string) (default: '') Extra classes on the video element
+- **"extra_attributes"** (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ## Example:
 

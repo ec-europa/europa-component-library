@@ -40,3 +40,37 @@
 
   @return $color;
 }
+
+// Mixin to set the content color to the current text color
+// Used mostly for element using wysiwyg
+@mixin content-current-color() {
+  .ecl * {
+    color: currentcolor;
+  }
+
+  .ecl a,
+  .ecl-link {
+    --ecl-link-color: currentcolor;
+    --ecl-link-color-hover: var(--ecl-link-color);
+    --ecl-link-color-active: var(--ecl-link-color);
+    --ecl-focus-outline-color: var(--ecl-link-color);
+  }
+}
+
+// Mixin to set default focus on an element
+@mixin focus-default($offset: 2px) {
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--cm-border-inverted, #fff);
+    outline: 2px solid var(--cm-border-primary, var(--c-p));
+    outline-offset: $offset;
+  }
+}
+
+// Mixin to set "inverted" focus on an element
+@mixin focus-inverted($offset: 2px) {
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--cm-border-primary, var(--c-p));
+    outline: 2px solid var(--cm-border-inverted, #fff);
+    outline-offset: $offset;
+  }
+}

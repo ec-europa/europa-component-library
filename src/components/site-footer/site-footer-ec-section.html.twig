@@ -81,6 +81,23 @@
     <div class="ecl-site-footer__description">{{ _section.description }}</div>
   {% endif %}
 
+  {# Action button #}
+  {% if _section.action_button is not empty %}
+    {% set _button_size = _section.action_button.link.size|default('m') %}
+    {% set _button_class = 'ecl-site-footer__action-button' %}
+    {% if _button_size != 'l' %}
+      {% set _button_class = _button_class ~ ' ecl-button--' ~ _button_size %}
+    {% endif %}
+    {% set _button_type = _section.action_button.link.type|default('secondary-inverted') %}
+
+    {% include '@ecl/link/link.html.twig' with _section.action_button|merge({
+      link: _section.action_button.link|default({})|merge({
+        type: _button_type,
+      }),
+      extra_classes: _button_class,
+    }) only %}
+  {% endif %}
+
   {# Social media and extra links #}
   {% if _section.social_media is not empty or _section.extra_links is not empty %}
     {% if _section.extra_links is not empty %}
@@ -94,16 +111,18 @@
     {% endif %}
 
     {% if _section.extra_links is not empty %}
-        <ul class="ecl-site-footer__list ecl-site-footer__list--inline">
+        {% set _tag_extra_links_list = _section.extra_links|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_extra_links_item = _section.extra_links|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_extra_links_list }} class="ecl-site-footer__list ecl-site-footer__list--inline">
           {% for _item in _section.extra_links %}
-            <li class="ecl-site-footer__list-item">
+            <{{ _tag_extra_links_item }} class="ecl-site-footer__list-item">
               {% include '@ecl/link/link.html.twig' with _item|merge({
                 link: _item.link|default({})|merge({ type: 'standalone', inverted: true }),
                 extra_classes: 'ecl-site-footer__link',
               }) only %}
-            </li>
+            </{{ _tag_extra_links_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_extra_links_list }}>
       </div>
     {% endif %}
   {% endif %}
@@ -114,16 +133,18 @@
     {% if _section.links_inline %}
       {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--inline' %}
     {% endif %}
-    <ul class="{{ _list_class_name }}">
+    {% set _tag_links_list = _section.links|length == 1 ? 'div' : 'ul' %}
+    {% set _tag_links_item = _section.links|length == 1 ? 'div' : 'li' %}
+    <{{ _tag_links_list }} class="{{ _list_class_name }}">
       {% for _item in _section.links %}
-        <li class="ecl-site-footer__list-item">
+        <{{ _tag_links_item }} class="ecl-site-footer__list-item">
           {% include '@ecl/link/link.html.twig' with _item|merge({
             link: _item.link|default({})|merge({ type: 'standalone', inverted: true }),
             extra_classes: 'ecl-site-footer__link',
           }) only %}
-        </li>
+        </{{ _tag_links_item }}>
       {% endfor %}
-    </ul>
+    </{{ _tag_links_list }}>
   {% endif %}
 </div>
           

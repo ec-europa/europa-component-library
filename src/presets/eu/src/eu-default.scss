@@ -228,11 +228,12 @@
   @extend %ecl-blockquote__image;
 }
 
-// Remove some spacing
-.ecl :is(h1, h2, h3, h4, h5, h6, p):first-child {
-  margin-block-start: 0;
+// Heading styles in inpage nav are not applied if there is an ecl-* class on them
+// we have to manually apply the styles here
+.ecl h2.ecl-inpage-navigation__heading {
+  @extend %ecl-heading-2;
 }
 
-.ecl :is(h1, h2, h3, h4, h5, h6, p):last-child {
-  margin-block-end: 0;
+.ecl h3.ecl-inpage-navigation__heading {
+  @extend %ecl-heading-3;
 }

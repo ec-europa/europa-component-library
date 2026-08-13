@@ -90,7 +90,7 @@ function LogoList({ system, set, color, language }) {
       {set === 'muted' ? (
         <>
           <LogoCard
-            path={`/packages/${system}/images/logo/${mutedLogos[system].positive}`}
+            path={`${process.env.PUBLIC_URL}/packages/${system}/images/logo/${mutedLogos[system].positive}`}
             name="muted"
             key="muted-positive"
             set={set}
@@ -98,7 +98,7 @@ function LogoList({ system, set, color, language }) {
           />
           {system === 'ec' && (
             <LogoCard
-              path={`/packages/${system}/images/logo/${mutedLogos[system].negative}`}
+              path={`${process.env.PUBLIC_URL}/packages/${system}/images/logo/${mutedLogos[system].negative}`}
               name="muted"
               key="muted-negative"
               set={set}
@@ -111,8 +111,8 @@ function LogoList({ system, set, color, language }) {
           <LogoCard
             path={
               system === 'ec'
-                ? `/packages/${system}/images/logo/${color}/${logoName}.svg`
-                : `/packages/${system}/images/logo/${set}/${color}/${logoName}.svg`
+                ? `${process.env.PUBLIC_URL}/packages/${system}/images/logo/${color}/${logoName}.svg`
+                : `${process.env.PUBLIC_URL}/packages/${system}/images/logo/${set}/${color}/${logoName}.svg`
             }
             name={GetLanguageId(logoName)}
             key={logoName}

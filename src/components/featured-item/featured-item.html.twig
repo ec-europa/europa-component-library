@@ -4,10 +4,11 @@
   - "color_mode" (string) (default: '') Name of the color mode
   - "id" (string) (default: random)
   - "type" (optional) (can be 'highlight'),
-  - "title" (string) (default: ''),
+  - "title" (string) (default: ''): Content title
+  - "micro_title" (string) (default: ''): Small additional title
   - "description" (string) (default: ''),
   - "link" (object) (default: {}): object of type Link
-  - "link_highlighted" (bool) (default: false): display the link as highlighted
+  - "link_display" (string) (default: ''): optional display for the link; can be 'button' (all types), highlighted' (type highlight only)
   - "horizontal_alignment" (string) (default: 'left'): content alignment (horizontal); can be 'left', 'center'
   - "vertical_alignment" (string) (default: 'top'): content alignment (vertical); can be 'top', 'center'
   - "media_container" (object) (default: {}): object of type Media container
@@ -23,6 +24,11 @@
     ]
 #}
 
+{# DEPRECATED
+- "link_highlighted" (bool) (default: false): display the link as highlighted
+#}
+{% set _link_highlighted = link_highlighted|default(false) %}
+
 {# Internal properties #}
 
 {% set _id = id|default('ecl-featured-item-' ~ random()) %}
@@ -30,16 +36,22 @@
 {% set _css_container_class = 'ecl-featured-item__container' %}
 {% set _color_mode = color_mode|default('') %}
 {% set _type = type|default('') %}
-{% set _title = title|default(false) %}
+{% set _title = title|default('') %}
+{% set _micro_title = micro_title|default('') %}
 {% set _description = description|default('') %}
 {% set _link = link|default({}) %}
-{% set _link_highlighted = link_highlighted|default(false) %}
+{% set _link_display = link_display|default('') %}
 {% set _horizontal_alignment = horizontal_alignment|default('left') %}
 {% set _vertical_alignment = vertical_alignment|default('top') %}
 {% set _media_container = media_container|default({}) %}
 {% set _media_behavior = media_behavior|default('static') %}
 {% set _position = position|default('left') %}
 {% set _extra_attributes = '' %}
+
+{# Backward compatibility #}
+{% if _link_highlighted %}
+  {% set _link_display = 'highlighted' %}
+{% endif %}
 
 {# Set class for featured item different than default #}
 
@@ -61,11 +73,24 @@
 
 {# Internal logic - Process properties #}
 
+{% set _color_mode_light = ['orange', 'green', 'blue-electric', 'blue-ocean', 'green-lemon', 'warm-grey', 'yellow-gold', 'purple-violet', 'red-tomato'] %}
+{% if _type == 'highlight' %}
+  {% if _link_display == '' %}
+    {% set _link_type = '' %}
+  {% elseif _link_display == 'highlighted' %}
+    {% set _link_type = 'standalone' %}
+  {% else %}
+    {% set _link_type = _color_mode not in _color_mode_light ? 'secondary-inverted' : 'primary-neutral' %}
+  {% endif %}
+{% else %}
+  {% set _link_type = _link_display == 'button' ? 'primary-neutral' : 'standalone' %}
+{% endif %}
+
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
-{% if _link_highlighted %}
+{% if _link_display == 'highlighted' %}
   {% set _css_class = _css_class ~ ' ecl-featured-item--link-highlighted' %}
 {% endif %}
 
@@ -97,6 +122,9 @@
     <div class="ecl-featured-item__item">
       <div class="ecl-featured-item__content">
         <div class="ecl-featured-item__info">
+        {% if _micro_title is not empty %}
+          <div class="ecl-featured-item__micro-title">{{- _micro_title -}}</div>
+        {% endif %}
         {% if _title is not empty %}
           <div class="ecl-featured-item__title" id="{{ _id ~ '-title' }}">{{- _title -}}</div>
         {% endif %}
@@ -113,6 +141,9 @@
           %}
         {% endif %}
         {% include '@ecl/link/link.html.twig' with _link|merge({
+          link: _link.link|merge({
+            type: _link_type,
+          }),
           extra_classes: 'ecl-featured-item__link',
           extra_attributes: _link_attributes,
         }) only %}

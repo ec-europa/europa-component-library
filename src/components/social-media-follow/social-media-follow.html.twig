@@ -7,13 +7,13 @@
     - "description_inline" (boolean) (default: false) Should the description be displayed inline?
     - "position" (string) (default: 'left') Position (can be 'left', 'right')
     - "links" (array) (default: []): Array of links for social media, following ECL Link structure
-    - "extra_classes" (string) (default: '')
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
-      ],
+          "name" (string) Attribute name, eg. 'data-test'
+          "value" (string) Attribute value, eg: 'data-test-1'
+        }, ...
+      ]
 #}
 
 {# Internal properties #}
@@ -65,9 +65,11 @@
   {% endif %}
 
   {% if _links is not empty %}
-    <ul class="ecl-social-media-follow__list">
+    {% set _tag_link_list = _links|length == 1 ? 'div' : 'ul' %}
+    {% set _tag_link_item = _links|length == 1 ? 'div' : 'li' %}
+    <{{ _tag_link_list }} class="ecl-social-media-follow__list">
     {% for link in _links %}
-      <li class="ecl-social-media-follow__item">
+      <{{ _tag_link_item }} class="ecl-social-media-follow__item">
         {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
         {% if link.extra_classes is not empty %}
           {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
@@ -87,9 +89,9 @@
           }),
           extra_classes: _link_extra_classes,
         }) only %}
-      </li>
+      </{{ _tag_link_item }}>
     {% endfor %}
-    </ul>
+    </{{ _tag_link_list }}>
   {% endif %}
 </div>
 

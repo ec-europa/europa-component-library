@@ -76,6 +76,15 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Tag',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Link = (_, { loaded: { component } }) => component;
@@ -87,7 +96,12 @@ Link.render = async (args) => {
 Link.storyName = 'link tag';
 Link.args = getArgs(dataLink);
 Link.argTypes = getArgTypes(dataLink);
-Link.parameters = { notes: { markdown: notes, json: dataLink } };
+Link.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataLink, args),
+  },
+};
 
 export const Removable = (_, { loaded: { component } }) => component;
 
@@ -98,4 +112,9 @@ Removable.render = async (args) => {
 Removable.storyName = 'removable tag';
 Removable.args = getArgs(dataRemovable);
 Removable.argTypes = getArgTypes(dataRemovable);
-Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
+Removable.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataRemovable, args),
+  },
+};

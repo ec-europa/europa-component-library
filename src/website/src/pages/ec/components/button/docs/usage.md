@@ -2,112 +2,105 @@
 title: Usage
 order: 1
 ---
-Buttons trigger an action in a web page. There are 4 variants of the button component with different levels of importance and usages.
+A button triggers an intentional action on a page, representing the moment when a user commits to a task, transitions to new content, or confirms a decision. The button system consists of four variants, each calibrated for a specific place in the hierarchy of user actions. By matching visual prominence to task importance, each variant helps users navigate with intent and confidence.
 
-# Primary Button
+## Primary button
 
-Primary button is designed for users to perform the most important task in a web page. The visual design is more distinguishable from the secondary button.
+The Primary button is designed for users to perform the main intended task on a webpage, such as form submissions, confirmations, and advancing workflows. Use this when the user is completing a defined task (i.e. 'Submit', 'Save', 'Confirm') or is progressing to the next step in a user journey. Use on a campaign page for the critical call to action (CTA)
 
-## Do's
+### **Do's**
 
-- make sure the button‘s microcopy represents the action such as “Submit“ or “Register“
-- use an icon only when it is necessary
-- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
+- Make sure the button‘s content represents an action such as 'Submit' or 'Register'
+- Try to use a verb in the button
+- If you add an icon to the text button, ensure the label works as a standalone
+- When using in an icon-only configuration, always fill the label, in order to provide context to screen readers
 
-## Don'ts
+### **Don'ts**
 
-- don't assign an action that should be assigned for a CTA or other variations of buttons
-- don't use an icon when it is not relevant or necessary to the action
+- Do not overuse. Using a primary button for all actions detracts from what is important in terms of a user completing a task
+- Do not use an icon when it is not relevant or necessary to the action
 
-## When to use
+### **When to use**
 
-- as a form button such as submit, or save
-- perform a new task
-- move to the next step
-- as a primary action
+- As a primary action, to submit, save, perform a new task or move to the next step
 
-## When not to use
+### **When not to use**
 
-- do not use for navigation
-- do not use for downloads
-- do not use when the primary action is negative - use secondary button
-- do not use when the action can't be undone, such as delete
+- Do not use for secondary or negative actions (i.e. 'Cancel', 'Delete') - opt for a Secondary button instead
+- Do not use for lower priority actions (i.e. 'Show more', 'View details') or where the action is about information that is not essential to the main goal of the page - opt for tertiary buttons instead
+- Do not use for navigation or download actions – use [Links](https://ec.europa.eu/component-library/ec/components/navigation/link/code/) or [Files](https://ec.europa.eu/component-library/ec/components/file/code/) components instead
 
-# Secondary Button
+## Secondary button
 
-It is used to represent the secondary action in a web page. It is paired with a primary button. The secondary button serves as the negative action of the pair, such as “Delete,” "Cancel" or “Remove”.
+Use the Secondary button in connection with lower-ranking actions on a web page. It is often paired with a primary button and can serve as the negative action of the pair, such as 'Delete', 'Cancel', 'Remove'.
 
-## Do's
+### **Do's**
 
-- ensure the button functions a negative action, such as "Cancel", "Delete," "Remove" or "Replace" as the secondary action next to the primary button
-- follow the order of the button group; right to the primary button
-- use an icon only when it is necessary
-- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
+- Ensure the secondary button functions as a negative action, such as 'Cancel', 'Delete', 'Remove, 'Replace' next to the primary button
+- When adding an icon to the text button, ensure the label works as a standalone
+- When using in an icon-only configuration, always fill the label, in order to provide context to screen readers
 
-## Don'ts
+### **Don'ts**
 
-- do not use for primary positive actions - Submit, Send, Accept, Apply
-- do not use on its own
-- don't use an icon when it is not relevant or necessary to the action
+- Do not assign an action that should be assigned to a CTA or another type of button
+- Do not use an icon when it is not relevant or necessary to the action
 
-## When to use
+### **When to use**
 
-- to indicate a negative action, to pair it with a primary button
-- as a secondary action next to the primary button - such as Cancel, Reject
-- next to the primary button if it is a yes and no scenario
+- As a secondary action or to indicate a negative action, paired with a primary button
+- As a secondary action next to the primary button - such as 'Cancel', 'Reject'
+- Next to the primary button if it is a 'yes' or 'no' scenario
 
-## When not to use
+### **When not to use**
 
-- do not use for navigation
-- do not place it to the left side of the button group
+- Do not use for primary and positive actions (i.e. 'Submit', 'Send'); opt for the Primary button instead
+- Do not use for navigation or download actions – use [Links](https://ec.europa.eu/component-library/ec/components/navigation/link/code/) or [Files](https://ec.europa.eu/component-library/ec/components/file/code/) components instead
 
-# Text Button
+## Tertiary button
 
-Text button is used in a web page with less prominent action. It can be grouped with other buttons or placed independently.
+Use a Tertiary button on a web page for the least prominent actions. It can be grouped with other buttons or placed independently.
 
-## Do's
+### **Do's**
 
-- make sure the button represents a less important action, such as "Show more", "Expand" or "See details"
+- Ensure the button represents a less important action, such as 'Show more', 'Expand' or 'See details'
+- When adding an icon to the text button, ensure the label works as a standalone
+- When using in an icon-only configuration, always fill the label, in order to provide context to screen readers
 
-## Don'ts
+### **Don'ts**
 
-- use it when the action has high importance in the hierarchy
+- Do not use it when the action has high importance in the hierarchy or is crucial to task completion
 
-## When to use
+### **When to use**
 
-- use with low emphasis in a button group
-- use on pages/cards when the main focus should be the content and not the button
-- when there is a single action intended
-- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
+- Use in neutral scenarios, when the main focus should be the content and not the button
+- Use when you want to place an action of lower importance in a button group
 
-## When not to use
+### **When not to use**
 
-- do not use for navigation purpose
+- Do not use for primary and positive actions (i.e. 'Submit', 'Send'); opt for the Primary button instead
+- Do not use for navigation or download actions – use [Links](https://ec.europa.eu/component-library/ec/components/navigation/link/code/) or [Files](https://ec.europa.eu/component-library/ec/components/file/code/) components instead
 
-# Call to action (CTA) button
+## Call to action (CTA) button
 
-The Call to action button (CTA) draws users' attention to the most important action on a web page. The visual style has bright background colour and a high contrast label to indicate the importance of the action.
+Use a Call to action (CTA) button to draw users' attention to the most important action on a web page. The visual style has bright high-contrast background colour, paired with a label that indicates the importance of the action intended.
 
-## Do's
+### **Do's**
 
-- ensure the button directs to a pre-defined goal, such as 'Search by priority'
-- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
+- Ensure the button label directs to a pre-defined goal, such as 'Search by priority'
+- When adding an icon to the text button, ensure the label works as a standalone
+- When using in an icon-only configuration, always fill the label, in order to provide context to screen readers
 
-## Don'ts
+### **Don'ts**
 
-- do not use more than once per page (except where the main action or user goal is repeated on the same page)
+- Avoid using more than one Call to action button per page (except where there are several main actions or you repeat one action on the same page)
 
-## When to use
+### **When to use**
 
-- only where your goal is to strongly suggest something that the user should do
+- Only use to indicate main goal or to strongly suggest something that the user should do
 
-## When not to use
+### **When not to use**
 
-- do not use for site navigation purpose
-
-# B﻿utton with icon only
-
-All buttons can have their label hidden by using button variant ecl-button--icon-only.
-
-- label requires to be filled nonetheless, in order to provide context to screen readers
-- Ensure you adapt the label (e.g. "Secondary button") in < span class="ecl-button\_\_label" data-ecl-label="true">Secondary button</ span> to the selected icon, to provide the right context to screen readers
+- Do not use for primary and positive functional actions (i.e. 'Submit', 'Send'); opt for the Primary button instead
+- Do not use for secondary and negative actions (i.e. 'Cancel', 'Delete') - opt for the Secondary buttons instead
+- Do not use for lower priority actions (i.e. 'Show more', 'View details'), nor if the action offers information that is not essential to the main goal of the page - opt for Tertiary buttons instead
+- Do not use for navigation or download actions – use [Links](https://ec.europa.eu/component-library/ec/components/navigation/link/code/) or [Files](https://ec.europa.eu/component-library/ec/components/file/code/) components instead

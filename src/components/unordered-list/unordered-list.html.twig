@@ -10,14 +10,14 @@
         },
         ...
       ]
-    - "extra_classes" (string) (default: '')
+    - "variant" (string) (default: '') List variant; can be 'no-marker', 'divider'
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
+          "name" (string) Attribute name, eg. 'data-test'
+          "value" (string) Attribute value, eg: 'data-test-1'
+        }, ...
       ]
-    - "variant" (string) Component variants (no-marker, divider),
 #}
 
 {# Define main macro #}

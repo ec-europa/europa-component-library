@@ -9,6 +9,9 @@ import EventManager from '@ecl/event-manager';
  * @param {String} options.videoTitleSelector Selector for video title
  * @param {String} options.videoPlay Selector for the video play button
  * @param {String} options.videoPause Selector for the video pause button
+ * @param {String} options.captionSelector Selector for the caption element
+ * @param {String} options.creditSelector Selector for the credit element
+ * @param {boolean} options.attachResizeListener Whether to attach a listener on resize
  */
 export class MediaContainer {
   /**
@@ -45,6 +48,9 @@ export class MediaContainer {
       videoPlay = '[data-ecl-media-container-play]',
       videoPause = '[data-ecl-media-container-pause]',
       mediaVideo = '[data-ecl-media-container-video]',
+      captionSelector = '.ecl-media-container__caption',
+      creditSelector = '.ecl-media-container__credit',
+      attachResizeListener = true,
     } = {},
   ) {
     // Check element
@@ -64,15 +70,21 @@ export class MediaContainer {
     this.mediaVideo = queryOne(mediaVideo, this.element);
     this.videoPlay = queryOne(videoPlay, this.element);
     this.videoPause = queryOne(videoPause, this.element);
+    this.caption = queryOne(captionSelector, this.element);
+    this.credit = queryOne(creditSelector, this.element);
+    this.attachResizeListener = attachResizeListener;
     // Private variables
     this.iframe = null;
     this.videoTitle = '';
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.calculateRatio = this.calculateRatio.bind(this);
     this.handleParameters = this.handleParameters.bind(this);
     this.handlePauseClick = this.handlePauseClick.bind(this);
     this.handlePlayClick = this.handlePlayClick.bind(this);
+    this.setCaptionBottom = this.setCaptionBottom.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
@@ -109,6 +121,14 @@ export class MediaContainer {
         this.handlePauseClick(e),
       );
       this.videoPause.style.display = 'flex';
+    }
+
+    // Handle caption-over positioning
+    if (this.caption && this.credit) {
+      this.setCaptionBottom();
+      if (this.attachResizeListener) {
+        window.addEventListener('resize', this.handleResize);
+      }
     }
 
     // Set ecl initialized attribute
@@ -148,6 +168,30 @@ export class MediaContainer {
   }
 
   /**
+   * Sets the --ecl-caption-bottom CSS variable on the figure so the caption
+   * clears the credit when both are displayed in caption-over mode.
+   */
+  setCaptionBottom() {
+    const figure = this.caption.closest('figure');
+    if (!figure) return;
+    figure.style.setProperty(
+      '--ecl-caption-bottom',
+      `${this.credit.offsetHeight}px`,
+    );
+  }
+
+  /**
+   * Trigger setCaptionBottom on resize.
+   * Uses a debounce, for performance.
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.setCaptionBottom();
+    }, 200);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -163,6 +207,10 @@ export class MediaContainer {
     if (this.videoPause) {
       this.videoPause.remveEventListener('click', this.handlePauseClick);
       this.videoPause.style.display = 'flex';
+    }
+
+    if (this.caption && this.credit && this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
     }
   }
 

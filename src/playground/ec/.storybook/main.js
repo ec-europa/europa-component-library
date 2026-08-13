@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const isChromatic = require('chromatic/isChromatic');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
@@ -27,6 +28,10 @@ const addons = [
   'storybook-addon-rtl',
 ];
 
+if (isChromatic()) {
+  addons.push('@storybook/addon-interactions');
+}
+
 let staticDirs = [
   path.resolve(__dirname, '../../../presets/ec', outputFolder),
   path.resolve(__dirname, '../../../presets/reset', outputFolder),
@@ -35,7 +40,7 @@ let staticDirs = [
 
 // FRONT-3789 - No need for static dirs, we manually copy the files.
 if (isProd) {
-  staticDirs = [];
+  staticDirs = [path.resolve(__dirname, '../public')];
 }
 
 const webpackFinal = (config) => {

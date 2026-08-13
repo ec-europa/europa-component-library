@@ -11,7 +11,15 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
-    parameters: { layout: 'fullscreen' },
+    parameters: {
+      layout: 'fullscreen',
+      chromatic: {
+        modes: {
+          m: { disable: true },
+          xl: { disable: true },
+        },
+      },
+    },
   },
 };
 
@@ -22,4 +30,9 @@ Default.render = async () => {
   return renderedPagination;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: specs,
+  },
+};

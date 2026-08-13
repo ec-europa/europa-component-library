@@ -8,8 +8,12 @@ npm install --save @ecl/skip-link
 
 ### Parameters
 
-- **"label"** (string) (default: '') - Content of link
-- **"href"** (string) (default: '') - href attribute
+- **"label"** (string) (default: '') Link text content
+- **"href"** (string) (default: '') Link href attribute
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 

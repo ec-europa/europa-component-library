@@ -17,12 +17,26 @@ npm install --save @ecl/fact-figures
   - "value" (string) (default: '')
   - "title" (string) (default: '')
   - "description" (string) (default:'')
+  - "sources_label" (string) (default: '') Label displayed before the individual sources list; uses global sources label if not provided
+  - "sources" (array) (default: []) Array of individual source references (ECL link objects or plain strings)
+    - "link" (object): ECL link object
+      - "label" (string) (default: '') Link label
+      - "path" (string) (default: '') Link URL
+        or
+    - "name" (string) (default: '') Plain text source
 - **"view_all"** (optional) (associative array) (default: {})
   - "link" (associative array)
     - "label" (string) (default: ''),
     - "path" (string) (default: '')
 - **"display_icons"** (boolean) (default: true)
 - **"icon_size"** (string) (default: 'l') (l or 2xl)
+- **"sources_label"** (string) (default: '') Label displayed before the global sources list
+- **"sources"** (array) (default: []) Array of global source references (ECL link objects or plain strings)
+  - "link" (object): ECL link object
+    - "label" (string) (default: '') Link label
+    - "path" (string) (default: '') Link URL
+      or
+  - "name" (string) (default: '') Plain text source
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -53,7 +67,16 @@ npm install --save @ecl/fact-figures
       title: "Sed hendrerit", 
       description: "Turpis varius congue venenatis, erat dui feugiat felis." 
     }, 
-  ], 
+  ],
+  sources_label: 'Sources:',
+  sources: [
+    {
+      link: {
+        label: 'Eurostat',
+        path: exampleLink,
+      },
+    },
+  ],
   view_all: { 
     link: { 
       label: "View all", 

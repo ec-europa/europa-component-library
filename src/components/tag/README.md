@@ -8,16 +8,16 @@ npm install --save @ecl/tag
 
 ### Parameters
 
-- **color_mode** (string) (default: '')
-- **"tag"** (associative array) (default: 'predefined structure below')
-  - type: string (default: 'link') can be 'link' or 'removable'
-  - path: string (default: '') tag url if needed,
-  - label: string (default: '') tag text as string,
-  - external: boolean (default: false) External icon for a tag with link
-  - aria_label: (string) (default: '') (optional) aria label for removable tag as a string
-  - nowrap: boolean (default: false) force the tag to stay on one line
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"color_mode"** (string) (default: '') Name of the color mode
+- **"tag"** (object) (default: {}):
+  - "type" (string) (default: 'link') Tag type; can be 'link', 'removable'
+  - "path" (string) (default: '') Tag link URL
+  - "label" (string) (default: '') Tag text
+  - "external" (boolean) (default: false) Show external icon for link tags
+  - "aria_label" (string) (default: '') Aria label for removable tags
+  - "nowrap" (boolean) (default: false) Prevent the tag from wrapping
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

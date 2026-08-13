@@ -7,15 +7,20 @@
   $theme: theme.$theme
 );
 
-// Layout
-@use '@ecl/grid/grid' with (
-  $theme: theme.$theme
-);
-
 // Functions and Mixins
 @use '@ecl/mixins-typography/mixins' with (
   $theme: theme.$theme,
   $typography: var.$typography
+);
+@use '@ecl/mixins-color/mixins' as mixins-color;
+
+// Layout
+@use '@ecl/grid/grid' with (
+  $theme: theme.$theme
+);
+@use '@ecl/layout-wrapper/layout-wrapper' with (
+  $theme: theme.$theme,
+  $layout-wrapper: var.$layout-wrapper
 );
 
 // Forms
@@ -34,6 +39,7 @@
 );
 @use '@ecl/file-upload/file-upload' with (
   $theme: theme.$theme,
+  $button: var.$button,
   $file-upload: var.$file-upload
 );
 @use '@ecl/radio/radio' with (
@@ -91,8 +97,16 @@
   $notification: var.$notification
 );
 @use '@ecl/picture/picture';
+@use '@ecl/quiz/quiz' with (
+  $theme: theme.$theme,
+  $quiz: var.$quiz
+);
 @use '@ecl/separator/separator' with (
   $separator: var.$separator
+);
+@use '@ecl/slogan-ticker/slogan-ticker' with (
+  $theme: theme.$theme,
+  $slogan-ticker: var.$slogan-ticker
 );
 @use '@ecl/spinner/spinner' with (
   $theme: theme.$theme,
@@ -113,9 +127,17 @@
   $theme: theme.$theme,
   $tag: var.$tag
 );
+@use '@ecl/tooltip/tooltip' with (
+  $theme: theme.$theme,
+  $tooltip: var.$tooltip
+);
 @use '@ecl/video/video';
 
 // Molecules
+@use '@ecl/add-to-calendar/add-to-calendar' with (
+  $theme: theme.$theme,
+  $add-to-calendar: var.$add-to-calendar
+);
 @use '@ecl/banner/banner' with (
   $theme: theme.$theme,
   $banner: var.$banner
@@ -160,9 +182,21 @@
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures
 );
+@use '@ecl/animated-numbers/animated-numbers' with (
+  $theme: theme.$theme,
+  $animated-numbers: var.$animated-numbers
+);
 @use '@ecl/file/file' with (
   $theme: theme.$theme,
   $file: var.$file
+);
+@use '@ecl/highlight-box/highlight-box' with (
+  $theme: theme.$theme,
+  $highlight-box: var.$highlight-box
+);
+@use '@ecl/highlighted-search/highlighted-search' with (
+  $theme: theme.$theme,
+  $highlighted-search: var.$highlighted-search
 );
 @use '@ecl/rating-field/rating-field' with (
   $theme: theme.$theme,
@@ -192,6 +226,10 @@
   $theme: theme.$theme,
   $page-information: var.$page-information
 );
+@use '@ecl/page-summary/page-summary' with (
+  $theme: theme.$theme,
+  $page-summary: var.$page-summary
+);
 @use '@ecl/pagination/pagination' with (
   $theme: theme.$theme,
   $pagination: var.$pagination
@@ -207,6 +245,14 @@
 @use '@ecl/social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
+);
+@use '@ecl/story-card/story-card' with (
+  $theme: theme.$theme,
+  $story-card: var.$story-card
+);
+@use '@ecl/text-media/text-media' with (
+  $theme: theme.$theme,
+  $text-media: var.$text-media
 );
 @use '@ecl/timeline/timeline' with (
   $theme: theme.$theme,
@@ -255,6 +301,10 @@
   $site-header: var.$site-header,
   $language-list: var.$language-list
 );
+@use '@ecl/slider/slider-pager' with (
+  $theme: theme.$theme,
+  $slider-pager: var.$slider-pager
+);
 @use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,
   $splash-page: var.$splash-page,
@@ -283,4 +333,21 @@
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
+}
+
+// Global rules
+body {
+  color: var(--cm-on-surface-brand);
+}
+
+.ecl-content-color {
+  @include mixins-color.content-current-color;
+}
+
+.ecl-focus-default {
+  @include mixins-color.focus-default;
+}
+
+.ecl-focus-inverted {
+  @include mixins-color.focus-inverted;
 }

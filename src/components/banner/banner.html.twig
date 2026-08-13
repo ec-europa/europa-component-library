@@ -6,8 +6,10 @@
   - "color_mode" (string) (default: '') Name of the color mode
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
   - "font_size" (string) (default: 'm') Size of the title and description (can be 's', 'm', 'l')
+  - "font_weight" (string) (default: 'light') Font weight of the title and description (can be 'light', 'bold')
   - "font_color" (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
   - "box_background" (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
+  - "overlay": (bool) (default: false) Display semi-transparent overlay
   - "title" (string or Link) (default: '') Title of banner
   - "picture" (object) (default: {}): Image for the banner, following ECL Picture structure
   - "video" (object) (default: {}): Video for the banner
@@ -52,8 +54,10 @@
 {% set _video = video|default({}) %}
 {% set _size = size|default('m') %}
 {% set _font_size = font_size|default('m') %}
+{% set _font_weight = font_weight|default('light') %}
 {% set _font_color = font_color|default('dark') %}
 {% set _box_background = box_background|default('light') %}
+{% set _overlay = overlay|default(false) %}
 {% set _horizontal = horizontal|default('left') %}
 {% set _vertical = vertical|default('center') %}
 {% set _full_width = full_width|default(false) %}
@@ -78,6 +82,10 @@
   {% set _css_class = _css_class ~ ' ecl-banner--font-' ~ _font_size %}
 {% endif %}
 
+{% if _font_weight is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--font-weight-' ~ _font_weight %}
+{% endif %}
+
 {% if _picture is empty and _video is empty %}
   {% set _css_class = _css_class ~ ' ecl-banner--no-media' %}
 {% endif %}
@@ -95,6 +103,16 @@
   {% endif %}
 
   {% set _css_class = _css_class ~ ' ecl-banner--box-bg-' ~ _box_background %}
+{% endif %}
+
+{% if _overlay %}
+  {% if _box_background == 'light' %}
+    {% set _color = 'dark' %}
+  {% else %}
+    {% set _color = 'light' %}
+  {% endif %}
+
+  {% set _css_class = _css_class ~ ' ecl-banner--overlay' %}
 {% endif %}
 
 {% if _color is not empty %}
@@ -252,7 +270,7 @@
           <div class="ecl-banner__cta">
           {% include '@ecl/link/link.html.twig' with _link|merge({
             link: _link.link|merge({
-              type: 'primary-highlight',
+              type: _box_background == 'dark' ? 'primary-highlight-inverted' : 'primary-highlight',
             }),
             extra_classes: _link_extra_classes,
             extra_attributes: _link_extra_attributes,

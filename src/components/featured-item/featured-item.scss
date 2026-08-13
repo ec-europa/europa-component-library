@@ -5,7 +5,9 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -22,10 +24,24 @@ $featured-item: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
+  // FRONT-5368: min-width
+  min-width: 50%;
+
   &:first-child {
     margin-block-start: map.get($featured-item, 'gap-vertical');
     padding-bottom: map.get($featured-item, 'padding');
   }
+}
+
+.ecl-featured-item__micro-title {
+  color: map.get($featured-item, 'micro-title', 'color');
+  letter-spacing: map.get($featured-item, 'micro-title', 'letter-spacing');
+  text-transform: uppercase;
+
+  @include mixins.responsive-font(
+    map.get($featured-item, 'micro-title', 'font'),
+    $font-weight: map.get($featured-item, 'micro-title', 'font-weight')
+  );
 }
 
 .ecl-featured-item__title {
@@ -35,6 +51,10 @@ $featured-item: null !default;
   @include mixins.responsive-font(
     map.get($featured-item, 'title', 'typography')
   );
+
+  .ecl-featured-item__micro-title + & {
+    margin-block-start: map.get($featured-item, 'title', 'spacing-mobile');
+  }
 }
 
 .ecl-featured-item__description {
@@ -98,6 +118,10 @@ $featured-item: null !default;
 @include breakpoints.up('m') {
   .ecl-featured-item__container {
     flex-direction: row-reverse;
+  }
+
+  .ecl-featured-item__micro-title + .ecl-featured-item__title {
+    margin-block-start: map.get($featured-item, 'title', 'spacing-tablet');
   }
 
   .ecl-featured-item__item:first-child {
@@ -166,7 +190,6 @@ $featured-item: null !default;
     );
     display: flex;
     flex-direction: column;
-    margin-block-start: 0;
     padding-block: map.get(
       $featured-item,
       'highlight',
@@ -181,6 +204,10 @@ $featured-item: null !default;
     );
   }
 
+  .ecl-featured-item__micro-title {
+    color: map.get($featured-item, 'highlight', 'micro-title', 'color');
+  }
+
   .ecl-featured-item__title {
     color: map.get($featured-item, 'highlight', 'title', 'color');
   }
@@ -188,13 +215,7 @@ $featured-item: null !default;
   .ecl-featured-item__description {
     color: map.get($featured-item, 'highlight', 'description', 'color');
 
-    .ecl *,
-    .ecl a:hover,
-    .ecl a:focus-visible,
-    .ecl a:visited,
-    .ecl a:active {
-      color: map.get($featured-item, 'highlight', 'description', 'color');
-    }
+    @include mixins-color.content-current-color;
   }
 
   .ecl-featured-item__info + .ecl-featured-item__link {
@@ -202,10 +223,9 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link:not(
-    .ecl-link--primary-highlight,
     .ecl-link--primary-neutral,
-    .ecl-link--primary,
-    .ecl-link--secondary
+    .ecl-link--secondary-inverted,
+    .ecl-link--standalone
   ) {
     --ecl-link-color: #{map.get($featured-item, 'highlight', 'link', 'color')};
     --ecl-link-color-hover: #{map.get(
@@ -228,7 +248,18 @@ $featured-item: null !default;
       )};
 
     text-align: start;
-    text-decoration: underline;
+  }
+
+  @if map.has-key($featured-item, 'highlight', 'button-dark') {
+    .ecl-featured-item__link {
+      .ecl-link__label {
+        text-decoration: none;
+      }
+
+      &.ecl-link--secondary-inverted {
+        @include link-component.link-button(primary-neutral);
+      }
+    }
   }
 
   // Highlighted link
@@ -351,6 +382,7 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__item:first-child {
+      margin-block-start: 0;
       padding-block: map.get(
         $featured-item,
         'highlight',

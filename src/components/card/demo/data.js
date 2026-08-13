@@ -4,12 +4,13 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
-  primary_meta: ['PRIMARY META', 'DD Month Year'],
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  primary_meta: ['Meta Info', 'DD Month YYYY'],
   title: {
     link: {
       type: 'standalone',
-      label: 'Title',
+      label:
+        'Title: Lorem ipsum dolor sit amet consectetur adipiscing. Lorem ipsum dolor sit amet consectetur adipiscing.',
       path: exampleLink,
     },
   },
@@ -20,8 +21,8 @@ module.exports = {
     },
   },
   labels: [
-    { label: 'highlight', variant: 'highlight' },
-    { label: 'high', variant: 'high' },
+    { label: 'Highlight', variant: 'highlight' },
+    { label: 'Medium', variant: 'medium' },
   ],
   labels_aria: 'Labels',
   secondary_meta: [
@@ -30,14 +31,7 @@ module.exports = {
         name: 'calendar',
         size: 'xs',
       },
-      label: '2018/10/22',
-    },
-    {
-      icon: {
-        name: 'location',
-        size: 'xs',
-      },
-      label: 'Luxembourg',
+      label: 'List Icon Element',
     },
   ],
   lists: [

@@ -8,19 +8,19 @@ npm install --save @ecl/text-area
 
 ### Parameters:
 
-- **"id"** (string) (default: random)
-- **"disabled"** (boolean) (default: false)
-- **"invalid"** (boolean) (default: false)
-- **"required"** (boolean) (default: false)
-- **"name"** (string) (default: '')
-- **"default_value"** (string) (default: '')
-- **"rows"** (int) (default: 4)
-- **"extra_label_classes"** (string) (default: '') Extra classes for the label (space separated)
-- **"placeholder"** (string) (default: '')
-- **"width"** (string) (default: 'm') Input width size (s, m or l)
-- **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the text-area group
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"id"** (string) (default: random) Unique id for the textarea
+- **"disabled"** (boolean) (default: false) Disables the textarea
+- **"invalid"** (boolean) (default: false) Displays the textarea in invalid state
+- **"required"** (boolean) (default: false) Marks the textarea as required
+- **"name"** (string) (default: '') Name attribute for the textarea
+- **"default_value"** (string) (default: '') Pre-filled value
+- **"rows"** (integer) (default: 4) Number of visible text rows
+- **"placeholder"** (string) (default: '') Placeholder text
+- **"width"** (string) (default: 'm') Textarea width; can be 's', 'm', 'l'
+- **"extra_label_classes"** (string) (default: '') Extra classes for the label
+- **"extra_group_classes"** (string) (default: '') Extra classes for the textarea group wrapper
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

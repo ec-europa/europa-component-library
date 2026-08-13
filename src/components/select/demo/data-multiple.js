@@ -87,5 +87,6 @@ module.exports = {
     multiple_all_text: 'Select all',
     multiple_close_text: 'Apply',
     multiple_clear_all_text: 'Clear all',
+    multiple_counter_text: 'Selected:',
   },
 };

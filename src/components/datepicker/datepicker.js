@@ -39,6 +39,7 @@ export class Datepicker {
 
     // Bind `this` for use in callbacks
     this.normalizeDate = this.normalizeDate.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
   }
 
   /**
@@ -73,8 +74,6 @@ export class Datepicker {
         },
       };
 
-      this.direction = getComputedStyle(this.element).direction;
-
       if (!this.picker) return;
 
       if (!this.picker.identifier) {
@@ -85,7 +84,8 @@ export class Datepicker {
         this.picker.value = this.normalizeDate(this.element.dataset.value);
       }
 
-      this.picker.direction = this.direction === 'ltr' ? 'right' : 'left';
+      this.updateConfiguration();
+      this.picker.addEventListener('duetOpen', this.handleOpen);
 
       this.picker.localization = this.localization;
 
@@ -122,9 +122,28 @@ export class Datepicker {
   }
 
   /**
+   * Update picker configuration based on current state.
+   */
+  updateConfiguration() {
+    if (!this.picker) return;
+    this.direction = getComputedStyle(this.element).direction;
+    this.picker.direction = this.direction === 'ltr' ? 'right' : 'left';
+  }
+
+  /**
+   * Handle datepicker open event.
+   */
+  handleOpen() {
+    this.updateConfiguration();
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
+    if (this.picker) {
+      this.picker.removeEventListener('duetOpen', this.handleOpen);
+    }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);

@@ -8,14 +8,14 @@ npm install --save @ecl/pagination
 
 ### Parameters
 
-- **"label"** (string) (default: ''): for screen reader
-- **"items"** (array) (default: []):
-  - "type" (string) (default: ''): could be 'previous', 'current', 'next', 'truncation' (previous and next are always visible)
-  - "label" (string) (default: ''): label used when the item is not a link
-  - "aria_label" (string) (default: '')
-  - "link" (object) (default: ''): object of type Link (for next and previous set the item.link.link.hide_label to true in EC)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"label"** (string) (default: '') Screen reader label for the navigation element
+- **"items"** (array) (default: []) Pagination items; format:
+  - "type" (string) (default: '') Item type; can be 'previous', 'current', 'next', 'truncation'
+  - "label" (string) (default: '') Item label when it is not a link (e.g. current page number)
+  - "aria_label" (string) (default: '') Aria label for the item
+  - "link" (object) (default: {}) ECL Link structure; for prev/next, set `link.link.hide_label` to true in EC
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

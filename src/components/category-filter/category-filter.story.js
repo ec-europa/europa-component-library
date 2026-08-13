@@ -29,6 +29,16 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Category filter',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -42,4 +52,9 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoData, args),
+  },
+};

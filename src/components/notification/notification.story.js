@@ -100,6 +100,13 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Notifications',
   decorators: [withCode, withNotes],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Info = (_, { loaded: { component } }) => component;
@@ -111,7 +118,12 @@ Info.render = async (args) => {
 Info.storyName = 'Info';
 Info.args = getArgs(dataInfo);
 Info.argTypes = getArgTypes();
-Info.parameters = { notes: { markdown: notes, json: dataInfo } };
+Info.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataInfo, args),
+  },
+};
 
 export const Success = (_, { loaded: { component } }) => component;
 
@@ -124,7 +136,12 @@ Success.render = async (args) => {
 Success.storyName = 'Success';
 Success.args = getArgs(dataSuccess);
 Success.argTypes = getArgTypes();
-Success.parameters = { notes: { markdown: notes, json: dataSuccess } };
+Success.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataSuccess, args),
+  },
+};
 
 export const Error = (_, { loaded: { component } }) => component;
 
@@ -137,7 +154,12 @@ Error.render = async (args) => {
 Error.storyName = 'Error';
 Error.args = getArgs(dataError);
 Error.argTypes = getArgTypes();
-Error.parameters = { notes: { markdown: notes, json: dataError } };
+Error.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataError, args),
+  },
+};
 
 export const Warning = (_, { loaded: { component } }) => component;
 
@@ -150,4 +172,9 @@ Warning.render = async (args) => {
 Warning.storyName = 'Warning';
 Warning.args = getArgs(dataWarning);
 Warning.argTypes = getArgTypes();
-Warning.parameters = { notes: { markdown: notes, json: dataWarning } };
+Warning.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataWarning, args),
+  },
+};

@@ -46,10 +46,11 @@ $text-input: null !default;
   * duet styling
   */
 .duet-date__input {
-  height: 2.75rem;
+  height: var(--ecl-text-field-height);
   outline: 0;
-
-  @include mixins.responsive-font(map.get($text-input, 'font'));
+  padding-block: var(--s-s);
+  padding-inline-start: var(--s-s);
+  font: map.get($text-input, 'font');
 
   &:hover {
     box-shadow: map.get($text-input, 'shadow-hover');
@@ -79,18 +80,19 @@ $text-input: null !default;
   color: var(--duet-color-text);
   border: 0;
   border-radius: 0;
-  border-bottom-right-radius: var(--duet-radius);
-  border-top-right-radius: var(--duet-radius);
+  border-start-end-radius: var(--duet-radius);
+  border-end-end-radius: var(--duet-radius);
   display: flex;
+  height: calc(var(--ecl-text-field-height) - 2px);
+  width: var(--ecl-text-field-height);
   min-height: auto;
-  width: 2.75rem;
   padding: 0;
 
   &::before {
     background-color: var(--cm-border-brand, var(--c-d));
     content: '';
     position: absolute;
-    left: -1px;
+    inset-inline-start: -1px;
     width: 1px;
     height: 80%;
     top: 10%;
@@ -112,6 +114,11 @@ $text-input: null !default;
     box-shadow: 0 0 0 2px var(--duet-color-primary);
     color: var(--duet-color-text);
     outline: 0;
+  }
+
+  &:dir(rtl) {
+    left: 1px;
+    right: auto;
   }
 }
 
@@ -153,21 +160,21 @@ $text-input: null !default;
       background: var(--duet-color-button);
       border: 0;
       color: var(--duet-color-text);
-      outline: 0;
+      outline-offset: 0;
       padding: 0;
     }
 
     &:hover {
       background: var(--duet-color-button);
       color: var(--duet-color-text);
-
-      &:focus {
-        box-shadow: 0 0 0 2px var(--duet-color-primary);
-      }
     }
 
     svg {
       margin-block-start: 1px;
+    }
+
+    &:dir(rtl) svg {
+      transform: rotate(180deg);
     }
   }
 
@@ -220,7 +227,6 @@ $text-input: null !default;
         border-width: 2px;
         box-shadow: none;
         color: var(--cm-on-surface-inverted, #fff);
-        outline: 0;
         padding: 0;
       }
 
@@ -252,5 +258,15 @@ $text-input: null !default;
         }
       }
     }
+  }
+}
+
+.duet-date__mobile {
+  margin-inline-start: -10%;
+}
+
+@media (width <= 35.9375em) {
+  .duet-date__dialog.is-left {
+    width: 100%;
   }
 }

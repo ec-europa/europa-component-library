@@ -1,26 +1,29 @@
 {% apply spaceless %}
 
 {#
-Parameters:
-  - "color_mode" (string)
-  - "toggle_collapsed": (string) (default: '')
-  - "toggle_expanded": (string) (default: '')
-  - "hide" (object): (default: undefined)
-    - "from": (integer) (default: items.length) Item index after which to start hiding timeline items
-    - "to": (integer) (default: items.length) Item index after which to resume displaying timeline items
-  - "items" (array) (default: []):
-    - "id": (string) (default: '')
-    - "label": (string) (default: '')
-    - "title": (string) (default: '')
-    - "content": (block) (default: '')
-  - "headline" (object) (default: {}): Highlighted item at the top of the timeline
-    - "label": (string) (default: '')
-    - "title": (string) (default: '')
-    - "content": (block) (default: '')
-  - "extra_classes" (string) (default: '')
-  - "extra_attributes" (array) (default: []): format:
-    - "name" (string) (default: '')
-    - "value" (optional) (string),
+  Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
+  - "toggle_collapsed" (string) (default: '') Label for the "show more" toggle
+  - "toggle_expanded" (string) (default: '') Label for the "hide" toggle
+  - "hide" (object) (default: undefined) Range of items to hide:
+    - "from" (integer) (default: items.length) Item index after which to start hiding
+    - "to" (integer) (default: items.length) Item index after which to resume displaying
+  - "items" (array) (default: []) Timeline items:
+    - "id" (string) (default: '') Item id
+    - "label" (string) (default: '') Item date/period label
+    - "title" (string) (default: '') Item title
+    - "content" (string) (default: '') Item content (HTML allowed)
+  - "headline" (object) (default: {}) Highlighted item at the top of the timeline:
+    - "label" (string) (default: '') Headline label
+    - "title" (string) (default: '') Headline title
+    - "content" (string) (default: '') Headline content (HTML allowed)
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) Attribute name, eg. 'data-test'
+        "value" (string) Attribute value, eg: 'data-test-1'
+      }, ...
+    ]
 #}
 
 {# Internal properties #}

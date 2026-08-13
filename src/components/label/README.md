@@ -8,10 +8,10 @@ npm install --save @ecl/label
 
 ### Parameters
 
-- **"variant"** (string) (default: low) (Allowed values: low, medium, high, highlight) - Variant name
+- **"variant"** (string) (default: 'low') Relevance level; can be 'low', 'medium', 'high', 'highlight'
 - **"label"** (string) (default: '') Text of the label
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

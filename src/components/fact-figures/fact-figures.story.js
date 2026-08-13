@@ -26,6 +26,7 @@ const getArgs = (data) => {
     value: data.items[0].value,
     title: data.items[0].title,
     description: data.items[0].description,
+    source_type: 'global',
   };
 
   if (getSystem() === 'ec') {
@@ -44,7 +45,7 @@ const getArgTypes = () => {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
-      category: 'Layout',
+      category: 'Items',
     },
   };
   argTypes.show_view_all = {
@@ -73,7 +74,7 @@ const getArgTypes = () => {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '3' },
-      category: 'Layout',
+      category: 'Items',
     },
   };
   argTypes.font_size = {
@@ -110,6 +111,7 @@ const getArgTypes = () => {
     if: { arg: 'show_icons' },
   };
   argTypes.icon_size = {
+    name: 'icon size',
     description: 'Size of the icon',
     type: 'select',
     options: ['medium', 'large'],
@@ -151,6 +153,23 @@ const getArgTypes = () => {
       category: 'Content (first item)',
     },
   };
+  argTypes.source_type = {
+    name: 'source type',
+    type: { name: 'select' },
+    description:
+      'Display individual sources per item, a single global sources footer, or no sources',
+    options: ['global', 'individual', 'none'],
+    mapping: {
+      global: 'global',
+      individual: 'individual',
+      none: 'none',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'global' },
+      category: 'Optional',
+    },
+  };
 
   return argTypes;
 };
@@ -160,6 +179,18 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
+  if (args.source_type === 'global') {
+    clone.items.forEach((item) => {
+      delete item.sources;
+    });
+  } else if (args.source_type === 'individual') {
+    clone.sources = [];
+  } else {
+    clone.sources = [];
+    clone.items.forEach((item) => {
+      delete item.sources;
+    });
+  }
   if (!args.show_view_all) {
     delete clone.view_all;
   }
@@ -196,4 +227,15 @@ Default.render = async (args) => {
 };
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoData, args),
+  },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
+};

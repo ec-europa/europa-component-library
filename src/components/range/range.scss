@@ -16,12 +16,17 @@ $range: null !default;
   content: '';
   position: absolute;
   display: block;
+  inset-block-start: map.get($range, 'touch-area');
   height: map.get($range, 'range-size');
   width: 100%;
 }
 
 .ecl-range-container {
   position: relative;
+
+  &::before {
+    @include range-track;
+  }
 }
 
 /* stylelint-disable selector-pseudo-element-no-unknown */
@@ -34,14 +39,6 @@ $range: null !default;
   outline: none;
   padding: map.get($range, 'touch-area') 0;
   position: relative;
-
-  &::-moz-range-track {
-    @include range-track;
-  }
-
-  &::before {
-    @include range-track;
-  }
 }
 
 // Add the slider size to calculate margin
@@ -49,19 +46,6 @@ $range: null !default;
   .ecl-range {
     margin: calc(
         -#{map.get($range, 'touch-area')} +
-          (
-            #{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}
-          ) /
-          2
-      )
-      0 -#{map.get($range, 'touch-area')};
-  }
-
-  .ecl-form-label + *:not(.ecl-help-block, .ecl-feedback-message) {
-    /* eslint-disable-next-line no-math-div */
-    margin: calc(
-        -#{map.get($range, 'touch-area')} +
-          #{map.get($range, 'range-margin-top')} +
           (
             #{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}
           ) /
@@ -168,11 +152,23 @@ $range: null !default;
   @include mixins-form.form-width('s', $theme);
 }
 
+.ecl-range-container--s {
+  @include mixins-form.form-width('s', $theme);
+}
+
 .ecl-range--m {
   @include mixins-form.form-width('m', $theme);
 }
 
+.ecl-range-container--m {
+  @include mixins-form.form-width('m', $theme);
+}
+
 .ecl-range--l {
+  @include mixins-form.form-width('l', $theme);
+}
+
+.ecl-range-container--l {
   @include mixins-form.form-width('l', $theme);
 }
 

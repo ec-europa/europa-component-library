@@ -1,0 +1,99 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: random)
+    - "items" (array) (default: []): format: [
+        {
+          "content" (string) Slide text content
+          "link" (string) Optional link URL for the slide content
+          "external" (boolean) Whether the link is external
+        }, ...
+      ]
+    - "autoplay" (boolean) (default: true) Start sliding automatically
+    - "color_mode" (string) (default: '') Name of the color mode
+    - "sr_play" (string) (default: 'Play slogan ticker') Screen reader label for play button
+    - "sr_pause" (string) (default: 'Pause slogan ticker') Screen reader label for pause button
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
+    - "extra_attributes" (array) (default: []) Extra attributes
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{% set _id = id|default('ecl-slogan-ticker-' ~ random()) %}
+{% set _items = items|default([]) %}
+{% set _autoplay = autoplay ?? true %}
+{% set _color_mode = color_mode|default('') %}
+{% set _sr_play = sr_play|default('Play slogan ticker') %}
+{% set _sr_pause = sr_pause|default('Pause slogan ticker') %}
+{% set _css_class = 'ecl-slogan-ticker' %}
+{% set _extra_attributes = [
+  'data-ecl-slogan-ticker="true"',
+  'data-ecl-auto-init="SloganTicker"',
+]|join(' ') %}
+
+{% if not _autoplay %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-slogan-ticker-autoplay="false"' %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }} id="{{ _id }}">
+  <div class="ecl-slogan-ticker__viewport" data-ecl-slogan-ticker-slider>
+    <ul class="ecl-slogan-ticker__track">
+      {% for _item in _items %}
+        <li class="ecl-slogan-ticker__slide">
+          {{- _item.content -}}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="ecl-slogan-ticker__controls">
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'tertiary',
+      label: _sr_play,
+      hide_label: true,
+      icon: {
+        family: 'phosphor',
+        name: 'play-filled',
+        size: 'l',
+      },
+      extra_classes: 'ecl-slogan-ticker__button ecl-slogan-ticker__play',
+      extra_attributes: [{ name: 'data-ecl-slogan-ticker-play' }],
+    } only %}
+
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'tertiary',
+      label: _sr_pause,
+      hide_label: true,
+      icon: {
+        family: 'phosphor',
+        name: 'pause-filled',
+        size: 'l',
+      },
+      extra_classes: 'ecl-slogan-ticker__button ecl-slogan-ticker__pause',
+      extra_attributes: [{ name: 'data-ecl-slogan-ticker-pause' }],
+    } only %}
+  </div>
+</div>
+
+{% endapply %}

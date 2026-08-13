@@ -12,29 +12,22 @@
     - "title": (string) (default: ''): Page title, eg. 'Select your language'.
     - "eu_category": (string) (default: ''): Label for EU languages
     - "non_eu_category": (string) (default: ''): Label for non-EU languages
-    - "items": (array) (default: []): (array) (default: []): format: [
+    - "items" (array) (default: []) EU language items; format: [
         {
-          "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
-          "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
-          "path" (string) (default: '') Item language URL eg. '/example#language_en'.
-          "active" (boolean) (default: false) define if item is the active language.
-        },
-      ],
-    - "non_eu_items": (array) (default: []): (array) (default: []): format: [
-        {
-          "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
-          "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
-          "path" (string) (default: '') Item language URL eg. '/example#language_en'.
-          "active" (boolean) (default: false) define if item is the active language.
-        },
-      ],
-    - "extra_classes" (string) (default: '')
+          "lang" (string) (default: '') Language code, eg. 'en', 'fr'
+          "label" (string) (default: '') Language label, eg. 'English', 'Français'
+          "path" (string) (default: '') Language URL, eg. '/example#language_en'
+          "active" (boolean) (default: false) Whether this is the active language
+        }, ...
+      ]
+    - "non_eu_items" (array) (default: []) Non-EU language items (same structure as items)
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
-      ],
+          "name" (string) Attribute name, eg. 'data-test'
+          "value" (string) Attribute value, eg: 'data-test-1'
+        }, ...
+      ]
 #}
 
 {# Internal properties #}
@@ -134,9 +127,11 @@
           {{- _eu_category -}}
         </h2>
         {% endif %}
-        <ul class="ecl-splash-page__language-list" translate="no">
+        {% set _tag_eu_list = _items|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_eu_item = _items|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_eu_list }} class="ecl-splash-page__language-list" translate="no">
           {% for _item in _items %}
-          <li class="ecl-splash-page__language-item">
+          <{{ _tag_eu_item }} class="ecl-splash-page__language-item">
             {% set _link_label %}
               <span class="ecl-splash-page__language-link-code">{{ _item.lang|default('') }}</span>
               <span class="ecl-splash-page__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label }}</span>
@@ -155,9 +150,9 @@
                 { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
               ],
             } only %}
-          </li>
+          </{{ _tag_eu_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_eu_list }}>
       </div>
       {% endif %}
 
@@ -169,9 +164,11 @@
           {{- _non_eu_category -}}
         </h2>
         {% endif %}
-        <ul class="ecl-splash-page__language-list" translate="no">
+        {% set _tag_non_eu_list = _non_eu_items|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_non_eu_item = _non_eu_items|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_non_eu_list }} class="ecl-splash-page__language-list" translate="no">
           {% for _item in _non_eu_items %}
-          <li class="ecl-splash-page__language-item">
+          <{{ _tag_non_eu_item }} class="ecl-splash-page__language-item">
           {% set _link_label %}
             <span class="ecl-splash-page__language-link-code">{{ _item.lang|default('') }}</span>
             <span class="ecl-splash-page__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label }}</span>
@@ -190,9 +187,9 @@
                 { name: 'hreflang', value: _item.lang|default('') },
               ],
             } only %}
-          </li>
+          </{{ _tag_non_eu_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_non_eu_list }}>
       </div>
       {% endif %}
     </div>

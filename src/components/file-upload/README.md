@@ -8,16 +8,16 @@ npm install --save @ecl/file-upload
 
 ### Parameters:
 
-- **"id"** (string) (default: random) - Input id
-- **"name"** (string) (default: '') - Input id
-- **"invalid"** (boolean) (default: false) - When an error is found
-- **"disabled"** (boolean) (default: false) - Disables the input field
-- **"multiple"** (boolean) (default: false) - Multiple uploads
-- **"required"** (boolean) (default: false) - Makes the input required
-- **"button_choose_label"** (string) (default: '')
-- **"button_replace_label"** (string) (default: '')
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"id"** (string) (default: random) Unique id for the input field
+- **"name"** (string) (default: '') Name attribute for the file input
+- **"invalid"** (boolean) (default: false) Displays the field in invalid state
+- **"disabled"** (boolean) (default: false) Disables the input field
+- **"multiple"** (boolean) (default: false) Allows selecting multiple files
+- **"required"** (boolean) (default: false) Makes the field required
+- **"button_choose_label"** (string) (default: '') Label for the initial "choose file" button
+- **"button_replace_label"** (string) (default: '') Label for the "replace file" button shown after selection
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

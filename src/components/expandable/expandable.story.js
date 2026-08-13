@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import { within, userEvent, expect } from '@storybook/test';
 
 import demoData from './demo/data';
 import expandable from './expandable.html.twig';
@@ -14,7 +15,7 @@ const getArgs = (data) => ({
 
 const getArgTypes = () => ({
   label_collapsed: {
-    name: 'label of the button',
+    name: 'button label (collapsed)',
     type: { name: 'string', required: true },
     description: 'Used when the content is hidden',
     table: {
@@ -24,7 +25,7 @@ const getArgTypes = () => ({
     },
   },
   label_expanded: {
-    name: 'label of the button',
+    name: 'button label (expanded)',
     type: { name: 'string', required: true },
     description: 'Used when the content is visible',
     table: {
@@ -48,6 +49,16 @@ const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
 export default {
   title: 'Components/Expandables',
+  parameters: {
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -59,5 +70,30 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoData, args),
+  },
+};
 Default.decorators = [withCode, withNotes];
+
+export const Expanded = (_, { loaded: { component } }) => component;
+
+Expanded.render = async (args) => {
+  const renderedExpandable = await expandable(prepareData(demoData, args));
+  return renderedExpandable;
+};
+Expanded.tags = ['!dev'];
+Expanded.storyName = 'expanded';
+Expanded.args = getArgs(demoData);
+Expanded.argTypes = getArgTypes();
+
+Expanded.play = async ({ canvasElement }) => {
+  ECL.autoInit();
+  const canvas = within(canvasElement);
+  const button = await canvas.findByRole('button', { name: /collapsed/i });
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  await userEvent.click(button);
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+};

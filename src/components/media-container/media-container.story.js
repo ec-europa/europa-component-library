@@ -14,8 +14,11 @@ const getArgs = (data) => {
   let args = {
     show_description: true,
     description: data.description,
+    show_credit: true,
+    credit: data.credit,
     show_expandable: false,
     full_width: false,
+    caption_position: 'bottom',
   };
   if (data.video) {
     args = {
@@ -43,6 +46,14 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
+    show_credit: {
+      name: 'credit',
+      type: { name: 'boolean' },
+      description: 'Show the credit',
+      table: {
+        category: 'Optional',
+      },
+    },
     show_expandable: {
       name: 'expandable',
       type: { name: 'boolean' },
@@ -61,6 +72,17 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
       if: { arg: 'show_description' },
+    },
+    credit: {
+      name: 'credit content',
+      type: 'string',
+      description: 'Media credit',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_credit' },
     },
   };
 
@@ -127,6 +149,29 @@ const getArgTypes = (data) => {
     },
   };
 
+  argTypes.caption_position = {
+    name: 'caption position',
+    type: 'select',
+    description:
+      'Change description and credit position; if set to "over", description/credit will not be displayed for video',
+    options: ['bottom', 'over'],
+    control: {
+      labels: {
+        bottom: 'bottom',
+        over: 'over',
+      },
+    },
+    mapping: {
+      bottom: 'bottom',
+      over: 'over',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'bottom' },
+      category: 'Display',
+    },
+  };
+
   return argTypes;
 };
 
@@ -135,6 +180,9 @@ const prepareData = (data, args) => {
 
   if (!args.show_description) {
     args.description = '';
+  }
+  if (!args.show_credit) {
+    args.credit = '';
   }
   if (args.show_expandable) {
     data.expandable = dataExpandable;
@@ -177,6 +225,14 @@ export default {
     viewport: {
       defaultViewport: 'pixelxl',
     },
+    chromatic: {
+      modes: {
+        xs: { disable: true },
+        s: { disable: true },
+        l: { disable: true },
+        xl: { disable: true },
+      },
+    },
   },
 };
 
@@ -190,7 +246,10 @@ Image.storyName = 'image';
 Image.args = getArgs(dataImg);
 Image.argTypes = getArgTypes(dataImg);
 Image.parameters = {
-  notes: { markdown: notes, json: dataImg },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataImg, args),
+  },
 };
 
 export const Video = (_, { loaded: { component } }) => component;
@@ -203,7 +262,13 @@ Video.storyName = 'video';
 Video.args = getArgs(dataVideo);
 Video.argTypes = getArgTypes(dataVideo);
 Video.parameters = {
-  notes: { markdown: notes, json: dataVideo },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataVideo, args),
+  },
+  chromatic: {
+    disable: true,
+  },
 };
 
 export const EmbeddedVideo = (_, { loaded: { component } }) => component;
@@ -246,11 +311,14 @@ EmbeddedVideo.argTypes = {
   },
 };
 EmbeddedVideo.parameters = {
-  notes: { markdown: notes, json: dataEmbed },
+  notes: { markdown: notes, json: ({ args }) => prepareData(dataEmbed, args) },
   a11y: {
     config: {
       rules: [{ id: 'frame-tested', enabled: false }],
     },
+  },
+  chromatic: {
+    ignoreSelectors: ['.ecl-media-container__media'],
   },
 };
 
@@ -264,5 +332,8 @@ Infographic.storyName = 'infographic';
 Infographic.args = getArgs(dataInfographic);
 Infographic.argTypes = getArgTypes(dataInfographic);
 Infographic.parameters = {
-  notes: { markdown: notes, json: dataInfographic },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataInfographic, args),
+  },
 };

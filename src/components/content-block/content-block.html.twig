@@ -64,30 +64,37 @@
   data-ecl-auto-init="ContentBlock"
   data-ecl-content-block
 >
+  {# Label #}
   {% if _labels is defined and _labels is not empty and _labels is iterable %}
-    <ul class="ecl-content-block__label-container"
+    {% set _tag_labels_list = _labels|length == 1 ? 'div' : 'ul' %}
+    {% set _tag_labels_item = _labels|length == 1 ? 'div' : 'li' %}
+    <{{ _tag_labels_list }} class="ecl-content-block__label-container"
       {%- if _labels_aria is not empty -%}
         aria-label="{{ _labels_aria }}"
       {%- endif -%}
     >
       {% for _label in _labels %}
-        <li class="ecl-content-block__label-item">
+        <{{ _tag_labels_item }} class="ecl-content-block__label-item">
           {% include '@ecl/label/label.html.twig' with _label only %}
-        </li>
+        </{{ _tag_labels_item }}>
       {% endfor %}
-    </ul>
+    </{{ _tag_labels_list }}>
   {% endif %}
 
+  {# Primary meta #}
   {% if _primary_meta is not empty and _primary_meta is iterable %}
-    <ul class="ecl-content-block__primary-meta-container">
+    {% set _tag_meta_list = _primary_meta|length == 1 ? 'div' : 'ul' %}
+    {% set _tag_meta_item = _primary_meta|length == 1 ? 'div' : 'li' %}
+    <{{ _tag_meta_list }} class="ecl-content-block__primary-meta-container">
       {% for _meta in _primary_meta %}
-        <li class="ecl-content-block__primary-meta-item">
+        <{{ _tag_meta_item }} class="ecl-content-block__primary-meta-item">
           {{- _meta -}}
-        </li>
+        </{{ _tag_meta_item }}>
       {% endfor %}
-    </ul>
+    </{{ _tag_meta_list }}>
   {% endif %}
 
+  {# Title #}
   {% if _title is not empty %}
     <div class="ecl-content-block__title">
     {%- if _title.link is defined -%}
@@ -100,18 +107,22 @@
     </div>
   {% endif %}
 
+  {# Description #}
   {% if _description is not empty %}
     <div class="ecl-content-block__description">{{ _description }}</div>
   {% endif %}
 
+  {# Secondary meta #}
   {% if _secondary_meta is not empty and _secondary_meta is iterable %}
     {% set _secondary_meta_class = "ecl-content-block__secondary-meta-container" %}
     {% if _secondary_meta_direction == "horizontal" %}
       {% set _secondary_meta_class = _secondary_meta_class ~ " ecl-content-block__secondary-meta-container--horizontal" %}
     {% endif %}
-    <ul class="{{ _secondary_meta_class }}">
+    {% set _tag_secondary_list = _secondary_meta|length == 1 ? 'div' : 'ul' %}
+    {% set _tag_secondary_item = _secondary_meta|length == 1 ? 'div' : 'li' %}
+    <{{ _tag_secondary_list }} class="{{ _secondary_meta_class }}">
       {% for _meta in _secondary_meta %}
-        <li class="ecl-content-block__secondary-meta-item">
+        <{{ _tag_secondary_item }} class="ecl-content-block__secondary-meta-item">
           {% if _meta.icon is not empty %}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: _meta.icon|merge({
@@ -119,13 +130,14 @@
               }),
               extra_classes: 'ecl-content-block__secondary-meta-icon'
             } only %}
-          {% endif %}          
+          {% endif %}
           <span class="ecl-content-block__secondary-meta-label">{{ _meta.label }}</span>
-        </li>
+        </{{ _tag_secondary_item }}>
       {% endfor %}
-    </ul>
+    </{{ _tag_secondary_list }}>
   {% endif %}
 
+  {# List #}
   {% if _lists is defined and _lists is not empty and _lists is iterable %}
     <div class="ecl-content-block__list-container">
     {% for _list in _lists %}
@@ -139,32 +151,17 @@
     {% endfor %}
     </div>
   {% endif %}
+
+  {# Links #}
   {% if _links is not empty and _links is iterable %}
     <div class="ecl-content-block__link-container">
     {% if _links[0][0] is defined %}
       {% for _link_section in _links %}
-      <ul class="ecl-content-block__link-list">
+      {% set _tag_link_list = _link_section|length == 1 ? 'div' : 'ul' %}
+      {% set _tag_link_item = _link_section|length == 1 ? 'div' : 'li' %}
+      <{{ _tag_link_list }} class="ecl-content-block__link-list">
       {% for _link in _link_section %}
-        <li class="ecl-content-block__link-item">
-        {%- if _link.link is defined -%}
-          {% include '@ecl/link/link.html.twig' with {
-            link: _link.link|merge({
-              type: 'standalone',
-            }),
-            extra_attributes: _link.extra_attributes|default([]),  
-            icon: _link.icon|default({})
-          } only %}
-        {%- else -%}
-          {{- _link -}}
-        {%- endif -%}
-        </li>
-      {% endfor %}
-      </ul>
-      {% endfor %}
-    {% else %}
-      <ul class="ecl-content-block__link-list">
-      {% for _link in _links %}
-        <li class="ecl-content-block__link-item">
+        <{{ _tag_link_item }} class="ecl-content-block__link-item">
         {%- if _link.link is defined -%}
           {% include '@ecl/link/link.html.twig' with {
             link: _link.link|merge({
@@ -176,9 +173,30 @@
         {%- else -%}
           {{- _link -}}
         {%- endif -%}
-        </li>
+        </{{ _tag_link_item }}>
       {% endfor %}
-      </ul>
+      </{{ _tag_link_list }}>
+      {% endfor %}
+    {% else %}
+      {% set _tag_link_list = _links|length == 1 ? 'div' : 'ul' %}
+      {% set _tag_link_item = _links|length == 1 ? 'div' : 'li' %}
+      <{{ _tag_link_list }} class="ecl-content-block__link-list">
+      {% for _link in _links %}
+        <{{ _tag_link_item }} class="ecl-content-block__link-item">
+        {%- if _link.link is defined -%}
+          {% include '@ecl/link/link.html.twig' with {
+            link: _link.link|merge({
+              type: 'standalone',
+            }),
+            extra_attributes: _link.extra_attributes|default([]),
+            icon: _link.icon|default({})
+          } only %}
+        {%- else -%}
+          {{- _link -}}
+        {%- endif -%}
+        </{{ _tag_link_item }}>
+      {% endfor %}
+      </{{ _tag_link_list }}>
       {% endif %}
     </div>
   {% endif %}

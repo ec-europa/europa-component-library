@@ -8,17 +8,16 @@ npm install --save @ecl/inpage-navigation
 
 ### Parameters
 
-Parameters:
-
-- **color_mode** (string) (default: '') Name of the color mode
-- **"id"** (string) (default: random)
-- **"title"** (string) (default: '')
-- **"links"** (associative array) (default: predefined structure):
-  - href: (string) (default: '')
-  - label: (string) (default: '')
-- **"icon_size"** (string) (default: 'xs') size of the toggle icon
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"color_mode"** (string) (default: '') Name of the color mode
+- **"id"** (string) (default: random) Unique id for the component
+- **"title"** (string) (default: '') Navigation section title
+- **"trigger_aria_label"** (string) (default: '') Aria label for the mobile trigger button
+- **"links"** (array) (default: []):
+  - "href" (string) (default: '') Link target
+  - "label" (string) (default: '') Link label
+- **"icon_size"** (string) (default: 'xs') Size of the toggle icon
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

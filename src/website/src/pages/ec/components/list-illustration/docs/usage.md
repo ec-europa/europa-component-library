@@ -2,26 +2,36 @@
 title: Usage
 order: 1
 ---
-The list with illustrations component is used for illustrative purposes only, allowing a multi-column layout display of content with an image, illustration or icon.
+The List with Illustrations component presents a set of related items. Each entry combines a visual element (an image, illustration, or icon) with accompanying text. The component can reinforce help users scan and understand by pairing content with a relevant visual cue.
 
-The one-column layout also offers an optional zebra pattern, allowing users to easily scan through long lists.
+Unlike plain lists, that rely entirely on text hierarchy to carry meaning, the List with illustrations helps users quickly build mental associations. The component is well suited to contexts where a set of parallel items benefits from visual differentiation.
 
-## Do's
+The component supports one-, two-, three-, and four-column layouts. In single-column mode, an optional zebra striping pattern assists users in tracking across long lists by providing an alternating background.
 
-- either use title or description to accompany the image, illustration or icon
-- select an appropriate image, illustration or icon, that is suggestive, complementary and relevant for the related content
-- activate the zebra pattern where users can benefit from the added background color, generally on larger lists (at least 3 items)
+### **Do's**
 
-## Don'ts
+- use a title, a description - or both - to accompany each visual element so the item has meaning even without the image
+- select appropriate images, illustrations, or icons that are directly relevant to and representative of the content
+- maintain visual consistency across all items in the same list: if you use an icon on one item, use an icon for each item (i.e. do not mix icons with illustrations)
+- apply zebra striping only in single-column layouts where the list contains at least three items and users are expected to scan sequentially
+- use concise, parallel text across all items
+- ensure each visual element has appropriate alternative text that conveys meaning to visitors using assistive technologies
 
-- do not choose unrepresentative icons
-- do not choose images or illustrations that are too complex to be distinguished in the media thumbnail
+### **Don'ts**
 
-## When to use
+- do not use decorative or generic visuals that add no meaning
+- do not use images or illustrations that are too detailed or complex to be legible at thumbnail size
+- do not rely on the visual element alone to convey the full meaning of an item; text should work independently
+- do not apply zebra striping in multi-column layouts
+- do not use this component as a primary navigation mechanism; it is an editorial and informational pattern
 
-- in lists, when you want to visually supplement a paragraph in a one, two, three or four column layout
-- in cases where users' reading experience can be enhanced by the zebra pattern (only 1 column layout)
+### **When to use**
 
-## When not to use
+- use when presenting a set of parallel concepts, services, or topics where a supporting visual will help users distinguish and recall individual items
+- use when supplementing body content with a structured visual list in editorial or landing page contexts, particularly in two-, three-, or four-column arrangements
+- use when the list is long enough that zebra striping can help users scan
 
-- do not use when the primary scope is navigation - use [](http://citnet.tech.ec.europa.eu/)[Content item](https://ec.europa.eu/component-library/ec/components/card/code/) or [](http://citnet.tech.ec.europa.eu/)[Cards](https://ec.europa.eu/component-library/ec/components/card/usage/) component instead
+### **When not to use**
+
+- do not use when items are not structurally parallel; the component's layout implies equivalence between items, and mixing unrelated content types can mislead users
+- do not use when the primary purpose of the items is navigation or user action. Instead use the [Card](https://ec.europa.eu/component-library/ec/components/card/code/) or [Content item](https://ec.europa.eu/component-library/ec/components/content-item/code/) components

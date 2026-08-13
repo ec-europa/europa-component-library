@@ -9,12 +9,12 @@ npm install --save @ecl/blockquote
 ## Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"citation"** (string) (default: '')
-- **"author"** (string) (default: '')
-- **"lang"** (string) (default: 'en')
+- **"citation"** (string) (default: '') The quote text
+- **"author"** (string) (default: '') The author of the quote
+- **"lang"** (string) (default: 'en') Language code for the citation text (ISO 639-1)
 - **"picture"** (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

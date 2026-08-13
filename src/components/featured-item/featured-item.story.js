@@ -14,19 +14,20 @@ const system = getSystem();
 const getArgs = (data) => {
   const args = {
     show_media: true,
+    micro_title: data.micro_title,
     title: data.title,
     description: data.description,
     horizontal_alignment: 'left',
     vertical_alignment: 'top',
     media_position: 'left',
     media_behavior: 'static',
-    media_anchor: 'center',
-    link_display: 'default',
+    media_anchor: '',
+    link_display: '',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  if (system === 'ec') {
+  if (system === 'ec' && data.type === 'highlight') {
     args.color_mode = 'default';
   }
 
@@ -34,7 +35,7 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = getColorModeControls();
+  const argTypes = data.type === 'highlight' ? getColorModeControls() : {};
 
   argTypes.show_media = {
     type: 'boolean',
@@ -45,7 +46,19 @@ const getArgTypes = (data) => {
     },
   };
 
+  argTypes.micro_title = {
+    name: 'micro title',
+    type: 'string',
+    description: 'Features item content micro title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
+
   argTypes.title = {
+    name: 'title',
     type: 'string',
     description: 'Features item content title',
     table: {
@@ -56,6 +69,7 @@ const getArgTypes = (data) => {
   };
 
   argTypes.description = {
+    name: 'description',
     type: 'string',
     description: 'Features item content description',
     table: {
@@ -78,19 +92,23 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (
-    system === 'ec' &&
-    (data.type === 'simple' || data.type === 'highlight')
-  ) {
+  if (system === 'ec' && data.type === 'highlight') {
     argTypes.link_display = {
       name: 'link display',
       type: { name: 'select' },
       description: 'Optional link display',
-      options: ['default', 'button', 'highlight'],
+      options: ['', 'button', 'highlighted'],
+      control: {
+        labels: {
+          '': 'default',
+          button: 'button',
+          highlighted: 'highlighted',
+        },
+      },
       mapping: {
-        default: 'default',
+        default: '',
         button: 'button',
-        highlight: 'highlight',
+        highlighted: 'highlighted',
       },
       table: {
         type: { summary: 'string' },
@@ -104,9 +122,15 @@ const getArgTypes = (data) => {
       name: 'link display',
       type: { name: 'select' },
       description: 'Optional link display',
-      options: ['default', 'button'],
+      options: ['', 'button'],
+      control: {
+        labels: {
+          '': 'default',
+          button: 'button',
+        },
+      },
       mapping: {
-        default: 'default',
+        default: '',
         button: 'button',
       },
       table: {
@@ -187,17 +211,26 @@ const getArgTypes = (data) => {
   argTypes.media_anchor = {
     name: 'media anchor',
     type: { name: 'select' },
-    description: 'Media anchor (sample)',
-    options: ['center', 'left', 'right', '20%'],
+    description:
+      'Media anchor (the image can only be moved in one axis depending on the aspect-ratio)',
+    options: ['', '20% 80%', '40% 40%', '80% 20%', '100px 200px'],
+    control: {
+      labels: {
+        '': 'none (center)',
+        '20% 80%': 'bottom left (20% x, 80% y)',
+        '40% 40%': 'slightly top left (40% x, 40% y)',
+        '80% 20%': 'top right (80% x, 20% y)',
+      },
+    },
     mapping: {
-      center: 'center',
-      left: 'left',
-      right: 'right',
-      '20%': '20%',
+      'none (center)': '',
+      'bottom left (20% x, 80% y)': '20% 80%',
+      'slightly top left (40% x, 40% y)': '40% 40%',
+      'top right (80% x, 20% y)': '80% 20%',
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'center' },
+      defaultValue: { summary: '' },
       category: 'Display',
     },
     if: { arg: 'media_behavior', eq: 'dynamic' },
@@ -223,12 +256,6 @@ const prepareData = (data, args) => {
     delete clone.media_container;
   }
 
-  if (args.link_display === 'highlight') {
-    clone.link_highlighted = true;
-  } else if (args.link_display === 'button') {
-    clone.link.link.type = 'primary-neutral';
-  }
-
   return Object.assign(correctPaths(clone), args);
 };
 
@@ -247,7 +274,16 @@ Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = {
-  notes: { markdown: notes, json: demoData },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoData, args),
+  },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Highlighted = (_, { loaded: { component } }) => component;
@@ -262,5 +298,14 @@ Highlighted.storyName = 'highlighted';
 Highlighted.args = getArgs(demoDataHighlighted);
 Highlighted.argTypes = getArgTypes(demoDataHighlighted);
 Highlighted.parameters = {
-  notes: { markdown: notes, json: demoDataHighlighted },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDataHighlighted, args),
+  },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };

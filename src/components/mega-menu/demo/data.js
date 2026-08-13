@@ -37,25 +37,6 @@ module.exports = {
           },
         },
       },
-      featured: {
-        items: [
-          {
-            picture: {
-              img: {
-                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
-                alt: 'Jean Monnet banner',
-              },
-            },
-            label: 'I belong to news & media',
-            path: exampleLink,
-            description:
-              '<p>Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
-            extra_attributes: [
-              { name: 'an-extra-attribute-for-the-featured-link' },
-            ],
-          },
-        ],
-      },
       children: [
         {
           label: 'Item 2.1',
@@ -68,7 +49,7 @@ module.exports = {
               external: true,
               sr_external: 'Link to an external domain',
             },
-            { label: 'Item 2.1 subitem 3', path: exampleLink },
+            { label: 'Item 2.1 subitem 3 (anchor)', path: '#anchor-link' },
             { label: 'Item 2.1 subitem 4', path: exampleLink },
             { label: 'Item 2.1 subitem 5', path: exampleLink },
             { label: 'Item 2.1 subitem 6', path: exampleLink },
@@ -86,8 +67,8 @@ module.exports = {
                 },
               },
               {
-                label: 'Featured link 1',
-                path: exampleLink,
+                label: 'Featured link 1 (anchor)',
+                path: '#anchor-link',
                 extra_classes: 'featrured-link-extra-class',
                 description:
                   'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -100,7 +81,7 @@ module.exports = {
             ],
           },
         },
-        { label: 'Item 2.2', path: exampleLink },
+        { label: 'Item 2.2 (anchor)', path: '#anchor-link' },
         {
           label: 'Item 2.3 that has a very long label',
           path: exampleLink,
@@ -314,7 +295,7 @@ module.exports = {
     {
       label: 'SOTEU',
       promotional: true,
-      path: exampleLink,
+      path: '#anchor-link',
     },
   ],
 };

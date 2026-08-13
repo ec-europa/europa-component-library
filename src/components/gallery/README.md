@@ -11,9 +11,9 @@ npm install --save @ecl/gallery
 - **"grid"** (boolean) (default: false) Display gallery as a grid
 - **"grid_template"** (int) (default: 0) Id of the template to be used. Grid display only
 - **"column"** (int) (default: 3) Number of columns. Grid display only
-- **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid dipslay only
-- **"picture_zoom"** (bool) (default: false): Should the thumbnail pictures be animated?
-- **"id"**: (string) (default: random): Unique id for the gallery
+- **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid display only
+- **"picture_zoom"** (boolean) (default: false) Should the thumbnail pictures have a zoom animation?
+- **"id"** (string) (default: random) Unique id for the gallery
 - **"overlay"** (object) (default: {})
   - "close" (object) (default: {}): object of type button
   - "previous" (object) (default: {}): object of type button
@@ -28,12 +28,12 @@ npm install --save @ecl/gallery
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
-  - "thumbnail" (optional) (object) (default: {}) Picture to the thumbnail, type Picture; uses "picture" if empty
-  - "picture" (optional) (object) (default: {}) object of type Picture; always needed, even for video
-  - "video" (optional) (object) (default: {})
-  - "embedded_video" (optional) (object) (default: {})
+  - "thumbnail" (object) (default: {}) Thumbnail picture, following ECL Picture structure; falls back to "picture" if empty
+  - "picture" (object) (default: {}) Full-size picture, following ECL Picture structure; always required, even for video items
+  - "video" (object) (default: {}) Video object for video items
+  - "embedded_video" (object) (default: {}) Embedded video object (iframe-based)
   - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
-  - "share_path" (optional) (string) (default: '')
+  - "share_path" (string) (default: '') URL for the share button in the overlay
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
@@ -47,8 +47,8 @@ npm install --save @ecl/gallery
 - **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
 - **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

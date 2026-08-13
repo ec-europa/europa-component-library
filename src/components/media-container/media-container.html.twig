@@ -1,25 +1,26 @@
 {% apply spaceless %}
 {#
   Parameters:
-  - "picture" (associative array) (default: {}): Image for media container, following ECL Picture structure
-  - "video": (associative array) (default: {}) Object of type ECL video
-  - "autoplay": (boolean) (default: false) For videos, setting this to true will hide the controls and make the video start playing
-  - "sr_play" (string) (default: ''): Label for the play button (for autoplay video)
-  - "sr_pause" (string) (default: ''): Label for the pause button (for autoplay video)
-  - "full_width": (bool) (default: false) Full width media container (inside the grid container)
-  - "title" (string) (default: ''): Media title
-  - "description" (string) (default: ''),
-  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
-  - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
-  - "ratio" (string) (default: '')
-  - "expandable" (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
-  - "extra_classes" (string) (default: ''),
+  - "picture" (object) (default: {}) Image following ECL Picture structure
+  - "video" (object) (default: {}) Video following ECL Video structure
+  - "autoplay" (boolean) (default: false) Autoplay the video muted and looping (hides controls)
+  - "sr_play" (string) (default: '') Screen reader label for the play button (autoplay video)
+  - "sr_pause" (string) (default: '') Screen reader label for the pause button (autoplay video)
+  - "full_width" (boolean) (default: false) Full width media container (inside the grid container)
+  - "title" (string) (default: '') Media title
+  - "description" (string) (default: '') Description of the media
+  - "credit" (string) (default: '') Credit for the media
+  - "caption_position" (string) (default: 'bottom') Position of caption; can be 'bottom', 'over'
+  - "sr_video_player" (string) (default: '') Screen reader label for the video player
+  - "sr_video_audio" (string) (default: '') Screen reader text indicating an audio description is available
+  - "ratio" (string) (default: '') Ratio of the embedded media; if empty, set by JS
+  - "expandable" (object) (default: {}) Optional expandable block following ECL Expandable structure
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
   - "extra_attributes" (array) (default: []): format: [
       {
-        "name" (string) (default: ''),
-        "value" (string) (default: '')
-      },
-      ...
+        "name" (string) Attribute name, eg. 'data-test'
+        "value" (string) Attribute value, eg: 'data-test-1'
+      }, ...
     ]
 
   Blocks:
@@ -42,6 +43,8 @@
 {% set _image = image|default('') %}
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
+{% set _credit = credit|default('') %}
+{% set _caption_position = caption_position|default('bottom') %}
 {% set _title = title|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_audio = sr_video_audio|default('') %}
@@ -51,7 +54,8 @@
 {% set _autoplay = autoplay|default(false) %}
 {% set _video = video|default({}) %}
 {% set _picture = picture|default({}) %}
-{% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
+{% set _needs_js = embedded_media or (autoplay and (video or sources)) or (_caption_position == 'over' and _description is not empty and _credit is not empty) %}
+{% set _extra_attributes = _needs_js ? [
   'data-ecl-media-container="true"',
   'data-ecl-auto-init="MediaContainer"'
 ]|join(' ') : '' %}
@@ -85,6 +89,26 @@
     sr_video_audio: _sr_video_audio,
     sr_video_player: _sr_video_player,
   } %}
+{% endif %}
+
+{# Check media type (priority: embedded > video > picture) #}
+
+{% if _embedded_media is not empty %}
+  {% set _media_type = 'embedded' %}
+{% elseif _video is not empty %}
+  {% set _media_type = 'video' %}
+{% elseif _picture is not empty %}
+  {% set _media_type = 'picture' %}
+{% else %}
+  {% set _media_type = '' %}
+{% endif %}
+
+{% if _caption_position != 'bottom' %}
+  {% if _media_type == 'picture' %}
+    {% set _css_class = _css_class ~ ' ecl-media-container--caption-' ~ _caption_position %}
+  {% else %}
+    {% set _css_class = _css_class ~ ' ecl-media-container--caption-hidden' %}
+  {% endif %}
 {% endif %}
 
 {% if _full_width %}
@@ -136,14 +160,18 @@
 {% endif %}
 >
   <figure class="{{ _figure_class }}">
-  {% if _embedded_media is not empty %}
+
+  {# Embedded video #}
+  {% if _media_type == 'embedded' %}
     <div class="{{_embed_class}}">
       {% if _sr_video_audio is not empty %}
         <div class="{{_embed_class}}-audio">{{ _sr_video_audio }}</div>
       {% endif %}
       {%- block embedded_media _embedded_media -%}
     </div>
-  {% elseif _video is not empty %}
+
+  {# Video #}
+  {% elseif _media_type == 'video' %}
     {% if _autoplay %}
       {% set _video = _video|merge({
         controls: false,
@@ -191,17 +219,26 @@
       } only %}
     {% endif %}
     </div>
-  {% else %}
+
+  {# Picture #}
+  {% elseif _media_type == 'picture' %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
       extra_classes: 'ecl-media-container__picture',
       extra_image_classes: 'ecl-media-container__media',
     } only %}
   {% endif %}
+
+  {# Caption #}
   {% if _description is not empty %}
     <figcaption class="ecl-media-container__caption">
       {{- _description -}}
     </figcaption>
+  {% endif %}
+  {% if _credit is not empty %}
+    <footer class="ecl-media-container__credit">
+      {{- _credit -}}
+    </footer>
   {% endif %}
   </figure>
 

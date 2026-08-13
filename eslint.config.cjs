@@ -172,6 +172,7 @@ module.exports = [
       '**/exports',
       '**/node_modules',
       '**/static',
+      '**/public',
       'src/website/src/Index.jsx',
       'src/website/public/playground',
       'src/website/public/apis',

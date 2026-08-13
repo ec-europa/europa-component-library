@@ -72,6 +72,7 @@ const getArgTypes = () => ({
     },
   },
   headline_label: {
+    name: 'headline label',
     type: { name: 'string' },
     description: 'Label of the timeline headline',
     table: {
@@ -82,6 +83,7 @@ const getArgTypes = () => ({
     if: { arg: 'show_headline' },
   },
   headline_title: {
+    name: 'headline title',
     type: { name: 'string' },
     description: 'Title of the timeline headline',
     table: {
@@ -92,6 +94,7 @@ const getArgTypes = () => ({
     if: { arg: 'show_headline' },
   },
   headline_content: {
+    name: 'headline content',
     type: { name: 'string' },
     description: 'Content of the timeline headline',
     table: {
@@ -129,7 +132,7 @@ const getArgTypes = () => ({
     },
   },
   showDummyContent: {
-    name: 'Add dummy content',
+    name: 'add dummy content',
     type: { name: 'boolean' },
     description: 'Add dummy content at the bottom of the timeline.',
     table: {
@@ -207,6 +210,14 @@ const prepareHtmlContent = async (args) => {
 
 export default {
   title: 'Components/Timeline',
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -218,5 +229,10 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(demoDataSet.items[0]);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: demoDataSet } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(demoDataSet.items[0], args),
+  },
+};
 Default.decorators = [withCode, withNotes];

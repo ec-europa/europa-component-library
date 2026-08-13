@@ -8,15 +8,15 @@ npm install --save @ecl/notification
 
 ### Parameters:
 
-- **"variant"** (string) (default: 'info'): could be 'info, 'success', 'warning' or 'error'
-- **"icon"** (object of type "icon") (default: {})
-- **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
-- **"title"** (string) (default: '')
-- **"description"** (string) (default: '')
-- **"links"** (array) (default: [])
-- **"close"** (object of type "button") (default: {}): close button (optional)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"variant"** (string) (default: 'info') Notification type; can be 'info', 'success', 'warning', 'error'
+- **"icon"** (object) (default: {}) Icon following ECL Icon structure
+- **"sr_icon"** (string) (default: '') Screen reader label for the icon
+- **"title"** (string) (default: '') Notification title
+- **"description"** (string) (default: '') Notification body text
+- **"links"** (array) (default: []) Array of ECL Link objects shown below the description
+- **"close"** (object) (default: {}) Close button following ECL Button structure
+- **"extra_classes"** (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

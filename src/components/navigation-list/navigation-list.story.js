@@ -126,6 +126,12 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Navigation/Navigation list',
   decorators: [withCode, withNotes],
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -140,7 +146,12 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+};
 
 export const AsIllustration = (_, { loaded: { component } }) => component;
 
@@ -161,7 +172,10 @@ AsIllustration.storyName = 'image as illustration';
 AsIllustration.args = getArgs(dataAsIllustration);
 AsIllustration.argTypes = getArgTypes(dataAsIllustration);
 AsIllustration.parameters = {
-  notes: { markdown: notes, json: dataAsIllustration },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataAsIllustration, args),
+  },
 };
 
 export const Illustration = (_, { loaded: { component } }) => component;
@@ -177,5 +191,8 @@ Illustration.storyName = 'with illustration';
 Illustration.args = getArgs(dataIllustration);
 Illustration.argTypes = getArgTypes(dataIllustration);
 Illustration.parameters = {
-  notes: { markdown: notes, json: dataIllustration },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataIllustration, args),
+  },
 };

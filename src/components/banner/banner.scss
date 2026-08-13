@@ -42,7 +42,7 @@ $banner: null !default;
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($banner, 'font', 'credit', 'mobile');
+  font: map.get($banner, 'credit', 'mobile');
   margin-block-end: calc(-1 * var(--s-xl));
   padding-block-start: 1px;
   position: relative;
@@ -119,14 +119,35 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'dark');
   }
 
-  @include mixins.responsive-font(map.get($banner, 'font', 'title-m'));
+  @include mixins.responsive-font(
+    map.get($banner, 'title', 'm', 'font'),
+    map.get($banner, 'title', 'm', 'font-weight-light')
+  );
+
+  .ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'title', 'm', 'font-weight-bold');
+  }
 
   .ecl-banner--font-s & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'title-s'));
+    @include mixins.responsive-font(
+      map.get($banner, 'title', 's', 'font'),
+      map.get($banner, 'title', 's', 'font-weight-light')
+    );
+  }
+
+  .ecl-banner--font-s.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'title', 's', 'font-weight-bold');
   }
 
   .ecl-banner--font-l & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'title-l'));
+    @include mixins.responsive-font(
+      map.get($banner, 'title', 'l', 'font'),
+      map.get($banner, 'title', 'l', 'font-weight-light')
+    );
+  }
+
+  .ecl-banner--font-l.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'title', 'l', 'font-weight-bold');
   }
 }
 
@@ -145,17 +166,35 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'dark');
   }
 
-  @include mixins.responsive-font(map.get($banner, 'font', 'description-m'));
+  @include mixins.responsive-font(
+    map.get($banner, 'description', 'm', 'font'),
+    map.get($banner, 'description', 'm', 'font-weight-light')
+  );
+
+  .ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'description', 'm', 'font-weight-bold');
+  }
 
   .ecl-banner--font-s & {
     @include mixins.responsive-font(
-      map.get($banner, 'font', 'description-s'),
-      map.get($banner, 'font', 'description-s-font-weight')
+      map.get($banner, 'description', 's', 'font'),
+      map.get($banner, 'description', 's', 'font-weight-light')
     );
   }
 
+  .ecl-banner--font-s.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'description', 's', 'font-weight-bold');
+  }
+
   .ecl-banner--font-l & {
-    @include mixins.responsive-font(map.get($banner, 'font', 'description-l'));
+    @include mixins.responsive-font(
+      map.get($banner, 'description', 'l', 'font'),
+      map.get($banner, 'description', 'l', 'font-weight-light')
+    );
+  }
+
+  .ecl-banner--font-l.ecl-banner--font-weight-bold & {
+    font-weight: map.get($banner, 'description', 'l', 'font-weight-bold');
   }
 }
 
@@ -175,7 +214,7 @@ $banner: null !default;
   outline: #fff;
   outline-offset: -4px;
   position: absolute;
-  right: var(--s-m);
+  inset-inline-end: var(--s-m);
   z-index: 2;
 
   &:hover,
@@ -201,14 +240,8 @@ $banner: null !default;
 // Full width
 .ecl-banner--full-width {
   border-radius: 0;
-  left: 50%;
-  margin-inline-start: -50vw;
+  margin-inline: calc(50% - 50vw);
   width: 100vw;
-
-  &:dir(rtl) {
-    left: auto;
-    right: 50%;
-  }
 }
 
 // No media
@@ -228,6 +261,7 @@ $banner: null !default;
 
   .ecl-banner__content {
     background: transparent;
+    padding: 0;
   }
 }
 
@@ -316,7 +350,7 @@ $banner: null !default;
   }
 
   .ecl-banner__credit {
-    font: map.get($banner, 'font', 'credit', 'desktop');
+    font: map.get($banner, 'credit', 'desktop');
     margin-block-end: 0;
     padding-block: var(--s-2xs);
     position: absolute;
@@ -433,7 +467,7 @@ $banner: null !default;
 
     .ecl-banner__content {
       align-items: flex-end;
-      text-align: right;
+      text-align: end;
     }
   }
 
@@ -446,5 +480,18 @@ $banner: null !default;
   // stylelint-disable-next-line no-descending-specificity
   .ecl-banner--v-bottom .ecl-container {
     bottom: 0;
+  }
+
+  // Overlay
+  .ecl-banner--overlay {
+    .ecl-banner__picture-container::after,
+    .ecl-banner__video-container::after {
+      background-color: map.get($banner, 'overlay');
+      content: '';
+      inset: 0;
+      mix-blend-mode: multiply;
+      position: absolute;
+      z-index: 0;
+    }
   }
 }

@@ -2,28 +2,38 @@
 title: Usage
 order: 1
 ---
-A media container is used to display media items (video, audio, image or other data) with a caption.
+The Media Container provides a consistent, accessible wrapper for presenting a single media item, for example an image, video, audio, or embedded content, alongside a caption and possible copyright. It exists to ensure a media item is never displayed in isolation. Every item is contextualised, labelled, and accessible - regardless of format or source.
 
-## Do's
+The component supports both self-hosted media and content embedded from external platforms - providing teams with a unified pattern for all media presentation needs.
 
-- always include thumbnails
-- be descriptive and concise in the caption to communicate the subject of the media file
-- write captions that are short, distinct and indicative and communicate the subject of the media content
-- include ALT tag
-- select appropriate images for video thumbnails, they need to depict what is in the audio or video file
-- w﻿hen adding an embedded video, make sure to write a title that repeats the visible title of the video and also mentions that it is a video (e.g. Speech by President ... - Video)
+### **Do's**
 
-## Don'ts
+- use a thumbnail that accurately represents the content of the associated audio or video file
+- always provide a caption that is concise and relevant, i.e. communicates the subject of the media clearly
+- include a meaningful `alt` attribute on all images to support screen reader users and cases where a media item fails to load
+- when embedding video, write a title that repeats the visible video title and explicitly identifies it as a video, for example 'SOTEU speech 2025 - Video'
 
-- don't choose images which are too complex to be distinguished in thumbnail size
-- don't automatically play audio or video files when a user arrives on a page (or scrolls to a media container)
-- don't automatically play next items after an audio or video item finished
+### **Don'ts**
 
-## When to use
+- do not select thumbnail images that are too visually complex to be distinguished at reduced sizes
+- do not autoplay audio or video when a user arrives on or scrolls to the page - this is disruptive and removes user agency
+- do not automatically advance to the next item once audio or video has finished playing
+- do not use the caption field to repeat information already prominent in surrounding page content - captions should add context
+- do not omit the caption entirely; a media item without supporting context can create an accessibility and comprehension gap
 
-- whenever there is a need to display a media file
-- when you want to display content that's found on external sources (A-V Portal, Youtube, Vimeo, etc., done through iFrame)
+### **When to use**
 
-## When not to use
+- use when presenting a single media item such as an image, video, audio, or embedded content that requires a caption for context
+- use when embedding media from external platforms via iframe, where a wrapper ensures structure and accessibility are the same as for self-hosted media
 
-- do not use the media container if there are above 5 consecutive items (this would make navigation more difficult)
+### **When not to use**
+
+- do not use the Media container when displaying more than five consecutive media items
+
+  - use the [Gallery](https://ec.europa.eu/component-library/ec/components/media/gallery/code/) component instead, designed for navigating collections of media
+
+- do not use the Media container as a decorative element
+
+  - if an image is purely ornamental and carries no informational value, review whether it is needed. If so, handle it at the page level rather than within a component that implies semantic and editorial purpose
+
+- do not use the Media container directly when building a section with a headline, paragraph, and potentially a link-button. Instead, consider using the [Featured Item](https://ec.europa.eu/component-library/ec/components/media/featured-item/code/) component

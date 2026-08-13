@@ -2,17 +2,18 @@
 
 {#
   Parameters:
-    - "variant" (string) (default: '')
-    - "day" (string) (default: '')
-    - "month" (string) (default: '')
-    - "year" (string) (default: '')
-    - "date_time" (string) (default: ''): the date in a standard format (yyyy-mm-dd)
-    - "month_full" (string) (default: '')
-    - "extra_classes" (string) (default: '')
+    - "day" (string) (default: '') Day of the month
+    - "month" (string) (default: '') Abbreviated name of the month
+    - "year" (string) (default: '') Year in four digits
+    - "month_full" (string) (default: '') Full month name (used in abbr title attribute)
+    - "date_time" (string) (default: '') Machine-readable date in standard format (YYYY-MM-DD)
+    - "variant" (string) (default: '') Visual variant; can be 'ongoing', 'past', 'canceled'
+    - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (optional) (string)
+          "value" (string) (default: '')
+        },
         ...
       ]
 #}

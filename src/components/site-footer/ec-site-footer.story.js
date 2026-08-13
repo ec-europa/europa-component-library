@@ -11,6 +11,7 @@ import notes from './README.md';
 const getArgs = (variant) => {
   let args = {
     show_co_owner: true,
+    show_feedback: true,
   };
 
   if (variant !== 'core') {
@@ -34,6 +35,14 @@ const getArgTypes = (variant) => {
     name: 'co-owner',
     type: { name: 'boolean' },
     description: 'Show co-owner banner',
+    table: {
+      category: 'Optional sections',
+    },
+  };
+  argTypes.show_feedback = {
+    name: 'feedback',
+    type: { name: 'boolean' },
+    description: 'Show feedback section',
     table: {
       category: 'Optional sections',
     },
@@ -105,6 +114,9 @@ const prepareData = (data, args) => {
   if (!args.show_co_owner) {
     delete clone.co_owner;
   }
+  if (!args.show_feedback) {
+    delete clone.section_feedback;
+  }
   if (!args.show_contact) {
     delete clone.section_contact;
   }
@@ -128,11 +140,11 @@ const prepareData = (data, args) => {
     });
 
     // Example with twice the same network, when displayed vertically
-    clone.section_site_info.social_media.links[2].link.label =
+    clone.section_site_info.social_media.links[1].link.label =
       'Linkedin - link 1';
-    clone.section_site_info.social_media.links[3].link.label =
+    clone.section_site_info.social_media.links[2].link.label =
       'Linkedin - link 2';
-    clone.section_site_info.social_media.links[3].icon.name = 'linkedin';
+    clone.section_site_info.social_media.links[2].icon.name = 'linkedin';
   }
 
   return Object.assign(clone, args);
@@ -141,7 +153,15 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Site-wide/Site footer',
   decorators: [withCode, withNotes],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Core = (_, { loaded: { component } }) => component;
@@ -154,7 +174,10 @@ Core.storyName = 'core';
 Core.args = getArgs('core');
 Core.argTypes = getArgTypes('core');
 Core.parameters = {
-  notes: { markdown: notes, json: dataCore },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataCore, args),
+  },
 };
 
 export const Standardised = (_, { loaded: { component } }) => component;
@@ -169,7 +192,10 @@ Standardised.storyName = 'standardised';
 Standardised.args = getArgs('standardised');
 Standardised.argTypes = getArgTypes('standardised');
 Standardised.parameters = {
-  notes: { markdown: notes, json: dataStandardised },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataStandardised, args),
+  },
 };
 
 export const Harmonised = (_, { loaded: { component } }) => component;
@@ -181,4 +207,9 @@ Harmonised.render = async (args) => {
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs('harmonised');
 Harmonised.argTypes = getArgTypes('harmonised');
-Harmonised.parameters = { notes: { markdown: notes, json: dataHarmonised } };
+Harmonised.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataHarmonised, args),
+  },
+};

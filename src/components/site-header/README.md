@@ -10,7 +10,6 @@ npm install --save @ecl/site-header
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
-- **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"site_name"** (string) (default: '') Site name
 - **"site_name_mobile_only"** (boolean): Whether the site name should be hidden on desktop or not
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
@@ -28,11 +27,11 @@ npm install --save @ecl/site-header
   - "href" (string) Url of the link
 - **"login_toggle"** (associative array) format:
   - "label_not_logged" (string) Label for the anonymous users
-  - "href_not_logged" (string) Link to the login form
+  - "href_not_logged" (optional) (string) Link to the login form. If not provided, the toggle renders as a button
   - "label_logged" (string) Label for the logged in users
-  - "href_logged" (string) Link to the logout form
+  - "href_logged" (optional) (string) Link to the logout form. If not provided, the toggle renders as a button
 - **"custom_action"** (associative array) (default: {}):
-  - "link" (object) (default: predefined structure) predefined structure for the Link component
+  - "link" (object) (default: predefined structure) predefined structure for the Link component. If "path" is not provided, the toggle renders as a button
   - "icon" (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
     The name has to be non empty for the icon to be printed.
   - "overlay": (associative array) (optional):
@@ -40,7 +39,7 @@ npm install --save @ecl/site-header
     - "close": (associative array) (default: {})
     - "content": (string) (default: '') HTML for the popover
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
-  - "href" (string) (default: ''): URL for switcher
+  - "href" (optional) (string) (default: ''): URL for switcher. If not provided, the toggle renders as a button
   - "label" (string) (default: ''): Switcher language label, eg. 'English' in eu, 'EN' in ec
   - "aria_label" (string) (default: ''): Switcher language aria label
   - "eu_category" (string) (default: ''): Label for EU languages
@@ -60,7 +59,7 @@ npm install --save @ecl/site-header
       - "active" (boolean) (default: false) define if item is the active language.
 - **"search_toggle"** (associative array) format:
   - "label" (string) Label of the element
-  - "href" (string) Link of the element
+  - "href" (optional) (string) Link of the element. If not provided, the toggle renders as a button
 - **"search_form"** (associative array) (default: predefined structure): ECL Search Form component structure
 - **"notification"** (object) (default: {}): Optional notification compatible with ECL Notification component structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -68,12 +67,15 @@ npm install --save @ecl/site-header
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
+### Deprecated
+
+- **"banner_top"** (string) OR (object with Link component in property): Class name
+
 ### Example :
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/site-header/site-header.html.twig' with { 
-  banner_top: 'Class name', 
   site_name: 'This site name'
   logo: {
     alt: 'European Commission', 

@@ -71,4 +71,13 @@ describe('Tabs', () => {
       ).toHaveNoViolations();
     });
   });
+
+  describe('With tab behavior', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...demoData, tab_behaviour: true }),
+      ).resolves.toMatchSnapshot();
+    });
+  });
 });

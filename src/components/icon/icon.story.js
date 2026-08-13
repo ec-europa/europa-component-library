@@ -54,6 +54,11 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Icon',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      disable: true,
+    },
+  },
 };
 
 export const All = (_, { loaded: { component } }) => component;
@@ -65,4 +70,9 @@ All.render = async (args) => {
 All.storyName = 'all icons';
 All.args = getArgs(dataAll);
 All.argTypes = getArgTypes(iconsAll, iconMapping);
-All.parameters = { notes: { markdown: notes, json: dataAll } };
+All.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataAll, args),
+  },
+};

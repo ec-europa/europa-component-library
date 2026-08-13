@@ -8,20 +8,18 @@ npm install --save @ecl/form-group
 
 ### Parameters:
 
-- **"input"** (object) (default: {
-  ...,
-  input_type: 'checkbox' || 'datepicker' || 'file' || 'radio' || 'range' || 'rating-field' || 'search' || 'select || 'text' || 'textarea'
-  }) - Object of type input
-- **"disabled"** (boolean) (default: false)
-- **"hide_label"** (bool) (default: false): hide form element label, for screen reader only
-- **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
-- **"required"** (boolean) (default: false)
-- **"sr_invalid_icon"** (string) (default: ''): additional label for the invalid icon; for screen readers
-- **"label_aria_required"** (string) (default: ''): aria text for the required field label; if the required label is not explicit
-- **"label_aria_optional"** (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
-- **"extra_label_classes"** (optional) (string) (default: '') Extra classes for the label
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"input"** (object) (default: {}): Input component object; must include `input_type` set to one of: 'checkbox', 'datepicker', 'file', 'radio', 'range', 'rating-field', 'search', 'select', 'text', 'textarea'
+- **"disabled"** (boolean) (default: false) Disables the form group
+- **"hide_label"** (boolean) (default: false) Hides the label visually (kept for screen readers)
+- **"invalid"** (boolean) (default: false) Displays the form group in invalid state
+- **"invalid_icon"** (object) (default: {}) Icon displayed when invalid, following ECL Icon structure
+- **"required"** (boolean) (default: false) Marks the field as required
+- **"sr_invalid_icon"** (string) (default: '') Screen reader label for the invalid icon
+- **"label_aria_required"** (string) (default: '') Aria text for the required indicator when it is not explicit text
+- **"label_aria_optional"** (string) (default: '') Aria text for the optional indicator when it is not explicit text
+- **"extra_label_classes"** (string) (default: '') Extra classes for the label element
+- **"extra_classes"** (string) (default: '') Extra classes for the form group wrapper
+- **"extra_attributes"** (array) (default: []) Extra attributes for the form group
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

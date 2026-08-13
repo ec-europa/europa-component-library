@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -584,7 +584,7 @@ export class Carousel {
 
     // We set 250ms delay which is higher than the 200ms delay in the banner.
     this.resizeTimer = setTimeout(() => {
-      if (vw >= 1140) {
+      if (vw >= getBreakpoint('xl')) {
         this.intervalId = setInterval(this.checkBannerHeights, 100);
       } else {
         this.resetBannerHeights();
@@ -599,13 +599,16 @@ export class Carousel {
     }, 250);
 
     // Add class to set a left margin to banner content and avoid arrow overlapping
-    if (vw >= 1140 && vw <= 1260) {
+    if (vw >= getBreakpoint('xl') && vw <= 1260) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
     // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
-    if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
+    if (
+      (vw <= getBreakpoint('m') && this.autoPlay) ||
+      (vw > getBreakpoint('m') && this.autoPlay === null)
+    ) {
       this.handleAutoPlay();
     }
   }

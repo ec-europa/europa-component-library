@@ -12,12 +12,20 @@ addons.register(ADDON_ID, () => {
       const iframe = document.querySelector('#storybook-preview-iframe');
       const rootDiv = iframe.contentDocument.querySelector('#storybook-root');
       const storyMarkup = rootDiv ? rootDiv.innerHTML : '';
+      let originalMarkup = '';
+
+      if (rootDiv) {
+        originalMarkup = rootDiv.querySelector(
+          '.original-markup-source',
+        )?.textContent;
+      }
 
       return (
         <HTMLMarkup
           active={active}
           channel={channel}
-          markup={storyMarkup} // Pass the story markup
+          markup={storyMarkup}
+          originalMarkup={originalMarkup}
         />
       );
     },

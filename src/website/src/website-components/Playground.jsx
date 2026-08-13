@@ -124,18 +124,21 @@ class Playground extends Component {
 
   calculateContainerHeight() {
     return new Promise((resolve) => {
-      const checkContainerHeight = () => {
-        const container = this.showcaseCodeRef.current;
+      const container = this.showcaseCodeRef.current;
 
-        if (container && container.childNodes.length > 0) {
-          const containerHeight = container.offsetHeight;
-          resolve(containerHeight);
-        } else {
-          setTimeout(checkContainerHeight, 100);
+      if (!container) {
+        resolve(0);
+        return;
+      }
+
+      const observer = new ResizeObserver(() => {
+        if (container.offsetHeight > 0) {
+          observer.disconnect();
+          resolve(container.offsetHeight);
         }
-      };
+      });
 
-      checkContainerHeight();
+      observer.observe(container);
     });
   }
 
@@ -197,7 +200,9 @@ class Playground extends Component {
 
     return (
       <div className={styles.playground}>
-        <div className={styles.showcase}>
+        <div
+          className={`${styles.showcase}${showFrame && fullFrameUrl ? ` ${styles['showcase--framed']}` : ''}`}
+        >
           {!hideDemo && (
             <>
               {showFrame && fullFrameUrl ? (

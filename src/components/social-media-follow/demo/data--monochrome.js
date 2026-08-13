@@ -6,30 +6,6 @@ module.exports = {
   links: [
     {
       link: {
-        label: 'Facebook',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        name: 'facebook',
-        family: 'networks',
-        style: 'monochrome',
-      },
-    },
-    {
-      link: {
-        label: 'Instagram',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        name: 'instagram',
-        family: 'networks',
-        style: 'monochrome',
-      },
-    },
-    {
-      link: {
         label: 'Mastodon',
         path: exampleLink,
         icon_position: 'before',
@@ -42,7 +18,7 @@ module.exports = {
     },
     {
       link: {
-        label: 'Linkedin',
+        label: 'LinkedIn',
         path: exampleLink,
         icon_position: 'before',
       },
@@ -54,12 +30,36 @@ module.exports = {
     },
     {
       link: {
-        label: 'Telegram',
+        label: 'Bluesky',
         path: exampleLink,
         icon_position: 'before',
       },
       icon: {
-        name: 'telegram',
+        name: 'bluesky',
+        family: 'networks',
+        style: 'monochrome',
+      },
+    },
+    {
+      link: {
+        label: 'Facebook',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        name: 'facebook',
+        family: 'networks',
+        style: 'monochrome',
+      },
+    },
+    {
+      link: {
+        label: 'YouTube',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        name: 'youtube',
         family: 'networks',
         style: 'monochrome',
       },

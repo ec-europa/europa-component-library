@@ -2,17 +2,17 @@
 
 {#
   Parameters:
-    - "color_mode" (string) (default: '')
-    - "citation" (string) (default: '')
-    - "author" (string) (default: '')
-    - "lang" (string) (default: 'en')
-    - "extra_classes" (string) (default: '')
+    - "color_mode" (string) (default: '') Name of the color mode
+    - "citation" (string) (default: '') The quote text
+    - "author" (string) (default: '') The author of the quote
+    - "lang" (string) (default: 'en') Language code for the citation text (ISO 639-1)
     - "picture" (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
     - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (optional) (string)
+          "value" (string) (default: '')
+        },
         ...
       ]
 #}

@@ -78,6 +78,14 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Splash Page',
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -90,7 +98,10 @@ Default.storyName = 'default';
 Default.args = getArgs(dataSplash);
 Default.argTypes = getArgTypes(dataSplash);
 Default.parameters = {
-  notes: { markdown: notes, json: dataSplash },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataSplash, args),
+  },
   layout: 'fullscreen',
 };
 Default.decorators = [withCode, withNotes];

@@ -66,6 +66,14 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Table',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -77,7 +85,12 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
+};
 
 export const Zebra = (_, { loaded: { component } }) => component;
 
@@ -88,7 +101,12 @@ Zebra.render = async (args) => {
 Zebra.storyName = 'zebra';
 Zebra.args = getArgs(dataZebra);
 Zebra.argTypes = getArgTypes(dataZebra);
-Zebra.parameters = { notes: { markdown: notes, json: dataZebra } };
+Zebra.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataZebra, args),
+  },
+};
 
 export const Multi = (_, { loaded: { component } }) => component;
 
@@ -99,7 +117,12 @@ Multi.render = async (args) => {
 Multi.storyName = 'multi header';
 Multi.args = getArgs(dataMulti);
 Multi.argTypes = getArgTypes(dataMulti);
-Multi.parameters = { notes: { markdown: notes, json: dataMulti } };
+Multi.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataMulti, args),
+  },
+};
 
 export const Sortable = (_, { loaded: { component } }) => component;
 
@@ -110,4 +133,9 @@ Sortable.render = async (args) => {
 Sortable.storyName = 'sort table';
 Sortable.args = getArgs(dataSortable);
 Sortable.argTypes = getArgTypes(dataSortable);
-Sortable.parameters = { notes: { markdown: notes, json: dataSortable } };
+Sortable.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataSortable, args),
+  },
+};

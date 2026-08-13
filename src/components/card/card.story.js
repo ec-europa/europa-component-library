@@ -242,6 +242,13 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Card',
   decorators: [withCode, withNotes],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -263,5 +270,8 @@ Default.storyName = 'default';
 Default.args = getArgs(dataCard);
 Default.argTypes = getArgTypes(dataCard);
 Default.parameters = {
-  notes: { markdown: notes, json: dataCard },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataCard, args),
+  },
 };

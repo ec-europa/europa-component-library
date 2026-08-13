@@ -1,12 +1,11 @@
-import { queryAll, queryOne } from '@ecl/dom-utils';
-import EventManager from '@ecl/event-manager';
+import { getBreakpoint } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.toggleSelector Selector for toggling element
- * @param {String} options.iconSelector Selector for icon element
- * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {String} options.sidebarMediaQuerySelector Selector for the media query to match
+ * @param {String} options.sidebarItemSelector Selector for sidebar items that open on desktop
+ * @param {String} options.sidebarBreakpoint Media query for the desktop breakpoint
  */
 export class Accordion {
   /**
@@ -24,24 +23,14 @@ export class Accordion {
     return accordion;
   }
 
-  /**
-   * An array of supported events for this component.
-   *
-   * @type {Array<string>}
-   * @event Accordion#onToggle
-   * @memberof Accordion
-   */
-  supportedEvents = ['onToggle'];
-
   constructor(
     element,
     {
-      toggleSelector = '[data-ecl-accordion-toggle]',
-      iconSelector = '[data-ecl-accordion-icon]',
-      attachClickListener = true,
+      sidebarMediaQuerySelector = 'data-ecl-accordion-sidebar-media-query',
+      sidebarItemSelector = '[data-desktop-open]',
+      sidebarBreakpoint,
     } = {},
   ) {
-    // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
         'DOM element should be given to initialize this widget.',
@@ -49,20 +38,16 @@ export class Accordion {
     }
 
     this.element = element;
-    this.eventManager = new EventManager();
-
-    // Options
-    this.toggleSelector = toggleSelector;
-    this.iconSelector = iconSelector;
-    this.attachClickListener = attachClickListener;
-
-    // Private variables
-    this.toggles = null;
-    this.forceClose = false;
-    this.target = null;
-
-    // Bind `this` for use in callbacks
-    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.sidebarItemSelector = sidebarItemSelector;
+    this.sidebarMediaQuerySelector = sidebarMediaQuerySelector;
+    this.sidebarBreakpoint =
+      sidebarBreakpoint !== undefined
+        ? sidebarBreakpoint
+        : (this.element.getAttribute(this.sidebarMediaQuerySelector) ??
+          `(width >= ${getBreakpoint('l', true)})`);
+    this.mediaQuery = null;
+    this.sidebarItems = null;
+    this.syncSidebarItems = this.syncSidebarItems.bind(this);
   }
 
   /**
@@ -74,61 +59,25 @@ export class Accordion {
     }
     ECL.components = ECL.components || new Map();
 
-    this.toggles = queryAll(this.toggleSelector, this.element);
-
-    // Bind click event on toggles
-    if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach((toggle) => {
-        toggle.addEventListener('click', () =>
-          this.handleClickOnToggle(toggle),
-        );
-      });
+    // Sidebar variant: keep items open on desktop, collapsed on mobile
+    this.sidebarItems = this.element.querySelectorAll(this.sidebarItemSelector);
+    if (this.sidebarItems.length > 0) {
+      this.mediaQuery = window.matchMedia(this.sidebarBreakpoint);
+      this.mediaQuery.addEventListener('change', this.syncSidebarItems);
+      this.syncSidebarItems();
     }
 
-    // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
-  }
-
-  /**
-   * Register a callback function for a specific event.
-   *
-   * @param {string} eventName - The name of the event to listen for.
-   * @param {Function} callback - The callback function to be invoked when the event occurs.
-   * @returns {void}
-   * @memberof Accordion
-   * @instance
-   *
-   * @example
-   * // Registering a callback for the 'click' event
-   * accordion.on('onToggle', (event) => {
-   *   console.log('Toggle event occurred!', event);
-   * });
-   */
-  on(eventName, callback) {
-    this.eventManager.on(eventName, callback);
-  }
-
-  /**
-   * Trigger a component event.
-   *
-   * @param {string} eventName - The name of the event to trigger.
-   * @param {any} eventData - Data associated with the event.
-   *
-   * @memberof Accordion
-   */
-  trigger(eventName, eventData) {
-    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach((toggle) => {
-        toggle.replaceWith(toggle.cloneNode(true));
-      });
+    if (this.mediaQuery) {
+      this.mediaQuery.removeEventListener('change', this.syncSidebarItems);
+      this.mediaQuery = null;
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -137,42 +86,12 @@ export class Accordion {
   }
 
   /**
-   * @param {HTMLElement} toggle Target element to toggle.
-   *
-   * @fires Accordion#onToggle
+   * Set each sidebar item's open state based on the current breakpoint.
    */
-  handleClickOnToggle(toggle) {
-    let isOpening = false;
-    // Get target element
-    const target = queryOne(
-      `#${toggle.getAttribute('aria-controls')}`,
-      this.element,
-    );
-
-    // Exit if no target found
-    if (!target) {
-      throw new TypeError(
-        'Target has to be provided for accordion (aria-controls)',
-      );
-    }
-
-    // Get current status
-    const isExpanded =
-      this.forceClose === true ||
-      toggle.getAttribute('aria-expanded') === 'true';
-
-    // Toggle the expandable/collapsible
-    toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-
-    if (isExpanded) {
-      target.hidden = true;
-    } else {
-      target.hidden = false;
-      isOpening = true;
-    }
-
-    const eventData = { item: target, isOpening };
-    this.trigger('onToggle', eventData);
+  syncSidebarItems() {
+    this.sidebarItems.forEach((item) => {
+      item.open = this.mediaQuery.matches;
+    });
   }
 }
 

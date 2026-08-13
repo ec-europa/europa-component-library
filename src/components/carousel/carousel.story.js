@@ -116,6 +116,12 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Carousel',
   decorators: [withNotes, withCode],
+  chromatic: {
+    modes: {
+      s: { disable: true },
+      l: { disable: true },
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -128,5 +134,8 @@ Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataDefault, args),
+  },
 };

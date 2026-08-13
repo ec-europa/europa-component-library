@@ -1,7 +1,8 @@
 import '@ecl/dom-utils/polyfills';
 
-export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/accordion';
+export * from '@ecl/animated-numbers';
+export * from '@ecl/dom-utils/autoinit';
 export * from '@ecl/banner';
 export * from '@ecl/carousel';
 export * from '@ecl/category-filter';
@@ -21,11 +22,16 @@ export * from '@ecl/mega-menu';
 export * from '@ecl/modal';
 export * from '@ecl/news-ticker';
 export * from '@ecl/notification';
+export * from '@ecl/quiz';
 export * from '@ecl/page-header';
+export * from '@ecl/picture';
 export * from '@ecl/popover';
 export * from '@ecl/range';
 export * from '@ecl/select';
 export * from '@ecl/site-header';
+export * from '@ecl/slogan-ticker';
+export * from '@ecl/story-card';
 export * from '@ecl/table';
 export * from '@ecl/tabs';
 export * from '@ecl/timeline';
+export * from '@ecl/tooltip';

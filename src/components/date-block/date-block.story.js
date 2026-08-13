@@ -76,6 +76,13 @@ const prepareData = (data, args) => Object.assign(data, args);
 export default {
   title: 'Components/Date block',
   decorators: [withNotes, withCode],
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      l: { disable: true },
+      xl: { disable: true },
+    },
+  },
 };
 
 export const Ongoing = (_, { loaded: { component } }) => component;
@@ -89,7 +96,12 @@ Ongoing.render = async (args) => {
 Ongoing.storyName = 'upcoming & ongoing';
 Ongoing.args = getArgs(dataOngoing);
 Ongoing.argTypes = getArgTypes(dataOngoing);
-Ongoing.parameters = { notes: { markdown: notes, json: dataOngoing } };
+Ongoing.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataOngoing, args),
+  },
+};
 
 export const Past = (_, { loaded: { component } }) => component;
 
@@ -100,4 +112,9 @@ Past.render = async (args) => {
 Past.storyName = 'past and cancelled';
 Past.args = getArgs(dataPast);
 Past.argTypes = getArgTypes();
-Past.parameters = { notes: { markdown: notes, json: dataPast } };
+Past.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataPast, args),
+  },
+};

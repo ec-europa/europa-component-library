@@ -33,7 +33,7 @@ More information can be found on [postcss-bem-linter](https://github.com/postcss
 
 ### Configuration
 
-Please refer to [.stylelintrc.js](../../.stylelintrc.js) config file.
+Please refer to [.stylelintrc.cjs](../../.stylelintrc.cjs) config file.
 
 ## Automatic formatting
 

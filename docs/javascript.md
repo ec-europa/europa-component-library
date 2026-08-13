@@ -6,11 +6,11 @@ Components do not depend on jQuery and provide consistent APIs which can be mana
 
 ## How to use
 
-First, you need to include the JavaScript file of `ecl-ec.js` or `ecl-eu.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
+There are two export of ECL JavaScript: one in common js, the other in ESM.
 
-This means that when you include the `ECL` library in your pages, you will have a global called `ECL` which contains the components' factory functions.
+In both cases those are meant to be used by the browser with a script tag (the only difference is that you have to use type="module" for the ESM script). Once loaded, an `ECL` object will be available in the window.
 
-![ECL library in your browser's console](./assets/ECLjs.png)
+We recommend the use of the ESM one which is also the one we use in storybook.
 
 ## Version in use
 
@@ -20,34 +20,71 @@ You can get the ECL version you are using running `ECL.version` in the console o
 
 Each component contains `.init()` and `.destroy()` methods.
 
-Recommended approach for instantiation is to use main `.autoInit()` method:
+### Auto-initialization (Recommended)
+
+The simplest approach is to use the `.autoInit()` method which automatically initializes all components on the page:
+
+### Manual initialization
+
+You can also manually initialize individual components:
 
 ```js
-document.addEventListener('DOMContentLoaded', function () {
-  ECL.autoInit();
-});
-```
-
-Alternatively components can be manually initialised this way:
-
-```js
-var elt = document.querySelector('yourSelector');
-var accordion = new ECL.Accordion(elt);
+const element = document.querySelector('[data-ecl-accordion]');
+const accordion = new ECL.Accordion(element);
 accordion.init();
 ```
 
-In both cases the instance will be available in the main ECL object, in the components Map, from here an existing instance can be retrieved to further update it, for instance running `destroy()` and `init()` again.
+If the component is manually initialized, make sure to also clean up component instances when they're no longer needed:
 
-```js
-var instance = ECL.components.get('yourElement');
+```javascript
+const instance = ECL.components.get('yourHtmlElement');
 instance.destroy();
-instance.init();
+instance.init(); // Re-initialize if needed
 ```
 
-For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v4-dev/src/tools/dom-utils/autoinit/README.md).
+For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v5-dev/src/tools/dom-utils/autoinit/README.md).
 
-## Settings
+## Component Options
 
-Components with JavaScript provide information for their APIs on their corresponding pages on ECL's website.
+Most components accept options during initialization:
 
-For an example, if you are looking `Accordion`'s settings, refer to https://ec.europa.eu/component-library/ec/components/accordion/api/
+```javascript
+const modal = new ECL.Modal(element, {
+  // Custom options
+  dismissOnClickOutside: true,
+  dismissOnEscape: true,
+});
+modal.init();
+```
+
+## Event Handling
+
+Components emit custom events that you can listen to:
+
+```javascript
+const accordion = new ECL.Accordion(element);
+accordion.init();
+
+// Listen to events
+accordion.on('onOpen', (event) => {
+  console.log('Accordion opened', event);
+});
+
+accordion.on('onClose', (event) => {
+  console.log('Accordion closed', event);
+});
+```
+
+## Component API Reference
+
+Each component has detailed API documentation on ECL's website. For example:
+
+- Accordion: https://ec.europa.eu/component-library/ec/components/accordion/api/
+- Modal: https://ec.europa.eu/component-library/ec/components/modal/api/
+
+The API documentation includes:
+
+- Available options
+- Methods
+- Events
+- Usage examples

@@ -17,6 +17,7 @@
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_with_separator" (optional) (bolean) (default: false)
     - "description" (optional) (string) (default: '')
+    - "action_button" (optional) (object) (default: '')
     - "content_before" (optional) (string) (default: '')
     - "links" (optional) (array of objects) (default: []),
       - "link" (link object)
@@ -75,23 +76,25 @@
         {%- endif -%}
 
         {%- if _co_owner.links is not empty and _co_owner.links is iterable -%}
-          <ul class="ecl-site-footer__co-owner-list">
+          {% set _tag_co_owner_list = _co_owner.links|length == 1 ? 'div' : 'ul' %}
+          {% set _tag_co_owner_item = _co_owner.links|length == 1 ? 'div' : 'li' %}
+          <{{ _tag_co_owner_list }} class="ecl-site-footer__co-owner-list">
             {%- for _item in _co_owner.links -%}
               {% set _item_class = 'ecl-site-footer__co-owner-item' %}
               {% if loop.index == 1 %}
                 {% set _item_class = _item_class ~ ' is-first' %}
               {% endif %}
 
-              <li class="{{ _item_class }}">
+              <{{ _tag_co_owner_item }} class="{{ _item_class }}">
                 {% include '@ecl/link/link.html.twig' with _item|merge({
                   link: _item.link|merge({
                     type: 'standalone',
                   }),
                   extra_classes: 'ecl-site-footer__co-owner-link',
                 }) only %}
-              </li>
+              </{{ _tag_co_owner_item }}>
             {%- endfor -%}
-          </ul>
+          </{{ _tag_co_owner_list }}>
         {%- endif -%}
       </div>
     </div>
@@ -202,6 +205,22 @@
               </li>
             {% endfor %}
             </ul>
+          {% endif %}
+          {# action button #}
+          {% if _sections.action_button is not empty %}
+            {% set _button_size = _sections.action_button.link.size|default('m') %}
+            {% set _button_class = 'ecl-site-footer__action-button' %}
+            {% if _button_size != 'l' %}
+              {% set _button_class = _button_class ~ ' ecl-button--' ~ _button_size %}
+            {% endif %}
+            {% set _button_type = _sections.action_button.link.type|default('secondary-neutral') %}
+
+            {% include '@ecl/link/link.html.twig' with _sections.action_button|merge({
+              link: _sections.action_button.link|default({})|merge({
+                type: _button_type,
+              }),
+              extra_classes: _button_class,
+            }) only %}
           {% endif %}
           </div>
         {% endfor %}

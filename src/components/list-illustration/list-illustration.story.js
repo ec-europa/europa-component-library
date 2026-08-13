@@ -72,6 +72,7 @@ const getArgs = (data, variant) => {
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
     args.icon_size = 'l';
+    args.icon_title = '';
     args.icon_inline = false;
   }
 
@@ -340,6 +341,17 @@ const getArgTypes = (data, variant) => {
       },
       if: { arg: 'show_icon' },
     };
+    argTypes.icon_title = {
+      name: 'icon title',
+      type: 'string',
+      description: 'Short textual information for the icon, for screen readers',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Icon',
+      },
+      if: { arg: 'show_icon' },
+    };
     argTypes.icon_inline = {
       name: 'icon inline',
       type: { name: 'boolean' },
@@ -410,6 +422,7 @@ const prepareDataItem = (data, args) => {
   } else {
     clone.icon = {};
     clone.icon.name = args.icon;
+    clone.icon.title = args.icon_title;
     clone.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
       clone.icon.name = args.icon_flag;
@@ -520,7 +533,10 @@ HorizontalImage.argTypes = getArgTypes(
   'horizontal-image',
 );
 HorizontalImage.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationImage },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationImage, args),
+  },
 };
 
 export const HorizontalIcon = (_, { loaded: { component } }) => component;
@@ -538,7 +554,10 @@ HorizontalIcon.argTypes = getArgTypes(
   'horizontal-icon',
 );
 HorizontalIcon.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationIcon },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationIcon, args),
+  },
 };
 
 export const VerticalImage = (_, { loaded: { component } }) => component;
@@ -556,7 +575,16 @@ VerticalImage.argTypes = getArgTypes(
   'vertical-image',
 );
 VerticalImage.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationImage },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationImage, args),
+  },
+  chromatic: {
+    modes: {
+      m: { disable: true },
+      l: { disable: true },
+    },
+  },
 };
 
 export const VerticalIcon = (_, { loaded: { component } }) => component;
@@ -571,7 +599,17 @@ VerticalIcon.storyName = 'vertical (icons)';
 VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationIcon },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareDataList(dataListIllustrationIcon, args),
+  },
+  chromatic: {
+    modes: {
+      xl: { disable: true },
+      m: { disable: true },
+      s: { disable: true },
+    },
+  },
 };
 
 export const IconList = (_, { loaded: { component } }) => component;
@@ -602,7 +640,15 @@ IconList.argTypes = {
   },
 };
 IconList.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationIconList },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareIconList(dataListIllustrationIconList, args),
+  },
+  chromatic: {
+    modes: {
+      l: { disable: true },
+    },
+  },
 };
 
 export const NumberList = (_, { loaded: { component } }) => component;
@@ -627,5 +673,13 @@ NumberList.argTypes = {
   },
 };
 NumberList.parameters = {
-  notes: { markdown: notes, json: dataListIllustrationNumberList },
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareIconList(dataListIllustrationNumberList, args),
+  },
+  chromatic: {
+    modes: {
+      l: { disable: true },
+    },
+  },
 };
