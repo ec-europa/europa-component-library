@@ -80,7 +80,7 @@
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'close-outline', size: 'xs' },
+        icon: { name: 'x', family: 'phosphor', size: 'xs' },
         extra_classes: 'ecl-tag__icon-close',
         as_image: true,
         extra_accessibility: {
@@ -99,7 +99,8 @@
     {%- if _tag.external -%}
       {%- include '@ecl/icon/icon.html.twig' with {
           icon: {
-            name: 'external',
+            name: 'arrow-square-out',
+            family: 'phosphor',
             size: '2xs',
           },
           extra_classes: 'ecl-tag__icon ecl-tag__icon--external',
