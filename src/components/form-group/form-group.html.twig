@@ -172,6 +172,7 @@
 
 <{{ _group_tag }} class="{{ _css_class }}" {{- _extra_attributes|raw -}}>
   {% if _label is not empty %}
+  <div class="ecl-form-label-wrapper">
     <{{ _label_tag }}
     {% if _id %}
       {% if _input.input_type != 'radio' and _input.input_type != 'checkbox' and _input.input_type != 'rating-field' %}
@@ -185,23 +186,6 @@
       {{- _disabled ? ' ecl-form-label--disabled' -}}"
     >
       {%- block label _label -%}
-      {%- if _required and _required_text is not empty -%}
-        <span 
-          class="ecl-form-label__required"
-          {%- if _label_aria_required -%}
-            role="note"
-            aria-label="{{ _label_aria_required }}"
-          {%- endif -%}
-        >{{ _required_text }}</span>
-      {%- elseif not _required and _optional_text is not empty -%}
-        <span 
-          class="ecl-form-label__optional"
-          {%- if _label_aria_optional -%}
-            role="note"
-            aria-label="{{ _label_aria_optional }}"
-          {%- endif -%}
-        >{{ _optional_text }}</span>
-      {%- endif -%}
 
       {%- if _label_tag == 'legend' or _input.input_type == 'datepicker' -%}
         {%- if _helper_text is not empty -%}
@@ -213,19 +197,25 @@
       {%- endif -%}
 
     </{{ _label_tag }}>
-  {% endif %}
 
-  {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
-      {% if _id %}
-        id="{{ _id }}-helper"
-      {% endif %}
-      {% if _label_tag == 'legend' or _input.input_type == 'datepicker' %}
-        aria-hidden="true"
-      {% endif %}
-    >
-      {%- block helper_text _helper_text -%}
-    </div>
+    {%- if _required and _required_text is not empty -%}
+    <span
+      class="ecl-form-label__required"
+      {%- if _label_aria_required -%}
+        role="note"
+        aria-label="{{ _label_aria_required }}"
+      {%- endif -%}
+    >{{ _required_text }}</span>
+    {%- elseif not _required and _optional_text is not empty -%}
+    <span
+      class="ecl-form-label__optional"
+      {%- if _label_aria_optional -%}
+        role="note"
+        aria-label="{{ _label_aria_optional }}"
+      {%- endif -%}
+    >{{ _optional_text }}</span>
+    {%- endif -%}
+  </div>
   {% endif %}
 
   {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
@@ -233,7 +223,7 @@
       type: _input.input_type,
     }) only %}
   {%- endif -%}
-  
+
   {%- if _input.input_type == 'select' -%}
     <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
@@ -272,6 +262,19 @@
   {%- if _input.input_type == 'file' -%}
     {% include '@ecl/file-upload/file-upload.html.twig' with _input only %}
   {%- endif -%}
+
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
+      {% if _id %}
+        id="{{ _id }}-helper"
+      {% endif %}
+      {% if _label_tag == 'legend' or _input.input_type == 'datepicker' %}
+        aria-hidden="true"
+      {% endif %}
+    >
+      {%- block helper_text _helper_text -%}
+    </div>
+  {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
     {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}

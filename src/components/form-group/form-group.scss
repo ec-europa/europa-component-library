@@ -13,7 +13,9 @@ $form-group: null !default;
 .ecl-form-group {
   border-width: 0;
   box-sizing: border-box;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2xs);
   margin: 0;
   padding: 0;
 }
@@ -23,7 +25,6 @@ $form-group: null !default;
   box-sizing: border-box;
   color: map.get($form-group, 'invalid', 'color');
   display: flex;
-  margin-block: map.get($form-group, 'invalid', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
 
@@ -38,11 +39,15 @@ $form-group: null !default;
   box-sizing: border-box;
   color: map.get($form-group, 'help', 'color');
   display: block;
-  margin-block: map.get($form-group, 'help', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
 
   @include mixins.responsive-font(map.get($form-group, 'help', 'font'));
+}
+
+.ecl-form-label-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .ecl-form-label {
@@ -63,12 +68,15 @@ $form-group: null !default;
 .ecl-form-label__optional {
   align-self: center;
   color: map.get($form-group, 'optional', 'color');
-  margin-inline: map.get($form-group, 'optional', 'margin-inline');
 
   @include mixins.responsive-font(
     map.get($form-group, 'optional', 'font'),
     $font-weight: map.get($form-group, 'optional', 'font-weight')
   );
+}
+
+.ecl-form-label:not(.ecl-form-label--hidden) + .ecl-form-label__optional {
+  margin-inline: map.get($form-group, 'optional', 'margin-inline');
 }
 
 .ecl-form-label__required {
@@ -93,6 +101,11 @@ $form-group: null !default;
 }
 
 .ecl-form-label:not(.ecl-form-label--hidden)
-  + *:not(.ecl-help-block, .ecl-feedback-message) {
+  + *:not(
+    .ecl-help-block,
+    .ecl-feedback-message,
+    .ecl-form-label__optional,
+    .ecl-form-label__required
+  ) {
   margin-block-start: map.get($form-group, 'margin-no-helper');
 }
