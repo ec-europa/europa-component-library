@@ -108,6 +108,7 @@ export class SiteHeader {
     this.customActionOverlay = null;
     this.customActionClose = null;
     this.customActionFocusTrap = null;
+    this.ssearchFormFocusTrap = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
@@ -194,6 +195,10 @@ export class SiteHeader {
     // Search form management
     this.searchToggle = queryOne(this.searchToggleSelector);
     this.searchForm = queryOne(this.searchFormSelector);
+
+    this.searchFormFocusTrap = createFocusTrap(this.searchForm, {
+      allowOutsideClick: true,
+    });
 
     if (this.attachClickListener && this.searchToggle) {
       this.searchToggle.addEventListener('click', this.toggleSearch);
@@ -570,8 +575,10 @@ export class SiteHeader {
       this.setSearchArrow();
       // FRONT-5415 Focus on the input when expanding the dialog
       queryOne('input', this.searchForm).focus();
+      this.searchFormFocusTrap.activate();
     } else {
       this.searchForm.classList.remove('ecl-site-header__search--active');
+      this.searchFormFocusTrap.deactivate();
     }
   }
 
