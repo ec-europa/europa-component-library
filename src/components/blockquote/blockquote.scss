@@ -13,6 +13,8 @@ $blockquote: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
+  --max-w: none;
+
   background-color: map.get($blockquote, 'background');
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
