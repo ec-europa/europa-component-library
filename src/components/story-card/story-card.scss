@@ -101,12 +101,15 @@ $min-height-desktop: 548px;
   .ecl-story-card__content,
   .ecl-story-card__grid-details-content {
     background: map.get($story-card, 'card', 'background');
-    border-radius: map.get($theme, 'border-radius', 's');
     display: flex;
     flex-direction: column;
     flex: 1;
     padding: map.get($story-card, 'card', 'content-padding');
     gap: map.get($story-card, 'card', 'content-gap');
+  }
+
+  .ecl-story-card__grid-details-content {
+    border-radius: map.get($theme, 'border-radius', 's');
   }
 
   .ecl-story-card__content-icon svg {
