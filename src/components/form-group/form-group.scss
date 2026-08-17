@@ -85,11 +85,11 @@ $form-group: null !default;
   );
 }
 
-.ecl-form-label:not(.ecl-form-label--hidden) + .ecl-form-label__optional {
+.ecl-form-label:not(.ecl-form-label--hidden) ~ .ecl-form-label__optional {
   margin-inline: map.get($form-group, 'optional', 'margin-inline');
 }
 
-.ecl-form-label:not(.ecl-form-label--hidden) + .ecl-form-label__required {
+.ecl-form-label:not(.ecl-form-label--hidden) ~ .ecl-form-label__required {
   margin-inline: map.get($form-group, 'required', 'margin-inline');
 }
 

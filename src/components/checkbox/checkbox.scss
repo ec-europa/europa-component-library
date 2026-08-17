@@ -163,7 +163,7 @@ $checkbox: null !default;
   }
 }
 
-.ecl-form-group:has(.ecl-checkbox--single) {
+.ecl-form-group:has(.ecl-checkbox--single):has(.ecl-form-label--hidden) {
   .ecl-form-label__required,
   .ecl-form-label__optional {
     display: none;
