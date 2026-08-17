@@ -8,10 +8,6 @@
           "content" (string)
           "link" (string)
           "icon" (object) Object of type ECL icon
-          "img" (object)
-            - "path" (string)
-            - "alt" (string)
-            - "title" (string)
           "external" (boolean)
         },
         ...
@@ -30,6 +26,10 @@
           "value" (string) Attribute value, eg: 'data-test-1'
         }, ...
       ]
+#}
+
+{# DEPRECATED 
+- "item.img" (object): tiny image used at the icon location
 #}
 
 {# Internal properties #}
@@ -86,6 +86,7 @@
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
         {% set _media = '' %}
+        {# DEPRECATED #}
         {% if _item.img is not empty and _item.img.path is not empty %}
           {% set _media %} 
             <img
@@ -103,7 +104,8 @@
           {% set _media %}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: _item.icon|default({})|merge({
-                name: _item.icon.name|default('information-outline'),
+                name: _item.icon.name|default('newspaper'),
+                family: _item.icon.family|default('phosphor'),
                 size: 'l',
               }),
               extra_classes: 'ecl-news-ticker__icon',
