@@ -77,27 +77,6 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <!-- Prev button -->
-  {% include "@ecl/button/button.html.twig" with {
-    hide_label: _hide_label,
-    label: _prev_label,
-    size: _size,
-    style: 'neutral',
-    type: 'button',
-    variant: 'tertiary',
-    icon: {
-      name: 'caret-left',
-      style: 'monochrome',
-      family: 'phosphor',
-    },
-    extra_classes: 'ecl-slider-pager__prev' ~ (_prev_extra_classes ? ' ' ~ _prev_extra_classes : ''),
-    extra_attributes: _prev_extra_attributes,
-  } only %}
-
-{% if _dots %}
-  <!-- Dots -->
-  <div class="ecl-slider-pager__dots{{ _dots_extra_classes ? ' ' ~ _dots_extra_classes : '' }}"></div>
-{% endif %}
 
 {% if _play_pause %}
   <!-- Play button -->
@@ -131,6 +110,28 @@
     extra_classes: 'ecl-slider-pager__pause' ~ (_pause_extra_classes ? ' ' ~ _pause_extra_classes : ''),
     extra_attributes: _pause_extra_attributes
   } only %}
+{% endif %}
+
+  <!-- Prev button -->
+  {% include "@ecl/button/button.html.twig" with {
+    hide_label: _hide_label,
+    label: _prev_label,
+    size: _size,
+    style: 'neutral',
+    type: 'button',
+    variant: 'tertiary',
+    icon: {
+      name: 'caret-left',
+      style: 'monochrome',
+      family: 'phosphor',
+    },
+    extra_classes: 'ecl-slider-pager__prev' ~ (_prev_extra_classes ? ' ' ~ _prev_extra_classes : ''),
+    extra_attributes: _prev_extra_attributes,
+  } only %}
+
+{% if _dots %}
+  <!-- Dots -->
+  <div class="ecl-slider-pager__dots{{ _dots_extra_classes ? ' ' ~ _dots_extra_classes : '' }}"></div>
 {% endif %}
 
   <!-- Next button -->

@@ -1,3 +1,4 @@
+{% import _self as site_header %}
 {% apply spaceless %}
 
 {#
@@ -20,7 +21,7 @@
         },
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
-          "href": (string) (default: ''): URL for switcher
+          "href": (string) (optional) (default: ''): URL for switcher. If not provided, the toggle renders as a button
           "label": (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
           "aria_label": (string) (default: ''): Switcher language aria label
           "code": (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
@@ -50,7 +51,7 @@
         },
     - "custom_action" (associative array) (default: {}): optional custom link with optional popover, e.g.:
       {
-        "link": (object) (default: predefined structure) predefined structure for the Link component
+        "link": (object) (default: predefined structure) predefined structure for the Link component. If "path" is not provided, the toggle renders as a button
         "icon" (associative array) OR (array) of associative arrays : format
           {
             name: (string) (default: ''),
@@ -67,7 +68,7 @@
     - "search_toggle" (associate array) (default: {}) format:
       {
         "label": (string) Label of the element
-        "path": (string) Link of the element
+        "href": (string) (optional) Link of the element. If not provided, the toggle renders as a button
       }
     - "login_box" (associate array) (default: {}) format:
         {
@@ -79,9 +80,9 @@
     - "login_toggle" (associate array) (default: {}) format:
       {
         "label_not_logged": (string) Label for the anonymous users
-        "href_not_logged": (string) Link to the login form
+        "href_not_logged": (string) (optional) Link to the login form. If not provided, the toggle renders as a button
         "label_logged": (string) Label for the logged in users
-        "href_logged": (string) Link to the logout form
+        "href_logged": (string) (optional) Link to the logout form. If not provided, the toggle renders as a button
       }
     - "search_form" (associative array) (default: predefined structure): ECL Search Form component structure
     - "notification" (object) (default: {}): Optional notification compatible with ECL Notification component structure
@@ -128,26 +129,6 @@
   { name: 'data-ecl-auto-init', value: 'SiteHeader' }
   ]|merge(extra_attributes|default([]))
 %}
-
-{% if logo is defined and logo is not empty %}
-  {% set _logo = _logo|merge(logo) %}
-{% endif %}
-
-{% if login_toggle is defined and login_toggle is not empty %}
-  {% set _login_toggle = _login_toggle|merge(login_toggle) %}
-{% endif %}
-
-{% if login_box is defined and login_box is not empty %}
-  {% set _login_box = _login_box|merge(login_box) %}
-{% endif %}
-
-{% if language_selector is defined and language_selector is not empty %}
-  {% set _language_selector = _language_selector|merge(language_selector) %}
-{% endif %}
-
-{% if search_toggle is defined and search_toggle is not empty %}
-  {% set _search_toggle = _search_toggle|merge(search_toggle) %}
-{% endif %}
 
 {% if search_form is defined and search_form is not empty %}
   {% if search_form.extra_attributes is defined and search_form.extra_attributes is not empty %}
@@ -226,6 +207,45 @@
   {% endfor %}
 {% endif %}
 
+{# Define toggle macro - renders a link styled as a button when a "href" is
+   provided, otherwise renders an actual button. Used by the custom action,
+   login and search toggles below. #}
+
+{% macro toggle(href, label, icon, extra_classes, extra_attributes, hide_label = false, icon_position = 'after', indicator = {}, add_role_button = false) %}{% apply spaceless %}
+  {% if href is not empty %}
+    {% set _link_extra_attributes = extra_attributes %}
+    {% if add_role_button %}
+      {% set _link_extra_attributes = _link_extra_attributes|merge([{ name: 'role', value: 'button' }]) %}
+    {% endif %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: {
+        path: href,
+        label: label,
+        type: 'tertiary-neutral',
+        icon_position: icon_position,
+        hide_label: hide_label,
+        indicator: indicator,
+      },
+      icon: icon,
+      extra_classes: extra_classes,
+      extra_attributes: _link_extra_attributes,
+    } only %}
+  {% else %}
+    {% include '@ecl/button/button.html.twig' with {
+      label: label,
+      type: 'button',
+      variant: 'tertiary',
+      style: 'neutral',
+      hide_label: hide_label,
+      icon_position: icon_position,
+      icon: icon,
+      indicator: indicator,
+      extra_classes: extra_classes,
+      extra_attributes: extra_attributes,
+    } only %}
+  {% endif %}
+{% endapply %}{% endmacro %}
+
 {# Print the result #}
 
 <header
@@ -284,13 +304,18 @@
               {% set has_icon = _custom_action.icon is defined and _custom_action.icon is not empty %}
               {% set has_hidden_label = _custom_action.link.hide_label is defined and _custom_action.link.hide_label is not empty %}
 
-              {% set link_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
-              {% set link_extra_attributes = link_extra_attributes|merge([
-                { name: 'role', value: 'button' },
+              {% set shared_extra_attributes = _custom_action.link.extra_attributes|default([]) %}
+              {% set shared_extra_attributes = shared_extra_attributes|merge([
                 { name: 'data-ecl-custom-action', value: '' }
               ]) %}
+              {% if _custom_action.link.aria_label is defined and _custom_action.link.aria_label is not empty %}
+                {% set shared_extra_attributes = shared_extra_attributes|merge([
+                  { name: 'aria-label', value: _custom_action.link.aria_label }
+                ]) %}
+              {% endif %}
               {% if is_overlay %}
-                {% set link_extra_attributes = link_extra_attributes|merge([
+                {% set shared_extra_attributes = shared_extra_attributes|merge([
+                  { name: 'aria-haspopup', value: 'dialog' },
                   { name: 'aria-controls', value: 'custom-action-overlay' },
                   { name: 'aria-expanded', value: 'false' }
                 ]) %}
@@ -304,21 +329,20 @@
                 {% set icon = null %}
               {% endif %}
 
-              {% set base_classes = 'ecl-site-header__custom-action-toggle ecl-button ecl-button--tertiary ecl-button--neutral' %}
-              {% if has_icon and has_hidden_label %}
-                {% set base_classes = base_classes ~ ' ecl-button--icon-only' %}
-              {% endif %}
               {% set user_classes = _custom_action.link.extra_classes|default('') %}
-              {% set full_classes = (user_classes ? user_classes ~ ' ' : '') ~ base_classes %}
+              {% set full_extra_classes = (user_classes ? user_classes ~ ' ' : '') ~ 'ecl-site-header__custom-action-toggle' %}
 
-              {% set custom_action_link = {
-                link: _custom_action.link|merge({ type: 'standalone' }),
-                icon: icon,
-                extra_attributes: link_extra_attributes,
-                extra_classes: full_classes
-              } %}
-
-              {% include '@ecl/link/link.html.twig' with custom_action_link only %}
+              {{ site_header.toggle(
+                _custom_action.link.path|default(''),
+                _custom_action.link.label|default(''),
+                icon,
+                full_extra_classes,
+                shared_extra_attributes,
+                has_hidden_label,
+                _custom_action.link.icon_position|default('after'),
+                _custom_action.link.indicator|default({}),
+                true
+              ) }}
 
               {% if _custom_action.overlay is defined and _custom_action.overlay is not empty %}
                 <div
@@ -357,30 +381,30 @@
           {% if _login_toggle is not empty and _login_box is not empty %}
             <div class="ecl-site-header__login-container">
             {% if _logged %}
-              <a
-                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
-                href="{{ _login_toggle.href_logged }}"
-                aria-controls="{{ _login_box.id }}"
-                data-ecl-login-toggle
-                aria-expanded="false"
-              >
-                {% include '@ecl/icon/icon.html.twig' with {
-                  icon: {
-                    name: 'logged-in',
-                    size: 'm'
-                  },
-                  as_image: true,
+              {{ site_header.toggle(
+                _login_toggle.href_logged,
+                _login_toggle.label_logged,
+                {
+                  name: 'logged-in',
+                  size: 'm',
+                  title: _login_toggle.label_logged,
                   extra_classes: 'ecl-site-header__icon',
-                  extra_accessibility: {
-                    title: login_toggle.label_logged,
-                  },
-                } only %}
-                {{- login_toggle.label_logged -}}
-              </a>
+                },
+                'ecl-site-header__login-toggle',
+                [
+                  { name: 'aria-controls', value: _login_box.id },
+                  { name: 'data-ecl-login-toggle' },
+                  { name: 'aria-expanded', value: 'false' },
+                  { name: 'aria-haspopup', value: 'dialog' },
+                ],
+                false,
+                'before'
+              ) }}
               <div
                 id="{{ _login_box.id }}"
                 class="ecl-site-header__login-box"
                 data-ecl-login-box
+                role="dialog"
               >
                 <p class="ecl-site-header__login-description">
                   {{- _login_box.description -}}
@@ -395,25 +419,23 @@
                 } only %}
               </div>
             {% else %}
-              <a
-                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__login-toggle"
-                href="{{ _login_toggle.href_not_logged }}"
-                data-ecl-login-toggle
-              >
-                {% include '@ecl/icon/icon.html.twig' with {
-                  icon: {
-                    path: _icon_path,
-                    name: 'log-in',
-                    size: 'm'
-                  },
-                  as_image: true,
+              {{ site_header.toggle(
+                _login_toggle.href_not_logged,
+                _login_toggle.label_not_logged,
+                {
+                  name: 'log-in',
+                  path: _icon_path,
+                  size: 'm',
+                  title: _login_toggle.label_not_logged,
                   extra_classes: 'ecl-site-header__icon',
-                  extra_accessibility: {
-                    title: login_toggle.label_not_logged,
-                  },
-                } only %}
-                {{- login_toggle.label_not_logged -}}
-              </a>
+                },
+                'ecl-site-header__login-toggle',
+                [
+                  { name: 'data-ecl-login-toggle' },
+                ],
+                false,
+                'before'
+              ) }}
             {% endif %}
             </div>
           {% endif %}
@@ -430,27 +452,23 @@
           {% if _search_form is defined %}
             <div class="ecl-site-header__search-container" role="search">
             {% if _search_toggle is not empty %}
-              <a
-                class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle"
-                href="{{ _search_toggle.href }}"
-                data-ecl-search-toggle="true"
-                aria-controls="search-form-id"
-                aria-expanded="false"
-              >
-              {%- include '@ecl/icon/icon.html.twig' with {
-                icon: {
+              {{ site_header.toggle(
+                _search_toggle.href,
+                _search_toggle.label,
+                {
                   name: 'search',
                   path: _icon_path,
                   size: 'm',
+                  extra_classes: 'ecl-site-header__icon',
                 },
-                as_image: true,
-                extra_classes: 'ecl-site-header__icon',
-                extra_accessibility: {
-                  title: _search_toggle.label,
-                },
-              } only -%}
-              {{- _search_toggle.label -}}
-              </a>
+                'ecl-site-header__search-toggle',
+                [
+                  { name: 'data-ecl-search-toggle', value: 'true' },
+                  { name: 'aria-controls', value: 'search-form-id' },
+                  { name: 'aria-expanded', value: 'false' },
+                ],
+                true
+              ) }}
             {% endif %}
               {% include '@ecl/search-form/search-form.html.twig' with _search_form only %}
             </div>
