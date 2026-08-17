@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import specs from './demo/data';
 import newsTicker from './news-ticker.html.twig';
@@ -10,6 +11,10 @@ const getArgs = () => {
   const args = {
     single_news: false,
   };
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
 
   return args;
 };
@@ -24,6 +29,7 @@ const getArgTypes = () => {
         type: 'boolean',
       },
     },
+    ...getColorModeControls(),
   };
 
   return argTypes;
@@ -37,6 +43,8 @@ const prepareData = (data, args) => {
     clone.items.splice(1);
   }
 
+  clone.color_mode = args.color_mode;
+
   return clone;
 };
 
@@ -44,7 +52,7 @@ export default {
   title: 'Components/News ticker',
   decorators: [withNotes, withCode],
   parameters: {
-    controls: { disable: true },
+    controls: { sort: 'alpha' },
     chromatic: {
       modes: {
         xl: { disable: true },
@@ -65,6 +73,6 @@ Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: {
     markdown: notes,
-    json: () => specs,
+    json: ({ args }) => prepareData(specs, args),
   },
 };

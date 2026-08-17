@@ -2,16 +2,14 @@
 @use '../index' as *;
 
 $news-ticker: (
-  height-mobile: 10.5rem,
-  height-desktop: 4.5rem,
   border-radius: map.get($border-radius, 's'),
   box-shadow: map.get($shadow, '4'),
   font: var(--f-l),
   font-weight: map.get($font-weight, 'regular'),
   icon: (
     background: var(--c-p),
-    padding-block: var(--s-s),
-    padding-inline: var(--s-m) var(--s-s),
+    padding-block: 0.625rem,
+    padding-inline: var(--s-m),
   ),
   content: (
     padding-block-mobile: var(--s-m),

@@ -17,6 +17,7 @@
         ...
       ]
     - "counter_label" (string) (default: 'of')
+    - "color_mode" (string) (default: '') Name of the color mode
     - "sr_external" (string) (default: 'External link') screen reader label for external icon
     - "sr_previous" (string) (default: 'Previous news') screen reader label for previous button
     - "sr_next" (string) (default: 'Next news') screen reader label for next button
@@ -37,6 +38,7 @@
 {% set _counter_label = counter_label|default('of') %}
 {% set _items = items|default([]) %}
 {% set _aria_controls = _id ~ '-content' %}
+{% set _color_mode = color_mode|default('') %}
 {% set _sr_external = sr_external|default('External link') %}
 {% set _sr_previous = sr_previous|default('Previous news') %}
 {% set _sr_next = sr_next|default('Next news') %}
@@ -52,6 +54,10 @@
 
 {% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
   {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -144,8 +150,8 @@
         label: _sr_previous,
         hide_label: true,
         icon: {
-          name: 'corner-arrow',
-          transform: 'rotate-270',
+          name: 'caret-left',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__prev',
         extra_attributes: [{
@@ -160,7 +166,8 @@
         label: _sr_play,
         hide_label: true,
         icon: {
-          name: 'play-outline',
+          name: 'play-circle',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__play',
         extra_attributes: [{
@@ -175,7 +182,8 @@
         label: _sr_pause,
         hide_label: true,
         icon: {
-          name: 'pause-outline',
+          name: 'pause-circle',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__pause',
         extra_attributes: [{
@@ -190,9 +198,8 @@
         label: _sr_next,
         hide_label: true,
         icon: {
-          name: 'corner-arrow',
-          size: 'l',
-          transform: 'rotate-90',
+          name: 'caret-right',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__next',
         extra_attributes: [{

@@ -19,6 +19,7 @@ npm install --save @ecl/news-ticker
     - "title" (string) (default: '') Image title
     - "alt" (string) (default: '') Image alt text
 - **"counter_label"** (string) (default: 'of') Label between current and total count
+- **"color_mode"** (string) (default: '') color mode class to apply
 - **"sr_external"** (string) (default: 'External link') Screen reader label for external icon
 - **"sr_previous"** (string) (default: 'Previous news') Screen reader label for previous button
 - **"sr_next"** (string) (default: 'Next news') Screen reader label for next button
