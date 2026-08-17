@@ -101,11 +101,10 @@
             >
           {% endset %}
         {% else %}
+          {% set _item_icon = _item.icon is not empty ? _item.icon : { name: 'newspaper', family: 'phosphor' } %}
           {% set _media %}
             {% include '@ecl/icon/icon.html.twig' with {
-              icon: _item.icon|default({})|merge({
-                name: _item.icon.name|default('newspaper'),
-                family: _item.icon.family|default('phosphor'),
+              icon: _item_icon|merge({
                 size: 'l',
               }),
               extra_classes: 'ecl-news-ticker__icon',
