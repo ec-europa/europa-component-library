@@ -218,6 +218,19 @@
   </div>
   {% endif %}
 
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
+      {% if _id %}
+        id="{{ _id }}-helper"
+      {% endif %}
+      {% if _label_tag == 'legend' or _input.input_type == 'datepicker' %}
+        aria-hidden="true"
+      {% endif %}
+    >
+      {%- block helper_text _helper_text -%}
+    </div>
+  {% endif %}
+
   {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
     {% include '@ecl/text-input/text-input.html.twig' with _input|merge({
       type: _input.input_type,
@@ -262,19 +275,6 @@
   {%- if _input.input_type == 'file' -%}
     {% include '@ecl/file-upload/file-upload.html.twig' with _input only %}
   {%- endif -%}
-
-  {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
-      {% if _id %}
-        id="{{ _id }}-helper"
-      {% endif %}
-      {% if _label_tag == 'legend' or _input.input_type == 'datepicker' %}
-        aria-hidden="true"
-      {% endif %}
-    >
-      {%- block helper_text _helper_text -%}
-    </div>
-  {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
     {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}

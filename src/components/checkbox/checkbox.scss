@@ -162,3 +162,18 @@ $checkbox: null !default;
     outline-color: map.get($checkbox, 'invalid', 'border-color');
   }
 }
+
+.ecl-form-group:has(.ecl-checkbox--single) {
+  .ecl-form-label__required,
+  .ecl-form-label__optional {
+    display: none;
+  }
+
+  .ecl-checkbox--single {
+    .ecl-form-label__required,
+    .ecl-form-label__optional {
+      display: flex;
+      margin-inline-start: var(--s-2xs);
+    }
+  }
+}

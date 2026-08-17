@@ -13,9 +13,7 @@ $form-group: null !default;
 .ecl-form-group {
   border-width: 0;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: var(--s-2xs);
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -25,6 +23,7 @@ $form-group: null !default;
   box-sizing: border-box;
   color: map.get($form-group, 'invalid', 'color');
   display: flex;
+  margin-block: map.get($form-group, 'invalid', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
 
@@ -39,6 +38,7 @@ $form-group: null !default;
   box-sizing: border-box;
   color: map.get($form-group, 'help', 'color');
   display: block;
+  margin-block: map.get($form-group, 'help', 'margin-block');
   max-width: var(--max-w);
   padding: 0;
 
@@ -75,19 +75,22 @@ $form-group: null !default;
   );
 }
 
-.ecl-form-label:not(.ecl-form-label--hidden) + .ecl-form-label__optional {
-  margin-inline: map.get($form-group, 'optional', 'margin-inline');
-}
-
 .ecl-form-label__required {
   align-self: center;
   color: map.get($form-group, 'required', 'color');
-  margin-inline: map.get($form-group, 'required', 'margin-inline');
 
   @include mixins.responsive-font(
     map.get($form-group, 'required', 'font'),
     $font-weight: map.get($form-group, 'required', 'font-weight')
   );
+}
+
+.ecl-form-label:not(.ecl-form-label--hidden) + .ecl-form-label__optional {
+  margin-inline: map.get($form-group, 'optional', 'margin-inline');
+}
+
+.ecl-form-label:not(.ecl-form-label--hidden) + .ecl-form-label__required {
+  margin-inline: map.get($form-group, 'required', 'margin-inline');
 }
 
 .ecl-form-label--hidden,
@@ -100,12 +103,12 @@ $form-group: null !default;
   margin-top: 0;
 }
 
-.ecl-form-label:not(.ecl-form-label--hidden)
-  + *:not(
-    .ecl-help-block,
-    .ecl-feedback-message,
+.ecl-form-label-wrapper:not(:has(.ecl-form-label--hidden))
+  + *:not(.ecl-help-block, .ecl-feedback-message),
+.ecl-form-label-wrapper:has(.ecl-form-label--hidden):has(
     .ecl-form-label__optional,
     .ecl-form-label__required
-  ) {
+  )
+  + *:not(.ecl-help-block, .ecl-feedback-message) {
   margin-block-start: map.get($form-group, 'margin-no-helper');
 }
