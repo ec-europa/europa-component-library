@@ -51,6 +51,11 @@
   $typography: var.$typography
 );
 
+.ecl {
+  container-type: inline-size;
+  container-name: list-container;
+}
+
 // stylelint-disable no-descending-specificity
 .ecl button:not([class*='ecl-'], [class*='wt-']),
 .ecl button:is([class*='ecl-u-']) {
