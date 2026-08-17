@@ -45,11 +45,13 @@
   {% set _css_class = _css_class ~ ' ecl-notification--' ~ _variant %}
 {% endif %}
 
-{% set _icon = _icon|merge({
-  name: _icon.name|default(_default_icon_name),
-  family: _icon.family|default('phosphor'),
+{% set _icon = _icon is not empty ? _icon|merge({
   size: _icon.size|default('l'),
-}) %}
+}) : {
+  name: _default_icon_name,
+  family: 'phosphor',
+  size: 'l',
+} %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
