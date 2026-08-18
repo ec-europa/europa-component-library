@@ -4,25 +4,29 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
 $news-ticker: null !default;
 
 .ecl-news-ticker {
-  align-items: center;
   background: #fff;
   border: map.get($news-ticker, 'border');
   border-radius: map.get($news-ticker, 'border-radius');
-  box-shadow: map.get($news-ticker, 'box-shadow');
   box-sizing: border-box;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   margin: 0;
   padding: 0;
   position: relative;
+  container-type: inline-size;
+  container-name: ecl-news-ticker;
+}
+
+.ecl-news-ticker__wrapper {
+  align-items: center;
+  box-shadow: map.get($news-ticker, 'box-shadow');
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .ecl-news-ticker__icon {
@@ -129,8 +133,8 @@ $news-ticker: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-news-ticker {
+@container ecl-news-ticker (width >= #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-news-ticker__wrapper {
     box-shadow: none;
     flex-flow: initial;
     justify-content: initial;
@@ -163,7 +167,7 @@ $news-ticker: null !default;
   }
 }
 
-@include breakpoints.up('l') {
+@container ecl-news-ticker (width >= #{map.get($theme, 'breakpoint', 'l')}) {
   .ecl-news-ticker__container {
     border-inline-end: none;
     height: map.get($news-ticker, 'height');
