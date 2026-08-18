@@ -117,6 +117,16 @@ $min-height-desktop: 548px;
     margin-inline-end: var(--s-xs);
   }
 
+  .ecl-story-card__teaser-label {
+    font: map.get($story-card, 'card', 'teaser-label-font');
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  @at-root .ecl-story-card--testimonial .ecl-story-card__teaser-label {
+    display: none;
+  }
+
   .ecl-story-card__card-title,
   .ecl-story-card__grid-details-title {
     color: map.get($story-card, 'card', 'title-color');
