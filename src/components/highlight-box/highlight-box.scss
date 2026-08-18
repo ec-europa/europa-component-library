@@ -11,6 +11,8 @@ $theme: null !default;
 $highlight-box: null !default;
 
 .ecl-highlight-box {
+  --max-w: none;
+
   box-shadow: map.get($highlight-box, 'shadow');
 }
 
