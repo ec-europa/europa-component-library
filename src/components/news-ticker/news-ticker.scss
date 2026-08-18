@@ -39,10 +39,7 @@ $lines-desktop: 2 !default;
   width: 100%;
 
   // Font size declared here , to use the 'lh' unit
-  @include mixins.responsive-font(
-    map.get($news-ticker, 'font'),
-    $font-weight: map.get($news-ticker, 'font-weight')
-  );
+  @include mixins.responsive-font(map.get($news-ticker, 'font'));
 
   --ecl-news-ticker-row-height: calc(
     #{$lines-mobile}lh +
