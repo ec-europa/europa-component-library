@@ -253,7 +253,7 @@
               { name: 'data-ecl-file-translation-toggle' },
               { name: 'aria-expanded', value: 'false' },
               { name: 'aria-controls', value: _translation_list_id },
-              { name: 'aria-label', value: _translation.sr_toggle|default(_language) },
+              { name: 'aria-label', value: _translation.sr_toggle|default('') ~ ' - ' ~ _language},
             ],
           } only %}
         {% else %}

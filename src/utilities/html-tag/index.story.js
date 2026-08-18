@@ -139,7 +139,13 @@ export const Default = (args) => {
       <div class="ecl ecl-u-mt-xs">
         <blockquote>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis.</p>
-          <cite>Someone</cite>
+          <span>Someone - <cite>Lorem Ipsum</cite></span>
+        </blockquote>
+      </div>
+      <div class="ecl ecl-u-mt-xs">
+        <blockquote>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis.</p>
+          <cite>Lorem Ipsum</cite>
         </blockquote>
       </div>
     </details>
