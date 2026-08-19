@@ -21,6 +21,7 @@ npm install --save @ecl/mega-menu
   {
   "label" (string) (default: '') Item label
   "path" (string) (default: '') Item link URL
+  "is_current": (boolean) (optional) Is this the current page?
   "external" (boolean) (default: false) Is the link external?
   "sr_external" (string) (default: '') Screen reader label for the external icon
   "one_level_only" (boolean) (default: false) Disable sub-level navigation for this item

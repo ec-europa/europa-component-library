@@ -27,6 +27,7 @@ module.exports = {
     {
       label: 'News and media',
       path: exampleLink,
+      is_current: true,
       info: {
         title: 'About the News and Media',
         content:

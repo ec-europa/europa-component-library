@@ -5,6 +5,7 @@
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "item" (object)
     - "label" (string) Label of the menu link
+    - "is_current": (boolean) (optional) Is this the current page?
     - "external" (boolean) External link
     - "one_level_only" (boolean) (default: false)
     - "promotional" (boolean) (default: false) Promotional menu item, styles can be custommized defining:
@@ -86,6 +87,10 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
 {% endif %}
 
+{% if _item.is_current %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current-page' %}
+{% endif %}
+
 {% if _one_level_only %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--one-level-only' %}
 {% endif %}
@@ -129,6 +134,11 @@
     { name: _menu_link_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
+  {% if _item.is_current %}
+    {% set _menu_link_attributes = _menu_link_attributes|merge([
+      { name: 'aria-current', value: 'page' },
+    ]) %}
+  {% endif %}
   {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
     {% set _menu_link_attributes = _menu_link_attributes|merge([
       { name: 'aria-expanded', value: 'false' },
