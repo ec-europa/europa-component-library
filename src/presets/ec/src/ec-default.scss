@@ -53,10 +53,9 @@
 
 .ecl {
   container-type: inline-size;
-  container-name: list-container;
+  container-name: ecl-list-container;
 }
 
-// stylelint-disable no-descending-specificity
 .ecl button:not([class*='ecl-'], [class*='wt-']),
 .ecl button:is([class*='ecl-u-']) {
   @extend %ecl-button;
