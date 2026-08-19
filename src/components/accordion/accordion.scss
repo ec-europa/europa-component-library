@@ -33,7 +33,7 @@ $accordion: null !default;
   }
 
   .ecl-accordion__item[open] & {
-    background-color: map.get($accordion, 'item-background-hover');
+    background-color: map.get($accordion, 'item-background-active');
   }
 
   &:focus-visible {
