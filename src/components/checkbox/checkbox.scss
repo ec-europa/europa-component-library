@@ -81,11 +81,20 @@ $checkbox: null !default;
 
 // Disabled.
 .ecl-checkbox--disabled {
-  opacity: 0.5;
-
-  & .ecl-checkbox__label {
+  .ecl-checkbox__label {
+    color: map.get($checkbox, 'disabled', 'color');
     cursor: not-allowed;
   }
+
+  .ecl-checkbox__input:checked ~ .ecl-checkbox__label {
+    .ecl-checkbox__box {
+      opacity: 0.5;
+    }
+  }
+}
+
+.ecl-checkbox__box--disabled {
+  border-color: map.get($checkbox, 'disabled', 'border-color');
 }
 
 // Required
