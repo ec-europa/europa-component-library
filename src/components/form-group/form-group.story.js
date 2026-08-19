@@ -23,7 +23,7 @@ const dataStandaloneCheckbox = {
   input: {
     ...dataCheckbox.input,
     standalone: true,
-    items: [dataCheckbox.input.items[0]],
+    items: [{ ...dataCheckbox.input.items[0] }],
   },
 };
 
@@ -112,7 +112,7 @@ const getArgTypes = (data, type) => ({
 
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
-  Object.assign(clone, args);
+  Object.assign(clone, JSON.parse(JSON.stringify(args)));
   correctPaths(clone);
 
   if (!args.show_error) {
