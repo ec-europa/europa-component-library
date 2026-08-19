@@ -15,12 +15,18 @@
     - "extra_attributes" (optional) (array) (default: [])
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "form_extra_attributes" (optional) (array) (default: []): extra attributes, added at the form level.
+      Defaults to a GET method, pass a 'method' attribute here to override it.
+      - "name" (string) Attribute name, eg. 'action'
+      - "value" (optional) (string) Attribute value, eg: 'action-url'
 #}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-highlighted-search' %}
 {% set _extra_attributes = '' %}
+{% set _form_extra_attributes = '' %}
+{% set _form_has_method = false %}
 
 {% set _id = id|default('ecl-highlighted-search-' ~ random()) %}
 {% set _color_mode = color_mode|default('') %}
@@ -56,6 +62,23 @@
   {% endfor %}
 {% endif %}
 
+{% if form_extra_attributes is defined and form_extra_attributes is not empty and form_extra_attributes is iterable %}
+  {% for attr in form_extra_attributes %}
+    {% if attr.name == 'method' %}
+      {% set _form_has_method = true %}
+    {% endif %}
+    {% if attr.value is defined %}
+      {% set _form_extra_attributes = _form_extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _form_extra_attributes = _form_extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if not _form_has_method %}
+  {% set _form_extra_attributes = ' method="GET"' ~ _form_extra_attributes %}
+{% endif %}
+
 {# Print the result #}
 
 <div
@@ -85,6 +108,7 @@
         {% if _title is not empty %}
           aria-describedby="{{ _title_id }}"
         {% endif %}
+        {{ _form_extra_attributes|raw }}
       >
         <div class="ecl-highlighted-search__form-content">
           {% include '@ecl/icon/icon.html.twig' with {

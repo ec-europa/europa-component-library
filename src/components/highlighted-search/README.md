@@ -21,6 +21,10 @@ npm install --save @ecl/highlighted-search
 - **"extra_attributes"** (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+- **"form_extra_attributes"** (optional) (array) (default: []): extra attributes, added at the form level.
+  The form defaults to `method="GET"`; pass a `method` attribute here to override it.
+  - "name" (string) Attribute name, eg. 'action'
+  - "value" (optional) (string) Attribute value, eg: 'action-url'
 
 ## Example:
 
@@ -38,6 +42,9 @@ title: 'Find your next role',
   search_button: {
     label: 'Search',
   },
+  form_extra_attributes: [
+    { name: 'action', value: '/search-results?category=jobs&lang=en' },
+  ],
   suggestion_label: 'Or explore:',
   suggestion: {
     items: [

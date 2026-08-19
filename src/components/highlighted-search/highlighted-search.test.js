@@ -42,6 +42,22 @@ describe('Highlighted search', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a form action', () => {
+      expect.assertions(1);
+      return expect(
+        render(
+          merge(data, {
+            form_extra_attributes: [
+              {
+                name: 'action',
+                value: '/search-results?category=jobs&lang=en',
+              },
+            ],
+          }),
+        ),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),

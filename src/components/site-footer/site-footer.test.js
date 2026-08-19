@@ -48,6 +48,17 @@ describe('Site Footer EC', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single co-owner link', () => {
+      expect.assertions(1);
+
+      const singleCoOwnerLink = {
+        ...options,
+        co_owner: { ...options.co_owner, links: [options.co_owner.links[0]] },
+      };
+
+      return expect(render(singleCoOwnerLink)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataCoreEC, true)),
@@ -80,6 +91,20 @@ describe('Site Footer EC', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a single section link', () => {
+      expect.assertions(1);
+
+      const singleSectionLink = {
+        ...options,
+        section_about: {
+          ...options.section_about,
+          links: [options.section_about.links[0]],
+        },
+      };
+
+      return expect(render(singleSectionLink)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataHarmonisedEC, true)),
@@ -98,6 +123,17 @@ describe('Site Footer EU', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with a single co-owner link', () => {
+      expect.assertions(1);
+
+      const singleCoOwnerLink = {
+        ...options,
+        co_owner: { ...options.co_owner, links: [options.co_owner.links[0]] },
+      };
+
+      return expect(render(singleCoOwnerLink)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {

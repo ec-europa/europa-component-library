@@ -218,8 +218,10 @@
   }
 }
 
-.ecl blockquote cite:not([class*='ecl-'], [class*='wt-']),
-.ecl blockquote cite:is([class*='ecl-u-']) {
+.ecl blockquote > cite:not([class*='ecl-'], [class*='wt-']),
+.ecl blockquote > cite:is([class*='ecl-u-']),
+.ecl blockquote > span:not([class*='ecl-'], [class*='wt-']),
+.ecl blockquote > span:is([class*='ecl-u-']) {
   @extend %ecl-blockquote__author;
 
   display: block;
