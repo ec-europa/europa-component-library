@@ -48,6 +48,28 @@ node scripts/static-pages/serve.js [port]   # defaults to 8080
 # then open http://localhost:8080/{page}/{page}.html
 ```
 
+### `verify.js`
+
+Automated Step 5 checks for one already-built page — run this after every
+`build.js`, instead of re-deriving the same `grep`/`curl` commands by hand.
+Zero-dependency (plain Node `fs`/`http`/`child_process`), same as
+`build.js`/`serve.js`.
+
+**Usage:**
+
+```bash
+node scripts/static-pages/verify.js [page] [ec|eu]
+```
+
+Hard-fails (non-zero exit) on: literal `[object Object]` anywhere in the
+rendered HTML, a local `assets/...` reference that doesn't resolve on disk,
+or a non-200/wrong-`Content-Type` response for the page/module-script/main
+CSS (and, EC only, a font file) once served over `http://localhost` on a
+scratch port. Also dumps (informational only, never fails the run) every
+`<h1>`/`<h2>` text on the page and every distinct rendered icon class —
+see [`docs/agentic/ecl-static-page.md`](../../docs/agentic/ecl-static-page.md),
+Step 5, for what each check is actually catching.
+
 ### `lib.js`
 
 Shared, page-type-**agnostic** helpers used by `build.js` and by every
@@ -97,8 +119,8 @@ reasoning.
 
 ## Current state: PoC — only the pipeline is tracked
 
-**Only `build.js`, `serve.js`, `lib.js`, `lib-homepage.js`, `lib-inner.js`
-are committed to the repo.**
+**Only `build.js`, `serve.js`, `verify.js`, `lib.js`, `lib-homepage.js`,
+`lib-inner.js` are committed to the repo.**
 Every page gets its own subfolder, `dist/{page}/`, holding its composition
 (`{page}.html.twig`), its data assembly (`{page}.data.js`), any derived data
 file that `.data.js` reads, the generated `{page}.html`, and its own copy of
@@ -122,10 +144,19 @@ already there before overwriting once a page is meant to be kept.
 
 **`scripts/static-pages/demo/` is the one exception** — real-content source
 material (e.g. a sitemap/content export) the user wants to keep across
-rebuilds lives there instead, and unlike `dist/` it is _not_ gitignored. A
-JSON file _derived_ from that source (e.g. extracted for a `.data.js` to
-read) isn't itself source-of-truth, though — that belongs in `dist/{page}/`
-alongside the page that consumes it, not in `demo/`.
+rebuilds lives there instead, in its own `demo/{source}/` subfolder (e.g.
+`demo/eu-core/`, `demo/ec-core/`), and unlike `dist/` it is _not_ gitignored.
+**Keep the extraction script that reads that source in the same
+`demo/{source}/` subfolder** (e.g. `demo/eu-core/extract.py`) rather than
+somewhere throwaway — it's the one thing here that's genuinely worth
+preserving across sessions if the source is non-trivial to parse (bullet-
+list/table structure, category headings, etc.), and `demo/` is the only
+un-gitignored place to put it. A JSON file _derived_ from that source (e.g.
+what the extraction script writes for a `.data.js` to `require()`) isn't
+itself source-of-truth, though — that belongs in `dist/{page}/` alongside
+the page that consumes it, not in `demo/`, and re-running the extraction
+script is how it gets regenerated (after the source changes, or after
+deleting it to test that `.data.js` fails clearly without it).
 
 ### EC vs EU: the pipeline isn't equally battle-tested
 
@@ -146,22 +177,31 @@ assuming it mirrors EC's.
 scripts/static-pages/
 ├── build.js              # shared render pipeline — TRACKED
 ├── serve.js               # local preview server — TRACKED
-├── lib.js                  # page-type-agnostic shared helpers — TRACKED
-├── lib-homepage.js          # homepage-only helper (page-header shape) — TRACKED
-├── lib-inner.js              # inner-page-only helper (page-header shape) — TRACKED
-├── README.md                   # this file — TRACKED
-├── demo/                       # real-content SOURCE files — NOT gitignored
-│   ├── eu-portal-sitemap.xlsx
-│   └── eu-portal-teasers.docx
-└── dist/                      # generated — gitignored, nothing here is committed
-    ├── homepage/                  # everything for this one page, self-contained
-    │   ├── homepage.html.twig         # composition
-    │   ├── homepage.data.js            # data assembly
-    │   ├── eu-portal-content.json        # derived from demo/ — not source itself
-    │   ├── homepage.html                   # generated output
+├── verify.js               # automated Step 5 checks — TRACKED
+├── lib.js                   # page-type-agnostic shared helpers — TRACKED
+├── lib-homepage.js           # homepage-only helper (page-header shape) — TRACKED
+├── lib-inner.js                # inner-page-only helper (page-header shape) — TRACKED
+├── README.md                     # this file — TRACKED
+├── demo/                         # real-content SOURCE material — NOT gitignored
+│   ├── eu-core/                      # one real-content source, own subfolder
+│   │   ├── eu-portal-sitemap.xlsx
+│   │   ├── eu-portal-teasers.docx
+│   │   └── extract.py                  # parses the two files above into JSON —
+│   │                                    # kept here so the next page built from
+│   │                                    # this source doesn't re-derive it
+│   └── ec-core/                      # a different real-content source
+│       ├── ec-commission-sitemap.xlsx
+│       └── ec-commission-teasers.docx
+└── dist/                         # generated — gitignored, nothing here is committed
+    ├── homepage-eu-core/              # everything for this one page, self-contained
+    │   ├── homepage-eu-core.html.twig     # composition
+    │   ├── homepage-eu-core.data.js        # data assembly
+    │   ├── eu-portal-content.json            # extract.py's output — derived, not
+    │   │                                      # source itself (that's in demo/)
+    │   ├── homepage-eu-core.html               # generated output
     │   └── assets/
-    │       └── eu/{styles,scripts,fonts,images}/   (or ec/)
-    └── homepage-batteries/         # a different page — its own folder, own assets copy
+    │       └── eu/{styles,scripts,fonts,images}/
+    └── homepage-batteries/            # a different page — its own folder, own assets copy
         ├── homepage-batteries.html.twig
         ├── homepage-batteries.data.js
         ├── homepage-batteries.html
@@ -171,9 +211,9 @@ scripts/static-pages/
 
 ## Requirements
 
-- `pnpm install` run at the repo root (needed for `src/playground/{ec|eu}/
-.storybook/environment.js`'s `twing` dependency, and for the preset's own
-  `dist/` to exist under `src/presets/{ec|eu}/dist/`).
+- `pnpm install` run at the repo root (needed for
+  `src/playground/{ec|eu}/.storybook/environment.js`'s `twing` dependency,
+  and for the preset's own `dist/` to exist under `src/presets/{ec|eu}/dist/`).
 - No extra dependencies beyond that — plain Node `fs`/`path`/`http`.
 
 ## Related docs
@@ -194,12 +234,19 @@ pointers rather than reading all three up front:
 
 ## Troubleshooting
 
+**Not sure why a page looks wrong, or whether it's actually ready to hand off?**
+
+Run `node scripts/static-pages/verify.js [page] [ec|eu]` first — most of the
+failure modes below (missing assets, a misshapen data field, icons quietly
+falling back to the wrong set) build successfully and only show up in the
+rendered output, which is exactly what it checks.
+
 **`Missing {page}.html.twig or {page}.data.js in .../dist/{page}`**
 
 That page hasn't been composed yet — follow the main skill doc's Step 0 to
-pick a page type, then that type's own doc (`ecl-static-page-{homepage,
-inner}.md`) for Step 1, then the main doc's Step 3 to create both in
-`dist/{page}/`.
+pick a page type, then that type's own doc
+(`ecl-static-page-{homepage,inner}.md`) for Step 1, then the main doc's
+Step 3 to create both in `dist/{page}/`.
 
 **Icons not rendering, or component JS not initializing (e.g. mega-menu
 doesn't open)**

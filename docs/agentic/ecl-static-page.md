@@ -7,8 +7,8 @@ ecosystem, not just a Storybook-adjacent demo. Every technical dependency
 this repo's tooling.
 
 The pipeline that handles the technical parts (asset self-hosting, icons,
-JS init, local preview) already exists and is tracked at
-`scripts/static-pages/{build,serve,lib}.js` — see
+JS init, local preview, verification) already exists and is tracked at
+`scripts/static-pages/{build,serve,verify,lib}.js` — see
 [`scripts/static-pages/README.md`](../../scripts/static-pages/README.md) for
 what each does. This doc is mostly about the parts that stay
 judgment-driven per page: what structure a page should have, and which
@@ -92,7 +92,14 @@ every type doc:
   `standardSiteHeader()`/`standardSiteFooter()` — they already wire logos and
   strip the rarely-used blocks (login, custom action) that shouldn't be on
   by default. Give it a nav: `menu` (simple, ≤2 levels) or `mega_menu`
-  (matches real EC/EU sites' depth) — pick per page. Keep it small (≤6
+  (matches real EC/EU sites' depth) — pick per page. **This data doesn't
+  come from `standardSiteHeader()` or from site-header's own demo files at
+  all** — `site-header/demo/data--{ec,eu}.js` has no `menu`/`mega_menu` key
+  whatsoever (that's why `standardSiteHeader()` can't set it for you). Pull
+  the nav shape from `menu/demo/data--{ec,eu}.js` or `mega-menu/demo/data.js`
+  instead and attach it yourself: `site_header.menu = {...}` — the twig
+  include just merges whatever top-level keys `site_header` has, so a
+  `menu`/`mega_menu` key on that object is all it takes. Keep it small (≤6
   top-level items — trim the demo data's 8 if reusing it) and strip
   promotional content, which is rare in practice: mega-menu has **three
   distinct** rarely-used fields — `info`, `featured`, `promotional` — and
@@ -100,8 +107,27 @@ every type doc:
   recursively, not just on the items you touch. Re-theme at least the
   top-level/topic-flexible item labels for a themed pass (deep nested items
   can stay generic — see Step 2).
-- For each content section: read the component's `README.md` (params) and
-  its `usage.md` (when to use it). A type doc's matrix is a shortcut for
+- For each content section: read the component's `README.md` (params) —
+  next to the component, `src/components/{name}/README.md` — and its
+  `usage.md` (when to use it, do's/don'ts). **`usage.md` is not in the
+  component's own folder** — `src/components/{name}/usage.md` is empty or
+  missing for almost every component. The real content lives in the website
+  docs instead, under `src/website/src/pages/{ec|eu}/components/`, as
+  `.../{name}/docs/usage.md` — and about a third of components sit one level
+  deeper there, under a category subfolder rather than directly under
+  `components/`: forms (e.g. `forms/select/docs/usage.md`), media
+  (`media/featured-item`, `media/gallery`, `media/media-container`),
+  navigation (`navigation/menu`, `navigation/mega-menu`,
+  `navigation/navigation-list`, `navigation/tabs`, `navigation/breadcrumb`,
+  `navigation/inpage-navigation`, `navigation/pagination`,
+  `navigation/link`, `navigation/skip-link`), and site-wide
+  (`site-wide/page-header`, `site-wide/site-header`,
+  `site-wide/site-footer`). Don't guess the subfolder — find it once per
+  component:
+  `find src/website/src/pages/ec/components -type d -iname {name}`. EC/EU
+  copies are near-identical (only their internal cross-reference links
+  differ), so either system's copy is fine to read regardless of which
+  system the page being built targets. A type doc's matrix is a shortcut for
   this, not a replacement — check the actual doc when a pick matters.
 
 **Don't copy a `src/page-example/*` composition wholesale — and don't copy
@@ -160,21 +186,50 @@ rest below is page-type-agnostic:
   real-content date, derive it from whether the item's date is before/after
   the source's own fetch/snapshot date (e.g. a news article dated before
   the source docx's stated "fetched" date is `'past'`).
+- `page-header`'s `title` is a **plain string**, not the
+  `{ link: { label, path } }` shape that
+  Card/Navigation-list/Featured-item/File all use for their own `title`. Writing
+  `page_header.title.link.label = '...'` doesn't
+  error — JS silently resolves `.title.link` to the built-in
+  `String.prototype.link` method and sets a stray `.label` property on
+  _that_, leaving `page_header.title` completely unchanged. The build
+  succeeds and looks fine; only the rendered `<h1>` text is wrong, and
+  nothing but actually reading it (Step 5) catches it. Set it as
+  `page_header.title = '...'` directly. More generally: don't assume a
+  `title`-ish field's shape carries over from one component to the next —
+  check the specific component's own demo data before overwriting a nested
+  path on it.
 - Before wrapping a content section in an external `<h2>` for its heading,
-  check the component's own `.html.twig` for whether it already renders its
-  own internal title — Story-card does (its `title`/`description` params
-  render as `.ecl-story-card__title`/`__description` inside the component),
-  so an external `<h2>{{ story_card.title }}</h2>` above it duplicates the
-  heading. Card, Content-item, Navigation-list, Featured-item, etc. don't
-  render their own heading and do need the external `<h2>`. This is easy to
-  miss even after reading this rule once — actually check the rendered
-  output (Step 5), don't just trust the plan.
+  check whether the component already renders its own prominent title
+  internally. None of these components render a real semantic `<hX>` tag for
+  it (only `page-header` renders an actual `<h1>`) — the ones below use a
+  styled `<div>`/`<p>` for their "title" field instead, so this is a
+  by-convention check, not something `grep '<h[1-6]'` will answer for you:
+  - **Has its own title, external `<h2>` is redundant — skip it**:
+    Story-card (`title`/`description` render as `.ecl-story-card__title`/
+    `__description` inside the component — an external
+    `<h2>{{ story_card.title }}</h2>` above it literally duplicates the
+    visible text), Add-to-calendar, Highlight-box. All three read as a
+    single self-contained callout/widget rather than a titled page section,
+    which is the actual distinction — not just "has a `title` field".
+  - **Exception — has its own title but still wants the external `<h2>`**:
+    Featured-item. Its `title` renders prominently
+    (`.ecl-featured-item__title`), but unlike the three above it, it's used
+    as a content-section highlight (homepage/inner-page "In focus"-style
+    slot), and that section still needs a real heading landmark. Verified
+    by building both a homepage and an inner page with it — dropping the
+    external `<h2>` left the section with no structural heading at all.
+  - **No section-level title field at all (only per-item titles, if any) —
+    always needs the external `<h2>`**: Card, Content-item, Navigation-list,
+    Fact-figures, List-illustration, Gallery, Table, Timeline, Tabs.
+    This is easy to get wrong even after reading this rule once — actually
+    check the rendered output (Step 5), don't just trust the plan.
 - List-illustration's `zebra` (alternating-background) treatment is a
   vertical, single-column layout only — its CSS makes the list break out to
   full viewport width and stripe alternating rows, which conflicts with the
   `--col-2`/`--col-3`/`--col-4` grid `column` sets. If `column` is anything
-  other than `1` (e.g. reusing `demo/data--icon.js`, which ships `zebra:
-true` at column 1), explicitly set `zebra: false` — don't leave a source
+  other than `1` (e.g. reusing `demo/data--icon.js`, which ships
+  `zebra: true` at column 1), explicitly set `zebra: false` — don't leave a source
   demo's `zebra` value in place after changing `column` away from `1`.
 - Any body-copy `<p>` needs an explicit `ecl-u-type-paragraph` (or
   `-paragraph-lead`) class — that's what sets its font size/color/max-width.
@@ -215,8 +270,8 @@ component choice, same data shape — and only rewrite the text leaves:
   item N times), clone an existing array item from the source demo data and
   overwrite its leaf values, rather than writing a new object of the
   "same shape" from memory. Nested wrapper fields are easy to flatten by
-  mistake this way — e.g. `navigation-list`'s `title` is `{ link: { type,
-label, path } }`, not a flat `{ type, label, path }`; get it wrong and it
+  mistake this way — e.g. `navigation-list`'s `title` is
+  `{ link: { type, label, path } }`, not a flat `{ type, label, path }`; get it wrong and it
   silently renders `[object Object]` instead of the text, only caught by
   actually reading the output (Step 5).
 - **Icons**: pick real names from the current set — ECL moved to Phosphor,
@@ -244,8 +299,8 @@ label, path } }`, not a flat `{ type, label, path }`; get it wrong and it
 - **Invented facts/stats are expected and fine here** — this mode is
   explicitly illustrative, not the real-content path (Step 0). Keep numbers
   clearly illustrative rather than presenting invented figures with false
-  precision (the demo data's own convention — e.g. Fact-figures' `"00.0
-million"` placeholder — is a reasonable model to follow), and drop fields
+  precision (the demo data's own convention — e.g. Fact-figures'
+  `"00.0 million"` placeholder — is a reasonable model to follow), and drop fields
   like Fact-figures' `sources`/`sources_label` rather than attributing a
   fabricated number to a real-sounding institution (e.g. "Eurostat") — that
   reads as a real citation, which it isn't. Noting on the page that content
@@ -258,8 +313,9 @@ When Step 0's content source is real material the user supplies (a
 sitemap, a content export, a spreadsheet/doc of real pages) rather than a
 topic to generate from:
 
-- **Raw source files live outside `dist/`, in `scripts/static-pages/demo/`**
-  (unlike `dist/`, not gitignored) — they're meant to be kept, not
+- **Raw source files live outside `dist/`, in their own
+  `scripts/static-pages/demo/{source}/` subfolder** (e.g. `demo/eu-core/`;
+  unlike `dist/`, not gitignored) — they're meant to be kept, not
   regenerated. A _derived_ intermediate you extract from them (e.g. a JSON
   dump of an `.xlsx`/`.docx`) is not itself a source, though — it belongs
   next to the page that consumes it, under `dist/{page}/` (Step 4), since
@@ -270,7 +326,16 @@ topic to generate from:
   Python script (`openpyxl`/`python-docx`, installed into a throwaway venv
   if not already available — no need to add them as repo dependencies) or
   equivalent, writing a JSON file under `dist/{page}/` for `.data.js` to
-  `require()` as data, not retyped as literals.
+  `require()` as data, not retyped as literals. **Keep the extraction script
+  itself next to the source it reads, in
+  `scripts/static-pages/demo/{source}/`** (e.g. `demo/eu-core/extract.py`)
+  rather than somewhere throwaway — `demo/` is the one location in this pipeline that isn't
+  gitignored, so a script left anywhere else (a scratch dir, an ad hoc
+  one-off) is gone by the next session, and whoever next touches that source
+  has to re-derive the same parsing logic from scratch. Re-running it should
+  be how the derived JSON gets regenerated after the source `.xlsx`/`.docx`
+  changes, or after deleting the JSON to test that `.data.js` fails clearly
+  without it — not a reason to hand-edit the JSON directly.
 - **No hotlinking the source site's own images.** Themed generation has
   `picsumImage()` for a reason — real content has real photos, but their
   licensing/hotlinking terms aren't yours to assume, and external hosts
@@ -303,8 +368,9 @@ Write two files into `scripts/static-pages/dist/{page}/` (not tracked —
 Step 4):
 
 - `{page}.html.twig` — your Step 1 composition.
-- `{page}.data.js` — `module.exports = function buildData({ REPO,
-ASSETS_DIR, SYSTEM, req, clone }) { ... return data; }`. Require `lib.js`
+- `{page}.data.js` —
+  `module.exports = function buildData({ REPO, ASSETS_DIR, SYSTEM, req, clone }) { ... return data; }`.
+  Require `lib.js`
   for page-type-agnostic helpers and the matching `lib-{type}.js` (e.g.
   `lib-homepage.js`, `lib-inner.js`) for that type's page-header helper —
   don't require a `lib-{type}.js` for a type other than the one you're
@@ -331,8 +397,8 @@ is, read `build.js`'s own comments before re-deriving it.
 
 Everything lives under `scripts/static-pages/` — not a top-level `examples/`
 folder (`scripts/` is this repo's existing convention, see
-`scripts/token-analysis/`). Only `build.js`, `serve.js`, `lib.js`,
-`lib-homepage.js`, `lib-inner.js`, `README.md` are committed.
+`scripts/token-analysis/`). Only `build.js`, `serve.js`, `verify.js`,
+`lib.js`, `lib-homepage.js`, `lib-inner.js`, `README.md` are committed.
 
 Each page gets its own subfolder, `dist/{page}/`, holding **everything**
 specific to it — `{page}.html.twig`, `{page}.data.js`, any derived data file
@@ -361,31 +427,52 @@ instead); rebuilding a page you didn't change is unnecessary unless
 
 **Real-content source material is the exception to "nothing persists" — and
 lives outside any `dist/{page}/` folder entirely.** A sitemap/content
-export the user wants to keep across rebuilds belongs in
-`scripts/static-pages/demo/`, which is not gitignored (see Step 2's "Real
-content" subsection). Anything _derived_ from that source (e.g. a JSON
-extraction meant for one `.data.js` to `require()`) is page-specific output,
-not source-of-truth — that goes in `dist/{page}/` alongside the rest of
-that page's files, not in `demo/`.
+export the user wants to keep across rebuilds belongs in its own
+`scripts/static-pages/demo/{source}/` subfolder (e.g. `demo/eu-core/`),
+which is not gitignored (see Step 2's "Real content" subsection) — and so
+does the extraction script that parses it into JSON, for the same reason
+(that subsection's "don't hand-retype" bullet). Anything _derived_ from that
+source (the JSON itself) is page-specific output, not source-of-truth —
+that goes in `dist/{page}/` alongside the rest of that page's files, not in
+`demo/`.
 
 ---
 
 ## Step 5 — verify
 
-- Every local `href`/`src`/`srcset="assets/..."` in the generated file
-  resolves on disk.
-- Don't tell the user to open the file via `file://` — breaks
+Run this after every `build.js`:
+
+```bash
+node scripts/static-pages/verify.js [page] [ec|eu]
+```
+
+It automates the checks this step used to describe by hand — don't
+re-derive them with ad hoc `grep`/`curl` commands, and don't skip it because
+the build itself didn't error (every failure mode below passes `build.js`
+silently):
+
+- No literal `[object Object]` in the rendered HTML (the signature of a
+  flattened/misshapen nested field — Step 2's shape gotchas).
+- Every local `href`/`src`/`srcset="assets/..."` resolves on disk.
+- Dumps `<h1>`/`<h2>` text for a skim — including the (visually) hidden
+  homepage `<h1>`, which is exactly where the `page-header` title bug in
+  Step 2 shows up.
+- Dumps the distinct `wt-icon-*` classes rendered, flagging any without a
+  family segment (`wt-icon--name` rather than `wt-icon-phosphor--name`) —
+  some are legitimately default-set icons (close, hamburger, search, ...),
+  but it's also what a missing `family: 'phosphor'` silently degrades to, so
+  it's worth a glance rather than an assumption.
+- Starts `serve.js` on a scratch port, requests the HTML page, the module
+  script, and the main CSS (and, EC only — EU ships no self-hosted fonts,
+  see `scripts/static-pages/README.md` — a font file), checks each for
+  `200`/a sane `Content-Type`, then stops the server itself. Don't tell the
+  user to open the file via `file://` instead — breaks
   `<script type="module">` loading and the Webtools icon script (see
-  `serve.js`'s header comment for the CORS mechanics). Use it instead:
+  `serve.js`'s header comment for the CORS mechanics).
 
-  ```bash
-  node scripts/static-pages/serve.js [port]   # defaults to 8080
-  ```
+It exits non-zero if any of the hard checks (object leaks, missing assets,
+non-200s) fail; the heading/icon dumps are informational only and never fail
+the run — read them, don't just check the exit code.
 
-  Verify it actually works before handing off — start it backgrounded,
-  `curl` the HTML page, the module script, the main CSS, and (EC only — EU
-  ships no self-hosted fonts, see `scripts/static-pages/README.md`) a font
-  file; check for `200`/sane `Content-Type`, then stop it.
-
-- Don't reach for `claude-in-chrome` unless the user asks for it — they can
-  check the visual result themselves once `serve.js` is running.
+Don't reach for `claude-in-chrome` unless the user asks for it — they can
+check the visual result themselves once `serve.js` is running.
