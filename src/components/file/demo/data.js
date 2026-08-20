@@ -38,7 +38,7 @@ module.exports = {
             {
               link: {
                 label: 'List item 1',
-                path: '#',
+                path: exampleLink,
                 icon_position: 'before',
               },
               icon: {
@@ -49,7 +49,12 @@ module.exports = {
             },
             'List item 2',
             'List item 3',
-            'List item 4',
+            {
+              link: {
+                label: 'List item 4',
+                path: exampleLink,
+              },
+            },
             'List item 5',
             'List item 6',
           ],
