@@ -9,9 +9,13 @@ module.exports = {
   prev_label: 'Previous',
   items: [
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Europe flag',
+        },
+      },
+      image: 'always',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
       correct_chosen_label: 'Your correct answer',
@@ -51,9 +55,13 @@ module.exports = {
         'The European Commission has the exclusive right to propose new EU laws',
     },
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+          alt: 'Europe flag',
+        },
+      },
+      image: 'reveal',
       question:
         'What document allows EU citizens to travel freely between most EU countries?',
       correct_label: 'Correct answer',
@@ -94,9 +102,6 @@ module.exports = {
       },
     },
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
       question: 'What currency is used in many EU countries?',
       answer_title: 'The correct answer is C.',
       answer: 'The Euro is the official currency used by many EU conutries',
@@ -139,9 +144,6 @@ module.exports = {
       },
     },
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
       question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?',
       answer_title: 'The correct answer is B.',
       answer: 'Duis id mattis libero. Quisque accumsan nisi',
@@ -184,9 +186,6 @@ module.exports = {
       },
     },
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
       question:
         'Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.',
       answer_title: 'The correct answer is C.',

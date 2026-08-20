@@ -3,9 +3,8 @@
 {#
   Parameters
     - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
-    - "category" (string) (default: '') (poll variant) Category of the quiz item, eg: 'Geography'
-    - "success_category" (string) (default: '') Category to show on the back of the card in case of correct answer, eg: 'Correct'
-    - "error_category" (string) (default: '') Category to show on the back of the card in case of incorrect answer, eg: 'Incorrect'
+    - "image" (string) (default: 'none'): With image, on both side or only in the back (None, Reveal, Always)
+    - "picture" (oject) (default: {}) Ecl Picture object
     - "question" (string) (default: '') Question to show on the front of the card
     - "answer" (string) (default: '') Answer to show on the back of the card
     - "answer_title" (string) (default: '') Title for the answer section on the back of the card
@@ -33,6 +32,8 @@
 
 {% set _id = id|default('ecl-quiz-item-' ~ random()) %}
 {% set _category = category|default('') %}
+{% set _image = image|default('') %}
+{% set _picture = picture|default({}) %}
 {% set _success_category = success_category|default('') %}
 {% set _error_category = error_category|default('') %}
 {% set _question = question|default('') %}
@@ -78,6 +79,18 @@
   {% endfor %}
 {% endif %}
 
+
+{% set _picture_markup = '' %}
+{% if _picture.img is not empty %}
+  {% set _picture_markup %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: "ecl-quiz-card__picture",
+      extra_image_classes: "ecl-quiz-card__image",
+    } only %}
+  {% endset %}
+{% endif %}
+
 <li
   class="{{ _css_class }}"
   id="{{ _id }}"
@@ -89,146 +102,135 @@
 >
   <article class="ecl-quiz-card__content">
     <div class="ecl-quiz-card__front">
-      <div class="ecl-quiz-card__header">
-        <div class="ecl-quiz-card__icon">
-          {% include "@ecl/icon/icon.html.twig" with _icon only %}
+    {% if _image == 'always' %}
+      {{ _picture_markup }}
+      {% elseif _variant == 'poll' and _image == 'reveal' %}
+      <canvas class="ecl-quiz-card__illustration"></canvas>
+    {% endif %}
+      <div class="ecl-quiz-card__padded">
+        <div class="ecl-quiz-card__header">
+          <div class="ecl-quiz-card__icon">
+            {% include "@ecl/icon/icon.html.twig" with _icon only %}
+          </div>
         </div>
-      {% if _category is not empty %}
-        <span class="ecl-quiz-card__category">
-          {{- _category -}}
-        </span>
+      {%  if _variant == 'reveal' %}
+        <div class="ecl-quiz-card__question" id="{{ _id }}-question">
+          {{- _question -}}
+        </div>
+      {% endif %}
+      {% if _options is not empty %}
+        <fieldset
+        {%- if _esc_box is not empty %}
+          aria-describedby="quiz-{{ _id }}-skip-instructions"
+        {%- endif -%}
+        >
+          <legend class="ecl-quiz-card__question" id="{{ _id }}-question">
+            {{- _question -}}
+          </legend>
+          <ol class="ecl-quiz-card__options" type="A">
+          {% for _option in _options %}
+            <li class="ecl-quiz-card__option">
+              <label class="ecl-quiz-card__label">
+                <input
+                  type="radio"
+                  data-ecl-quiz-card-flip
+                  data-ecl-quiz-card-input
+                  name="{{ _name }}"
+                  data-match="{{ _option.correct ? "true" : "false" }}"
+                >
+                {{- _option.name -}}
+              </label>
+            {%- if loop.first and _esc_box is not empty -%}
+              <span
+                class="ecl-quiz__skip"
+                id="quiz-{{ _id }}-skip-instructions"
+              >
+                {{- _esc_box -}}
+              </span>
+            {%- endif -%}
+            </li>
+          {% endfor %}
+          </ol>
+        </fieldset>
+      {% endif %}
+      {% if _flip_text is not empty %}
+        <div
+          class="ecl-quiz-card__flip"
+        >
+          {{- _flip_text -}}
+          {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
+        </div>
       {% endif %}
       </div>
-    {%  if _variant == 'reveal' %}
-      <div class="ecl-quiz-card__question" id="{{ _id }}-question">
-        {{- _question -}}
-      </div>
-    {% endif %}
-    {% if _options is not empty %}
-      <fieldset
-      {%- if _esc_box is not empty %}
-        aria-describedby="quiz-{{ _id }}-skip-instructions"
-      {%- endif -%}
-      >
-        <legend class="ecl-quiz-card__question" id="{{ _id }}-question">
-          {{- _question -}}
-        </legend>
-        <ol class="ecl-quiz-card__options" type="A">
-        {% for _option in _options %}
-          <li class="ecl-quiz-card__option">
-            <label class="ecl-quiz-card__label">
-              <input
-                type="radio"
-                data-ecl-quiz-card-flip
-                data-ecl-quiz-card-input
-                name="{{ _name }}"
-                data-match="{{ _option.correct ? "true" : "false" }}"
-              >
-              {{- _option.name -}}
-            </label>
-          {%- if loop.first and _esc_box is not empty -%}
-            <span
-              class="ecl-quiz__skip"
-              id="quiz-{{ _id }}-skip-instructions"
-            >
-              {{- _esc_box -}}
-            </span>
-          {%- endif -%}
-          </li>
-        {% endfor %}
-        </ol>
-      </fieldset>
-    {% endif %}
-    {% if _flip_text is not empty %}
-      <div
-        class="ecl-quiz-card__flip"
-      >
-        {{- _flip_text -}}
-        {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
-      </div>
-    {% endif %}
     </div>
     <div
       class="ecl-quiz-card__back"
       hidden
       inert
     >
-      <div class="ecl-quiz-card__header">
-        <div class="ecl-quiz-card__icon">
-          {% if _back_icon %}
-            {% include "@ecl/icon/icon.html.twig" with _back_icon.success|merge({
-              extra_classes: 'ecl-quiz-card__icon--success',
-            }) only %}
-            {% set _icon = _back_icon.error %}
+    {{ _picture_markup }}
+      <div class="ecl-quiz-card__padded">
+        <div class="ecl-quiz-card__header">
+          <div class="ecl-quiz-card__icon">
+            {% if _back_icon %}
+              {% include "@ecl/icon/icon.html.twig" with _back_icon.success|merge({
+                extra_classes: 'ecl-quiz-card__icon--success',
+              }) only %}
+              {% set _icon = _back_icon.error %}
+            {% endif %}
+            {% include "@ecl/icon/icon.html.twig" with _icon only %}
+          </div>
+          {% if _variant == 'poll' %}
+            <span
+              class="ecl-quiz-card__sr-status"
+              role="status"
+              aria-atomic="true"
+            ></span>
           {% endif %}
-          {% include "@ecl/icon/icon.html.twig" with _icon only %}
         </div>
-        {% if _success_category is not empty %}
-          <span
-            class="ecl-quiz-card__category ecl-quiz-card__category--success"
-            tabindex="0"
+        <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
+        {%- if _answer_title is not empty -%}
+          <div class="ecl-quiz-card__answer-title">{{ _answer_title }}</div>
+        {%- endif -%}
+          {{-  _answer -}}
+        </div>
+      {% if _options is not empty %}
+        <ol class="ecl-quiz-card__options" type="A">
+        {% for _option in _options %}
+          <li
+            class="ecl-quiz-card__option"
+            data-match="{{ _option.correct ? "true" : "false" }}"
           >
-            {{- _success_category -}}
-          </span>
-        {% endif %}
-        {% if _error_category is not empty %}
-          <span
-            class="ecl-quiz-card__category ecl-quiz-card__category--error"
-            tabindex="0"
-          >
-            {{- _error_category -}}
-          </span>
-        {% endif %}
-        {% if _variant == 'poll' %}
-          <span
-            class="ecl-quiz-card__sr-status"
-            role="status"
-            aria-atomic="true"
-          ></span>
-        {% endif %}
+            <span class="ecl-quiz-card__option-assistive-label">
+              {{- _option.correct ? _correct_label : _incorrect_label -}}
+            </span>
+            {{- _option.name -}}
+            <span
+              class="ecl-quiz-card__option-icon"
+            >
+            {% if _option.correct %}
+              {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
+                icon: _back_icon.success.icon|merge({ size: 's' }),
+                extra_classes: 'ecl-quiz-card__option-icon--success',
+              }) only %}
+            {% else %}
+              {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
+                icon: _back_icon.error.icon|merge({ size: 's' }),
+                extra_classes: 'ecl-quiz-card__option-icon--error',
+              }) only %}
+            {% endif %}
+            </span>
+          </li>
+        {% endfor %}
+        </ol>
+      {% endif %}
+      {% if _back_text is not empty or _flip_icon is not empty %}
+        <div class="ecl-quiz-card__flip">
+          {{- _back_text -}}
+          {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
+        </div>
+      {% endif %}
       </div>
-      <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
-      {%- if _answer_title is not empty -%}
-        <div class="ecl-quiz-card__answer-title">{{ _answer_title }}</div>
-      {%- endif -%}
-        {{-  _answer -}}
-      </div>
-    {% if _options is not empty %}
-      <ol class="ecl-quiz-card__options" type="A">
-      {% for _option in _options %}
-        <li
-          class="ecl-quiz-card__option"
-          data-match="{{ _option.correct ? "true" : "false" }}"
-        >
-          <span class="ecl-quiz-card__option-assistive-label">
-            {{- _option.correct ? _correct_label : _incorrect_label -}}
-          </span>
-          {{- _option.name -}}
-          <span
-            class="ecl-quiz-card__option-icon"
-          >
-          {% if _option.correct %}
-            {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
-              icon: _back_icon.success.icon|merge({ size: 's' }),
-              extra_classes: 'ecl-quiz-card__option-icon--success',
-            }) only %}
-          {% else %}
-            {% include "@ecl/icon/icon.html.twig" with _back_icon|merge({
-              icon: _back_icon.error.icon|merge({ size: 's' }),
-              extra_classes: 'ecl-quiz-card__option-icon--error',
-            }) only %}
-          {% endif %}
-          </span>
-        </li>
-      {% endfor %}
-      </ol>
-    {% endif %}
-    {% if _back_text is not empty or _flip_icon is not empty %}
-      <div class="ecl-quiz-card__flip">
-        {{- _back_text -}}
-        {% include "@ecl/icon/icon.html.twig" with _flip_icon only %}
-      </div>
-    {% endif %}
     </div>
   </article>
 </li>

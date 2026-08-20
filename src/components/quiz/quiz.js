@@ -372,8 +372,9 @@ export class Quiz {
     const front = queryOne(this.frontClass, this.element);
     const styles = getComputedStyle(front);
     const minHeight = parseFloat(styles.getPropertyValue('min-height')) || 345;
+    const flipped = [];
 
-    this.cards.forEach((card) => {
+    this.cards.forEach((card, i) => {
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
       const question = queryOne(this.questionClass, card);
@@ -381,6 +382,14 @@ export class Quiz {
 
       front.style.position = 'static';
       back.style.position = 'static';
+
+      if (front.hasAttribute('hidden')) {
+        front.removeAttribute('hidden');
+        flipped[i] = true;
+      } else {
+        back.removeAttribute('hidden');
+        flipped[i] = false;
+      }
 
       // Reset heights previously set.
       question.style.minHeight = '';
@@ -393,24 +402,23 @@ export class Quiz {
       if (heightText > maxTextHeight) {
         maxTextHeight = heightText;
       }
-
-      front.style.position = '';
-      back.style.position = '';
     });
 
-    this.cards.forEach((card) => {
+    this.cards.forEach((card, i) => {
       const question = queryOne(this.questionClass, card);
       const answer = queryOne(this.answerClass, card);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
       const content = queryOne(this.contentClass, card);
 
-      front.style.position = 'static';
-      back.style.position = 'static';
       content.style.height = '';
 
-      question.style.minHeight = maxTextHeight + 'px';
-      answer.style.minHeight = maxTextHeight + 'px';
+      if (!queryOne('img', front)) {
+        question.style.minHeight = maxTextHeight + 'px';
+      }
+      if (!queryOne('img', back)) {
+        answer.style.minHeight = maxTextHeight + 'px';
+      }
 
       const heightFront = front.scrollHeight;
       const heightBack = back.scrollHeight;
@@ -419,8 +427,15 @@ export class Quiz {
       if (height > minHeight && height > maxHeight) {
         maxHeight = height;
       }
+
       front.style.position = '';
       back.style.position = '';
+
+      if (flipped[i]) {
+        front.setAttribute('hidden', '');
+      } else {
+        back.setAttribute('hidden', '');
+      }
     });
 
     if (maxHeight > 0) {
