@@ -4,7 +4,7 @@
   Parameters:
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
-          "href": (string) (default: ''): URL for switcher
+          "href": (string) (optional) (default: ''): URL for switcher. If not provided, the toggle renders as a button
           "label": (string) (default: ''): Switcher language label, eg. 'English' in EU, 'EN' in ec.
           "aria_label": (string) (default: ''): Switcher language aria label
           "eu_category": (string) (default: ''): Label for EU languages
@@ -47,31 +47,59 @@
 {# Print the result #}
 
 <div class="ecl-site-header__language">
-  <a
-    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
-    href="{{ _language_selector.href|default('') }}"
-    data-ecl-language-selector
-    role="button"
-    aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
-  {% if _has_overlay is defined %}
-    aria-controls="language-list-overlay"
+  {% if _language_selector.href is not empty %}
+    <a
+      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
+      href="{{ _language_selector.href }}"
+      data-ecl-language-selector
+      role="button"
+      aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
+    {% if _has_overlay is defined %}
+      aria-controls="language-list-overlay"
+    {% endif %}
+    >
+      <span class="ecl-site-header__language-icon">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'global',
+            size: 'm'
+          },
+          as_image: true,
+          extra_classes: 'ecl-site-header__icon',
+          extra_accessibility: {
+            title: _label,
+          },
+        } only %}
+      </span>
+      {{- _label -}}
+    </a>
+  {% else %}
+    <button
+      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
+      type="button"
+      data-ecl-language-selector
+      aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
+    {% if _has_overlay is defined %}
+      aria-controls="language-list-overlay"
+      aria-haspopup="dialog"
+    {% endif %}
+    >
+      <span class="ecl-site-header__language-icon">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'global',
+            size: 'm'
+          },
+          as_image: true,
+          extra_classes: 'ecl-site-header__icon',
+          extra_accessibility: {
+            title: _label,
+          },
+        } only %}
+      </span>
+      {{- _label -}}
+    </button>
   {% endif %}
-  >
-    <span class="ecl-site-header__language-icon">
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          name: 'global',
-          size: 'm'
-        },
-        as_image: true,
-        extra_classes: 'ecl-site-header__icon',
-        extra_accessibility: {
-          title: _label,
-        },
-      } only %}
-    </span>
-    {{- _label -}}
-  </a>
 
   {% if _has_overlay is defined %}
   <div class="ecl-site-header__language-container" id="language-list-overlay" hidden data-ecl-language-list-overlay aria-labelledby="ecl-site-header__language-title" role="dialog">
@@ -107,9 +135,11 @@
           {{- _language_selector.eu_category -}}
         </div>
         {% endif %}
-        <ul class="ecl-site-header__language-list" translate="no">
+        {% set _tag_eu_list = _language_selector.overlay.items|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_eu_item = _language_selector.overlay.items|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_eu_list }} class="ecl-site-header__language-list" translate="no">
           {% for _item in _language_selector.overlay.items %}
-          <li class="ecl-site-header__language-item">
+          <{{ _tag_eu_item }} class="ecl-site-header__language-item">
             {% set _link_label %}
               <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
               <span class="ecl-site-header__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label|default('') }}</span>
@@ -128,9 +158,9 @@
                 { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
               ],
             } only %}
-          </li>
+          </{{ _tag_eu_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_eu_list }}>
       </div>
       {% endif %}
 
@@ -142,9 +172,11 @@
           {{- _language_selector.non_eu_category -}}
         </div>
         {% endif %}
-        <ul class="ecl-site-header__language-list" translate="no">
+        {% set _tag_non_eu_list = _language_selector.overlay.non_eu_items|length == 1 ? 'div' : 'ul' %}
+        {% set _tag_non_eu_item = _language_selector.overlay.non_eu_items|length == 1 ? 'div' : 'li' %}
+        <{{ _tag_non_eu_list }} class="ecl-site-header__language-list" translate="no">
           {% for _item in _language_selector.overlay.non_eu_items %}
-          <li class="ecl-site-header__language-item">
+          <{{ _tag_non_eu_item }} class="ecl-site-header__language-item">
           {% set _link_label %}
             <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
             <span class="ecl-site-header__language-link-label">{{ _item.label|default('') }}</span>
@@ -165,9 +197,9 @@
                 { name: 'hreflang', value: _item.lang|default('') },
               ],
             } only %}
-          </li>
+          </{{ _tag_non_eu_item }}>
           {% endfor %}
-        </ul>
+        </{{ _tag_non_eu_list }}>
       </div>
       {% endif %}
     </div>

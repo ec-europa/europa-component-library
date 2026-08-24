@@ -98,6 +98,16 @@ if (!args.show_image) {
 
 ## After any change
 
+Snapshots capture HTML output. Only run them when the markup could have changed.
+
+| What changed                          | Run tests?   |
+| ------------------------------------- | ------------ |
+| `{name}.html.twig` or `demo/data.js`  | Yes — always |
+| `{name}.story.js`                     | Yes          |
+| `{name}.scss` or theme variables only | No — skip    |
+
+If markup changed, run:
+
 ```bash
 pnpm test:components -- <name>   # run tests for this component only
 ```

@@ -14,5 +14,9 @@ Following elements have been deprecated, and are removed in ECL v6
 
 - featured item:
   - parameter `link_highlighted` (replaced by `link_display`)
+- file:
+  - parameter `variant` (not used anymore)
+  - parameter `detail_meta` (replaced by `primary_meta`)
+  - parameter `translation.toggle` (now set in the template directly)
 - site header:
-  - parameter `banner_top` (used for class name)
+  - parameter `banner_top` (previously used for class name)

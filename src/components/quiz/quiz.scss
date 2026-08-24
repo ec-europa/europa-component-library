@@ -1,5 +1,5 @@
 /**
- * Pagination
+ * Quiz
  * @define quiz
  */
 
@@ -84,74 +84,10 @@ $quiz: null !default;
   display: flex;
   align-items: center;
 
-  .ecl-quiz__prev,
-  .ecl-quiz__next {
-    background: transparent;
-    border: none !important;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: var(--s-xs);
-
-    &:focus-visible {
-      outline-color: map.get($quiz, 'quiz', 'outline-color');
-    }
-
-    &:disabled {
-      visibility: hidden;
-      cursor: default;
-      box-shadow: map.get($theme, 'shadow', '1');
-      opacity: 0.5;
-    }
-
-    .ecl-quiz__prev-label,
-    .ecl-quiz__next-label {
-      color: map.get($quiz, 'quiz', 'prev-next-color');
-      display: none;
-      font: map.get($quiz, 'quiz', 'prev-next-font');
-      font-weight: map.get($quiz, 'quiz', 'prev-next-font-weight');
-    }
-  }
-
-  .ecl-quiz__prev {
-    margin-inline-end: auto;
-  }
-
-  .ecl-quiz__next {
-    margin-inline-start: auto;
-  }
-
-  .ecl-quiz__dots {
-    .ecl-quiz__dot {
-      background: map.get($quiz, 'quiz', 'dot-background');
-      border: none !important;
-      border-radius: 50%;
-      cursor: pointer;
-      height: 0.5rem;
-      margin-inline-end: map.get($quiz, 'quiz', 'dot-spacing');
-      min-height: 0;
-      min-width: 0;
-      padding: 0;
-      width: 0.5rem;
-
-      &:focus-visible {
-        outline-offset: 2px;
-        outline-color: map.get($quiz, 'quiz', 'outline-color');
-      }
-    }
-
-    .ecl-quiz__dot--active {
-      border-radius: map.get($theme, 'border-radius', 'l');
-      width: 2.5rem;
-      background: map.get($quiz, 'quiz', 'dot-active-background');
-    }
-
-    .ecl-quiz__dot--active + .ecl-quiz__dot,
-    .ecl-quiz__dot.is-prev {
-      border-radius: map.get($theme, 'border-radius', 'm');
-      width: 1rem;
-    }
+  .ecl-button__label {
+    color: map.get($quiz, 'quiz', 'prev-next-color');
+    display: none;
+    font-weight: map.get($quiz, 'quiz', 'prev-next-font-weight');
   }
 }
 
@@ -218,8 +154,7 @@ $quiz: null !default;
       border-radius: map.get($theme, 'border-radius', 's');
       margin-inline: map.get($quiz, 'quiz', 'prev-next-spacing');
 
-      .ecl-quiz__prev-label,
-      .ecl-quiz__next-label {
+      .ecl-button__label {
         display: flex;
       }
 
@@ -227,8 +162,18 @@ $quiz: null !default;
         display: none;
       }
 
-      &[disabled] {
-        visibility: hidden;
+      &:hover,
+      &:active {
+        background: none !important;
+        border: 1px solid transparent !important;
+
+        .ecl-button__label {
+          color: var(--cm-on-surface-brand, var(--c-d));
+        }
+      }
+
+      &:focus-visible .ecl-button__label {
+        color: var(--cm-on-surface-brand, var(--c-d));
       }
     }
   }

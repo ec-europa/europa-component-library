@@ -4,7 +4,6 @@ module.exports = {
   text_input: {
     id: 'search-input-id',
     label: 'Search',
-    placeholder: 'Placeholder text',
   },
   button: {
     variant: 'primary',

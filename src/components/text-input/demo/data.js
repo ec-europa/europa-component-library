@@ -15,7 +15,6 @@ module.exports = {
   input: {
     id: 'example-input-id-1',
     input_type: 'text',
-    placeholder: 'Placeholder text',
     width: 'm',
   },
 };

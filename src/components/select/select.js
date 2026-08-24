@@ -1,5 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
-import * as getSystem from '@ecl/builder/utils/getSystem';
+import getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
 
 const system = getSystem();
@@ -591,7 +591,7 @@ export class Select {
       }
       this.visibleOptions = this.checkboxes;
 
-      this.select.parentNode.parentNode.insertBefore(
+      this.formGroup.insertBefore(
         this.selectMultiple,
         this.select.parentNode.nextSibling,
       );
