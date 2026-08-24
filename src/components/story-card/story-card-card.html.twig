@@ -93,6 +93,12 @@
   </div>
 {% endif %}
 
+{% if _teaser_label is not empty %}
+  <div class="ecl-story-card__teaser-label">
+    {{- _teaser_label -}}
+  </div>
+{% endif %}
+
 {% if _title is not empty %}
   <div class="ecl-story-card__card-title">
     {{- _title -}}
