@@ -215,10 +215,12 @@
           </div>
         </div>
         <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
-        {%- if _answer_title is not empty -%}
-          <div class="ecl-quiz-card__answer-title" tabindex="0">{{ _answer_title }}</div>
-        {%- endif -%}
+          <div class="ecl-quiz-card__answer-content">
+          {%- if _answer_title is not empty -%}
+            <div class="ecl-quiz-card__answer-title" tabindex="0">{{ _answer_title }}</div>
+          {%- endif -%}
           {{-  _answer -}}
+          </div>
         </div>
       {% if _options is not empty %}
         <ol class="ecl-quiz-card__options" type="A">
