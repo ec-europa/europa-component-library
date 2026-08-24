@@ -33,7 +33,7 @@ $accordion: null !default;
   }
 
   .ecl-accordion__item[open] & {
-    background-color: map.get($accordion, 'item-background-hover');
+    background-color: map.get($accordion, 'item-background-active');
   }
 
   &:focus-visible {
@@ -94,24 +94,14 @@ $accordion: null !default;
       }
     }
 
-    .ecl-accordion__toggle {
-      border-start-start-radius: map.get($accordion, 'radius');
-      border-start-end-radius: map.get($accordion, 'radius');
-    }
+    border-start-start-radius: map.get($accordion, 'radius');
+    border-start-end-radius: map.get($accordion, 'radius');
   }
 
   &.is-last {
     border-bottom-width: 0;
-
-    .ecl-accordion__toggle {
-      border-end-start-radius: map.get($accordion, 'radius');
-      border-end-end-radius: map.get($accordion, 'radius');
-
-      .ecl-accordion__item[open] & {
-        border-end-start-radius: 0;
-        border-end-end-radius: 0;
-      }
-    }
+    border-end-start-radius: map.get($accordion, 'radius');
+    border-end-end-radius: map.get($accordion, 'radius');
 
     .ecl-accordion__content {
       border-end-start-radius: map.get($accordion, 'radius');
@@ -187,6 +177,7 @@ $accordion: null !default;
   }
 
   .ecl-accordion__item {
+    background: transparent;
     border: none;
 
     &::before {

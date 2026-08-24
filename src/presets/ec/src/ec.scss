@@ -194,6 +194,10 @@
   $theme: theme.$theme,
   $highlight-box: var.$highlight-box
 );
+@use '@ecl/highlighted-search/highlighted-search' with (
+  $theme: theme.$theme,
+  $highlighted-search: var.$highlighted-search
+);
 @use '@ecl/rating-field/rating-field' with (
   $theme: theme.$theme,
   $rating-field: var.$rating-field
@@ -241,6 +245,10 @@
 @use '@ecl/social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
+);
+@use '@ecl/story-card/story-card' with (
+  $theme: theme.$theme,
+  $story-card: var.$story-card
 );
 @use '@ecl/text-media/text-media' with (
   $theme: theme.$theme,
@@ -292,6 +300,10 @@
   $theme: theme.$theme,
   $site-header: var.$site-header,
   $language-list: var.$language-list
+);
+@use '@ecl/slider/slider-pager' with (
+  $theme: theme.$theme,
+  $slider-pager: var.$slider-pager
 );
 @use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,

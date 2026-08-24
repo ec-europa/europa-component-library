@@ -1,5 +1,114 @@
 # Changelog
 
+## 5.2.0 (2026-08-20)
+
+#### :bug: Bug Fix
+
+- [#4665](https://github.com/ec-europa/europa-component-library/pull/4665) fix(story-card): fix border radius on mobile - FRONT-5449 ([@emeryro](https://github.com/emeryro))
+- [#4652](https://github.com/ec-europa/europa-component-library/pull/4652) fix(accordion): Resetting background color on sidebar variant - FRONT-5444 ([@planctus](https://github.com/planctus))
+- [#4632](https://github.com/ec-europa/europa-component-library/pull/4632) fix(headings): fix headings font weight on EU components - FRONT-5424 ([@emeryro](https://github.com/emeryro))
+- [#4630](https://github.com/ec-europa/europa-component-library/pull/4630) chore(website): Fixing code container height rcalculation - FRONT-5421 ([@planctus](https://github.com/planctus))
+- [#4629](https://github.com/ec-europa/europa-component-library/pull/4629) fix(description-list): Fixing text wrapping - FRONT-5420 ([@planctus](https://github.com/planctus))
+- [#4628](https://github.com/ec-europa/europa-component-library/pull/4628) chore(website): Fixing file download showcase - FRONT-5422 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#4676](https://github.com/ec-europa/europa-component-library/pull/4676) feat(accordion): Different color for open item in EC - FRONT-5462 ([@planctus](https://github.com/planctus))
+- [#4672](https://github.com/ec-europa/europa-component-library/pull/4672) feat(forms): Requred and Optional text visible when the label is hidden - FRONT-5458 ([@planctus](https://github.com/planctus))
+- [#4674](https://github.com/ec-europa/europa-component-library/pull/4674) feat(checkbox, radio): update disabled colors - FRONT-5457 ([@emeryro](https://github.com/emeryro))
+- [#4645](https://github.com/ec-europa/europa-component-library/pull/4645) feat(story-card): Adding teaser label in card details in story variant only - FRONT-5441 ([@planctus](https://github.com/planctus))
+- [#4667](https://github.com/ec-europa/europa-component-library/pull/4667) feat(max-width): override variable in some elements - FRONT-5439 ([@emeryro](https://github.com/emeryro))
+- [#4670](https://github.com/ec-europa/europa-component-library/pull/4670) feat(blockquote): update author markup - FRONT-5413 ([@emeryro](https://github.com/emeryro))
+- [#4668](https://github.com/ec-europa/europa-component-library/pull/4668) feat(file): update toggle aria-label - FRONT-5456 ([@emeryro](https://github.com/emeryro))
+- [#4671](https://github.com/ec-europa/europa-component-library/pull/4671) feat(add-to-calendar): update color tokens - FRONT-5459 ([@emeryro](https://github.com/emeryro))
+- [#4640](https://github.com/ec-europa/europa-component-library/pull/4640) feat(rating-field): new markup structure - FRONT-5430 ([@emeryro](https://github.com/emeryro))
+- [#4644](https://github.com/ec-europa/europa-component-library/pull/4644) feat(site-header): use button instead of links - FRONT-5410 ([@emeryro](https://github.com/emeryro))
+- [#4661](https://github.com/ec-europa/europa-component-library/pull/4661) feat(file): change label order - FRONT-5448 ([@emeryro](https://github.com/emeryro))
+- [#4664](https://github.com/ec-europa/europa-component-library/pull/4664) fix(highlighted-search): center text - FRONT-5450 ([@emeryro](https://github.com/emeryro))
+- [#4633](https://github.com/ec-europa/europa-component-library/pull/4633) feat(quiz, page summary): update background color - FRONT-5428 ([@emeryro](https://github.com/emeryro))
+- [#4643](https://github.com/ec-europa/europa-component-library/pull/4643) feat(slogan-ticker, highlight-box): add shadow on EU - FRONT-5425 ([@emeryro](https://github.com/emeryro))
+- [#4649](https://github.com/ec-europa/europa-component-library/pull/4649) feat(story-card): Removing aria-labelledby from main container - FRONT-5434 ([@planctus](https://github.com/planctus))
+- [#4646](https://github.com/ec-europa/europa-component-library/pull/4646) feat(story card): Focus first on pause button - FRONT-5436 ([@planctus](https://github.com/planctus))
+- [#4655](https://github.com/ec-europa/europa-component-library/pull/4655) feat(highlighted-search): add form parameters - FRONT-5445 ([@emeryro](https://github.com/emeryro))
+- [#4641](https://github.com/ec-europa/europa-component-library/pull/4641) feat(slider): Adding slider component to handle the slider pager - FRONT-5427 ([@planctus](https://github.com/planctus))
+- [#4642](https://github.com/ec-europa/europa-component-library/pull/4642) feat(list): different markup for single list item - FRONT-5438 ([@emeryro](https://github.com/emeryro))
+- [#4619](https://github.com/ec-europa/europa-component-library/pull/4619) chore(accessibility): Removing duplicated role=search in the site header - FRONT-5411 ([@planctus](https://github.com/planctus))
+- [#4639](https://github.com/ec-europa/europa-component-library/pull/4639) feat(typography): update font weight on EU - FRONT-5440 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4666](https://github.com/ec-europa/europa-component-library/pull/4666) fix(picture): Initialize ECL.components map - FRONT-5454 ([@planctus](https://github.com/planctus))
+- [#4662](https://github.com/ec-europa/europa-component-library/pull/4662) chore(select): Aligning js with patch in webcomponents ([@planctus](https://github.com/planctus))
+- [#4648](https://github.com/ec-europa/europa-component-library/pull/4648) chore(system-switcher): Fixing plugin links urls - FRONT-5426 ([@planctus](https://github.com/planctus))
+- [#4653](https://github.com/ec-europa/europa-component-library/pull/4653) chore(deps): Updates 03-08-26 ([@planctus](https://github.com/planctus))
+- [#4647](https://github.com/ec-europa/europa-component-library/pull/4647) chore(deps): Updates 30-07-26 ([@planctus](https://github.com/planctus))
+- [#4636](https://github.com/ec-europa/europa-component-library/pull/4636) chore(storybook): hide/remove compositions - FRONT-5429 ([@emeryro](https://github.com/emeryro))
+- [#4637](https://github.com/ec-europa/europa-component-library/pull/4637) chore(demo): remove placeholder from demo - FRONT-5431 ([@emeryro](https://github.com/emeryro))
+- [#4634](https://github.com/ec-europa/europa-component-library/pull/4634) chore(deps): Updates 27-07-26 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+## 5.1.0 (2026-07-23)
+
+#### :rocket: New Feature
+
+- [#4600](https://github.com/ec-europa/europa-component-library/pull/4600) feat(components): Adding story card component - FRONT-5379 ([@planctus](https://github.com/planctus))
+- [#4602](https://github.com/ec-europa/europa-component-library/pull/4602) feat(highlighted-search): add component - FRONT-5378 ([@emeryro](https://github.com/emeryro))
+- [#4451](https://github.com/ec-europa/europa-component-library/pull/4451) feat(animated-number, fact-figures): add individual sources - FRONT-5352 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4616](https://github.com/ec-europa/europa-component-library/pull/4616) fix(collapsible-sidebar): Using fixed spacing for the accordion toggle - FRONT-5400 ([@planctus](https://github.com/planctus))
+- [#4614](https://github.com/ec-europa/europa-component-library/pull/4614) fix(datepicker): restore focus display ([@emeryro](https://github.com/emeryro))
+- [#4610](https://github.com/ec-europa/europa-component-library/pull/4610) fix(headings): fix EU headings in inpage navigation - FRONT-5399 ([@emeryro](https://github.com/emeryro))
+- [#4592](https://github.com/ec-europa/europa-component-library/pull/4592) fix(list): fix bullet position - FRONT-5384 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#4596](https://github.com/ec-europa/europa-component-library/pull/4596) feat(file): implement new style - FRONT-5193 ([@emeryro](https://github.com/emeryro))
+- [#4626](https://github.com/ec-europa/europa-component-library/pull/4626) feat(accordion): Items can be opened by default - FRONT-5405 ([@planctus](https://github.com/planctus))
+- [#4606](https://github.com/ec-europa/europa-component-library/pull/4606) feat(page-header): add missing colors - FRONT-5398 ([@emeryro](https://github.com/emeryro))
+- [#4618](https://github.com/ec-europa/europa-component-library/pull/4618) feat(focal-point): Js implementation of a focal point functinonality for the picture component - FRONT-5394 ([@planctus](https://github.com/planctus))
+- [#4613](https://github.com/ec-europa/europa-component-library/pull/4613) feat(accordion): add background - FRONT-5401 ([@emeryro](https://github.com/emeryro))
+- [#4615](https://github.com/ec-europa/europa-component-library/pull/4615) feat(tag): update display - FRONT-5390 ([@emeryro](https://github.com/emeryro))
+- [#4608](https://github.com/ec-europa/europa-component-library/pull/4608) style(color): update secondary color - FRONT-5396 ([@emeryro](https://github.com/emeryro))
+- [#4605](https://github.com/ec-europa/europa-component-library/pull/4605) fix(layout-wrapper): update css class for column - FRONT-5397 ([@emeryro](https://github.com/emeryro))
+- [#4609](https://github.com/ec-europa/europa-component-library/pull/4609) style(tabs): remove underline on hover - FRONT-5395 ([@emeryro](https://github.com/emeryro))
+- [#4607](https://github.com/ec-europa/europa-component-library/pull/4607) feat(features-item): add min-width - FRONT-5368 ([@emeryro](https://github.com/emeryro))
+- [#4581](https://github.com/ec-europa/europa-component-library/pull/4581) feat(accordion): Making media query configurable from the template - FRONT-5349 ([@planctus](https://github.com/planctus))
+- [#4593](https://github.com/ec-europa/europa-component-library/pull/4593) feat(multi-select): display submit button - FRONT-5383 ([@emeryro](https://github.com/emeryro))
+- [#4589](https://github.com/ec-europa/europa-component-library/pull/4589) feat(quiz): update aria label - FRONT-5306 ([@emeryro](https://github.com/emeryro))
+- [#4582](https://github.com/ec-europa/europa-component-library/pull/4582) fix(default-css): Not overriding color of text in typography - FRONT-5374 ([@planctus](https://github.com/planctus))
+- [#4583](https://github.com/ec-europa/europa-component-library/pull/4583) feat(page-summary): Color modes - FRONT-5375 ([@planctus](https://github.com/planctus))
+- [#4588](https://github.com/ec-europa/europa-component-library/pull/4588) feat(quiz): reset dot aria label on resize - FRONT-5304 ([@emeryro](https://github.com/emeryro))
+- [#4580](https://github.com/ec-europa/europa-component-library/pull/4580) feat(gallery): update icons - FRONT-5170 ([@emeryro](https://github.com/emeryro))
+- [#4586](https://github.com/ec-europa/europa-component-library/pull/4586) feat(colors): add and update color mode tokens - FRONT-5376 ([@emeryro](https://github.com/emeryro))
+- [#4578](https://github.com/ec-europa/europa-component-library/pull/4578) feat(multi-select): add focus on escape - FRONT-5353 ([@emeryro](https://github.com/emeryro))
+- [#4579](https://github.com/ec-europa/europa-component-library/pull/4579) feat(menu): hide border for current item - FRONT-5370 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4625](https://github.com/ec-europa/europa-component-library/pull/4625) chore(website): Renaming a11y tab to Accessibility - FRONT-5418 ([@planctus](https://github.com/planctus))
+- [#4617](https://github.com/ec-europa/europa-component-library/pull/4617) chore(tokens): add script to list color tokens - FRONT-5406 ([@emeryro](https://github.com/emeryro))
+- [#4603](https://github.com/ec-europa/europa-component-library/pull/4603) style(focus): add mixin and css classes for focus - FRONT-5391 ([@emeryro](https://github.com/emeryro))
+- [#4611](https://github.com/ec-europa/europa-component-library/pull/4611) chore(js): Retrieving breakpoints from sass - FRONT-5388 ([@planctus](https://github.com/planctus))
+- [#4612](https://github.com/ec-europa/europa-component-library/pull/4612) chore(deps): Updates 14-07-26 ([@planctus](https://github.com/planctus))
+- [#4601](https://github.com/ec-europa/europa-component-library/pull/4601) chore(js-bundle): Adding rollup visualizer ([@planctus](https://github.com/planctus))
+- [#4598](https://github.com/ec-europa/europa-component-library/pull/4598) fix(website): fix logo path - FRONT-5386 ([@emeryro](https://github.com/emeryro))
+- [#4594](https://github.com/ec-europa/europa-component-library/pull/4594) chore(colors): Updating two colors - FRONT-5382 ([@planctus](https://github.com/planctus))
+- [#4595](https://github.com/ec-europa/europa-component-library/pull/4595) chore(deps): Updates -30-06-26 ([@planctus](https://github.com/planctus))
+- [#4590](https://github.com/ec-europa/europa-component-library/pull/4590) chore(timeline): Fixing story - FRONT-5380 ([@planctus](https://github.com/planctus))
+- [#4584](https://github.com/ec-europa/europa-component-library/pull/4584) fix(notes-addon): Restoring the dynamic update of the data in the twig include example - FRONT-5377 ([@planctus](https://github.com/planctus))
+- [#4585](https://github.com/ec-europa/europa-component-library/pull/4585) chore(deps): Updates 19-06-26 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0 (2026-06-17)
 
 #### :bug: Bug Fix

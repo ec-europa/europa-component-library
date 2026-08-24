@@ -73,4 +73,6 @@ Set.render = async (args) => {
 Set.storyName = 'tag set';
 Set.args = getArgs(dataSet);
 Set.argTypes = getArgTypes();
-Set.parameters = { notes: { markdown: notes, json: dataSet } };
+Set.parameters = {
+  notes: { markdown: notes, json: ({ args }) => prepareData(dataSet, args) },
+};

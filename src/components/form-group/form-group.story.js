@@ -23,7 +23,7 @@ const dataStandaloneCheckbox = {
   input: {
     ...dataCheckbox.input,
     standalone: true,
-    items: [dataCheckbox.input.items[0]],
+    items: [{ ...dataCheckbox.input.items[0] }],
   },
 };
 
@@ -112,7 +112,7 @@ const getArgTypes = (data, type) => ({
 
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
-  Object.assign(clone, args);
+  Object.assign(clone, JSON.parse(JSON.stringify(args)));
   correctPaths(clone);
 
   if (!args.show_error) {
@@ -129,7 +129,15 @@ const prepareData = (data, args) => {
     clone.input.multiple_search = !!args.show_search;
     clone.input.multiple_submit = !!args.submit;
   }
+  if (clone.input.input_type === 'radio' && clone.input.binary) {
+    clone.input.items.forEach((item) => {
+      item.disabled = args.disabled;
+    });
+  }
   if (clone.input.input_type === 'checkbox') {
+    if (clone.input.standalone) {
+      clone.input.items[0].disabled = args.disabled;
+    }
     if (clone.input.standalone && args.hide_label) {
       clone.input.items[0].required_text = args.required_text;
       clone.input.items[0].label_aria_required = clone.label_aria_required;
@@ -160,7 +168,9 @@ Text.render = async (args) => {
 Text.storyName = 'Text input';
 Text.args = getArgs(dataText);
 Text.argTypes = getArgTypes(dataText, 'element');
-Text.parameters = { notes: { markdown: notes, json: dataText } };
+Text.parameters = {
+  notes: { markdown: notes, json: ({ args }) => prepareData(dataText, args) },
+};
 
 export const Textarea = (_, { loaded: { component } }) => component;
 
@@ -192,7 +202,7 @@ StandaloneCheckbox.args = {
   show_helper: false,
   hide_label: true,
 };
-StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
+StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'element');
 StandaloneCheckbox.parameters = {
   notes: {
     markdown: notes,

@@ -69,11 +69,20 @@ $radio: null !default;
 
 // Disabled
 .ecl-radio--disabled {
-  opacity: 0.5;
-
   .ecl-radio__label {
+    color: map.get($radio, 'disabled', 'color');
     cursor: not-allowed;
   }
+
+  .ecl-radio__input:checked ~ .ecl-radio__label {
+    .ecl-radio__box {
+      opacity: 0.5;
+    }
+  }
+}
+
+.ecl-radio__box--disabled {
+  border-color: map.get($radio, 'disabled', 'border-color');
 }
 
 // Checked

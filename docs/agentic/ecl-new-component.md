@@ -314,7 +314,9 @@ Default.render = async (args) => {
 Default.storyName = 'default';
 Default.args = getArgs(defaultData);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: defaultData } };
+Default.parameters = {
+  notes: { markdown: notes, json: ({ args }) => prepareData(defaultData, args) },
+};
 Default.decorators = [withCode, withNotes];
 ```
 
@@ -443,13 +445,16 @@ Insert `"@ecl/<name>": "<VERSION>",` alphabetically. Apply the same insertion to
 
 **`src/presets/ec/src/ec.scss` and `src/presets/eu/src/eu.scss`**
 
-Run to find the insertion point:
+These files are **not** alphabetically ordered — they're grouped by category/relationship
+(e.g. `banner`, `spotlight`, `carousel`, `slogan-ticker` are clustered together because
+they're all "banners"-type components, not because their names are alphabetical). Find
+your component's closest sibling (the existing component it's most similar to, or a
+component whose name it extends, e.g. `highlighted-search` next to `banner`) and insert
+immediately after its block:
 
 ```bash
-grep -n "@use '@ecl/" src/presets/ec/src/ec.scss
+grep -n "@use '@ecl/<sibling-name>/" src/presets/ec/src/ec.scss
 ```
-
-Insert alphabetically:
 
 ```scss
 @use '@ecl/<name>/<name>' with (
@@ -458,13 +463,15 @@ Insert alphabetically:
 );
 ```
 
+Apply the same insertion, next to the same sibling, in `eu.scss`.
+
 **`src/presets/ec/src/ec-print.scss` and `src/presets/eu/src/eu-print.scss`**
 
-```bash
-grep -n "@use '@ecl/" src/presets/ec/src/ec-print.scss
-```
+Same grouping rule as above — insert next to the sibling's block, not alphabetically:
 
-Insert alphabetically:
+```bash
+grep -n "@use '@ecl/<sibling-name>/" src/presets/ec/src/ec-print.scss
+```
 
 ```scss
 @use '@ecl/<name>/<name>-print' with (
@@ -554,19 +561,24 @@ import { Playground } from '@ecl/website-components';
 
 **`src/website/src/pages/ec/components/index.mdx`** and the EU equivalent.
 
-Run to find insertion point:
+This file is **not** a flat alphabetical list. Imports are grouped into clusters that
+mirror the `## <Section>` headings further down (e.g. a "Banners" cluster holds
+`banner`, `spotlight`, `carousel`, `slogan-ticker` imports together; there are similar
+clusters for `site-wide`, `forms`, `media`, `navigation`, etc.). Find the sibling
+component you're most similar to (see Step 3), then:
 
 ```bash
-grep -n "Thumbnail" src/website/src/pages/ec/components/index.mdx | head -50
+grep -n "Thumbnail\|^## " src/website/src/pages/ec/components/index.mdx | head -80
 ```
 
-Add the import alphabetically in the import block:
+1. Add the import next to the sibling's import, inside the same cluster:
 
 ```js
 import <NamePascal>Thumbnail from './<name>/ec_comp_<name_underscored>.svg';
 ```
 
-Add the card alphabetically in the `<Row>` grid:
+2. Add the card next to the sibling's card, inside the same `## <Section>` / `<Row>` block
+   (do not just append alphabetically to a different section):
 
 ```jsx
 <Col col="12 s-6 m-4 l-3" spacing="pv-m">
@@ -574,21 +586,23 @@ Add the card alphabetically in the `<Row>` grid:
 </Col>
 ```
 
-Apply the same for the EU index (swap `ec_comp` → `eu_comp`).
+Apply the same for the EU index (swap `ec_comp` → `eu_comp`), next to the same sibling.
 
 ---
 
 ## Step 6 — CMS admin config
 
-**`src/website/public/admin/config.yml`** — three insertions, all alphabetical.
-
-Run to find all three insertion points at once:
+**`src/website/public/admin/config.yml`** — **four** insertions (EC usage, EC accessibility,
+EU usage, EU accessibility — don't forget the EU accessibility section, it's easy to miss).
+Within each section entries roughly follow the same category clustering as Step 5 rather
+than strict global alphabetical order, so find your sibling component's entry and insert
+next to it:
 
 ```bash
-grep -n "name: 'ec_s\|name: 'eu_s\|name: 'ec_s.*a11y" src/website/public/admin/config.yml
+grep -n "name: 'ec_<sibling-name_underscored>'\|name: 'ec_<sibling-name_underscored>_a11y'\|name: 'eu_<sibling-name_underscored>'\|name: 'eu_<sibling-name_underscored>_a11y'" src/website/public/admin/config.yml
 ```
 
-**EC usage section** — insert alphabetically among `ec_` usage entries:
+**EC usage section** — insert next to the sibling among `ec_` usage entries:
 
 ```yaml
 - label: '<Name>'
@@ -598,7 +612,7 @@ grep -n "name: 'ec_s\|name: 'eu_s\|name: 'ec_s.*a11y" src/website/public/admin/c
     - { label: Body, name: body, widget: markdown }
 ```
 
-**EC accessibility section** — insert alphabetically among `ec_` a11y entries:
+**EC accessibility section** — insert next to the sibling among `ec_` a11y entries:
 
 ```yaml
 - label: '<Name>'
@@ -608,12 +622,22 @@ grep -n "name: 'ec_s\|name: 'eu_s\|name: 'ec_s.*a11y" src/website/public/admin/c
     - { label: Body, name: body, widget: markdown }
 ```
 
-**EU usage section** — insert alphabetically among `eu_` usage entries:
+**EU usage section** — insert next to the sibling among `eu_` usage entries:
 
 ```yaml
 - label: '<Name>'
   name: 'eu_<name_underscored>'
   file: 'src/website/src/pages/eu/components/<name>/docs/usage.md'
+  fields:
+    - { label: Body, name: body, widget: markdown }
+```
+
+**EU accessibility section** — insert next to the sibling among `eu_` a11y entries:
+
+```yaml
+- label: '<Name>'
+  name: 'eu_<name_underscored>_a11y'
+  file: 'src/website/src/pages/eu/components/<name>/docs/accessibility.md'
   fields:
     - { label: Body, name: body, widget: markdown }
 ```
