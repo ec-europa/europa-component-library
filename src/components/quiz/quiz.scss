@@ -634,6 +634,8 @@ $quiz: null !default;
   box-sizing: border-box;
   padding-block: map.get($quiz, 'card', 'question-answer-spacing');
   text-align: center;
+  display: flex;
+  align-items: center;
 
   @include mixins.responsive-font(
     map.get($quiz, 'card', 'question-answer-font'),
