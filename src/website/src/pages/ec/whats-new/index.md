@@ -5,6 +5,41 @@ title: What's new
 
 ECL v5 contains changes focused on improving the visual identity of the EC and EU components. Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 5.2.0 (2026-08-20)
+
+#### :bug: Bug Fix
+
+* [#4665](https://github.com/ec-europa/europa-component-library/pull/4665) fix(story-card): fix border radius on mobile - FRONT-5449
+* [#4652](https://github.com/ec-europa/europa-component-library/pull/4652) fix(accordion): Resetting background color on sidebar variant - FRONT-5444
+* [#4632](https://github.com/ec-europa/europa-component-library/pull/4632) fix(headings): fix headings font weight on EU components - FRONT-5424
+* [#4630](https://github.com/ec-europa/europa-component-library/pull/4630) chore(website): Fixing code container height rcalculation - FRONT-5421
+* [#4629](https://github.com/ec-europa/europa-component-library/pull/4629) fix(description-list): Fixing text wrapping - FRONT-5420
+* [#4628](https://github.com/ec-europa/europa-component-library/pull/4628) chore(website): Fixing file download showcase - FRONT-5422
+
+#### :nail_care: Enhancement
+
+* [#4676](https://github.com/ec-europa/europa-component-library/pull/4676) feat(accordion): Different color for open item in EC - FRONT-5462
+* [#4672](https://github.com/ec-europa/europa-component-library/pull/4672) feat(forms): Requred and Optional text visible when the label is hidden -  FRONT-5458
+* [#4674](https://github.com/ec-europa/europa-component-library/pull/4674) feat(checkbox, radio): update disabled colors - FRONT-5457
+* [#4645](https://github.com/ec-europa/europa-component-library/pull/4645) feat(story-card): Adding teaser label in card details in story variant only - FRONT-5441
+* [#4667](https://github.com/ec-europa/europa-component-library/pull/4667) feat(max-width): override variable in some elements - FRONT-5439
+* [#4670](https://github.com/ec-europa/europa-component-library/pull/4670) feat(blockquote): update author markup - FRONT-5413
+* [#4668](https://github.com/ec-europa/europa-component-library/pull/4668) feat(file): update toggle aria-label - FRONT-5456
+* [#4671](https://github.com/ec-europa/europa-component-library/pull/4671) feat(add-to-calendar): update color tokens - FRONT-5459
+* [#4640](https://github.com/ec-europa/europa-component-library/pull/4640) feat(rating-field): new markup structure - FRONT-5430
+* [#4644](https://github.com/ec-europa/europa-component-library/pull/4644) feat(site-header): use button instead of links - FRONT-5410
+* [#4661](https://github.com/ec-europa/europa-component-library/pull/4661) feat(file): change label order - FRONT-5448
+* [#4664](https://github.com/ec-europa/europa-component-library/pull/4664) fix(highlighted-search): center text - FRONT-5450
+* [#4633](https://github.com/ec-europa/europa-component-library/pull/4633) feat(quiz, page summary): update background color - FRONT-5428
+* [#4643](https://github.com/ec-europa/europa-component-library/pull/4643) feat(slogan-ticker, highlight-box): add shadow on EU - FRONT-5425
+* [#4649](https://github.com/ec-europa/europa-component-library/pull/4649) feat(story-card): Removing aria-labelledby from main container - FRONT-5434
+* [#4646](https://github.com/ec-europa/europa-component-library/pull/4646) feat(story card):  Focus first on pause button - FRONT-5436
+* [#4655](https://github.com/ec-europa/europa-component-library/pull/4655) feat(highlighted-search): add form parameters - FRONT-5445
+* [#4641](https://github.com/ec-europa/europa-component-library/pull/4641) feat(slider): Adding slider component to handle the slider pager - FRONT-5427
+* [#4642](https://github.com/ec-europa/europa-component-library/pull/4642) feat(list): different markup for single list item - FRONT-5438
+* [#4619](https://github.com/ec-europa/europa-component-library/pull/4619) chore(accessibility): Removing duplicated role=search in the site header - FRONT-5411
+* [#4639](https://github.com/ec-europa/europa-component-library/pull/4639) feat(typography): update font weight on EU - FRONT-5440
+
 ## 5.1.0 (2026-07-23)
 
 #### :rocket: New Feature
