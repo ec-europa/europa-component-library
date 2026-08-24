@@ -51,10 +51,6 @@
   {% set _css_class = _css_class ~ ' ecl-story-card--testimonial' %}
 {% endif %}
 
-{% if _title is not empty %}
-  {% set _title_id = _id ~ '-title' %}
-{% endif %}
-
 {% if _description is not empty %}
   {% set _css_class = _css_class ~ ' ecl-story-card--has-description' %}
 {% endif %}
@@ -78,9 +74,6 @@
 <section
   class="{{ _css_class }}"
   id="{{ _id }}"
-  {% if _title is not empty %}
-    aria-labelledby="{{ _title_id }}"
-  {% endif %}
 {% if _items|length > 1 %}
   data-ecl-auto-init="StoryCard"
 {% endif %}
@@ -91,7 +84,6 @@
     {% if _title is not empty %}
       <div
         class="ecl-story-card__title"
-        id="{{ _title_id }}"
       >
         {{- _title -}}
       </div>
@@ -133,29 +125,58 @@
     </div>
 
     <!-- Carousel Controls -->
-  {% if _items|length > 1 %}
-    {% include "@ecl/slider/slider-pager.html.twig" with {
-      prev_label: _sr_prev,
-      next_label: _sr_next,
-      hide_label: true,
-      extra_classes:  'ecl-story-card__pager',
-      prev_extra_classes: 'ecl-story-card__prev',
-      prev_extra_attributes: [{
-        name: 'data-ecl-story-card-prev'
-      }],
-      next_extra_classes: 'ecl-story-card__next',
-      next_extra_attributes: [{
-        name: 'data-ecl-story-card-next'
-      }],
-      dots_extra_classes: 'ecl-story-card__dots',
-      dot_extra_classes: 'ecl-story-card__dot',
-      template_data_attribute: 'data-ecl-story-card-dot-template',
-    } only %}
-  {% endif %}
+    {% if _items|length > 1 %}
+      {% include "@ecl/slider/slider-pager.html.twig" with {
+        prev_label: _sr_prev,
+        next_label: _sr_next,
+        hide_label: true,
+        extra_classes:  'ecl-story-card__pager',
+        prev_extra_classes: 'ecl-story-card__prev',
+        prev_extra_attributes: [{
+          name: 'data-ecl-story-card-prev'
+        }],
+        next_extra_classes: 'ecl-story-card__next',
+        next_extra_attributes: [{
+          name: 'data-ecl-story-card-next'
+        }],
+        dots_extra_classes: 'ecl-story-card__dots',
+        dot_extra_classes: 'ecl-story-card__dot',
+        template_data_attribute: 'data-ecl-story-card-dot-template',
+      } only %}
+    {% endif %}
   </div>
 
   <!-- Desktop: Grid with Accordion -->
   <div class="ecl-story-card__grid">
+    {% if _items|length > 1 %}
+      {% include "@ecl/slider/slider-pager.html.twig" with {
+        prev_label: _sr_prev,
+        next_label: _sr_next,
+        pause_label: _sr_pause,
+        play_label: _sr_play,
+        dots: false,
+        size: 'l',
+        play_pause: true,
+        hide_label: true,
+        extra_classes: 'ecl-story-card__grid-controls',
+        prev_extra_classes: 'ecl-story-card__grid-prev',
+        prev_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-prev'
+        }],
+        next_extra_classes: 'ecl-story-card__grid-next',
+        next_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-next'
+        }],
+        play_extra_classes: 'ecl-story-card__grid-play',
+        play_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-play',
+        }],
+        pause_extra_classes: 'ecl-story-card__grid-pause',
+        pause_extra_attributes: [{
+          name: 'data-ecl-story-card-grid-pause',
+        }],
+      } only %}
+    {% endif %}
     <ul
       class="ecl-story-card__grid-container"
       role="tablist"
@@ -226,35 +247,6 @@
       </article>
     </div>
     {% endfor %}
-    {% if _items|length > 1 %}
-      {% include "@ecl/slider/slider-pager.html.twig" with {
-        prev_label: _sr_prev,
-        next_label: _sr_next,
-        pause_label: _sr_pause,
-        play_label: _sr_play,
-        dots: false,
-        size: 'l',
-        play_pause: true,
-        hide_label: true,
-        extra_classes: 'ecl-story-card__grid-controls',
-        prev_extra_classes: 'ecl-story-card__grid-prev',
-        prev_extra_attributes: [{
-          name: 'data-ecl-story-card-grid-prev'
-        }],
-        next_extra_classes: 'ecl-story-card__grid-next',
-        next_extra_attributes: [{
-          name: 'data-ecl-story-card-grid-next'
-        }],
-        play_extra_classes: 'ecl-story-card__grid-play',
-        play_extra_attributes: [{
-          name: 'data-ecl-story-card-grid-play',
-        }],
-        pause_extra_classes: 'ecl-story-card__grid-pause',
-        pause_extra_attributes: [{
-          name: 'data-ecl-story-card-grid-pause',
-        }],
-      } only %}
-    {% endif %}
   </div>
 </section>
 

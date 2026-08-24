@@ -4,7 +4,7 @@
   Parameters:
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
-          "href": (string) (default: ''): URL for switcher
+          "href": (string) (optional) (default: ''): URL for switcher. If not provided, the toggle renders as a button
           "label": (string) (default: ''): Switcher language label, eg. 'English' in EU, 'EN' in ec.
           "aria_label": (string) (default: ''): Switcher language aria label
           "eu_category": (string) (default: ''): Label for EU languages
@@ -47,31 +47,59 @@
 {# Print the result #}
 
 <div class="ecl-site-header__language">
-  <a
-    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
-    href="{{ _language_selector.href|default('') }}"
-    data-ecl-language-selector
-    role="button"
-    aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
-  {% if _has_overlay is defined %}
-    aria-controls="language-list-overlay"
+  {% if _language_selector.href is not empty %}
+    <a
+      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
+      href="{{ _language_selector.href }}"
+      data-ecl-language-selector
+      role="button"
+      aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
+    {% if _has_overlay is defined %}
+      aria-controls="language-list-overlay"
+    {% endif %}
+    >
+      <span class="ecl-site-header__language-icon">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'global',
+            size: 'm'
+          },
+          as_image: true,
+          extra_classes: 'ecl-site-header__icon',
+          extra_accessibility: {
+            title: _label,
+          },
+        } only %}
+      </span>
+      {{- _label -}}
+    </a>
+  {% else %}
+    <button
+      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__language-selector"
+      type="button"
+      data-ecl-language-selector
+      aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
+    {% if _has_overlay is defined %}
+      aria-controls="language-list-overlay"
+      aria-haspopup="dialog"
+    {% endif %}
+    >
+      <span class="ecl-site-header__language-icon">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'global',
+            size: 'm'
+          },
+          as_image: true,
+          extra_classes: 'ecl-site-header__icon',
+          extra_accessibility: {
+            title: _label,
+          },
+        } only %}
+      </span>
+      {{- _label -}}
+    </button>
   {% endif %}
-  >
-    <span class="ecl-site-header__language-icon">
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          name: 'global',
-          size: 'm'
-        },
-        as_image: true,
-        extra_classes: 'ecl-site-header__icon',
-        extra_accessibility: {
-          title: _label,
-        },
-      } only %}
-    </span>
-    {{- _label -}}
-  </a>
 
   {% if _has_overlay is defined %}
   <div class="ecl-site-header__language-container" id="language-list-overlay" hidden data-ecl-language-list-overlay aria-labelledby="ecl-site-header__language-title" role="dialog">
