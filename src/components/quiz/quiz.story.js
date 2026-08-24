@@ -12,6 +12,7 @@ const getArgs = () => {
   const args = {
     withBackground: false,
     fullWidth: false,
+    image: 'none',
   };
 
   if (getSystem() === 'ec') {
@@ -37,6 +38,22 @@ const getArgTypes = () => {
         type: 'boolean',
       },
     },
+    image: {
+      control: {
+        type: 'select',
+        labels: {
+          '': 'none',
+          always: 'front and back',
+          reveal: 'only back',
+        },
+      },
+      options: ['none', 'always', 'reveal'],
+      mapping: {
+        none: '',
+        'front and back': 'always',
+        'only back': 'reveal',
+      },
+    },
   };
 };
 
@@ -48,6 +65,21 @@ const prepareData = (data, args) => {
   if (data.full_width) {
     data.with_background = true;
   }
+
+  data.items.forEach((item, i) => {
+    item.picture = {};
+    item.picture.img = {};
+    if (args.image === 'always') {
+      item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
+      item.image = 'always';
+    } else if (args.image === 'reveal') {
+      item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
+      item.image = 'reveal';
+    } else {
+      item.picture.img.src = '';
+      item.image = '';
+    }
+  });
 
   return data;
 };

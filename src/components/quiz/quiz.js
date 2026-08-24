@@ -412,13 +412,8 @@ export class Quiz {
       const content = queryOne(this.contentClass, card);
 
       content.style.height = '';
-
-      if (!queryOne('img', front)) {
-        question.style.minHeight = maxTextHeight + 'px';
-      }
-      if (!queryOne('img', back)) {
-        answer.style.minHeight = maxTextHeight + 'px';
-      }
+      question.style.minHeight = maxTextHeight + 'px';
+      answer.style.minHeight = maxTextHeight + 'px';
 
       const heightFront = front.scrollHeight;
       const heightBack = back.scrollHeight;
@@ -620,7 +615,7 @@ export class Quiz {
       const isFlipped = card.classList.contains(this.flippedClass);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
-      let category = queryOne('.ecl-quiz-card__category--error', back);
+      const category = queryOne('.ecl-quiz-card__answer-title', back);
 
       if (e.target.hasAttribute('data-match')) {
         const li = e.target.closest(this.optionClass);
@@ -628,27 +623,9 @@ export class Quiz {
         const items = Array.from(parent.children);
         const index = items.indexOf(li);
         const match = e.target.getAttribute('data-match') === 'true';
-        let successText = '';
-        let errorText = '';
-        const successEl = queryOne('.ecl-quiz-card__category--success', back);
-
-        if (successEl) {
-          successText = successEl.textContent;
-        }
-        const errorEl = queryOne('.ecl-quiz-card__category--error', back) || '';
-        if (errorEl) {
-          errorText = errorEl.textContent;
-        }
-        const message = match ? successText : errorText;
-        const statusEl = queryOne('.ecl-quiz-card__sr-status', back);
-        statusEl.textContent = '';
-        requestAnimationFrame(() => {
-          statusEl.textContent = message;
-        });
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
-          category = queryOne('.ecl-quiz-card__category--success', back);
         }
 
         const options = queryOne('.ecl-quiz-card__options', back);

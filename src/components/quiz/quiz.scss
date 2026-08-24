@@ -36,7 +36,7 @@ $quiz: null !default;
 
 .ecl-quiz__viewport {
   overflow: hidden;
-  padding: 0.25rem;
+  padding: var(--s-xs);
 }
 
 .ecl-quiz__title {
@@ -121,21 +121,96 @@ $quiz: null !default;
 .ecl-quiz-card__illustration {
   border-start-start-radius: map.get($theme, 'border-radius', 'm');
   border-start-end-radius: map.get($theme, 'border-radius', 'm');
-  aspect-ratio: 2.75/1;
+  aspect-ratio: 3.5/1;
+  object-fit: cover;
   width: 100%;
 }
 
 .ecl-quiz-card__illustration {
-  background-repeat: repeat, repeat;
-  background-size:
-    270px 216px,
-    354px 268px;
-  background-position:
-    47px 44px,
-    176px 104px;
-  background-image:
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='270' height='216' viewBox='0 0 270 216'%3E%3Cpath id='m' fill='rgb(255,255,255)' fill-opacity='0.55' d='M23.456 33.397c-2.005-3.472-.684-8.066 2.913-10.704l-.594-1.027a1.126 1.126 0 0 1 1.949-1.125l1.125 1.948a1.125 1.125 0 0 1-.412 1.537c-3.223 1.861-4.584 5.56-3.033 8.246s5.435 3.358 8.658 1.497c3.224-1.862 4.585-5.56 3.033-8.247a1.125 1.125 0 0 1 1.949-1.125c2.171 3.76.441 8.839-3.857 11.32-4.298 2.482-9.56 1.44-11.731-2.32M24.5 17.206a2.25 2.25 0 1 0-2.25-3.897 2.25 2.25 0 0 0 2.25 3.897'/%3E<use href='%23m' transform='translate(71,62) rotate(178) scale(2.25)'/><use href='%23m' transform='translate(137,60) rotate(195) scale(1.70)'/><use href='%23m' transform='translate(204,59) rotate(185) scale(2.34)'/><use href='%23m' transform='translate(138,107) rotate(195) scale(2.11)'/><use href='%23m' transform='translate(198,107) rotate(184) scale(2.11)'/><use href='%23m' transform='translate(70,154) rotate(186) scale(1.84)'/><use href='%23m' transform='translate(132,156) rotate(187) scale(1.75)'/><use href='%23m' transform='translate(198,155) rotate(173) scale(2.25)'/>%3C/svg%3E"),
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='354' height='268' viewBox='0 0 354 268'%3E%3Cpath id='m' fill='rgb(255,255,255)' fill-opacity='0.37' d='M23.456 33.397c-2.005-3.472-.684-8.066 2.913-10.704l-.594-1.027a1.126 1.126 0 0 1 1.949-1.125l1.125 1.948a1.125 1.125 0 0 1-.412 1.537c-3.223 1.861-4.584 5.56-3.033 8.246s5.435 3.358 8.658 1.497c3.224-1.862 4.585-5.56 3.033-8.247a1.125 1.125 0 0 1 1.949-1.125c2.171 3.76.441 8.839-3.857 11.32-4.298 2.482-9.56 1.44-11.731-2.32M24.5 17.206a2.25 2.25 0 1 0-2.25-3.897 2.25 2.25 0 0 0 2.25 3.897'/%3E<use href='%23m' transform='translate(79,68) rotate(189) scale(1.58)'/><use href='%23m' transform='translate(174,66) rotate(169) scale(1.38)'/><use href='%23m' transform='translate(270,66) rotate(175) scale(1.33)'/><use href='%23m' transform='translate(174,137) rotate(184) scale(2.02)'/><use href='%23m' transform='translate(81,198) rotate(177) scale(1.81)'/><use href='%23m' transform='translate(178,201) rotate(176) scale(1.36)'/><use href='%23m' transform='translate(272,198) rotate(187) scale(2.20)'/>%3C/svg%3E");
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .qm {
+    opacity: 0.3;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .qm-1 {
+    transform: translate(40px, 20px) scale(0.96) rotate(150deg);
+  }
+
+  .qm-2 {
+    transform: translate(90.5px, 36px) scale(1.55);
+  }
+
+  .qm-3 {
+    transform: translate(143px, 111px) scale(0.85) rotate(35deg);
+  }
+
+  .qm-4 {
+    transform: translate(62px, 99px) scale(0.74);
+  }
+
+  .qm-5 {
+    transform: translate(35px, 73px) scale(0.61) rotate(320deg);
+  }
+
+  .qm-6 {
+    transform: translate(195px, 75px) scale(1.15);
+  }
+
+  .qm-7 {
+    transform: translate(144px, 33px) scale(1);
+  }
+
+  .qm-8 {
+    transform: translate(338px, 88px) scale(0.53);
+  }
+
+  .qm-9 {
+    transform: translate(425px, 33px) scale(0.53);
+  }
+
+  .qm-10 {
+    transform: translate(208px, 18px) scale(0.53);
+  }
+
+  .qm-11 {
+    transform: translate(447px, 96px) scale(0.53) rotate(140deg);
+  }
+
+  .qm-12 {
+    transform: translate(262px, 106px) scale(0.76);
+  }
+
+  .qm-13 {
+    transform: translate(400px, 61px) scale(1.27);
+  }
+
+  .qm-14 {
+    transform: translate(321px, 39px) scale(1.58) rotate(20deg);
+  }
+
+  .qm-15 {
+    transform: translate(381px, 126px) scale(1) rotate(70deg);
+  }
+
+  .qm-16 {
+    transform: translate(471px, 120px) scale(0.96);
+  }
+
+  .qm-17 {
+    transform: translate(471px, 21px) scale(0.96);
+  }
+
+  .qm-18 {
+    transform: translate(256px, 50px) scale(0.76) rotate(210deg);
+  }
 }
 
 .ecl-quiz--reveal .ecl-quiz-card {
@@ -303,7 +378,6 @@ $quiz: null !default;
 }
 
 .ecl-quiz-card__back {
-  border: map.get($quiz, 'card', 'back-border');
   pointer-events: none;
 }
 
@@ -341,8 +415,8 @@ $quiz: null !default;
     &::before {
       content: ' ';
       border-radius: 50%;
-      height: 44px;
-      width: 44px;
+      height: 3rem;
+      width: 3rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -455,6 +529,10 @@ $quiz: null !default;
 
 .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
   background: map.get($quiz, 'card', 'first-background');
+
+  .ecl-quiz-card__illustration svg {
+    fill: var(--cm-on-surface-inverted, #fff);
+  }
 }
 
 .ecl-quiz .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
@@ -465,6 +543,11 @@ $quiz: null !default;
   .ecl-quiz-card__option {
     background: map.get($quiz, 'card', 'first-option-background');
     border: 1px solid map.get($quiz, 'card', 'first-option-border');
+
+    &:hover {
+      background: var(--c-w-300);
+      border-color: var(--c-w-600);
+    }
   }
 }
 
@@ -504,6 +587,8 @@ $quiz: null !default;
   .ecl-quiz-card:nth-child(3n + 2)
   .ecl-quiz-card__back
   .ecl-quiz-card__icon {
+  color: map.get($quiz, 'card', 'second-color');
+
   &::before {
     background: map.get($quiz, 'card', 'second-background');
   }
@@ -517,9 +602,18 @@ $quiz: null !default;
     color: map.get($quiz, 'card', 'third-color');
   }
 
+  .ecl-quiz-card__icon {
+    background: var(--cm-surface-color-mode-lowest);
+  }
+
   .ecl-quiz-card__option {
     background: map.get($quiz, 'card', 'third-option-background');
     border: 1px solid map.get($quiz, 'card', 'third-option-border');
+
+    &:hover {
+      background: var(--c-w-300);
+      border-color: var(--c-w-600);
+    }
   }
 }
 
@@ -573,36 +667,35 @@ $quiz: null !default;
     padding: var(--s-xl);
   }
 
-  .ecl-quiz-card__category {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  .ecl-quiz-card__header {
+    margin-inline: calc(-1 * var(--s-xs));
+  }
 
-    @include mixins.responsive-font(
-      map.get($quiz, 'card', 'category-font'),
-      map.get($quiz, 'card', 'category-font-weight')
-    );
-
-    &:focus-visible {
-      outline: 2px solid var(--cm-border-primary, var(--c-p));
-      outline-offset: 2px;
-    }
+  .ecl-quiz-card__illustration + .ecl-quiz-card__padded {
+    padding-block-start: var(--s-xs);
   }
 
   .ecl-quiz-card__question {
+    display: flex;
+    align-items: center;
     min-height: 5.5rem;
-    padding-block: var(--s-l);
+    padding-block: var(--s-xs) var(--s-m);
     text-align: start;
   }
 
   .ecl-quiz-card__answer {
     text-align: start;
-    padding-block: var(--s-l);
+    padding-block: var(--s-xs) var(--s-m);
 
     @include mixins.responsive-font(map.get($quiz, 'card', 'poll-answer-font'));
   }
 
   .ecl-quiz-card__answer-title {
     font-weight: map.get($theme, 'font-weight', 'bold');
+
+    &:focus-visible {
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+    }
   }
 
   .ecl-quiz-card__back .ecl-quiz-card__answer {
@@ -648,15 +741,13 @@ $quiz: null !default;
     }
 
     .ecl-quiz-card__icon {
-      background: map.get($quiz, 'card-back', 'error-icon-color');
+      &::before {
+        background: map.get($quiz, 'card-back', 'error-icon-color');
+      }
 
       .ecl-quiz-card__icon--success {
         display: none;
       }
-    }
-
-    .ecl-quiz-card__category--success {
-      display: none;
     }
 
     .ecl-quiz-card__option--selected {
@@ -669,7 +760,9 @@ $quiz: null !default;
 
     &.ecl-quiz-card--correct {
       .ecl-quiz-card__icon {
-        background: map.get($quiz, 'card-back', 'success-icon-color');
+        &::before {
+          background: map.get($quiz, 'card-back', 'success-icon-color');
+        }
 
         .ecl-icon {
           display: none;
@@ -678,14 +771,6 @@ $quiz: null !default;
         .ecl-quiz-card__icon--success {
           display: flex;
         }
-      }
-
-      .ecl-quiz-card__category--error {
-        display: none;
-      }
-
-      .ecl-quiz-card__category--success {
-        display: flex;
       }
     }
   }

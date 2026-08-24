@@ -15,7 +15,7 @@ module.exports = {
           alt: 'Europe flag',
         },
       },
-      image: 'always',
+      image: 'reveal',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
       correct_chosen_label: 'Your correct answer',
@@ -30,8 +30,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       back_icon: {
@@ -39,14 +39,14 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'check-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
         error: {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
@@ -77,8 +77,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       answer_title: 'The correct answer is B.',
@@ -96,12 +96,19 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
     },
     {
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          alt: 'Europe flag',
+        },
+      },
+      image: 'reveal',
       question: 'What currency is used in many EU countries?',
       answer_title: 'The correct answer is C.',
       answer: 'The Euro is the official currency used by many EU conutries',
@@ -122,8 +129,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       back_icon: {
@@ -131,14 +138,14 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'check-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
         error: {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
@@ -163,9 +170,9 @@ module.exports = {
       ],
       icon: {
         icon: {
-          name: 'question',
+          name: 'question-mark',
           family: 'phosphor',
-          size: '2xl',
+          size: 'xl',
         },
       },
       back_icon: {
@@ -173,14 +180,14 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'check-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
         error: {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
@@ -209,8 +216,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       back_icon: {
@@ -218,14 +225,14 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'check-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
         error: {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
