@@ -192,6 +192,7 @@ export class Select {
    * @param {Object} options
    * @param {String} options.id
    * @param {String} options.text
+   * @param {Number} [options.index] - index of the related option in the native select, used to uniquely match the checkbox back to its option even when several options share the same value/text
    * @param {String} [options.extraClass] - additional CSS class
    * @param {String} [options.disabled] - relevant when re-creating an option
    * @param {String} [options.selected] - relevant when re-creating an option
@@ -202,7 +203,7 @@ export class Select {
   static #createCheckbox(options, ctx) {
     // Early returns.
     if (!options || !ctx) return '';
-    const { id, text, disabled, selected, extraClass } = options;
+    const { id, text, index, disabled, selected, extraClass } = options;
     if (!id || !text) return '';
 
     // Elements to work with.
@@ -228,6 +229,10 @@ export class Select {
     // Imperative work follows.
     checkbox.classList.add('ecl-checkbox');
     checkbox.setAttribute('data-select-multiple-value', text);
+    if (index !== undefined) {
+      // Uniquely identifies the related <option>, since its value/text may not be unique.
+      checkbox.setAttribute('data-select-multiple-index', index);
+    }
     input.classList.add('ecl-checkbox__input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('id', `${ctx}-${id}`);
@@ -523,69 +528,72 @@ export class Select {
       }
 
       if (this.select.options && this.select.options.length > 0) {
-        this.checkboxes = Array.from(this.select.options).map((option) => {
-          let optgroup = '';
-          let checkbox = '';
-          if (option.parentNode.tagName === 'OPTGROUP') {
-            if (
-              !queryOne(
-                `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
-                  'label',
-                )}"]`,
-                this.optionsContainer,
-              )
-            ) {
-              optgroup = document.createElement('fieldset');
-              const title = document.createElement('legend');
-              title.classList.add('ecl-select__multiple-group__title');
-              title.innerHTML = option.parentNode.getAttribute('label');
-              optgroup.appendChild(title);
-              optgroup.setAttribute(
-                'data-ecl-multiple-group',
-                option.parentNode.getAttribute('label'),
-              );
-              optgroup.classList.add('ecl-select__multiple-group');
-              this.optionsContainer.appendChild(optgroup);
+        this.checkboxes = Array.from(this.select.options).map(
+          (option, index) => {
+            let optgroup = '';
+            let checkbox = '';
+            if (option.parentNode.tagName === 'OPTGROUP') {
+              if (
+                !queryOne(
+                  `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
+                    'label',
+                  )}"]`,
+                  this.optionsContainer,
+                )
+              ) {
+                optgroup = document.createElement('fieldset');
+                const title = document.createElement('legend');
+                title.classList.add('ecl-select__multiple-group__title');
+                title.innerHTML = option.parentNode.getAttribute('label');
+                optgroup.appendChild(title);
+                optgroup.setAttribute(
+                  'data-ecl-multiple-group',
+                  option.parentNode.getAttribute('label'),
+                );
+                optgroup.classList.add('ecl-select__multiple-group');
+                this.optionsContainer.appendChild(optgroup);
+              } else {
+                optgroup = queryOne(
+                  `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
+                    'label',
+                  )}"]`,
+                  this.optionsContainer,
+                );
+              }
+            }
+
+            if (option.selected) {
+              this.#updateSelectionsCount();
+              if (this.dropDownToolbar) {
+                this.dropDownToolbar.style.display = 'flex';
+              }
+            }
+            checkbox = Select.#createCheckbox(
+              {
+                // spread operator does not work in storybook context so we map 1:1
+                id: option.value,
+                text: option.text,
+                index,
+                disabled: option.disabled,
+                selected: option.selected,
+              },
+              this.selectMultipleId,
+            );
+
+            checkbox.setAttribute('data-visible', true);
+            if (!checkbox.classList.contains('ecl-checkbox--disabled')) {
+              checkbox.addEventListener('click', this.handleClickOption);
+              checkbox.addEventListener('keydown', this.handleKeyboardOnOption);
+            }
+            if (optgroup) {
+              optgroup.appendChild(checkbox);
             } else {
-              optgroup = queryOne(
-                `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
-                  'label',
-                )}"]`,
-                this.optionsContainer,
-              );
+              this.optionsContainer.appendChild(checkbox);
             }
-          }
 
-          if (option.selected) {
-            this.#updateSelectionsCount();
-            if (this.dropDownToolbar) {
-              this.dropDownToolbar.style.display = 'flex';
-            }
-          }
-          checkbox = Select.#createCheckbox(
-            {
-              // spread operator does not work in storybook context so we map 1:1
-              id: option.value,
-              text: option.text,
-              disabled: option.disabled,
-              selected: option.selected,
-            },
-            this.selectMultipleId,
-          );
-
-          checkbox.setAttribute('data-visible', true);
-          if (!checkbox.classList.contains('ecl-checkbox--disabled')) {
-            checkbox.addEventListener('click', this.handleClickOption);
-            checkbox.addEventListener('keydown', this.handleKeyboardOnOption);
-          }
-          if (optgroup) {
-            optgroup.appendChild(checkbox);
-          } else {
-            this.optionsContainer.appendChild(checkbox);
-          }
-
-          return checkbox;
-        });
+            return checkbox;
+          },
+        );
       } else {
         this.checkboxes = [];
       }
@@ -935,20 +943,22 @@ export class Select {
 
     // Toggle values
     const checkbox = e.target.closest('.ecl-checkbox');
-    Array.from(this.select.options).forEach((option) => {
-      if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
-        if (option.selected) {
-          option.selected = false;
-          option.removeAttribute('selected');
-          if (this.selectAll) {
-            this.selectAll.querySelector('input').checked = false;
-          }
-        } else {
-          option.selected = true;
-          option.setAttribute('selected', 'true');
+    const option =
+      this.select.options[
+        Number(checkbox.getAttribute('data-select-multiple-index'))
+      ];
+    if (option) {
+      if (option.selected) {
+        option.selected = false;
+        option.removeAttribute('selected');
+        if (this.selectAll) {
+          this.selectAll.querySelector('input').checked = false;
         }
+      } else {
+        option.selected = true;
+        option.setAttribute('selected', 'true');
       }
-    });
+    }
 
     this.update();
   }
@@ -974,9 +984,10 @@ export class Select {
 
     checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
-      const option = options.find(
-        (o) => o.text === checkbox.getAttribute('data-select-multiple-value'),
-      );
+      const option =
+        this.select.options[
+          Number(checkbox.getAttribute('data-select-multiple-index'))
+        ];
 
       if (option) {
         if (checked) {
@@ -1492,13 +1503,14 @@ export class Select {
    */
   handleClickOnClearAll(e) {
     e.preventDefault();
-    Array.from(this.select.options).forEach((option) => {
+    Array.from(this.select.options).forEach((option, index) => {
       const checkbox = this.selectMultiple.querySelector(
-        `[data-select-multiple-value="${option.text}"]`,
+        `[data-select-multiple-index="${index}"]`,
       );
       const input = checkbox.querySelector('.ecl-checkbox__input');
       input.checked = false;
       option.selected = false;
+      option.removeAttribute('selected');
     });
     if (this.selectAll) {
       this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
@@ -1516,15 +1528,17 @@ export class Select {
     if (this.multiple) {
       // A slight timeout is necessary to execute the function just after the original reset of the form.
       setTimeout(() => {
-        Array.from(this.select.options).forEach((option) => {
+        Array.from(this.select.options).forEach((option, index) => {
           const checkbox = this.selectMultiple.querySelector(
-            `[data-select-multiple-value="${option.text}"]`,
+            `[data-select-multiple-index="${index}"]`,
           );
           const input = checkbox.querySelector('.ecl-checkbox__input');
           if (input.checked) {
             option.selected = true;
+            option.setAttribute('selected', 'true');
           } else {
             option.selected = false;
+            option.removeAttribute('selected');
           }
         });
         this.update(0);
