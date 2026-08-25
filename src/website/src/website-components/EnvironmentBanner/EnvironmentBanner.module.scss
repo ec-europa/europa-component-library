@@ -20,8 +20,18 @@
 }
 
 .link {
-  color: inherit;
-  font-weight: 700;
+  color: var(--ws-c-p);
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+
+  &:focus {
+    outline: 2px solid var(--ws-c-p);
+    outline-offset: 2px;
+  }
 }
 
 .close {
