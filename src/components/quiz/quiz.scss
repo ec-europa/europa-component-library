@@ -370,7 +370,7 @@ $quiz: null !default;
   }
 }
 
-.ecl-quiz-card__picture + .ecl-quiz-card__padded {
+.ecl-quiz-card__picture + .ecl-quiz-card__padded:has(.ecl-quiz-card__icon) {
   margin-block-start: calc(-1 * var(--s-4xl));
   padding-block-start: 0 !important;
 }

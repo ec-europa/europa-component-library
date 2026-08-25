@@ -140,7 +140,7 @@
     {% endif %}
       <div class="ecl-quiz-card__padded">
         <div class="ecl-quiz-card__header">
-        {% if not (_variant == 'poll' and _image == 'reveal') %}
+        {% if _icon is not empty and not (_variant == 'poll' and _image == 'reveal') %}
           <div class="ecl-quiz-card__icon">
             {% include "@ecl/icon/icon.html.twig" with _icon only %}
           </div>
@@ -204,15 +204,19 @@
     {{ _picture_markup }}
       <div class="ecl-quiz-card__padded">
         <div class="ecl-quiz-card__header">
+        {% if _icon is not empty or _back_icon is not empty %}
           <div class="ecl-quiz-card__icon">
-            {% if _back_icon %}
+            {% if _back_icon is not empty %}
               {% include "@ecl/icon/icon.html.twig" with _back_icon.success|merge({
                 extra_classes: 'ecl-quiz-card__icon--success',
               }) only %}
               {% set _icon = _back_icon.error %}
             {% endif %}
-            {% include "@ecl/icon/icon.html.twig" with _icon only %}
+            {% if _icon is not empty %}
+              {% include "@ecl/icon/icon.html.twig" with _icon only %}
+            {% endif %}
           </div>
+        {% endif %}
         </div>
         <div class="ecl-quiz-card__answer" id="{{ _id }}-answer">
           <div class="ecl-quiz-card__answer-content">

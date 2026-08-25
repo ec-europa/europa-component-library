@@ -8,16 +8,21 @@ import specsPoll from './demo/data-poll';
 import quiz from './quiz.html.twig';
 import notes from './README.md';
 
+const icon = specs.items[0].icon;
+
 const getArgs = () => {
-  const args = {
-    withBackground: false,
-    fullWidth: false,
-    image: 'none',
-  };
+  let args = {};
 
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
+
+  args = {
+    ...args,
+    fullWidth: false,
+    withBackground: false,
+    image: 'none',
+  };
 
   return args;
 };
@@ -25,17 +30,57 @@ const getArgs = () => {
 const getArgTypes = () => {
   return {
     ...getColorModeControls(),
+    fullWidth: {
+      name: 'full width',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
     withBackground: {
       name: 'with background',
       control: {
         type: 'boolean',
       },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
       if: { arg: 'fullWidth', eq: false },
     },
-    fullWidth: {
-      name: 'full width',
-      control: {
-        type: 'boolean',
+    icon: {
+      description: 'Name of the icon (sample list)',
+      type: 'select',
+      options: [
+        'none',
+        'sparkle',
+        'aperture',
+        'avocado',
+        'at',
+        'barcode',
+        'baseball',
+        'bank',
+        'bell',
+        'question-mark',
+      ],
+      mapping: {
+        none: 'none',
+        sparkle: 'sparkle',
+        aperture: 'aperture',
+        avocado: 'avocado',
+        at: 'at',
+        barcode: 'barcode',
+        baseball: 'baseball',
+        bank: 'bank',
+        bell: 'bell',
+        'question-mark': 'question-mark',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
       },
     },
     image: {
@@ -53,20 +98,33 @@ const getArgTypes = () => {
         'front and back': 'always',
         'only back': 'reveal',
       },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
     },
   };
 };
 
 const prepareData = (data, args) => {
-  data.with_background = args.withBackground;
-  data.full_width = args.fullWidth;
-  data.color_mode = args.color_mode;
+  const clone = JSON.parse(JSON.stringify(data));
 
-  if (data.full_width) {
-    data.with_background = true;
+  clone.with_background = args.withBackground;
+  clone.full_width = args.fullWidth;
+  clone.color_mode = args.color_mode;
+
+  if (clone.full_width) {
+    clone.with_background = true;
   }
 
-  data.items.forEach((item, i) => {
+  clone.items.forEach((item, i) => {
+    if (args.icon !== 'none') {
+      item.icon = icon;
+      item.icon.icon.name = args.icon;
+    } else {
+      delete item.icon;
+    }
+
     item.picture = {};
     item.picture.img = {};
     if (args.image === 'always') {
@@ -81,7 +139,7 @@ const prepareData = (data, args) => {
     }
   });
 
-  return data;
+  return clone;
 };
 
 export default {
@@ -98,7 +156,10 @@ Reveal.render = async (args) => {
   const renderedQuiz = await quiz(prepareData(correctPaths(specs), args));
   return renderedQuiz;
 };
-Reveal.args = getArgs();
+Reveal.args = {
+  ...getArgs(),
+  icon: 'sparkle',
+};
 Reveal.argTypes = getArgTypes();
 Reveal.storyName = 'reveal';
 Reveal.parameters = {
@@ -121,7 +182,10 @@ Poll.render = async (args) => {
   const renderedQuiz = await quiz(prepareData(correctPaths(specsPoll), args));
   return renderedQuiz;
 };
-Poll.args = getArgs();
+Poll.args = {
+  ...getArgs(),
+  icon: 'question-mark',
+};
 Poll.argTypes = getArgTypes();
 Poll.storyName = 'poll';
 Poll.parameters = {

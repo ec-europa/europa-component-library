@@ -46,13 +46,6 @@ module.exports = {
       question:
         'What document allows EU citizens to travel freely between most EU countries?',
       answer: 'A valid ID card or passport is usually enough.',
-      icon: {
-        icon: {
-          name: 'sparkle',
-          family: 'phosphor',
-          size: 'l',
-        },
-      },
       back_text: 'Flip back',
       flip_text: 'Reveal answer',
       flip_icon: {
