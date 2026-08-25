@@ -1,0 +1,36 @@
+.banner {
+  align-items: flex-start;
+  background-color: var(--ws-c-s-60);
+  border-radius: 4px;
+  bottom: var(--ws-s-m);
+  box-shadow: var(--ws-sh-2);
+  display: flex;
+  gap: var(--ws-s-s);
+  max-width: 23rem;
+  padding: var(--ws-s-s) var(--ws-s-m);
+  position: fixed;
+  right: var(--ws-s-m);
+  z-index: 100;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  font: var(--ws-f-m);
+}
+
+.link {
+  color: inherit;
+  font-weight: 700;
+}
+
+.close {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  line-height: 1.75rem;
+  padding: 0;
+}
