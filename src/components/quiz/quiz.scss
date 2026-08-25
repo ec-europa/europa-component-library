@@ -605,7 +605,7 @@ $quiz: null !default;
   }
 
   .ecl-quiz-card__icon {
-    background: var(--cm-surface-color-mode-lowest);
+    background: map.get($quiz, 'card', 'third-background');
   }
 
   .ecl-quiz-card__option {
