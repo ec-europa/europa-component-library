@@ -371,7 +371,7 @@ $quiz: null !default;
 }
 
 .ecl-quiz-card__picture + .ecl-quiz-card__padded:has(.ecl-quiz-card__icon) {
-  margin-block-start: calc(-1 * var(--s-4xl));
+  margin-block-start: map.get($quiz, 'card', 'icon-overlap');
   padding-block-start: 0 !important;
 }
 
@@ -669,6 +669,11 @@ $quiz: null !default;
 
   .ecl-quiz-card__padded {
     padding: var(--s-xl);
+  }
+
+  .ecl-quiz-card__question,
+  .ecl-quiz-card__answer {
+    align-items: start;
   }
 
   .ecl-quiz-card__header {

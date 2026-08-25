@@ -27,7 +27,7 @@ $quiz: (
     question-answer-font: 'body-l',
     question-answer-font-weight: map.get($font-weight, 'semi-bold'),
     question-answer-spacing: var(--s-xl) var(--s-5xl),
-    question-answer-poll-spacing: var(--s-xl),
+    question-answer-poll-spacing: var(--s-xs) var(--s-xl),
     description-spacing-desktop: var(--s-xl),
     flip-link-font: 'body-xs',
     padding: var(--s-5xl) var(--s-3xl),
@@ -45,6 +45,7 @@ $quiz: (
     second-option-border: var(--c-w-700),
     third-option-border: var(--c-w-700),
     option-font: 'body-s',
+    icon-overlap: calc(-1 * var(--s-4xl)),
   ),
   card-back: (
     background: var(--cm-on-surface-inverted),
