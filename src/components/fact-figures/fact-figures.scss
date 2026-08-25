@@ -19,7 +19,7 @@ $fact-figures: null !default;
   container-name: ecl-fact-figures;
 }
 
-.ecl-fact-figures__items {
+.ecl-fact-figures__container {
   padding: map.get($fact-figures, 'padding-mobile');
 }
 
@@ -131,11 +131,14 @@ $fact-figures: null !default;
 
 /* stylelint-disable-next-line order/order */
 @container ecl-fact-figures (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-fact-figures__container {
+    padding: map.get($fact-figures, 'padding-desktop');
+  }
+
   .ecl-fact-figures__items {
     display: grid;
     column-gap: map.get($fact-figures, 'margin-horizontal');
     row-gap: map.get($fact-figures, 'margin-vertical');
-    padding: map.get($fact-figures, 'padding-desktop');
 
     .ecl-fact-figures--col-2 & {
       grid-template-columns: repeat(2, 1fr);
