@@ -410,6 +410,10 @@ $quiz: null !default;
     color: map.get($quiz, 'card-back', 'flip-link-color');
   }
 
+  .ecl-quiz-card__label {
+    padding-inline-end: var(--s-m);
+  }
+
   .ecl-quiz-card__icon {
     color: map.get($quiz, 'card-back', 'icon-color');
     background: var(--cm-on-surface-inverted, #fff);
@@ -514,7 +518,9 @@ $quiz: null !default;
         display: grid;
         grid-template-columns: auto 1fr;
         gap: var(--s-s);
-        padding: var(--s-xs) var(--s-m);
+
+        // Maximixe padding right to reproduce the icon that is on the back
+        padding: var(--s-xs) 3rem var(--s-xs) var(--s-m);
 
         &::before {
           content: counter(letter, upper-alpha) '. ';
