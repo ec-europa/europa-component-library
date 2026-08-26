@@ -410,8 +410,11 @@ $quiz: null !default;
     color: map.get($quiz, 'card-back', 'flip-link-color');
   }
 
-  .ecl-quiz-card__label {
-    padding-inline-end: var(--s-m);
+  .ecl-quiz-card__option:not(
+    [data-match='true'],
+    .ecl-quiz-card__option--selected
+  ) {
+    padding-inline-end: calc(3rem - var(--s-s));
   }
 
   .ecl-quiz-card__icon {
