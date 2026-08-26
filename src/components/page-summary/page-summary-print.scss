@@ -11,6 +11,8 @@ $theme: null !default;
 $page-summary: null !default;
 
 .ecl-page-summary {
+  --max-w: none;
+
   background-color: map.get($page-summary, 'background');
   border-inline-start: map.get($page-summary, 'border');
   display: flex;

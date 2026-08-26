@@ -12,10 +12,12 @@ $blockquote-print: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
+  --max-w: none;
+
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   margin: 0;
   padding: map.get($blockquote, 'padding-desktop');

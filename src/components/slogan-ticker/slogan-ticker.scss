@@ -10,9 +10,10 @@ $slogan-ticker: null !default;
 
 .ecl-slogan-ticker {
   align-items: center;
-  background: var(--cm-surface-color-mode-lowest, var(--c-p-10));
+  background: var(--cm-surface-color-mode-low, var(--c-p-10));
   border: none;
   border-radius: 0;
+  box-shadow: map.get($slogan-ticker, 'shadow');
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
