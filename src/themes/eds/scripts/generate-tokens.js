@@ -112,6 +112,12 @@ function toScssValue(pathSegments, type, value) {
 // Sass map rendering
 // -----------------------------------------------------------------------
 
+// A leaf value that's already a single self-contained call expression (e.g.
+// `map.get($eds-primitive-color, 'functional', 'orange', '50')`) doesn't
+// need the comma-wrapping below - its commas are already nested inside the
+// call's own parens, so Sass won't misread them as map-entry separators.
+const CALL_EXPRESSION = /^[a-zA-Z_][\w.$-]*\(.*\)$/;
+
 /** Renders a nested object as a Sass map literal (2-space indent per level). */
 function renderScssMap(node, indent = 0) {
   const pad = '  '.repeat(indent);
@@ -121,7 +127,13 @@ function renderScssMap(node, indent = 0) {
     // A leaf value with a top-level comma (e.g. a 'Inter', arial,
     // sans-serif font stack) would otherwise be misread as multiple map
     // entries by the Sass parser - wrap it as a single list value instead.
-    if (typeof node === 'string' && node.includes(',')) return `(${node})`;
+    if (
+      typeof node === 'string' &&
+      node.includes(',') &&
+      !CALL_EXPRESSION.test(node)
+    ) {
+      return `(${node})`;
+    }
     return node;
   }
 
@@ -294,12 +306,34 @@ function splitSemantic(flatDict) {
 const lightSplit = splitSemantic(light);
 const darkSplit = splitSemantic(dark);
 
+// Every semantic color leaf's `com.figma.aliasData.targetVariableName`
+// points at the exact primitive it resolves from (verified across all 133
+// color tokens in both Light/Dark - none are a bare literal with no
+// primitive backing), always as `color/<primitive path>`. So rather than
+// re-emitting the resolved hex a second time here, reference the primitive
+// map directly - `$eds-color-light`/`$eds-color-dark` become a traceable
+// alias table instead of a duplicate copy of `$eds-primitive-color`.
+function colorAliasRef(key, node) {
+  const alias = node.$extensions && node.$extensions['com.figma.aliasData'];
+  if (!alias) {
+    throw new Error(`Semantic color token "${key}" has no primitive alias`);
+  }
+  const [category, ...primitivePath] = alias.targetVariableName.split('/');
+  if (category !== 'color') {
+    throw new Error(
+      `Semantic color token "${key}" aliases a non-color primitive "${alias.targetVariableName}"`,
+    );
+  }
+  const args = primitivePath.map((segment) => `'${segment}'`).join(', ');
+  return `map.get($eds-primitive-color, ${args})`;
+}
+
 function buildColorScssMap(colorDict) {
   const nested = {};
   Object.keys(colorDict).forEach((key) => {
     const segments = key.split('/');
     const node = colorDict[key];
-    const scssValue = toScssValue(segments, node.$type, node.$value);
+    const scssValue = colorAliasRef(key, node);
     let cursor = nested;
     segments.forEach((segment, i) => {
       if (i === segments.length - 1) {
@@ -370,10 +404,12 @@ function buildColorMapsScss() {
   darkNested.shadow.composite = darkShadowComposite;
 
   let out = GENERATED_BANNER;
-  out +=
-    '\n// Semantic color tokens (mode-dependent). shadow.composite.level-N\n';
-  out += '// is a ready-to-use `box-shadow` value combining the mode-scoped\n';
-  out += '// shadow color with the mode-invariant offset/blur/spread.\n\n';
+  out += "\n@use 'sass:map';\n@use 'primitives' as *;\n";
+  out += '\n// Semantic color tokens (mode-dependent), each aliasing into\n';
+  out += '// $eds-primitive-color per the source Figma variable it resolves\n';
+  out += '// from. shadow.composite.level-N is a ready-to-use `box-shadow`\n';
+  out += '// value combining the mode-scoped shadow color with the\n';
+  out += '// mode-invariant offset/blur/spread.\n\n';
   out += `$eds-color-light: ${renderScssMap(lightNested)} !default;\n`;
   out += `$eds-color-dark: ${renderScssMap(darkNested)} !default;\n`;
   return out;
