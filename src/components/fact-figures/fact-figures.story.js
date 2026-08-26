@@ -238,4 +238,7 @@ Default.parameters = {
       xl: { disable: true },
     },
   },
+  breakpointIndicator: {
+    containerOffset: 48,
+  },
 };
