@@ -126,18 +126,16 @@ const prepareData = (data, args) => {
       delete item.icon;
     }
 
-    item.picture = {};
-    item.picture.img = {};
     if (args.image === 'always') {
-      item.picture = structuredClone(picture);
+      item.picture = JSON.parse(JSON.stringify(picture));
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
       item.image = 'always';
     } else if (args.image === 'reveal') {
-      item.picture = structuredClone(picture);
+      item.picture = JSON.parse(JSON.stringify(picture));
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
       item.image = 'reveal';
     } else {
-      item.picture.img.src = '';
+      delete item.picture;
       item.image = '';
     }
   });
