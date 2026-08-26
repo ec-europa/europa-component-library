@@ -31,11 +31,8 @@
 {# Internal properties #}
 
 {% set _id = id|default('ecl-quiz-item-' ~ random()) %}
-{% set _category = category|default('') %}
 {% set _image = image|default('') %}
 {% set _picture = picture|default({}) %}
-{% set _success_category = success_category|default('') %}
-{% set _error_category = error_category|default('') %}
 {% set _question = question|default('') %}
 {% set _icon = icon|default({}) %}
 {% set _back_icon = back_icon|default({}) %}
