@@ -239,6 +239,6 @@ Default.parameters = {
     },
   },
   breakpointIndicator: {
-    containerOffset: 48,
+    container: '.ecl-fact-figures',
   },
 };
