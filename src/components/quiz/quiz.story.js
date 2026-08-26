@@ -9,6 +9,7 @@ import quiz from './quiz.html.twig';
 import notes from './README.md';
 
 const icon = specs.items[0].icon;
+const picture = specs.items[0].picture;
 
 const getArgs = () => {
   let args = {};
@@ -128,9 +129,11 @@ const prepareData = (data, args) => {
     item.picture = {};
     item.picture.img = {};
     if (args.image === 'always') {
+      item.picture = structuredClone(picture);
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
       item.image = 'always';
     } else if (args.image === 'reveal') {
+      item.picture = structuredClone(picture);
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
       item.image = 'reveal';
     } else {
