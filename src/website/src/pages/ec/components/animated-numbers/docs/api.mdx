@@ -24,11 +24,17 @@ Add `data-ecl-auto-init="AnimatedNumbers"` attribute to the component's markup:
 </div>
 ```
 
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
 ### Manual
 
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-animated-numbers` on the page:
+
 ```js
-const element = document.querySelector('[data-ecl-animated-numbers]');
-const animatedNumbers = new ECL.AnimatedNumbers(element, {
+var elt = document.querySelector('[data-ecl-animated-numbers]');
+var animatedNumbers = new ECL.AnimatedNumbers(elt, {
   animationStyle: 'random',
   animationDuration: 1500,
 });
@@ -37,9 +43,18 @@ animatedNumbers.init();
 
 ### Retrieve an existing instance
 
+If an existing instance needs to be updated, it can be retrieved this way:
+
 ```js
-const element = document.querySelector('[data-ecl-animated-numbers]');
-const instance = ECL.components.get(element);
+var elt = document.querySelector('[data-ecl-animated-numbers]');
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run destroy() and init() on this instance, like this:
+
+```js
+instance.destroy();
+instance.init();
 ```
 
 ## API
