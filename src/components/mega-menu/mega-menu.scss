@@ -203,13 +203,10 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu--start-panel .ecl-mega-menu__inner {
-  @include with-scrollbar;
-}
-
 // Expanded
 .ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
-  display: block;
+  display: flex;
+  flex-direction: column;
   inset-inline-end: 0;
 }
 
@@ -220,8 +217,16 @@ $mega-menu: null !default;
   color: map.get($mega-menu, 'mobile', 'header-color');
   display: flex;
   flex-flow: row-reverse;
+  flex-shrink: 0;
   height: map.get($mega-menu, 'mobile', 'header-height');
   padding-block-end: var(--s-xs);
+}
+
+.ecl-mega-menu--start-panel .ecl-mega-menu__list,
+.ecl-mega-menu__inner--expanded .ecl-mega-menu__list {
+  min-height: 0;
+
+  @include with-scrollbar;
 }
 
 .ecl-mega-menu__title {
@@ -355,6 +360,10 @@ $mega-menu: null !default;
       display: none;
     }
   }
+
+  .ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
+    display: block;
+  }
 }
 
 .ecl-mega-menu__wrapper {
@@ -362,13 +371,10 @@ $mega-menu: null !default;
   display: none;
   font: map.get($mega-menu, 'global', 'font');
   position: relative;
-  height: 100%;
   inset-inline-start: 0;
   padding: 0;
   top: 0;
   width: 100%;
-
-  @include with-scrollbar;
 }
 
 /*
@@ -592,6 +598,8 @@ $mega-menu: null !default;
       flex-direction: row;
       inset-inline: 0;
       margin-top: 0;
+      min-height: auto;
+      overflow-y: visible;
       padding: 0;
     }
 

@@ -821,7 +821,6 @@ export class MegaMenu {
    * Dinamically set the position of the menu overlay
    */
   positionMenuOverlay() {
-    let availableHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
       setTimeout(() => {
@@ -835,72 +834,7 @@ export class MegaMenu {
           if (this.inner) {
             this.inner.style.top = `${bottomPosition}px`;
           }
-          const item = queryOne('.ecl-mega-menu__item--expanded', this.element);
-
-          if (item) {
-            const hasFeatured = queryOne(
-              '.ecl-mega-menu__mega--has-featured',
-              item,
-            );
-            const info = queryOne('.ecl-mega-menu__info', item);
-            if (info && this.openPanel.num === 1) {
-              const bottomRect = info.getBoundingClientRect();
-              const bottomInfo = bottomRect.bottom;
-              availableHeight = window.innerHeight - bottomInfo - 16;
-            }
-            // When the subitem of first level defines a featured panel
-            if (hasFeatured) {
-              const hasFeaturedRect = hasFeatured.getBoundingClientRect();
-              const hasFeaturedTop = hasFeaturedRect.top;
-              availableHeight =
-                availableHeight || window.innerHeight - hasFeaturedTop;
-              hasFeatured.style.height = `${availableHeight}px`;
-            } else {
-              const subList = queryOne('.ecl-mega-menu__sublist', item);
-              // Check that we are showing the first panel, with no featured panel.
-              if (subList && this.openPanel.num === 1) {
-                const subListRect = subList.getBoundingClientRect();
-                const subListRectTop = subListRect.top;
-                subList.classList.add('ecl-mega-menu__sublist--scrollable');
-                availableHeight =
-                  availableHeight || window.innerHeight - subListRectTop;
-                subList.style.height = `${availableHeight}px`;
-              } else if (subList) {
-                // Clean up the sublist, it is not the one being shown.
-                subList.classList.remove('ecl-mega-menu__sublist--scrollable');
-                subList.style.height = '';
-              }
-              // Second panel handling
-              if (this.openPanel.num === 2) {
-                const subItem = queryOne(
-                  '.ecl-mega-menu__subitem--expanded',
-                  this.element,
-                );
-                if (subItem) {
-                  const subMega = queryOne(
-                    '.ecl-mega-menu__mega--level-2',
-                    subItem,
-                  );
-                  // If there is a featured panel is going to part of it.
-                  if (subMega) {
-                    const subMegaRect = subMega.getBoundingClientRect();
-                    const subMegaTop = subMegaRect.top;
-                    availableHeight = window.innerHeight - subMegaTop;
-                    subMega.style.height = `${availableHeight}px`;
-                    // Overflow on the child list doesn't work here, so we apply
-                    // this class to the wrapper
-                    subMega.classList.add('ecl-mega-menu__sublist--scrollable');
-                  }
-                }
-              }
-              if (this.wrappers) {
-                this.wrappers.forEach((wrapper) => {
-                  wrapper.style.top = '';
-                  wrapper.style.height = '';
-                });
-              }
-            }
-          }
+          // No height calculus needed on mobile
         }
       }, 0);
     } else {
