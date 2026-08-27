@@ -188,6 +188,10 @@ Poll.args = {
   icon: 'question-mark',
 };
 Poll.argTypes = getArgTypes();
+Poll.argTypes.icon.if = {
+  arg: 'image',
+  neq: 'reveal',
+};
 Poll.storyName = 'poll';
 Poll.parameters = {
   notes: {
