@@ -677,6 +677,10 @@ $mega-menu: null !default;
         background: map.get($mega-menu, 'desktop', 'item-background-hover');
         color: map.get($mega-menu, 'desktop', 'item-color-hover');
       }
+
+      &:focus-visible {
+        outline-color: currentcolor;
+      }
     }
 
     .ecl-mega-menu__item--promotional .ecl-mega-menu__link {
