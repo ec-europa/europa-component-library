@@ -20,7 +20,7 @@ exports[`Highlighted search Default renders correctly 1`] = `
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-describedby="highlighted-search-title"
+        aria-labelledby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         method="GET"
         role="search"
@@ -36,11 +36,15 @@ exports[`Highlighted search Default renders correctly 1`] = `
             class="ecl-form-group ecl-highlighted-search__form-group"
           >
             <label
-              class="ecl-form-label ecl-form-label--hidden"
+              class="ecl-form-label-wrapper"
               for="highlighted-search-input-id"
               id="highlighted-search-input-id-label"
             >
-              Search
+              <span
+                class="ecl-form-label ecl-form-label--hidden"
+              >
+                Search
+              </span>
             </label>
             <input
               aria-describedby="highlighted-search-helper"
@@ -165,7 +169,7 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
       </div>
       <form
         action="/search-results?category=jobs&lang=en"
-        aria-describedby="highlighted-search-title"
+        aria-labelledby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         method="GET"
         role="search"
@@ -181,11 +185,15 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
             class="ecl-form-group ecl-highlighted-search__form-group"
           >
             <label
-              class="ecl-form-label ecl-form-label--hidden"
+              class="ecl-form-label-wrapper"
               for="highlighted-search-input-id"
               id="highlighted-search-input-id-label"
             >
-              Search
+              <span
+                class="ecl-form-label ecl-form-label--hidden"
+              >
+                Search
+              </span>
             </label>
             <input
               aria-describedby="highlighted-search-helper"
@@ -311,7 +319,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-describedby="highlighted-search-title"
+        aria-labelledby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         method="GET"
         role="search"
@@ -327,11 +335,15 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
             class="ecl-form-group ecl-highlighted-search__form-group"
           >
             <label
-              class="ecl-form-label ecl-form-label--hidden"
+              class="ecl-form-label-wrapper"
               for="highlighted-search-input-id"
               id="highlighted-search-input-id-label"
             >
-              Search
+              <span
+                class="ecl-form-label ecl-form-label--hidden"
+              >
+                Search
+              </span>
             </label>
             <input
               aria-describedby="highlighted-search-helper"
@@ -455,7 +467,7 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
         Discover job opportunities in the EU institutions
       </div>
       <form
-        aria-describedby="highlighted-search-title"
+        aria-labelledby="highlighted-search-title"
         class="ecl-highlighted-search__form"
         method="GET"
         role="search"
@@ -471,11 +483,15 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
             class="ecl-form-group ecl-highlighted-search__form-group"
           >
             <label
-              class="ecl-form-label ecl-form-label--hidden"
+              class="ecl-form-label-wrapper"
               for="highlighted-search-input-id"
               id="highlighted-search-input-id-label"
             >
-              Search
+              <span
+                class="ecl-form-label ecl-form-label--hidden"
+              >
+                Search
+              </span>
             </label>
             <input
               aria-describedby="highlighted-search-helper"
