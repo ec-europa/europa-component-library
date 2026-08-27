@@ -82,6 +82,7 @@ const getArgTypes = () => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
+        category: 'First card',
       },
     },
     image: {
@@ -118,14 +119,14 @@ const prepareData = (data, args) => {
     clone.with_background = true;
   }
 
-  clone.items.forEach((item, i) => {
-    if (args.icon !== 'none') {
-      item.icon = icon;
-      item.icon.icon.name = args.icon;
-    } else {
-      delete item.icon;
-    }
+  if (args.icon !== 'none') {
+    clone.items[0].icon = icon;
+    clone.items[0].icon.icon.name = args.icon;
+  } else {
+    delete clone.items[0].icon;
+  }
 
+  clone.items.forEach((item, i) => {
     if (args.image === 'always') {
       item.picture = JSON.parse(JSON.stringify(picture));
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
