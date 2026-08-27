@@ -863,9 +863,12 @@ importers:
         specifier: 5.2.0
         version: link:../link
     devDependencies:
+      '@ecl/grid':
+        specifier: 5.2.0
+        version: link:../../layout/grid
       '@ecl/mixins-typography':
-        specifier: 5.0.0-alpha.22
-        version: 5.0.0-alpha.22
+        specifier: 5.2.0
+        version: link:../../mixins/typography
 
   src/components/notification:
     dependencies:
@@ -4368,9 +4371,6 @@ packages:
   '@ecl/event-manager@5.1.0':
     resolution: {integrity: sha512-fYdyPtuPoY2KQHl87wGgXyYe7XCRPMZGER3ePyI+EkuvXpsu7IJUpLiSPgf7Chj94AgvvkeNASSWA+ObHXT3tw==}
 
-  '@ecl/grid@5.0.0-alpha.22':
-    resolution: {integrity: sha512-Os9Ajg9+AGozMWcWWIeyjDfsF7z3ZnqH6xVrq3QbA1LTHCsalmBmuySx1LS4Q3HWuMZz7D/DVuooiLs1nytEyg==}
-
   '@ecl/icon@5.1.0':
     resolution: {integrity: sha512-1cDJpK0JfSNEVlYRNZgPSK8L1+iuxsSCev9qxC9d4HpXL8AXlooKYNxbh0cqs5txXL7yFAEb/GKinjpIy7a4Vg==}
 
@@ -4379,9 +4379,6 @@ packages:
 
   '@ecl/link@5.1.0':
     resolution: {integrity: sha512-gR9kBXXRzgeNXanMFG0RGQybo4PD3ENzpTKLPuQcx/kIEuYvtvz5rknhLb1RiGV4uxOHZBi2ZedSJffBI0RSUA==}
-
-  '@ecl/mixins-typography@5.0.0-alpha.22':
-    resolution: {integrity: sha512-yFSV/MSWlmkeFAnl3npkWtTczCxWxhC+90KjV/YZo1oT/DNsrwxkMlkYCyBCyD0ivMYxYSkjMTN7GmFMwIHSGQ==}
 
   '@ecl/notification@5.1.0':
     resolution: {integrity: sha512-kLR83skMjECYTAHvxtsiHRUmIa0hHgcRPPwF387wSDZnrsV0h/3EVetaupHop3sO5ibB7TGiy/tIBzX67qjdjQ==}
@@ -14292,8 +14289,6 @@ snapshots:
 
   '@ecl/event-manager@5.1.0': {}
 
-  '@ecl/grid@5.0.0-alpha.22': {}
-
   '@ecl/icon@5.1.0': {}
 
   '@ecl/indicator@5.1.0': {}
@@ -14302,10 +14297,6 @@ snapshots:
     dependencies:
       '@ecl/icon': 5.1.0
       '@ecl/indicator': 5.1.0
-
-  '@ecl/mixins-typography@5.0.0-alpha.22':
-    dependencies:
-      '@ecl/grid': 5.0.0-alpha.22
 
   '@ecl/notification@5.1.0':
     dependencies:
