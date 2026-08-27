@@ -14,6 +14,7 @@ npm install --save @ecl/mega-menu
 - **"aria_label"** (string) (default: '') Aria label for the main nav element
 - **"second_level_aria_label"** (string) (default: '') Aria label for second-level sub-lists
 - **"third_level_aria_label"** (string) (default: '') Aria label for third-level sub-lists
+- **"current_aria_label"** (string) (default: '') Aria label for the current item
 - **"back_label"** (string) (default: '') Back button label (mobile navigation)
 - **"see_all_label"** (string) (default: '') Label for the "View all" link in sub-menus
 - **"featured_priority"** (string) (default: 'secondary') Which featured panel is visible; can be 'primary', 'secondary'
@@ -52,6 +53,10 @@ npm install --save @ecl/mega-menu
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/mega-menu/mega-menu.html.twig' with {
+  aria_label: 'Main navigation',
+  second_level_aria_label: 'Pages in this section',
+  third_level_aria_label: 'Sub-pages in this section',
+  current_aria_label: 'Current section',
   toggle: {
     link: {
       label: 'Menu',

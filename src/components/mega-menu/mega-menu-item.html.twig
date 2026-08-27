@@ -3,6 +3,10 @@
 {#
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
+  - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
+  - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
+  - "current_aria_label" (string) (default: '') Aria label for the current item
+  - "see_all_label": (string) (default: ''): Label for the "view all" link
   - "item" (object)
     - "label" (string) Label of the menu link
     - "is_current": (boolean) (optional) Is this the current page?
@@ -56,6 +60,9 @@
 #}
 
 {% set _id = id|default('') %}
+{% set _second_level_aria_label = second_level_aria_label|default('') %}
+{% set _third_level_aria_label = third_level_aria_label|default('') %}
+{% set _current_aria_label = current_aria_label|default('') %}
 {% set _item = item|default({}) %}
 {% set _menu_link_class = 'ecl-mega-menu__link' %}
 {% set _menu_link_attribute = 'data-ecl-mega-menu-link' %}
@@ -134,15 +141,17 @@
     { name: _menu_link_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
-  {% if _item.is_current %}
-    {% set _menu_link_attributes = _menu_link_attributes|merge([
-      { name: 'aria-current', value: 'page' },
-    ]) %}
-  {% endif %}
   {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
     {% set _menu_link_attributes = _menu_link_attributes|merge([
       { name: 'aria-expanded', value: 'false' },
     ]) %}
+
+    {% if _item.is_current %}
+      {% set _menu_link_attributes = _menu_link_attributes|merge([
+        { name: 'title', value: _current_aria_label },
+      ]) %}
+    {% endif %}
+
     {% include '@ecl/button/button.html.twig' with {
       type: 'button',
       label: _item.label,
@@ -152,6 +161,12 @@
       extra_attributes: _menu_link_attributes,
     } only %}
   {% else %}
+    {% if _item.is_current %}
+      {% set _menu_link_attributes = _menu_link_attributes|merge([
+        { name: 'aria-current', value: 'page' },
+      ]) %}
+    {% endif %}
+
     {% include '@ecl/link/link.html.twig' with {
       link: {
         type: 'standalone',
@@ -184,11 +199,11 @@
 {%- elseif (_item.children is defined and _item.children is not empty and _item.children is iterable) or _featured is not empty -%}
   {% set _sublist_aria_label = '' %}
 {% if _item.level|default(0) < 2 %}
-  {% set _sublist_aria_label = second_level_aria_label|default('') %}
+  {% set _sublist_aria_label = _second_level_aria_label %}
   <div class="ecl-mega-menu__wrapper">
     <div class="ecl-container">
 {% else %}
-  {% set _sublist_aria_label = third_level_aria_label|default('') %}
+  {% set _sublist_aria_label = _third_level_aria_label %}
 {% endif %}
   {# Info #}
   {% if _info is not empty %}
@@ -277,7 +292,7 @@
             {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
                 see_all_label: child.see_all_label|default(''),
                 see_all: child.see_all|default(false),
-                third_level_aria_label: third_level_aria_label|default(''), 
+                third_level_aria_label: _third_level_aria_label, 
                 see_all_attributes: child.see_all_attributes|default([]),
                 sublink_id: _sublink_id|default(''),
                 item: {

@@ -56,6 +56,7 @@ const getArgs = (data) => {
   if (data.has_menu) {
     defaultArgs.show_menu = 'menu';
     defaultArgs.menu_size = 'short';
+    defaultArgs.current_item = 'first';
     defaultArgs.featured_priority = 'secondary';
   }
   if (data.cta_link) {
@@ -153,6 +154,16 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
       if: { arg: 'show_menu', eq: 'menu' },
+    };
+    argTypes.current_item = {
+      name: 'current menu item',
+      control: { type: 'select' },
+      description: 'Mark a menu item as the current one',
+      options: ['first', 'second'],
+      table: {
+        category: 'Optional',
+      },
+      if: { arg: 'show_menu', eq: 'mega-menu' },
     };
     argTypes.featured_priority = {
       name: 'featured panel priority',
@@ -276,17 +287,25 @@ const prepareData = (data, args) => {
     clone.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (args.show_menu === 'none' && (clone.menu || clone.mega_menu)) {
+  if (args.show_menu === 'none') {
     delete clone.menu;
     delete clone.mega_menu;
   }
-  if (args.show_menu === 'menu' && !clone.menu) {
+  if (args.show_menu === 'menu') {
     clone.menu = args.menu_size === 'long' ? enMenuLong : enMenu;
     delete clone.mega_menu;
   }
-  if (args.show_menu === 'mega-menu' && !clone.mega_menu) {
+  if (args.show_menu === 'mega-menu') {
     clone.mega_menu = enMegaMenu;
     delete clone.menu;
+
+    if (args.current_item === 'first') {
+      clone.mega_menu.items[0].is_current = true;
+      delete clone.mega_menu.items[1].is_current;
+    } else if (args.current_item === 'second') {
+      clone.mega_menu.items[1].is_current = true;
+      delete clone.mega_menu.items[0].is_current;
+    }
   }
 
   if (!args.show_custom_action) {

@@ -9,6 +9,7 @@
   - "aria_label" (string) (default: '') Aria label for the main nav
   - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
   - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
+  - "current_aria_label" (string) (default: '') Aria label for the current item
   - "see_all_label": (string) (default: ''): Label for the "view all" link
   - "featured_priority" (string) (default: 'secondary') Which featured panel is visible; can be 'primary', 'secondary'
   - "items": (array) (default: []): The menu items - format: [
@@ -78,6 +79,7 @@
 {% set _aria_label = aria_label|default('') %}
 {% set _second_level_aria_label = second_level_aria_label|default('') %}
 {% set _third_level_aria_label = third_level_aria_label|default('') %}
+{% set _current_aria_label = current_aria_label|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
 {% set _items = items|default([{}]) %}
@@ -178,6 +180,7 @@
               see_all_label: _see_all_label,
               second_level_aria_label: _second_level_aria_label,
               third_level_aria_label: _third_level_aria_label,
+              current_aria_label: _current_aria_label,
             } only %}
           {% endif %}
         {% endfor %}
