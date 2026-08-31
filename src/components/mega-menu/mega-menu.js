@@ -11,7 +11,6 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
  * @param {String} options.subLinkSelector Selector for the menu sub link
- * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {String} options.labelOpenAttribute The data attribute for open label
  * @param {String} options.labelCloseAttribute The data attribute for close label
@@ -73,10 +72,7 @@ export class MegaMenu {
       itemSelector = '[data-ecl-mega-menu-item]',
       linkSelector = '[data-ecl-mega-menu-link]',
       subLinkSelector = '[data-ecl-mega-menu-sublink]',
-      megaSelector = '[data-ecl-mega-menu-mega]',
-      containerSelector = '[data-ecl-has-container]',
       subItemSelector = '[data-ecl-mega-menu-subitem]',
-      featuredAttribute = '[data-ecl-mega-menu-featured]',
       featuredLinkAttribute = '[data-ecl-mega-menu-featured-link]',
       labelOpenAttribute = 'data-ecl-mega-menu-label-open',
       labelCloseAttribute = 'data-ecl-mega-menu-label-close',
@@ -103,16 +99,13 @@ export class MegaMenu {
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
     this.subLinkSelector = subLinkSelector;
-    this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
-    this.containerSelector = containerSelector;
     this.labelOpenAttribute = labelOpenAttribute;
     this.labelCloseAttribute = labelCloseAttribute;
     this.attachClickListener = attachClickListener;
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
-    this.featuredAttribute = featuredAttribute;
     this.featuredLinkAttribute = featuredLinkAttribute;
 
     // Private variables
@@ -128,13 +121,9 @@ export class MegaMenu {
     this.isOpen = false;
     this.resizeTimer = null;
     this.wrappers = null;
-    this.isKeyEvent = false;
     this.isDesktop = false;
     this.isLarge = false;
-    this.lastVisibleItem = null;
     this.menuOverlay = null;
-    this.currentItem = null;
-    this.totalItemsWidth = 0;
     this.breakpointDesktop = getBreakpoint('xl');
     this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
@@ -176,8 +165,6 @@ export class MegaMenu {
     this.open = queryOne(this.openSelector, this.element);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
-    this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
-    this.btnNext = queryOne(this.buttonNextSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
@@ -275,9 +262,6 @@ export class MegaMenu {
     // Browse first level items
     if (this.items) {
       this.items.forEach((item) => {
-        // Check menu item display (right to left, full width, ...)
-        this.totalItemsWidth += item.offsetWidth;
-
         if (
           item.hasAttribute('data-ecl-has-children') ||
           item.hasAttribute('data-ecl-has-container')
