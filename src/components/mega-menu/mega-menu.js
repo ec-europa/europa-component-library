@@ -500,7 +500,6 @@ export class MegaMenu {
     } else if (subLists && viewport === 'desktop' && !compact) {
       // Reset styles for the sublist and subitems
       subLists.forEach((list) => {
-        list.classList.remove('ecl-mega-menu__sublist--scrollable');
         [...list.children].forEach((item) => {
           item.style.display = '';
         });
@@ -1605,16 +1604,6 @@ export class MegaMenu {
         itemLink.classList.remove('ecl-mega-menu__parent-link');
       }
     });
-    // Remove styles set for the sublists
-    const sublists = queryAll('.ecl-mega-menu__sublist');
-    if (sublists) {
-      sublists.forEach((sublist) => {
-        sublist.classList.remove(
-          'ecl-mega-menu__sublist--no-border',
-          'ecl-mega-menu__sublist--scrollable',
-        );
-      });
-    }
     // Update label
     const openLabel = this.element.getAttribute(this.labelOpenAttribute);
     if (this.toggleLabel && openLabel) {
