@@ -52,6 +52,46 @@ $carousel: null !default;
   }
 }
 
+.ecl-carousel__loading-bar {
+  background: map.get($carousel, 'loading-bar-background');
+  border-end-end-radius: map.get($theme, 'border-radius', 's');
+  border-end-start-radius: map.get($theme, 'border-radius', 's');
+  height: 8px;
+  width: 15rem;
+  position: absolute;
+  display: none;
+  bottom: -8px;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.ecl-carousel__loading-bar-completion {
+  background: var(--cm-surface-medium, var(--c-p));
+  height: 100%;
+  width: 0;
+  animation: loading #{var(--ecl-carousel-slide-duration)} linear forwards;
+
+  .is-active & {
+    animation-play-state: running;
+  }
+
+  .is-paused & {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
 .ecl-carousel__slide .ecl-banner__credit {
   width: auto;
 }

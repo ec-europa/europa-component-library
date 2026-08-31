@@ -78,34 +78,6 @@
 >
   <div class="ecl-carousel__controls">
     <div class="ecl-container">
-      <div class="ecl-carousel__autoplay">
-        {% include '@ecl/button/button.html.twig' with {
-          hide_label: true,
-          label: _sr_play,
-          type: 'button',
-          variant: 'tertiary',
-          style: 'neutral',
-          extra_classes: 'ecl-carousel__play',
-          icon: {
-            name: 'play-outline',
-            size: 'm',
-            extra_classes: 'ecl-carousel__icon-default',
-          },
-        } only %}
-        {% include '@ecl/button/button.html.twig' with {
-          hide_label: true,
-          label: _sr_pause,
-          type: 'button',
-          variant: 'tertiary',
-          style: 'neutral',
-          extra_classes: 'ecl-carousel__pause',
-          icon: {
-            name: 'pause-outline',
-            size: 'm',
-            extra_classes: 'ecl-carousel__icon-default',
-          },
-        } only %}
-      </div>
       <div class="ecl-carousel__navigation" role="tablist">
         {% include "@ecl/slider/slider-pager.html.twig" with {
           prev_label: _sr_prev,
@@ -114,6 +86,8 @@
           extra_classes:  'ecl-carousel__pager',
           prev_extra_classes: 'ecl-carousel__prev',
           next_extra_classes: 'ecl-carousel__next',
+          play_extra_classes: 'ecl-carousel__play',
+          pause_extra_classes: 'ecl-carousel__pause',
           dots_extra_classes: 'ecl-carousel__dots',
           dot_extra_classes: 'ecl-carousel__dot',
           play_pause: true,
@@ -136,6 +110,11 @@
         {% include '@ecl/banner/banner.html.twig' with item|merge({
           size: _size,
         }) only %}
+        <div class="ecl-carousel__loading-bar">
+          <div
+            class="ecl-carousel__loading-bar-completion"
+          ></div>
+        </div>
       </li>
     {% endfor %}
     </div>

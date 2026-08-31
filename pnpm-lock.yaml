@@ -359,6 +359,9 @@ importers:
       embla-carousel-accessibility:
         specifier: 9.0.0-rc02
         version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
+      embla-carousel-autoplay:
+        specifier: 9.0.0-rc02
+        version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
 
   src/components/category-filter:
     dependencies:
@@ -7991,6 +7994,11 @@ packages:
 
   embla-carousel-auto-scroll@9.0.0-rc02:
     resolution: {integrity: sha512-np1uEHeagZKm+1A6cdTaufgUooxxE2I+wfzoJ4S5OxfyRLj+mOBeJG18HOrrusK+FiDcsZ+6ZkLgFVh2z3/K8Q==}
+    peerDependencies:
+      embla-carousel: 9.0.0-rc02
+
+  embla-carousel-autoplay@9.0.0-rc02:
+    resolution: {integrity: sha512-xmHUL/dVL0EN9Tf6EeWirc1eEYEr8uxEG4l4QxzRPrUbHhshTzPcKfB0DatAmOI6rcTldqQsslbffNqQmg9E3Q==}
     peerDependencies:
       embla-carousel: 9.0.0-rc02
 
@@ -18268,6 +18276,10 @@ snapshots:
       embla-carousel: 9.0.0-rc02
 
   embla-carousel-auto-scroll@9.0.0-rc02(embla-carousel@9.0.0-rc02):
+    dependencies:
+      embla-carousel: 9.0.0-rc02
+
+  embla-carousel-autoplay@9.0.0-rc02(embla-carousel@9.0.0-rc02):
     dependencies:
       embla-carousel: 9.0.0-rc02
 

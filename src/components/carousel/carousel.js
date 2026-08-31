@@ -1,6 +1,7 @@
 import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EmblaCarousel from 'embla-carousel';
 import Accessibility from 'embla-carousel-accessibility';
+import Autoplay from 'embla-carousel-autoplay';
 import SliderPager from '@ecl/slider';
 
 /**
@@ -12,9 +13,14 @@ import SliderPager from '@ecl/slider';
  * @param {String} options.nextSelector Selector for next button
  * @param {String} options.playSelector Selector for play button
  * @param {String} options.pauseSelector Selector for pause button
- * @param {String} options.pagerSelector Selector for the pager
+ * @param {String} options.pagerSelector Selector for the pager container
+ * @param {String} options.dotsClass Selector for the dots container
+ * @param {String} options.dotClass Selector for a dot button
+ * @param {String} options.activeDotClass Class applied to the active dot
+ * @param {Number} options.autoplayDelay Duration of a slide
  * @param {String} options.slidesClass Selector for the slides container
  * @param {String} options.slideClass Selector for the slide items
+ * @param {String} options.completionBarClass Class for the completion bar
  * @param {String} options.navigationClass Selector for the navigation container
  * @param {String} options.currentSlideClass Selector for the counter current slide number
  */
@@ -40,16 +46,21 @@ export class Carousel {
       playSelector = '.ecl-carousel__play',
       pauseSelector = '.ecl-carousel__pause',
       containerClass = '.ecl-carousel__viewport',
+      dotsClass = '.ecl-carousel__dots',
+      dotClass = '.ecl-carousel__dot',
+      activeDotClass = 'ecl-slider-pager__dot--active',
       slidesClass = '.ecl-carousel__slides',
       slideClass = '.ecl-carousel__slide',
       prevSelector = '.ecl-carousel__prev',
       nextSelector = '.ecl-carousel__next',
       pagerClass = '.ecl-carousel__pager',
       currentSlideClass = '.ecl-carousel__current',
+      completionBarClass = '.ecl-carousel__loading-bar',
       navigationItemsClass = '.ecl-carousel__navigation-item',
       controlsClass = '.ecl-carousel__controls',
       attachClickListener = true,
       attachResizeListener = true,
+      autoPlayDelay = 5000,
     } = {},
   ) {
     // Check element
@@ -68,6 +79,9 @@ export class Carousel {
     this.nextSelector = nextSelector;
     this.pagerClass = pagerClass;
     this.containerClass = containerClass;
+    this.completionBarClass = completionBarClass;
+    this.dotsClass = dotsClass,
+    this.dotClass = dotClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
     this.currentSlideClass = currentSlideClass;
@@ -75,6 +89,7 @@ export class Carousel {
     this.controlsClass = controlsClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
+    this.autoPlayDelay = autoPlayDelay;
 
     // Private variables
     this.container = null;
@@ -83,17 +98,13 @@ export class Carousel {
     this.btnPause = null;
     this.index = 1;
     this.total = 0;
+    this.slider = null;
     this.allowShift = true;
     this.activeNav = null;
     this.autoPlay = null;
     this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
     this.resizeTimer = null;
-    this.posX1 = 0;
-    this.posX2 = 0;
-    this.posInitial = 0;
-    this.posFinal = 0;
-    this.threshold = 80;
     this.navigationItems = null;
     this.navigation = null;
     this.controls = null;
@@ -101,6 +112,7 @@ export class Carousel {
     this.executionCount = 0;
     this.maxExecutions = 5;
     this.slideWidth = 0;
+    this.accessibility = null;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
@@ -137,9 +149,13 @@ export class Carousel {
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.sliderEl = queryOne(this.containerClass, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
-
+    this.completionBars = queryAll(this.completionBarClass, this.element);
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
+    this.element.style.setProperty(
+      '--ecl-carousel-slide-duration',
+      `${this.autoPlayDelay}ms`,
+    );
 
     // If only one slide, don't initialize carousel and hide controls
     if (this.total <= 1) {
@@ -155,8 +171,6 @@ export class Carousel {
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
 
-    // Initialze pagination and navigation
-    this.handleResize();
     // Bind events
     if (this.navigationItems) {
       this.navigationItems.forEach((nav, index) => {
@@ -174,19 +188,17 @@ export class Carousel {
       this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
     if (this.btnPlay) {
+      this.btnPlay.addEventListener('click', this.handleAutoPlay);
       this.btnPlay.addEventListener('keydown', this.handleKeyboardOnPlay);
+    }
+    if (this.btnPause) {
+      this.btnPlay.addEventListener('click', this.handleAutoPlay);
     }
 
     if (this.slidesContainer) {
       // Mouse events
       this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
       this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
-
-      // Touch events
-      this.slidesContainer.addEventListener('touchstart', this.dragStart);
-      this.slidesContainer.addEventListener('touchend', this.dragEnd);
-      this.slidesContainer.addEventListener('touchmove', this.dragAction);
-      this.slidesContainer.addEventListener('transitionend', this.checkIndex);
     }
     if (this.container) {
       this.container.addEventListener('focus', this.handleFocus, true);
@@ -198,6 +210,8 @@ export class Carousel {
     if (this.sliderEl) {
       this.initSlider(this.sliderEl);
     }
+
+    this.handleResize();
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -226,13 +240,6 @@ export class Carousel {
         this.handleMouseOver,
       );
       this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
-      this.slidesContainer.removeEventListener('touchstart', this.dragStart);
-      this.slidesContainer.removeEventListener('touchend', this.dragEnd);
-      this.slidesContainer.removeEventListener('touchmove', this.dragAction);
-      this.slidesContainer.removeEventListener(
-        'transitionend',
-        this.checkIndex,
-      );
     }
     if (this.container) {
       this.container.removeEventListener('focus', this.handleFocus, true);
@@ -244,10 +251,6 @@ export class Carousel {
     }
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
-    }
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlay = null;
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -265,8 +268,13 @@ export class Carousel {
         loop: true,
         align: 'start',
         direction: this.direction,
+        duration: 20,
       },
       [
+        Autoplay({
+          delay: this.autoPlayDelay,
+          instant: false,
+        }),
         Accessibility({
           carouselAriaLabel: 'Carousel',
           carouselAriaRoleDescription: '',
@@ -304,7 +312,22 @@ export class Carousel {
     });
 
     this.pager.init();
+
+    this.slider.on('autoplay:timerset', this.handleAutoplayTimerSet);
   }
+
+  handleAutoplayTimerSet = () => {
+    const selectedIndex = this.slider.selectedSnap();
+
+    this.completionBars.forEach((bar, i) => {
+      if (i !== selectedIndex) {
+        bar.classList.remove('is-active');
+        bar.classList.remove('is-paused');
+      } else {
+        bar.classList.add('is-active');
+      }
+    });
+  };
 
   /**
    * Sets the counter (in mobile).
@@ -440,9 +463,6 @@ export class Carousel {
       this.index = 1;
     }
 
-    // Move slide without transition to ensure infinity loop
-    this.slider.goToNext();
-
     // Update pagination
     if (this.currentSlide) {
       this.currentSlide.textContent = this.index;
@@ -485,12 +505,10 @@ export class Carousel {
   /**
    * Toggles play/pause slides.
    */
-  handleAutoPlay() {
-    if (!this.autoPlay) {
-      this.autoPlayInterval = setInterval(() => {
-        this.shiftSlide('next');
-      }, 5000);
-      this.autoPlay = true;
+  handleAutoPlay(stop = false) {
+    if (!this.slider.plugins().autoplay?.isPlaying() && !stop) {
+      this.slider.plugins().autoplay?.play();
+
       const isFocus = document.activeElement === this.btnPlay;
       this.btnPlay.style.display = 'none';
       this.btnPause.style.display = 'flex';
@@ -498,12 +516,13 @@ export class Carousel {
         this.btnPause.focus();
       }
     } else {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlay = false;
+      this.slider.plugins().autoplay?.stop();
       const isFocus = document.activeElement === this.btnPause;
       this.btnPlay.style.display = 'flex';
       this.btnPause.style.display = 'none';
       if (isFocus) {
+        const index = this.slider.selectedSnap();
+        this.completionBars[index].classList.add('is-paused');
         this.btnPlay.focus();
       }
     }
@@ -564,10 +583,9 @@ export class Carousel {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
     // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
-    if (
-      (vw <= getBreakpoint('m') && this.autoPlay) ||
-      (vw > getBreakpoint('m') && this.autoPlay === null)
-    ) {
+    if (vw <= getBreakpoint('m')) {
+      this.handleAutoPlay(true);
+    } else {
       this.handleAutoPlay();
     }
   }
