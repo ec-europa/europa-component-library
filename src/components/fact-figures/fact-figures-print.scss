@@ -62,10 +62,7 @@ $fact-figures-print: null !default;
 }
 
 .ecl-fact-figures__sources {
-  align-items: center;
   color: map.get($fact-figures, 'source-color');
-  display: flex;
-  flex-wrap: wrap;
   gap: var(--s-xs);
   margin-block-start: map.get($fact-figures, 'source-spacing');
 
@@ -76,17 +73,32 @@ $fact-figures-print: null !default;
   }
 }
 
+.ecl-fact-figures__sources-label {
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
 .ecl-fact-figures__sources-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
+  display: inline;
 }
 
-.ecl-fact-figures__sources-item + .ecl-fact-figures__sources-item::before {
-  color: map.get($fact-figures, 'source-separator-color');
-  content: '|';
-  margin-inline: var(--s-xs);
+.ecl-fact-figures__source:has(svg) {
+  display: inline-block;
+}
+
+.ecl-fact-figures__sources-item {
+  display: inline;
+
+  &:not(:last-child)::after {
+    color: map.get($fact-figures, 'source-separator-color');
+    content: '\00a0| ';
+    display: inline;
+    padding-inline: map.get($fact-figures, 'source-separator-spacing');
+    position: relative;
+    top: 2px;
+  }
 }
 
 .ecl-fact-figures__items {
