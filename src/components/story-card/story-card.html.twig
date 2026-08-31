@@ -242,6 +242,7 @@
         {% include '@ecl/story-card/story-card-card.html.twig' with item|merge({
           variant: _variant,
           show_picture: false,
+          tab_id: _id ~ '-tab-' ~ loop.index0,
         }) only %}
       </article>
     </div>
