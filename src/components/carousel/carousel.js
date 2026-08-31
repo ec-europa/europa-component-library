@@ -1,10 +1,18 @@
 import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
+import EmblaCarousel from 'embla-carousel';
+import Accessibility from 'embla-carousel-accessibility';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.toggleSelector Selector for toggling element
  * @param {String} options.contentClass Selector for the content container
+ * @param {String} options.prevSelector Selector for prev button
+ * @param {String} options.nextSelector Selector for next button
+ * @param {String} options.playSelector Selector for play button
+ * @param {String} options.pauseSelector Selector for pause button
+ * @param {String} options.pagerSelector Selector for the pager
  * @param {String} options.slidesClass Selector for the slides container
  * @param {String} options.slideClass Selector for the slide items
  * @param {String} options.navigationClass Selector for the navigation container
@@ -31,9 +39,12 @@ export class Carousel {
     {
       playSelector = '.ecl-carousel__play',
       pauseSelector = '.ecl-carousel__pause',
-      containerClass = '.ecl-carousel__container',
+      containerClass = '.ecl-carousel__viewport',
       slidesClass = '.ecl-carousel__slides',
       slideClass = '.ecl-carousel__slide',
+      prevSelector = '.ecl-carousel__prev',
+      nextSelector = '.ecl-carousel__next',
+      pagerClass = '.ecl-carousel__pager',
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
       controlsClass = '.ecl-carousel__controls',
@@ -53,6 +64,9 @@ export class Carousel {
     // Options
     this.playSelector = playSelector;
     this.pauseSelector = pauseSelector;
+    this.prevSelector = prevSelector;
+    this.nextSelector = nextSelector;
+    this.pagerClass = pagerClass;
     this.containerClass = containerClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
@@ -84,8 +98,6 @@ export class Carousel {
     this.navigation = null;
     this.controls = null;
     this.direction = 'ltr';
-    this.cloneFirstSLide = null;
-    this.cloneLastSLide = null;
     this.executionCount = 0;
     this.maxExecutions = 5;
     this.slideWidth = 0;
@@ -94,18 +106,15 @@ export class Carousel {
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
-    this.shiftSlide = this.shiftSlide.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
-    this.moveSlides = this.moveSlides.bind(this);
     this.handleResize = this.handleResize.bind(this);
-    this.dragStart = this.dragStart.bind(this);
-    this.dragEnd = this.dragEnd.bind(this);
-    this.dragAction = this.dragAction.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
     this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
     this.checkBannerHeights = this.checkBannerHeights.bind(this);
     this.resetBannerHeights = this.resetBannerHeights.bind(this);
+    this.initSlider = this.initSlider.bind(this);
+    this.setCounter = this.setCounter.bind(this);
   }
 
   /**
@@ -126,6 +135,8 @@ export class Carousel {
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
+    this.sliderEl = queryOne(this.containerClass, this.element);
+    this.pagerNode = queryOne(this.pagerClass, this.element);
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
@@ -140,27 +151,6 @@ export class Carousel {
       }
       return false;
     }
-
-    // Start initializing carousel
-    const firstSlide = this.slides[0];
-    const lastSlide = this.slides[this.slides.length - 1];
-
-    // Clone first and last slide
-    this.cloneFirstSlide = firstSlide.cloneNode(true);
-    this.cloneLastSlide = lastSlide.cloneNode(true);
-    this.slidesContainer.appendChild(this.cloneFirstSlide);
-    this.slidesContainer.insertBefore(this.cloneLastSlide, firstSlide);
-
-    // Initialize the js for the two cloned slides
-    const cloneFirstBanner = new ECL.Banner(
-      this.cloneFirstSlide.firstElementChild,
-    );
-    const cloneLastBanner = new ECL.Banner(
-      this.cloneLastSlide.firstElementChild,
-    );
-
-    cloneFirstBanner.init();
-    cloneLastBanner.init();
 
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
@@ -203,6 +193,10 @@ export class Carousel {
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
+    }
+
+    if (this.sliderEl) {
+      this.initSlider(this.sliderEl);
     }
 
     // Set ecl initialized attribute
@@ -258,6 +252,70 @@ export class Carousel {
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
+    }
+  }
+
+  /**
+   * Init the slider.
+   */
+  initSlider(sliderEl) {
+    this.slider = EmblaCarousel(
+      sliderEl,
+      {
+        loop: true,
+        align: 'start',
+        direction: this.direction,
+      },
+      [
+        Accessibility({
+          carouselAriaLabel: 'Carousel',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
+          previousButtonAriaLabel: 'Show previous Slide',
+          nextButtonAriaLabel: 'Show next Slide',
+          dotButtonAriaLabel: (
+            hasAnyGroupedSlides,
+            firstSlideIndex,
+            lastSlideIndex,
+            totalSlides,
+          ) => `Show slide ${firstSlideIndex + 1} of ${totalSlides}`,
+          slideAriaLabel: () => '',
+          onUpdate: () => this.setCounter(),
+        }),
+      ],
+    );
+
+    this.accessibility = this.slider.plugins().accessibility;
+    this.prevButtonNode = queryOne(this.prevClass, this.element);
+    this.nextButtonNode = queryOne(this.nextClass, this.element);
+    this.pagerNode = queryOne(this.pagerClass, this.element);
+
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.accessibility,
+      prevSelector: this.prevSelector,
+      nextSelector: this.nextSelector,
+      dotsSelector: this.dotsClass,
+      dotTemplateSelector: '[data-ecl-slider-dot-template]',
+      dotSelector: this.dotClass,
+      activeDotSelector: this.activeDotClass,
+    });
+
+    this.pager.init();
+  }
+
+  /**
+   * Sets the counter (in mobile).
+   */
+  setCounter() {
+    const currentIndex = this.slider.selectedSnap();
+    const total = this.slider.snapList().length;
+    const counter = queryOne('.ecl-carousel__counter', this.element);
+
+    if (counter) {
+      counter.textContent = `${currentIndex + 1} / ${total}`;
     }
   }
 
@@ -365,105 +423,6 @@ export class Carousel {
   }
 
   /**
-   * TouchStart handler.
-   * @param {Event} e
-   */
-  dragStart(e) {
-    e = e || window.event;
-    this.posInitial = this.slidesContainer.offsetLeft;
-
-    if (e.type === 'touchstart') {
-      this.posX1 = e.touches[0].clientX;
-      this.posY1 = e.touches[0].clientY;
-      this.allowShift = false; // reset on start
-    }
-  }
-
-  /**
-   * TouchMove handler.
-   * @param {Event} e
-   */
-  dragAction(e) {
-    e = e || window.event;
-
-    if (e.type === 'touchmove') {
-      const deltaX = e.touches[0].clientX - this.posX1;
-      const deltaY = e.touches[0].clientY - this.posY1;
-
-      // Enable shift only when horizontal movement is dominant
-      if (!this.allowShift && Math.abs(deltaX) > Math.abs(deltaY)) {
-        this.allowShift = true;
-      }
-
-      if (this.allowShift) {
-        e.preventDefault();
-        this.posX2 = this.posX1 - e.touches[0].clientX;
-        this.posX1 = e.touches[0].clientX;
-
-        this.slidesContainer.style.left = `${
-          this.slidesContainer.offsetLeft - this.posX2
-        }px`;
-      }
-    }
-  }
-
-  /**
-   * TouchEnd handler.
-   */
-  dragEnd() {
-    if (!this.allowShift) return;
-
-    this.posFinal = this.slidesContainer.offsetLeft;
-
-    if (this.posFinal - this.posInitial < -this.threshold) {
-      this.shiftSlide('next', true);
-    } else if (this.posFinal - this.posInitial > this.threshold) {
-      this.shiftSlide('prev', true);
-    } else {
-      this.slidesContainer.style.left = `${this.posInitial}px`;
-    }
-
-    this.allowShift = false;
-  }
-
-  /**
-   * Action to shift next or previous slide.
-   * @param {int|string} dir
-   * @param {Boolean} stopAutoPlay
-   */
-  shiftSlide(dir, stopAutoPlay) {
-    if (this.allowShift) {
-      if (typeof dir === 'number') {
-        this.index = dir;
-      } else {
-        this.index = dir === 'next' ? this.index + 1 : this.index - 1;
-      }
-      this.moveSlides(true);
-    }
-    if (stopAutoPlay && this.autoPlay) {
-      this.handleAutoPlay();
-    }
-
-    this.allowShift = false;
-  }
-
-  /**
-   * Transition for the slides.
-   * @param {Boolean} transition
-   */
-  moveSlides(transition) {
-    const newOffset = this.slideWidth * this.index;
-
-    this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
-    this.direction = getComputedStyle(this.element).direction;
-    if (this.direction === 'rtl') {
-      this.slidesContainer.style.right = `-${newOffset}px`;
-    } else {
-      this.slidesContainer.style.left = `-${newOffset}px`;
-    }
-  }
-
-  /**
    * Action to update slides index and position.
    * @param {Event} e
    */
@@ -482,7 +441,7 @@ export class Carousel {
     }
 
     // Move slide without transition to ensure infinity loop
-    this.moveSlides(false);
+    this.slider.goToNext();
 
     // Update pagination
     if (this.currentSlide) {

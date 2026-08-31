@@ -11,6 +11,8 @@
     - "sr_slide_role" (string) (default: 'slide') screen reader localized role for the slides
     - "sr_play" (string) (default: 'Play carousel') screen reader label for the play button
     - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
+    - "sr_prev" (string) (default: 'Previous slide') screen reader label for the previous button
+    - "sr_next" (string) (default: 'Next slide') screen reader label for the next button
     - "full_width": (bool) (default: false) Full width banner (inside the grid)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -33,6 +35,8 @@
 {% set _sr_slide_role = sr_slide_role|default('slide') %}
 {% set _sr_play = sr_play|default('Play carousel') %}
 {% set _sr_pause = sr_pause|default('Pause carousel') %}
+{% set _sr_prev = sr_prev|default('Previous slide') %}
+{% set _sr_next = sr_next|default('Next slide') %}
 {% set _counter_label = counter_label|default('of') %}
 {% set _full_width = full_width|default(false) %}
 
@@ -63,7 +67,7 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-<section 
+<section
   class="{{ _css_class }}"
   data-ecl-auto-init="Carousel"
   aria-roledescription="{{ _sr_role }}"
@@ -103,28 +107,36 @@
         } only %}
       </div>
       <div class="ecl-carousel__navigation" role="tablist">
-        {% for item in _items %}
-          <button class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__navigation-item" role="tab">
-            {{ loop.index }}
-          </button>
-        {% endfor %}
+        {% include "@ecl/slider/slider-pager.html.twig" with {
+          prev_label: _sr_prev,
+          next_label: _sr_next,
+          hide_label: true,
+          extra_classes:  'ecl-carousel__pager',
+          prev_extra_classes: 'ecl-carousel__prev',
+          next_extra_classes: 'ecl-carousel__next',
+          dots_extra_classes: 'ecl-carousel__dots',
+          dot_extra_classes: 'ecl-carousel__dot',
+          play_pause: true,
+          template_data_attribute: 'data-ecl-carousel-dot-template',
+        } only %}
+        <div class="ecl-carousel__counter"></div>
       </div>
     </div>
   </div>
 
-  <div class="ecl-carousel__container">
-    <div class="ecl-carousel__slides">
+  <div class="ecl-carousel__viewport">
+    <ul class="ecl-carousel__slides">
     {% for item in _items %}
-      <div 
-        class="ecl-carousel__slide" 
-        role="tabpanel" 
+      <li
+        class="ecl-carousel__slide"
+        role="tabpanel"
         aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}"
         aria-roledescription="{{ _sr_slide_role }}"
       >
         {% include '@ecl/banner/banner.html.twig' with item|merge({
           size: _size,
         }) only %}
-      </div>
+      </li>
     {% endfor %}
     </div>
   </div>
