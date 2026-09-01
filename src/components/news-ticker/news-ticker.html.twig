@@ -8,15 +8,12 @@
           "content" (string)
           "link" (string)
           "icon" (object) Object of type ECL icon
-          "img" (object)
-            - "path" (string)
-            - "alt" (string)
-            - "title" (string)
           "external" (boolean)
         },
         ...
       ]
     - "counter_label" (string) (default: 'of')
+    - "color_mode" (string) (default: '') Name of the color mode
     - "sr_external" (string) (default: 'External link') screen reader label for external icon
     - "sr_previous" (string) (default: 'Previous news') screen reader label for previous button
     - "sr_next" (string) (default: 'Next news') screen reader label for next button
@@ -31,12 +28,17 @@
       ]
 #}
 
+{# DEPRECATED 
+- "item.img" (object): tiny image used at the icon location
+#}
+
 {# Internal properties #}
 
 {% set _id = id|default('ecl-news-ticker-' ~ random()) %}
 {% set _counter_label = counter_label|default('of') %}
 {% set _items = items|default([]) %}
 {% set _aria_controls = _id ~ '-content' %}
+{% set _color_mode = color_mode|default('') %}
 {% set _sr_external = sr_external|default('External link') %}
 {% set _sr_previous = sr_previous|default('Previous news') %}
 {% set _sr_next = sr_next|default('Next news') %}
@@ -52,6 +54,10 @@
 
 {% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
   {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -79,50 +85,57 @@
     <div class="ecl-news-ticker__content">
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
-        {% set _icon = '' %}
-        {% set _image = '' %}
-        {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {% set _icon %}
+        {% set _media = '' %}
+        {# DEPRECATED #}
+        {% if _item.img is not empty and _item.img.path is not empty %}
+          {% set _media %} 
+            <img
+              class="ecl-news-ticker__icon"
+              src="{{ _item.img.path }}"
+            {%- if _item.img.alt is not empty -%}
+              alt="{{ _item.img.alt }}"
+            {%- endif -%}
+            {%- if _item.img.title is not empty -%}
+              title="{{ _item.img.title }}"
+            {%- endif -%} 
+            >
+          {% endset %}
+        {% else %}
+          {% set _item_icon = _item.icon is not empty ? _item.icon : { name: 'newspaper', family: 'phosphor' } %}
+          {% set _media %}
             {% include '@ecl/icon/icon.html.twig' with {
-              icon: _item.icon|merge({
-                name: _item.icon.name,
+              icon: _item_icon|merge({
                 size: 'l',
               }),
               extra_classes: 'ecl-news-ticker__icon',
             } only %}
           {% endset %}
-        {% elseif _item.img is not empty and _item.img.path is not empty %}
-        {% set _image %} 
-          <img
-            class="ecl-news-ticker__icon"
-            src="{{ _item.img.path }}"
-          {%- if _item.img.alt is not empty -%}
-            alt="{{ _item.img.alt }}"
-          {%- endif -%}
-          {%- if _item.img.title is not empty -%}
-            title="{{ _item.img.title }}"
-          {%- endif -%} 
-          >
-        {% endset %}
         {% endif %}
         <li class="ecl-news-ticker__slide">
-        {% if _item.link is not empty %}
-          {{- _icon -}}
-          {{- _image -}}
-          {% include '@ecl/link/link.html.twig' with {
-            link: {
-            type: 'standalone',
-              label: _item.content,
-              path: _item.link,
-              icon_position: 'before',
-              external: _item.external,
-              sr_external: _sr_external
-            },
-            extra_classes: 'ecl-news-ticker__slide-text',
-          } only %}
-        {% else %}
-          {{- _icon -}}{{- _image -}}{{ _item.content }}
-        {% endif %}
+          <div class="ecl-news-ticker__slide-icon">
+            {{- _media -}}
+          </div>
+
+          <div class="ecl-news-ticker__slide-content">
+          {% if _item.link is not empty %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: {
+                type: 'standalone',
+                branded: true,
+                label: _item.content,
+                path: _item.link,
+                icon_position: 'before',
+                external: _item.external,
+                sr_external: _sr_external
+              },
+              extra_classes: 'ecl-news-ticker__slide-text',
+            } only %}
+          {% else %}
+            <span class="ecl-news-ticker__slide-text">
+              {{ _item.content }}
+            </span>
+          {% endif %}
+          </div>
         </li>  
       {% endfor %}
       </ul>
@@ -138,9 +151,8 @@
         label: _sr_previous,
         hide_label: true,
         icon: {
-          name: 'corner-arrow',
-          size: 'l',
-          transform: 'rotate-270',
+          name: 'caret-left',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__prev',
         extra_attributes: [{
@@ -155,8 +167,8 @@
         label: _sr_play,
         hide_label: true,
         icon: {
-          name: 'play-outline',
-          size: 'l',
+          name: 'play-circle',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__play',
         extra_attributes: [{
@@ -171,8 +183,8 @@
         label: _sr_pause,
         hide_label: true,
         icon: {
-          name: 'pause-outline',
-          size: 'l',
+          name: 'pause-circle',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__pause',
         extra_attributes: [{
@@ -187,9 +199,8 @@
         label: _sr_next,
         hide_label: true,
         icon: {
-          name: 'corner-arrow',
-          size: 'l',
-          transform: 'rotate-90',
+          name: 'caret-right',
+          family: 'phosphor',
         },
         extra_classes: 'ecl-news-ticker__next',
         extra_attributes: [{
