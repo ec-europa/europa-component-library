@@ -9,17 +9,9 @@ module.exports = {
   third_level_aria_label: 'Sub-pages in this section',
   toggle: {
     label: 'Menu',
-    icon: {
-      name: 'hamburger',
-      size: 'm',
-    },
   },
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
   },
   back_label: 'Back',
   items: [

@@ -176,8 +176,6 @@ $media-container: null !default;
   border-radius: 50%;
   color: var(--cm-on-surface-inverted, #fff);
   justify-content: center;
-  outline: 2px solid var(--cm-on-surface-inverted, #fff);
-  outline-offset: -4px;
   position: absolute;
   inset-inline-end: var(--s-m);
   bottom: var(--s-m);
@@ -193,6 +191,7 @@ $media-container: null !default;
   }
 
   &:focus-visible {
+    background-color: #fff;
     outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: 2px;
   }

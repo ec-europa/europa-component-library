@@ -15,11 +15,11 @@ exports[`Accordion renders correctly 1`] = `
         Protecting citizens and freedoms            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -37,11 +37,11 @@ exports[`Accordion renders correctly 1`] = `
         Developing a strong and vibrant economic base            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -60,11 +60,11 @@ exports[`Accordion renders correctly 1`] = `
         Building a climate-neutral, green, fair and social Europe            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -82,11 +82,11 @@ exports[`Accordion renders correctly 1`] = `
         Promoting European interests and values on the global stage            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -544,7 +544,7 @@ exports[`Accordion renders correctly in the sidebar with a custom media query 1`
 </jest>
 `;
 
-exports[`Accordion renders correctly with a single icon 1`] = `
+exports[`Accordion renders correctly with a custom icon pair 1`] = `
 <jest>
   <div
     class="ecl-accordion"
@@ -559,7 +559,11 @@ exports[`Accordion renders correctly with a single icon 1`] = `
         Protecting citizens and freedoms            
         <span
           aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--corner-arrow"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--close ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--close"
         />
       </summary>
       <div
@@ -577,7 +581,11 @@ exports[`Accordion renders correctly with a single icon 1`] = `
         Developing a strong and vibrant economic base            
         <span
           aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--corner-arrow"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--close ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--close"
         />
       </summary>
       <div
@@ -596,7 +604,11 @@ exports[`Accordion renders correctly with a single icon 1`] = `
         Building a climate-neutral, green, fair and social Europe            
         <span
           aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--corner-arrow"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--close ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--close"
         />
       </summary>
       <div
@@ -614,7 +626,94 @@ exports[`Accordion renders correctly with a single icon 1`] = `
         Promoting European interests and values on the global stage            
         <span
           aria-hidden="true"
-          class="wt-icon--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--corner-arrow"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--close ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--close"
+        />
+      </summary>
+      <div
+        class="ecl-accordion__content"
+      >
+        Building a robust foreign policy based on an ambitious neighbourhood policy with 16 of its closest eastern and southern neighbours and a comprehensive partnership with Africa. Promoting global peace, stability, democracy and human rights. Ensuring a robust trade policy in line with multilateralism and the global rules-based international order. Taking greater responsibility for security and defence, while cooperating closely with NATO.
+      </div>
+    </details>
+  </div>
+</jest>
+`;
+
+exports[`Accordion renders correctly with a single custom icon 1`] = `
+<jest>
+  <div
+    class="ecl-accordion"
+    data-ecl-auto-init="Accordion"
+  >
+    <details
+      class="ecl-accordion__item is-first"
+    >
+      <summary
+        class="ecl-accordion__toggle"
+      >
+        Protecting citizens and freedoms            
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+      </summary>
+      <div
+        class="ecl-accordion__content"
+      >
+        Ensuring effective control of the EU's external borders and further developing a comprehensive migration policy. Fighting terrorism and cross-border/online crime, increasing the EU's resilience against both natural and human-made disasters.
+      </div>
+    </details>
+    <details
+      class="ecl-accordion__item"
+    >
+      <summary
+        class="ecl-accordion__toggle"
+      >
+        Developing a strong and vibrant economic base            
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+      </summary>
+      <div
+        class="ecl-accordion__content"
+      >
+        Building a resilient economy by deepening the Economic and Monetary Union to ensure that Europe is better prepared for future shocks, completing the banking and capital markets union, strengthening the international role of the euro, investing in skills and education, supporting Europe's businesses, embracing digital transformation, and developing a robust industrial policy.
+      </div>
+    </details>
+    <details
+      class="ecl-accordion__item"
+      open=""
+    >
+      <summary
+        class="ecl-accordion__toggle"
+      >
+        Building a climate-neutral, green, fair and social Europe            
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
+        />
+      </summary>
+      <div
+        class="ecl-accordion__content"
+      >
+        Investing in green initiatives that improve air and water quality, promote sustainable agriculture and preserve environmental systems and biodiversity. Creating an effective circular economy (where products are designed to be more durable, reusable, repairable, recyclable and energy-efficient) and a well-functioning EU energy market that provides sustainable, secure and affordable energy. A faster transition to renewables and energy efficiency, while reducing the EU's dependency on outside energy sources. Implementing the European Pillar of Social Rights.
+      </div>
+    </details>
+    <details
+      class="ecl-accordion__item is-last"
+    >
+      <summary
+        class="ecl-accordion__toggle"
+      >
+        Promoting European interests and values on the global stage            
+        <span
+          aria-hidden="true"
+          class="wt-icon-phosphor--corner-arrow ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--corner-arrow"
         />
       </summary>
       <div
@@ -644,11 +743,11 @@ exports[`Accordion renders correctly with extra attributes 1`] = `
         Protecting citizens and freedoms            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -666,11 +765,11 @@ exports[`Accordion renders correctly with extra attributes 1`] = `
         Developing a strong and vibrant economic base            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -689,11 +788,11 @@ exports[`Accordion renders correctly with extra attributes 1`] = `
         Building a climate-neutral, green, fair and social Europe            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -711,11 +810,11 @@ exports[`Accordion renders correctly with extra attributes 1`] = `
         Promoting European interests and values on the global stage            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -743,11 +842,11 @@ exports[`Accordion renders correctly with extra class names 1`] = `
         Protecting citizens and freedoms            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -765,11 +864,11 @@ exports[`Accordion renders correctly with extra class names 1`] = `
         Developing a strong and vibrant economic base            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -788,11 +887,11 @@ exports[`Accordion renders correctly with extra class names 1`] = `
         Building a climate-neutral, green, fair and social Europe            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -810,11 +909,11 @@ exports[`Accordion renders correctly with extra class names 1`] = `
         Promoting European interests and values on the global stage            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -842,11 +941,11 @@ exports[`Accordion renders correctly with extra toggle class names 1`] = `
         Protecting citizens and freedoms            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -864,11 +963,11 @@ exports[`Accordion renders correctly with extra toggle class names 1`] = `
         Developing a strong and vibrant economic base            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -887,110 +986,11 @@ exports[`Accordion renders correctly with extra toggle class names 1`] = `
         Building a climate-neutral, green, fair and social Europe            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
-        />
-      </summary>
-      <div
-        class="ecl-accordion__content"
-      >
-        Investing in green initiatives that improve air and water quality, promote sustainable agriculture and preserve environmental systems and biodiversity. Creating an effective circular economy (where products are designed to be more durable, reusable, repairable, recyclable and energy-efficient) and a well-functioning EU energy market that provides sustainable, secure and affordable energy. A faster transition to renewables and energy efficiency, while reducing the EU's dependency on outside energy sources. Implementing the European Pillar of Social Rights.
-      </div>
-    </details>
-    <details
-      class="ecl-accordion__item is-last"
-    >
-      <summary
-        class="ecl-accordion__toggle"
-      >
-        Promoting European interests and values on the global stage            
-        <span
-          aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
-        />
-        <span
-          aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
-        />
-      </summary>
-      <div
-        class="ecl-accordion__content"
-      >
-        Building a robust foreign policy based on an ambitious neighbourhood policy with 16 of its closest eastern and southern neighbours and a comprehensive partnership with Africa. Promoting global peace, stability, democracy and human rights. Ensuring a robust trade policy in line with multilateralism and the global rules-based international order. Taking greater responsibility for security and defence, while cooperating closely with NATO.
-      </div>
-    </details>
-  </div>
-</jest>
-`;
-
-exports[`Accordion renders correctly with old data 1`] = `
-<jest>
-  <div
-    class="ecl-accordion"
-    data-ecl-auto-init="Accordion"
-  >
-    <details
-      class="ecl-accordion__item is-first"
-    >
-      <summary
-        class="ecl-accordion__toggle"
-      >
-        Protecting citizens and freedoms            
-        <span
-          aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
-        />
-        <span
-          aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
-        />
-      </summary>
-      <div
-        class="ecl-accordion__content"
-      >
-        Ensuring effective control of the EU's external borders and further developing a comprehensive migration policy. Fighting terrorism and cross-border/online crime, increasing the EU's resilience against both natural and human-made disasters.
-      </div>
-    </details>
-    <details
-      class="ecl-accordion__item"
-    >
-      <summary
-        class="ecl-accordion__toggle"
-      >
-        Developing a strong and vibrant economic base            
-        <span
-          aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
-        />
-        <span
-          aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
-        />
-      </summary>
-      <div
-        class="ecl-accordion__content"
-      >
-        Building a resilient economy by deepening the Economic and Monetary Union to ensure that Europe is better prepared for future shocks, completing the banking and capital markets union, strengthening the international role of the euro, investing in skills and education, supporting Europe's businesses, embracing digital transformation, and developing a robust industrial policy.
-      </div>
-    </details>
-    <details
-      class="ecl-accordion__item"
-      open=""
-    >
-      <summary
-        class="ecl-accordion__toggle"
-      >
-        Building a climate-neutral, green, fair and social Europe            
-        <span
-          aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
-        />
-        <span
-          aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div
@@ -1008,11 +1008,11 @@ exports[`Accordion renders correctly with old data 1`] = `
         Promoting European interests and values on the global stage            
         <span
           aria-hidden="true"
-          class="wt-icon--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--plus"
+          class="wt-icon-phosphor--plus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--plus"
         />
         <span
           aria-hidden="true"
-          class="wt-icon--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon--minus"
+          class="wt-icon-phosphor--minus ecl-icon ecl-icon--s ecl-accordion__toggle-icon ecl-icon-phosphor--minus"
         />
       </summary>
       <div

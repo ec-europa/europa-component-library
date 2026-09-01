@@ -34,12 +34,13 @@ npm install --save @ecl/link
   link: { 
     type: 'standalone', 
     label: 'Standalone link', 
-    path: 'http://google.com', 
+    path: '#', 
     icon_position: 'after' 
     aria_label: 'An aria label' 
   }, 
   icon: {  
-    name: 'external', 
+    name: 'arrow-square-out',
+    family: 'phosphor',
     extra_classes: 'my-extra-class-1 my-extra-class-2' 
   }, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 

@@ -11,7 +11,7 @@
           "non_eu_category": (string) (default: ''): Label for non-EU languages
           "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
             {
-              "close": (associative array) (default: {}): Close button, following ECL Button structure
+              "close": (associative array) (default: phosphor 'x' icon): Close button, following ECL Button structure
               "title": (string) (default: ''): Overlay title, eg. 'Select your language'.
               "items": (array) (default: []): (array) (default: []): format: [
                 {
@@ -37,6 +37,7 @@
 
 {% set _language_selector = language_selector|default({}) %}
 {% set _label = _language_selector.label|default('') %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 
 {# Internal logic - Process properties #}
 
@@ -61,7 +62,8 @@
       <span class="ecl-site-header__language-icon">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: {
-            name: 'global',
+            name: 'globe-simple',
+            family: 'phosphor',
             size: 'm'
           },
           as_image: true,
@@ -87,7 +89,8 @@
       <span class="ecl-site-header__language-icon">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: {
-            name: 'global',
+            name: 'globe-simple',
+            family: 'phosphor',
             size: 'm'
           },
           as_image: true,
@@ -115,6 +118,7 @@
         {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
           variant: 'tertiary',
           style: 'neutral',
+          icon: _language_selector.overlay.close.icon|default([]) is not empty ? _language_selector.overlay.close.icon : _default_close_icon,
           extra_classes: 'ecl-site-header__language-close',
           extra_attributes: [{
             name: 'data-ecl-language-list-close',

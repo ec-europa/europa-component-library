@@ -70,10 +70,10 @@ npm install --save @ecl/site-footer
         path: '#',
       },
       icon: {
-        name: 'arrow-left',
+        name: 'arrow-right',
+        family: 'phosphor',
         size: 'xs',
         style: 'inverted',
-        transform: 'flip-horizontal',
       },
     },
     description:

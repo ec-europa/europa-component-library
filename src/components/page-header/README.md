@@ -41,7 +41,8 @@ npm install --save @ecl/page-header
     { 
       label: 'Brussels', 
       icon: {
-        name: 'location',
+        name: 'map-pin',
+        family: 'phosphor',
       },
     }
   ],
