@@ -81,11 +81,20 @@ $checkbox: null !default;
 
 // Disabled.
 .ecl-checkbox--disabled {
-  opacity: 0.5;
-
-  & .ecl-checkbox__label {
+  .ecl-checkbox__label {
+    color: map.get($checkbox, 'disabled', 'color');
     cursor: not-allowed;
   }
+
+  .ecl-checkbox__input:checked ~ .ecl-checkbox__label {
+    .ecl-checkbox__box {
+      opacity: 0.5;
+    }
+  }
+}
+
+.ecl-checkbox__box--disabled {
+  border-color: map.get($checkbox, 'disabled', 'border-color');
 }
 
 // Required
@@ -160,5 +169,20 @@ $checkbox: null !default;
 
   .ecl-checkbox--invalid & {
     outline-color: map.get($checkbox, 'invalid', 'border-color');
+  }
+}
+
+.ecl-form-group:has(.ecl-checkbox--single):has(.ecl-form-label--hidden) {
+  .ecl-form-label__required,
+  .ecl-form-label__optional {
+    display: none;
+  }
+
+  .ecl-checkbox--single {
+    .ecl-form-label__required,
+    .ecl-form-label__optional {
+      display: flex;
+      margin-inline-start: var(--s-2xs);
+    }
   }
 }

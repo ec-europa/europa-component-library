@@ -40,7 +40,7 @@
 {% set _sr_invalid_icon = sr_invalid_icon|default('') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
-{% set _label_class = 'ecl-form-label' %}
+{% set _label_class = 'ecl-form-label-wrapper' %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 {% set _input = input|default({}) %}
@@ -172,7 +172,7 @@
 {# Print the result #}
 
 <{{ _group_tag }} class="{{ _css_class }}" {{- _extra_attributes|raw -}}>
-  {% if _label is not empty %}
+  {% if _label is not empty or _optional_text is not empty or _required_text is not empty %}
     <{{ _label_tag }}
     {% if _id %}
       {% if _input.input_type != 'radio' and _input.input_type != 'checkbox' and _input.input_type != 'rating-field' %}
@@ -180,40 +180,43 @@
       {% endif %}
       id="{{ _id }}-label"
     {% endif %}
-      class="{{- _label_class -}}
-      {{- _hide_label ? ' ecl-form-label--hidden' -}}
-      {{- _invalid ? ' ecl-form-label--invalid' -}}
-      {{- _disabled ? ' ecl-form-label--disabled' -}}"
+      class="{{- _label_class -}}"
     >
-      {%- block label _label -%}
-      {%- if _required and _required_text is not empty -%}
-        <span 
-          class="ecl-form-label__required"
-          {%- if _label_aria_required -%}
-            role="note"
-            aria-label="{{ _label_aria_required }}"
-          {%- endif -%}
-        >{{ _required_text }}</span>
-      {%- elseif not _required and _optional_text is not empty -%}
-        <span 
-          class="ecl-form-label__optional"
-          {%- if _label_aria_optional -%}
-            role="note"
-            aria-label="{{ _label_aria_optional }}"
-          {%- endif -%}
-        >{{ _optional_text }}</span>
-      {%- endif -%}
+      <span class="ecl-form-label
+        {{- _hide_label ? ' ecl-form-label--hidden' -}}
+        {{- _invalid ? ' ecl-form-label--invalid' -}}
+        {{- _disabled ? ' ecl-form-label--disabled' -}}"
+      >
+        {%- block label _label -%}
+      </span>
 
-      {%- if _label_tag == 'legend' or _input.input_type == 'datepicker' -%}
-        {%- if _helper_text is not empty -%}
-          <div class="ecl-help-block--hidden">{{ _helper_text }}</div>
-        {%- endif -%}
-        {%- if _invalid and _invalid_text is not empty -%}
-          <div class="ecl-feedback-message--hidden">{{ _invalid_text }}</div>
-        {%- endif -%}
+    {%- if _label_tag == 'legend' or _input.input_type == 'datepicker' -%}
+      {%- if _helper_text is not empty -%}
+        <div class="ecl-help-block--hidden">{{ _helper_text }}</div>
       {%- endif -%}
+      {%- if _invalid and _invalid_text is not empty -%}
+        <div class="ecl-feedback-message--hidden">{{ _invalid_text }}</div>
+      {%- endif -%}
+    {%- endif -%}
 
-    </{{ _label_tag }}>
+    {%- if _required and _required_text is not empty -%}
+    <span
+      class="ecl-form-label__required"
+      {%- if _label_aria_required -%}
+        role="note"
+        aria-label="{{ _label_aria_required }}"
+      {%- endif -%}
+    >{{ _required_text }}</span>
+    {%- elseif not _required and _optional_text is not empty -%}
+    <span
+      class="ecl-form-label__optional"
+      {%- if _label_aria_optional -%}
+        role="note"
+        aria-label="{{ _label_aria_optional }}"
+      {%- endif -%}
+    >{{ _optional_text }}</span>
+    {%- endif -%}
+  </{{ _label_tag }}>
   {% endif %}
 
   {% if _helper_text is not empty %}
@@ -234,7 +237,7 @@
       type: _input.input_type,
     }) only %}
   {%- endif -%}
-  
+
   {%- if _input.input_type == 'select' -%}
     <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >

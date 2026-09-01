@@ -14,11 +14,8 @@ npm install --save @ecl/news-ticker
   - "link" (string) Item link URL
   - "external" (boolean) Whether the link is external
   - "icon" (object) Icon following ECL Icon structure (used instead of img)
-  - "img" (object) Alternative to icon:
-    - "path" (string) (default: '') Image path
-    - "title" (string) (default: '') Image title
-    - "alt" (string) (default: '') Image alt text
 - **"counter_label"** (string) (default: 'of') Label between current and total count
+- **"color_mode"** (string) (default: '') color mode class to apply
 - **"sr_external"** (string) (default: 'External link') Screen reader label for external icon
 - **"sr_previous"** (string) (default: 'Previous news') Screen reader label for previous button
 - **"sr_next"** (string) (default: 'Next news') Screen reader label for next button
@@ -28,6 +25,10 @@ npm install --save @ecl/news-ticker
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"item.img"** (object): tiny image used at the icon location
 
 ### Example:
 
@@ -41,8 +42,8 @@ npm install --save @ecl/news-ticker
       content: 'EMA starts rolling review of COVID-19 vaccine Vidprevtyn', 
       link: 'https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn',
       icon: { 
-        name: 'currency-eur', 
-        family: 'phosphor', 
+        name: 'newspaper', 
+        family: 'phosphor',
       }, 
     }, 
     {
@@ -50,16 +51,16 @@ npm install --save @ecl/news-ticker
         'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August',
       link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362',
       icon: { 
-        name: 'currency-eur', 
-        family: 'phosphor', 
+        name: 'newspaper', 
+        family: 'phosphor',
       }, 
     }, 
     { 
       content:
         'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August', 
       icon: { 
-        name: 'currency-eur', 
-        family: 'phosphor', 
+        name: 'newspaper', 
+        family: 'phosphor',
       }, 
     }, 
     ...
