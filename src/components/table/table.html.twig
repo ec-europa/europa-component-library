@@ -5,10 +5,12 @@
   - "id" (string) (default: random): unique id for the table; randomly generated if empty
   - "simple" (boolean) (default: false)
   - "sortable" (boolean) (default: false)
+  - "filter" (boolean) (default: false)
   - "caption" (string) (default: ''): optional caption for the table
   - "label_sort_ascending" (string) (default: ''): label used for sorting ascending (screen reader only)
   - "label_sort_descending" (string) (default: ''): label used for sorting descending (screen reader only)
   - "label_sort_default" (string) (default: ''): label used for sorting default (screen reader only)
+  - "label_filter" (string) (default: ''): label used for the column filter fields (screen reader only)
   - "zebra" (boolean) (default: false))
   - "headers" (array) (default: []): format: [
       {
@@ -68,6 +70,8 @@
 {% set _label_sort_default = label_sort_default|default(label_sort|default('')) %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
+{% set _filter = filter|default(false) %}
+{% set _label_filter = label_filter|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -75,13 +79,27 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if _sortable %}
+{% if _sortable or _filter %}
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'data-ecl-table' },
     { name: 'data-ecl-auto-init', value: 'Table' },
+  ]) %}
+{% endif %}
+
+
+{% if _sortable %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-table-sort' },
     { name: 'data-ecl-table-sort-label-asc', value: _label_sort_ascending },
     { name: 'data-ecl-table-sort-label-desc', value: _label_sort_descending },
     { name: 'data-ecl-table-sort-label-default', value: _label_sort_default }
+  ]) %}
+{% endif %}
+
+{% if _filter %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-table-filter' },
+    { name: 'data-ecl-table-filter-label', value: _label_filter },
   ]) %}
 {% endif %}
 
@@ -134,8 +152,13 @@
             {% if cell.colspan is not empty %}
               {% set _heading_attribute = _heading_attribute ~ ' colspan="' ~ cell.colspan|e('html_attr') ~ '"' %}
               {% set _heading_scope = 'colgroup' %}
-            {% elseif cell.label is not empty and _sortable %}
-              {% set _heading_attribute = _heading_attribute ~ ' data-ecl-table-sort-toggle' %}
+            {% else %}
+              {% if cell.label is not empty and _sortable %}
+                {% set _heading_attribute = _heading_attribute ~ ' data-ecl-table-sort-toggle' %}
+              {% endif %}
+              {% if cell.label is not empty and _filter %}
+                {% set _heading_attribute = _heading_attribute ~ ' data-ecl-table-filter-toggle' %}
+              {% endif %}
             {% endif %}
             {% if cell.headers is not empty %}
               {% set _heading_attribute = _heading_attribute ~ ' headers="' ~ cell.headers|e('html_attr') ~ '"' %}
