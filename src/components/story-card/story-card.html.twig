@@ -202,6 +202,7 @@
           role="tab"
           aria-selected="{{ loop.first ? "true" : "false" }}"
           aria-controls="{{ _id }}-details-{{ loop.index0 }}"
+          tabindex="{{ loop.first ? "0" : "-1" }}"
         >
           {% if item.picture is not empty %}
             <div class="ecl-story-card__grid-image">
