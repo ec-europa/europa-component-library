@@ -260,6 +260,10 @@ $outline-width: 2px;
     }
   }
 
+  .ecl-select__multiple-options-nb {
+    @include screen-reader.sr-only;
+  }
+
   .ecl-checkbox {
     clear: left;
   }
