@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.2.1 (2026-09-02)
+
+#### :bug: Bug Fix
+
+- [#4692](https://github.com/ec-europa/europa-component-library/pull/4692) fix(sources): Fixing issues with sources display on multiple lines - FRONT-5469 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 5.2.0 (2026-08-20)
 
 #### :bug: Bug Fix
