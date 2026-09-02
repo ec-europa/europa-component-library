@@ -45,6 +45,8 @@ module.exports = {
       description:
         'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens. [Embedded video (Youtube) with a thumbnail]',
       meta: 'Copyright, Author, Licence for embedded media',
+      publication_date: '20 Feb 2020',
+      video_length: '1:01',
     },
     {
       // Image with sources and thumbnail
@@ -94,6 +96,8 @@ module.exports = {
         'Living, working, travelling in the EU. [Embedded video (AV Portal) with picture instead of thumbnail]',
       meta: 'Copyright, Author, Licence for image 3',
       share_path: '/share#example-image3.jpg',
+      publication_date: '13 Oct 2022',
+      video_length: '1:55',
     },
     {
       // Embedded video (Dailymotion) with thumbnail
@@ -111,6 +115,8 @@ module.exports = {
         'Information on taxes, customs, importing and exporting goods, financial support for businesses. [Embedded video (Dailymotion) with thumbnail]',
       meta: 'Copyright, Author, Licence for image 4',
       share_path: '/share#example-image4.jpg',
+      publication_date: '03 Aug 2019',
+      video_length: '4:25',
     },
     {
       // HTML video
@@ -124,11 +130,14 @@ module.exports = {
         ],
       },
       alt: 'Image 5',
-      title: 'Time lapse of the Arc de Triomphe in Paris from afar',
+      title:
+        'Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis.',
       description:
         'Time lapse of the Arc de Triomphe in Paris from afar during the day, city roofs, cars and clouds moving in the blue sky. [HTML video]',
       meta: 'Copyright, Author, Licence for image 5',
       share_path: '/share#example-image5.jpg',
+      publication_date: '12 Feb 2023',
+      video_length: '0:27',
     },
     {
       // Embedded video (Vimeo) with thumbnail
@@ -148,6 +157,8 @@ module.exports = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. [Embedded video (Vimeo) with thumbnail]',
       meta: 'Copyright, Author, Licence for image 6',
       share_path: '/share#example-image6.jpg',
+      publication_date: '23 Mar 2025',
+      video_length: '19:57',
     },
     {
       // Image with sources and no thumbnail
