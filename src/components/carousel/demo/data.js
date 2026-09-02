@@ -6,7 +6,7 @@ module.exports = {
   items: [
     {
       id: 'carousel-example-1',
-      title: 'Lorem ipsum dolor sit amet',
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       description:
         'Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
       link: {
@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       id: 'carousel-example-2',
-      title: 'Duis vitae pulvinar turpis',
+      title: 'Nam non velit eget libero sagittis consequat vel et turpis',
       description:
         'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
       link: {
@@ -55,6 +55,49 @@ module.exports = {
       box_background: 'dark',
     },
     {
+      id: 'carousel-example-5',
+      description:
+        'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
+      link: {
+        link: {
+          label: 'Subscribe',
+          path: exampleLink,
+          icon_position: 'after',
+        },
+        icon: {
+          name: 'corner-arrow',
+          size: 'xs',
+          transform: 'rotate-90',
+        },
+      },
+      sr_play: 'Play',
+      sr_pause: 'Pause',
+      video: {
+        poster:
+          'https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg',
+        sources: [
+          {
+            src: 'https://audiovisual.ec.europa.eu/media/video/I-293670',
+            type: 'video/mp4',
+          },
+        ],
+      },
+      box_background: 'dark',
+    },
+    {
+      id: 'carousel-example-4',
+      description:
+        'Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          alt: 'Alternative text',
+        },
+      },
+      credit: '© Copyright or credit',
+      box_background: 'dark',
+    },
+        {
       id: 'carousel-example-3',
       title: 'Donec maximus pharetra ex a ultricies',
       description:

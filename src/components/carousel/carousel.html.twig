@@ -78,22 +78,46 @@
 >
   <div class="ecl-carousel__controls">
     <div class="ecl-container">
-      <div class="ecl-carousel__navigation" role="tablist">
-        {% include "@ecl/slider/slider-pager.html.twig" with {
-          prev_label: _sr_prev,
-          next_label: _sr_next,
-          hide_label: true,
-          extra_classes:  'ecl-carousel__pager',
-          prev_extra_classes: 'ecl-carousel__prev',
-          next_extra_classes: 'ecl-carousel__next',
-          play_extra_classes: 'ecl-carousel__play',
-          pause_extra_classes: 'ecl-carousel__pause',
-          dots_extra_classes: 'ecl-carousel__dots',
-          dot_extra_classes: 'ecl-carousel__dot',
-          play_pause: true,
-          template_data_attribute: 'data-ecl-carousel-dot-template',
-        } only %}
-        <div class="ecl-carousel__counter"></div>
+      <div class="ecl-carousel__navigation">
+        <div class="ecl-carousel__teasers" aria-label="{{ _sr_description }}">
+          <ul class="ecl-carousel__teaser-list">
+          {% for item in _items %}
+            <li class="ecl-carousel__teaser" data-ecl-carousel-teaser>
+              <button
+                class="ecl-carousel__teaser-button"
+                type="button"
+                data-ecl-carousel-teaser-button
+                data-ecl-carousel-slide-index="{{ loop.index0 }}"
+                {% if loop.first %}aria-current="true"{% endif %}
+              >
+                {% if item.title is defined and item.title is not empty %}
+                  <span class="ecl-carousel__teaser-title">{{ item.title }}</span>
+                {% elseif item.description is defined and item.description is not empty %}
+                  <span class="ecl-carousel__teaser-description">{{ item.description }}</span>
+                {% endif %}
+              </button>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+        <div class="ecl-carousel__pager-container">
+          {% include "@ecl/slider/slider-pager.html.twig" with {
+            prev_label: _sr_prev,
+            next_label: _sr_next,
+            hide_label: true,
+            extra_classes:  'ecl-carousel__pager',
+            prev_extra_classes: 'ecl-carousel__prev',
+            next_extra_classes: 'ecl-carousel__next',
+            play_extra_classes: 'ecl-carousel__play',
+            pause_extra_classes: 'ecl-carousel__pause',
+            dots_extra_classes: 'ecl-carousel__dots',
+            dot_extra_classes: 'ecl-carousel__dot',
+            play_pause: true,
+            size: 'm',
+            template_data_attribute: 'data-ecl-carousel-dot-template',
+          } only %}
+          <div class="ecl-carousel__counter"></div>
+        </div>
       </div>
     </div>
   </div>

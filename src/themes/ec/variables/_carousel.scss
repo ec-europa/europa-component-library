@@ -4,11 +4,11 @@
 $carousel: (
   box-shadow: var(--sh-2),
   separator: none,
-  controls-background: var(--cm-surface-inverted),
+  controls-background: var(--cm-surface-color-mode-low),
   controls-padding: var(--s-m) 0,
   container-shadow: none,
   loading-bar-background: var(--c-a-200),
-  navigation-background-active: var(--cm-surface-neutral-low),
   navigation-color-active: var(--cm-on-surface-brand),
   navigation-border-active: var(--cm-surface-neutral-low),
+  teaser-title-font-weight: map.get($font-weight, 'semi-bold'),
 );
