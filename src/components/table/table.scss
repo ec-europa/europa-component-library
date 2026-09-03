@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -169,6 +170,16 @@ $table: null !default;
   .ecl-table__icon-up {
     fill: map.get($table, 'sort', 'icon-color-active');
   }
+}
+
+// Filter Table
+.ecl-table__filter {
+  display: block;
+  margin-block-start: var(--s-xs);
+}
+
+.ecl-table__filter-label {
+  @include screen-reader.sr-only;
 }
 
 // Enhanced table (mobile)

@@ -6,6 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
 import dataSortable from './demo/data--sort-table';
+import dataFilter from './demo/data--filter';
 import table from './table.html.twig';
 import notes from './README.md';
 
@@ -137,5 +138,21 @@ Sortable.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(dataSortable, args),
+  },
+};
+
+export const Filter = (_, { loaded: { component } }) => component;
+
+Filter.render = async (args) => {
+  const renderedTableFilter = await table(prepareData(dataFilter, args));
+  return renderedTableFilter;
+};
+Filter.storyName = 'filter table';
+Filter.args = getArgs(dataFilter);
+Filter.argTypes = getArgTypes(dataFilter);
+Filter.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataFilter, args),
   },
 };
