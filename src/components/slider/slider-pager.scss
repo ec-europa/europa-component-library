@@ -41,7 +41,7 @@ $slider-pager: null !default;
     display: inline-flex;
     justify-content: center;
     min-height: 1.5rem;
-    padding: 0;
+    padding: 0 0.5rem;
     min-width: 1.5rem;
 
     @include mixins-color.focus-default;
@@ -54,11 +54,13 @@ $slider-pager: null !default;
       height: 0.5rem;
       width: 0.5rem;
     }
+
+    &:focus-visible {
+      border-radius: map.get($theme, 'border-radius', 's');
+    }
   }
 
   .ecl-slider-pager__dot--active {
-    margin-inline: 0.7rem;
-
     &::after {
       border-radius: map.get($theme, 'border-radius', 'l');
       width: 2.5rem;
