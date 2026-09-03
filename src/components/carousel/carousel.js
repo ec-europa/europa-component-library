@@ -382,12 +382,22 @@ export class Carousel {
       const position = (index - selectedIndex + teaserCount) % teaserCount;
 
       button.toggleAttribute('aria-current', isCurrent);
+
       if (isCurrent) {
         button.removeAttribute('tabindex');
       } else {
         button.setAttribute('tabindex', '-1');
       }
+
       button.style.order = position;
+    });
+
+    this.slider.slideNodes().forEach((slide, index) => {
+      if (index === selectedIndex) {
+        slide.removeAttribute('inert');
+      } else {
+        slide.setAttribute('inert', 'true');
+      }
     });
   }
 
@@ -510,38 +520,56 @@ export class Carousel {
   /**
    * Toggles play/pause slides.
    */
-  handleAutoPlay(stop = false) {
+  handleAutoPlay(stop = false, pause = false) {
     if (window.innerWidth >= getBreakpoint('xl')) {
-      if (!this.slider.plugins().autoplay?.isPlaying() && !stop) {
-        this.slider.plugins().autoplay?.play();
+      const autoplay = this.slider.plugins().autoplay;
+
+      if (pause) {
+        autoplay?.pause();
+        this.completionBar?.classList.add('is-paused');
+        return;
+      }
+
+      if (!autoplay?.isPlaying() && !stop) {
+        autoplay?.play();
         this.completionBar?.classList.remove('is-paused');
+
         const isFocus = document.activeElement === this.btnPlay;
         this.btnPlay.style.display = 'none';
         this.btnPause.style.display = 'flex';
+
         if (isFocus) {
           this.btnPause.focus();
         }
       } else {
         const isFocus = document.activeElement === this.btnPause;
+
         this.btnPlay.style.display = 'flex';
         this.btnPause.style.display = 'none';
+
         if (isFocus) {
-          this.slider.plugins().autoplay?.pause();
+          autoplay?.pause();
           this.completionBar?.classList.add('is-paused');
           this.btnPlay.focus();
         } else {
-          this.slider.plugins().autoplay?.stop();
-          this.slider.plugins().autoplay?.reset();
+          autoplay?.stop();
+          autoplay?.reset();
           this.completionBar?.classList.remove('is-active', 'is-paused');
         }
       }
     }
   }
 
+  /**
+   * Handle click on next/previous buttons.
+   */
   handleNextPrevClick = () => {
     this.handleAutoPlay(true);
   };
 
+  /**
+   * Handle click on play/pause buttons.
+   */
   handlePlayPauseClick = () => {
     this.handleAutoPlay();
   };
@@ -551,8 +579,9 @@ export class Carousel {
    */
   handleMouseOver() {
     this.hoverAutoPlay = this.slider.plugins().autoplay?.isPlaying();
+
     if (this.hoverAutoPlay) {
-      this.handleAutoPlay();
+      this.handleAutoPlay(false, true);
     }
   }
 
@@ -563,6 +592,8 @@ export class Carousel {
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
     }
+
+    this.hoverAutoPlay = false;
   }
 
   /**
