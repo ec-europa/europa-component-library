@@ -148,7 +148,7 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
-  bottom: -100%;
+  bottom: 0;
   color: $_description-color;
   font: map.get($gallery, 'description-font');
   inset-inline-start: 0;
@@ -157,27 +157,40 @@ $_description-height-desktop: 108px;
   position: absolute;
   text-decoration: none;
   text-overflow: ellipsis;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
   vertical-align: text-bottom;
   white-space: nowrap;
   width: 100%;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .ecl-gallery:not(.ecl-gallery--no-hover) {
   .ecl-gallery__item-link:hover,
   .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
-      bottom: 0;
+      transform: translateY(0);
     }
 
     .ecl-gallery__description--visible .ecl-gallery__title-text {
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
+      max-height: 2lh;
     }
   }
 
   .ecl-gallery__description--visible {
-    bottom: 0;
+    transform: translateY(0);
   }
+}
+
+// Line count stays fixed at 2 for always-visible titles - only `max-height`
+// (see .ecl-gallery__title-text) toggles on hover, since -webkit-line-clamp
+// can't be transitioned and would otherwise drop the second line instantly.
+.ecl-gallery__description--visible .ecl-gallery__title-text {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .ecl-gallery__item-meta {
@@ -190,9 +203,17 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__length,
 .ecl-gallery__date {
+  align-items: center;
   background-color: map.get($gallery, 'description-background');
   border-radius: map.get($theme, 'border-radius', 'm');
-  padding: map.get($gallery, 'item-meta-padding');
+  display: flex;
+  font: map.get($gallery, 'item-meta-font');
+  height: 1.5rem;
+  padding-inline: map.get($gallery, 'item-meta-padding');
+}
+
+.ecl-gallery__length {
+  font-weight: bold;
 }
 
 .ecl-gallery__title {
@@ -204,13 +225,19 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__title-text {
   display: -webkit-box;
+  max-height: 1lh;
   overflow: hidden;
   padding-inline: var(--s-s);
   text-overflow: ellipsis;
+  transition: max-height 0.3s ease;
   white-space: normal;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   line-clamp: 1;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .ecl-gallery__list .ecl-gallery__caption,
@@ -515,6 +542,7 @@ $_description-height-desktop: 108px;
 
   .ecl-gallery__title-text {
     display: block;
+    max-height: none;
     overflow: visible;
     padding-inline: 0;
     -webkit-line-clamp: unset;
