@@ -177,9 +177,14 @@ export class DescriptionList {
       // Remove the button
       listItem.remove();
 
-      // Put focus on the first hidden item
+      // Put focus on the first revealed item.
+      // If it contains a focusable element, focus that directly.
+      // Otherwise, focus the item itself
       if (firstHiddenItem !== null) {
-        firstHiddenItem.focus();
+        const focusableChild = firstHiddenItem.querySelector(
+          'a[href], button, input, [tabindex]:not([tabindex="-1"])',
+        );
+        (focusableChild || firstHiddenItem).focus();
       }
     }
   }
