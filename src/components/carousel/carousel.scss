@@ -55,14 +55,12 @@ $carousel: null !default;
 
 .ecl-carousel__loading-bar {
   background: map.get($carousel, 'loading-bar-background');
-  border-end-end-radius: map.get($theme, 'border-radius', 's');
-  border-end-start-radius: map.get($theme, 'border-radius', 's');
   height: var(--s-xs);
   width: 15rem;
   position: absolute;
   display: none;
   bottom: calc(-1 * var(--s-xs));
-  left: var(--s-3xl);
+  left: map.get($carousel, 'loading-bar-position-left');
 
   &.is-active {
     display: block;
@@ -143,24 +141,10 @@ $carousel: null !default;
   text-align: center;
 }
 
-.ecl-carousel__navigation-item {
-  margin-inline-end: var(--s-xs);
-
-  &[aria-current='true']:not(:focus-visible) {
-    background-color: map.get($carousel, 'navigation-background-active');
-    border-color: map.get($carousel, 'navigation-border-active');
-    color: map.get($carousel, 'navigation-color-active');
-    outline: none;
-  }
-
-  &:last-child {
-    margin-inline-end: 0;
-  }
-}
-
 .ecl-carousel__teasers {
   display: none;
   min-width: 0;
+  order: 0;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -174,8 +158,7 @@ $carousel: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
   .ecl-carousel__controls .ecl-container {
-    padding-inline-start: var(--s-3xl);
-    padding-inline-end: var(--s-3xl);
+    padding-inline: map.get($carousel, 'container-padding');
   }
 
   .ecl-carousel {
@@ -221,10 +204,10 @@ $carousel: null !default;
   }
 
   .ecl-carousel__pager-container {
-
     align-items: center;
     display: flex;
     flex-direction: column;
+    order: 1;
     padding-block-end: 0;
     width: auto;
   }
@@ -255,35 +238,28 @@ $carousel: null !default;
 
   .ecl-carousel__navigation {
     margin-inline-start: auto;
-    margin-block: var(--s-3xl) var(--s-5xl);
+    margin-block: map.get($carousel, 'navigation-block-spacing');
   }
 
-  .ecl-carousel__teaser-list {
+  .ecl-carousel__teasers {
     display: flex;
-    list-style: none;
     margin: 0;
     overflow-x: clip;
     overflow-y: visible;
     padding-inline: var(--s-2xs);
-    gap: var(--s-2xl);
-  }
-
-  .ecl-carousel__teaser {
-    flex: 0 0 calc((100% - (var(--s-2xl) * 3)) / 4);
-    min-width: 0;
-
+    margin-inline: calc(-1 * var(--s-2xs));
+    gap: map.get($carousel, 'teaser-list-gap');
   }
 
   .ecl-carousel__teaser-button {
+    flex: 0 0 calc((100% - (map.get($carousel, 'teaser-list-gap') * 3)) / 4);
     background: transparent;
     border: 0;
-    color: var(--c-g-700);
+    color: map.get($carousel, 'navigation-color');
     cursor: pointer;
-    display: block;
     min-width: 0;
     padding: 0;
     text-align: start;
-    width: 100%;
 
     &[aria-current] {
       color: map.get($carousel, 'navigation-color-active');

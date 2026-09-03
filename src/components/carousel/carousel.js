@@ -82,7 +82,7 @@ export class Carousel {
     this.containerClass = containerClass;
     this.completionBarClass = completionBarClass;
     this.teaserButtonSelector = teaserButtonSelector;
-    this.dotsClass = dotsClass,
+    this.dotsClass = dotsClass;
     this.dotClass = dotClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
@@ -98,6 +98,8 @@ export class Carousel {
     this.slides = null;
     this.btnPlay = null;
     this.btnPause = null;
+    this.btnPrev = null;
+    this.btnNext = null;
     this.index = 1;
     this.total = 0;
     this.slider = null;
@@ -142,6 +144,8 @@ export class Carousel {
     this.element.style.opacity = 0;
     this.btnPlay = queryOne(this.playSelector, this.element);
     this.btnPause = queryOne(this.pauseSelector, this.element);
+    this.btnNext = queryOne(this.nextSelector, this.element);
+    this.btnPrev = queryOne(this.prevSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.navigation = queryOne('.ecl-carousel__teasers', this.element);
@@ -176,10 +180,16 @@ export class Carousel {
       this.navigation.addEventListener('keydown', this.handleKeyboardOnTeasers);
     }
     if (this.btnPlay) {
-      this.btnPlay.addEventListener('click', () => { this.handleAutoPlay() });
+      this.btnPlay.addEventListener('click', this.handlePlayPauseClick);
     }
     if (this.btnPause) {
-      this.btnPause.addEventListener('click', () => { this.handleAutoPlay() });
+      this.btnPause.addEventListener('click', this.handlePlayPauseClick);
+    }
+    if (this.btnPrev) {
+      this.btnPrev.addEventListener('click', this.handleNextPrevClick);
+    }
+    if (this.btnNext) {
+      this.btnNext.addEventListener('click', this.handleNextPrevClick);
     }
 
     if (this.slidesContainer) {
@@ -203,13 +213,16 @@ export class Carousel {
         this.handleAutoPlay(true);
 
         if (e.target.classList.contains('ecl-carousel__teaser-button')) {
-          const activeIndex = this.slider.selectedSnap()
-          const buttons = queryAll('.ecl-carousel__teaser-button', this.element);
-          const activeButton = buttons[activeIndex]
+          const activeIndex = this.slider.selectedSnap();
+          const buttons = queryAll(
+            '.ecl-carousel__teaser-button',
+            this.element,
+          );
+          const activeButton = buttons[activeIndex];
 
           if (activeButton && activeButton !== e.target) {
             e.preventDefault();
-            activeButton.focus()
+            activeButton.focus();
           }
         }
       }
@@ -269,7 +282,7 @@ export class Carousel {
         direction: this.direction,
         duration: 20,
         breakpoints: {
-         [`(min-width: ${getBreakpoint('xl', true)})`]: { active: true },
+          [`(min-width: ${getBreakpoint('xl', true)})`]: { active: true },
         },
       },
       [
@@ -318,6 +331,7 @@ export class Carousel {
     this.teaserButtons.forEach((button) => {
       button.addEventListener('click', () => {
         this.slider.goTo(Number(button.dataset.eclCarouselSlideIndex));
+        this.handleAutoPlay(true);
       });
     });
 
@@ -351,13 +365,16 @@ export class Carousel {
     const teaserCount = this.teaserButtons.length;
 
     this.teaserButtons.forEach((button, index) => {
-      const teaser = button.closest('[data-ecl-carousel-teaser]');
+      const isCurrent = index === selectedIndex;
       const position = (index - selectedIndex + teaserCount) % teaserCount;
 
-      button.toggleAttribute('aria-current', index === selectedIndex);
-      if (teaser) {
-        teaser.style.order = position;
+      button.toggleAttribute('aria-current', isCurrent);
+      if (isCurrent) {
+        button.removeAttribute('tabindex');
+      } else {
+        button.setAttribute('tabindex', '-1');
       }
+      button.style.order = position;
     });
   }
 
@@ -494,15 +511,17 @@ export class Carousel {
           this.btnPause.focus();
         }
       } else {
-        this.slider.plugins().autoplay?.pause();
         const isFocus = document.activeElement === this.btnPause;
         this.btnPlay.style.display = 'flex';
         this.btnPause.style.display = 'none';
         if (isFocus) {
+          this.slider.plugins().autoplay?.pause();
           const index = this.slider.selectedSnap();
           this.completionBars[index].classList.add('is-paused');
           this.btnPlay.focus();
         } else {
+          this.slider.plugins().autoplay?.stop();
+          this.slider.plugins().autoplay?.reset();
           this.completionBars.forEach((bar) => {
             bar.classList.remove('is-active');
           });
@@ -510,6 +529,14 @@ export class Carousel {
       }
     }
   }
+
+  handleNextPrevClick = () => {
+    this.handleAutoPlay(true);
+  };
+
+  handlePlayPauseClick = () => {
+    this.handleAutoPlay();
+  };
 
   /**
    * Trigger events on mouseover.
@@ -567,7 +594,13 @@ export class Carousel {
     }
     // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
     if (vw <= getBreakpoint('m')) {
-      this.handleAutoPlay(true);
+      this.slider.plugins().autoplay?.stop();
+      this.slider.plugins().autoplay?.reset();
+      this.btnPlay.style.display = '';
+      this.btnPause.style.display = '';
+      this.completionBars.forEach((bar) => {
+        bar.classList.remove('is-active');
+      });
     } else {
       this.handleAutoPlay();
     }
@@ -577,39 +610,26 @@ export class Carousel {
    * @param {Event} e
    */
   handleKeyboardOnTeasers(e) {
-    const focusedEl = document.activeElement;
-    switch (e.key) {
-      case 'Tab':
-        e.preventDefault();
-        this.btnPlay.focus();
-      break;
-      case 'ArrowRight':
-        if (focusedEl.parentElement.nextSibling) {
-          e.preventDefault();
-          this.slider.goToNext();
-          this.handleAutoPlay(true);
-          const nextButton = queryOne('.ecl-carousel__teaser-button', focusedEl.parentElement.nextSibling)
-          nextButton.focus();
-        } else {
-          const firstButton = queryOne('.ecl-carousel__teaser-button', focusedEl.parentElement.parentElement);
-          this.slider.goTo(0);
-          firstButton.focus();
-        }
-        break;
+    const currentIndex = this.teaserButtons.indexOf(document.activeElement);
 
-      case 'ArrowLeft':
-        if (focusedEl.parentElement.previousSibling) {
-          this.slider.goToPrev();
-          this.handleAutoPlay(true);
-          const prevButton = queryOne('.ecl-carousel__teaser-button', focusedEl.parentElement.previousSibling)
-          prevButton.focus();
-        } else {
-          const lastButton = queryOne('.ecl-carousel__teaser-button', focusedEl.parentElement.parentElement.lastElementChild);
-          const lastSnapIndex = this.slider.snapList().length - 1
-          this.slider.goTo(lastSnapIndex);
-          lastButton.focus();
-        }
+    if (currentIndex === -1) {
+      return;
+    }
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowLeft': {
+        e.preventDefault();
+        const direction = e.key === 'ArrowRight' ? 1 : -1;
+        const nextIndex =
+          (currentIndex + direction + this.teaserButtons.length) %
+          this.teaserButtons.length;
+
+        this.slider.goTo(nextIndex);
+        this.handleAutoPlay(true);
+        this.teaserButtons[nextIndex].focus();
         break;
+      }
 
       default:
       // Handle other key events here
@@ -623,12 +643,8 @@ export class Carousel {
   handleFocus(e) {
     const focusElement = e.target;
     // Disable autoplay if focus is on a slide CTA
-    if (
-      focusElement &&
-      focusElement.contains(document.activeElement) &&
-      this.autoPlay
-    ) {
-      this.handleAutoPlay();
+    if (focusElement && focusElement.contains(document.activeElement)) {
+      this.handleAutoPlay(true);
     }
     return this;
   }

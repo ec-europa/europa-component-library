@@ -3,6 +3,10 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   sr_description: 'Carousel description here',
+  sr_play: 'Play',
+  sr_pause: 'Pause',
+  sr_prev: 'Previous',
+  sr_next: 'Next',
   items: [
     {
       id: 'carousel-example-1',
@@ -97,7 +101,7 @@ module.exports = {
       credit: '© Copyright or credit',
       box_background: 'dark',
     },
-        {
+    {
       id: 'carousel-example-3',
       title: 'Donec maximus pharetra ex a ultricies',
       description:

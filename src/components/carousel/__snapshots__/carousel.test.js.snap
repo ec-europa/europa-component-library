@@ -15,154 +15,200 @@ exports[`Carousel Default renders correctly 1`] = `
         class="ecl-container"
       >
         <div
-          class="ecl-carousel__autoplay"
-        >
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__play ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Play carousel
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--play-outline"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__pause ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Pause carousel
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--pause-outline"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-        </div>
-        <div
           class="ecl-carousel__navigation"
-          role="tablist"
         >
           <div
-            class="ecl-slider-pager ecl-carousel__pager"
+            class="ecl-carousel__pager-container"
           >
-            <!-- Play button -->
-            <button
-              class="ecl-button ecl-button--secondary ecl-button--s ecl-button--neutral ecl-slider-pager__play ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Pause button -->
-            <button
-              class="ecl-button ecl-button--secondary ecl-button--s ecl-button--neutral ecl-slider-pager__pause ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Prev button -->
-            <button
-              class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-carousel__prev ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous slide
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Dots -->
             <div
-              class="ecl-slider-pager__dots ecl-carousel__dots"
-            />
-            <!-- Next button -->
-            <button
-              class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-carousel__next ecl-button--icon-only"
-              type="button"
+              class="ecl-slider-pager ecl-carousel__pager"
             >
-              <span
-                class="ecl-button__container"
+              <!-- Play button -->
+              <button
+                class="ecl-button ecl-button--secondary ecl-button--m ecl-button--neutral ecl-slider-pager__play ecl-carousel__play ecl-button--icon-only"
+                type="button"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-button__container"
                 >
-                  Next slide
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Play
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
+                    data-ecl-icon=""
+                  />
                 </span>
+              </button>
+              <!-- Pause button -->
+              <button
+                class="ecl-button ecl-button--secondary ecl-button--m ecl-button--neutral ecl-slider-pager__pause ecl-carousel__pause ecl-button--icon-only"
+                type="button"
+              >
                 <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <script
-              data-ecl-carousel-dot-template=""
-              data-ecl-slider-dot-template=""
-              type="text/template"
-            >
-              &lt;button class="ecl-slider-pager__dot ecl-carousel__dot"&gt;&lt;/button&gt;
-            </script>
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Pause
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <!-- Prev button -->
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-slider-pager__prev ecl-carousel__prev ecl-button--icon-only"
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <!-- Dots -->
+              <div
+                class="ecl-slider-pager__dots ecl-carousel__dots"
+              />
+              <!-- Next button -->
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-slider-pager__next ecl-carousel__next ecl-button--icon-only"
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <script
+                data-ecl-carousel-dot-template=""
+                data-ecl-slider-dot-template=""
+                type="text/template"
+              >
+                &lt;button class="ecl-slider-pager__dot ecl-carousel__dot"&gt;&lt;/button&gt;
+              </script>
+            </div>
+            <div
+              class="ecl-carousel__counter"
+            />
           </div>
           <div
-            class="ecl-carousel__counter"
-          />
+            class="ecl-carousel__teasers"
+            role="tablist"
+          >
+            <button
+              aria-current="true"
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="0"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="1"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Nam non velit eget libero sagittis consequat vel et turpis
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="2"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-description"
+              >
+                Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="3"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-description"
+              >
+                Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="4"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Donec maximus pharetra ex a ultricies
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <div
       class="ecl-carousel__viewport"
     >
-      <ul
+      <div
         class="ecl-carousel__slides"
       >
-        <li
-          aria-label="slide 1 of 3"
+        <div
+          aria-label="slide 1 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="tabpanel"
@@ -204,7 +250,7 @@ exports[`Carousel Default renders correctly 1`] = `
                     <span
                       class="ecl-banner__title-text"
                     >
-                      Lorem ipsum dolor sit amet
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </span>
                   </div>
                   <p
@@ -240,11 +286,19 @@ exports[`Carousel Default renders correctly 1`] = `
               </div>
             </div>
           </section>
-        </li>
-        <li
-          aria-label="slide 2 of 3"
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 2 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
+          inert="true"
           role="tabpanel"
         >
           <section
@@ -263,7 +317,7 @@ exports[`Carousel Default renders correctly 1`] = `
                 <img
                   alt="Alternative text"
                   class="ecl-banner__image"
-                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                 />
               </picture>
               <footer
@@ -294,7 +348,7 @@ exports[`Carousel Default renders correctly 1`] = `
                     <span
                       class="ecl-banner__title-text"
                     >
-                      Duis vitae pulvinar turpis
+                      Nam non velit eget libero sagittis consequat vel et turpis
                     </span>
                   </div>
                   <p
@@ -330,11 +384,212 @@ exports[`Carousel Default renders correctly 1`] = `
               </div>
             </div>
           </section>
-        </li>
-        <li
-          aria-label="slide 3 of 3"
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 3 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
+          inert="true"
+          role="tabpanel"
+        >
+          <section
+            class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--font-weight-light ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
+            data-ecl-auto-init="Banner"
+            data-ecl-banner=""
+            id="carousel-example-5"
+          >
+            <div
+              class="ecl-banner__video-container"
+            >
+              <video
+                autoplay=""
+                class="ecl-video ecl-banner__video"
+                data-ecl-banner-video=""
+                loop=""
+                muted=""
+                playsinline=""
+                poster="https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg"
+              >
+                <source
+                  src="https://audiovisual.ec.europa.eu/media/video/I-293670"
+                  type="video/mp4"
+                />
+              </video>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__play ecl-button--icon-only"
+                data-ecl-banner-play=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Play
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__pause ecl-button--icon-only"
+                data-ecl-banner-pause=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Pause
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+            </div>
+            <div
+              class="ecl-container ecl-banner__info"
+            >
+              <div
+                class="ecl-banner__container"
+                data-ecl-banner-container=""
+              >
+                <div
+                  class="ecl-banner__content"
+                >
+                  <p
+                    class="ecl-banner__description"
+                    id="carousel-example-5-description"
+                  >
+                    <span
+                      class="ecl-banner__description-text"
+                    >
+                      Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                    </span>
+                  </p>
+                  <div
+                    class="ecl-banner__cta"
+                  >
+                    <a
+                      aria-describedby="carousel-example-5-description"
+                      class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-banner__link-cta"
+                      href="/example"
+                    >
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Subscribe
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 4 of 5"
+          aria-roledescription="slide"
+          class="ecl-carousel__slide"
+          inert="true"
+          role="tabpanel"
+        >
+          <section
+            class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--font-weight-light ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
+            data-ecl-auto-init="Banner"
+            data-ecl-banner=""
+            id="carousel-example-4"
+          >
+            <figure
+              class="ecl-banner__picture-container"
+            >
+              <picture
+                class="ecl-picture ecl-banner__picture"
+                data-ecl-banner-image=""
+              >
+                <img
+                  alt="Alternative text"
+                  class="ecl-banner__image"
+                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+                />
+              </picture>
+              <footer
+                class="ecl-banner__credit"
+                data-ecl-banner-footer=""
+              >
+                <div
+                  class="ecl-container"
+                >
+                  © Copyright or credit
+                </div>
+              </footer>
+            </figure>
+            <div
+              class="ecl-container ecl-banner__info"
+            >
+              <div
+                class="ecl-banner__container"
+                data-ecl-banner-container=""
+              >
+                <div
+                  class="ecl-banner__content"
+                >
+                  <p
+                    class="ecl-banner__description"
+                    id="carousel-example-4-description"
+                  >
+                    <span
+                      class="ecl-banner__description-text"
+                    >
+                      Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 5 of 5"
+          aria-roledescription="slide"
+          class="ecl-carousel__slide"
+          inert="true"
           role="tabpanel"
         >
           <section
@@ -456,8 +711,15 @@ exports[`Carousel Default renders correctly 1`] = `
               </div>
             </div>
           </section>
-        </li>
-      </ul>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </jest>
@@ -480,154 +742,200 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         class="ecl-container"
       >
         <div
-          class="ecl-carousel__autoplay"
-        >
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__play ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Play carousel
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--play-outline"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__pause ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Pause carousel
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--pause-outline"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-        </div>
-        <div
           class="ecl-carousel__navigation"
-          role="tablist"
         >
           <div
-            class="ecl-slider-pager ecl-carousel__pager"
+            class="ecl-carousel__pager-container"
           >
-            <!-- Play button -->
-            <button
-              class="ecl-button ecl-button--secondary ecl-button--s ecl-button--neutral ecl-slider-pager__play ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Pause button -->
-            <button
-              class="ecl-button ecl-button--secondary ecl-button--s ecl-button--neutral ecl-slider-pager__pause ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Prev button -->
-            <button
-              class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-carousel__prev ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous slide
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Dots -->
             <div
-              class="ecl-slider-pager__dots ecl-carousel__dots"
-            />
-            <!-- Next button -->
-            <button
-              class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-carousel__next ecl-button--icon-only"
-              type="button"
+              class="ecl-slider-pager ecl-carousel__pager"
             >
-              <span
-                class="ecl-button__container"
+              <!-- Play button -->
+              <button
+                class="ecl-button ecl-button--secondary ecl-button--m ecl-button--neutral ecl-slider-pager__play ecl-carousel__play ecl-button--icon-only"
+                type="button"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-button__container"
                 >
-                  Next slide
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Play
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
+                    data-ecl-icon=""
+                  />
                 </span>
+              </button>
+              <!-- Pause button -->
+              <button
+                class="ecl-button ecl-button--secondary ecl-button--m ecl-button--neutral ecl-slider-pager__pause ecl-carousel__pause ecl-button--icon-only"
+                type="button"
+              >
                 <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <script
-              data-ecl-carousel-dot-template=""
-              data-ecl-slider-dot-template=""
-              type="text/template"
-            >
-              &lt;button class="ecl-slider-pager__dot ecl-carousel__dot"&gt;&lt;/button&gt;
-            </script>
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Pause
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <!-- Prev button -->
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-slider-pager__prev ecl-carousel__prev ecl-button--icon-only"
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <!-- Dots -->
+              <div
+                class="ecl-slider-pager__dots ecl-carousel__dots"
+              />
+              <!-- Next button -->
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-slider-pager__next ecl-carousel__next ecl-button--icon-only"
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <script
+                data-ecl-carousel-dot-template=""
+                data-ecl-slider-dot-template=""
+                type="text/template"
+              >
+                &lt;button class="ecl-slider-pager__dot ecl-carousel__dot"&gt;&lt;/button&gt;
+              </script>
+            </div>
+            <div
+              class="ecl-carousel__counter"
+            />
           </div>
           <div
-            class="ecl-carousel__counter"
-          />
+            class="ecl-carousel__teasers"
+            role="tablist"
+          >
+            <button
+              aria-current="true"
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="0"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="1"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Nam non velit eget libero sagittis consequat vel et turpis
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="2"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-description"
+              >
+                Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="3"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-description"
+              >
+                Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="4"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Donec maximus pharetra ex a ultricies
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <div
       class="ecl-carousel__viewport"
     >
-      <ul
+      <div
         class="ecl-carousel__slides"
       >
-        <li
-          aria-label="slide 1 of 3"
+        <div
+          aria-label="slide 1 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="tabpanel"
@@ -669,7 +977,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     <span
                       class="ecl-banner__title-text"
                     >
-                      Lorem ipsum dolor sit amet
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </span>
                   </div>
                   <p
@@ -705,11 +1013,19 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               </div>
             </div>
           </section>
-        </li>
-        <li
-          aria-label="slide 2 of 3"
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 2 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
+          inert="true"
           role="tabpanel"
         >
           <section
@@ -728,7 +1044,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                 <img
                   alt="Alternative text"
                   class="ecl-banner__image"
-                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                 />
               </picture>
               <footer
@@ -759,7 +1075,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
                     <span
                       class="ecl-banner__title-text"
                     >
-                      Duis vitae pulvinar turpis
+                      Nam non velit eget libero sagittis consequat vel et turpis
                     </span>
                   </div>
                   <p
@@ -795,11 +1111,212 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               </div>
             </div>
           </section>
-        </li>
-        <li
-          aria-label="slide 3 of 3"
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 3 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
+          inert="true"
+          role="tabpanel"
+        >
+          <section
+            class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--font-weight-light ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
+            data-ecl-auto-init="Banner"
+            data-ecl-banner=""
+            id="carousel-example-5"
+          >
+            <div
+              class="ecl-banner__video-container"
+            >
+              <video
+                autoplay=""
+                class="ecl-video ecl-banner__video"
+                data-ecl-banner-video=""
+                loop=""
+                muted=""
+                playsinline=""
+                poster="https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg"
+              >
+                <source
+                  src="https://audiovisual.ec.europa.eu/media/video/I-293670"
+                  type="video/mp4"
+                />
+              </video>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__play ecl-button--icon-only"
+                data-ecl-banner-play=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Play
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__pause ecl-button--icon-only"
+                data-ecl-banner-pause=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Pause
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+            </div>
+            <div
+              class="ecl-container ecl-banner__info"
+            >
+              <div
+                class="ecl-banner__container"
+                data-ecl-banner-container=""
+              >
+                <div
+                  class="ecl-banner__content"
+                >
+                  <p
+                    class="ecl-banner__description"
+                    id="carousel-example-5-description"
+                  >
+                    <span
+                      class="ecl-banner__description-text"
+                    >
+                      Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                    </span>
+                  </p>
+                  <div
+                    class="ecl-banner__cta"
+                  >
+                    <a
+                      aria-describedby="carousel-example-5-description"
+                      class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-banner__link-cta"
+                      href="/example"
+                    >
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Subscribe
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 4 of 5"
+          aria-roledescription="slide"
+          class="ecl-carousel__slide"
+          inert="true"
+          role="tabpanel"
+        >
+          <section
+            class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--font-weight-light ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
+            data-ecl-auto-init="Banner"
+            data-ecl-banner=""
+            id="carousel-example-4"
+          >
+            <figure
+              class="ecl-banner__picture-container"
+            >
+              <picture
+                class="ecl-picture ecl-banner__picture"
+                data-ecl-banner-image=""
+              >
+                <img
+                  alt="Alternative text"
+                  class="ecl-banner__image"
+                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+                />
+              </picture>
+              <footer
+                class="ecl-banner__credit"
+                data-ecl-banner-footer=""
+              >
+                <div
+                  class="ecl-container"
+                >
+                  © Copyright or credit
+                </div>
+              </footer>
+            </figure>
+            <div
+              class="ecl-container ecl-banner__info"
+            >
+              <div
+                class="ecl-banner__container"
+                data-ecl-banner-container=""
+              >
+                <div
+                  class="ecl-banner__content"
+                >
+                  <p
+                    class="ecl-banner__description"
+                    id="carousel-example-4-description"
+                  >
+                    <span
+                      class="ecl-banner__description-text"
+                    >
+                      Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 5 of 5"
+          aria-roledescription="slide"
+          class="ecl-carousel__slide"
+          inert="true"
           role="tabpanel"
         >
           <section
@@ -921,8 +1438,15 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               </div>
             </div>
           </section>
-        </li>
-      </ul>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </jest>
@@ -943,154 +1467,200 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         class="ecl-container"
       >
         <div
-          class="ecl-carousel__autoplay"
-        >
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__play ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Play carousel
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--play-outline"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-carousel__pause ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Pause carousel
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default ecl-icon--pause-outline"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-        </div>
-        <div
           class="ecl-carousel__navigation"
-          role="tablist"
         >
           <div
-            class="ecl-slider-pager ecl-carousel__pager"
+            class="ecl-carousel__pager-container"
           >
-            <!-- Play button -->
-            <button
-              class="ecl-button ecl-button--secondary ecl-button--s ecl-button--neutral ecl-slider-pager__play ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Pause button -->
-            <button
-              class="ecl-button ecl-button--secondary ecl-button--s ecl-button--neutral ecl-slider-pager__pause ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Prev button -->
-            <button
-              class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__prev ecl-carousel__prev ecl-button--icon-only"
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous slide
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <!-- Dots -->
             <div
-              class="ecl-slider-pager__dots ecl-carousel__dots"
-            />
-            <!-- Next button -->
-            <button
-              class="ecl-button ecl-button--tertiary ecl-button--s ecl-button--neutral ecl-slider-pager__next ecl-carousel__next ecl-button--icon-only"
-              type="button"
+              class="ecl-slider-pager ecl-carousel__pager"
             >
-              <span
-                class="ecl-button__container"
+              <!-- Play button -->
+              <button
+                class="ecl-button ecl-button--secondary ecl-button--m ecl-button--neutral ecl-slider-pager__play ecl-carousel__play ecl-button--icon-only"
+                type="button"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-button__container"
                 >
-                  Next slide
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Play
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--play-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--play-filled"
+                    data-ecl-icon=""
+                  />
                 </span>
+              </button>
+              <!-- Pause button -->
+              <button
+                class="ecl-button ecl-button--secondary ecl-button--m ecl-button--neutral ecl-slider-pager__pause ecl-carousel__pause ecl-button--icon-only"
+                type="button"
+              >
                 <span
-                  aria-hidden="true"
-                  class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
-                  data-ecl-icon=""
-                />
-              </span>
-            </button>
-            <script
-              data-ecl-carousel-dot-template=""
-              data-ecl-slider-dot-template=""
-              type="text/template"
-            >
-              &lt;button class="ecl-slider-pager__dot ecl-carousel__dot"&gt;&lt;/button&gt;
-            </script>
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Pause
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--pause-filled ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--pause-filled"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <!-- Prev button -->
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-slider-pager__prev ecl-carousel__prev ecl-button--icon-only"
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <!-- Dots -->
+              <div
+                class="ecl-slider-pager__dots ecl-carousel__dots"
+              />
+              <!-- Next button -->
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-slider-pager__next ecl-carousel__next ecl-button--icon-only"
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <script
+                data-ecl-carousel-dot-template=""
+                data-ecl-slider-dot-template=""
+                type="text/template"
+              >
+                &lt;button class="ecl-slider-pager__dot ecl-carousel__dot"&gt;&lt;/button&gt;
+              </script>
+            </div>
+            <div
+              class="ecl-carousel__counter"
+            />
           </div>
           <div
-            class="ecl-carousel__counter"
-          />
+            class="ecl-carousel__teasers"
+            role="tablist"
+          >
+            <button
+              aria-current="true"
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="0"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="1"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Nam non velit eget libero sagittis consequat vel et turpis
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="2"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-description"
+              >
+                Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="3"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-description"
+              >
+                Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+              </span>
+            </button>
+            <button
+              class="ecl-carousel__teaser-button"
+              data-ecl-carousel-slide-index="4"
+              data-ecl-carousel-teaser-button=""
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ecl-carousel__teaser-title"
+              >
+                Donec maximus pharetra ex a ultricies
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <div
       class="ecl-carousel__viewport"
     >
-      <ul
+      <div
         class="ecl-carousel__slides"
       >
-        <li
-          aria-label="slide 1 of 3"
+        <div
+          aria-label="slide 1 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="tabpanel"
@@ -1132,7 +1702,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     <span
                       class="ecl-banner__title-text"
                     >
-                      Lorem ipsum dolor sit amet
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </span>
                   </div>
                   <p
@@ -1168,11 +1738,19 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               </div>
             </div>
           </section>
-        </li>
-        <li
-          aria-label="slide 2 of 3"
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 2 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
+          inert="true"
           role="tabpanel"
         >
           <section
@@ -1191,7 +1769,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                 <img
                   alt="Alternative text"
                   class="ecl-banner__image"
-                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                 />
               </picture>
               <footer
@@ -1222,7 +1800,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
                     <span
                       class="ecl-banner__title-text"
                     >
-                      Duis vitae pulvinar turpis
+                      Nam non velit eget libero sagittis consequat vel et turpis
                     </span>
                   </div>
                   <p
@@ -1258,11 +1836,212 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               </div>
             </div>
           </section>
-        </li>
-        <li
-          aria-label="slide 3 of 3"
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 3 of 5"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
+          inert="true"
+          role="tabpanel"
+        >
+          <section
+            class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--font-weight-light ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
+            data-ecl-auto-init="Banner"
+            data-ecl-banner=""
+            id="carousel-example-5"
+          >
+            <div
+              class="ecl-banner__video-container"
+            >
+              <video
+                autoplay=""
+                class="ecl-video ecl-banner__video"
+                data-ecl-banner-video=""
+                loop=""
+                muted=""
+                playsinline=""
+                poster="https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg"
+              >
+                <source
+                  src="https://audiovisual.ec.europa.eu/media/video/I-293670"
+                  type="video/mp4"
+                />
+              </video>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__play ecl-button--icon-only"
+                data-ecl-banner-play=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Play
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--play-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--play-outline"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-button--m ecl-button--neutral ecl-banner__pause ecl-button--icon-only"
+                data-ecl-banner-pause=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Pause
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--pause-outline ecl-icon ecl-icon--m ecl-button__icon ecl-icon--pause-outline"
+                    data-ecl-icon=""
+                  />
+                </span>
+              </button>
+            </div>
+            <div
+              class="ecl-container ecl-banner__info"
+            >
+              <div
+                class="ecl-banner__container"
+                data-ecl-banner-container=""
+              >
+                <div
+                  class="ecl-banner__content"
+                >
+                  <p
+                    class="ecl-banner__description"
+                    id="carousel-example-5-description"
+                  >
+                    <span
+                      class="ecl-banner__description-text"
+                    >
+                      Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                    </span>
+                  </p>
+                  <div
+                    class="ecl-banner__cta"
+                  >
+                    <a
+                      aria-describedby="carousel-example-5-description"
+                      class="ecl-link ecl-link--primary-highlight-inverted ecl-link--icon ecl-banner__link-cta"
+                      href="/example"
+                    >
+                      <span
+                        class="ecl-link__label"
+                      >
+                        Subscribe
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon--corner-arrow ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 4 of 5"
+          aria-roledescription="slide"
+          class="ecl-carousel__slide"
+          inert="true"
+          role="tabpanel"
+        >
+          <section
+            class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--font-weight-light ecl-banner--box-bg-dark ecl-banner--color-light ecl-banner--h-left ecl-banner--v-center"
+            data-ecl-auto-init="Banner"
+            data-ecl-banner=""
+            id="carousel-example-4"
+          >
+            <figure
+              class="ecl-banner__picture-container"
+            >
+              <picture
+                class="ecl-picture ecl-banner__picture"
+                data-ecl-banner-image=""
+              >
+                <img
+                  alt="Alternative text"
+                  class="ecl-banner__image"
+                  src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+                />
+              </picture>
+              <footer
+                class="ecl-banner__credit"
+                data-ecl-banner-footer=""
+              >
+                <div
+                  class="ecl-container"
+                >
+                  © Copyright or credit
+                </div>
+              </footer>
+            </figure>
+            <div
+              class="ecl-container ecl-banner__info"
+            >
+              <div
+                class="ecl-banner__container"
+                data-ecl-banner-container=""
+              >
+                <div
+                  class="ecl-banner__content"
+                >
+                  <p
+                    class="ecl-banner__description"
+                    id="carousel-example-4-description"
+                  >
+                    <span
+                      class="ecl-banner__description-text"
+                    >
+                      Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+        <div
+          aria-label="slide 5 of 5"
+          aria-roledescription="slide"
+          class="ecl-carousel__slide"
+          inert="true"
           role="tabpanel"
         >
           <section
@@ -1384,8 +2163,15 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               </div>
             </div>
           </section>
-        </li>
-      </ul>
+          <div
+            class="ecl-carousel__loading-bar"
+          >
+            <div
+              class="ecl-carousel__loading-bar-completion"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </jest>
