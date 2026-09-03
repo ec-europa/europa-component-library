@@ -14,8 +14,8 @@ only what is useful to orient an AI agent quickly.
 ```bash
 pnpm install          # install and link all workspace packages
 
-pnpm start:ec         # Storybook for the EC system (port 9001)
-pnpm start:eu         # Storybook for the EU system (port 9002)
+pnpm start:ec         # Storybook for the EC system (port 6006)
+pnpm start:eu         # Storybook for the EU system (port 6007)
 pnpm start:website    # Documentation website
 
 pnpm test:components              # run all Jest tests
@@ -24,7 +24,7 @@ npm run test:components -- button -u  # update snapshots for one component only
 npm run test:components -- -u         # update all snapshots
 
 pnpm lint             # ESLint + Stylelint
-pnpm prettier:write   # auto-format
+pnpm pretty-write     # auto-format with Prettier
 
 pnpm dist             # full build (presets + components + resources)
 pnpm --filter '@ecl/button' run dist  # build a single package
@@ -36,7 +36,7 @@ pnpm --filter '@ecl/button' run dist  # build a single package
 
 ```
 src/
-  components/     ← 60+ components, each an @ecl/{name} npm package
+  components/     ← 70+ components, each an @ecl/{name} npm package
   compositions/   ← higher-level markup patterns built from components
   themes/         ← design tokens for EC and EU (maps/, variables/)
   presets/        ← bundled distributions (ec, eu, reset, rtl)
@@ -98,13 +98,14 @@ See [`docs/ec-eu-systems.md`](./docs/ec-eu-systems.md) for full details.
 
 Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic/README.md):
 
-| Task                                | Skill file                                                                       |
-| ----------------------------------- | -------------------------------------------------------------------------------- |
-| Create a new component              | [`docs/agentic/ecl-new-component.md`](./docs/agentic/ecl-new-component.md)       |
-| Modify an existing component        | [`docs/agentic/ecl-modify-component.md`](./docs/agentic/ecl-modify-component.md) |
-| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-testing.md`](./docs/agentic/ecl-testing.md)                   |
-| Add or update Storybook stories     | [`docs/agentic/ecl-story-controls.md`](./docs/agentic/ecl-story-controls.md)     |
-| Update EC color tokens              | [`docs/agentic/ecl-update-token.md`](./docs/agentic/ecl-update-token.md)         |
+| Task                                  | Skill file                                                                       |
+| ------------------------------------- | -------------------------------------------------------------------------------- |
+| Create a new component                | [`docs/agentic/ecl-new-component.md`](./docs/agentic/ecl-new-component.md)       |
+| Modify an existing component          | [`docs/agentic/ecl-modify-component.md`](./docs/agentic/ecl-modify-component.md) |
+| Run tests / fix snapshots / fix axe   | [`docs/agentic/ecl-testing.md`](./docs/agentic/ecl-testing.md)                   |
+| Add or update Storybook stories       | [`docs/agentic/ecl-story-controls.md`](./docs/agentic/ecl-story-controls.md)     |
+| Update EC color tokens                | [`docs/agentic/ecl-update-token.md`](./docs/agentic/ecl-update-token.md)         |
+| Compose a standalone static HTML page | [`docs/agentic/ecl-static-page.md`](./docs/agentic/ecl-static-page.md)           |
 
 ---
 

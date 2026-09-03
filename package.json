@@ -26,6 +26,7 @@
     "size": "npm run dist:presets && size-limit",
     "start:ec": "(cd src/presets/ec && npm run watch) & cd src/playground/ec && npm run start",
     "start:eu": "(cd src/presets/eu && npm run watch) & cd src/playground/eu && npm run start",
+    "start:eds": "(cd src/presets/eds && npm run build && npm run watch) & cd src/playground/eds && npm run start",
     "start:website": "cd src/website && npm run start",
     "stop": "pkill -f 'ecl-builder' ; pkill -f 'STORYBOOK_SYSTEM' ; true",
     "test": "run-p test:*",
@@ -153,7 +154,10 @@
   },
   "jest": {
     "verbose": true,
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "transformIgnorePatterns": [
+      "/node_modules/\\.pnpm/(?!(lit|lit-html|lit-element|@lit\\+reactive-element)@)"
+    ]
   },
   "apps": {
     "storybook-ec": {
@@ -164,6 +168,11 @@
     "storybook-eu": {
       "protocol": "http",
       "port": 6007,
+      "host": "localhost"
+    },
+    "storybook-eds": {
+      "protocol": "http",
+      "port": 6008,
       "host": "localhost"
     }
   }

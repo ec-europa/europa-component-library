@@ -16,6 +16,7 @@ To maintain these it's important to have a good grasp of few concepts before div
 - **[EC & EU systems](./ec-eu-systems.md)**: Understanding the differences between EC and EU systems
 - **[ECL structure](./ecl-structure.md)**: Project structure (components, utilities, themes, tools, etc.)
 - **[Accessibility](./accessibility.md)**: WCAG compliance and accessibility guidelines
+- **[EDS integration PoC](./eds-integration-poc.md)**: Comparison of approaches for delivering the new `eds` design-system track, using a simple button as the test case
 
 ## Development
 

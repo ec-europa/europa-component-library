@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$typography: (
+  font-family: map.get($eds-font, 'family', 'paragraph'),
+);

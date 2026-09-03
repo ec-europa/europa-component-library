@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="./styles/ecl-eds.css" />
+<style>
+  /* The addon-themes toolbar toggle only sets [data-theme] on <html> (see
+     preview.js's withThemeByDataAttribute decorator) - components inside
+     a story already react to that via --eds-* custom properties, but the
+     Storybook canvas itself (the white area around the story) doesn't
+     unless something styles it with those same vars too. */
+  html,
+  body {
+    background: var(--eds-c-surface-elevation-default);
+    color: var(--eds-c-foreground-default);
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+</style>

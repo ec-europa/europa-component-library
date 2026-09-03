@@ -94,11 +94,11 @@ pnpm lint:js
 Lint only SCSS:
 
 ```bash
-pnpm lint:css
+pnpm lint:scss
 ```
 
 Format code with Prettier:
 
 ```bash
-pnpm prettier:write
+pnpm pretty-write
 ```
