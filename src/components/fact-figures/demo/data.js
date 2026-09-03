@@ -44,9 +44,26 @@ module.exports = {
       sources: [
         {
           link: {
+            label:
+              'The length of this string is meant to test the text wrapping',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Eurostat',
+            path: exampleLink,
+            external: true,
+          },
+        },
+        {
+          link: {
             label: 'Eurostat',
             path: exampleLink,
           },
+        },
+        {
+          name: 'Textual element',
         },
       ],
     },
