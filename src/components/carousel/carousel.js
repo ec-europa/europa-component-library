@@ -100,6 +100,7 @@ export class Carousel {
     this.btnPause = null;
     this.btnPrev = null;
     this.btnNext = null;
+    this.completionBar = null;
     this.index = 1;
     this.total = 0;
     this.slider = null;
@@ -153,7 +154,7 @@ export class Carousel {
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.sliderEl = queryOne(this.containerClass, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
-    this.completionBars = queryAll(this.completionBarClass, this.element);
+    this.completionBar = queryOne(this.completionBarClass, this.element);
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
     this.element.style.setProperty(
@@ -336,26 +337,40 @@ export class Carousel {
     });
 
     this.slider.on('select', this.updateTeasers);
-    this.slider.on('select', this.handleAutoplayTimerSet);
     this.slider.on('reInit', this.updateTeasers);
     this.slider.on('autoplay:timerset', this.handleAutoplayTimerSet);
     this.updateTeasers();
   }
 
   handleAutoplayTimerSet = () => {
-    const selectedIndex = this.slider.selectedSnap();
+    if (!this.completionBar || !this.slider.plugins().autoplay?.isPlaying()) {
+      return;
+    }
 
-    this.completionBars.forEach((bar, i) => {
-      if (i !== selectedIndex) {
-        bar.classList.remove('is-active');
-        bar.classList.remove('is-paused');
-      } else {
-        if (this.slider.plugins().autoplay?.isPlaying()) {
-          bar.classList.add('is-active');
-        }
-      }
-    });
+    if (!this.completionBar.classList.contains('is-paused')) {
+      this.resetLoadingBarAnimation();
+    }
+
+    this.completionBar.classList.add('is-active');
   };
+
+  /**
+   * Restart the shared loading-bar animation for a new autoplay interval.
+   */
+  resetLoadingBarAnimation() {
+    const completion = queryOne(
+      '.ecl-carousel__loading-bar-completion',
+      this.completionBar,
+    );
+
+    if (!completion) {
+      return;
+    }
+
+    completion.style.animation = 'none';
+    void completion.offsetWidth; // eslint-disable-line no-void
+    completion.style.animation = '';
+  }
 
   /**
    * Keep the active teaser first in the horizontal teaser list.
@@ -501,9 +516,7 @@ export class Carousel {
     if (window.innerWidth >= getBreakpoint('xl')) {
       if (!this.slider.plugins().autoplay?.isPlaying() && !stop) {
         this.slider.plugins().autoplay?.play();
-        this.completionBars.forEach((bar) => {
-          bar.classList.remove('is-paused');
-        });
+        this.completionBar?.classList.remove('is-paused');
         const isFocus = document.activeElement === this.btnPlay;
         this.btnPlay.style.display = 'none';
         this.btnPause.style.display = 'flex';
@@ -516,15 +529,12 @@ export class Carousel {
         this.btnPause.style.display = 'none';
         if (isFocus) {
           this.slider.plugins().autoplay?.pause();
-          const index = this.slider.selectedSnap();
-          this.completionBars[index].classList.add('is-paused');
+          this.completionBar?.classList.add('is-paused');
           this.btnPlay.focus();
         } else {
           this.slider.plugins().autoplay?.stop();
           this.slider.plugins().autoplay?.reset();
-          this.completionBars.forEach((bar) => {
-            bar.classList.remove('is-active');
-          });
+          this.completionBar?.classList.remove('is-active', 'is-paused');
         }
       }
     }
@@ -598,9 +608,7 @@ export class Carousel {
       this.slider.plugins().autoplay?.reset();
       this.btnPlay.style.display = '';
       this.btnPause.style.display = '';
-      this.completionBars.forEach((bar) => {
-        bar.classList.remove('is-active');
-      });
+      this.completionBar?.classList.remove('is-active', 'is-paused');
     } else {
       this.handleAutoPlay();
     }

@@ -78,6 +78,9 @@
 >
   <div class="ecl-carousel__controls">
     <div class="ecl-container">
+      <div class="ecl-carousel__loading-bar">
+        <div class="ecl-carousel__loading-bar-completion"></div>
+      </div>
       <div class="ecl-carousel__navigation">
         <div class="ecl-carousel__pager-container">
           {% include "@ecl/slider/slider-pager.html.twig" with {
@@ -144,11 +147,6 @@
         {% include '@ecl/banner/banner.html.twig' with item|merge({
           size: _size,
         }) only %}
-        <div class="ecl-carousel__loading-bar">
-          <div
-            class="ecl-carousel__loading-bar-completion"
-          ></div>
-        </div>
       </div>
     {% endfor %}
     </div>

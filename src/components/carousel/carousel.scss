@@ -57,10 +57,8 @@ $carousel: null !default;
   background: map.get($carousel, 'loading-bar-background');
   height: var(--s-xs);
   width: 15rem;
-  position: absolute;
   display: none;
-  bottom: calc(-1 * var(--s-xs));
-  left: map.get($carousel, 'loading-bar-position-left');
+  margin-block-start: map.get($carousel, 'loading-bar-padding-top');
 
   &.is-active {
     display: block;
@@ -104,6 +102,7 @@ $carousel: null !default;
   // stylelint-disable-next-line no-descending-specificity
   .ecl-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
 }
@@ -242,6 +241,7 @@ $carousel: null !default;
   }
 
   .ecl-carousel__teasers {
+    align-items: flex-start;
     display: flex;
     margin: 0;
     overflow-x: clip;
