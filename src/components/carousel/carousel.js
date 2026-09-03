@@ -193,10 +193,9 @@ export class Carousel {
       this.btnNext.addEventListener('click', this.handleNextPrevClick);
     }
 
-    if (this.slidesContainer) {
-      // Mouse events
-      this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
-      this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
+    if (this.container) {
+      this.container.addEventListener('mouseenter', this.handleMouseOver);
+      this.container.addEventListener('mouseleave', this.handleMouseOut);
     }
     if (this.container) {
       this.container.addEventListener('focus', this.handleFocus, true);
@@ -254,12 +253,9 @@ export class Carousel {
     if (this.btnNext) {
       this.btnNext.removeEventListener('click', this.handleNextPrevClick);
     }
-    if (this.slidesContainer) {
-      this.slidesContainer.removeEventListener(
-        'mouseover',
-        this.handleMouseOver,
-      );
-      this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
+    if (this.container) {
+      this.container.removeEventListener('mouseenter', this.handleMouseOver);
+      this.container.removeEventListener('mouseleave', this.handleMouseOut);
     }
     if (this.container) {
       this.container.removeEventListener('focus', this.handleFocus, true);
