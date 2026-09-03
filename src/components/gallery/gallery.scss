@@ -148,28 +148,95 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
-  bottom: -100%;
-  background-color: map.get($gallery, 'description-background');
+  bottom: 0;
   color: $_description-color;
   font: map.get($gallery, 'description-font');
   inset-inline-start: 0;
   overflow: hidden;
-  padding: var(--s-2xs) var(--s-xs);
   pointer-events: none;
   position: absolute;
   text-decoration: none;
   text-overflow: ellipsis;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
   vertical-align: text-bottom;
   white-space: nowrap;
-  width: calc(100% - (var(--s-xs) * 2));
+  width: 100%;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .ecl-gallery:not(.ecl-gallery--no-hover) {
   .ecl-gallery__item-link:hover,
   .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
-      bottom: 0;
+      transform: translateY(0);
     }
+
+    .ecl-gallery__description--visible .ecl-gallery__title-text {
+      max-height: 2lh;
+    }
+  }
+
+  .ecl-gallery__description--visible {
+    transform: translateY(0);
+  }
+}
+
+// Line count stays fixed at 2 for always-visible titles - only `max-height`
+// (see .ecl-gallery__title-text) toggles on hover, since -webkit-line-clamp
+// can't be transitioned and would otherwise drop the second line instantly.
+.ecl-gallery__description--visible .ecl-gallery__title-text {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.ecl-gallery__item-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: map.get($gallery, 'item-meta-margin');
+  padding-top: var(--s-xs);
+  padding-inline: var(--s-s);
+}
+
+.ecl-gallery__length,
+.ecl-gallery__date {
+  align-items: center;
+  background-color: map.get($gallery, 'description-background');
+  border-radius: map.get($theme, 'border-radius', 'm');
+  display: flex;
+  font: map.get($gallery, 'item-meta-font');
+  height: 1.5rem;
+  padding-inline: map.get($gallery, 'item-meta-padding');
+}
+
+.ecl-gallery__length {
+  font-weight: bold;
+}
+
+.ecl-gallery__title {
+  background-color: map.get($gallery, 'description-background');
+  display: block;
+  padding-block: var(--s-xs);
+  width: 100%;
+}
+
+.ecl-gallery__title-text {
+  display: -webkit-box;
+  max-height: 1lh;
+  overflow: hidden;
+  padding-inline: var(--s-s);
+  text-overflow: ellipsis;
+  transition: max-height 0.3s ease;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
@@ -462,9 +529,24 @@ $_description-height-desktop: 108px;
   margin-top: var(--s-s);
   overflow: auto;
 
+  .ecl-gallery__item-meta {
+    display: none;
+  }
+
   .ecl-gallery__title {
+    background-color: transparent;
     display: block;
     font-weight: map.get($gallery, 'overlay-title-font-weight');
+    padding-block: 0;
+  }
+
+  .ecl-gallery__title-text {
+    display: block;
+    max-height: none;
+    overflow: visible;
+    padding-inline: 0;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
   }
 
   .ecl-gallery__meta {
