@@ -28,6 +28,11 @@ $carousel: null !default;
   .ecl-banner {
     height: 100%;
   }
+
+  .ecl-banner__info,
+  .ecl-banner__credit {
+    background-color: map.get($carousel, 'banner-background');
+  }
 }
 
 .ecl-carousel__viewport {
@@ -167,6 +172,10 @@ $carousel: null !default;
       .ecl-container {
         height: initial;
       }
+    }
+
+    .ecl-banner__info {
+      background: transparent;
     }
   }
 

@@ -242,15 +242,17 @@ export class Carousel {
    * Destroy component.
    */
   destroy() {
-    if (this.cloneFirstSLide && this.cloneLastSLide) {
-      this.cloneFirstSLide.remove();
-      this.cloneLastSLide.remove();
-    }
     if (this.btnPlay) {
-      this.btnPlay.replaceWith(this.btnPlay.cloneNode(true));
+      this.btnPlay.removeEventListener('click', this.handlePlayPauseClick);
     }
     if (this.btnPause) {
-      this.btnPause.replaceWith(this.btnPause.cloneNode(true));
+      this.btnPause.removeEventListener('click', this.handlePlayPauseClick);
+    }
+    if (this.btnPrev) {
+      this.btnPrev.removeEventListener('click', this.handleNextPrevClick);
+    }
+    if (this.btnNext) {
+      this.btnNext.removeEventListener('click', this.handleNextPrevClick);
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
@@ -552,11 +554,10 @@ export class Carousel {
    * Trigger events on mouseover.
    */
   handleMouseOver() {
-    this.hoverAutoPlay = this.autoPlay;
+    this.hoverAutoPlay = this.slider.plugins().autoplay?.isPlaying();
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
     }
-    return this;
   }
 
   /**
@@ -566,7 +567,6 @@ export class Carousel {
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
     }
-    return this;
   }
 
   /**
