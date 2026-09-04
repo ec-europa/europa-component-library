@@ -632,7 +632,7 @@ export class Carousel {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
     // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
-    if (vw <= getBreakpoint('m')) {
+    if (vw <= getBreakpoint('xl')) {
       this.slider.plugins().autoplay?.stop();
       this.slider.plugins().autoplay?.reset();
       this.btnPlay.style.display = '';
