@@ -11,8 +11,7 @@ module.exports = {
     {
       id: 'carousel-example-1',
       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description:
-        'Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
+      description: 'Nullam sollicitudin suscipit diam.',
       link: {
         link: {
           label: 'Subscribe',
@@ -35,8 +34,6 @@ module.exports = {
     {
       id: 'carousel-example-2',
       title: 'Nam non velit eget libero sagittis consequat vel et turpis',
-      description:
-        'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
       link: {
         link: {
           label: 'Subscribe',
@@ -62,18 +59,6 @@ module.exports = {
       id: 'carousel-example-5',
       description:
         'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
-      link: {
-        link: {
-          label: 'Subscribe',
-          path: exampleLink,
-          icon_position: 'after',
-        },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-90',
-        },
-      },
       sr_play: 'Play',
       sr_pause: 'Pause',
       video: {
@@ -116,20 +101,7 @@ module.exports = {
     {
       id: 'carousel-example-3',
       title: 'Donec maximus pharetra ex a ultricies',
-      description:
-        'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
-      link: {
-        link: {
-          label: 'Subscribe',
-          path: exampleLink,
-          icon_position: 'after',
-        },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-90',
-        },
-      },
+      description: 'Integer quis lorem tellus.',
       sr_play: 'Play',
       sr_pause: 'Pause',
       video: {

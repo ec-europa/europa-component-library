@@ -394,6 +394,14 @@ export class Carousel {
       button.style.order = position;
     });
 
+    this.slides.forEach((slide, index) => {
+      if (index === selectedIndex) {
+        slide.removeAttribute('inert');
+      } else {
+        slide.setAttribute('inert', 'true');
+      }
+    });
+
     const focusedButton = document.activeElement;
 
     if (
@@ -523,43 +531,45 @@ export class Carousel {
    * Toggles play/pause slides.
    */
   handleAutoPlay(stop = false, pause = false) {
-    if (window.innerWidth >= getBreakpoint('xl')) {
-      const autoplay = this.slider.plugins().autoplay;
-
-      if (pause) {
-        autoplay?.pause();
-        this.completionBar?.classList.add('is-paused');
-        return;
-      }
-
-      if (!autoplay?.isPlaying() && !stop) {
-        autoplay?.play();
-        this.completionBar?.classList.remove('is-paused');
-
-        const isFocus = document.activeElement === this.btnPlay;
-        this.btnPlay.style.display = 'none';
-        this.btnPause.style.display = 'flex';
-
-        if (isFocus) {
-          this.btnPause.focus();
-        }
-      } else {
-        const isFocus = document.activeElement === this.btnPause;
-
-        this.btnPlay.style.display = 'flex';
-        this.btnPause.style.display = 'none';
-
-        if (isFocus) {
-          autoplay?.pause();
-          this.completionBar?.classList.add('is-paused');
-          this.btnPlay.focus();
-        } else {
-          autoplay?.stop();
-          autoplay?.reset();
-          this.completionBar?.classList.remove('is-active', 'is-paused');
-        }
-      }
+    if (window.innerWidth <= getBreakpoint('xl')) {
+      return;
     }
+
+    const autoplay = this.slider.plugins().autoplay;
+
+    // pause
+    if (pause) {
+      autoplay?.pause();
+      this.completionBar?.classList.add('is-paused');
+
+      const isFocus = document.activeElement === this.btnPause;
+
+      this.btnPlay.style.display = 'flex';
+      this.btnPause.style.display = 'none';
+
+      if (isFocus) {
+        this.btnPlay.focus();
+      }
+
+      return;
+    }
+
+    // stop
+    if (stop) {
+      autoplay?.stop();
+      autoplay?.reset();
+      this.btnPlay.style.display = 'flex';
+      this.btnPause.style.display = 'none';
+      this.completionBar?.classList.remove('is-active', 'is-paused');
+
+      return;
+    }
+
+    // play
+    autoplay?.play();
+    this.completionBar?.classList.remove('is-paused');
+    this.btnPlay.style.display = 'none';
+    this.btnPause.style.display = 'flex';
   }
 
   /**
@@ -572,8 +582,12 @@ export class Carousel {
   /**
    * Handle click on play/pause buttons.
    */
-  handlePlayPauseClick = () => {
-    this.handleAutoPlay();
+  handlePlayPauseClick = (e) => {
+    if (e.currentTarget === this.btnPause) {
+      this.handleAutoPlay(false, true);
+    } else {
+      this.handleAutoPlay();
+    }
   };
 
   /**
@@ -631,16 +645,22 @@ export class Carousel {
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
+
+    const isAboveXl = vw > getBreakpoint('xl');
     // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
-    if (vw <= getBreakpoint('xl')) {
-      this.slider.plugins().autoplay?.stop();
-      this.slider.plugins().autoplay?.reset();
-      this.btnPlay.style.display = '';
-      this.btnPause.style.display = '';
-      this.completionBar?.classList.remove('is-active', 'is-paused');
-    } else {
-      this.handleAutoPlay();
+    if (this.isAboveXl !== null && this.isAboveXl !== isAboveXl) {
+      if (isAboveXl) {
+        this.handleAutoPlay();
+      } else {
+        this.slider.plugins().autoplay?.stop();
+        this.slider.plugins().autoplay?.reset();
+        this.btnPlay.style.display = '';
+        this.btnPause.style.display = '';
+        this.completionBar?.classList.remove('is-active', 'is-paused');
+      }
     }
+
+    this.isAboveXl = isAboveXl;
   }
 
   /**
