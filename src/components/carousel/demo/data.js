@@ -92,6 +92,18 @@ module.exports = {
       id: 'carousel-example-4',
       description:
         'Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh',
+      link: {
+        link: {
+          label: 'Subscribe',
+          path: exampleLink,
+          icon_position: 'after',
+        },
+        icon: {
+          name: 'corner-arrow',
+          size: 'xs',
+          transform: 'rotate-90',
+        },
+      },
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',

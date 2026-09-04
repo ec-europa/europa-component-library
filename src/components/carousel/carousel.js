@@ -212,26 +212,6 @@ export class Carousel {
       this.initSlider(this.sliderEl);
     }
 
-    this.element.addEventListener('focusin', (e) => {
-      if (!this.element.contains(e.relatedTarget)) {
-        this.handleAutoPlay(true);
-
-        if (e.target.classList.contains('ecl-carousel__teaser-button')) {
-          const activeIndex = this.slider.selectedSnap();
-          const buttons = queryAll(
-            '.ecl-carousel__teaser-button',
-            this.element,
-          );
-          const activeButton = buttons[activeIndex];
-
-          if (activeButton && activeButton !== e.target) {
-            e.preventDefault();
-            activeButton.focus();
-          }
-        }
-      }
-    });
-
     this.handleResize();
 
     // Set ecl initialized attribute
@@ -267,8 +247,8 @@ export class Carousel {
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
-    if (this.teaserButtons) {
-      this.teaserButtons.foreEach((button) => {
+    if (this.teaserButtons.length > 0) {
+      this.teaserButtons.forEach((button) => {
         button.removeEventListener('click', this.handleClickOnTeaser);
       });
     }
@@ -385,12 +365,12 @@ export class Carousel {
    * Handle click in the teaser buttons to navigate to the corresponding slide.
    * @param {Event} e
    */
-  handleClickOnTeaser = (e) => {
+  handleClickOnTeaser(e) {
     const index = Number(e.currentTarget.dataset.eclCarouselSlideIndex);
 
     this.slider.goTo(index);
     this.handleAutoPlay(true);
-  };
+  }
 
   /**
    * Keep the active teaser first in the horizontal teaser list.
@@ -414,13 +394,14 @@ export class Carousel {
       button.style.order = position;
     });
 
-    this.slider.slideNodes().forEach((slide, index) => {
-      if (index === selectedIndex) {
-        slide.removeAttribute('inert');
-      } else {
-        slide.setAttribute('inert', 'true');
-      }
-    });
+    const focusedButton = document.activeElement;
+
+    if (
+      this.navigation.contains(focusedButton) &&
+      Number(focusedButton.style.order) > 3
+    ) {
+      this.teaserButtons[selectedIndex]?.focus();
+    }
   }
 
   /**
