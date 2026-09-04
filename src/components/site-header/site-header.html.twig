@@ -474,6 +474,7 @@
               <div
                 class="ecl-site-header__search-dialog"
                 role="dialog"
+                aria-modal="true"
                 id="ecl-site-header-search-form-dialog"
               {% if _search_form.text_input.id|default('') is not empty %}
                 aria-labelledby="{{ _search_form.text_input.id }}-label"
