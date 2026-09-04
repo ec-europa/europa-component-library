@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/link/link' as link-component;
 
@@ -16,6 +15,11 @@ $fact-figures: null !default;
   background-color: map.get($fact-figures, 'background');
   border-radius: map.get($fact-figures, 'border-radius');
   margin: 0;
+  container-type: inline-size;
+  container-name: ecl-fact-figures;
+}
+
+.ecl-fact-figures__container {
   padding: map.get($fact-figures, 'padding-mobile');
 }
 
@@ -135,8 +139,8 @@ $fact-figures: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-fact-figures {
+@container ecl-fact-figures (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-fact-figures__container {
     padding: map.get($fact-figures, 'padding-desktop');
   }
 

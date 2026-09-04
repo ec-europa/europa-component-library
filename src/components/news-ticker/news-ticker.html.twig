@@ -80,6 +80,7 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
+  <div class="ecl-news-ticker__wrapper">
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
     <div class="ecl-news-ticker__content">
@@ -214,6 +215,7 @@
       {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}
       <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
     </div>
+  </div>
   </div>
 </div>
 

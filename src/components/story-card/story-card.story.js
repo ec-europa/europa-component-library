@@ -114,6 +114,11 @@ export default {
       return `<div class="ecl-container">${storyFn()}</div>`;
     },
   ],
+  parameters: {
+    breakpointIndicator: {
+      container: '.ecl-story-card',
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

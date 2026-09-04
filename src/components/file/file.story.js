@@ -312,6 +312,9 @@ export default {
       },
     },
   },
+  breakpointIndicator: {
+    container: '.ecl-file',
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

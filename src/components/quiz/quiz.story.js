@@ -57,6 +57,9 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     parameters: { layout: 'fullscreen' },
+    breakpointIndicator: {
+      container: '.ecl-quiz',
+    },
   },
 };
 
