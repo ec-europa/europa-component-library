@@ -106,7 +106,7 @@ module.exports = {
       info: {
         title: 'About the European Union',
         content:
-          'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit finibus magna ac ornare. Aenean in rutrum magna. Nam sed leo quis neque imperdiet porttitor ac at justo. Proin ut augue dictum libero convallis aliquet. In ut egestas leo. Curabitur eu ullamcorper libero, sit amet fermentum augue. Aliquam ut nibh justo. Sed venenatis est at gravida porttitor. Vestibulum quis lacus purus. Quisque interdum porttitor augue. Vestibulum ut volutpat nisl.',
         link: {
           link: {
             label: 'Discover more',
