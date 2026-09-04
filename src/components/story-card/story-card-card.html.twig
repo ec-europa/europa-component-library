@@ -12,6 +12,7 @@
     - "source" (string): Source of the item
     - "description" (string): Card description
     - "title" (string) Title of the details section
+    - "tab_id" (string) Id of the corresponding tablist item
     - "card_link" (object): Read more link
       - "label" (string): Button label
       - "path" (string): Button link path
@@ -29,6 +30,7 @@
 {% set _description = description|default('') %}
 {% set _title = title|default('') %}
 {% set _source = source|default('') %}
+{% set _tab_id = tab_id|default('') %}
 {% set _author = author|default('') %}
 {% set _role = role|default('') %}
 {% set _card_link = card_link|default({}) %}
@@ -91,6 +93,12 @@
   </div>
 {% endif %}
 
+{% if _teaser_label is not empty %}
+  <div class="ecl-story-card__teaser-label">
+    {{- _teaser_label -}}
+  </div>
+{% endif %}
+
 {% if _title is not empty %}
   <div class="ecl-story-card__card-title">
     {{- _title -}}
@@ -126,11 +134,18 @@
 {%- endif -%}
 
 {%- if _card_link is not empty -%}
+  {% set _link_extra_attributes = _card_link.extra_attributes|default([]) %}
+  {% if _tab_id is not empty %}
+    {% set _link_extra_attributes = _link_extra_attributes|merge([{
+      name: 'aria-describedby', value: _tab_id,
+    }]) %}
+  {% endif %}
   {% include '@ecl/link/link.html.twig' with _card_link|merge({
     link: _card_link.link|merge({
       type: 'standalone',
     }),
     extra_classes: 'ecl-story-card__link',
+    extra_attributes: _link_extra_attributes,
   }) only %}
 {%- endif -%}
 </div>

@@ -11,6 +11,8 @@ $theme: null !default;
 $highlight-box: null !default;
 
 .ecl-highlight-box {
+  --max-w: none;
+
   box-shadow: map.get($highlight-box, 'shadow');
 }
 
@@ -32,6 +34,7 @@ $highlight-box: null !default;
   background-color: map.get($highlight-box, 'header', 'icon-background-color');
   border-radius: 50%;
   display: flex;
+  flex-shrink: 0;
   height: 2.5rem;
   justify-content: center;
   margin-inline-end: var(--s-m);

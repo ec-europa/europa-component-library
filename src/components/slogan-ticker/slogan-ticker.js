@@ -282,8 +282,10 @@ export class SloganTicker {
 
     if (this.isPlaying) {
       this.stopAutoScroll();
+      this.playButton.focus();
     } else {
       this.startAutoScroll();
+      this.pauseButton.focus();
     }
   }
 
