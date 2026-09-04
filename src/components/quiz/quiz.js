@@ -372,8 +372,9 @@ export class Quiz {
     const front = queryOne(this.frontClass, this.element);
     const styles = getComputedStyle(front);
     const minHeight = parseFloat(styles.getPropertyValue('min-height')) || 345;
+    const flipped = [];
 
-    this.cards.forEach((card) => {
+    this.cards.forEach((card, i) => {
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
       const question = queryOne(this.questionClass, card);
@@ -381,6 +382,14 @@ export class Quiz {
 
       front.style.position = 'static';
       back.style.position = 'static';
+
+      if (front.hasAttribute('hidden')) {
+        front.removeAttribute('hidden');
+        flipped[i] = true;
+      } else {
+        back.removeAttribute('hidden');
+        flipped[i] = false;
+      }
 
       // Reset heights previously set.
       question.style.minHeight = '';
@@ -393,22 +402,16 @@ export class Quiz {
       if (heightText > maxTextHeight) {
         maxTextHeight = heightText;
       }
-
-      front.style.position = '';
-      back.style.position = '';
     });
 
-    this.cards.forEach((card) => {
+    this.cards.forEach((card, i) => {
       const question = queryOne(this.questionClass, card);
       const answer = queryOne(this.answerClass, card);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
       const content = queryOne(this.contentClass, card);
 
-      front.style.position = 'static';
-      back.style.position = 'static';
       content.style.height = '';
-
       question.style.minHeight = maxTextHeight + 'px';
       answer.style.minHeight = maxTextHeight + 'px';
 
@@ -419,8 +422,15 @@ export class Quiz {
       if (height > minHeight && height > maxHeight) {
         maxHeight = height;
       }
+
       front.style.position = '';
       back.style.position = '';
+
+      if (flipped[i]) {
+        front.setAttribute('hidden', '');
+      } else {
+        back.setAttribute('hidden', '');
+      }
     });
 
     if (maxHeight > 0) {
@@ -605,7 +615,7 @@ export class Quiz {
       const isFlipped = card.classList.contains(this.flippedClass);
       const front = queryOne(this.frontClass, card);
       const back = queryOne(this.backClass, card);
-      let category = queryOne('.ecl-quiz-card__category--error', back);
+      const category = queryOne('.ecl-quiz-card__answer-title', back);
 
       if (e.target.hasAttribute('data-match')) {
         const li = e.target.closest(this.optionClass);
@@ -613,27 +623,9 @@ export class Quiz {
         const items = Array.from(parent.children);
         const index = items.indexOf(li);
         const match = e.target.getAttribute('data-match') === 'true';
-        let successText = '';
-        let errorText = '';
-        const successEl = queryOne('.ecl-quiz-card__category--success', back);
-
-        if (successEl) {
-          successText = successEl.textContent;
-        }
-        const errorEl = queryOne('.ecl-quiz-card__category--error', back) || '';
-        if (errorEl) {
-          errorText = errorEl.textContent;
-        }
-        const message = match ? successText : errorText;
-        const statusEl = queryOne('.ecl-quiz-card__sr-status', back);
-        statusEl.textContent = '';
-        requestAnimationFrame(() => {
-          statusEl.textContent = message;
-        });
 
         if (match) {
           back.classList.add('ecl-quiz-card--correct');
-          category = queryOne('.ecl-quiz-card__category--success', back);
         }
 
         const options = queryOne('.ecl-quiz-card__options', back);
