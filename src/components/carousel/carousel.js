@@ -14,6 +14,8 @@ import SliderPager from '@ecl/slider';
  * @param {String} options.playSelector Selector for play button
  * @param {String} options.pauseSelector Selector for pause button
  * @param {String} options.pagerSelector Selector for the pager container
+ * @param {String} options.counterSelector Selector for the counter
+ * @param {String} options.counterLabelSelector Label for the counter
  * @param {String} options.dotsClass Selector for the dots container
  * @param {String} options.dotClass Selector for a dot button
  * @param {String} options.activeDotClass Class applied to the active dot
@@ -23,7 +25,6 @@ import SliderPager from '@ecl/slider';
  * @param {String} options.slideClass Selector for the slide items
  * @param {String} options.completionBarClass Class for the completion bar
  * @param {String} options.navigationClass Selector for the navigation container
- * @param {String} options.currentSlideClass Selector for the counter current slide number
  */
 export class Carousel {
   /**
@@ -46,16 +47,17 @@ export class Carousel {
     {
       playSelector = '.ecl-carousel__play',
       pauseSelector = '.ecl-carousel__pause',
+      prevSelector = '.ecl-carousel__prev',
+      nextSelector = '.ecl-carousel__next',
       containerClass = '.ecl-carousel__viewport',
       dotsClass = '.ecl-carousel__dots',
       dotClass = '.ecl-carousel__dot',
       activeDotClass = 'ecl-slider-pager__dot--active',
       slidesClass = '.ecl-carousel__slides',
       slideClass = '.ecl-carousel__slide',
-      prevSelector = '.ecl-carousel__prev',
-      nextSelector = '.ecl-carousel__next',
       pagerClass = '.ecl-carousel__pager',
-      currentSlideClass = '.ecl-carousel__current',
+      counterSelector = '.ecl-carousel__counter',
+      counterLabelSelector = 'data-ecl-carousel-counter-label',
       completionBarClass = '.ecl-carousel__loading-bar',
       teaserButtonSelector = '[data-ecl-carousel-teaser-button]',
       controlsClass = '.ecl-carousel__controls',
@@ -86,8 +88,9 @@ export class Carousel {
     this.dotClass = dotClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
-    this.currentSlideClass = currentSlideClass;
     this.controlsClass = controlsClass;
+    this.counterSelector = counterSelector;
+    this.counterLabelSelector = counterLabelSelector;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
     this.autoPlayDelay = autoPlayDelay;
@@ -104,15 +107,13 @@ export class Carousel {
     this.index = 1;
     this.total = 0;
     this.slider = null;
-    this.allowShift = true;
     this.activeNav = null;
-    this.autoPlay = null;
     this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
     this.resizeTimer = null;
     this.navigation = null;
     this.controls = null;
-    this.direction = 'ltr';
+    this.direction = getComputedStyle(this.element).direction;
     this.executionCount = 0;
     this.maxExecutions = 5;
     this.slideWidth = 0;
@@ -129,8 +130,9 @@ export class Carousel {
     this.checkBannerHeights = this.checkBannerHeights.bind(this);
     this.resetBannerHeights = this.resetBannerHeights.bind(this);
     this.initSlider = this.initSlider.bind(this);
-    this.sCounteret = this.setCounter.bind(this);
+    this.setCounter = this.setCounter.bind(this);
     this.updateTeasers = this.updateTeasers.bind(this);
+    this.handleClickOnTeaser = this.handleClickOnTeaser.bind(this);
   }
 
   /**
@@ -151,11 +153,13 @@ export class Carousel {
     this.container = queryOne(this.containerClass, this.element);
     this.navigation = queryOne('.ecl-carousel__teasers', this.element);
     this.controls = queryOne(this.controlsClass, this.element);
-    this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.sliderEl = queryOne(this.containerClass, this.element);
     this.pagerNode = queryOne(this.pagerClass, this.element);
     this.completionBar = queryOne(this.completionBarClass, this.element);
     this.slides = queryAll(this.slideClass, this.element);
+    this.counter = queryOne(this.counterSelector, this.element);
+    this.counterLabel = this.element.getAttribute(this.counterLabelSelector);
+    this.teaserButtons = queryAll(this.teaserButtonSelector, this.element);
     this.total = this.slides.length;
     this.element.style.setProperty(
       '--ecl-carousel-slide-duration',
@@ -263,6 +267,17 @@ export class Carousel {
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+    if (this.teaserButtons) {
+      this.teaserButtons.foreEach((button) => {
+        button.removeEventListener('click', this.handleClickOnTeaser);
+      });
+    }
+    if (this.slider) {
+      this.slider.destroy();
+    }
+    if (this.pager) {
+      this.pager.destroy();
+    }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
@@ -326,12 +341,8 @@ export class Carousel {
 
     this.pager.init();
 
-    this.teaserButtons = queryAll(this.teaserButtonSelector, this.element);
     this.teaserButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        this.slider.goTo(Number(button.dataset.eclCarouselSlideIndex));
-        this.handleAutoPlay(true);
-      });
+      button.addEventListener('click', this.handleClickOnTeaser);
     });
 
     this.slider.on('select', this.updateTeasers);
@@ -371,6 +382,17 @@ export class Carousel {
   }
 
   /**
+   * Handle click in the teaser buttons to navigate to the corresponding slide.
+   * @param {Event} e
+   */
+  handleClickOnTeaser = (e) => {
+    const index = Number(e.currentTarget.dataset.eclCarouselSlideIndex);
+
+    this.slider.goTo(index);
+    this.handleAutoPlay(true);
+  };
+
+  /**
    * Keep the active teaser first in the horizontal teaser list.
    */
   updateTeasers() {
@@ -407,10 +429,9 @@ export class Carousel {
   setCounter() {
     const currentIndex = this.slider.selectedSnap();
     const total = this.slider.snapList().length;
-    const counter = queryOne('.ecl-carousel__counter', this.element);
 
-    if (counter) {
-      counter.textContent = `${currentIndex + 1} / ${total}`;
+    if (this.counter) {
+      this.counter.textContent = `${currentIndex + 1} ${this.counterLabel} ${total}`;
     }
   }
 

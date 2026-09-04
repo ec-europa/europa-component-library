@@ -81,7 +81,7 @@ module.exports = {
           'https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg',
         sources: [
           {
-            src: 'https://audiovisual.ec.europa.eu/media/video/I-293670',
+            src: 'https://vod.prd.commavservices.eu/10/293670/01a043df-756a-7b46-b823-23092c1e2edb/1080p.mp4',
             type: 'video/mp4',
           },
         ],
