@@ -3,12 +3,15 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   sr_description: 'Carousel description here',
+  sr_play: 'Play',
+  sr_pause: 'Pause',
+  sr_prev: 'Previous',
+  sr_next: 'Next',
   items: [
     {
       id: 'carousel-example-1',
-      title: 'Lorem ipsum dolor sit amet',
-      description:
-        'Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      description: 'Nullam sollicitudin suscipit diam.',
       link: {
         link: {
           label: 'Subscribe',
@@ -30,9 +33,7 @@ module.exports = {
     },
     {
       id: 'carousel-example-2',
-      title: 'Duis vitae pulvinar turpis',
-      description:
-        'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur',
+      title: 'Nam non velit eget libero sagittis consequat vel et turpis',
       link: {
         link: {
           label: 'Subscribe',
@@ -47,7 +48,7 @@ module.exports = {
       },
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
           alt: 'Alternative text',
         },
       },
@@ -55,10 +56,27 @@ module.exports = {
       box_background: 'dark',
     },
     {
-      id: 'carousel-example-3',
-      title: 'Donec maximus pharetra ex a ultricies',
+      id: 'carousel-example-5',
       description:
         'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
+      sr_play: 'Play',
+      sr_pause: 'Pause',
+      video: {
+        poster:
+          'https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg',
+        sources: [
+          {
+            src: 'https://vod.prd.commavservices.eu/10/293670/01a043df-756a-7b46-b823-23092c1e2edb/1080p.mp4',
+            type: 'video/mp4',
+          },
+        ],
+      },
+      box_background: 'dark',
+    },
+    {
+      id: 'carousel-example-4',
+      description:
+        'Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh',
       link: {
         link: {
           label: 'Subscribe',
@@ -71,6 +89,19 @@ module.exports = {
           transform: 'rotate-90',
         },
       },
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          alt: 'Alternative text',
+        },
+      },
+      credit: '© Copyright or credit',
+      box_background: 'dark',
+    },
+    {
+      id: 'carousel-example-3',
+      title: 'Donec maximus pharetra ex a ultricies',
+      description: 'Integer quis lorem tellus.',
       sr_play: 'Play',
       sr_pause: 'Pause',
       video: {

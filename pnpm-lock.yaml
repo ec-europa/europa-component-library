@@ -343,13 +343,28 @@ importers:
       '@ecl/button':
         specifier: 5.2.0
         version: link:../button
+    devDependencies:
       '@ecl/dom-utils':
         specifier: 5.2.0
         version: link:../../tools/dom-utils
-    devDependencies:
       '@ecl/grid':
         specifier: 5.2.0
         version: link:../../layout/grid
+      '@ecl/mixins-color':
+        specifier: 5.2.0
+        version: link:../../mixins/color
+      '@ecl/slider':
+        specifier: 5.2.0
+        version: link:../slider
+      embla-carousel:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03
+      embla-carousel-accessibility:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
+      embla-carousel-autoplay:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
 
   src/components/category-filter:
     dependencies:
@@ -994,11 +1009,11 @@ importers:
         specifier: 5.2.0
         version: link:../slider
       embla-carousel:
-        specifier: 9.0.0-rc02
-        version: 9.0.0-rc02
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03
       embla-carousel-accessibility:
-        specifier: 9.0.0-rc02
-        version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
     devDependencies:
       '@ecl/mixins-typography':
         specifier: 5.2.0
@@ -1185,11 +1200,11 @@ importers:
         specifier: 5.2.0
         version: link:../../tools/dom-utils
       embla-carousel:
-        specifier: 9.0.0-rc02
-        version: 9.0.0-rc02
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03
       embla-carousel-auto-scroll:
-        specifier: 9.0.0-rc02
-        version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
 
   src/components/social-media-follow:
     dependencies:
@@ -1243,22 +1258,19 @@ importers:
 
   src/components/story-card:
     dependencies:
+      '@ecl/slider':
+        specifier: 5.2.0
+        version: link:../slider
+    devDependencies:
+      '@ecl/button':
+        specifier: 5.2.0
+        version: link:../button
       '@ecl/dom-utils':
         specifier: 5.2.0
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
         specifier: 5.2.0
         version: link:../../tools/event-manager
-      '@ecl/slider':
-        specifier: 5.2.0
-        version: link:../slider
-      embla-carousel:
-        specifier: 9.0.0-rc02
-        version: 9.0.0-rc02
-    devDependencies:
-      '@ecl/button':
-        specifier: 5.2.0
-        version: link:../button
       '@ecl/icon':
         specifier: 5.2.0
         version: link:../icon
@@ -1268,9 +1280,12 @@ importers:
       '@ecl/utility-screen-reader':
         specifier: 5.2.0
         version: link:../../utilities/screen-reader
+      embla-carousel:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03
       embla-carousel-accessibility:
-        specifier: 9.0.0-rc02
-        version: 9.0.0-rc02(embla-carousel@9.0.0-rc02)
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
 
   src/components/table:
     dependencies:
@@ -7975,18 +7990,23 @@ packages:
   electron-to-chromium@1.5.403:
     resolution: {integrity: sha512-MQsYmdaLzvaCX5j+ZZBr5Fm6uCCnPQcRtlvmvRlWqrXy+BH2O4ffXIAScF+JQznQWB9brWp4lSD9Z4yNmaf2BA==}
 
-  embla-carousel-accessibility@9.0.0-rc02:
-    resolution: {integrity: sha512-i5Q2+MgCgbHyFTx5RaMkcldKaf7rYUXKm66IstPxSB8j2+gyncy5WyHOqKkZv6yPedygLF1XY4HOOPfFGx2YyQ==}
+  embla-carousel-accessibility@9.0.0-rc03:
+    resolution: {integrity: sha512-IaFVaDNcllkrHT9EXP1p3IATZhqs8toFBqr0Uu0s859Wh6NLmvcf1XQE+jyLENjFZyad2d46G03CIAhC1ZeEEw==}
     peerDependencies:
-      embla-carousel: 9.0.0-rc02
+      embla-carousel: 9.0.0-rc03
 
-  embla-carousel-auto-scroll@9.0.0-rc02:
-    resolution: {integrity: sha512-np1uEHeagZKm+1A6cdTaufgUooxxE2I+wfzoJ4S5OxfyRLj+mOBeJG18HOrrusK+FiDcsZ+6ZkLgFVh2z3/K8Q==}
+  embla-carousel-auto-scroll@9.0.0-rc03:
+    resolution: {integrity: sha512-D18xNrv/wVGAiSHy1H9I7ZebyJbCVZqz5ubYeEgL61+v6Wc2raS5oF+9x9q2sdKyb/HfRY94r4RGibcRDyv4Jw==}
     peerDependencies:
-      embla-carousel: 9.0.0-rc02
+      embla-carousel: 9.0.0-rc03
 
-  embla-carousel@9.0.0-rc02:
-    resolution: {integrity: sha512-GOQBX6v5cNk/ptfuHUoHhW9rvl5KeSGsBoppaUqtihu2kDmQAyzvnH/95r3TaSScFSJTj68V9AM6E5nq3jUVcQ==}
+  embla-carousel-autoplay@9.0.0-rc03:
+    resolution: {integrity: sha512-zf3x+Z3MGQfyd6aRrk4XRpu6u7afb5shKvSlj4ZHQHQxjgNfrBj98bghZ0jaUlGKAmx4A/5FJ99MLthaJupoEQ==}
+    peerDependencies:
+      embla-carousel: 9.0.0-rc03
+
+  embla-carousel@9.0.0-rc03:
+    resolution: {integrity: sha512-f36OvPQVCJl54m4nEWfPRd2fe3NQNGY671RzWvvaz9Uai1dpNWO2A8YRUL4fj2KgcYizaO3Wxhu9p0dDPh8Mug==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -18254,15 +18274,19 @@ snapshots:
 
   electron-to-chromium@1.5.403: {}
 
-  embla-carousel-accessibility@9.0.0-rc02(embla-carousel@9.0.0-rc02):
+  embla-carousel-accessibility@9.0.0-rc03(embla-carousel@9.0.0-rc03):
     dependencies:
-      embla-carousel: 9.0.0-rc02
+      embla-carousel: 9.0.0-rc03
 
-  embla-carousel-auto-scroll@9.0.0-rc02(embla-carousel@9.0.0-rc02):
+  embla-carousel-auto-scroll@9.0.0-rc03(embla-carousel@9.0.0-rc03):
     dependencies:
-      embla-carousel: 9.0.0-rc02
+      embla-carousel: 9.0.0-rc03
 
-  embla-carousel@9.0.0-rc02: {}
+  embla-carousel-autoplay@9.0.0-rc03(embla-carousel@9.0.0-rc03):
+    dependencies:
+      embla-carousel: 9.0.0-rc03
+
+  embla-carousel@9.0.0-rc03: {}
 
   emittery@0.13.1: {}
 

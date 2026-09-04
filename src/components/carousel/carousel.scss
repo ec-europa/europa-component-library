@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -27,9 +28,14 @@ $carousel: null !default;
   .ecl-banner {
     height: 100%;
   }
+
+  .ecl-banner__info,
+  .ecl-banner__credit {
+    background-color: map.get($carousel, 'banner-background');
+  }
 }
 
-.ecl-carousel__container {
+.ecl-carousel__viewport {
   box-sizing: border-box;
   box-shadow: map.get($carousel, 'container-shadow');
   order: 1;
@@ -52,6 +58,43 @@ $carousel: null !default;
   }
 }
 
+.ecl-carousel__loading-bar {
+  background: map.get($carousel, 'loading-bar-background');
+  height: var(--s-xs);
+  width: 15rem;
+  display: none;
+  margin-block-start: map.get($carousel, 'loading-bar-padding-top');
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.ecl-carousel__loading-bar-completion {
+  background: var(--cm-surface-medium, var(--c-p));
+  height: 100%;
+  width: 0;
+  animation: loading #{var(--ecl-carousel-slide-duration)} linear forwards;
+
+  .is-active & {
+    animation-play-state: running;
+  }
+
+  .is-paused & {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
 .ecl-carousel__slide .ecl-banner__credit {
   width: auto;
 }
@@ -59,17 +102,32 @@ $carousel: null !default;
 .ecl-carousel__controls {
   background-color: map.get($carousel, 'controls-background');
   order: 2;
-  padding: map.get($carousel, 'controls-padding');
+  font: var(--f-m);
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
+}
 
-  .ecl-carousel__pause {
-    display: none;
-  }
+.ecl-carousel__pager {
+  justify-content: space-between;
+}
+
+.ecl-carousel__navigation,
+.ecl-carousel__pager-container {
+  width: 100%;
+}
+
+.ecl-carousel__pager-container {
+  padding-block-end: var(--s-l);
+}
+
+.ecl-carousel__pause,
+.ecl-carousel__play {
+  display: none;
 }
 
 .ecl-carousel__controls,
@@ -81,19 +139,16 @@ $carousel: null !default;
   }
 }
 
-.ecl-carousel__navigation-item {
-  margin-inline-end: var(--s-xs);
+.ecl-carousel__counter {
+  font: map.get($carousel, 'counter-font');
+  margin-block-start: var(--s-xs);
+  text-align: center;
+}
 
-  &[aria-current='true']:not(:focus-visible) {
-    background-color: map.get($carousel, 'navigation-background-active');
-    border-color: map.get($carousel, 'navigation-border-active');
-    color: map.get($carousel, 'navigation-color-active');
-    outline: none;
-  }
-
-  &:last-child {
-    margin-inline-end: 0;
-  }
+.ecl-carousel__teasers {
+  display: none;
+  min-width: 0;
+  order: 0;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -105,22 +160,9 @@ $carousel: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-carousel__autoplay {
-    display: flex;
-    width: 140px;
-  }
-
-  .ecl-carousel__navigation {
-    margin-inline-start: auto;
-  }
-}
-
-/* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
   .ecl-carousel__controls .ecl-container {
-    padding-inline-start: var(--s-2xl);
-    padding-inline-end: var(--s-2xl);
+    padding-inline: map.get($carousel, 'container-padding');
   }
 
   .ecl-carousel {
@@ -130,6 +172,10 @@ $carousel: null !default;
       .ecl-container {
         height: initial;
       }
+    }
+
+    .ecl-banner__info {
+      background: transparent;
     }
   }
 
@@ -150,12 +196,99 @@ $carousel: null !default;
   .ecl-carousel__slide .ecl-banner__picture-container {
     padding-bottom: 0;
   }
-}
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('xl') {
-  .ecl-carousel__autoplay {
-    width: 10%;
+  .ecl-carousel__teasers {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .ecl-carousel__navigation {
+    gap: var(--s-m);
+    width: 100%;
+  }
+
+  .ecl-carousel__dots {
+    display: none;
+  }
+
+  .ecl-carousel__pager-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    padding-block-end: 0;
+    width: auto;
+  }
+
+  .ecl-carousel__pager {
+    justify-content: normal;
+  }
+
+  .ecl-carousel__play {
+    display: none;
+    order: 1;
+  }
+
+  .ecl-carousel__pause {
+    display: flex;
+    order: 1;
+  }
+
+  .ecl-carousel__prev {
+    margin-inline-end: var(--s-m);
+    order: 0;
+  }
+
+  .ecl-carousel__next {
+    margin-inline-start: var(--s-m);
+    order: 2;
+  }
+
+  .ecl-carousel__navigation {
+    margin-inline-start: auto;
+    margin-block: map.get($carousel, 'navigation-block-spacing');
+  }
+
+  .ecl-carousel__teasers {
+    align-items: flex-start;
+    display: flex;
+    margin: 0;
+    overflow-x: clip;
+    overflow-y: visible;
+    padding-inline: var(--s-2xs);
+    margin-inline: calc(-1 * var(--s-2xs));
+    gap: map.get($carousel, 'teaser-list-gap');
+  }
+
+  .ecl-carousel__teaser-button {
+    flex: 0 0 calc((100% - (map.get($carousel, 'teaser-list-gap') * 3)) / 4);
+    background: transparent;
+    border: 0;
+    color: map.get($carousel, 'navigation-color');
+    cursor: pointer;
+    min-width: 0;
+    padding: 0;
+    text-align: start;
+
+    &[aria-current] {
+      color: map.get($carousel, 'navigation-color-active');
+    }
+
+    @include mixins-color.focus-default;
+  }
+
+  .ecl-carousel__teaser-title,
+  .ecl-carousel__teaser-description {
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .ecl-carousel__teaser-title + .ecl-carousel__teaser-description {
+    margin-top: var(--s-2xs);
   }
 }
 
