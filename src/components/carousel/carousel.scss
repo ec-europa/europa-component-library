@@ -140,7 +140,7 @@ $carousel: null !default;
 }
 
 .ecl-carousel__counter {
-  font: var(--f-xs);
+  font: map.get($carousel, 'counter-font');
   margin-block-start: var(--s-xs);
   text-align: center;
 }
