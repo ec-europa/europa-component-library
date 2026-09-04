@@ -570,6 +570,14 @@ export class Carousel {
     this.completionBar?.classList.remove('is-paused');
     this.btnPlay.style.display = 'none';
     this.btnPause.style.display = 'flex';
+
+    // Workaround for those edge cases when the autoplay doesn't
+    // start despite running play() a first time.
+    setTimeout(() => {
+      if (!autoplay?.isPlaying()) {
+        autoplay?.play();
+      }
+    }, 500);
   }
 
   /**
