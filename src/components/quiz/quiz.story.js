@@ -22,7 +22,7 @@ const getArgs = () => {
     ...args,
     fullWidth: false,
     withBackground: false,
-    image: 'none',
+    image_display: 'none',
   };
 
   return args;
@@ -85,7 +85,7 @@ const getArgTypes = () => {
         category: 'First card',
       },
     },
-    image: {
+    image_display: {
       control: {
         type: 'select',
         labels: {
@@ -127,17 +127,17 @@ const prepareData = (data, args) => {
   }
 
   clone.items.forEach((item, i) => {
-    if (args.image === 'always') {
+    if (args.image_display === 'always') {
       item.picture = JSON.parse(JSON.stringify(picture));
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
-      item.image = 'always';
-    } else if (args.image === 'reveal') {
+      item.image_display = 'always';
+    } else if (args.image_display === 'reveal') {
       item.picture = JSON.parse(JSON.stringify(picture));
       item.picture.img.src = `https://inno-ecl.s3.amazonaws.com/media/examples/example-image${i === 0 ? '' : i + 1}.jpg`;
-      item.image = 'reveal';
+      item.image_display = 'reveal';
     } else {
       delete item.picture;
-      item.image = '';
+      item.image_display = '';
     }
   });
 

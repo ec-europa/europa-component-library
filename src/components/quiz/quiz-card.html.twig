@@ -102,11 +102,12 @@
     {% if _image_display == 'always' %}
       {{ _picture_markup }}
       {% elseif _variant == 'poll' and _image_display == 'reveal' %}
-      <div class="ecl-quiz-card__illustration">
+      <div class="ecl-quiz-card__illustration-container">
         <svg
           viewBox="0 0 500 140"
           preserveAspectRatio="none"
           aria-hidden="true"
+          class="ecl-quiz-card__illustration"
         >
           <defs>
             <g id="question-mark">
