@@ -3,7 +3,7 @@
 {#
   Parameters
     - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
-    - "image" (string) (default: 'none'): With image, on both side or only in the back (None, Reveal, Always)
+    - "image_display" (string) (default: 'none'): With image, on both side or only in the back (None, Reveal, Always)
     - "picture" (oject) (default: {}) Ecl Picture object
     - "question" (string) (default: '') Question to show on the front of the card
     - "answer" (string) (default: '') Answer to show on the back of the card
@@ -31,7 +31,7 @@
 {# Internal properties #}
 
 {% set _id = id|default('ecl-quiz-item-' ~ random()) %}
-{% set _image = image|default('') %}
+{% set _image_display = image_display|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _question = question|default('') %}
 {% set _icon = icon|default({}) %}
@@ -99,9 +99,9 @@
 >
   <article class="ecl-quiz-card__content">
     <div class="ecl-quiz-card__front">
-    {% if _image == 'always' %}
+    {% if _image_display == 'always' %}
       {{ _picture_markup }}
-      {% elseif _variant == 'poll' and _image == 'reveal' %}
+      {% elseif _variant == 'poll' and _image_display == 'reveal' %}
       <div class="ecl-quiz-card__illustration">
         <svg
           viewBox="0 0 500 140"
@@ -137,7 +137,7 @@
     {% endif %}
       <div class="ecl-quiz-card__padded">
         <div class="ecl-quiz-card__header">
-        {% if _icon is not empty and not (_variant == 'poll' and _image == 'reveal') %}
+        {% if _icon is not empty and not (_variant == 'poll' and _image_display == 'reveal') %}
           <div class="ecl-quiz-card__icon">
             {% include "@ecl/icon/icon.html.twig" with _icon only %}
           </div>

@@ -14,7 +14,7 @@ module.exports = {
           alt: 'Alternative text for the image',
         },
       },
-      image: 'always',
+      image_display: 'always',
       question:
         'When you travel in the EU, what happens to your roaming charges?',
       answer: 'You usually pay the same at home, no extra roaming fees.',
@@ -49,7 +49,7 @@ module.exports = {
           alt: 'Image alt',
         },
       },
-      image: 'reveal',
+      image_display: 'reveal',
       question:
         'What document allows EU citizens to travel freely between most EU countries?',
       answer: 'A valid ID card or passport is usually enough.',
