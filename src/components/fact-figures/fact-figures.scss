@@ -90,11 +90,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__sources {
-  align-items: center;
   color: map.get($fact-figures, 'source-color');
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-xs);
   margin-block-start: map.get($fact-figures, 'source-spacing');
 
   @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
@@ -108,9 +104,11 @@ $fact-figures: null !default;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: var(--s-xs);
+  display: inline;
+}
+
+.ecl-fact-figures__sources-label {
+  margin-inline-end: var(--s-xs);
 }
 
 .ecl-fact-figures__source {
@@ -119,10 +117,21 @@ $fact-figures: null !default;
   }
 }
 
-.ecl-fact-figures__sources-item:not(:last-child)::after {
-  color: map.get($fact-figures, 'source-separator-color');
-  content: '|';
-  margin-inline: var(--s-xs);
+.ecl-fact-figures__source:has(svg) {
+  display: inline-block;
+}
+
+.ecl-fact-figures__sources-item {
+  display: inline;
+
+  &:not(:last-child)::after {
+    color: map.get($fact-figures, 'source-separator-color');
+    content: '\00a0| ';
+    display: inline;
+    padding-inline: map.get($fact-figures, 'source-separator-spacing');
+    position: relative;
+    top: 2px;
+  }
 }
 
 /* stylelint-disable-next-line order/order */

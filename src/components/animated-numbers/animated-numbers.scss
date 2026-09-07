@@ -165,9 +165,6 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers__sources {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
   font: map.get($animated-numbers, 'source-font');
   gap: var(--s-xs);
   margin-block-start: map.get($animated-numbers, 'source-spacing');
@@ -177,19 +174,33 @@ $animated-numbers: null !default;
   }
 }
 
+.ecl-animated-numbers__source,
+.ecl-animated-numbers__sources-item {
+  display: inline;
+}
+
+.ecl-animated-numbers__source:has(svg) {
+  display: inline-block;
+}
+
 .ecl-animated-numbers__sources-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: var(--s-xs);
+  display: inline;
+}
+
+.ecl-animated-numbers__sources-label {
+  margin-inline-end: var(--s-xs);
 }
 
 .ecl-animated-numbers__sources-item:not(:last-child)::after {
   color: map.get($animated-numbers, 'source-separator-color');
-  content: '|';
-  margin-inline: var(--s-xs);
+  display: inline;
+  content: '\00a0| ';
+  padding-inline: map.get($animated-numbers, 'source-separator-spacing');
+  position: relative;
+  top: 2px;
 }
 
 .ecl-animated-numbers--with-background
