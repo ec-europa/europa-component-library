@@ -269,7 +269,7 @@ $carousel: null !default;
     color: map.get($carousel, 'navigation-color');
     cursor: pointer;
     min-width: 0;
-    padding: 0 var(--s-xl) 0 0;
+    padding: 0 map.get($carousel, 'teaser-padding-inline') 0 0;
     text-align: start;
 
     &[aria-current] {
