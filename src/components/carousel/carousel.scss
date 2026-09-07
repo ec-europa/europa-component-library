@@ -272,7 +272,8 @@ $carousel: null !default;
     padding: 0 map.get($carousel, 'teaser-padding-inline') 0 0;
     text-align: start;
 
-    &[aria-current] {
+    &[aria-current],
+    &:hover {
       color: map.get($carousel, 'navigation-color-active');
     }
 
