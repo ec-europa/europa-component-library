@@ -203,7 +203,7 @@ $carousel: null !default;
   }
 
   .ecl-carousel__navigation {
-    gap: var(--s-m);
+    gap: map.get($carousel, 'navigation-gap');
     width: 100%;
   }
 
@@ -255,9 +255,11 @@ $carousel: null !default;
     margin: 0;
     overflow-x: clip;
     overflow-y: visible;
+    gap: map.get($carousel, 'teaser-list-gap');
+
+    // Needed for the focus styles
     padding-inline: var(--s-2xs);
     margin-inline: calc(-1 * var(--s-2xs));
-    gap: map.get($carousel, 'teaser-list-gap');
   }
 
   .ecl-carousel__teaser-button {
@@ -267,7 +269,7 @@ $carousel: null !default;
     color: map.get($carousel, 'navigation-color');
     cursor: pointer;
     min-width: 0;
-    padding: 0;
+    padding: 0 var(--s-xl) 0 0;
     text-align: start;
 
     &[aria-current] {
@@ -282,6 +284,7 @@ $carousel: null !default;
     display: -webkit-box;
     text-overflow: ellipsis;
     overflow: hidden;
+    font: var(--f-m);
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
