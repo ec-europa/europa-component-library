@@ -125,6 +125,7 @@ $fact-figures: null !default;
     color: map.get($fact-figures, 'source-separator-color');
     content: '\00a0| ';
     display: inline;
+    padding-inline: map.get($fact-figures, 'source-separator-spacing');
     position: relative;
     top: 2px;
   }

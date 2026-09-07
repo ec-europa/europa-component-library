@@ -11,7 +11,6 @@
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
-        divider: '' (string) Divider text
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
         external: (boolean) (default: false)
         sr_external: (string) (default: '') Additional label for external icon
@@ -54,7 +53,6 @@
   label: '',
   path: '',
   icon_position: 'after',
-  divider: '',
   external: false,
   sr_external: '',
   hide_label: false,
@@ -85,7 +83,7 @@
 
   {% set _as_image = true %}
 
-  {% set _link = _link|merge({
+  {% set _link = _link|merge({ 
     icon_position: _link.icon_position|default('after'),
   }) %}
 {% else %}
@@ -168,7 +166,7 @@
           extra_accessibility: _extra_accessibility,
           as_image: _as_image,
         }) only -%}
-      {% endif %}
+      {% endif %}  
     {%- endif -%}
   {% endfor %}
 
@@ -185,7 +183,7 @@
     {{ link_macro.icon_macro(_icons, _link, _as_image) }}
   {%- endif -%}
   {%- if (_icons is defined and _icons is not empty) -%}
-    <span
+    <span 
       class="ecl-link__label"
     {%- if _label_id is not empty %}
       id="{{ _label_id }}"
@@ -199,11 +197,6 @@
   {%- endif -%}
   {% if _icons is not defined %}
     {{- _link.label -}}
-  {% endif %}
-  {% if _link.divider is not empty %}
-    <span class="ecl-link__divider">
-      {{- _link.divider -}}
-    </span>
   {% endif %}
 </a>
 
