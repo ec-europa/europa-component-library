@@ -179,10 +179,6 @@ $animated-numbers: null !default;
   display: inline;
 }
 
-.ecl-animated-numbers__source:has(svg) {
-  display: inline-block;
-}
-
 .ecl-animated-numbers__sources-list {
   list-style: none;
   padding: 0;
@@ -191,6 +187,7 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers__sources-label {
+  display: inline-block;
   margin-inline-end: var(--s-xs);
 }
 

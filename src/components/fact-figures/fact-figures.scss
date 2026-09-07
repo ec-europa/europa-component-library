@@ -108,6 +108,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__sources-label {
+  display: inline-block;
   margin-inline-end: var(--s-xs);
 }
 
@@ -117,10 +118,6 @@ $fact-figures: null !default;
   }
 }
 
-.ecl-fact-figures__source:has(svg) {
-  display: inline-block;
-}
-
 .ecl-fact-figures__sources-item {
   display: inline;
 
@@ -128,7 +125,6 @@ $fact-figures: null !default;
     color: map.get($fact-figures, 'source-separator-color');
     content: '\00a0| ';
     display: inline;
-    padding-inline: map.get($fact-figures, 'source-separator-spacing');
     position: relative;
     top: 2px;
   }

@@ -45,8 +45,9 @@ module.exports = {
         {
           link: {
             label:
-              'The length of this string is meant to test the text wrapping',
+              'The length of this string is meant to test the text wrapping, The length of this string is meant to test the text wrapping.',
             path: exampleLink,
+            external: true,
           },
         },
         {
@@ -58,7 +59,8 @@ module.exports = {
         },
         {
           link: {
-            label: 'Eurostat',
+            label:
+              'The length of this string is meant to test the text wrapping.',
             path: exampleLink,
           },
         },
