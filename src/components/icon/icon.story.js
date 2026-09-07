@@ -2,7 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIconControls } from '@ecl/story-utils';
 
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataAll from './demo/data';
 
 import icon from './icon.html.twig';

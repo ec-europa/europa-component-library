@@ -39,6 +39,7 @@ module.exports = {
         icon: {
           name: 'arrow-right',
           size: 'xs',
+          family: 'phosphor',
         },
       },
     },
@@ -60,6 +61,7 @@ module.exports = {
         icon: {
           name: 'arrow-right',
           size: 'xs',
+          family: 'phosphor',
         },
       },
     },
@@ -96,6 +98,7 @@ module.exports = {
         icon: {
           name: 'arrow-right',
           size: 'xs',
+          family: 'phosphor',
         },
       },
     },

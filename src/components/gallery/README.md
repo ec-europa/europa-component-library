@@ -94,9 +94,6 @@ npm install --save @ecl/gallery
       title: 'Living in the EU',
       description: 'Living, working, travelling in the EU', 
       meta: 'Copyright, Author, Licence for image 2', 
-      icon: { 
-        name: 'audio', 
-      }, 
       share_href: '/share#example-image2.jpg', 
     }, 
     ... 
@@ -116,36 +113,23 @@ npm install --save @ecl/gallery
     close: { 
       variant: 'ghost', 
       label: 'Close', 
-      icon: { 
-        name: 'close', 
-        size: 's', 
-      }, 
     }, 
     previous: { 
       variant: 'ghost', 
       label: 'Previous', 
-      icon: { 
-        name: 'corner-arrow', 
-        transform: 'rotate-270', 
-        size: 'l', 
-      }, 
       icon_position: 'before', 
     }, 
     next: { 
       variant: 'ghost', 
       label: 'Next', 
-      icon: { 
-        name: 'corner-arrow', 
-        transform: 'rotate-90', 
-        size: 'l', 
-      }, 
     }, 
     counter_separator: 'of', 
     full_screen_label: 'View original',
     share: { 
       label: 'Share', 
       icon: { 
-        name: 'share', 
+        name: 'share-network',
+        family: 'phosphor',
         size: 'fluid', 
       }, 
     }, 

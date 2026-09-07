@@ -3,8 +3,8 @@
 {#
   Parameters:
   - "id": (string) (default: random): Unique id for the menu
-  - "toggle": (associative array) (default: {}): Toggle (hamburger) button, using ECL Button structure
-  - "close": (associative array) (default: {}): Close button, using ECL Button structure
+  - "toggle": (associative array) (default: phosphor 'list' icon): Toggle (hamburger) button, using ECL Button structure
+  - "close": (associative array) (default: phosphor 'x' icon): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
   - "aria_label" (string) (default: '') Aria label for the main nav
   - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
@@ -79,6 +79,8 @@
 {% set _third_level_aria_label = third_level_aria_label|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
+{% set _default_toggle_icon = { name: 'list', family: 'phosphor' } %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 {% set _items = items|default([{}]) %}
 {% set _featured_priority = featured_priority|default('secondary') %}
 {% set _see_all_label = see_all_label|default('') %}
@@ -124,13 +126,11 @@
 >
   <div class="ecl-mega-menu__overlay">&nbsp;</div>
   <div class="ecl-container ecl-mega-menu__container">
-    {% set _toggle_icon = {} %}
-    {% if _toggle.icon is defined %}
-      {% if _close is not empty and _close.icon is not empty %}
-        {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
-      {% else %}
-        {% set _toggle_icon = _toggle.icon %}
-      {% endif %}
+    {% set _toggle_only_icon = _toggle.icon|default([]) is not empty ? _toggle.icon : _default_toggle_icon %}
+    {% set _toggle_icon = _toggle_only_icon %}
+    {% if _close is not empty %}
+      {% set _close_only_icon = _close.icon|default([]) is not empty ? _close.icon : _default_close_icon %}
+      {% set _toggle_icon = [ _toggle_only_icon, _close_only_icon ] %}
     {% endif %}
     {% include '@ecl/button/button.html.twig' with _toggle|merge({
       type: 'button',
@@ -154,9 +154,9 @@
             variant: 'tertiary',
             label: _back_label,
             icon: {
-              name: 'corner-arrow',
+              name: 'caret-left',
+              family: 'phosphor',
               size: 'xs',
-              transform: 'rotate-270',
             },
             icon_position: 'before',
             extra_classes: 'ecl-mega-menu__back',

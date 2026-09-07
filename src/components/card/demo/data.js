@@ -28,7 +28,8 @@ module.exports = {
   secondary_meta: [
     {
       icon: {
-        name: 'calendar',
+        name: 'calendar-blank',
+        family: 'phosphor',
         size: 'xs',
       },
       label: 'List Icon Element',

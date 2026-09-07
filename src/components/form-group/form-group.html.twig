@@ -6,7 +6,7 @@
   - "disabled" (boolean) (default: false) Disables the form group
   - "hide_label" (boolean) (default: false) Hides the label visually (kept for screen readers)
   - "invalid" (boolean) (default: false) Displays the form group in invalid state
-  - "invalid_icon" (object) (default: {}): Icon displayed when invalid, following ECL Icon structure
+  - "invalid_icon" (object) (default: phosphor 'warning-circle'): Icon displayed when invalid, following ECL Icon structure
   - "sr_invalid_icon" (string) (default: '') Screen reader label for the invalid icon
   - "required" (boolean) (default: false) Marks the field as required
   - "label_aria_required" (string) (default: '') Aria text for the required indicator when not explicit
@@ -35,7 +35,8 @@
 {% set _optional_text = optional_text|default('') %}
 {% set _label_aria_required = label_aria_required|default('') %}
 {% set _label_aria_optional = label_aria_optional|default('') %}
-{% set _invalid_icon = invalid_icon|default({}) %}
+{% set _default_invalid_icon = { name: 'warning-circle', family: 'phosphor' } %}
+{% set _invalid_icon = invalid_icon|default([]) is not empty ? invalid_icon : _default_invalid_icon %}
 {% set _sr_invalid_icon = sr_invalid_icon|default('') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}

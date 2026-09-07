@@ -70,7 +70,7 @@ export class Table {
     const markup = document.createElement('span');
     markup.setAttribute(
       'class',
-      `wt-icon--solid-arrow ecl-table__icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+      `wt-icon-phosphor--caret-up wt-icon--xs ecl-table__icon ecl-icon--${iconSvgAllArrowSize} ${customClass} ecl-icon-phosphor--caret-up`,
     );
 
     return markup;

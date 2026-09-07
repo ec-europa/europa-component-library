@@ -55,17 +55,15 @@ npm install --save @ecl/card
       { 
         label: '2018/10/22', 
         icon: { 
-          type: 'general', 
-          name: 'calendar', 
-          path: '/path-to-the-icon-file', 
+          name: 'calendar-blank',
+          family: 'phosphor',
         }, 
       }, 
       { 
         label: 'Luxembourg', 
         icon: { 
-          type: 'general', 
-          name: 'location', 
-          path: '/path-to-the-icon-file', 
+          name: 'map-pin',
+          family: 'phosphor',
         }, 
       }, 
     ], 

@@ -37,22 +37,22 @@ module.exports = {
   secondary_meta: [
     {
       icon: {
-        name: 'calendar',
-        size: 'xs',
+        name: 'calendar-blank',
+        family: 'phosphor',
       },
       label: '2018/10/22',
     },
     {
       icon: {
-        name: 'location',
-        size: 'xs',
+        name: 'map-pin',
+        family: 'phosphor',
       },
       label: 'Luxembourg',
     },
     {
       icon: {
         name: 'clock',
-        size: 'xs',
+        family: 'phosphor',
       },
       label: '1 hour',
     },

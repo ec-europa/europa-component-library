@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 
 // Import data for demos
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataButton from './demo/data';
 
 import button from './button.html.twig';
@@ -235,6 +235,7 @@ const prepareData = (data, args) => {
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
+    data.icon.family = 'phosphor';
     data.icon.size = 'xs';
     data.icon.transform =
       args.icon_transform !== 'none' ? args.icon_transform : '';

@@ -13,7 +13,7 @@ npm install --save @ecl/modal
 - **"variant"** (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
 - **"size"** (string) (default: 'l'): Size of the modal. Could be 's', 'm', 'l' or 'full'
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
-- **"close"** (object of type "button") (default: {}): close button; label has to be provided for screen reader
+- **"close"** (object of type "button") (default: phosphor 'x' icon): close button; label has to be provided for screen reader
 - **"buttons"** (array) (default: []) Array of ECL Button objects displayed in the modal footer
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
@@ -37,10 +37,6 @@ npm install --save @ecl/modal
   sr_icon: 'Information',
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
   },
   header_icon: {
     icon: {

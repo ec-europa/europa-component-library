@@ -13,11 +13,6 @@ module.exports = {
     button: {
       label: 'Collapsed',
       variant: 'secondary',
-      icon: {
-        name: 'corner-arrow',
-        transform: 'rotate-180',
-        size: 'fluid',
-      },
     },
     label_expanded: 'Expanded',
     label_collapsed: 'Collapsed',

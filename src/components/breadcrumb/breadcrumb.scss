@@ -111,10 +111,10 @@ $breadcrumb: null !default;
 }
 
 .ecl-breadcrumb__icon {
-  fill: map.get($breadcrumb, 'icon-color');
+  color: map.get($breadcrumb, 'icon-color');
   flex-shrink: 0;
   margin-inline: map.get($breadcrumb, 'icon-spacing-mobile');
-  transform: rotateZ(270deg);
+  transform: rotateZ(180deg);
   vertical-align: text-bottom;
 }
 
@@ -150,7 +150,7 @@ $breadcrumb: null !default;
 @include breakpoints.up('l') {
   .ecl-breadcrumb__icon {
     margin-inline: map.get($breadcrumb, 'icon-spacing-desktop');
-    transform: rotateZ(90deg);
+    transform: none;
   }
 
   // Reset flex-direction for 2-item breadcrumb on desktop

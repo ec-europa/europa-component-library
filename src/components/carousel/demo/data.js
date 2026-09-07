@@ -16,9 +16,9 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          name: 'corner-arrow',
+          name: 'caret-right',
+          family: 'phosphor',
           size: 'xs',
-          transform: 'rotate-90',
         },
       },
       picture: {
@@ -40,9 +40,9 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          name: 'corner-arrow',
+          name: 'caret-right',
+          family: 'phosphor',
           size: 'xs',
-          transform: 'rotate-90',
         },
       },
       picture: {
@@ -66,9 +66,9 @@ module.exports = {
           icon_position: 'after',
         },
         icon: {
-          name: 'corner-arrow',
+          name: 'caret-right',
+          family: 'phosphor',
           size: 'xs',
-          transform: 'rotate-90',
         },
       },
       sr_play: 'Play',

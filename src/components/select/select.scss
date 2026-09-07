@@ -119,7 +119,7 @@ $outline-width: 2px;
   width: var(--ecl-text-field-height);
 
   .ecl-icon {
-    fill: map.get($select, 'icon-fill');
+    color: map.get($select, 'icon-fill');
     height: map.get($select, 'icon-size');
     width: map.get($select, 'icon-size');
   }
@@ -132,12 +132,12 @@ $outline-width: 2px;
   }
 
   ~ .ecl-select__icon .ecl-icon {
-    transform: rotate(0);
+    transform: rotate(180deg);
   }
 }
 
 .ecl-select:open ~ .ecl-select__icon .ecl-icon {
-  transform: none;
+  transform: rotate(180deg);
 }
 
 // Disabled

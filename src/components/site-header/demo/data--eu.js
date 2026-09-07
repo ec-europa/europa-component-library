@@ -32,17 +32,13 @@ module.exports = {
       aria_label: 'Custom aria label',
     },
     icon: {
-      name: 'brochure',
+      name: 'newspaper',
+      family: 'phosphor',
     },
     overlay: {
       title: 'Custom title',
       close: {
         label: 'Close',
-        icon: {
-          path: '/icons.svg',
-          name: 'close',
-          size: 'm',
-        },
         hide_label: true,
       },
       content: '<ul><li>Point 1</li><li>Point 2</li><li>Point 3</li></ul>',
@@ -62,7 +58,8 @@ module.exports = {
       close: {
         label: 'Close',
         icon: {
-          name: 'close',
+          name: 'x',
+          family: 'phosphor',
           size: 's',
         },
         hide_label: true,
@@ -273,23 +270,15 @@ module.exports = {
       href: exampleLink,
     },
     icon: {
-      name: 'corner-arrow',
+      name: 'caret-right',
+      family: 'phosphor',
       size: 'fluid',
-      transform: 'rotate-90',
     },
   },
   notification: {
     variant: 'info',
-    icon: {
-      name: 'information-outline',
-      size: 'l',
-    },
     close: {
       label: 'Close',
-      icon: {
-        name: 'close',
-        size: 'm',
-      },
       hide_label: true,
     },
     links: [
