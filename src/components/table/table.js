@@ -85,13 +85,12 @@ export class Table {
 
   /**
    * Map every heading cell of a thead to its actual column index, taking
-   * rowspan and colspan into account (a cell on a second heading row, under
-   * a rowspanned cell, does not start at column 0).
+   * rowspan and colspan into account.
    *
    * @param {HTMLElement} thead
    * @returns {Map<HTMLElement, Number>}
    */
-  static mapColumnIndexes(thead) {
+  mapColumnIndexes(thead) {
     const columnIndexes = new Map();
     const rowSpans = [];
 
@@ -127,7 +126,7 @@ export class Table {
   /**
    * @returns {HTMLElement}
    */
-  static createSortIcon(customClass) {
+  createSortIcon(customClass) {
     const markup = document.createElement('span');
     markup.setAttribute(
       'class',
@@ -138,15 +137,37 @@ export class Table {
   }
 
   /**
-   * Build a filter field: a wrapper containing a visually hidden <label>
-   * (read by screen readers, and still picked up by page translation tools,
-   * unlike an aria-label attribute) and its text input.
+   * Create or get a wrapper around the table header label
+   *
+   * @param {HTMLElement} th
+   * @returns {HTMLElement} The header's outer content wrapper.
+   */
+  getOrCreateHeaderInner(th) {
+    let inner = queryOne('.ecl-table__header-inner', th);
+    if (!inner) {
+      inner = document.createElement('span');
+      inner.classList.add('ecl-table__header-inner');
+
+      const label = document.createElement('span');
+      label.classList.add('ecl-table__header-label');
+      while (th.firstChild) {
+        label.appendChild(th.firstChild);
+      }
+      inner.appendChild(label);
+
+      th.appendChild(inner);
+    }
+    return inner;
+  }
+
+  /**
+   * Build a filter field.
    *
    * @param {String} label
    * @param {String} inputId
    * @returns {HTMLElement}
    */
-  static createFilterField(label, inputId) {
+  createFilterField(label, inputId) {
     const wrapper = document.createElement('span');
     wrapper.classList.add('ecl-table__filter');
 
@@ -182,7 +203,7 @@ export class Table {
 
     const thead = queryOne('thead', this.element);
     if (thead && (this.isSortable || this.isFilterable)) {
-      this.columnIndexes = Table.mapColumnIndexes(thead);
+      this.columnIndexes = this.mapColumnIndexes(thead);
     }
 
     if (this.isSortable) {
@@ -221,16 +242,26 @@ export class Table {
 
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
-      this.sortHeadings.forEach((tr) => {
+      this.sortHeadings.forEach((th) => {
+        th.classList.add('ecl-table__header--sortable');
+        const inner = this.getOrCreateHeaderInner(th);
+        const label = queryOne('.ecl-table__header-label', inner);
+
         const sort = document.createElement('button');
         sort.classList.add('ecl-table__arrow');
         if (this.sortLabelAsc) {
           sort.setAttribute('aria-label', this.sortLabelAsc);
         }
-        sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
-        sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
-        tr.appendChild(sort);
-        tr.addEventListener('click', (e) => this.handleClickOnSort(tr)(e));
+        sort.appendChild(this.createSortIcon('ecl-table__icon-up'));
+        sort.appendChild(this.createSortIcon('ecl-table__icon-down'));
+        label.appendChild(sort);
+        th.addEventListener('click', (e) => {
+          // Clicking inside the filter field must not trigger sorting.
+          if (e.target.closest('.ecl-table__filter')) {
+            return;
+          }
+          this.handleClickOnSort(th)(e);
+        });
 
         this.sortButtons.push(sort);
       });
@@ -262,13 +293,16 @@ export class Table {
     // Add a filter field under each filterable heading.
     if (this.filterHeadings) {
       this.filterHeadings.forEach((th) => {
+        th.classList.add('ecl-table__header--filterable');
+        const inner = this.getOrCreateHeaderInner(th);
+
         const columnIndex = this.columnIndexes.get(th);
         const inputId = `${this.element.id}-filter-${columnIndex}`;
-        const field = Table.createFilterField(this.filterLabel, inputId);
+        const field = this.createFilterField(this.filterLabel, inputId);
         const input = queryOne('input', field);
         input.dataset.eclTableFilterColumn = columnIndex;
         input.addEventListener('input', this.handleFilterInput);
-        th.appendChild(field);
+        inner.appendChild(field);
 
         this.filterInputs.push(input);
       });

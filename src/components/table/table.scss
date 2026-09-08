@@ -123,13 +123,10 @@ $table: null !default;
 }
 
 // Sort Table
-.ecl-table__header[data-ecl-table-sort-toggle] {
+.ecl-table__header--sortable {
   background-clip: padding-box;
+  block-size: 1px;
   cursor: pointer;
-  padding-inline-start: calc(
-    var(--s-m) + #{map.get($theme, 'icon', 'xs')} + var(--s-xs)
-  );
-  position: relative;
 }
 
 .ecl-table__arrow {
@@ -138,17 +135,28 @@ $table: null !default;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   height: auto;
-  inset-inline-start: map.get($table, 'sort', 'arrow-left');
   padding: 0;
-  position: absolute;
-  top: map.get($table, 'sort', 'arrow-top');
   width: auto;
 
   &:focus-visible {
     outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -4px;
   }
+}
+
+.ecl-table__header-inner {
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ecl-table__header-label {
+  display: flex;
+  gap: var(--s-xs);
+  justify-content: space-between;
 }
 
 .ecl-table__icon {
@@ -173,9 +181,17 @@ $table: null !default;
 }
 
 // Filter Table
+.ecl-table__header--filterable {
+  block-size: 1px;
+}
+
 .ecl-table__filter {
   display: block;
   margin-block-start: var(--s-xs);
+}
+
+.ecl-table__filter-input {
+  width: 100%;
 }
 
 .ecl-table__filter-label {

@@ -5,8 +5,6 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
-import dataSortable from './demo/data--sort-table';
-import dataFilter from './demo/data--filter';
 import table from './table.html.twig';
 import notes from './README.md';
 
@@ -17,6 +15,8 @@ const getArgs = () => {
   const args = {
     header: true,
     simple: false,
+    sortable: false,
+    filter: false,
   };
 
   if (getSystem() === 'ec') {
@@ -51,6 +51,30 @@ const getArgTypes = () => ({
     },
     if: { arg: 'header' },
   },
+
+  sortable: {
+    name: 'sortable',
+    type: { name: 'boolean' },
+    description: 'Make table columns sortable',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Optional',
+    },
+    if: { arg: 'header' },
+  },
+
+  filter: {
+    name: 'filter',
+    type: { name: 'boolean' },
+    description: 'Add a filter field to each column',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Optional',
+    },
+    if: { arg: 'header' },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -59,6 +83,16 @@ const prepareData = (data, args) => {
   if (!args.header) {
     delete dataClone.headers;
     dataClone.simple = true;
+  }
+
+  if (args.sortable) {
+    dataClone.label_sort_ascending = 'Sort ascending';
+    dataClone.label_sort_descending = 'Sort descending';
+    dataClone.label_sort_default = 'Sort default';
+  }
+
+  if (args.filter) {
+    dataClone.label_filter = 'Filter';
   }
 
   return Object.assign(dataClone, args);
@@ -122,37 +156,5 @@ Multi.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(dataMulti, args),
-  },
-};
-
-export const Sortable = (_, { loaded: { component } }) => component;
-
-Sortable.render = async (args) => {
-  const renderedTableSortable = await table(prepareData(dataSortable, args));
-  return renderedTableSortable;
-};
-Sortable.storyName = 'sort table';
-Sortable.args = getArgs(dataSortable);
-Sortable.argTypes = getArgTypes(dataSortable);
-Sortable.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataSortable, args),
-  },
-};
-
-export const Filter = (_, { loaded: { component } }) => component;
-
-Filter.render = async (args) => {
-  const renderedTableFilter = await table(prepareData(dataFilter, args));
-  return renderedTableFilter;
-};
-Filter.storyName = 'filter table';
-Filter.args = getArgs(dataFilter);
-Filter.argTypes = getArgTypes(dataFilter);
-Filter.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataFilter, args),
   },
 };
