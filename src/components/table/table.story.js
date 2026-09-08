@@ -85,16 +85,6 @@ const prepareData = (data, args) => {
     dataClone.simple = true;
   }
 
-  if (args.sortable) {
-    dataClone.label_sort_ascending = 'Sort ascending';
-    dataClone.label_sort_descending = 'Sort descending';
-    dataClone.label_sort_default = 'Sort default';
-  }
-
-  if (args.filter) {
-    dataClone.label_filter = 'Filter';
-  }
-
   return Object.assign(dataClone, args);
 };
 
