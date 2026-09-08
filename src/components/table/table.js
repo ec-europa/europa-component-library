@@ -1,8 +1,4 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
-import * as getSystem from '@ecl/builder/utils/getSystem';
-
-const system = getSystem();
-const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -130,7 +126,7 @@ export class Table {
     const markup = document.createElement('span');
     markup.setAttribute(
       'class',
-      `wt-icon--solid-arrow ecl-table__icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+      `wt-icon--solid-arrow ecl-table__icon ecl-icon--xs ${customClass}`,
     );
 
     return markup;
