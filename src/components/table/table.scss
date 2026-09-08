@@ -39,6 +39,7 @@ $table: null !default;
   border-inline-end: map.get($table, 'header', 'separator-desktop');
   border-inline-start: map.get($table, 'header', 'separator-desktop');
   font-weight: map.get($table, 'header', 'font-weight');
+  min-width: 12.1875rem;
   padding: map.get($table, 'header', 'padding');
   text-align: start;
   vertical-align: top;
@@ -191,6 +192,8 @@ $table: null !default;
 }
 
 .ecl-table__filter-input {
+  --ecl-text-field-height: 2.25rem;
+
   width: 100%;
 }
 
