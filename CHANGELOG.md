@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.2.2 (2026-09-08)
+
+#### :bug: Bug Fix
+
+- [#4699](https://github.com/ec-europa/europa-component-library/pull/4699) fix(sources): Fixing the text wrapping in sources when an icon is used - FRONT-5469 ([@planctus](https://github.com/planctus))
+- [#4695](https://github.com/ec-europa/europa-component-library/pull/4695) fix(highlight-box): prevent icon shrink - FRONT-5478 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.2.1 (2026-09-02)
 
 #### :bug: Bug Fix
