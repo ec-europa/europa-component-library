@@ -84,8 +84,18 @@ $fact-figures-print: null !default;
   display: inline;
 }
 
-.ecl-fact-figures__source:has(svg) {
-  display: inline-block;
+.ecl-fact-figures__source {
+  &:has(svg) {
+    white-space: nowrap;
+  }
+
+  .ecl-link__label {
+    white-space: normal;
+  }
+
+  .ecl-icon {
+    margin-inline-start: map.get($fact-figures, 'source-separator-spacing');
+  }
 }
 
 .ecl-fact-figures__sources-item {
