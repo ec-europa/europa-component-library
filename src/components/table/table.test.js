@@ -8,8 +8,9 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 // Import data for tests
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
-import dataSortable from './demo/data--sort-table';
-import dataFilter from './demo/data--filter';
+
+const dataSortable = { ...dataDefault, sortable: true };
+const dataFilter = { ...dataDefault, filter: true };
 
 expect.extend(toHaveNoViolations);
 
