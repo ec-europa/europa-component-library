@@ -19,7 +19,7 @@ The standardised and harmonised configurations share structure and guidelines. B
 | 2   | Site survey                   | mandatory    | optional   | Link to site survey                                                        |
 | 3   | Site name                     | mandatory    | mandatory  | Name of the site                                                           |
 | 4   | Content owner details         | mandatory    | mandatory  | Indicates **ownership of site content**                                    |
-| 5   | Newsletter button             | optional     | optiona    | Button to newsletter subscription                                          |
+| 5   | Newsletter button             | optional     | optional   | Button to newsletter subscription                                          |
 | 6   | DG-related Service navigation | optional     | optional   | Links to associated **services available** through the DG-site             |
 | 7   | DG-related navigation         | optional     | optional   | Links to **main content pages**                                            |
 | 8   | Logo                          | mandatory    | mandatory  | European Commission                                                        |
