@@ -466,6 +466,20 @@ $mega-menu: null !default;
   }
 }
 
+.ecl-mega-menu__item--current-page .ecl-mega-menu__link {
+  background-color: map.get(
+    $mega-menu,
+    'mobile',
+    'item-current-page-background'
+  );
+  color: map.get($mega-menu, 'mobile', 'item-current-page-color');
+
+  &:hover {
+    background: transparent;
+    color: map.get($mega-menu, 'mobile', 'item-color-hover');
+  }
+}
+
 .ecl-mega-menu__item--promotional .ecl-mega-menu__link {
   background: var(--ecl-mega-menu-item-promotional-bg);
   color: var(--ecl-mega-menu-item-promotional-text-color);
@@ -648,6 +662,24 @@ $mega-menu: null !default;
         outline-color: #fff;
         outline-offset: map.get($mega-menu, 'desktop', 'outline-offset');
         outline-width: map.get($mega-menu, 'desktop', 'outline-width');
+      }
+    }
+
+    .ecl-mega-menu__item--current-page .ecl-mega-menu__link {
+      background-color: map.get(
+        $mega-menu,
+        'desktop',
+        'item-current-page-background'
+      );
+      color: map.get($mega-menu, 'desktop', 'item-current-page-color');
+
+      &:hover {
+        background: map.get($mega-menu, 'desktop', 'item-background-hover');
+        color: map.get($mega-menu, 'desktop', 'item-color-hover');
+      }
+
+      &:focus-visible {
+        outline-color: currentcolor;
       }
     }
 
@@ -1382,8 +1414,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__subitem {
-        &--current .ecl-mega-menu__sublink,
-        &.ecl-mega-menu__subitem--current-page .ecl-mega-menu__sublink {
+        &--current .ecl-mega-menu__sublink {
           background-color: transparent;
           box-shadow: none;
         }

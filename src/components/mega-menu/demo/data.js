@@ -7,6 +7,7 @@ module.exports = {
   aria_label: 'Main navigation',
   second_level_aria_label: 'Pages in this section',
   third_level_aria_label: 'Sub-pages in this section',
+  current_aria_label: 'Current section',
   toggle: {
     label: 'Menu',
     icon: {
