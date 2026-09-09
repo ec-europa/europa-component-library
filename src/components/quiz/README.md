@@ -20,10 +20,9 @@ npm install --save @ecl/quiz
 - **"items"** (array) (default: []) Quiz cards; format:
   - "id" (string) (default: random) Unique id for the card
   - "variant" (string) (default: 'reveal') Card variant; can be 'reveal', 'poll'
-  - "category" (string) (default: '') Category label shown on front of card (poll variant)
-  - "success_category" (string) (default: '') Category label shown when answer is correct
-  - "error_category" (string) (default: '') Category label shown when answer is wrong
   - "question" (string) (default: '') Question text
+  - "image_display" (string) (default: 'none'): With image, on both side or only in the back (None, Reveal, Always)
+  - "picture" (oject) (default: {}) Ecl Picture object
   - "answer" (string) (default: '') Answer text shown on the back of the card
   - "answer_title" (string) (default: '') Title on the back of the card
   - "correct_label" (string) (default: '') Label for the correct answer indicator

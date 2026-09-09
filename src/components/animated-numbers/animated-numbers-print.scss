@@ -117,12 +117,23 @@ $animated-numbers: null !default;
   display: inline;
 }
 
-.ecl-animated-numbers__sources-label {
-  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+.ecl-animated-numbers__source {
+  &:has(svg) {
+    white-space: nowrap;
+  }
+
+  .ecl-link__label {
+    white-space: normal;
+  }
+
+  .ecl-icon {
+    margin-inline-start: map.get($animated-numbers, 'source-separator-spacing');
+  }
 }
 
-.ecl-animated-numbers__source:has(svg) {
+.ecl-animated-numbers__sources-label {
   display: inline-block;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-animated-numbers__sources-list {
