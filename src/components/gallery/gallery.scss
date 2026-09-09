@@ -176,21 +176,15 @@ $_description-height-desktop: 108px;
     }
 
     .ecl-gallery__description--visible .ecl-gallery__title-text {
-      max-height: 2lh;
+      height: 2lh;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
     }
   }
 
   .ecl-gallery__description--visible {
     transform: translateY(0);
   }
-}
-
-// Line count stays fixed at 2 for always-visible titles - only `max-height`
-// (see .ecl-gallery__title-text) toggles on hover, since -webkit-line-clamp
-// can't be transitioned and would otherwise drop the second line instantly.
-.ecl-gallery__description--visible .ecl-gallery__title-text {
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
 }
 
 .ecl-gallery__item-meta {
@@ -225,11 +219,11 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__title-text {
   display: -webkit-box;
-  max-height: 1lh;
+  height: 1lh;
   overflow: hidden;
   padding-inline: var(--s-s);
   text-overflow: ellipsis;
-  transition: max-height 0.3s ease;
+  transition: height 0.3s ease;
   white-space: normal;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;

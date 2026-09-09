@@ -72,7 +72,7 @@ module.exports = {
           },
         ],
       },
-      title: 'Agriculture and culture',
+      title: 'Agriculture, business, culture, health, and other topics',
       description:
         'Information on agriculture, business, culture, health, etc. [Image with sources and thumbnail]',
       meta: 'Copyright, Author, Licence for image 2',
