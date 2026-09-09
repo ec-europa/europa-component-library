@@ -805,6 +805,11 @@ $mega-menu: null !default;
       display: none;
     }
 
+    // Prevent horizontal scrollbar.
+    .ecl-mega-menu__list {
+      overflow-x: hidden;
+    }
+
     .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
       background-color: map.get(
         $mega-menu,
