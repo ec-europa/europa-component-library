@@ -5,7 +5,6 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
-import dataSortable from './demo/data--sort-table';
 import table from './table.html.twig';
 import notes from './README.md';
 
@@ -16,6 +15,8 @@ const getArgs = () => {
   const args = {
     header: true,
     simple: false,
+    sortable: false,
+    filter: false,
   };
 
   if (getSystem() === 'ec') {
@@ -47,6 +48,30 @@ const getArgTypes = () => ({
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
       category: 'Display',
+    },
+    if: { arg: 'header' },
+  },
+
+  sortable: {
+    name: 'sortable',
+    type: { name: 'boolean' },
+    description: 'Make table columns sortable',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Optional',
+    },
+    if: { arg: 'header' },
+  },
+
+  filter: {
+    name: 'filter',
+    type: { name: 'boolean' },
+    description: 'Add a filter field to each column',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Optional',
     },
     if: { arg: 'header' },
   },
@@ -121,21 +146,5 @@ Multi.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(dataMulti, args),
-  },
-};
-
-export const Sortable = (_, { loaded: { component } }) => component;
-
-Sortable.render = async (args) => {
-  const renderedTableSortable = await table(prepareData(dataSortable, args));
-  return renderedTableSortable;
-};
-Sortable.storyName = 'sort table';
-Sortable.args = getArgs(dataSortable);
-Sortable.argTypes = getArgTypes(dataSortable);
-Sortable.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataSortable, args),
   },
 };

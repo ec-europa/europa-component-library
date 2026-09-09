@@ -1,16 +1,16 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
-import * as getSystem from '@ecl/builder/utils/getSystem';
-
-const system = getSystem();
-const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.sortAttribute Attribute flagging the table as sortable
  * @param {String} options.sortSelector Selector for toggling element
  * @param {String} options.sortLabelSelectorAsc Selector for sorting button label ascending
  * @param {String} options.sortLabelSelectorDesc Selector for sorting button label descending
  * @param {String} options.sortLabelSelectorDefault Selector for sorting button label default
+ * @param {String} options.filterAttribute Attribute flagging the table as filterable
+ * @param {String} options.filterSelector Selector for headings to add a filter field to
+ * @param {String} options.filterLabelSelector Selector for filter field label
  * @param {Boolean} options.attachClickListener
  */
 export class Table {
@@ -32,10 +32,14 @@ export class Table {
   constructor(
     element,
     {
+      sortAttribute = 'data-ecl-table-sort',
       sortSelector = '[data-ecl-table-sort-toggle]',
       sortLabelSelectorAsc = 'data-ecl-table-sort-label-asc',
       sortLabelSelectorDesc = 'data-ecl-table-sort-label-desc',
       sortLabelSelectorDefault = 'data-ecl-table-sort-label-default',
+      filterAttribute = 'data-ecl-table-filter',
+      filterSelector = '[data-ecl-table-filter-toggle]',
+      filterLabelSelector = 'data-ecl-table-filter-label',
     } = {},
   ) {
     // Check element
@@ -48,32 +52,137 @@ export class Table {
     this.element = element;
 
     // Options
+    this.sortAttribute = sortAttribute;
     this.sortSelector = sortSelector;
     this.sortLabelSelectorAsc = sortLabelSelectorAsc;
     this.sortLabelSelectorDesc = sortLabelSelectorDesc;
     this.sortLabelSelectorDefault = sortLabelSelectorDefault;
+    this.filterAttribute = filterAttribute;
+    this.filterSelector = filterSelector;
+    this.filterLabelSelector = filterLabelSelector;
 
     // Private variables
+    this.isSortable = false;
     this.sortLabelAsc = '';
     this.sortLabelDesc = '';
     this.sortHeadings = null;
     this.sortButtons = [];
+    this.isFilterable = false;
+    this.filterLabel = '';
+    this.filterHeadings = null;
+    this.filterInputs = [];
+    this.filterTimer = null;
+    this.columnIndexes = new Map();
 
     // Bind `this` for use in callbacks
     this.handleClickOnSort = this.handleClickOnSort.bind(this);
+    this.handleFilterInput = this.handleFilterInput.bind(this);
+  }
+
+  /**
+   * Map every heading cell of a thead to its actual column index, taking
+   * rowspan and colspan into account.
+   *
+   * @param {HTMLElement} thead
+   * @returns {Map<HTMLElement, Number>}
+   */
+  mapColumnIndexes(thead) {
+    const columnIndexes = new Map();
+    const rowSpans = [];
+
+    queryAll('tr', thead).forEach((row) => {
+      let col = 0;
+
+      [...row.children].forEach((cell) => {
+        while (rowSpans[col] > 0) {
+          col += 1;
+        }
+
+        columnIndexes.set(cell, col);
+
+        const colspan = Number(cell.getAttribute('colspan')) || 1;
+        const rowspan = Number(cell.getAttribute('rowspan')) || 1;
+        for (let i = col; i < col + colspan; i += 1) {
+          rowSpans[i] = rowspan;
+        }
+
+        col += colspan;
+      });
+
+      for (let i = 0; i < rowSpans.length; i += 1) {
+        if (rowSpans[i] > 0) {
+          rowSpans[i] -= 1;
+        }
+      }
+    });
+
+    return columnIndexes;
   }
 
   /**
    * @returns {HTMLElement}
    */
-  static createSortIcon(customClass) {
+  createSortIcon(customClass) {
     const markup = document.createElement('span');
     markup.setAttribute(
       'class',
-      `wt-icon--solid-arrow ecl-table__icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+      `wt-icon--solid-arrow ecl-table__icon ecl-icon--xs ${customClass}`,
     );
 
     return markup;
+  }
+
+  /**
+   * Create or get a wrapper around the table header label
+   *
+   * @param {HTMLElement} th
+   * @returns {HTMLElement} The header's outer content wrapper.
+   */
+  getOrCreateHeaderInner(th) {
+    let inner = queryOne('.ecl-table__header-inner', th);
+    if (!inner) {
+      inner = document.createElement('span');
+      inner.classList.add('ecl-table__header-inner');
+
+      const label = document.createElement('span');
+      label.classList.add('ecl-table__header-label');
+      while (th.firstChild) {
+        label.appendChild(th.firstChild);
+      }
+      inner.appendChild(label);
+
+      th.appendChild(inner);
+    }
+    return inner;
+  }
+
+  /**
+   * Build a filter field.
+   *
+   * @param {String} label
+   * @param {String} inputId
+   * @returns {HTMLElement}
+   */
+  createFilterField(label, inputId) {
+    const wrapper = document.createElement('span');
+    wrapper.classList.add('ecl-table__filter');
+
+    const input = document.createElement('input');
+    input.setAttribute('type', 'search');
+    input.setAttribute('id', inputId);
+    input.classList.add('ecl-table__filter-input', 'ecl-text-input');
+
+    if (label) {
+      const labelMarkup = document.createElement('label');
+      labelMarkup.classList.add('ecl-table__filter-label');
+      labelMarkup.setAttribute('for', inputId);
+      labelMarkup.textContent = label;
+      wrapper.appendChild(labelMarkup);
+    }
+
+    wrapper.appendChild(input);
+
+    return wrapper;
   }
 
   /**
@@ -85,6 +194,31 @@ export class Table {
     }
     ECL.components = ECL.components || new Map();
 
+    this.isSortable = this.element.hasAttribute(this.sortAttribute);
+    this.isFilterable = this.element.hasAttribute(this.filterAttribute);
+
+    const thead = queryOne('thead', this.element);
+    if (thead && (this.isSortable || this.isFilterable)) {
+      this.columnIndexes = this.mapColumnIndexes(thead);
+    }
+
+    if (this.isSortable) {
+      this.initSort();
+    }
+
+    if (this.isFilterable) {
+      this.initFilter();
+    }
+
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Initialise sorting behaviour.
+   */
+  initSort() {
     this.sortHeadings = queryAll(this.sortSelector, this.element);
 
     // Get labels
@@ -104,16 +238,26 @@ export class Table {
 
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
-      this.sortHeadings.forEach((tr) => {
+      this.sortHeadings.forEach((th) => {
+        th.classList.add('ecl-table__header--sortable');
+        const inner = this.getOrCreateHeaderInner(th);
+        const label = queryOne('.ecl-table__header-label', inner);
+
         const sort = document.createElement('button');
         sort.classList.add('ecl-table__arrow');
         if (this.sortLabelAsc) {
           sort.setAttribute('aria-label', this.sortLabelAsc);
         }
-        sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
-        sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
-        tr.appendChild(sort);
-        tr.addEventListener('click', (e) => this.handleClickOnSort(tr)(e));
+        sort.appendChild(this.createSortIcon('ecl-table__icon-up'));
+        sort.appendChild(this.createSortIcon('ecl-table__icon-down'));
+        label.appendChild(sort);
+        th.addEventListener('click', (e) => {
+          // Clicking inside the filter field must not trigger sorting.
+          if (e.target.closest('.ecl-table__filter')) {
+            return;
+          }
+          this.handleClickOnSort(th)(e);
+        });
 
         this.sortButtons.push(sort);
       });
@@ -129,19 +273,51 @@ export class Table {
     [...queryAll('tr', tbody)].forEach((tr, index) => {
       tr.setAttribute('data-ecl-table-order', index);
     });
+  }
 
-    // Set ecl initialized attribute
-    this.element.setAttribute('data-ecl-auto-initialized', 'true');
-    ECL.components.set(this.element, this);
+  /**
+   * Initialise filtering behaviour.
+   */
+  initFilter() {
+    this.filterHeadings = queryAll(this.filterSelector, this.element);
+
+    // Get label
+    if (this.element.hasAttribute(this.filterLabelSelector)) {
+      this.filterLabel = this.element.getAttribute(this.filterLabelSelector);
+    }
+
+    // Add a filter field under each filterable heading.
+    if (this.filterHeadings) {
+      this.filterHeadings.forEach((th) => {
+        th.classList.add('ecl-table__header--filterable');
+        const inner = this.getOrCreateHeaderInner(th);
+
+        const columnIndex = this.columnIndexes.get(th);
+        const inputId = `${this.element.id}-filter-${columnIndex}`;
+        const field = this.createFilterField(this.filterLabel, inputId);
+        const input = queryOne('input', field);
+        input.dataset.eclTableFilterColumn = columnIndex;
+        input.addEventListener('input', this.handleFilterInput);
+        inner.appendChild(field);
+
+        this.filterInputs.push(input);
+      });
+    }
   }
 
   /**
    * Destroy component.
    */
   destroy() {
-    if (this.sortHeadings) {
+    if (this.isSortable && this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
         tr.removeEventListener('click', (e) => this.handleClickOnSort(tr)(e));
+      });
+    }
+    if (this.isFilterable && this.filterInputs) {
+      clearTimeout(this.filterTimer);
+      this.filterInputs.forEach((input) => {
+        input.removeEventListener('input', this.handleFilterInput);
       });
     }
     if (this.element) {
@@ -159,15 +335,8 @@ export class Table {
     const tbody = queryOne('tbody', table);
     let order = toggle.getAttribute('aria-sort');
 
-    // Get current column index, taking into account the colspan.
-    let colIndex = 0;
-    let prev = toggle.previousElementSibling;
-    while (prev) {
-      colIndex += prev.getAttribute('colspan')
-        ? Number(prev.getAttribute('colspan'))
-        : 1;
-      prev = prev.previousElementSibling;
-    }
+    // Get current column index, taking into account rowspan and colspan.
+    const colIndex = this.columnIndexes.get(toggle);
 
     // Cell comparer function.
     const comparer = (idx, asc) => (a, b) =>
@@ -181,10 +350,11 @@ export class Table {
 
     if (order === 'descending') {
       // If current order is 'descending' reset column filter sort rows by default order.
-      [...queryAll('tr', tbody)].forEach((tr, index) => {
+      const rowCount = queryAll('tr', tbody).length;
+      for (let index = 0; index < rowCount; index += 1) {
         const defaultTr = queryOne(`[data-ecl-table-order='${index}']`, tbody);
         tbody.appendChild(defaultTr);
-      });
+      }
       order = null;
     } else {
       // Otherwise we sort the rows and set new order.
@@ -225,6 +395,33 @@ export class Table {
       }
     });
   };
+
+  /**
+   * Event callback triggered when a filter field value changes.
+   * Shows/hides rows depending on the current value of every filter field;
+   * a row stays visible only if it matches all active filters.
+   * Uses a debounce, for performance.
+   */
+  handleFilterInput() {
+    clearTimeout(this.filterTimer);
+    this.filterTimer = setTimeout(() => {
+      const tbody = queryOne('tbody', this.element);
+
+      queryAll('tr', tbody).forEach((row) => {
+        const isVisible = this.filterInputs.every((input) => {
+          const keyword = input.value.trim().toLowerCase();
+          if (!keyword) {
+            return true;
+          }
+          const colIndex = Number(input.dataset.eclTableFilterColumn);
+          const cell = row.children[colIndex];
+          return !!cell && cell.textContent.toLowerCase().includes(keyword);
+        });
+
+        row.hidden = !isVisible;
+      });
+    }, 300);
+  }
 }
 
 export default Table;
