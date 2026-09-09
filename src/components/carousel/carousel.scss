@@ -62,11 +62,10 @@ $carousel: null !default;
   background: map.get($carousel, 'loading-bar-background');
   height: var(--s-xs);
   width: 15rem;
-  display: none;
-  margin-block-start: map.get($carousel, 'loading-bar-padding-top');
+  visibility: hidden;
 
   &.is-active {
-    display: block;
+    visibility: visible;
   }
 }
 
@@ -162,7 +161,8 @@ $carousel: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
   .ecl-carousel__controls .ecl-container {
-    padding-inline: map.get($carousel, 'container-padding');
+    padding-block: map.get($carousel, 'container-padding-block');
+    padding-inline: map.get($carousel, 'container-padding-inline');
   }
 
   .ecl-carousel {
