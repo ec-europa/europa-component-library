@@ -108,6 +108,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__sources-label {
+  display: inline-block;
   margin-inline-end: var(--s-xs);
 }
 
@@ -115,10 +116,18 @@ $fact-figures: null !default;
   @if map.get($fact-figures, 'source-link-variant') == 'brand' {
     @include link-component.brand-link;
   }
-}
 
-.ecl-fact-figures__source:has(svg) {
-  display: inline-block;
+  &:has(svg) {
+    white-space: nowrap;
+  }
+
+  .ecl-link__label {
+    white-space: normal;
+  }
+
+  .ecl-icon {
+    margin-inline-start: map.get($fact-figures, 'source-separator-spacing');
+  }
 }
 
 .ecl-fact-figures__sources-item {
