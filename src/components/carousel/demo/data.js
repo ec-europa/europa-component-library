@@ -57,21 +57,20 @@ module.exports = {
     },
     {
       id: 'carousel-example-5',
+      link: {
+        link: {
+          label: 'Subscribe',
+          path: exampleLink,
+          icon_position: 'after',
+        },
+        icon: {
+          name: 'corner-arrow',
+          size: 'xs',
+          transform: 'rotate-90',
+        },
+      },
       description:
         'Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies',
-      sr_play: 'Play',
-      sr_pause: 'Pause',
-      video: {
-        poster:
-          'https://api.prd.commavservices.eu/thumbnail/I-293670/01a043df-756a-7b46-b823-23092c1e2edb/1920.jpg',
-        sources: [
-          {
-            src: 'https://vod.prd.commavservices.eu/10/293670/01a043df-756a-7b46-b823-23092c1e2edb/1080p.mp4',
-            type: 'video/mp4',
-          },
-        ],
-      },
-      box_background: 'dark',
     },
     {
       id: 'carousel-example-4',
