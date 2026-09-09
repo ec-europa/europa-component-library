@@ -168,7 +168,7 @@ export class Table {
     wrapper.classList.add('ecl-table__filter');
 
     const input = document.createElement('input');
-    input.setAttribute('type', 'text');
+    input.setAttribute('type', 'search');
     input.setAttribute('id', inputId);
     input.classList.add('ecl-table__filter-input', 'ecl-text-input');
 
