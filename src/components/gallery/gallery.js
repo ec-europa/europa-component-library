@@ -62,6 +62,8 @@ export class Gallery {
       overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
       overlayDownloadSelector = '[data-ecl-gallery-overlay-download]',
       overlayShareSelector = '[data-ecl-gallery-overlay-share]',
+      overlayDateSelector = '[data-ecl-gallery-overlay-date]',
+      overlayDateValueSelector = '[data-ecl-gallery-overlay-date-value]',
       overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
       overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
@@ -97,6 +99,8 @@ export class Gallery {
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
     this.overlayDownloadSelector = overlayDownloadSelector;
     this.overlayShareSelector = overlayShareSelector;
+    this.overlayDateSelector = overlayDateSelector;
+    this.overlayDateValueSelector = overlayDateValueSelector;
     this.overlayDescriptionSelector = overlayDescriptionSelector;
     this.overlayPreviousSelector = overlayPreviousSelector;
     this.overlayNextSelector = overlayNextSelector;
@@ -121,6 +125,8 @@ export class Gallery {
     this.overlayCounterMax = null;
     this.overlayDownload = null;
     this.overlayShare = null;
+    this.overlayDate = null;
+    this.overlayDateValue = null;
     this.overlayDescription = null;
     this.overlayPrevious = null;
     this.overlayNext = null;
@@ -195,6 +201,11 @@ export class Gallery {
         this.overlay,
       );
       this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
+      this.overlayDate = queryOne(this.overlayDateSelector, this.overlay);
+      this.overlayDateValue = queryOne(
+        this.overlayDateValueSelector,
+        this.overlay,
+      );
       this.overlayDescription = queryOne(
         this.overlayDescriptionSelector,
         this.overlay,
@@ -588,6 +599,20 @@ export class Gallery {
       actionMobile.appendChild(this.overlayShare.cloneNode(true));
     } else {
       this.overlayShare.hidden = true;
+    }
+
+    // Update publication date
+    const publicationDate = this.selectedItem.getAttribute(
+      'data-ecl-gallery-item-publication-date',
+    );
+    if (publicationDate) {
+      if (this.overlayDateValue) {
+        this.overlayDateValue.innerHTML = publicationDate;
+      }
+      this.overlayDate.hidden = false;
+      actionMobile.appendChild(this.overlayDate.cloneNode(true));
+    } else {
+      this.overlayDate.hidden = true;
     }
 
     // Update description

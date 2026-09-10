@@ -22,6 +22,7 @@ npm install --save @ecl/gallery
   - "full_screen_label" (string) (default: '')
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
+  - "published_label" (string) (default: ''): label for the publication date
   - "sr_overlay_label" (string) (default: '') aria-label for the overlay
 - **"items"** (array) (default: [])
   - "title" (string) (default: '')
@@ -116,6 +117,7 @@ npm install --save @ecl/gallery
     } 
   },
   overlay: { 
+    published_label: 'Published',
     close: { 
       variant: 'ghost', 
       label: 'Close', 

@@ -121,6 +121,9 @@
   {%- if _media_share_path is not empty -%}
     data-ecl-gallery-item-share="{{ _media_share_path }}"
   {%- endif -%}
+  {%- if _item.publication_date is not empty -%}
+    data-ecl-gallery-item-publication-date="{{ _item.publication_date }}"
+  {%- endif -%}
   {%- if _media_href is not empty and _item.embedded_video is not empty -%}
     data-ecl-gallery-item-embed-src="{{ _media_href }}"
   {%- endif -%}

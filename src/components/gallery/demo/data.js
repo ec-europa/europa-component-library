@@ -274,12 +274,14 @@ module.exports = {
     },
   ],
   overlay: {
+    published_label: 'Published',
     close: {
       variant: 'ghost',
       hide_label: true,
       label: 'Close',
       icon: {
-        name: 'close',
+        name: 'x',
+        family: 'phosphor',
         size: 'm',
       },
     },

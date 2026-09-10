@@ -91,6 +91,7 @@ exports[`Gallery Default renders correctly 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          data-ecl-gallery-item-publication-date="20 Feb 2020"
           data-ecl-gallery-item-video-title="New digital strategy - Video player"
           href="https://www.youtube.com/embed/fgi-GSCB6ho"
           id="ecl-gallery-item-gallery-id-1"
@@ -253,6 +254,7 @@ exports[`Gallery Default renders correctly 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
           data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-publication-date="13 Oct 2022"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
           href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
@@ -337,6 +339,7 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-src="https://www.dailymotion.com/embed/video/x8m9tp1?"
+          data-ecl-gallery-item-publication-date="03 Aug 2019"
           data-ecl-gallery-item-share="/share#example-image4.jpg"
           data-ecl-gallery-item-video-title="Taxes and business - Video player"
           href="https://www.dailymotion.com/embed/video/x8m9tp1?"
@@ -419,6 +422,7 @@ exports[`Gallery Default renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
+          data-ecl-gallery-item-publication-date="12 Feb 2023"
           data-ecl-gallery-item-share="/share#example-image5.jpg"
           data-ecl-gallery-item-video-title="Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis. - Video player"
           href="https://assets.mixkit.co/videos/4025/4025-1080.mp4"
@@ -506,6 +510,7 @@ exports[`Gallery Default renders correctly 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://player.vimeo.com/video/813227141?h=077b905b65"
+          data-ecl-gallery-item-publication-date="23 Mar 2025"
           data-ecl-gallery-item-share="/share#example-image6.jpg"
           data-ecl-gallery-item-video-title="Lorem ipsum - Video player"
           href="https://player.vimeo.com/video/813227141?h=077b905b65"
@@ -1228,7 +1233,7 @@ exports[`Gallery Default renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
+              class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
               data-ecl-icon=""
             />
           </span>
@@ -1247,118 +1252,133 @@ exports[`Gallery Default renders correctly 1`] = `
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-container"
+          class="ecl-gallery__detail-container"
         >
           <div
-            class="ecl-gallery__detail-container"
+            class="ecl-gallery__pager"
           >
             <div
-              class="ecl-gallery__pager"
+              class="ecl-gallery__detail-counter"
             >
-              <div
-                class="ecl-gallery__detail-counter"
+              <span
+                data-ecl-gallery-overlay-counter-current=""
               >
-                <span
-                  data-ecl-gallery-overlay-counter-current=""
-                >
-                  0
-                </span>
-                 of 
-                <span
-                  data-ecl-gallery-overlay-counter-max=""
-                >
-                  0
-                </span>
-              </div>
-              <div
-                class="ecl-gallery__controls"
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
               >
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-                  data-ecl-gallery-overlay-previous=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Previous
-                    </span>
-                  </span>
-                </button>
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-                  data-ecl-gallery-overlay-next=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Next
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                  </span>
-                </button>
-              </div>
+                0
+              </span>
             </div>
             <div
-              class="ecl-gallery__detail-actions"
+              class="ecl-gallery__controls"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-                data-ecl-gallery-overlay-download=""
-                href=""
-                target="_blank"
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  View original
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
-                />
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-                data-ecl-gallery-overlay-share=""
-                href="/example"
+              </button>
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  Share
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
-                />
-              </a>
+              </button>
             </div>
           </div>
           <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
+            class="ecl-gallery__detail-actions"
           >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+              />
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+              />
+            </a>
+            <div
+              class="ecl-gallery__detail-date"
+              data-ecl-gallery-overlay-date=""
+              hidden=""
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+              />
+              <span
+                class="ecl-gallery__date-label"
+              >
+                Published
+              </span>
+              <span
+                class="ecl-gallery__date-value"
+                data-ecl-gallery-overlay-date-value=""
+              />
+            </div>
           </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-description"
+          data-ecl-gallery-overlay-description=""
+        >
+          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
         </div>
       </footer>
     </dialog>
@@ -1459,6 +1479,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          data-ecl-gallery-item-publication-date="20 Feb 2020"
           data-ecl-gallery-item-video-title="New digital strategy - Video player"
           href="https://www.youtube.com/embed/fgi-GSCB6ho"
           id="ecl-gallery-item-gallery-id-1"
@@ -1621,6 +1642,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
           data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-publication-date="13 Oct 2022"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
           href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
@@ -1705,6 +1727,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-src="https://www.dailymotion.com/embed/video/x8m9tp1?"
+          data-ecl-gallery-item-publication-date="03 Aug 2019"
           data-ecl-gallery-item-share="/share#example-image4.jpg"
           data-ecl-gallery-item-video-title="Taxes and business - Video player"
           href="https://www.dailymotion.com/embed/video/x8m9tp1?"
@@ -1787,6 +1810,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
+          data-ecl-gallery-item-publication-date="12 Feb 2023"
           data-ecl-gallery-item-share="/share#example-image5.jpg"
           data-ecl-gallery-item-video-title="Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis. - Video player"
           href="https://assets.mixkit.co/videos/4025/4025-1080.mp4"
@@ -1874,6 +1898,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://player.vimeo.com/video/813227141?h=077b905b65"
+          data-ecl-gallery-item-publication-date="23 Mar 2025"
           data-ecl-gallery-item-share="/share#example-image6.jpg"
           data-ecl-gallery-item-video-title="Lorem ipsum - Video player"
           href="https://player.vimeo.com/video/813227141?h=077b905b65"
@@ -2596,7 +2621,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
+              class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
               data-ecl-icon=""
             />
           </span>
@@ -2615,118 +2640,133 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-container"
+          class="ecl-gallery__detail-container"
         >
           <div
-            class="ecl-gallery__detail-container"
+            class="ecl-gallery__pager"
           >
             <div
-              class="ecl-gallery__pager"
+              class="ecl-gallery__detail-counter"
             >
-              <div
-                class="ecl-gallery__detail-counter"
+              <span
+                data-ecl-gallery-overlay-counter-current=""
               >
-                <span
-                  data-ecl-gallery-overlay-counter-current=""
-                >
-                  0
-                </span>
-                 of 
-                <span
-                  data-ecl-gallery-overlay-counter-max=""
-                >
-                  0
-                </span>
-              </div>
-              <div
-                class="ecl-gallery__controls"
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
               >
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-                  data-ecl-gallery-overlay-previous=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Previous
-                    </span>
-                  </span>
-                </button>
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-                  data-ecl-gallery-overlay-next=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Next
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                  </span>
-                </button>
-              </div>
+                0
+              </span>
             </div>
             <div
-              class="ecl-gallery__detail-actions"
+              class="ecl-gallery__controls"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-                data-ecl-gallery-overlay-download=""
-                href=""
-                target="_blank"
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  View original
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
-                />
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-                data-ecl-gallery-overlay-share=""
-                href="/example"
+              </button>
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  Share
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
-                />
-              </a>
+              </button>
             </div>
           </div>
           <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
+            class="ecl-gallery__detail-actions"
           >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+              />
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+              />
+            </a>
+            <div
+              class="ecl-gallery__detail-date"
+              data-ecl-gallery-overlay-date=""
+              hidden=""
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+              />
+              <span
+                class="ecl-gallery__date-label"
+              >
+                Published
+              </span>
+              <span
+                class="ecl-gallery__date-value"
+                data-ecl-gallery-overlay-date-value=""
+              />
+            </div>
           </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-description"
+          data-ecl-gallery-overlay-description=""
+        >
+          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
         </div>
       </footer>
     </dialog>
@@ -2825,6 +2865,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          data-ecl-gallery-item-publication-date="20 Feb 2020"
           data-ecl-gallery-item-video-title="New digital strategy - Video player"
           href="https://www.youtube.com/embed/fgi-GSCB6ho"
           id="ecl-gallery-item-gallery-id-1"
@@ -2987,6 +3028,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
           data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-publication-date="13 Oct 2022"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
           href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
@@ -3071,6 +3113,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-src="https://www.dailymotion.com/embed/video/x8m9tp1?"
+          data-ecl-gallery-item-publication-date="03 Aug 2019"
           data-ecl-gallery-item-share="/share#example-image4.jpg"
           data-ecl-gallery-item-video-title="Taxes and business - Video player"
           href="https://www.dailymotion.com/embed/video/x8m9tp1?"
@@ -3153,6 +3196,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
+          data-ecl-gallery-item-publication-date="12 Feb 2023"
           data-ecl-gallery-item-share="/share#example-image5.jpg"
           data-ecl-gallery-item-video-title="Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis. - Video player"
           href="https://assets.mixkit.co/videos/4025/4025-1080.mp4"
@@ -3240,6 +3284,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://player.vimeo.com/video/813227141?h=077b905b65"
+          data-ecl-gallery-item-publication-date="23 Mar 2025"
           data-ecl-gallery-item-share="/share#example-image6.jpg"
           data-ecl-gallery-item-video-title="Lorem ipsum - Video player"
           href="https://player.vimeo.com/video/813227141?h=077b905b65"
@@ -3962,7 +4007,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
+              class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
               data-ecl-icon=""
             />
           </span>
@@ -3981,118 +4026,133 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-container"
+          class="ecl-gallery__detail-container"
         >
           <div
-            class="ecl-gallery__detail-container"
+            class="ecl-gallery__pager"
           >
             <div
-              class="ecl-gallery__pager"
+              class="ecl-gallery__detail-counter"
             >
-              <div
-                class="ecl-gallery__detail-counter"
+              <span
+                data-ecl-gallery-overlay-counter-current=""
               >
-                <span
-                  data-ecl-gallery-overlay-counter-current=""
-                >
-                  0
-                </span>
-                 of 
-                <span
-                  data-ecl-gallery-overlay-counter-max=""
-                >
-                  0
-                </span>
-              </div>
-              <div
-                class="ecl-gallery__controls"
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
               >
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-                  data-ecl-gallery-overlay-previous=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Previous
-                    </span>
-                  </span>
-                </button>
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-                  data-ecl-gallery-overlay-next=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Next
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                  </span>
-                </button>
-              </div>
+                0
+              </span>
             </div>
             <div
-              class="ecl-gallery__detail-actions"
+              class="ecl-gallery__controls"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-                data-ecl-gallery-overlay-download=""
-                href=""
-                target="_blank"
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  View original
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
-                />
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-                data-ecl-gallery-overlay-share=""
-                href="/example"
+              </button>
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  Share
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
-                />
-              </a>
+              </button>
             </div>
           </div>
           <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
+            class="ecl-gallery__detail-actions"
           >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+              />
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+              />
+            </a>
+            <div
+              class="ecl-gallery__detail-date"
+              data-ecl-gallery-overlay-date=""
+              hidden=""
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+              />
+              <span
+                class="ecl-gallery__date-label"
+              >
+                Published
+              </span>
+              <span
+                class="ecl-gallery__date-value"
+                data-ecl-gallery-overlay-date-value=""
+              />
+            </div>
           </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-description"
+          data-ecl-gallery-overlay-description=""
+        >
+          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
         </div>
       </footer>
     </dialog>
@@ -4191,6 +4251,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          data-ecl-gallery-item-publication-date="20 Feb 2020"
           data-ecl-gallery-item-video-title="New digital strategy - Video player"
           href="https://www.youtube.com/embed/fgi-GSCB6ho"
           id="ecl-gallery-item-gallery-id-1"
@@ -4353,6 +4414,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
           data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-publication-date="13 Oct 2022"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
           href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
@@ -4437,6 +4499,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-src="https://www.dailymotion.com/embed/video/x8m9tp1?"
+          data-ecl-gallery-item-publication-date="03 Aug 2019"
           data-ecl-gallery-item-share="/share#example-image4.jpg"
           data-ecl-gallery-item-video-title="Taxes and business - Video player"
           href="https://www.dailymotion.com/embed/video/x8m9tp1?"
@@ -4519,6 +4582,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
+          data-ecl-gallery-item-publication-date="12 Feb 2023"
           data-ecl-gallery-item-share="/share#example-image5.jpg"
           data-ecl-gallery-item-video-title="Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis. - Video player"
           href="https://assets.mixkit.co/videos/4025/4025-1080.mp4"
@@ -4606,6 +4670,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://player.vimeo.com/video/813227141?h=077b905b65"
+          data-ecl-gallery-item-publication-date="23 Mar 2025"
           data-ecl-gallery-item-share="/share#example-image6.jpg"
           data-ecl-gallery-item-video-title="Lorem ipsum - Video player"
           href="https://player.vimeo.com/video/813227141?h=077b905b65"
@@ -5328,7 +5393,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
+              class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
               data-ecl-icon=""
             />
           </span>
@@ -5347,118 +5412,133 @@ exports[`Gallery Default renders correctly with old data 1`] = `
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-container"
+          class="ecl-gallery__detail-container"
         >
           <div
-            class="ecl-gallery__detail-container"
+            class="ecl-gallery__pager"
           >
             <div
-              class="ecl-gallery__pager"
+              class="ecl-gallery__detail-counter"
             >
-              <div
-                class="ecl-gallery__detail-counter"
+              <span
+                data-ecl-gallery-overlay-counter-current=""
               >
-                <span
-                  data-ecl-gallery-overlay-counter-current=""
-                >
-                  0
-                </span>
-                 of 
-                <span
-                  data-ecl-gallery-overlay-counter-max=""
-                >
-                  0
-                </span>
-              </div>
-              <div
-                class="ecl-gallery__controls"
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
               >
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-                  data-ecl-gallery-overlay-previous=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Previous
-                    </span>
-                  </span>
-                </button>
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-                  data-ecl-gallery-overlay-next=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Next
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                  </span>
-                </button>
-              </div>
+                0
+              </span>
             </div>
             <div
-              class="ecl-gallery__detail-actions"
+              class="ecl-gallery__controls"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-                data-ecl-gallery-overlay-download=""
-                href=""
-                target="_blank"
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  View original
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
-                />
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-                data-ecl-gallery-overlay-share=""
-                href="/example"
+              </button>
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  Share
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
-                />
-              </a>
+              </button>
             </div>
           </div>
           <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
+            class="ecl-gallery__detail-actions"
           >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+              />
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+              />
+            </a>
+            <div
+              class="ecl-gallery__detail-date"
+              data-ecl-gallery-overlay-date=""
+              hidden=""
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+              />
+              <span
+                class="ecl-gallery__date-label"
+              >
+                Published
+              </span>
+              <span
+                class="ecl-gallery__date-value"
+                data-ecl-gallery-overlay-date-value=""
+              />
+            </div>
           </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-description"
+          data-ecl-gallery-overlay-description=""
+        >
+          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
         </div>
       </footer>
     </dialog>
@@ -5557,6 +5637,7 @@ exports[`Gallery Grid renders correctly 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          data-ecl-gallery-item-publication-date="20 Feb 2020"
           data-ecl-gallery-item-video-title="New digital strategy - Video player"
           href="https://www.youtube.com/embed/fgi-GSCB6ho"
           id="ecl-gallery-item-gallery-id-1"
@@ -5719,6 +5800,7 @@ exports[`Gallery Grid renders correctly 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
           data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-publication-date="13 Oct 2022"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
           href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
@@ -5803,6 +5885,7 @@ exports[`Gallery Grid renders correctly 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-src="https://www.dailymotion.com/embed/video/x8m9tp1?"
+          data-ecl-gallery-item-publication-date="03 Aug 2019"
           data-ecl-gallery-item-share="/share#example-image4.jpg"
           data-ecl-gallery-item-video-title="Taxes and business - Video player"
           href="https://www.dailymotion.com/embed/video/x8m9tp1?"
@@ -5885,6 +5968,7 @@ exports[`Gallery Grid renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
+          data-ecl-gallery-item-publication-date="12 Feb 2023"
           data-ecl-gallery-item-share="/share#example-image5.jpg"
           data-ecl-gallery-item-video-title="Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis. - Video player"
           href="https://assets.mixkit.co/videos/4025/4025-1080.mp4"
@@ -5972,6 +6056,7 @@ exports[`Gallery Grid renders correctly 1`] = `
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available because all the content is in the captions and default audio track"
           data-ecl-gallery-item-embed-src="https://player.vimeo.com/video/813227141?h=077b905b65"
+          data-ecl-gallery-item-publication-date="23 Mar 2025"
           data-ecl-gallery-item-share="/share#example-image6.jpg"
           data-ecl-gallery-item-video-title="Lorem ipsum - Video player"
           href="https://player.vimeo.com/video/813227141?h=077b905b65"
@@ -6694,7 +6779,7 @@ exports[`Gallery Grid renders correctly 1`] = `
             </span>
             <span
               aria-hidden="true"
-              class="wt-icon--close ecl-icon ecl-icon--m ecl-button__icon ecl-icon--close"
+              class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
               data-ecl-icon=""
             />
           </span>
@@ -6713,118 +6798,133 @@ exports[`Gallery Grid renders correctly 1`] = `
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-container"
+          class="ecl-gallery__detail-container"
         >
           <div
-            class="ecl-gallery__detail-container"
+            class="ecl-gallery__pager"
           >
             <div
-              class="ecl-gallery__pager"
+              class="ecl-gallery__detail-counter"
             >
-              <div
-                class="ecl-gallery__detail-counter"
+              <span
+                data-ecl-gallery-overlay-counter-current=""
               >
-                <span
-                  data-ecl-gallery-overlay-counter-current=""
-                >
-                  0
-                </span>
-                 of 
-                <span
-                  data-ecl-gallery-overlay-counter-max=""
-                >
-                  0
-                </span>
-              </div>
-              <div
-                class="ecl-gallery__controls"
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
               >
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-                  data-ecl-gallery-overlay-previous=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Previous
-                    </span>
-                  </span>
-                </button>
-                <button
-                  class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-                  data-ecl-gallery-overlay-next=""
-                  type="button"
-                >
-                  <span
-                    class="ecl-button__container"
-                  >
-                    <span
-                      class="ecl-button__label"
-                      data-ecl-label="true"
-                    >
-                      Next
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
-                      data-ecl-icon=""
-                    />
-                  </span>
-                </button>
-              </div>
+                0
+              </span>
             </div>
             <div
-              class="ecl-gallery__detail-actions"
+              class="ecl-gallery__controls"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-                data-ecl-gallery-overlay-download=""
-                href=""
-                target="_blank"
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  View original
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
-                />
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-                data-ecl-gallery-overlay-share=""
-                href="/example"
+              </button>
+              <button
+                class="ecl-button ecl-button--primary ecl-button--m ecl-button--inverted ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
               >
                 <span
-                  class="ecl-link__label"
+                  class="ecl-button__container"
                 >
-                  Share
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="wt-icon--corner-arrow ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-icon--corner-arrow"
+                    data-ecl-icon=""
+                  />
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
-                />
-              </a>
+              </button>
             </div>
           </div>
           <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
+            class="ecl-gallery__detail-actions"
           >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+              />
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+              />
+            </a>
+            <div
+              class="ecl-gallery__detail-date"
+              data-ecl-gallery-overlay-date=""
+              hidden=""
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+              />
+              <span
+                class="ecl-gallery__date-label"
+              >
+                Published
+              </span>
+              <span
+                class="ecl-gallery__date-value"
+                data-ecl-gallery-overlay-date-value=""
+              />
+            </div>
           </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-description"
+          data-ecl-gallery-overlay-description=""
+        >
+          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures. [Image with thumbnail]
         </div>
       </footer>
     </dialog>
