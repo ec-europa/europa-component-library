@@ -189,7 +189,6 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__item-meta {
   display: flex;
-  justify-content: space-between;
   margin: map.get($gallery, 'item-meta-margin');
   padding-top: var(--s-xs);
   padding-inline: var(--s-s);
@@ -208,6 +207,10 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__length {
   font-weight: bold;
+}
+
+.ecl-gallery__date {
+  margin-inline-start: auto;
 }
 
 .ecl-gallery__title {
