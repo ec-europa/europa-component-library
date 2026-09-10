@@ -43,11 +43,11 @@ $table: null !default;
   vertical-align: top;
 
   &:first-child {
-    border-inline-start-color: map.get($table, 'head', 'background');
+    border-inline-start-color: map.get($table, 'head', 'border-inline-color');
   }
 
   &:last-child {
-    border-inline-end-color: map.get($table, 'head', 'background');
+    border-inline-end-color: map.get($table, 'head', 'border-inline-color');
   }
 }
 
@@ -57,7 +57,8 @@ $table: null !default;
   border-block-start-width: 0;
 
   &:first-child {
-    border-block-start: map.get($table, 'row-border');
+    // TO DO Add in EC
+    border-block-start: map.get($table, 'head', 'head-border-top');
   }
 
   // stylelint-disable-next-line no-descending-specificity
@@ -191,8 +192,10 @@ $table: null !default;
 
       &::before {
         background-color: map.get($table, 'head', 'background');
-        border-inline-end: map.get($table, 'header', 'separator-mobile');
         border-block-end: map.get($table, 'header', 'separator-desktop');
+
+        // TO DO EC
+        border-inline-end: 2px solid var(--c-p-20);
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
@@ -208,7 +211,7 @@ $table: null !default;
 
       &:last-of-type {
         border-block-end: map.get($table, 'row-border');
-        margin-block-end: var(--s-l);
+        margin-block-end: var(--s-xs);
 
         &::before {
           border-block-end: none;
@@ -237,13 +240,19 @@ $table: null !default;
         font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
         inset-inline: calc(-1 * #{map.get($table, 'multi-head', 'position')});
-        margin-block-end: -1px;
+        margin-block-end: -2px;
         order: -1;
         padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
-        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 1px);
+        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 2px);
         width: 100%;
       }
+    }
+
+    // TO DO: EC
+    .ecl-table__cell--group::before {
+      border-inline-end: map.get($table, 'header', 'separator-mobile');
+      background: var(--c-p-10);
     }
   }
 
