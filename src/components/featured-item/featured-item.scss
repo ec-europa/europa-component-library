@@ -311,25 +311,19 @@ $featured-item: null !default;
         'link',
         'background-color'
       );
+      border-end-end-radius: map.get($featured-item, 'border-radius');
       display: block;
-      margin-block-end: calc(
-        -1 *
-          #{map.get(
-            $featured-item,
-            'highlight',
-            'item',
-            'padding-block-mobile'
-          )}
+      margin-block: map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'margin-highlighted-block-mobile'
       );
-      margin-inline-end: 0;
-      margin-inline-start: calc(
-        -1 *
-          #{map.get(
-            $featured-item,
-            'highlight',
-            'item',
-            'padding-inline-mobile'
-          )}
+      margin-inline: map.get(
+        $featured-item,
+        'highlight',
+        'link',
+        'margin-highlighted-inline-mobile'
       );
       width: clamp(
         1px,
@@ -353,15 +347,6 @@ $featured-item: null !default;
         margin-block: var(--s-s) 0;
         margin-inline: 0;
       }
-    }
-
-    .ecl-featured-item__info + .ecl-featured-item__link {
-      margin-block-start: map.get(
-        $featured-item,
-        'highlight',
-        'link',
-        'spacing-highlighted'
-      );
     }
   }
 
@@ -398,28 +383,31 @@ $featured-item: null !default;
       position: relative;
     }
 
+    .ecl-featured-item__container--right .ecl-featured-item__item:first-child,
+    .ecl-featured-item__item:only-child {
+      padding-inline: map.get(
+        $featured-item,
+        'highlight',
+        'item',
+        'padding-inline-desktop-right'
+      );
+    }
+
     // Highlighted link
     &.ecl-featured-item--link-highlighted {
       .ecl-featured-item__link {
-        margin-block-end: calc(
-          -1 *
-            #{map.get(
-              $featured-item,
-              'highlight',
-              'item',
-              'padding-block-desktop'
-            )}
+        margin-block: map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'margin-highlighted-block-desktop'
         );
-        margin-inline-end: calc(
-          -1 *
-            #{map.get(
-              $featured-item,
-              'highlight',
-              'item',
-              'padding-inline-desktop'
-            )}
+        margin-inline: map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'margin-highlighted-inline-desktop'
         );
-        margin-inline-start: auto;
         padding: map.get(
           $featured-item,
           'highlight',
@@ -430,15 +418,13 @@ $featured-item: null !default;
 
       .ecl-featured-item__container--right .ecl-featured-item__link,
       .ecl-featured-item__item:first-child:only-child .ecl-featured-item__link {
-        margin-inline-end: 0;
-        margin-inline-start: calc(
-          -1 *
-            #{map.get(
-              $featured-item,
-              'highlight',
-              'item',
-              'padding-inline-desktop'
-            )}
+        border-end-end-radius: 0;
+        border-start-end-radius: map.get($featured-item, 'border-radius');
+        margin-inline: map.get(
+          $featured-item,
+          'highlight',
+          'link',
+          'margin-highlighted-inline-desktop-right'
         );
       }
     }
