@@ -22,9 +22,11 @@ npm install --save @ecl/gallery
   - "full_screen_label" (string) (default: '')
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
+  - "published_label" (string) (default: ''): label for the publication date
   - "sr_overlay_label" (string) (default: '') aria-label for the overlay
 - **"items"** (array) (default: [])
   - "title" (string) (default: '')
+  - "title_always_visible" (boolean) (default: false)
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
@@ -34,6 +36,8 @@ npm install --save @ecl/gallery
   - "embedded_video" (object) (default: {}) Embedded video object (iframe-based)
   - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "share_path" (string) (default: '') URL for the share button in the overlay
+  - "publication_date" (string) (default: '')
+  - "video_length" (string) (default: '')
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
@@ -113,6 +117,7 @@ npm install --save @ecl/gallery
     } 
   },
   overlay: { 
+    published_label: 'Published',
     close: { 
       variant: 'ghost', 
       label: 'Close', 

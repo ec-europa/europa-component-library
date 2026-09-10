@@ -4,14 +4,23 @@
 $gallery: (
   actions-margin: var(--s-s),
   detail-color: #fff,
+  detail-padding: var(--s-3xl),
   description-background: var(--cm-surface-transparent-70),
   description-font: var(--f-xs),
   gallery-info-color: var(--cm-on-surface-brand),
   gallery-info-font: var(--f-xs),
+  item-meta-padding: var(--s-xs),
+  item-meta-margin: 0 calc(-1 * var(--s-3xs)) var(--s-xs),
+  item-meta-font: var(--f-2xs),
   overlay-background: var(--cm-surface-transparent-70),
   overlay-shadow: none,
+  overlay-title-font: var(--f-m),
   overlay-title-font-weight: map.get($font-weight, 'semi-bold'),
+  overlay-caption-font: var(--f-s),
+  overlay-counter-font: var(--f-s),
+  overlay-date-font: var(--f-xs),
   overlay-meta-font: var(--f-xs),
+  overlay-action-gap: var(--s-3xl),
 );
 $gallery-print: (
   description-font: map.get($font-print, 'xs'),
