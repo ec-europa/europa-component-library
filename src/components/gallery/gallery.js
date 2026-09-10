@@ -15,8 +15,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.overlayMediaSelector Selector for gallery overlay media element
  * @param {String} options.overlayCounterCurrentSelector Selector for gallery overlay current number element
  * @param {String} options.overlayCounterMaxSelector Selector for display of number of elements in the gallery overlay
- * @param {String} options.overlayDownloadSelector Selector for gallery overlay download element
- * @param {String} options.overlayShareSelector Selector for gallery overlay share element
+ * @param {String} options.overlayDownloadSelector Selector for gallery overlay download elements (desktop + mobile)
+ * @param {String} options.overlayShareSelector Selector for gallery overlay share elements (desktop + mobile)
  * @param {String} options.overlayDescriptionSelector Selector for gallery overlay description element
  * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
  * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
@@ -123,10 +123,10 @@ export class Gallery {
     this.overlayMedia = null;
     this.overlayCounterCurrent = null;
     this.overlayCounterMax = null;
-    this.overlayDownload = null;
-    this.overlayShare = null;
-    this.overlayDate = null;
-    this.overlayDateValue = null;
+    this.overlayDownload = [];
+    this.overlayShare = [];
+    this.overlayDate = [];
+    this.overlayDateValue = [];
     this.overlayDescription = null;
     this.overlayPrevious = null;
     this.overlayNext = null;
@@ -196,13 +196,14 @@ export class Gallery {
         this.overlayCounterMaxSelector,
         this.overlay,
       );
-      this.overlayDownload = queryOne(
+      // Query desktop and mobile elements
+      this.overlayDownload = queryAll(
         this.overlayDownloadSelector,
         this.overlay,
       );
-      this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
-      this.overlayDate = queryOne(this.overlayDateSelector, this.overlay);
-      this.overlayDateValue = queryOne(
+      this.overlayShare = queryAll(this.overlayShareSelector, this.overlay);
+      this.overlayDate = queryAll(this.overlayDateSelector, this.overlay);
+      this.overlayDateValue = queryAll(
         this.overlayDateValueSelector,
         this.overlay,
       );
@@ -570,58 +571,60 @@ export class Gallery {
       +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
     this.overlayCounterMax.innerHTML = this.galleryItems.length;
 
-    // Prepare display of links for mobile
-    const actionMobile = document.createElement('div');
-    actionMobile.classList.add('ecl-gallery__detail-actions-mobile');
-
-    // Update download link
-    if (this.overlayDownload !== null && embeddedVideo === null) {
-      this.overlayDownload.href = this.selectedItem.href;
-      if (id) {
-        this.overlayDownload.setAttribute('aria-describedby', `${id}-title`);
-      }
-      this.overlayDownload.hidden = false;
-      actionMobile.appendChild(this.overlayDownload.cloneNode(true));
-    } else if (this.overlayDownload !== null) {
-      this.overlayDownload.hidden = true;
+    // Update download link(s) - desktop and mobile instances, kept in sync
+    if (embeddedVideo === null) {
+      this.overlayDownload.forEach((download) => {
+        download.href = this.selectedItem.href;
+        if (id) {
+          download.setAttribute('aria-describedby', `${id}-title`);
+        }
+        download.hidden = false;
+      });
+    } else {
+      this.overlayDownload.forEach((download) => {
+        download.hidden = true;
+      });
     }
 
-    // Update share link
+    // Update share link(s) - desktop and mobile instances, kept in sync
     const shareHref = this.selectedItem.getAttribute(
       'data-ecl-gallery-item-share',
     );
     if (shareHref != null) {
-      this.overlayShare.href = shareHref;
-      if (id) {
-        this.overlayShare.setAttribute('aria-describedby', `${id}-title`);
-      }
-      this.overlayShare.hidden = false;
-      actionMobile.appendChild(this.overlayShare.cloneNode(true));
+      this.overlayShare.forEach((share) => {
+        share.href = shareHref;
+        if (id) {
+          share.setAttribute('aria-describedby', `${id}-title`);
+        }
+        share.hidden = false;
+      });
     } else {
-      this.overlayShare.hidden = true;
+      this.overlayShare.forEach((share) => {
+        share.hidden = true;
+      });
     }
 
-    // Update publication date
+    // Update publication date - desktop and mobile instances, kept in sync
     const publicationDate = this.selectedItem.getAttribute(
       'data-ecl-gallery-item-publication-date',
     );
     if (publicationDate) {
-      if (this.overlayDateValue) {
-        this.overlayDateValue.innerHTML = publicationDate;
-      }
-      this.overlayDate.hidden = false;
-      actionMobile.appendChild(this.overlayDate.cloneNode(true));
+      this.overlayDateValue.forEach((value) => {
+        value.innerHTML = publicationDate;
+      });
+      this.overlayDate.forEach((date) => {
+        date.hidden = false;
+      });
     } else {
-      this.overlayDate.hidden = true;
+      this.overlayDate.forEach((date) => {
+        date.hidden = true;
+      });
     }
 
     // Update description
     const description = queryOne(this.descriptionSelector, selectedItem);
     if (description) {
       this.overlayDescription.innerHTML = description.innerHTML;
-    }
-    if (actionMobile.children.length > 0) {
-      this.overlayDescription.prepend(actionMobile);
     }
   }
 

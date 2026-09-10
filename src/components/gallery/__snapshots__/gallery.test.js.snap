@@ -1335,7 +1335,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
               />
             </a>
             <a
@@ -1350,7 +1350,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+                class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
               />
             </a>
             <div
@@ -1360,7 +1360,7 @@ exports[`Gallery Default renders correctly 1`] = `
             >
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+                class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
               />
               <span
                 class="ecl-gallery__date-label"
@@ -1372,6 +1372,60 @@ exports[`Gallery Default renders correctly 1`] = `
                 data-ecl-gallery-overlay-date-value=""
               />
             </div>
+          </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-actions-mobile"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+            data-ecl-gallery-overlay-download=""
+            href=""
+            target="_blank"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              View original
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
+            />
+          </a>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+            data-ecl-gallery-overlay-share=""
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Share
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
+            />
+          </a>
+          <div
+            class="ecl-gallery__detail-date"
+            data-ecl-gallery-overlay-date=""
+            hidden=""
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
+            />
+            <span
+              class="ecl-gallery__date-label"
+            >
+              Published
+            </span>
+            <span
+              class="ecl-gallery__date-value"
+              data-ecl-gallery-overlay-date-value=""
+            />
           </div>
         </div>
         <div
@@ -2723,7 +2777,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
               />
             </a>
             <a
@@ -2738,7 +2792,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+                class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
               />
             </a>
             <div
@@ -2748,7 +2802,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
             >
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+                class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
               />
               <span
                 class="ecl-gallery__date-label"
@@ -2760,6 +2814,60 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 data-ecl-gallery-overlay-date-value=""
               />
             </div>
+          </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-actions-mobile"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+            data-ecl-gallery-overlay-download=""
+            href=""
+            target="_blank"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              View original
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
+            />
+          </a>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+            data-ecl-gallery-overlay-share=""
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Share
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
+            />
+          </a>
+          <div
+            class="ecl-gallery__detail-date"
+            data-ecl-gallery-overlay-date=""
+            hidden=""
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
+            />
+            <span
+              class="ecl-gallery__date-label"
+            >
+              Published
+            </span>
+            <span
+              class="ecl-gallery__date-value"
+              data-ecl-gallery-overlay-date-value=""
+            />
           </div>
         </div>
         <div
@@ -4109,7 +4217,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
               />
             </a>
             <a
@@ -4124,7 +4232,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+                class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
               />
             </a>
             <div
@@ -4134,7 +4242,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
             >
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+                class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
               />
               <span
                 class="ecl-gallery__date-label"
@@ -4146,6 +4254,60 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 data-ecl-gallery-overlay-date-value=""
               />
             </div>
+          </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-actions-mobile"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+            data-ecl-gallery-overlay-download=""
+            href=""
+            target="_blank"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              View original
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
+            />
+          </a>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+            data-ecl-gallery-overlay-share=""
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Share
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
+            />
+          </a>
+          <div
+            class="ecl-gallery__detail-date"
+            data-ecl-gallery-overlay-date=""
+            hidden=""
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
+            />
+            <span
+              class="ecl-gallery__date-label"
+            >
+              Published
+            </span>
+            <span
+              class="ecl-gallery__date-value"
+              data-ecl-gallery-overlay-date-value=""
+            />
           </div>
         </div>
         <div
@@ -5495,7 +5657,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
               />
             </a>
             <a
@@ -5510,7 +5672,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+                class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
               />
             </a>
             <div
@@ -5520,7 +5682,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
             >
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+                class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
               />
               <span
                 class="ecl-gallery__date-label"
@@ -5532,6 +5694,60 @@ exports[`Gallery Default renders correctly with old data 1`] = `
                 data-ecl-gallery-overlay-date-value=""
               />
             </div>
+          </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-actions-mobile"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+            data-ecl-gallery-overlay-download=""
+            href=""
+            target="_blank"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              View original
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
+            />
+          </a>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+            data-ecl-gallery-overlay-share=""
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Share
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
+            />
+          </a>
+          <div
+            class="ecl-gallery__detail-date"
+            data-ecl-gallery-overlay-date=""
+            hidden=""
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
+            />
+            <span
+              class="ecl-gallery__date-label"
+            >
+              Published
+            </span>
+            <span
+              class="ecl-gallery__date-value"
+              data-ecl-gallery-overlay-date-value=""
+            />
           </div>
         </div>
         <div
@@ -6881,7 +7097,7 @@ exports[`Gallery Grid renders correctly 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--fullscreen ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--fullscreen"
+                class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
               />
             </a>
             <a
@@ -6896,7 +7112,7 @@ exports[`Gallery Grid renders correctly 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon--share ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon--share"
+                class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
               />
             </a>
             <div
@@ -6906,7 +7122,7 @@ exports[`Gallery Grid renders correctly 1`] = `
             >
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--calendar ecl-icon ecl-icon--fluid ecl-gallery__date-icon ecl-icon-phosphor--calendar"
+                class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
               />
               <span
                 class="ecl-gallery__date-label"
@@ -6918,6 +7134,60 @@ exports[`Gallery Grid renders correctly 1`] = `
                 data-ecl-gallery-overlay-date-value=""
               />
             </div>
+          </div>
+        </div>
+        <div
+          class="ecl-gallery__detail-actions-mobile"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+            data-ecl-gallery-overlay-download=""
+            href=""
+            target="_blank"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              View original
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--fullscreen ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--fullscreen"
+            />
+          </a>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+            data-ecl-gallery-overlay-share=""
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Share
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon--share ecl-icon ecl-icon--2xs ecl-link__icon ecl-icon--share"
+            />
+          </a>
+          <div
+            class="ecl-gallery__detail-date"
+            data-ecl-gallery-overlay-date=""
+            hidden=""
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--2xs ecl-gallery__date-icon ecl-icon-phosphor--calendar-blank"
+            />
+            <span
+              class="ecl-gallery__date-label"
+            >
+              Published
+            </span>
+            <span
+              class="ecl-gallery__date-value"
+              data-ecl-gallery-overlay-date-value=""
+            />
           </div>
         </div>
         <div
