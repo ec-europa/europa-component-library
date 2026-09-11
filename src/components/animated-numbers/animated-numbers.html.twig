@@ -102,6 +102,7 @@
         link: source.link|merge({
           inverted: with_background,
           branded: not counter_color,
+          no_icon_wrapping: true,
         }),
         extra_classes: 'ecl-animated-numbers__source'
       } only %}
@@ -119,12 +120,13 @@
               link: source.link|merge({
                 inverted: with_background,
                 branded: not counter_color,
+                no_icon_wrapping: true,
               }),
               extra_classes: 'ecl-animated-numbers__source'
             } only %}
           {% else %}
             <span class="ecl-animated-numbers__source">
-              {{ source.name }}
+              {{- source.name -}}
             </span>
           {% endif %}
         </li>

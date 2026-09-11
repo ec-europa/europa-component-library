@@ -12,7 +12,7 @@ There are 2 ways to initialise the component.
 
 ### Automatic
 
-Add `data-ecl-auto-init` attribute to component's markup
+Add `data-ecl-auto-init="Gallery"` attribute to component's markup:
 
 ```html
 <section class="ecl-gallery" data-ecl-gallery data-ecl-auto-init="Gallery">
@@ -32,7 +32,6 @@ Given you have 1 element with an attribute `data-ecl-gallery` on the page:
 var elt = document.querySelector('[data-ecl-gallery]');
 var gallery = new ECL.Gallery(elt);
 gallery.init();
-`
 ```
 
 ### Retrieve an existing instance
@@ -44,9 +43,9 @@ var elt = document.querySelector('[data-ecl-gallery]');
 var instance = ECL.components.get(elt);
 ```
 
-To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+To update an existing instance, you can run destroy() and init() on this instance, like this:
 
-```
+```js
 instance.destroy();
 instance.init();
 ```

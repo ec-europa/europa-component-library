@@ -11,7 +11,6 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
  * @param {String} options.subLinkSelector Selector for the menu sub link
- * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {String} options.labelOpenAttribute The data attribute for open label
  * @param {String} options.labelCloseAttribute The data attribute for close label
@@ -73,10 +72,7 @@ export class MegaMenu {
       itemSelector = '[data-ecl-mega-menu-item]',
       linkSelector = '[data-ecl-mega-menu-link]',
       subLinkSelector = '[data-ecl-mega-menu-sublink]',
-      megaSelector = '[data-ecl-mega-menu-mega]',
-      containerSelector = '[data-ecl-has-container]',
       subItemSelector = '[data-ecl-mega-menu-subitem]',
-      featuredAttribute = '[data-ecl-mega-menu-featured]',
       featuredLinkAttribute = '[data-ecl-mega-menu-featured-link]',
       labelOpenAttribute = 'data-ecl-mega-menu-label-open',
       labelCloseAttribute = 'data-ecl-mega-menu-label-close',
@@ -103,16 +99,13 @@ export class MegaMenu {
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
     this.subLinkSelector = subLinkSelector;
-    this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
-    this.containerSelector = containerSelector;
     this.labelOpenAttribute = labelOpenAttribute;
     this.labelCloseAttribute = labelCloseAttribute;
     this.attachClickListener = attachClickListener;
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
-    this.featuredAttribute = featuredAttribute;
     this.featuredLinkAttribute = featuredLinkAttribute;
 
     // Private variables
@@ -128,13 +121,9 @@ export class MegaMenu {
     this.isOpen = false;
     this.resizeTimer = null;
     this.wrappers = null;
-    this.isKeyEvent = false;
     this.isDesktop = false;
     this.isLarge = false;
-    this.lastVisibleItem = null;
     this.menuOverlay = null;
-    this.currentItem = null;
-    this.totalItemsWidth = 0;
     this.breakpointDesktop = getBreakpoint('xl');
     this.breakpointLarge = 1368;
     this.openPanel = { num: 0, item: {} };
@@ -176,8 +165,6 @@ export class MegaMenu {
     this.open = queryOne(this.openSelector, this.element);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
-    this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
-    this.btnNext = queryOne(this.buttonNextSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
@@ -275,9 +262,6 @@ export class MegaMenu {
     // Browse first level items
     if (this.items) {
       this.items.forEach((item) => {
-        // Check menu item display (right to left, full width, ...)
-        this.totalItemsWidth += item.offsetWidth;
-
         if (
           item.hasAttribute('data-ecl-has-children') ||
           item.hasAttribute('data-ecl-has-container')
@@ -500,7 +484,6 @@ export class MegaMenu {
     } else if (subLists && viewport === 'desktop' && !compact) {
       // Reset styles for the sublist and subitems
       subLists.forEach((list) => {
-        list.classList.remove('ecl-mega-menu__sublist--scrollable');
         [...list.children].forEach((item) => {
           item.style.display = '';
         });
@@ -821,7 +804,6 @@ export class MegaMenu {
    * Dinamically set the position of the menu overlay
    */
   positionMenuOverlay() {
-    let availableHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
       setTimeout(() => {
@@ -835,72 +817,7 @@ export class MegaMenu {
           if (this.inner) {
             this.inner.style.top = `${bottomPosition}px`;
           }
-          const item = queryOne('.ecl-mega-menu__item--expanded', this.element);
-
-          if (item) {
-            const hasFeatured = queryOne(
-              '.ecl-mega-menu__mega--has-featured',
-              item,
-            );
-            const info = queryOne('.ecl-mega-menu__info', item);
-            if (info && this.openPanel.num === 1) {
-              const bottomRect = info.getBoundingClientRect();
-              const bottomInfo = bottomRect.bottom;
-              availableHeight = window.innerHeight - bottomInfo - 16;
-            }
-            // When the subitem of first level defines a featured panel
-            if (hasFeatured) {
-              const hasFeaturedRect = hasFeatured.getBoundingClientRect();
-              const hasFeaturedTop = hasFeaturedRect.top;
-              availableHeight =
-                availableHeight || window.innerHeight - hasFeaturedTop;
-              hasFeatured.style.height = `${availableHeight}px`;
-            } else {
-              const subList = queryOne('.ecl-mega-menu__sublist', item);
-              // Check that we are showing the first panel, with no featured panel.
-              if (subList && this.openPanel.num === 1) {
-                const subListRect = subList.getBoundingClientRect();
-                const subListRectTop = subListRect.top;
-                subList.classList.add('ecl-mega-menu__sublist--scrollable');
-                availableHeight =
-                  availableHeight || window.innerHeight - subListRectTop;
-                subList.style.height = `${availableHeight}px`;
-              } else if (subList) {
-                // Clean up the sublist, it is not the one being shown.
-                subList.classList.remove('ecl-mega-menu__sublist--scrollable');
-                subList.style.height = '';
-              }
-              // Second panel handling
-              if (this.openPanel.num === 2) {
-                const subItem = queryOne(
-                  '.ecl-mega-menu__subitem--expanded',
-                  this.element,
-                );
-                if (subItem) {
-                  const subMega = queryOne(
-                    '.ecl-mega-menu__mega--level-2',
-                    subItem,
-                  );
-                  // If there is a featured panel is going to part of it.
-                  if (subMega) {
-                    const subMegaRect = subMega.getBoundingClientRect();
-                    const subMegaTop = subMegaRect.top;
-                    availableHeight = window.innerHeight - subMegaTop;
-                    subMega.style.height = `${availableHeight}px`;
-                    // Overflow on the child list doesn't work here, so we apply
-                    // this class to the wrapper
-                    subMega.classList.add('ecl-mega-menu__sublist--scrollable');
-                  }
-                }
-              }
-              if (this.wrappers) {
-                this.wrappers.forEach((wrapper) => {
-                  wrapper.style.top = '';
-                  wrapper.style.height = '';
-                });
-              }
-            }
-          }
+          // No height calculus needed on mobile
         }
       }, 0);
     } else {
@@ -1671,16 +1588,6 @@ export class MegaMenu {
         itemLink.classList.remove('ecl-mega-menu__parent-link');
       }
     });
-    // Remove styles set for the sublists
-    const sublists = queryAll('.ecl-mega-menu__sublist');
-    if (sublists) {
-      sublists.forEach((sublist) => {
-        sublist.classList.remove(
-          'ecl-mega-menu__sublist--no-border',
-          'ecl-mega-menu__sublist--scrollable',
-        );
-      });
-    }
     // Update label
     const openLabel = this.element.getAttribute(this.labelOpenAttribute);
     if (this.toggleLabel && openLabel) {

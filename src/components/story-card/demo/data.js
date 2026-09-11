@@ -17,7 +17,7 @@ module.exports = {
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-          alt: 'Story card example 1',
+          alt: '',
         },
         sources: [
           {
@@ -46,7 +46,7 @@ module.exports = {
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-          alt: 'Story card example 2',
+          alt: '',
         },
       },
       teaser_label: 'for everyone',
@@ -67,7 +67,7 @@ module.exports = {
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
-          alt: 'Story card example 3',
+          alt: '',
         },
       },
       teaser_label: 'the design',
@@ -80,7 +80,7 @@ module.exports = {
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
-          alt: 'Story card example 4',
+          alt: '',
         },
       },
       teaser_label: 'across europe',

@@ -37,6 +37,22 @@ Tooltip.init();
 Add one of these attributes: `data-ecl-tooltip`, `data-ecl-tooltip-inverted` to your element.
 They differ in style, tooltip is dark with white text, the inverted makes it white with dark text
 
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.body;
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run destroy() and init() on this instance, like this:
+
+```js
+instance.destroy();
+instance.init();
+```
+
 ## API
 
 <Iframe url="../../../../apis/Tooltip.html" />

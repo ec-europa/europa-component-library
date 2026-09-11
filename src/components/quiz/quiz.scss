@@ -36,7 +36,7 @@ $quiz: null !default;
 
 .ecl-quiz__viewport {
   overflow: hidden;
-  padding: 0.25rem;
+  padding: var(--s-xs);
 }
 
 .ecl-quiz__title {
@@ -96,7 +96,7 @@ $quiz: null !default;
   color: map.get($quiz, 'card', 'color');
   flex: 0 0 auto;
   max-width: 30rem;
-  min-width: 18rem;
+  min-width: 22.5rem;
   width: calc(100% - 3rem);
   perspective: 1000px;
 
@@ -114,6 +114,100 @@ $quiz: null !default;
     border: none;
     margin: 0;
     padding: 0;
+  }
+}
+
+.ecl-quiz-card__image,
+.ecl-quiz-card__illustration-container {
+  border-start-start-radius: map.get($theme, 'border-radius', 'm');
+  border-start-end-radius: map.get($theme, 'border-radius', 'm');
+  aspect-ratio: 3.5/1;
+  object-fit: cover;
+  width: 100%;
+}
+
+.ecl-quiz-card__illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  .qm {
+    opacity: 0.3;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .qm-1 {
+    transform: translate(40px, 20px) scale(0.96) rotate(150deg);
+  }
+
+  .qm-2 {
+    transform: translate(90.5px, 36px) scale(1.55);
+  }
+
+  .qm-3 {
+    transform: translate(143px, 111px) scale(0.85) rotate(35deg);
+  }
+
+  .qm-4 {
+    transform: translate(62px, 99px) scale(0.74);
+  }
+
+  .qm-5 {
+    transform: translate(35px, 73px) scale(0.61) rotate(320deg);
+  }
+
+  .qm-6 {
+    transform: translate(195px, 75px) scale(1.15);
+  }
+
+  .qm-7 {
+    transform: translate(144px, 33px) scale(1);
+  }
+
+  .qm-8 {
+    transform: translate(338px, 88px) scale(0.53);
+  }
+
+  .qm-9 {
+    transform: translate(425px, 33px) scale(0.53);
+  }
+
+  .qm-10 {
+    transform: translate(208px, 18px) scale(0.53);
+  }
+
+  .qm-11 {
+    transform: translate(447px, 96px) scale(0.53) rotate(140deg);
+  }
+
+  .qm-12 {
+    transform: translate(262px, 106px) scale(0.76);
+  }
+
+  .qm-13 {
+    transform: translate(400px, 61px) scale(1.27);
+  }
+
+  .qm-14 {
+    transform: translate(321px, 39px) scale(1.58) rotate(20deg);
+  }
+
+  .qm-15 {
+    transform: translate(381px, 126px) scale(1) rotate(70deg);
+  }
+
+  .qm-16 {
+    transform: translate(471px, 120px) scale(0.96);
+  }
+
+  .qm-17 {
+    transform: translate(471px, 21px) scale(0.96);
+  }
+
+  .qm-18 {
+    transform: translate(256px, 50px) scale(0.76) rotate(210deg);
   }
 }
 
@@ -212,15 +306,15 @@ $quiz: null !default;
 }
 
 .ecl-quiz-card__icon {
-  background: map.get($quiz, 'card', 'icon-background');
   border-radius: 50%;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 4rem;
+  width: 4rem;
   flex-shrink: 0;
   display: flex;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .ecl-quiz-card__content {
@@ -251,11 +345,10 @@ $quiz: null !default;
 
 .ecl-quiz-card__front,
 .ecl-quiz-card__back {
-  border-radius: map.get($theme, 'border-radius', 's');
+  border-radius: map.get($theme, 'border-radius', 'm');
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: map.get($quiz, 'card', 'padding');
   position: absolute;
   width: 100%;
   height: 100%;
@@ -263,12 +356,28 @@ $quiz: null !default;
   backface-visibility: hidden;
 }
 
+.ecl-quiz-card__padded {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: map.get($quiz, 'card', 'padding');
+
+  .ecl-quiz-card__picture + & {
+    height: auto;
+  }
+}
+
+.ecl-quiz-card__picture + .ecl-quiz-card__padded:has(.ecl-quiz-card__icon) {
+  margin-block-start: map.get($quiz, 'card', 'icon-overlap');
+  padding-block-start: 0 !important;
+}
+
 .ecl-quiz-card__front {
   pointer-events: auto;
 }
 
 .ecl-quiz-card__back {
-  border: map.get($quiz, 'card', 'back-border');
   pointer-events: none;
 }
 
@@ -299,8 +408,31 @@ $quiz: null !default;
     color: map.get($quiz, 'card-back', 'flip-link-color');
   }
 
+  .ecl-quiz-card__option:not(
+    [data-match='true'],
+    .ecl-quiz-card__option--selected
+  ) {
+    padding-inline-end: calc(3rem - var(--s-s));
+  }
+
   .ecl-quiz-card__icon {
     color: map.get($quiz, 'card-back', 'icon-color');
+    background: var(--cm-on-surface-inverted, #fff);
+
+    &::before {
+      content: ' ';
+      border-radius: 50%;
+      height: 3rem;
+      width: 3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      z-index: 1;
+    }
   }
 }
 
@@ -315,7 +447,7 @@ $quiz: null !default;
   .ecl-quiz-card__option {
     background: map.get($quiz, 'card', 'option-background');
     border: 1px solid map.get($quiz, 'card', 'option-border');
-    border-radius: map.get($theme, 'border-radius', 's');
+    border-radius: 6px;
     counter-increment: letter;
     cursor: pointer;
     display: grid;
@@ -387,7 +519,9 @@ $quiz: null !default;
         display: grid;
         grid-template-columns: auto 1fr;
         gap: var(--s-s);
-        padding: var(--s-xs) var(--s-m);
+
+        // Maximixe padding right to reproduce the icon that is on the back
+        padding: var(--s-xs) 3rem var(--s-xs) var(--s-m);
 
         &::before {
           content: counter(letter, upper-alpha) '. ';
@@ -404,13 +538,26 @@ $quiz: null !default;
 
 .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
   background: map.get($quiz, 'card', 'first-background');
+
+  .ecl-quiz-card__illustration {
+    fill: var(--cm-on-surface-inverted, #fff);
+  }
 }
 
-.ecl-quiz:not(.ecl-quiz--poll)
-  .ecl-quiz-card:nth-child(3n + 1)
-  .ecl-quiz-card__back
+.ecl-quiz .ecl-quiz-card:nth-child(3n + 1) .ecl-quiz-card__front {
   .ecl-quiz-card__icon {
-  background: map.get($quiz, 'card', 'first-background');
+    background: map.get($quiz, 'card', 'first-background');
+  }
+
+  .ecl-quiz-card__option {
+    background: map.get($quiz, 'card', 'first-option-background');
+    border: 1px solid map.get($quiz, 'card', 'first-option-border');
+
+    &:hover {
+      background: var(--c-w-300);
+      border-color: var(--c-w-600);
+    }
+  }
 }
 
 .ecl-quiz-card:nth-child(3n + 2) .ecl-quiz-card__front {
@@ -418,7 +565,8 @@ $quiz: null !default;
   color: map.get($quiz, 'card', 'second-color');
 
   .ecl-quiz-card__icon {
-    color: map.get($quiz, 'card', 'color');
+    background: map.get($quiz, 'card', 'second-background');
+    color: map.get($quiz, 'card', 'second-color');
   }
 
   .ecl-quiz-card__flip {
@@ -437,21 +585,57 @@ $quiz: null !default;
 }
 
 .ecl-quiz:not(.ecl-quiz--poll)
+  .ecl-quiz-card:nth-child(3n + 1)
+  .ecl-quiz-card__back {
+  .ecl-quiz-card__icon::before {
+    background: map.get($quiz, 'card', 'first-background');
+  }
+}
+
+.ecl-quiz:not(.ecl-quiz--poll)
   .ecl-quiz-card:nth-child(3n + 2)
   .ecl-quiz-card__back
   .ecl-quiz-card__icon {
-  background: map.get($quiz, 'card', 'second-background');
+  color: map.get($quiz, 'card', 'second-color');
+
+  &::before {
+    background: map.get($quiz, 'card', 'second-background');
+  }
 }
 
 .ecl-quiz-card:nth-child(3n + 3) .ecl-quiz-card__front {
   background: map.get($quiz, 'card', 'third-background');
+  color: map.get($quiz, 'card', 'third-color');
+
+  .ecl-quiz-card__flip {
+    color: map.get($quiz, 'card', 'third-color');
+  }
+
+  .ecl-quiz-card__icon {
+    background: map.get($quiz, 'card', 'third-background');
+  }
+
+  .ecl-quiz-card__option {
+    background: map.get($quiz, 'card', 'third-option-background');
+    border: 1px solid map.get($quiz, 'card', 'third-option-border');
+
+    &:hover {
+      background: var(--c-w-300);
+      border-color: var(--c-w-600);
+    }
+  }
 }
 
 .ecl-quiz:not(.ecl-quiz--poll)
   .ecl-quiz-card:nth-child(3n + 3)
   .ecl-quiz-card__back
   .ecl-quiz-card__icon {
-  background: map.get($quiz, 'card', 'third-background');
+  color: map.get($quiz, 'card', 'third-color');
+  position: relative;
+
+  &::before {
+    background: map.get($quiz, 'card', 'third-background');
+  }
 }
 
 .ecl-quiz-card__question,
@@ -459,6 +643,8 @@ $quiz: null !default;
   box-sizing: border-box;
   padding-block: map.get($quiz, 'card', 'question-answer-spacing');
   text-align: center;
+  display: flex;
+  align-items: center;
 
   @include mixins.responsive-font(
     map.get($quiz, 'card', 'question-answer-font'),
@@ -486,39 +672,44 @@ $quiz: null !default;
   .ecl-quiz-card__front,
   .ecl-quiz-card__back {
     min-height: 450px;
+  }
+
+  .ecl-quiz-card__padded {
     padding: var(--s-xl);
   }
 
-  .ecl-quiz-card__category {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  .ecl-quiz-card__question,
+  .ecl-quiz-card__answer {
+    align-items: start;
+  }
 
-    @include mixins.responsive-font(
-      map.get($quiz, 'card', 'category-font'),
-      map.get($quiz, 'card', 'category-font-weight')
-    );
+  .ecl-quiz-card__header {
+    margin-inline: calc(-1 * var(--s-xs));
+  }
 
-    &:focus-visible {
-      outline: 2px solid var(--cm-border-primary, var(--c-p));
-      outline-offset: 2px;
-    }
+  .ecl-quiz-card__illustration-container + .ecl-quiz-card__padded {
+    padding-block-start: var(--s-xs);
   }
 
   .ecl-quiz-card__question {
     min-height: 5.5rem;
-    padding-block: var(--s-l);
+    padding-block: var(--s-xs) var(--s-m);
     text-align: start;
   }
 
   .ecl-quiz-card__answer {
     text-align: start;
-    padding-block: var(--s-l);
+    padding-block: var(--s-xs) var(--s-m);
 
     @include mixins.responsive-font(map.get($quiz, 'card', 'poll-answer-font'));
   }
 
   .ecl-quiz-card__answer-title {
     font-weight: map.get($theme, 'font-weight', 'bold');
+
+    &:focus-visible {
+      outline: 2px solid var(--cm-border-primary, var(--c-p));
+    }
   }
 
   .ecl-quiz-card__back .ecl-quiz-card__answer {
@@ -564,15 +755,13 @@ $quiz: null !default;
     }
 
     .ecl-quiz-card__icon {
-      background: map.get($quiz, 'card-back', 'error-icon-color');
+      &::before {
+        background: map.get($quiz, 'card-back', 'error-icon-color');
+      }
 
       .ecl-quiz-card__icon--success {
         display: none;
       }
-    }
-
-    .ecl-quiz-card__category--success {
-      display: none;
     }
 
     .ecl-quiz-card__option--selected {
@@ -585,7 +774,9 @@ $quiz: null !default;
 
     &.ecl-quiz-card--correct {
       .ecl-quiz-card__icon {
-        background: map.get($quiz, 'card-back', 'success-icon-color');
+        &::before {
+          background: map.get($quiz, 'card-back', 'success-icon-color');
+        }
 
         .ecl-icon {
           display: none;
@@ -594,14 +785,6 @@ $quiz: null !default;
         .ecl-quiz-card__icon--success {
           display: flex;
         }
-      }
-
-      .ecl-quiz-card__category--error {
-        display: none;
-      }
-
-      .ecl-quiz-card__category--success {
-        display: flex;
       }
     }
   }

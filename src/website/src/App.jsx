@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { BrowserRouter, StaticRouter } from 'react-router';
 import { MDXProvider } from '@mdx-js/react';
 import customComponents from './website-components/customComponents';
+import EnvironmentBanner from './website-components/EnvironmentBanner/EnvironmentBanner';
 import MainRoutes from './routes/MainRoutes';
 import 'normalize.css/normalize.css';
 import './styles/app.scss';
@@ -32,6 +33,7 @@ export default function App({ url } = {}) {
           />
         </Helmet>
         <MainRoutes />
+        <EnvironmentBanner />
       </Router>
     </MDXProvider>
   );

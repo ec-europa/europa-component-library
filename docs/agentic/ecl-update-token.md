@@ -93,7 +93,7 @@ The export groups tokens under `Surface`, `On surface`, and `Border`. Strip desc
 | `surface-lowest`                         | `--cm-surface-lowest`                |
 | `surface-lowest-variant`                 | `--cm-surface-lowest-variant`        |
 | `surface-lowest-1 (page summary)`        | `--cm-surface-lowest-1-page-summary` |
-| `surface-color-mode-lowest/low/high`     | `--cm-surface-color-mode-*`          |
+| `surface-color-mode/low/high`            | `--cm-surface-color-mode-*`          |
 | `surface-low-0/1/2 (…)`                  | `--cm-surface-low-0/1/2`             |
 | `surface-medium-0/1 (…)`                 | `--cm-surface-medium-0/1`            |
 | `surface-0`                              | `--cm-surface-0`                     |

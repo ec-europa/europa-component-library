@@ -96,8 +96,10 @@
     {% set source = sources|first %}
     {% if source.link is defined and source.link is not empty %}
       {% include '@ecl/link/link.html.twig' with {
-        link: source.link,
-        extra_classes: 'ecl-fact-figures__source'
+        link: source.link|merge({
+          no_icon_wrapping: true,
+        }),
+        extra_classes: 'ecl-fact-figures__source',
       } only %}
     {% else %}
       <span class="ecl-fact-figures__source">
@@ -110,12 +112,14 @@
         <li class="ecl-fact-figures__sources-item">
           {% if source.link is defined and source.link is not empty %}
             {% include '@ecl/link/link.html.twig' with {
-              link: source.link,
-              extra_classes: 'ecl-fact-figures__source'
+              link: source.link|merge({
+                no_icon_wrapping: true,
+              }),
+              extra_classes: 'ecl-fact-figures__source',
             } only %}
           {% else %}
             <span class="ecl-fact-figures__source">
-              {{ source.name }}
+              {{- source.name -}}
             </span>
           {% endif %}
         </li>

@@ -14,6 +14,12 @@ There are 2 ways to initialise the select and the select multiple components.
 
 Add `data-ecl-auto-init="Select"` attribute to component's markup:
 
+```html
+<select class="ecl-select" data-ecl-select-multiple data-ecl-auto-init="Select">
+  ...
+</select>
+```
+
 Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
 
 ### Manual
@@ -37,10 +43,20 @@ var select = ECL.Select.autoInit(
 );
 ```
 
-Once created the new instance can be retrieved like this:
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
 
 ```js
-ECL.components.get(document.querySelector('[data-ecl-select-multiple]'));
+var elt = document.querySelector('[data-ecl-select-multiple]');
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run destroy() and init() on this instance, like this:
+
+```js
+instance.destroy();
+instance.init();
 ```
 
 ## API
