@@ -17,6 +17,8 @@ npm install --save @ecl/carousel
 - **"sr_slide_role"** (string) (default: 'slide') Screen reader localized role for each slide
 - **"sr_play"** (string) (default: 'Play carousel') Screen reader label for the play button
 - **"sr_pause"** (string) (default: 'Pause carousel') Screen reader label for the pause button
+- **"sr_prev"** (string) (default: 'Previous slide') screen reader label for the previous button
+- **"sr_next"** (string) (default: 'Next slide') screen reader label for the next button
 - **"full_width"** (boolean) (default: false) Full width carousel (inside the grid)
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
@@ -26,33 +28,33 @@ npm install --save @ecl/carousel
 ### Example:
 
 <!-- prettier-ignore -->
-```twig 
-{% include '@ecl/carousel/carousel.html.twig' with { 
+```twig
+{% include '@ecl/carousel/carousel.html.twig' with {
   sr_description: 'Carousel description here',
-  items: [ 
-    { 
-      title: 'EU Budget for the future', 
-      description: 'Innovation, economy, environment and geopolitics', 
-      link: { 
-        link: { 
-          label: 'Subscribe', 
-          path: exampleLink, 
-          aria_label: 'Subscribe', 
-          icon_position: 'after', 
-        }, 
-        icon: { 
-          name: 'corner-arrow', 
-          size: 'xs', 
-          transform: 'rotate-90', 
-        }, 
-      }, 
+  items: [
+    {
+      title: 'EU Budget for the future',
+      description: 'Innovation, economy, environment and geopolitics',
+      link: {
+        link: {
+          label: 'Subscribe',
+          path: exampleLink,
+          aria_label: 'Subscribe',
+          icon_position: 'after',
+        },
+        icon: {
+          name: 'corner-arrow',
+          size: 'xs',
+          transform: 'rotate-90',
+        },
+      },
       image:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg', 
-      variant: 'image', 
-      centered: false, 
-    }, 
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      variant: 'image',
+      centered: false,
+    },
     ...
-  ], 
-  counter_label: 'of', 
-} %} 
+  ],
+  counter_label: 'of',
+} %}
 ```
