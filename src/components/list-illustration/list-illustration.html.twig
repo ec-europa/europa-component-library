@@ -112,7 +112,7 @@
 >
   {%- for _item in _items %}
     {% set cutoff = _items|length - (_items|length % _column == 0 ? _column : items|length % _column) %}
-    {% include '@ecl/list-illustration/list-illustration-item.html.twig' 
+    {% include '@ecl/list-illustration/list-illustration-item.html.twig'
       with (_item|merge({
         column: _column,
         divider: _divider,

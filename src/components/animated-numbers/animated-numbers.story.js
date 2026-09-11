@@ -270,6 +270,9 @@ export default {
       },
     },
   },
+  breakpointIndicator: {
+    container: '.ecl-animated-numbers',
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

@@ -6,7 +6,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -14,25 +13,29 @@ $navigation-list: null !default;
 
 .ecl-navigation-list {
   margin: 0;
+  container-type: inline-size;
+  container-name: ecl-navigation-list;
 }
 
 .ecl-navigation-list--col-2,
 .ecl-navigation-list--col-3 {
-  display: grid;
-  grid-auto-rows: auto;
-  column-gap: map.get($theme, 'grid', 'gutter-l');
-  row-gap: var(--s-2xl);
-  width: 100%;
+  .ecl-navigation-list__items {
+    display: grid;
+    grid-auto-rows: auto;
+    column-gap: map.get($theme, 'grid', 'gutter-l');
+    row-gap: var(--s-2xl);
+    width: 100%;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-navigation-list--col-2 {
+@container ecl-navigation-list (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-navigation-list--col-2 .ecl-navigation-list__items {
     grid-template-columns: repeat(2, 1fr);
     row-gap: map.get($navigation-list, 'grid-row-gap');
   }
 
-  .ecl-navigation-list--col-3 {
+  .ecl-navigation-list--col-3 .ecl-navigation-list__items {
     grid-template-columns: repeat(3, 1fr);
     row-gap: map.get($navigation-list, 'grid-row-gap');
   }

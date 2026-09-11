@@ -651,12 +651,9 @@ export class Tabs {
       this.list.style.transform = 'translate3d(0px, 0px, 0px)';
 
       // Behaviors for mobile format
-      const vw = Math.max(
-        document.documentElement.clientWidth || 0,
-        window.innerWidth || 0,
-      );
+      const elWidth = this.element.clientWidth;
 
-      if (vw <= getBreakpoint('s')) {
+      if (elWidth <= getBreakpoint('s')) {
         this.isMobile = true;
         this.index = 1;
         this.list.style.transitionDuration = '0.4s';
