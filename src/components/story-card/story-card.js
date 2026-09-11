@@ -453,6 +453,7 @@ export class StoryCard {
 
       if (details) {
         details.hidden = !isActive;
+        details.setAttribute('tabindex', isActive ? '0' : '-1');
       }
     });
 

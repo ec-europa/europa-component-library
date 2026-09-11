@@ -235,7 +235,9 @@
       id="{{ _id }}-details-{{ loop.index0 }}"
       role="tabpanel"
       aria-labelledby="{{ _id }}-tab-{{ loop.index0 }}"
-      {% if not loop.first %}
+      {% if loop.first %}
+        tabindex="0"
+      {% else %}
         hidden
       {% endif %}
     >
