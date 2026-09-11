@@ -27,11 +27,13 @@ $carousel: null !default;
 
   .ecl-banner {
     height: 100%;
-  }
 
-  .ecl-banner__info,
-  .ecl-banner__credit {
-    background-color: map.get($carousel, 'banner-background');
+    &:not(.ecl-banner--no-media) {
+      .ecl-banner__info,
+      .ecl-banner__credit {
+        background-color: map.get($carousel, 'banner-background');
+      }
+    }
   }
 }
 
@@ -136,7 +138,7 @@ $carousel: null !default;
 }
 
 .ecl-carousel__pager-container {
-  padding-block-end: var(--s-l);
+  padding-block: var(--s-s) var(--s-l);
 }
 
 .ecl-carousel__pause,
@@ -187,10 +189,12 @@ $carousel: null !default;
       .ecl-container {
         height: initial;
       }
-    }
 
-    .ecl-banner__info {
-      background: transparent;
+      &:not(.ecl-banner--no-media) {
+        .ecl-banner__info {
+          background: transparent;
+        }
+      }
     }
   }
 
