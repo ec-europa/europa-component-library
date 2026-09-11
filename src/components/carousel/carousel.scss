@@ -58,28 +58,43 @@ $carousel: null !default;
   }
 }
 
-.ecl-carousel__loading-bar {
+.ecl-carousel__teaser-button {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-xs);
+  visibility: visible;
+}
+
+.ecl-carousel__teaser-content {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+}
+
+.ecl-carousel__teaser-loading-bar {
   background: map.get($carousel, 'loading-bar-background');
   height: var(--s-xs);
-  width: 15rem;
+  order: 1;
   visibility: hidden;
+  width: 100%;
+
+  .ecl-carousel__teaser-loading-bar-completion {
+    background: var(--cm-surface-medium, var(--c-p));
+    display: block;
+    height: 100%;
+    width: 0;
+    animation: loading #{var(--ecl-carousel-slide-duration)} linear forwards;
+  }
 
   &.is-active {
     visibility: visible;
-  }
-}
 
-.ecl-carousel__loading-bar-completion {
-  background: var(--cm-surface-medium, var(--c-p));
-  height: 100%;
-  width: 0;
-  animation: loading #{var(--ecl-carousel-slide-duration)} linear forwards;
-
-  .is-active & {
-    animation-play-state: running;
+    .ecl-carousel__teaser-loading-bar-completion {
+      animation-play-state: running;
+    }
   }
 
-  .is-paused & {
+  &.is-paused .ecl-carousel__teaser-loading-bar-completion {
     animation-play-state: paused;
   }
 }

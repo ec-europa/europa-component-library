@@ -16,13 +16,6 @@ exports[`Carousel Default renders correctly 1`] = `
         class="ecl-container"
       >
         <div
-          class="ecl-carousel__loading-bar"
-        >
-          <div
-            class="ecl-carousel__loading-bar-completion"
-          />
-        </div>
-        <div
           class="ecl-carousel__navigation"
         >
           <div
@@ -137,17 +130,29 @@ exports[`Carousel Default renders correctly 1`] = `
             role="tablist"
           >
             <button
-              aria-current="true"
               class="ecl-carousel__teaser-button"
               data-ecl-carousel-slide-index="0"
               data-ecl-carousel-teaser-button=""
               role="tab"
+              tabindex="-1"
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </span>
               </span>
             </button>
             <button
@@ -159,9 +164,21 @@ exports[`Carousel Default renders correctly 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Nam non velit eget libero sagittis consequat vel et turpis
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Nam non velit eget libero sagittis consequat vel et turpis
+                </span>
               </span>
             </button>
             <button
@@ -173,9 +190,21 @@ exports[`Carousel Default renders correctly 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-description"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-description"
+                >
+                  Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                </span>
               </span>
             </button>
             <button
@@ -187,9 +216,21 @@ exports[`Carousel Default renders correctly 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-description"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-description"
+                >
+                  Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                </span>
               </span>
             </button>
             <button
@@ -201,9 +242,21 @@ exports[`Carousel Default renders correctly 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Donec maximus pharetra ex a ultricies
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Donec maximus pharetra ex a ultricies
+                </span>
               </span>
             </button>
           </div>
@@ -647,13 +700,6 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         class="ecl-container"
       >
         <div
-          class="ecl-carousel__loading-bar"
-        >
-          <div
-            class="ecl-carousel__loading-bar-completion"
-          />
-        </div>
-        <div
           class="ecl-carousel__navigation"
         >
           <div
@@ -768,17 +814,29 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
             role="tablist"
           >
             <button
-              aria-current="true"
               class="ecl-carousel__teaser-button"
               data-ecl-carousel-slide-index="0"
               data-ecl-carousel-teaser-button=""
               role="tab"
+              tabindex="-1"
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </span>
               </span>
             </button>
             <button
@@ -790,9 +848,21 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Nam non velit eget libero sagittis consequat vel et turpis
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Nam non velit eget libero sagittis consequat vel et turpis
+                </span>
               </span>
             </button>
             <button
@@ -804,9 +874,21 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-description"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-description"
+                >
+                  Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                </span>
               </span>
             </button>
             <button
@@ -818,9 +900,21 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-description"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-description"
+                >
+                  Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                </span>
               </span>
             </button>
             <button
@@ -832,9 +926,21 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Donec maximus pharetra ex a ultricies
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Donec maximus pharetra ex a ultricies
+                </span>
               </span>
             </button>
           </div>
@@ -1276,13 +1382,6 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         class="ecl-container"
       >
         <div
-          class="ecl-carousel__loading-bar"
-        >
-          <div
-            class="ecl-carousel__loading-bar-completion"
-          />
-        </div>
-        <div
           class="ecl-carousel__navigation"
         >
           <div
@@ -1397,17 +1496,29 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
             role="tablist"
           >
             <button
-              aria-current="true"
               class="ecl-carousel__teaser-button"
               data-ecl-carousel-slide-index="0"
               data-ecl-carousel-teaser-button=""
               role="tab"
+              tabindex="-1"
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </span>
               </span>
             </button>
             <button
@@ -1419,9 +1530,21 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Nam non velit eget libero sagittis consequat vel et turpis
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Nam non velit eget libero sagittis consequat vel et turpis
+                </span>
               </span>
             </button>
             <button
@@ -1433,9 +1556,21 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-description"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-description"
+                >
+                  Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies
+                </span>
               </span>
             </button>
             <button
@@ -1447,9 +1582,21 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-description"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-description"
+                >
+                  Duis iaculis ante et eros dignissim consequat. Etiam nulla mauris, cursus eget cursus at, dignissim in nibh
+                </span>
               </span>
             </button>
             <button
@@ -1461,9 +1608,21 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
               type="button"
             >
               <span
-                class="ecl-carousel__teaser-title"
+                aria-hidden="true"
+                class="ecl-carousel__teaser-loading-bar"
               >
-                Donec maximus pharetra ex a ultricies
+                <span
+                  class="ecl-carousel__teaser-loading-bar-completion"
+                />
+              </span>
+              <span
+                class="ecl-carousel__teaser-content"
+              >
+                <span
+                  class="ecl-carousel__teaser-title"
+                >
+                  Donec maximus pharetra ex a ultricies
+                </span>
               </span>
             </button>
           </div>

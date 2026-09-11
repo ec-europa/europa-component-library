@@ -79,9 +79,6 @@
 >
   <div class="ecl-carousel__controls">
     <div class="ecl-container">
-      <div class="ecl-carousel__loading-bar">
-        <div class="ecl-carousel__loading-bar-completion"></div>
-      </div>
       <div class="ecl-carousel__navigation">
         <div class="ecl-carousel__pager-container">
           {% include "@ecl/slider/slider-pager.html.twig" with {
@@ -114,17 +111,18 @@
             data-ecl-carousel-teaser-button
             data-ecl-carousel-slide-index="{{ loop.index0 }}"
             role="tab"
-          {% if loop.first %}
-            aria-current="true"
-          {% else %}
             tabindex="-1"
-          {% endif %}
           >
-            {% if item.title is defined and item.title is not empty %}
-              <span class="ecl-carousel__teaser-title">{{ item.title }}</span>
-            {% elseif item.description is defined and item.description is not empty %}
-              <span class="ecl-carousel__teaser-description">{{ item.description }}</span>
-            {% endif %}
+            <span class="ecl-carousel__teaser-loading-bar" aria-hidden="true">
+              <span class="ecl-carousel__teaser-loading-bar-completion"></span>
+            </span>
+            <span class="ecl-carousel__teaser-content">
+              {% if item.title is defined and item.title is not empty %}
+                <span class="ecl-carousel__teaser-title">{{ item.title }}</span>
+              {% elseif item.description is defined and item.description is not empty %}
+                <span class="ecl-carousel__teaser-description">{{ item.description }}</span>
+              {% endif %}
+            </span>
           </button>
         {% endfor %}
         </div>
