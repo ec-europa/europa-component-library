@@ -28,6 +28,10 @@ $carousel: null !default;
   .ecl-banner {
     height: 100%;
 
+    &.ecl-banner--no-media .ecl-banner__content {
+      align-self: center;
+    }
+
     &:not(.ecl-banner--no-media) {
       .ecl-banner__info,
       .ecl-banner__credit {
