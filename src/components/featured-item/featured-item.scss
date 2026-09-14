@@ -102,7 +102,13 @@ $featured-item: null !default;
 
   .ecl-featured-item--hcenter & {
     align-items: center;
-    text-align: center;
+
+    .ecl-featured-item__info {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
     .ecl-featured-item__link {
       align-self: auto;

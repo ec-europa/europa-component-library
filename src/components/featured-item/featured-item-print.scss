@@ -106,7 +106,13 @@ $featured-item-print: null !default;
 
   .ecl-featured-item--hcenter & {
     align-items: center;
-    text-align: center;
+
+    .ecl-featured-item__info {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
     .ecl-featured-item__link {
       align-self: auto;
@@ -229,6 +235,10 @@ $featured-item-print: null !default;
   &.ecl-featured-item--link-highlighted {
     .ecl-featured-item__info {
       flex-grow: 1;
+    }
+
+    &.ecl-featured-item--hcenter .ecl-featured-item__link {
+      align-self: flex-start;
     }
 
     &.ecl-featured-item--vcenter .ecl-featured-item__info {
