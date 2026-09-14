@@ -25,8 +25,8 @@ function debouncedEclInit() {
     if (root) {
       root.setAttribute('data-ecl-auto-init', 'Tooltip');
       root.classList.add('ecl');
-      direction = document.documentElement.getAttribute('dir');
     }
+    direction = document.documentElement.getAttribute('dir');
     // Destroy previous ECL instances so data-ecl-auto-initialized is cleared,
     // allowing ECL.autoInit() to run a full re-init for the new story.
     if (eclAutoInitInstance) {
