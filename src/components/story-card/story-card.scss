@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -106,6 +107,12 @@ $min-height-desktop: 548px;
     flex: 1;
     padding: map.get($story-card, 'card', 'content-padding');
     gap: map.get($story-card, 'card', 'content-gap');
+  }
+
+  .ecl-story-card__grid-details {
+    border-radius: map.get($theme, 'border-radius', 's');
+
+    @include mixins-color.focus-default;
   }
 
   .ecl-story-card__grid-details-content {
