@@ -23,7 +23,8 @@ $table: (
     font-weight: map.get($font-weight, 'bold'),
   ),
   cell: (
-    separator: 1px solid var(--c-p-40),
+    border-inline-start-mobile: 1px solid var(--c-p-40),
+    group-background: var(--c-p-10,) separator: 1px solid var(--c-p-40),
     padding-mobile: var(--s-s),
     padding-desktop: var(--s-s) var(--s-m),
     margin-mobile: (

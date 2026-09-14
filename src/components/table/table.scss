@@ -57,7 +57,6 @@ $table: null !default;
   border-block-start-width: 0;
 
   &:first-child {
-    // TO DO Add in EC
     border-block-start: map.get($table, 'head', 'head-border-top');
   }
 
@@ -185,6 +184,11 @@ $table: null !default;
     }
 
     .ecl-table__cell {
+      border-inline-start: map.get(
+        $table,
+        'cell',
+        'border-inline-start-mobile'
+      );
       border-inline-end: map.get($table, 'cell', 'separator');
       border-block-start: map.get($table, 'row-border');
       display: flex;
@@ -193,9 +197,7 @@ $table: null !default;
       &::before {
         background-color: map.get($table, 'head', 'background');
         border-block-end: map.get($table, 'header', 'separator-desktop');
-
-        // TO DO EC
-        border-inline-end: 2px solid var(--c-p-20);
+        border-inline-end: 2px solid map.get($table, 'head', 'background');
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
@@ -207,6 +209,12 @@ $table: null !default;
         margin-inline-start: map.get($table, 'cell', 'margin-mobile', 'start');
         margin-block-start: map.get($table, 'cell', 'margin-mobile', 'top');
         padding: map.get($table, 'cell', 'padding-mobile');
+      }
+
+      &:first-child::before {
+        margin-block-start: calc(
+          map.get($table, 'cell', 'margin-mobile', 'top') - 1px
+        );
       }
 
       &:last-of-type {
@@ -249,10 +257,9 @@ $table: null !default;
       }
     }
 
-    // TO DO: EC
     .ecl-table__cell--group::before {
       border-inline-end: map.get($table, 'header', 'separator-mobile');
-      background: var(--c-p-10);
+      background: map.get($table, 'cell', 'group-background');
     }
   }
 
