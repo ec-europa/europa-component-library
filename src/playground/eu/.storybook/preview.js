@@ -5,6 +5,7 @@ import isChromatic from 'chromatic/isChromatic';
 import { addons } from '@storybook/preview-api';
 import { STORY_RENDERED } from '@storybook/core-events';
 import { allModes } from './modes';
+import { RTL_UPDATE_EVENT } from 'storybook-addon-rtl';
 
 import './ECL';
 
@@ -14,6 +15,7 @@ import './ECL';
 // so we must destroy the previous instance first to allow a clean re-init.
 let eclInitTimer = null;
 let eclAutoInitInstance = null;
+let direction = null;
 function debouncedEclInit() {
   clearTimeout(eclInitTimer);
   eclInitTimer = setTimeout(() => {
@@ -23,6 +25,7 @@ function debouncedEclInit() {
     if (root) {
       root.setAttribute('data-ecl-auto-init', 'Tooltip');
       root.classList.add('ecl');
+      direction = document.documentElement.getAttribute('dir');
     }
     // Destroy previous ECL instances so data-ecl-auto-initialized is cleared,
     // allowing ECL.autoInit() to run a full re-init for the new story.
@@ -55,6 +58,13 @@ channel.once(STORY_RENDERED, () => {
     childList: true,
     subtree: false,
   });
+});
+
+// Listen to the update of the direction done via the storybook plugin.
+channel.on(RTL_UPDATE_EVENT, (dir) => {
+  if (direction && dir.direction !== direction) {
+    debouncedEclInit();
+  }
 });
 
 global.Buffer = Buffer;
