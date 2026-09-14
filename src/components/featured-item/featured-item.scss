@@ -280,6 +280,8 @@ $featured-item: null !default;
 
     // stylelint-disable-next-line no-descending-specificity
     .ecl-featured-item__link {
+      box-sizing: border-box;
+
       --ecl-link-color: #{map.get(
           $featured-item,
           'highlight',

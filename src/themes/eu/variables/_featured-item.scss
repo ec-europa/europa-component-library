@@ -103,6 +103,16 @@ $featured-item-print: (
     link: (
       spacing: map.get($spacing-print, 'm'),
       spacing-highlighted: 0,
+      margin-highlighted-block: calc(-1 * #{map.get($spacing-print, 'm')}),
+      margin-highlighted-inline: auto
+        calc(
+          -1 *
+            (#{map.get($spacing-print, 'm')} + #{map.get($spacing-print, 'l')})
+        ),
+      margin-highlighted-inline-right: calc(
+          -1 *
+            (#{map.get($spacing-print, 'l')} + #{map.get($spacing-print, 'l')})
+        ),
       padding: map.get($spacing-print, 'm') map.get($spacing-print, '3xl'),
     ),
   ),
