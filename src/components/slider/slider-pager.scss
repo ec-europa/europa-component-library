@@ -59,3 +59,12 @@ $slider-pager: null !default;
     width: 1rem;
   }
 }
+
+[dir='rtl'] {
+  .ecl-slider-pager__next,
+  .ecl-slider-pager__prev {
+    .ecl-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
