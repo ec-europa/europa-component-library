@@ -73,6 +73,8 @@ export class Table {
     this.filterInputs = [];
     this.filterTimer = null;
     this.columnIndexes = new Map();
+    this.tbody = null;
+    this.rows = [];
 
     // Bind `this` for use in callbacks
     this.handleClickOnSort = this.handleClickOnSort.bind(this);
@@ -196,6 +198,8 @@ export class Table {
 
     this.isSortable = this.element.hasAttribute(this.sortAttribute);
     this.isFilterable = this.element.hasAttribute(this.filterAttribute);
+    this.tbody = queryOne('tbody', this.element);
+    this.rows = queryAll('tr', this.tbody);
 
     const thead = queryOne('thead', this.element);
     if (thead && (this.isSortable || this.isFilterable)) {
@@ -269,8 +273,7 @@ export class Table {
     }
 
     // Set default row order via dataset.
-    const tbody = queryOne('tbody', this.element);
-    [...queryAll('tr', tbody)].forEach((tr, index) => {
+    this.rows.forEach((tr, index) => {
       tr.setAttribute('data-ecl-table-order', index);
     });
   }
@@ -331,8 +334,6 @@ export class Table {
    */
   handleClickOnSort = (toggle) => (event) => {
     event.preventDefault();
-    const table = toggle.closest('table');
-    const tbody = queryOne('tbody', table);
     let order = toggle.getAttribute('aria-sort');
 
     // Get current column index, taking into account rowspan and colspan.
@@ -349,18 +350,20 @@ export class Table {
       );
 
     if (order === 'descending') {
-      // If current order is 'descending' reset column filter sort rows by default order.
-      const rowCount = queryAll('tr', tbody).length;
-      for (let index = 0; index < rowCount; index += 1) {
-        const defaultTr = queryOne(`[data-ecl-table-order='${index}']`, tbody);
-        tbody.appendChild(defaultTr);
-      }
+      // If current order is 'descending' reset rows to their default order.
+      this.rows
+        .sort(
+          (a, b) =>
+            a.getAttribute('data-ecl-table-order') -
+            b.getAttribute('data-ecl-table-order'),
+        )
+        .forEach((tr) => this.tbody.appendChild(tr));
       order = null;
     } else {
       // Otherwise we sort the rows and set new order.
-      [...queryAll('tr', tbody)]
+      this.rows
         .sort(comparer(colIndex, order !== 'ascending'))
-        .forEach((tr) => tbody.appendChild(tr));
+        .forEach((tr) => this.tbody.appendChild(tr));
       order = order === 'ascending' ? 'descending' : 'ascending';
     }
 
@@ -405,9 +408,7 @@ export class Table {
   handleFilterInput() {
     clearTimeout(this.filterTimer);
     this.filterTimer = setTimeout(() => {
-      const tbody = queryOne('tbody', this.element);
-
-      queryAll('tr', tbody).forEach((row) => {
+      this.rows.forEach((row) => {
         const isVisible = this.filterInputs.every((input) => {
           const keyword = input.value.trim().toLowerCase();
           if (!keyword) {
