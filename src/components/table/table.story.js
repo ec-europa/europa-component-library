@@ -8,15 +8,13 @@ import dataMulti from './demo/data--multi';
 import table from './table.html.twig';
 import notes from './README.md';
 
-// Preserve original data
-const dataZebra = { ...dataDefault, zebra: true };
-
 const getArgs = () => {
   const args = {
     header: true,
     simple: false,
     sortable: false,
     filter: false,
+    zebra: false,
   };
 
   if (getSystem() === 'ec') {
@@ -75,6 +73,17 @@ const getArgTypes = () => ({
     },
     if: { arg: 'header' },
   },
+
+  zebra: {
+    name: 'zebra',
+    type: { name: 'boolean' },
+    description: 'Add alternating row background colors',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -114,22 +123,6 @@ Default.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(dataDefault, args),
-  },
-};
-
-export const Zebra = (_, { loaded: { component } }) => component;
-
-Zebra.render = async (args) => {
-  const renderedTableZebra = await table(prepareData(dataZebra, args));
-  return renderedTableZebra;
-};
-Zebra.storyName = 'zebra';
-Zebra.args = getArgs(dataZebra);
-Zebra.argTypes = getArgTypes(dataZebra);
-Zebra.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataZebra, args),
   },
 };
 
