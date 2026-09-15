@@ -19,6 +19,7 @@ npm install --save @ecl/file
 - **"download_attribute"** (boolean) (default: false) Add the HTML download attribute to the download link
 - **"picture"** (associative array) (default: {}): Thumbnail image, following ECL Picture structure
 - **"label"** (array) (default: []) Array of ECL Label objects (also supported as a single label object)
+- **"labels_aria"** (string) (default: ''): Aria label for the labels area
 - **"lists"** (array) (default: []) Array of ECL Description list objects
 - **"translation"** (array) (default: []) Translation panel for multiple language versions:
   - "sr_toggle" (string) (default: ''): Additional toggle label; for screen readers
@@ -56,6 +57,7 @@ npm install --save @ecl/file
       label: 'Highlight',
     },
   ],
+  labels_aria: 'Labels',
   icon: {
     name: 'file-pdf',
     family: 'phosphor',

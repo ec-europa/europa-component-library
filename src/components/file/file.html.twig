@@ -14,6 +14,7 @@
   - "download_attribute" (boolean) (default: false) Add the HTML download attribute to the download link
   - "picture" (object) (default: {}): Thumbnail image, following ECL Picture structure
   - "label" (array) (default: []) Array of ECL Label objects (also supported as a single label object)
+  - "labels_aria" (string) (default: ''): Aria label for the labels area
   - "lists" (array) (default: []) Array of ECL Description list objects
   - "translation" (array) (default: []) Translation panel for multiple language versions:
     - "sr_toggle" (string) (default: ''): Additional toggle label; for screen readers
@@ -47,6 +48,7 @@
 {% set _language = language|default('') %}
 {% set _meta = meta|default([]) %}
 {% set _label = label|default({}) %}
+{% set _labels_aria = labels_aria|default('') %}
 {% set _lists = lists|default([]) %}
 {% set _download = download|default({}) %}
 {% set _download_attribute = download_attribute|default(false) %}
@@ -168,14 +170,20 @@
       {% if _title is not empty or _primary_meta is not empty %}
         <div class="ecl-file__content">
           {# Label #}
-          {% if _labels is not empty %}
-            <div class="ecl-file__labels">
+          {% if _labels is defined and _labels is not empty and _labels is iterable %}
+            {% set _tag_labels_list = _labels|length == 1 ? 'div' : 'ul' %}
+            {% set _tag_labels_item = _labels|length == 1 ? 'div' : 'li' %}
+            <{{ _tag_labels_list }} class="ecl-file__labels"
+              {%- if _labels_aria is not empty -%}
+                aria-label="{{ _labels_aria }}"
+              {%- endif -%}
+            >
               {% for _label in _labels %}
-                <div class="ecl-file__label">
+                <{{ _tag_labels_item }} class="ecl-file__label">
                   {% include '@ecl/label/label.html.twig' with _label only %}
-                </div>
+                </{{ _tag_labels_item }}>
               {% endfor %}
-            </div>
+            </{{ _tag_labels_list }}>
           {% endif %}
 
           {# Title #}
