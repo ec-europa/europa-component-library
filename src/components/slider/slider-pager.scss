@@ -33,28 +33,43 @@ $slider-pager: null !default;
 
 .ecl-slider-pager__dots {
   .ecl-slider-pager__dot {
-    background: map.get($slider-pager, 'dot-background');
+    align-items: center;
+    background: transparent;
     border: none !important;
     border-radius: 50%;
     cursor: pointer;
-    height: 0.5rem;
-    margin-inline-end: map.get($slider-pager, 'dot-spacing');
-    min-height: 0;
-    min-width: 0;
-    padding: 0;
-    width: 0.5rem;
+    display: inline-flex;
+    justify-content: center;
+    min-height: 1.5rem;
+    padding: 0 0.5rem;
+    min-width: 1.5rem;
 
     @include mixins-color.focus-default;
+
+    &::after {
+      background: map.get($slider-pager, 'dot-background');
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 0.5rem;
+      width: 0.5rem;
+    }
+
+    &:focus-visible {
+      border-radius: map.get($theme, 'border-radius', 's');
+    }
   }
 
   .ecl-slider-pager__dot--active {
-    border-radius: map.get($theme, 'border-radius', 'l');
-    width: 2.5rem;
-    background: map.get($slider-pager, 'dot-active-background');
+    &::after {
+      border-radius: map.get($theme, 'border-radius', 'l');
+      width: 2.5rem;
+      background: map.get($slider-pager, 'dot-active-background');
+    }
   }
 
-  .ecl-slider-pager__dot--active + .ecl-slider-pager__dot,
-  .ecl-slider-pager__dot.is-prev {
+  .ecl-slider-pager__dot--active + .ecl-slider-pager__dot::after,
+  .ecl-slider-pager__dot.is-prev::after {
     border-radius: map.get($theme, 'border-radius', 'm');
     width: 1rem;
   }
