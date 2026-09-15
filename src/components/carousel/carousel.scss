@@ -186,6 +186,10 @@ $carousel: null !default;
     padding-inline: map.get($carousel, 'container-padding-inline');
   }
 
+  .ecl-container .ecl-carousel__controls .ecl-container {
+    padding-inline: map.get($carousel, 'in-container-padding-inline');
+  }
+
   .ecl-carousel {
     .ecl-banner {
       height: initial;
