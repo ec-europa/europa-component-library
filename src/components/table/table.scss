@@ -49,6 +49,10 @@ $table: null !default;
   &:last-child {
     border-inline-end-color: map.get($table, 'head', 'border-inline-color');
   }
+
+  .ecl-table:has(th[scope='colgroup']) &:not([scope='colgroup']) {
+    background: map.get($table, 'head', 'background-ungrouped');
+  }
 }
 
 .ecl-table__row,
