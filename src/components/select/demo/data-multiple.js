@@ -85,6 +85,7 @@ module.exports = {
     multiple_search_text: 'Enter filter keyword',
     multiple_search_no_results_text: 'No results found',
     multiple_all_text: 'Select all',
+    multiple_nb_options: 'Options found:',
     multiple_close_text: 'Apply',
     multiple_clear_all_text: 'Clear all',
     multiple_counter_text: 'Selected:',
