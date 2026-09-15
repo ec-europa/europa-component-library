@@ -203,13 +203,10 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu--start-panel .ecl-mega-menu__inner {
-  @include with-scrollbar;
-}
-
 // Expanded
 .ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
-  display: block;
+  display: flex;
+  flex-direction: column;
   inset-inline-end: 0;
 }
 
@@ -220,8 +217,16 @@ $mega-menu: null !default;
   color: map.get($mega-menu, 'mobile', 'header-color');
   display: flex;
   flex-flow: row-reverse;
+  flex-shrink: 0;
   height: map.get($mega-menu, 'mobile', 'header-height');
   padding-block-end: var(--s-xs);
+}
+
+.ecl-mega-menu--start-panel .ecl-mega-menu__list,
+.ecl-mega-menu__inner--expanded .ecl-mega-menu__list {
+  min-height: 0;
+
+  @include with-scrollbar;
 }
 
 .ecl-mega-menu__title {
@@ -355,14 +360,17 @@ $mega-menu: null !default;
       display: none;
     }
   }
+
+  .ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
+    display: block;
+  }
 }
 
 .ecl-mega-menu__wrapper {
   background: #fff;
   display: none;
   font: map.get($mega-menu, 'global', 'font');
-  position: absolute;
-  height: 100%;
+  position: relative;
   inset-inline-start: 0;
   padding: 0;
   top: 0;
@@ -463,6 +471,20 @@ $mega-menu: null !default;
       width: calc(var(--s-s) + 0.5px);
       display: none;
     }
+  }
+}
+
+.ecl-mega-menu__item--current-page .ecl-mega-menu__link {
+  background-color: map.get(
+    $mega-menu,
+    'mobile',
+    'item-current-page-background'
+  );
+  color: map.get($mega-menu, 'mobile', 'item-current-page-color');
+
+  &:hover {
+    background: transparent;
+    color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 }
 
@@ -590,11 +612,14 @@ $mega-menu: null !default;
       flex-direction: row;
       inset-inline: 0;
       margin-top: 0;
+      min-height: auto;
+      overflow-y: visible;
       padding: 0;
     }
 
     .ecl-mega-menu__wrapper {
       padding: 0 0 var(--s-2xl);
+      position: absolute;
       top: 48px;
     }
 
@@ -648,6 +673,24 @@ $mega-menu: null !default;
         outline-color: #fff;
         outline-offset: map.get($mega-menu, 'desktop', 'outline-offset');
         outline-width: map.get($mega-menu, 'desktop', 'outline-width');
+      }
+    }
+
+    .ecl-mega-menu__item--current-page .ecl-mega-menu__link {
+      background-color: map.get(
+        $mega-menu,
+        'desktop',
+        'item-current-page-background'
+      );
+      color: map.get($mega-menu, 'desktop', 'item-current-page-color');
+
+      &:hover {
+        background: map.get($mega-menu, 'desktop', 'item-background-hover');
+        color: map.get($mega-menu, 'desktop', 'item-color-hover');
+      }
+
+      &:focus-visible {
+        outline-color: currentcolor;
       }
     }
 
@@ -792,6 +835,11 @@ $mega-menu: null !default;
   .ecl-mega-menu--two-panels {
     .ecl-mega-menu__item--expanded > .ecl-mega-menu__link {
       display: none;
+    }
+
+    // Prevent horizontal scrollbar.
+    .ecl-mega-menu__list {
+      overflow-x: hidden;
     }
 
     .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
@@ -984,12 +1032,6 @@ $mega-menu: null !default;
   .ecl-mega-menu__featured-list__item:last-child {
     padding-block-end: var(--s-m);
   }
-
-  @include with-scrollbar;
-}
-
-.ecl-mega-menu__sublist--scrollable {
-  @include with-scrollbar;
 }
 
 .ecl-mega-menu__mega--level-2 {
@@ -1382,8 +1424,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__subitem {
-        &--current .ecl-mega-menu__sublink,
-        &.ecl-mega-menu__subitem--current-page .ecl-mega-menu__sublink {
+        &--current .ecl-mega-menu__sublink {
           background-color: transparent;
           box-shadow: none;
         }

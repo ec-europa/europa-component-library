@@ -986,8 +986,9 @@ exports[`Site Header EC renders correctly 1`] = `
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -1008,52 +1009,60 @@ exports[`Site Header EC renders correctly 1`] = `
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
-                  id="search-form-id"
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
+                    id="search-form-id"
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
                       />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
+                    >
                       <span
-                        class="ecl-button__label"
-                        data-ecl-label="true"
+                        class="ecl-button__container"
                       >
-                        Search
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Search
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </form>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -1287,8 +1296,9 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -1309,45 +1319,53 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -1874,8 +1892,9 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -1896,52 +1915,60 @@ exports[`Site Header EC renders correctly with a single language item 1`] = `
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
-                  id="search-form-id"
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
+                    id="search-form-id"
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
                       />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
+                    >
                       <span
-                        class="ecl-button__label"
-                        data-ecl-label="true"
+                        class="ecl-button__container"
                       >
-                        Search
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Search
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </form>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -2153,8 +2180,9 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -2175,45 +2203,53 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -2339,8 +2375,9 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -2361,45 +2398,53 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -2520,8 +2565,9 @@ exports[`Site Header EC renders the custom action toggle as a link when a path i
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -2542,45 +2588,53 @@ exports[`Site Header EC renders the custom action toggle as a link when a path i
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -2707,8 +2761,9 @@ exports[`Site Header EC renders the language selector as a link when an href is 
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -2729,45 +2784,53 @@ exports[`Site Header EC renders the language selector as a link when an href is 
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -2893,8 +2956,9 @@ exports[`Site Header EC renders the login toggle as a button when no href is pro
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -2915,45 +2979,53 @@ exports[`Site Header EC renders the login toggle as a button when no href is pro
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -3097,8 +3169,9 @@ exports[`Site Header EC renders the login toggle as a link when logged in and an
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -3119,45 +3192,53 @@ exports[`Site Header EC renders the login toggle as a link when logged in and an
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -3283,8 +3364,9 @@ exports[`Site Header EC renders the search toggle as a link when an href is prov
                 role="search"
               >
                 <a
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-link ecl-link--tertiary-neutral ecl-link--icon ecl-site-header__search-toggle ecl-link--icon-only"
                   data-ecl-search-toggle="true"
                   href="/example"
@@ -3299,45 +3381,53 @@ exports[`Site Header EC renders the search toggle as a link when an href is prov
                     class="wt-icon--search ecl-icon ecl-icon--m ecl-link__icon ecl-site-header__icon ecl-icon--search"
                   />
                 </a>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
                     >
                       <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
-                      />
-                    </span>
-                  </button>
-                </form>
+                        class="ecl-button__container"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -4347,8 +4437,9 @@ exports[`Site Header EU renders correctly 1`] = `
                 role="search"
               >
                 <button
-                  aria-controls="search-form-id"
+                  aria-controls="ecl-site-header-search-form-dialog"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
                   class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-site-header__search-toggle ecl-button--icon-only"
                   data-ecl-search-toggle="true"
                   type="button"
@@ -4369,52 +4460,60 @@ exports[`Site Header EU renders correctly 1`] = `
                     />
                   </span>
                 </button>
-                <form
-                  class="ecl-search-form ecl-site-header__search"
-                  data-ecl-search-form=""
-                  id="search-form-id"
+                <div
+                  aria-labelledby="search-input-id-label"
+                  aria-modal="true"
+                  class="ecl-site-header__search-dialog"
+                  id="ecl-site-header-search-form-dialog"
+                  role="dialog"
                 >
-                  <div
-                    class="ecl-form-group"
+                  <form
+                    class="ecl-search-form ecl-site-header__search"
+                    data-ecl-search-form=""
+                    id="search-form-id"
                   >
-                    <label
-                      class="ecl-form-label-wrapper ecl-search-form__label"
-                      for="search-input-id"
-                      id="search-input-id-label"
+                    <div
+                      class="ecl-form-group"
                     >
-                      <span
-                        class="ecl-form-label"
+                      <label
+                        class="ecl-form-label-wrapper ecl-search-form__label"
+                        for="search-input-id"
+                        id="search-input-id-label"
                       >
-                        Search
-                      </span>
-                    </label>
-                    <input
-                      class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-                      id="search-input-id"
-                      type="search"
-                    />
-                  </div>
-                  <button
-                    class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
-                    type="submit"
-                  >
-                    <span
-                      class="ecl-button__container"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
-                        data-ecl-icon=""
+                        <span
+                          class="ecl-form-label"
+                        >
+                          Search
+                        </span>
+                      </label>
+                      <input
+                        class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                        id="search-input-id"
+                        type="search"
                       />
+                    </div>
+                    <button
+                      class="ecl-button ecl-button--primary ecl-search-form__button ecl-button--icon-only"
+                      type="submit"
+                    >
                       <span
-                        class="ecl-button__label"
-                        data-ecl-label="true"
+                        class="ecl-button__container"
                       >
-                        Search
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon--search ecl-icon ecl-icon--m ecl-button__icon ecl-icon--search"
+                          data-ecl-icon=""
+                        />
+                        <span
+                          class="ecl-button__label"
+                          data-ecl-label="true"
+                        >
+                          Search
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </form>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

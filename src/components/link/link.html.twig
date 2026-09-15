@@ -11,6 +11,7 @@
         label: '' (string),
         path: '', (string) (Link url)
         aria_label: '' (string) Aria label attribute value
+        no_icon_wrapping: false (boolean) Prevents the icon from wrapping to the next line when the link label is too long. Note: requires to have an icon defined
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
         external: (boolean) (default: false)
         sr_external: (string) (default: '') Additional label for external icon
@@ -56,6 +57,7 @@
   external: false,
   sr_external: '',
   hide_label: false,
+  no_icon_wrapping: false,
   indicator: {}
 } %}
 {% set _extra_accessibility = extra_accessibility|default({}) %}
@@ -83,7 +85,7 @@
 
   {% set _as_image = true %}
 
-  {% set _link = _link|merge({ 
+  {% set _link = _link|merge({
     icon_position: _link.icon_position|default('after'),
   }) %}
 {% else %}
@@ -166,7 +168,7 @@
           extra_accessibility: _extra_accessibility,
           as_image: _as_image,
         }) only -%}
-      {% endif %}  
+      {% endif %}
     {%- endif -%}
   {% endfor %}
 
@@ -183,7 +185,7 @@
     {{ link_macro.icon_macro(_icons, _link, _as_image) }}
   {%- endif -%}
   {%- if (_icons is defined and _icons is not empty) -%}
-    <span 
+    <span
       class="ecl-link__label"
     {%- if _label_id is not empty %}
       id="{{ _label_id }}"
@@ -193,7 +195,7 @@
     </span>
   {%- endif -%}
   {%- if _link.icon_position == 'after' and (_icons is defined or _link.external) -%}
-    {{ link_macro.icon_macro(_icons, _link, _as_image) }}
+      {%- if not _link.hide_label and _link.no_icon_wrapping %}&nbsp;{%- endif -%}{{ link_macro.icon_macro(_icons, _link, _as_image) }}
   {%- endif -%}
   {% if _icons is not defined %}
     {{- _link.label -}}

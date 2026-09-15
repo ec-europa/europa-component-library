@@ -19,7 +19,7 @@ There are 2 ways to initialise the component.
 
 ### Automatic
 
-Add `data-ecl-auto-init` attribute to component's markup
+Add `data-ecl-auto-init="Menu"` attribute to component's markup:
 
 ```html
 <nav class="ecl-menu" data-ecl-menu data-ecl-auto-init="Menu">...</nav>
@@ -37,6 +37,22 @@ Given you have 1 element with an attribute `data-ecl-menu` on the page:
 var elt = document.querySelector('[data-ecl-menu]');
 var menu = new ECL.Menu(elt);
 menu.init();
+```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-menu]');
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run destroy() and init() on this instance, like this:
+
+```js
+instance.destroy();
+instance.init();
 ```
 
 ## API

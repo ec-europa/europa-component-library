@@ -85,6 +85,7 @@ export class NewsTicker {
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
     this.resizeTimer = null;
+    this.resizeObserver = null;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
@@ -120,6 +121,7 @@ export class NewsTicker {
 
     // If only one slide, don't initialize ticker and hide controls
     if (this.total <= 1 && this.controls) {
+      this.element.classList.add('ecl-news-ticker--single');
       this.content.style.height = 'auto';
       this.controls.style.display = 'none';
       return false;
@@ -169,7 +171,8 @@ export class NewsTicker {
       this.container.addEventListener('focus', this.handleFocus, true);
     }
     if (this.attachResizeListener) {
-      window.addEventListener('resize', this.handleResize);
+      this.resizeObserver = new ResizeObserver(this.handleResize);
+      this.resizeObserver.observe(this.slidesContainer);
     }
 
     // Set ecl initialized attribute
@@ -213,8 +216,9 @@ export class NewsTicker {
     if (this.container) {
       this.container.removeEventListener('focus', this.handleFocus, true);
     }
-    if (this.attachResizeListener) {
-      window.removeEventListener('resize', this.handleResize);
+    if (this.attachResizeListener && this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
     }
     if (this.autoPlayInterval) {
       clearInterval(this.autoPlayInterval);

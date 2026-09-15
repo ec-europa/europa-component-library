@@ -53,7 +53,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                     srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                   />
                   <img
-                    alt="Story card example 1"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                   />
                 </picture>
@@ -107,7 +107,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 2"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                   />
                 </picture>
@@ -156,7 +156,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 3"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
                   />
                 </picture>
@@ -196,7 +196,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 4"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
                   />
                 </picture>
@@ -412,6 +412,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             data-ecl-story-card-grid-button="0"
             id="story-card-demo-tab-0"
             role="tab"
+            tabindex="0"
             type="button"
           >
             <div
@@ -425,7 +426,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                   srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                 />
                 <img
-                  alt="Story card example 1"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                 />
               </picture>
@@ -460,6 +461,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             data-ecl-story-card-grid-button="1"
             id="story-card-demo-tab-1"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -469,7 +471,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 2"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                 />
               </picture>
@@ -504,6 +506,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             data-ecl-story-card-grid-button="2"
             id="story-card-demo-tab-2"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -513,7 +516,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 3"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
                 />
               </picture>
@@ -548,6 +551,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
             data-ecl-story-card-grid-button="3"
             id="story-card-demo-tab-3"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -557,7 +561,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 4"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
                 />
               </picture>
@@ -587,6 +591,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
         data-ecl-story-card-grid-details="0"
         id="story-card-demo-details-0"
         role="tabpanel"
+        tabindex="0"
       >
         <article
           class="ecl-story-card__grid-details-content"
@@ -610,6 +615,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-0"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -651,6 +657,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               You can do the same by producing your own electricity and sharing it local.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-1"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -729,6 +736,7 @@ exports[`Story Card Story variant (default) renders correctly 1`] = `
               Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-3"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -806,7 +814,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                     srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                   />
                   <img
-                    alt="Story card example 1"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                   />
                 </picture>
@@ -860,7 +868,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 2"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                   />
                 </picture>
@@ -909,7 +917,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 3"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
                   />
                 </picture>
@@ -949,7 +957,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 4"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
                   />
                 </picture>
@@ -1165,6 +1173,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             data-ecl-story-card-grid-button="0"
             id="story-card-demo-tab-0"
             role="tab"
+            tabindex="0"
             type="button"
           >
             <div
@@ -1178,7 +1187,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                   srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                 />
                 <img
-                  alt="Story card example 1"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                 />
               </picture>
@@ -1213,6 +1222,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             data-ecl-story-card-grid-button="1"
             id="story-card-demo-tab-1"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -1222,7 +1232,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 2"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                 />
               </picture>
@@ -1257,6 +1267,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             data-ecl-story-card-grid-button="2"
             id="story-card-demo-tab-2"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -1266,7 +1277,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 3"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
                 />
               </picture>
@@ -1301,6 +1312,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
             data-ecl-story-card-grid-button="3"
             id="story-card-demo-tab-3"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -1310,7 +1322,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 4"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
                 />
               </picture>
@@ -1340,6 +1352,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
         data-ecl-story-card-grid-details="0"
         id="story-card-demo-details-0"
         role="tabpanel"
+        tabindex="0"
       >
         <article
           class="ecl-story-card__grid-details-content"
@@ -1363,6 +1376,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-0"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -1404,6 +1418,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               You can do the same by producing your own electricity and sharing it local.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-1"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -1482,6 +1497,7 @@ exports[`Story Card Story variant (default) renders correctly with extra attribu
               Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-3"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -1556,7 +1572,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                     srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                   />
                   <img
-                    alt="Story card example 1"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                   />
                 </picture>
@@ -1610,7 +1626,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 2"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                   />
                 </picture>
@@ -1659,7 +1675,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 3"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
                   />
                 </picture>
@@ -1699,7 +1715,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                   class="ecl-picture ecl-story-card__picture"
                 >
                   <img
-                    alt="Story card example 4"
+                    alt=""
                     src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
                   />
                 </picture>
@@ -1915,6 +1931,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             data-ecl-story-card-grid-button="0"
             id="story-card-demo-tab-0"
             role="tab"
+            tabindex="0"
             type="button"
           >
             <div
@@ -1928,7 +1945,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                   srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                 />
                 <img
-                  alt="Story card example 1"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
                 />
               </picture>
@@ -1963,6 +1980,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             data-ecl-story-card-grid-button="1"
             id="story-card-demo-tab-1"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -1972,7 +1990,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 2"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
                 />
               </picture>
@@ -2007,6 +2025,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             data-ecl-story-card-grid-button="2"
             id="story-card-demo-tab-2"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -2016,7 +2035,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 3"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
                 />
               </picture>
@@ -2051,6 +2070,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
             data-ecl-story-card-grid-button="3"
             id="story-card-demo-tab-3"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -2060,7 +2080,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
                 class="ecl-picture ecl-story-card__picture"
               >
                 <img
-                  alt="Story card example 4"
+                  alt=""
                   src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
                 />
               </picture>
@@ -2090,6 +2110,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
         data-ecl-story-card-grid-details="0"
         id="story-card-demo-details-0"
         role="tabpanel"
+        tabindex="0"
       >
         <article
           class="ecl-story-card__grid-details-content"
@@ -2113,6 +2134,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               It appears on official documents, euro banknotes, EU-funded projects and public buildings, helping citizens identify initiatives supported by the European Union.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-0"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -2154,6 +2176,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               You can do the same by producing your own electricity and sharing it local.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-1"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -2232,6 +2255,7 @@ exports[`Story Card Story variant (default) renders correctly with extra class n
               Programs designed to improve quality of life across Europe. From healthcare initiatives to social support systems, see how the EU is investing in its citizens.
             </div>
             <a
+              aria-describedby="story-card-demo-tab-3"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -2852,6 +2876,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             data-ecl-story-card-grid-button="0"
             id="story-card-testimonial-demo-tab-0"
             role="tab"
+            tabindex="0"
             type="button"
           >
             <div
@@ -2900,6 +2925,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             data-ecl-story-card-grid-button="1"
             id="story-card-testimonial-demo-tab-1"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -2944,6 +2970,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             data-ecl-story-card-grid-button="2"
             id="story-card-testimonial-demo-tab-2"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -2988,6 +3015,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
             data-ecl-story-card-grid-button="3"
             id="story-card-testimonial-demo-tab-3"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -3027,6 +3055,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
         data-ecl-story-card-grid-details="0"
         id="story-card-testimonial-demo-details-0"
         role="tabpanel"
+        tabindex="0"
       >
         <article
           class="ecl-story-card__grid-details-content"
@@ -3092,6 +3121,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-0"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -3180,6 +3210,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-1"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -3268,6 +3299,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-2"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -3356,6 +3388,7 @@ exports[`Story Card Testimonial variant renders correctly 1`] = `
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-3"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -3978,6 +4011,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             data-ecl-story-card-grid-button="0"
             id="story-card-testimonial-demo-tab-0"
             role="tab"
+            tabindex="0"
             type="button"
           >
             <div
@@ -4026,6 +4060,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             data-ecl-story-card-grid-button="1"
             id="story-card-testimonial-demo-tab-1"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -4070,6 +4105,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             data-ecl-story-card-grid-button="2"
             id="story-card-testimonial-demo-tab-2"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -4114,6 +4150,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
             data-ecl-story-card-grid-button="3"
             id="story-card-testimonial-demo-tab-3"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -4153,6 +4190,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
         data-ecl-story-card-grid-details="0"
         id="story-card-testimonial-demo-details-0"
         role="tabpanel"
+        tabindex="0"
       >
         <article
           class="ecl-story-card__grid-details-content"
@@ -4218,6 +4256,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-0"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -4306,6 +4345,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-1"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -4394,6 +4434,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-2"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -4482,6 +4523,7 @@ exports[`Story Card Testimonial variant renders correctly with extra attributes 
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-3"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -5102,6 +5144,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             data-ecl-story-card-grid-button="0"
             id="story-card-testimonial-demo-tab-0"
             role="tab"
+            tabindex="0"
             type="button"
           >
             <div
@@ -5150,6 +5193,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             data-ecl-story-card-grid-button="1"
             id="story-card-testimonial-demo-tab-1"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -5194,6 +5238,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             data-ecl-story-card-grid-button="2"
             id="story-card-testimonial-demo-tab-2"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -5238,6 +5283,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
             data-ecl-story-card-grid-button="3"
             id="story-card-testimonial-demo-tab-3"
             role="tab"
+            tabindex="-1"
             type="button"
           >
             <div
@@ -5277,6 +5323,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
         data-ecl-story-card-grid-details="0"
         id="story-card-testimonial-demo-details-0"
         role="tabpanel"
+        tabindex="0"
       >
         <article
           class="ecl-story-card__grid-details-content"
@@ -5342,6 +5389,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-0"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -5430,6 +5478,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-1"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -5518,6 +5567,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-2"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
@@ -5606,6 +5656,7 @@ exports[`Story Card Testimonial variant renders correctly with extra class names
               </cite>
             </div>
             <a
+              aria-describedby="story-card-testimonial-demo-tab-3"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-story-card__link"
               href="/example"
             >
