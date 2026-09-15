@@ -10,11 +10,10 @@ module.exports = {
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
   label: [
-    {
-      variant: 'highlight',
-      label: 'Highlight',
-    },
+    { label: 'highlight', variant: 'highlight' },
+    { label: 'high importance', variant: 'high' },
   ],
+  labels_aria: 'Labels',
   icon: {
     name: 'file-pdf',
     family: 'phosphor',
