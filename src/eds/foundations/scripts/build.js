@@ -10,6 +10,6 @@ const result = sass.compile(path.join(root, 'custom-properties.scss'), {
 });
 
 fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(path.join(outDir, 'eds-fundations.css'), result.css);
+fs.writeFileSync(path.join(outDir, 'eds-foundations.css'), result.css);
 
-console.log(`Built build/eds-fundations.css (${result.css.length} bytes)`);
+console.log(`Built build/eds-foundations.css (${result.css.length} bytes)`);

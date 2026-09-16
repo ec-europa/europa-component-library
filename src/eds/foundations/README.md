@@ -1,4 +1,4 @@
-# eds-fundations
+# eds-foundations
 
 EDS design tokens: primitive and semantic Sass maps, plus CSS custom
 properties for the semantic layer only. No build step required to consume
@@ -18,13 +18,13 @@ it — pure Sass, consumed via `@use`/`@forward`.
 ## Usage
 
 ```scss
-@use '@ecl/eds-fundations' as eds; // Sass maps
-@use '@ecl/eds-fundations/custom-properties'; // --eds-* custom properties
+@use '@ecl/eds-foundations' as eds; // Sass maps
+@use '@ecl/eds-foundations/custom-properties'; // --eds-* custom properties
 ```
 
 ## Build
 
-Compiles `custom-properties.scss` to `build/eds-fundations.css` — useful to
+Compiles `custom-properties.scss` to `build/eds-foundations.css` — useful to
 inspect the actual resolved output. `build/` is git-ignored; nothing here is
 needed to consume the package.
 
