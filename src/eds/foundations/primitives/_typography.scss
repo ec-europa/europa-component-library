@@ -21,7 +21,7 @@ $font-weight: (
   'light': 300,
   'regular': 400,
   'medium': 500,
-  'semi-bold': 600,
+  'semibold': 600,
   'bold': 700,
 );
 $font-line-height: (
@@ -41,23 +41,10 @@ $font-line-height: (
   'xs': map.get(dimension.$dimension, 16),
   '2xs': map.get(dimension.$dimension, 12),
 );
-
-// Percentage values, per the source design tokens; consumers converting
-// this into a `letter-spacing` declaration need to resolve % against the
-// paired font-size themselves (CSS letter-spacing doesn't accept %).
 $letter-spacing: (
-  '9xl': -2%,
-  '8xl': -2%,
-  '7xl': -2%,
-  '6xl': -1%,
-  '5xl': -1%,
-  '4xl': -1%,
-  '3xl': -1%,
-  '2xl': normal,
-  'xl': normal,
-  'l': normal,
-  'm': normal,
-  's': normal,
-  'xs': normal,
-  '2xs': normal,
+  'default': 0,
+  'neg-s': -2%,
+  'neg-xs': -1%,
+  's': 2%,
+  'xs': 1%,
 );

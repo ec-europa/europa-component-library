@@ -6,8 +6,8 @@ it — pure Sass, consumed via `@use`/`@forward`.
 
 ## Structure
 
-- `primitives/` — raw color, dimension, typography and breakpoint scales.
-  Sass maps only, never exposed as CSS custom properties.
+- `primitives/` — raw color, dimension, typography, breakpoint and grid
+  scales. Sass maps only, never exposed as CSS custom properties.
 - `semantic/` — named tokens (color light/dark, spacing, sizing, typography,
   border, opacity, shadow), resolved from primitives.
 - `index.scss` — forwards `primitives` and `semantic` (Sass maps only, no
@@ -51,15 +51,24 @@ duplicated light/dark blocks for older browsers) is needed instead.
 Custom properties follow `--eds-{abbreviation}-{name}`, no extra namespace
 prefix:
 
-| Abbreviation | Category                                                                       | Example                   |
-| ------------ | ------------------------------------------------------------------------------ | ------------------------- |
-| `c`          | color                                                                          | `--eds-c-surface-primary` |
-| `sp`         | spacing                                                                        | `--eds-sp-m`              |
-| `si`         | sizing                                                                         | `--eds-si-l`              |
-| `is`         | icon sizing                                                                    | `--eds-is-m`              |
-| `br`         | border-radius                                                                  | `--eds-br-s`              |
-| `bw`         | border-width                                                                   | `--eds-bw-xs`             |
-| `bp`         | breakpoint                                                                     | `--eds-bp-l`              |
-| `op`         | opacity                                                                        | `--eds-op-50`             |
-| `sh`         | shadow                                                                         | `--eds-sh-2`              |
-| `f`          | typography — `f-s`/`f-lh`/`f-w`/`f-ls` primitives, `f-{type}-{step}` composite | `--eds-f-heading-m`       |
+| Abbreviation | Category                                                                                               | Example                   |
+| ------------ | ------------------------------------------------------------------------------------------------------ | ------------------------- |
+| `c`          | color                                                                                                  | `--eds-c-surface-primary` |
+| `sp`         | spacing                                                                                                | `--eds-sp-m`              |
+| `si`         | sizing                                                                                                 | `--eds-si-l`              |
+| `is`         | icon sizing                                                                                            | `--eds-is-m`              |
+| `br`         | border-radius                                                                                          | `--eds-br-s`              |
+| `bw`         | border-width                                                                                           | `--eds-bw-xs`             |
+| `bp`         | breakpoint                                                                                             | `--eds-bp-l`              |
+| `gr`         | grid                                                                                                   | `--eds-gr-columns`        |
+| `op`         | opacity                                                                                                | `--eds-op-50`             |
+| `sh`         | shadow                                                                                                 | `--eds-sh-2`              |
+| `f`          | typography — `f-s`/`f-lh`/`f-w`/`f-ls` primitives, `f-{type}-{step}-size`/`-line-height` per role/step | `--eds-f-heading-m-size`  |
+
+Weight is intentionally separate from size/line-height — pair
+`--eds-f-{type}-{step}-size`/`-line-height` with `--eds-f-w-{weight}`
+yourself, e.g. `font: normal normal var(--eds-f-w-semibold)
+var(--eds-f-heading-m-size)/var(--eds-f-heading-m-line-height) var(--eds-f-family);`.
+
+Typography and grid scale up at the breakpoint tokens' `s` (768px) and `l`
+(1140px) thresholds — mobile below `s`, tablet `s`–`l`, desktop from `l`.
