@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../primitives/color' as primitive;
+
+$shadow: (
+  1: (
+    offset-x: 0px,
+    offset-y: 6px,
+    blur: 12px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-silver-fog-950-8'),
+  ),
+  2: (
+    offset-x: 0px,
+    offset-y: 10px,
+    blur: 22px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-silver-fog-950-10'),
+  ),
+  3: (
+    offset-x: 0px,
+    offset-y: 12px,
+    blur: 32px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-silver-fog-950-12'),
+  ),
+  4: (
+    offset-x: 0px,
+    offset-y: 14px,
+    blur: 42px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-silver-fog-950-14'),
+  ),
+);

@@ -1,0 +1,124 @@
+@use 'sass:map';
+@use 'primitives/typography' as typography-primitive;
+@use 'primitives/breakpoint' as breakpoint;
+@use 'semantic/color' as color;
+@use 'semantic/color-dark' as color-dark;
+@use 'semantic/spacing' as spacing;
+@use 'semantic/border' as border;
+@use 'semantic/opacity' as opacity;
+@use 'semantic/shadow' as shadow;
+@use 'semantic/typography' as typography;
+
+@mixin vars($prefix, $map) {
+  @each $name, $value in $map {
+    --eds-#{$prefix}-#{$name}: #{$value};
+  }
+}
+
+// One declaration per token holding both light and dark values
+@mixin color-vars($light-map, $dark-map) {
+  @each $name, $light-value in $light-map {
+    $dark-value: map.get($dark-map, $name);
+
+    --eds-c-#{$name}: light-dark(#{$light-value}, #{$dark-value});
+  }
+}
+
+@function font-shorthand($def) {
+  @return normal normal var(--eds-f-w-#{map.get($def, 'weight')})
+    var(--eds-f-s-#{map.get($def, 'size')}) /
+    var(--eds-f-lh-#{map.get($def, 'line-height')}) var(--eds-f-family);
+}
+
+// Emits font tokens for one breakpoint, overriding a var only when its
+// size or line-height actually changed from $previous.
+@mixin typography-vars($breakpoint-name, $previous: null) {
+  $steps-by-type: map.get(typography.$typography, $breakpoint-name);
+
+  @each $type, $steps in $steps-by-type {
+    @each $step, $def in $steps {
+      @if not $previous {
+        --eds-f-#{$type}-#{$step}: #{font-shorthand($def)};
+      } @else {
+        $previous-steps-by-type: map.get(typography.$typography, $previous);
+        $previous-def: map.get(map.get($previous-steps-by-type, $type), $step);
+
+        @if map.get($def, 'size') !=
+          map.get($previous-def, 'size') or
+          map.get($def, 'line-height') !=
+          map.get($previous-def, 'line-height')
+        {
+          --eds-f-#{$type}-#{$step}: #{font-shorthand($def)};
+        }
+      }
+    }
+  }
+}
+
+:root {
+  color-scheme: light dark;
+
+  // Color
+  @include color-vars(color.$color, color-dark.$color-dark);
+
+  // Spacing & sizing
+  @include vars('sp', spacing.$spacing);
+  @include vars('si', spacing.$sizing);
+  @include vars('is', spacing.$icon-sizing);
+
+  // Border
+  @include vars('br', border.$border-radius);
+  @include vars('bw', border.$border-width);
+
+  // Breakpoint
+  @include vars('bp', breakpoint.$breakpoint);
+
+  // Opacity
+  @include vars('op', opacity.$opacity);
+
+  // Shadow
+  --eds-sh-none: none;
+
+  @each $name, $def in shadow.$shadow {
+    --eds-sh-#{$name}: #{map.get($def, 'offset-x')}
+      #{map.get($def, 'offset-y')}
+      #{map.get($def, 'blur')}
+      #{map.get($def, 'spread')}
+      #{map.get($def, 'color')};
+  }
+
+  // Typography
+  --eds-f-family: 'Inter', arial, sans-serif;
+  --eds-f-family-monospace:
+    'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+  @include vars('f-s', typography-primitive.$font-size);
+  @include vars('f-lh', typography-primitive.$font-line-height);
+  @include vars('f-w', typography-primitive.$font-weight);
+  @include vars('f-ls', typography-primitive.$letter-spacing);
+  @include typography-vars('mobile');
+}
+
+// Typography scales up at the same thresholds as the breakpoint tokens.
+// mobile: xs, s — tablet: m, l — desktop: xl, 2xl.
+@media (width >= #{map.get(breakpoint.$breakpoint, m)}) {
+  :root {
+    @include typography-vars('tablet', 'mobile');
+  }
+}
+
+@media (width >= #{map.get(breakpoint.$breakpoint, xl)}) {
+  :root {
+    @include typography-vars('desktop', 'tablet');
+  }
+}
+
+// Dark mode: OS preference by default (color-scheme: light dark above),
+// [data-theme] forces a mode by pinning color-scheme to one value.
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}

@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use 'dimension';
+
+$font-size: (
+  '9xl': 6rem,
+  '8xl': 4rem,
+  '7xl': 3.25rem,
+  '6xl': 2.75rem,
+  '5xl': 2.25rem,
+  '4xl': 1.75rem,
+  '3xl': 1.5rem,
+  '2xl': 1.375rem,
+  'xl': 1.25rem,
+  'l': 1.125rem,
+  'm': 1rem,
+  's': 0.875rem,
+  'xs': 0.75rem,
+  '2xs': 0.625rem,
+);
+$font-weight: (
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+);
+$font-line-height: (
+  '10xl': map.get(dimension.$dimension, 96),
+  '9xl': map.get(dimension.$dimension, 64),
+  '8xl': map.get(dimension.$dimension, 60),
+  '7xl': map.get(dimension.$dimension, 56),
+  '6xl': map.get(dimension.$dimension, 52),
+  '5xl': map.get(dimension.$dimension, 48),
+  '4xl': map.get(dimension.$dimension, 44),
+  '3xl': map.get(dimension.$dimension, 40),
+  '2xl': map.get(dimension.$dimension, 36),
+  'xl': map.get(dimension.$dimension, 32),
+  'l': map.get(dimension.$dimension, 28),
+  'm': map.get(dimension.$dimension, 24),
+  's': map.get(dimension.$dimension, 20),
+  'xs': map.get(dimension.$dimension, 16),
+  '2xs': map.get(dimension.$dimension, 12),
+);
+
+// Percentage values, per the source design tokens; consumers converting
+// this into a `letter-spacing` declaration need to resolve % against the
+// paired font-size themselves (CSS letter-spacing doesn't accept %).
+$letter-spacing: (
+  '9xl': -2%,
+  '8xl': -2%,
+  '7xl': -2%,
+  '6xl': -1%,
+  '5xl': -1%,
+  '4xl': -1%,
+  '3xl': -1%,
+  '2xl': normal,
+  'xl': normal,
+  'l': normal,
+  'm': normal,
+  's': normal,
+  'xs': normal,
+  '2xs': normal,
+);

@@ -7,6 +7,7 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "browserstats": "./src/tools/builder/bin/build.js browsers",
+    "build:eds": "pnpm --filter \"@ecl/eds-fundations\" run build",
     "build:icons": "pnpm --filter \"@ecl/resources-*\" run dist",
     "build:presets": "pnpm --filter \"@ecl/preset-*\" run dist",
     "build:themes": "pnpm --filter \"@ecl/theme-*\" run build",

@@ -1,0 +1,458 @@
+$typography: (
+  desktop: (
+    display: (
+      xl: (
+        size: 9xl,
+        line-height: 10xl,
+        weight: regular,
+      ),
+      l: (
+        size: 8xl,
+        line-height: 9xl,
+        weight: semi-bold,
+      ),
+    ),
+    heading: (
+      2xl: (
+        size: 6xl,
+        line-height: 6xl,
+        weight: semi-bold,
+      ),
+      xl: (
+        size: 5xl,
+        line-height: 4xl,
+        weight: semi-bold,
+      ),
+      l: (
+        size: 4xl,
+        line-height: 2xl,
+        weight: semi-bold,
+      ),
+      m: (
+        size: 3xl,
+        line-height: xl,
+        weight: semi-bold,
+      ),
+      s: (
+        size: xl,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      s-medium: (
+        size: xl,
+        line-height: l,
+        weight: medium,
+      ),
+      xs: (
+        size: l,
+        line-height: l,
+        weight: bold,
+      ),
+    ),
+    paragraph: (
+      xl: (
+        size: 3xl,
+        line-height: 2xl,
+        weight: regular,
+      ),
+      l: (
+        size: l,
+        line-height: l,
+        weight: regular,
+      ),
+      l-semi-bold: (
+        size: l,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      l-bold: (
+        size: l,
+        line-height: l,
+        weight: bold,
+      ),
+      m: (
+        size: m,
+        line-height: m,
+        weight: regular,
+      ),
+      m-semi-bold: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      m-bold: (
+        size: m,
+        line-height: m,
+        weight: bold,
+      ),
+      s: (
+        size: s,
+        line-height: s,
+        weight: regular,
+      ),
+      s-semi-bold: (
+        size: s,
+        line-height: s,
+        weight: semi-bold,
+      ),
+      s-bold: (
+        size: s,
+        line-height: s,
+        weight: bold,
+      ),
+    ),
+    label: (
+      l: (
+        size: l,
+        line-height: l,
+        weight: regular,
+      ),
+      l-medium: (
+        size: l,
+        line-height: l,
+        weight: medium,
+      ),
+      l-semi-bold: (
+        size: l,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      m: (
+        size: m,
+        line-height: m,
+        weight: regular,
+      ),
+      m-medium: (
+        size: m,
+        line-height: m,
+        weight: medium,
+      ),
+      m-semi-bold: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      s: (
+        size: s,
+        line-height: s,
+        weight: regular,
+      ),
+    ),
+    microcopy: (
+      xs: (
+        size: xs,
+        line-height: xs,
+        weight: medium,
+      ),
+      2xs: (
+        size: 2xs,
+        line-height: 2xs,
+        weight: regular,
+      ),
+    ),
+  ),
+  tablet: (
+    display: (
+      xl: (
+        size: 8xl,
+        line-height: 9xl,
+        weight: regular,
+      ),
+      l: (
+        size: 7xl,
+        line-height: 6xl,
+        weight: semi-bold,
+      ),
+    ),
+    heading: (
+      2xl: (
+        size: 5xl,
+        line-height: 4xl,
+        weight: semi-bold,
+      ),
+      xl: (
+        size: 4xl,
+        line-height: 2xl,
+        weight: semi-bold,
+      ),
+      l: (
+        size: 2xl,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      m: (
+        size: xl,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      s: (
+        size: l,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      s-medium: (
+        size: l,
+        line-height: m,
+        weight: medium,
+      ),
+      xs: (
+        size: m,
+        line-height: m,
+        weight: bold,
+      ),
+    ),
+    paragraph: (
+      xl: (
+        size: 2xl,
+        line-height: xl,
+        weight: regular,
+      ),
+      l: (
+        size: l,
+        line-height: l,
+        weight: regular,
+      ),
+      l-semi-bold: (
+        size: l,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      l-bold: (
+        size: l,
+        line-height: l,
+        weight: bold,
+      ),
+      m: (
+        size: m,
+        line-height: m,
+        weight: regular,
+      ),
+      m-semi-bold: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      m-bold: (
+        size: m,
+        line-height: m,
+        weight: bold,
+      ),
+      s: (
+        size: s,
+        line-height: s,
+        weight: regular,
+      ),
+      s-semi-bold: (
+        size: s,
+        line-height: s,
+        weight: semi-bold,
+      ),
+      s-bold: (
+        size: s,
+        line-height: s,
+        weight: bold,
+      ),
+    ),
+    label: (
+      l: (
+        size: l,
+        line-height: l,
+        weight: regular,
+      ),
+      l-medium: (
+        size: l,
+        line-height: l,
+        weight: medium,
+      ),
+      l-semi-bold: (
+        size: l,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      m: (
+        size: m,
+        line-height: m,
+        weight: regular,
+      ),
+      m-medium: (
+        size: m,
+        line-height: m,
+        weight: medium,
+      ),
+      m-semi-bold: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      s: (
+        size: s,
+        line-height: s,
+        weight: regular,
+      ),
+    ),
+    microcopy: (
+      xs: (
+        size: xs,
+        line-height: xs,
+        weight: medium,
+      ),
+      2xs: (
+        size: 2xs,
+        line-height: 2xs,
+        weight: regular,
+      ),
+    ),
+  ),
+  mobile: (
+    display: (
+      xl: (
+        size: 6xl,
+        line-height: 4xl,
+        weight: regular,
+      ),
+      l: (
+        size: 5xl,
+        line-height: 2xl,
+        weight: semi-bold,
+      ),
+    ),
+    heading: (
+      2xl: (
+        size: 4xl,
+        line-height: 2xl,
+        weight: semi-bold,
+      ),
+      xl: (
+        size: 2xl,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      l: (
+        size: xl,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      m: (
+        size: l,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      s: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      s-medium: (
+        size: m,
+        line-height: m,
+        weight: medium,
+      ),
+      xs: (
+        size: m,
+        line-height: m,
+        weight: bold,
+      ),
+    ),
+    paragraph: (
+      xl: (
+        size: xl,
+        line-height: l,
+        weight: regular,
+      ),
+      l: (
+        size: l,
+        line-height: l,
+        weight: regular,
+      ),
+      l-semi-bold: (
+        size: l,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      l-bold: (
+        size: l,
+        line-height: l,
+        weight: bold,
+      ),
+      m: (
+        size: m,
+        line-height: m,
+        weight: regular,
+      ),
+      m-semi-bold: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      m-bold: (
+        size: m,
+        line-height: m,
+        weight: bold,
+      ),
+      s: (
+        size: s,
+        line-height: s,
+        weight: regular,
+      ),
+      s-semi-bold: (
+        size: s,
+        line-height: s,
+        weight: semi-bold,
+      ),
+      s-bold: (
+        size: s,
+        line-height: s,
+        weight: bold,
+      ),
+    ),
+    label: (
+      l: (
+        size: l,
+        line-height: l,
+        weight: regular,
+      ),
+      l-medium: (
+        size: l,
+        line-height: l,
+        weight: medium,
+      ),
+      l-semi-bold: (
+        size: l,
+        line-height: l,
+        weight: semi-bold,
+      ),
+      m: (
+        size: m,
+        line-height: m,
+        weight: regular,
+      ),
+      m-medium: (
+        size: m,
+        line-height: m,
+        weight: medium,
+      ),
+      m-semi-bold: (
+        size: m,
+        line-height: m,
+        weight: semi-bold,
+      ),
+      s: (
+        size: s,
+        line-height: s,
+        weight: regular,
+      ),
+    ),
+    microcopy: (
+      xs: (
+        size: xs,
+        line-height: xs,
+        weight: medium,
+      ),
+      2xs: (
+        size: 2xs,
+        line-height: 2xs,
+        weight: regular,
+      ),
+    ),
+  ),
+);
