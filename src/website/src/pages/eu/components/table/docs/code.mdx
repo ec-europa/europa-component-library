@@ -18,7 +18,8 @@ import { Playground } from '@ecl/website-components';
 <Playground
   system="eu"
   selectedKind="components-table"
-  selectedStory="zebra"
+  selectedStory="default"
+  selectedArgs="zebra:!true"
 ></Playground>
 
 ## Multi header table
@@ -34,7 +35,18 @@ import { Playground } from '@ecl/website-components';
 <Playground
   system="eu"
   selectedKind="components-table"
-  selectedStory="sortable"
+  selectedStory="multi"
+  selectedArgs="sortable:!true"
+  showFrame
+></Playground>
+
+## Filter table
+
+<Playground
+  system="eu"
+  selectedKind="components-table"
+  selectedStory="multi"
+  selectedArgs="filter:!true"
   showFrame
 ></Playground>
 
@@ -53,7 +65,7 @@ Note: enhanced tables works for all the table variants listed here, but without 
 
 <Playground
   showFrame
-  frameWidth="500px"
+  frameWidth="500"
   system="eu"
   selectedKind="components-table"
   selectedStory="default"
