@@ -1,282 +1,219 @@
 @use 'sass:map';
 @use '../primitives/color' as primitive;
+@use 'color-domain';
 
-$color: (
-  // Surfaces — elevation
-  surface-accent: map.get(primitive.$color, 'european-blue-50'),
-  surface-selected: map.get(primitive.$color, 'european-blue-100'),
-  surface-skeleton: map.get(primitive.$color, 'silver-fog-100'),
-  surface-invisible: map.get(primitive.$color, 'alpha-silver-fog-0-0'),
-  surface-elevation-sunken: map.get(primitive.$color, 'silver-fog-50'),
-  surface-elevation-inset: map.get(primitive.$color, 'silver-fog-25'),
-  surface-elevation: map.get(primitive.$color, 'silver-fog-0'),
-  surface-elevation-raised: map.get(primitive.$color, 'silver-fog-0'),
-  surface-elevation-elevated: map.get(primitive.$color, 'silver-fog-0'),
-  surface-elevation-overlay: map.get(primitive.$color, 'silver-fog-0'),
-  // Surfaces — brand
-  surface-brand: map.get(primitive.$color, 'silver-fog-950'),
-  on-surface-brand: map.get(primitive.$color, 'silver-fog-0'),
-  surface-brand--hover: map.get(primitive.$color, 'silver-fog-800'),
-  on-surface-brand--hover: map.get(primitive.$color, 'silver-fog-0'),
-  // Surfaces — disabled
-  surface-disabled: map.get(primitive.$color, 'silver-fog-100'),
-  on-surface-disabled: map.get(primitive.$color, 'silver-fog-400'),
-  surface-disabled-subtle: map.get(primitive.$color, 'silver-fog-50'),
-  on-surface-disabled-subtle: map.get(primitive.$color, 'silver-fog-400'),
-  // Surfaces — primary
-  surface-primary: map.get(primitive.$color, 'european-blue-600'),
-  on-surface-primary: map.get(primitive.$color, 'silver-fog-0'),
-  surface-primary--hover: map.get(primitive.$color, 'european-blue-700'),
-  on-surface-primary--hover: map.get(primitive.$color, 'silver-fog-0'),
-  surface-primary--pressed: map.get(primitive.$color, 'european-blue-800'),
-  on-surface-primary--pressed: map.get(primitive.$color, 'silver-fog-0'),
-  surface-primary-subtle: map.get(primitive.$color, 'european-blue-200'),
-  on-surface-primary-subtle: map.get(primitive.$color, 'european-blue-800'),
-  surface-primary-subtler: map.get(primitive.$color, 'european-blue-50'),
-  on-surface-primary-subtler: map.get(primitive.$color, 'european-blue-800'),
-  // Surfaces — highlight
-  surface-highlight: map.get(primitive.$color, 'sunrise-orange-300'),
-  on-surface-highlight: map.get(primitive.$color, 'sunrise-orange-950'),
-  surface-highlight--hover: map.get(primitive.$color, 'sunrise-orange-400'),
-  on-surface-highlight--hover: map.get(primitive.$color, 'sunrise-orange-950'),
-  surface-highlight--pressed: map.get(primitive.$color, 'sunrise-orange-500'),
-  on-surface-highlight--pressed: map.get(primitive.$color, 'sunrise-orange-950'),
-  surface-highlight-subtler: map.get(primitive.$color, 'sunrise-orange-50'),
-  on-surface-highlight-subtler: map.get(primitive.$color, 'sunrise-orange-900'),
-  // Surfaces — inverted
-  surface-inverted: map.get(primitive.$color, 'silver-fog-950'),
-  on-surface-inverted: map.get(primitive.$color, 'silver-fog-0'),
-  surface-inverted-subtle: map.get(primitive.$color, 'silver-fog-950'),
-  on-surface-inverted-subtle: map.get(primitive.$color, 'silver-fog-300'),
-  surface-inverted-disabled: map.get(primitive.$color, 'silver-fog-950'),
-  on-surface-inverted-disabled: map.get(primitive.$color, 'silver-fog-600'),
-  // Surfaces — neutral
-  surface-neutral: map.get(primitive.$color, 'silver-fog-600'),
-  on-surface-neutral: map.get(primitive.$color, 'silver-fog-0'),
-  surface-neutral--hover: map.get(primitive.$color, 'silver-fog-700'),
-  on-surface-neutral--hover: map.get(primitive.$color, 'silver-fog-0'),
-  surface-neutral--pressed: map.get(primitive.$color, 'silver-fog-800'),
-  on-surface-neutral--pressed: map.get(primitive.$color, 'silver-fog-0'),
-  surface-neutral-subtle: map.get(primitive.$color, 'silver-fog-100'),
-  on-surface-neutral-subtle: map.get(primitive.$color, 'silver-fog-900'),
-  surface-neutral-subtle--hover: map.get(primitive.$color, 'silver-fog-200'),
-  on-surface-neutral-subtle--hover: map.get(primitive.$color, 'silver-fog-900'),
-  surface-neutral-subtler: map.get(primitive.$color, 'silver-fog-50'),
-  on-surface-neutral-subtler: map.get(primitive.$color, 'silver-fog-900'),
-  surface-neutral-subtler--hover: map.get(primitive.$color, 'silver-fog-75'),
-  on-surface-neutral-subtler--hover: map.get(primitive.$color, 'silver-fog-900'),
-  // Surfaces — critical
-  surface-critical: map.get(primitive.$color, 'red-600'),
-  on-surface-critical: map.get(primitive.$color, 'silver-fog-0'),
-  surface-critical--hover: map.get(primitive.$color, 'red-700'),
-  on-surface-critical--hover: map.get(primitive.$color, 'silver-fog-0'),
-  surface-critical--pressed: map.get(primitive.$color, 'red-800'),
-  on-surface-critical--pressed: map.get(primitive.$color, 'silver-fog-0'),
-  surface-critical-subtle: map.get(primitive.$color, 'red-200'),
-  on-surface-critical-subtle: map.get(primitive.$color, 'red-900'),
-  surface-critical-subtler: map.get(primitive.$color, 'red-50'),
-  on-surface-critical-subtler: map.get(primitive.$color, 'red-700'),
-  surface-critical-subtler--hover: map.get(primitive.$color, 'red-100'),
-  on-surface-critical-subtler--hover: map.get(primitive.$color, 'red-900'),
-  // Surfaces — info
-  surface-info: map.get(primitive.$color, 'blue-600'),
-  on-surface-info: map.get(primitive.$color, 'silver-fog-0'),
-  surface-info--hover: map.get(primitive.$color, 'blue-700'),
-  on-surface-info--hover: map.get(primitive.$color, 'silver-fog-0'),
-  surface-info--pressed: map.get(primitive.$color, 'blue-800'),
-  on-surface-info--pressed: map.get(primitive.$color, 'silver-fog-0'),
-  surface-info-subtle: map.get(primitive.$color, 'blue-200'),
-  on-surface-info-subtle: map.get(primitive.$color, 'blue-900'),
-  surface-info-subtler: map.get(primitive.$color, 'blue-75'),
-  on-surface-info-subtler: map.get(primitive.$color, 'blue-800'),
-  surface-info-subtler--hover: map.get(primitive.$color, 'blue-100'),
-  on-surface-info-subtler--hover: map.get(primitive.$color, 'blue-900'),
-  // Surfaces — success
-  surface-success: map.get(primitive.$color, 'green-800'),
-  on-surface-success: map.get(primitive.$color, 'silver-fog-0'),
-  surface-success--hover: map.get(primitive.$color, 'green-900'),
-  on-surface-success--hover: map.get(primitive.$color, 'silver-fog-0'),
-  surface-success--pressed: map.get(primitive.$color, 'green-950'),
-  on-surface-success--pressed: map.get(primitive.$color, 'silver-fog-0'),
-  surface-success-subtle: map.get(primitive.$color, 'green-200'),
-  on-surface-success-subtle: map.get(primitive.$color, 'green-900'),
-  surface-success-subtler: map.get(primitive.$color, 'green-50'),
-  on-surface-success-subtler: map.get(primitive.$color, 'green-800'),
-  surface-success-subtler--hover: map.get(primitive.$color, 'green-200'),
-  on-surface-success-subtler--hover: map.get(primitive.$color, 'green-900'),
-  // Surfaces — warning
-  surface-warning: map.get(primitive.$color, 'orange-500'),
-  on-surface-warning: map.get(primitive.$color, 'orange-950'),
-  surface-warning--hover: map.get(primitive.$color, 'orange-600'),
-  on-surface-warning--hover: map.get(primitive.$color, 'orange-950'),
-  surface-warning--pressed: map.get(primitive.$color, 'orange-700'),
-  on-surface-warning--pressed: map.get(primitive.$color, 'orange-950'),
-  surface-warning-subtle: map.get(primitive.$color, 'orange-200'),
-  on-surface-warning-subtle: map.get(primitive.$color, 'orange-900'),
-  surface-warning-subtler: map.get(primitive.$color, 'orange-50'),
-  on-surface-warning-subtler: map.get(primitive.$color, 'orange-800'),
-  surface-warning-subtler--hover: map.get(primitive.$color, 'orange-100'),
-  on-surface-warning-subtler--hover: map.get(primitive.$color, 'orange-900'),
-  // Surfaces — color modes
-  surface-cm-purple-violet-subtler: map.get(
-      primitive.$color,
-      'cm-purple-violet-50'
-    ),
-  on-surface-cm-purple-violet-subtler: map.get(
-      primitive.$color,
-      'cm-purple-violet-800'
-    ),
-  border-cm-purple-violet-subtle: map.get(
-      primitive.$color,
-      'cm-purple-violet-300'
-    ),
-  surface-cm-purple-subtler: map.get(primitive.$color, 'cm-purple-50'),
-  on-surface-cm-purple-subtler: map.get(primitive.$color, 'cm-purple-800'),
-  border-cm-purple-subtle: map.get(primitive.$color, 'cm-purple-300'),
-  surface-cm-blue-navy-subtler: map.get(primitive.$color, 'cm-blue-navy-100'),
-  on-surface-cm-blue-navy-subtler: map.get(primitive.$color, 'cm-blue-navy-800'),
-  border-cm-blue-navy-subtle: map.get(primitive.$color, 'cm-blue-navy-300'),
-  surface-cm-blue-electric-subtler: map.get(
-      primitive.$color,
-      'cm-blue-electric-100'
-    ),
-  on-surface-cm-blue-electric-subtler: map.get(
-      primitive.$color,
-      'cm-blue-electric-800'
-    ),
-  border-cm-blue-electric-subtle: map.get(
-      primitive.$color,
-      'cm-blue-electric-300'
-    ),
-  surface-cm-green-dark-subtler: map.get(primitive.$color, 'cm-green-dark-50'),
-  on-surface-cm-green-dark-subtler: map.get(
-      primitive.$color,
-      'cm-green-dark-800'
-    ),
-  border-cm-green-dark-subtle: map.get(primitive.$color, 'cm-green-dark-300'),
-  surface-cm-green-pine-subtler: map.get(primitive.$color, 'cm-green-pine-50'),
-  on-surface-cm-green-pine-subtler: map.get(
-      primitive.$color,
-      'cm-green-pine-800'
-    ),
-  border-cm-green-pine-subtle: map.get(primitive.$color, 'cm-green-pine-300'),
-  surface-cm-green-subtler: map.get(primitive.$color, 'cm-green-50'),
-  on-surface-cm-green-subtler: map.get(primitive.$color, 'cm-green-950'),
-  border-cm-green-subtle: map.get(primitive.$color, 'cm-green-300'),
-  surface-cm-blue-ocean-subtler: map.get(primitive.$color, 'cm-blue-ocean-50'),
-  on-surface-cm-blue-ocean-subtler: map.get(
-      primitive.$color,
-      'cm-blue-ocean-950'
-    ),
-  border-cm-blue-ocean-subtle: map.get(primitive.$color, 'cm-blue-ocean-300'),
-  surface-cm-green-lemon-subtler: map.get(primitive.$color, 'cm-green-lemon-50'),
-  on-surface-cm-green-lemon-subtler: map.get(
-      primitive.$color,
-      'cm-green-lemon-950'
-    ),
-  border-cm-green-lemon-subtle: map.get(primitive.$color, 'cm-green-lemon-500'),
-  surface-cm-yellow-gold-subtler: map.get(primitive.$color, 'cm-yellow-gold-50'),
-  on-surface-cm-yellow-gold-subtler: map.get(
-      primitive.$color,
-      'cm-yellow-gold-950'
-    ),
-  border-cm-yellow-gold-subtle: map.get(primitive.$color, 'cm-yellow-gold-300'),
-  surface-cm-orange-abricot-subtler: map.get(
-      primitive.$color,
-      'cm-orange-abricot-50'
-    ),
-  on-surface-cm-orange-abricot-subtler: map.get(
-      primitive.$color,
-      'cm-orange-abricot-950'
-    ),
-  border-cm-orange-abricot-subtle: map.get(
-      primitive.$color,
-      'cm-orange-abricot-300'
-    ),
-  surface-cm-orange-subtler: map.get(primitive.$color, 'cm-orange-50'),
-  on-surface-cm-orange-subtler: map.get(primitive.$color, 'cm-orange-900'),
-  border-cm-orange-subtle: map.get(primitive.$color, 'cm-orange-300'),
-  surface-cm-red-tomato-subtler: map.get(primitive.$color, 'cm-red-tomato-50'),
-  on-surface-cm-red-tomato-subtler: map.get(
-      primitive.$color,
-      'cm-red-tomato-950'
-    ),
-  border-cm-red-tomato-subtle: map.get(primitive.$color, 'cm-red-tomato-300'),
-  surface-cm-red-crayola-subtler: map.get(primitive.$color, 'cm-red-crayola-50'),
-  on-surface-cm-red-crayola-subtler: map.get(
-      primitive.$color,
-      'cm-red-crayola-950'
-    ),
-  border-cm-red-crayola-subtle: map.get(primitive.$color, 'cm-red-crayola-300'),
-  surface-cm-warm-grey-subtler: map.get(primitive.$color, 'cm-warm-grey-50'),
-  on-surface-cm-warm-grey-subtler: map.get(primitive.$color, 'cm-warm-grey-950'),
-  border-cm-warm-grey-subtle: map.get(primitive.$color, 'cm-warm-grey-300'),
-  // Foreground / text
-  foreground: map.get(primitive.$color, 'silver-fog-950'),
-  foreground-subtle: map.get(primitive.$color, 'silver-fog-800'),
-  foreground-subtler: map.get(primitive.$color, 'silver-fog-700'),
-  foreground-placeholder: map.get(primitive.$color, 'silver-fog-500'),
-  foreground-disabled: map.get(primitive.$color, 'silver-fog-400'),
-  foreground-primary: map.get(primitive.$color, 'european-blue-600'),
-  foreground-success: map.get(primitive.$color, 'green-800'),
-  foreground-info: map.get(primitive.$color, 'blue-900'),
-  foreground-warning: map.get(primitive.$color, 'orange-800'),
-  foreground-critical: map.get(primitive.$color, 'red-600'),
-  foreground-highlight: map.get(primitive.$color, 'sunrise-orange-900'),
-  foreground-inverted: map.get(primitive.$color, 'silver-fog-25'),
-  // Borders
-  border-brand: map.get(primitive.$color, 'silver-fog-950'),
-  border-divider: map.get(primitive.$color, 'silver-fog-200'),
-  border-disabled: map.get(primitive.$color, 'silver-fog-100'),
-  border-primary: map.get(primitive.$color, 'european-blue-600'),
-  border-primary--hover: map.get(primitive.$color, 'european-blue-500'),
-  border-primary--pressed: map.get(primitive.$color, 'european-blue-400'),
-  border-primary-subtle: map.get(primitive.$color, 'european-blue-400'),
-  border-primary-subtler: map.get(primitive.$color, 'european-blue-100'),
-  border-info: map.get(primitive.$color, 'blue-700'),
-  border-info-subtle: map.get(primitive.$color, 'blue-300'),
-  border-success: map.get(primitive.$color, 'green-700'),
-  border-success-subtle: map.get(primitive.$color, 'green-300'),
-  border-warning: map.get(primitive.$color, 'orange-600'),
-  border-warning-subtle: map.get(primitive.$color, 'orange-300'),
-  border-critical: map.get(primitive.$color, 'red-600'),
-  border-critical-subtle: map.get(primitive.$color, 'red-300'),
-  border-highlight: map.get(primitive.$color, 'sunrise-orange-400'),
-  border-highlight-subtle: map.get(primitive.$color, 'sunrise-orange-300'),
-  border-inverted: map.get(primitive.$color, 'silver-fog-25'),
-  border-inverted-disabled: map.get(primitive.$color, 'silver-fog-500'),
-  border-neutral: map.get(primitive.$color, 'silver-fog-500'),
-  border-neutral--hover: map.get(primitive.$color, 'silver-fog-600'),
-  border-neutral-subtle: map.get(primitive.$color, 'silver-fog-300'),
-  border-neutral-subtle--hover: map.get(primitive.$color, 'silver-fog-400'),
-  // Links
-  link: map.get(primitive.$color, 'european-blue-600'),
-  link--focused: map.get(primitive.$color, 'european-blue-600'),
-  link--hover: map.get(primitive.$color, 'european-blue-700'),
-  link--pressed: map.get(primitive.$color, 'european-blue-800'),
-  link--visited: map.get(primitive.$color, 'european-blue-700'),
-  link-inverted: map.get(primitive.$color, 'silver-fog-0'),
-  link-inverted--focused: map.get(primitive.$color, 'silver-fog-0'),
-  link-inverted--hover: map.get(primitive.$color, 'silver-fog-50'),
-  link-inverted--pressed: map.get(primitive.$color, 'silver-fog-100'),
-  link-inverted--visited: map.get(primitive.$color, 'silver-fog-25'),
-  link-contrast: map.get(primitive.$color, 'silver-fog-950'),
-  link-contrast--focused: map.get(primitive.$color, 'silver-fog-950'),
-  link-contrast--hover: map.get(primitive.$color, 'silver-fog-950'),
-  link-contrast--pressed: map.get(primitive.$color, 'silver-fog-800'),
-  link-contrast--visited: map.get(primitive.$color, 'silver-fog-900'),
-  // Focus
-  focus: map.get(primitive.$color, 'european-blue-600'),
-  focus-inverted: map.get(primitive.$color, 'european-blue-300'),
-  focus-critical: map.get(primitive.$color, 'red-400'),
-  border-focus: map.get(primitive.$color, 'european-blue-600'),
-  // Alpha / backdrop
-  alpha-backdrop-strong: map.get(primitive.$color, 'alpha-silver-fog-950-60'),
-  alpha-backdrop: map.get(primitive.$color, 'alpha-silver-fog-950-30'),
-  alpha-backdrop-subtle: map.get(primitive.$color, 'alpha-silver-fog-950-10'),
-  alpha-backdrop-inverted: map.get(primitive.$color, 'alpha-silver-fog-0-14'),
-  alpha-backdrop-inverted-subtle: map.get(
-      primitive.$color,
-      'alpha-silver-fog-0-10'
-    )
+$color: map.merge(
+  (
+    // Surfaces — elevation
+    surface-accent: map.get(primitive.$color, 'european-blue-50'),
+    surface-selected: map.get(primitive.$color, 'european-blue-100'),
+    surface-skeleton: map.get(primitive.$color, 'silver-fog-100'),
+    surface-invisible: map.get(primitive.$color, 'alpha-silver-fog-0-0'),
+    surface-elevation-sunken: map.get(primitive.$color, 'silver-fog-50'),
+    surface-elevation-inset: map.get(primitive.$color, 'silver-fog-25'),
+    surface-elevation: map.get(primitive.$color, 'silver-fog-0'),
+    surface-elevation-raised: map.get(primitive.$color, 'silver-fog-0'),
+    surface-elevation-elevated: map.get(primitive.$color, 'silver-fog-0'),
+    surface-elevation-overlay: map.get(primitive.$color, 'silver-fog-0'),
+    //
+    // Surfaces — brand
+    surface-brand: map.get(primitive.$color, 'silver-fog-950'),
+    on-surface-brand: map.get(primitive.$color, 'silver-fog-0'),
+    surface-brand--hover: map.get(primitive.$color, 'silver-fog-800'),
+    on-surface-brand--hover: map.get(primitive.$color, 'silver-fog-0'),
+    //
+    // Surfaces — disabled
+    surface-disabled: map.get(primitive.$color, 'silver-fog-100'),
+    on-surface-disabled: map.get(primitive.$color, 'silver-fog-400'),
+    surface-disabled-subtle: map.get(primitive.$color, 'silver-fog-50'),
+    on-surface-disabled-subtle: map.get(primitive.$color, 'silver-fog-400'),
+    //
+    // Surfaces — primary
+    surface-primary: map.get(primitive.$color, 'european-blue-600'),
+    on-surface-primary: map.get(primitive.$color, 'silver-fog-0'),
+    surface-primary--hover: map.get(primitive.$color, 'european-blue-700'),
+    on-surface-primary--hover: map.get(primitive.$color, 'silver-fog-0'),
+    surface-primary--pressed: map.get(primitive.$color, 'european-blue-800'),
+    on-surface-primary--pressed: map.get(primitive.$color, 'silver-fog-0'),
+    surface-primary-subtle: map.get(primitive.$color, 'european-blue-200'),
+    on-surface-primary-subtle: map.get(primitive.$color, 'european-blue-800'),
+    surface-primary-subtler: map.get(primitive.$color, 'european-blue-50'),
+    on-surface-primary-subtler: map.get(primitive.$color, 'european-blue-800'),
+    //
+    // Surfaces — highlight
+    surface-highlight: map.get(primitive.$color, 'sunrise-orange-300'),
+    on-surface-highlight: map.get(primitive.$color, 'sunrise-orange-950'),
+    surface-highlight--hover: map.get(primitive.$color, 'sunrise-orange-400'),
+    on-surface-highlight--hover: map.get(primitive.$color, 'sunrise-orange-950'),
+    surface-highlight--pressed: map.get(primitive.$color, 'sunrise-orange-500'),
+    on-surface-highlight--pressed: map.get(
+        primitive.$color,
+        'sunrise-orange-950'
+      ),
+    surface-highlight-subtler: map.get(primitive.$color, 'sunrise-orange-50'),
+    on-surface-highlight-subtler: map.get(
+        primitive.$color,
+        'sunrise-orange-900'
+      ),
+    //
+    // Surfaces — inverted
+    surface-inverted: map.get(primitive.$color, 'silver-fog-950'),
+    on-surface-inverted: map.get(primitive.$color, 'silver-fog-0'),
+    surface-inverted-subtle: map.get(primitive.$color, 'silver-fog-950'),
+    on-surface-inverted-subtle: map.get(primitive.$color, 'silver-fog-300'),
+    surface-inverted-disabled: map.get(primitive.$color, 'silver-fog-950'),
+    on-surface-inverted-disabled: map.get(primitive.$color, 'silver-fog-600'),
+    //
+    // Surfaces — neutral
+    surface-neutral: map.get(primitive.$color, 'silver-fog-600'),
+    on-surface-neutral: map.get(primitive.$color, 'silver-fog-0'),
+    surface-neutral--hover: map.get(primitive.$color, 'silver-fog-700'),
+    on-surface-neutral--hover: map.get(primitive.$color, 'silver-fog-0'),
+    surface-neutral--pressed: map.get(primitive.$color, 'silver-fog-800'),
+    on-surface-neutral--pressed: map.get(primitive.$color, 'silver-fog-0'),
+    surface-neutral-subtle: map.get(primitive.$color, 'silver-fog-100'),
+    on-surface-neutral-subtle: map.get(primitive.$color, 'silver-fog-900'),
+    surface-neutral-subtle--hover: map.get(primitive.$color, 'silver-fog-200'),
+    on-surface-neutral-subtle--hover: map.get(
+        primitive.$color,
+        'silver-fog-900'
+      ),
+    surface-neutral-subtler: map.get(primitive.$color, 'silver-fog-50'),
+    on-surface-neutral-subtler: map.get(primitive.$color, 'silver-fog-900'),
+    surface-neutral-subtler--hover: map.get(primitive.$color, 'silver-fog-75'),
+    on-surface-neutral-subtler--hover: map.get(
+        primitive.$color,
+        'silver-fog-900'
+      ),
+    //
+    // Surfaces — critical
+    surface-critical: map.get(primitive.$color, 'red-600'),
+    on-surface-critical: map.get(primitive.$color, 'silver-fog-0'),
+    surface-critical--hover: map.get(primitive.$color, 'red-700'),
+    on-surface-critical--hover: map.get(primitive.$color, 'silver-fog-0'),
+    surface-critical--pressed: map.get(primitive.$color, 'red-800'),
+    on-surface-critical--pressed: map.get(primitive.$color, 'silver-fog-0'),
+    surface-critical-subtle: map.get(primitive.$color, 'red-200'),
+    on-surface-critical-subtle: map.get(primitive.$color, 'red-900'),
+    surface-critical-subtler: map.get(primitive.$color, 'red-50'),
+    on-surface-critical-subtler: map.get(primitive.$color, 'red-700'),
+    surface-critical-subtler--hover: map.get(primitive.$color, 'red-100'),
+    on-surface-critical-subtler--hover: map.get(primitive.$color, 'red-900'),
+    //
+    // Surfaces — info
+    surface-info: map.get(primitive.$color, 'blue-600'),
+    on-surface-info: map.get(primitive.$color, 'silver-fog-0'),
+    surface-info--hover: map.get(primitive.$color, 'blue-700'),
+    on-surface-info--hover: map.get(primitive.$color, 'silver-fog-0'),
+    surface-info--pressed: map.get(primitive.$color, 'blue-800'),
+    on-surface-info--pressed: map.get(primitive.$color, 'silver-fog-0'),
+    surface-info-subtle: map.get(primitive.$color, 'blue-200'),
+    on-surface-info-subtle: map.get(primitive.$color, 'blue-900'),
+    surface-info-subtler: map.get(primitive.$color, 'blue-75'),
+    on-surface-info-subtler: map.get(primitive.$color, 'blue-800'),
+    surface-info-subtler--hover: map.get(primitive.$color, 'blue-100'),
+    on-surface-info-subtler--hover: map.get(primitive.$color, 'blue-900'),
+    //
+    // Surfaces — success
+    surface-success: map.get(primitive.$color, 'green-800'),
+    on-surface-success: map.get(primitive.$color, 'silver-fog-0'),
+    surface-success--hover: map.get(primitive.$color, 'green-900'),
+    on-surface-success--hover: map.get(primitive.$color, 'silver-fog-0'),
+    surface-success--pressed: map.get(primitive.$color, 'green-950'),
+    on-surface-success--pressed: map.get(primitive.$color, 'silver-fog-0'),
+    surface-success-subtle: map.get(primitive.$color, 'green-200'),
+    on-surface-success-subtle: map.get(primitive.$color, 'green-900'),
+    surface-success-subtler: map.get(primitive.$color, 'green-50'),
+    on-surface-success-subtler: map.get(primitive.$color, 'green-800'),
+    surface-success-subtler--hover: map.get(primitive.$color, 'green-200'),
+    on-surface-success-subtler--hover: map.get(primitive.$color, 'green-900'),
+    //
+    // Surfaces — warning
+    surface-warning: map.get(primitive.$color, 'orange-500'),
+    on-surface-warning: map.get(primitive.$color, 'orange-950'),
+    surface-warning--hover: map.get(primitive.$color, 'orange-600'),
+    on-surface-warning--hover: map.get(primitive.$color, 'orange-950'),
+    surface-warning--pressed: map.get(primitive.$color, 'orange-700'),
+    on-surface-warning--pressed: map.get(primitive.$color, 'orange-950'),
+    surface-warning-subtle: map.get(primitive.$color, 'orange-200'),
+    on-surface-warning-subtle: map.get(primitive.$color, 'orange-900'),
+    surface-warning-subtler: map.get(primitive.$color, 'orange-50'),
+    on-surface-warning-subtler: map.get(primitive.$color, 'orange-800'),
+    surface-warning-subtler--hover: map.get(primitive.$color, 'orange-100'),
+    on-surface-warning-subtler--hover: map.get(primitive.$color, 'orange-900'),
+    //
+    // Foreground / text
+    foreground: map.get(primitive.$color, 'silver-fog-950'),
+    foreground-subtle: map.get(primitive.$color, 'silver-fog-800'),
+    foreground-subtler: map.get(primitive.$color, 'silver-fog-700'),
+    foreground-placeholder: map.get(primitive.$color, 'silver-fog-500'),
+    foreground-disabled: map.get(primitive.$color, 'silver-fog-400'),
+    foreground-primary: map.get(primitive.$color, 'european-blue-600'),
+    foreground-success: map.get(primitive.$color, 'green-800'),
+    foreground-info: map.get(primitive.$color, 'blue-900'),
+    foreground-warning: map.get(primitive.$color, 'orange-800'),
+    foreground-critical: map.get(primitive.$color, 'red-600'),
+    foreground-highlight: map.get(primitive.$color, 'sunrise-orange-900'),
+    foreground-inverted: map.get(primitive.$color, 'silver-fog-25'),
+    //
+    // Borders
+    border-brand: map.get(primitive.$color, 'silver-fog-950'),
+    border-divider: map.get(primitive.$color, 'silver-fog-200'),
+    border-disabled: map.get(primitive.$color, 'silver-fog-100'),
+    border-primary: map.get(primitive.$color, 'european-blue-600'),
+    border-primary--hover: map.get(primitive.$color, 'european-blue-500'),
+    border-primary--pressed: map.get(primitive.$color, 'european-blue-400'),
+    border-primary-subtle: map.get(primitive.$color, 'european-blue-400'),
+    border-primary-subtler: map.get(primitive.$color, 'european-blue-100'),
+    border-info: map.get(primitive.$color, 'blue-700'),
+    border-info-subtle: map.get(primitive.$color, 'blue-300'),
+    border-success: map.get(primitive.$color, 'green-700'),
+    border-success-subtle: map.get(primitive.$color, 'green-300'),
+    border-warning: map.get(primitive.$color, 'orange-600'),
+    border-warning-subtle: map.get(primitive.$color, 'orange-300'),
+    border-critical: map.get(primitive.$color, 'red-600'),
+    border-critical-subtle: map.get(primitive.$color, 'red-300'),
+    border-highlight: map.get(primitive.$color, 'sunrise-orange-400'),
+    border-highlight-subtle: map.get(primitive.$color, 'sunrise-orange-300'),
+    border-inverted: map.get(primitive.$color, 'silver-fog-25'),
+    border-inverted-disabled: map.get(primitive.$color, 'silver-fog-500'),
+    border-neutral: map.get(primitive.$color, 'silver-fog-500'),
+    border-neutral--hover: map.get(primitive.$color, 'silver-fog-600'),
+    border-neutral-subtle: map.get(primitive.$color, 'silver-fog-300'),
+    border-neutral-subtle--hover: map.get(primitive.$color, 'silver-fog-400'),
+    //
+    // Links
+    link: map.get(primitive.$color, 'european-blue-600'),
+    link--focused: map.get(primitive.$color, 'european-blue-600'),
+    link--hover: map.get(primitive.$color, 'european-blue-700'),
+    link--pressed: map.get(primitive.$color, 'european-blue-800'),
+    link--visited: map.get(primitive.$color, 'european-blue-700'),
+    link-inverted: map.get(primitive.$color, 'silver-fog-0'),
+    link-inverted--focused: map.get(primitive.$color, 'silver-fog-0'),
+    link-inverted--hover: map.get(primitive.$color, 'silver-fog-50'),
+    link-inverted--pressed: map.get(primitive.$color, 'silver-fog-100'),
+    link-inverted--visited: map.get(primitive.$color, 'silver-fog-25'),
+    link-contrast: map.get(primitive.$color, 'silver-fog-950'),
+    link-contrast--focused: map.get(primitive.$color, 'silver-fog-950'),
+    link-contrast--hover: map.get(primitive.$color, 'silver-fog-950'),
+    link-contrast--pressed: map.get(primitive.$color, 'silver-fog-800'),
+    link-contrast--visited: map.get(primitive.$color, 'silver-fog-900'),
+    //
+    // Focus
+    focus: map.get(primitive.$color, 'european-blue-600'),
+    focus-inverted: map.get(primitive.$color, 'european-blue-300'),
+    focus-critical: map.get(primitive.$color, 'red-400'),
+    border-focus: map.get(primitive.$color, 'european-blue-600'),
+    //
+    // Alpha / backdrop
+    alpha-backdrop-strong: map.get(primitive.$color, 'alpha-silver-fog-950-60'),
+    alpha-backdrop: map.get(primitive.$color, 'alpha-silver-fog-950-30'),
+    alpha-backdrop-subtle: map.get(primitive.$color, 'alpha-silver-fog-950-10'),
+    alpha-backdrop-inverted: map.get(primitive.$color, 'alpha-silver-fog-0-14'),
+    alpha-backdrop-inverted-subtle: map.get(
+        primitive.$color,
+        'alpha-silver-fog-0-10'
+      )
+  ),
+  color-domain.$color-domain
 );
