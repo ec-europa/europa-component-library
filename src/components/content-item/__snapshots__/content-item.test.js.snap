@@ -109,121 +109,125 @@ exports[`Content item Default renders correctly 1`] = `
       <div
         class="ecl-content-block__list-container"
       >
-        <dl
+        <div
           class="ecl-description-list ecl-content-block__list"
         >
-          <dt
-            class="ecl-description-list__term"
+          <dl
+            class="ecl-description-list__content"
           >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+            <dt
+              class="ecl-description-list__term"
             >
-              consectetur adipiscing elit
-            </a>
-            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
             >
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-        </dl>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
   </article>
@@ -341,121 +345,125 @@ exports[`Content item Default renders correctly with extra attributes 1`] = `
       <div
         class="ecl-content-block__list-container"
       >
-        <dl
+        <div
           class="ecl-description-list ecl-content-block__list"
         >
-          <dt
-            class="ecl-description-list__term"
+          <dl
+            class="ecl-description-list__content"
           >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+            <dt
+              class="ecl-description-list__term"
             >
-              consectetur adipiscing elit
-            </a>
-            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
             >
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-        </dl>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
   </article>
@@ -571,121 +579,125 @@ exports[`Content item Default renders correctly with extra class names 1`] = `
       <div
         class="ecl-content-block__list-container"
       >
-        <dl
+        <div
           class="ecl-description-list ecl-content-block__list"
         >
-          <dt
-            class="ecl-description-list__term"
+          <dl
+            class="ecl-description-list__content"
           >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+            <dt
+              class="ecl-description-list__term"
             >
-              consectetur adipiscing elit
-            </a>
-            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
             >
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-        </dl>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
   </article>
@@ -830,121 +842,125 @@ exports[`Content item Event renders correctly 1`] = `
       <div
         class="ecl-content-block__list-container"
       >
-        <dl
+        <div
           class="ecl-description-list ecl-content-block__list"
         >
-          <dt
-            class="ecl-description-list__term"
+          <dl
+            class="ecl-description-list__content"
           >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+            <dt
+              class="ecl-description-list__term"
             >
-              consectetur adipiscing elit
-            </a>
-            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
             >
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-        </dl>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
   </article>
@@ -1075,121 +1091,125 @@ exports[`Content item Image renders correctly 1`] = `
       <div
         class="ecl-content-block__list-container"
       >
-        <dl
+        <div
           class="ecl-description-list ecl-content-block__list"
         >
-          <dt
-            class="ecl-description-list__term"
+          <dl
+            class="ecl-description-list__content"
           >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+            <dt
+              class="ecl-description-list__term"
             >
-              consectetur adipiscing elit
-            </a>
-            . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standard text
+            </dt>
+            <dd
+              class="ecl-description-list__definition"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Lorem ipsum dolor sit amet, 
+              <a
+                class="ecl-link"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                consectetur adipiscing elit
+              </a>
+              . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
+            </dd>
+            <dt
+              class="ecl-description-list__term"
             >
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+              Standalone links
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Links inline
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-        </dl>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
   </article>

@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
@@ -19,6 +18,8 @@ $button-width: 44px;
   padding: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'navigation');
+  container-type: inline-size;
+  container-name: ecl-tabs;
 }
 
 .ecl-tabs__container {
@@ -252,7 +253,7 @@ $button-width: 44px;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
+@container ecl-tabs (width >= #{map.get($theme, 'breakpoint', 's')}) {
   .ecl-tabs__container {
     overflow-x: visible;
   }

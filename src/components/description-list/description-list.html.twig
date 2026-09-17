@@ -63,10 +63,11 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-  <dl
+  <div
     class="{{ _css_class }}"
     {{ _extra_attributes|raw }}
   >
+    <dl class="ecl-description-list__content">
     {% for _item in _items %}
       {% if _item.term is not empty %}
         {% if _item.term is iterable %}
@@ -84,7 +85,7 @@
           {# taxonomy #}
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
-              <ul class="ecl-description-list__definition-list" 
+              <ul class="ecl-description-list__definition-list"
               {%- if _visible_items > 0 -%}
                 data-ecl-description-list-collapsible
               {%- endif -%}
@@ -104,9 +105,9 @@
             </dd>
 
           {# links #}
-          {% elseif _item.type is not empty and _item.type == 'link' %}   
+          {% elseif _item.type is not empty and _item.type == 'link' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--link">
-              <ul class="ecl-description-list__definition-list" 
+              <ul class="ecl-description-list__definition-list"
               {%- if _visible_items > 0 -%}
                 data-ecl-description-list-collapsible
               {%- endif -%}
@@ -144,14 +145,14 @@
             </dd>
 
           {# tags #}
-          {% elseif _item.type is not empty and _item.type == 'tag' %}   
+          {% elseif _item.type is not empty and _item.type == 'tag' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--tag">
-              <ul class="ecl-description-list__definition-list" 
+              <ul class="ecl-description-list__definition-list"
               {%- if _visible_items > 0 -%}
                 data-ecl-description-list-collapsible
               {%- endif -%}
               >
-              {% for _definition in _item.definition %}  
+              {% for _definition in _item.definition %}
                 <li class="ecl-description-list__definition-item">
                 {% include '@ecl/tag/tag.html.twig' with _definition|merge({
                   tag: _definition.tag|merge({ type: 'link' }),
@@ -177,6 +178,7 @@
       {% endif %}
     {% endfor %}
   </dl>
+</div>
 
 {% endif %}
 
