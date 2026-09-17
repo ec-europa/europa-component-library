@@ -1,6 +1,6 @@
 # Figma sync notes
 
-Running log of differences found between available implmentation and the Figma
+Running log of differences found between available implementation and the Figma
 token exports it was built from, across sync passes. Not part of the published
 package — internal tracking only.
 
