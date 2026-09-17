@@ -5,17 +5,16 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
-import dataSortable from './demo/data--sort-table';
 import table from './table.html.twig';
 import notes from './README.md';
-
-// Preserve original data
-const dataZebra = { ...dataDefault, zebra: true };
 
 const getArgs = () => {
   const args = {
     header: true,
     simple: false,
+    sortable: false,
+    filter: false,
+    zebra: false,
   };
 
   if (getSystem() === 'ec') {
@@ -49,6 +48,41 @@ const getArgTypes = () => ({
       category: 'Display',
     },
     if: { arg: 'header' },
+  },
+
+  sortable: {
+    name: 'sortable',
+    type: { name: 'boolean' },
+    description: 'Make table columns sortable',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Optional',
+    },
+    if: { arg: 'header' },
+  },
+
+  filter: {
+    name: 'filter',
+    type: { name: 'boolean' },
+    description: 'Add a filter field to each column',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Optional',
+    },
+    if: { arg: 'header' },
+  },
+
+  zebra: {
+    name: 'zebra',
+    type: { name: 'boolean' },
+    description: 'Add alternating row background colors',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
   },
 });
 
@@ -92,22 +126,6 @@ Default.parameters = {
   },
 };
 
-export const Zebra = (_, { loaded: { component } }) => component;
-
-Zebra.render = async (args) => {
-  const renderedTableZebra = await table(prepareData(dataZebra, args));
-  return renderedTableZebra;
-};
-Zebra.storyName = 'zebra';
-Zebra.args = getArgs(dataZebra);
-Zebra.argTypes = getArgTypes(dataZebra);
-Zebra.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataZebra, args),
-  },
-};
-
 export const Multi = (_, { loaded: { component } }) => component;
 
 Multi.render = async (args) => {
@@ -121,21 +139,5 @@ Multi.parameters = {
   notes: {
     markdown: notes,
     json: ({ args }) => prepareData(dataMulti, args),
-  },
-};
-
-export const Sortable = (_, { loaded: { component } }) => component;
-
-Sortable.render = async (args) => {
-  const renderedTableSortable = await table(prepareData(dataSortable, args));
-  return renderedTableSortable;
-};
-Sortable.storyName = 'sort table';
-Sortable.args = getArgs(dataSortable);
-Sortable.argTypes = getArgTypes(dataSortable);
-Sortable.parameters = {
-  notes: {
-    markdown: notes,
-    json: ({ args }) => prepareData(dataSortable, args),
   },
 };
