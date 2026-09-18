@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
@@ -18,8 +17,7 @@ $table: null !default;
   color: map.get($table, 'table', 'color');
   margin: 0;
   width: 100%;
-
-  @include mixins.responsive-font(map.get($table, 'table', 'font'));
+  font: map.get($table, 'table', 'font');
 }
 
 .ecl-table-responsive {
@@ -98,8 +96,7 @@ $table: null !default;
   color: map.get($table, 'caption', 'color');
   margin-block-start: var(--s-xs);
   text-align: start;
-
-  @include mixins.responsive-font(map.get($table, 'caption', 'font'));
+  font: map.get($table, 'caption', 'font');
 }
 
 // Zebra
