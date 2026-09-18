@@ -21,8 +21,8 @@ $table: null !default;
 
 .ecl-table__header,
 %ecl-table__header {
-  border-inline-end: map.get($table, 'cell-separator');
-  border-inline-start: map.get($table, 'cell-separator');
+  border-inline-end: map.get($table, 'header', 'separator-desktop');
+  border-inline-start: map.get($table, 'header', 'separator-desktop');
   font-weight: map.get($table, 'header', 'font-weight');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'xl') map.get($theme, 'spacing-print', 's')
@@ -30,8 +30,12 @@ $table: null !default;
   text-align: start;
   vertical-align: baseline;
 
+  &:first-child {
+    border-inline-start-color: map.get($table, 'head', 'border-inline-color');
+  }
+
   &:last-child {
-    border-inline-end: map.get($table, 'cell-separator');
+    border-inline-end-color: map.get($table, 'head', 'border-inline-color');
   }
 }
 
@@ -42,6 +46,7 @@ $table: null !default;
 
 .ecl-table__head,
 %ecl-table__head {
+  background-color: map.get($table, 'head', 'background');
   border-bottom: map.get($table, 'row-border');
   border-top: map.get($table, 'row-border');
 
@@ -56,7 +61,7 @@ $table: null !default;
 
 .ecl-table__cell,
 %ecl-table__cell {
-  border-inline-start: map.get($table, 'cell-separator');
+  border-inline-start: map.get($table, 'cell', 'separator');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'm');
 
@@ -79,6 +84,7 @@ $table: null !default;
   }
 }
 
-.ecl-table__arrow {
+.ecl-table__arrow,
+.ecl-table__filter-label {
   display: none;
 }
