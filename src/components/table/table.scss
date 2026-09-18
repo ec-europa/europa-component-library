@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
@@ -18,8 +17,7 @@ $table: null !default;
   color: map.get($table, 'table', 'color');
   margin: 0;
   width: 100%;
-
-  @include mixins.responsive-font(map.get($table, 'table', 'font'));
+  font: map.get($table, 'table', 'font');
 }
 
 .ecl-table-responsive {
@@ -28,9 +26,11 @@ $table: null !default;
 
 .ecl-table__head,
 %ecl-table__head {
+  --ecl-table-header-background: #{map.get($table, 'head', 'background')};
+
   border-block-end: map.get($table, 'head', 'border');
   border-inline-end: 1px solid map.get($table, 'head', 'background');
-  background-color: map.get($table, 'head', 'background');
+  background-color: var(--ecl-table-header-background);
   display: table-header-group;
 }
 
@@ -46,11 +46,29 @@ $table: null !default;
   vertical-align: top;
 
   &:first-child {
-    border-inline-start-color: map.get($table, 'head', 'background');
+    border-inline-start-color: map.get($table, 'head', 'border-inline-color');
   }
 
   &:last-child {
-    border-inline-end-color: map.get($table, 'head', 'background');
+    border-inline-end-color: map.get($table, 'head', 'border-inline-color');
+  }
+
+  .ecl-table:has(th[scope='colgroup']) &:not([scope='colgroup']) {
+    --ecl-table-header-background: #{map.get(
+        $table,
+        'head',
+        'background-ungrouped'
+      )};
+
+    background: var(--ecl-table-header-background);
+  }
+
+  .ecl-table:has(th[scope='colgroup']) &:first-child {
+    border-inline-start-color: var(--ecl-table-header-background);
+  }
+
+  .ecl-table:has(th[scope='colgroup']) &:last-child {
+    border-inline-end-color: var(--ecl-table-header-background);
   }
 }
 
@@ -60,7 +78,7 @@ $table: null !default;
   border-block-start-width: 0;
 
   &:first-child {
-    border-block-start: map.get($table, 'row-border');
+    border-block-start: map.get($table, 'head', 'head-border-top');
   }
 
   // stylelint-disable-next-line no-descending-specificity
@@ -94,8 +112,7 @@ $table: null !default;
   color: map.get($table, 'caption', 'color');
   margin-block-start: var(--s-xs);
   text-align: start;
-
-  @include mixins.responsive-font(map.get($table, 'caption', 'font'));
+  font: map.get($table, 'caption', 'font');
 }
 
 // Zebra
@@ -215,6 +232,11 @@ $table: null !default;
     }
 
     .ecl-table__cell {
+      border-inline-start: map.get(
+        $table,
+        'cell',
+        'border-inline-start-mobile'
+      );
       border-inline-end: map.get($table, 'cell', 'separator');
       border-block-start: map.get($table, 'row-border');
       display: flex;
@@ -222,8 +244,8 @@ $table: null !default;
 
       &::before {
         background-color: map.get($table, 'head', 'background');
-        border-inline-end: map.get($table, 'header', 'separator-mobile');
         border-block-end: map.get($table, 'header', 'separator-desktop');
+        border-inline-end: 2px solid map.get($table, 'head', 'background');
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
@@ -237,9 +259,15 @@ $table: null !default;
         padding: map.get($table, 'cell', 'padding-mobile');
       }
 
+      &:first-child::before {
+        margin-block-start: calc(
+          map.get($table, 'cell', 'margin-mobile', 'top') - 1px
+        );
+      }
+
       &:last-of-type {
         border-block-end: map.get($table, 'row-border');
-        margin-block-end: var(--s-l);
+        margin-block-end: var(--s-xs);
 
         &::before {
           border-block-end: none;
@@ -268,13 +296,18 @@ $table: null !default;
         font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
         inset-inline: calc(-1 * #{map.get($table, 'multi-head', 'position')});
-        margin-block-end: -1px;
+        margin-block-end: -2px;
         order: -1;
         padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
-        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 1px);
+        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 2px);
         width: 100%;
       }
+    }
+
+    .ecl-table__cell--group::before {
+      border-inline-end: map.get($table, 'header', 'separator-mobile');
+      background: map.get($table, 'cell', 'group-background');
     }
   }
 
