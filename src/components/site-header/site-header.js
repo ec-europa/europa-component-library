@@ -318,6 +318,10 @@ export class SiteHeader {
       );
     }
 
+    if (this.searchForm && this.attachKeyListener) {
+      this.searchForm.removeEventListener('keydown', this.handleEscOnForm);
+    }
+
     if (this.attachKeyListener) {
       document.removeEventListener('keyup', this.handleKeyboardGlobal);
     }
