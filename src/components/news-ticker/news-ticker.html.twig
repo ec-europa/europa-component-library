@@ -28,7 +28,7 @@
       ]
 #}
 
-{# DEPRECATED 
+{# DEPRECATED
 - "item.img" (object): tiny image used at the icon location
 #}
 
@@ -80,6 +80,7 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
+  <div class="ecl-news-ticker__wrapper">
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
     <div class="ecl-news-ticker__content">
@@ -88,7 +89,7 @@
         {% set _media = '' %}
         {# DEPRECATED #}
         {% if _item.img is not empty and _item.img.path is not empty %}
-          {% set _media %} 
+          {% set _media %}
             <img
               class="ecl-news-ticker__icon"
               src="{{ _item.img.path }}"
@@ -97,7 +98,7 @@
             {%- endif -%}
             {%- if _item.img.title is not empty -%}
               title="{{ _item.img.title }}"
-            {%- endif -%} 
+            {%- endif -%}
             >
           {% endset %}
         {% else %}
@@ -136,7 +137,7 @@
             </span>
           {% endif %}
           </div>
-        </li>  
+        </li>
       {% endfor %}
       </ul>
     </div>
@@ -209,11 +210,12 @@
       } only %}
     </div>
 
-    <div class="ecl-news-ticker__counter">
+    <div class="ecl-news-ticker__counter" dir="ltr">
       <span class="ecl-news-ticker__counter--current">1</span>
       {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}
       <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
     </div>
+  </div>
   </div>
 </div>
 

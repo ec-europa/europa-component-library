@@ -1,25 +1,25 @@
 export const allModes = {
   s: {
     viewport: {
-      width: 480,
+      width: 528,
       height: 900,
     },
   },
   m: {
     viewport: {
-      width: 768,
+      width: 816,
       height: 900,
     },
   },
   l: {
     viewport: {
-      width: 996,
+      width: 1044,
       height: 1200,
     },
   },
   xl: {
     viewport: {
-      width: 1140,
+      width: 1188,
       height: 1200,
     },
   },
