@@ -658,6 +658,17 @@ export class Select {
       ) {
         option.selected = true;
       }
+
+      // Update checkbox selection
+      if (this.multiple) {
+        const checkbox = this.selectMultiple.querySelector(
+          `[data-select-multiple-value="${option.text}"]`,
+        );
+        const input = checkbox?.querySelector('.ecl-checkbox__input');
+        if (input) {
+          input.checked = option.selected;
+        }
+      }
     });
 
     this.update();
