@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.3.1 (2026-09-21)
+
+#### :bug: Bug Fix
+
+- [#4707](https://github.com/ec-europa/europa-component-library/pull/4707) fix(layout-wrapper): remove extra spacing - FRONT-5498 ([@emeryro](https://github.com/emeryro))
+- [#4709](https://github.com/ec-europa/europa-component-library/pull/4709) fix(site-header): Checking for existence of the search form before using it in the js - FRONT-5491 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.3.0 (2026-09-15)
 
 #### :rocket: New Feature
