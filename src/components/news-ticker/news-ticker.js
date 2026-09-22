@@ -236,9 +236,6 @@ export class NewsTicker {
 
       const isFocus = document.activeElement === this.btnPause;
 
-      this.btnPlay.style.display = 'flex';
-      this.btnPause.style.display = 'none';
-
       if (isFocus) {
         this.btnPlay.focus();
       }
@@ -251,17 +248,11 @@ export class NewsTicker {
       autoplay?.stop();
       autoplay?.reset();
 
-      this.btnPlay.style.display = 'flex';
-      this.btnPause.style.display = 'none';
-
       return;
     }
 
     // play
     autoplay?.play();
-
-    this.btnPlay.style.display = 'none';
-    this.btnPause.style.display = 'flex';
 
     const isFocus = document.activeElement === this.btnPlay;
 
@@ -376,6 +367,24 @@ export class NewsTicker {
     this.setCounter();
     // Update the counter on slide change
     this.slider.on('select', this.setCounter);
+
+    // Handle play/pause button visibilty based on autoplay events
+    if (this.btnPlay && this.btnPause) {
+      this.slider.on('autoplay:stop', () => {
+        this.btnPlay.style.display = 'flex';
+        this.btnPause.style.display = 'none';
+      });
+
+      this.slider.on('autoplay:play', () => {
+        this.btnPlay.style.display = 'none';
+        this.btnPause.style.display = 'flex';
+      });
+
+      this.slider.on('autoplay:pause', () => {
+        this.btnPlay.style.display = 'flex';
+        this.btnPause.style.display = 'none';
+      });
+    }
   }
 
   /**
