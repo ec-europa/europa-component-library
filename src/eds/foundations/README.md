@@ -31,6 +31,24 @@ needed to consume the package.
 - From ECL monorepo: `pnpm build:eds`.
 - Standalone: `npm install` then `npm run build`.
 
+## Token export (`tokens.json`)
+
+`tokens.json`, at the root of this package, is a JSON export of every
+primitive and semantic token map, for designers to browse without reading
+Sass. Regenerate it after touching any token map:
+
+- From ECL monorepo: `pnpm --filter @ecl/eds-foundations run export:tokens`.
+- Standalone: `npm run export:tokens`.
+
+It's auto-generated — don't hand-edit it, and don't commit it stale.
+
+`scripts/tokens-manifest.scss` is the single source of truth for what's
+included: a `$tokens` map listing each Sass map to export, nested the same
+way it should appear in the JSON. `scripts/export-tokens.js` walks that map
+generically (maps, lists, colors, numbers, strings, booleans) via a Sass
+custom function, so it never needs to change when a token map is added,
+removed, or renamed — only the manifest does.
+
 ## Dark mode
 
 Defaults to `prefers-color-scheme: dark`. Force a mode regardless of the OS
