@@ -97,6 +97,10 @@ $lines-desktop: 2 !default;
   border-color: transparent;
   display: flex;
   order: 1;
+
+  &:focus-visible {
+    border-color: transparent;
+  }
 }
 
 .ecl-news-ticker__prev {

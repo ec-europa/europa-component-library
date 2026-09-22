@@ -7,13 +7,19 @@ import SliderPager from '@ecl/slider';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.toggleSelector Selector for toggling element
+ * @param {String} options.playSelector Selector for the play button
+ * @param {String} options.pauseSelector Selector for the pause button
  * @param {String} options.prevSelector Selector for prev element
  * @param {String} options.nextSelector Selector for next element
+ * @param {String} options.containerClass Selector for the container
  * @param {String} options.contentClass Selector for the content container
  * @param {String} options.slidesClass Selector for the slides container
+ * @param {String} options.counterClass Selector for the counter
  * @param {String} options.slideClass Selector for the slide items
- * @param {String} options.currentSlideClass Selector for the counter current slide number
+ * @param {String} options.counterLabelSelector Selector for the counter label
+ * @param {String} options.controlsClass Selector for the controls
+ * @param {Boolean} options.attachClickListener Whether to use click listeners from this class
+ * @param {Boolean} options.attachResizeListener Whether to use ressize listener from this class
  */
 export class NewsTicker {
   /**
@@ -40,7 +46,7 @@ export class NewsTicker {
       nextSelector = '[data-ecl-news-ticker-next]',
       containerClass = '.ecl-news-ticker__container',
       contentClass = '.ecl-news-ticker__content',
-      counterSelector = '.ecl-news-ticker__counter',
+      counterClass = '.ecl-news-ticker__counter',
       counterLabelSelector = 'data-ecl-news-ticker-counter-label',
       slidesClass = '.ecl-news-ticker__slides',
       slideClass = '.ecl-news-ticker__slide',
@@ -68,7 +74,7 @@ export class NewsTicker {
     this.counterLabelSelector = counterLabelSelector;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
-    this.counterSelector = counterSelector;
+    this.counterClass = counterClass;
     this.controlsClass = controlsClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
@@ -98,7 +104,6 @@ export class NewsTicker {
     this.handleMouseOut = this.handleMouseOut.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    this.handlePlayPauseClick = this.handlePlayPauseClick.bind(this);
     this.handleNextPrevClick = this.handleNextPrevClick.bind(this);
     this.initSlider = this.initSlider.bind(this);
     this.setCounter = this.setCounter.bind(this);
@@ -122,7 +127,7 @@ export class NewsTicker {
     this.content = queryOne(this.contentClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.sliderEl = queryOne(this.contentClass, this.element);
-    this.counter = queryOne(this.counterSelector, this.element);
+    this.counter = queryOne(this.counterClass, this.element);
     this.counterLabel = this.element.getAttribute(this.counterLabelSelector);
 
     this.slides = queryAll(this.slideClass, this.element);
@@ -141,7 +146,7 @@ export class NewsTicker {
       this.initSlider(this.sliderEl);
     }
 
-    // Initialize position/size handling
+    // Initialize size handling
     this.handleResize();
 
     // Bind events
@@ -316,7 +321,7 @@ export class NewsTicker {
       focusElement.contains(document.activeElement) &&
       this.slider?.plugins().autoplay?.isPlaying()
     ) {
-      this.handleAutoPlay();
+      this.handleAutoPlay(true);
     }
   }
 
@@ -363,11 +368,13 @@ export class NewsTicker {
       nextSelector: '.ecl-news-ticker__next',
     });
 
+    // Initialize navigation
     this.pager.init();
+    // Start the autoplay
     this.handleAutoPlay();
-    this.setHeight();
+    // Initialize the counter
     this.setCounter();
-
+    // Update the counter on slide change
     this.slider.on('select', this.setCounter);
   }
 
