@@ -459,9 +459,6 @@ importers:
         specifier: 5.3.0
         version: link:../tag
     devDependencies:
-      '@ecl/grid':
-        specifier: 5.3.0
-        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.3.0
         version: link:../../mixins/typography
@@ -487,9 +484,6 @@ importers:
         specifier: 5.3.0
         version: link:../link
     devDependencies:
-      '@ecl/grid':
-        specifier: 5.3.0
-        version: link:../../layout/grid
       '@ecl/mixins-typography':
         specifier: 5.3.0
         version: link:../../mixins/typography
@@ -858,32 +852,37 @@ importers:
       '@ecl/picture':
         specifier: 5.3.0
         version: link:../picture
-    devDependencies:
-      '@ecl/grid':
-        specifier: 5.3.0
-        version: link:../../layout/grid
 
   src/components/news-ticker:
     dependencies:
       '@ecl/button':
         specifier: 5.3.0
         version: link:../button
-      '@ecl/dom-utils':
-        specifier: 5.3.0
-        version: link:../../tools/dom-utils
       '@ecl/icon':
         specifier: 5.3.0
         version: link:../icon
       '@ecl/link':
         specifier: 5.3.0
         version: link:../link
-    devDependencies:
-      '@ecl/grid':
+      '@ecl/slider':
         specifier: 5.3.0
-        version: link:../../layout/grid
+        version: link:../slider
+    devDependencies:
+      '@ecl/dom-utils':
+        specifier: 5.3.0
+        version: link:../../tools/dom-utils
       '@ecl/mixins-typography':
         specifier: 5.3.0
         version: link:../../mixins/typography
+      embla-carousel:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03
+      embla-carousel-accessibility:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
+      embla-carousel-autoplay:
+        specifier: 9.0.0-rc03
+        version: 9.0.0-rc03(embla-carousel@9.0.0-rc03)
 
   src/components/notification:
     dependencies:
@@ -1324,9 +1323,6 @@ importers:
         specifier: 5.3.0
         version: link:../link
     devDependencies:
-      '@ecl/grid':
-        specifier: 5.3.0
-        version: link:../../layout/grid
       '@ecl/utility-screen-reader':
         specifier: 5.3.0
         version: link:../../utilities/screen-reader
