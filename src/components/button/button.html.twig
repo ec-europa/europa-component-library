@@ -148,7 +148,8 @@
 
 {# Print the result #}
 
-<button
+<a
+  href="#"
   class="{{ _css_class }}"
   type="{{ _type }}"
   {{ _extra_attributes|raw }}
@@ -168,6 +169,6 @@
 {% else %}
   {{- block('label') -}}
 {% endif -%}
-</button>
+</a>
 
 {% endapply %}
