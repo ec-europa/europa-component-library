@@ -132,6 +132,9 @@ export default {
       xl: { disable: true },
     },
   },
+  breakpointIndicator: {
+    container: '.ecl-navigation-list',
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

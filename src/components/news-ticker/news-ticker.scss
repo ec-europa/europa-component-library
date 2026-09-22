@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
@@ -16,17 +15,22 @@ $lines-mobile: 5 !default;
 $lines-desktop: 2 !default;
 
 .ecl-news-ticker {
-  align-items: center;
   background: #fff;
   border-radius: map.get($news-ticker, 'border-radius');
-  box-shadow: map.get($news-ticker, 'box-shadow');
   box-sizing: border-box;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   margin: 0;
   padding: 0;
   position: relative;
+  container-type: inline-size;
+  container-name: ecl-news-ticker;
+}
+
+.ecl-news-ticker__wrapper {
+  align-items: center;
+  box-shadow: map.get($news-ticker, 'box-shadow');
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .ecl-news-ticker__container {
@@ -52,7 +56,6 @@ $lines-desktop: 2 !default;
 .ecl-news-ticker__content {
   border-start-start-radius: map.get($news-ticker, 'border-radius');
   border-start-end-radius: map.get($news-ticker, 'border-radius');
-  height: 0;
   overflow: hidden;
   transition-duration: 0.4s;
   width: 100%;
@@ -60,11 +63,10 @@ $lines-desktop: 2 !default;
 
 .ecl-news-ticker__slides {
   color: var(--cm-on-surface-brand, var(--c-d));
+  height: 0;
   list-style: none;
   margin: 0;
   padding: 0;
-  transform: translate3d(0, 0, 0);
-  transition-duration: 0s;
 }
 
 .ecl-news-ticker__slide {
@@ -83,6 +85,30 @@ $lines-desktop: 2 !default;
     height: map.get($theme, 'icon', 'xs');
     width: map.get($theme, 'icon', 'xs');
   }
+}
+
+.ecl-news-ticker__play.ecl-button--icon-only {
+  border-color: transparent;
+  display: none;
+  order: 1;
+}
+
+.ecl-news-ticker__pause.ecl-button--icon-only {
+  border-color: transparent;
+  display: flex;
+  order: 1;
+
+  &:focus-visible {
+    border-color: transparent;
+  }
+}
+
+.ecl-news-ticker__prev {
+  order: 0;
+}
+
+.ecl-news-ticker__next {
+  order: 2;
 }
 
 .ecl-news-ticker__slide-icon {
@@ -129,6 +155,7 @@ $lines-desktop: 2 !default;
 }
 
 .ecl-news-ticker__actions {
+  align-items: normal;
   border-end-end-radius: map.get($news-ticker, 'border-radius');
   background-color: map.get($news-ticker, 'action', 'background');
   display: flex;
@@ -170,8 +197,8 @@ $lines-desktop: 2 !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-news-ticker {
+@container ecl-news-ticker (width >= #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-news-ticker__wrapper {
     flex-flow: initial;
     justify-content: initial;
   }

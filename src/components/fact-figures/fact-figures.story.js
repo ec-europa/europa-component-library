@@ -238,4 +238,7 @@ Default.parameters = {
       xl: { disable: true },
     },
   },
+  breakpointIndicator: {
+    container: '.ecl-fact-figures',
+  },
 };

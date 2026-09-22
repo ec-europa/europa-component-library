@@ -1,14 +1,31 @@
 import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
+import EmblaCarousel from 'embla-carousel';
+import Accessibility from 'embla-carousel-accessibility';
+import Autoplay from 'embla-carousel-autoplay';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.toggleSelector Selector for toggling element
  * @param {String} options.contentClass Selector for the content container
+ * @param {String} options.prevSelector Selector for prev button
+ * @param {String} options.nextSelector Selector for next button
+ * @param {String} options.playSelector Selector for play button
+ * @param {String} options.pauseSelector Selector for pause button
+ * @param {String} options.pagerSelector Selector for the pager container
+ * @param {String} options.counterSelector Selector for the counter
+ * @param {String} options.counterLabelSelector Label for the counter
+ * @param {String} options.dotsClass Selector for the dots container
+ * @param {String} options.dotClass Selector for a dot button
+ * @param {String} options.activeDotClass Class applied to the active dot
+ * @param {Number} options.autoplayDelay Duration of a slide
+ * @param {String} options.teaserButtonSelector Selector for teaser navigation buttons
  * @param {String} options.slidesClass Selector for the slides container
  * @param {String} options.slideClass Selector for the slide items
+ * @param {String} options.completionBarClass Class for the completion bar
  * @param {String} options.navigationClass Selector for the navigation container
- * @param {String} options.currentSlideClass Selector for the counter current slide number
+ * @param {String} options.visibleTeasers Number of visible teasers
  */
 export class Carousel {
   /**
@@ -31,14 +48,24 @@ export class Carousel {
     {
       playSelector = '.ecl-carousel__play',
       pauseSelector = '.ecl-carousel__pause',
-      containerClass = '.ecl-carousel__container',
+      prevSelector = '.ecl-carousel__prev',
+      nextSelector = '.ecl-carousel__next',
+      containerClass = '.ecl-carousel__viewport',
+      dotsClass = '.ecl-carousel__dots',
+      dotClass = '.ecl-carousel__dot',
+      activeDotClass = 'ecl-slider-pager__dot--active',
       slidesClass = '.ecl-carousel__slides',
       slideClass = '.ecl-carousel__slide',
-      currentSlideClass = '.ecl-carousel__current',
-      navigationItemsClass = '.ecl-carousel__navigation-item',
+      pagerClass = '.ecl-carousel__pager',
+      counterSelector = '.ecl-carousel__counter',
+      counterLabelSelector = 'data-ecl-carousel-counter-label',
+      completionBarClass = '.ecl-carousel__teaser-loading-bar',
+      teaserButtonSelector = '[data-ecl-carousel-teaser-button]',
       controlsClass = '.ecl-carousel__controls',
       attachClickListener = true,
       attachResizeListener = true,
+      autoPlayDelay = 5000,
+      visibleTeasers = 4,
     } = {},
   ) {
     // Check element
@@ -53,59 +80,66 @@ export class Carousel {
     // Options
     this.playSelector = playSelector;
     this.pauseSelector = pauseSelector;
+    this.prevSelector = prevSelector;
+    this.nextSelector = nextSelector;
+    this.pagerClass = pagerClass;
     this.containerClass = containerClass;
+    this.completionBarClass = completionBarClass;
+    this.teaserButtonSelector = teaserButtonSelector;
+    this.dotsClass = dotsClass;
+    this.dotClass = dotClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
-    this.currentSlideClass = currentSlideClass;
-    this.navigationItemsClass = navigationItemsClass;
     this.controlsClass = controlsClass;
+    this.counterSelector = counterSelector;
+    this.counterLabelSelector = counterLabelSelector;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
+    this.autoPlayDelay = autoPlayDelay;
+    this.activeDotClass = activeDotClass;
+    this.visibleTeasers = visibleTeasers;
 
     // Private variables
     this.container = null;
     this.slides = null;
     this.btnPlay = null;
     this.btnPause = null;
+    this.btnPrev = null;
+    this.btnNext = null;
+    this.completionBars = null;
     this.index = 1;
     this.total = 0;
-    this.allowShift = true;
+    this.slider = null;
     this.activeNav = null;
-    this.autoPlay = null;
     this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
     this.resizeTimer = null;
-    this.posX1 = 0;
-    this.posX2 = 0;
-    this.posInitial = 0;
-    this.posFinal = 0;
-    this.threshold = 80;
-    this.navigationItems = null;
     this.navigation = null;
     this.controls = null;
-    this.direction = 'ltr';
-    this.cloneFirstSLide = null;
-    this.cloneLastSLide = null;
+    this.direction = getComputedStyle(this.element).direction;
     this.executionCount = 0;
     this.maxExecutions = 5;
     this.slideWidth = 0;
+    this.accessibility = null;
+    this.teaserButtons = [];
+    this.teaserWindowStart = 0;
+    this.teaserCount = 0;
+    this.teasersInView = 0;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
-    this.shiftSlide = this.shiftSlide.bind(this);
-    this.checkIndex = this.checkIndex.bind(this);
-    this.moveSlides = this.moveSlides.bind(this);
     this.handleResize = this.handleResize.bind(this);
-    this.dragStart = this.dragStart.bind(this);
-    this.dragEnd = this.dragEnd.bind(this);
-    this.dragAction = this.dragAction.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
-    this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
+    this.handleKeyboardOnTeasers = this.handleKeyboardOnTeasers.bind(this);
     this.checkBannerHeights = this.checkBannerHeights.bind(this);
     this.resetBannerHeights = this.resetBannerHeights.bind(this);
+    this.initSlider = this.initSlider.bind(this);
+    this.setCounter = this.setCounter.bind(this);
+    this.updateTeasers = this.updateTeasers.bind(this);
+    this.handleTeaserTransition = this.handleTeaserTransition.bind(this);
+    this.handleClickOnTeaser = this.handleClickOnTeaser.bind(this);
   }
 
   /**
@@ -115,98 +149,92 @@ export class Carousel {
     if (!ECL) {
       throw new TypeError('Called init but ECL is not present');
     }
+
     ECL.components = ECL.components || new Map();
-    // Hide the carousel initially, we will show it in handleesize()
+
+    // Hide the carousel initially, we will show it in handleResize()
     this.element.style.opacity = 0;
+
     this.btnPlay = queryOne(this.playSelector, this.element);
     this.btnPause = queryOne(this.pauseSelector, this.element);
+    this.btnNext = queryOne(this.nextSelector, this.element);
+    this.btnPrev = queryOne(this.prevSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
-    this.navigation = queryOne('.ecl-carousel__navigation', this.element);
-    this.navigationItems = queryAll(this.navigationItemsClass, this.element);
+    this.navigation = queryOne('.ecl-carousel__teasers', this.element);
     this.controls = queryOne(this.controlsClass, this.element);
-    this.currentSlide = queryOne(this.currentSlideClass, this.element);
-
+    this.sliderEl = queryOne(this.containerClass, this.element);
+    this.pagerNode = queryOne(this.pagerClass, this.element);
+    this.completionBars = queryAll(this.completionBarClass, this.element);
     this.slides = queryAll(this.slideClass, this.element);
+    this.counter = queryOne(this.counterSelector, this.element);
+    this.counterLabel = this.element.getAttribute(this.counterLabelSelector);
+    this.teaserButtons = queryAll(this.teaserButtonSelector, this.element);
     this.total = this.slides.length;
+    this.teaserCount = this.teaserButtons.length;
+    this.teaserInView = Math.min(this.visibleTeasers, this.teaserCount);
+
+    this.element.style.setProperty(
+      '--ecl-carousel-slide-duration',
+      `${this.autoPlayDelay}ms`,
+    );
 
     // If only one slide, don't initialize carousel and hide controls
     if (this.total <= 1) {
       if (this.controls) {
         this.controls.style.display = 'none';
       }
+
       if (this.slidesContainer) {
         this.slidesContainer.style.display = 'block';
       }
+
       return false;
     }
-
-    // Start initializing carousel
-    const firstSlide = this.slides[0];
-    const lastSlide = this.slides[this.slides.length - 1];
-
-    // Clone first and last slide
-    this.cloneFirstSlide = firstSlide.cloneNode(true);
-    this.cloneLastSlide = lastSlide.cloneNode(true);
-    this.slidesContainer.appendChild(this.cloneFirstSlide);
-    this.slidesContainer.insertBefore(this.cloneLastSlide, firstSlide);
-
-    // Initialize the js for the two cloned slides
-    const cloneFirstBanner = new ECL.Banner(
-      this.cloneFirstSlide.firstElementChild,
-    );
-    const cloneLastBanner = new ECL.Banner(
-      this.cloneLastSlide.firstElementChild,
-    );
-
-    cloneFirstBanner.init();
-    cloneLastBanner.init();
 
     // Refresh the slides variable after adding new cloned slides
     this.slides = queryAll(this.slideClass, this.element);
 
-    // Initialze pagination and navigation
-    this.handleResize();
     // Bind events
-    if (this.navigationItems) {
-      this.navigationItems.forEach((nav, index) => {
-        nav.addEventListener(
-          'click',
-          this.shiftSlide.bind(this, index + 1, true),
-        );
-      });
-    }
     if (this.navigation) {
-      this.navigation.addEventListener('keydown', this.handleKeyboardOnBullets);
+      this.navigation.addEventListener('keydown', this.handleKeyboardOnTeasers);
     }
-    if (this.attachClickListener && this.btnPlay && this.btnPause) {
-      this.btnPlay.addEventListener('click', this.handleAutoPlay);
-      this.btnPause.addEventListener('click', this.handleAutoPlay);
-    }
+
     if (this.btnPlay) {
-      this.btnPlay.addEventListener('keydown', this.handleKeyboardOnPlay);
+      this.btnPlay.addEventListener('click', this.handlePlayPauseClick);
     }
 
-    if (this.slidesContainer) {
-      // Mouse events
-      this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
-      this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
-
-      // Touch events
-      this.slidesContainer.addEventListener('touchstart', this.dragStart);
-      this.slidesContainer.addEventListener('touchend', this.dragEnd);
-      this.slidesContainer.addEventListener('touchmove', this.dragAction);
-      this.slidesContainer.addEventListener('transitionend', this.checkIndex);
+    if (this.btnPause) {
+      this.btnPause.addEventListener('click', this.handlePlayPauseClick);
     }
+
+    if (this.btnPrev) {
+      this.btnPrev.addEventListener('click', this.handleNextPrevClick);
+    }
+
+    if (this.btnNext) {
+      this.btnNext.addEventListener('click', this.handleNextPrevClick);
+    }
+
     if (this.container) {
+      this.container.addEventListener('mouseenter', this.handleMouseOver);
+      this.container.addEventListener('mouseleave', this.handleMouseOut);
       this.container.addEventListener('focus', this.handleFocus, true);
     }
+
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
 
+    if (this.sliderEl) {
+      this.initSlider(this.sliderEl);
+    }
+
+    this.handleResize();
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+
     ECL.components.set(this.element, this);
 
     return this;
@@ -216,48 +244,266 @@ export class Carousel {
    * Destroy component.
    */
   destroy() {
-    if (this.cloneFirstSLide && this.cloneLastSLide) {
-      this.cloneFirstSLide.remove();
-      this.cloneLastSLide.remove();
-    }
     if (this.btnPlay) {
-      this.btnPlay.replaceWith(this.btnPlay.cloneNode(true));
+      this.btnPlay.removeEventListener('click', this.handlePlayPauseClick);
     }
+
     if (this.btnPause) {
-      this.btnPause.replaceWith(this.btnPause.cloneNode(true));
+      this.btnPause.removeEventListener('click', this.handlePlayPauseClick);
     }
-    if (this.slidesContainer) {
-      this.slidesContainer.removeEventListener(
-        'mouseover',
-        this.handleMouseOver,
-      );
-      this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
-      this.slidesContainer.removeEventListener('touchstart', this.dragStart);
-      this.slidesContainer.removeEventListener('touchend', this.dragEnd);
-      this.slidesContainer.removeEventListener('touchmove', this.dragAction);
-      this.slidesContainer.removeEventListener(
-        'transitionend',
-        this.checkIndex,
-      );
+
+    if (this.btnPrev) {
+      this.btnPrev.removeEventListener('click', this.handleNextPrevClick);
     }
+
+    if (this.btnNext) {
+      this.btnNext.removeEventListener('click', this.handleNextPrevClick);
+    }
+
     if (this.container) {
+      this.container.removeEventListener('mouseenter', this.handleMouseOver);
+      this.container.removeEventListener('mouseleave', this.handleMouseOut);
       this.container.removeEventListener('focus', this.handleFocus, true);
     }
-    if (this.navigationItems) {
-      this.navigationItems.forEach((nav) => {
-        nav.replaceWith(nav.cloneNode(true));
-      });
-    }
+
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlay = null;
+
+    if (this.teaserButtons.length > 0) {
+      this.teaserButtons.forEach((button) => {
+        button.removeEventListener('click', this.handleClickOnTeaser);
+      });
     }
+
+    if (this.slider) {
+      this.slider.destroy();
+    }
+
+    if (this.pager) {
+      this.pager.destroy();
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
+    }
+  }
+
+  /**
+   * Init the slider.
+   */
+  initSlider(sliderEl) {
+    this.slider = EmblaCarousel(
+      sliderEl,
+      {
+        loop: true,
+        align: 'start',
+        direction: this.direction,
+        duration: 20,
+        breakpoints: {
+          [`(min-width: ${getBreakpoint('xl', true)})`]: {
+            active: true,
+          },
+        },
+      },
+      [
+        Autoplay({
+          delay: this.autoPlayDelay,
+        }),
+        Accessibility({
+          carouselAriaLabel: 'Carousel',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
+          previousButtonAriaLabel: 'Show previous Slide',
+          nextButtonAriaLabel: 'Show next Slide',
+          dotButtonAriaLabel: (
+            hasAnyGroupedSlides,
+            firstSlideIndex,
+            lastSlideIndex,
+            totalSlides,
+          ) => `Show slide ${firstSlideIndex + 1} of ${totalSlides}`,
+          slideAriaLabel: () => '',
+        }),
+      ],
+    );
+
+    this.accessibility = this.slider.plugins().accessibility;
+
+    this.prevButtonNode = queryOne(this.prevClass, this.element);
+    this.nextButtonNode = queryOne(this.nextClass, this.element);
+    this.pagerNode = queryOne(this.pagerClass, this.element);
+
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.accessibility,
+      prevSelector: this.prevSelector,
+      nextSelector: this.nextSelector,
+      dotsSelector: this.dotsClass,
+      dotTemplateSelector: '[data-ecl-slider-dot-template]',
+      dotSelector: this.dotClass,
+      activeDotSelector: this.activeDotClass,
+      onUpdate: () => this.setCounter(),
+    });
+
+    this.pager.init();
+
+    this.teaserButtons.forEach((button) => {
+      button.addEventListener('click', this.handleClickOnTeaser);
+    });
+
+    this.slider.on('select', this.handleTeaserTransition);
+
+    this.slider.on('reInit', this.updateTeasers);
+
+    this.slider.on('autoplay:timerset', this.handleAutoplayTimerSet);
+
+    this.updateTeasers();
+  }
+
+  /**
+   * Handle the autoplay timer for the active teaser.
+   */
+  handleAutoplayTimerSet = () => {
+    const activeIndex = this.slider.selectedSnap();
+    const activeBar = this.completionBars[activeIndex];
+
+    if (!activeBar || !this.slider.plugins().autoplay?.isPlaying()) {
+      return;
+    }
+
+    if (!activeBar.classList.contains('is-paused')) {
+      this.resetLoadingBarAnimation(activeIndex);
+    }
+
+    this.completionBars.forEach((bar, index) => {
+      if (index !== activeIndex) {
+        bar.classList.remove('is-active');
+      } else {
+        bar.classList.add('is-active');
+      }
+    });
+  };
+
+  /**
+   * Restart the active teaser loading-bar animation.
+   *
+   * @param {Number} index
+   */
+  resetLoadingBarAnimation(index = this.slider.selectedSnap()) {
+    const bar = this.completionBars[index];
+
+    const completion = bar
+      ? queryOne('.ecl-carousel__teaser-loading-bar-completion', bar)
+      : null;
+
+    if (!completion) {
+      return;
+    }
+
+    completion.style.animation = 'none';
+    void completion.offsetWidth; // eslint-disable-line no-void
+    completion.style.animation = '';
+  }
+
+  /**
+   * Handle click in the teaser buttons to navigate to the
+   * corresponding slide.
+   *
+   * @param {Event} e
+   */
+  handleClickOnTeaser(e) {
+    const index = Number(e.currentTarget.dataset.eclCarouselSlideIndex);
+
+    this.slider.goTo(index);
+    this.handleAutoPlay(true);
+  }
+
+  /**
+   * Update the teaser window when Embla moves to the first
+   * slide outside the currently visible teaser window.
+   *
+   * The carousel itself still moves one slide at a time.
+   *
+   */
+  handleTeaserTransition() {
+    const selectedIndex = this.slider.selectedSnap();
+
+    if (this.teaserCount <= this.teaserInView) {
+      this.updateTeasers();
+      return;
+    }
+
+    const firstHiddenIndex =
+      (this.teaserWindowStart + this.teaserInView) % this.teaserCount;
+
+    if (selectedIndex === firstHiddenIndex) {
+      this.teaserWindowStart = firstHiddenIndex;
+    }
+
+    this.updateTeasers();
+  }
+
+  /**
+   * Update teaser buttons and active slide.
+   *
+   * The teaser window only changes every four slide transitions.
+   */
+  updateTeasers() {
+    const selectedIndex = this.slider.selectedSnap();
+
+    this.teaserButtons.forEach((button, index) => {
+      const position =
+        (((index - this.teaserWindowStart) % this.teaserCount) +
+          this.teaserCount) %
+        this.teaserCount;
+
+      const isVisible = position < this.teaserInView;
+      const isCurrent = index === selectedIndex;
+
+      button.toggleAttribute('aria-current', isCurrent);
+
+      if (isCurrent) {
+        button.removeAttribute('tabindex');
+      } else {
+        button.setAttribute('tabindex', '-1');
+      }
+
+      button.style.display = isVisible ? '' : 'none';
+      button.style.pointerEvents = isVisible ? '' : 'none';
+      button.style.order = position;
+    });
+
+    this.slides.forEach((slide, index) => {
+      if (index === selectedIndex) {
+        slide.removeAttribute('inert');
+      } else {
+        slide.setAttribute('inert', 'true');
+      }
+    });
+
+    const focusedButton = document.activeElement;
+
+    if (
+      this.navigation &&
+      this.navigation.contains(focusedButton) &&
+      Number(focusedButton.style.order) >= this.visibleTeasers
+    ) {
+      this.teaserButtons[selectedIndex]?.focus();
+    }
+  }
+
+  /**
+   * Sets the counter.
+   */
+  setCounter() {
+    const currentIndex = this.slider.selectedSnap();
+    const total = this.slider.snapList().length;
+
+    if (this.counter) {
+      this.counter.textContent = `${currentIndex + 1} ${this.counterLabel} ${total}`;
     }
   }
 
@@ -266,25 +512,33 @@ export class Carousel {
    */
   checkBannerHeights() {
     this.executionCount += 1;
+
     if (this.executionCount > this.maxExecutions) {
       clearInterval(this.intervalId);
       this.executionCount = 0;
       return;
     }
+
     const heightValues = this.slides.map((slide) => {
       const banner = queryOne('.ecl-banner', slide);
       const bannerInstance = ECL.components.get(banner);
       const ratio = bannerInstance.defaultRatio();
+
       bannerInstance.setHeight(ratio);
+
       const padding =
         parseInt(banner.style.getPropertyValue('--banner-footer-height'), 10) ||
         0;
+
       const height = parseInt(banner.style.height, 10);
+
       const totalHeight = height + padding;
+
       if (banner.style.height === 'auto') {
         // FRONT-4970 - Always handle banner heights, even when set to auto
         return banner.offsetHeight;
       }
+
       if (Number.isNaN(height) || height === 100) {
         return 1;
       }
@@ -305,25 +559,33 @@ export class Carousel {
       clearInterval(this.intervalId);
 
       this.executionCount = 0;
+
       this.slides.forEach((slide) => {
         let bannerImage = null;
         let bannerVideo = null;
+
         const banner = queryOne('.ecl-banner', slide);
+
         if (banner) {
           bannerImage = queryOne('img', banner);
           bannerVideo = queryOne('video', banner);
+
           const footerHeight =
             parseInt(
               banner.style.getPropertyValue('--banner-footer-height'),
               10,
             ) || 0;
+
           const newHeight = tallestElementHeight - footerHeight;
+
           banner.style.height = `${newHeight}px`;
           banner.style.aspectRatio = 'auto';
         }
+
         if (bannerImage) {
           bannerImage.style.aspectRatio = 'auto';
         }
+
         if (bannerVideo) {
           bannerVideo.style.aspectRatio = 'auto';
         }
@@ -337,11 +599,14 @@ export class Carousel {
   resetBannerHeights() {
     this.slides.forEach((slide) => {
       const banner = queryOne('.ecl-banner', slide);
+
       let bannerImage = null;
       let bannerVideo = null;
       let bannerFooter = null;
+
       if (banner) {
         banner.style.height = '';
+
         bannerImage = queryOne('img', banner);
         bannerVideo = queryOne('video', banner);
         bannerFooter = queryOne('.ecl-banner__credit', banner);
@@ -349,9 +614,11 @@ export class Carousel {
         if (bannerImage) {
           bannerImage.style.aspectRatio = '';
         }
+
         if (bannerVideo) {
           bannerVideo.style.aspectRatio = '';
         }
+
         if (bannerFooter) {
           setTimeout(() => {
             banner.style.setProperty(
@@ -365,200 +632,98 @@ export class Carousel {
   }
 
   /**
-   * TouchStart handler.
-   * @param {Event} e
-   */
-  dragStart(e) {
-    e = e || window.event;
-    this.posInitial = this.slidesContainer.offsetLeft;
-
-    if (e.type === 'touchstart') {
-      this.posX1 = e.touches[0].clientX;
-      this.posY1 = e.touches[0].clientY;
-      this.allowShift = false; // reset on start
-    }
-  }
-
-  /**
-   * TouchMove handler.
-   * @param {Event} e
-   */
-  dragAction(e) {
-    e = e || window.event;
-
-    if (e.type === 'touchmove') {
-      const deltaX = e.touches[0].clientX - this.posX1;
-      const deltaY = e.touches[0].clientY - this.posY1;
-
-      // Enable shift only when horizontal movement is dominant
-      if (!this.allowShift && Math.abs(deltaX) > Math.abs(deltaY)) {
-        this.allowShift = true;
-      }
-
-      if (this.allowShift) {
-        e.preventDefault();
-        this.posX2 = this.posX1 - e.touches[0].clientX;
-        this.posX1 = e.touches[0].clientX;
-
-        this.slidesContainer.style.left = `${
-          this.slidesContainer.offsetLeft - this.posX2
-        }px`;
-      }
-    }
-  }
-
-  /**
-   * TouchEnd handler.
-   */
-  dragEnd() {
-    if (!this.allowShift) return;
-
-    this.posFinal = this.slidesContainer.offsetLeft;
-
-    if (this.posFinal - this.posInitial < -this.threshold) {
-      this.shiftSlide('next', true);
-    } else if (this.posFinal - this.posInitial > this.threshold) {
-      this.shiftSlide('prev', true);
-    } else {
-      this.slidesContainer.style.left = `${this.posInitial}px`;
-    }
-
-    this.allowShift = false;
-  }
-
-  /**
-   * Action to shift next or previous slide.
-   * @param {int|string} dir
-   * @param {Boolean} stopAutoPlay
-   */
-  shiftSlide(dir, stopAutoPlay) {
-    if (this.allowShift) {
-      if (typeof dir === 'number') {
-        this.index = dir;
-      } else {
-        this.index = dir === 'next' ? this.index + 1 : this.index - 1;
-      }
-      this.moveSlides(true);
-    }
-    if (stopAutoPlay && this.autoPlay) {
-      this.handleAutoPlay();
-    }
-
-    this.allowShift = false;
-  }
-
-  /**
-   * Transition for the slides.
-   * @param {Boolean} transition
-   */
-  moveSlides(transition) {
-    const newOffset = this.slideWidth * this.index;
-
-    this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
-    this.direction = getComputedStyle(this.element).direction;
-    if (this.direction === 'rtl') {
-      this.slidesContainer.style.right = `-${newOffset}px`;
-    } else {
-      this.slidesContainer.style.left = `-${newOffset}px`;
-    }
-  }
-
-  /**
-   * Action to update slides index and position.
-   * @param {Event} e
-   */
-  checkIndex(e) {
-    if (e) {
-      if (e.propertyName !== 'left') {
-        return;
-      }
-    }
-    // Update index
-    if (this.index === 0) {
-      this.index = this.total;
-    }
-    if (this.index === this.total + 1) {
-      this.index = 1;
-    }
-
-    // Move slide without transition to ensure infinity loop
-    this.moveSlides(false);
-
-    // Update pagination
-    if (this.currentSlide) {
-      this.currentSlide.textContent = this.index;
-    }
-
-    // Update slides
-    if (this.slides) {
-      this.slides.forEach((slide, index) => {
-        const cta = queryOne('.ecl-link--primary-highlight', slide);
-        if (this.index === index) {
-          slide.removeAttribute('inert', 'true');
-          if (cta) {
-            cta.removeAttribute('tabindex', -1);
-          }
-        } else {
-          slide.setAttribute('inert', 'true');
-          if (cta) {
-            cta.setAttribute('tabindex', -1);
-          }
-        }
-      });
-    }
-
-    // Update navigation
-    if (this.navigationItems) {
-      this.navigationItems.forEach((nav, index) => {
-        if (this.index === index + 1) {
-          nav.setAttribute('aria-current', 'true');
-          nav.removeAttribute('tabindex', -1);
-        } else {
-          nav.removeAttribute('aria-current', 'true');
-          nav.setAttribute('tabindex', -1);
-        }
-      });
-    }
-
-    this.allowShift = true;
-  }
-
-  /**
    * Toggles play/pause slides.
    */
-  handleAutoPlay() {
-    if (!this.autoPlay) {
-      this.autoPlayInterval = setInterval(() => {
-        this.shiftSlide('next');
-      }, 5000);
-      this.autoPlay = true;
-      const isFocus = document.activeElement === this.btnPlay;
-      this.btnPlay.style.display = 'none';
-      this.btnPause.style.display = 'flex';
-      if (isFocus) {
-        this.btnPause.focus();
-      }
-    } else {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlay = false;
+  handleAutoPlay(stop = false, pause = false) {
+    if (window.innerWidth <= getBreakpoint('xl')) {
+      return;
+    }
+
+    const autoplay = this.slider.plugins().autoplay;
+
+    // pause
+    if (pause) {
+      autoplay?.pause();
+
+      const activeIndex = this.slider.selectedSnap();
+
+      const activeBar = this.completionBars[activeIndex];
+
+      activeBar?.classList.add('is-paused');
+
       const isFocus = document.activeElement === this.btnPause;
+
       this.btnPlay.style.display = 'flex';
       this.btnPause.style.display = 'none';
+
       if (isFocus) {
         this.btnPlay.focus();
       }
+
+      return;
     }
+
+    // stop
+    if (stop) {
+      autoplay?.stop();
+      autoplay?.reset();
+
+      this.btnPlay.style.display = 'flex';
+      this.btnPause.style.display = 'none';
+
+      this.completionBars.forEach((bar) => {
+        bar.classList.remove('is-active', 'is-paused');
+      });
+
+      return;
+    }
+
+    // play
+    autoplay?.play();
+
+    this.completionBars.forEach((bar) => {
+      bar.classList.remove('is-paused');
+    });
+
+    this.btnPlay.style.display = 'none';
+    this.btnPause.style.display = 'flex';
+
+    // Workaround for those edge cases when the autoplay doesn't
+    // start despite running play() a first time.
+    setTimeout(() => {
+      if (!autoplay?.isPlaying()) {
+        autoplay?.play();
+      }
+    }, 500);
   }
+
+  /**
+   * Handle click on next/previous buttons.
+   */
+  handleNextPrevClick = () => {
+    this.handleAutoPlay(true);
+  };
+
+  /**
+   * Handle click on play/pause buttons.
+   */
+  handlePlayPauseClick = (e) => {
+    if (e.currentTarget === this.btnPause) {
+      this.handleAutoPlay(false, true);
+    } else {
+      this.handleAutoPlay();
+    }
+  };
 
   /**
    * Trigger events on mouseover.
    */
   handleMouseOver() {
-    this.hoverAutoPlay = this.autoPlay;
+    this.hoverAutoPlay = this.slider.plugins().autoplay?.isPlaying();
+
     if (this.hoverAutoPlay) {
-      this.handleAutoPlay();
+      this.handleAutoPlay(false, true);
     }
-    return this;
   }
 
   /**
@@ -568,7 +733,8 @@ export class Carousel {
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
     }
-    return this;
+
+    this.hoverAutoPlay = false;
   }
 
   /**
@@ -579,10 +745,10 @@ export class Carousel {
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
     );
+
     clearInterval(this.intervalId);
     clearTimeout(this.resizeTimer);
 
-    // We set 250ms delay which is higher than the 200ms delay in the banner.
     this.resizeTimer = setTimeout(() => {
       if (vw >= getBreakpoint('xl')) {
         this.intervalId = setInterval(this.checkBannerHeights, 100);
@@ -591,77 +757,71 @@ export class Carousel {
       }
 
       this.slideWidth = this.slides[0].scrollWidth;
-      this.checkIndex();
+
       setTimeout(() => {
         // Reveal the carousel
         this.element.style.opacity = 1;
       }, 250);
     }, 250);
 
-    // Add class to set a left margin to banner content and avoid arrow overlapping
+    // Add class to set a left margin to banner content
+    // and avoid arrow overlapping
     if (vw >= getBreakpoint('xl') && vw <= 1260) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
-    // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
-    if (
-      (vw <= getBreakpoint('m') && this.autoPlay) ||
-      (vw > getBreakpoint('m') && this.autoPlay === null)
-    ) {
-      this.handleAutoPlay();
+
+    const isAboveXl = vw > getBreakpoint('xl');
+
+    // Deactivate autoPlay for mobile or activate
+    // autoPlay onLoad for desktop
+    if (this.isAboveXl !== null && this.isAboveXl !== isAboveXl) {
+      if (isAboveXl) {
+        this.handleAutoPlay();
+      } else {
+        this.slider.plugins().autoplay?.stop();
+        this.slider.plugins().autoplay?.reset();
+
+        this.btnPlay.style.display = '';
+        this.btnPause.style.display = '';
+
+        this.completionBars.forEach((bar) => {
+          bar.classList.remove('is-active', 'is-paused');
+        });
+      }
     }
+
+    this.isAboveXl = isAboveXl;
   }
 
   /**
    * @param {Event} e
    */
-  handleKeyboardOnPlay(e) {
-    if (e.key === 'Tab' && e.shiftKey) {
+  handleKeyboardOnTeasers(e) {
+    const currentIndex = this.teaserButtons.indexOf(document.activeElement);
+
+    if (currentIndex === -1) {
       return;
     }
 
     switch (e.key) {
-      case 'Tab':
       case 'ArrowRight':
+      case 'ArrowLeft': {
         e.preventDefault();
-        this.activeNav = queryOne(
-          `${this.navigationItemsClass}[aria-current="true"]`,
-        );
-        if (this.activeNav) {
-          this.activeNav.focus();
-        }
-        if (this.autoPlay) {
-          this.handleAutoPlay();
-        }
-        break;
 
-      default:
-    }
-  }
+        const direction = e.key === 'ArrowRight' ? 1 : -1;
 
-  /**
-   * @param {Event} e
-   */
-  handleKeyboardOnBullets(e) {
-    const focusedEl = document.activeElement;
-    switch (e.key) {
-      case 'ArrowRight':
-        if (focusedEl.nextSibling) {
-          e.preventDefault();
-          this.shiftSlide('next', true);
-          setTimeout(() => focusedEl.nextSibling.focus(), 400);
-        }
-        break;
+        const nextIndex =
+          (currentIndex + direction + this.teaserButtons.length) %
+          this.teaserButtons.length;
 
-      case 'ArrowLeft':
-        if (focusedEl.previousSibling) {
-          this.shiftSlide('prev', true);
-          setTimeout(() => focusedEl.previousSibling.focus(), 400);
-        } else {
-          this.btnPlay.focus();
-        }
+        this.slider.goTo(nextIndex);
+        this.handleAutoPlay(true);
+        this.teaserButtons[nextIndex].focus();
+
         break;
+      }
 
       default:
       // Handle other key events here
@@ -670,18 +830,17 @@ export class Carousel {
 
   /**
    * Trigger events on focus.
+   *
    * @param {Event} e
    */
   handleFocus(e) {
     const focusElement = e.target;
+
     // Disable autoplay if focus is on a slide CTA
-    if (
-      focusElement &&
-      focusElement.contains(document.activeElement) &&
-      this.autoPlay
-    ) {
-      this.handleAutoPlay();
+    if (focusElement && focusElement.contains(document.activeElement)) {
+      this.handleAutoPlay(true);
     }
+
     return this;
   }
 }
