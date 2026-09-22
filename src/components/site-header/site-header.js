@@ -196,16 +196,18 @@ export class SiteHeader {
     this.searchToggle = queryOne(this.searchToggleSelector);
     this.searchForm = queryOne(this.searchFormSelector);
 
-    this.searchFormFocusTrap = createFocusTrap(this.searchForm, {
-      allowOutsideClick: true,
-    });
+    if (this.searchForm) {
+      this.searchFormFocusTrap = createFocusTrap(this.searchForm, {
+        allowOutsideClick: true,
+      });
+
+      if (this.attachKeyListener) {
+        this.searchForm.addEventListener('keydown', this.handleEscOnForm);
+      }
+    }
 
     if (this.attachClickListener && this.searchToggle) {
       this.searchToggle.addEventListener('click', this.toggleSearch);
-    }
-
-    if (this.attachKeyListener) {
-      this.searchForm.addEventListener('keydown', this.handleEscOnForm);
     }
 
     // Login management
@@ -314,6 +316,10 @@ export class SiteHeader {
         'click',
         this.toggleCustomAction,
       );
+    }
+
+    if (this.searchForm && this.attachKeyListener) {
+      this.searchForm.removeEventListener('keydown', this.handleEscOnForm);
     }
 
     if (this.attachKeyListener) {
