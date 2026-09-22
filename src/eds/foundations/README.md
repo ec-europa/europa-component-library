@@ -31,6 +31,19 @@ needed to consume the package.
 - From ECL monorepo: `pnpm build:eds`.
 - Standalone: `npm install` then `npm run build`.
 
+## Storybook
+
+`src/playground/eds` is a Storybook instance for this package, mirroring
+`playground/ec`/`playground/eu` (same addon set where it applies: a11y,
+links, essentials; `@storybook/addon-themes` drives `[data-theme]` for the
+light/dark toggle). Stories live next to what they document — this package's
+own story is `foundations.story.js`, currently a placeholder.
+
+- From ECL monorepo: `pnpm start:eds` (port 6008).
+- Standalone: `npm run build` here first (Storybook serves the compiled
+  `build/eds-foundations.css` as a static file), then, from
+  `src/playground/eds`, `npm install` and `npm run start`.
+
 ## Token export (`tokens.json`)
 
 `tokens.json`, at the root of this package, is a JSON export of every
