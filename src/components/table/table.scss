@@ -77,7 +77,7 @@ $table: null !default;
   border-block-end: map.get($table, 'row-border');
   border-block-start-width: 0;
 
-  &:first-child {
+  .ecl-table__body &:first-child {
     border-block-start: map.get($table, 'head', 'head-border-top');
   }
 
