@@ -1,5 +1,16 @@
 <link rel="stylesheet" href="./eds-foundations.css" />
 <style>
+  /* eds-foundations.css only defines tokens, not the Inter font-face - load
+     it here so the "Font weight" story renders its actual weights instead
+     of Arial's fallback regular/bold. */
+  @font-face {
+    font-family: 'Inter';
+    src: url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+      format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
   html,
   body {
     background: var(--eds-c-surface-elevation);
