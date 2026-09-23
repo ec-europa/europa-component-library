@@ -48,6 +48,10 @@ $layout-wrapper: null !default;
   margin-block-start: 0;
 }
 
+.ecl-layout-wrapper__grid .ecl-layout-wrapper__info > *:last-child {
+  margin-block-end: 0;
+}
+
 .ecl-layout-wrapper__description {
   @include mixins.responsive-font(map.get($layout-wrapper, 'description-font'));
 }
