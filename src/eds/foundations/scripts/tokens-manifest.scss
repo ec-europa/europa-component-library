@@ -16,6 +16,7 @@
 @use '../semantic/border' as s-border;
 @use '../semantic/opacity' as s-opacity;
 @use '../semantic/shadow' as s-shadow;
+@use '../semantic/shadow-dark' as s-shadow-dark;
 
 $tokens: (
   'primitives': (
@@ -48,6 +49,7 @@ $tokens: (
     'border-width': s-border.$border-width,
     'opacity': s-opacity.$opacity,
     'shadow': s-shadow.$shadow,
+    'shadow-dark': s-shadow-dark.$shadow-dark,
   ),
 );
 

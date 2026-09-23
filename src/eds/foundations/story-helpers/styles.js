@@ -170,9 +170,13 @@ export const SHARED_STYLES = `<style>
     background: var(--eds-c-surface-primary-subtle);
   }
   .eds-tokens .shadow-box {
+    /* Raised, not the base elevation surface: on the same background as
+       the page, the box has no edge of its own to see - --eds-sh-* is a
+       subtle, adjacent-grey shadow by design (see semantic/_shadow-dark.scss),
+       not enough contrast on its own to read against the page. */
     width: var(--eds-si-9xl);
     height: var(--eds-si-6xl);
-    background: var(--eds-c-surface-elevation);
+    background: var(--eds-c-surface-elevation-raised);
     border-radius: var(--eds-br-s);
   }
   .eds-tokens .opacity-box {

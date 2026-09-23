@@ -8,6 +8,7 @@
 @use 'semantic/border' as border;
 @use 'semantic/opacity' as opacity;
 @use 'semantic/shadow' as shadow;
+@use 'semantic/shadow-dark' as shadow-dark;
 @use 'semantic/typography' as typography;
 
 @mixin vars($prefix, $map) {
@@ -98,15 +99,17 @@
   // Opacity
   @include vars('op', opacity.$opacity);
 
-  // Shadow
+  // Shadow - offsets/blur are theme-invariant, only the color changes
   --eds-sh-none: none;
 
   @each $name, $def in shadow.$shadow {
+    $dark-color: map.get(map.get(shadow-dark.$shadow-dark, $name), 'color');
+
     --eds-sh-#{$name}: #{map.get($def, 'offset-x')}
       #{map.get($def, 'offset-y')}
       #{map.get($def, 'blur')}
       #{map.get($def, 'spread')}
-      #{map.get($def, 'color')};
+      light-dark(#{map.get($def, 'color')}, #{$dark-color});
   }
 
   // Typography
