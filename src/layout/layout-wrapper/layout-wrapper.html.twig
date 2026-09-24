@@ -124,7 +124,7 @@
     {%- if _title.label is not empty or _description is not empty -%}
       <div class="ecl-layout-wrapper__info">
         {%- if _title.label is not empty -%}
-          <h{{ _title.level }} class="ecl-u-type-heading-{{ _title.level }} ecl-layout-wrapper__title">{{- _title.label -}}</h{{ _title.level }}/>
+          <h{{ _title.level }} class="ecl-layout-wrapper__title">{{- _title.label -}}</h{{ _title.level }}/>
         {%- endif -%}
         {%- if _description is not empty -%}
           <div class="ecl-layout-wrapper__description">{{- _description -}}</div>
