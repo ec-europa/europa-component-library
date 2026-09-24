@@ -8,6 +8,7 @@ rm -rf ./public/playground
 mkdir -p ./public/playground
 cp -r ../../dist/playground/ec ./public/playground/ec
 cp -r ../../dist/playground/eu ./public/playground/eu
+cp -r ../../dist/playground/eds ./public/playground/eds
 
 # Make assets available for storybook
 cp -r ../../dist/packages/ec/. ./public/playground/ec
