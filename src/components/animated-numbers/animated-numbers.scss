@@ -98,6 +98,10 @@ $animated-numbers: null !default;
   justify-content: space-between;
   gap: var(--s-m);
   min-height: map.get($theme, 'icon', 'xl');
+
+  .ecl-animated-numbers--no-header & {
+    display: none;
+  }
 }
 
 .ecl-animated-number__category {
