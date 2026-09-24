@@ -7,6 +7,7 @@
   - "full_width" (boolean) (default: false) Full width display with background (inside the grid)
   - "border" (boolean) (default: false) Display with a border around each item
   - "counter_color" (boolean) (default: true) Apply color to the counter value
+  - "no_header" (boolean) (default: false) Hide all the headers
   - "sources_label" (string) (default: '') Label displayed before the global sources list
   - "sources" (array) (default: []) Array of global source references (ECL link objects or plain strings)
     - "link" (object) ECL link object:
@@ -45,6 +46,7 @@
 {% set _css_class = 'ecl-animated-numbers' %}
 {% set _extra_attributes = '' %}
 {% set _counter_color = counter_color ?? true %}
+{% set _no_header = no_header ?? false %}
 {% set _border = border|default(false) %}
 {% set _sources_label = sources_label|default('') %}
 {% set _with_background = with_background|default(false) %}
@@ -70,6 +72,10 @@
 
 {% if _counter_color %}
   {% set _css_class = _css_class ~ ' ecl-animated-numbers--counter-color' %}
+{% endif %}
+
+{% if _no_header %}
+  {% set _css_class = _css_class ~ ' ecl-animated-numbers--no-header' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -170,6 +176,7 @@
               } only %}
             {% endif %}
             </div>
+
             <div class="ecl-animated-number__content">
               {# Prefix #}
               <span class="ecl-animated-number__number">
