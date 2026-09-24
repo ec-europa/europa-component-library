@@ -151,25 +151,28 @@
         {% for item in _items %}
           {% set _item_class = 'ecl-animated-number' %}
           <li class="{{ _item_class }}">
-            <div class="ecl-animated-number__header">
-            {# Category #}
-            {% if item.category is defined and item.category is not empty %}
-              <div class="ecl-animated-number__category">
-                {{- item.category -}}
+            {% if item.category is not empty or item.icon is not empty %}
+              <div class="ecl-animated-number__header">
+              {# Category #}
+              {% if item.category is defined and item.category is not empty %}
+                <div class="ecl-animated-number__category">
+                  {{- item.category -}}
+                </div>
+              {% endif %}
+
+              {# Icon #}
+              {% if item.icon is defined and item.icon is not empty %}
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: item.icon|merge({
+                    size: 'xl',
+                    color: _counter_color ? 'primary' : null
+                  }),
+                  extra_classes: 'ecl-animated-number__icon',
+                } only %}
+              {% endif %}
               </div>
             {% endif %}
 
-            {# Icon #}
-            {% if item.icon is defined and item.icon is not empty %}
-              {% include '@ecl/icon/icon.html.twig' with {
-                icon: item.icon|merge({
-                  size: 'xl',
-                  color: _counter_color ? 'primary' : null
-                }),
-                extra_classes: 'ecl-animated-number__icon',
-              } only %}
-            {% endif %}
-            </div>
             <div class="ecl-animated-number__content">
               {# Prefix #}
               <span class="ecl-animated-number__number">
