@@ -16,13 +16,18 @@ const addons = [
   'storybook-dark-mode',
 ];
 
-// @ecl/eds-foundations has no separate build/dist split (see its own
-// scripts/build.js) — always serve its build/ output, which contains the
-// compiled eds-foundations.css consumed by preview-head.html.
-const staticDirs = [
-  path.resolve(__dirname, '../../../eds/foundations/build'),
+const isProd = process.env.NODE_ENV === 'production';
+const outputFolder = isProd ? 'dist' : 'build';
+
+let staticDirs = [
+  path.resolve(__dirname, '../../../presets/eds', outputFolder),
   path.resolve(__dirname, '../public'),
 ];
+
+// FRONT-3789 - No need for static dirs, we manually copy the files.
+if (isProd) {
+  staticDirs = [path.resolve(__dirname, '../public')];
+}
 
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl packages (components

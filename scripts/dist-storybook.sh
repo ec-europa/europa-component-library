@@ -13,7 +13,6 @@ cd ..
 # Build storybook
 pnpm --filter "@ecl/twig-ec-storybook" build
 pnpm --filter "@ecl/twig-eu-storybook" build
-pnpm build:eds
 pnpm --filter "@ecl/eds-storybook" build
 
 # Copy builds

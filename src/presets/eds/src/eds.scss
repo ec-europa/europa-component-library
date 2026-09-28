@@ -1,0 +1,35 @@
+// EDS preset: foundations (design tokens) + EDS components.
+// There is a single EDS theme for now, so the foundations are used directly.
+// If several themes emerge, move the token choice into a theme layer and add
+// one entry per theme, like the ec/eu presets do.
+
+// Foundations
+@use '@ecl/eds-foundations/custom-properties';
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable.woff2')
+      format('woff2'),
+    url('../fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+    url('https://webtools.europa.eu/fonts/inter/InterVariable-Italic.woff2')
+      format('woff2'),
+    url('../fonts/InterVariable-Italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+// Components
+// Add each EDS component here as it lands, e.g.
+// @use '@ecl/eds-{name}/{name}';

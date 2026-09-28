@@ -13,5 +13,6 @@ cp -r ../../dist/playground/eds ./public/playground/eds
 # Make assets available for storybook
 cp -r ../../dist/packages/ec/. ./public/playground/ec
 cp -r ../../dist/packages/eu/. ./public/playground/eu
+cp -r ../../dist/packages/eds/. ./public/playground/eds
 cp -a ../../src/playground/ec/public/* ./public/playground/ec
 cp -a ../../src/playground/eu/public/* ./public/playground/eu

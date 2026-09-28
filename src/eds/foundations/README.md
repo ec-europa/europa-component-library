@@ -25,10 +25,10 @@ it — pure Sass, consumed via `@use`/`@forward`.
 ## Build
 
 Compiles `custom-properties.scss` to `build/eds-foundations.css` — useful to
-inspect the actual resolved output. `build/` is git-ignored; nothing here is
-needed to consume the package.
+inspect the resolved tokens on their own. `build/` is git-ignored; nothing here
+is needed to consume the package. The distributed CSS bundle (tokens + Inter
+fonts + EDS components) is built by `@ecl/preset-eds` (`src/presets/eds`).
 
-- From ECL monorepo: `pnpm build:eds`.
 - Standalone: `npm install` then `npm run build`.
 
 ## Storybook
@@ -39,10 +39,9 @@ links, essentials; `@storybook/addon-themes` drives `[data-theme]` for the
 light/dark toggle). Stories live next to what they document — this package's
 own story is `foundations.story.js`, currently a placeholder.
 
-- From ECL monorepo: `pnpm start:eds` (port 6008).
-- Standalone: `npm run build` here first (Storybook serves the compiled
-  `build/eds-foundations.css` as a static file), then, from
-  `src/playground/eds`, `npm install` and `npm run start`.
+- From ECL monorepo: `pnpm start:eds` (port 6008). Builds and watches
+  `@ecl/preset-eds`, whose `build/styles/ecl-eds.css` Storybook serves as a
+  static file.
 
 ## Token export (`tokens.json`)
 
