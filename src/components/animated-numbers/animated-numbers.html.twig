@@ -74,10 +74,6 @@
   {% set _css_class = _css_class ~ ' ecl-animated-numbers--counter-color' %}
 {% endif %}
 
-{% if _no_header %}
-  {% set _css_class = _css_class ~ ' ecl-animated-numbers--no-header' %}
-{% endif %}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -157,25 +153,27 @@
         {% for item in _items %}
           {% set _item_class = 'ecl-animated-number' %}
           <li class="{{ _item_class }}">
-            <div class="ecl-animated-number__header">
-            {# Category #}
-            {% if item.category is defined and item.category is not empty %}
-              <div class="ecl-animated-number__category">
-                {{- item.category -}}
+            {% if _no_header != true %}
+              <div class="ecl-animated-number__header">
+              {# Category #}
+              {% if item.category is defined and item.category is not empty %}
+                <div class="ecl-animated-number__category">
+                  {{- item.category -}}
+                </div>
+              {% endif %}
+
+              {# Icon #}
+              {% if item.icon is defined and item.icon is not empty %}
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: item.icon|merge({
+                    size: 'xl',
+                    color: _counter_color ? 'primary' : null
+                  }),
+                  extra_classes: 'ecl-animated-number__icon',
+                } only %}
+              {% endif %}
               </div>
             {% endif %}
-
-            {# Icon #}
-            {% if item.icon is defined and item.icon is not empty %}
-              {% include '@ecl/icon/icon.html.twig' with {
-                icon: item.icon|merge({
-                  size: 'xl',
-                  color: _counter_color ? 'primary' : null
-                }),
-                extra_classes: 'ecl-animated-number__icon',
-              } only %}
-            {% endif %}
-            </div>
 
             <div class="ecl-animated-number__content">
               {# Prefix #}
