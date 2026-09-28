@@ -17,7 +17,8 @@
       - a string (rendered as-is)
       - an object with a defining component key, e.g. { card: { ... } }
         Supported component keys: card, navigation_list, content_item, file, list_illustration
-  - "direction" (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
+  - "direction" (string) (default: 'horizontal'): Flow of items; can be "horizontal" or "vertical"
+  - "divider" (string) (default: 'none'): Display dividers between items; can be 'none', 'rows', 'columns' or 'all'
   - "view_all" (object) (default: {}): Link display below the grid; Follows the ECL Link structure
   - "full_height" (boolean) (default: true): Elements inside the layout wrapper would take the full height
   - "extra_classes" (string) (default: '')
@@ -42,6 +43,7 @@
 {% set _description = description|default('') %}
 {% set _items = items|default([]) %}
 {% set _direction = direction|default('horizontal') %}
+{% set _divider = divider|default('none') %}
 {% set _view_all = view_all|default({}) %}
 {% set _full_height = full_height ?? true %}
 {% set _css_class = 'ecl-layout-wrapper' %}
@@ -77,6 +79,10 @@
     {% endfor %}
   {% endif %}
   {% set _style_vars = _style_vars|merge(['--ecl-layout-rows-' ~ _nb_columns ~ ':' ~ (_base_count / _nb_columns)|round(0, 'ceil')]) %}
+{% endif %}
+
+{% if _divider != 'none' %}
+  {% set _css_class = _css_class ~ ' ecl-layout-wrapper--divider-' ~ _divider %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

@@ -25,22 +25,69 @@ $layout-wrapper: null !default;
 }
 
 // Items sub-grid, single column by default (stacked, mobile-first)
+// Gaps are exposed as custom properties so dividers can be centered in them
 .ecl-layout-wrapper__content {
+  --ecl-layout-wrapper-column-gap: #{map.get($theme, 'grid', 'gutter-s')};
+  --ecl-layout-wrapper-row-gap: 1.5rem;
+
   display: grid;
-  column-gap: map.get($theme, 'grid', 'gutter-s');
+  column-gap: var(--ecl-layout-wrapper-column-gap);
   grid-template-columns: 1fr;
-  row-gap: 1.5rem;
+  row-gap: var(--ecl-layout-wrapper-row-gap);
 }
 
 @include breakpoints.up('m') {
   .ecl-layout-wrapper__content {
-    column-gap: map.get($theme, 'grid', 'gutter-m');
+    --ecl-layout-wrapper-column-gap: #{map.get($theme, 'grid', 'gutter-m')};
   }
 }
 
 @include breakpoints.up('xl') {
   .ecl-layout-wrapper__content {
-    column-gap: map.get($theme, 'grid', 'gutter-l');
+    --ecl-layout-wrapper-column-gap: #{map.get($theme, 'grid', 'gutter-l')};
+  }
+}
+
+// Dividers: each item draws a line in the middle of the gap before it;
+// lines falling on the outer edge (first row / first column) are clipped
+.ecl-layout-wrapper--divider-rows,
+.ecl-layout-wrapper--divider-columns,
+.ecl-layout-wrapper--divider-all {
+  .ecl-layout-wrapper__content {
+    overflow: clip;
+
+    // Keep focus outlines visible; must stay below half of the smallest gap
+    overflow-clip-margin: 0.25rem;
+  }
+
+  .ecl-layout-item {
+    position: relative;
+  }
+}
+
+// Lines between rows
+.ecl-layout-wrapper--divider-rows,
+.ecl-layout-wrapper--divider-all {
+  .ecl-layout-item::before {
+    border-block-start: map.get($layout-wrapper, 'divider');
+    content: '';
+    inset-block-start: calc(var(--ecl-layout-wrapper-row-gap) / -2);
+    inset-inline: calc(var(--ecl-layout-wrapper-column-gap) / -2);
+    pointer-events: none;
+    position: absolute;
+  }
+}
+
+// Lines between columns
+.ecl-layout-wrapper--divider-columns,
+.ecl-layout-wrapper--divider-all {
+  .ecl-layout-item::after {
+    border-inline-start: map.get($layout-wrapper, 'divider');
+    content: '';
+    inset-block: calc(var(--ecl-layout-wrapper-row-gap) / -2);
+    inset-inline-start: calc(var(--ecl-layout-wrapper-column-gap) / -2);
+    pointer-events: none;
+    position: absolute;
   }
 }
 
