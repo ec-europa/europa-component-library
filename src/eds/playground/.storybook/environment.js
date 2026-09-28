@@ -1,7 +1,7 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-const componentAbsPath = path.resolve(__dirname, '../../../eds/components');
+const componentAbsPath = path.resolve(__dirname, '../../components');
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);
 

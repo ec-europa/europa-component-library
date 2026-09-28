@@ -1,8 +1,8 @@
 const path = require('path');
 
 const stories = [
-  '../../../eds/foundations/*.story.js',
-  '../../../eds/components/*/*.story.js',
+  '../../foundations/*.story.js',
+  '../../components/*/*.story.js',
 ];
 
 const addons = [
@@ -19,15 +19,12 @@ const addons = [
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 
-let staticDirs = [
-  path.resolve(__dirname, '../../../presets/eds', outputFolder),
+// Unlike ec/eu, the preset output is also bundled in production builds, so
+// the EDS Storybook is self-contained (see src/eds/scripts/dist.sh).
+const staticDirs = [
+  path.resolve(__dirname, '../../preset', outputFolder),
   path.resolve(__dirname, '../public'),
 ];
-
-// FRONT-3789 - No need for static dirs, we manually copy the files.
-if (isProd) {
-  staticDirs = [path.resolve(__dirname, '../public')];
-}
 
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl packages (components

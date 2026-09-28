@@ -27,14 +27,14 @@ it — pure Sass, consumed via `@use`/`@forward`.
 Compiles `custom-properties.scss` to `build/eds-foundations.css` — useful to
 inspect the resolved tokens on their own. `build/` is git-ignored; nothing here
 is needed to consume the package. The distributed CSS bundle (tokens + Inter
-fonts + EDS components) is built by `@ecl/preset-eds` (`src/presets/eds`).
+fonts + EDS components) is built by `@ecl/preset-eds` (`src/eds/preset`).
 
 - Standalone: `npm install` then `npm run build`.
 
 ## Storybook
 
-`src/playground/eds` is a Storybook instance for this package, mirroring
-`playground/ec`/`playground/eu` (same addon set where it applies: a11y,
+`src/eds/playground` is a Storybook instance for this package, mirroring
+`src/playground/ec`/`src/playground/eu` (same addon set where it applies: a11y,
 links, essentials; `@storybook/addon-themes` drives `[data-theme]` for the
 light/dark toggle). Stories live next to what they document — this package's
 own story is `foundations.story.js`, currently a placeholder.

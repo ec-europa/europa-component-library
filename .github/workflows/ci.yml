@@ -81,6 +81,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build icons
         run: pnpm build:icons
+      - name: Build EDS
+        run: pnpm dist:eds
       - name: Package application
         run: pnpm dist
       - uses: jpoehnelt/reusable-workspace/save@v1
@@ -133,6 +135,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build icons
         run: pnpm build:icons
+      - name: Build EDS
+        run: pnpm dist:eds
       - name: Package application
         run: pnpm dist
       - uses: jpoehnelt/reusable-workspace/save@v1

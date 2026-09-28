@@ -1412,6 +1412,100 @@ importers:
         specifier: 1.104.1
         version: 1.104.1
 
+  src/eds/playground:
+    devDependencies:
+      '@babel/core':
+        specifier: 7.29.7
+        version: 7.29.7
+      '@babel/preset-env':
+        specifier: 7.29.7
+        version: 7.29.7(@babel/core@7.29.7)
+      '@babel/preset-react':
+        specifier: 7.29.7
+        version: 7.29.7(@babel/core@7.29.7)
+      '@babel/runtime':
+        specifier: 7.29.7
+        version: 7.29.7
+      '@ecl/storybook-addon-code':
+        specifier: 5.3.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 5.3.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/storybook-addon-preview-width':
+        specifier: 5.3.0
+        version: link:../../playground/addons/storybook-addon-preview-width
+      '@storybook/addon-a11y':
+        specifier: 8.6.17
+        version: 8.6.17(storybook@8.6.17(prettier@3.9.9))
+      '@storybook/addon-essentials':
+        specifier: 8.6.17
+        version: 8.6.17(@types/react@19.2.14)(storybook@8.6.17(prettier@3.9.9))
+      '@storybook/addon-links':
+        specifier: 8.6.17
+        version: 8.6.17(react@19.3.0)(storybook@8.6.17(prettier@3.9.9))
+      '@storybook/addon-themes':
+        specifier: 8.6.17
+        version: 8.6.17(storybook@8.6.17(prettier@3.9.9))
+      '@storybook/builder-webpack5':
+        specifier: 8.6.17
+        version: 8.6.17(esbuild@0.24.2)(storybook@8.6.17(prettier@3.9.9))(typescript@5.9.3)
+      '@storybook/cli':
+        specifier: 8.6.17
+        version: 8.6.17(@babel/preset-env@7.29.7(@babel/core@7.29.7))(prettier@3.9.9)
+      '@storybook/html':
+        specifier: 8.6.17
+        version: 8.6.17(storybook@8.6.17(prettier@3.9.9))
+      '@storybook/html-webpack5':
+        specifier: 8.6.17
+        version: 8.6.17(esbuild@0.24.2)(storybook@8.6.17(prettier@3.9.9))(typescript@5.9.3)
+      babel-loader:
+        specifier: 10.1.1
+        version: 10.1.1(@babel/core@7.29.7)(webpack@5.106.0(esbuild@0.24.2))
+      browser-update:
+        specifier: 3.3.63
+        version: 3.3.63
+      buffer:
+        specifier: 6.0.3
+        version: 6.0.3
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+      react-dom:
+        specifier: 19.3.0
+        version: 19.3.0(react@19.3.0)
+      storybook:
+        specifier: 8.6.17
+        version: 8.6.17(prettier@3.9.9)
+      storybook-dark-mode:
+        specifier: 4.0.2
+        version: 4.0.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(storybook@8.6.17(prettier@3.9.9))
+      twing:
+        specifier: 5.2.2
+        version: 5.2.2
+      twing-loader:
+        specifier: 4.0.1
+        version: 4.0.1(twing@5.2.2)
+
+  src/eds/preset:
+    dependencies:
+      '@ecl/eds-foundations':
+        specifier: 0.1.0
+        version: link:../foundations
+    devDependencies:
+      '@ecl/builder':
+        specifier: 5.3.0
+        version: link:../../tools/builder
+      cross-env:
+        specifier: 10.1.0
+        version: 10.1.0
+      npm-run-all:
+        specifier: 4.1.5
+        version: 4.1.5
+      rimraf:
+        specifier: 6.1.3
+        version: 6.1.3
+
   src/layout/form:
     dependencies:
       '@ecl/grid':
@@ -1866,81 +1960,6 @@ importers:
         specifier: 4.0.1
         version: 4.0.1(twing@5.2.2)
 
-  src/playground/eds:
-    devDependencies:
-      '@babel/core':
-        specifier: 7.29.7
-        version: 7.29.7
-      '@babel/preset-env':
-        specifier: 7.29.7
-        version: 7.29.7(@babel/core@7.29.7)
-      '@babel/preset-react':
-        specifier: 7.29.7
-        version: 7.29.7(@babel/core@7.29.7)
-      '@babel/runtime':
-        specifier: 7.29.7
-        version: 7.29.7
-      '@ecl/storybook-addon-code':
-        specifier: 5.3.0
-        version: link:../addons/storybook-addon-code
-      '@ecl/storybook-addon-notes':
-        specifier: 5.3.0
-        version: link:../addons/storybook-addon-notes
-      '@ecl/storybook-addon-preview-width':
-        specifier: 5.3.0
-        version: link:../addons/storybook-addon-preview-width
-      '@storybook/addon-a11y':
-        specifier: 8.6.17
-        version: 8.6.17(storybook@8.6.17(prettier@3.9.9))
-      '@storybook/addon-essentials':
-        specifier: 8.6.17
-        version: 8.6.17(@types/react@19.2.14)(storybook@8.6.17(prettier@3.9.9))
-      '@storybook/addon-links':
-        specifier: 8.6.17
-        version: 8.6.17(react@19.3.0)(storybook@8.6.17(prettier@3.9.9))
-      '@storybook/addon-themes':
-        specifier: 8.6.17
-        version: 8.6.17(storybook@8.6.17(prettier@3.9.9))
-      '@storybook/builder-webpack5':
-        specifier: 8.6.17
-        version: 8.6.17(esbuild@0.24.2)(storybook@8.6.17(prettier@3.9.9))(typescript@5.9.3)
-      '@storybook/cli':
-        specifier: 8.6.17
-        version: 8.6.17(@babel/preset-env@7.29.7(@babel/core@7.29.7))(prettier@3.9.9)
-      '@storybook/html':
-        specifier: 8.6.17
-        version: 8.6.17(storybook@8.6.17(prettier@3.9.9))
-      '@storybook/html-webpack5':
-        specifier: 8.6.17
-        version: 8.6.17(esbuild@0.24.2)(storybook@8.6.17(prettier@3.9.9))(typescript@5.9.3)
-      babel-loader:
-        specifier: 10.1.1
-        version: 10.1.1(@babel/core@7.29.7)(webpack@5.106.0(esbuild@0.24.2))
-      browser-update:
-        specifier: 3.3.63
-        version: 3.3.63
-      buffer:
-        specifier: 6.0.3
-        version: 6.0.3
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-      react-dom:
-        specifier: 19.3.0
-        version: 19.3.0(react@19.3.0)
-      storybook:
-        specifier: 8.6.17
-        version: 8.6.17(prettier@3.9.9)
-      storybook-dark-mode:
-        specifier: 4.0.2
-        version: 4.0.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(storybook@8.6.17(prettier@3.9.9))
-      twing:
-        specifier: 5.2.2
-        version: 5.2.2
-      twing-loader:
-        specifier: 4.0.1
-        version: 4.0.1(twing@5.2.2)
-
   src/playground/eu:
     devDependencies:
       '@babel/core':
@@ -2331,25 +2350,6 @@ importers:
       ncp:
         specifier: 2.0.0
         version: 2.0.0
-      npm-run-all:
-        specifier: 4.1.5
-        version: 4.1.5
-      rimraf:
-        specifier: 6.1.3
-        version: 6.1.3
-
-  src/presets/eds:
-    dependencies:
-      '@ecl/eds-foundations':
-        specifier: 0.1.0
-        version: link:../../eds/foundations
-    devDependencies:
-      '@ecl/builder':
-        specifier: 5.3.0
-        version: link:../../tools/builder
-      cross-env:
-        specifier: 10.1.0
-        version: 10.1.0
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5

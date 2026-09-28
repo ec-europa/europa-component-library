@@ -25,3 +25,19 @@ directly instead.
 2. `@use` its stylesheet in `src/eds.scss`, under "Components".
 3. If it ships JS, add `src/eds.js`/`src/eds-esm.js` entries in
    `ecl-builder.config.js`, mirroring the ec preset.
+
+## Releases
+
+`@ecl/eds-foundations` and `@ecl/preset-eds` are `private` for now, so ECL's
+`lerna publish` skips them. EDS is meant to get its own version line and
+release process, separate from ECL's, once it's ready to ship.
+
+`pnpm dist:eds` builds every EDS deliverable into `src/eds/dist/`, kept out
+of ECL's root `dist/` (so out of ECL's SRI file, S3 upload and zips):
+
+- `dist/preset/` — this preset's `dist/` (styles, fonts).
+- `dist/playground/` — the EDS Storybook, self-contained (it bundles the
+  preset output itself).
+
+The website includes the EDS Storybook only if `src/eds/dist/playground`
+exists when it's built.

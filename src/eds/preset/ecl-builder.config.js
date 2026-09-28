@@ -41,7 +41,7 @@ export default {
     // Same Inter files as the ec preset, kept in a single place
     // (see scripts/update-inter.sh).
     {
-      from: path.resolve(__dirname, '../ec/fonts/'),
+      from: path.resolve(__dirname, '../../presets/ec/fonts/'),
       to: path.resolve(outputFolder, 'fonts'),
     },
   ],
@@ -63,7 +63,7 @@ export default {
         ],
       },
       {
-        pattern: `${path.resolve(__dirname, '../../eds')}/**/*.scss`,
+        pattern: `${path.resolve(__dirname, '..')}/(foundations|components)/**/*.scss`,
         events: [
           {
             on: 'change',
