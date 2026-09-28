@@ -51,7 +51,10 @@ Already in place, to keep EDS out of ECL releases until this is decided:
 - Everything EDS lives under `src/eds/`: `foundations/`, `components/`,
   `preset/`, `playground/` (Storybook), `scripts/`.
 - `@ecl/eds-foundations` and `@ecl/preset-eds` are `"private": true`, so
-  `lerna publish` skips them.
+  `lerna publish` skips them. **Not sufficient on its own**: Lerna still
+  lists them (`lerna changed` from the root includes the EDS packages), and
+  `lerna version` also bumps private packages, so the next ECL
+  `update-version` would set them to ECL's version.
 - EDS has its own build, `pnpm dist:eds`, output to `src/eds/dist/`
   (`preset/` and `playground/`), not to the root `dist/`. It is not part of
   `dist-presets.sh` / `dist-storybook.sh`, so not in ECL's SRI file, S3
@@ -134,19 +137,60 @@ Nothing to change except EDS package versions (and removing `private`).
 - **Cons:** ECL loses its single version; 100+ packages would be versioned
   separately. Not realistic.
 
-### Option C: Lerna for ECL, dedicated script for EDS
+### Option C: Lerna for ECL, dedicated process for EDS
 
-- Restrict Lerna to ECL packages with an explicit `packages` list in
-  `lerna.json` (Lerna currently reads `pnpm-workspace.yaml`), excluding
-  `src/eds/**`. To verify: whether Lerna 10 supports `!` exclusions there;
-  otherwise list ECL globs explicitly.
-- Add a `release:eds` script: `pnpm --filter "./src/eds/**" version …`,
-  then `pnpm -r --filter … publish`, with `eds-v*` tags (not matched by
-  `production.yml`'s `v*` filter).
+Common to both variants below: restrict the root Lerna to ECL packages with
+an explicit `packages` list in the root `lerna.json` (Lerna currently falls
+back to `pnpm-workspace.yaml`, which includes `src/eds/**`). As EDS is
+confined to `src/eds/`, the list is `pnpm-workspace.yaml`'s globs minus
+`src/eds/**`. `!` exclusions are not reliable there: Lerna resolves some
+globs one by one, where a negated glob matches nothing instead of excluding.
 
-- **Pros:** smallest change; ECL release flow untouched.
+#### Variant C1: EDS release script based on pnpm
+
+Add a `release:eds` script: `pnpm --filter "./src/eds/**" version …`, then
+`pnpm -r --filter … publish`, with `eds-v*` tags (not matched by
+`production.yml`'s `v*` filter).
+
+#### Variant C2: second Lerna setup inside `src/eds`
+
+EDS gets its own Lerna configuration, next to its packages:
+
+- `src/eds/lerna.json`: EDS version (`0.x`), `packages` (`foundations`,
+  `preset`, `components/*`, `playground`), `tagVersionPrefix: "eds-v"`, own
+  `allowBranch` rules.
+- `src/eds/package.json`: private, required by Lerna as project root, with
+  EDS release scripts (e.g. `version:eds`, `publish:eds`).
+- `pnpm-workspace.yaml` stays shared (single install and lockfile, needed
+  for the links between ECL and EDS packages).
+
+Lerna uses the closest `lerna.json` from the current directory, so commands
+run from `src/eds` only see EDS. Checked with a temporary setup:
+`lerna list` from `src/eds` found exactly the three EDS packages.
+
+To verify with a dry run:
+
+- Tag isolation: without a tag prefix, Lerna in `src/eds` computed changes
+  since an ECL `v*` tag. `tagVersionPrefix: "eds-v"` should fix it but
+  couldn't be checked without running `lerna version`.
+- Whether pnpm's `src/eds/**` glob also picks `src/eds/package.json` as a
+  workspace package (harmless, as it's private).
+
+Limits:
+
+- `lerna-changelog` always reads its configuration from the repository root
+  (git top level), so EDS can't have its own configuration in `src/eds`
+  (see [GitHub releases](#github-releases)).
+- CI release workflow and GitHub releases handling are still needed (see
+  [GitHub releases](#github-releases)).
+
+#### Pros and cons
+
+- **Pros:** smallest change; ECL release flow untouched. With C2, EDS uses
+  the same commands as ECL, and its release tooling stays in `src/eds/`.
 - **Cons:** two release processes to maintain; version pins crossing the two
-  groups must be bumped manually; EDS needs its own CI release job.
+  groups (e.g. `@ecl/preset-eds` → `@ecl/builder`) must be bumped manually;
+  EDS needs its own CI release job.
 
 ### Option D: replace Lerna with Changesets
 
