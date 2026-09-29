@@ -3,14 +3,17 @@
 
 $table: (
   row-border: 1px solid var(--cm-border-low),
-  zebra-background: var(--cm-surface-low-1),
+  zebra-background: var(--cm-surface-low-0),
   table: (
     color: var(--cm-on-surface-brand),
-    font: 'body-m',
+    font: var(--f-s),
   ),
   head: (
-    background: var(--cm-surface-low-2),
+    background: var(--cm-surface-low-1),
+    background-ungrouped: var(--cm-surface-low-1),
     border: 1px solid var(--cm-border-low),
+    border-inline-color: var(--cm-border-low),
+    head-border-top: 1px solid var(--cm-border-low),
   ),
   header: (
     border: none,
@@ -22,6 +25,8 @@ $table: (
     font-weight: map.get($font-weight, 'bold'),
   ),
   cell: (
+    border-inline-start-mobile: none,
+    group-background: var(--cm-surface-low-1),
     separator: 1px solid var(--cm-border-low),
     padding-mobile: var(--s-m),
     padding-desktop: var(--s-m),
@@ -33,8 +38,8 @@ $table: (
     ),
   ),
   multi-head: (
-    background: var(--cm-surface-low-2),
-    background-empty: var(--cm-surface-low-2),
+    background: var(--cm-surface-low-1),
+    background-empty: var(--cm-surface-low-1),
     position: var(--s-m),
   ),
   sort: (
@@ -43,7 +48,7 @@ $table: (
     icon-spacing: -8px,
   ),
   caption: (
-    font: 'microcopy-xs',
+    font: var(--f-xs),
     color: var(--cm-on-surface-grey),
   ),
 );
