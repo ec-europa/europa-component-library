@@ -70,7 +70,6 @@
 {% if _multiple %}
   {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
-    { name: 'data-ecl-auto-init', value: 'Select' },
     { name: 'data-ecl-select-multiple'},
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
     { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
