@@ -48,12 +48,12 @@ $layout-wrapper: null !default;
   }
 }
 
-// Dividers: each item draws a line in the middle of the gap before it;
-// lines falling on the outer edge (first row / first column) are clipped
-.ecl-layout-wrapper--divider-rows,
-.ecl-layout-wrapper--divider-columns,
-.ecl-layout-wrapper--divider-all {
+// Dividers between rows: each item draws a line in the middle of the gap above it,
+// spanning the column gaps so lines join up; lines on the outer edges are clipped
+.ecl-layout-wrapper--divider {
   .ecl-layout-wrapper__content {
+    --ecl-layout-wrapper-row-gap: 3rem;
+
     overflow: clip;
 
     // Keep focus outlines visible; must stay below half of the smallest gap
@@ -63,29 +63,12 @@ $layout-wrapper: null !default;
   .ecl-layout-item {
     position: relative;
   }
-}
 
-// Lines between rows
-.ecl-layout-wrapper--divider-rows,
-.ecl-layout-wrapper--divider-all {
   .ecl-layout-item::before {
     border-block-start: map.get($layout-wrapper, 'divider');
     content: '';
     inset-block-start: calc(var(--ecl-layout-wrapper-row-gap) / -2);
     inset-inline: calc(var(--ecl-layout-wrapper-column-gap) / -2);
-    pointer-events: none;
-    position: absolute;
-  }
-}
-
-// Lines between columns
-.ecl-layout-wrapper--divider-columns,
-.ecl-layout-wrapper--divider-all {
-  .ecl-layout-item::after {
-    border-inline-start: map.get($layout-wrapper, 'divider');
-    content: '';
-    inset-block: calc(var(--ecl-layout-wrapper-row-gap) / -2);
-    inset-inline-start: calc(var(--ecl-layout-wrapper-column-gap) / -2);
     pointer-events: none;
     position: absolute;
   }

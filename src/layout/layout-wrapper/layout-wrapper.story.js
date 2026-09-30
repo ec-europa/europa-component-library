@@ -11,7 +11,7 @@ const getArgs = (data) => {
     nb_columns: 3,
     nb_items: 6,
     direction: 'horizontal',
-    divider: 'none',
+    divider: false,
     grid_content: false,
     show_view_all: true,
     full_height: true,
@@ -101,27 +101,13 @@ const getArgTypes = () => {
     },
     divider: {
       name: 'divider',
-      type: 'select',
-      description: 'Dividers between items',
-      options: ['none', 'rows', 'columns', 'all'],
-      control: {
-        labels: {
-          none: 'none',
-          rows: 'rows',
-          columns: 'columns',
-          all: 'all',
-        },
-      },
-      mapping: {
-        none: 'none',
-        rows: 'rows',
-        columns: 'columns',
-        all: 'all',
-      },
+      type: 'boolean',
+      description: 'Dividers between rows',
+      control: { type: 'boolean' },
       table: {
-        type: 'string',
-        defaultValue: { summary: 'none' },
+        type: 'bool',
         category: 'Display',
+        defaultValue: { summary: 'false' },
       },
     },
   };
