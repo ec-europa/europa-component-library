@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '../primitives/color' as primitive;
+
+// Same offsets/blur as ./shadow.scss - only the color differs (graphite,
+// not silver-fog, per the Dark.tokens.json Figma export).
+$shadow-dark: (
+  1: (
+    offset-x: 0px,
+    offset-y: 6px,
+    blur: 12px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-graphite-950-8'),
+  ),
+  2: (
+    offset-x: 0px,
+    offset-y: 10px,
+    blur: 22px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-graphite-950-10'),
+  ),
+  3: (
+    offset-x: 0px,
+    offset-y: 12px,
+    blur: 32px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-graphite-950-12'),
+  ),
+  4: (
+    offset-x: 0px,
+    offset-y: 14px,
+    blur: 42px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-graphite-950-14'),
+  ),
+);

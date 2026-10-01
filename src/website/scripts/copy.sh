@@ -14,3 +14,8 @@ cp -r ../../dist/packages/ec/. ./public/playground/ec
 cp -r ../../dist/packages/eu/. ./public/playground/eu
 cp -a ../../src/playground/ec/public/* ./public/playground/ec
 cp -a ../../src/playground/eu/public/* ./public/playground/eu
+
+# EDS is built separately (pnpm dist:eds), only include it when available
+if [ -d ../eds/dist/playground ]; then
+  cp -r ../eds/dist/playground ./public/playground/eds
+fi

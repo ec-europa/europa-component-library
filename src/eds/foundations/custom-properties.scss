@@ -1,0 +1,150 @@
+@use 'sass:map';
+@use 'primitives/typography' as typography-primitive;
+@use 'primitives/breakpoint' as breakpoint;
+@use 'primitives/grid' as grid;
+@use 'semantic/color' as color;
+@use 'semantic/color-dark' as color-dark;
+@use 'semantic/spacing' as spacing;
+@use 'semantic/border' as border;
+@use 'semantic/opacity' as opacity;
+@use 'semantic/shadow' as shadow;
+@use 'semantic/shadow-dark' as shadow-dark;
+@use 'semantic/typography' as typography;
+
+@mixin vars($prefix, $map) {
+  @each $name, $value in $map {
+    --eds-#{$prefix}-#{$name}: #{$value};
+  }
+}
+
+// One declaration per token holding both light and dark values
+@mixin color-vars($light-map, $dark-map) {
+  @each $name, $light-value in $light-map {
+    $dark-value: map.get($dark-map, $name);
+
+    --eds-c-#{$name}: light-dark(#{$light-value}, #{$dark-value});
+  }
+}
+
+// Emits size/line-height vars for one breakpoint, only overriding a step
+// when its size or line-height actually changed from $previous. Weight is
+// intentionally separate — pair with --eds-f-w-{weight} at the call site.
+@mixin typography-vars($breakpoint-name, $previous: null) {
+  $steps-by-type: map.get(typography.$typography, $breakpoint-name);
+
+  @each $type, $steps in $steps-by-type {
+    @each $step, $def in $steps {
+      $size: map.get($def, 'size');
+      $line-height: map.get($def, 'line-height');
+      $emit: not $previous;
+
+      @if $previous {
+        $previous-steps-by-type: map.get(typography.$typography, $previous);
+        $previous-def: map.get(map.get($previous-steps-by-type, $type), $step);
+        $emit: $size !=
+          map.get($previous-def, 'size') or
+          $line-height !=
+          map.get($previous-def, 'line-height');
+      }
+
+      @if $emit {
+        --eds-f-#{$type}-#{$step}-size: var(--eds-f-s-#{$size});
+        --eds-f-#{$type}-#{$step}-line-height: var(--eds-f-lh-#{$line-height});
+      }
+    }
+  }
+}
+
+// Emits grid vars for one breakpoint tier, only overriding a value that
+// actually changed from $previous.
+@mixin grid-vars($tier, $previous: null) {
+  $current: map.get(grid.$grid, $tier);
+
+  @each $prop in ('columns', 'gutter', 'margin') {
+    $value: map.get($current, $prop);
+
+    @if not $previous {
+      --eds-gr-#{$prop}: #{$value};
+    } @else {
+      $previous-value: map.get(map.get(grid.$grid, $previous), $prop);
+
+      @if $value != $previous-value {
+        --eds-gr-#{$prop}: #{$value};
+      }
+    }
+  }
+}
+
+:root {
+  color-scheme: light dark;
+
+  // Color
+  @include color-vars(color.$color, color-dark.$color-dark);
+
+  // Spacing & sizing
+  @include vars('sp', spacing.$spacing);
+  @include vars('si', spacing.$sizing);
+  @include vars('is', spacing.$icon-sizing);
+
+  // Border
+  @include vars('br', border.$border-radius);
+  @include vars('bw', border.$border-width);
+
+  // Breakpoint
+  @include vars('bp', breakpoint.$breakpoint);
+
+  // Grid
+  @include grid-vars('mobile');
+
+  // Opacity
+  @include vars('op', opacity.$opacity);
+
+  // Shadow - offsets/blur are theme-invariant, only the color changes
+  --eds-sh-none: none;
+
+  @each $name, $def in shadow.$shadow {
+    $dark-color: map.get(map.get(shadow-dark.$shadow-dark, $name), 'color');
+
+    --eds-sh-#{$name}: #{map.get($def, 'offset-x')}
+      #{map.get($def, 'offset-y')}
+      #{map.get($def, 'blur')}
+      #{map.get($def, 'spread')}
+      light-dark(#{map.get($def, 'color')}, #{$dark-color});
+  }
+
+  // Typography
+  --eds-f-family: 'Inter', arial, sans-serif;
+  --eds-f-family-monospace:
+    'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+  @include vars('f-s', typography-primitive.$font-size);
+  @include vars('f-lh', typography-primitive.$font-line-height);
+  @include vars('f-w', typography-primitive.$font-weight);
+  @include vars('f-ls', typography-primitive.$letter-spacing);
+  @include typography-vars('mobile');
+}
+
+// Typography and grid scale up at the grid switch points
+@media (width >= #{map.get(breakpoint.$breakpoint, s)}) {
+  :root {
+    @include typography-vars('tablet', 'mobile');
+    @include grid-vars('tablet', 'mobile');
+  }
+}
+
+@media (width >= #{map.get(breakpoint.$breakpoint, l)}) {
+  :root {
+    @include typography-vars('desktop', 'tablet');
+    @include grid-vars('desktop', 'tablet');
+  }
+}
+
+// Dark mode: OS preference by default (color-scheme: light dark above),
+// [data-theme] forces a mode by pinning color-scheme to one value.
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}
