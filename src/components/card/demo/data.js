@@ -82,17 +82,7 @@ module.exports = {
         {
           term: 'Taxonomy list',
           type: 'taxonomy',
-          definition: [
-            'Russia',
-            'Kyrgyzstan',
-            'Belarus',
-            'China',
-            'India',
-            'Türkiye',
-            'Kazakhstan',
-            'United Arab Emirates',
-            'European Union',
-          ],
+          definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
         },
       ],
     },

@@ -166,29 +166,37 @@ $description-list: null !default;
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline;
+  margin-inline-end: calc(var(--s-xs) + 2px);
+  padding-inline-start: calc(var(--s-xs) + 2px);
+  position: relative;
 
   &.ecl-description-list__definition-item--hidden {
     display: none;
   }
 
-  // Separator drawn at the end of the item, followed by a zero-width space so
-  // lines only wrap after it, as the markup is rendered spaceless
-  &:not(:last-child)::after {
-    background-image: radial-gradient(
-      circle closest-side,
-      map.get($description-list, 'separator-color') 85%,
-      transparent
-    );
-    background-position: center
-      map.get($description-list, 'taxonomy-separator-offset');
-    background-repeat: no-repeat;
-    background-size: 4px 4px;
-    content: '\200B';
-    padding-inline-start: calc(var(--s-xs) * 2 + 4px);
+  &::before {
+    background-color: map.get($description-list, 'separator-color');
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 4px;
+    inset-inline-start: -2px;
+    position: absolute;
+    top: map.get($description-list, 'taxonomy-separator-offset');
+    width: 4px;
   }
 
-  &.ecl-description-list__definition-item--last-visible::after {
-    content: none;
+  &:first-child {
+    padding-inline-start: 0;
+  }
+
+  &:first-child::before {
+    display: none;
+  }
+
+  &:last-child,
+  &.ecl-description-list__definition-item--last-visible {
+    margin-inline-end: 0;
   }
 }
 
