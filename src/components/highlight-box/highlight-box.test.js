@@ -7,8 +7,6 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from './demo/data';
 
-data.id = 'highlight-box';
-
 expect.extend(toHaveNoViolations);
 
 describe('Highlight box', () => {
