@@ -174,6 +174,11 @@ export class StoryCard {
    * Initialise the component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.viewport = queryOne(this.viewportSelector, this.element);
     this.container = queryOne(this.containerSelector, this.element);
     this.slides = queryAll(this.slideSelector, this.element);
