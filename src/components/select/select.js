@@ -665,7 +665,7 @@ export class Select {
 
     const valuesArray = typeof values === 'string' ? [values] : values;
 
-    Array.from(this.select.options).forEach((option) => {
+    Array.from(this.select.options).forEach((option, i) => {
       if (op === 'replace') {
         option.selected = false;
       }
@@ -677,11 +677,8 @@ export class Select {
       }
 
       // Update checkbox selection
-      if (this.multiple) {
-        const checkbox = this.selectMultiple.querySelector(
-          `[data-select-multiple-value="${option.text}"]`,
-        );
-        const input = checkbox?.querySelector('.ecl-checkbox__input');
+      if (this.multiple && this.checkboxes?.[i]) {
+        const input = queryOne('.ecl-checkbox__input', this.checkboxes[i]);
         if (input) {
           input.checked = option.selected;
         }
