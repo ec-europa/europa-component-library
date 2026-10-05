@@ -26,11 +26,9 @@ $table: null !default;
 
 .ecl-table__head,
 %ecl-table__head {
-  --ecl-table-header-background: #{map.get($table, 'head', 'background')};
-
   border-block-end: map.get($table, 'head', 'border');
   border-inline-end: 1px solid map.get($table, 'head', 'background');
-  background-color: var(--ecl-table-header-background);
+  background-color: map.get($table, 'head', 'background');
   display: table-header-group;
 }
 
@@ -51,24 +49,6 @@ $table: null !default;
 
   &:last-child {
     border-inline-end-color: map.get($table, 'head', 'border-inline-color');
-  }
-
-  .ecl-table:has(th[scope='colgroup']) &:not([scope='colgroup']) {
-    --ecl-table-header-background: #{map.get(
-        $table,
-        'head',
-        'background-ungrouped'
-      )};
-
-    background: var(--ecl-table-header-background);
-  }
-
-  .ecl-table:has(th[scope='colgroup']) &:first-child {
-    border-inline-start-color: var(--ecl-table-header-background);
-  }
-
-  .ecl-table:has(th[scope='colgroup']) &:last-child {
-    border-inline-end-color: var(--ecl-table-header-background);
   }
 }
 
@@ -307,7 +287,6 @@ $table: null !default;
 
     .ecl-table__cell--group::before {
       border-inline-end: map.get($table, 'header', 'separator-mobile');
-      background: map.get($table, 'cell', 'group-background');
     }
   }
 
