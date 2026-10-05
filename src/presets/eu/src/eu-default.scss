@@ -1,4 +1,3 @@
-@use 'sass:map';
 @use '@ecl/theme-eu/theme' as theme;
 @use '@ecl/theme-eu/variables' as var;
 
@@ -65,7 +64,7 @@
 .ecl a:is([class*='ecl-u-']) {
   @extend %ecl-link;
 
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font-family: var(--ff-d);
 }
 
 .ecl h1:not([class*='ecl-'], [class*='wt-']),
