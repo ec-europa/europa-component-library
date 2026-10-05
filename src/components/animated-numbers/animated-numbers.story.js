@@ -14,6 +14,7 @@ const getArgs = (data) => {
     full_width: false,
     border: false,
     counter_color: true,
+    no_header: false,
     suffix: data.suffix,
     prefix: data.prefix,
     description: data.description,
@@ -77,6 +78,16 @@ const getArgTypes = () => ({
     },
     if: { arg: 'with_background', truthy: false },
   },
+  no_header: {
+    name: 'no header',
+    type: { name: 'boolean', required: false },
+    description: "Don't display the headers",
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Style',
+    },
+  },
   description: {
     name: 'description',
     type: { name: 'string', required: false },
@@ -99,6 +110,7 @@ const getArgTypes = () => ({
     control: {
       type: 'text',
     },
+    if: { arg: 'no_header', truthy: false },
   },
   prefix: {
     name: 'prefix',
@@ -168,6 +180,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
       category: 'Content (first item)',
     },
+    if: { arg: 'no_header', truthy: false },
   },
   icon_title: {
     name: 'icon title',
@@ -181,7 +194,7 @@ const getArgTypes = () => ({
     control: {
       type: 'text',
     },
-    if: { arg: 'icon_name', neq: 'none' },
+    if: { arg: 'no_header', truthy: false },
   },
   source_type: {
     name: 'source type',
@@ -207,6 +220,7 @@ const prepareData = (data, args) => {
 
   cloned.border = args.border;
   cloned.counter_color = args.counter_color;
+  cloned.no_header = args.no_header;
   cloned.with_background = args.with_background;
   cloned.full_width = args.full_width;
 
