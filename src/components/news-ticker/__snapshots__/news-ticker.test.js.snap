@@ -6,6 +6,7 @@ exports[`News ticker Default renders correctly 1`] = `
     class="ecl-news-ticker"
     data-ecl-auto-init="NewsTicker"
     data-ecl-news-ticker="true"
+    data-ecl-news-ticker-counter-label="of"
   >
     <div
       class="ecl-news-ticker__wrapper"
@@ -170,31 +171,11 @@ exports[`News ticker Default renders correctly 1`] = `
         class="ecl-news-ticker__controls"
       >
         <div
-          class="ecl-news-ticker__actions"
+          class="ecl-slider-pager ecl-news-ticker__actions"
         >
+          <!-- Play button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__prev ecl-button--icon-only"
-            data-ecl-news-ticker-prev=""
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Previous item
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__play ecl-button--icon-only"
+            class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-news-ticker__play ecl-button--icon-only"
             data-ecl-news-ticker-play=""
             type="button"
           >
@@ -214,8 +195,9 @@ exports[`News ticker Default renders correctly 1`] = `
               />
             </span>
           </button>
+          <!-- Pause button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-news-ticker__pause ecl-button--icon-only"
             data-ecl-news-ticker-pause=""
             type="button"
           >
@@ -235,8 +217,31 @@ exports[`News ticker Default renders correctly 1`] = `
               />
             </span>
           </button>
+          <!-- Prev button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__next ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-news-ticker__prev ecl-button--icon-only"
+            data-ecl-news-ticker-prev=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Previous item
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+                data-ecl-icon=""
+              />
+            </span>
+          </button>
+          <!-- Next button -->
+          <button
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-news-ticker__next ecl-button--icon-only"
             data-ecl-news-ticker-next=""
             type="button"
           >
@@ -251,7 +256,7 @@ exports[`News ticker Default renders correctly 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+                class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
                 data-ecl-icon=""
               />
             </span>
@@ -260,19 +265,7 @@ exports[`News ticker Default renders correctly 1`] = `
         <div
           class="ecl-news-ticker__counter"
           dir="ltr"
-        >
-          <span
-            class="ecl-news-ticker__counter--current"
-          >
-            1
-          </span>
-           of 
-          <span
-            class="ecl-news-ticker__counter--max"
-          >
-            6
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -285,6 +278,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
     class="ecl-news-ticker"
     data-ecl-auto-init="NewsTicker"
     data-ecl-news-ticker="true"
+    data-ecl-news-ticker-counter-label="of"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -451,31 +445,11 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
         class="ecl-news-ticker__controls"
       >
         <div
-          class="ecl-news-ticker__actions"
+          class="ecl-slider-pager ecl-news-ticker__actions"
         >
+          <!-- Play button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__prev ecl-button--icon-only"
-            data-ecl-news-ticker-prev=""
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Previous item
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__play ecl-button--icon-only"
+            class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-news-ticker__play ecl-button--icon-only"
             data-ecl-news-ticker-play=""
             type="button"
           >
@@ -495,8 +469,9 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
               />
             </span>
           </button>
+          <!-- Pause button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-news-ticker__pause ecl-button--icon-only"
             data-ecl-news-ticker-pause=""
             type="button"
           >
@@ -516,8 +491,31 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
               />
             </span>
           </button>
+          <!-- Prev button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__next ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-news-ticker__prev ecl-button--icon-only"
+            data-ecl-news-ticker-prev=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Previous item
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+                data-ecl-icon=""
+              />
+            </span>
+          </button>
+          <!-- Next button -->
+          <button
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-news-ticker__next ecl-button--icon-only"
             data-ecl-news-ticker-next=""
             type="button"
           >
@@ -532,7 +530,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+                class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
                 data-ecl-icon=""
               />
             </span>
@@ -541,19 +539,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
         <div
           class="ecl-news-ticker__counter"
           dir="ltr"
-        >
-          <span
-            class="ecl-news-ticker__counter--current"
-          >
-            1
-          </span>
-           of 
-          <span
-            class="ecl-news-ticker__counter--max"
-          >
-            6
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -566,6 +552,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
     class="ecl-news-ticker custom-class custom-class--test"
     data-ecl-auto-init="NewsTicker"
     data-ecl-news-ticker="true"
+    data-ecl-news-ticker-counter-label="of"
   >
     <div
       class="ecl-news-ticker__wrapper"
@@ -730,31 +717,11 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
         class="ecl-news-ticker__controls"
       >
         <div
-          class="ecl-news-ticker__actions"
+          class="ecl-slider-pager ecl-news-ticker__actions"
         >
+          <!-- Play button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__prev ecl-button--icon-only"
-            data-ecl-news-ticker-prev=""
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Previous item
-              </span>
-              <span
-                aria-hidden="true"
-                class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
-                data-ecl-icon=""
-              />
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__play ecl-button--icon-only"
+            class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__play ecl-news-ticker__play ecl-button--icon-only"
             data-ecl-news-ticker-play=""
             type="button"
           >
@@ -774,8 +741,9 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
               />
             </span>
           </button>
+          <!-- Pause button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--secondary ecl-button--neutral ecl-slider-pager__pause ecl-news-ticker__pause ecl-button--icon-only"
             data-ecl-news-ticker-pause=""
             type="button"
           >
@@ -795,8 +763,31 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
               />
             </span>
           </button>
+          <!-- Prev button -->
           <button
-            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-news-ticker__next ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__prev ecl-news-ticker__prev ecl-button--icon-only"
+            data-ecl-news-ticker-prev=""
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Previous item
+              </span>
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--caret-left wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+                data-ecl-icon=""
+              />
+            </span>
+          </button>
+          <!-- Next button -->
+          <button
+            class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-slider-pager__next ecl-news-ticker__next ecl-button--icon-only"
             data-ecl-news-ticker-next=""
             type="button"
           >
@@ -811,7 +802,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
               </span>
               <span
                 aria-hidden="true"
-                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+                class="wt-icon-phosphor--caret-right wt-icon--monochrome ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
                 data-ecl-icon=""
               />
             </span>
@@ -820,19 +811,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
         <div
           class="ecl-news-ticker__counter"
           dir="ltr"
-        >
-          <span
-            class="ecl-news-ticker__counter--current"
-          >
-            1
-          </span>
-           of 
-          <span
-            class="ecl-news-ticker__counter--max"
-          >
-            6
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>

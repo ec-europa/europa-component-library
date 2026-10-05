@@ -99,33 +99,43 @@
   </div>
 {% endif %}
 
-{% if _title is not empty %}
-  <div class="ecl-story-card__card-title">
-    {{- _title -}}
-  </div>
+{% if _variant == 'testimonial' %}
+  <figure class="ecl-story-card__testimonial-container">
+    {% if _title is not empty %}
+      <blockquote class="ecl-story-card__card-title">
+        {{- _title -}}
+      </blockquote>
+    {% endif %}
+
+    {%- if _author is not empty or _role is not empty or _source is not empty -%}
+      <figcaption class="ecl-story-card__testimonial">
+        {% if _author is not empty %}
+          <span class="ecl-story-card__author">
+            {{- _author -}}
+          </span>
+        {% endif %}
+
+        {% if _role is not empty %}
+          <span class="ecl-story-card__role">
+            {{- _role -}}
+          </span>
+        {% endif %}
+
+        {% if _source is not empty %}
+          <cite class="ecl-story-card__source">
+            {{- _source -}}
+          </cite>
+        {% endif %}
+      </figcaption>
+    {%- endif -%}
+  </figure>
+{% else %}
+  {% if _title is not empty %}
+    <div class="ecl-story-card__card-title">
+      {{- _title -}}
+    </div>
+  {% endif %}
 {% endif %}
-
-{%- if _author is not empty or _role is not empty or _source is not empty -%}
-  <div class="ecl-story-card__testimonial">
-    {% if _author is not empty %}
-      <span class="ecl-story-card__author">
-        {{- _author -}}
-      </span>
-    {% endif %}
-
-    {% if _role is not empty %}
-      <span class="ecl-story-card__role">
-        {{- _role -}}
-      </span>
-    {% endif %}
-
-    {% if _source is not empty %}
-      <cite class="ecl-story-card__source">
-        {{- _source -}}
-      </cite>
-    {% endif %}
-  </div>
-{%- endif -%}
 
 {%- if _description is not empty -%}
   <div class="ecl-story-card__card-description">

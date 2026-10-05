@@ -1,15 +1,25 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
+import EmblaCarousel from 'embla-carousel';
+import Accessibility from 'embla-carousel-accessibility';
+import Autoplay from 'embla-carousel-autoplay';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.toggleSelector Selector for toggling element
+ * @param {String} options.playSelector Selector for the play button
+ * @param {String} options.pauseSelector Selector for the pause button
  * @param {String} options.prevSelector Selector for prev element
  * @param {String} options.nextSelector Selector for next element
+ * @param {String} options.containerClass Selector for the container
  * @param {String} options.contentClass Selector for the content container
  * @param {String} options.slidesClass Selector for the slides container
+ * @param {String} options.counterClass Selector for the counter
  * @param {String} options.slideClass Selector for the slide items
- * @param {String} options.currentSlideClass Selector for the counter current slide number
+ * @param {String} options.counterLabelSelector Selector for the counter label
+ * @param {String} options.controlsClass Selector for the controls
+ * @param {Boolean} options.attachClickListener Whether to use click listeners from this class
+ * @param {Boolean} options.attachResizeListener Whether to use ressize listener from this class
  */
 export class NewsTicker {
   /**
@@ -36,9 +46,10 @@ export class NewsTicker {
       nextSelector = '[data-ecl-news-ticker-next]',
       containerClass = '.ecl-news-ticker__container',
       contentClass = '.ecl-news-ticker__content',
+      counterClass = '.ecl-news-ticker__counter',
+      counterLabelSelector = 'data-ecl-news-ticker-counter-label',
       slidesClass = '.ecl-news-ticker__slides',
       slideClass = '.ecl-news-ticker__slide',
-      currentSlideClass = '.ecl-news-ticker__counter--current',
       controlsClass = '.ecl-news-ticker__controls',
       attachClickListener = true,
       attachResizeListener = true,
@@ -60,9 +71,10 @@ export class NewsTicker {
     this.nextSelector = nextSelector;
     this.containerClass = containerClass;
     this.contentClass = contentClass;
+    this.counterLabelSelector = counterLabelSelector;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
-    this.currentSlideClass = currentSlideClass;
+    this.counterClass = counterClass;
     this.controlsClass = controlsClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
@@ -75,27 +87,26 @@ export class NewsTicker {
     this.btnPause = null;
     this.btnPrev = null;
     this.btnNext = null;
-    this.index = 1;
+    this.counter = null;
     this.total = 0;
-    this.allowShift = true;
-    this.autoPlay = null;
-    this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
     this.resizeTimer = null;
-    this.cloneFirstSLide = null;
-    this.cloneLastSLide = null;
-    this.resizeTimer = null;
     this.resizeObserver = null;
+
+    // Embla related
+    this.slider = null;
+    this.pager = null;
+    this.accessibility = null;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
-    this.shiftSlide = this.shiftSlide.bind(this);
-    this.checkIndex = this.checkIndex.bind(this);
-    this.moveSlides = this.moveSlides.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.handleNextPrevClick = this.handleNextPrevClick.bind(this);
+    this.initSlider = this.initSlider.bind(this);
+    this.setCounter = this.setCounter.bind(this);
   }
 
   /**
@@ -115,6 +126,9 @@ export class NewsTicker {
     this.container = queryOne(this.containerClass, this.element);
     this.content = queryOne(this.contentClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
+    this.sliderEl = queryOne(this.contentClass, this.element);
+    this.counter = queryOne(this.counterClass, this.element);
+    this.counterLabel = this.element.getAttribute(this.counterLabelSelector);
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
@@ -122,28 +136,18 @@ export class NewsTicker {
     // If only one slide, don't initialize ticker and hide controls
     if (this.total <= 1 && this.controls) {
       this.element.classList.add('ecl-news-ticker--single');
-      this.content.style.height = 'auto';
+      this.slidesContainer.style.height = 'auto';
       this.controls.style.display = 'none';
+
       return false;
     }
 
-    const firstSlide = this.slides[0];
-    const lastSlide = this.slides[this.slides.length - 1];
-    this.cloneFirstSLide = firstSlide.cloneNode(true);
-    this.cloneLastSLide = lastSlide.cloneNode(true);
+    if (this.sliderEl) {
+      this.initSlider(this.sliderEl);
+    }
 
-    // Clone first and last slide
-    this.slidesContainer.appendChild(this.cloneFirstSLide);
-    this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
-
-    // Refresh the slides variable after adding new cloned slides
-    this.slides = queryAll(this.slideClass, this.element);
-
-    // Initialize ticker position and size
+    // Initialize size handling
     this.handleResize();
-
-    // Activate autoPlay
-    this.handleAutoPlay();
 
     // Bind events
     if (this.attachClickListener && this.btnPlay && this.btnPause) {
@@ -151,21 +155,14 @@ export class NewsTicker {
       this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
     if (this.attachClickListener && this.btnNext) {
-      this.btnNext.addEventListener(
-        'click',
-        this.shiftSlide.bind(this, 1, true),
-      );
+      this.btnNext.addEventListener('click', this.handleNextPrevClick);
     }
     if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.addEventListener(
-        'click',
-        this.shiftSlide.bind(this, -1, true),
-      );
+      this.btnPrev.addEventListener('click', this.handleNextPrevClick);
     }
-    if (this.slidesContainer) {
-      this.slidesContainer.addEventListener('transitionend', this.checkIndex);
-      this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
-      this.slidesContainer.addEventListener('mouseout', this.handleMouseOut);
+    if (this.content) {
+      this.content.addEventListener('mouseover', this.handleMouseOver);
+      this.content.addEventListener('mouseout', this.handleMouseOut);
     }
     if (this.container) {
       this.container.addEventListener('focus', this.handleFocus, true);
@@ -174,22 +171,22 @@ export class NewsTicker {
       this.resizeObserver = new ResizeObserver(this.handleResize);
       this.resizeObserver.observe(this.slidesContainer);
     }
+    if (this.btnPlay) {
+      this.btnPlay.addEventListener('click', this.handlePlayPauseClick);
+    }
+    if (this.btnPause) {
+      this.btnPause.addEventListener('click', this.handlePlayPauseClick);
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
-
-    return this;
   }
 
   /**
    * Destroy component.
    */
   destroy() {
-    if (this.cloneFirstSLide && this.cloneLastSLide) {
-      this.cloneFirstSLide.remove();
-      this.cloneLastSLide.remove();
-    }
     if (this.btnPlay) {
       this.btnPlay.replaceWith(this.btnPlay.cloneNode(true));
     }
@@ -202,16 +199,9 @@ export class NewsTicker {
     if (this.btnPrev) {
       this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
-    if (this.slidesContainer) {
-      this.slidesContainer.removeEventListener(
-        'transitionend',
-        this.checkIndex,
-      );
-      this.slidesContainer.removeEventListener(
-        'mouseover',
-        this.handleMouseOver,
-      );
-      this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
+    if (this.content) {
+      this.content.removeEventListener('mouseover', this.handleMouseOver);
+      this.content.removeEventListener('mouseout', this.handleMouseOut);
     }
     if (this.container) {
       this.container.removeEventListener('focus', this.handleFocus, true);
@@ -220,9 +210,13 @@ export class NewsTicker {
       this.resizeObserver.disconnect();
       this.resizeObserver = null;
     }
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlay = null;
+    if (this.slider) {
+      this.slider.destroy();
+      this.slider = null;
+    }
+    if (this.pager) {
+      this.pager.destroy();
+      this.pager = null;
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -231,111 +225,59 @@ export class NewsTicker {
   }
 
   /**
-   * Action to shift next or previous slide.
-   * @param {int} dir
-   * @param {Boolean} stopAutoPlay
+   * Handle autoplay toggle using embla autoplay plugin.
    */
-  shiftSlide(dir, stopAutoPlay) {
-    if (this.allowShift) {
-      this.index = dir === 1 ? this.index + 1 : this.index - 1;
-      this.moveSlides(true);
-    }
-    if (stopAutoPlay && this.autoPlay) {
-      this.handleAutoPlay();
-    }
+  handleAutoPlay(stop = false, pause = false) {
+    const autoplay = this.slider.plugins().autoplay;
 
-    this.allowShift = false;
-  }
+    // pause
+    if (pause) {
+      autoplay?.pause();
 
-  /**
-   * Transition for the slides.
-   * @param {Boolean} transition
-   */
-  moveSlides(transition) {
-    const newOffset = this.slides[this.index].offsetTop;
-    const newHeight = Math.floor(
-      this.slides[this.index].getBoundingClientRect().height,
-    );
-    this.content.style.height = `${newHeight}px`;
-    this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '1ms';
-    this.slidesContainer.style.transform = `translate3d(0px, -${newOffset}px, 0px)`;
-  }
-
-  /**
-   * Action to update slides index and position.
-   */
-  checkIndex() {
-    // Update index
-    if (this.index === 0) {
-      this.index = this.total;
-      this.moveSlides(false);
-    }
-    if (this.index === this.total + 1) {
-      this.index = 1;
-      this.moveSlides(false);
-    }
-
-    // Update pagination
-    const currentSlide = queryOne(this.currentSlideClass, this.element);
-    currentSlide.textContent = this.index;
-
-    // Update slides
-    if (this.slides) {
-      this.slides.forEach((slide, index) => {
-        const cta = queryOne('.ecl-link', slide);
-        if (this.index === index) {
-          slide.removeAttribute('inert', 'true');
-          if (cta) {
-            cta.removeAttribute('tabindex', -1);
-          }
-        } else {
-          slide.setAttribute('inert', 'true');
-          if (cta) {
-            cta.setAttribute('tabindex', -1);
-          }
-        }
-      });
-    }
-
-    this.allowShift = true;
-  }
-
-  /**
-   * Toggles play/pause slides.
-   */
-  handleAutoPlay() {
-    if (!this.autoPlay) {
-      this.autoPlayInterval = setInterval(() => {
-        this.shiftSlide(1);
-      }, 5000);
-      this.autoPlay = true;
-      const isFocus = document.activeElement === this.btnPlay;
-      this.btnPlay.style.display = 'none';
-      this.btnPause.style.display = 'flex';
-      if (isFocus) {
-        this.btnPause.focus();
-      }
-    } else {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlay = false;
       const isFocus = document.activeElement === this.btnPause;
-      this.btnPlay.style.display = 'flex';
-      this.btnPause.style.display = 'none';
+
       if (isFocus) {
         this.btnPlay.focus();
       }
+
+      return;
     }
+
+    // stop
+    if (stop) {
+      autoplay?.stop();
+      autoplay?.reset();
+
+      return;
+    }
+
+    // play
+    autoplay?.play();
+
+    const isFocus = document.activeElement === this.btnPlay;
+
+    if (isFocus) {
+      this.btnPause.focus();
+    }
+
+    // Workaround for those edge cases when the autoplay doesn't
+    // start despite running play() a first time.
+    setTimeout(() => {
+      if (!autoplay?.isPlaying()) {
+        autoplay?.play();
+      }
+    }, 500);
   }
 
   /**
    * Trigger events on mouseover.
    */
   handleMouseOver() {
-    this.hoverAutoPlay = this.autoPlay;
+    this.hoverAutoPlay = this.slider?.plugins().autoplay?.isPlaying() || false;
+
     if (this.hoverAutoPlay) {
-      this.handleAutoPlay();
+      this.handleAutoPlay(false, true);
     }
-    return this;
   }
 
   /**
@@ -345,7 +287,7 @@ export class NewsTicker {
     if (this.hoverAutoPlay) {
       this.handleAutoPlay();
     }
-    return this;
+    this.hoverAutoPlay = false;
   }
 
   /**
@@ -354,7 +296,7 @@ export class NewsTicker {
   handleResize() {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
-      this.moveSlides(false);
+      this.setHeight();
     }, 100);
   }
 
@@ -364,16 +306,134 @@ export class NewsTicker {
    */
   handleFocus(e) {
     const focusElement = e.target;
-    // Disable autoplay if focus is on a slide CTA
+    // Disable autoplay if focus is on a slide
     if (
       focusElement &&
       focusElement.contains(document.activeElement) &&
-      this.autoPlay
+      this.slider?.plugins().autoplay?.isPlaying()
     ) {
+      this.handleAutoPlay(true);
+    }
+  }
+
+  /**
+   * Initialise Embla slider for the news ticker
+   * @param {HTMLElement} sliderEl
+   */
+  initSlider(sliderEl) {
+    this.slider = EmblaCarousel(
+      sliderEl,
+      {
+        loop: true,
+        align: 'start',
+        axis: 'y',
+        direction: getComputedStyle(this.element).direction,
+        duration: 20,
+      },
+      [
+        Autoplay({ delay: 5000 }),
+        Accessibility({
+          carouselAriaLabel: 'News ticker',
+          previousButtonAriaLabel: 'Show previous news',
+          nextButtonAriaLabel: 'Show next news',
+          dotButtonAriaLabel: (
+            hasAnyGroupedSlides,
+            firstSlideIndex,
+            lastSlideIndex,
+            totalSlides,
+          ) => `Show news ${firstSlideIndex + 1} of ${totalSlides}`,
+          slideAriaLabel: () => '',
+        }),
+      ],
+    );
+
+    this.accessibility = this.slider.plugins().accessibility;
+
+    this.pagerNode = this.controls;
+
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.accessibility,
+      prevSelector: '.ecl-news-ticker__prev',
+      nextSelector: '.ecl-news-ticker__next',
+    });
+
+    // Initialize navigation
+    this.pager.init();
+    // Start the autoplay
+    this.handleAutoPlay();
+    // Initialize the counter
+    this.setCounter();
+    // Update the counter on slide change
+    this.slider.on('select', this.setCounter);
+
+    // Handle play/pause button visibilty based on autoplay events
+    if (this.btnPlay && this.btnPause) {
+      this.slider.on('autoplay:stop', () => {
+        this.btnPlay.style.display = 'flex';
+        this.btnPause.style.display = 'none';
+      });
+
+      this.slider.on('autoplay:play', () => {
+        this.btnPlay.style.display = 'none';
+        this.btnPause.style.display = 'flex';
+      });
+
+      this.slider.on('autoplay:pause', () => {
+        this.btnPlay.style.display = 'flex';
+        this.btnPause.style.display = 'none';
+      });
+    }
+  }
+
+  /**
+   * Sets the height of the ticker.
+   */
+  setHeight = () => {
+    const currentIndex = this.slider.selectedSnap();
+    const newHeight = Math.floor(
+      this.slides[currentIndex].getBoundingClientRect().height,
+    );
+
+    this.slidesContainer.style.height = `${newHeight}px`;
+  };
+
+  /**
+   * Sets the counter.
+   */
+  setCounter() {
+    const currentIndex = this.slider.selectedSnap();
+    const total = this.slider.snapList().length;
+
+    if (this.counter) {
+      this.counter.textContent = `${currentIndex + 1} ${this.counterLabel} ${total}`;
+    }
+  }
+
+  /**
+   * Handle click on next/previous buttons.
+   */
+  handleNextPrevClick() {
+    if (!this.slider) return;
+
+    const autoplay = this.slider.plugins().autoplay;
+
+    if (autoplay?.isPlaying()) {
+      this.handleAutoPlay(true);
+    }
+  }
+
+  /**
+   * Handle click on play/pause buttons.
+   */
+  handlePlayPauseClick = (e) => {
+    if (e.currentTarget === this.btnPause) {
+      this.handleAutoPlay(false, true);
+    } else {
       this.handleAutoPlay();
     }
-    return this;
-  }
+  };
 }
 
 export default NewsTicker;

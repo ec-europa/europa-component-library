@@ -210,11 +210,13 @@ export class SliderPager {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       if (this.slider) {
-        this.rebuildDots();
+        if (this.dotsContainer) {
+          this.rebuildDots();
+          this.updateDots();
+        }
         if (this.accessibility && this.dotsNode) {
           this.accessibility.setupDotButtons(this.dotsNode);
         }
-        this.updateDots();
         if (this.toggleButtonsDisabled) {
           this.toggleButtonsDisabled(this.slider);
         }

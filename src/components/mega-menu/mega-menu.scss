@@ -1006,7 +1006,9 @@ $mega-menu: null !default;
   .ecl-icon {
     align-self: center;
     flex-shrink: 0;
+  }
 
+  .ecl-button__container .ecl-icon {
     // Overriding style coming from button to align item on the right
     margin-inline-start: auto !important;
     height: map.get($theme, 'icon', '2xs');
