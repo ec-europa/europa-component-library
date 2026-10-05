@@ -28,7 +28,7 @@
       ]
 #}
 
-{# DEPRECATED 
+{# DEPRECATED
 - "item.img" (object): tiny image used at the icon location
 #}
 
@@ -47,6 +47,7 @@
 {% set _css_class = 'ecl-news-ticker' %}
 {% set _extra_attributes = [
   'data-ecl-news-ticker="true"',
+  'data-ecl-news-ticker-counter-label="' ~ _counter_label ~ '"',
   'data-ecl-auto-init="NewsTicker"']|join(' ')
 %}
 
@@ -80,6 +81,7 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
+  <div class="ecl-news-ticker__wrapper">
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
     <div class="ecl-news-ticker__content">
@@ -88,7 +90,7 @@
         {% set _media = '' %}
         {# DEPRECATED #}
         {% if _item.img is not empty and _item.img.path is not empty %}
-          {% set _media %} 
+          {% set _media %}
             <img
               class="ecl-news-ticker__icon"
               src="{{ _item.img.path }}"
@@ -97,7 +99,7 @@
             {%- endif -%}
             {%- if _item.img.title is not empty -%}
               title="{{ _item.img.title }}"
-            {%- endif -%} 
+            {%- endif -%}
             >
           {% endset %}
         {% else %}
@@ -136,84 +138,37 @@
             </span>
           {% endif %}
           </div>
-        </li>  
+        </li>
       {% endfor %}
       </ul>
     </div>
   </div>
   {% endif %}
   <div class="ecl-news-ticker__controls">
-    <div class="ecl-news-ticker__actions">
-      {% include '@ecl/button/button.html.twig' with {
-        type: 'button',
-        variant: 'tertiary',
-        style: 'neutral',
-        label: _sr_previous,
-        hide_label: true,
-        icon: {
-          name: 'caret-left',
-          family: 'phosphor',
-        },
-        extra_classes: 'ecl-news-ticker__prev',
-        extra_attributes: [{
-          name: 'data-ecl-news-ticker-prev',
-        }],
-      } only %}
+    {% include '@ecl/slider/slider-pager.html.twig' with {
+      play_pause: true,
+      dots: false,
+      size: 'l',
+      hide_label: true,
+      pause_icon: 'pause-circle',
+      play_icon: 'play-circle',
+      next_label: _sr_next,
+      prev_label: _sr_previous,
+      pause_label: _sr_pause,
+      play_label: _sr_play,
+      prev_extra_classes: 'ecl-news-ticker__prev',
+      prev_extra_attributes: [{ name: 'data-ecl-news-ticker-prev' }],
+      next_extra_classes: 'ecl-news-ticker__next',
+      next_extra_attributes: [{ name: 'data-ecl-news-ticker-next' }],
+      play_extra_classes: 'ecl-news-ticker__play',
+      play_extra_attributes: [{ name: 'data-ecl-news-ticker-play' }],
+      pause_extra_classes: 'ecl-news-ticker__pause',
+      pause_extra_attributes: [{ name: 'data-ecl-news-ticker-pause' }],
+      extra_classes: 'ecl-news-ticker__actions',
+    } only %}
 
-      {% include '@ecl/button/button.html.twig' with {
-        type: 'button',
-        variant: 'tertiary',
-        style: 'neutral',
-        label: _sr_play,
-        hide_label: true,
-        icon: {
-          name: 'play-circle',
-          family: 'phosphor',
-        },
-        extra_classes: 'ecl-news-ticker__play',
-        extra_attributes: [{
-          name: 'data-ecl-news-ticker-play',
-        }],
-      } only %}
-
-      {% include '@ecl/button/button.html.twig' with {
-        type: 'button',
-        variant: 'tertiary',
-        style: 'neutral',
-        label: _sr_pause,
-        hide_label: true,
-        icon: {
-          name: 'pause-circle',
-          family: 'phosphor',
-        },
-        extra_classes: 'ecl-news-ticker__pause',
-        extra_attributes: [{
-          name: 'data-ecl-news-ticker-pause',
-        }],
-      } only %}
-
-      {% include '@ecl/button/button.html.twig' with {
-        type: 'button',
-        variant: 'tertiary',
-        style: 'neutral',
-        label: _sr_next,
-        hide_label: true,
-        icon: {
-          name: 'caret-right',
-          family: 'phosphor',
-        },
-        extra_classes: 'ecl-news-ticker__next',
-        extra_attributes: [{
-          name: 'data-ecl-news-ticker-next',
-        }],
-      } only %}
-    </div>
-
-    <div class="ecl-news-ticker__counter">
-      <span class="ecl-news-ticker__counter--current">1</span>
-      {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}
-      <span class="ecl-news-ticker__counter--max">{{_items|length}}</span>
-    </div>
+    <div class="ecl-news-ticker__counter" dir="ltr"></div>
+  </div>
   </div>
 </div>
 

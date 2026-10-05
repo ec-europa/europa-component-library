@@ -23,6 +23,12 @@
   $layout-wrapper: var.$layout-wrapper
 );
 
+// Slider pager
+@use '@ecl/slider/slider-pager' with (
+  $theme: theme.$theme,
+  $slider-pager: var.$slider-pager
+);
+
 // Forms
 @use '@ecl/form-group/form-group' with (
   $theme: theme.$theme,
@@ -300,10 +306,6 @@
   $theme: theme.$theme,
   $site-header: var.$site-header,
   $language-list: var.$language-list
-);
-@use '@ecl/slider/slider-pager' with (
-  $theme: theme.$theme,
-  $slider-pager: var.$slider-pager
 );
 @use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,

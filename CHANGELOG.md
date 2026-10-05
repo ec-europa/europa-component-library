@@ -1,5 +1,55 @@
 # Changelog
 
+## 5.3.0 (2026-09-15)
+
+#### :rocket: New Feature
+
+- [#4693](https://github.com/ec-europa/europa-component-library/pull/4693) feat(table): filter tables - FRONT-5472 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4699](https://github.com/ec-europa/europa-component-library/pull/4699) fix(sources): Fixing the text wrapping in sources when an icon is used - FRONT-5469 ([@planctus](https://github.com/planctus))
+- [#4695](https://github.com/ec-europa/europa-component-library/pull/4695) fix(highlight-box): prevent icon shrink - FRONT-5478 ([@emeryro](https://github.com/emeryro))
+- [#4692](https://github.com/ec-europa/europa-component-library/pull/4692) fix(sources): Fixing issues with sources display on multiple lines - FRONT-5469 ([@planctus](https://github.com/planctus))
+- [#4685](https://github.com/ec-europa/europa-component-library/pull/4685) fix(slogan-ticker): fix scrolling - FRONT-5465 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#4697](https://github.com/ec-europa/europa-component-library/pull/4697) feat(carousel): Teaser navigation, styles update, js refactoring using embla ([@planctus](https://github.com/planctus))
+- [#4694](https://github.com/ec-europa/europa-component-library/pull/4694) feat(gallery): additional thumbnail details for video - FRONT-5471 ([@emeryro](https://github.com/emeryro))
+- [#4700](https://github.com/ec-europa/europa-component-library/pull/4700) feat(featured-item): update EU link - FRONT-5485 ([@emeryro](https://github.com/emeryro))
+- [#4654](https://github.com/ec-europa/europa-component-library/pull/4654) feat(story-card): Adding keyboard navigation between Tabs using arrow keys - FRONT-5437 ([@planctus](https://github.com/planctus))
+- [#4690](https://github.com/ec-europa/europa-component-library/pull/4690) feat(megamenu): scroll on mobile - FRONT-5404 ([@emeryro](https://github.com/emeryro))
+- [#4658](https://github.com/ec-europa/europa-component-library/pull/4658) feat(site-header): Improvements in the keyboard navigation in mobile for search - FRONT-5415 ([@planctus](https://github.com/planctus))
+- [#4691](https://github.com/ec-europa/europa-component-library/pull/4691) feat(mega-menu): highlight current item - FRONT-5455 ([@emeryro](https://github.com/emeryro))
+- [#4696](https://github.com/ec-europa/europa-component-library/pull/4696) feat(spotlight): update gradient - FRONT-5473 ([@emeryro](https://github.com/emeryro))
+- [#4681](https://github.com/ec-europa/europa-component-library/pull/4681) feat(quiz): Color modes, images and illustration - FRONT-5463 ([@planctus](https://github.com/planctus))
+- [#4678](https://github.com/ec-europa/europa-component-library/pull/4678) feat(description-list): focus first revealed item - FRONT-5452 ([@emeryro](https://github.com/emeryro))
+- [#4246](https://github.com/ec-europa/europa-component-library/pull/4246) feat(news-ticker): new design - FRONT-5194 ([@emeryro](https://github.com/emeryro))
+- [#4651](https://github.com/ec-europa/europa-component-library/pull/4651) feat(story-card): Adding context to read more - FRONT-5435 ([@planctus](https://github.com/planctus))
+- [#4688](https://github.com/ec-europa/europa-component-library/pull/4688) feat(highlighted-search): use aria-labelledby - FRONT-5468 ([@emeryro](https://github.com/emeryro))
+- [#4689](https://github.com/ec-europa/europa-component-library/pull/4689) style(color): remove token cm-surface-color-mode-lowest - FRONT-5467 ([@emeryro](https://github.com/emeryro))
+- [#4687](https://github.com/ec-europa/europa-component-library/pull/4687) feat(slogan-ticker): update background color - FRONT-5466 ([@emeryro](https://github.com/emeryro))
+- [#4621](https://github.com/ec-europa/europa-component-library/pull/4621) chore(accessibility): Accessible labels used in the slogan ticker - FRONT-5408 ([@planctus](https://github.com/planctus))
+- [#4620](https://github.com/ec-europa/europa-component-library/pull/4620) chore(accessibility): Keeping button focused when it has been used - FRONT-5407 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#4686](https://github.com/ec-europa/europa-component-library/pull/4686) docs(website): add environment banner - FRONT-5241 ([@emeryro](https://github.com/emeryro))
+- [#4683](https://github.com/ec-europa/europa-component-library/pull/4683) docs(api): homogenize api pages - FRONT-5278 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#4702](https://github.com/ec-europa/europa-component-library/pull/4702) chore(deps): Updates 14-09-26 ([@planctus](https://github.com/planctus))
+- [#4698](https://github.com/ec-europa/europa-component-library/pull/4698) chore(deps): Updates 07-09-26 ([@planctus](https://github.com/planctus))
+- [#4677](https://github.com/ec-europa/europa-component-library/pull/4677) chore(website): reduce menu demo height - FRONT-5451 ([@emeryro](https://github.com/emeryro))
+- [#4682](https://github.com/ec-europa/europa-component-library/pull/4682) chore(deps): Updates - 24-08-26 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.2.0 (2026-08-20)
 
 #### :bug: Bug Fix

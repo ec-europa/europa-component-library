@@ -42,6 +42,15 @@ $quiz-print: null !default;
   }
 }
 
+.ecl-quiz-card__picture,
+.ecl-quiz-card__illustration {
+  display: none;
+}
+
+.ecl-quiz-card__content {
+  height: auto !important;
+}
+
 .ecl-quiz-card__front,
 .ecl-quiz-card__back {
   align-items: center;
@@ -50,6 +59,11 @@ $quiz-print: null !default;
   display: flex;
 
   &[hidden] {
+    display: flex;
+  }
+
+  .ecl-quiz-card__padded {
+    align-items: center;
     display: flex;
   }
 

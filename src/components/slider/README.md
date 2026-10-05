@@ -13,7 +13,9 @@ npm install --save @ecl/slider
 - **"next_label"** (string) (default: '') Label of the next button
 - **"hide_label"** (boolean) (default: false) Icon only buttons
 - **"play_label"** (string) (default: '') Label of the play button
+- **"play_icon"** (string) (default: 'play-filled') Play icon
 - **"pause_label"** (string) (default: '') Label of the pause button
+- **"pause_icon"** (string) (default: 'pause-filled') Pause icon
 - **"size"**: (string) (default: s) s, m or l Size of the buttons
 - **"prev_extra_classes"** (string) (default: '') Previous button extra classes (space separated)
 - **"prev_extra_attributes"** (array) (default: []) Previous button extra attributes

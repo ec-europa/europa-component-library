@@ -8,7 +8,9 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 // Import data for tests
 import dataDefault from './demo/data--default';
 import dataMulti from './demo/data--multi';
-import dataSortable from './demo/data--sort-table';
+
+const dataSortable = { ...dataDefault, sortable: true };
+const dataFilter = { ...dataDefault, filter: true };
 
 expect.extend(toHaveNoViolations);
 
@@ -113,6 +115,14 @@ describe('Table', () => {
       expect.assertions(1);
 
       return expect(render(dataSortable)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Filter table', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataFilter)).resolves.toMatchSnapshot();
     });
   });
 });

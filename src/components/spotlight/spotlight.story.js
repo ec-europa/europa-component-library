@@ -268,6 +268,9 @@ export default {
         xl: { disable: true },
       },
     },
+    breakpointIndicator: {
+      container: '.ecl-spotlight',
+    },
   },
 };
 

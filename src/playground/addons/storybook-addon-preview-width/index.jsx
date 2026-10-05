@@ -1,6 +1,6 @@
 /* global ResizeObserver */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { IconButton } from '@storybook/components';
 import { useParameter } from '@storybook/manager-api';
 
@@ -23,30 +23,60 @@ const getColorForBreakpoint = (label) => {
 
 export const WidthIndicator = () => {
   const breakpoints = useParameter('breakpoints', {});
+  const { container } = useParameter('breakpointIndicator', {});
+
   const [width, setWidth] = useState(0);
   const [bp, setBp] = useState('');
 
-  const sortedBps = Object.entries(breakpoints)
-    .map(([label, value]) => ({ label, value }))
-    .sort((a, b) => a.value - b.value);
+  const sortedBps = useMemo(
+    () =>
+      Object.entries(breakpoints)
+        .map(([label, value]) => ({ label, value }))
+        .sort((a, b) => a.value - b.value),
+    [breakpoints],
+  );
 
   const getBreakpointLabel = (w) => {
     let current = sortedBps[0]?.label || '';
+
     for (const b of sortedBps) {
-      if (w >= b.value) current = b.label;
-      else break;
+      if (w >= b.value) {
+        current = b.label;
+      } else {
+        break;
+      }
     }
+
     return current;
   };
 
   useEffect(() => {
     const preview = document.querySelector('#storybook-preview-iframe');
 
+    const getBreakpointWidth = () => {
+      if (!preview) {
+        return 0;
+      }
+
+      if (container) {
+        const containerElement =
+          preview.contentDocument?.querySelector(container);
+
+        if (containerElement) {
+          return containerElement.getBoundingClientRect().width;
+        }
+      }
+
+      return preview.clientWidth;
+    };
+
     const updateWidth = () => {
-      if (preview && preview.clientWidth) {
-        const w = preview.clientWidth;
-        setWidth(w);
-        setBp(getBreakpointLabel(w));
+      if (preview?.clientWidth) {
+        const viewportWidth = preview.clientWidth;
+        const breakpointWidth = getBreakpointWidth();
+
+        setWidth(viewportWidth);
+        setBp(getBreakpointLabel(breakpointWidth));
       }
     };
 
@@ -54,13 +84,25 @@ export const WidthIndicator = () => {
     window.addEventListener('resize', updateWidth);
 
     const resizeObserver = new ResizeObserver(updateWidth);
-    if (preview) resizeObserver.observe(preview);
+
+    if (preview) {
+      resizeObserver.observe(preview);
+
+      if (container) {
+        const containerElement =
+          preview.contentDocument?.querySelector(container);
+
+        if (containerElement) {
+          resizeObserver.observe(containerElement);
+        }
+      }
+    }
 
     return () => {
       window.removeEventListener('resize', updateWidth);
       resizeObserver.disconnect();
     };
-  }, [sortedBps]);
+  }, [container, sortedBps]);
 
   return (
     <IconButton

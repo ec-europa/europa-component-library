@@ -42,6 +42,7 @@ describe('Carousel', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
     jest.setTimeout(15000);
     test('passes the accessibility tests', async () => {
       expect(

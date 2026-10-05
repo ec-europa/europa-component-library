@@ -108,6 +108,7 @@ export class SiteHeader {
     this.customActionOverlay = null;
     this.customActionClose = null;
     this.customActionFocusTrap = null;
+    this.ssearchFormFocusTrap = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
@@ -123,6 +124,7 @@ export class SiteHeader {
     this.handleResize = this.handleResize.bind(this);
     this.setLanguageListHeight = this.setLanguageListHeight.bind(this);
     this.handleNotificationClose = this.handleNotificationClose.bind(this);
+    this.handleEscOnForm = this.handleEscOnForm.bind(this);
 
     this.openCustomAction = this.openCustomAction.bind(this);
     this.closeCustomAction = this.closeCustomAction.bind(this);
@@ -193,6 +195,16 @@ export class SiteHeader {
     // Search form management
     this.searchToggle = queryOne(this.searchToggleSelector);
     this.searchForm = queryOne(this.searchFormSelector);
+
+    if (this.searchForm) {
+      this.searchFormFocusTrap = createFocusTrap(this.searchForm, {
+        allowOutsideClick: true,
+      });
+
+      if (this.attachKeyListener) {
+        this.searchForm.addEventListener('keydown', this.handleEscOnForm);
+      }
+    }
 
     if (this.attachClickListener && this.searchToggle) {
       this.searchToggle.addEventListener('click', this.toggleSearch);
@@ -304,6 +316,10 @@ export class SiteHeader {
         'click',
         this.toggleCustomAction,
       );
+    }
+
+    if (this.searchForm && this.attachKeyListener) {
+      this.searchForm.removeEventListener('keydown', this.handleEscOnForm);
     }
 
     if (this.attachKeyListener) {
@@ -563,8 +579,24 @@ export class SiteHeader {
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header__search--active');
       this.setSearchArrow();
+      // FRONT-5415 Focus on the input when expanding the dialog
+      queryOne('input', this.searchForm).focus();
+      this.searchFormFocusTrap.activate();
     } else {
       this.searchForm.classList.remove('ecl-site-header__search--active');
+      this.searchFormFocusTrap.deactivate();
+    }
+  }
+
+  handleEscOnForm(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (
+        this.searchToggle &&
+        this.searchToggle.getAttribute('aria-expanded') === 'true'
+      ) {
+        this.toggleSearch(e);
+        this.searchToggle.focus();
+      }
     }
   }
 

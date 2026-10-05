@@ -103,6 +103,9 @@ export default {
         xl: { disable: true },
       },
     },
+    breakpointIndicator: {
+      containerOffset: 48,
+    },
   },
 };
 

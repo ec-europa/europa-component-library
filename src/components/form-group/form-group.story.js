@@ -157,6 +157,11 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Forms',
   decorators: [withCode, withNotes],
+  parameters: {
+    breakpointIndicator: {
+      container: '.ecl-form-group',
+    },
+  },
 };
 
 export const Text = (_, { loaded: { component } }) => component;

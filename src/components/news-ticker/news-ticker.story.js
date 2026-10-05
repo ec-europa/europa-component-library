@@ -58,6 +58,9 @@ export default {
         xl: { disable: true },
       },
     },
+    breakpointIndicator: {
+      container: '.ecl-news-ticker',
+    },
   },
 };
 

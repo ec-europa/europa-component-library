@@ -5,6 +5,39 @@ title: What's new
 
 ECL v5 contains changes focused on improving the visual identity of the EC and EU components. Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 5.3.0 (2026-09-15)
+
+#### :rocket: New Feature
+
+* [#4693](https://github.com/ec-europa/europa-component-library/pull/4693) feat(table): filter tables - FRONT-5472
+
+#### :bug: Bug Fix
+
+* [#4699](https://github.com/ec-europa/europa-component-library/pull/4699) fix(sources): Fixing the text wrapping in sources when an icon is used - FRONT-5469
+* [#4695](https://github.com/ec-europa/europa-component-library/pull/4695) fix(highlight-box): prevent icon shrink - FRONT-5478
+* [#4692](https://github.com/ec-europa/europa-component-library/pull/4692) fix(sources): Fixing issues with sources display on multiple lines - FRONT-5469
+* [#4685](https://github.com/ec-europa/europa-component-library/pull/4685) fix(slogan-ticker): fix scrolling - FRONT-5465
+
+#### :nail_care: Enhancement
+
+* [#4697](https://github.com/ec-europa/europa-component-library/pull/4697) feat(carousel):  Teaser navigation, styles update, js refactoring using embla
+* [#4694](https://github.com/ec-europa/europa-component-library/pull/4694) feat(gallery): additional thumbnail details for video - FRONT-5471
+* [#4700](https://github.com/ec-europa/europa-component-library/pull/4700) feat(featured-item): update EU link - FRONT-5485
+* [#4654](https://github.com/ec-europa/europa-component-library/pull/4654) feat(story-card): Adding keyboard navigation between Tabs using arrow  keys - FRONT-5437
+* [#4690](https://github.com/ec-europa/europa-component-library/pull/4690) feat(megamenu): scroll on mobile - FRONT-5404
+* [#4658](https://github.com/ec-europa/europa-component-library/pull/4658) feat(site-header): Improvements in the keyboard navigation in mobile for search - FRONT-5415
+* [#4691](https://github.com/ec-europa/europa-component-library/pull/4691) feat(mega-menu): highlight current item - FRONT-5455
+* [#4696](https://github.com/ec-europa/europa-component-library/pull/4696) feat(spotlight): update gradient - FRONT-5473
+* [#4681](https://github.com/ec-europa/europa-component-library/pull/4681) feat(quiz): Color modes, images and illustration  - FRONT-5463
+* [#4678](https://github.com/ec-europa/europa-component-library/pull/4678) feat(description-list): focus first revealed item - FRONT-5452
+* [#4246](https://github.com/ec-europa/europa-component-library/pull/4246) feat(news-ticker): new design - FRONT-5194
+* [#4651](https://github.com/ec-europa/europa-component-library/pull/4651) feat(story-card): Adding context to read more - FRONT-5435
+* [#4688](https://github.com/ec-europa/europa-component-library/pull/4688) feat(highlighted-search): use aria-labelledby - FRONT-5468
+* [#4689](https://github.com/ec-europa/europa-component-library/pull/4689) style(color): remove token cm-surface-color-mode-lowest - FRONT-5467
+* [#4687](https://github.com/ec-europa/europa-component-library/pull/4687) feat(slogan-ticker): update background color - FRONT-5466
+* [#4621](https://github.com/ec-europa/europa-component-library/pull/4621) chore(accessibility): Accessible labels used in the slogan ticker - FRONT-5408
+* [#4620](https://github.com/ec-europa/europa-component-library/pull/4620) chore(accessibility): Keeping button focused when it has been used - FRONT-5407
+
 ## 5.2.0 (2026-08-20)
 
 #### :bug: Bug Fix

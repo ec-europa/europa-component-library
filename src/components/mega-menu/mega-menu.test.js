@@ -127,6 +127,24 @@ describe('Mega Menu', () => {
       return expect(render(withExternal)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when the first item (no children) is the current page', () => {
+      expect.assertions(1);
+
+      const withCurrentItem = JSON.parse(JSON.stringify(data));
+      withCurrentItem.items[0].is_current = true;
+
+      return expect(render(withCurrentItem)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly when the second item (with children) is the current page', () => {
+      expect.assertions(1);
+
+      const withCurrentItem = JSON.parse(JSON.stringify(data));
+      withCurrentItem.items[1].is_current = true;
+
+      return expect(render(withCurrentItem)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data)),

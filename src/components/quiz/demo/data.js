@@ -2,12 +2,19 @@ module.exports = {
   id: 'quiz-reveal',
   title: 'Ut enim ad minim veniam ',
   description: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt.`,
   next_label: 'Next',
   prev_label: 'Previous',
   items: [
     {
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alternative text for the image',
+        },
+      },
+      image_display: 'always',
       question:
         'When you travel in the EU, what happens to your roaming charges?',
       answer: 'You usually pay the same at home, no extra roaming fees.',
@@ -15,7 +22,7 @@ module.exports = {
         icon: {
           name: 'sparkle',
           family: 'phosphor',
-          size: 'xl',
+          size: 'l',
         },
       },
       back_text: 'Flip back',
@@ -29,16 +36,23 @@ module.exports = {
       },
     },
     {
-      question:
-        'What document allows EU citizens to travel freely between most EU countries?',
-      answer: 'A valid ID card or passport is usually enough.',
       icon: {
         icon: {
           name: 'sparkle',
           family: 'phosphor',
-          size: 'xl',
+          size: 'l',
         },
       },
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+          alt: 'Image alt',
+        },
+      },
+      image_display: 'reveal',
+      question:
+        'What document allows EU citizens to travel freely between most EU countries?',
+      answer: 'A valid ID card or passport is usually enough.',
       back_text: 'Flip back',
       flip_text: 'Reveal answer',
       flip_icon: {
@@ -56,7 +70,7 @@ module.exports = {
         icon: {
           name: 'sparkle',
           family: 'phosphor',
-          size: 'xl',
+          size: 'l',
         },
       },
       back_text: 'Flip back',
@@ -77,7 +91,7 @@ module.exports = {
         icon: {
           name: 'sparkle',
           family: 'phosphor',
-          size: 'xl',
+          size: 'l',
         },
       },
       back_text: 'Flip back',
@@ -99,7 +113,7 @@ module.exports = {
         icon: {
           family: 'phosphor',
           name: 'sparkle',
-          size: 'xl',
+          size: 'l',
         },
       },
       back_text: 'Flip back',

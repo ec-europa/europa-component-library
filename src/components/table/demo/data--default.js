@@ -1,6 +1,10 @@
 module.exports = {
   id: 'table-id',
   caption: 'Table caption',
+  label_filter: 'Filter',
+  label_sort_ascending: 'Sort ascending',
+  label_sort_descending: 'Sort descending',
+  label_sort_default: 'Sort default',
   headers: [
     [
       { label: 'Job title' },
