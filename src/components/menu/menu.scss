@@ -397,6 +397,7 @@ $menu: null !default;
 
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-background');
+    box-shadow: none;
     color: map.get($menu, 'mobile', 'caret-color');
     outline-offset: -2px;
   }
