@@ -397,6 +397,7 @@ $menu: null !default;
 
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-background');
+    box-shadow: none;
     color: map.get($menu, 'mobile', 'caret-color');
     outline-offset: -2px;
   }
@@ -717,6 +718,12 @@ $menu: null !default;
 
       &[data-expanded='true'] {
         background-color: transparent;
+
+        // Keep the focus colour while expanded, even if focus moves away
+        .ecl-menu__link,
+        .ecl-menu__button-caret {
+          color: map.get($menu, 'desktop', 'item-color-focus');
+        }
 
         .ecl-menu__link {
           background-color: #fff;
