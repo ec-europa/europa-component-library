@@ -17,6 +17,7 @@
         sr_external: (string) (default: '') Additional label for external icon
         hide_label: (boolean) (default: false) hide link label, for screen reader only. Note: requires to have an icon defined
         indicator: (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
+        indicator_position: (string) (default: 'overflow') Position of the indicator, by default is inside the icon with an overflow
       }
     - "icon" (associative array) OR (array) of associative arrays : format
       {
@@ -58,7 +59,7 @@
   sr_external: '',
   hide_label: false,
   no_icon_wrapping: false,
-  indicator: {}
+  indicator: {},
 } %}
 {% set _extra_accessibility = extra_accessibility|default({}) %}
 {% set _as_image = false %}
@@ -151,7 +152,7 @@
         {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
       {%- endif -%}
 
-      {% if _link.indicator is not empty %}
+      {% if _link.indicator is not empty and _link.indicator_position == 'overflow' %}
         <span class="ecl-link__icon-container">
           {%- include '@ecl/icon/icon.html.twig' with icon|merge({
             icon: icon|default({}),
@@ -199,6 +200,9 @@
   {%- endif -%}
   {% if _icons is not defined %}
     {{- _link.label -}}
+  {% endif %}
+  {% if _link.indicator is not empty and _link.indicator.position == 'standalone' %}
+    {% include '@ecl/indicator/indicator.html.twig' with _link.indicator only %}
   {% endif %}
 </a>
 

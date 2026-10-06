@@ -447,6 +447,65 @@ export const getIndicatorControls = (condition = {}) => {
     },
     if: { arg: 'indicator', eq: true },
   };
+  argTypes.indicator_variant = {
+    name: 'indicator_variant',
+    type: { name: 'string' },
+    description: 'Indicator variant',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'select',
+    },
+    options: ['error', 'success', 'info', 'warning'],
+    mapping: {
+      error: 'error',
+      success: 'success',
+      warning: 'warning',
+      info: 'info',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
+  argTypes.indicator_position = {
+    name: 'indicator_position',
+    type: { name: 'string' },
+    description: 'Indicator value',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'select',
+    },
+    options: ['overflow', 'standalone'],
+    mapping: {
+      overflow: 'overflow',
+      standalone: 'standalone',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
+  argTypes.indicator_shape = {
+    name: 'indicator_shape',
+    type: { name: 'string' },
+    description: 'Indicator shape',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'select',
+    },
+    options: ['circle', 'oval'],
+    mapping: {
+      circle: 'circle',
+      oval: 'oval',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
 
   return argTypes;
 };
