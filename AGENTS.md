@@ -16,6 +16,7 @@ pnpm install          # install and link all workspace packages
 
 pnpm start:ec         # Storybook for the EC system (port 9001)
 pnpm start:eu         # Storybook for the EU system (port 9002)
+pnpm start:eds        # Storybook for EDS foundation tokens (port 6008)
 pnpm start:website    # Documentation website
 
 pnpm test:components              # run all Jest tests

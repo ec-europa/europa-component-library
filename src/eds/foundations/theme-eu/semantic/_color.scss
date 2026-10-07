@@ -1,0 +1,285 @@
+// EU theme — generated from the Figma export EU/Light.tokens.json.
+// Same keys as ../../semantic/_color.scss. Tokens marked
+// "derived" are not in the EU export (the EC map has them, the Figma model
+// doesn't): their value is inferred, to be confirmed by design.
+@use 'sass:map';
+@use '../primitives/color' as primitive;
+
+$color: (
+  // Surfaces — elevation
+  surface-accent: map.get(primitive.$color, 'primary-0'),
+  surface-selected: map.get(primitive.$color, 'primary-20'),
+  surface-skeleton: map.get(primitive.$color, 'extended-dark-20'),
+  surface-invisible: map.get(primitive.$color, 'alpha-white-25'),
+  surface-elevation-sunken: map.get(primitive.$color, 'extended-dark-10'),
+  surface-elevation-inset: map.get(primitive.$color, 'extended-dark-5'),
+  surface-elevation: map.get(primitive.$color, 'extended-dark-0'),
+  surface-elevation-raised: map.get(primitive.$color, 'extended-dark-0'),
+  surface-elevation-elevated: map.get(primitive.$color, 'extended-dark-0'),
+  surface-elevation-overlay: map.get(primitive.$color, 'extended-dark-0'),
+  //
+  // Surfaces — brand
+  surface-brand: map.get(primitive.$color, 'extended-dark-100'),
+  on-surface-brand: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: EU match of EC silver-fog-800
+  surface-brand--hover: map.get(primitive.$color, 'extended-dark-80'),
+  // derived: same as on-surface-brand
+  on-surface-brand--hover: map.get(primitive.$color, 'extended-dark-0'),
+  //
+  // Surfaces — disabled
+  surface-disabled: map.get(primitive.$color, 'extended-dark-20'),
+  on-surface-disabled: map.get(primitive.$color, 'extended-dark-40'),
+  surface-disabled-subtle: map.get(primitive.$color, 'extended-dark-10'),
+  on-surface-disabled-subtle: map.get(primitive.$color, 'extended-dark-40'),
+  //
+  // Surfaces — primary
+  surface-primary: map.get(primitive.$color, 'primary-100'),
+  on-surface-primary: map.get(primitive.$color, 'extended-dark-0'),
+  surface-primary--hover: map.get(primitive.$color, 'primary-120'),
+  // derived: same as on-surface-primary
+  on-surface-primary--hover: map.get(primitive.$color, 'extended-dark-0'),
+  surface-primary--pressed: map.get(primitive.$color, 'primary-140'),
+  // derived: same as on-surface-primary
+  on-surface-primary--pressed: map.get(primitive.$color, 'extended-dark-0'),
+  surface-primary-subtle: map.get(primitive.$color, 'primary-40'),
+  on-surface-primary-subtle: map.get(primitive.$color, 'primary-140'),
+  surface-primary-subtler: map.get(primitive.$color, 'primary-0'),
+  on-surface-primary-subtler: map.get(primitive.$color, 'primary-140'),
+  //
+  // Surfaces — highlight
+  surface-highlight: map.get(primitive.$color, 'secondary-60'),
+  on-surface-highlight: map.get(primitive.$color, 'extended-dark-100'),
+  surface-highlight--hover: map.get(primitive.$color, 'secondary-80'),
+  // derived: same as on-surface-highlight
+  on-surface-highlight--hover: map.get(primitive.$color, 'extended-dark-100'),
+  surface-highlight--pressed: map.get(primitive.$color, 'secondary-100'),
+  // derived: same as on-surface-highlight
+  on-surface-highlight--pressed: map.get(primitive.$color, 'extended-dark-100'),
+  surface-highlight-subtler: map.get(primitive.$color, 'secondary-20'),
+  on-surface-highlight-subtler: map.get(primitive.$color, 'secondary-160'),
+  //
+  // Surfaces — inverted
+  surface-inverted: map.get(primitive.$color, 'extended-dark-100'),
+  on-surface-inverted: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: EU match of EC silver-fog-950
+  surface-inverted-subtle: map.get(primitive.$color, 'extended-dark-100'),
+  // derived: EU match of EC silver-fog-300
+  on-surface-inverted-subtle: map.get(primitive.$color, 'extended-dark-40'),
+  // derived: EU match of EC silver-fog-950
+  surface-inverted-disabled: map.get(primitive.$color, 'extended-dark-100'),
+  on-surface-inverted-disabled: map.get(primitive.$color, 'extended-dark-60'),
+  //
+  // Surfaces — neutral
+  surface-neutral: map.get(primitive.$color, 'extended-dark-60'),
+  on-surface-neutral: map.get(primitive.$color, 'extended-dark-0'),
+  surface-neutral--hover: map.get(primitive.$color, 'extended-dark-80'),
+  // derived: same as on-surface-neutral
+  on-surface-neutral--hover: map.get(primitive.$color, 'extended-dark-0'),
+  surface-neutral--pressed: map.get(primitive.$color, 'extended-dark-80'),
+  // derived: same as on-surface-neutral
+  on-surface-neutral--pressed: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: EU match of EC silver-fog-100
+  surface-neutral-subtle: map.get(primitive.$color, 'extended-dark-20'),
+  // derived: EU match of EC silver-fog-900
+  on-surface-neutral-subtle: map.get(primitive.$color, 'extended-dark-100'),
+  // derived: EU match of EC silver-fog-200
+  surface-neutral-subtle--hover: map.get(primitive.$color, 'extended-dark-20'),
+  // derived: EU match of EC silver-fog-900
+  on-surface-neutral-subtle--hover: map.get(
+      primitive.$color,
+      'extended-dark-100'
+    ),
+  surface-neutral-subtler: map.get(primitive.$color, 'extended-dark-20'),
+  on-surface-neutral-subtler: map.get(primitive.$color, 'extended-dark-100'),
+  // derived: one step darker than surface-neutral-subtler
+  surface-neutral-subtler--hover: map.get(primitive.$color, 'extended-dark-40'),
+  // derived: same as on-surface-neutral-subtler
+  on-surface-neutral-subtler--hover: map.get(
+      primitive.$color,
+      'extended-dark-100'
+    ),
+  //
+  // Surfaces — critical
+  surface-critical: map.get(primitive.$color, 'functional-red'),
+  on-surface-critical: map.get(primitive.$color, 'extended-dark-0'),
+  surface-critical--hover: map.get(primitive.$color, 'functional-red'),
+  // derived: same as on-surface-critical
+  on-surface-critical--hover: map.get(primitive.$color, 'extended-dark-0'),
+  surface-critical--pressed: map.get(primitive.$color, 'functional-red'),
+  // derived: same as on-surface-critical
+  on-surface-critical--pressed: map.get(primitive.$color, 'extended-dark-0'),
+  surface-critical-subtle: map.get(primitive.$color, 'functional-red-midtone'),
+  on-surface-critical-subtle: map.get(primitive.$color, 'functional-red'),
+  surface-critical-subtler: map.get(
+      primitive.$color,
+      'functional-red-background'
+    ),
+  on-surface-critical-subtler: map.get(primitive.$color, 'functional-red'),
+  // derived: EU "subtle" step
+  surface-critical-subtler--hover: map.get(
+      primitive.$color,
+      'functional-red-midtone'
+    ),
+  // derived: same as on-surface-critical-subtler
+  on-surface-critical-subtler--hover: map.get(
+      primitive.$color,
+      'functional-red'
+    ),
+  //
+  // Surfaces — info
+  surface-info: map.get(primitive.$color, 'functional-blue'),
+  on-surface-info: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: same as default, as Figma does for critical
+  surface-info--hover: map.get(primitive.$color, 'functional-blue'),
+  // derived: same as on-surface-info
+  on-surface-info--hover: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: same as default, as Figma does for critical
+  surface-info--pressed: map.get(primitive.$color, 'functional-blue'),
+  // derived: same as on-surface-info
+  on-surface-info--pressed: map.get(primitive.$color, 'extended-dark-0'),
+  surface-info-subtle: map.get(primitive.$color, 'functional-blue-midtone'),
+  on-surface-info-subtle: map.get(primitive.$color, 'functional-blue'),
+  surface-info-subtler: map.get(primitive.$color, 'functional-blue-background'),
+  on-surface-info-subtler: map.get(primitive.$color, 'functional-blue'),
+  // derived: EU "subtle" step
+  surface-info-subtler--hover: map.get(
+      primitive.$color,
+      'functional-blue-midtone'
+    ),
+  // derived: same as on-surface-info-subtler
+  on-surface-info-subtler--hover: map.get(primitive.$color, 'functional-blue'),
+  //
+  // Surfaces — success
+  surface-success: map.get(primitive.$color, 'functional-green'),
+  on-surface-success: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: same as default, as Figma does for critical
+  surface-success--hover: map.get(primitive.$color, 'functional-green'),
+  // derived: same as on-surface-success
+  on-surface-success--hover: map.get(primitive.$color, 'extended-dark-0'),
+  // derived: same as default, as Figma does for critical
+  surface-success--pressed: map.get(primitive.$color, 'functional-green'),
+  // derived: same as on-surface-success
+  on-surface-success--pressed: map.get(primitive.$color, 'extended-dark-0'),
+  surface-success-subtle: map.get(primitive.$color, 'functional-green-midtone'),
+  on-surface-success-subtle: map.get(primitive.$color, 'functional-green'),
+  surface-success-subtler: map.get(
+      primitive.$color,
+      'functional-green-background'
+    ),
+  on-surface-success-subtler: map.get(primitive.$color, 'functional-green'),
+  // derived: EU "subtle" step
+  surface-success-subtler--hover: map.get(
+      primitive.$color,
+      'functional-green-midtone'
+    ),
+  // derived: same as on-surface-success-subtler
+  on-surface-success-subtler--hover: map.get(
+      primitive.$color,
+      'functional-green'
+    ),
+  //
+  // Surfaces — warning
+  surface-warning: map.get(primitive.$color, 'functional-orange'),
+  on-surface-warning: map.get(primitive.$color, 'functional-orange'),
+  // derived: same as default, as Figma does for critical
+  surface-warning--hover: map.get(primitive.$color, 'functional-orange'),
+  // derived: same as on-surface-warning
+  on-surface-warning--hover: map.get(primitive.$color, 'functional-orange'),
+  // derived: same as default, as Figma does for critical
+  surface-warning--pressed: map.get(primitive.$color, 'functional-orange'),
+  // derived: same as on-surface-warning
+  on-surface-warning--pressed: map.get(primitive.$color, 'functional-orange'),
+  surface-warning-subtle: map.get(primitive.$color, 'functional-orange-midtone'),
+  on-surface-warning-subtle: map.get(primitive.$color, 'functional-orange'),
+  surface-warning-subtler: map.get(
+      primitive.$color,
+      'functional-orange-background'
+    ),
+  on-surface-warning-subtler: map.get(primitive.$color, 'functional-orange'),
+  // derived: EU "subtle" step
+  surface-warning-subtler--hover: map.get(
+      primitive.$color,
+      'functional-orange-midtone'
+    ),
+  // derived: same as on-surface-warning-subtler
+  on-surface-warning-subtler--hover: map.get(
+      primitive.$color,
+      'functional-orange'
+    ),
+  //
+  // Foreground / text
+  foreground: map.get(primitive.$color, 'extended-dark-100'),
+  foreground-subtle: map.get(primitive.$color, 'extended-dark-80'),
+  foreground-subtler: map.get(primitive.$color, 'extended-dark-60'),
+  foreground-placeholder: map.get(primitive.$color, 'extended-dark-60'),
+  foreground-disabled: map.get(primitive.$color, 'extended-dark-40'),
+  foreground-primary: map.get(primitive.$color, 'primary-100'),
+  foreground-success: map.get(primitive.$color, 'functional-green'),
+  foreground-info: map.get(primitive.$color, 'functional-blue'),
+  foreground-warning: map.get(primitive.$color, 'functional-orange'),
+  foreground-critical: map.get(primitive.$color, 'functional-red'),
+  foreground-highlight: map.get(primitive.$color, 'secondary-160'),
+  // derived: EU match of EC silver-fog-25
+  foreground-inverted: map.get(primitive.$color, 'extended-dark-5'),
+  //
+  // Borders
+  // derived: EU match of EC silver-fog-950
+  border-brand: map.get(primitive.$color, 'extended-dark-100'),
+  border-divider: map.get(primitive.$color, 'extended-dark-20'),
+  border-disabled: map.get(primitive.$color, 'extended-dark-20'),
+  border-primary: map.get(primitive.$color, 'primary-100'),
+  border-primary--hover: map.get(primitive.$color, 'primary-80'),
+  border-primary--pressed: map.get(primitive.$color, 'primary-80'),
+  border-primary-subtle: map.get(primitive.$color, 'primary-80'),
+  border-primary-subtler: map.get(primitive.$color, 'primary-20'),
+  border-info: map.get(primitive.$color, 'functional-blue'),
+  border-info-subtle: map.get(primitive.$color, 'functional-blue-midtone'),
+  border-success: map.get(primitive.$color, 'functional-green'),
+  border-success-subtle: map.get(primitive.$color, 'functional-green-midtone'),
+  border-warning: map.get(primitive.$color, 'functional-orange'),
+  border-warning-subtle: map.get(primitive.$color, 'functional-orange-midtone'),
+  border-critical: map.get(primitive.$color, 'functional-red'),
+  border-critical-subtle: map.get(primitive.$color, 'functional-red-midtone'),
+  border-highlight: map.get(primitive.$color, 'secondary-80'),
+  // derived: EU match of EC sunrise-orange-300
+  border-highlight-subtle: map.get(primitive.$color, 'secondary-60'),
+  border-inverted: map.get(primitive.$color, 'extended-dark-5'),
+  border-inverted-disabled: map.get(primitive.$color, 'extended-dark-80'),
+  border-neutral: map.get(primitive.$color, 'extended-dark-60'),
+  border-neutral--hover: map.get(primitive.$color, 'extended-dark-60'),
+  // derived: EU match of EC silver-fog-300
+  border-neutral-subtle: map.get(primitive.$color, 'extended-dark-40'),
+  // derived: EU match of EC silver-fog-400
+  border-neutral-subtle--hover: map.get(primitive.$color, 'extended-dark-40'),
+  //
+  // Links
+  link: map.get(primitive.$color, 'primary-100'),
+  link--focused: map.get(primitive.$color, 'primary-100'),
+  link--hover: map.get(primitive.$color, 'primary-120'),
+  link--pressed: map.get(primitive.$color, 'primary-140'),
+  link--visited: map.get(primitive.$color, 'primary-120'),
+  link-inverted: map.get(primitive.$color, 'extended-dark-0'),
+  link-inverted--focused: map.get(primitive.$color, 'extended-dark-0'),
+  link-inverted--hover: map.get(primitive.$color, 'extended-dark-10'),
+  link-inverted--pressed: map.get(primitive.$color, 'extended-dark-20'),
+  link-inverted--visited: map.get(primitive.$color, 'extended-dark-5'),
+  link-contrast: map.get(primitive.$color, 'extended-dark-100'),
+  link-contrast--focused: map.get(primitive.$color, 'extended-dark-100'),
+  link-contrast--hover: map.get(primitive.$color, 'extended-dark-100'),
+  link-contrast--pressed: map.get(primitive.$color, 'extended-dark-80'),
+  link-contrast--visited: map.get(primitive.$color, 'extended-dark-100'),
+  //
+  // Focus
+  focus: map.get(primitive.$color, 'primary-100'),
+  focus-inverted: map.get(primitive.$color, 'primary-60'),
+  focus-critical: map.get(primitive.$color, 'functional-red'),
+  // derived: EU match of EC european-blue-600
+  border-focus: map.get(primitive.$color, 'primary-100'),
+  //
+  // Alpha / backdrop
+  alpha-backdrop-strong: map.get(primitive.$color, 'alpha-dark-600'),
+  alpha-backdrop: map.get(primitive.$color, 'alpha-dark-300'),
+  alpha-backdrop-subtle: map.get(primitive.$color, 'alpha-dark-100'),
+  alpha-backdrop-inverted: map.get(primitive.$color, 'alpha-white-100'),
+  alpha-backdrop-inverted-subtle: map.get(primitive.$color, 'alpha-white-100')
+);

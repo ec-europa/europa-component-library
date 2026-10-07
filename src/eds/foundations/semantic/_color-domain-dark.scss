@@ -1,0 +1,164 @@
+@use 'sass:map';
+@use '../primitives/color' as primitive;
+
+$color-domain-dark: (
+  surface-domain-purple-violet-subtler: map.get(
+      primitive.$color,
+      'domain-purple-violet-950'
+    ),
+  on-surface-domain-purple-violet-subtler: map.get(
+      primitive.$color,
+      'domain-purple-violet-200'
+    ),
+  border-domain-purple-violet-subtle: map.get(
+      primitive.$color,
+      'domain-purple-violet-700'
+    ),
+  surface-domain-purple-subtler: map.get(primitive.$color, 'domain-purple-950'),
+  on-surface-domain-purple-subtler: map.get(
+      primitive.$color,
+      'domain-purple-200'
+    ),
+  border-domain-purple-subtle: map.get(primitive.$color, 'domain-purple-700'),
+  surface-domain-blue-navy-subtler: map.get(
+      primitive.$color,
+      'domain-blue-navy-900'
+    ),
+  on-surface-domain-blue-navy-subtler: map.get(
+      primitive.$color,
+      'domain-blue-navy-200'
+    ),
+  border-domain-blue-navy-subtle: map.get(
+      primitive.$color,
+      'domain-blue-navy-700'
+    ),
+  surface-domain-blue-electric-subtler: map.get(
+      primitive.$color,
+      'domain-blue-electric-900'
+    ),
+  on-surface-domain-blue-electric-subtler: map.get(
+      primitive.$color,
+      'domain-blue-electric-200'
+    ),
+  border-domain-blue-electric-subtle: map.get(
+      primitive.$color,
+      'domain-blue-electric-700'
+    ),
+  surface-domain-green-dark-subtler: map.get(
+      primitive.$color,
+      'domain-green-dark-950'
+    ),
+  on-surface-domain-green-dark-subtler: map.get(
+      primitive.$color,
+      'domain-green-dark-200'
+    ),
+  border-domain-green-dark-subtle: map.get(
+      primitive.$color,
+      'domain-green-dark-700'
+    ),
+  surface-domain-green-pine-subtler: map.get(
+      primitive.$color,
+      'domain-green-pine-950'
+    ),
+  on-surface-domain-green-pine-subtler: map.get(
+      primitive.$color,
+      'domain-green-pine-200'
+    ),
+  border-domain-green-pine-subtle: map.get(
+      primitive.$color,
+      'domain-green-pine-700'
+    ),
+  surface-domain-green-subtler: map.get(primitive.$color, 'domain-green-950'),
+  on-surface-domain-green-subtler: map.get(primitive.$color, 'domain-green-200'),
+  border-domain-green-subtle: map.get(primitive.$color, 'domain-green-700'),
+  surface-domain-blue-ocean-subtler: map.get(
+      primitive.$color,
+      'domain-blue-ocean-950'
+    ),
+  on-surface-domain-blue-ocean-subtler: map.get(
+      primitive.$color,
+      'domain-blue-ocean-200'
+    ),
+  border-domain-blue-ocean-subtle: map.get(
+      primitive.$color,
+      'domain-blue-ocean-700'
+    ),
+  surface-domain-green-lemon-subtler: map.get(
+      primitive.$color,
+      'domain-green-lemon-950'
+    ),
+  on-surface-domain-green-lemon-subtler: map.get(
+      primitive.$color,
+      'domain-green-lemon-200'
+    ),
+  border-domain-green-lemon-subtle: map.get(
+      primitive.$color,
+      'domain-green-lemon-700'
+    ),
+  surface-domain-yellow-gold-subtler: map.get(
+      primitive.$color,
+      'domain-yellow-gold-950'
+    ),
+  on-surface-domain-yellow-gold-subtler: map.get(
+      primitive.$color,
+      'domain-yellow-gold-200'
+    ),
+  border-domain-yellow-gold-subtle: map.get(
+      primitive.$color,
+      'domain-yellow-gold-700'
+    ),
+  surface-domain-orange-abricot-subtler: map.get(
+      primitive.$color,
+      'domain-orange-abricot-950'
+    ),
+  on-surface-domain-orange-abricot-subtler: map.get(
+      primitive.$color,
+      'domain-orange-abricot-200'
+    ),
+  border-domain-orange-abricot-subtle: map.get(
+      primitive.$color,
+      'domain-orange-abricot-700'
+    ),
+  surface-domain-orange-subtler: map.get(primitive.$color, 'domain-orange-950'),
+  on-surface-domain-orange-subtler: map.get(
+      primitive.$color,
+      'domain-orange-200'
+    ),
+  border-domain-orange-subtle: map.get(primitive.$color, 'domain-orange-700'),
+  surface-domain-red-tomato-subtler: map.get(
+      primitive.$color,
+      'domain-red-tomato-950'
+    ),
+  on-surface-domain-red-tomato-subtler: map.get(
+      primitive.$color,
+      'domain-red-tomato-200'
+    ),
+  border-domain-red-tomato-subtle: map.get(
+      primitive.$color,
+      'domain-red-tomato-700'
+    ),
+  surface-domain-red-crayola-subtler: map.get(
+      primitive.$color,
+      'domain-red-crayola-950'
+    ),
+  on-surface-domain-red-crayola-subtler: map.get(
+      primitive.$color,
+      'domain-red-crayola-200'
+    ),
+  border-domain-red-crayola-subtle: map.get(
+      primitive.$color,
+      'domain-red-crayola-700'
+    ),
+  surface-domain-warm-grey-subtler: map.get(
+      primitive.$color,
+      'domain-warm-grey-950'
+    ),
+  on-surface-domain-warm-grey-subtler: map.get(
+      primitive.$color,
+      'domain-warm-grey-200'
+    ),
+  border-domain-warm-grey-subtle: map.get(
+      primitive.$color,
+      'domain-warm-grey-700'
+    ),
+);

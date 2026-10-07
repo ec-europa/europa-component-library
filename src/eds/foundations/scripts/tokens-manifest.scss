@@ -1,0 +1,58 @@
+// Single source of truth for the JSON token export (scripts/export-tokens.js).
+// To add or remove a token map from the export:
+//   1. @use the module below (if not already used).
+//   2. Add/remove its entry in the $tokens tree.
+// No other file needs to change — export-tokens.js walks $tokens generically.
+
+@use '../primitives/dimension' as p-dimension;
+@use '../primitives/color' as p-color;
+@use '../primitives/typography' as p-typography;
+@use '../primitives/breakpoint' as p-breakpoint;
+@use '../primitives/grid' as p-grid;
+@use '../semantic/color' as s-color;
+@use '../semantic/color-dark' as s-color-dark;
+@use '../semantic/spacing' as s-spacing;
+@use '../semantic/typography' as s-typography;
+@use '../semantic/border' as s-border;
+@use '../semantic/opacity' as s-opacity;
+@use '../semantic/shadow' as s-shadow;
+@use '../semantic/shadow-dark' as s-shadow-dark;
+
+$tokens: (
+  'primitives': (
+    // color-domain is deliberately not listed here: it's map.merge()'d into
+    // color already, so listing it too would duplicate every entry.
+    'dimension': p-dimension.$dimension,
+    'color': p-color.$color,
+    'typography': (
+      'font-size': p-typography.$font-size,
+      'font-weight': p-typography.$font-weight,
+      'font-line-height': p-typography.$font-line-height,
+      'letter-spacing': p-typography.$letter-spacing,
+    ),
+    'breakpoint': p-breakpoint.$breakpoint,
+    'grid': p-grid.$grid,
+  ),
+  'semantic': (
+    // color-domain/color-domain-dark are deliberately not listed here: both
+    // are map.merge()'d into color/color-dark already, so listing them too
+    // would duplicate every entry.
+    'color': s-color.$color,
+    'color-dark': s-color-dark.$color-dark,
+    'spacing': (
+      'spacing': s-spacing.$spacing,
+      'sizing': s-spacing.$sizing,
+      'icon-sizing': s-spacing.$icon-sizing,
+    ),
+    'typography': s-typography.$typography,
+    'border-radius': s-border.$border-radius,
+    'border-width': s-border.$border-width,
+    'opacity': s-opacity.$opacity,
+    'shadow': s-shadow.$shadow,
+    'shadow-dark': s-shadow-dark.$shadow-dark,
+  ),
+);
+
+// Calling the `to-json()` host function (registered in export-tokens.js)
+// hands the whole tree to JS; nothing needs to be emitted as CSS.
+$_export: to-json($tokens);

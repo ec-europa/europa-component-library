@@ -1,0 +1,6 @@
+// EU theme overrides. Only what the EU Figma export changes is defined here
+// (color, shadow color, font family); every other token (spacing, sizing,
+// typography scale, border, opacity, breakpoint, grid) is shared with the
+// base maps in ../primitives and ../semantic.
+@forward 'primitives' as primitive-*;
+@forward 'semantic' as semantic-*;
