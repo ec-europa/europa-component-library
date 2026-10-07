@@ -33,6 +33,9 @@ const getArgs = (data) => ({
   indicator: false,
   indicator_value: '10',
   indicator_label: 'Items not read',
+  indicator_position: '',
+  indicator_variant: '',
+  indicator_shape: 'circle',
 });
 
 const stylePrimary = {
@@ -72,7 +75,7 @@ const styleSecondary = {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = getIndicatorControls({ arg: 'hide_label', eq: true });
+  const argTypes = getIndicatorControls({ arg: 'icon_name', neq: '' });
 
   argTypes.size = {
     name: 'size',
@@ -223,15 +226,6 @@ const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
   data.hide_label = args.hide_label;
-  data.indicator = args.indicator ? { value: '', sr_label: '' } : {};
-  if (args.indicator) {
-    if (args.indicator_value !== '') {
-      data.indicator.value = args.indicator_value;
-    }
-    if (args.indicator_label !== '') {
-      data.indicator.sr_label = args.indicator_label;
-    }
-  }
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
@@ -240,6 +234,20 @@ const prepareData = (data, args) => {
       args.icon_transform !== 'none' ? args.icon_transform : '';
     data.icon_position = args.icon_position;
     data.icon.title = args.icon_title;
+  }
+  data.indicator = {};
+  if (args.indicator) {
+    if (args.indicator_value !== '') {
+      data.indicator.value = args.indicator_value;
+    }
+    if (args.indicator_label !== '') {
+      data.indicator.sr_label = args.indicator_label;
+    }
+    data.indicator.variant =
+      args.indicator_variant !== 'default' ? args.indicator_variant : '';
+    data.indicator.position = args.indicator_position;
+    data.indicator.shape = args.indicator_shape;
+    data.icon.size = 'm';
   }
   if (args.icon_name === 'none') {
     delete data.icon;

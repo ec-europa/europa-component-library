@@ -6,7 +6,7 @@
       "name" (string) (default: '') Icon name, eg. 'facebook', 'twitter'
       "size" (string) (default: 'm') Icon size; can be 'xs', 's', 'm', 'l', 'xl', '2xl', 'fluid'
       "transform" (string) (default: '') Icon transformation; can be 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'
-      "color" (string) (default: '') Icon color; can be 'default', 'inverted', 'primary'
+      "color" (string) (default: '') Icon color; can be 'default', 'inverted', 'primary' or a
       "title" (string) (default: '') Accessible title for the icon (shortcut for extra_accessibility.title)
       "family" (string) (default: '') Icon family (e.g. 'phosphor')
       "style" (string) (default: '') Icon style; mostly for social network icons; can be 'primary', 'monochrome', 'inverted'
@@ -53,6 +53,7 @@
 
 {% set _css_class = 'ecl-icon' %}
 {% set _extra_attributes = '' %}
+{% set _colors = ['primary', 'inverted', 'default'] %}
 
 {# Internal logic - Process properties #}
 
@@ -66,11 +67,17 @@
   {% set _aria_hidden = 'false' %}
 {% endif %}
 
-{% for property in ['size', 'transform', 'color'] %}
+{% for property in ['size', 'transform'] %}
   {% if _icon[property] is defined and _icon[property] is not empty %}
     {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon[property] %}
   {% endif %}
 {% endfor %}
+
+{% if _icon.color is not empty and _icon.color in _colors %}
+  {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon.color %}
+{% elseif _icon.color is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'style', value: '--ecl-icon-color: ' ~ _icon.color }]) %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -113,10 +120,11 @@
   {% set _wt_classes = _wt_classes ~ ' wt-icon--' ~ _icon.style %}
 {% endif %}
 
-<span 
+<span
   class="{{ _wt_classes }} {{ _css_class }}"
   aria-hidden="{{ _aria_hidden }}"
-  {{ _extra_attributes|raw }}>
+  {{ _extra_attributes|raw }}
+>
 </span>
 
 {% endapply %}

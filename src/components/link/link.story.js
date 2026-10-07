@@ -34,9 +34,9 @@ const getArgs = (data, variant) => {
     indicator: false,
     indicator_value: '10',
     indicator_label: 'Items not read',
-    indicator_position: 'overflow',
-    indicator_variant: 'error',
-    indicator_shape: 'ciricle',
+    indicator_position: '',
+    indicator_variant: '',
+    indicator_shape: 'circle',
   };
 
   if (variant === 'default' || variant === 'standalone') {
@@ -114,10 +114,7 @@ const getArgTypes = (variant) => {
     name: 'icon position',
     type: { name: 'inline-radio' },
     description: 'Icon position inside the link',
-    if: [
-      { arg: 'icon_name', neq: 'none' },
-      { arg: 'indicator_position', neq: 'standalone' },
-    ],
+    if: { arg: 'icon_name', neq: 'none' },
     options: ['before', 'after'],
     mapping: {
       before: 'before',
@@ -187,14 +184,16 @@ const getArgTypes = (variant) => {
 const prepareData = (data, args) => {
   data.link.label = args.label;
   data.link.hide_label = args.hide_label;
-  if (args.indicator_position === 'standalone') {
-    args.icon_position = 'before';
-  }
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
-  data.link.indicator = args.indicator
-    ? { value: '', sr_label: '', position: 'overflow' }
-    : {};
+  if (args.icon_name && args.icon_name !== 'none') {
+    data.icon = {};
+    data.icon.name = args.icon_name;
+    data.icon.transform = args.icon_transform;
+    data.icon.size = 'xs';
+    data.icon.title = args.icon_title;
+  }
+  data.link.indicator = {};
   if (args.indicator) {
     if (args.indicator_value !== '') {
       data.link.indicator.value = args.indicator_value;
@@ -202,16 +201,11 @@ const prepareData = (data, args) => {
     if (args.indicator_label !== '') {
       data.link.indicator.sr_label = args.indicator_label;
     }
-    data.link.indicator.variant = args.indicator_variant;
+    data.link.indicator.variant =
+      args.indicator_variant !== 'default' ? args.indicator_variant : '';
     data.link.indicator.position = args.indicator_position;
     data.link.indicator.shape = args.indicator_shape;
-  }
-  if (args.icon_name && args.icon_name !== 'none') {
-    data.icon = {};
-    data.icon.name = args.icon_name;
-    data.icon.transform = args.icon_transform;
-    data.icon.size = 'xs';
-    data.icon.title = args.icon_title;
+    data.icon.size = 'm';
   }
   if (args.icon_name === 'none') {
     delete data.icon;

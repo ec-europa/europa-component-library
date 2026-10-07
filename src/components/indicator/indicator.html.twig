@@ -17,16 +17,18 @@
 
 {% set _value = value|default('') %}
 {% set _sr_label = sr_label|default('') %}
-{% set _variant = variant|default('error') %}
-{% set _position = position|default('overflow') %}
+{% set _variant = variant|default('') %}
+{% set _position = position|default('') %}
 {% set _shape = shape|default('circle') %}
 {% set _css_class = 'ecl-indicator' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
-{% set _css_class = _css_class ~ ' ' ~ 'ecl-indicator--' ~ _position %}
+{% if _position is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-indicator--' ~ _position %}
+{% endif %}
 
-{% if _variant != 'error' %}
+{% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-indicator--' ~ _variant %}
 {% endif %}
 

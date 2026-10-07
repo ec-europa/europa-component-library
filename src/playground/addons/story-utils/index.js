@@ -92,13 +92,25 @@ export const getIconControls = (icons, mapping) => {
       defaultValue: { summary: '' },
       category: 'Icon',
     },
-    options: ['default', 'inverted', 'primary'],
+    options: ['default', 'inverted', 'primary', 'custom'],
     mapping: {
       default: 'default',
       inverted: 'inverted',
       primary: 'primary',
+      custom: 'custom',
     },
     if: { arg: 'name', neq: 'none' },
+  };
+  argTypes.custom_color = {
+    name: 'custom color',
+    control: { type: 'color' },
+    description: 'custom color in hex format',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'color', eq: 'custom' },
   };
   argTypes.transform = {
     name: 'transformation',
@@ -420,7 +432,6 @@ export const getIndicatorControls = (condition = {}) => {
   }
 
   argTypes.indicator_value = {
-    name: 'indicator_value',
     type: { name: 'string' },
     description: 'Indicator value',
     table: {
@@ -434,7 +445,7 @@ export const getIndicatorControls = (condition = {}) => {
     if: { arg: 'indicator', eq: true },
   };
   argTypes.indicator_label = {
-    name: 'indicator_label',
+    name: 'indicator label',
     type: { name: 'string' },
     description: 'Meaning of the indicator, for screen reader users',
     table: {
@@ -448,7 +459,7 @@ export const getIndicatorControls = (condition = {}) => {
     if: { arg: 'indicator', eq: true },
   };
   argTypes.indicator_variant = {
-    name: 'indicator_variant',
+    name: 'indicator variant',
     type: { name: 'string' },
     description: 'Indicator variant',
     table: {
@@ -458,10 +469,16 @@ export const getIndicatorControls = (condition = {}) => {
     },
     control: {
       type: 'select',
+      labels: {
+        '': 'default',
+        success: 'success',
+        info: 'info',
+        warning: 'warning',
+      },
     },
-    options: ['error', 'success', 'info', 'warning'],
+    options: ['', 'success', 'info', 'warning'],
     mapping: {
-      error: 'error',
+      default: '',
       success: 'success',
       warning: 'warning',
       info: 'info',
@@ -469,7 +486,7 @@ export const getIndicatorControls = (condition = {}) => {
     if: { arg: 'indicator', eq: true },
   };
   argTypes.indicator_position = {
-    name: 'indicator_position',
+    name: 'indicator position',
     type: { name: 'string' },
     description: 'Indicator value',
     table: {
@@ -479,16 +496,20 @@ export const getIndicatorControls = (condition = {}) => {
     },
     control: {
       type: 'select',
+      labels: {
+        '': 'default',
+        standalone: 'standalone',
+      },
     },
-    options: ['overflow', 'standalone'],
+    options: ['', 'standalone'],
     mapping: {
-      overflow: 'overflow',
+      default: '',
       standalone: 'standalone',
     },
     if: { arg: 'indicator', eq: true },
   };
   argTypes.indicator_shape = {
-    name: 'indicator_shape',
+    name: 'indicator shape',
     type: { name: 'string' },
     description: 'Indicator shape',
     table: {

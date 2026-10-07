@@ -51,14 +51,24 @@ describe('Icon', () => {
     test('- renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(demoData, {
+      const optionsWithExtraAttrs = merge(demoData, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
         ],
       });
 
-      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+      return expect(render(optionsWithExtraAttrs)).resolves.toMatchSnapshot();
+    });
+
+    test('- renders correctly with custom fill color', () => {
+      expect.assertions(1);
+
+      const optionsWithColor = merge(demoData, {
+        color: '#440d66',
+      });
+
+      return expect(render(optionsWithColor)).resolves.toMatchSnapshot();
     });
 
     test('- passes the accessibility tests', async () => {
