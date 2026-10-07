@@ -14,6 +14,12 @@ it — pure Sass, consumed via `@use`/`@forward`.
   CSS output).
 - `custom-properties.scss` — the only file that emits CSS: `--eds-*` custom
   properties for the semantic tokens.
+- `theme-eu/` — EU theme overrides (Sass maps only, not emitted as CSS nor
+  wired in `@ecl/preset-eds` yet). Only what the EU Figma export changes:
+  primitives (`$color`, `$font-family`), semantic `$color`, `$color-dark`,
+  `$shadow`, `$shadow-dark`, with the same keys as the base maps. Tokens the
+  EU export doesn't provide are marked `// derived`. Everything else is
+  shared with the base maps.
 
 ## Usage
 

@@ -65,6 +65,27 @@ Discovered, not yet integrated:
   data attribute) since `light-dark()` only supports two values. Not built —
   flagging for a scoped decision, same as the earlier typography pass.
 
+## 2026-10-07 — EU theme (`EU/Light+Dark.tokens.json`)
+
+Added as `theme-eu/` (Sass maps only). Notes:
+
+- Only colors, shadow colors and font family (Arial) differ from EC; every
+  other token is identical.
+- `Primitives - EU` (`Mode 1.tokens.json`): colors in
+  `theme-eu/primitives/_color.scss`. Every non-color primitive (dimension,
+  font size/weight/letter-spacing, border, opacity, shadow) is identical to
+  `Primitives - EC`; only the font family differs (Arial).
+- The EU export follows a newer EC model than our `semantic/_color.scss`
+  (the EC export shipped with it, dated 2026-09-23, adds/removes tokens and
+  changes 7 values — see `docs/EDS/mapping-ecl-eds.md`). `theme-eu` keeps
+  our current key set; the 45 keys per mode missing from the EU export are
+  derived (EU primitive matching the EC one, or same value as the base
+  state) and marked `// derived`.
+- Figma issues: status "text on" tokens use the status color itself
+  (contrast), `midtones (non-existent)` placeholders for blue/orange, dark
+  mode status surfaces all equal to the default color,
+  `on-surface-inverted-placeholder` aliases EC primitives.
+
 ## Flagged for the Figma / design team — not fixed on our side
 
 - `typography/letter-spacing/neg-s` is inconsistent across the three
