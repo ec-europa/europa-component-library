@@ -65,7 +65,9 @@ describe('Icon', () => {
       expect.assertions(1);
 
       const optionsWithColor = merge(demoData, {
-        color: '#440d66',
+        icon: {
+          color: '#440d66',
+        },
       });
 
       return expect(render(optionsWithColor)).resolves.toMatchSnapshot();
