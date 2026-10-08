@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -129,19 +130,20 @@ $table: null !default;
 }
 
 .ecl-table__arrow {
+  align-self: flex-start;
   background-color: transparent;
   border: 0;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   flex-shrink: 0;
   height: auto;
-  padding: 0;
+  padding: 0.25rem;
   width: auto;
 
-  &:focus-visible {
-    outline: 2px solid var(--cm-border-primary, var(--c-p));
-    outline-offset: -4px;
+  @include mixins-color.focus-default;
+
+  &:hover {
+    background-color: map.get($table, 'sort', 'background-color-hover');
   }
 }
 
@@ -160,22 +162,20 @@ $table: null !default;
 
 .ecl-table__icon {
   color: map.get($table, 'sort', 'icon-color');
-}
-
-.ecl-table__icon-down {
-  margin-block-start: map.get($table, 'sort', 'icon-spacing');
-  transform: rotate(180deg);
+  height: 1rem;
+  width: 1rem;
 }
 
 .ecl-table__header[aria-sort='ascending'] {
-  .ecl-table__icon-down {
+  .ecl-table__icon {
     color: map.get($table, 'sort', 'icon-color-active');
   }
 }
 
 .ecl-table__header[aria-sort='descending'] {
-  .ecl-table__icon-up {
+  .ecl-table__icon {
     color: map.get($table, 'sort', 'icon-color-active');
+    transform: rotate(180deg);
   }
 }
 

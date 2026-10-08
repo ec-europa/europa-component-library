@@ -122,19 +122,6 @@ export class Table {
   }
 
   /**
-   * @returns {HTMLElement}
-   */
-  createSortIcon(customClass) {
-    const markup = document.createElement('span');
-    markup.setAttribute(
-      'class',
-      `wt-icon-phosphor--caret-up ecl-table__icon ecl-icon--xs ${customClass}`,
-    );
-
-    return markup;
-  }
-
-  /**
    * Create or get a wrapper around the table header label
    *
    * @param {HTMLElement} th
@@ -252,8 +239,12 @@ export class Table {
         if (this.sortLabelAsc) {
           sort.setAttribute('aria-label', this.sortLabelAsc);
         }
-        sort.appendChild(this.createSortIcon('ecl-table__icon-up'));
-        sort.appendChild(this.createSortIcon('ecl-table__icon-down'));
+        const icon = document.createElement('span');
+        icon.setAttribute(
+          'class',
+          'wt-icon-phosphor--arrow-down ecl-table__icon',
+        );
+        sort.appendChild(icon);
         label.appendChild(sort);
         th.addEventListener('click', (e) => {
           // Clicking inside the filter field must not trigger sorting.
