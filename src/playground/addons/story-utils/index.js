@@ -489,7 +489,8 @@ export const getIndicatorControls = (condition = {}) => {
   argTypes.indicator_position = {
     name: 'indicator position',
     type: { name: 'string' },
-    description: "⚠️ Left shouldn't be used when the label is visible",
+    description:
+      "⚠️ When the label is visible use left or standalone if the icon is before and default or standalone if it's after",
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
