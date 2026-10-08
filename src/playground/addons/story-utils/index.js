@@ -416,7 +416,7 @@ export const getIndicatorControls = (condition = {}) => {
   argTypes.indicator = {
     name: 'indicator',
     type: { name: 'boolean' },
-    description: 'Display indicator. This only works if the label is hidden',
+    description: 'Display indicator.',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -489,7 +489,7 @@ export const getIndicatorControls = (condition = {}) => {
   argTypes.indicator_position = {
     name: 'indicator position',
     type: { name: 'string' },
-    description: "Left shouldn't be used when the label is visible",
+    description: "⚠️ Left shouldn't be used when the label is visible",
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -522,10 +522,14 @@ export const getIndicatorControls = (condition = {}) => {
     },
     control: {
       type: 'select',
+      labels: {
+        '': 'circle',
+        oval: 'oval',
+      },
     },
-    options: ['circle', 'oval'],
+    options: ['', 'oval'],
     mapping: {
-      circle: 'circle',
+      circle: '',
       oval: 'oval',
     },
     if: { arg: 'indicator', eq: true },

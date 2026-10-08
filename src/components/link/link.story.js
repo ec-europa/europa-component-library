@@ -36,7 +36,7 @@ const getArgs = (data, variant) => {
     indicator_label: 'Items not read',
     indicator_position: '',
     indicator_variant: '',
-    indicator_shape: 'circle',
+    indicator_shape: '',
   };
 
   if (variant === 'default' || variant === 'standalone') {
