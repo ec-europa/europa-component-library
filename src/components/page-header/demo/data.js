@@ -8,13 +8,15 @@ module.exports = {
     {
       label: 'Brussels',
       icon: {
-        name: 'location',
+        name: 'map-pin',
+        family: 'phosphor',
       },
     },
     {
       label: '1 minute read',
       icon: {
         name: 'clock',
+        family: 'phosphor',
       },
     },
     'Research Center',

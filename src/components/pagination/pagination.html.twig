@@ -7,7 +7,7 @@
     - "type" (string) (default: ''): can be 'previous', 'current', 'next' or 'truncation'
     - "label" (string) (default: ''): label used when the item is not a link
     - "aria_label" (string) (default: '')
-    - "link" (object) (default: ''): object of type Link
+    - "link" (object) (default: ''): object of type Link; "link.icon" defaults to phosphor 'arrow-left'/'arrow-right' when "type" is 'previous'/'next'
   - "extra_classes" (string) (default: '') Extra classes (space separated)
   - "extra_attributes" (array) (default: []) Extra attributes
     - "name" (string) Attribute name, eg. 'data-test'
@@ -55,6 +55,10 @@
           {% set _icon = {} %}
           {% if _item.link.icon is defined and _item.link.icon is not empty %}
             {% set _icon = _item.link.icon %}
+          {% elseif _item.type == 'previous' %}
+            {% set _icon = { name: 'arrow-left', family: 'phosphor', size: 'xs' } %}
+          {% elseif _item.type == 'next' %}
+            {% set _icon = { name: 'arrow-right', family: 'phosphor', size: 'xs' } %}
           {% endif %}
           {% include '@ecl/link/link.html.twig' with {
             link: _link|default({}),

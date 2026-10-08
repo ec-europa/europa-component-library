@@ -15,11 +15,6 @@ module.exports = {
           icon_position: 'before',
           hide_label: true,
         },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-270',
-        },
       },
     },
     {
@@ -105,11 +100,6 @@ module.exports = {
           label: 'Next',
           icon_position: 'after',
           hide_label: true,
-        },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-90',
         },
       },
     },

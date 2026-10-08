@@ -10,7 +10,7 @@ npm install --save @ecl/popover
 
 - **"id"** (string) (default: random) Unique id for the popover
 - **"toggle"** (object) (default: {}) Toggle element following ECL Link or ECL Button structure
-- **"close"** (object) (default: {}) Close button following ECL Button structure
+- **"close"** (object) (default: phosphor 'x' icon) Close button following ECL Button structure
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -35,16 +35,13 @@ npm install --save @ecl/popover
       icon_position: 'before',
     },
     icon: {
-      name: 'share',
+      name: 'share-network',
+      family: 'phosphor',
       size: 'fluid',
     },
   }, 
   close: { 
     label: "Close", 
-    icon: { 
-      name: "close", 
-      size: "m" 
-    }, 
     hide_label: true
   },
   links: [
@@ -55,7 +52,8 @@ npm install --save @ecl/popover
         aria_label: 'Link to item 1',
       },
       icon: {
-        name: 'global',
+        name: 'globe',
+        family: 'phosphor',
         size: 'fluid',
       },
     },
@@ -66,7 +64,8 @@ npm install --save @ecl/popover
         aria_label: 'Link to item 2',
       },
       icon: {
-        name: 'global',
+        name: 'globe',
+        family: 'phosphor',
         size: 'fluid',
       },
     },
@@ -77,7 +76,8 @@ npm install --save @ecl/popover
         aria_label: 'Link to item 3',
       },
       icon: {
-        name: 'global',
+        name: 'globe',
+        family: 'phosphor',
         size: 'fluid',
       },
     },

@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
 
 // Import data for demos
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataDefault from './demo/data--default';
 import dataPrimaryHighlight from './demo/data--primary-highlight';
 import dataPrimaryNeutral from './demo/data--primary-neutral';
@@ -193,7 +193,9 @@ const prepareData = (data, args) => {
     }
   }
   if (args.icon_name && args.icon_name !== 'none') {
-    data.icon = {};
+    data.icon = {
+      family: 'phosphor',
+    };
     data.icon.name = args.icon_name;
     data.icon.transform = args.icon_transform;
     data.icon.size = 'xs';

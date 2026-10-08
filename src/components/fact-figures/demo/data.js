@@ -8,7 +8,6 @@ module.exports = {
     link: {
       path: exampleLink,
       label: 'View all',
-      icon_position: 'after',
     },
   },
   sources_label: 'Sources:',
@@ -35,7 +34,8 @@ module.exports = {
   items: [
     {
       icon: {
-        name: 'infographic',
+        name: 'chart-bar',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Lorem ipsum',
@@ -74,7 +74,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'spreadsheet',
+        name: 'table',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Sed hendrerit',
@@ -90,7 +91,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'growth',
+        name: 'chart-line-up',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
@@ -107,7 +109,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'digital',
+        name: 'network',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Aenean dapibus',
@@ -124,7 +127,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'regulation',
+        name: 'sliders',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Lorem ipsum',
@@ -142,6 +146,7 @@ module.exports = {
     {
       icon: {
         name: 'image',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Sed hendrerit',
@@ -157,7 +162,8 @@ module.exports = {
     },
     {
       icon: {
-        name: 'global',
+        name: 'globe',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Donec suscipit interdum augue, ac dapibus eros finibus a.',
@@ -175,6 +181,7 @@ module.exports = {
     {
       icon: {
         name: 'presentation',
+        family: 'phosphor',
       },
       value: '00.0 million',
       title: 'Aenean dapibus',

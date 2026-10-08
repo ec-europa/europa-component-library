@@ -4,8 +4,8 @@
   Parameters:
   - "id": (string) (default: random): Unique id for the menu
   - "title": (string) (default: ''): Title of the menu (displayed on mobile)
-  - "toggle": (associative array) (default: {}): Toggle (hamburger) button, using ECL Button structure
-  - "close": (associative array) (default: {}): Close button, using ECL Button structure
+  - "toggle": (associative array) (default: phosphor 'list' icon): Toggle (hamburger) button, using ECL Button structure
+  - "close": (associative array) (default: phosphor 'x' icon): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
   - "aria_label" (string) (default: '') Aria label for the main nav
   - "items": (array) (default: []): The menu items - format: [
@@ -52,6 +52,8 @@
 {% set _aria_label = aria_label|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
+{% set _default_toggle_icon = { name: 'list', family: 'phosphor' } %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 {% set _css_class = 'ecl-menu' %}
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
@@ -96,13 +98,11 @@
   <div class="ecl-menu__overlay"></div>
   <div class="ecl-container ecl-menu__container">
     {% if _toggle is not empty %}
-      {% set _toggle_icon = {} %}
-      {% if _toggle.icon is defined %}
-        {% if _close is not empty and _close.icon is defined %}
-          {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
-        {% else %}
-          {% set _toggle_icon = _toggle.icon %}
-        {% endif %}
+      {% set _toggle_only_icon = _toggle.icon|default([]) is not empty ? _toggle.icon : _default_toggle_icon %}
+      {% set _toggle_icon = _toggle_only_icon %}
+      {% if _close is not empty %}
+        {% set _close_only_icon = _close.icon|default([]) is not empty ? _close.icon : _default_close_icon %}
+        {% set _toggle_icon = [ _toggle_only_icon, _close_only_icon ] %}
       {% endif %}
       {% include '@ecl/button/button.html.twig' with _toggle|merge({
         type: 'button',
@@ -125,6 +125,7 @@
           {% include '@ecl/button/button.html.twig' with _close|merge({
             type: 'submit',
             variant: 'tertiary',
+            icon: _close.icon|default([]) is not empty ? _close.icon : _default_close_icon,
             extra_classes: 'ecl-menu__close',
             extra_attributes: [{
               name: 'data-ecl-menu-close',
@@ -140,9 +141,9 @@
             variant: 'tertiary',
             label: _back_label,
             icon: {
-              name: 'corner-arrow',
+              name: 'caret-left',
+              family: 'phosphor',
               size: 'xs',
-              transform: 'rotate-270',
             },
             icon_position: 'before',
             extra_classes: 'ecl-menu__back',
@@ -159,8 +160,8 @@
         icon_position: 'before',
         icon: {
           size: 's',
-          transform: 'rotate-270',
-          name: 'corner-arrow',
+          name: 'caret-left',
+          family: 'phosphor',
         },
         label: _button_previous_label,
         hide_label: true,
@@ -177,8 +178,8 @@
         icon_position: 'before',
         icon: {
           size: 's',
-          transform: 'rotate-90',
-          name: 'corner-arrow',
+          name: 'caret-right',
+          family: 'phosphor',
         },
         label: _button_next_label,
         hide_label: true,
