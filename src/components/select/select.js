@@ -665,7 +665,7 @@ export class Select {
 
     const valuesArray = typeof values === 'string' ? [values] : values;
 
-    Array.from(this.select.options).forEach((option) => {
+    Array.from(this.select.options).forEach((option, index) => {
       if (op === 'replace') {
         option.selected = false;
       }
@@ -674,6 +674,14 @@ export class Select {
         valuesArray.includes(option.label)
       ) {
         option.selected = true;
+      }
+
+      // Update checkbox selection
+      if (this.multiple && this.checkboxes?.[index]) {
+        const input = queryOne('.ecl-checkbox__input', this.checkboxes[index]);
+        if (input) {
+          input.checked = option.selected;
+        }
       }
     });
 
@@ -966,20 +974,19 @@ export class Select {
 
     // Toggle values
     const checkbox = e.target.closest('.ecl-checkbox');
-    Array.from(this.select.options).forEach((option) => {
-      if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
-        if (option.selected) {
-          option.selected = false;
-          option.removeAttribute('selected');
-          if (this.selectAll) {
-            this.selectAll.querySelector('input').checked = false;
-          }
-        } else {
-          option.selected = true;
-          option.setAttribute('selected', 'true');
+    const option = this.select.options[this.checkboxes.indexOf(checkbox)];
+    if (option) {
+      if (option.selected) {
+        option.selected = false;
+        option.removeAttribute('selected');
+        if (this.selectAll) {
+          this.selectAll.querySelector('input').checked = false;
         }
+      } else {
+        option.selected = true;
+        option.setAttribute('selected', 'true');
       }
-    });
+    }
 
     this.update();
   }
@@ -1005,9 +1012,7 @@ export class Select {
 
     checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
-      const option = options.find(
-        (o) => o.text === checkbox.getAttribute('data-select-multiple-value'),
-      );
+      const option = this.select.options[this.checkboxes.indexOf(checkbox)];
 
       if (option) {
         if (checked) {
@@ -1524,13 +1529,11 @@ export class Select {
    */
   handleClickOnClearAll(e) {
     e.preventDefault();
-    Array.from(this.select.options).forEach((option) => {
-      const checkbox = this.selectMultiple.querySelector(
-        `[data-select-multiple-value="${option.text}"]`,
-      );
-      const input = checkbox.querySelector('.ecl-checkbox__input');
+    Array.from(this.select.options).forEach((option, index) => {
+      const input = queryOne('.ecl-checkbox__input', this.checkboxes[index]);
       input.checked = false;
       option.selected = false;
+      option.removeAttribute('selected');
     });
     if (this.selectAll) {
       this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
@@ -1548,15 +1551,17 @@ export class Select {
     if (this.multiple) {
       // A slight timeout is necessary to execute the function just after the original reset of the form.
       setTimeout(() => {
-        Array.from(this.select.options).forEach((option) => {
-          const checkbox = this.selectMultiple.querySelector(
-            `[data-select-multiple-value="${option.text}"]`,
+        Array.from(this.select.options).forEach((option, index) => {
+          const input = queryOne(
+            '.ecl-checkbox__input',
+            this.checkboxes[index],
           );
-          const input = checkbox.querySelector('.ecl-checkbox__input');
           if (input.checked) {
             option.selected = true;
+            option.setAttribute('selected', 'true');
           } else {
             option.selected = false;
+            option.removeAttribute('selected');
           }
         });
         this.update(0);
