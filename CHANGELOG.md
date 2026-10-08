@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.3.2 (2026-10-08)
+
+#### :bug: Bug Fix
+
+- [#4720](https://github.com/ec-europa/europa-component-library/pull/4720) fix(description-list): fix line break and separator - FRONT-5502 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+*[#4726](https://github.com/ec-europa/europa-component-library/pull/4726) feat(layout-wrapper): add heading spacing - FRONT-5506 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 5.3.1 (2026-09-21)
 
 #### :bug: Bug Fix
