@@ -5,7 +5,7 @@
   - "value" (string) (default: '') Indicator value
   - "sr_label" (string) (default: '') Additional label for screen readers
   - "variant" (string) (default: 'error') Background color
-  - "position" (string) (default: 'overflow') Position of the indicator
+  - "position" (string) (default: 'right') Position of the indicator, can be left or standalone
   - "shape" (string) (default: 'circle') Shape of the indicator circle or oval
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the indicator
   - "extra_attributes" (array) (default: []) Extra attributes for the indicator
@@ -18,7 +18,7 @@
 {% set _value = value|default('') %}
 {% set _sr_label = sr_label|default('') %}
 {% set _variant = variant|default('') %}
-{% set _position = position|default('') %}
+{% set _position = position|default('right') %}
 {% set _shape = shape|default('circle') %}
 {% set _css_class = 'ecl-indicator' %}
 {% set _extra_attributes = '' %}

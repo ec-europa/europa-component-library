@@ -432,6 +432,7 @@ export const getIndicatorControls = (condition = {}) => {
   }
 
   argTypes.indicator_value = {
+    name: 'indicator value',
     type: { name: 'string' },
     description: 'Indicator value',
     table: {
@@ -488,7 +489,7 @@ export const getIndicatorControls = (condition = {}) => {
   argTypes.indicator_position = {
     name: 'indicator position',
     type: { name: 'string' },
-    description: 'Indicator value',
+    description: "Left shouldn't be used when the label is visible",
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -498,12 +499,14 @@ export const getIndicatorControls = (condition = {}) => {
       type: 'select',
       labels: {
         '': 'default',
+        left: 'left',
         standalone: 'standalone',
       },
     },
-    options: ['', 'standalone'],
+    options: ['', 'left', 'standalone'],
     mapping: {
       default: '',
+      left: 'left',
       standalone: 'standalone',
     },
     if: { arg: 'indicator', eq: true },
