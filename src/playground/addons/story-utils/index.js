@@ -92,13 +92,25 @@ export const getIconControls = (icons, mapping) => {
       defaultValue: { summary: '' },
       category: 'Icon',
     },
-    options: ['default', 'inverted', 'primary'],
+    options: ['default', 'inverted', 'primary', 'custom'],
     mapping: {
       default: 'default',
       inverted: 'inverted',
       primary: 'primary',
+      custom: 'custom',
     },
     if: { arg: 'name', neq: 'none' },
+  };
+  argTypes.custom_color = {
+    name: 'custom color',
+    control: { type: 'color' },
+    description: 'custom color in hex format',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'color', eq: 'custom' },
   };
   argTypes.transform = {
     name: 'transformation',
@@ -404,7 +416,7 @@ export const getIndicatorControls = (condition = {}) => {
   argTypes.indicator = {
     name: 'indicator',
     type: { name: 'boolean' },
-    description: 'Display indicator. This only works if the label is hidden',
+    description: 'Display indicator.',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -420,7 +432,7 @@ export const getIndicatorControls = (condition = {}) => {
   }
 
   argTypes.indicator_value = {
-    name: 'indicator_value',
+    name: 'indicator value',
     type: { name: 'string' },
     description: 'Indicator value',
     table: {
@@ -434,7 +446,7 @@ export const getIndicatorControls = (condition = {}) => {
     if: { arg: 'indicator', eq: true },
   };
   argTypes.indicator_label = {
-    name: 'indicator_label',
+    name: 'indicator label',
     type: { name: 'string' },
     description: 'Meaning of the indicator, for screen reader users',
     table: {
@@ -444,6 +456,82 @@ export const getIndicatorControls = (condition = {}) => {
     },
     control: {
       type: 'text',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
+  argTypes.indicator_variant = {
+    name: 'indicator variant',
+    type: { name: 'string' },
+    description: 'Indicator variant',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'select',
+      labels: {
+        '': 'default',
+        success: 'success',
+        info: 'info',
+        warning: 'warning',
+      },
+    },
+    options: ['', 'success', 'info', 'warning'],
+    mapping: {
+      default: '',
+      success: 'success',
+      warning: 'warning',
+      info: 'info',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
+  argTypes.indicator_position = {
+    name: 'indicator position',
+    type: { name: 'string' },
+    description:
+      "⚠️ When the label is visible use left or standalone if the icon is before and default or standalone if it's after",
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'select',
+      labels: {
+        '': 'default',
+        left: 'left',
+        standalone: 'standalone',
+      },
+    },
+    options: ['', 'left', 'standalone'],
+    mapping: {
+      default: '',
+      left: 'left',
+      standalone: 'standalone',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
+  argTypes.indicator_shape = {
+    name: 'indicator shape',
+    type: { name: 'string' },
+    description: 'Indicator shape',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'select',
+      labels: {
+        '': 'circle',
+        oval: 'oval',
+      },
+    },
+    options: ['', 'oval'],
+    mapping: {
+      circle: '',
+      oval: 'oval',
     },
     if: { arg: 'indicator', eq: true },
   };
