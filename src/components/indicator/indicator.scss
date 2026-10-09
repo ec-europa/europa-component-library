@@ -57,7 +57,7 @@ $theme: null !default;
 
   &.ecl-indicator--oval {
     border-radius: map.get($theme, 'border-radius', 'l');
-    padding-inline: var(--s-3xs);
+    padding-inline: var(--s-3xs, var(--s-2xs));
   }
 }
 
