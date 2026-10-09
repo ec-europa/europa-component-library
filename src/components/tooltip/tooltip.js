@@ -251,6 +251,7 @@ export class Tooltip {
    * Handle mouseover event (delegated).
    *
    * @param {Event} e
+   * @returns {void}
    */
   handleMouseOver(e) {
     const trigger = e.target.closest(this.tooltipSelector);
@@ -266,6 +267,7 @@ export class Tooltip {
    * Handle mouseout event.
    *
    * @param {Event} e
+   * @returns {void}
    */
   handleMouseOut(e) {
     if (!this.currentTrigger) return;
@@ -289,6 +291,7 @@ export class Tooltip {
    * Handle focusin event.
    *
    * @param {Event} e
+   * @returns {void}
    */
   handleFocusIn(e) {
     const trigger = e.target.closest(this.tooltipSelector);
@@ -299,6 +302,7 @@ export class Tooltip {
 
   /**
    * Handle focusout event.
+   * @returns {void}
    */
   handleFocusOut() {
     if (this.currentTrigger) {
@@ -309,6 +313,7 @@ export class Tooltip {
   /**
    * Schedule a delayed hide, giving the mouse time to cross the gap between
    * the trigger and the tooltip without closing it prematurely.
+   * @returns {void}
    */
   scheduleHide() {
     this.clearHideTimeout();
@@ -317,6 +322,7 @@ export class Tooltip {
 
   /**
    * Cancel a previously scheduled hide.
+   * @returns {void}
    */
   clearHideTimeout() {
     if (this.hideTimeoutId !== null) {

@@ -6,7 +6,7 @@ import dataDefault from './demo/data';
 import spinner from './spinner.html.twig';
 import notes from './README.md';
 
-const dataInverted = { ...dataDefault, variant: 'inverted' };
+const invertedData = { ...dataDefault, variant: 'inverted' };
 
 const getArgs = (data) => ({
   show_text: true,
@@ -142,14 +142,14 @@ Default.parameters = {
 
 export const Inverted = (_, { loaded: { component } }) => component;
 
-Inverted.render = async (args) => renderStory(dataInverted, args);
+Inverted.render = async (args) => renderStory(invertedData, args);
 Inverted.storyName = 'inverted';
-Inverted.args = getArgs(dataInverted, 'inverted');
+Inverted.args = getArgs(invertedData, 'inverted');
 Inverted.argTypes = getArgTypes('inverted');
 Inverted.parameters = {
   notes: {
     markdown: notes,
-    json: ({ args }) => prepareData(dataInverted, args),
+    json: ({ args }) => prepareData(invertedData, args),
   },
 };
 Inverted.decorators = [withNotes, withCode, withInverted];
