@@ -64,7 +64,7 @@ $notification-print: null !default;
   border-inline-start: 4px solid map.get($notification, 'info', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'info', 'color');
+    color: map.get($notification, 'info', 'color');
   }
 }
 
@@ -75,7 +75,7 @@ $notification-print: null !default;
   border-inline-start: 4px solid map.get($notification, 'success', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'success', 'color');
+    color: map.get($notification, 'success', 'color');
   }
 }
 
@@ -86,7 +86,7 @@ $notification-print: null !default;
   border-inline-start: 4px solid map.get($notification, 'warning', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'warning', 'color');
+    color: map.get($notification, 'warning', 'color');
   }
 }
 
@@ -97,6 +97,6 @@ $notification-print: null !default;
   border-inline-start: 4px solid map.get($notification, 'error', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'error', 'color');
+    color: map.get($notification, 'error', 'color');
   }
 }

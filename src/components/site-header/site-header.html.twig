@@ -114,6 +114,7 @@
 {% set _site_name_mobile_only = site_name_mobile_only|default(false) %}
 {% set _cta_link = cta_link|default({}) %}
 {% set _notification = notification|default({}) %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header' %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
@@ -168,7 +169,8 @@
     button: search_form.button|default({})|merge({
       label: _search_button_label,
       icon: {
-        name: 'search',
+        name: 'magnifying-glass',
+        family: 'phosphor',
         size: 'fluid',
       },
       icon_position: 'before',
@@ -362,6 +364,7 @@
                       {% include '@ecl/button/button.html.twig' with _custom_action.overlay.close|merge({
                         variant: 'tertiary',
                         style: 'neutral',
+                        icon: _custom_action.overlay.close.icon|default([]) is not empty ? _custom_action.overlay.close.icon : _default_close_icon,
                         extra_classes: 'ecl-site-header__custom-action-close',
                         extra_attributes: [{
                           name: 'data-ecl-custom-action-close',
@@ -385,7 +388,8 @@
                 _login_toggle.href_logged,
                 _login_toggle.label_logged,
                 {
-                  name: 'logged-in',
+                  name: 'user-check',
+                  family: 'phosphor',
                   size: 'm',
                   title: _login_toggle.label_logged,
                   extra_classes: 'ecl-site-header__icon',
@@ -423,7 +427,8 @@
                 _login_toggle.href_not_logged,
                 _login_toggle.label_not_logged,
                 {
-                  name: 'log-in',
+                  name: 'user',
+                  family: 'phosphor',
                   path: _icon_path,
                   size: 'm',
                   title: _login_toggle.label_not_logged,
@@ -456,7 +461,8 @@
                 _search_toggle.href,
                 _search_toggle.label,
                 {
-                  name: 'search',
+                  name: 'magnifying-glass',
+                  family: 'phosphor',
                   path: _icon_path,
                   size: 'm',
                   extra_classes: 'ecl-site-header__icon',

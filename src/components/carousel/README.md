@@ -42,11 +42,11 @@ npm install --save @ecl/carousel
           aria_label: 'Subscribe',
           icon_position: 'after',
         },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-90',
-        },
+        icon: { 
+          name: 'caret-right', 
+          family: 'phosphor',
+          size: 'xs', 
+        }, 
       },
       image:
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',

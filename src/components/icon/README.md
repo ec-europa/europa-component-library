@@ -34,7 +34,8 @@ npm install --save @ecl/icon
 ```twig
 {% include '@ecl/icon/icon.html.twig' with { 
   icon: { 
-    name: 'audio', 
+    name: 'arrow-down', 
+    family: 'phosphor',
     size: 'm', 
     transform: 'rotate-90', 
     color: 'primary' 

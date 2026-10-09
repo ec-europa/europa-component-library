@@ -4,7 +4,7 @@
   Parameters:
     - "id" (string) (default: random)
     - "toggle" (object) (default: {}) Toggle element following ECL Link or ECL Button structure
-    - "close" (object) (default: {}) Close button following ECL Button structure
+    - "close" (object) (default: phosphor 'x' icon) Close button following ECL Button structure
     - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -25,6 +25,7 @@
 {% set _content = content|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 
 {# Internal logic - Process properties #}
 
@@ -76,6 +77,7 @@
         type: 'button',
         variant: 'tertiary',
         style: 'neutral',
+        icon: _close.icon|default([]) is not empty ? _close.icon : _default_close_icon,
         extra_classes: 'ecl-popover__close',
         extra_attributes: [{
           name: 'data-ecl-popover-close',
