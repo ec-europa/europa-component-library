@@ -179,14 +179,26 @@ function colorItem(key, category) {
   };
 }
 
-// Every `on-surface-X` token has a matching `surface-X` counterpart.
+// Finds the surface an `on-surface-X` token sits on: `surface-X` when it
+// exists, otherwise the closest parent - e.g. 'on-surface-inverted-subtle'
+// has no 'surface-inverted-subtle', so it pairs with 'surface-inverted'.
+function surfaceKeyFor(suffix, colorMap) {
+  const parts = suffix.split('-');
+  while (parts.length) {
+    const surfaceKey = `surface-${parts.join('-')}`;
+    if (colorMap[surfaceKey] !== undefined) return surfaceKey;
+    parts.pop();
+  }
+  return `surface-${suffix}`;
+}
+
 function pairSurfaceTokens(colorMap) {
   const pairs = [];
   const pairedSurfaceKeys = new Set();
   Object.keys(colorMap).forEach((key) => {
     if (!key.startsWith('on-surface-')) return;
     const suffix = key.slice('on-surface-'.length);
-    const surfaceKey = `surface-${suffix}`;
+    const surfaceKey = surfaceKeyFor(suffix, colorMap);
     if (colorMap[surfaceKey] === undefined) {
       console.warn(`[eds-foundations] ${key} has no matching ${surfaceKey}`);
       return;
@@ -227,23 +239,12 @@ export const linkItems = Object.keys(semanticColor)
   .filter((key) => key === 'link' || key.startsWith('link-'))
   .map((key) => colorItem(key, 'link'));
 
-// `border-focus` is a focus-ring color, so shown here not under "Border".
-const focusOnlyKeys = Object.keys(semanticColor).filter(
-  (key) => key === 'focus' || key.startsWith('focus-'),
-);
-export const focusItems = [...focusOnlyKeys, 'border-focus'].map((key) =>
-  key === 'border-focus'
-    ? {
-        background: `var(${cssColorVar(key)})`,
-        label: 'border',
-        code: cssColorVar(key),
-        role: 'border',
-      }
-    : colorItem(key, 'focus'),
-);
+export const focusItems = Object.keys(semanticColor)
+  .filter((key) => key === 'focus' || key.startsWith('focus-'))
+  .map((key) => colorItem(key, 'focus'));
 
 export const borderItems = Object.keys(semanticColor)
-  .filter((key) => key.startsWith('border-') && key !== 'border-focus')
+  .filter((key) => key.startsWith('border-'))
   .map((key) => colorItem(key, 'border'));
 
 export const alphaItems = Object.keys(semanticColor)

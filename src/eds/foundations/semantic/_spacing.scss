@@ -3,7 +3,6 @@
 
 $spacing: (
   none: map.get(primitive.$dimension, none),
-  5xs: map.get(primitive.$dimension, 1),
   4xs: map.get(primitive.$dimension, 2),
   3xs: map.get(primitive.$dimension, 4),
   2xs: map.get(primitive.$dimension, 6),
@@ -42,6 +41,7 @@ $sizing: (
   9xl: map.get(primitive.$dimension, 64),
 );
 $icon-sizing: (
+  3xs: map.get(primitive.$dimension, 8),
   2xs: map.get(primitive.$dimension, 12),
   xs: map.get(primitive.$dimension, 16),
   s: map.get(primitive.$dimension, 20),
@@ -49,6 +49,4 @@ $icon-sizing: (
   l: map.get(primitive.$dimension, 32),
   xl: map.get(primitive.$dimension, 40),
   2xl: map.get(primitive.$dimension, 48),
-  3xl: map.get(primitive.$dimension, 56),
-  4xl: map.get(primitive.$dimension, 64),
 );

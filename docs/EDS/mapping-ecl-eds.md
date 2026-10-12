@@ -57,7 +57,7 @@ Values are identical up to `11xl`.
 | ECL                    | Value     | EDS             | Match | Notes                   |
 | ---------------------- | --------- | --------------- | ----- | ----------------------- |
 | —                      | 0         | `--eds-sp-none` | new   |                         |
-| `--ecl-spacing-5xs`    | 0.0625rem | `--eds-sp-5xs`  | `=`   |                         |
+| `--ecl-spacing-5xs`    | 0.0625rem | —               | `—`   | not in Figma            |
 | `--ecl-spacing-4xs`    | 0.125rem  | `--eds-sp-4xs`  | `=`   |                         |
 | `--ecl-spacing-3xs`    | 0.25rem   | `--eds-sp-3xs`  | `=`   |                         |
 | `--ecl-spacing-2xs`    | 0.375rem  | `--eds-sp-2xs`  | `=`   |                         |
@@ -88,6 +88,7 @@ ECL) map as follows:
 
 | ECL (`$icon`) | Value    | EDS            | Match | Notes                        |
 | ------------- | -------- | -------------- | ----- | ---------------------------- |
+| —             | 0.5rem   | `--eds-is-3xs` | new   |                              |
 | —             | 0.75rem  | `--eds-is-2xs` | new   |                              |
 | `2xs`         | 1rem     | `--eds-is-xs`  | `=`   | name shifted                 |
 | `xs`          | 1.125rem | —              | `—`   | closest `--eds-is-xs` (1rem) |
@@ -96,8 +97,6 @@ ECL) map as follows:
 | `l`           | 2rem     | `--eds-is-l`   | `=`   |                              |
 | `xl`          | 2.5rem   | `--eds-is-xl`  | `=`   |                              |
 | `2xl`         | 3rem     | `--eds-is-2xl` | `=`   |                              |
-| —             | 3.5rem   | `--eds-is-3xl` | new   |                              |
-| —             | 4rem     | `--eds-is-4xl` | new   |                              |
 | `fluid`       | 1em      | —              | `—`   | use `1em` directly           |
 | `$icon-print` | pt       | —              | `—`   | EDS has no print tokens      |
 
@@ -312,88 +311,88 @@ generic counterpart.
 
 Surfaces:
 
-| ECL                                       | Value            | EDS                                      | Match | Notes                                             |
-| ----------------------------------------- | ---------------- | ---------------------------------------- | ----- | ------------------------------------------------- |
-| `--cm-surface-brand`                      | `#00002e`        | `--eds-c-surface-brand`                  | `=`   |                                                   |
-| `--cm-surface-inverted`                   | `#fff`           | `--eds-c-surface-elevation`              | `=`   | **not** `surface-inverted` (dark in EDS)          |
-| `--cm-surface-transparent-70`             | neutral-950 70%  | `--eds-c-alpha-backdrop-strong`          | `≈`   | silver-fog-950 60%                                |
-| `--cm-surface-transparent-01`             | white 0.1%       | `--eds-c-surface-invisible`              | `≈`   | 0%                                                |
-| `--cm-surface-lowest`                     | `#f2f6ff`        | `--eds-c-surface-primary-subtler`        | `=`   | also `surface-accent`                             |
-| `--cm-surface-lowest-variant`             | warm-grey-50 50% | —                                        | `—`   | `surface-domain-warm-grey-subtler` is opaque      |
-| `--cm-surface-lowest-1-page-summary`      | `#f6f6f8`        | `--eds-c-surface-neutral-subtler`        | `=`   |                                                   |
-| `--cm-surface-color-mode-low`             | `#d9e3ff`        | `--eds-c-surface-primary-subtle`         | `=`   |                                                   |
-| `--cm-surface-color-mode-high`            | `#0038cc`        | `--eds-c-surface-primary--hover`         | `≈`   | `#0035bf`                                         |
-| `--cm-surface-low`                        | `#d9e3ff`        | `--eds-c-surface-primary-subtle`         | `=`   |                                                   |
-| `--cm-surface-low-0`                      | `#f2f6ff`        | `--eds-c-surface-primary-subtler`        | `=`   |                                                   |
-| `--cm-surface-low-1`                      | `#e6edff`        | `--eds-c-surface-selected`               | `=`   | value match only, role differs                    |
-| `--cm-surface-low-2`                      | `#d9e3ff`        | `--eds-c-surface-primary-subtle`         | `=`   |                                                   |
-| `--cm-surface-medium`                     | `#0046ff`        | `--eds-c-surface-primary`                | `=`   |                                                   |
-| `--cm-surface-medium-0`                   | `#d9e3ff`        | `--eds-c-surface-primary-subtle`         | `=`   |                                                   |
-| `--cm-surface-medium-1`                   | `#b0c6ff`        | —                                        | `—`   | `european-blue-300` primitive                     |
-| `--cm-surface-0`                          | `#00002e`        | `--eds-c-surface-brand`                  | `=`   |                                                   |
-| `--cm-surface-variant-1`                  | `#e2dcda`        | —                                        | `—`   | `domain-warm-grey-100` primitive                  |
-| `--cm-surface-variant-2`                  | `#00002e`        | `--eds-c-surface-brand`                  | `=`   |                                                   |
-| `--cm-surface-primary-lowest`             | `#f2f6ff`        | `--eds-c-surface-primary-subtler`        | `=`   |                                                   |
-| `--cm-surface-primary-low-0`              | `#e6edff`        | `--eds-c-surface-selected`               | `=`   | value match only, role differs                    |
-| `--cm-surface-primary-low-1`              | `#d9e3ff`        | `--eds-c-surface-primary-subtle`         | `=`   |                                                   |
-| `--cm-surface-primary-medium`             | `#b0c6ff`        | —                                        | `—`   | `european-blue-300` primitive                     |
-| `--cm-surface-primary`                    | `#0046ff`        | `--eds-c-surface-primary`                | `=`   |                                                   |
-| `--cm-surface-primary-high`               | `#0035bf`        | `--eds-c-surface-primary--hover`         | `=`   |                                                   |
-| `--cm-surface-primary-highest`            | `#002a99`        | `--eds-c-surface-primary--pressed`       | `=`   |                                                   |
-| `--cm-surface-secondary-low`              | `#fff5e5`        | `--eds-c-surface-highlight-subtler`      | `=`   |                                                   |
-| `--cm-surface-secondary-medium-0`         | `#ffd392`        | —                                        | `—`   | `sunrise-orange-200` primitive                    |
-| `--cm-surface-secondary-medium-1`         | `#ffcb7d`        | `--eds-c-surface-highlight`              | `=`   |                                                   |
-| `--cm-surface-secondary`                  | `#ffbe5c`        | `--eds-c-surface-highlight--hover`       | `=`   | or `surface-highlight` (one step lighter)         |
-| `--cm-surface-secondary-high`             | `#fea439`        | `--eds-c-surface-highlight--pressed`     | `=`   |                                                   |
-| `--cm-surface-secondary-highest`          | `#fc8713`        | —                                        | `—`   | `sunrise-orange-600` primitive                    |
-| `--cm-surface-neutral-lowest`             | `#eceff9`        | `--eds-c-surface-neutral-subtler`        | `≈`   | `#f6f6f8`, neutral palette dropped                |
-| `--cm-surface-neutral-low`                | `#d1d9f1`        | `--eds-c-surface-neutral-subtle`         | `≈`   | `#e1e1e7`                                         |
-| `--cm-surface-neutral-medium`             | `#b0bde6`        | `--eds-c-surface-neutral-subtle--hover`  | `≈`   | `#d4d4dc`                                         |
-| `--cm-surface-neutral`                    | `#51649d`        | `--eds-c-surface-neutral`                | `≈`   | `#696984`                                         |
-| `--cm-surface-grey-low-0-transparent`     | grey-50 50%      | —                                        | `—`   |                                                   |
-| `--cm-surface-grey-low-0`                 | `#f6f6f8`        | `--eds-c-surface-neutral-subtler`        | `=`   |                                                   |
-| `--cm-surface-grey-low-1`                 | `#ededf0`        | `--eds-c-surface-neutral-subtler--hover` | `=`   | value match only, role differs                    |
-| `--cm-surface-grey-medium`                | `#a0a0b1`        | —                                        | `—`   | `silver-fog-400` primitive                        |
-| `--cm-surface-grey-highest-0`             | `#00002e`        | `--eds-c-surface-brand`                  | `=`   |                                                   |
-| `--cm-surface-grey-highest-1-transparent` | grey-950 80%     | `--eds-c-alpha-backdrop-strong`          | `≈`   | 60%                                               |
-| `--cm-surface-grey-highest-2-transparent` | grey-950 72%     | `--eds-c-alpha-backdrop-strong`          | `≈`   | 60%                                               |
-| `--cm-surface-status-error-lowest`        | `#fdefef`        | `--eds-c-surface-critical-subtler`       | `=`   |                                                   |
-| `--cm-surface-status-error`               | `#cb2029`        | `--eds-c-surface-critical`               | `=`   |                                                   |
-| `--cm-surface-status-warning-lowest`      | `#fff3e8`        | `--eds-c-surface-warning-subtler`        | `=`   |                                                   |
-| `--cm-surface-status-warning`             | `#ff8a20`        | `--eds-c-surface-warning`                | `=`   |                                                   |
-| `--cm-surface-status-success-lowest`      | `#edfbf6`        | `--eds-c-surface-success-subtler`        | `=`   |                                                   |
-| `--cm-surface-status-success`             | `#049e62`        | `--eds-c-surface-success`                | `≈`   | `#037e4e`, one step darker                        |
-| `--cm-surface-status-info-lowest`         | `#ebeff7`        | `--eds-c-surface-info-subtler`           | `=`   |                                                   |
-| `--cm-surface-status-info`                | `#003399`        | `--eds-c-surface-info`                   | `≈`   | `#3b62b0` (`surface-info--pressed` has the value) |
+| ECL                                       | Value            | EDS                                  | Match | Notes                                        |
+| ----------------------------------------- | ---------------- | ------------------------------------ | ----- | -------------------------------------------- |
+| `--cm-surface-brand`                      | `#00002e`        | `--eds-c-surface-brand`              | `=`   |                                              |
+| `--cm-surface-inverted`                   | `#fff`           | `--eds-c-surface-elevation`          | `=`   | **not** `surface-inverted` (dark in EDS)     |
+| `--cm-surface-transparent-70`             | neutral-950 70%  | `--eds-c-alpha-backdrop-strong`      | `≈`   | silver-fog-950 60%                           |
+| `--cm-surface-transparent-01`             | white 0.1%       | `--eds-c-surface-invisible`          | `≈`   | 0%                                           |
+| `--cm-surface-lowest`                     | `#f2f6ff`        | `--eds-c-surface-primary-subtler`    | `=`   | also `surface-accent`                        |
+| `--cm-surface-lowest-variant`             | warm-grey-50 50% | —                                    | `—`   | `surface-domain-warm-grey-subtler` is opaque |
+| `--cm-surface-lowest-1-page-summary`      | `#f6f6f8`        | `--eds-c-surface-elevation-sunken`   | `=`   | value match only, role differs               |
+| `--cm-surface-color-mode-low`             | `#d9e3ff`        | `--eds-c-surface-primary-subtle`     | `=`   |                                              |
+| `--cm-surface-color-mode-high`            | `#0038cc`        | `--eds-c-surface-primary--hover`     | `≈`   | `#0035bf`                                    |
+| `--cm-surface-low`                        | `#d9e3ff`        | `--eds-c-surface-primary-subtle`     | `=`   |                                              |
+| `--cm-surface-low-0`                      | `#f2f6ff`        | `--eds-c-surface-primary-subtler`    | `=`   |                                              |
+| `--cm-surface-low-1`                      | `#e6edff`        | `--eds-c-surface-selected`           | `=`   | value match only, role differs               |
+| `--cm-surface-low-2`                      | `#d9e3ff`        | `--eds-c-surface-primary-subtle`     | `=`   |                                              |
+| `--cm-surface-medium`                     | `#0046ff`        | `--eds-c-surface-primary`            | `=`   |                                              |
+| `--cm-surface-medium-0`                   | `#d9e3ff`        | `--eds-c-surface-primary-subtle`     | `=`   |                                              |
+| `--cm-surface-medium-1`                   | `#b0c6ff`        | —                                    | `—`   | `european-blue-300` primitive                |
+| `--cm-surface-0`                          | `#00002e`        | `--eds-c-surface-brand`              | `=`   |                                              |
+| `--cm-surface-variant-1`                  | `#e2dcda`        | —                                    | `—`   | `domain-warm-grey-100` primitive             |
+| `--cm-surface-variant-2`                  | `#00002e`        | `--eds-c-surface-brand`              | `=`   |                                              |
+| `--cm-surface-primary-lowest`             | `#f2f6ff`        | `--eds-c-surface-primary-subtler`    | `=`   |                                              |
+| `--cm-surface-primary-low-0`              | `#e6edff`        | `--eds-c-surface-selected`           | `=`   | value match only, role differs               |
+| `--cm-surface-primary-low-1`              | `#d9e3ff`        | `--eds-c-surface-primary-subtle`     | `=`   |                                              |
+| `--cm-surface-primary-medium`             | `#b0c6ff`        | —                                    | `—`   | `european-blue-300` primitive                |
+| `--cm-surface-primary`                    | `#0046ff`        | `--eds-c-surface-primary`            | `=`   |                                              |
+| `--cm-surface-primary-high`               | `#0035bf`        | `--eds-c-surface-primary--hover`     | `=`   |                                              |
+| `--cm-surface-primary-highest`            | `#002a99`        | `--eds-c-surface-primary--pressed`   | `=`   |                                              |
+| `--cm-surface-secondary-low`              | `#fff5e5`        | `--eds-c-surface-highlight-subtler`  | `=`   |                                              |
+| `--cm-surface-secondary-medium-0`         | `#ffd392`        | —                                    | `—`   | `sunrise-orange-200` primitive               |
+| `--cm-surface-secondary-medium-1`         | `#ffcb7d`        | `--eds-c-surface-highlight`          | `=`   |                                              |
+| `--cm-surface-secondary`                  | `#ffbe5c`        | `--eds-c-surface-highlight--hover`   | `=`   | or `surface-highlight` (one step lighter)    |
+| `--cm-surface-secondary-high`             | `#fea439`        | `--eds-c-surface-highlight--pressed` | `=`   |                                              |
+| `--cm-surface-secondary-highest`          | `#fc8713`        | —                                    | `—`   | `sunrise-orange-600` primitive               |
+| `--cm-surface-neutral-lowest`             | `#eceff9`        | `--eds-c-surface-neutral-subtler`    | `≈`   | `#e1e1e7`, neutral palette dropped           |
+| `--cm-surface-neutral-low`                | `#d1d9f1`        | `--eds-c-surface-neutral-subtler`    | `≈`   | `#e1e1e7`                                    |
+| `--cm-surface-neutral-medium`             | `#b0bde6`        | —                                    | `—`   | `silver-fog-200` primitive                   |
+| `--cm-surface-neutral`                    | `#51649d`        | `--eds-c-surface-neutral`            | `≈`   | `#696984`                                    |
+| `--cm-surface-grey-low-0-transparent`     | grey-50 50%      | —                                    | `—`   |                                              |
+| `--cm-surface-grey-low-0`                 | `#f6f6f8`        | `--eds-c-surface-elevation-sunken`   | `=`   | value match only, role differs               |
+| `--cm-surface-grey-low-1`                 | `#ededf0`        | —                                    | `—`   | `silver-fog-75` primitive                    |
+| `--cm-surface-grey-medium`                | `#a0a0b1`        | —                                    | `—`   | `silver-fog-400` primitive                   |
+| `--cm-surface-grey-highest-0`             | `#00002e`        | `--eds-c-surface-brand`              | `=`   |                                              |
+| `--cm-surface-grey-highest-1-transparent` | grey-950 80%     | `--eds-c-alpha-backdrop-strong`      | `≈`   | 60%                                          |
+| `--cm-surface-grey-highest-2-transparent` | grey-950 72%     | `--eds-c-alpha-backdrop-strong`      | `≈`   | 60%                                          |
+| `--cm-surface-status-error-lowest`        | `#fdefef`        | `--eds-c-surface-critical-subtler`   | `=`   |                                              |
+| `--cm-surface-status-error`               | `#cb2029`        | `--eds-c-surface-critical`           | `=`   |                                              |
+| `--cm-surface-status-warning-lowest`      | `#fff3e8`        | `--eds-c-surface-warning-subtler`    | `=`   |                                              |
+| `--cm-surface-status-warning`             | `#ff8a20`        | `--eds-c-surface-warning`            | `=`   |                                              |
+| `--cm-surface-status-success-lowest`      | `#edfbf6`        | `--eds-c-surface-success-subtler`    | `=`   |                                              |
+| `--cm-surface-status-success`             | `#049e62`        | `--eds-c-surface-success`            | `≈`   | `#037e4e`, one step darker                   |
+| `--cm-surface-status-info-lowest`         | `#ebeff7`        | `--eds-c-surface-info-subtler`       | `=`   |                                              |
+| `--cm-surface-status-info`                | `#003399`        | `--eds-c-surface-info`               | `≈`   | `#3b62b0`                                    |
 
 Text (`on-surface`):
 
-| ECL                                    | Value        | EDS                                  | Match | Notes                                                         |
-| -------------------------------------- | ------------ | ------------------------------------ | ----- | ------------------------------------------------------------- |
-| `--cm-on-surface-brand`                | `#00002e`    | `--eds-c-foreground`                 | `=`   | **not** `on-surface-brand` (white in EDS)                     |
-| `--cm-on-surface-inverted`             | `#fff`       | `--eds-c-foreground-inverted`        | `≈`   | `#fafafb`; on a brand surface use `on-surface-brand` (`#fff`) |
-| `--cm-on-surface-swap-0`               | `#fff`       | `--eds-c-on-surface-brand`           | `=`   |                                                               |
-| `--cm-on-surface-swap-1`               | `#00002e`    | `--eds-c-foreground`                 | `=`   |                                                               |
-| `--cm-on-surface`                      | `#0046ff`    | `--eds-c-foreground-primary`         | `=`   |                                                               |
-| `--cm-on-surface-1`                    | `#ffbe5c`    | —                                    | `—`   | `border-highlight` has the value                              |
-| `--cm-on-surface-2`                    | `#b0c6ff`    | —                                    | `—`   | `european-blue-300` primitive                                 |
-| `--cm-on-surface-3`                    | `#fff`       | `--eds-c-on-surface-brand`           | `=`   |                                                               |
-| `--cm-on-surface-highlight`            | `#ffebcc`    | `--eds-c-surface-highlight-subtler`  | `≈`   | `#fff5e5`; used as a background                               |
-| `--cm-on-surface-primary`              | `#0046ff`    | `--eds-c-foreground-primary`         | `=`   | **not** `on-surface-primary` (white in EDS)                   |
-| `--cm-on-surface-primary-highest`      | `#002a99`    | `--eds-c-on-surface-primary-subtler` | `=`   | text on `surface-primary-subtler`                             |
-| `--cm-on-surface-secondary-medium`     | `#ffe1b4`    | —                                    | `—`   | `sunrise-orange-100` primitive                                |
-| `--cm-on-surface-secondary-highest`    | `#471b00`    | `--eds-c-on-surface-highlight`       | `=`   |                                                               |
-| `--cm-on-surface-neutral-low`          | `#d1d9f1`    | —                                    | `—`   | neutral palette dropped                                       |
-| `--cm-on-surface-neutral-medium`       | `#9eaee1`    | —                                    | `—`   | neutral palette dropped                                       |
-| `--cm-on-surface-neutral-highest`      | `#26324b`    | `--eds-c-foreground-subtle`          | `≈`   | `#353559`                                                     |
-| `--cm-on-surface-grey-low-transparent` | grey-950 30% | —                                    | `—`   |                                                               |
-| `--cm-on-surface-grey-low`             | `#b9b9c5`    | `--eds-c-on-surface-inverted-subtle` | `=`   | value match only, role differs                                |
-| `--cm-on-surface-grey-medium`          | `#84849b`    | `--eds-c-foreground-placeholder`     | `=`   | value match only, role differs                                |
-| `--cm-on-surface-grey`                 | `#696984`    | `--eds-c-foreground-subtler`         | `≈`   | `#505070`, one step darker                                    |
-| `--cm-on-surface-status-error`         | `#cb2029`    | `--eds-c-foreground-critical`        | `=`   |                                                               |
-| `--cm-on-surface-status-warning`       | `#ba6517`    | `--eds-c-foreground-warning`         | `≈`   | `#8b4c11`                                                     |
-| `--cm-on-surface-status-success`       | `#049e62`    | `--eds-c-foreground-success`         | `≈`   | `#037e4e`                                                     |
-| `--cm-on-surface-status-info`          | `#003399`    | `--eds-c-foreground-info`            | `≈`   | `#00297a`                                                     |
+| ECL                                    | Value        | EDS                                  | Match | Notes                                       |
+| -------------------------------------- | ------------ | ------------------------------------ | ----- | ------------------------------------------- |
+| `--cm-on-surface-brand`                | `#00002e`    | `--eds-c-foreground`                 | `=`   | **not** `on-surface-brand` (white in EDS)   |
+| `--cm-on-surface-inverted`             | `#fff`       | `--eds-c-on-surface-inverted`        | `=`   | on a brand surface use `on-surface-brand`   |
+| `--cm-on-surface-swap-0`               | `#fff`       | `--eds-c-on-surface-brand`           | `=`   |                                             |
+| `--cm-on-surface-swap-1`               | `#00002e`    | `--eds-c-foreground`                 | `=`   |                                             |
+| `--cm-on-surface`                      | `#0046ff`    | `--eds-c-foreground-primary`         | `=`   |                                             |
+| `--cm-on-surface-1`                    | `#ffbe5c`    | —                                    | `—`   | `border-highlight` has the value            |
+| `--cm-on-surface-2`                    | `#b0c6ff`    | —                                    | `—`   | `european-blue-300` primitive               |
+| `--cm-on-surface-3`                    | `#fff`       | `--eds-c-on-surface-brand`           | `=`   |                                             |
+| `--cm-on-surface-highlight`            | `#ffebcc`    | `--eds-c-surface-highlight-subtler`  | `≈`   | `#fff5e5`; used as a background             |
+| `--cm-on-surface-primary`              | `#0046ff`    | `--eds-c-foreground-primary`         | `=`   | **not** `on-surface-primary` (white in EDS) |
+| `--cm-on-surface-primary-highest`      | `#002a99`    | `--eds-c-on-surface-primary-subtler` | `=`   | text on `surface-primary-subtler`           |
+| `--cm-on-surface-secondary-medium`     | `#ffe1b4`    | —                                    | `—`   | `sunrise-orange-100` primitive              |
+| `--cm-on-surface-secondary-highest`    | `#471b00`    | `--eds-c-on-surface-highlight`       | `=`   |                                             |
+| `--cm-on-surface-neutral-low`          | `#d1d9f1`    | —                                    | `—`   | neutral palette dropped                     |
+| `--cm-on-surface-neutral-medium`       | `#9eaee1`    | —                                    | `—`   | neutral palette dropped                     |
+| `--cm-on-surface-neutral-highest`      | `#26324b`    | `--eds-c-foreground-subtle`          | `≈`   | `#353559`                                   |
+| `--cm-on-surface-grey-low-transparent` | grey-950 30% | —                                    | `—`   |                                             |
+| `--cm-on-surface-grey-low`             | `#b9b9c5`    | `--eds-c-on-surface-inverted-subtle` | `=`   | value match only, role differs              |
+| `--cm-on-surface-grey-medium`          | `#84849b`    | `--eds-c-foreground-disabled`        | `=`   | value match only, role differs              |
+| `--cm-on-surface-grey`                 | `#696984`    | `--eds-c-foreground-placeholder`     | `=`   | value match only, role differs              |
+| `--cm-on-surface-status-error`         | `#cb2029`    | `--eds-c-foreground-critical`        | `=`   |                                             |
+| `--cm-on-surface-status-warning`       | `#ba6517`    | `--eds-c-foreground-warning`         | `≈`   | `#8b4c11`                                   |
+| `--cm-on-surface-status-success`       | `#049e62`    | `--eds-c-foreground-success`         | `≈`   | `#037e4e`                                   |
+| `--cm-on-surface-status-info`          | `#003399`    | `--eds-c-foreground-info`            | `≈`   | `#00297a`                                   |
 
 Borders:
 
@@ -410,20 +409,20 @@ Borders:
 | `--cm-border-primary-medium`           | `#b0c6ff`      | `--eds-c-border-primary-subtle`   | `≈`   | `#8cacff`                                   |
 | `--cm-border-primary`                  | `#0046ff`      | `--eds-c-border-primary`          | `=`   |                                             |
 | `--cm-border-primary-highest`          | `#002a99`      | —                                 | `—`   | `european-blue-800` primitive               |
-| `--cm-border-active`                   | `#0046ff`      | `--eds-c-border-primary`          | `=`   | or `border-focus`                           |
+| `--cm-border-active`                   | `#0046ff`      | `--eds-c-border-primary`          | `=`   | or `focus`                                  |
 | `--cm-border-neutral-low`              | `#eceff9`      | `--eds-c-border-disabled`         | `≈`   | `#e1e1e7`, neutral palette dropped          |
 | `--cm-border-neutral`                  | `#d1d9f1`      | `--eds-c-border-divider`          | `≈`   | `#d4d4dc`                                   |
 | `--cm-border-neutral-high`             | `#7c92d6`      | `--eds-c-border-neutral`          | `≈`   | `#84849b`                                   |
 | `--cm-border-neutral-highest`          | `#51649d`      | `--eds-c-border-neutral--hover`   | `≈`   | `#696984`                                   |
 | `--cm-border-grey-lowest`              | `#ededf0`      | `--eds-c-border-disabled`         | `≈`   | `#e1e1e7`                                   |
 | `--cm-border-grey-low`                 | `#e1e1e7`      | `--eds-c-border-divider`          | `≈`   | `#d4d4dc` (`border-disabled` has the value) |
-| `--cm-border-grey-low-300`             | `#b9b9c5`      | `--eds-c-border-neutral-subtle`   | `=`   |                                             |
+| `--cm-border-grey-low-300`             | `#b9b9c5`      | —                                 | `—`   | `silver-fog-300` primitive                  |
 | `--cm-border-grey-medium`              | `#84849b`      | `--eds-c-border-neutral`          | `=`   |                                             |
 | `--cm-border-grey`                     | `#696984`      | `--eds-c-border-neutral--hover`   | `=`   | value match only, role differs              |
 | `--cm-border-status-error`             | `#cb2029`      | `--eds-c-border-critical`         | `=`   |                                             |
 | `--cm-border-status-warning`           | `#e87e1d`      | `--eds-c-border-warning`          | `=`   |                                             |
 | `--cm-border-status-success`           | `#049e62`      | `--eds-c-border-success`          | `=`   |                                             |
-| `--cm-border-status-info`              | `#003399`      | `--eds-c-border-info`             | `≈`   | `#1c49a4`                                   |
+| `--cm-border-status-info`              | `#003399`      | `--eds-c-border-info`             | `≈`   | `#00297a`                                   |
 
 Links and focus:
 
@@ -437,8 +436,8 @@ Links and focus:
 
 New EDS color tokens with no ECL counterpart: `surface-elevation-*`
 (sunken, inset, raised, elevated, overlay), `surface-disabled*`,
-`surface-skeleton`, `surface-inverted-*`, `*--hover` / `*--pressed` states on
-all surfaces, `foreground-disabled`, `border-focus`, `alpha-backdrop-*`.
+`surface-skeleton`, `on-surface-inverted-*`, `*--hover` / `*--pressed` states on
+surfaces, foregrounds and borders, `foreground-disabled`, `alpha-backdrop-*`.
 
 #### Color modes → domain colors
 
@@ -715,43 +714,45 @@ ECL EU has no semantic color layer (components use the palette directly).
 This table gives, for each palette color, the EDS semantic tokens holding the
 same value in the EU theme (light mode), to pick from by role.
 
-| ECL                                            | EDS semantic tokens (EU theme)                                                                             | Match |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----- |
-| `--ecl-color-primary` / `-100`                 | `surface-primary`, `foreground-primary`, `border-primary`, `link`, `focus`, `border-focus`                 | `=`   |
-| `--ecl-color-primary-120`                      | `surface-primary--hover`, `link--hover`, `link--visited`                                                   | `=`   |
-| `--ecl-color-primary-140`                      | `surface-primary--pressed`, `on-surface-primary-subtle`, `on-surface-primary-subtler`, `link--pressed`     | `=`   |
-| `--ecl-color-primary-160` / `-130`             | —                                                                                                          | `—`   |
-| `--ecl-color-primary-180`                      | — (dark mode `surface-primary-subtler`)                                                                    | `—`   |
-| `--ecl-color-primary-80`                       | `border-primary-subtle`, `border-primary--hover`, `border-primary--pressed`                                | `=`   |
-| `--ecl-color-primary-60`                       | `focus-inverted`                                                                                           | `=`   |
-| `--ecl-color-primary-40`                       | `surface-primary-subtle`                                                                                   | `=`   |
-| `--ecl-color-primary-20`                       | `surface-selected`, `border-primary-subtler`                                                               | `=`   |
-| `--ecl-color-primary-5`                        | `surface-primary-subtler`, `surface-accent`                                                                | `=`   |
-| `--ecl-color-secondary` / `-100`               | `surface-highlight--pressed`                                                                               | `=`   |
-| `--ecl-color-secondary-80`                     | `surface-highlight--hover`, `border-highlight`                                                             | `=`   |
-| `--ecl-color-secondary-60`                     | `surface-highlight`, `border-highlight-subtle`                                                             | `=`   |
-| `--ecl-color-secondary-20`                     | `surface-highlight-subtler`                                                                                | `=`   |
-| `--ecl-color-secondary-160`                    | `foreground-highlight`, `on-surface-highlight-subtler`                                                     | `=`   |
-| `--ecl-color-dark` / `-100`                    | `foreground`, `surface-brand`, `surface-inverted`, `border-brand`, `link-contrast`, `on-surface-highlight` | `=`   |
-| `--ecl-color-dark-80`                          | `foreground-subtle`, `surface-neutral--hover`, `link-contrast--pressed`                                    | `=`   |
-| `--ecl-color-dark-60`                          | `foreground-subtler`, `foreground-placeholder`, `surface-neutral`, `border-neutral`                        | `=`   |
-| `--ecl-color-dark-40`                          | `foreground-disabled`, `on-surface-disabled`, `border-neutral-subtle`                                      | `=`   |
-| `--ecl-color-dark-20`                          | `border-divider`, `border-disabled`, `surface-disabled`, `surface-skeleton`, `surface-neutral-subtler`     | `=`   |
-| `--ecl-color-dark-10`                          | `surface-elevation-sunken`, `surface-disabled-subtle`                                                      | `=`   |
-| `--ecl-color-dark-5`                           | `surface-elevation-inset`, `foreground-inverted`, `border-inverted`                                        | `=`   |
-| `#fff`                                         | `surface-elevation*`, `on-surface-brand`, `on-surface-primary`, `link-inverted`                            | `=`   |
-| `--ecl-color-info` / `-100`                    | `surface-info`, `foreground-info`, `border-info`                                                           | `=`   |
-| `--ecl-color-info-5`                           | `surface-info-subtler`                                                                                     | `=`   |
-| `--ecl-color-success` / `-100`                 | `surface-success`, `foreground-success`, `border-success`                                                  | `=`   |
-| `--ecl-color-success-midtone`                  | `surface-success-subtle`, `border-success-subtle`                                                          | `=`   |
-| `--ecl-color-success-5`                        | `surface-success-subtler`                                                                                  | `=`   |
-| `--ecl-color-warning` / `-100`                 | `surface-warning`, `foreground-warning`, `border-warning`                                                  | `=`   |
-| `--ecl-color-warning-5`                        | `surface-warning-subtler`                                                                                  | `=`   |
-| `--ecl-color-error` / `-100`                   | `surface-critical`, `foreground-critical`, `border-critical`, `focus-critical`                             | `=`   |
-| `--ecl-color-error-midtone`                    | `surface-critical-subtle`, `border-critical-subtle`                                                        | `=`   |
-| `--ecl-color-error-5`                          | `surface-critical-subtler`                                                                                 | `=`   |
-| `--ecl-color-dark-alpha-600` / `-300` / `-100` | `alpha-backdrop-strong` / `alpha-backdrop` / `alpha-backdrop-subtle`                                       | `=`   |
-| `--ecl-color-white-alpha-100`                  | `alpha-backdrop-inverted`, `alpha-backdrop-inverted-subtle`                                                | `=`   |
+| ECL                                            | EDS semantic tokens (EU theme)                                                                                                             | Match |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| `--ecl-color-primary` / `-100`                 | `surface-primary`, `foreground-primary`, `border-primary`, `link`, `focus`                                                                 | `=`   |
+| `--ecl-color-primary-120`                      | `surface-primary--hover`, `foreground-primary--hover`, `link--hover`, `link--visited`                                                      | `=`   |
+| `--ecl-color-primary-140`                      | `surface-primary--pressed`, `foreground-primary--pressed`, `on-surface-primary-subtle`, `on-surface-primary-subtler`, `link--pressed`      | `=`   |
+| `--ecl-color-primary-160` / `-130`             | —                                                                                                                                          | `—`   |
+| `--ecl-color-primary-180`                      | — (dark mode `surface-primary-subtler`)                                                                                                    | `—`   |
+| `--ecl-color-primary-80`                       | `border-primary-subtle`, `border-primary--hover`, `border-primary--pressed`                                                                | `=`   |
+| `--ecl-color-primary-60`                       | `focus-inverted`                                                                                                                           | `=`   |
+| `--ecl-color-primary-40`                       | `surface-primary-subtle`                                                                                                                   | `=`   |
+| `--ecl-color-primary-20`                       | `surface-selected`, `border-primary-subtler`                                                                                               | `=`   |
+| `--ecl-color-primary-5`                        | `surface-primary-subtler`, `surface-accent`                                                                                                | `=`   |
+| `--ecl-color-secondary` / `-100`               | `surface-highlight--pressed`                                                                                                               | `=`   |
+| `--ecl-color-secondary-80`                     | `surface-highlight--hover`, `border-highlight`                                                                                             | `=`   |
+| `--ecl-color-secondary-60`                     | `surface-highlight`, `border-highlight--hover`                                                                                             | `=`   |
+| `--ecl-color-secondary-40`                     | `border-highlight--pressed`                                                                                                                | `=`   |
+| `--ecl-color-secondary-20`                     | `surface-highlight-subtler`                                                                                                                | `=`   |
+| `--ecl-color-secondary-160`                    | `foreground-highlight`, `foreground-highlight--hover`, `on-surface-highlight-subtler`                                                      | `=`   |
+| `--ecl-color-secondary-180`                    | `foreground-highlight--pressed`                                                                                                            | `=`   |
+| `--ecl-color-dark` / `-100`                    | `foreground`, `surface-brand`, `surface-inverted`, `border-brand`, `border-neutral-strong--hover`, `link-contrast`, `on-surface-highlight` | `=`   |
+| `--ecl-color-dark-80`                          | `foreground-subtle`, `surface-neutral--hover`, `border-neutral-strong`, `link-contrast--pressed`                                           | `=`   |
+| `--ecl-color-dark-60`                          | `foreground-subtler`, `foreground-placeholder`, `surface-neutral`, `border-neutral`, `on-surface-inverted-placeholder`                     | `=`   |
+| `--ecl-color-dark-40`                          | `foreground-disabled`, `on-surface-disabled`                                                                                               | `=`   |
+| `--ecl-color-dark-20`                          | `border-divider`, `border-disabled`, `surface-disabled`, `surface-skeleton`, `surface-neutral-subtler`                                     | `=`   |
+| `--ecl-color-dark-10`                          | `surface-elevation-sunken`, `surface-disabled-subtle`                                                                                      | `=`   |
+| `--ecl-color-dark-5`                           | `surface-elevation-inset`, `border-inverted`                                                                                               | `=`   |
+| `#fff`                                         | `surface-elevation*`, `on-surface-brand`, `on-surface-primary`, `link-inverted`                                                            | `=`   |
+| `--ecl-color-info` / `-100`                    | `surface-info`, `foreground-info`, `border-info`                                                                                           | `=`   |
+| `--ecl-color-info-5`                           | `surface-info-subtler`                                                                                                                     | `=`   |
+| `--ecl-color-success` / `-100`                 | `surface-success`, `foreground-success`, `border-success`                                                                                  | `=`   |
+| `--ecl-color-success-midtone`                  | `surface-success-subtle`, `border-success-subtle`                                                                                          | `=`   |
+| `--ecl-color-success-5`                        | `surface-success-subtler`                                                                                                                  | `=`   |
+| `--ecl-color-warning` / `-100`                 | `surface-warning`, `foreground-warning`, `border-warning`                                                                                  | `=`   |
+| `--ecl-color-warning-5`                        | `surface-warning-subtler`                                                                                                                  | `=`   |
+| `--ecl-color-error` / `-100`                   | `surface-critical`, `foreground-critical`, `border-critical`, `focus-critical`                                                             | `=`   |
+| `--ecl-color-error-midtone`                    | `surface-critical-subtle`, `border-critical-subtle`                                                                                        | `=`   |
+| `--ecl-color-error-5`                          | `surface-critical-subtler`                                                                                                                 | `=`   |
+| `--ecl-color-dark-alpha-600` / `-300` / `-100` | `alpha-backdrop-strong` / `alpha-backdrop` / `alpha-backdrop-subtle`                                                                       | `=`   |
+| `--ecl-color-white-alpha-100`                  | `alpha-backdrop-inverted`, `alpha-backdrop-inverted-subtle`                                                                                | `=`   |
 
 Links and focus:
 
@@ -809,20 +810,17 @@ EU has no domain colors (the `Domains` Figma collections are EC only).
 - **Typography tiers**: ECL EC has an extra `mobile-xs` (< 480px) tier,
   EDS desktop headings are one step larger than ECL `heading3`–`heading6`;
   EU headings are not responsive in ECL, they are in EDS.
-- **EC maps behind the latest EC export**: `semantic/_color.scss` was
-  synced from the 2026-09-16 EC export. The EC export delivered with the EU
-  one (2026-09-23) adds tokens (`border`, `border-neutral-strong`,
-  `foreground-primary--hover`/`--pressed`, `foreground-highlight--hover`/`--pressed`,
-  `border-highlight--hover`/`--pressed`, `on-surface-inverted-placeholder`),
-  no longer has most `--hover`/`--pressed` surface states,
-  `surface-neutral-subtle`, `border-neutral-subtle`, `border-brand` and
-  `border-focus`, and changes 7 values (`surface-neutral-subtler`,
-  `on-surface-highlight`, `foreground-placeholder`, `foreground-disabled`,
-  `border-info`, `border-inverted-disabled`, `link-contrast--hover`).
-  `theme-eu` keeps the current EC key set so both themes stay
-  interchangeable: 45 tokens per mode are not in the EU export and are
-  derived (marked `// derived` in the maps). The EC mapping above uses the
-  current EC maps.
+- **EC maps synced with the latest EC export** (2026-10-12): the 9 new
+  tokens are in, the 43 tokens Figma doesn't have are removed (most
+  `--hover`/`--pressed` surface and `on-surface` states, `surface-neutral-subtle*`,
+  `surface-inverted-subtle`/`-disabled`, `foreground-inverted`,
+  `border-neutral-subtle*`, `border-highlight-subtle`, `border-focus`), and 7
+  light / 43 dark values changed. Figma's `border/default` is kept as
+  `border-brand`. In dark mode, Figma's `on-surface-success` is
+  `green-950` (the other status `on-surface` defaults are white): applied as
+  is, to confirm with design. `theme-eu` has the same key set and matches the EU export, except
+  `on-surface-inverted-placeholder` (the export aliases EC primitives),
+  derived and marked `// derived`.
 - **Data to confirm with design** (EC, values taken from Figma as is):
   `european-blue-25` is `#fafafb` (same as `silver-fog-25`, ECL had
   `#f7f9ff`); `alpha-*-950-40` is 50% opacity (same as `-50`);

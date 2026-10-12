@@ -86,7 +86,39 @@ Added as `theme-eu/` (Sass maps only). Notes:
   mode status surfaces all equal to the default color,
   `on-surface-inverted-placeholder` aliases EC primitives.
 
+## 2026-10-12 — EC semantic re-sync (`EC/Light+Dark.tokens.json`, 2026-10-07 export)
+
+Corrections applied:
+
+- Semantic colors re-synced: 7 light and 43 dark values changed, 9 tokens
+  added (`on-surface-inverted-placeholder`,
+  `foreground-primary--hover`/`--pressed`,
+  `foreground-highlight--hover`/`--pressed`,
+  `border-highlight--hover`/`--pressed`,
+  `border-neutral-strong`/`--hover`), 43 repo-only tokens removed (mostly
+  `--hover`/`--pressed` states, `surface-neutral-subtle*`,
+  `foreground-inverted`, `border-neutral-subtle*`, `border-focus`). Figma's
+  `border/default` stays `border-brand`.
+- `theme-eu` keys aligned with EC (same removals/additions; new tokens use
+  the EU export values) and checked against the EU export: every value
+  matches it. Fixed dark `on-surface-inverted-subtle` (`extended-dark-80` →
+  `extended-dark-60`), previously derived. `on-surface-inverted-subtle` and
+  `border-brand` are no longer derived (both are in the EU export now). Only
+  `on-surface-inverted-placeholder` stays derived: the EU export aliases EC
+  primitives for it.
+- Spacing/sizing: removed `sp-5xs`, `is-3xl`, `is-4xl`; added `is-3xs`
+  (8px).
+
+Not modelled (not needed): `text-decoration`, `paragraph-spacing`, per-role
+font family (all Inter).
+
 ## Flagged for the Figma / design team — not fixed on our side
+
+- Dark `on-surface-success` is `green-950` while every other status
+  `on-surface` default is white — applied as is, likely a Figma error.
+
+- EU `on-surface-inverted-placeholder` (light and dark) has no EU value: the
+  export aliases EC primitives.
 
 - `typography/letter-spacing/neg-s` is inconsistent across the three
   Breakpoints files: `Desktop.tokens.json` has `-2%` (correct, matches the
