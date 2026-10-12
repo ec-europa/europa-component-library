@@ -3,11 +3,6 @@ module.exports = {
   id: 'expandable-example',
   button: {
     label: 'Collapsed',
-    icon: {
-      name: 'corner-arrow',
-      transform: 'rotate-180',
-      size: 'fluid',
-    },
   },
   label_expanded: 'Expanded',
   label_collapsed: 'Collapsed',

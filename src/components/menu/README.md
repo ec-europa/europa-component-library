@@ -10,8 +10,8 @@ npm install --save @ecl/menu
 
 - **"id"** (string) (default: random): Unique id
 - **"title"** (string) (default: ''): Title of the menu (displayed on mobile)
-- **"toggle"**: (associative array) (default: {}): Toggle (hamburger) button, using ECL Button structure
-- **"close"**: (associative array) (default: {}): Close button, using ECL Button structure
+- **"toggle"**: (associative array) (default: phosphor 'list' icon): Toggle (hamburger) button, using ECL Button structure
+- **"close"**: (associative array) (default: phosphor 'x' icon): Close button, using ECL Button structure
 - **"back_label"** (string): (default: ''): Back button label
 - **"aria_label"** (string) (default: '') Aria label for the main nav
 - **"items"**: (array) (default: []): The menu items - format: [
@@ -56,23 +56,9 @@ npm install --save @ecl/menu
       label: 'Menu',
       path: exampleLink,
     },
-    icon: [
-      {
-        name: 'hamburger',
-        size: 'm',
-      },
-      {
-        name: 'close',
-        size: 'm',
-      }
-    ],
   },
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
     hide_label: true,
   },
   back_label: 'Back',

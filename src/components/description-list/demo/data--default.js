@@ -94,7 +94,8 @@ module.exports = {
             icon_position: 'before',
           },
           icon: {
-            name: 'facebook',
+            name: 'mastodon',
+            family: 'networks',
             size: 's',
           },
         },
@@ -105,7 +106,8 @@ module.exports = {
             icon_position: 'before',
           },
           icon: {
-            name: 'twitter',
+            name: 'linkedin',
+            family: 'networks',
             size: 's',
           },
         },
@@ -116,7 +118,8 @@ module.exports = {
             icon_position: 'before',
           },
           icon: {
-            name: 'mastodon',
+            name: 'bluesky',
+            family: 'networks',
             size: 's',
           },
         },
