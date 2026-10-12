@@ -28,7 +28,10 @@ module.exports = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     },
     {
-      term: 'Label 04',
+      term: 'Label 04 (no definition)',
+    },
+    {
+      term: 'Label 05',
       type: 'link',
       definition: [
         {
@@ -42,7 +45,7 @@ module.exports = {
       ],
     },
     {
-      term: 'Label 05',
+      term: 'Label 06',
       type: 'link-inline',
       definition: [
         {
@@ -72,7 +75,7 @@ module.exports = {
       ],
     },
     {
-      term: 'Label 06',
+      term: 'Label 07',
       type: 'link',
       definition: [
         {
@@ -85,7 +88,7 @@ module.exports = {
       ],
     },
     {
-      term: 'Label 07',
+      term: 'Label 08',
       type: 'link',
       definition: [
         {
@@ -127,7 +130,7 @@ module.exports = {
       ],
     },
     {
-      term: 'Label 08',
+      term: 'Label 09',
       type: 'tag',
       definition: [
         { tag: { label: 'Link tag', path: exampleLink } },
@@ -140,7 +143,7 @@ module.exports = {
       ],
     },
     {
-      term: 'Label 09',
+      term: 'Label 10',
       type: 'taxonomy',
       definition: [
         'Taxonomy item',
