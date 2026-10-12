@@ -20,3 +20,9 @@ Following elements have been deprecated, and are removed in ECL v6
   - parameter `translation.toggle` (now set in the template directly)
 - site header:
   - parameter `banner_top` (previously used for class name)
+
+## Design tokens
+
+ECL v6 moves to the EDS tokens. The mapping between ECL tokens and EDS
+tokens, for EC and EU, is documented in
+[EDS/mapping-ecl-eds.md](./EDS/mapping-ecl-eds.md).

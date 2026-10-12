@@ -1,0 +1,20 @@
+<link rel="shortcut icon" href="/favicon.ico" />
+<script>
+  if (window.localStorage) {
+    if (!window.localStorage.getItem('@storybook/ui/store')) {
+      window.localStorage.setItem(
+        '@storybook/ui/store',
+        JSON.stringify({
+          layout: {
+            panelPosition: 'bottom',
+          },
+          theme: {
+            brandTitle: 'ECL v5 EDS',
+            brandUrl: 'https://github.com/ec-europa/europa-component-library',
+            brandImage: null,
+          },
+        }),
+      );
+    }
+  }
+</script>

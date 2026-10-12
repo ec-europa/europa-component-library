@@ -1,0 +1,35 @@
+// EU theme — the EU export uses the same shadow colors in light and dark
+// mode (EU/Dark.tokens.json).
+@use 'sass:map';
+@use '../primitives/color' as primitive;
+
+$shadow-dark: (
+  1: (
+    offset-x: 0px,
+    offset-y: 6px,
+    blur: 12px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-dark-75'),
+  ),
+  2: (
+    offset-x: 0px,
+    offset-y: 10px,
+    blur: 22px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-dark-100'),
+  ),
+  3: (
+    offset-x: 0px,
+    offset-y: 12px,
+    blur: 32px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-dark-100'),
+  ),
+  4: (
+    offset-x: 0px,
+    offset-y: 14px,
+    blur: 42px,
+    spread: 0px,
+    color: map.get(primitive.$color, 'alpha-dark-100'),
+  ),
+);
