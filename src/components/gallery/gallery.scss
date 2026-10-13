@@ -334,14 +334,13 @@ $_description-height-desktop: 108px;
     margin-inline: calc(50% - 50vw);
     position: relative;
     width: 100vw;
+  }
+}
 
-    .ecl-gallery__footer-link {
-      margin-inline-start: var(--s-m);
-    }
-
-    .ecl-gallery__view-all {
-      margin-inline-end: var(--s-m);
-    }
+// Full width only applies from tablet: avoid doubling the page container padding
+@include breakpoints.down('s') {
+  .ecl-gallery--full-width > .ecl-container {
+    padding-inline: 0;
   }
 }
 

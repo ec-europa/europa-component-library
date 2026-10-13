@@ -186,6 +186,9 @@
 
   {% if _variant == 'portrait' %}
   </div>
+    {% if _full_width %}
+  <div class="ecl-container">
+    {% endif %}
     {% include '@ecl/slider/slider-pager.html.twig' with {
       prev_label: _prev_label,
       next_label: _next_label,
@@ -196,10 +199,16 @@
       prev_extra_classes: 'ecl-gallery__portrait-prev',
       next_extra_classes: 'ecl-gallery__portrait-next',
     } only %}
+    {% if _full_width %}
+  </div>
+    {% endif %}
   {% endif %}
 
   {# Footer #}
   {% if _variant != 'portrait' %}
+    {% if _full_width %}
+  <div class="ecl-container">
+    {% endif %}
     <div class="ecl-gallery__footer">
     {%- if _expandable -%}
       <div class="ecl-gallery__info">
@@ -233,6 +242,9 @@
       </div>
     {% endif %}
     </div>
+    {% if _full_width %}
+  </div>
+    {% endif %}
   {% endif %}
 
   {% set _selected_item = {} %}
