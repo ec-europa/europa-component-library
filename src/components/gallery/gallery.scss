@@ -782,11 +782,18 @@ $_description-height-desktop: 108px;
 
 // Variant: portrait
 .ecl-gallery--portrait {
+  // Padding keeps the item focus outline visible despite the overflow
+  .ecl-gallery__viewport {
+    overflow: hidden;
+    padding: var(--s-xs);
+  }
+
   .ecl-gallery__list {
     display: flex;
     flex-wrap: nowrap;
     gap: map.get($gallery, 'portrait', 'gap');
     margin: 0;
+    touch-action: pan-y pinch-zoom;
   }
 
   .ecl-gallery__item {
@@ -807,8 +814,10 @@ $_description-height-desktop: 108px;
     height: $_image-height-portrait;
   }
 
-  .ecl-gallery__footer {
-    display: none;
+  .ecl-gallery__portrait-pager {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--s-m);
   }
 }
 

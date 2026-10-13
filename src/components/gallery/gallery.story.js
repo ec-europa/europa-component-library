@@ -100,6 +100,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: 'true' },
       category: 'Behavior',
     },
+    if: { arg: 'variant', neq: 'portrait' },
   },
   full_width: {
     name: 'full width',
@@ -154,7 +155,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '8' },
       category: 'Display',
     },
-    if: { arg: 'expandable' },
+    if: { arg: 'variant', neq: 'portrait' },
   },
 });
 
@@ -172,7 +173,19 @@ export default {
   },
 };
 
-const prepareData = (data, args) => Object.assign(correctPaths(data), args);
+const prepareData = (data, args) => {
+  const clone = { ...correctPaths(data), ...args };
+
+  // The portrait variant only displays videos
+  if (args.variant === 'portrait') {
+    clone.expandable = false;
+    clone.items = clone.items.filter(
+      (item) => item.video || item.embedded_video,
+    );
+  }
+
+  return clone;
+};
 
 export const Default = (_, { loaded: { component } }) => component;
 

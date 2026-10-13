@@ -51,6 +51,8 @@ npm install --save @ecl/gallery
 - **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
 - **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)
+- **"prev_label"** (string) (default: '') Label of the slider previous button. Portrait variant only
+- **"next_label"** (string) (default: '') Label of the slider next button. Portrait variant only
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

@@ -45,6 +45,8 @@
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "selected_item_id" (int) (default: 0)
+  - "prev_label" (string) (default: '') Label of the slider previous button. Portrait variant only
+  - "next_label" (string) (default: '') Label of the slider next button. Portrait variant only
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -84,6 +86,8 @@
 {% set _overlay_attrs = [] %}
 {% set _full_width = full_width|default(false) %}
 {% set _sr_video_player = sr_video_player|default('') %}
+{% set _prev_label = prev_label|default('') %}
+{% set _next_label = next_label|default('') %}
 
 {# Backward compatibility #}
 {% if _grid %}
@@ -154,6 +158,9 @@
   {{ _extra_attributes|raw }}
   data-ecl-gallery
 >
+  {% if _variant == 'portrait' %}
+  <div class="ecl-gallery__viewport" data-ecl-gallery-slider>
+  {% endif %}
   <ul class="ecl-gallery__list">
     {% for _key, _item in _items %}
       {% set _item_class = '' %}
@@ -176,6 +183,20 @@
       } only %}
     {% endfor %}
   </ul>
+
+  {% if _variant == 'portrait' %}
+  </div>
+    {% include '@ecl/slider/slider-pager.html.twig' with {
+      prev_label: _prev_label,
+      next_label: _next_label,
+      hide_label: true,
+      dots: false,
+      size: 'm',
+      extra_classes: 'ecl-gallery__portrait-pager',
+      prev_extra_classes: 'ecl-gallery__portrait-prev',
+      next_extra_classes: 'ecl-gallery__portrait-next',
+    } only %}
+  {% endif %}
 
   {# Footer #}
   {% if _variant != 'portrait' %}
