@@ -59,35 +59,35 @@ $line-height: (
 $font: (
   // deprecated
   '10xl': #{map.get($font-size, '10xl') + '/' + map.get($line-height, '10xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '9xl': #{map.get($font-size, '9xl') + '/' + map.get($line-height, '9xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '8xl': #{map.get($font-size, '8xl') + '/' + map.get($line-height, '8xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '7xl': #{map.get($font-size, '7xl') + '/' + map.get($line-height, '7xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '6xl': #{map.get($font-size, '6xl') + '/' + map.get($line-height, '4xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '5xl': #{map.get($font-size, '5xl') + '/' + map.get($line-height, '4xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '4xl': #{map.get($font-size, '4xl') + '/' + map.get($line-height, '3xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '3xl': #{map.get($font-size, '3xl') + '/' + map.get($line-height, 'xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '2xl': #{map.get($font-size, '2xl') + '/' + map.get($line-height, 'xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'xl': #{map.get($font-size, 'xl') + '/' + map.get($line-height, 'l')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'l': #{map.get($font-size, 'l') + '/' + map.get($line-height, 'm')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'm': #{map.get($font-size, 'm') + '/' + map.get($line-height, 'm')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   's': #{map.get($font-size, 's') + '/' + map.get($line-height, 's')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'xs': #{map.get($font-size, 'xs') + '/' + map.get($line-height, 'xs')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '2xs': #{map.get($font-size, '2xs') + '/' + map.get($line-height, '3xs')}
-    #{map.get($font-family, 'default')}
+    var(--ff-d)
 ) !default;
 $letter-spacing: (
   '5xl': 3px,
