@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "grid" (boolean) (default: false) Display gallery as a grid
+  - "variant" (string) (default: '') Gallery variant; can be '' (mosaic), 'grid', or 'portrait'
   - "grid_template" (int) (default: 0) Id of the template to be used. Grid display only
   - "column" (int) (default: 3) Number of columns. Grid display only
   - "ratio" (string) (default: '3-2') Image aspect ratio. Grid display only
@@ -51,9 +51,14 @@
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
+{# DEPRECATED
+- "grid" (boolean) (default: false) Display gallery as a grid
+#}
+{% set _grid = grid|default(false) %}
+
 {# variables #}
 
-{% set _grid = grid|default(false) %}
+{% set _variant = variant|default('') %}
 {% set _grid_template = grid_template|default(0) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
@@ -80,13 +85,18 @@
 {% set _full_width = full_width|default(false) %}
 {% set _sr_video_player = sr_video_player|default('') %}
 
+{# Backward compatibility #}
+{% if _grid %}
+  {% set _variant = 'grid' %}
+{% endif %}
+
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if _grid %}
+{% if _variant == 'grid' %}
   {% set _css_class = _css_class ~ ' ecl-gallery--grid' %}
 
   {% if _grid_template is not empty %}
@@ -100,6 +110,9 @@
   {% if _ratio is not empty %}
     {% set _css_class = _css_class ~ ' ecl-gallery--ratio-' ~ _ratio %}
   {% endif %}
+{%  elseif _variant == 'portrait' %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--portrait' %}
+  {% set _expandable = false %}
 {% endif %}
 
 {% if _full_width %}
@@ -163,39 +176,44 @@
       } only %}
     {% endfor %}
   </ul>
-  <div class="ecl-gallery__footer">
-  {%- if _expandable -%}
-    <div class="ecl-gallery__info">
-      <div class="ecl-gallery__info-total" id="{{ _id }}-info">
-        <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+
+  {# Footer #}
+  {% if _variant != 'portrait' %}
+    <div class="ecl-gallery__footer">
+    {%- if _expandable -%}
+      <div class="ecl-gallery__info">
+        <div class="ecl-gallery__info-total" id="{{ _id }}-info">
+          <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+        </div>
+          {% include '@ecl/button/button.html.twig' with {
+            label: _view_all_label,
+            type: 'submit',
+            variant: 'tertiary',
+            extra_attributes: [
+              { name: 'data-ecl-gallery-all' },
+              { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
+              { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
+              { name: 'aria-describedby', value: _id ~ '-info' },
+            ],
+            extra_classes: 'ecl-gallery__view-all',
+          } only %}
       </div>
-        {% include '@ecl/button/button.html.twig' with {
-          label: _view_all_label,
-          type: 'submit',
-          variant: 'tertiary',
-          extra_attributes: [
-            { name: 'data-ecl-gallery-all' },
-            { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
-            { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
-            { name: 'aria-describedby', value: _id ~ '-info' },
-          ],
-          extra_classes: 'ecl-gallery__view-all',
-        } only %}
-    </div>
-  {%- endif -%}
-  {% if _footer.link is defined and _footer.link is not empty %}
-    <hr class="ecl-gallery__footer-divider" />
-    <div class="ecl-gallery__footer-link">
-      {% include '@ecl/link/link.html.twig' with _footer|merge({
-        link: _footer.link|merge({
-          type: 'standalone',
-          icon_position: 'after',
-        }),
-        icon: _footer.icon
-      }) only %}
+    {%- endif -%}
+    {% if _footer.link is defined and _footer.link is not empty %}
+      <hr class="ecl-gallery__footer-divider" />
+      <div class="ecl-gallery__footer-link">
+        {% include '@ecl/link/link.html.twig' with _footer|merge({
+          link: _footer.link|merge({
+            type: 'standalone',
+            icon_position: 'after',
+          }),
+          icon: _footer.icon
+        }) only %}
+      </div>
+    {% endif %}
     </div>
   {% endif %}
-  </div>
+
   {% set _selected_item = {} %}
   {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}

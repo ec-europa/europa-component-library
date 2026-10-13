@@ -8,7 +8,7 @@ npm install --save @ecl/gallery
 
 ### Parameters
 
-- **"grid"** (boolean) (default: false) Display gallery as a grid
+- **"variant"** (string) (default: '') Gallery variant; can be '' (mosaic), 'grid', or 'portrait'
 - **"grid_template"** (int) (default: 0) Id of the template to be used. Grid display only
 - **"column"** (int) (default: 3) Number of columns. Grid display only
 - **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid display only
@@ -55,6 +55,10 @@ npm install --save @ecl/gallery
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"grid"** (boolean) (default: false) Display gallery as a grid; use `variant: 'grid'` instead
 
 ### Example :
 

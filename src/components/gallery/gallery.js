@@ -171,10 +171,10 @@ export class Gallery {
     if (this.expandable) {
       this.viewAll = queryOne(this.viewAllSelector, this.element);
       this.viewAllLabel =
-        this.viewAll.getAttribute(this.viewAllLabelSelector) ||
-        this.viewAll.innerText;
+        this.viewAll?.getAttribute(this.viewAllLabelSelector) ||
+        this.viewAll?.innerText;
       this.viewAllLabelExpanded =
-        this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
+        this.viewAll?.getAttribute(this.viewAllExpandedLabelSelector) ||
         this.viewAllLabel;
     }
     this.count = queryOne(this.countSelector, this.element);

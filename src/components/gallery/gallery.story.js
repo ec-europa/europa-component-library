@@ -8,7 +8,7 @@ import gallery from './gallery.html.twig';
 import notes from './README.md';
 
 const getArgs = () => ({
-  grid: false,
+  variant: '',
   grid_template: 1,
   column: 3,
   ratio: '3-2',
@@ -21,12 +21,25 @@ const getArgs = () => ({
 });
 
 const getArgTypes = () => ({
-  grid: {
-    control: { type: 'boolean' },
-    description: 'Grid display',
+  variant: {
+    type: { name: 'select' },
+    description: 'Gallery variant',
+    options: ['', 'grid', 'portrait'],
+    control: {
+      labels: {
+        '': 'mosaic (default)',
+        grid: 'grid',
+        portrait: 'portrait',
+      },
+    },
+    mapping: {
+      'mosaic (default)': '',
+      grid: 'grid',
+      portrait: 'portrait',
+    },
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: 'false' },
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
       category: 'Display',
     },
   },
@@ -44,7 +57,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '0' },
       category: 'Display',
     },
-    if: { arg: 'grid' },
+    if: { arg: 'variant', eq: 'grid' },
   },
   column: {
     name: 'columns',
@@ -77,7 +90,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
       category: 'Display',
     },
-    if: { arg: 'grid' },
+    if: { arg: 'variant', eq: 'grid' },
   },
   expandable: {
     control: { type: 'boolean' },
