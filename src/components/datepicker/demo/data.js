@@ -1,9 +1,6 @@
 module.exports = {
   label: 'Label',
   helper_text: 'Format: dd-mm-yyyy',
-  invalid_icon: {
-    name: 'error-outline',
-  },
   sr_invalid_icon: 'Error',
   invalid_text: 'Error text',
   optional_text: '(optional)',

@@ -47,7 +47,7 @@ $accordion: null !default;
 }
 
 .ecl-accordion__toggle-icon {
-  fill: map.get($accordion, 'icon-color');
+  color: map.get($accordion, 'icon-color');
   flex-grow: 0;
   flex-shrink: 0;
   margin-block-start: map.get($accordion, 'icon-offset');
@@ -131,7 +131,7 @@ $accordion: null !default;
   margin-inline-start: map.get($accordion, 'icon-margin');
 
   .ecl-accordion__toggle-icon {
-    fill: map.get($accordion, 'icon-color');
+    color: map.get($accordion, 'icon-color');
 
     &:last-child {
       display: none;

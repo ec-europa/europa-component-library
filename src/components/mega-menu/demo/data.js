@@ -10,17 +10,9 @@ module.exports = {
   current_aria_label: 'Current section',
   toggle: {
     label: 'Menu',
-    icon: {
-      name: 'hamburger',
-      size: 'm',
-    },
   },
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
   },
   back_label: 'Back',
   items: [

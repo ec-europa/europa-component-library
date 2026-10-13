@@ -128,7 +128,7 @@ export class Table {
     const markup = document.createElement('span');
     markup.setAttribute(
       'class',
-      `wt-icon--solid-arrow ecl-table__icon ecl-icon--xs ${customClass}`,
+      `wt-icon-phosphor--caret-up ecl-table__icon ecl-icon--xs ${customClass}`,
     );
 
     return markup;

@@ -53,7 +53,8 @@ npm install --save @ecl/fact-figures
   items: [ 
     { 
       icon: { 
-        name: "digital", 
+        name: 'chart-bar',
+        family: 'phosphor',
       }, 
       value: "00.0 million", 
       title: "Lorem ipsum", 
@@ -61,7 +62,8 @@ npm install --save @ecl/fact-figures
     }, 
     { 
       icon: { 
-        name: "digital", 
+        name: 'chart-bar',
+        family: 'phosphor',
       }, 
       value: "00.0 million", 
       title: "Sed hendrerit", 

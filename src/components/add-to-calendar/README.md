@@ -34,14 +34,14 @@ npm install --save @ecl/add-to-calendar
     {
       icon: {
         name: 'calendar',
-        size: 'xs',
+        family: 'phosphor',
       },
       label: '2018/10/22',
     },
     {
       icon: {
         name: 'location',
-        size: 'xs',
+        family: 'phosphor',
       },
       label: 'Luxembourg',
     },

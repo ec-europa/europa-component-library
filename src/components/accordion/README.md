@@ -17,7 +17,7 @@ npm install --save @ecl/accordion
   - "content" (string) (default: '') Content inside the accordion item
 - **"sidebar"** (boolean) (default: false) If true, the accordion will be styled for use in a sidebar
 - **"sidebar_media_query"** (default: '') Media query to be matched for expanding the accordion
-- **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled (open/close)
+- **"icon"** (array) OR (object) (default: phosphor 'plus' / 'minus' pair) Two icons in an array that will be toggled (open/close)
 - **"name"** (string) (default: '') Optional name attribute to link multiple accordion items (HTML `name` on `<details>`)
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
@@ -40,14 +40,6 @@ npm install --save @ecl/accordion
         'The College of Commissioners held today the first weekly meeting of 2019 which was devoted to discussing the challenges of this new year. Commissioners used the opportunity to take stock and discuss the year ahead, including the European elections in May and other important milestones ahead.',
     },
     ...
-  ],
-  icon: [{
-    path: 'static/icons.svg',
-    name: 'plus',
-  },
-  {
-    path: 'static/icons.svg',
-    name: 'minus',
-  }]
+  ]
 } %}
 ```

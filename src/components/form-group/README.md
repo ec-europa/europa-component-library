@@ -12,7 +12,7 @@ npm install --save @ecl/form-group
 - **"disabled"** (boolean) (default: false) Disables the form group
 - **"hide_label"** (boolean) (default: false) Hides the label visually (kept for screen readers)
 - **"invalid"** (boolean) (default: false) Displays the form group in invalid state
-- **"invalid_icon"** (object) (default: {}) Icon displayed when invalid, following ECL Icon structure
+- **"invalid_icon"** (object) (default: phosphor 'warning-circle') Icon displayed when invalid, following ECL Icon structure
 - **"required"** (boolean) (default: false) Marks the field as required
 - **"sr_invalid_icon"** (string) (default: '') Screen reader label for the invalid icon
 - **"label_aria_required"** (string) (default: '') Aria text for the required indicator when it is not explicit text
