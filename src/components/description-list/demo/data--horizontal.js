@@ -45,6 +45,9 @@ module.exports = {
       ],
     },
     {
+      definition: 'Definition without a term',
+    },
+    {
       term: 'Label 06',
       type: 'link-inline',
       definition: [
