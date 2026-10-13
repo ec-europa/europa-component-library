@@ -28,7 +28,8 @@ module.exports = {
   secondary_meta: [
     {
       icon: {
-        name: 'calendar',
+        name: 'calendar-blank',
+        family: 'phosphor',
         size: 'xs',
       },
       label: 'List Icon Element',
@@ -82,7 +83,17 @@ module.exports = {
         {
           term: 'Taxonomy list',
           type: 'taxonomy',
-          definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
+          definition: [
+            'Russia',
+            'Kyrgyzstan',
+            'Belarus',
+            'China',
+            'India',
+            'Türkiye',
+            'Kazakhstan',
+            'United Arab Emirates',
+            'European Union',
+          ],
         },
       ],
     },
