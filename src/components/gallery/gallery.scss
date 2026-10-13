@@ -783,6 +783,7 @@ $_description-height-desktop: 108px;
 .ecl-gallery--portrait {
   // Padding keeps the item focus outline visible despite the overflow
   .ecl-gallery__viewport {
+    margin-inline-start: calc(-1 * var(--s-xs));
     overflow: hidden;
     padding: var(--s-xs);
   }
