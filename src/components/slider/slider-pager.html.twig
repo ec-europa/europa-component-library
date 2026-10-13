@@ -26,6 +26,7 @@
     - "pause_extra_attributes" (array) (default: []) Pause button extra attributes
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (string) Attribute value, eg: 'data-test-1'
+    - "button_style": (string) (default: 'neutral') Button style
     - "dots_extra_classes" (string) (defult: '') Dots container extra classes (space separated)
     - "dot_extra_classes" (string) (defult: '') Dot extra classes (space separated)
     - "template_data_attribute" (string) (default: '')
@@ -47,6 +48,7 @@
 {% set _hide_label = hide_label|default(false) %}
 {% set _size = size|default('s') %}
 {% set _dots = dots ?? true %}
+{% set _button_style = button_style|default('neutral') %}
 {% set _play_pause = play_pause|default(false) %}
 {% set _prev_extra_classes = prev_extra_classes|default('') %}
 {% set _next_extra_classes = next_extra_classes|default('') %}
@@ -87,7 +89,7 @@
   {% include '@ecl/button/button.html.twig' with {
     type: 'button',
     variant: 'secondary',
-    style: 'neutral',
+    style: _button_style,
     label: _play_label,
     hide_label: true,
     size: _size,
@@ -103,7 +105,7 @@
   {% include '@ecl/button/button.html.twig' with {
     type: 'button',
     variant: 'secondary',
-    style: 'neutral',
+    style: _button_style,
     size: _size,
     label: _pause_label,
     hide_label: true,
@@ -121,12 +123,12 @@
     hide_label: _hide_label,
     label: _prev_label,
     size: _size,
-    style: 'neutral',
+    style: _button_style,
     type: 'button',
     variant: 'tertiary',
     icon: {
       name: 'caret-left',
-      style: 'monochrome',
+      style: _button_style == 'neutral' ? 'monochrome' : '',
       family: 'phosphor',
     },
     extra_classes: 'ecl-slider-pager__prev' ~ (_prev_extra_classes ? ' ' ~ _prev_extra_classes : ''),
@@ -143,12 +145,12 @@
     hide_label: _hide_label,
     label: _next_label,
     size: _size,
-    style: 'neutral',
+    style: _button_style,
     type: 'button',
     variant: 'tertiary',
     icon: {
       name: 'caret-right',
-      style: 'monochrome',
+      style: _button_style == 'neutral' ? 'monochrome' : '',
       family: 'phosphor'
     },
     extra_classes: 'ecl-slider-pager__next' ~ (_next_extra_classes ? ' ' ~ _next_extra_classes : ''),

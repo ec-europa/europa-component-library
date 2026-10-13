@@ -1,5 +1,7 @@
 import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
+import SliderPager from '@ecl/slider';
+import EmblaCarousel from 'embla-carousel';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -92,10 +94,8 @@ export class Tabs {
     this.dropdown = null;
     this.dropdownList = null;
     this.dropdownItems = null;
-    this.allowShift = true;
     this.buttonNextSize = 0;
     this.index = 0;
-    this.total = 0;
     this.tabsKey = [];
     this.firstTab = null;
     this.lastTab = null;
@@ -111,7 +111,6 @@ export class Tabs {
     this.handleResize = this.handleResize.bind(this);
     this.closeMoreDropdown = this.closeMoreDropdown.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.shiftTabs = this.shiftTabs.bind(this);
     this.handleKeyboardOnTabs = this.handleKeyboardOnTabs.bind(this);
     this.moveFocus = this.moveFocus.bind(this);
     this.arrowFocusToTab = this.arrowFocusToTab.bind(this);
@@ -140,7 +139,6 @@ export class Tabs {
     this.moreLabelValue = this.moreLabel.innerText;
     this.btnPrev = queryOne(this.prevSelector, this.element);
     this.btnNext = queryOne(this.nextSelector, this.element);
-    this.total = this.listItems.length;
 
     if (this.moreButton) {
       // Create the "more" dropdown and clone existing list items
@@ -295,18 +293,6 @@ export class Tabs {
       }
     }
 
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.addEventListener(
-        'click',
-        this.shiftTabs.bind(this, 'next', true),
-      );
-    }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.addEventListener(
-        'click',
-        this.shiftTabs.bind(this, 'prev', true),
-      );
-    }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
@@ -322,7 +308,11 @@ export class Tabs {
       }
     };
 
-    requestAnimationFrame(() => ensureTabsReady(() => this.handleResize()));
+    requestAnimationFrame(() => {
+      ensureTabsReady(() => {
+        this.handleResize();
+      });
+    });
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -401,65 +391,26 @@ export class Tabs {
   }
 
   /**
-   * Action to shift next or previous tabs on mobile format.
-   * @param {int|string} dir
+   * Initialize Embla carousel.
    */
-  shiftTabs(dir) {
-    this.index = dir === 'next' ? this.index + 1 : this.index - 1;
-    // Show or hide prev or next button based on tab index
-    if (this.index >= 1) {
-      this.btnPrev.style.display = 'flex';
-      this.container.classList.add('ecl-tabs__container--left');
-    } else {
-      this.btnPrev.style.display = 'none';
-      this.container.classList.remove('ecl-tabs__container--left');
-    }
+  initCarousel() {
+    this.slider = EmblaCarousel(this.container, {
+      loop: false,
+      direction: this.direction,
+      slidesToScroll: 1,
+      align: 'start',
+    });
 
-    if (this.index >= this.total - 1) {
-      this.btnNext.style.display = 'none';
-      this.container.classList.remove('ecl-tabs__container--right');
-    } else {
-      this.btnNext.style.display = 'flex';
-      this.container.classList.add('ecl-tabs__container--right');
-    }
+    this.pager = new SliderPager({
+      slider: this.slider,
+      dots: false,
+      pagerElement: this.controls,
+      prevSelector: this.prevSelector,
+      nextSelector: this.nextSelector,
+    });
 
-    // Slide tabs
-    let newOffset = 0;
-    this.direction = getComputedStyle(this.element).direction;
-    if (this.direction === 'rtl') {
-      newOffset = Math.ceil(
-        this.list.offsetWidth -
-          this.listItems[this.index].offsetLeft -
-          this.listItems[this.index].offsetWidth,
-      );
-    } else {
-      newOffset = Math.ceil(this.listItems[this.index].offsetLeft);
-    }
-
-    // Calculate available width, accounting for the right button width
-    // Note: left button doesn't reduce width due to negative margin on list
-    let availableWidth = this.element.getBoundingClientRect().width;
-    if (this.container.classList.contains('ecl-tabs__container--right')) {
-      availableWidth -= this.buttonNextSize;
-    }
-
-    const maxScroll = Math.ceil(
-      this.list.getBoundingClientRect().width - availableWidth,
-    );
-
-    if (newOffset > maxScroll) {
-      this.btnNext.style.display = 'none';
-      this.container.classList.remove('ecl-tabs__container--right');
-      newOffset = maxScroll;
-    }
-
-    this.list.style.transitionDuration = '0.4s';
-
-    if (this.direction === 'rtl') {
-      this.list.style.transform = `translate3d(${newOffset}px, 0px, 0px)`;
-    } else {
-      this.list.style.transform = `translate3d(-${newOffset}px, 0px, 0px)`;
-    }
+    this.pager.init();
+    this.slider.on('select', this.checkButtonsVisibility);
   }
 
   /**
@@ -520,36 +471,7 @@ export class Tabs {
 
     // Sync this.index with focused tab
     this.index = tabIndex;
-
-    // Reset any native scroll
-    this.list.scrollLeft = 0;
-    this.container.scrollLeft = 0;
-
-    // Update button visibility
-    if (tabIndex > 0) {
-      this.btnPrev.style.display = 'flex';
-      this.container.classList.add('ecl-tabs__container--left');
-    } else {
-      this.btnPrev.style.display = 'none';
-      this.container.classList.remove('ecl-tabs__container--left');
-    }
-
-    if (tabIndex >= this.total - 1) {
-      this.btnNext.style.display = 'none';
-      this.container.classList.remove('ecl-tabs__container--right');
-    } else {
-      this.btnNext.style.display = 'flex';
-      this.container.classList.add('ecl-tabs__container--right');
-    }
-
-    // Sync transform to show the focused tab
-    if (tabIndex > 0) {
-      const prevBtnWidth = this.btnPrev.getBoundingClientRect().width;
-      const tabOffset = this.listItems[tabIndex].offsetLeft - prevBtnWidth;
-      this.list.style.transform = `translate3d(-${tabOffset}px, 0px, 0px)`;
-    } else {
-      this.list.style.transform = 'translate3d(0px, 0px, 0px)';
-    }
+    this.slider.goTo(this.index);
   }
 
   /**
@@ -655,26 +577,30 @@ export class Tabs {
 
       if (elWidth <= getBreakpoint('s')) {
         this.isMobile = true;
-        this.index = 1;
-        this.list.style.transitionDuration = '0.4s';
-        this.shiftTabs(this.index);
-        if (this.moreItem) {
-          this.moreItem.classList.add('ecl-tabs__item--hidden');
-        }
+        this.index = 0;
         if (this.moreButton) {
           this.moreButton.classList.add('ecl-tabs__toggle--hidden');
         }
-        // Reset to auto so scrollWidth reflects the natural content width
-        this.list.style.width = 'auto';
+        if (this.moreItem) {
+          this.moreItem.remove();
+        }
         this.listItems.forEach((item) => {
           item.classList.remove('ecl-tabs__item--hidden');
         });
-        // Use scrollWidth to also include item margins
-        this.list.style.width = `${this.list.scrollWidth}px`;
-        this.btnNext.style.display = 'flex';
-        this.container.classList.add('ecl-tabs__container--right');
-        this.btnPrev.style.display = 'none';
-        this.container.classList.remove('ecl-tabs__container--left');
+        // Reset to auto so scrollWidth reflects the natural content width
+        this.list.style.width = 'auto';
+        this.list.style.transform = '';
+
+        this.btnNext.style.display = '';
+        this.btnPrev.style.display = '';
+
+        if (this.slider) {
+          this.slider.reInit();
+        } else {
+          this.initCarousel();
+        }
+
+        this.checkButtonsVisibility();
         this.tabsKeyEvents();
         return;
       }
@@ -686,7 +612,9 @@ export class Tabs {
       this.btnPrev.style.display = 'none';
       this.container.classList.remove('ecl-tabs__container--left');
       this.list.style.width = 'auto';
-
+      if (this.list && this.moreItem) {
+        this.list.append(this.moreItem);
+      }
       // Hide items that won't fit in the list
       // Temporarily show the more button to get its actual width
       this.moreItem.classList.remove('ecl-tabs__item--hidden');
@@ -767,6 +695,43 @@ export class Tabs {
       this.tabsKeyEvents();
     }, 100);
   }
+
+  setListAnimation = (enabled) => {
+    this.list.classList.toggle('ecl-tabs__list--animated', enabled);
+  };
+
+  /**
+   * Based on the buttons visibility apply or remove classes from the container.
+   */
+  checkButtonsVisibility = () => {
+    if (
+      this.slider.canGoToNext() &&
+      !this.container.classList.contains('ecl-tabs__container--right')
+    ) {
+      this.container.classList.add('ecl-tabs__container--right');
+      this.setListAnimation(true);
+    } else if (
+      !this.slider.canGoToNext() &&
+      this.container.classList.contains('ecl-tabs__container--right')
+    ) {
+      this.container.classList.remove('ecl-tabs__container--right');
+      this.setListAnimation(true);
+    } else if (
+      this.slider.canGoToPrev() &&
+      !this.container.classList.contains('ecl-tabs__container--left')
+    ) {
+      this.container.classList.add('ecl-tabs__container--left');
+      this.setListAnimation(true);
+    } else if (
+      !this.slider.canGoToPrev() &&
+      this.container.classList.contains('ecl-tabs__container--left')
+    ) {
+      this.container.classList.remove('ecl-tabs__container--left');
+      this.setListAnimation(true);
+    } else {
+      this.setListAnimation(false);
+    }
+  };
 
   /**
    * Bind key events on tabs for accessibility.
