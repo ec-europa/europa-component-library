@@ -571,7 +571,10 @@ export class Tabs {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       this.list.style.transform = 'translate3d(0px, 0px, 0px)';
-
+      this.list.style.setProperty(
+        '--tabs-track-width',
+        `${this.list.scrollWidth}px`,
+      );
       // Behaviors for mobile format
       const elWidth = this.element.clientWidth;
 
