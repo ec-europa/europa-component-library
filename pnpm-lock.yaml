@@ -69,8 +69,8 @@ importers:
         specifier: 3.4.2
         version: 3.4.2(prettier@3.9.10)
       '@size-limit/preset-big-lib':
-        specifier: 12.1.0
-        version: 12.1.0(esbuild@0.24.2)(size-limit@14.2.0)
+        specifier: 14.2.0
+        version: 14.2.0(esbuild@0.24.2)(size-limit@14.2.0)
       babel-jest:
         specifier: 30.5.2
         version: 30.5.2(@babel/core@7.29.7)
@@ -5713,28 +5713,28 @@ packages:
     resolution: {integrity: sha512-dNZafjM93Y+F+sfwTO5gTpsGXlnc/0Q+c2+62ViqP3gkMWvHEMSKkaEHgVJLcLg3i/g19GSIPziiKpgyne07Bw==}
     engines: {node: '>=8'}
 
-  '@size-limit/file@12.1.0':
-    resolution: {integrity: sha512-eGwDcIufnNnvJRzv3liDOn6MAOGgmOTUdpeGQ2KuRTlgIgO54AJH1ilvktlJc6PIjNfwpYY0dOGyap1QgM1swQ==}
-    engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
+  '@size-limit/file@14.2.0':
+    resolution: {integrity: sha512-ROqMjC8Pi/ogIIm79Y4u8YieXJb++MaZWbdv/am16l4cS9CxSUXmqP3igIXyv3gK3LMG6DkZdWSM5KVND2ug7g==}
+    engines: {node: ^22.19.0 || ^24.5.0 || >=26.0.0}
     peerDependencies:
-      size-limit: 12.1.0
+      size-limit: 14.2.0
 
-  '@size-limit/preset-big-lib@12.1.0':
-    resolution: {integrity: sha512-e7Bny+U93Zkcr3XjMyc08GEkTuTKvmFOg44SbyqwhSdJq33jZlZkb4BMNjRoe2SP9NLlhnvqRVsAmL2iBrCUnA==}
+  '@size-limit/preset-big-lib@14.2.0':
+    resolution: {integrity: sha512-oXWYBO9Z3HaxyjOwhvrPMya2L5o12TNlbBi15kOjRPCnrpUzfhvMWF72ka17TSoh3NBbMAmFOx13xxD3jseh7w==}
     peerDependencies:
-      size-limit: 12.1.0
+      size-limit: 14.2.0
 
-  '@size-limit/time@12.1.0':
-    resolution: {integrity: sha512-ekYPeZcvkPSLsHtqNmz7F5jx3R0HV7CpY7kGasBW2yKR3NrD0JWMAcswS9OCR8OzK9hyLACRTNYTpLI9PXLczQ==}
-    engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
+  '@size-limit/time@14.2.0':
+    resolution: {integrity: sha512-pse1thw6BGb01Ou4phFcBnOaSOswIOLC45nLo2ETEnaCE30ob56GyU2yHFbFygJqrw4nUeMhggNt9posfRpw1w==}
+    engines: {node: ^22.19.0 || ^24.5.0 || >=26.0.0}
     peerDependencies:
-      size-limit: 12.1.0
+      size-limit: 14.2.0
 
-  '@size-limit/webpack@12.1.0':
-    resolution: {integrity: sha512-3v/evOHskR0eVD6hpRO9jFpRPkpJb+GhqKJGxrqf1j1ZeoYu9A8v8iT3+U4TJOXTZbCbJ+Q6lWRBPFEcLZbNuw==}
-    engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
+  '@size-limit/webpack@14.2.0':
+    resolution: {integrity: sha512-B+a8lN76GGwvVowtf+LoyZJn1NpbSdDrKqbc1S+SQFK2/Ior5uhXuRLiT6XF0wY5qfwIGYTgKx1cObC6LaNOiA==}
+    engines: {node: ^22.19.0 || ^24.5.0 || >=26.0.0}
     peerDependencies:
-      size-limit: 12.1.0
+      size-limit: 14.2.0
 
   '@so-ric/colorspace@1.1.6':
     resolution: {integrity: sha512-/KiKkpHNOBgkFJwu9sh48LkHSMYGyuTcSFK/qMBdnOAlrRJzRSXAOFB5qwzaVQuDl8wAvHVMkaASQDReTahxuw==}
@@ -15568,15 +15568,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@size-limit/file@12.1.0(size-limit@14.2.0)':
+  '@size-limit/file@14.2.0(size-limit@14.2.0)':
     dependencies:
       size-limit: 14.2.0
 
-  '@size-limit/preset-big-lib@12.1.0(esbuild@0.24.2)(size-limit@14.2.0)':
+  '@size-limit/preset-big-lib@14.2.0(esbuild@0.24.2)(size-limit@14.2.0)':
     dependencies:
-      '@size-limit/file': 12.1.0(size-limit@14.2.0)
-      '@size-limit/time': 12.1.0(size-limit@14.2.0)
-      '@size-limit/webpack': 12.1.0(esbuild@0.24.2)(size-limit@14.2.0)
+      '@size-limit/file': 14.2.0(size-limit@14.2.0)
+      '@size-limit/time': 14.2.0(size-limit@14.2.0)
+      '@size-limit/webpack': 14.2.0(esbuild@0.24.2)(size-limit@14.2.0)
       size-limit: 14.2.0
     transitivePeerDependencies:
       - '@swc/core'
@@ -15590,7 +15590,7 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@size-limit/time@12.1.0(size-limit@14.2.0)':
+  '@size-limit/time@14.2.0(size-limit@14.2.0)':
     dependencies:
       estimo: 3.0.5
       size-limit: 14.2.0
@@ -15602,9 +15602,8 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@size-limit/webpack@12.1.0(esbuild@0.24.2)(size-limit@14.2.0)':
+  '@size-limit/webpack@14.2.0(esbuild@0.24.2)(size-limit@14.2.0)':
     dependencies:
-      nanoid: 3.3.8
       size-limit: 14.2.0
       webpack: 5.106.0(esbuild@0.24.2)
     transitivePeerDependencies:
@@ -22459,7 +22458,7 @@ snapshots:
       devtools-protocol: 0.0.1495869
       typed-query-selector: 2.12.1
       webdriver-bidi-protocol: 0.2.11
-      ws: 8.20.0
+      ws: 8.21.3
     transitivePeerDependencies:
       - bare-abort-controller
       - bare-buffer
