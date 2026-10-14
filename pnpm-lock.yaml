@@ -1652,8 +1652,8 @@ importers:
         specifier: 5.3.0
         version: link:../../../resources/logo-eu
       he:
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 2.0.0
+        version: 2.0.0
 
   src/playground/addons/storybook-addon-code:
     dependencies:
@@ -1703,8 +1703,8 @@ importers:
         specifier: 8.6.17
         version: 8.6.17(storybook@10.3.5(@testing-library/dom@10.4.0)(prettier@3.9.10)(react@19.3.0))
       he:
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 2.0.0
+        version: 2.0.0
       marked:
         specifier: 10.0.0
         version: 10.0.0
@@ -8852,6 +8852,11 @@ packages:
 
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
+    hasBin: true
+
+  he@2.0.0:
+    resolution: {integrity: sha512-0jE+JPv08nhXWmI1dULybzqNt34RbkH6Ul6V4cmDONpjYx1SfyObKF38FJLaJ1K7WWD93LWL9lewzk4E1Ria4A==}
+    engines: {node: '>=22'}
     hasBin: true
 
   hermes-estree@0.25.1:
@@ -19328,6 +19333,8 @@ snapshots:
       space-separated-tokens: 2.0.2
 
   he@1.2.0: {}
+
+  he@2.0.0: {}
 
   hermes-estree@0.25.1: {}
 
