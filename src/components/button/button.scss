@@ -13,15 +13,18 @@ $button: null !default;
 
 .ecl-button,
 %ecl-button {
+  align-items: center;
   appearance: none;
   background: none;
   border-radius: map.get($button, 'radius');
   border-width: 0;
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   margin: 0;
+  text-align: center;
   text-decoration: none;
+  vertical-align: middle;
 
   &:hover {
     box-shadow: map.get($button, 'shadow');
@@ -70,7 +73,7 @@ $button: null !default;
 // Icon only
 .ecl-button--icon-only {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   padding: 0 !important;
 
