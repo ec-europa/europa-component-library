@@ -9,7 +9,8 @@
 $theme: null !default;
 
 .ecl-icon {
-  color: currentcolor;
+  color: var(--ecl-icon-color, currentColor);
+  fill: var(--ecl-icon-color, currentColor);
   margin: 0;
   transition: transform 300ms ease-in-out;
 }

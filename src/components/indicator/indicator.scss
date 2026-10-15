@@ -31,6 +31,34 @@ $theme: null !default;
     top: -10px;
     width: 12px;
   }
+
+  &.ecl-indicator--left {
+    inset-inline-start: -18px;
+    inset-inline-end: auto;
+  }
+
+  &.ecl-indicator--standalone {
+    display: inline-flex;
+    position: static;
+    margin-inline-start: var(--s-xs);
+  }
+
+  &.ecl-indicator--success {
+    background-color: var(--cm-surface-status-success, var(--c-su));
+  }
+
+  &.ecl-indicator--warning {
+    background-color: var(--cm-surface-status-warning, var(--c-wa));
+  }
+
+  &.ecl-indicator--info {
+    background-color: var(--cm-surface-status-info, var(--c-in));
+  }
+
+  &.ecl-indicator--oval {
+    border-radius: map.get($theme, 'border-radius', 'l');
+    padding-inline: var(--s-3xs, var(--s-2xs));
+  }
 }
 
 .ecl-indicator__label {

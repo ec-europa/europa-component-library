@@ -34,6 +34,9 @@ const getArgs = (data, variant) => {
     indicator: false,
     indicator_value: '10',
     indicator_label: 'Items not read',
+    indicator_position: '',
+    indicator_variant: '',
+    indicator_shape: '',
   };
 
   if (variant === 'default' || variant === 'standalone') {
@@ -44,7 +47,7 @@ const getArgs = (data, variant) => {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = getIndicatorControls({ arg: 'hide_label', eq: true });
+  const argTypes = getIndicatorControls({ arg: 'icon_name', neq: 'none' });
 
   argTypes.label = {
     name: 'label',
@@ -183,7 +186,16 @@ const prepareData = (data, args) => {
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
-  data.link.indicator = args.indicator ? { value: '', sr_label: '' } : {};
+  if (args.icon_name && args.icon_name !== 'none') {
+    data.icon = {
+      family: 'phosphor',
+      name: args.icon_name,
+      transform: args.icon_transform,
+      size: 'xs',
+      title: args.icon_title,
+    };
+  }
+  data.link.indicator = {};
   if (args.indicator) {
     if (args.indicator_value !== '') {
       data.link.indicator.value = args.indicator_value;
@@ -191,15 +203,11 @@ const prepareData = (data, args) => {
     if (args.indicator_label !== '') {
       data.link.indicator.sr_label = args.indicator_label;
     }
-  }
-  if (args.icon_name && args.icon_name !== 'none') {
-    data.icon = {
-      family: 'phosphor',
-    };
-    data.icon.name = args.icon_name;
-    data.icon.transform = args.icon_transform;
-    data.icon.size = 'xs';
-    data.icon.title = args.icon_title;
+    data.link.indicator.variant =
+      args.indicator_variant !== 'default' ? args.indicator_variant : '';
+    data.link.indicator.position = args.indicator_position;
+    data.link.indicator.shape = args.indicator_shape;
+    data.icon.size = 'm';
   }
   if (args.icon_name === 'none') {
     delete data.icon;
