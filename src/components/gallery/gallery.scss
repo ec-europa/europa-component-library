@@ -784,6 +784,7 @@ $_description-height-desktop: 108px;
   // Padding keeps the item focus outline visible despite the overflow
   .ecl-gallery__viewport {
     margin-inline-start: calc(-1 * var(--s-xs));
+    margin-block: calc(-1 * var(--s-xs));
     overflow: hidden;
     padding: var(--s-xs);
   }
@@ -806,7 +807,7 @@ $_description-height-desktop: 108px;
   }
 
   .ecl-gallery__image-container {
-    border-radius: map.get($theme, 'border-radius', 's');
+    border-radius: map.get($theme, 'border-radius', 'l');
     height: $_image-height-portrait;
   }
 
