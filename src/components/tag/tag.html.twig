@@ -7,6 +7,7 @@
         "type" (string) (default: 'link') Tag type; can be 'link', 'removable'
         "path" (string) (default: '') Tag link URL
         "label" (string) (default: '') Tag text
+        "icon" (object) (default: {}) Object of type ECL icon, displayed before the label
         "external" (boolean) (default: false) Show external icon for link tags
         "aria_label" (string) (default: '') Aria label for removable tags
         "nowrap" (boolean) (default: false) Prevent the tag from wrapping
@@ -27,6 +28,7 @@
   type: 'link',
   path: '',
   label: '',
+  icon: {},
   external: false,
   aria_label: '',
   nowrap: false,
@@ -69,6 +71,19 @@
   {% endfor %}
 {% endif %}
 
+{# Define icon macro #}
+
+{% macro icon(_icon) %}{% apply spaceless %}
+  {% if _icon.name is defined and _icon.name is not empty %}
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _icon|merge({ size: 'xs' }),
+      extra_classes: 'ecl-tag__icon ecl-tag__icon--before',
+    } only %}
+  {% endif %}
+{% endapply %}{% endmacro %}
+
+{% import _self as tag_macros %}
+
 {# Print the result #}
 
 {% if _tag.type == 'removable' %}
@@ -77,6 +92,7 @@
     class="{{ _css_class }}"
     {{ _extra_attributes|raw }}
   >
+    {{- tag_macros.icon(_tag.icon) -}}
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
@@ -95,6 +111,7 @@
     class="{{ _css_class }}"
     {{ _extra_attributes|raw }}
   >
+    {{- tag_macros.icon(_tag.icon) -}}
     {{- _tag.label -}}
     {%- if _tag.external -%}
       {%- include '@ecl/icon/icon.html.twig' with {

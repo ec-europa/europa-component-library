@@ -3,11 +3,20 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataLink from './demo/data--link';
 import dataRemovable from './demo/data--removable';
 
 import tag from './tag.html.twig';
 import notes from './README.md';
+
+const iconMapping = iconsAll.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
+// Create 'none' option.
+const iconOptions = ['none', ...iconsAll];
 
 const getArgs = (data) => {
   const args = {};
@@ -16,6 +25,8 @@ const getArgs = (data) => {
     args.color_mode = 'default';
   }
   args.label = data.tag.label;
+  args.icon_name = 'none';
+  args.icon_title = '';
   args.nowrap = false;
   if (data.tag.type === 'link') {
     args.external = false;
@@ -48,6 +59,30 @@ const getArgTypes = (data) => {
     },
   };
 
+  argTypes.icon_name = {
+    name: 'icon name',
+    type: { name: 'select' },
+    description: 'Icon displayed before the label',
+    options: iconOptions,
+    mapping: iconMapping,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+  };
+  argTypes.icon_title = {
+    name: 'icon title',
+    type: 'string',
+    description: 'Textual information for the icon, mostly for screen readers',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'icon_name', neq: 'none' },
+  };
+
   if (data.tag.type === 'link') {
     argTypes.external = {
       type: { name: 'boolean' },
@@ -67,6 +102,15 @@ const prepareData = (data, args) => {
   data.tag.label = args.label;
   data.tag.nowrap = args.nowrap;
   data.tag.external = args.external;
+  if (args.icon_name && args.icon_name !== 'none') {
+    data.tag.icon = {
+      name: args.icon_name,
+      family: 'phosphor',
+      title: args.icon_title,
+    };
+  } else {
+    delete data.tag.icon;
+  }
 
   correctPaths(data);
 

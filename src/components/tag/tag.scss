@@ -71,6 +71,12 @@ $tag: null !default;
     height: map.get($theme, 'icon', '2xs');
     width: map.get($theme, 'icon', '2xs');
   }
+
+  &.ecl-tag__icon--before {
+    color: currentcolor;
+    margin-inline-end: var(--s-2xs);
+    margin-inline-start: 0;
+  }
 }
 
 .ecl-tag__icon-close {
