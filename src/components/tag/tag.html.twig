@@ -93,10 +93,12 @@
     {{ _extra_attributes|raw }}
   >
     {{- tag_macros.icon(_tag.icon) -}}
-    {{- _tag.label -}}
+    <span class="ecl-tag__label">
+      {{- _tag.label -}}
+    </span>
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'x-circle', family: 'phosphor', size: 'xs' },
+        icon: { name: 'x', family: 'phosphor', size: 'xs' },
         extra_classes: 'ecl-tag__icon-close',
         as_image: true,
         extra_accessibility: {
@@ -112,7 +114,9 @@
     {{ _extra_attributes|raw }}
   >
     {{- tag_macros.icon(_tag.icon) -}}
-    {{- _tag.label -}}
+    <span class="ecl-tag__label">
+      {{- _tag.label -}}
+    </span>
     {%- if _tag.external -%}
       {%- include '@ecl/icon/icon.html.twig' with {
           icon: {
