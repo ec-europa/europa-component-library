@@ -9,6 +9,7 @@
 $theme: null !default;
 $gallery: null !default;
 $gallery-print: null !default;
+$_image-height-portrait: 491px;
 
 .ecl-gallery {
   margin: 0;
@@ -50,6 +51,7 @@ $gallery-print: null !default;
 .ecl-gallery__thumbnail {
   display: none;
   height: 100%;
+  width: 100%;
 
   &:not(.ecl-gallery__slider-image) {
     display: flex;
@@ -363,5 +365,36 @@ $gallery-print: null !default;
         grid-template-columns: repeat(4, 1fr);
       }
     }
+  }
+}
+
+// Variant: portrait
+.ecl-gallery--portrait {
+  .ecl-gallery__list {
+    display: flex;
+    gap: map.get($gallery, 'portrait', 'gap');
+    margin: 0;
+  }
+
+  .ecl-gallery__item {
+    aspect-ratio: 5/9;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: $_image-height-portrait;
+    margin-inline-start: 0;
+    margin-top: 0;
+  }
+
+  .ecl-gallery__image-container {
+    border-radius: map.get($theme, 'border-radius', 's');
+    height: $_image-height-portrait;
+  }
+
+  .ecl-gallery__image {
+    height: $_image-height-portrait;
+  }
+
+  .ecl-gallery__portrait-pager {
+    display: none;
   }
 }
