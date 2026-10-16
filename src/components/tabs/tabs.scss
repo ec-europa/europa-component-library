@@ -33,13 +33,10 @@ $button-width: 44px;
   list-style: none;
   margin: 0;
   padding-inline-start: 0;
+  transition: transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   .ecl-tabs[data-ecl-auto-initialized] & {
     flex-wrap: nowrap;
-  }
-
-  &.ecl-tabs__list--animated {
-    transition: transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   &::after {

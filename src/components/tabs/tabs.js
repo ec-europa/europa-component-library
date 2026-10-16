@@ -397,6 +397,7 @@ export class Tabs {
     this.slider = EmblaCarousel(this.container, {
       loop: false,
       direction: this.direction,
+      duration: 0,
       slidesToScroll: 1,
       align: 'start',
       dragThreshold: 20,
@@ -707,10 +708,6 @@ export class Tabs {
     }, 100);
   }
 
-  setListAnimation = (enabled) => {
-    this.list.classList.toggle('ecl-tabs__list--animated', enabled);
-  };
-
   /**
    * Based on the buttons visibility apply or remove classes from the container.
    */
@@ -720,27 +717,21 @@ export class Tabs {
       !this.container.classList.contains('ecl-tabs__container--right')
     ) {
       this.container.classList.add('ecl-tabs__container--right');
-      this.setListAnimation(true);
     } else if (
       !this.slider.canGoToNext() &&
       this.container.classList.contains('ecl-tabs__container--right')
     ) {
       this.container.classList.remove('ecl-tabs__container--right');
-      this.setListAnimation(true);
     } else if (
       this.slider.canGoToPrev() &&
       !this.container.classList.contains('ecl-tabs__container--left')
     ) {
       this.container.classList.add('ecl-tabs__container--left');
-      this.setListAnimation(true);
     } else if (
       !this.slider.canGoToPrev() &&
       this.container.classList.contains('ecl-tabs__container--left')
     ) {
       this.container.classList.remove('ecl-tabs__container--left');
-      this.setListAnimation(true);
-    } else {
-      this.setListAnimation(false);
     }
   };
 
