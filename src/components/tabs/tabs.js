@@ -399,6 +399,7 @@ export class Tabs {
       direction: this.direction,
       slidesToScroll: 1,
       align: 'start',
+      dragThreshold: 20,
     });
 
     this.pager = new SliderPager({
@@ -471,7 +472,10 @@ export class Tabs {
 
     // Sync this.index with focused tab
     this.index = tabIndex;
-    this.slider.goTo(this.index);
+
+    if (tab.matches(':focus-visible')) {
+      this.slider.goTo(this.index);
+    }
   }
 
   /**
@@ -524,6 +528,10 @@ export class Tabs {
             .classList.contains('ecl-tabs__item--hidden')
         ) {
           isVisibleTab = true;
+        }
+        if (this.slider) {
+          // Move the slider to the active tab.
+          this.slider.goTo(this.tabs.indexOf(this.activeTab));
         }
       }
     });

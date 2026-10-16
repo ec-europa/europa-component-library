@@ -17,7 +17,7 @@ npm install --save @ecl/slider
 - **"pause_label"** (string) (default: '') Label of the pause button
 - **"pause_icon"** (string) (default: 'pause-filled') Pause icon
 - **"size"**: (string) (default: s) s, m or l Size of the buttons
-- **"button_style"** (string) (default: 'neutral') Style of the buttons
+- **"button_style"** (boolean) (default: 'true') Neutral if true
 - **"prev_extra_classes"** (string) (default: '') Previous button extra classes (space separated)
 - **"prev_extra_attributes"** (array) (default: []) Previous button extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
