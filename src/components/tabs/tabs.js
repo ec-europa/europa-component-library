@@ -361,11 +361,11 @@ export class Tabs {
       this.moreLabel.textContent = this.moreLabelValue;
       this.moreButton.replaceWith(this.moreButton.cloneNode(true));
     }
-    if (this.btnNext) {
-      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
+    if (this.pager) {
+      this.pager.destroy();
     }
-    if (this.btnPrev) {
-      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
+    if (this.slider) {
+      this.slider.destroy();
     }
     if (this.attachClickListener && document && this.moreButton) {
       document.removeEventListener('click', this.handleClickOutside);
