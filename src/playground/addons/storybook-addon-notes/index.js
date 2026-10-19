@@ -1,7 +1,7 @@
 import { addons, makeDecorator } from '@storybook/preview-api';
 import { marked } from 'marked';
 import Prism from 'prismjs';
-import he from 'he';
+import { decode } from 'he';
 
 // Manually import extra languages
 import 'prismjs/components/prism-markup-templating';
@@ -83,7 +83,7 @@ function renderMarkdown(text, options, json) {
     // Fixing the econding of ', mainly
     Object.keys(example).forEach((e) => {
       if (typeof example[e] === 'string') {
-        example[e] = he.decode(example[e]);
+        example[e] = decode(example[e]);
       }
     });
     // Ehm, this is the best format we could get.
