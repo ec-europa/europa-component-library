@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getColorModeControls, correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
+import { correctPaths } from '@ecl/story-utils';
 
 import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataLink from './demo/data--link';
@@ -21,9 +20,6 @@ const iconOptions = ['none', ...iconsAll];
 const getArgs = (data) => {
   const args = {};
 
-  if (getSystem() === 'ec') {
-    args.color_mode = 'default';
-  }
   args.label = data.tag.label;
   args.icon_name = 'none';
   args.icon_title = '';
@@ -36,8 +32,7 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = getColorModeControls();
-
+  const argTypes = {};
   argTypes.nowrap = {
     name: 'no wrap',
     type: { name: 'boolean' },
