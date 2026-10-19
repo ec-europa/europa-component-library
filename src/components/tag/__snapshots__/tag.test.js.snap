@@ -6,7 +6,11 @@ exports[`Tag Link renders correctly 1`] = `
     class="ecl-tag"
     href="/example"
   >
-    Link tag
+    <span
+      class="ecl-tag__label"
+    >
+      Link tag
+    </span>
   </a>
 </jest>
 `;
@@ -17,11 +21,34 @@ exports[`Tag Link renders correctly with an external link 1`] = `
     class="ecl-tag"
     href="/example"
   >
-    Link tag
+    <span
+      class="ecl-tag__label"
+    >
+      Link tag
+    </span>
     <span
       aria-hidden="true"
       class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--2xs ecl-tag__icon ecl-tag__icon--external ecl-icon-phosphor--arrow-square-out"
     />
+  </a>
+</jest>
+`;
+
+exports[`Tag Link renders correctly with an icon 1`] = `
+<jest>
+  <a
+    class="ecl-tag"
+    href="/example"
+  >
+    <span
+      aria-hidden="true"
+      class="wt-icon-phosphor--star ecl-icon ecl-icon--xs ecl-tag__icon ecl-tag__icon--before ecl-icon-phosphor--star"
+    />
+    <span
+      class="ecl-tag__label"
+    >
+      Link tag
+    </span>
   </a>
 </jest>
 `;
@@ -34,7 +61,11 @@ exports[`Tag Link renders correctly with extra attributes 1`] = `
     data-test-1="data-test-value-1"
     href="/example"
   >
-    Link tag
+    <span
+      class="ecl-tag__label"
+    >
+      Link tag
+    </span>
   </a>
 </jest>
 `;
@@ -45,7 +76,11 @@ exports[`Tag Link renders correctly with extra class names 1`] = `
     class="ecl-tag custom-class custom-class--test"
     href="/example"
   >
-    Link tag
+    <span
+      class="ecl-tag__label"
+    >
+      Link tag
+    </span>
   </a>
 </jest>
 `;
@@ -56,13 +91,46 @@ exports[`Tag Removable renders correctly 1`] = `
     class="ecl-tag ecl-tag--removable"
     type="button"
   >
-    Removable tag
+    <span
+      class="ecl-tag__label"
+    >
+      Removable tag
+    </span>
     <span
       class="ecl-tag__icon"
     >
       <span
         aria-hidden="false"
-        class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+        class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
+        role="img"
+        title="Dismiss"
+      />
+    </span>
+  </button>
+</jest>
+`;
+
+exports[`Tag Removable renders correctly with an icon 1`] = `
+<jest>
+  <button
+    class="ecl-tag ecl-tag--removable"
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+      class="wt-icon-phosphor--star ecl-icon ecl-icon--xs ecl-tag__icon ecl-tag__icon--before ecl-icon-phosphor--star"
+    />
+    <span
+      class="ecl-tag__label"
+    >
+      Removable tag
+    </span>
+    <span
+      class="ecl-tag__icon"
+    >
+      <span
+        aria-hidden="false"
+        class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
         role="img"
         title="Dismiss"
       />
@@ -83,7 +151,11 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
     <li
@@ -93,13 +165,17 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -113,13 +189,17 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -133,13 +213,17 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -153,7 +237,11 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
     <li
@@ -163,13 +251,17 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -183,7 +275,11 @@ exports[`Tag Set renders correctly 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
   </ul>
@@ -204,7 +300,11 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
     <li
@@ -214,13 +314,17 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -234,13 +338,17 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -254,13 +362,17 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -274,7 +386,11 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
     <li
@@ -284,13 +400,17 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -304,7 +424,11 @@ exports[`Tag Set renders correctly with extra attributes 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
   </ul>
@@ -323,7 +447,11 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
     <li
@@ -333,13 +461,17 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -353,13 +485,17 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -373,13 +509,17 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -393,7 +533,11 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
     <li
@@ -403,13 +547,17 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag ecl-tag--removable"
         type="button"
       >
-        Removable tag
+        <span
+          class="ecl-tag__label"
+        >
+          Removable tag
+        </span>
         <span
           class="ecl-tag__icon"
         >
           <span
             aria-hidden="false"
-            class="wt-icon-phosphor--x-circle ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x-circle"
+            class="wt-icon-phosphor--x ecl-icon ecl-icon--xs ecl-tag__icon-close ecl-icon-phosphor--x"
             role="img"
             title="Dismiss"
           />
@@ -423,7 +571,11 @@ exports[`Tag Set renders correctly with extra class names 1`] = `
         class="ecl-tag"
         href="/example"
       >
-        Link tag
+        <span
+          class="ecl-tag__label"
+        >
+          Link tag
+        </span>
       </a>
     </li>
   </ul>

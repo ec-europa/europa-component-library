@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -13,7 +14,7 @@ $tag: null !default;
   align-items: center;
   background-color: map.get($tag, 'background-color');
   border-radius: map.get($tag, 'border-radius');
-  border-width: 0;
+  border: 1px solid map.get($tag, 'border-color');
   box-sizing: border-box;
   color: map.get($tag, 'color');
   display: inline-flex;
@@ -22,30 +23,37 @@ $tag: null !default;
   text-align: start;
   text-decoration: none;
 
+  @include mixins-color.focus-default;
+
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');
+    border-color: map.get($tag, 'border-color-focus');
     color: map.get($tag, 'color-focus');
-    outline: 2px solid #{map.get($tag, 'outline-color-focus')};
-    outline-offset: map.get($tag, 'outline-offset-focus');
   }
 
   &:hover {
     background-color: map.get($tag, 'background-color-hover');
+    border-color: map.get($tag, 'border-color-hover');
     color: map.get($tag, 'color-hover');
     cursor: pointer;
   }
 
   &:active {
     background-color: map.get($tag, 'background-color-active');
+    border-color: map.get($tag, 'border-color-active');
     color: map.get($tag, 'color-active');
-    outline: 1px solid map.get($tag, 'outline-color-active');
-    outline-offset: -1px;
   }
 
   &[disabled] {
+    background-color: map.get($tag, 'background-color-disabled');
+    border-color: map.get($tag, 'border-color-disabled');
+    color: map.get($tag, 'color-disabled');
     cursor: not-allowed;
-    opacity: 0.5;
   }
+}
+
+.ecl-tag__label {
+  padding-inline: map.get($tag, 'label-padding-inline');
 }
 
 // No wrap
@@ -53,15 +61,13 @@ $tag: null !default;
   white-space: nowrap;
 }
 
-// Removable tag
+// Icons
 .ecl-tag__icon {
   appearance: none;
   background: none;
   border-width: 0;
-  color: map.get($tag, 'color');
   flex-shrink: 0;
   height: map.get($theme, 'icon', 'xs');
-  margin-inline-start: var(--s-2xs);
   padding: 0;
   pointer-events: auto;
   position: relative;
@@ -71,13 +77,6 @@ $tag: null !default;
     height: map.get($theme, 'icon', '2xs');
     width: map.get($theme, 'icon', '2xs');
   }
-}
-
-.ecl-tag__icon-close {
-  fill: currentcolor;
-  inset-inline-start: 0;
-  position: absolute;
-  top: 0;
 }
 
 // Tag set

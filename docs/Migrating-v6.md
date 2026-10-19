@@ -20,3 +20,5 @@ Following elements have been deprecated, and are removed in ECL v6
   - parameter `translation.toggle` (now set in the template directly)
 - site header:
   - parameter `banner_top` (previously used for class name)
+- tag:
+  - parameter `color_mode` (not used anymore)
