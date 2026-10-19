@@ -97,5 +97,24 @@ module.exports = {
         },
       ],
     },
+    {
+      more_label: 'Show more items',
+      visible_items: 2,
+      items: [
+        {
+          term: 'Tags list',
+          type: 'tag',
+          definition: [
+            { tag: { label: 'Link tag', path: exampleLink } },
+            { tag: { label: 'Long link tag', path: exampleLink } },
+            { tag: { label: 'Link tag', path: exampleLink } },
+            { tag: { label: 'Link tag', path: exampleLink } },
+            { tag: { label: 'Link tag', path: exampleLink } },
+            { tag: { label: 'Long link tag', path: exampleLink } },
+            { tag: { label: 'Link tag', path: exampleLink } },
+          ],
+        },
+      ],
+    },
   ],
 };
