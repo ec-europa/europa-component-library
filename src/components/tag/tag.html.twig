@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-    - "color_mode" (string) (default: '') Name of the color mode
     - "tag" (object) (default: {}): format: {
         "type" (string) (default: 'link') Tag type; can be 'link', 'removable'
         "path" (string) (default: '') Tag link URL
@@ -21,9 +20,13 @@
       ]
 #}
 
+{# DEPRECATED 
+- "color_mode" (string) (default: '') Name of the color mode
+#}
+{% set _color_mode = color_mode|default('') %}
+
 {# Internal properties #}
 
-{% set _color_mode = color_mode|default('') %}
 {% set _tag = {
   type: 'link',
   path: '',

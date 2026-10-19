@@ -2,17 +2,20 @@
 
 {#
   Parameters:
-  - "color_mode" (string)
   - "items" (array) (default: []): array of Tag
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  #}
+  
+{# DEPRECATED 
+- "color_mode" (string)
 #}
+{% set _color_mode = color_mode|default('') %}
 
 {# Internal properties #}
 
-{% set _color_mode = color_mode|default('') %}
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-tag-set' %}
 {% set _extra_attributes = '' %}

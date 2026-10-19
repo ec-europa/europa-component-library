@@ -8,7 +8,6 @@ npm install --save @ecl/tag
 
 ### Parameters
 
-- **"color_mode"** (string) (default: '') Name of the color mode
 - **"tag"** (object) (default: {}):
   - "type" (string) (default: 'link') Tag type; can be 'link', 'removable'
   - "path" (string) (default: '') Tag link URL
@@ -21,6 +20,10 @@ npm install --save @ecl/tag
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"color_mode"** (string) (default: '') Name of the color mode
 
 ### Example:
 
