@@ -9,8 +9,8 @@ import path from 'path';
 import vike from 'vike/plugin';
 import htmlMinifier from 'vite-plugin-html-minifier';
 
-import mdxReplace from './scripts/mdx-replace';
-import lernaJson from '../../lerna.json';
+import mdxReplace from './scripts/mdx-replace.js';
+import lernaJson from '../../lerna.json' with { type: 'json' };
 
 const eclVersion = lernaJson.version;
 
@@ -18,8 +18,16 @@ let sri = {};
 if ('CI' in process.env && process.env.GITHUB_REF?.includes('refs/tags/')) {
   const tag = process.env.GITHUB_REF.replace('refs/tags/', '');
   const sriFileName = `europa-component-library-${tag}-sri.json`;
-  const srcPath = path.resolve(__dirname, '../../scripts', sriFileName);
-  const destPath = path.resolve(__dirname, '../../dist/packages', sriFileName);
+  const srcPath = path.resolve(
+    import.meta.dirname,
+    '../../scripts',
+    sriFileName,
+  );
+  const destPath = path.resolve(
+    import.meta.dirname,
+    '../../dist/packages',
+    sriFileName,
+  );
 
   if (fs.existsSync(srcPath)) {
     try {
@@ -80,15 +88,15 @@ export default defineConfig(({ command }) => {
         },
       }),
     ],
-    root: path.resolve(__dirname),
-    publicDir: path.resolve(__dirname, 'public'),
+    root: path.resolve(import.meta.dirname),
+    publicDir: path.resolve(import.meta.dirname, 'public'),
     resolve: {
       alias: {
         '@ecl/website-components': path.resolve(
-          __dirname,
+          import.meta.dirname,
           'src/website-components/',
         ),
-        '@ecl/website-utils': path.resolve(__dirname, 'src/utils/'),
+        '@ecl/website-utils': path.resolve(import.meta.dirname, 'src/utils/'),
       },
     },
     server: isDev
@@ -136,7 +144,9 @@ export default defineConfig(({ command }) => {
       postprocessorOptions: {
         scss: {
           api: 'modern',
-          includePaths: [path.resolve(__dirname, '../../node_modules')], // Match Webpack
+          includePaths: [
+            path.resolve(import.meta.dirname, '../../node_modules'),
+          ], // Match Webpack
         },
       },
     },
