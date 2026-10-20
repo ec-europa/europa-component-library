@@ -1,5 +1,4 @@
 const js = require('@eslint/js');
-const babelParser = require('@babel/eslint-parser');
 const standard = require('eslint-config-standard');
 const globals = require('globals');
 
@@ -16,9 +15,8 @@ module.exports = [
   js.configs.recommended,
   {
     languageOptions: {
-      parser: babelParser,
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
         sourceType: 'module',
         requireConfigFile: false,
         ecmaFeatures: {
@@ -45,6 +43,7 @@ module.exports = [
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
       'import/no-extraneous-dependencies': 'off',
+      'no-useless-assignment': 'off',
       'no-param-reassign': 'off',
       'comma-dangle': 'off',
       'multiline-ternary': 'off',

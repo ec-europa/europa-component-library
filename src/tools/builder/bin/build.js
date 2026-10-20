@@ -20,6 +20,7 @@ const loadConfig = async (configFile) => {
     const { default: config } = await import(`file://${configPath}`);
     return config;
   } catch (err) {
+    /* eslint-disable-next-line preserve-caught-error */
     throw new Error(`Failed to load config at ${configPath}: ${err.message}`);
   }
 };
