@@ -26,7 +26,7 @@
     - "published_label" (string) (default: ''): label for the publication date
     - "share" (object) (default: {}): object of type link
     - "sr_overlay_label" (string) (default: '') aria-label for the overlay
-  - "footer" (object) (default: {}): object of type link
+  - "footer" (object) (default: {}): object of type link. Not available for the portrait variant
   - "items" (array) (default: [])
     - "title" (string) (default: '')
     - "title_always_visible" (boolean) (default: false)
@@ -117,6 +117,7 @@
 {%  elseif _variant == 'portrait' %}
   {% set _css_class = _css_class ~ ' ecl-gallery--portrait' %}
   {% set _expandable = false %}
+  {% set _footer = {} %}
 {% endif %}
 
 {% if _full_width %}
@@ -158,59 +159,53 @@
   {{ _extra_attributes|raw }}
   data-ecl-gallery
 >
-  {% if _variant == 'portrait' %}
-  <div class="ecl-gallery__viewport" data-ecl-gallery-slider>
-  {% endif %}
-  <ul class="ecl-gallery__list">
-    {% for _key, _item in _items %}
-      {% set _item_class = '' %}
-      {% set _item_attrs = [] %}
-      {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
-        {% set _item_class = _item.extra_classes %}
-      {% endif %}
-      {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
-        {% set _item_attrs = _item.extra_attributes %}
-      {% endif %}
-      {% include '@ecl/gallery/gallery-item.html.twig' with {
-        id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
-        item: _item,
-        sr_video_label: _sr_video_label,
-        sr_video_player: _sr_video_player,
-        disable_overlay: _disable_overlay,
-        picture_zoom: _picture_zoom,
-        extra_attributes: _item_attrs,
-        extra_classes: _item_class,
-      } only %}
-    {% endfor %}
-  </ul>
-
-  {% if _variant == 'portrait' %}
-  </div>
-    {% if _full_width %}
-  <div class="ecl-container">
+  <div
+    class="ecl-gallery__viewport"
+    {% if _variant == 'portrait' %}
+      data-ecl-gallery-slider
     {% endif %}
-    {% include '@ecl/slider/slider-pager.html.twig' with {
-      prev_label: _prev_label,
-      next_label: _next_label,
-      hide_label: true,
-      dots: false,
-      size: 'm',
-      extra_classes: 'ecl-gallery__portrait-pager',
-      prev_extra_classes: 'ecl-gallery__portrait-prev',
-      next_extra_classes: 'ecl-gallery__portrait-next',
-    } only %}
-    {% if _full_width %}
+  >
+    <ul class="ecl-gallery__list">
+      {% for _key, _item in _items %}
+        {% set _item_class = '' %}
+        {% set _item_attrs = [] %}
+        {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
+          {% set _item_class = _item.extra_classes %}
+        {% endif %}
+        {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
+          {% set _item_attrs = _item.extra_attributes %}
+        {% endif %}
+        {% include '@ecl/gallery/gallery-item.html.twig' with {
+          id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
+          item: _item,
+          sr_video_label: _sr_video_label,
+          sr_video_player: _sr_video_player,
+          disable_overlay: _disable_overlay,
+          picture_zoom: _picture_zoom,
+          extra_attributes: _item_attrs,
+          extra_classes: _item_class,
+        } only %}
+      {% endfor %}
+    </ul>
   </div>
-    {% endif %}
-  {% endif %}
 
   {# Footer #}
-  {% if _variant != 'portrait' %}
-    {% if _full_width %}
+  {% if _full_width %}
   <div class="ecl-container">
-    {% endif %}
+  {% endif %}
     <div class="ecl-gallery__footer">
-    {%- if _expandable -%}
+    {%- if _variant == 'portrait' -%}
+      {% include '@ecl/slider/slider-pager.html.twig' with {
+        prev_label: _prev_label,
+        next_label: _next_label,
+        hide_label: true,
+        dots: false,
+        size: 'm',
+        extra_classes: 'ecl-gallery__portrait-pager',
+        prev_extra_classes: 'ecl-gallery__portrait-prev',
+        next_extra_classes: 'ecl-gallery__portrait-next',
+      } only %}
+    {%- elseif _expandable -%}
       <div class="ecl-gallery__info">
         <div class="ecl-gallery__info-total" id="{{ _id }}-info">
           <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
@@ -242,9 +237,8 @@
       </div>
     {% endif %}
     </div>
-    {% if _full_width %}
+  {% if _full_width %}
   </div>
-    {% endif %}
   {% endif %}
 
   {% set _selected_item = {} %}

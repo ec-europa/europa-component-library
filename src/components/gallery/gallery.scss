@@ -816,7 +816,6 @@ $_description-height-desktop: 108px;
   }
 
   .ecl-gallery__image-container {
-    border-radius: map.get($theme, 'border-radius', 'l');
     height: $_image-height-portrait;
   }
 
@@ -824,8 +823,13 @@ $_description-height-desktop: 108px;
     height: $_image-height-portrait;
   }
 
+  // Spacing kept on the pager so the footer collapses when the pager is hidden
+  .ecl-gallery__footer {
+    padding-top: 0;
+  }
+
   .ecl-gallery__portrait-pager {
-    display: flex;
+    flex-grow: 1;
     justify-content: flex-end;
     margin-top: var(--s-m);
   }

@@ -43,7 +43,7 @@ npm install --save @ecl/gallery
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
-- **"footer"** (object) (default: {}) Footer link
+- **"footer"** (object) (default: {}) Footer link. Not available for the portrait variant
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
