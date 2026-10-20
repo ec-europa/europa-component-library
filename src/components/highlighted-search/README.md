@@ -10,9 +10,11 @@ npm install --save @ecl/highlighted-search
 
 - **"id"** (string) (default: random) Unique id for the component
 - **"color_mode"** (string) The color mode name
+- **"horizontal_alignment"** (string) (default: 'center') Content alignment (horizontal); can be 'center', 'left'
 - **"title"** (string) (default: '') Title of highlighted search
 - **"description"** (string) (default: '') Description of highlighted search
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
+- **"search_select"** (object) (default: {}) Search select, following ECL Select structure. The label of the first option (expected to be a placeholder, e.g. "Select country") is used as the hidden label of the select.
 - **"search_helper"** (string) (default: '') Search helper, for additional information
 - **"search_button"** (object) (default: {}) Search button, following ECL Button structure
 - **"suggestion_label"** (string) (default: '') Label for the suggestions

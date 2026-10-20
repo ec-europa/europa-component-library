@@ -5,7 +5,9 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import data from './demo/data';
+import dataWithSelect from './demo/data';
+
+const { search_select: searchSelect, ...data } = dataWithSelect;
 
 expect.extend(toHaveNoViolations);
 
@@ -58,9 +60,36 @@ describe('Highlighted search', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly aligned on the left', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...data, horizontal_alignment: 'left' }),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly without a search helper', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...data, search_helper: '' }),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('With select', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataWithSelect)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataWithSelect, true)),
       ).toHaveNoViolations();
     });
   });
