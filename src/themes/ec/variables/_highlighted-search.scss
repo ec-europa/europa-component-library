@@ -5,7 +5,6 @@ $highlighted-search: (
   background-color: var(--cm-surface-color-mode-high),
   color: var(--cm-on-surface-inverted),
   padding: var(--s-13xl) var(--s-xl),
-  separator-color: var(--cm-surface-secondary),
   icon-color: var(--c-g-600),
   title: (
     font: 'heading2',
@@ -20,13 +19,11 @@ $highlighted-search: (
     spacing: var(--s-3xs),
   ),
   form: (
-    padding: var(--s-s),
     margin: var(--s-3xl),
-    border-color: var(--cm-border-grey),
-    background-color: var(--cm-surface-inverted),
-    shadow-focus: var(--cm-border-primary),
-    outline-color: var(--cm-border-inverted),
-    input-padding: var(--s-xs) var(--s-s),
+    gap: var(--s-xs),
+    icon-offset: var(--s-s),
+    icon-gap: var(--s-xs),
+    input-padding-block: var(--s-xs),
   ),
   suggestion: (
     font: 'body-s',

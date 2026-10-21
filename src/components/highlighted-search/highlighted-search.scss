@@ -12,6 +12,8 @@ $theme: null !default;
 $highlighted-search: null !default;
 
 .ecl-highlighted-search {
+  container-type: inline-size;
+  container-name: ecl-highlighted-search;
   background-color: map.get($highlighted-search, 'background-color');
   border-radius: map.get($theme, 'border-radius', 's');
   color: map.get($highlighted-search, 'color');
@@ -25,12 +27,9 @@ $highlighted-search: null !default;
   max-width: 600px;
   margin-inline: auto;
 
-  &::before {
-    background-color: map.get($highlighted-search, 'separator-color');
-    content: '';
-    display: block;
-    height: 0.375rem;
-    width: 4rem;
+  .ecl-highlighted-search--hleft & {
+    align-items: flex-start;
+    margin-inline: 0;
   }
 
   & > *:first-child {
@@ -41,6 +40,10 @@ $highlighted-search: null !default;
 .ecl-highlighted-search__title {
   text-align: center;
 
+  .ecl-highlighted-search--hleft & {
+    text-align: start;
+  }
+
   @include mixins.responsive-font(
     map.get($highlighted-search, 'title', 'font')
   );
@@ -49,6 +52,10 @@ $highlighted-search: null !default;
 .ecl-highlighted-search__description {
   margin-block-start: map.get($highlighted-search, 'description', 'spacing');
   text-align: center;
+
+  .ecl-highlighted-search--hleft & {
+    text-align: start;
+  }
 
   @include mixins.responsive-font(
     map.get($highlighted-search, 'description', 'font')
@@ -70,25 +77,22 @@ $highlighted-search: null !default;
 
 .ecl-highlighted-search__form-content {
   align-items: center;
-  background-color: map.get($highlighted-search, 'form', 'background-color');
-  border: 1px solid map.get($highlighted-search, 'form', 'border-color');
-  border-radius: map.get($theme, 'border-radius', 's');
-  box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  gap: map.get($highlighted-search, 'form', 'gap');
   margin-block-start: map.get($highlighted-search, 'form', 'margin');
-  padding: map.get($highlighted-search, 'form', 'padding');
   width: 100%;
 
-  &:has(
-    .ecl-highlighted-search__form-input:focus-visible:is(
-        :placeholder-shown,
-        :not([placeholder])
-      )
-  ) {
-    box-shadow: 0 0 0 2px map.get($highlighted-search, 'form', 'shadow-focus');
-    outline: 2px solid map.get($highlighted-search, 'form', 'outline-color');
-    outline-offset: 2px;
+  .ecl-highlighted-search__form--multiple-fields & {
+    flex-direction: column;
+  }
+
+  .ecl-highlighted-search__form-button {
+    flex-shrink: 0;
+    width: auto;
+
+    .ecl-highlighted-search__form--multiple-fields & {
+      width: 100%;
+    }
   }
 }
 
@@ -96,29 +100,49 @@ $highlighted-search: null !default;
   width: 100%;
 }
 
-.ecl-highlighted-search__form-icon {
-  color: map.get($highlighted-search, 'icon-color');
-  flex-shrink: 0;
+.ecl-highlighted-search__input-wrapper {
+  position: relative;
+  width: 100%;
 }
 
-.ecl-highlighted-search__form-button {
-  flex-shrink: 0;
+// z-index needed, as the form group is a container (own stacking context)
+.ecl-highlighted-search__form-icon {
+  color: map.get($highlighted-search, 'icon-color');
+  inset-inline-start: map.get($highlighted-search, 'form', 'icon-offset');
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.ecl-highlighted-search__select-wrapper {
+  width: 100%;
+
+  .ecl-select__container {
+    width: 100%;
+  }
+
+  // Need to override the select button height too
+  .ecl-select__icon .ecl-button {
+    height: auto;
+    min-height: auto;
+  }
+}
+
+.ecl-highlighted-search__form-input,
+.ecl-highlighted-search__form-select {
+  height: auto;
+  padding-block: map.get($highlighted-search, 'form', 'input-padding-block');
 }
 
 .ecl-highlighted-search__form-input {
-  border: none;
-  box-shadow: none;
-  height: auto;
-  padding: map.get($highlighted-search, 'form', 'input-padding');
+  padding-inline-start: calc(
+    #{map.get($highlighted-search, 'form', 'icon-offset')} +
+      #{map.get($theme, 'icon', 'm')} +
+      #{map.get($highlighted-search, 'form', 'icon-gap')}
+  );
   width: 100%;
-
-  &:hover {
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    outline: none;
-  }
 }
 
 .ecl-highlighted-search__form-helper {
@@ -135,7 +159,7 @@ $highlighted-search: null !default;
   align-items: flex-start;
   align-self: flex-start;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
   gap: var(--s-m);
   margin-block-start: var(--s-m);
 
@@ -157,4 +181,26 @@ $highlighted-search: null !default;
     'suggestion',
     'label-padding'
   );
+}
+
+@container ecl-highlighted-search (width >= #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-highlighted-search__suggestion {
+    flex-direction: row;
+  }
+
+  .ecl-highlighted-search__form--multiple-fields {
+    .ecl-highlighted-search__form-content {
+      flex-direction: row;
+
+      .ecl-highlighted-search__form-button {
+        width: auto;
+      }
+    }
+
+    .ecl-highlighted-search__input-wrapper,
+    .ecl-highlighted-search__select-wrapper {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  }
 }

@@ -11,6 +11,8 @@ const getArgs = (data) => {
   const args = {
     title: data.title,
     description: data.description,
+    select: false,
+    horizontal_alignment: 'center',
     nb_suggestions: data.suggestion.items.length,
   };
 
@@ -23,6 +25,25 @@ const getArgs = (data) => {
 
 const getArgTypes = () => ({
   ...getColorModeControls(),
+  select: {
+    name: 'select input',
+    type: { name: 'boolean' },
+    description: 'Use an additional select input',
+    table: {
+      category: 'Optional',
+    },
+  },
+  horizontal_alignment: {
+    name: 'horizontal alignment',
+    type: { name: 'select' },
+    description: 'Content alignment (horizontal)',
+    options: ['center', 'left'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'center' },
+      category: 'Display',
+    },
+  },
   title: {
     name: 'title',
     type: { name: 'string' },
@@ -60,6 +81,11 @@ const prepareData = (data, args) => {
   clone.title = args.title;
   clone.description = args.description;
   clone.color_mode = args.color_mode;
+  clone.horizontal_alignment = args.horizontal_alignment;
+
+  if (!args.select) {
+    delete clone.search_select;
+  }
 
   if (args.nb_suggestions === 0) {
     delete clone.suggestion;

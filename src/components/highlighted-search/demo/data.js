@@ -9,6 +9,58 @@ module.exports = {
     id: 'highlighted-search-input-id',
     name: 'highlighted-search-input-name',
   },
+  search_select: {
+    id: 'highlighted-search-select-id',
+    name: 'highlighted-search-select-name',
+    options: [
+      {
+        value: '',
+        label: 'Select country',
+        disabled: true,
+        selected: true,
+      },
+      {
+        value: '1',
+        label: 'Belgium',
+      },
+      {
+        value: '2',
+        label: 'France',
+      },
+      {
+        value: '3',
+        label: 'Luxembourg',
+      },
+      {
+        value: '4',
+        label: 'Germany',
+      },
+      {
+        value: '5',
+        label: 'Bulgaria',
+      },
+      {
+        value: '6',
+        label: 'Italy',
+      },
+      {
+        value: '7',
+        label: 'Romania',
+      },
+      {
+        value: '8',
+        label: 'Greece',
+      },
+      {
+        value: '9',
+        label: 'Hungary',
+      },
+      {
+        value: '10',
+        label: 'Portugal',
+      },
+    ],
+  },
   search_helper: 'e.g. full time, designer, writer',
   search_button: {
     label: 'Search',
