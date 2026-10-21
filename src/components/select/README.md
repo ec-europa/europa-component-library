@@ -24,6 +24,7 @@ npm install --save @ecl/select
 - **"multiple"** (bolean) (default: false): For the multiple select
 - **"multiple_placeholder"** (string) (default: '') Placeholder for the multiple select
 - **"multiple_all_text"** (string) (default: '') Text for the select all option
+- **"multiple_nb_options"** (string) (default: '') Label for the number of options (screen reader only)
 - **"multiple_select_all"** (boolean) (default: true) Show the select all checkbox in the multiple select
 - **"multiple_search"** (boolean) (default: true) Show the text filter in the multiple select
 - **"multiple_search_text"** (string) (default: '') Text for the search box inside the multiple select

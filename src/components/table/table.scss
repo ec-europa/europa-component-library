@@ -5,8 +5,8 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -18,8 +18,7 @@ $table: null !default;
   color: map.get($table, 'table', 'color');
   margin: 0;
   width: 100%;
-
-  @include mixins.responsive-font(map.get($table, 'table', 'font'));
+  font: map.get($table, 'table', 'font');
 }
 
 .ecl-table-responsive {
@@ -46,11 +45,11 @@ $table: null !default;
   vertical-align: top;
 
   &:first-child {
-    border-inline-start-color: map.get($table, 'head', 'background');
+    border-inline-start-color: map.get($table, 'head', 'border-inline-color');
   }
 
   &:last-child {
-    border-inline-end-color: map.get($table, 'head', 'background');
+    border-inline-end-color: map.get($table, 'head', 'border-inline-color');
   }
 }
 
@@ -59,8 +58,8 @@ $table: null !default;
   border-block-end: map.get($table, 'row-border');
   border-block-start-width: 0;
 
-  &:first-child {
-    border-block-start: map.get($table, 'row-border');
+  .ecl-table__body &:first-child {
+    border-block-start: map.get($table, 'head', 'head-border-top');
   }
 
   // stylelint-disable-next-line no-descending-specificity
@@ -94,8 +93,7 @@ $table: null !default;
   color: map.get($table, 'caption', 'color');
   margin-block-start: var(--s-xs);
   text-align: start;
-
-  @include mixins.responsive-font(map.get($table, 'caption', 'font'));
+  font: map.get($table, 'caption', 'font');
 }
 
 // Zebra
@@ -132,19 +130,20 @@ $table: null !default;
 }
 
 .ecl-table__arrow {
+  align-self: flex-start;
   background-color: transparent;
   border: 0;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   flex-shrink: 0;
   height: auto;
-  padding: 0;
+  padding: 0.25rem;
   width: auto;
 
-  &:focus-visible {
-    outline: 2px solid var(--cm-border-primary, var(--c-p));
-    outline-offset: -4px;
+  @include mixins-color.focus-default;
+
+  &:hover {
+    background-color: map.get($table, 'sort', 'background-color-hover');
   }
 }
 
@@ -162,23 +161,21 @@ $table: null !default;
 }
 
 .ecl-table__icon {
-  fill: map.get($table, 'sort', 'icon-color');
-}
-
-.ecl-table__icon-down {
-  margin-block-start: map.get($table, 'sort', 'icon-spacing');
-  transform: rotate(180deg);
+  color: map.get($table, 'sort', 'icon-color');
+  height: 1.25rem;
+  width: 1.25rem;
 }
 
 .ecl-table__header[aria-sort='ascending'] {
-  .ecl-table__icon-down {
-    fill: map.get($table, 'sort', 'icon-color-active');
+  .ecl-table__icon {
+    color: map.get($table, 'sort', 'icon-color-active');
   }
 }
 
 .ecl-table__header[aria-sort='descending'] {
-  .ecl-table__icon-up {
-    fill: map.get($table, 'sort', 'icon-color-active');
+  .ecl-table__icon {
+    color: map.get($table, 'sort', 'icon-color-active');
+    transform: rotate(180deg);
   }
 }
 
@@ -215,6 +212,11 @@ $table: null !default;
     }
 
     .ecl-table__cell {
+      border-inline-start: map.get(
+        $table,
+        'cell',
+        'border-inline-start-mobile'
+      );
       border-inline-end: map.get($table, 'cell', 'separator');
       border-block-start: map.get($table, 'row-border');
       display: flex;
@@ -222,8 +224,8 @@ $table: null !default;
 
       &::before {
         background-color: map.get($table, 'head', 'background');
-        border-inline-end: map.get($table, 'header', 'separator-mobile');
         border-block-end: map.get($table, 'header', 'separator-desktop');
+        border-inline-end: 2px solid map.get($table, 'head', 'background');
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
@@ -237,9 +239,15 @@ $table: null !default;
         padding: map.get($table, 'cell', 'padding-mobile');
       }
 
+      &:first-child::before {
+        margin-block-start: calc(
+          map.get($table, 'cell', 'margin-mobile', 'top') - 1px
+        );
+      }
+
       &:last-of-type {
         border-block-end: map.get($table, 'row-border');
-        margin-block-end: var(--s-l);
+        margin-block-end: var(--s-xs);
 
         &::before {
           border-block-end: none;
@@ -268,13 +276,17 @@ $table: null !default;
         font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
         inset-inline: calc(-1 * #{map.get($table, 'multi-head', 'position')});
-        margin-block-end: -1px;
+        margin-block-end: -2px;
         order: -1;
         padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
-        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 1px);
+        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 2px);
         width: 100%;
       }
+    }
+
+    .ecl-table__cell--group::before {
+      border-inline-end: map.get($table, 'header', 'separator-mobile');
     }
   }
 

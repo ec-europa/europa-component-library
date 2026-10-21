@@ -9,6 +9,7 @@
 $theme: null !default;
 
 .ecl-icon {
+  color: currentcolor;
   fill: currentcolor;
   margin: 0;
   transition: transform 300ms ease-in-out;
@@ -55,11 +56,11 @@ $theme: null !default;
 }
 
 .ecl-icon--primary {
-  fill: var(--cm-on-surface-primary, var(--c-p));
+  color: var(--cm-on-surface-primary, var(--c-p));
 }
 
 .ecl-icon--inverted {
-  fill: #fff;
+  color: #fff;
 }
 
 .ecl-icon--rotate-0 {

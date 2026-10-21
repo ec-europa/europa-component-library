@@ -66,9 +66,9 @@
           {%- if _level != 1 -%}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
-                name: 'solid-arrow',
+                name: 'caret-right',
+                family: 'phosphor',
                 size: 'xs',
-                transform: 'rotate-90',
               },
               extra_classes: 'ecl-category-filter__item-icon',
             } only %}
@@ -77,9 +77,9 @@
           {%- if _level == 1 -%}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
-                name: 'corner-arrow',
+                name: 'caret-down',
+                family: 'phosphor',
                 size: 'xs',
-                transform: 'rotate-180',
               },
               extra_classes: 'ecl-category-filter__item-icon',
             } only %}

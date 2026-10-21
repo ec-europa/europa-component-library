@@ -23,6 +23,7 @@ const iconSize = system === 'eu' ? 's' : 'xs';
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
  * @param {String} options.counterTextAttribute The data attribute for the default counter text
+ * @param {String} options.nbOptionsTextAttribute The data attribute for the screen reader label of the number of options found
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
  * @param {String} options.closeLabelAttribute The data attribute for the close button
  * @param {String} options.submitAttribute The data attribute for the submit button
@@ -79,11 +80,13 @@ export class Select {
       searchText = '',
       selectAllText = '',
       noResultsText = '',
+      nbOptionsText = '',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
       selectAllTextAttribute = 'data-ecl-select-all',
       counterTextAttribute = 'data-ecl-select-counter',
+      nbOptionsTextAttribute = 'data-ecl-select-nb-options',
       noResultsTextAttribute = 'data-ecl-select-no-results',
       closeLabelAttribute = 'data-ecl-select-close',
       clearAllLabelAttribute = 'data-ecl-select-clear-all',
@@ -111,10 +114,12 @@ export class Select {
     this.searchTextAttribute = searchTextAttribute;
     this.selectAllTextAttribute = selectAllTextAttribute;
     this.counterTextAttribute = counterTextAttribute;
+    this.nbOptionsTextAttribute = nbOptionsTextAttribute;
     this.noResultsTextAttribute = noResultsTextAttribute;
     this.defaultText = defaultText;
     this.searchText = searchText;
     this.selectAllText = selectAllText;
+    this.nbOptionsText = nbOptionsText;
     this.noResultsText = noResultsText;
     this.clearAllButtonLabel = clearAllButtonLabel;
     this.closeButtonLabel = closeButtonLabel;
@@ -133,10 +138,12 @@ export class Select {
     this.textSearch = null;
     this.textSelectAll = null;
     this.textCounter = null;
+    this.textNbOptions = null;
     this.textNoResults = null;
     this.selectMultiple = null;
     this.inputContainer = null;
     this.optionsContainer = null;
+    this.optionsCount = null;
     this.visibleOptions = null;
     this.searchContainer = null;
     this.countSelections = null;
@@ -180,7 +187,10 @@ export class Select {
    */
   static #createSvgIcon(name, classes) {
     const markup = document.createElement('span');
-    markup.setAttribute('class', `wt-icon--${name} ${classes}`);
+    markup.setAttribute(
+      'class',
+      `wt-icon-phosphor--${name} ${classes} ecl-icon-phosphor--${name}`,
+    );
 
     return markup;
   }
@@ -272,8 +282,8 @@ export class Select {
     labelWrapper.appendChild(label);
 
     const icon = Select.#createSvgIcon(
-      'corner-arrow',
-      `ecl-icon ecl-icon--${iconSize} ecl-icon--rotate-180`,
+      'caret-down',
+      `ecl-icon ecl-icon--${iconSize}`,
     );
 
     labelWrapper.appendChild(icon);
@@ -331,6 +341,9 @@ export class Select {
       this.textCounter =
         this.counterText ||
         this.element.getAttribute(this.counterTextAttribute);
+      this.textNbOptions =
+        this.nbOptionsText ||
+        this.element.getAttribute(this.nbOptionsTextAttribute);
       this.textNoResults =
         this.noResultsText ||
         this.element.getAttribute(this.noResultsTextAttribute);
@@ -458,6 +471,12 @@ export class Select {
       this.optionsContainer.classList.add('ecl-select__multiple-options');
       this.optionsContainer.setAttribute('aria-live', 'polite');
       this.searchContainer.appendChild(this.optionsContainer);
+
+      if (this.textNbOptions) {
+        this.optionsCount = document.createElement('span');
+        this.optionsCount.classList.add('ecl-select__multiple-options-nb');
+        this.optionsContainer.appendChild(this.optionsCount);
+      }
 
       // Toolbar
       if (this.clearAllButtonLabel || this.closeButtonLabel) {
@@ -590,6 +609,7 @@ export class Select {
         this.checkboxes = [];
       }
       this.visibleOptions = this.checkboxes;
+      this.#updateOptionsCount();
 
       this.formGroup.insertBefore(
         this.selectMultiple,
@@ -648,7 +668,7 @@ export class Select {
 
     const valuesArray = typeof values === 'string' ? [values] : values;
 
-    Array.from(this.select.options).forEach((option) => {
+    Array.from(this.select.options).forEach((option, index) => {
       if (op === 'replace') {
         option.selected = false;
       }
@@ -657,6 +677,14 @@ export class Select {
         valuesArray.includes(option.label)
       ) {
         option.selected = true;
+      }
+
+      // Update checkbox selection
+      if (this.multiple && this.checkboxes?.[index]) {
+        const input = queryOne('.ecl-checkbox__input', this.checkboxes[index]);
+        if (input) {
+          input.checked = option.selected;
+        }
       }
     });
 
@@ -826,6 +854,20 @@ export class Select {
   }
 
   /**
+   * Private method to update the screen reader only count of options found.
+   *
+   * @private
+   */
+  #updateOptionsCount() {
+    if (!this.optionsCount) return;
+
+    const availableOptions = (this.visibleOptions || this.checkboxes).filter(
+      (checkbox) => !checkbox.querySelector('input').disabled,
+    );
+    this.optionsCount.textContent = `${this.textNbOptions} ${availableOptions.length}`;
+  }
+
+  /**
    * Private method to handle optgroup in single select.
    *
    * @private
@@ -935,20 +977,19 @@ export class Select {
 
     // Toggle values
     const checkbox = e.target.closest('.ecl-checkbox');
-    Array.from(this.select.options).forEach((option) => {
-      if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
-        if (option.selected) {
-          option.selected = false;
-          option.removeAttribute('selected');
-          if (this.selectAll) {
-            this.selectAll.querySelector('input').checked = false;
-          }
-        } else {
-          option.selected = true;
-          option.setAttribute('selected', 'true');
+    const option = this.select.options[this.checkboxes.indexOf(checkbox)];
+    if (option) {
+      if (option.selected) {
+        option.selected = false;
+        option.removeAttribute('selected');
+        if (this.selectAll) {
+          this.selectAll.querySelector('input').checked = false;
         }
+      } else {
+        option.selected = true;
+        option.setAttribute('selected', 'true');
       }
-    });
+    }
 
     this.update();
   }
@@ -974,9 +1015,7 @@ export class Select {
 
     checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
-      const option = options.find(
-        (o) => o.text === checkbox.getAttribute('data-select-multiple-value'),
-      );
+      const option = this.select.options[this.checkboxes.indexOf(checkbox)];
 
       if (option) {
         if (checked) {
@@ -1060,6 +1099,7 @@ export class Select {
         this.visibleOptions.push(checkbox);
       }
     });
+    this.#updateOptionsCount();
     // Select all checkbox follows along.
     const checked = this.visibleOptions.filter(
       (c) => c.querySelector('input').checked,
@@ -1492,13 +1532,11 @@ export class Select {
    */
   handleClickOnClearAll(e) {
     e.preventDefault();
-    Array.from(this.select.options).forEach((option) => {
-      const checkbox = this.selectMultiple.querySelector(
-        `[data-select-multiple-value="${option.text}"]`,
-      );
-      const input = checkbox.querySelector('.ecl-checkbox__input');
+    Array.from(this.select.options).forEach((option, index) => {
+      const input = queryOne('.ecl-checkbox__input', this.checkboxes[index]);
       input.checked = false;
       option.selected = false;
+      option.removeAttribute('selected');
     });
     if (this.selectAll) {
       this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
@@ -1516,15 +1554,17 @@ export class Select {
     if (this.multiple) {
       // A slight timeout is necessary to execute the function just after the original reset of the form.
       setTimeout(() => {
-        Array.from(this.select.options).forEach((option) => {
-          const checkbox = this.selectMultiple.querySelector(
-            `[data-select-multiple-value="${option.text}"]`,
+        Array.from(this.select.options).forEach((option, index) => {
+          const input = queryOne(
+            '.ecl-checkbox__input',
+            this.checkboxes[index],
           );
-          const input = checkbox.querySelector('.ecl-checkbox__input');
           if (input.checked) {
             option.selected = true;
+            option.setAttribute('selected', 'true');
           } else {
             option.selected = false;
+            option.removeAttribute('selected');
           }
         });
         this.update(0);
