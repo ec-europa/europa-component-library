@@ -64,6 +64,7 @@ $quiz: null !default;
 .ecl-quiz__list {
   display: flex;
   gap: map.get($quiz, 'quiz', 'list-gap-mobile');
+  list-style: none;
   margin-block: 0;
   padding: 0;
   touch-action: pan-y pinch-zoom;

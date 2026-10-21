@@ -145,6 +145,14 @@ export class SliderPager {
     if (this.nextButton) {
       this.nextButton.toggleAttribute('disabled', !emblaApi.canGoToNext());
     }
+
+    if (this.prevButton && this.nextButton) {
+      if (!emblaApi.canGoToNext() && !emblaApi.canGoToPrev()) {
+        this.pagerElement.style.display = 'none';
+      } else {
+        this.pagerElement.style.removeProperty('display');
+      }
+    }
   }
 
   /**
