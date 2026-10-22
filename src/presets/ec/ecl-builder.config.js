@@ -106,6 +106,15 @@ export default {
       },
     },
     {
+      entry: path.resolve(__dirname, 'src/ec-ep.scss'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-ec-ep.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
+    {
       entry: path.resolve(__dirname, 'src/ec-default-print.scss'),
       dest: path.resolve(
         outputFolder,
@@ -149,18 +158,6 @@ export default {
             on: 'change',
             name: 'dev/ec presets scss changes',
             command: 'npm run build:styles',
-            message: 'New styles ready',
-            reload: '*.css',
-          },
-        ],
-      },
-      {
-        pattern: `${path.resolve(__dirname, '..')}/ep/src/*.scss`,
-        events: [
-          {
-            on: 'change',
-            name: 'ep overrides scss changes',
-            command: 'pnpm --filter @ecl/preset-ep run build',
             message: 'New styles ready',
             reload: '*.css',
           },

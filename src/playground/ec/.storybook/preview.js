@@ -163,8 +163,8 @@ export const parameters = {
         group: 'print',
       },
       {
-        id: 'ecl-ep',
-        href: './styles/ecl-ep.css',
+        id: 'ecl-ec-ep',
+        href: './styles/optional/ecl-ec-ep.css',
         picked: false,
         group: 'site',
       },

@@ -13,6 +13,4 @@ cp -r ../../dist/playground/eu ./public/playground/eu
 cp -r ../../dist/packages/ec/. ./public/playground/ec
 cp -r ../../dist/packages/eu/. ./public/playground/eu
 cp -a ../../src/playground/ec/public/* ./public/playground/ec
-# EP website overrides, only exposed in the EC storybook (not part of the EC preset)
-cp ../../src/presets/ep/dist/styles/ecl-ep.css ./public/playground/ec/styles/
 cp -a ../../src/playground/eu/public/* ./public/playground/eu

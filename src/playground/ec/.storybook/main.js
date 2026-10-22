@@ -35,7 +35,6 @@ if (isChromatic()) {
 let staticDirs = [
   path.resolve(__dirname, '../../../presets/ec', outputFolder),
   path.resolve(__dirname, '../../../presets/reset', outputFolder),
-  path.resolve(__dirname, '../../../presets/ep', outputFolder),
   path.resolve(__dirname, '../public'),
 ];
 
