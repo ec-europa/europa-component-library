@@ -28,7 +28,7 @@ $typography: null !default;
 // Items sub-grid, single column by default (stacked, mobile-first)
 // Row gap is exposed as a custom property so dividers can be centered in it
 .ecl-layout-wrapper__content {
-  --ecl-layout-wrapper-row-gap: 1.5rem;
+  --ecl-layout-wrapper-row-gap: 2rem;
 
   display: grid;
   column-gap: map.get($theme, 'grid', 'gutter-s');
@@ -51,7 +51,7 @@ $typography: null !default;
 // Dividers between rows
 .ecl-layout-wrapper--divider {
   .ecl-layout-wrapper__content {
-    --ecl-layout-wrapper-row-gap: 3rem;
+    --ecl-layout-wrapper-row-gap: 4rem;
 
     overflow: clip;
 
