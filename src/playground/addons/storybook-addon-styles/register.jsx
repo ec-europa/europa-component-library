@@ -153,6 +153,7 @@ function StylePanel() {
     screen: styleSheets.filter((s) => s.group === 'screen'),
     print: styleSheets.filter((s) => s.group === 'print'),
     others: styleSheets.filter((s) => s.group === 'others'),
+    site: styleSheets.filter((s) => s.group === 'site'),
   };
 
   const isGroupChecked = (group) =>
@@ -301,6 +302,22 @@ function StylePanel() {
             </label>
           ))}
         </div>
+        {groups.site.length > 0 && (
+          <div className="group">
+            <div className="group-title">Site specific</div>
+            {groups.site.map(({ id }) => (
+              <label key={id} htmlFor={`style-${id}`}>
+                <input
+                  id={`style-${id}`}
+                  type="checkbox"
+                  checked={styles[id] || false}
+                  onChange={handleToggle(id)}
+                />
+                {id}
+              </label>
+            ))}
+          </div>
+        )}
       </form>
     </div>
   );

@@ -155,6 +155,18 @@ export default {
         ],
       },
       {
+        pattern: `${path.resolve(__dirname, '..')}/ep/src/*.scss`,
+        events: [
+          {
+            on: 'change',
+            name: 'ep overrides scss changes',
+            command: 'pnpm --filter @ecl/preset-ep run build',
+            message: 'New styles ready',
+            reload: '*.css',
+          },
+        ],
+      },
+      {
         pattern: `${path.resolve(__dirname, '..')}/(dev|ec)/src/*.js`,
         events: [
           {
