@@ -1,10 +1,11 @@
-import { queryAll } from '@ecl/dom-utils';
+import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.moreItemLabelSelector Selector for more button label attribute
  * @param {String} options.listsSelector Selector for list element
+ * @param {String} options.popoverSelector Selector for list popover
  * @param {String} options.visibleItemsSelector Selector to retrieve the number of visible items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
@@ -30,6 +31,7 @@ export class DescriptionList {
       listsSelector = '[data-ecl-description-list-collapsible]',
       visibleItemsSelector = 'data-ecl-description-list-visible-items',
       moreItemLabelSelector = 'data-ecl-description-list-more-label',
+      popoverSelector = '[data-ecl-description-list-popover]',
       attachClickListener = true,
     } = {},
   ) {
@@ -47,6 +49,7 @@ export class DescriptionList {
     this.listsSelector = listsSelector;
     this.attachClickListener = attachClickListener;
     this.visibleItemsSelector = visibleItemsSelector;
+    this.popoverSelector = popoverSelector;
 
     // Private variables
     this.moreItemLabel = null;
@@ -71,15 +74,20 @@ export class DescriptionList {
     if (this.lists[0] && this.visibleItems > 0 && this.moreItemLabel) {
       this.lists.forEach((list) => {
         if (list.children && list.children.length > this.visibleItems) {
-          const listItem = document.createElement('li');
-          listItem.classList.add('ecl-description-list__see_more');
+          let button = '';
+          if (!list.hasAttribute('data-ecl-description-list-has-popover')) {
+            const listItem = document.createElement('li');
+            listItem.classList.add('ecl-description-list__see_more');
 
-          const button = document.createElement('button');
-          button.classList.add('ecl-link', 'ecl-link--standalone');
-          button.type = 'button';
-          button.innerHTML = this.moreItemLabel;
-          listItem.appendChild(button);
-          list.appendChild(listItem);
+            button = document.createElement('button');
+            button.classList.add('ecl-link', 'ecl-link--standalone');
+            button.type = 'button';
+            button.innerHTML = this.moreItemLabel;
+            listItem.appendChild(button);
+            list.appendChild(listItem);
+          } else {
+            button = queryOne('.ecl-description-list__see_more', list);
+          }
 
           this.showHide(
             queryAll('.ecl-description-list__definition-item', list),
@@ -151,10 +159,44 @@ export class DescriptionList {
   handleClickOnMore(e) {
     e.preventDefault();
 
-    const listItem = e.target.parentNode;
+    const listItem = e.target.closest('.ecl-description-list__see_more');
     const list = listItem.parentNode;
     let firstHiddenItem = null;
     if (this.element.contains(list)) {
+      // Popover use case
+      if (list.hasAttribute('data-ecl-description-list-has-popover')) {
+        const contentEl = queryOne('.ecl-popover__scrollable', list);
+        if (!list.dataset.popoverPopulated) {
+          const dd = list.closest('.ecl-description-list__definition');
+          const dt = dd.previousSibling;
+          const category = dt && dt.tagName === 'DT' ? dt.textContent : null;
+          if (category) {
+            const span = document.createElement('span');
+            span.classList.add('ecl-description-list__term');
+            span.innerHTML = category;
+            contentEl.prepend(span);
+          }
+
+          const hiddenItems = Array.from(list.children).filter((item) =>
+            item.classList.contains(
+              'ecl-description-list__definition-item--hidden',
+            ),
+          );
+
+          hiddenItems.forEach((item) => {
+            item.classList.remove(
+              'ecl-description-list__definition-item--hidden',
+            );
+            contentEl.appendChild(item);
+          });
+
+          list.dataset.popoverPopulated = 'true';
+        }
+
+        // open popover
+        return;
+      }
+
       const parentChildren = Array.from(list.children);
       parentChildren.forEach((item) => {
         if (
@@ -174,6 +216,7 @@ export class DescriptionList {
           'ecl-description-list__definition-item--last-visible',
         );
       });
+
       // Remove the button
       listItem.remove();
 
