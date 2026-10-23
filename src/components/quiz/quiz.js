@@ -482,7 +482,7 @@ export class Quiz {
     if (
       e.key === 'Tab' &&
       !e.shiftKey &&
-      e.target.classList.contains('ecl-quiz-card__category')
+      e.target.classList.contains('ecl-quiz-card__answer-title')
     ) {
       let nextSlide = card.nextElementSibling;
       while (nextSlide && nextSlide.classList.contains(this.flippedClass)) {
