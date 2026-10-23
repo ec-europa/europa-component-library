@@ -400,7 +400,6 @@ export class Popover {
     // Try to use as much of the available width, respecting the max-width set.
     const styles = window.getComputedStyle(this.scrollable);
     const maxWidth = parseInt(styles.getPropertyValue('max-width'), 10);
-    const minWidth = parseInt(styles.getPropertyValue('min-width'), 10);
     const padding = parseInt(styles.getPropertyValue('padding-left'), 10) * 2;
 
     // We consider 90% of the biggest space available
@@ -415,9 +414,6 @@ export class Popover {
         containerWidth > maxWidth)
     ) {
       targetWidth = maxWidth;
-    } else if (horizontalSpace < minWidth + padding) {
-      // If the available space is smaller than minWidth (plus padding), set to minWidth
-      targetWidth = minWidth;
     } else if (direction === 'left' || direction === 'right') {
       // Otherwise, set the width to the available space minus the padding
       targetWidth = horizontalSpace - padding;

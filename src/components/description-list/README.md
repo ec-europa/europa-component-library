@@ -13,12 +13,14 @@ npm install --save @ecl/description-list
   "term" (string or array of string)
   "definition" (block or array of string or array of ECL Link or array of ECL Tag)
   "type" (string): type of data, if not plain text; could be "link", "link-inline", "taxonomy", "tag"
+  "more_popover" (boolean) (default: false) Reveal hidden items in a popover
   },
   ...
   ]
 - **"variant"** (string) (default: ''): Global display variant; can be 'horizontal', 'vertical'
 - **"visible_items"** (integer) (default: 0) Number of initially visible items (0 to display all)
 - **"more_label"** (string) (default: '') Label for the "show more" button when visible_items is set
+- **"popover_close_label"** (string) (default: '') label for the screen reader in the close button of the popover
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -28,7 +30,7 @@ npm install --save @ecl/description-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/description-list/description-list.html.twig' with { 
+{% include '@ecl/description-list/description-list.html.twig' with {
   variant: 'horizontal',
   visible_items: 3,
   more_label: 'view all',
