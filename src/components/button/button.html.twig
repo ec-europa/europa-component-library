@@ -118,7 +118,7 @@
       {% set _icon_image = true %}
     {%- endif -%}
 
-    {% if _indicator is not empty %}
+    {% if _indicator is not empty and _indicator.position != 'standalone' %}
       <span class="ecl-button__icon-container">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: icon,
@@ -141,7 +141,7 @@
           { name: 'data-ecl-icon' }
         ],
       } only %}
-    {% endif %}    
+    {% endif %}
   {% endfor %}
 
 {% endapply %}{% endmacro %}
@@ -153,21 +153,27 @@
   type="{{ _type }}"
   {{ _extra_attributes|raw }}
 >
-{%- if _icons is defined %}
+{%- if _icons is defined -%}
   <span class="ecl-button__container">
-  {% if _icon_position == 'before' %}
-    {{ button.icon(_icons, _indicator, _indicator_content) }}
-  {% endif %}
-  {% if _label %}
-    <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
-  {% endif %}
-  {% if _icon_position == 'after' %}
-    {{ button.icon(_icons, _indicator, _indicator_content) }}
-  {% endif %}
+    {% if _icon_position == 'before' %}
+      {{ button.icon(_icons, _indicator, _indicator_content) }}
+    {% endif %}
+
+    {% if _label %}
+      <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
+    {% endif %}
+
+    {% if _icon_position == 'after' %}
+      {{ button.icon(_icons, _indicator, _indicator_content) }}
+    {% endif %}
+
+    {%- if _indicator is not empty and _indicator.position == 'standalone' -%}
+      {% include '@ecl/indicator/indicator.html.twig' with _indicator only %}
+    {%- endif -%}
   </span>
-{% else %}
+{%- else -%}
   {{- block('label') -}}
-{% endif -%}
+{%- endif -%}
 </button>
 
 {% endapply %}

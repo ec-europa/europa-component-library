@@ -4,6 +4,9 @@
   Parameters:
   - "value" (string) (default: '') Indicator value
   - "sr_label" (string) (default: '') Additional label for screen readers
+  - "variant" (string) (default: 'error') Background color
+  - "position" (string) (default: 'right') Position of the indicator, can be left or standalone
+  - "shape" (string) (default: '') Shape of the indicator can be oval
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the indicator
   - "extra_attributes" (array) (default: []) Extra attributes for the indicator
     - "name" (string) Attribute name, eg. 'data-test'
@@ -14,10 +17,24 @@
 
 {% set _value = value|default('') %}
 {% set _sr_label = sr_label|default('') %}
+{% set _variant = variant|default('') %}
+{% set _position = position|default('') %}
+{% set _shape = shape|default('') %}
 {% set _css_class = 'ecl-indicator' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+{% if _position is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-indicator--' ~ _position %}
+{% endif %}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-indicator--' ~ _variant %}
+{% endif %}
+
+{% if _shape is not empty  %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-indicator--' ~ _shape %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -37,7 +54,7 @@
 
 <span
   data-ecl-indicator
-  data-ecl-auto-init="Indicator" 
+  data-ecl-auto-init="Indicator"
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >

@@ -258,5 +258,23 @@ describe('Link', () => {
 
       return expect(render(options)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly when standalone', () => {
+      expect.assertions(1);
+
+      const optionsIndicatorStandalone = merge(options, {
+        link: {
+          icon_position: 'before',
+          hide_label: false,
+          indicator: {
+            position: 'standalone',
+          },
+        },
+      });
+
+      return expect(
+        render(optionsIndicatorStandalone),
+      ).resolves.toMatchSnapshot();
+    });
   });
 });
