@@ -6,6 +6,7 @@ import { addons } from '@storybook/preview-api';
 import { STORY_RENDERED } from '@storybook/core-events';
 import { allModes } from './modes';
 import { RTL_UPDATE_EVENT } from 'storybook-addon-rtl';
+import { BORDER_RADIUS_CHANGED } from '@ecl/storybook-addon-border-radius';
 
 import './ECL';
 
@@ -16,6 +17,7 @@ import './ECL';
 let eclInitTimer = null;
 let eclAutoInitInstance = null;
 let direction = null;
+let borderRadius = null;
 function debouncedEclInit() {
   clearTimeout(eclInitTimer);
   eclInitTimer = setTimeout(() => {
@@ -32,7 +34,7 @@ function debouncedEclInit() {
     if (eclAutoInitInstance) {
       eclAutoInitInstance.destroy();
     }
-    eclAutoInitInstance = ECL.autoInit();
+    eclAutoInitInstance = ECL.autoInit({ borderRadius });
     // Inject the webtools icon script so it always runs after the story
     // content is in the DOM.
     const LOAD_JS = 'https://webtools.europa.eu/load.js';
@@ -47,6 +49,14 @@ function debouncedEclInit() {
 // Primary trigger: fires after the story is fully rendered.
 const channel = addons.getChannel();
 channel.on(STORY_RENDERED, debouncedEclInit);
+channel.on(BORDER_RADIUS_CHANGED, (value) => {
+  const selectedBorderRadius = value || null;
+
+  if (borderRadius !== selectedBorderRadius) {
+    borderRadius = selectedBorderRadius;
+    debouncedEclInit();
+  }
+});
 
 // Secondary trigger: re-init when controls change the story HTML.
 // Set up only once (after first STORY_RENDERED) so the observer does not
