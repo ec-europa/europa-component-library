@@ -16,7 +16,7 @@ $button: null !default;
   align-items: center;
   appearance: none;
   background: none;
-  border-radius: var(--ecl-border-radius, map.get($button, 'radius'));
+  border-radius: map.get($button, 'radius');
   border-width: 0;
   box-sizing: border-box;
   cursor: pointer;
