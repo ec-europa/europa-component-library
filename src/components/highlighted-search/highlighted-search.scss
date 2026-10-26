@@ -107,7 +107,10 @@ $highlighted-search: null !default;
 
   .ecl-form-label-wrapper {
     grid-row: 1;
-    margin-block-end: map.get($highlighted-search, 'form', 'label-spacing');
+
+    &:not(:has(.ecl-form-label--hidden)) {
+      margin-block-end: map.get($highlighted-search, 'form', 'label-spacing');
+    }
   }
 
   .ecl-form-label {

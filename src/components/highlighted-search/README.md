@@ -15,10 +15,10 @@ npm install --save @ecl/highlighted-search
 - **"title"** (string) (default: '') Title of highlighted search
 - **"description"** (string) (default: '') Description of highlighted search
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
-- **"search_input_label"** (string) (default: '') Label of the search field
+- **"search_input_label"** (string) (default: '') Label of the search field; if empty, a hidden label is generated from the placeholder or the button label
 - **"search_select"** (object) (default: {}) Search select, following ECL Select structure
-- **"search_select_label"** (string) (default: '') Label of the search select
-- **"search_helper"** (string) (default: '') Search helper, for additional information
+- **"search_select_label"** (string) (default: '') Label of the search select; if empty, a hidden label is generated from the first option label or the multiple select placeholder
+- **"search_helper"** (string) (default: '') Search helper, for additional information; refers to the search field ("search_input")
 - **"search_button"** (object) (default: {}) Search button, following ECL Button structure
 - **"suggestion_label"** (string) (default: '') Label for the suggestions
 - **"suggestion"** (object) (default: {}) List of tags, following the ECL Tag Set structure

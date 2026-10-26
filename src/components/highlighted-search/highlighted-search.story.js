@@ -174,4 +174,3 @@ Default.parameters = {
     json: ({ args }) => prepareData(defaultData, args),
   },
 };
-Default.decorators = [withCode, withNotes];

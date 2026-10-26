@@ -9,10 +9,10 @@
     - "title" (string) (default: '') Title of highlighted search
     - "description" (string) (default: '') Description of highlighted search
     - "search_input" (object) (default: {}) Search field, following ECL Text Input structure
-    - "search_input_label" (string) (default: '') Label of the search field
+    - "search_input_label" (string) (default: '') Label of the search field; if empty, a hidden label is generated from the placeholder or the button label
     - "search_select" (object) (default: {}) Search select, following ECL Select structure
-    - "search_select_label" (string) (default: '') Label of the search select
-    - "search_helper" (string) (default: '') Search helper, for additional information
+    - "search_select_label" (string) (default: '') Label of the search select; if empty, a hidden label is generated from the first option label or the multiple select placeholder
+    - "search_helper" (string) (default: '') Search helper, for additional information; refers to the search field ("search_input")
     - "search_button" (object) (default: {}) Search button, following ECL Button structure
     - "suggestion_label" (string) (default: '') Label for the suggestions
     - "suggestion" (object) (default: {}) List of tags, following the ECL Tag Set structure
@@ -45,11 +45,16 @@
 {% set _search_select_label = search_select_label|default('') %}
 {% set _search_helper = search_helper|default('') %}
 {% set _search_button = search_button|default({}) %}
-{% set _suggestion_label = suggestion_label|default({}) %}
+{% set _suggestion_label = suggestion_label|default('') %}
 {% set _suggestion = suggestion|default({}) %}
 
 {% set _title_id = _id ~ '-title' %}
 {% set _suggestion_label_id = _id ~ '-suggestion-label' %}
+
+{# Fallback on hidden labels, so the fields always have an accessible name #}
+{% set _search_input_hidden_label = _search_input.placeholder|default(_search_button.label|default('')) %}
+{% set _search_select_first_option = _search_select.options|default([])|first %}
+{% set _search_select_hidden_label = _search_select_first_option.label|default(_search_select.multiple_placeholder|default('')) %}
 
 {# Internal logic - Process properties #}
 
@@ -152,7 +157,8 @@
               } only %}
 
               {% include '@ecl/form-group/form-group.html.twig' with {
-                label: _search_input_label,
+                label: _search_input_label|default(_search_input_hidden_label),
+                hide_label: not _search_input_label,
                 helper_text: _search_helper,
                 extra_classes: 'ecl-highlighted-search__form-group',
                 input: _search_input|merge({
@@ -169,7 +175,8 @@
           {% if _search_select is not empty %}
             <div class="ecl-highlighted-search__select-wrapper">
               {% include '@ecl/form-group/form-group.html.twig' with {
-                label: _search_select_label,
+                label: _search_select_label|default(_search_select_hidden_label),
+                hide_label: not _search_select_label,
                 extra_classes: 'ecl-highlighted-search__form-group',
                 input: _search_select|merge({
                   width: 'l',
