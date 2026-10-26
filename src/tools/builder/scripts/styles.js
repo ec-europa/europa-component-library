@@ -56,7 +56,8 @@ const buildStyles = async (entry, dest, options) => {
   const sassResult = sass.compile(entry, {
     outFile: dest,
     functions: {
-      'getsystem()': () => new sass.types.String(getSystem() || ''),
+      'getsystem()': () =>
+        new sass.SassString(getSystem() || '', { quotes: false }),
     },
     sourceMap: options.sourceMap !== false,
     sourceMapIncludeSources: options.sourceMap === true,

@@ -1,5 +1,5 @@
-const merge = require('deepmerge');
-const twing = require('./environment');
+import merge from 'deepmerge';
+import twing from './environment.js';
 
 const renderTwigFileAsNode = (file, options = {}) =>
   new Promise((resolve, reject) => {
@@ -26,8 +26,4 @@ const renderTwigFileAsHtml = (file, options = {}, main) =>
     return html.trim();
   });
 
-module.exports = {
-  merge,
-  renderTwigFileAsNode,
-  renderTwigFileAsHtml,
-};
+export { merge, renderTwigFileAsNode, renderTwigFileAsHtml };
