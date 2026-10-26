@@ -1,8 +1,8 @@
 /* global ResizeObserver */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { IconButton } from '@storybook/components';
-import { useParameter } from '@storybook/manager-api';
+import { IconButton } from 'storybook/internal/components';
+import { useParameter } from 'storybook/manager-api';
 
 const getColorForBreakpoint = (label) => {
   switch (label) {

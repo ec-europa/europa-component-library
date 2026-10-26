@@ -5,3 +5,4 @@ export const PARAM_KEY = 'ecl-code';
 // Events
 export const TOGGLE_CODE = `${ADDON_ID}/toggle_code`;
 export const ADD_CODE = `${ADDON_ID}/add_code`;
+export const REQUEST_CODE = `${ADDON_ID}/request_code`;

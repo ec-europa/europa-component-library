@@ -1,6 +1,7 @@
-import { addons } from '@storybook/manager-api';
+import { registerThemeTool } from '@ecl/storybook-config/appearance';
+import { addons } from 'storybook/manager-api';
 import browserUpdate from 'browser-update';
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 
 addons.setConfig({
   panelPosition: 'bottom',
@@ -19,6 +20,8 @@ addons.setConfig({
     showRoots: false,
   },
 });
+
+registerThemeTool('ECL v5 EU');
 
 browserUpdate({
   required: {

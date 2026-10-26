@@ -1,4 +1,4 @@
-import { addons, makeDecorator } from '@storybook/preview-api';
+import { addons, makeDecorator } from 'storybook/preview-api';
 import { marked } from 'marked';
 import Prism from 'prismjs';
 import { decode } from 'he';
@@ -8,45 +8,43 @@ import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-twig';
 
-// Create custom marked renderer
-const renderer = {
-  code({ text, lang, escaped }) {
-    const language = (lang || '').match(/\S*/)[0];
+const escapeHtml = (text) =>
+  text.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      })[character],
+  );
 
-    if (!language) {
-      return `<pre><code>${escaped ? text : escape(text, true)}</code></pre>`;
-    }
-
-    const highlightedCode = Prism.highlight(
-      text,
-      Prism.languages[language],
-      language,
-    );
-
-    if (highlightedCode !== undefined && highlightedCode !== text) {
-      escaped = true;
-      text = highlightedCode;
-    }
-
-    const htmlLang = `language-${escape(language, true)}`;
-
-    // Due to the format produced by JSON.stringify.
-    if (lang === 'twig') {
-      text = text.replace(
-        /(<span class="token punctuation")>\.(<\/span>)/g,
-        '$1 style="visibility:hidden">.$2',
-      );
-    }
-
-    return `<pre class="${htmlLang}"><code class="${htmlLang}">${
-      escaped ? text : escape(text, true)
-    }</code></pre>\n`;
+// Escape code as HTML, not with the browser's URL-oriented global escape().
+marked.use({
+  renderer: {
+    code({ text, lang }) {
+      const language = (lang || '').match(/\S*/)[0];
+      const grammar = Prism.languages[language];
+      const highlighted = grammar
+        ? Prism.highlight(text, grammar, language)
+        : escapeHtml(text);
+      const className = language
+        ? ` class="language-${escapeHtml(language)}"`
+        : '';
+      return `<pre${className}><code${className}>${highlighted}</code></pre>\n`;
+    },
   },
-};
+});
 
-// Register the renderer once.
-// Do NOT put this inside renderMarkdown().
-marked.use({ renderer });
+const channel = addons.getChannel();
+let latestNotes;
+channel.on('ecl/notes/request_notes', ({ storyId }) => {
+  if (latestNotes?.storyId === storyId) {
+    channel.emit('ecl/notes/add_notes', latestNotes);
+  }
+});
 
 function renderMarkdown(text, options, json) {
   if (json) {
@@ -67,7 +65,7 @@ function renderMarkdown(text, options, json) {
     }
 
     if (example.extra_attributes === undefined) {
-      delete json.extra_attributes;
+      delete example.extra_attributes;
     }
 
     if (json.items) {
@@ -105,20 +103,20 @@ function renderMarkdown(text, options, json) {
       }
     });
 
-    // Ehm, this is the best format we could get.
-    let specs = JSON.stringify(example, undefined, '\n..');
+    const specs = JSON.stringify(example, null, 2);
 
-    // We only replace the existing examples.
-    specs = specs.replace(/"([^"()]+)":/g, '$1:');
-
-    const n = specs.lastIndexOf('}');
-    specs = [specs.slice(0, n), '\n', specs.slice(n)].join('');
-
-    const preTwig = text.slice(0, Math.max(0, text.indexOf("twig' with {")));
-
-    const postTwig = text.split('```').pop();
-
-    text = preTwig + "twig' with \n" + specs + postTwig + ' %}\n```';
+    // Replace only a complete include inside a Twig code fence. Keep every
+    // other README section, code fence, and trailing paragraph intact.
+    text = text.replace(
+      /(^[ \t]*```twig[^\n]*\n)([\s\S]*?)(^[ \t]*```[ \t]*$)/gm,
+      (fence, opening, body, closing) => {
+        const include = body.match(
+          /^(\s*{%\s*include\s+(['"])[^'"]+\2\s+with\s+)[\s\S]*?(\s+(?:only\s+)?%}\s*)$/,
+        );
+        if (!include) return fence;
+        return `${opening}${include[1]}${specs}${include[3]}${closing}`;
+      },
+    );
   }
 
   return marked.parse(text, options);
@@ -130,15 +128,14 @@ export const withNotes = makeDecorator({
   skipIfNoParametersOrOptions: true,
   allowDeprecatedUsage: true,
   wrapper: (getStory, context, { options, parameters }) => {
-    const channel = addons.getChannel();
     const story = getStory(context);
-    let { json } = parameters;
+    const storyOptions = parameters || options;
+    let json =
+      typeof storyOptions === 'object' ? storyOptions?.json : undefined;
 
     if (typeof json === 'function') {
       json = structuredClone(json(context));
     }
-
-    const storyOptions = parameters || options;
 
     const { text, markdown, markdownOptions } =
       typeof storyOptions === 'string' ? { text: storyOptions } : storyOptions;
@@ -149,10 +146,11 @@ export const withNotes = makeDecorator({
       );
     }
 
-    channel.emit(
-      'ecl/notes/add_notes',
-      text || renderMarkdown(markdown, markdownOptions, json),
-    );
+    latestNotes = {
+      storyId: context.id,
+      html: text || renderMarkdown(markdown, markdownOptions, json),
+    };
+    channel.emit('ecl/notes/add_notes', latestNotes);
 
     return story;
   },

@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import { userEvent } from '@storybook/test';
+import { userEvent } from 'storybook/test';
 
 // Get data
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';

@@ -1,11 +1,9 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { Buffer } from 'buffer';
-import { themes } from '@storybook/theming';
 import isChromatic from 'chromatic/isChromatic';
-import { addons } from '@storybook/preview-api';
-import { STORY_RENDERED } from '@storybook/core-events';
+import { addons } from 'storybook/preview-api';
+import { STORY_RENDERED } from 'storybook/internal/core-events';
 import { allModes } from './modes';
-import { RTL_UPDATE_EVENT } from 'storybook-addon-rtl';
 
 import './ECL';
 
@@ -60,13 +58,6 @@ channel.once(STORY_RENDERED, () => {
   });
 });
 
-// Listen to the update of the direction done via the storybook plugin.
-channel.on(RTL_UPDATE_EVENT, (dir) => {
-  if (direction && dir.direction !== direction) {
-    debouncedEclInit();
-  }
-});
-
 global.Buffer = Buffer;
 
 if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
@@ -96,7 +87,33 @@ if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   );
 }
 
+export const globalTypes = {
+  direction: {
+    description: 'Text direction',
+    toolbar: {
+      icon: 'globe',
+      dynamicTitle: true,
+      items: [
+        { value: 'ltr', title: 'Left to right' },
+        { value: 'rtl', title: 'Right to left' },
+      ],
+    },
+  },
+};
+
+export const decorators = [
+  (story, context) => {
+    const nextDirection = context.globals.direction || 'ltr';
+    document.documentElement.setAttribute('dir', nextDirection);
+    if (direction && direction !== nextDirection) debouncedEclInit();
+    return story();
+  },
+];
+
 export const initialGlobals = {
+  direction: 'ltr',
+  a11y: { manual: false },
+  viewport: { value: undefined, isRotated: false },
   panelDescription:
     'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
   panelTitle: 'ECL styles',
@@ -171,17 +188,13 @@ export const parameters = {
   },
   disableSaveFromUI: true,
   a11y: {
-    element: '#storybook-root',
-    config: {},
+    context: '#storybook-root',
+    config: {
+      checks: [{ id: 'color-contrast', options: { noScroll: true } }],
+    },
     options: {
-      checks: { 'color-contrast': { options: { noScroll: true } } },
       restoreScroll: true,
     },
-    manual: false,
-  },
-  darkMode: {
-    current: { ...themes.light },
-    dark: { ...themes.dark },
   },
   docs: {
     canvas: { sourceState: 'shown' },
@@ -190,8 +203,7 @@ export const parameters = {
   controls: { expanded: true },
   layout: 'padded',
   viewport: {
-    defaultViewport: 'responsive',
-    viewports: {
+    options: {
       responsive: {
         name: 'responsive',
         styles: {
@@ -229,26 +241,6 @@ export const loaders = [
   async ({ args, originalStoryFn }) => {
     if (originalStoryFn.render) {
       const component = await originalStoryFn.render(args);
-
-      // Store the original HTML (before icon replacement) for the HTML addon
-      if (typeof component === 'string') {
-        setTimeout(() => {
-          const rootDiv = document.querySelector('#storybook-root');
-
-          if (rootDiv) {
-            // Remove previous script if present
-            rootDiv.querySelector('.original-markup-source')?.remove();
-
-            const script = document.createElement('script');
-
-            script.type = 'text/plain';
-            script.className = 'original-markup-source';
-            script.textContent = component;
-
-            rootDiv.appendChild(script);
-          }
-        }, 0);
-      }
 
       return { component };
     }

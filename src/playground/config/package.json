@@ -1,0 +1,25 @@
+{
+  "name": "@ecl/storybook-config",
+  "version": "5.4.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./main.mjs",
+    "./appearance": "./appearance.jsx"
+  },
+  "dependencies": {
+    "@storybook/addon-a11y": "10.6.3",
+    "@storybook/addon-docs": "10.6.3",
+    "@storybook/html-vite": "10.6.3",
+    "@ecl/storybook-addon-code": "workspace:*",
+    "@ecl/storybook-addon-notes": "workspace:*",
+    "@ecl/storybook-addon-preview-width": "workspace:*",
+    "@ecl/storybook-addon-styles": "workspace:*",
+    "@ecl/storybook-addon-system-switcher": "workspace:*",
+    "storybook": "10.6.3",
+    "vite": "7.3.7",
+    "vite-plugin-node-polyfills": "0.25.0",
+    "vite-plugin-twing-drupal": "1.1.4",
+    "react": "19.3.1"
+  }
+}

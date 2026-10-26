@@ -1,4 +1,4 @@
-import { useChannel, useGlobals } from '@storybook/preview-api';
+import { useChannel, useGlobals } from 'storybook/preview-api';
 import { toggleStyle, TOGGLE_STYLE } from '@ecl/storybook-addon-styles';
 
 let hasInitializedStyles = false;
@@ -46,9 +46,11 @@ export const globalTypes = {
   styleToggles: {
     name: 'Style Toggles',
     description: 'Enable/disable style groups',
-    defaultValue: {},
-    toolbar: {
-      hidden: true, // Since we use a custom panel
-    },
   },
+};
+
+// The custom Styles panel controls this global; omit toolbar configuration so
+// Storybook does not try to create a menu (which would require toolbar.items).
+export const initialGlobals = {
+  styleToggles: {},
 };

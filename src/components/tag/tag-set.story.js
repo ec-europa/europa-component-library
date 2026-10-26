@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataSet from '@ecl/tag/demo/data--set';
+import dataSet from './demo/data--set';
 
 import tagSet from './tag-set.html.twig';
 import notes from './README-tag-set.md';

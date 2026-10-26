@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import { userEvent, expect } from '@storybook/test';
+import { userEvent, expect } from 'storybook/test';
 
 import dataDefault from './demo/data';
 import gallery from './gallery.html.twig';
