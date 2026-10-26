@@ -14,7 +14,9 @@ npm install --save @ecl/highlighted-search
 - **"title"** (string) (default: '') Title of highlighted search
 - **"description"** (string) (default: '') Description of highlighted search
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
-- **"search_select"** (object) (default: {}) Search select, following ECL Select structure. The label of the first option (expected to be a placeholder, e.g. "Select country") is used as the hidden label of the select.
+- **"search_input_label"** (string) (default: '') Label of the search field
+- **"search_select"** (object) (default: {}) Search select, following ECL Select structure
+- **"search_select_label"** (string) (default: '') Label of the search select
 - **"search_helper"** (string) (default: '') Search helper, for additional information
 - **"search_button"** (object) (default: {}) Search button, following ECL Button structure
 - **"suggestion_label"** (string) (default: '') Label for the suggestions
@@ -40,6 +42,7 @@ title: 'Find your next role',
     name: 'highlighted-search-input-name',
     placeholder: 'Enter a search keyword',
   },
+  search_input_label: 'Search keywords',
   search_helper: "Enter the job you're looking for",
   search_button: {
     label: 'Search',

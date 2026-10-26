@@ -24,33 +24,33 @@ $highlighted-search: null !default;
   align-items: center;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 800px;
   margin-inline: auto;
 
   .ecl-highlighted-search--hleft & {
     align-items: flex-start;
     margin-inline: 0;
   }
+}
 
-  & > *:first-child {
-    margin-block-start: map.get($highlighted-search, 'title', 'spacing');
-  }
+.ecl-highlighted-search__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-xs);
+  margin-block-end: map.get($highlighted-search, 'form', 'margin');
 }
 
 .ecl-highlighted-search__title {
   text-align: center;
 
+  @include mixins.responsive-font(map.get($highlighted-search, 'title-font'));
+
   .ecl-highlighted-search--hleft & {
     text-align: start;
   }
-
-  @include mixins.responsive-font(
-    map.get($highlighted-search, 'title', 'font')
-  );
 }
 
 .ecl-highlighted-search__description {
-  margin-block-start: map.get($highlighted-search, 'description', 'spacing');
   text-align: center;
 
   .ecl-highlighted-search--hleft & {
@@ -58,7 +58,7 @@ $highlighted-search: null !default;
   }
 
   @include mixins.responsive-font(
-    map.get($highlighted-search, 'description', 'font')
+    map.get($highlighted-search, 'description-font')
   );
 
   & > *:first-child {
@@ -70,70 +70,83 @@ $highlighted-search: null !default;
   }
 }
 
-// Form
 .ecl-highlighted-search__form {
   width: 100%;
 }
 
+// Grid with 3 rows (label, field, helper)
 .ecl-highlighted-search__form-content {
-  align-items: center;
-  display: flex;
-  gap: map.get($highlighted-search, 'form', 'gap');
-  margin-block-start: map.get($highlighted-search, 'form', 'margin');
-  width: 100%;
-
-  .ecl-highlighted-search__form--multiple-fields & {
-    flex-direction: column;
-  }
-
-  .ecl-highlighted-search__form-button {
-    flex-shrink: 0;
-    width: auto;
-
-    .ecl-highlighted-search__form--multiple-fields & {
-      width: 100%;
-    }
-  }
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: map.get($highlighted-search, 'form', 'gap');
+  row-gap: var(--s-m);
 }
 
-.ecl-highlighted-search__form-group {
-  width: 100%;
+// Same height as the fields, also when stacked.
+.ecl-highlighted-search__form-content
+  .ecl-highlighted-search__form-button.ecl-button {
+  min-height: var(--ecl-text-field-height);
 }
 
-.ecl-highlighted-search__input-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-// z-index needed, as the form group is a container (own stacking context)
-.ecl-highlighted-search__form-icon {
-  color: map.get($highlighted-search, 'icon-color');
-  inset-inline-start: map.get($highlighted-search, 'form', 'icon-offset');
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
+// Form group is flattened, so its children can be placed on the grid
+.ecl-highlighted-search__input-wrapper,
 .ecl-highlighted-search__select-wrapper {
-  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
 
-  .ecl-select__container {
+  .ecl-highlighted-search__form-group {
+    display: contents;
+  }
+
+  .ecl-form-label-wrapper {
+    grid-row: 1;
+    margin-block-end: map.get($highlighted-search, 'form', 'label-spacing');
+  }
+
+  .ecl-form-label {
+    color: map.get($highlighted-search, 'color');
+  }
+
+  .ecl-help-block {
+    color: map.get($highlighted-search, 'color');
+    grid-row: 3;
+    margin-block: map.get($highlighted-search, 'helper', 'spacing') 0;
+
+    @include mixins.responsive-font(
+      map.get($highlighted-search, 'helper', 'font')
+    );
+  }
+
+  // Specificity needed to override form-group spacing after the label,
+  // and the form width (its container queries need the form group container)
+  .ecl-highlighted-search__form-group > .ecl-highlighted-search__form-input,
+  .ecl-highlighted-search__form-group > .ecl-select__container,
+  .ecl-highlighted-search__form-group > .ecl-select__multiple {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
     width: 100%;
   }
 
-  // Need to override the select button height too
-  .ecl-select__icon .ecl-button {
-    height: auto;
-    min-height: auto;
+  // Multiple select: the native select container is replaced by the JS one
+  .ecl-highlighted-search__form-group > .ecl-select__container--hidden {
+    align-self: start;
+  }
+
+  .ecl-select__multiple .ecl-select__container {
+    width: 100%;
   }
 }
 
-.ecl-highlighted-search__form-input,
-.ecl-highlighted-search__form-select {
-  height: auto;
-  padding-block: map.get($highlighted-search, 'form', 'input-padding-block');
+// Icon shares the input cell, to stay centered on it
+.ecl-highlighted-search__form-icon {
+  align-self: center;
+  color: map.get($highlighted-search, 'icon-color');
+  grid-column: 1;
+  grid-row: 2;
+  margin-inline-start: map.get($highlighted-search, 'form', 'icon-offset');
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ecl-highlighted-search__form-input {
@@ -142,16 +155,16 @@ $highlighted-search: null !default;
       #{map.get($theme, 'icon', 'm')} +
       #{map.get($highlighted-search, 'form', 'icon-gap')}
   );
-  width: 100%;
+
+  @if map.has-key($highlighted-search, 'focus-inverted') {
+    @include mixins-color.focus-inverted;
+  }
 }
 
-.ecl-highlighted-search__form-helper {
-  align-self: flex-start;
-  margin-block-start: map.get($highlighted-search, 'helper', 'spacing');
-
-  @include mixins.responsive-font(
-    map.get($highlighted-search, 'helper', 'font')
-  );
+.ecl-highlighted-search__form-select {
+  @if map.has-key($highlighted-search, 'focus-inverted') {
+    @include mixins-color.focus-inverted;
+  }
 }
 
 // Suggestion
@@ -167,7 +180,7 @@ $highlighted-search: null !default;
     map.get($highlighted-search, 'suggestion', 'font')
   );
 
-  @if map.has-key($highlighted-search, 'suggestion', 'focus-inverted') {
+  @if map.has-key($highlighted-search, 'focus-inverted') {
     .ecl-tag {
       @include mixins-color.focus-inverted;
     }
@@ -188,19 +201,25 @@ $highlighted-search: null !default;
     flex-direction: row;
   }
 
-  .ecl-highlighted-search__form--multiple-fields {
-    .ecl-highlighted-search__form-content {
-      flex-direction: row;
+  // Fields share the 3 rows through subgrid, so the button aligns on the field row
+  .ecl-highlighted-search__form-content {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 0;
 
-      .ecl-highlighted-search__form-button {
-        width: auto;
-      }
+    .ecl-highlighted-search__form--multiple-fields & {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
     }
 
-    .ecl-highlighted-search__input-wrapper,
-    .ecl-highlighted-search__select-wrapper {
-      flex: 1 1 0;
-      min-width: 0;
+    // Explicit column, as items with a definite row are placed first
+    .ecl-highlighted-search__form-button {
+      grid-column: -2;
+      grid-row: 2;
     }
+  }
+
+  .ecl-highlighted-search__input-wrapper,
+  .ecl-highlighted-search__select-wrapper {
+    grid-row: span 3;
+    grid-template-rows: subgrid;
   }
 }

@@ -5,29 +5,23 @@ $highlighted-search: (
   background-color: var(--cm-surface-color-mode-high),
   color: var(--cm-on-surface-inverted),
   padding: var(--s-13xl) var(--s-xl),
-  icon-color: var(--c-g-600),
-  title: (
-    font: 'heading2',
-    spacing: var(--s-xs),
-  ),
-  description: (
-    font: 'body-xl',
-    spacing: var(--s-xs),
-  ),
+  icon-color: var(--cm-on-surface-grey),
+  title-font: 'heading2',
+  description-font: 'body-xl',
+  focus-inverted: true,
   helper: (
     font: 'microcopy-xs',
-    spacing: var(--s-3xs),
+    spacing: var(--s-xs),
   ),
   form: (
     margin: var(--s-3xl),
     gap: var(--s-xs),
     icon-offset: var(--s-s),
     icon-gap: var(--s-xs),
-    input-padding-block: var(--s-xs),
+    label-spacing: var(--s-xs),
   ),
   suggestion: (
     font: 'body-s',
     label-padding: var(--s-2xs),
-    focus-inverted: true,
   ),
 );

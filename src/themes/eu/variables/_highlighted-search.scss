@@ -6,14 +6,8 @@ $highlighted-search: (
   color: var(--c-d),
   padding: var(--s-4xl) var(--s-m),
   icon-color: var(--c-d-80),
-  title: (
-    font: 'heading2',
-    spacing: var(--s-xs),
-  ),
-  description: (
-    font: var(--f-l),
-    spacing: var(--s-xs),
-  ),
+  title-font: 'heading2',
+  description-font: var(--f-l),
   helper: (
     font: var(--f-s),
     spacing: var(--s-xs),
@@ -23,7 +17,7 @@ $highlighted-search: (
     gap: var(--s-s),
     icon-offset: var(--s-s),
     icon-gap: var(--s-xs),
-    input-padding-block: var(--s-2xs),
+    label-spacing: var(--s-xs),
   ),
   suggestion: (
     font: var(--f-m),

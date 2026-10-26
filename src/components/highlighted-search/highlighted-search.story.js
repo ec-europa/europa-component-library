@@ -9,9 +9,10 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    select: false,
     title: data.title,
     description: data.description,
-    select: false,
+    multiple: false,
     horizontal_alignment: 'center',
     nb_suggestions: data.suggestion.items.length,
   };
@@ -29,6 +30,15 @@ const getArgTypes = () => ({
     name: 'select input',
     type: { name: 'boolean' },
     description: 'Use an additional select input',
+    table: {
+      category: 'Optional',
+    },
+  },
+  multiple: {
+    name: 'multiple select',
+    type: { name: 'boolean' },
+    description: 'Allow selecting multiple options in the select input',
+    if: { arg: 'select' },
     table: {
       category: 'Optional',
     },
@@ -85,6 +95,17 @@ const prepareData = (data, args) => {
 
   if (!args.select) {
     delete clone.search_select;
+    delete clone.search_select_label;
+  } else if (args.multiple) {
+    // The multiple select uses its own placeholder, not an empty option
+    clone.search_select.multiple = true;
+    clone.search_select.options = clone.search_select.options.filter(
+      (option) => option.value !== '',
+    );
+  } else {
+    Object.keys(clone.search_select)
+      .filter((key) => key.startsWith('multiple_'))
+      .forEach((key) => delete clone.search_select[key]);
   }
 
   if (args.nb_suggestions === 0) {

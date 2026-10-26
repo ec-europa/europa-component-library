@@ -9,13 +9,22 @@ module.exports = {
     id: 'highlighted-search-input-id',
     name: 'highlighted-search-input-name',
   },
+  search_input_label: 'Search keywords',
   search_select: {
+    multiple_placeholder: '',
+    multiple_search_text: 'Enter filter keyword',
+    multiple_search_no_results_text: 'No results found',
+    multiple_all_text: 'Select all',
+    multiple_nb_options: 'Options found:',
+    multiple_close_text: 'Apply',
+    multiple_clear_all_text: 'Clear all',
+    multiple_counter_text: 'Selected:',
     id: 'highlighted-search-select-id',
     name: 'highlighted-search-select-name',
     options: [
       {
         value: '',
-        label: 'Select country',
+        label: '',
         disabled: true,
         selected: true,
       },
@@ -61,6 +70,7 @@ module.exports = {
       },
     ],
   },
+  search_select_label: 'Select country',
   search_helper: 'e.g. full time, designer, writer',
   search_button: {
     label: 'Search',

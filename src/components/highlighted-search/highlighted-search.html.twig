@@ -7,8 +7,10 @@
     - "horizontal_alignment" (string) (default: 'center') Content alignment (horizontal); can be 'center', 'left'
     - "title" (string) (default: '') Title of highlighted search
     - "description" (string) (default: '') Description of highlighted search
-    - "search_input" (object) (default: {}) Search field, following ECL Text Input structure.
-    - "search_select" (object) (default: {}) Search select, following ECL Select structure. The label of the first option (expected to be a placeholder, e.g. "Select country") is used as the hidden label of the select.
+    - "search_input" (object) (default: {}) Search field, following ECL Text Input structure
+    - "search_input_label" (string) (default: '') Label of the search field
+    - "search_select" (object) (default: {}) Search select, following ECL Select structure
+    - "search_select_label" (string) (default: '') Label of the search select
     - "search_helper" (string) (default: '') Search helper, for additional information
     - "search_button" (object) (default: {}) Search button, following ECL Button structure
     - "suggestion_label" (string) (default: '') Label for the suggestions
@@ -36,16 +38,16 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _search_input = search_input|default({}) %}
+{% set _search_input_label = search_input_label|default('') %}
 {% set _search_select = search_select|default({}) %}
+{% set _search_select_label = search_select_label|default('') %}
 {% set _search_helper = search_helper|default('') %}
 {% set _search_button = search_button|default({}) %}
 {% set _suggestion_label = suggestion_label|default({}) %}
 {% set _suggestion = suggestion|default({}) %}
 
 {% set _title_id = _id ~ '-title' %}
-{% set _helper_id = _id ~ '-helper' %}
 {% set _suggestion_label_id = _id ~ '-suggestion-label' %}
-{% set _helper_attributes = _search_helper is not empty ? [{ name: 'aria-describedby', value: _helper_id }] : [] %}
 
 {# Internal logic - Process properties #}
 
@@ -95,17 +97,21 @@
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-highlighted-search__content">
-    {# Title #}
-    {% if _title is not empty %}
-      <div class="ecl-highlighted-search__title" id="{{ _title_id }}">
-        {{- _title -}}
-      </div>
-    {% endif %}
+    {% if _title is not empty or _description is not empty %}
+      <div class="ecl-highlighted-search__info">
+        {# Title #}
+        {% if _title is not empty %}
+          <div class="ecl-highlighted-search__title" id="{{ _title_id }}">
+            {{- _title -}}
+          </div>
+        {% endif %}
 
-    {# Description #}
-    {% if _description is not empty %}
-      <div class="ecl-highlighted-search__description ecl-content-color">
-        {{- _description -}}
+        {# Description #}
+        {% if _description is not empty %}
+          <div class="ecl-highlighted-search__description ecl-content-color">
+            {{- _description -}}
+          </div>
+        {% endif %}
       </div>
     {% endif %}
 
@@ -137,14 +143,14 @@
               } only %}
 
               {% include '@ecl/form-group/form-group.html.twig' with {
-                label: _search_input.placeholder|default(_search_button.label)|default(''),
-                hide_label: true,
+                label: _search_input_label,
+                helper_text: _search_helper,
                 extra_classes: 'ecl-highlighted-search__form-group',
                 input: _search_input|merge({
+                  id: _search_input.id|default(_id ~ '-input'),
                   width: 'l',
                   input_type: 'search',
                   extra_classes: ('ecl-highlighted-search__form-input ' ~ _search_input.extra_classes|default(''))|trim,
-                  extra_attributes: _search_input.extra_attributes|default([])|merge(_helper_attributes)
                 }),
               } only %}
             </div>
@@ -154,14 +160,12 @@
           {% if _search_select is not empty %}
             <div class="ecl-highlighted-search__select-wrapper">
               {% include '@ecl/form-group/form-group.html.twig' with {
-                label: (_search_select.options|first).label|default(''),
-                hide_label: true,
+                label: _search_select_label,
                 extra_classes: 'ecl-highlighted-search__form-group',
                 input: _search_select|merge({
                   width: 'l',
                   input_type: 'select',
                   extra_classes: ('ecl-highlighted-search__form-select ' ~ _search_select.extra_classes|default(''))|trim,
-                  extra_attributes: _search_select.extra_attributes|default([])|merge(_helper_attributes)
                 }),
               } only %}
             </div>
@@ -171,7 +175,7 @@
           {% set _default_button = {
               size: 'm',
               variant: 'primary',
-              style: 'highlight',
+              style: 'highlight-inverted',
               type: 'submit',
             }
           %}
@@ -179,12 +183,6 @@
             extra_classes: ('ecl-highlighted-search__form-button ' ~ _search_button.extra_classes|default(''))|trim,
           }) only %}
         </div>
-        
-        {% if _search_helper is not empty %}
-          <div class="ecl-highlighted-search__form-helper" id="{{ _helper_id }}">
-            {{- _search_helper -}}
-          </div>
-        {% endif %}
       </form>
     {% endif %}
 
