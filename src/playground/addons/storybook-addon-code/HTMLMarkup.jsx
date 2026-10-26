@@ -10,6 +10,14 @@ import { styled } from 'storybook/theming';
 import { html as beautify } from 'js-beautify';
 import prefillPen from './codepen';
 
+const ScrollableDocument = styled(DocumentWrapper)({
+  boxSizing: 'border-box',
+  height: '100%',
+  minHeight: 0,
+  minWidth: 0,
+  overflow: 'auto',
+});
+
 const TitleBar = styled.div`
   align-items: center;
   display: flex;
@@ -44,8 +52,6 @@ const Tab = styled.button`
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
-  flexGrow: '1',
-  flexShrink: '1',
 }));
 
 function HTMLMarkup({ active, markup, originalMarkup }) {
@@ -91,7 +97,7 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
   const hasOriginal = originalMarkup && originalMarkup.trim() !== '';
 
   return active ? (
-    <DocumentWrapper>
+    <ScrollableDocument>
       <TitleBar>
         <h1>HTML</h1>
         <Button
@@ -140,7 +146,7 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
       <StyledSyntaxHighlighter bordered copyable format={false} language="html">
         {hasOriginal ? currentCode : beautifiedRendered}
       </StyledSyntaxHighlighter>
-    </DocumentWrapper>
+    </ScrollableDocument>
   ) : null;
 }
 

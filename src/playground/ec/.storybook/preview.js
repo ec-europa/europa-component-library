@@ -120,6 +120,8 @@ export const initialGlobals = {
 };
 
 export const parameters = {
+  actions: { disable: true },
+  interactions: { disable: true },
   chromatic: {
     modes: {
       s: allModes.s,
