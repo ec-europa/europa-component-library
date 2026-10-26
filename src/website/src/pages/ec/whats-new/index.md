@@ -5,6 +5,59 @@ title: What's new
 
 ECL v5 contains changes focused on improving the visual identity of the EC and EU components. Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 5.4.0 (2026-10-22)
+
+#### :bug: Bug Fix
+
+* [#4743](https://github.com/ec-europa/europa-component-library/pull/4743) fix(quiz): Restoring keyboard navigation after answering to the poll - FRONT-5524
+* [#4739](https://github.com/ec-europa/europa-component-library/pull/4739) fix(menu): move aria-haspopup - FRONT-5515
+* [#4732](https://github.com/ec-europa/europa-component-library/pull/4732) fix(featured-item): fix color override - FRONT-5513
+* [#4730](https://github.com/ec-europa/europa-component-library/pull/4730) fix(description-list): list without definition - FRONT-5511
+* [#4710](https://github.com/ec-europa/europa-component-library/pull/4710) fix(multi-select): update checkbox with js - FRONT-5490
+* [#4719](https://github.com/ec-europa/europa-component-library/pull/4719) fix(menu): fix text color when focus is away - FRONT-5501
+* [#4721](https://github.com/ec-europa/europa-component-library/pull/4721) fix(story-card): Initializing ECL.components map - FRONT-5503
+* [#4718](https://github.com/ec-europa/europa-component-library/pull/4718) fix(multi-select): remove duplicate attribute - FRONT-5500
+* [#4711](https://github.com/ec-europa/europa-component-library/pull/4711) fix(mega-menu): fix icon alignment - FRONT-5493
+* [#4707](https://github.com/ec-europa/europa-component-library/pull/4707) fix(layout-wrapper): remove extra spacing - FRONT-5498
+* [#4709](https://github.com/ec-europa/europa-component-library/pull/4709) fix(site-header): Checking for existence of the search form before using it in the js - FRONT-5491
+
+#### :nail_care: Enhancement
+
+* [#4717](https://github.com/ec-europa/europa-component-library/pull/4717) feat(layout-wrapper): add divider - FRONT-5498
+* [#4744](https://github.com/ec-europa/europa-component-library/pull/4744) feat(link): fix external icon size - FRONT-5526
+* [#4714](https://github.com/ec-europa/europa-component-library/pull/4714) feat(button): improve button css - FRONT-5486
+* [#4742](https://github.com/ec-europa/europa-component-library/pull/4742) fix(quiz): Removing marker from the list, hiding pager if no slider - FRONT-5525
+* [#4731](https://github.com/ec-europa/europa-component-library/pull/4731) feat(tabs): Using embla for the mobile slider - FRONT-5510
+* [#4723](https://github.com/ec-europa/europa-component-library/pull/4723) feat(typography): use css variable for font family - FRONT-4952
+* [#4727](https://github.com/ec-europa/europa-component-library/pull/4727) feat(table): update sorting display - FRONT-5507
+* [#4724](https://github.com/ec-europa/europa-component-library/pull/4724) feat(layout-wrapper): restore heading spacing - FRONT-5506
+* [#4669](https://github.com/ec-europa/europa-component-library/pull/4669) feat(icons): use phosphor icons everywhere - FRONT-5385
+* [#4684](https://github.com/ec-europa/europa-component-library/pull/4684) fix(multiselect): Using option's index and not the value or label to determine the selected options - FRONT-5070
+* [#4703](https://github.com/ec-europa/europa-component-library/pull/4703) feat(table): Styles update in EC and EU - FRONT-5483
+* [#4720](https://github.com/ec-europa/europa-component-library/pull/4720) fix(description-list): fix line break and separator - FRONT-5502
+* [#4638](https://github.com/ec-europa/europa-component-library/pull/4638) feat(highlight-box): add aria on the link - FRONT-5409
+* [#4659](https://github.com/ec-europa/europa-component-library/pull/4659) feat(multi select): add hidden number of options - FRONT-5416
+* [#4704](https://github.com/ec-europa/europa-component-library/pull/4704) feat(file): label list aria and display - FRONT-5475
+* [#4716](https://github.com/ec-europa/europa-component-library/pull/4716) feat(animated-number): optional header - FRONT-5497
+* [#4712](https://github.com/ec-europa/europa-component-library/pull/4712) feat(layout-wrapper): improve markup and css - FRONT-5494
+* [#4701](https://github.com/ec-europa/europa-component-library/pull/4701) feat(story-card): Disabling autoplay toggle when clicking on an expanded tab - FRONT-5474
+* [#4713](https://github.com/ec-europa/europa-component-library/pull/4713) feat(news-ticker): Refactoring js using embla, using  slider pager - FRONT-5481
+* [#4708](https://github.com/ec-europa/europa-component-library/pull/4708) feat(story-card): update testimonial markup - FRONT-5432
+* [#4673](https://github.com/ec-europa/europa-component-library/pull/4673) feat(container-queries): Applying to different components - FRONT-5446
+* [#4680](https://github.com/ec-europa/europa-component-library/pull/4680) fix(slider-pager): larger click area for dots - FRONT-5460
+
+#### :house: Internal
+
+* [#4738](https://github.com/ec-europa/europa-component-library/pull/4738) feat(content-block, card): add tags demo - FRONT-5517
+* [#4740](https://github.com/ec-europa/europa-component-library/pull/4740) chore(deps): Green updates + js-beautify + marked + vitejs - 20-10-26
+* [#4734](https://github.com/ec-europa/europa-component-library/pull/4734) chore(deps): Updating glob, eslint, size-limits to the latest versions
+* [#4736](https://github.com/ec-europa/europa-component-library/pull/4736) fix(icon): add fill rule - FRONT-5506
+* [#4733](https://github.com/ec-europa/europa-component-library/pull/4733) chore(deps): Updates 14-10-26
+* [#4728](https://github.com/ec-europa/europa-component-library/pull/4728) fix(icon): Fixing color declaration for the default icon - FRONT-5509
+* [#4722](https://github.com/ec-europa/europa-component-library/pull/4722) chore(deps): Updates 05-10-26
+* [#4715](https://github.com/ec-europa/europa-component-library/pull/4715) chore(deps): Updates - 23-09-26
+
+
 ## 5.3.0 (2026-09-15)
 
 #### :rocket: New Feature

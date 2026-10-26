@@ -5,10 +5,38 @@ order: 2
 
 import { Playground } from '@ecl/website-components';
 
+## Default gallery (mosaic)
+
 <Playground
   system="eu"
   selectedKind="components-gallery"
   selectedStory="default"
+  showFrame
+  disableAutoResize={true}
+  frameHeight="700"
+></Playground>
+
+## Grid gallery
+
+Different grid templates are available, see the showcase
+
+<Playground
+  system="eu"
+  selectedKind="components-gallery"
+  selectedStory="default"
+  selectedArgs="variant:grid;grid_template:3;visible_items:9"
+  showFrame
+  disableAutoResize={true}
+  frameHeight="700"
+></Playground>
+
+## Portrait gallery (mostly for video)
+
+<Playground
+  system="eu"
+  selectedKind="components-gallery"
+  selectedStory="default"
+  selectedArgs="variant:portrait"
   showFrame
   disableAutoResize={true}
   frameHeight="700"

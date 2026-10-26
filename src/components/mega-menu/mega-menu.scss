@@ -459,12 +459,10 @@ $mega-menu: null !default;
 
   .ecl-icon {
     flex-shrink: 0;
-    height: map.get($mega-menu, 'mobile', 'arrow-size');
 
     // Overriding style coming from button to align icon on the right
     margin-inline-start: auto !important;
     padding: 1px 3px;
-    width: map.get($mega-menu, 'mobile', 'arrow-size');
 
     &.ecl-mega-menu__link-icon--desktop {
       height: calc(var(--s-s) + 0.5px);
@@ -971,7 +969,6 @@ $mega-menu: null !default;
     overflow: visible;
 
     .ecl-link__icon {
-      height: calc(var(--s-s) + 0.5px);
       padding: 1px 3px;
     }
   }
@@ -1008,6 +1005,10 @@ $mega-menu: null !default;
   .ecl-icon {
     align-self: center;
     flex-shrink: 0;
+  }
+
+  > .ecl-button__container {
+    width: 100%;
   }
 
   .ecl-button__container .ecl-icon {
