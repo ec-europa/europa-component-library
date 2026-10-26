@@ -12,10 +12,10 @@ const loaderPath = normalizePath(
   ),
 );
 const virtualEnvironment = 'virtual:twing-env';
+const eclEnvironment = 'virtual:ecl-twing-env';
 
-// Adapter for the generated module contract of vite-plugin-twing-drupal 1.1.4.
-// ECL uses plain Twig data: DrupalAttribute and PrintableArrayWrapper would
-// change attributes, array indexing, length checks, and repeated renders.
+// Keep workspace paths and template cache keys compatible with Vite/pnpm while
+// leaving template rendering and Drupal attributes to the upstream plugin.
 export default function eclTwig(namespaces) {
   const createPlugin = () => precompileTwig({ namespaces, include: /\.twig$/ });
   let upstream = createPlugin();
@@ -23,7 +23,11 @@ export default function eclTwig(namespaces) {
   function reload(server) {
     upstream = createPlugin();
     for (const module of server.moduleGraph.idToModuleMap.values()) {
-      if (module.id === virtualEnvironment || module.file?.endsWith('.twig')) {
+      if (
+        module.id === virtualEnvironment ||
+        module.id === eclEnvironment ||
+        module.file?.endsWith('.twig')
+      ) {
         server.moduleGraph.invalidateModule(module);
       }
     }
@@ -34,7 +38,10 @@ export default function eclTwig(namespaces) {
     ...upstream,
     name: 'ecl-twing',
     resolveId(id, importer) {
-      if (id === virtualEnvironment) return id;
+      if (id === eclEnvironment) return id;
+      if (id === virtualEnvironment) {
+        return importer?.endsWith('.twig') ? eclEnvironment : id;
+      }
       if (!id.endsWith('.twig')) return null;
       if (id.startsWith('@')) {
         const slash = id.indexOf('/');
@@ -51,26 +58,25 @@ export default function eclTwig(namespaces) {
       return null;
     },
     load(id) {
+      if (id === eclEnvironment) {
+        // Preserve all upstream exports except array conversion. Its wrapper
+        // changes Twig loop.last and mutates reusable ECL demo data, as shown by
+        // running the existing snapshots through the plugin's render functions.
+        // Returning the native array also keeps indexing and JSON cloning intact.
+        return `
+          export * from '${virtualEnvironment}';
+          export function PrintableArrayWrapper(items) { return items; }
+        `;
+      }
       if (id !== virtualEnvironment && !id.endsWith('.twig')) return null;
       if (id === virtualEnvironment) {
         const generated = upstream.load.call(this, id);
         // The plugin emits a cwd-relative loader URL that breaks when its package
         // lives outside the Vite root, as it does in this pnpm workspace.
-        // Twing 7 has no implicit autoescape unless autoEscapingStrategy is set,
-        // matching the previous Twing 5 environment's autoescape: false.
-        const environment = generated
-          .replace(/import DrupalAttribute from [^;]+;/, '')
-          .replace(/import \{ addDrupalExtensions \} from [^;]+;/, '')
-          .replace('addDrupalExtensions(env);', '')
-          .replace(
-            /import createSDCLoader from '[^']+';/,
-            `import createSDCLoader from ${JSON.stringify(`/@fs/${loaderPath}`)};`,
-          );
-        const end = environment.indexOf('class PrintableArrayWrapper');
-        if (end === -1) {
-          this.error('Unexpected Twing plugin environment module.');
-        }
-        return `${environment.slice(0, end)}\nexport { env };`;
+        return generated.replace(
+          /import createSDCLoader from '[^']+';/,
+          `import createSDCLoader from ${JSON.stringify(`/@fs/${loaderPath}`)};`,
+        );
       }
       // All namespaced keys exist before the shared environment is sent to the
       // browser. Upstream's template load instead adds an absolute-path key on
@@ -95,13 +101,7 @@ export default function eclTwig(namespaces) {
         this.error(`Twig template is outside the configured namespaces: ${id}`);
       }
       this.addWatchFile(id);
-      return `
-        import { env } from '${virtualEnvironment}';
-        export function render(context = {}) {
-          return env.render(${JSON.stringify(templateKey)}, context);
-        }
-        export default render;
-      `;
+      return upstream.load.call(this, templateKey);
     },
     configureServer(server) {
       server.watcher.add(Object.values(namespaces).flat());
