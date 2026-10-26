@@ -11,6 +11,7 @@ npm install --save @ecl/highlighted-search
 - **"id"** (string) (default: random) Unique id for the component
 - **"color_mode"** (string) The color mode name
 - **"horizontal_alignment"** (string) (default: 'center') Content alignment (horizontal); can be 'center', 'left'
+- **"full_width"** (boolean) (default: false) Full width highlighted search (inside the grid)
 - **"title"** (string) (default: '') Title of highlighted search
 - **"description"** (string) (default: '') Description of highlighted search
 - **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure

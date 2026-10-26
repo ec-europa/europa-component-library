@@ -14,6 +14,8 @@ const getArgs = (data) => {
     description: data.description,
     multiple: false,
     horizontal_alignment: 'center',
+    full_width: false,
+    gridContent: false,
     nb_suggestions: data.suggestion.items.length,
   };
 
@@ -54,6 +56,25 @@ const getArgTypes = () => ({
       category: 'Display',
     },
   },
+  full_width: {
+    name: 'full width',
+    type: { name: 'boolean' },
+    description: 'Take the full width of the viewport when in a container',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Display',
+    },
+  },
+  gridContent: {
+    name: 'demo grid content',
+    type: { name: 'boolean' },
+    description:
+      'Inject a test content block displayed on the grid, to see the alignment',
+    table: {
+      category: 'Test content',
+    },
+  },
   title: {
     name: 'title',
     type: { name: 'string' },
@@ -92,6 +113,7 @@ const prepareData = (data, args) => {
   clone.description = args.description;
   clone.color_mode = args.color_mode;
   clone.horizontal_alignment = args.horizontal_alignment;
+  clone.full_width = args.full_width;
 
   if (!args.select) {
     delete clone.search_select;
@@ -122,6 +144,7 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Highlighted search',
+  parameters: { layout: 'fullscreen' },
   decorators: [
     withNotes,
     withCode,
@@ -134,7 +157,12 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const rendered = await HighlightedSearch(prepareData(defaultData, args));
+  let rendered = await HighlightedSearch(prepareData(defaultData, args));
+
+  if (args.gridContent) {
+    rendered += '<p class="ecl-u-type-paragraph">Content inside the grid</p>';
+  }
+
   return rendered;
 };
 Default.storyName = 'default';

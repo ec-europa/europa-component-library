@@ -67,6 +67,13 @@ describe('Highlighted search', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly in full width', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...data, full_width: true }),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly without a search helper', () => {
       expect.assertions(1);
       return expect(

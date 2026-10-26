@@ -15,6 +15,12 @@ $highlighted-search: null !default;
   padding: map.get($highlighted-search, 'padding');
 }
 
+.ecl-highlighted-search--full-width {
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+  width: 100vw;
+}
+
 .ecl-highlighted-search__content {
   align-items: center;
   display: flex;
