@@ -67,8 +67,9 @@ export default function eclTwig(namespaces) {
             `import createSDCLoader from ${JSON.stringify(`/@fs/${loaderPath}`)};`,
           );
         const end = environment.indexOf('class PrintableArrayWrapper');
-        if (end === -1)
+        if (end === -1) {
           this.error('Unexpected Twing plugin environment module.');
+        }
         return `${environment.slice(0, end)}\nexport { env };`;
       }
       // All namespaced keys exist before the shared environment is sent to the

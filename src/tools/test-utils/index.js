@@ -1,5 +1,5 @@
 const merge = require('deepmerge');
-const twing = require('@ecl/twig-ec-storybook/.storybook/environment');
+const twing = require('./environment');
 
 const renderTwigFileAsNode = (file, options) =>
   new Promise((resolve, reject) => {
