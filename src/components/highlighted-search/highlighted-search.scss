@@ -184,7 +184,11 @@ $highlighted-search: null !default;
   display: flex;
   flex-direction: column;
   gap: var(--s-m);
-  margin-block-start: var(--s-m);
+  margin-block-start: map.get(
+    $highlighted-search,
+    'suggestion',
+    'margin-mobile'
+  );
 
   @include mixins.responsive-font(
     map.get($highlighted-search, 'suggestion', 'font')
@@ -209,6 +213,11 @@ $highlighted-search: null !default;
 @container ecl-highlighted-search (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-highlighted-search__suggestion {
     flex-direction: row;
+    margin-block-start: map.get(
+      $highlighted-search,
+      'suggestion',
+      'margin-desktop'
+    );
   }
 
   // Fields share the 3 rows through subgrid, so the button aligns on the field row
