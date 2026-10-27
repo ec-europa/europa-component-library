@@ -3,9 +3,14 @@ import browserUpdate from 'browser-update';
 import { create } from 'storybook/theming';
 
 addons.setConfig({
-  panelPosition: 'bottom',
+  layout: {
+    panelPosition: 'bottom',
+    initialActive: 'sidebar',
+  },
+  ui: {
+    enableShortcuts: true,
+  },
   sidebarAnimations: true,
-  enableShortcuts: true,
   isToolshown: true,
   theme: create({
     base: 'light',
@@ -14,7 +19,6 @@ addons.setConfig({
     brandImage: undefined,
   }),
   selectedPanel: 'controls',
-  initialActive: 'sidebar',
   sidebar: {
     showRoots: false,
   },

@@ -11,6 +11,7 @@ const loaderPath = normalizePath(
     'loader/createSDCLoader.js',
   ),
 );
+
 const virtualEnvironment = 'virtual:twing-env';
 const eclEnvironment = 'virtual:ecl-twing-env';
 

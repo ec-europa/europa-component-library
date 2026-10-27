@@ -101,6 +101,7 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
       <TitleBar>
         <h1>HTML</h1>
         <Button
+          ariaLabel={false}
           type="button"
           variant="tertiary"
           onClick={() => {

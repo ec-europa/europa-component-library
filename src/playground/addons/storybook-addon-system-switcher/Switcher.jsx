@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Separator } from 'storybook/internal/components';
+import { ToggleButton, Separator } from 'storybook/internal/components';
 
 function Switcher() {
   const fullUrl = window.location.href.split('?')[0];
@@ -13,9 +13,11 @@ function Switcher() {
   return (
     <>
       <Separator />
-      <IconButton
+      <ToggleButton
+        ariaLabel="EC styleguide"
+        variant="ghost"
         key="ec"
-        active={isEc}
+        pressed={isEc}
         title="EC styleguide"
         style={{ borderRadius: 0, fontWeight: 'bold' }}
       >
@@ -33,10 +35,12 @@ function Switcher() {
         ) : (
           <span>EC</span>
         )}
-      </IconButton>
-      <IconButton
+      </ToggleButton>
+      <ToggleButton
+        ariaLabel="EU styleguide"
+        variant="ghost"
         key="eu"
-        active={isEu}
+        pressed={isEu}
         title="EU styleguide"
         style={{ borderRadius: 0, fontWeight: 'bold' }}
       >
@@ -54,7 +58,7 @@ function Switcher() {
         ) : (
           <span>EU</span>
         )}
-      </IconButton>
+      </ToggleButton>
     </>
   );
 }
