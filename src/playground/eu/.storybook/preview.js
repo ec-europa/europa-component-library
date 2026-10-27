@@ -8,8 +8,7 @@ import { allModes } from './modes';
 
 import './ECL';
 
-// Debounced ECL.autoInit — collapses simultaneous triggers (STORY_RENDERED +
-// MutationObserver) into a single call to avoid double-initialisation.
+// Debounce story renders and direction changes to avoid double-initialisation.
 // ECL.autoInit() skips elements already marked data-ecl-auto-initialized="true",
 // so we must destroy the previous instance first to allow a clean re-init.
 let eclInitTimer = null;
@@ -32,32 +31,21 @@ function debouncedEclInit() {
       eclAutoInitInstance.destroy();
     }
     eclAutoInitInstance = ECL.autoInit();
-    // Inject the webtools icon script so it always runs after the story
-    // content is in the DOM.
+    // Load Webtools once per preview document. Its SPA-compatible icon
+    // processing handles subsequent story changes without reloading the script.
     const LOAD_JS = 'https://webtools.europa.eu/load.js';
-    const existing = document.querySelector(`script[src="${LOAD_JS}"]`);
-    if (existing) existing.remove();
-    const s = document.createElement('script');
-    s.src = LOAD_JS;
-    document.head.appendChild(s);
+    if (!document.querySelector(`script[src="${LOAD_JS}"]`)) {
+      const script = document.createElement('script');
+      script.src = LOAD_JS;
+      document.head.appendChild(script);
+    }
   }, 50);
 }
 
-// Primary trigger: fires after the story is fully rendered.
+// Storybook emits this after navigation and control-driven rerenders. Do not
+// observe component DOM changes: those must not restart running components.
 const channel = addons.getChannel();
 channel.on(STORY_RENDERED, debouncedEclInit);
-
-// Secondary trigger: re-init when controls change the story HTML.
-// Set up only once (after first STORY_RENDERED) so the observer does not
-// fire during the initial render and cause a double-init.
-channel.once(STORY_RENDERED, () => {
-  const root = document.getElementById('storybook-root');
-  if (!root) return;
-  new MutationObserver(debouncedEclInit).observe(root, {
-    childList: true,
-    subtree: false,
-  });
-});
 
 global.Buffer = Buffer;
 
