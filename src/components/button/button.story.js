@@ -7,7 +7,7 @@ import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataButton from './demo/data';
 
 import button from './button.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataButtonPrimary = { ...dataButton, variant: 'primary' };
 const dataButtonSecondary = { ...dataButton, variant: 'secondary' };

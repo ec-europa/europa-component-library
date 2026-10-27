@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import dataDefault from './demo/data';
 import dataTestimonial from './demo/data--testimonial';
 import storyCard from './story-card.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {

@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
 import carousel from './carousel.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => {
   const args = {

@@ -5,7 +5,7 @@ import { userEvent, expect } from 'storybook/test';
 
 import dataDefault from './demo/data';
 import gallery from './gallery.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => ({
   variant: '',

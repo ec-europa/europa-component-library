@@ -8,7 +8,7 @@ import dataImage from './demo/data--image';
 import dataEvent from './demo/data--event';
 
 import contentItem from './content-item.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {};

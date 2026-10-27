@@ -5,7 +5,7 @@ import { within, userEvent, expect } from 'storybook/test';
 
 import dataDefault from './demo/data';
 import modal from './modal.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => ({
   header: data.header,

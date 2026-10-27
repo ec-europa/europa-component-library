@@ -7,7 +7,7 @@ import logoEuDesktop from '@ecl/resources-eu-logo/dist/standard-version/positive
 import dataCore from './demo/data-core--eu';
 import dataHarmonised from './demo/data-harmonised--eu';
 import footer from './site-footer-eu.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (variant) => {
   let args = {

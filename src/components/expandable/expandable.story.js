@@ -5,7 +5,7 @@ import { within, userEvent, expect } from 'storybook/test';
 
 import demoData from './demo/data';
 import expandable from './expandable.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => ({
   label_collapsed: data.label_collapsed,

@@ -8,7 +8,7 @@ import { allModes } from '../../playground/ec/.storybook/modes';
 import dataDefault from './demo/data';
 
 import popover from './popover.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const lorem = loremIpsum({ count: 10 });
 

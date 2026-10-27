@@ -16,7 +16,7 @@ import dataFileUpload from '@ecl/file-upload/demo/data';
 import dataFileUploadMultiple from '@ecl/file-upload/demo/data--multiple';
 
 import formGroup from './form-group.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataStandaloneCheckbox = {
   ...dataCheckbox,

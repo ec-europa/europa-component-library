@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,21 +10,6 @@ const packagePath = (name) =>
   path.dirname(require.resolve(`${name}/package.json`));
 const sourceRoot = fileURLToPath(new URL('../../', import.meta.url));
 const repositoryRoot = path.resolve(sourceRoot, '..');
-
-// Existing stories import their README as text, without Vite's ?raw suffix.
-function markdownSource() {
-  return {
-    name: 'ecl-story-notes',
-    enforce: 'pre',
-    load(id) {
-      if (id.endsWith('.md')) {
-        this.addWatchFile(id);
-        return `export default ${JSON.stringify(readFileSync(id, 'utf8'))};`;
-      }
-      return null;
-    },
-  };
-}
 
 export function createConfig(system, configDir) {
   const isProd = process.env.NODE_ENV === 'production';
@@ -71,7 +55,6 @@ export function createConfig(system, configDir) {
         // Do not pick up the documentation website's Vite configuration.
         configFile: false,
         plugins: [
-          markdownSource(),
           eclTwig({
             ecl: [
               'components',

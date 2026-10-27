@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import dataSet from './demo/data--set';
 
 import tagSet from './tag-set.html.twig';
-import notes from './README-tag-set.md';
+import notes from './README-tag-set.md?raw';
 
 const getArgs = (data) => {
   const args = {};
