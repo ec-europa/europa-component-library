@@ -70,6 +70,30 @@ describe('Page Header', () => {
       return expect(render(pictureBesideRight)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with light background color', () => {
+      expect.assertions(1);
+      const backgroundLight = JSON.parse(JSON.stringify(demoDefault));
+      backgroundLight.background_color = 'light';
+
+      return expect(render(backgroundLight)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with medium background color', () => {
+      expect.assertions(1);
+      const backgroundMedium = JSON.parse(JSON.stringify(demoDefault));
+      backgroundMedium.background_color = 'medium';
+
+      return expect(render(backgroundMedium)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with deprecated has_background', () => {
+      expect.assertions(1);
+      const hasBackground = JSON.parse(JSON.stringify(demoDefault));
+      hasBackground.has_background = true;
+
+      return expect(render(hasBackground)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

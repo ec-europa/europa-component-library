@@ -74,7 +74,7 @@ const getArgs = (data) => {
     show_thumbnail: false,
     show_meta: true,
     show_page_header_expandable: false,
-    has_background: false,
+    background_color: '',
   };
 
   if (getSystem() === 'ec') {
@@ -108,7 +108,7 @@ const getArgs = (data) => {
 
 const getArgTypes = () => {
   const argTypes = {
-    ...getColorModeControls({ arg: 'has_background' }),
+    ...getColorModeControls({ arg: 'background_color' }),
     ...expandableArgTypes(),
   };
 
@@ -178,12 +178,21 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.has_background = {
-    name: 'Enable background color',
-    type: 'boolean',
-    description: 'Use a colored background',
+  argTypes.background_color = {
+    name: 'Background color',
+    type: 'select',
+    description: 'Background color of the page header',
+    options: ['', 'light', 'medium'],
+    control: {
+      labels: {
+        '': 'none',
+        light: 'light',
+        medium: 'medium',
+      },
+    },
     table: {
-      type: { summary: 'boolean' },
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
       category: 'Display',
     },
   };
@@ -341,7 +350,7 @@ const prepareData = (data, args) => {
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
-  clone.has_background = args.has_background;
+  clone.background_color = args.background_color;
 
   correctPaths(clone);
 

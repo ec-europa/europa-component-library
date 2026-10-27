@@ -35,6 +35,10 @@ $page-header: null !default;
   }
 }
 
+.ecl-page-header--background-light {
+  background-color: var(--cm-surface-low-2);
+}
+
 @include breakpoints.up('xl') {
   .ecl-page-header--picture-beside {
     &.ecl-page-header--background {
