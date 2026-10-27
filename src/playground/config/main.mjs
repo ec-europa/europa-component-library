@@ -48,6 +48,7 @@ export function createConfig(system, configDir) {
     ],
     addons: [
       packagePath('@storybook/addon-docs'),
+      packagePath('storybook-dark-mode'),
       require.resolve('@ecl/storybook-addon-styles/preset'),
       require.resolve('@ecl/storybook-addon-notes/preset'),
       require.resolve('@ecl/storybook-addon-code/preset'),

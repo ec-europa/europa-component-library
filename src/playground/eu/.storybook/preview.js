@@ -1,4 +1,5 @@
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
+import { create } from 'storybook/theming';
 import { Buffer } from 'buffer';
 import isChromatic from 'chromatic/isChromatic';
 import { addons } from 'storybook/preview-api';
@@ -119,6 +120,19 @@ export const initialGlobals = {
 };
 
 export const parameters = {
+  darkMode: {
+    stylePreview: false,
+    light: create({
+      base: 'light',
+      brandTitle: 'ECL v5 EU',
+      brandUrl: 'https://github.com/ec-europa/europa-component-library',
+    }),
+    dark: create({
+      base: 'dark',
+      brandTitle: 'ECL v5 EU',
+      brandUrl: 'https://github.com/ec-europa/europa-component-library',
+    }),
+  },
   actions: { disable: true },
   interactions: { disable: true },
   chromatic: {
