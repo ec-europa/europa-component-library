@@ -2,7 +2,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   title: 'Menu',
   aria_label: 'Main navigation',
   id: 'demo',

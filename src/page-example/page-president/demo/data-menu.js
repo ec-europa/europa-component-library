@@ -1,6 +1,6 @@
 const exampleLink = '#';
 
-module.exports = {
+export default {
   id: 'ec-navigation',
   aria_label: 'Main navigation',
   toggle: {

@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   id: 'expandable-example',
   button: {
     label: 'Collapsed',

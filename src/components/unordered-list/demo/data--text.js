@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   items: [
     {
       label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',

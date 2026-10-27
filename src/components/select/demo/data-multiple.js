@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   label: 'Select a country',
   invalid_text: 'Error text',
   invalid_icon: {

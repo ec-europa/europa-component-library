@@ -5,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 import { mergeConfig, normalizePath } from 'vite';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import eclTwig from './twig.mjs';
-import demoData from './demo-data.mjs';
 
 const require = createRequire(import.meta.url);
 const packagePath = (name) =>
@@ -72,7 +71,6 @@ export function createConfig(system, configDir) {
         configFile: false,
         plugins: [
           markdownSource(),
-          demoData(sourceRoot),
           eclTwig({
             ecl: [
               'components',

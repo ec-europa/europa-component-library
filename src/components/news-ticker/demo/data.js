@@ -2,7 +2,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   id: 'news-ticker-example',
   counter_label: 'of',
   sr_external: 'Link to an external domain',

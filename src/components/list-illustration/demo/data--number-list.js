@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   number_list: true,
   items: [
     {

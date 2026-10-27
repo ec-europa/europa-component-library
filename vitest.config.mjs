@@ -1,13 +1,6 @@
-import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
-import demoData from './src/playground/config/demo-data.mjs';
-
-const sourceRoot = fileURLToPath(new URL('./src/', import.meta.url));
 
 export default defineConfig({
-  // Reuse the CommonJS demo-data adapter; Twig is rendered by the test utilities
-  // in Node, without Storybook's browser renderer or plugins.
-  plugins: [demoData(sourceRoot)],
   test: {
     include: ['src/**/*.test.js'],
     globals: true,
