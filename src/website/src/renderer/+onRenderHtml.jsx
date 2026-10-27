@@ -1,100 +1,68 @@
-// src/website/src/+onRenderHtml.jsx
-import { renderToString } from 'react-dom/server';
-import { dangerouslySkipEscape } from 'vike/server';
 import React from 'react';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
-import App from '../App';
+import { renderToString } from 'react-dom/server';
+import { Helmet } from 'react-helmet';
+import { escapeInject, dangerouslySkipEscape } from 'vike/server';
 
-const publicUrl = import.meta.env.PUBLIC_URL || '';
-const isBuild = process.argv.some((arg) => arg.includes('build'));
-let templateHtml = fs.readFileSync(
-  path.resolve(process.cwd(), 'index.html'),
-  'utf-8',
-);
-
-if (isBuild) {
-  templateHtml = templateHtml.replace(
-    '<script type="module" src="/src/Index.jsx"></script>',
-    '',
-  );
-}
-
-function injectScriptsIntoTemplate($templateHtml, clientScriptPath) {
-  // Define the script tags to be inserted
-  const clientScript = `<script type="module" src="${clientScriptPath}"></script>`;
-
-  // Find the closing </head> tag and insert the scripts just before it
-  const headCloseTagIndex = $templateHtml.indexOf('</head>');
-  if (headCloseTagIndex !== -1) {
-    // Insert the scripts before the closing </head> tag
-    $templateHtml =
-      $templateHtml.slice(0, headCloseTagIndex) +
-      clientScript +
-      $templateHtml.slice(headCloseTagIndex);
-  }
-
-  return $templateHtml;
-}
-
-async function onRenderHtml(pageContext) {
-  const { urlPathname } = pageContext;
-  let url = urlPathname || '/';
-  url = url.endsWith('/') ? url : `${url}/`;
-
-  if (!isBuild) {
-    return {
-      documentHtml: dangerouslySkipEscape(templateHtml),
-      pageContext: {},
-    };
-  }
-
-  const app = <App url={url} />;
-
+function onRenderHtml(pageContext) {
+  const { Page, urlPathname } = pageContext;
+  const url = urlPathname.endsWith('/') ? urlPathname : `${urlPathname}/`;
   let pageHtml;
+  let head;
   try {
-    pageHtml = renderToString(app);
-  } catch {
-    pageHtml = '<p>Rendering Failed</p>';
+    pageHtml = renderToString(<Page url={url} />);
+  } finally {
+    // Reset Helmet's server state between prerendered pages, including failures.
+    head = Helmet.renderStatic();
   }
 
-  const templateHtmlWithContent = templateHtml.replace(
-    '<div id="page-root"></div>',
-    `<div id="page-root">${pageHtml}</div>`,
-  );
-
-  const dirname = path.dirname(fileURLToPath(import.meta.url));
-  const assetsDir = path.resolve(dirname, '../../client/assets/entries');
-
-  let clientScriptPath;
-  try {
-    const files = fs.readdirSync(assetsDir);
-    const scriptFile = files.find(
-      (file) =>
-        file.startsWith('entry-server-routing.') && file.endsWith('.js'),
-    );
-
-    if (!scriptFile) {
-      throw new Error('No matching entry-server-routing.*.js file found!');
-    }
-
-    clientScriptPath = `${publicUrl}/assets/entries/${scriptFile}`;
-  } catch {
-    clientScriptPath = '';
-  }
-
-  const documentHtml = injectScriptsIntoTemplate(
-    templateHtmlWithContent,
-    clientScriptPath,
-  );
-
+  // Vike inserts the client entry, serialized page context, and stylesheet URLs.
   return {
-    documentHtml: dangerouslySkipEscape(documentHtml),
-    pageContext: {
-      // Without this the #vike_pageContext script would not be injected.
-      _isHtmlOnly: false,
-    },
+    documentHtml: escapeInject`<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    ${dangerouslySkipEscape(head.title.toString())}
+    ${dangerouslySkipEscape(head.meta.toString())}
+    ${dangerouslySkipEscape(head.link.toString())}
+    <script
+      defer="defer"
+      src="https://webtools.europa.eu/load.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      if (navigator.userAgent !== 'ReactSnap') {
+        var cl = document.querySelector('html').classList;
+        cl.remove('no-js');
+        cl.add('has-js');
+      }
+    </script>
+    <script>
+      if (window.location.hash.match('access_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('invite_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('confirmation_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('email_change_token')) {
+        document.location.pathname += '/admin';
+      }
+      if (window.location.hash.match('recovery_token')) {
+        document.location.pathname += '/admin';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="page-root">${dangerouslySkipEscape(pageHtml)}</div>
+  </body>
+</html>`,
   };
 }
 

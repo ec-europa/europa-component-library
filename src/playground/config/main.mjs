@@ -28,7 +28,7 @@ export function createConfig(system, configDir) {
       `../../../utilities/*/!(${excludedSystem}*).story.js`,
       `../../../compositions/*/!(${excludedSystem}*).story.js`,
       `../../../layout/*/!(${excludedSystem}*).story.js`,
-      '../../../page-example/*/!(ec*).story.js',
+      `../../../page-example/*/!(${excludedSystem}*).story.js`,
     ],
     addons: [
       packagePath('@storybook/addon-docs'),
