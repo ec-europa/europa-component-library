@@ -182,13 +182,20 @@ const getArgTypes = () => {
     name: 'Background color',
     type: 'select',
     description: 'Background color of the page header',
-    options: ['', 'light', 'medium'],
+    options: ['', 'light', 'medium', 'dark'],
     control: {
       labels: {
         '': 'none',
         light: 'light',
         medium: 'medium',
+        dark: 'dark',
       },
+    },
+    mapping: {
+      none: '',
+      light: 'light',
+      medium: 'medium',
+      dark: 'dark',
     },
     table: {
       type: { summary: 'string' },

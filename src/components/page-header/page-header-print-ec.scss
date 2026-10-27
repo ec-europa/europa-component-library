@@ -11,6 +11,10 @@ $theme: null !default;
 $page-header: null !default;
 $page-header-print: null !default;
 
+.ecl-page-header {
+  color: map.get($page-header, 'color');
+}
+
 // Picture
 .ecl-page-header__background {
   display: block;
@@ -47,7 +51,6 @@ $page-header-print: null !default;
 
 // Title
 .ecl-page-header__title {
-  color: map.get($page-header, 'title', 'color');
   font: map.get($page-header-print, 'title', 'font');
   letter-spacing: map.get($page-header, 'title', 'letter-spacing');
   margin-block: 0;
@@ -71,7 +74,6 @@ $page-header-print: null !default;
 }
 
 .ecl-page-header__description {
-  color: map.get($page-header, 'description', 'color');
   font: map.get($page-header-print, 'description', 'font');
   font-weight: map.get($page-header, 'description', 'font');
   margin-block: 0;
@@ -102,7 +104,6 @@ $page-header-print: null !default;
 
 // Meta
 .ecl-page-header__meta {
-  color: map.get($page-header, 'meta', 'color');
   display: inline-block;
   font: map.get($page-header-print, 'meta', 'font');
   list-style: none;
@@ -169,6 +170,10 @@ $page-header-print: null !default;
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
+  }
+
+  .ecl-page-header__title {
+    padding-block-start: 0;
   }
 }
 

@@ -86,6 +86,14 @@ describe('Page Header', () => {
       return expect(render(backgroundMedium)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with dark background color', () => {
+      expect.assertions(1);
+      const backgroundDark = JSON.parse(JSON.stringify(demoDefault));
+      backgroundDark.background_color = 'dark';
+
+      return expect(render(backgroundDark)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with deprecated has_background', () => {
       expect.assertions(1);
       const hasBackground = JSON.parse(JSON.stringify(demoDefault));

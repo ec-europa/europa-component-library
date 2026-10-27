@@ -9,7 +9,7 @@ npm install --save @ecl/page-header
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"background_color"** (string) (default: '') Background color; can be '' (none), 'light', 'medium'
+- **"background_color"** (string) (default: '') Background color; can be '' (none), 'light', 'medium', 'dark'
 - **"title"** (string) (default: '') Page header title (h1)
 - **"hide_title"** (boolean) (default: false) Hide the h1 title visually (screen reader only)
 - **"description"** (string) (default: '') Page header description text

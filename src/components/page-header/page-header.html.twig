@@ -2,7 +2,7 @@
 {#
   Parameters:
     - "color_mode" (string) The color mode name
-    - "background_color" (string) (default: '') Background color; can be '' (none), 'light' or 'medium'
+    - "background_color" (string) (default: '') Background color; can be '' (none), 'light', 'medium' or 'dark'
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of page header
@@ -62,7 +62,11 @@
 {% endif %}
 
 {% if _background_color is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-page-header--background ecl-page-header--background-' ~ _background_color %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--background' %}
+
+  {% if _background_color in ['light', 'dark'] %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--background-' ~ _background_color %}
+  {% endif %}
 {% endif %}
 
 {% if _description is not empty %}
