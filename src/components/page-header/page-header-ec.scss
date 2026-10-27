@@ -219,6 +219,12 @@ $page-header: null !default;
   }
 }
 
+.ecl-page-header--picture-beside-right {
+  .ecl-page-header__picture-background {
+    margin-block-start: var(--s-2xl);
+  }
+}
+
 @include breakpoints.up('m') {
   .ecl-page-header--picture-beside {
     .ecl-page-header__background {
@@ -237,6 +243,11 @@ $page-header: null !default;
     .ecl-page-header__picture-background,
     .ecl-page-header__section-info {
       flex-basis: 50%;
+    }
+
+    &.ecl-page-header--picture-beside-right
+      .ecl-page-header__picture-background {
+      margin-block-start: 0;
     }
 
     .ecl-page-header__background {

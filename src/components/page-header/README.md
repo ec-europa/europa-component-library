@@ -21,7 +21,7 @@ npm install --save @ecl/page-header
   - "panel_content" (string) (default: '') Content shown when expanded
 - **"picture_thumbnail"** (object) (default: {}) Thumbnail image following ECL Picture structure
 - **"picture_background"** (object) (default: {}) Background image following ECL Picture structure
-- **"picture_position"** (string) (default: 'top') Picture position; can be 'top', 'beside', 'bottom'
+- **"picture_position"** (string) (default: 'top') Picture position; can be 'top', 'beside', 'beside-right', 'bottom'
 - **"meta"** (array) (default: []) Header meta items; array of strings or objects with `label` and `icon`
 - **"breadcrumb"** (object) (default: {}) Breadcrumb following ECL Breadcrumb structure
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)

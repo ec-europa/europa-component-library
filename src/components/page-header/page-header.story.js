@@ -251,17 +251,19 @@ const getArgTypes = () => {
     name: 'Background image position',
     type: 'select',
     description: 'Change image position',
-    options: ['top', 'beside', 'bottom'],
+    options: ['top', 'beside', 'beside-right', 'bottom'],
     control: {
       labels: {
         top: 'top',
         beside: 'beside',
+        'beside-right': 'beside (right)',
         bottom: 'bottom',
       },
     },
     mapping: {
       top: 'top',
       beside: 'beside',
+      'beside-right': 'beside-right',
       bottom: 'bottom',
     },
     table: {

@@ -62,6 +62,14 @@ describe('Page Header', () => {
       return expect(render(pictureBeside)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with picture beside right', () => {
+      expect.assertions(1);
+      const pictureBesideRight = JSON.parse(JSON.stringify(demoDefault));
+      pictureBesideRight.picture_position = 'beside-right';
+
+      return expect(render(pictureBesideRight)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

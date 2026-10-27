@@ -15,7 +15,7 @@
       }
     - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
-    - "picture_position" (string) (default: 'top') Position of the picture; can be 'top', 'beside' or 'bottom'
+    - "picture_position" (string) (default: 'top') Position of the picture; can be 'top', 'beside', 'beside-right' or 'bottom'
     - "meta" (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with ECL Breadcrumb
     - "extra_classes" (string) (default: '') Extra classes (space separated)
@@ -59,7 +59,12 @@
   {% set _css_class = _css_class ~ ' ecl-page-header--description-' ~ _description_position %}
 {% endif %}
 
+{% set _picture_beside = _picture_position in ['beside', 'beside-right'] %}
+
 {% if _picture_background is not empty %}
+  {% if _picture_position == 'beside-right' %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--picture-beside' %}
+  {% endif %}
   {% set _css_class = _css_class ~ ' ecl-page-header--picture-' ~ _picture_position %}
 {% endif %}
 
@@ -179,7 +184,9 @@
 {# Column content #}
 
 {% set _column_content_markup %}
-  {{- _picture_markup -}}
+  {% if _picture_position == 'beside' %}
+    {{- _picture_markup -}}
+  {% endif %}
 
   <div class="ecl-page-header__section-info ecl-container">
     {{- _breadcrumb_markup -}}
@@ -196,6 +203,10 @@
 
     {{- _meta_markup -}}
   </div>
+
+  {% if _picture_position == 'beside-right' %}
+    {{- _picture_markup -}}
+  {% endif %}
 {% endset %}
 
 {# Print the result #}
@@ -214,7 +225,7 @@
   {% endif %}
 
   <div class="ecl-page-header__container">
-    {% if _picture_position == 'beside' %}
+    {% if _picture_beside %}
       {{- _column_content_markup -}}
     {% else %}
       {{- _stack_content_markup -}}
