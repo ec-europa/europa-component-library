@@ -106,6 +106,15 @@ export default {
       },
     },
     {
+      entry: path.resolve(__dirname, 'src/ec-ep.scss'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-ec-ep.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
+    {
       entry: path.resolve(__dirname, 'src/ec-default-print.scss'),
       dest: path.resolve(
         outputFolder,
