@@ -20,6 +20,12 @@ $theme: null !default;
 
 .ecl-tag__icon {
   display: none;
+
+  &.ecl-tag__icon--before {
+    display: inline-block;
+    margin-inline-end: map.get($theme, 'spacing-print', '2xs');
+    vertical-align: middle;
+  }
 }
 
 // Tag set

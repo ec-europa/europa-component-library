@@ -2,11 +2,11 @@
 
 {#
   Parameters:
-    - "color_mode" (string) (default: '') Name of the color mode
     - "tag" (object) (default: {}): format: {
         "type" (string) (default: 'link') Tag type; can be 'link', 'removable'
         "path" (string) (default: '') Tag link URL
         "label" (string) (default: '') Tag text
+        "icon" (object) (default: {}) Object of type ECL icon, displayed before the label
         "external" (boolean) (default: false) Show external icon for link tags
         "aria_label" (string) (default: '') Aria label for removable tags
         "nowrap" (boolean) (default: false) Prevent the tag from wrapping
@@ -20,13 +20,18 @@
       ]
 #}
 
+{# DEPRECATED 
+- "color_mode" (string) (default: '') Name of the color mode
+#}
+{% set _color_mode = color_mode|default('') %}
+
 {# Internal properties #}
 
-{% set _color_mode = color_mode|default('') %}
 {% set _tag = {
   type: 'link',
   path: '',
   label: '',
+  icon: {},
   external: false,
   aria_label: '',
   nowrap: false,
@@ -69,6 +74,19 @@
   {% endfor %}
 {% endif %}
 
+{# Define icon macro #}
+
+{% macro icon(_icon) %}{% apply spaceless %}
+  {% if _icon.name is defined and _icon.name is not empty %}
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _icon|merge({ size: 'xs' }),
+      extra_classes: 'ecl-tag__icon ecl-tag__icon--before',
+    } only %}
+  {% endif %}
+{% endapply %}{% endmacro %}
+
+{% import _self as tag_macros %}
+
 {# Print the result #}
 
 {% if _tag.type == 'removable' %}
@@ -77,10 +95,13 @@
     class="{{ _css_class }}"
     {{ _extra_attributes|raw }}
   >
-    {{- _tag.label -}}
+    {{- tag_macros.icon(_tag.icon) -}}
+    <span class="ecl-tag__label">
+      {{- _tag.label -}}
+    </span>
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'x-circle', family: 'phosphor', size: 'xs' },
+        icon: { name: 'x', family: 'phosphor', size: 'xs' },
         extra_classes: 'ecl-tag__icon-close',
         as_image: true,
         extra_accessibility: {
@@ -95,7 +116,10 @@
     class="{{ _css_class }}"
     {{ _extra_attributes|raw }}
   >
-    {{- _tag.label -}}
+    {{- tag_macros.icon(_tag.icon) -}}
+    <span class="ecl-tag__label">
+      {{- _tag.label -}}
+    </span>
     {%- if _tag.external -%}
       {%- include '@ecl/icon/icon.html.twig' with {
           icon: {

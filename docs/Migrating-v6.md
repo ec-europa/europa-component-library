@@ -22,3 +22,5 @@ Following elements have been deprecated, and are removed in ECL v6
   - parameter `grid` (replaced by `variant`)
 - site header:
   - parameter `banner_top` (previously used for class name)
+- tag:
+  - parameter `color_mode` (not used anymore)
