@@ -213,7 +213,6 @@ export class Select {
     // Early returns.
     if (!options || !ctx) return '';
     const { id, text = '', disabled, selected, extraClass } = options;
-    if (!id) return '';
 
     // Elements to work with.
     const checkbox = document.createElement('div');
