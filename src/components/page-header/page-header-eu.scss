@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
 
@@ -14,6 +15,7 @@ $page-header: null !default;
 
 .ecl-page-header {
   background-color: #fff;
+  color: map.get($page-header, 'color');
 }
 
 // Colored background
@@ -22,6 +24,29 @@ $page-header: null !default;
 
   &:not(.ecl-page-header--description-bottom) {
     padding-block-end: var(--s-xl);
+  }
+}
+
+.ecl-page-header--background-light {
+  background-color: var(--c-p-5);
+}
+
+.ecl-page-header--background-dark {
+  background-color: map.get($page-header, 'dark', 'background');
+  color: map.get($page-header, 'dark', 'color');
+
+  .ecl-page-header__description-bottom {
+    color: map.get($page-header, 'color');
+  }
+
+  .ecl-breadcrumb__icon,
+  .ecl-breadcrumb__current-page,
+  .ecl-breadcrumb__ellipsis:not(:hover, :focus-visible) {
+    color: map.get($page-header, 'dark', 'color');
+  }
+
+  .ecl-breadcrumb__link {
+    @include link-component.inverted-link;
   }
 }
 
@@ -35,7 +60,6 @@ $page-header: null !default;
 
 // Title
 .ecl-page-header__title {
-  color: map.get($page-header, 'title', 'color');
   letter-spacing: map.get($page-header, 'title', 'letter-spacing');
   margin-block: 0;
   padding-block: var(--s-xs) 0;
@@ -67,7 +91,6 @@ $page-header: null !default;
 }
 
 .ecl-page-header__description {
-  color: map.get($page-header, 'description', 'color');
   margin-block: 0;
   max-width: var(--max-w);
 
@@ -107,7 +130,6 @@ $page-header: null !default;
 
 // Meta
 .ecl-page-header__meta {
-  color: map.get($page-header, 'meta', 'color');
   display: inline-block;
   list-style: none;
   margin-inline: 0;
@@ -134,7 +156,7 @@ $page-header: null !default;
   }
 
   &:not(:first-child, :last-child)::after {
-    background-color: var(--c-d);
+    background-color: currentcolor;
     content: '';
     display: inline-block;
     height: 1px;
@@ -206,6 +228,14 @@ $page-header: null !default;
     background-color: var(--c-p-20);
   }
 
+  &.ecl-page-header--background-light .ecl-breadcrumb__container {
+    background-color: var(--c-p-5);
+  }
+
+  &.ecl-page-header--background-dark .ecl-breadcrumb__container {
+    background-color: map.get($page-header, 'dark', 'background');
+  }
+
   .ecl-page-header__title {
     padding-block-start: var(--s-xl);
   }
@@ -233,6 +263,12 @@ $page-header: null !default;
   }
 }
 
+.ecl-page-header--picture-beside-right {
+  .ecl-page-header__picture-background {
+    margin-block-start: var(--s-l);
+  }
+}
+
 @include breakpoints.up('m') {
   .ecl-page-header--picture-beside {
     .ecl-page-header__background {
@@ -253,6 +289,11 @@ $page-header: null !default;
       flex-basis: 50%;
     }
 
+    &.ecl-page-header--picture-beside-right
+      .ecl-page-header__picture-background {
+      margin-block-start: 0;
+    }
+
     .ecl-page-header__background {
       aspect-ratio: 5/4;
       object-fit: cover;
@@ -270,6 +311,10 @@ $page-header: null !default;
       flex-direction: column;
       flex-grow: 1;
       justify-content: center;
+    }
+
+    .ecl-page-header__title {
+      padding-block-start: 0;
     }
   }
 }

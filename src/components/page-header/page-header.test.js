@@ -62,6 +62,46 @@ describe('Page Header', () => {
       return expect(render(pictureBeside)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with picture beside right', () => {
+      expect.assertions(1);
+      const pictureBesideRight = JSON.parse(JSON.stringify(demoDefault));
+      pictureBesideRight.picture_position = 'beside-right';
+
+      return expect(render(pictureBesideRight)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with light background color', () => {
+      expect.assertions(1);
+      const backgroundLight = JSON.parse(JSON.stringify(demoDefault));
+      backgroundLight.background_color = 'light';
+
+      return expect(render(backgroundLight)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with medium background color', () => {
+      expect.assertions(1);
+      const backgroundMedium = JSON.parse(JSON.stringify(demoDefault));
+      backgroundMedium.background_color = 'medium';
+
+      return expect(render(backgroundMedium)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with dark background color', () => {
+      expect.assertions(1);
+      const backgroundDark = JSON.parse(JSON.stringify(demoDefault));
+      backgroundDark.background_color = 'dark';
+
+      return expect(render(backgroundDark)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with deprecated has_background', () => {
+      expect.assertions(1);
+      const hasBackground = JSON.parse(JSON.stringify(demoDefault));
+      hasBackground.has_background = true;
+
+      return expect(render(hasBackground)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

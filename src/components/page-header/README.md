@@ -9,7 +9,7 @@ npm install --save @ecl/page-header
 ### Parameters
 
 - **"color_mode"** (string) (default: '') Name of the color mode
-- **"has_background"** (boolean) (default: false) Use a colored background
+- **"background_color"** (string) (default: '') Background color; can be '' (none), 'light', 'medium', 'dark'
 - **"title"** (string) (default: '') Page header title (h1)
 - **"hide_title"** (boolean) (default: false) Hide the h1 title visually (screen reader only)
 - **"description"** (string) (default: '') Page header description text
@@ -21,13 +21,17 @@ npm install --save @ecl/page-header
   - "panel_content" (string) (default: '') Content shown when expanded
 - **"picture_thumbnail"** (object) (default: {}) Thumbnail image following ECL Picture structure
 - **"picture_background"** (object) (default: {}) Background image following ECL Picture structure
-- **"picture_position"** (string) (default: 'top') Picture position; can be 'top', 'beside', 'bottom'
+- **"picture_position"** (string) (default: 'top') Picture position; can be 'top', 'beside', 'beside-right', 'bottom'
 - **"meta"** (array) (default: []) Header meta items; array of strings or objects with `label` and `icon`
 - **"breadcrumb"** (object) (default: {}) Breadcrumb following ECL Breadcrumb structure
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"has_background"** (boolean) (default: false) Use a colored background; use `background_color: 'medium'` instead
 
 ### Example :
 
