@@ -128,7 +128,6 @@ const getArgTypes = () => {
     table: {
       category: 'Optional',
     },
-    if: { arg: 'show_description' },
   };
 
   argTypes.show_page_header_expandable = {
