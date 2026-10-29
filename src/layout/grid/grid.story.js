@@ -1,11 +1,11 @@
 import withCode from '@ecl/storybook-addon-code';
 
-import example234612 from './examples/234612.html';
-import example642 from './examples/642.html';
-import example282 from './examples/282.html';
-import example336 from './examples/336.html';
-import offset from './examples/offset.html';
-import responsive from './examples/responsive.html';
+import example234612 from './examples/234612.html?raw';
+import example642 from './examples/642.html?raw';
+import example282 from './examples/282.html?raw';
+import example336 from './examples/336.html?raw';
+import offset from './examples/offset.html?raw';
+import responsive from './examples/responsive.html?raw';
 
 export default {
   title: 'Layout/Grid',

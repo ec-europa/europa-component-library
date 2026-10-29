@@ -1,6 +1,6 @@
 import withCode from '@ecl/storybook-addon-code';
-import display from './display.html';
-import pagebreak from './pagebreak.html';
+import display from './display.html?raw';
+import pagebreak from './pagebreak.html?raw';
 
 export default {
   title: 'Utilities/Print',

@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
 import carousel from './carousel.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => {
   const args = {
@@ -27,8 +27,8 @@ const getArgTypes = () => {
     width: {
       name: 'width',
       type: 'select',
-      description: `The media container extends to the whole viewport by default when outside the grid,
-        if it's inside it can still be extended by adding class .ecl-banner--full-width`,
+      description:
+        "The media container extends to the whole viewport by default when outside the grid, if it's inside it can still be extended by adding class .ecl-banner--full-width",
       options: ['outside', 'container', 'inside'],
       control: {
         labels: {

@@ -5,7 +5,7 @@ import { correctPaths } from '@ecl/story-utils';
 import dataDefault from './demo/data--long';
 
 import breadcrumb from './breadcrumb.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 export default {
   title: 'Components/Navigation/Breadcrumb',

@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   variant: 'testimonial',
   title: 'Testimonials',
   id: 'story-card-testimonial-demo',

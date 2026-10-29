@@ -7,7 +7,7 @@ import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
 import demoContent from './demo/data';
 
 import pageHeader from './page-header.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const expandableArgs = (data) => {
   return {

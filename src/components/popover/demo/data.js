@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   id: 'popover-example',
   close: {
     label: 'Close',

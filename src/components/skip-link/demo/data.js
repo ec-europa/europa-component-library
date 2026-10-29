@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   label: 'Skip to main content',
   href: '#top',
 };

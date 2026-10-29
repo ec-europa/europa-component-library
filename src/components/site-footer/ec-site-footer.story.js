@@ -6,7 +6,7 @@ import dataCore from './demo/data-core--ec';
 import dataStandardised from './demo/data-standardised--ec';
 import dataHarmonised from './demo/data-harmonised--ec';
 import footer from './site-footer-ec.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (variant) => {
   let args = {

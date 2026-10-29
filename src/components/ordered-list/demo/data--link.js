@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   items: [
     {
       label: `<a class="ecl-link" href="${exampleLink}">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>`,

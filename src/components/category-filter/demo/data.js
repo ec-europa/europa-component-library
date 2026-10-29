@@ -2,7 +2,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   label: 'Category filter',
   id: 'unique-id',
   items: [

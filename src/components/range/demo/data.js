@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   input: {
     input_type: 'range',
     id: 'example-range-id',

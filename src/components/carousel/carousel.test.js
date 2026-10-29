@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import {
   merge,
   renderTwigFileAsNode,
@@ -43,7 +44,7 @@ describe('Carousel', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    jest.setTimeout(15000);
+    vi.setConfig({ testTimeout: 15000 });
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),

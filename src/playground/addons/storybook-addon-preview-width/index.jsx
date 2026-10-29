@@ -1,8 +1,8 @@
 /* global ResizeObserver */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { IconButton } from '@storybook/components';
-import { useParameter } from '@storybook/manager-api';
+import { Button } from 'storybook/internal/components';
+import { useParameter } from 'storybook/manager-api';
 
 const getColorForBreakpoint = (label) => {
   switch (label) {
@@ -105,9 +105,10 @@ export const WidthIndicator = () => {
   }, [container, sortedBps]);
 
   return (
-    <IconButton
+    <Button
+      ariaLabel={`Preview width: ${width}px${bp ? ` (${bp})` : ''}`}
       title={`Preview width: ${width}px (${bp})`}
-      active
+      variant="ghost"
       style={{
         backgroundColor: getColorForBreakpoint(bp),
         color: 'white',
@@ -116,6 +117,6 @@ export const WidthIndicator = () => {
       }}
     >
       🧭 {width}px {bp && `(${bp})`}
-    </IconButton>
+    </Button>
   );
 };

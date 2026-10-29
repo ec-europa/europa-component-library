@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   sr_description: 'Carousel description here',
   sr_play: 'Play',
   sr_pause: 'Pause',

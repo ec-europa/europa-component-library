@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import specs from './demo/data';
 import newsTicker from './news-ticker.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => {
   const args = {

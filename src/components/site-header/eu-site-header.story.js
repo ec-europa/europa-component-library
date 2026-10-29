@@ -10,7 +10,7 @@ import enDataMenuLong from '@ecl/menu/demo/data--eu-long';
 import enDataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataFullEU from './demo/data--eu';
 import siteHeader from './site-header.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 // Preserve original data.
 const dataFull = { ...dataFullEU };

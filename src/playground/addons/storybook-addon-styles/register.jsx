@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  addons,
-  types,
-  useGlobals,
-  useParameter,
-} from '@storybook/manager-api';
-import { STORY_CHANGED } from '@storybook/core-events';
+import { addons, types, useGlobals, useParameter } from 'storybook/manager-api';
+import { STORY_CHANGED } from 'storybook/internal/core-events';
 import { TOGGLE_STYLE } from './index';
 
 const ADDON_ID = 'styles-toggle';

@@ -4,7 +4,7 @@ import { correctPaths } from '@ecl/story-utils';
 
 import specs from './demo/data';
 import pagination from './pagination.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 export default {
   title: 'Components/Navigation/Pagination',

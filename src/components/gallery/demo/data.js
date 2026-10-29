@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   id: 'gallery-id',
   sr_gallery_label:
     'Open gallery items to view images in original size, watch videos and share them',

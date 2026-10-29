@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   id: 'quiz-poll',
   variant: 'poll',
   title: 'Ut enim ad minim veniam ',

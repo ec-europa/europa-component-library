@@ -8,7 +8,7 @@ import dataUnorderedListDivider from './demo/data--with-divider';
 import dataUnorderedListUnstyled from './demo/data--unstyled';
 
 import unorderedList from './unordered-list.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => ({
   label: data.items[0].label,

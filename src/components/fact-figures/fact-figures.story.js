@@ -7,7 +7,7 @@ import iconsAll from '@ecl/resources-icons/list.json';
 import demoData from './demo/data';
 
 import factFigures from './fact-figures.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const iconMapping = iconsAll.reduce((mapping, icon) => {
   mapping[icon] = icon;

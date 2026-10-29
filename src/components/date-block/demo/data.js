@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   date_time: '2024-09-26',
   day: '26',
   month: 'Sep',

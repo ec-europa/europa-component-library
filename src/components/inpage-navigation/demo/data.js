@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   id: 'ecl-inpage-navigation-default',
   title: 'Page contents',
   trigger_aria_label: 'Show full page table of contents',

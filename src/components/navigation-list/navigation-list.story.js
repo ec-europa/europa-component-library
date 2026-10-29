@@ -7,7 +7,7 @@ import dataDefault from './demo/data';
 import dataIllustration from './demo/data-illustration';
 
 import navigationList from './navigation-list.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {};

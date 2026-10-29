@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import featuredItem from './featured-item.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const demoDataHighlighted = { ...demoData, type: 'highlight' };
 const mediaContainer = { ...demoData.media_container };

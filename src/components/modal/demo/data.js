@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   id: 'modal-example',
   toggle_id: 'modal-toggle',
   close: {

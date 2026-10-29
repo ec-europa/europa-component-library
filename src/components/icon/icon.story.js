@@ -6,7 +6,7 @@ import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataAll from './demo/data';
 
 import icon from './icon.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const iconMapping = iconsAll.reduce((mapping, iconName) => {
   mapping[iconName] = iconName;

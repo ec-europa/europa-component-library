@@ -1,97 +1,47 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { addons, types } from '@storybook/manager-api';
+import React, { useEffect, useState } from 'react';
+import { addons, types, useStorybookState } from 'storybook/manager-api';
 import styled from '@emotion/styled';
 
 const Panel = styled.div({
   padding: 10,
   boxSizing: 'border-box',
   width: '100%',
+  height: '100%',
+  overflow: 'auto',
+  '& pre': { overflowX: 'auto' },
 });
 
-class Notes extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { text: '' };
-    this.onAddNotes = this.onAddNotes.bind(this);
-  }
+addons.register('ecl/notes', () => {
+  const channel = addons.getChannel();
+  let latestNotes;
+  channel.on('ecl/notes/add_notes', (payload) => {
+    latestNotes = payload;
+  });
 
-  componentDidMount() {
-    const { channel, api } = this.props;
-    // Listen to the notes and render it.
-    channel.on('ecl/notes/add_notes', this.onAddNotes);
-    if (channel.data && channel.data['ecl/notes/add_notes']) {
-      this.onAddNotes(channel.data['ecl/notes/add_notes'].toString());
-    }
-    // Clear the current notes on every story change.
-    this.stopListeningOnStory = api.on(() => {
-      this.onAddNotes('');
-    });
-  }
-
-  // This is some cleanup tasks when the Notes panel is unmounting.
-  componentWillUnmount() {
-    if (this.stopListeningOnStory) {
-      this.stopListeningOnStory();
-    }
-
-    const { channel } = this.props;
-    channel.removeListener('ecl/notes/add_notes', this.onAddNotes);
-  }
-
-  onAddNotes(text) {
-    this.setState({ text });
-  }
-
-  render() {
-    const { active } = this.props;
-    const { text } = this.state;
-    const textAfterFormatted = text
-      ? text
-          .trim()
-          .replace(/(<\S+.*>)\n/g, '$1')
-          .replace(/\n/g, '<br />')
-      : '';
-
+  function Notes({ active }) {
+    const { storyId } = useStorybookState();
+    const [payload, setPayload] = useState(latestNotes);
+    useEffect(() => {
+      const onNotes = (next) => {
+        if (next.storyId === storyId) setPayload(next);
+      };
+      channel.on('ecl/notes/add_notes', onNotes);
+      setPayload(latestNotes);
+      if (active) channel.emit('ecl/notes/request_notes', { storyId });
+      return () => channel.off('ecl/notes/add_notes', onNotes);
+    }, [storyId, active]);
+    const html = payload?.storyId === storyId ? payload.html : '';
     return active ? (
       <Panel
         className="addon-notes-container"
-        dangerouslySetInnerHTML={{ __html: textAfterFormatted }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
     ) : null;
   }
-}
-
-Notes.propTypes = {
-  active: PropTypes.bool.isRequired,
-  channel: PropTypes.shape({
-    on: PropTypes.func,
-    emit: PropTypes.func,
-    removeListener: PropTypes.func,
-    data: PropTypes.shape({
-      'ecl/notes/add_notes': PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.arrayOf(PropTypes.string),
-      ]),
-    }),
-  }).isRequired,
-  api: PropTypes.shape({
-    on: PropTypes.func,
-    getQueryParam: PropTypes.func,
-    setQueryParams: PropTypes.func,
-  }).isRequired,
-};
-
-addons.register('ecl/notes', (api) => {
-  const channel = addons.getChannel();
 
   addons.add('ecl/notes/panel', {
     title: 'Notes',
-    paramKey: 'EclNotes',
     type: types.PANEL,
-
-    render: ({ active }) => (
-      <Notes channel={channel} api={api} active={active} />
-    ),
+    render: ({ active }) => <Notes active={active} />,
   });
 });

@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   helper_text: 'Optional help text',
   invalid_text: 'Error text',
   label: 'Select your preferred destinations',

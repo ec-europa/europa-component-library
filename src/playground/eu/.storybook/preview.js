@@ -1,16 +1,14 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
+import { create } from 'storybook/theming';
 import { Buffer } from 'buffer';
-import { themes } from '@storybook/theming';
 import isChromatic from 'chromatic/isChromatic';
-import { addons } from '@storybook/preview-api';
-import { STORY_RENDERED } from '@storybook/core-events';
+import { addons } from 'storybook/preview-api';
+import { STORY_RENDERED } from 'storybook/internal/core-events';
 import { allModes } from './modes';
-import { RTL_UPDATE_EVENT } from 'storybook-addon-rtl';
 
 import './ECL';
 
-// Debounced ECL.autoInit — collapses simultaneous triggers (STORY_RENDERED +
-// MutationObserver) into a single call to avoid double-initialisation.
+// Debounce story renders and direction changes to avoid double-initialisation.
 // ECL.autoInit() skips elements already marked data-ecl-auto-initialized="true",
 // so we must destroy the previous instance first to allow a clean re-init.
 let eclInitTimer = null;
@@ -33,39 +31,21 @@ function debouncedEclInit() {
       eclAutoInitInstance.destroy();
     }
     eclAutoInitInstance = ECL.autoInit();
-    // Inject the webtools icon script so it always runs after the story
-    // content is in the DOM.
+    // Load Webtools once per preview document. Its SPA-compatible icon
+    // processing handles subsequent story changes without reloading the script.
     const LOAD_JS = 'https://webtools.europa.eu/load.js';
-    const existing = document.querySelector(`script[src="${LOAD_JS}"]`);
-    if (existing) existing.remove();
-    const s = document.createElement('script');
-    s.src = LOAD_JS;
-    document.head.appendChild(s);
+    if (!document.querySelector(`script[src="${LOAD_JS}"]`)) {
+      const script = document.createElement('script');
+      script.src = LOAD_JS;
+      document.head.appendChild(script);
+    }
   }, 50);
 }
 
-// Primary trigger: fires after the story is fully rendered.
+// Storybook emits this after navigation and control-driven rerenders. Do not
+// observe component DOM changes: those must not restart running components.
 const channel = addons.getChannel();
 channel.on(STORY_RENDERED, debouncedEclInit);
-
-// Secondary trigger: re-init when controls change the story HTML.
-// Set up only once (after first STORY_RENDERED) so the observer does not
-// fire during the initial render and cause a double-init.
-channel.once(STORY_RENDERED, () => {
-  const root = document.getElementById('storybook-root');
-  if (!root) return;
-  new MutationObserver(debouncedEclInit).observe(root, {
-    childList: true,
-    subtree: false,
-  });
-});
-
-// Listen to the update of the direction done via the storybook plugin.
-channel.on(RTL_UPDATE_EVENT, (dir) => {
-  if (direction && dir.direction !== direction) {
-    debouncedEclInit();
-  }
-});
 
 global.Buffer = Buffer;
 
@@ -95,13 +75,54 @@ if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
   );
 }
 
+export const globalTypes = {
+  direction: {
+    description: 'Text direction',
+    toolbar: {
+      icon: 'globe',
+      dynamicTitle: true,
+      items: [
+        { value: 'ltr', title: 'Left to right' },
+        { value: 'rtl', title: 'Right to left' },
+      ],
+    },
+  },
+};
+
+export const decorators = [
+  (story, context) => {
+    const nextDirection = context.globals.direction || 'ltr';
+    document.documentElement.setAttribute('dir', nextDirection);
+    if (direction && direction !== nextDirection) debouncedEclInit();
+    return story();
+  },
+];
+
 export const initialGlobals = {
+  direction: 'ltr',
+  a11y: { manual: false },
+  viewport: { value: undefined, isRotated: false },
   panelDescription:
     'Here you can choose the ECL styles to be used in this demo, you can toggle styles for the screen, the print, or single stylesheets.',
   panelTitle: 'ECL styles',
 };
 
 export const parameters = {
+  darkMode: {
+    stylePreview: false,
+    light: create({
+      base: 'light',
+      brandTitle: 'ECL v5 EU',
+      brandUrl: 'https://github.com/ec-europa/europa-component-library',
+    }),
+    dark: create({
+      base: 'dark',
+      brandTitle: 'ECL v5 EU',
+      brandUrl: 'https://github.com/ec-europa/europa-component-library',
+    }),
+  },
+  actions: { disable: true },
+  interactions: { disable: true },
   chromatic: {
     modes: {
       s: allModes.s,
@@ -164,17 +185,13 @@ export const parameters = {
   },
   disableSaveFromUI: true,
   a11y: {
-    element: '#storybook-root',
-    config: {},
+    context: '#storybook-root',
+    config: {
+      checks: [{ id: 'color-contrast', options: { noScroll: true } }],
+    },
     options: {
-      checks: { 'color-contrast': { options: { noScroll: true } } },
       restoreScroll: true,
     },
-    manual: false,
-  },
-  darkMode: {
-    current: { ...themes.light },
-    dark: { ...themes.dark },
   },
   docs: {
     canvas: { sourceState: 'shown' },
@@ -183,8 +200,7 @@ export const parameters = {
   controls: { expanded: true },
   layout: 'padded',
   viewport: {
-    defaultViewport: 'responsive',
-    viewports: {
+    options: {
       responsive: {
         name: 'responsive',
         styles: {
@@ -222,26 +238,6 @@ export const loaders = [
   async ({ args, originalStoryFn }) => {
     if (originalStoryFn.render) {
       const component = await originalStoryFn.render(args);
-
-      // Store the original HTML (before icon replacement) for the HTML addon
-      if (typeof component === 'string') {
-        setTimeout(() => {
-          const rootDiv = document.querySelector('#storybook-root');
-
-          if (rootDiv) {
-            // Remove previous script if present
-            rootDiv.querySelector('.original-markup-source')?.remove();
-
-            const script = document.createElement('script');
-
-            script.type = 'text/plain';
-            script.className = 'original-markup-source';
-            script.textContent = component;
-
-            rootDiv.appendChild(script);
-          }
-        }, 0);
-      }
 
       return { component };
     }

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'Consectetur adipiscing elit',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec ullamcorper mi. Morbi interdum fermentum tempus. Nam nec rhoncus risus, eget dictum elit. Vestibulum gravida tincidunt venenatis.',

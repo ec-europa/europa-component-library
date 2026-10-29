@@ -1,8 +1,7 @@
 import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
-import Page from '../Page';
 
-async function onRenderClient() {
+async function onRenderClient({ Page }) {
   hydrateRoot(document.getElementById('page-root'), <Page />);
 }
 

@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 import demoContent from './demo/data';
 
 import pageInfo from './page-information.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => ({
   content: data.content,

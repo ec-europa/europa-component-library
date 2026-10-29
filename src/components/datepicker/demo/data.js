@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   label: 'Label',
   helper_text: 'Format: dd-mm-yyyy',
   sr_invalid_icon: 'Error',

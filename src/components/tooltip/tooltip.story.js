@@ -1,9 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { loremIpsum } from 'lorem-ipsum';
 import withCode from '@ecl/storybook-addon-code';
-import { within, userEvent, expect } from '@storybook/test';
+import { within, userEvent, expect } from 'storybook/test';
 
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const loremBefore = loremIpsum({ count: 10 });
 const loremAfter = loremIpsum({ count: 10 });

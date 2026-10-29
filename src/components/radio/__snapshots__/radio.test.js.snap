@@ -1,68 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Radio Binary invalid renders correctly 1`] = `
-<jest>
-  <div
-    class="ecl-radio ecl-radio--binary ecl-radio--invalid"
-  >
-    <input
-      checked=""
-      class="ecl-radio__input"
-      id="radio-binary-1"
-      name="radio-group-1"
-      type="radio"
-      value="yes"
-    />
-    <label
-      class="ecl-radio__label"
-      for="radio-binary-1"
-    >
-      <span
-        class="ecl-radio__box ecl-radio__box--invalid"
-      >
-        <span
-          class="ecl-radio__box-inner"
-        />
-      </span>
-      <span
-        class="ecl-radio__text"
-      >
-        Yes
-      </span>
-    </label>
-  </div>
-  <div
-    class="ecl-radio ecl-radio--binary ecl-radio--invalid"
-  >
-    <input
-      class="ecl-radio__input"
-      id="radio-binary-2"
-      name="radio-group-1"
-      type="radio"
-      value="no"
-    />
-    <label
-      class="ecl-radio__label"
-      for="radio-binary-2"
-    >
-      <span
-        class="ecl-radio__box ecl-radio__box--invalid"
-      >
-        <span
-          class="ecl-radio__box-inner"
-        />
-      </span>
-      <span
-        class="ecl-radio__text"
-      >
-        No
-      </span>
-    </label>
-  </div>
-</jest>
-`;
-
-exports[`Radio Binary renders correctly 1`] = `
+exports[`Radio > Binary > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-radio ecl-radio--binary"
@@ -124,7 +62,69 @@ exports[`Radio Binary renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Radio Default renders correctly 1`] = `
+exports[`Radio > Binary invalid > renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-radio ecl-radio--binary ecl-radio--invalid"
+  >
+    <input
+      checked=""
+      class="ecl-radio__input"
+      id="radio-binary-1"
+      name="radio-group-1"
+      type="radio"
+      value="yes"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-1"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--invalid"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Yes
+      </span>
+    </label>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--binary ecl-radio--invalid"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-2"
+      name="radio-group-1"
+      type="radio"
+      value="no"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-2"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--invalid"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        No
+      </span>
+    </label>
+  </div>
+</jest>
+`;
+
+exports[`Radio > Default > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-radio"
@@ -248,7 +248,7 @@ exports[`Radio Default renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Radio Default renders correctly with extra attributes 1`] = `
+exports[`Radio > Default > renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-radio"
@@ -372,7 +372,7 @@ exports[`Radio Default renders correctly with extra attributes 1`] = `
 </jest>
 `;
 
-exports[`Radio Default renders correctly with extra class names 1`] = `
+exports[`Radio > Default > renders correctly with extra class names 1`] = `
 <jest>
   <div
     class="ecl-radio"
@@ -496,7 +496,7 @@ exports[`Radio Default renders correctly with extra class names 1`] = `
 </jest>
 `;
 
-exports[`Radio Invalid renders correctly 1`] = `
+exports[`Radio > Invalid > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-radio ecl-radio--invalid"
@@ -620,7 +620,7 @@ exports[`Radio Invalid renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Radio Optional renders correctly 1`] = `
+exports[`Radio > Optional > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-radio"
