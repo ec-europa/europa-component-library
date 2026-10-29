@@ -98,13 +98,22 @@
           </ul>
         </details>
       {%- else -%}
-        <a 
-          href="{{ item.path }}"
-          class="{{ _item_class }}"
-          {{ _extra_attributes|raw }}
-        >
-          {{- item.label -}}
-        </a>
+        {%- if item.path is not empty -%}
+          <a 
+            href="{{ item.path }}"
+            class="{{ _item_class }}"
+            {{ _extra_attributes|raw }}
+          >
+            {{- item.label -}}
+          </a>
+        {%- else -%}
+          <span 
+            class="{{ _item_class }}" 
+            {{ _extra_attributes|raw }}
+          >
+            {{- item.label -}}
+          </span>
+        {%- endif -%}
       {%- endif -%}
     </li>
   {% endfor %}
