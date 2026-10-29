@@ -279,7 +279,7 @@ Highlighted.render = async (args) => {
 Highlighted.args = {
   ...getArgs(dataHighlighted),
   show_view_all: false,
-  source_type: '',
+  source_type: 'none',
   full_width: true,
 };
 Highlighted.argTypes = {
