@@ -49,7 +49,7 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
 }));
 
 function HTMLMarkup({ active, markup, originalMarkup }) {
-  const [activeTab, setActiveTab] = useState('source');
+  const [activeTab, setActiveTab] = useState('rendered');
 
   const beautifyHtml = (html, options = {}) => {
     return beautify(html, {
