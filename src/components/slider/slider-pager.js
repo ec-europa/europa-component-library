@@ -1,11 +1,11 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
 
 /**
- * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.slider Slider instance (embla)
  * @param {String} options.accessibility Accessibility plugin instance (embla)
- * @param {String} options.pagerElement Slider pager
+ * @param {HTMLElement} options.pagerElement Slider pager root
+ * @param {Boolean} options.dots Enable pagination dots
  * @param {String} options.prevSelector Css class of the prev button
  * @param {String} options.nextSelector Css class of the next button
  * @param {String} options.dotsSelector Css class of the dots wrapper
@@ -18,13 +18,14 @@ export class SliderPager {
   constructor({
     slider,
     accessibility,
-    prevSelector,
-    nextSelector,
     pagerElement,
-    dotsSelector,
-    dotTemplateSelector,
-    dotSelector,
-    activeDotSelector,
+    prevSelector = '.ecl-slider-pager__prev',
+    nextSelector = '.ecl-slider-pager__next',
+    dots = true,
+    dotsSelector = '.ecl-slider-pager__dots',
+    dotTemplateSelector = '[data-ecl-slider-dot-template]',
+    dotSelector = '.ecl-slider-pager__dot',
+    activeDotSelector = 'ecl-slider-pager__dot--active',
     onUpdate,
   } = {}) {
     this.slider = slider;
@@ -32,6 +33,7 @@ export class SliderPager {
     this.prevSelector = prevSelector;
     this.nextSelector = nextSelector;
     this.pagerElement = pagerElement;
+    this.dots = dots;
     this.dotsSelector = dotsSelector;
     this.dotTemplateSelector = dotTemplateSelector;
     this.dotSelector = dotSelector;
@@ -57,14 +59,18 @@ export class SliderPager {
    * @memberof SliderPager
    */
   init() {
-    if (!this.slider) {
+    if (!this.slider || !this.pagerElement) {
       return;
     }
 
     this.prevButton = queryOne(this.prevSelector, this.pagerElement);
     this.nextButton = queryOne(this.nextSelector, this.pagerElement);
-    this.dotsContainer = queryOne(this.dotsSelector, this.pagerElement);
-    this.dotTemplate = queryOne(this.dotTemplateSelector, this.pagerElement);
+    this.dotsContainer = this.dots
+      ? queryOne(this.dotsSelector, this.pagerElement)
+      : null;
+    this.dotTemplate = this.dots
+      ? queryOne(this.dotTemplateSelector, this.pagerElement)
+      : null;
 
     if (this.prevButton && this.nextButton) {
       this.toggleButtonsDisabled(this.slider);
@@ -81,7 +87,7 @@ export class SliderPager {
       );
     }
 
-    if (this.dotsContainer) {
+    if (this.dotsContainer && this.dotTemplate) {
       this.rebuildDots();
       this.slider.on('reInit', this.rebuildDots);
       this.updateDots();
@@ -99,6 +105,9 @@ export class SliderPager {
    * @memberof SliderPager
    */
   destroy() {
+    if (!this.slider) return;
+
+    clearTimeout(this.resizeTimer);
     this.slider.rootNode().removeEventListener('keydown', this.handleKeyboard);
     this.slider.off('select', this.toggleButtonsDisabled);
     this.slider.off('reInit', this.toggleButtonsDisabled);
@@ -146,7 +155,7 @@ export class SliderPager {
       this.nextButton.toggleAttribute('disabled', !emblaApi.canGoToNext());
     }
 
-    if (this.prevButton && this.nextButton) {
+    if (this.pagerElement && this.prevButton && this.nextButton) {
       if (!emblaApi.canGoToNext() && !emblaApi.canGoToPrev()) {
         this.pagerElement.style.display = 'none';
       } else {
@@ -161,10 +170,12 @@ export class SliderPager {
    * @memberof SliderPager
    */
   rebuildDots() {
+    if (!this.dotsContainer || !this.dotTemplate) return;
+
     const canScroll = this.slider.canGoToPrev() || this.slider.canGoToNext();
 
-    if (this.pager) {
-      this.pager.style.display = canScroll ? '' : 'none';
+    if (this.pagerElement) {
+      this.pagerElement.style.display = canScroll ? '' : 'none';
     }
 
     if (!canScroll) {
@@ -218,7 +229,7 @@ export class SliderPager {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       if (this.slider) {
-        if (this.dotsContainer) {
+        if (this.dotsContainer && this.dotTemplate) {
           this.rebuildDots();
           this.updateDots();
         }

@@ -6,6 +6,7 @@ import EmblaCarousel from 'embla-carousel';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.controlsSelector Selector for slider controls
  * @param {String} options.containerSelector Selector for container element
  * @param {String} options.contentSelector Selector for tabs with content
  * @param {String} options.listSelector Selector for list element
@@ -44,6 +45,7 @@ export class Tabs {
   constructor(
     element,
     {
+      controlsSelector = '.ecl-tabs__controls',
       containerSelector = '.ecl-tabs__container',
       contentSelector = 'data-ecl-tabs-with-content',
       listSelector = '.ecl-tabs__list',
@@ -69,6 +71,7 @@ export class Tabs {
     this.eventManager = new EventManager();
 
     // Options
+    this.controlsSelector = controlsSelector;
     this.containerSelector = containerSelector;
     this.contentSelector = contentSelector;
     this.listSelector = listSelector;
@@ -83,6 +86,7 @@ export class Tabs {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
+    this.controls = null;
     this.container = null;
     this.list = null;
     this.listItems = null;
@@ -129,6 +133,7 @@ export class Tabs {
     }
     ECL.components = ECL.components || new Map();
 
+    this.controls = queryOne(this.controlsSelector, this.element);
     this.container = queryOne(this.containerSelector, this.element);
     this.hasContent = this.element.hasAttribute(this.contentSelector);
     this.list = queryOne(this.listSelector, this.element);
