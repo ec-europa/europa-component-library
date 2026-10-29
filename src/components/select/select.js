@@ -212,8 +212,7 @@ export class Select {
   static #createCheckbox(options, ctx) {
     // Early returns.
     if (!options || !ctx) return '';
-    const { id, text, disabled, selected, extraClass } = options;
-    if (!id || !text) return '';
+    const { id, text = '', disabled, selected, extraClass } = options;
 
     // Elements to work with.
     const checkbox = document.createElement('div');
@@ -584,8 +583,9 @@ export class Select {
           checkbox = Select.#createCheckbox(
             {
               // spread operator does not work in storybook context so we map 1:1
-              id: option.value,
-              text: option.text,
+              // fallbacks ensure a checkbox is always created for each option
+              id: option.value || `option-${option.index}`,
+              text: option.text || option.value,
               disabled: option.disabled,
               selected: option.selected,
             },
