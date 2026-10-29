@@ -9,7 +9,7 @@ import notes from './README.md';
 
 const getArgs = () => {
   const args = {
-    show_controls: true,
+    show_controls: false,
     use_name: false,
   };
 
