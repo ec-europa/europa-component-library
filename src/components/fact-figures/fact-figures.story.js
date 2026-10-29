@@ -3,8 +3,9 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import demoData from './demo/data';
+import dataHighlighted from './demo/data--highlighted';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';
@@ -17,12 +18,13 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 const getArgs = (data) => {
   const args = {
     centered: false,
+    full_width: false,
     show_view_all: true,
     show_icons: true,
-    column: 3,
-    font_size: 'l',
+    column: data.column,
+    font_size: data.font_size || 'l',
     icon: data.items[0].icon.name,
-    icon_size: 'medium',
+    icon_size: 'l',
     value: data.items[0].value,
     title: data.items[0].title,
     description: data.items[0].description,
@@ -42,6 +44,16 @@ const getArgTypes = () => {
   argTypes.centered = {
     type: { name: 'boolean' },
     description: 'Centered content',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Items',
+    },
+  };
+  argTypes.full_width = {
+    name: 'full width',
+    type: { name: 'boolean' },
+    description: 'Full width of the viewport (it has to be in a container)',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
@@ -114,14 +126,20 @@ const getArgTypes = () => {
     name: 'icon size',
     description: 'Size of the icon',
     type: 'select',
-    options: ['medium', 'large'],
+    options: ['l', '2xl'],
+    control: {
+      labels: {
+        l: 'medium',
+        '2xl': 'large',
+      },
+    },
     mapping: {
       medium: 'l',
       large: '2xl',
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'medium' },
+      defaultValue: { summary: 'l' },
       category: 'Content (first item)',
     },
     if: { arg: 'show_icons' },
@@ -196,6 +214,7 @@ const prepareData = (data, args) => {
   }
   clone.display_icons = args.show_icons;
   clone.centered = args.centered;
+  clone.full_width = args.full_width;
 
   // Column display
   clone.column = args.column;
@@ -216,7 +235,22 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Fact figures',
-  decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+    breakpointIndicator: {
+      container: '.ecl-fact-figures',
+    },
+  },
+  decorators: [
+    withNotes,
+    withCode,
+    (story) => `<div class=ecl-container>${story()}</div>`,
+  ],
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -232,13 +266,34 @@ Default.parameters = {
     markdown: notes,
     json: ({ args }) => prepareData(demoData, args),
   },
-  chromatic: {
-    modes: {
-      m: { disable: true },
-      xl: { disable: true },
-    },
+};
+
+export const Highlighted = (_, { loaded: { component } }) => component;
+
+Highlighted.render = async (args) => {
+  const renderedFactFiguresHighlighted = await factFigures(
+    prepareData(dataHighlighted, args),
+  );
+  return renderedFactFiguresHighlighted;
+};
+Highlighted.args = {
+  ...getArgs(dataHighlighted),
+  show_view_all: false,
+  source_type: '',
+  full_width: true,
+};
+Highlighted.argTypes = {
+  ...getArgTypes(),
+  title: {
+    table: { disable: true },
   },
-  breakpointIndicator: {
-    container: '.ecl-fact-figures',
+  column: {
+    table: { disable: true },
+  },
+};
+Highlighted.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataHighlighted, args),
   },
 };

@@ -6,6 +6,8 @@
   - "color_mode" (string)
   - "column" (integer) (default: 3): Number of columns (1 to 4)
   - "centered" (boolean) (default: false)
+  - "variant" (string) (default: '') Can be 'highlighted'
+  - "full_width" (boolean) (default: false) Full width of the viewport (must be in a container)
   - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
   - "items" (array) (default: []):
     - "icon" (associate array) (default: { size: 'm' })
@@ -47,8 +49,11 @@
 
 {% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-fact-figures' %}
+{% set _variant = variant|default('') %}
 {% set _extra_attributes = '' %}
 {% set _columns = column|default(3) %}
+{% set _container_classes = 'ecl-fact-figures__container' %}
+{% set _full_width = full_width|default(false) %}
 {% set _font_size = font_size|default('l') %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _icon_size = icon_size|default('l') %}
@@ -59,14 +64,25 @@
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+{% if _variant is empty %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+{% endif %}
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--full-width' %}
+  {% set _container_classes = _container_classes ~ ' ecl-container' %}
+{% endif %}
+
 {% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-fact-figures--centered' %}
+{% endif %}
+
+{% if _variant %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--highlighted' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -132,7 +148,7 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-fact-figures__container">
+  <div class="{{ _container_classes }}">
   {% if items is defined and items is not empty and items is iterable %}
     <div class="ecl-fact-figures__items">
     {% for item in items %}
@@ -146,12 +162,14 @@
       <div class="{{ _item_class }}">
         {# Icon #}
         {% if item.icon is defined and item.icon is not empty and _display_icons %}
+        <div class="ecl-fact-figures__icon-wrapper">
           {% include '@ecl/icon/icon.html.twig' with {
             icon: item.icon|merge({
               size: _icon_size,
             }),
             extra_classes: 'ecl-fact-figures__icon',
           } only %}
+        </div>
         {% endif %}
 
         {# Value #}
