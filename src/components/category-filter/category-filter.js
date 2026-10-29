@@ -6,6 +6,8 @@ import { queryAll } from '@ecl/dom-utils';
  * @param {String} options.itemSelector Selector for the items
  * @param {String} options.parentItemSelector Selector for the parent items
  * @param {String} options.listSelector Selector for the lists
+ * @param {String} options.expandAllSelector Selector for the expand all button
+ * @param {String} options.collapseAllSelector Selector for the collapse all button
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
 export class CategoryFilter {
@@ -30,6 +32,8 @@ export class CategoryFilter {
       itemSelector = '.ecl-category-filter__item',
       parentItemSelector = 'ecl-category-filter__item--has-children',
       listSelector = '.ecl-category-filter__list',
+      expandAllSelector = '[data-ecl-category-filter-expand-all]',
+      collapseAllSelector = '[data-ecl-category-filter-collapse-all]',
       attachClickListener = true,
     } = {},
   ) {
@@ -46,14 +50,20 @@ export class CategoryFilter {
     this.itemSelector = itemSelector;
     this.parentItemSelector = parentItemSelector;
     this.listSelector = listSelector;
+    this.expandAllSelector = expandAllSelector;
+    this.collapseAllSelector = collapseAllSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
     this.items = null;
+    this.expandAllButton = null;
+    this.collapseAllButton = null;
 
     // Bind `this` for use in callbacks
     this.handleClickExpand = this.handleClickExpand.bind(this);
     this.expandParents = this.expandParents.bind(this);
+    this.handleClickExpandAll = this.handleClickExpandAll.bind(this);
+    this.handleClickCollapseAll = this.handleClickCollapseAll.bind(this);
   }
 
   /**
@@ -66,6 +76,10 @@ export class CategoryFilter {
     ECL.components = ECL.components || new Map();
     // Query elementslur
     this.items = queryAll(this.itemSelector, this.element);
+    this.expandAllButton = this.element.querySelector(this.expandAllSelector);
+    this.collapseAllButton = this.element.querySelector(
+      this.collapseAllSelector,
+    );
     const e = { preventDefault: () => null };
     // Bind click event on open
     if (this.attachClickListener && this.items) {
@@ -78,6 +92,15 @@ export class CategoryFilter {
           this.expandParents(item);
         }
       });
+    }
+    if (this.attachClickListener && this.expandAllButton) {
+      this.expandAllButton.addEventListener('click', this.handleClickExpandAll);
+    }
+    if (this.attachClickListener && this.collapseAllButton) {
+      this.collapseAllButton.addEventListener(
+        'click',
+        this.handleClickCollapseAll,
+      );
     }
 
     // Set ecl initialized attribute
@@ -93,6 +116,18 @@ export class CategoryFilter {
       this.items.forEach((item) => {
         item.removeEventListener('click', this.handleClickExpand, false);
       });
+    }
+    if (this.attachClickListener && this.expandAllButton) {
+      this.expandAllButton.removeEventListener(
+        'click',
+        this.handleClickExpandAll,
+      );
+    }
+    if (this.attachClickListener && this.collapseAllButton) {
+      this.collapseAllButton.removeEventListener(
+        'click',
+        this.handleClickCollapseAll,
+      );
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -165,6 +200,38 @@ export class CategoryFilter {
         });
       }
     }
+  }
+
+  /**
+   * Set the expanded state of all the items having children.
+   * @param {Boolean} expanded
+   */
+  setAllExpandedState(expanded) {
+    if (!this.items) return;
+    this.items.forEach((item) => {
+      item.removeAttribute('aria-current');
+      if (item.classList.contains(this.parentItemSelector)) {
+        item.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        item.parentElement.classList.toggle(
+          'ecl-category-filter__list-item--open',
+          expanded,
+        );
+      }
+    });
+  }
+
+  /**
+   * Expand all the items.
+   */
+  handleClickExpandAll() {
+    this.setAllExpandedState(true);
+  }
+
+  /**
+   * Collapse all the items.
+   */
+  handleClickCollapseAll() {
+    this.setAllExpandedState(false);
   }
 }
 

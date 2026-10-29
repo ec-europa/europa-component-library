@@ -5,8 +5,14 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   label: 'Category filter',
   id: 'unique-id',
+  expand_all: {
+    label: 'Expand all',
+  },
+  collapse_all: {
+    label: 'Collapse all',
+  },
   items: [
-    { label: 'Item 1', path: exampleLink, current: true },
+    { label: 'Item 1', path: exampleLink },
     {
       label: 'Item 2 label',
       path: exampleLink,

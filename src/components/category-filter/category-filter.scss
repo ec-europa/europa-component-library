@@ -13,6 +13,13 @@ $category-filter: null !default;
   max-width: 18rem;
 }
 
+.ecl-category-filter__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-bottom: var(--s-xs);
+}
+
 .ecl-category-filter__list-item {
   display: flex;
   flex-direction: column;
@@ -153,6 +160,10 @@ $category-filter: null !default;
 }
 
 // No js
+.no-js .ecl-category-filter__controls {
+  display: none;
+}
+
 .no-js .ecl-category-filter__list-item {
   .ecl-category-filter__item {
     border-bottom: 0;

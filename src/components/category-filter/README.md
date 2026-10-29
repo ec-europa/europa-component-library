@@ -21,6 +21,8 @@ npm install --save @ecl/category-filter
     "path": (string) (default: '')
     "current" (boolean) (default: false)
     "extra_attributes" (array) (default: [])
+- **"expand_all"** (associative array) (default: {}): Button for expanding all the items; following ECL button structure
+- **"collapse_all"** (associative array) (default: {}): Button for collapsing all the items; following ECL button structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
@@ -33,6 +35,12 @@ npm install --save @ecl/category-filter
 {% include '@ecl/category-filter/category-filter.html.twig' with {
   label: 'Category filter',
   id: 'unique-id',
+  expand_all: {
+    label: 'Expand all',
+  },
+  collapse_all: {
+    label: 'Collapse all',
+  },
   items: [
     {
       label: "Item 1",

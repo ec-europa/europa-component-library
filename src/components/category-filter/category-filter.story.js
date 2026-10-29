@@ -8,7 +8,10 @@ import categoryFilter from './category-filter.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
-  const args = {};
+  const args = {
+    show_expand_all: true,
+    show_collapse_all: true,
+  };
 
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -17,13 +20,34 @@ const getArgs = () => {
   return args;
 };
 
-const getArgTypes = () => getColorModeControls();
+const getArgTypes = () => ({
+  show_expand_all: {
+    name: 'expand all',
+    type: { name: 'boolean' },
+    description: 'Toggle "expand all" button visibility',
+    table: { type: { summary: 'boolean' }, category: 'Optional' },
+  },
+  show_collapse_all: {
+    name: 'collapse all',
+    type: { name: 'boolean' },
+    description: 'Toggle "collapse all" button visibility',
+    table: { type: { summary: 'boolean' }, category: 'Optional' },
+  },
+  ...getColorModeControls(),
+});
 
 const prepareData = (data, args) => {
-  correctPaths(data);
-  data.color_mode = args.color_mode;
+  const clone = JSON.parse(JSON.stringify(data));
+  correctPaths(clone);
+  clone.color_mode = args.color_mode;
+  if (!args.show_expand_all) {
+    delete clone.expand_all;
+  }
+  if (!args.show_collapse_all) {
+    delete clone.collapse_all;
+  }
 
-  return data;
+  return clone;
 };
 
 export default {

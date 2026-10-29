@@ -27,6 +27,8 @@
       },
     },
   }],
+  - "expand_all" (associative array) (default: {}): Button for expanding all the items; following ECL button structure
+  - "collapse_all" (associative array) (default: {}): Button for collapsing all the items; following ECL button structure
   - "extra_classes" (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
@@ -40,6 +42,8 @@
 {% set _extra_attributes = '' %}
 {% set _label = label|default('') %}
 {% set _id = id|default('ecl-category-filter-' ~ random()) %}
+{% set _expand_all = expand_all|default({}) %}
+{% set _collapse_all = collapse_all|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -72,6 +76,30 @@
   {% endif %}
   {{ _extra_attributes|raw }}
 >
+  {% if _expand_all is not empty or _collapse_all is not empty %}
+    <div class="ecl-category-filter__controls">
+    {% if _expand_all is not empty %}
+      {% include '@ecl/button/button.html.twig' with _expand_all|merge({
+        variant: _expand_all.variant|default('tertiary'),
+        type: 'button',
+        extra_classes: 'ecl-category-filter__expand-all',
+        extra_attributes: _expand_all.extra_attributes|default([])|merge([
+          { name: 'data-ecl-category-filter-expand-all' },
+        ]),
+      }) only %}
+    {% endif %}
+    {% if _collapse_all is not empty %}
+      {% include '@ecl/button/button.html.twig' with _collapse_all|merge({
+        variant: _collapse_all.variant|default('tertiary'),
+        type: 'button',
+        extra_classes: 'ecl-category-filter__collapse-all',
+        extra_attributes: _collapse_all.extra_attributes|default([])|merge([
+          { name: 'data-ecl-category-filter-collapse-all' },
+        ]),
+      }) only %}
+    {% endif %}
+    </div>
+  {% endif %}
   <ul class="ecl-category-filter__list">
   {% if items is defined and items is not empty and items is iterable %}
     {% include '@ecl/category-filter/category-filter-items.html.twig' with {
