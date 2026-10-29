@@ -264,3 +264,33 @@ exports[`Link with indicator renders correctly 1`] = `
   </a>
 </jest>
 `;
+
+exports[`Link with indicator renders correctly when standalone 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--primary-highlight ecl-link--icon"
+    href="/example"
+  >
+    <span
+      aria-hidden="true"
+      class="wt-icon--corner-arrow ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon ecl-icon--corner-arrow"
+    />
+    <span
+      class="ecl-link__label"
+    >
+      Call to action link
+    </span>
+    <span
+      class="ecl-indicator ecl-indicator--standalone"
+      data-ecl-auto-init="Indicator"
+      data-ecl-indicator=""
+    >
+      <span
+        class="ecl-indicator__value"
+      >
+        10
+      </span>
+    </span>
+  </a>
+</jest>
+`;

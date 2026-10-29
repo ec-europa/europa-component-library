@@ -130,6 +130,47 @@ exports[`Button Secondary button neutral - with indicator renders correctly 1`] 
 </jest>
 `;
 
+exports[`Button Secondary button neutral - with indicator renders correctly with a standalone indicator 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--secondary ecl-button--neutral"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        aria-hidden="true"
+        class="wt-icon--corner-arrow-up ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon--corner-arrow-up"
+        data-ecl-icon=""
+      />
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        Button label
+      </span>
+      <span
+        class="ecl-indicator ecl-indicator--standalone"
+        data-ecl-auto-init="Indicator"
+        data-ecl-indicator=""
+      >
+        <span
+          class="ecl-indicator__value"
+        >
+          10
+        </span>
+        <span
+          class="ecl-indicator__label"
+        >
+          new items
+        </span>
+      </span>
+    </span>
+  </button>
+</jest>
+`;
+
 exports[`Button Secondary renders correctly 1`] = `
 <jest>
   <button
