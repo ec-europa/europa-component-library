@@ -11,6 +11,7 @@ npm install --save @ecl/category-filter
 - **color_mode** (string) (default: '') Name of the color mode
 - **"label"**: (string) (default: ''): Aria label provided for accessibility
 - **"id"**: (string) (default: randomized string): Unique id for the category filter
+- **"name"** (string) (default: '') Optional name attribute to link the first level items. Ignored if `expand_all` or `collapse_all` is displayed
 - **"items"** (associative array) (default: {}): The tree items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')

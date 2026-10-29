@@ -5,6 +5,7 @@
   - "color_mode" (string) The color mode name
   - "label": (string) (default: ''): Aria label provided for accessibility
   - "id": (string) (default: randomized string): Unique id for the category filter
+  - "name" (string) (default: '') Optional name attribute to link the first level items. Ignored if expand_all or collapse_all is displayed
   - "items": (associative array) (default: {}): The menu items - format: [
     {
       "label": "Home",
@@ -44,6 +45,8 @@
 {% set _id = id|default('ecl-category-filter-' ~ random()) %}
 {% set _expand_all = expand_all|default({}) %}
 {% set _collapse_all = collapse_all|default({}) %}
+{% set _has_controls = _expand_all is not empty or _collapse_all is not empty %}
+{% set _name = _has_controls ? '' : name|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -76,7 +79,7 @@
   {% endif %}
   {{ _extra_attributes|raw }}
 >
-  {% if _expand_all is not empty or _collapse_all is not empty %}
+  {% if _has_controls %}
     <div class="ecl-category-filter__controls">
     {% if _expand_all is not empty %}
       {% include '@ecl/button/button.html.twig' with _expand_all|merge({
@@ -105,6 +108,7 @@
     {% include '@ecl/category-filter/category-filter-items.html.twig' with {
       items: items,
       id: _id,
+      name: _name,
     } only %}
   {% endif %}
   </ul>

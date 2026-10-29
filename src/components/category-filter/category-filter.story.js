@@ -9,8 +9,8 @@ import notes from './README.md';
 
 const getArgs = () => {
   const args = {
-    show_expand_all: true,
-    show_collapse_all: true,
+    show_controls: true,
+    use_name: false,
   };
 
   if (getSystem() === 'ec') {
@@ -21,17 +21,19 @@ const getArgs = () => {
 };
 
 const getArgTypes = () => ({
-  show_expand_all: {
-    name: 'expand all',
+  show_controls: {
+    name: 'expand/collapse all',
     type: { name: 'boolean' },
-    description: 'Toggle "expand all" button visibility',
+    description: 'Toggle "expand all" and "collapse all" buttons visibility',
     table: { type: { summary: 'boolean' }, category: 'Optional' },
   },
-  show_collapse_all: {
-    name: 'collapse all',
+  use_name: {
+    name: 'use name',
     type: { name: 'boolean' },
-    description: 'Toggle "collapse all" button visibility',
+    description:
+      'Use a name to link the first level items (only one item open). Ignored when the expand/collapse all buttons are displayed',
     table: { type: { summary: 'boolean' }, category: 'Optional' },
+    if: { arg: 'show_controls', truthy: false },
   },
   ...getColorModeControls(),
 });
@@ -40,11 +42,12 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
   correctPaths(clone);
   clone.color_mode = args.color_mode;
-  if (!args.show_expand_all) {
+  if (!args.show_controls) {
     delete clone.expand_all;
-  }
-  if (!args.show_collapse_all) {
     delete clone.collapse_all;
+  }
+  if (args.use_name) {
+    clone.name = 'category-filter-name';
   }
 
   return clone;

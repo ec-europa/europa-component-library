@@ -4,8 +4,7 @@ import { queryAll } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.itemSelector Selector for the items
- * @param {String} options.parentItemSelector Selector for the parent items
- * @param {String} options.listSelector Selector for the lists
+ * @param {String} options.detailsSelector Selector for the details elements wrapping the parent items
  * @param {String} options.expandAllSelector Selector for the expand all button
  * @param {String} options.collapseAllSelector Selector for the collapse all button
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
@@ -30,8 +29,7 @@ export class CategoryFilter {
     element,
     {
       itemSelector = '.ecl-category-filter__item',
-      parentItemSelector = 'ecl-category-filter__item--has-children',
-      listSelector = '.ecl-category-filter__list',
+      detailsSelector = '.ecl-category-filter__details',
       expandAllSelector = '[data-ecl-category-filter-expand-all]',
       collapseAllSelector = '[data-ecl-category-filter-collapse-all]',
       attachClickListener = true,
@@ -48,19 +46,20 @@ export class CategoryFilter {
 
     // Options
     this.itemSelector = itemSelector;
-    this.parentItemSelector = parentItemSelector;
-    this.listSelector = listSelector;
+    this.detailsSelector = detailsSelector;
     this.expandAllSelector = expandAllSelector;
     this.collapseAllSelector = collapseAllSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
     this.items = null;
+    this.details = null;
     this.expandAllButton = null;
     this.collapseAllButton = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickExpand = this.handleClickExpand.bind(this);
+    this.handleClickItem = this.handleClickItem.bind(this);
+    this.handleToggleDetails = this.handleToggleDetails.bind(this);
     this.expandParents = this.expandParents.bind(this);
     this.handleClickExpandAll = this.handleClickExpandAll.bind(this);
     this.handleClickCollapseAll = this.handleClickCollapseAll.bind(this);
@@ -74,23 +73,29 @@ export class CategoryFilter {
       throw new TypeError('Called init but ECL is not present');
     }
     ECL.components = ECL.components || new Map();
-    // Query elementslur
+    // Query elements
     this.items = queryAll(this.itemSelector, this.element);
+    this.details = queryAll(this.detailsSelector, this.element);
     this.expandAllButton = this.element.querySelector(this.expandAllSelector);
     this.collapseAllButton = this.element.querySelector(
       this.collapseAllSelector,
     );
-    const e = { preventDefault: () => null };
-    // Bind click event on open
+
+    // Keep the deprecated open class in sync with the details state
+    this.details.forEach((details) => {
+      details.addEventListener('toggle', this.handleToggleDetails);
+    });
+
+    // Expand the needed items if there is a current item set
+    const currentItem = this.items.find((item) =>
+      item.getAttribute('aria-current'),
+    );
+    this.expandParents(currentItem);
+
+    // Bind click events
     if (this.attachClickListener && this.items) {
       this.items.forEach((item) => {
-        item.addEventListener('click', this.handleClickExpand);
-        // Epand the needed items if there is a current item set
-        if (item.getAttribute('aria-current')) {
-          e.target = item;
-          this.handleClickExpand(e);
-          this.expandParents(item);
-        }
+        item.addEventListener('click', this.handleClickItem);
       });
     }
     if (this.attachClickListener && this.expandAllButton) {
@@ -114,7 +119,12 @@ export class CategoryFilter {
   destroy() {
     if (this.attachClickListener && this.items) {
       this.items.forEach((item) => {
-        item.removeEventListener('click', this.handleClickExpand, false);
+        item.removeEventListener('click', this.handleClickItem, false);
+      });
+    }
+    if (this.details) {
+      this.details.forEach((details) => {
+        details.removeEventListener('toggle', this.handleToggleDetails);
       });
     }
     if (this.attachClickListener && this.expandAllButton) {
@@ -136,70 +146,44 @@ export class CategoryFilter {
   }
 
   /**
-   * Expand parents of the given item.
+   * Open the details containing the given item (including its own, for parent items).
    * @param {Node} item
    */
   expandParents(item) {
     if (!item) return;
-    const e = { preventDefault: () => null };
-    const parent = item.closest(this.listSelector)?.previousElementSibling;
-    if (parent && parent.classList.contains(this.parentItemSelector)) {
-      e.target = parent;
-      this.handleClickExpand(e);
-      this.expandParents(parent);
+    let details = item.closest(this.detailsSelector);
+    while (details && this.element.contains(details)) {
+      details.open = true;
+      details = details.parentElement.closest(this.detailsSelector);
     }
   }
 
   /**
-   * Expand tree list item.
+   * Mark the clicked item as current. Opening/closing is handled natively by details.
    * @param {Event} e
    */
-  handleClickExpand(e) {
+  handleClickItem(e) {
     // Get item even if we clicked on the icon
     const treeItem = e.target.closest(this.itemSelector);
-    const isNotInit = typeof e.stopPropagation === 'function';
-    // Toggle current item
-    if (isNotInit) {
-      this.items.forEach((item) => {
-        if (item === treeItem) {
-          item.setAttribute('aria-current', true);
-        } else {
-          item.removeAttribute('aria-current');
-        }
-      });
-    }
-
-    // Toggle expanded
-    const isExpanded = treeItem.getAttribute('aria-expanded');
-    if (isExpanded && isExpanded === 'true') {
-      e.preventDefault();
-      treeItem.setAttribute('aria-expanded', 'false');
-      treeItem.parentElement.classList.remove(
-        'ecl-category-filter__list-item--open',
-      );
-    } else if (isExpanded && isExpanded === 'false') {
-      e.preventDefault();
-      treeItem.setAttribute('aria-expanded', 'true');
-      treeItem.parentElement.classList.add(
-        'ecl-category-filter__list-item--open',
-      );
-    }
-
-    if (isExpanded && isNotInit) {
-      // For first level, keep only one item open
-      if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
-        this.items.forEach((item) => {
-          if (item !== treeItem) {
-            item.parentElement.classList.remove(
-              'ecl-category-filter__list-item--open',
-            );
-            if (item.classList.contains(this.parentItemSelector)) {
-              item.setAttribute('aria-expanded', 'false');
-            }
-          }
-        });
+    this.items.forEach((item) => {
+      if (item === treeItem) {
+        item.setAttribute('aria-current', true);
+      } else {
+        item.removeAttribute('aria-current');
       }
-    }
+    });
+  }
+
+  /**
+   * Toggle the open class on the list item wrapping the details.
+   * @deprecated The `ecl-category-filter__list-item--open` class will be removed in ECL v6, use the details `open` attribute instead
+   * @param {Event} e
+   */
+  handleToggleDetails(e) {
+    e.target.parentElement.classList.toggle(
+      'ecl-category-filter__list-item--open',
+      e.target.open,
+    );
   }
 
   /**
@@ -207,16 +191,12 @@ export class CategoryFilter {
    * @param {Boolean} expanded
    */
   setAllExpandedState(expanded) {
-    if (!this.items) return;
+    if (!this.details) return;
     this.items.forEach((item) => {
       item.removeAttribute('aria-current');
-      if (item.classList.contains(this.parentItemSelector)) {
-        item.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        item.parentElement.classList.toggle(
-          'ecl-category-filter__list-item--open',
-          expanded,
-        );
-      }
+    });
+    this.details.forEach((details) => {
+      details.open = expanded;
     });
   }
 
