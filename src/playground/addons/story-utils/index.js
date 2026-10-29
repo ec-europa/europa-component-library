@@ -506,7 +506,7 @@ export const getIndicatorControls = (condition = {}) => {
     },
     options: ['', 'left', 'standalone'],
     mapping: {
-      default: '',
+      default: 'right',
       left: 'left',
       standalone: 'standalone',
     },
