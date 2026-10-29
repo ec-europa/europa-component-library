@@ -9,8 +9,13 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    select: false,
     title: data.title,
     description: data.description,
+    multiple: false,
+    horizontal_alignment: 'center',
+    full_width: false,
+    gridContent: false,
     nb_suggestions: data.suggestion.items.length,
   };
 
@@ -23,6 +28,53 @@ const getArgs = (data) => {
 
 const getArgTypes = () => ({
   ...getColorModeControls(),
+  select: {
+    name: 'select input',
+    type: { name: 'boolean' },
+    description: 'Use an additional select input',
+    table: {
+      category: 'Optional',
+    },
+  },
+  multiple: {
+    name: 'multiple select',
+    type: { name: 'boolean' },
+    description: 'Allow selecting multiple options in the select input',
+    if: { arg: 'select' },
+    table: {
+      category: 'Optional',
+    },
+  },
+  horizontal_alignment: {
+    name: 'horizontal alignment',
+    type: { name: 'select' },
+    description: 'Content alignment (horizontal)',
+    options: ['center', 'left'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'center' },
+      category: 'Display',
+    },
+  },
+  full_width: {
+    name: 'full width',
+    type: { name: 'boolean' },
+    description: 'Take the full width of the viewport when in a container',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Display',
+    },
+  },
+  gridContent: {
+    name: 'demo grid content',
+    type: { name: 'boolean' },
+    description:
+      'Inject a test content block displayed on the grid, to see the alignment',
+    table: {
+      category: 'Test content',
+    },
+  },
   title: {
     name: 'title',
     type: { name: 'string' },
@@ -60,6 +112,23 @@ const prepareData = (data, args) => {
   clone.title = args.title;
   clone.description = args.description;
   clone.color_mode = args.color_mode;
+  clone.horizontal_alignment = args.horizontal_alignment;
+  clone.full_width = args.full_width;
+
+  if (!args.select) {
+    delete clone.search_select;
+    delete clone.search_select_label;
+  } else if (args.multiple) {
+    // The multiple select uses its own placeholder, not an empty option
+    clone.search_select.multiple = true;
+    clone.search_select.options = clone.search_select.options.filter(
+      (option) => option.value !== '',
+    );
+  } else {
+    Object.keys(clone.search_select)
+      .filter((key) => key.startsWith('multiple_'))
+      .forEach((key) => delete clone.search_select[key]);
+  }
 
   if (args.nb_suggestions === 0) {
     delete clone.suggestion;
@@ -75,6 +144,7 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Highlighted search',
+  parameters: { layout: 'fullscreen' },
   decorators: [
     withNotes,
     withCode,
@@ -87,7 +157,12 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const rendered = await HighlightedSearch(prepareData(defaultData, args));
+  let rendered = await HighlightedSearch(prepareData(defaultData, args));
+
+  if (args.gridContent) {
+    rendered += '<p class="ecl-u-type-paragraph">Content inside the grid</p>';
+  }
+
   return rendered;
 };
 Default.storyName = 'default';
@@ -99,4 +174,3 @@ Default.parameters = {
     json: ({ args }) => prepareData(defaultData, args),
   },
 };
-Default.decorators = [withCode, withNotes];

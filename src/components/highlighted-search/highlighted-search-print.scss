@@ -15,42 +15,52 @@ $highlighted-search: null !default;
   padding: map.get($highlighted-search, 'padding');
 }
 
+.ecl-highlighted-search--full-width {
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+  width: 100vw;
+}
+
 .ecl-highlighted-search__content {
   align-items: center;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 800px;
   margin-inline: auto;
   text-align: center;
 
-  &::before {
-    background-color: map.get($highlighted-search, 'separator-color');
-    content: '';
-    display: block;
-    height: 0.375rem;
-    width: 4rem;
+  .ecl-highlighted-search--hleft & {
+    align-items: flex-start;
+    margin-inline: 0;
   }
+}
 
-  & > *:first-child {
-    margin-block-start: map.get($highlighted-search, 'title', 'spacing');
-  }
+.ecl-highlighted-search__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-xs);
 }
 
 .ecl-highlighted-search__title {
   text-align: center;
 
-  @include mixins.responsive-font(
-    map.get($highlighted-search, 'title', 'font')
-  );
+  @include mixins.responsive-font(map.get($highlighted-search, 'title-font'));
+
+  .ecl-highlighted-search--hleft & {
+    text-align: start;
+  }
 }
 
 .ecl-highlighted-search__description {
-  margin-block-start: map.get($highlighted-search, 'description', 'spacing');
   text-align: center;
 
   @include mixins.responsive-font(
-    map.get($highlighted-search, 'description', 'font')
+    map.get($highlighted-search, 'description-font')
   );
+
+  .ecl-highlighted-search--hleft & {
+    text-align: start;
+  }
 
   & > *:first-child {
     margin-block-start: 0;
