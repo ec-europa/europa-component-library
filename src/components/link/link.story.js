@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
+import { useArgs, useEffect } from '@storybook/preview-api';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list-phosphor.json';
@@ -250,7 +251,21 @@ const renderStory = async (data, args, variant) => {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (Story) => {
+      const [{ icon_name: iconName }, updateArgs] = useArgs();
+
+      useEffect(() => {
+        if (iconName === 'none') {
+          updateArgs({ indicator: false });
+        }
+      }, [iconName]);
+
+      return Story();
+    },
+  ],
   parameters: {
     chromatic: {
       modes: {
