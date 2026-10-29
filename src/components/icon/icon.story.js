@@ -39,7 +39,6 @@ const prepareData = (data, args) => {
   clone.icon.name = args.name;
   clone.icon.size = args.size;
   clone.icon.color = args.color !== 'custom' ? args.color : args.custom_color;
-  console.log(clone.icon);
   clone.extra_classes =
     clone.icon.color === 'inverted'
       ? `ecl-u-bg-dark ecl-u-bg-grey ${clone.extra_classes}`

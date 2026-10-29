@@ -75,7 +75,7 @@ const styleSecondary = {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = getIndicatorControls({ arg: 'icon_name', neq: '' });
+  const argTypes = getIndicatorControls({ arg: 'icon_name', neq: 'none' });
 
   argTypes.size = {
     name: 'size',
@@ -248,7 +248,6 @@ const prepareData = (data, args) => {
       args.indicator_variant !== 'default' ? args.indicator_variant : '';
     data.indicator.position = args.indicator_position;
     data.indicator.shape = args.indicator_shape;
-    data.icon.size = 'm';
   }
   if (args.icon_name === 'none') {
     delete data.icon;

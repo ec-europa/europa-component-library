@@ -490,7 +490,7 @@ export const getIndicatorControls = (condition = {}) => {
     name: 'indicator position',
     type: { name: 'string' },
     description:
-      "⚠️ When the label is visible use left or standalone if the icon is before and default or standalone if it's after",
+      "⚠️ When the label is visible use left or standalone if the icon is before and right or standalone if it's after",
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -499,7 +499,7 @@ export const getIndicatorControls = (condition = {}) => {
     control: {
       type: 'select',
       labels: {
-        '': 'default',
+        '': 'right',
         left: 'left',
         standalone: 'standalone',
       },

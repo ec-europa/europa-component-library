@@ -118,7 +118,7 @@
       {% set _icon_image = true %}
     {%- endif -%}
 
-    {% if _indicator is not empty and _indicator.position != 'standalone' %}
+    {% if _indicator is not empty and (_indicator.position is not defined or _indicator.position != 'standalone') %}
       <span class="ecl-button__icon-container">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: icon,
@@ -167,7 +167,7 @@
       {{ button.icon(_icons, _indicator, _indicator_content) }}
     {% endif %}
 
-    {%- if _indicator is not empty and _indicator.position == 'standalone' -%}
+    {%- if _indicator is not empty and (_indicator.position is defined and _indicator.position == 'standalone') -%}
       {% include '@ecl/indicator/indicator.html.twig' with _indicator only %}
     {%- endif -%}
   </span>

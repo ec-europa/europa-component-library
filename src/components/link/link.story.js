@@ -207,7 +207,6 @@ const prepareData = (data, args) => {
       args.indicator_variant !== 'default' ? args.indicator_variant : '';
     data.link.indicator.position = args.indicator_position;
     data.link.indicator.shape = args.indicator_shape;
-    data.icon.size = 'm';
   }
   if (args.icon_name === 'none') {
     delete data.icon;

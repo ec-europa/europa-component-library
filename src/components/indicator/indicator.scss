@@ -41,6 +41,10 @@ $theme: null !default;
     display: inline-flex;
     position: static;
     margin-inline-start: var(--s-xs);
+
+    .ecl-button & {
+      margin-inline-start: var(--s-s);
+    }
   }
 
   &.ecl-indicator--success {
@@ -49,6 +53,7 @@ $theme: null !default;
 
   &.ecl-indicator--warning {
     background-color: var(--cm-surface-status-warning, var(--c-wa));
+    color: var(--cm-on-surface-brand, --c-d);
   }
 
   &.ecl-indicator--info {

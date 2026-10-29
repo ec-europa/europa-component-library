@@ -12,7 +12,7 @@ npm install --save @ecl/icon
   - "name" (string) (default: '') Icon name, eg. 'facebook', 'twitter'
   - "size" (string) (default: 'm') Icon size; can be 'xs', 's', 'm', 'l', 'xl', '2xl', 'fluid'
   - "transform" (string) (default: '') Icon transformation; can be 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'
-  - "color" (string) (default: '') Icon color; can be 'default', 'inverted', 'primary'
+  - "color" (string) (default: '') Icon color; can be 'default', 'inverted', 'primary' or a valid color code
   - "title" (string) (default: '') Accessible title for the icon (shortcut for extra_accessibility.title)
   - "family" (string) (default: '') Icon family (e.g. 'phosphor')
   - "style" (string) (default: '') Icon style; mostly for social network icons; can be 'primary', 'monochrome', 'inverted'
@@ -32,18 +32,18 @@ npm install --save @ecl/icon
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/icon/icon.html.twig' with { 
-  icon: { 
-    name: 'arrow-down', 
+{% include '@ecl/icon/icon.html.twig' with {
+  icon: {
+    name: 'arrow-down',
     family: 'phosphor',
-    size: 'm', 
-    transform: 'rotate-90', 
-    color: 'primary' 
-  }, 
-  extra_classes: 'my-extra-class-1 my-extra-class-2', 
-  extra_attributes: [ 
-    { name: 'data-test', value: 'data-test-value' }, 
-    { name: 'data-test-1', value: 'data-test-value-1' } 
-  ] 
-} %} 
+    size: 'm',
+    transform: 'rotate-90',
+    color: 'primary'
+  },
+  extra_classes: 'my-extra-class-1 my-extra-class-2',
+  extra_attributes: [
+    { name: 'data-test', value: 'data-test-value' },
+    { name: 'data-test-1', value: 'data-test-value-1' }
+  ]
+} %}
 ```
