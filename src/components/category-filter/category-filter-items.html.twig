@@ -24,10 +24,12 @@
     },
   }],
   - "level": (int) (default: 1)
+  - "name": (string) (default: ''): Name shared by the first level details, only one of them can be open at a time
 #}
 
 {% set _items = items|default({}) %}
 {% set _level = level|default(1) %}
+{% set _name = name|default('') %}
 
 {% if _items is defined and _items is not empty %}
   {% for item in _items %}
@@ -38,11 +40,6 @@
     {% set _item_class = 'ecl-category-filter__item ecl-category-filter__item--level-' ~ _level %}
     {% if item.children is defined and item.children is not empty and item.children is iterable %}
       {% set _item_class = _item_class ~ ' ecl-category-filter__item--has-children' %}
-      {% set _item_attributes = _item_attributes|merge([
-        { name: 'aria-expanded', value: 'false' },
-        { name: 'aria-controls', value: _item_id },
-        ])
-      %}
       {% set _has_children = true %}
     {% endif %}
     {% if item.current %}
@@ -59,32 +56,38 @@
     {% endif %}
     <li class="ecl-category-filter__list-item">
       {%- if _has_children -%}
-        <button
-          class="{{ _item_class }}"
-          {{ _extra_attributes|raw }}
+        <details
+          class="ecl-category-filter__details"
+          {% if _name is not empty and _level == 1 %}
+            name="{{ _name }}"
+          {% endif %}
         >
-          {%- if _level != 1 -%}
-            {% include '@ecl/icon/icon.html.twig' with {
-              icon: {
-                name: 'caret-right',
-                family: 'phosphor',
-                size: 'xs',
-              },
-              extra_classes: 'ecl-category-filter__item-icon',
-            } only %}
-          {%- endif -%}
-          {{- item.label -}}
-          {%- if _level == 1 -%}
-            {% include '@ecl/icon/icon.html.twig' with {
-              icon: {
-                name: 'caret-down',
-                family: 'phosphor',
-                size: 'xs',
-              },
-              extra_classes: 'ecl-category-filter__item-icon',
-            } only %}
-          {%- endif -%}
-          </button>
+          <summary
+            class="{{ _item_class }}"
+            {{ _extra_attributes|raw }}
+          >
+            {%- if _level != 1 -%}
+              {% include '@ecl/icon/icon.html.twig' with {
+                icon: {
+                  name: 'caret-right',
+                  family: 'phosphor',
+                  size: 'xs',
+                },
+                extra_classes: 'ecl-category-filter__item-icon',
+              } only %}
+            {%- endif -%}
+            {{- item.label -}}
+            {%- if _level == 1 -%}
+              {% include '@ecl/icon/icon.html.twig' with {
+                icon: {
+                  name: 'caret-down',
+                  family: 'phosphor',
+                  size: 'xs',
+                },
+                extra_classes: 'ecl-category-filter__item-icon',
+              } only %}
+            {%- endif -%}
+          </summary>
 
           <ul class="ecl-category-filter__list" id="{{ _item_id }}">
             {% include '@ecl/category-filter/category-filter-items.html.twig' with {
@@ -93,14 +96,24 @@
               id: _item_id,
             } only %}
           </ul>
+        </details>
       {%- else -%}
-        <a 
-          href="{{ item.path }}"
-          class="{{ _item_class }}"
-          {{ _extra_attributes|raw }}
-        >
-          {{- item.label -}}
-        </a>
+        {%- if item.path is not empty -%}
+          <a 
+            href="{{ item.path }}"
+            class="{{ _item_class }}"
+            {{ _extra_attributes|raw }}
+          >
+            {{- item.label -}}
+          </a>
+        {%- else -%}
+          <span 
+            class="{{ _item_class }}" 
+            {{ _extra_attributes|raw }}
+          >
+            {{- item.label -}}
+          </span>
+        {%- endif -%}
       {%- endif -%}
     </li>
   {% endfor %}

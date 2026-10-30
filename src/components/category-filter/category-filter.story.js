@@ -8,7 +8,10 @@ import categoryFilter from './category-filter.html.twig';
 import notes from './README.md';
 
 const getArgs = () => {
-  const args = {};
+  const args = {
+    show_controls: false,
+    use_name: false,
+  };
 
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
@@ -17,13 +20,37 @@ const getArgs = () => {
   return args;
 };
 
-const getArgTypes = () => getColorModeControls();
+const getArgTypes = () => ({
+  show_controls: {
+    name: 'expand/collapse all',
+    type: { name: 'boolean' },
+    description: 'Toggle "expand all" and "collapse all" buttons visibility',
+    table: { type: { summary: 'boolean' }, category: 'Optional' },
+  },
+  use_name: {
+    name: 'use name',
+    type: { name: 'boolean' },
+    description:
+      'Use a name to link the first level items (only one item open). Ignored when the expand/collapse all buttons are displayed',
+    table: { type: { summary: 'boolean' }, category: 'Optional' },
+    if: { arg: 'show_controls', truthy: false },
+  },
+  ...getColorModeControls(),
+});
 
 const prepareData = (data, args) => {
-  correctPaths(data);
-  data.color_mode = args.color_mode;
+  const clone = JSON.parse(JSON.stringify(data));
+  correctPaths(clone);
+  clone.color_mode = args.color_mode;
+  if (!args.show_controls) {
+    delete clone.expand_all;
+    delete clone.collapse_all;
+  }
+  if (args.use_name) {
+    clone.name = 'category-filter-name';
+  }
 
-  return data;
+  return clone;
 };
 
 export default {

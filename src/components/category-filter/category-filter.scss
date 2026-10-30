@@ -13,6 +13,13 @@ $category-filter: null !default;
   max-width: 18rem;
 }
 
+.ecl-category-filter__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-bottom: var(--s-xs);
+}
+
 .ecl-category-filter__list-item {
   display: flex;
   flex-direction: column;
@@ -44,6 +51,14 @@ $category-filter: null !default;
     outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -2px;
   }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.ecl-category-filter__item {
+  list-style: none;
 }
 
 .ecl-category-filter__item-icon {
@@ -88,12 +103,13 @@ $category-filter: null !default;
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
-// Toggle sub level
-.ecl-category-filter__list-item .ecl-category-filter__list {
-  display: none;
+// Opened sub level
+.ecl-category-filter__details {
+  position: relative;
 }
 
-.ecl-category-filter__list-item--open {
+.ecl-category-filter__list-item--open,
+.ecl-category-filter__details[open] {
   background-color: map.get($category-filter, 'background-subitem');
 
   &::before {
@@ -117,12 +133,8 @@ $category-filter: null !default;
     transform: rotate(90deg);
   }
 
-  .ecl-category-filter__item--level-1 .ecl-category-filter__item-icon {
+  > .ecl-category-filter__item--level-1 .ecl-category-filter__item-icon {
     transform: rotate(180deg);
-  }
-
-  > .ecl-category-filter__list {
-    display: block;
   }
 }
 
@@ -153,12 +165,6 @@ $category-filter: null !default;
 }
 
 // No js
-.no-js .ecl-category-filter__list-item {
-  .ecl-category-filter__item {
-    border-bottom: 0;
-  }
-
-  .ecl-category-filter__list {
-    display: block;
-  }
+.no-js .ecl-category-filter__controls {
+  display: none;
 }
