@@ -24,7 +24,19 @@ module.exports = {
               label: 'Item 2.1.2',
               children: [
                 { label: 'Item 2.1.2 a', path: exampleLink },
-                { label: 'Item 2.1.2 b', path: exampleLink },
+                {
+                  label: 'Item 2.1.2 b',
+                  children: [
+                    {
+                      label: 'Item 2.1.2 b.1',
+                      children: [
+                        { label: 'Item 2.1.2 b.1.1', path: exampleLink },
+                        { label: 'Item 2.1.2 b.1.2', path: exampleLink },
+                      ],
+                    },
+                    { label: 'Item 2.1.2 b.2', path: exampleLink },
+                  ],
+                },
                 { label: 'Item 2.1.2 c', path: exampleLink },
               ],
             },

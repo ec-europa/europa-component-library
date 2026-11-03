@@ -119,12 +119,76 @@ exports[`Category filter Default renders correctly 1`] = `
                         <li
                           class="ecl-category-filter__list-item"
                         >
-                          <a
-                            class="ecl-category-filter__item ecl-category-filter__item--level-4"
-                            href="/example"
+                          <details
+                            class="ecl-category-filter__details"
                           >
-                            Item 2.1.2 b
-                          </a>
+                            <summary
+                              class="ecl-category-filter__item ecl-category-filter__item--level-4 ecl-category-filter__item--has-children"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                              />
+                              Item 2.1.2 b
+                            </summary>
+                            <ul
+                              class="ecl-category-filter__list"
+                              id="unique-id-2-1-2-2"
+                            >
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <details
+                                  class="ecl-category-filter__details"
+                                >
+                                  <summary
+                                    class="ecl-category-filter__item ecl-category-filter__item--level-5 ecl-category-filter__item--has-children"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                                    />
+                                    Item 2.1.2 b.1
+                                  </summary>
+                                  <ul
+                                    class="ecl-category-filter__list"
+                                    id="unique-id-2-1-2-2-1"
+                                  >
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.1
+                                      </a>
+                                    </li>
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.2
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </details>
+                              </li>
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <a
+                                  class="ecl-category-filter__item ecl-category-filter__item--level-5"
+                                  href="/example"
+                                >
+                                  Item 2.1.2 b.2
+                                </a>
+                              </li>
+                            </ul>
+                          </details>
                         </li>
                         <li
                           class="ecl-category-filter__list-item"
@@ -559,12 +623,76 @@ exports[`Category filter Default renders correctly with a name and without expan
                         <li
                           class="ecl-category-filter__list-item"
                         >
-                          <a
-                            class="ecl-category-filter__item ecl-category-filter__item--level-4"
-                            href="/example"
+                          <details
+                            class="ecl-category-filter__details"
                           >
-                            Item 2.1.2 b
-                          </a>
+                            <summary
+                              class="ecl-category-filter__item ecl-category-filter__item--level-4 ecl-category-filter__item--has-children"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                              />
+                              Item 2.1.2 b
+                            </summary>
+                            <ul
+                              class="ecl-category-filter__list"
+                              id="unique-id-2-1-2-2"
+                            >
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <details
+                                  class="ecl-category-filter__details"
+                                >
+                                  <summary
+                                    class="ecl-category-filter__item ecl-category-filter__item--level-5 ecl-category-filter__item--has-children"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                                    />
+                                    Item 2.1.2 b.1
+                                  </summary>
+                                  <ul
+                                    class="ecl-category-filter__list"
+                                    id="unique-id-2-1-2-2-1"
+                                  >
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.1
+                                      </a>
+                                    </li>
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.2
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </details>
+                              </li>
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <a
+                                  class="ecl-category-filter__item ecl-category-filter__item--level-5"
+                                  href="/example"
+                                >
+                                  Item 2.1.2 b.2
+                                </a>
+                              </li>
+                            </ul>
+                          </details>
                         </li>
                         <li
                           class="ecl-category-filter__list-item"
@@ -1020,12 +1148,76 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                         <li
                           class="ecl-category-filter__list-item"
                         >
-                          <a
-                            class="ecl-category-filter__item ecl-category-filter__item--level-4"
-                            href="/example"
+                          <details
+                            class="ecl-category-filter__details"
                           >
-                            Item 2.1.2 b
-                          </a>
+                            <summary
+                              class="ecl-category-filter__item ecl-category-filter__item--level-4 ecl-category-filter__item--has-children"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                              />
+                              Item 2.1.2 b
+                            </summary>
+                            <ul
+                              class="ecl-category-filter__list"
+                              id="unique-id-2-1-2-2"
+                            >
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <details
+                                  class="ecl-category-filter__details"
+                                >
+                                  <summary
+                                    class="ecl-category-filter__item ecl-category-filter__item--level-5 ecl-category-filter__item--has-children"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                                    />
+                                    Item 2.1.2 b.1
+                                  </summary>
+                                  <ul
+                                    class="ecl-category-filter__list"
+                                    id="unique-id-2-1-2-2-1"
+                                  >
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.1
+                                      </a>
+                                    </li>
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.2
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </details>
+                              </li>
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <a
+                                  class="ecl-category-filter__item ecl-category-filter__item--level-5"
+                                  href="/example"
+                                >
+                                  Item 2.1.2 b.2
+                                </a>
+                              </li>
+                            </ul>
+                          </details>
                         </li>
                         <li
                           class="ecl-category-filter__list-item"
@@ -1479,12 +1671,76 @@ exports[`Category filter Default renders correctly with extra attributes on an i
                         <li
                           class="ecl-category-filter__list-item"
                         >
-                          <a
-                            class="ecl-category-filter__item ecl-category-filter__item--level-4"
-                            href="/example"
+                          <details
+                            class="ecl-category-filter__details"
                           >
-                            Item 2.1.2 b
-                          </a>
+                            <summary
+                              class="ecl-category-filter__item ecl-category-filter__item--level-4 ecl-category-filter__item--has-children"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                              />
+                              Item 2.1.2 b
+                            </summary>
+                            <ul
+                              class="ecl-category-filter__list"
+                              id="unique-id-2-1-2-2"
+                            >
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <details
+                                  class="ecl-category-filter__details"
+                                >
+                                  <summary
+                                    class="ecl-category-filter__item ecl-category-filter__item--level-5 ecl-category-filter__item--has-children"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                                    />
+                                    Item 2.1.2 b.1
+                                  </summary>
+                                  <ul
+                                    class="ecl-category-filter__list"
+                                    id="unique-id-2-1-2-2-1"
+                                  >
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.1
+                                      </a>
+                                    </li>
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.2
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </details>
+                              </li>
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <a
+                                  class="ecl-category-filter__item ecl-category-filter__item--level-5"
+                                  href="/example"
+                                >
+                                  Item 2.1.2 b.2
+                                </a>
+                              </li>
+                            </ul>
+                          </details>
                         </li>
                         <li
                           class="ecl-category-filter__list-item"
@@ -1936,12 +2192,76 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                         <li
                           class="ecl-category-filter__list-item"
                         >
-                          <a
-                            class="ecl-category-filter__item ecl-category-filter__item--level-4"
-                            href="/example"
+                          <details
+                            class="ecl-category-filter__details"
                           >
-                            Item 2.1.2 b
-                          </a>
+                            <summary
+                              class="ecl-category-filter__item ecl-category-filter__item--level-4 ecl-category-filter__item--has-children"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                              />
+                              Item 2.1.2 b
+                            </summary>
+                            <ul
+                              class="ecl-category-filter__list"
+                              id="unique-id-2-1-2-2"
+                            >
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <details
+                                  class="ecl-category-filter__details"
+                                >
+                                  <summary
+                                    class="ecl-category-filter__item ecl-category-filter__item--level-5 ecl-category-filter__item--has-children"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--xs ecl-category-filter__item-icon ecl-icon-phosphor--caret-right"
+                                    />
+                                    Item 2.1.2 b.1
+                                  </summary>
+                                  <ul
+                                    class="ecl-category-filter__list"
+                                    id="unique-id-2-1-2-2-1"
+                                  >
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.1
+                                      </a>
+                                    </li>
+                                    <li
+                                      class="ecl-category-filter__list-item"
+                                    >
+                                      <a
+                                        class="ecl-category-filter__item ecl-category-filter__item--level-6"
+                                        href="/example"
+                                      >
+                                        Item 2.1.2 b.1.2
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </details>
+                              </li>
+                              <li
+                                class="ecl-category-filter__list-item"
+                              >
+                                <a
+                                  class="ecl-category-filter__item ecl-category-filter__item--level-5"
+                                  href="/example"
+                                >
+                                  Item 2.1.2 b.2
+                                </a>
+                              </li>
+                            </ul>
+                          </details>
                         </li>
                         <li
                           class="ecl-category-filter__list-item"

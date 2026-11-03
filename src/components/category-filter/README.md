@@ -17,7 +17,7 @@ npm install --save @ecl/category-filter
   "path": (string) (default: '')
   "current" (boolean) (default: false)
   "extra_attributes" (array) (default: [])
-  - "children": (associative array) (optional)
+  - "children": (associative array) (optional): Sub items, same format as the items; can be nested to any depth
     "label": (string) (default: '')
     "path": (string) (default: '')
     "current" (boolean) (default: false)

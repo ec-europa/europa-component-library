@@ -138,30 +138,30 @@ $category-filter: null !default;
   }
 }
 
-// Sub level spacing
-@mixin category-filter-item($level: 0) {
-  padding-inline-start: calc(
-    var(--s-m) + #{$level - 1} * #{map.get($category-filter, 'subitem-spacing')}
+// Sub level spacing (any depth): each nested list adds one step to the
+// indent inherited from its parent list item
+.ecl-category-filter__list-item {
+  --ecl-category-filter-parent-indent: var(--ecl-category-filter-indent, 0px);
+}
+
+.ecl-category-filter__list .ecl-category-filter__list {
+  --ecl-category-filter-indent: calc(
+    var(--ecl-category-filter-parent-indent, 0px) +
+      #{map.get($category-filter, 'subitem-spacing')}
   );
-  // stylelint-disable-next-line nesting-selector-no-missing-scoping-root
-  &.ecl-category-filter__item--has-children {
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-category-filter__item {
+    padding-inline-start: calc(var(--s-m) + var(--ecl-category-filter-indent));
+  }
+
+  // Parent items: the caret icon takes one level of spacing
+  .ecl-category-filter__item--has-children {
     padding-inline-start: calc(
-      var(--s-m) + #{$level - 2} *
+      var(--s-m) + var(--ecl-category-filter-indent) -
         #{map.get($category-filter, 'subitem-spacing')}
     );
   }
-}
-
-.ecl-category-filter__item--level-2 {
-  @include category-filter-item(2);
-}
-
-.ecl-category-filter__item--level-3 {
-  @include category-filter-item(3);
-}
-
-.ecl-category-filter__item--level-4 {
-  @include category-filter-item(4);
 }
 
 // No js
