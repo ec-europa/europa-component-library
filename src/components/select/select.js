@@ -583,8 +583,7 @@ export class Select {
           checkbox = Select.#createCheckbox(
             {
               // spread operator does not work in storybook context so we map 1:1
-              // fallbacks ensure a checkbox is always created for each option
-              id: option.value || `option-${option.index}`,
+              id: `option-${option.index}`,
               text: option.text || option.value,
               disabled: option.disabled,
               selected: option.selected,
