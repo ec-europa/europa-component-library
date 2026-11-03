@@ -5,26 +5,37 @@ import {
   SyntaxHighlighter,
   Button,
   DocumentWrapper,
-} from 'storybook/internal/components';
-import { styled } from 'storybook/theming';
+} from '@storybook/components';
+import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
 import prefillPen from './codepen';
 
-const ScrollableDocument = styled(DocumentWrapper)({
-  boxSizing: 'border-box',
-  height: '100%',
-  minHeight: 0,
-  minWidth: 0,
-  overflow: 'auto',
-});
+const PanelDocument = styled(DocumentWrapper)`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+`;
+
+const CodeViewport = styled.div`
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+`;
 
 const TitleBar = styled.div`
+  flex-shrink: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
 `;
 
 const TabBar = styled.div`
+  flex-shrink: 0;
   display: flex;
   gap: 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.dark};
@@ -52,10 +63,18 @@ const Tab = styled.button`
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
+  boxSizing: 'border-box',
+  minWidth: '100%',
+  width: 'max-content',
+  // Both scrollbars belong to the bounded viewport, rather than a full-height pre.
+  '& pre': {
+    overflow: 'visible',
+    maxHeight: 'none',
+  },
 }));
 
 function HTMLMarkup({ active, markup, originalMarkup }) {
-  const [activeTab, setActiveTab] = useState('source');
+  const [activeTab, setActiveTab] = useState('rendered');
 
   const beautifyHtml = (html, options = {}) => {
     return beautify(html, {
@@ -97,11 +116,10 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
   const hasOriginal = originalMarkup && originalMarkup.trim() !== '';
 
   return active ? (
-    <ScrollableDocument>
+    <PanelDocument>
       <TitleBar>
         <h1>HTML</h1>
         <Button
-          ariaLabel={false}
           type="button"
           variant="tertiary"
           onClick={() => {
@@ -144,10 +162,17 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
           </Tab>
         </TabBar>
       )}
-      <StyledSyntaxHighlighter bordered copyable format={false} language="html">
-        {hasOriginal ? currentCode : beautifiedRendered}
-      </StyledSyntaxHighlighter>
-    </ScrollableDocument>
+      <CodeViewport>
+        <StyledSyntaxHighlighter
+          bordered
+          copyable
+          format={false}
+          language="html"
+        >
+          {hasOriginal ? currentCode : beautifiedRendered}
+        </StyledSyntaxHighlighter>
+      </CodeViewport>
+    </PanelDocument>
   ) : null;
 }
 
