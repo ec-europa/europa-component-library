@@ -11,11 +11,14 @@ $theme: null !default;
 $highlighted-search: null !default;
 
 .ecl-highlighted-search {
-  color: var(--cm-on-surface-brand, var(--c-d));
+  background-color: map.get($highlighted-search, 'background-color');
+  border-radius: map.get($theme, 'border-radius', 's');
+  color: map.get($highlighted-search, 'color');
   padding: map.get($highlighted-search, 'padding');
 }
 
 .ecl-highlighted-search--full-width {
+  border-radius: 0;
   margin-inline: calc(50% - 50vw);
   padding-inline: 0;
   width: 100vw;
