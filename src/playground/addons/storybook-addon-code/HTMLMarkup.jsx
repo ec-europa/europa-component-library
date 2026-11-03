@@ -5,8 +5,8 @@ import {
   SyntaxHighlighter,
   Button,
   DocumentWrapper,
-} from '@storybook/components';
-import { styled } from '@storybook/theming';
+} from 'storybook/internal/components';
+import { styled } from 'storybook/theming';
 import { html as beautify } from 'js-beautify';
 import prefillPen from './codepen';
 
