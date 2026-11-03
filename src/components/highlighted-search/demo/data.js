@@ -11,7 +11,7 @@ module.exports = {
   },
   search_input_label: 'Search keywords',
   search_select: {
-    multiple_placeholder: '',
+    multiple_placeholder: 'Choose options',
     multiple_search_text: 'Enter filter keyword',
     multiple_search_no_results_text: 'No results found',
     multiple_all_text: 'Select all',
