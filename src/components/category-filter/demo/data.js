@@ -31,7 +31,10 @@ module.exports = {
                       label: 'Item 2.1.2 b.1',
                       children: [
                         { label: 'Item 2.1.2 b.1.1', path: exampleLink },
-                        { label: 'Item 2.1.2 b.1.2', path: exampleLink },
+                        {
+                          label: 'Item 2.1.2 b.1.2 with a long label',
+                          path: exampleLink,
+                        },
                       ],
                     },
                     { label: 'Item 2.1.2 b.2', path: exampleLink },
@@ -81,7 +84,7 @@ module.exports = {
         { label: 'Item 4.1', path: exampleLink },
         { label: 'Item 4.2', path: exampleLink },
         {
-          label: 'Item 4.3 with a very long label going on 2 lines',
+          label: 'Item 4.3 with a very long label, pushing the width',
           path: exampleLink,
         },
         { label: 'Item 4.4', path: exampleLink },

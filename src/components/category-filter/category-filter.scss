@@ -9,8 +9,11 @@
 $theme: null !default;
 $category-filter: null !default;
 
+// Default width, growing (up to the container) when deep items need more room
 .ecl-category-filter {
-  max-width: 18rem;
+  max-width: 100%;
+  min-width: min(18rem, 100%);
+  width: fit-content;
 }
 
 .ecl-category-filter__controls {
