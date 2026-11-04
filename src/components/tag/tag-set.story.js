@@ -14,7 +14,6 @@ const getArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
-
   args.label = data.items[0].tag.label;
   args.external = false;
 
@@ -23,6 +22,7 @@ const getArgs = (data) => {
 
 const getArgTypes = () => {
   const argTypes = getColorModeControls();
+
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
