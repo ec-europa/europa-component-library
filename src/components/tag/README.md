@@ -13,6 +13,7 @@ npm install --save @ecl/tag
   - "type" (string) (default: 'link') Tag type; can be 'link', 'removable'
   - "path" (string) (default: '') Tag link URL
   - "label" (string) (default: '') Tag text
+  - "icon" (object) (default: {}) Object of type ECL icon, displayed before the label (size is forced to 'xs')
   - "external" (boolean) (default: false) Show external icon for link tags
   - "aria_label" (string) (default: '') Aria label for removable tags
   - "nowrap" (boolean) (default: false) Prevent the tag from wrapping
@@ -29,7 +30,11 @@ npm install --save @ecl/tag
   tag: { 
     type: 'removable', 
     path: '/example', 
-    label: 'Tag 1' 
+    label: 'Tag 1', 
+    icon: { 
+      name: 'star', 
+      family: 'phosphor' 
+    } 
   }, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
