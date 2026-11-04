@@ -14,7 +14,7 @@ $tag: null !default;
   align-items: center;
   background-color: map.get($tag, 'background-color');
   border-radius: map.get($tag, 'border-radius');
-  border: 1px solid map.get($tag, 'border-color');
+  border: 1px solid transparent;
   box-sizing: border-box;
   color: map.get($tag, 'color');
   display: inline-flex;
@@ -27,13 +27,11 @@ $tag: null !default;
 
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');
-    border-color: map.get($tag, 'border-color-focus');
     color: map.get($tag, 'color-focus');
   }
 
   &:hover {
     background-color: map.get($tag, 'background-color-hover');
-    border-color: map.get($tag, 'border-color-hover');
     color: map.get($tag, 'color-hover');
     cursor: pointer;
   }
@@ -46,7 +44,6 @@ $tag: null !default;
 
   &[disabled] {
     background-color: map.get($tag, 'background-color-disabled');
-    border-color: map.get($tag, 'border-color-disabled');
     color: map.get($tag, 'color-disabled');
     cursor: not-allowed;
   }

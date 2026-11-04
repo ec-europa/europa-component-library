@@ -3,19 +3,33 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import iconsAll from '@ecl/resources-icons/list-phosphor.json';
+import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataLink from './demo/data--link';
 import dataRemovable from './demo/data--removable';
 
 import tag from './tag.html.twig';
 import notes from './README.md';
 
-const iconMapping = iconsAll.reduce((mapping, icon) => {
-  mapping[icon] = icon;
-  return mapping;
+// Flags icons (prefixed)
+const flagOptions = iconsFlag.map((icon) => `flag_${icon.name}`);
+const flagLabels = iconsFlag.reduce((labels, icon) => {
+  labels[`flag_${icon.name}`] = `Flag - ${icon.label}`;
+  return labels;
 }, {});
 
+const iconMapping = iconsAll.reduce(
+  (mapping, icon) => {
+    mapping[icon] = { name: icon, family: 'phosphor' };
+    return mapping;
+  },
+  iconsFlag.reduce((mapping, icon) => {
+    mapping[`flag_${icon.name}`] = { name: icon.name, family: 'flags' };
+    return mapping;
+  }, {}),
+);
+
 // Create 'none' option.
-const iconOptions = ['none', ...iconsAll];
+const iconOptions = ['none', ...iconsAll, ...flagOptions];
 
 const getArgs = (data) => {
   const args = {};
@@ -60,6 +74,9 @@ const getArgTypes = (data) => {
     description: 'Icon displayed before the label',
     options: iconOptions,
     mapping: iconMapping,
+    control: {
+      labels: flagLabels,
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -99,8 +116,7 @@ const prepareData = (data, args) => {
   data.tag.external = args.external;
   if (args.icon_name && args.icon_name !== 'none') {
     data.tag.icon = {
-      name: args.icon_name,
-      family: 'phosphor',
+      ...args.icon_name,
       title: args.icon_title,
     };
   } else {
