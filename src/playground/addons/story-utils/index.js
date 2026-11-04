@@ -92,25 +92,13 @@ export const getIconControls = (icons, mapping) => {
       defaultValue: { summary: '' },
       category: 'Icon',
     },
-    options: ['default', 'inverted', 'primary', 'custom'],
+    options: ['default', 'inverted', 'primary'],
     mapping: {
       default: 'default',
       inverted: 'inverted',
       primary: 'primary',
-      custom: 'custom',
     },
     if: { arg: 'name', neq: 'none' },
-  };
-  argTypes.custom_color = {
-    name: 'custom color',
-    control: { type: 'color' },
-    description: 'custom color in hex format',
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Icon',
-    },
-    if: { arg: 'color', eq: 'custom' },
   };
   argTypes.transform = {
     name: 'transformation',

@@ -17,7 +17,6 @@ const getArgs = (data) => ({
   name: data.icon.name,
   size: 'm',
   color: 'default',
-  custom_color: '',
   transform: 'none',
   title: '',
   description: '',
@@ -38,7 +37,7 @@ const prepareData = (data, args) => {
   clone.icon.title = args.title;
   clone.icon.name = args.name;
   clone.icon.size = args.size;
-  clone.icon.color = args.color !== 'custom' ? args.color : args.custom_color;
+  clone.icon.color = args.color;
   clone.extra_classes =
     clone.icon.color === 'inverted'
       ? `ecl-u-bg-dark ecl-u-bg-grey ${clone.extra_classes}`
