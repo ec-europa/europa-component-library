@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataSet from '@ecl/tag/demo/data--set';
 
@@ -10,6 +11,10 @@ import notes from './README-tag-set.md';
 const getArgs = (data) => {
   const args = {};
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   args.label = data.items[0].tag.label;
   args.external = false;
 
@@ -17,7 +22,7 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = () => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
   argTypes.label = {
     name: 'label',
     type: { name: 'string', required: true },
