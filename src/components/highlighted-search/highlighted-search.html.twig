@@ -49,7 +49,6 @@
 {% set _suggestion = suggestion|default({}) %}
 
 {% set _title_id = _id ~ '-title' %}
-{% set _suggestion_label_id = _id ~ '-suggestion-label' %}
 
 {# Fallback on hidden labels, so the fields always have an accessible name #}
 {% set _search_input_hidden_label = _search_input.placeholder|default(_search_button.label|default('')) %}
@@ -206,16 +205,13 @@
     {% if _suggestion is not empty %}
       <div class="ecl-highlighted-search__suggestion">
         {% if _suggestion_label is not empty %}
-          <span class="ecl-highlighted-search__suggestion-label" id="{{ _suggestion_label_id }}">
+          <span class="ecl-highlighted-search__suggestion-label">
             {{- _suggestion_label -}}
           </span>
         {% endif %}
 
         {% include '@ecl/tag/tag-set.html.twig' with _suggestion|merge({
           extra_classes: ('ecl-highlighted-search__suggestion-list ' ~ _suggestion.extra_classes|default(''))|trim,
-          extra_attributes: _suggestion.extra_attributes|default([])|merge(
-            _suggestion_label is not empty ? [{ name: 'aria-labelledby', value: _suggestion_label_id }] : []
-          ),
         }) only %}
       </div>
     {% endif %}
