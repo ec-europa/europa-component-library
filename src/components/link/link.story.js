@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
+import { useArgs, useEffect } from '@storybook/preview-api';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list-phosphor.json';
@@ -34,6 +35,9 @@ const getArgs = (data, variant) => {
     indicator: false,
     indicator_value: '10',
     indicator_label: 'Items not read',
+    indicator_position: '',
+    indicator_variant: '',
+    indicator_shape: '',
   };
 
   if (variant === 'default' || variant === 'standalone') {
@@ -44,7 +48,7 @@ const getArgs = (data, variant) => {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = getIndicatorControls({ arg: 'hide_label', eq: true });
+  const argTypes = getIndicatorControls({ arg: 'icon_name', neq: 'none' });
 
   argTypes.label = {
     name: 'label',
@@ -183,7 +187,16 @@ const prepareData = (data, args) => {
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
-  data.link.indicator = args.indicator ? { value: '', sr_label: '' } : {};
+  if (args.icon_name && args.icon_name !== 'none') {
+    data.icon = {
+      family: 'phosphor',
+      name: args.icon_name,
+      transform: args.icon_transform,
+      size: 'xs',
+      title: args.icon_title,
+    };
+  }
+  data.link.indicator = {};
   if (args.indicator) {
     if (args.indicator_value !== '') {
       data.link.indicator.value = args.indicator_value;
@@ -191,15 +204,10 @@ const prepareData = (data, args) => {
     if (args.indicator_label !== '') {
       data.link.indicator.sr_label = args.indicator_label;
     }
-  }
-  if (args.icon_name && args.icon_name !== 'none') {
-    data.icon = {
-      family: 'phosphor',
-    };
-    data.icon.name = args.icon_name;
-    data.icon.transform = args.icon_transform;
-    data.icon.size = 'xs';
-    data.icon.title = args.icon_title;
+    data.link.indicator.variant =
+      args.indicator_variant !== 'default' ? args.indicator_variant : '';
+    data.link.indicator.position = args.indicator_position;
+    data.link.indicator.shape = args.indicator_shape;
   }
   if (args.icon_name === 'none') {
     delete data.icon;
@@ -243,7 +251,21 @@ const renderStory = async (data, args, variant) => {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (Story) => {
+      const [{ icon_name: iconName }, updateArgs] = useArgs();
+
+      useEffect(() => {
+        if (iconName === 'none') {
+          updateArgs({ indicator: false });
+        }
+      }, [iconName]);
+
+      return Story();
+    },
+  ],
   parameters: {
     chromatic: {
       modes: {
