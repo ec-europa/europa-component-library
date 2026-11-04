@@ -10,13 +10,32 @@ import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
 import prefillPen from './codepen';
 
+const PanelDocument = styled(DocumentWrapper)`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+`;
+
+const CodeViewport = styled.div`
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+`;
+
 const TitleBar = styled.div`
+  flex-shrink: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
 `;
 
 const TabBar = styled.div`
+  flex-shrink: 0;
   display: flex;
   gap: 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.dark};
@@ -44,8 +63,14 @@ const Tab = styled.button`
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
-  flexGrow: '1',
-  flexShrink: '1',
+  boxSizing: 'border-box',
+  minWidth: '100%',
+  width: 'max-content',
+  // Both scrollbars belong to the bounded viewport, rather than a full-height pre.
+  '& pre': {
+    overflow: 'visible',
+    maxHeight: 'none',
+  },
 }));
 
 function HTMLMarkup({ active, markup, originalMarkup }) {
@@ -91,7 +116,7 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
   const hasOriginal = originalMarkup && originalMarkup.trim() !== '';
 
   return active ? (
-    <DocumentWrapper>
+    <PanelDocument>
       <TitleBar>
         <h1>HTML</h1>
         <Button
@@ -137,10 +162,17 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
           </Tab>
         </TabBar>
       )}
-      <StyledSyntaxHighlighter bordered copyable format={false} language="html">
-        {hasOriginal ? currentCode : beautifiedRendered}
-      </StyledSyntaxHighlighter>
-    </DocumentWrapper>
+      <CodeViewport>
+        <StyledSyntaxHighlighter
+          bordered
+          copyable
+          format={false}
+          language="html"
+        >
+          {hasOriginal ? currentCode : beautifiedRendered}
+        </StyledSyntaxHighlighter>
+      </CodeViewport>
+    </PanelDocument>
   ) : null;
 }
 
