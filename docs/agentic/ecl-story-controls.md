@@ -150,7 +150,7 @@ argTypes.picture_size = {
 
 ## After making changes
 
-**Do not run snapshot tests** after story-only changes. Jest snapshots render the raw
+**Do not run snapshot tests** after story-only changes. Vitest snapshots render the raw
 demo data directly — they are unaffected by `getArgs`, `getArgTypes`, or `prepareData`
 changes. Running them is wasted effort unless you also changed the Twig template or
 demo data.

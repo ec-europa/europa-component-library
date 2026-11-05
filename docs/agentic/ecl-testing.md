@@ -1,16 +1,19 @@
 # Skill: ECL component testing
 
-ECL tests are Jest-based. Each component has two kinds of assertions:
+ECL component tests run with Vitest. Each component has two kinds of assertions:
 **snapshot tests** (HTML output) and **accessibility tests** (axe-core).
 
 ## Running tests
 
 ```bash
-pnpm test:components               # all components — slow, avoid unless needed
-pnpm test:components -- button     # single component by folder name
-npm run test:components -- button -u  # update snapshots for one component only
-npm run test:components -- -u         # update all snapshots (use sparingly)
+pnpm test:components                 # all components — slow, avoid unless needed
+pnpm test:components -- button       # single component by folder name
+pnpm test:components -- button -u    # update snapshots for one component only
+pnpm test:components -- -u           # update all snapshots (use sparingly)
 ```
+
+Vitest configuration is in `vitest.config.mjs`; it retains the existing
+`__snapshots__` locations and Jest-compatible snapshot serialization.
 
 ## Snapshot failures
 
@@ -69,5 +72,6 @@ on every run even when nothing changed.
 - Build test data from the existing top-level variables (spread or `merge`) — do not
   re-import data files that are already imported.
 
-After adding tests, run without `-u` first to confirm new snapshots are written (not
-failing). Any failed snapshots = data or template mismatch to investigate.
+After adding tests, run without `-u` first. Vitest writes snapshots for new assertions
+automatically; changed existing snapshots fail until reviewed and explicitly updated
+with `-u`. Investigate any failure before updating.
