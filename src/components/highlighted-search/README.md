@@ -14,11 +14,12 @@ npm install --save @ecl/highlighted-search
 - **"full_width"** (boolean) (default: false) Full width highlighted search (inside the grid)
 - **"title"** (string) (default: '') Title of highlighted search
 - **"description"** (string) (default: '') Description of highlighted search
-- **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure
-- **"search_input_label"** (string) (default: '') Label of the search field; if empty, a hidden label is generated from the placeholder or the button label
-- **"search_select"** (object) (default: {}) Search select, following ECL Select structure
-- **"search_select_label"** (string) (default: '') Label of the search select; if empty, a hidden label is generated from the first option label or the multiple select placeholder
-- **"search_helper"** (string) (default: '') Search helper, for additional information; refers to the search field ("search_input")
+- **"search_fields"** (array) (default: []) Fields of the search form, following ECL Form group structure
+  - "label" (string) Label of the field
+  - "hide_label" (boolean) (default: false) Hide the label visually (kept for screen readers)
+  - "helper_text" (string) (default: '') Helper text of the field
+  - "input" (object) Field, following ECL Text input, ECL Select or ECL Datepicker structure
+    - "input_type" (string) Type of the field; can be 'text', 'select', 'datepicker'
 - **"search_button"** (object) (default: {}) Search button, following ECL Button structure
 - **"suggestion_label"** (string) (default: '') Label for the suggestions
 - **"suggestion"** (object) (default: {}) List of tags, following the ECL Tag Set structure
@@ -31,20 +32,45 @@ npm install --save @ecl/highlighted-search
   - "name" (string) Attribute name, eg. 'action'
   - "value" (optional) (string) Attribute value, eg: 'action-url'
 
+### Deprecated parameters
+
+- **"search_input"** (object) (default: {}) Search field, following ECL Text Input structure. Replaced by `search_fields`
+- **"search_helper"** (string) (default: '') Search helper, for additional information. Replaced by `helper_text` in `search_fields`
+
+These parameters are only used when `search_fields` is empty.
+
 ## Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/highlighted-search/highlighted-search.html.twig' with {
-title: 'Find your next role',
+  title: 'Find your next role',
   description: 'Discover job opportunities in the EU institutions',
-  search_input: {
-    id: 'highlighted-search-input-id',
-    name: 'highlighted-search-input-name',
-    placeholder: 'Enter a search keyword',
-  },
-  search_input_label: 'Search keywords',
-  search_helper: "Enter the job you're looking for",
+  search_fields: [
+    {
+      label: 'Search keywords',
+      helper_text: "Enter the job you're looking for",
+      input: {
+        input_type: 'text',
+        id: 'highlighted-search-input-id',
+        name: 'highlighted-search-input-name',
+        placeholder: 'Enter a search keyword',
+      },
+    },
+    {
+      label: 'Select country',
+      input: {
+        input_type: 'select',
+        id: 'highlighted-search-select-id',
+        name: 'highlighted-search-select-name',
+        options: [
+          { value: '', label: '', disabled: true, selected: true },
+          { value: 'be', label: 'Belgium' },
+          { value: 'fr', label: 'France' },
+        ],
+      },
+    },
+  ],
   search_button: {
     label: 'Search',
   },

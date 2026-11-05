@@ -9,10 +9,9 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
-    select: false,
+    nb_fields: 1,
     title: data.title,
     description: data.description,
-    multiple: false,
     horizontal_alignment: 'center',
     full_width: false,
     gridContent: false,
@@ -28,19 +27,11 @@ const getArgs = (data) => {
 
 const getArgTypes = () => ({
   ...getColorModeControls(),
-  select: {
-    name: 'select input',
-    type: { name: 'boolean' },
-    description: 'Use an additional select input',
-    table: {
-      category: 'Optional',
-    },
-  },
-  multiple: {
-    name: 'multiple select',
-    type: { name: 'boolean' },
-    description: 'Allow selecting multiple options in the select input',
-    if: { arg: 'select' },
+  nb_fields: {
+    name: 'number of fields',
+    control: { type: 'range', min: 1, max: 4, step: 1 },
+    description:
+      'Number of fields examples (text field, select, datepicker, multiple select)',
     table: {
       category: 'Optional',
     },
@@ -115,20 +106,7 @@ const prepareData = (data, args) => {
   clone.horizontal_alignment = args.horizontal_alignment;
   clone.full_width = args.full_width;
 
-  if (!args.select) {
-    delete clone.search_select;
-    delete clone.search_select_label;
-  } else if (args.multiple) {
-    // The multiple select uses its own placeholder, not an empty option
-    clone.search_select.multiple = true;
-    clone.search_select.options = clone.search_select.options.filter(
-      (option) => option.value !== '',
-    );
-  } else {
-    Object.keys(clone.search_select)
-      .filter((key) => key.startsWith('multiple_'))
-      .forEach((key) => delete clone.search_select[key]);
-  }
+  clone.search_fields = clone.search_fields.slice(0, args.nb_fields);
 
   if (args.nb_suggestions === 0) {
     delete clone.suggestion;

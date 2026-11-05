@@ -8,11 +8,12 @@
     - "full_width" (boolean) (default: false) Full width highlighted search (inside the grid)
     - "title" (string) (default: '') Title of highlighted search
     - "description" (string) (default: '') Description of highlighted search
-    - "search_input" (object) (default: {}) Search field, following ECL Text Input structure
-    - "search_input_label" (string) (default: '') Label of the search field; if empty, a hidden label is generated from the placeholder or the button label
-    - "search_select" (object) (default: {}) Search select, following ECL Select structure
-    - "search_select_label" (string) (default: '') Label of the search select; if empty, a hidden label is generated from the first option label or the multiple select placeholder
-    - "search_helper" (string) (default: '') Search helper, for additional information; refers to the search field ("search_input")
+    - "search_fields" (array) (default: []) Fields of the search form, following ECL Form group structure
+      - "label" (string) Label of the field
+      - "hide_label" (boolean) (default: false) Hide the label visually (kept for screen readers)
+      - "helper_text" (string) (default: '') Helper text of the field
+      - "input" (object) Field, following ECL Text input, ECL Select or ECL Datepicker structure
+        - "input_type" (string) Type of the field; can be 'text', 'select', 'datepicker'
     - "search_button" (object) (default: {}) Search button, following ECL Button structure
     - "suggestion_label" (string) (default: '') Label for the suggestions
     - "suggestion" (object) (default: {}) List of tags, following the ECL Tag Set structure
@@ -24,6 +25,11 @@
       Defaults to a GET method, pass a 'method' attribute here to override it.
       - "name" (string) Attribute name, eg. 'action'
       - "value" (optional) (string) Attribute value, eg: 'action-url'
+#}
+
+{# DEPRECATED
+- "search_input" (object) (default: {}) Search field, following ECL Text Input structure (replaced by "search_fields")
+- "search_helper" (string) (default: '') Search helper, for additional information (replaced by "search_fields.helper_text")
 #}
 
 {# Internal properties #}
@@ -39,21 +45,22 @@
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
-{% set _search_input = search_input|default({}) %}
-{% set _search_input_label = search_input_label|default('') %}
-{% set _search_select = search_select|default({}) %}
-{% set _search_select_label = search_select_label|default('') %}
-{% set _search_helper = search_helper|default('') %}
+{% set _search_fields = search_fields|default([]) %}
 {% set _search_button = search_button|default({}) %}
 {% set _suggestion_label = suggestion_label|default('') %}
 {% set _suggestion = suggestion|default({}) %}
 
 {% set _title_id = _id ~ '-title' %}
 
-{# Fallback on hidden labels, so the fields always have an accessible name #}
-{% set _search_input_hidden_label = _search_input.placeholder|default(_search_button.label|default('')) %}
-{% set _search_select_first_option = _search_select.options|default([])|first %}
-{% set _search_select_hidden_label = _search_select_first_option.label|default(_search_select.multiple_placeholder|default('')) %}
+{# Backward compatibility: legacy search input, used when no search fields are provided #}
+{% if _search_fields is empty and search_input is defined and search_input is not empty %}
+  {% set _search_fields = [{
+    label: search_input.placeholder|default(_search_button.label|default('')),
+    hide_label: true,
+    helper_text: search_helper|default(''),
+    input: search_input|merge({ input_type: 'text' }),
+  }] %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -129,13 +136,9 @@
     {% endif %}
 
     {# Form and button #}
-    {% if _search_input is not empty or _search_select is not empty %}
-      {% set _form_classes = 'ecl-highlighted-search__form' %}
-      {% if _search_input is not empty and _search_select is not empty %}
-        {% set _form_classes = _form_classes ~ ' ecl-highlighted-search__form--multiple-fields' %}
-      {% endif %}
+    {% if _search_fields is not empty %}
       <form
-        class="{{ _form_classes }}"
+        class="ecl-highlighted-search__form"
         role="search"
         {% if _title is not empty %}
           aria-labelledby="{{ _title_id }}"
@@ -143,48 +146,38 @@
         {{ _form_extra_attributes|raw }}
       >
         <div class="ecl-highlighted-search__form-content">
-          {# Search input and icon #}
-          {% if _search_input is not empty %}
-            <div class="ecl-highlighted-search__input-wrapper">
-              {% include '@ecl/icon/icon.html.twig' with {
-                icon: {
-                  name: 'magnifying-glass',
-                  family: 'phosphor',
-                  size: 'm',
-                },
-                extra_classes: 'ecl-highlighted-search__form-icon'
-              } only %}
+          <div class="ecl-highlighted-search__fields">
+            {% for _field in _search_fields %}
+              {% set _field_input = _field.input|default({}) %}
+              {% set _field_type = _field_input.input_type|default('text') %}
+              {% if _field_type not in ['select', 'datepicker'] %}
+                {% set _field_type = 'text' %}
+              {% endif %}
 
-              {% include '@ecl/form-group/form-group.html.twig' with {
-                label: _search_input_label|default(_search_input_hidden_label),
-                hide_label: not _search_input_label,
-                helper_text: _search_helper,
-                extra_classes: 'ecl-highlighted-search__form-group',
-                input: _search_input|merge({
-                  id: _search_input.id|default(_id ~ '-input'),
-                  width: 'l',
-                  input_type: 'search',
-                  extra_classes: ('ecl-highlighted-search__form-input ' ~ _search_input.extra_classes|default(''))|trim,
-                }),
-              } only %}
-            </div>
-          {% endif %}
+              <div class="ecl-highlighted-search__field ecl-highlighted-search__field--{{ _field_type }}">
+                {% if _field_type == 'text' %}
+                  {% include '@ecl/icon/icon.html.twig' with {
+                    icon: {
+                      name: 'magnifying-glass',
+                      family: 'phosphor',
+                      size: 'm',
+                    },
+                    extra_classes: 'ecl-highlighted-search__form-icon'
+                  } only %}
+                {% endif %}
 
-          {# Search select #}
-          {% if _search_select is not empty %}
-            <div class="ecl-highlighted-search__select-wrapper">
-              {% include '@ecl/form-group/form-group.html.twig' with {
-                label: _search_select_label|default(_search_select_hidden_label),
-                hide_label: not _search_select_label,
-                extra_classes: 'ecl-highlighted-search__form-group',
-                input: _search_select|merge({
-                  width: 'l',
-                  input_type: 'select',
-                  extra_classes: ('ecl-highlighted-search__form-select ' ~ _search_select.extra_classes|default(''))|trim,
-                }),
-              } only %}
-            </div>
-          {% endif %}
+                {% include '@ecl/form-group/form-group.html.twig' with _field|merge({
+                  extra_classes: ('ecl-highlighted-search__form-group ' ~ _field.extra_classes|default(''))|trim,
+                  input: _field_input|merge({
+                    id: _field_input.id|default(_id ~ '-field-' ~ loop.index),
+                    width: 'l',
+                    input_type: _field_type == 'text' ? 'search' : _field_type,
+                    extra_classes: ('ecl-highlighted-search__form-' ~ (_field_type == 'text' ? 'input' : _field_type) ~ ' ' ~ _field_input.extra_classes|default(''))|trim,
+                  }),
+                }) only %}
+              </div>
+            {% endfor %}
+          </div>
 
           {# Button #}
           {% set _default_button = {

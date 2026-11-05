@@ -5,73 +5,118 @@ module.exports = {
   id: 'highlighted-search',
   title: 'Find your next role',
   description: 'Discover job opportunities in the EU institutions',
-  search_input: {
-    id: 'highlighted-search-input-id',
-    name: 'highlighted-search-input-name',
-  },
-  search_input_label: 'Search keywords',
-  search_select: {
-    multiple_placeholder: 'Choose options',
-    multiple_search_text: 'Enter filter keyword',
-    multiple_search_no_results_text: 'No results found',
-    multiple_all_text: 'Select all',
-    multiple_nb_options: 'Options found:',
-    multiple_close_text: 'Apply',
-    multiple_clear_all_text: 'Clear all',
-    multiple_counter_text: 'Selected:',
-    id: 'highlighted-search-select-id',
-    name: 'highlighted-search-select-name',
-    options: [
-      {
-        value: '',
-        label: '',
-        disabled: true,
-        selected: true,
+  search_fields: [
+    {
+      label: 'Search keywords',
+      helper_text: 'e.g. full time, designer, writer',
+      input: {
+        input_type: 'text',
+        id: 'highlighted-search-input-id',
+        name: 'highlighted-search-input-name',
       },
-      {
-        value: '1',
-        label: 'Belgium',
+    },
+    {
+      label: 'Select country',
+      input: {
+        input_type: 'select',
+        id: 'highlighted-search-select-id',
+        name: 'highlighted-search-select-name',
+        options: [
+          {
+            value: '',
+            label: '',
+            disabled: true,
+            selected: true,
+          },
+          {
+            value: '1',
+            label: 'Belgium',
+          },
+          {
+            value: '2',
+            label: 'France',
+          },
+          {
+            value: '3',
+            label: 'Luxembourg',
+          },
+          {
+            value: '4',
+            label: 'Germany',
+          },
+          {
+            value: '5',
+            label: 'Bulgaria',
+          },
+          {
+            value: '6',
+            label: 'Italy',
+          },
+          {
+            value: '7',
+            label: 'Romania',
+          },
+          {
+            value: '8',
+            label: 'Greece',
+          },
+          {
+            value: '9',
+            label: 'Hungary',
+          },
+          {
+            value: '10',
+            label: 'Portugal',
+          },
+        ],
       },
-      {
-        value: '2',
-        label: 'France',
+    },
+    {
+      label: 'Available from',
+      helper_text: 'Format: dd-mm-yyyy',
+      input: {
+        input_type: 'datepicker',
+        id: 'highlighted-search-date-id',
+        name: 'highlighted-search-date-name',
+        autoinit: true,
       },
-      {
-        value: '3',
-        label: 'Luxembourg',
+    },
+    {
+      label: 'Contract type',
+      input: {
+        input_type: 'select',
+        multiple: true,
+        multiple_placeholder: 'Choose options',
+        multiple_search_text: 'Enter filter keyword',
+        multiple_search_no_results_text: 'No results found',
+        multiple_all_text: 'Select all',
+        multiple_nb_options: 'Options found:',
+        multiple_close_text: 'Apply',
+        multiple_clear_all_text: 'Clear all',
+        multiple_counter_text: 'Selected:',
+        id: 'highlighted-search-contract-id',
+        name: 'highlighted-search-contract-name',
+        options: [
+          {
+            value: 'permanent',
+            label: 'Permanent',
+          },
+          {
+            value: 'temporary',
+            label: 'Temporary',
+          },
+          {
+            value: 'contract',
+            label: 'Contract agent',
+          },
+          {
+            value: 'trainee',
+            label: 'Trainee',
+          },
+        ],
       },
-      {
-        value: '4',
-        label: 'Germany',
-      },
-      {
-        value: '5',
-        label: 'Bulgaria',
-      },
-      {
-        value: '6',
-        label: 'Italy',
-      },
-      {
-        value: '7',
-        label: 'Romania',
-      },
-      {
-        value: '8',
-        label: 'Greece',
-      },
-      {
-        value: '9',
-        label: 'Hungary',
-      },
-      {
-        value: '10',
-        label: 'Portugal',
-      },
-    ],
-  },
-  search_select_label: 'Select country',
-  search_helper: 'e.g. full time, designer, writer',
+    },
+  ],
   search_button: {
     label: 'Search',
   },
