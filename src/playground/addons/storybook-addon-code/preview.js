@@ -1,4 +1,5 @@
 import { addons, useEffect } from 'storybook/preview-api';
+import { STORY_RENDERED } from 'storybook/internal/core-events';
 import { ADD_CODE, REQUEST_CODE } from './constants';
 
 // Capture markup inside the preview, where the canvas actually lives. The
@@ -23,19 +24,16 @@ export const decorators = [
       const onRequest = ({ storyId }) => {
         if (storyId === context.id) publish();
       };
-      const observer = new MutationObserver(() => {
-        if (root.innerHTML !== previousMarkup) publish();
-      });
-      observer.observe(root, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        characterData: true,
-      });
+      const onStoryRendered = ({ storyId }) => {
+        if (storyId === context.id && root.innerHTML !== previousMarkup) {
+          publish();
+        }
+      };
+      channel.on(STORY_RENDERED, onStoryRendered);
       channel.on(REQUEST_CODE, onRequest);
       publish();
       return () => {
-        observer.disconnect();
+        channel.off(STORY_RENDERED, onStoryRendered);
         channel.off(REQUEST_CODE, onRequest);
       };
     }, [context.id, context.loaded?.component]);
