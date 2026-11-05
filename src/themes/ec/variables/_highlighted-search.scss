@@ -2,13 +2,18 @@
 @use '../index' as *;
 
 $highlighted-search: (
-  background-color: var(--cm-surface-color-mode-high),
-  color: var(--cm-on-surface-inverted),
+  dark: (
+    background-color: var(--cm-surface-color-mode-high),
+    color: var(--cm-on-surface-inverted),
+  ),
+  light: (
+    background-color: var(--cm-surface-low-2),
+    color: var(--cm-on-surface-brand),
+  ),
   padding: var(--s-13xl) var(--s-xl),
   icon-color: var(--cm-on-surface-grey),
   title-font: 'heading2',
   description-font: 'body-xl',
-  focus-inverted: true,
   helper: (
     font: 'microcopy-xs',
     spacing: var(--s-xs),

@@ -12,6 +12,7 @@ const getArgs = (data) => {
     nb_fields: 1,
     title: data.title,
     description: data.description,
+    background_color: 'dark',
     horizontal_alignment: 'center',
     full_width: false,
     gridContent: false,
@@ -34,6 +35,17 @@ const getArgTypes = () => ({
       'Number of fields examples (text field, select, datepicker, multiple select)',
     table: {
       category: 'Optional',
+    },
+  },
+  background_color: {
+    name: 'background color',
+    type: { name: 'select' },
+    description: 'Background color',
+    options: ['dark', 'light'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'dark' },
+      category: 'Display',
     },
   },
   horizontal_alignment: {
@@ -103,6 +115,7 @@ const prepareData = (data, args) => {
   clone.title = args.title;
   clone.description = args.description;
   clone.color_mode = args.color_mode;
+  clone.background_color = args.background_color;
   clone.horizontal_alignment = args.horizontal_alignment;
   clone.full_width = args.full_width;
 

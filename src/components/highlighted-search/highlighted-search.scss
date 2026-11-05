@@ -14,10 +14,15 @@ $highlighted-search: null !default;
 .ecl-highlighted-search {
   container-type: inline-size;
   container-name: ecl-highlighted-search;
-  background-color: map.get($highlighted-search, 'background-color');
+  background-color: map.get($highlighted-search, 'dark', 'background-color');
   border-radius: map.get($theme, 'border-radius', 's');
-  color: map.get($highlighted-search, 'color');
+  color: map.get($highlighted-search, 'dark', 'color');
   padding: map.get($highlighted-search, 'padding');
+}
+
+.ecl-highlighted-search--light {
+  background-color: map.get($highlighted-search, 'light', 'background-color');
+  color: map.get($highlighted-search, 'light', 'color');
 }
 
 .ecl-highlighted-search--full-width {
@@ -115,11 +120,11 @@ $highlighted-search: null !default;
   }
 
   .ecl-form-label {
-    color: map.get($highlighted-search, 'color');
+    color: inherit;
   }
 
   .ecl-help-block {
-    color: map.get($highlighted-search, 'color');
+    color: inherit;
     grid-row: 3;
     margin-block: map.get($highlighted-search, 'helper', 'spacing') 0;
 
@@ -167,24 +172,17 @@ $highlighted-search: null !default;
       #{map.get($theme, 'icon', 'm')} +
       #{map.get($highlighted-search, 'form', 'icon-gap')}
   );
-
-  @if map.has-key($highlighted-search, 'focus-inverted') {
-    @include mixins-color.focus-inverted;
-  }
 }
 
-.ecl-highlighted-search__form-select {
-  @if map.has-key($highlighted-search, 'focus-inverted') {
+// Inverted focus on the dark background
+.ecl-highlighted-search:not(.ecl-highlighted-search--light) {
+  .ecl-highlighted-search__form-input,
+  .ecl-highlighted-search__form-select,
+  .ecl-highlighted-search__field--select .ecl-select__multiple-toggle,
+  .ecl-highlighted-search__form-datepicker .duet-date__input,
+  .ecl-highlighted-search__form-datepicker .duet-date__toggle,
+  .ecl-highlighted-search__suggestion .ecl-tag {
     @include mixins-color.focus-inverted;
-  }
-}
-
-@if map.has-key($highlighted-search, 'focus-inverted') {
-  .ecl-highlighted-search__form-datepicker {
-    .duet-date__input,
-    .duet-date__toggle {
-      @include mixins-color.focus-inverted;
-    }
   }
 }
 
@@ -204,12 +202,6 @@ $highlighted-search: null !default;
   @include mixins.responsive-font(
     map.get($highlighted-search, 'suggestion', 'font')
   );
-
-  @if map.has-key($highlighted-search, 'focus-inverted') {
-    .ecl-tag {
-      @include mixins-color.focus-inverted;
-    }
-  }
 }
 
 .ecl-highlighted-search__suggestion-label {

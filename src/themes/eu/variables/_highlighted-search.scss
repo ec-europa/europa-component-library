@@ -2,8 +2,14 @@
 @use '../index' as *;
 
 $highlighted-search: (
-  background-color: var(--c-p-10),
-  color: var(--c-d),
+  dark: (
+    background-color: var(--c-p-140),
+    color: #fff,
+  ),
+  light: (
+    background-color: var(--c-p-10),
+    color: var(--c-d),
+  ),
   padding: var(--s-4xl) var(--s-m),
   icon-color: var(--c-d-80),
   title-font: 'heading2',

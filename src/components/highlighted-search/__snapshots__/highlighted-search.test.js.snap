@@ -3,7 +3,7 @@
 exports[`Highlighted search Default renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -161,7 +161,7 @@ exports[`Highlighted search Default renders correctly 1`] = `
 exports[`Highlighted search Default renders correctly aligned on the left 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search ecl-highlighted-search--hleft"
+    class="ecl-highlighted-search ecl-highlighted-search--dark ecl-highlighted-search--hleft"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -319,7 +319,7 @@ exports[`Highlighted search Default renders correctly aligned on the left 1`] = 
 exports[`Highlighted search Default renders correctly in full width 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search ecl-highlighted-search--full-width"
+    class="ecl-highlighted-search ecl-highlighted-search--dark ecl-highlighted-search--full-width"
   >
     <div
       class="ecl-container"
@@ -481,7 +481,7 @@ exports[`Highlighted search Default renders correctly in full width 1`] = `
 exports[`Highlighted search Default renders correctly with a form action 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -640,7 +640,7 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
 exports[`Highlighted search Default renders correctly with a hidden label 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -795,10 +795,168 @@ exports[`Highlighted search Default renders correctly with a hidden label 1`] = 
 </jest>
 `;
 
+exports[`Highlighted search Default renders correctly with a light background 1`] = `
+<jest>
+  <div
+    class="ecl-highlighted-search ecl-highlighted-search--light"
+  >
+    <div
+      class="ecl-highlighted-search__content"
+    >
+      <div
+        class="ecl-highlighted-search__info"
+      >
+        <div
+          class="ecl-highlighted-search__title"
+          id="highlighted-search-title"
+        >
+          Find your next role
+        </div>
+        <div
+          class="ecl-highlighted-search__description ecl-content-color"
+        >
+          Discover job opportunities in the EU institutions
+        </div>
+      </div>
+      <form
+        aria-labelledby="highlighted-search-title"
+        class="ecl-highlighted-search__form"
+        method="GET"
+        role="search"
+      >
+        <div
+          class="ecl-highlighted-search__form-content"
+        >
+          <div
+            class="ecl-highlighted-search__fields"
+          >
+            <div
+              class="ecl-highlighted-search__field ecl-highlighted-search__field--text"
+            >
+              <span
+                aria-hidden="true"
+                class="wt-icon-phosphor--magnifying-glass ecl-icon ecl-icon--m ecl-highlighted-search__form-icon ecl-icon-phosphor--magnifying-glass"
+              />
+              <div
+                class="ecl-form-group ecl-highlighted-search__form-group"
+              >
+                <label
+                  class="ecl-form-label-wrapper"
+                  for="highlighted-search-input-id"
+                  id="highlighted-search-input-id-label"
+                >
+                  <span
+                    class="ecl-form-label"
+                  >
+                    Search keywords
+                  </span>
+                </label>
+                <div
+                  class="ecl-help-block"
+                  id="highlighted-search-input-id-helper"
+                >
+                  e.g. full time, designer, writer
+                </div>
+                <input
+                  aria-describedby="highlighted-search-input-id-helper"
+                  class="ecl-text-input ecl-text-input--l ecl-highlighted-search__form-input"
+                  id="highlighted-search-input-id"
+                  name="highlighted-search-input-name"
+                  type="search"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            class="ecl-button ecl-button--primary ecl-button--m ecl-button--highlight ecl-highlighted-search__form-button"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+      <div
+        class="ecl-highlighted-search__suggestion"
+      >
+        <span
+          class="ecl-highlighted-search__suggestion-label"
+        >
+          Or explore:
+        </span>
+        <ul
+          class="ecl-tag-set ecl-highlighted-search__suggestion-list"
+        >
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Traineeships
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              IT & Digital
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Policy & Law
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Translation
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Communication
+            </a>
+          </li>
+          <li
+            class="ecl-tag-set__item"
+          >
+            <a
+              class="ecl-tag"
+              href="/example"
+            >
+              Finance & Economics
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
 exports[`Highlighted search Default renders correctly with extra attributes 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -958,7 +1116,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
 exports[`Highlighted search Default renders correctly with extra class names 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search custom-class custom-class--test"
+    class="ecl-highlighted-search ecl-highlighted-search--dark custom-class custom-class--test"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -1116,7 +1274,7 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
 exports[`Highlighted search Default renders correctly without a helper text 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -1267,7 +1425,7 @@ exports[`Highlighted search Default renders correctly without a helper text 1`] 
 exports[`Highlighted search Deprecated parameters ignores search_input when search_fields is provided 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -1425,7 +1583,7 @@ exports[`Highlighted search Deprecated parameters ignores search_input when sear
 exports[`Highlighted search Deprecated parameters renders correctly with search_input and search_helper 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -1584,7 +1742,7 @@ exports[`Highlighted search Deprecated parameters renders correctly with search_
 exports[`Highlighted search With all field types renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -1981,7 +2139,7 @@ exports[`Highlighted search With all field types renders correctly 1`] = `
 exports[`Highlighted search With select renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"
@@ -2249,7 +2407,7 @@ exports[`Highlighted search With select renders correctly 1`] = `
 exports[`Highlighted search With select renders correctly with a multiple select 1`] = `
 <jest>
   <div
-    class="ecl-highlighted-search"
+    class="ecl-highlighted-search ecl-highlighted-search--dark"
   >
     <div
       class="ecl-highlighted-search__content"

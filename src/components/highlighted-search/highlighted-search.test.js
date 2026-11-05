@@ -80,6 +80,25 @@ describe('Highlighted search', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a light background', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...data, background_color: 'light' }),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests with a light background', async () => {
+      expect(
+        await axe(
+          await renderTwigFileAsHtml(
+            template,
+            { ...data, background_color: 'light' },
+            true,
+          ),
+        ),
+      ).toHaveNoViolations();
+    });
+
     test('renders correctly aligned on the left', () => {
       expect.assertions(1);
       return expect(
