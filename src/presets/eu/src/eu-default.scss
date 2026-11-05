@@ -159,6 +159,11 @@
   @extend %ecl-description-list;
 }
 
+.ecl dl.ecl-description-list--fluid-label {
+  @extend %ecl-description-list;
+  @extend %ecl-description-list--fluid-label;
+}
+
 .ecl dt:not([class*='ecl-'], [class*='wt-']),
 .ecl dt:is([class*='ecl-u-']) {
   @extend %ecl-description-list__term;
