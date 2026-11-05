@@ -1,7 +1,9 @@
+import { fileURLToPath } from 'node:url';
+
 export function managerEntries(entry = []) {
-  return [...entry, new URL('./register.jsx', import.meta.url).pathname];
+  return [...entry, fileURLToPath(new URL('./register.jsx', import.meta.url))];
 }
 
 export const previewAnnotations = [
-  new URL('./preview.js', import.meta.url).pathname,
+  fileURLToPath(new URL('./preview.js', import.meta.url)),
 ];
