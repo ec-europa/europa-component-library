@@ -18,5 +18,7 @@ Following elements have been deprecated, and are removed in ECL v6
   - parameter `variant` (not used anymore)
   - parameter `detail_meta` (replaced by `primary_meta`)
   - parameter `translation.toggle` (now set in the template directly)
+- gallery:
+  - parameter `grid` (replaced by `variant`)
 - site header:
   - parameter `banner_top` (previously used for class name)

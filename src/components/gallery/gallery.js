@@ -1,5 +1,8 @@
 import { queryOne, queryAll, getBreakpoint } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
+import EmblaCarousel from 'embla-carousel';
+import Accessibility from 'embla-carousel-accessibility';
+import SliderPager from '@ecl/slider';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -21,6 +24,10 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
  * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
  * @param {String} options.videoTitleSelector Selector for video title
+ * @param {String} options.sliderSelector Selector for the slider viewport (portrait variant)
+ * @param {String} options.pagerSelector Selector for the slider pager (portrait variant)
+ * @param {String} options.prevSelector Selector for the slider previous button (portrait variant)
+ * @param {String} options.nextSelector Selector for the slider next button (portrait variant)
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyup events
  */
@@ -68,6 +75,10 @@ export class Gallery {
       overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
       videoTitleSelector = 'data-ecl-gallery-item-video-title',
+      sliderSelector = '[data-ecl-gallery-slider]',
+      pagerSelector = '.ecl-gallery__portrait-pager',
+      prevSelector = '.ecl-gallery__portrait-prev',
+      nextSelector = '.ecl-gallery__portrait-next',
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
@@ -111,6 +122,10 @@ export class Gallery {
     this.viewAllExpandedLabelSelector = viewAllExpandedLabelSelector;
     this.expandableSelector = expandableSelector;
     this.videoTitleSelector = videoTitleSelector;
+    this.sliderSelector = sliderSelector;
+    this.pagerSelector = pagerSelector;
+    this.prevSelector = prevSelector;
+    this.nextSelector = nextSelector;
 
     // Private variables
     this.galleryItems = null;
@@ -139,6 +154,10 @@ export class Gallery {
     this.breakpointLg = getBreakpoint('l');
     this.imageHeight = 185;
     this.imageHeightBig = 260;
+    this.slider = null;
+    this.pager = null;
+    this.ariaObserver = null;
+    this.direction = getComputedStyle(this.element).direction;
 
     // Bind `this` for use in callbacks
     this.iframeResize = this.iframeResize.bind(this);
@@ -152,6 +171,9 @@ export class Gallery {
     this.handleClickOnNextButton = this.handleClickOnNextButton.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.initSlider = this.initSlider.bind(this);
+    this.togglePager = this.togglePager.bind(this);
+    this.handleSlideFocus = this.handleSlideFocus.bind(this);
   }
 
   /**
@@ -171,10 +193,10 @@ export class Gallery {
     if (this.expandable) {
       this.viewAll = queryOne(this.viewAllSelector, this.element);
       this.viewAllLabel =
-        this.viewAll.getAttribute(this.viewAllLabelSelector) ||
-        this.viewAll.innerText;
+        this.viewAll?.getAttribute(this.viewAllLabelSelector) ||
+        this.viewAll?.innerText;
       this.viewAllLabelExpanded =
-        this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
+        this.viewAll?.getAttribute(this.viewAllExpandedLabelSelector) ||
         this.viewAllLabel;
     }
     this.count = queryOne(this.countSelector, this.element);
@@ -300,6 +322,12 @@ export class Gallery {
       this.count.innerHTML = this.galleryItems.length;
     }
 
+    // Init slider (portrait variant)
+    this.sliderEl = queryOne(this.sliderSelector, this.element);
+    if (this.sliderEl) {
+      this.initSlider(this.sliderEl);
+    }
+
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
@@ -351,10 +379,134 @@ export class Gallery {
       window.removeEventListener('resize', this.handleResize);
     }
 
+    if (this.ariaObserver) {
+      this.ariaObserver.disconnect();
+      this.ariaObserver = null;
+    }
+
+    if (this.pager) {
+      this.pager.destroy();
+      this.pager = null;
+    }
+
+    if (this.slider) {
+      this.slider.off('reinit', this.togglePager);
+      this.slider.off('slidefocus', this.handleSlideFocus);
+      this.slider.destroy();
+      this.slider = null;
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
+  }
+
+  /**
+   * Init the slider (portrait variant).
+   *
+   * @param {HTMLElement} sliderEl Slider viewport
+   */
+  initSlider(sliderEl) {
+    this.slider = EmblaCarousel(
+      sliderEl,
+      {
+        loop: false,
+        align: 'start',
+        direction: this.direction,
+      },
+      [
+        Accessibility({
+          carouselAriaLabel: 'Gallery slider',
+          carouselAriaRoleDescription: '',
+          slideAriaRoleDescription: '',
+          slideRole: '',
+          previousButtonAriaLabel: 'Show previous Slide',
+          nextButtonAriaLabel: 'Show next Slide',
+          slideAriaLabel: () => '',
+        }),
+      ],
+    );
+
+    // Remove aria-hidden and tabindex="-1"
+    const slides = this.slider.slideNodes();
+    this.ariaObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'aria-hidden') {
+          mutation.target.removeAttribute('aria-hidden');
+        }
+        if (
+          mutation.attributeName === 'tabindex' &&
+          mutation.target.getAttribute('tabindex') === '-1'
+        ) {
+          mutation.target.removeAttribute('tabindex');
+        }
+      });
+    });
+    slides.forEach((slide) => {
+      this.ariaObserver.observe(slide, {
+        attributes: true,
+        attributeFilter: ['aria-hidden'],
+      });
+      slide.removeAttribute('aria-hidden');
+    });
+    this.galleryItems.forEach((galleryItem) => {
+      this.ariaObserver.observe(galleryItem, {
+        attributes: true,
+        attributeFilter: ['tabindex'],
+      });
+      galleryItem.removeAttribute('tabindex');
+    });
+
+    this.pagerNode = queryOne(this.pagerSelector, this.element);
+
+    this.pager = new SliderPager({
+      slider: this.slider,
+      pagerElement: this.pagerNode,
+      accessibility: this.slider.plugins().accessibility,
+      prevSelector: this.prevSelector,
+      nextSelector: this.nextSelector,
+    });
+
+    this.pager.init();
+
+    this.togglePager();
+    this.slider.on('reinit', this.togglePager);
+    this.slider.on('slidefocus', this.handleSlideFocus);
+  }
+
+  /**
+   * Animate the slider to the item focused with the keyboard
+   * (Embla jumps to it instantly by default).
+   *
+   * @param {EmblaCarouselType} emblaApi
+   * @param {Object} event Embla event, detail being the focus event
+   * @returns {Boolean} false, to prevent Embla default behaviour
+   */
+  handleSlideFocus(emblaApi, event) {
+    const slideIndex = emblaApi
+      .slideNodes()
+      .findIndex((slide) => slide.contains(event.detail.target));
+    const { snapBySlide } = emblaApi.internalEngine().scrollSnapList;
+
+    // Reset the native scroll applied by the browser on focus
+    emblaApi.rootNode().scrollLeft = 0;
+
+    if (slideIndex !== -1 && snapBySlide[slideIndex] !== undefined) {
+      emblaApi.goTo(snapBySlide[slideIndex]);
+    }
+
+    return false;
+  }
+
+  /**
+   * Hide the pager when all the items fit in the viewport.
+   */
+  togglePager() {
+    if (!this.pagerNode) return;
+
+    const canScroll = this.slider.canGoToPrev() || this.slider.canGoToNext();
+    this.pagerNode.style.display = canScroll ? '' : 'none';
   }
 
   /**
@@ -669,6 +821,13 @@ export class Gallery {
         image.classList.add('ecl-gallery__image');
       }
     });
+
+    // Sync slider with the last item viewed in the overlay
+    if (this.slider) {
+      this.slider.goTo(
+        Number(this.selectedItem.getAttribute('data-ecl-gallery-item-id')),
+      );
+    }
 
     // Focus item
     this.selectedItem.focus();

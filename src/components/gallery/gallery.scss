@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
 
 // Exposed variables
@@ -15,6 +16,7 @@ $gallery: null !default;
 $_description-color: #fff;
 $_image-height: 192px;
 $_image-height-mobile: 260px;
+$_image-height-portrait: 491px;
 $_description-height-mobile: 132px;
 $_description-height-desktop: 108px;
 
@@ -149,19 +151,40 @@ $_description-height-desktop: 108px;
 .ecl-gallery__description {
   align-items: center;
   bottom: 0;
+  box-sizing: border-box;
   color: $_description-color;
   font: map.get($gallery, 'description-font');
   inset-inline-start: 0;
   overflow: hidden;
+  padding: map.get($gallery, 'description-padding');
   pointer-events: none;
   position: absolute;
   text-decoration: none;
   text-overflow: ellipsis;
   transform: translateY(100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
   vertical-align: text-bottom;
   white-space: nowrap;
   width: 100%;
+  z-index: 0;
+
+  // Progressive blur and gradient, kept on pseudo-elements so the blur mask does not fade the caption text
+  &::before,
+  &::after {
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::before {
+    backdrop-filter: blur(map.get($gallery, 'description-blur'));
+    mask-image: linear-gradient(to bottom, transparent, #000);
+  }
+
+  &::after {
+    background: map.get($gallery, 'description-background');
+  }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -184,29 +207,21 @@ $_description-height-desktop: 108px;
 
   .ecl-gallery__description--visible {
     transform: translateY(0);
+    transition-duration: 0.3s;
   }
 }
 
 .ecl-gallery__item-meta {
   display: flex;
-  margin: map.get($gallery, 'item-meta-margin');
-  padding-top: var(--s-xs);
-  padding-inline: var(--s-s);
+  margin-block-end: map.get($gallery, 'item-meta-margin');
 }
 
 .ecl-gallery__length,
 .ecl-gallery__date {
   align-items: center;
-  background-color: map.get($gallery, 'description-background');
-  border-radius: map.get($theme, 'border-radius', 'm');
   display: flex;
-  font: map.get($gallery, 'item-meta-font');
-  height: 1.5rem;
-  padding-inline: map.get($gallery, 'item-meta-padding');
-}
 
-.ecl-gallery__length {
-  font-weight: bold;
+  @include mixins.responsive-font(map.get($gallery, 'item-meta-font'));
 }
 
 .ecl-gallery__date {
@@ -214,9 +229,9 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__title {
-  background-color: map.get($gallery, 'description-background');
   display: block;
-  padding-block: var(--s-xs);
+  font: map.get($gallery, 'title-font');
+  font-weight: map.get($gallery, 'title-font-weight');
   width: 100%;
 }
 
@@ -224,7 +239,6 @@ $_description-height-desktop: 108px;
   display: -webkit-box;
   height: 1lh;
   overflow: hidden;
-  padding-inline: var(--s-s);
   text-overflow: ellipsis;
   transition: height 0.3s ease;
   white-space: normal;
@@ -333,14 +347,13 @@ $_description-height-desktop: 108px;
     margin-inline: calc(50% - 50vw);
     position: relative;
     width: 100vw;
+  }
+}
 
-    .ecl-gallery__footer-link {
-      margin-inline-start: var(--s-m);
-    }
-
-    .ecl-gallery__view-all {
-      margin-inline-end: var(--s-m);
-    }
+// Full width only applies from tablet: avoid doubling the page container padding
+@include breakpoints.down('s') {
+  .ecl-gallery--full-width > .ecl-container {
+    padding-inline: 0;
   }
 }
 
@@ -543,18 +556,14 @@ $_description-height-desktop: 108px;
   }
 
   .ecl-gallery__title {
-    background-color: transparent;
-    display: block;
     font: map.get($gallery, 'overlay-title-font');
     font-weight: map.get($gallery, 'overlay-title-font-weight');
-    padding-block: 0;
   }
 
   .ecl-gallery__title-text {
     display: block;
     height: auto;
     overflow: visible;
-    padding-inline: 0;
     -webkit-line-clamp: unset;
     line-clamp: unset;
   }
@@ -776,6 +785,53 @@ $_description-height-desktop: 108px;
         }
       }
     }
+  }
+}
+
+// Variant: portrait
+.ecl-gallery--portrait {
+  // Padding keeps the item focus outline visible despite the overflow
+  .ecl-gallery__viewport {
+    margin-inline-start: calc(-1 * var(--s-xs));
+    margin-block: calc(-1 * var(--s-xs));
+    overflow: hidden;
+    padding: var(--s-xs);
+  }
+
+  .ecl-gallery__list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: map.get($gallery, 'portrait', 'gap');
+    margin: 0;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .ecl-gallery__item {
+    aspect-ratio: 5/9;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: $_image-height-portrait;
+    margin-inline-start: 0;
+    margin-top: 0;
+  }
+
+  .ecl-gallery__image-container {
+    height: $_image-height-portrait;
+  }
+
+  .ecl-gallery__image {
+    height: $_image-height-portrait;
+  }
+
+  // Spacing kept on the pager so the footer collapses when the pager is hidden
+  .ecl-gallery__footer {
+    padding-top: 0;
+  }
+
+  .ecl-gallery__portrait-pager {
+    flex-grow: 1;
+    justify-content: flex-end;
+    margin-top: var(--s-m);
   }
 }
 

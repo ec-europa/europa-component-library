@@ -8,7 +8,7 @@ npm install --save @ecl/gallery
 
 ### Parameters
 
-- **"grid"** (boolean) (default: false) Display gallery as a grid
+- **"variant"** (string) (default: '') Gallery variant; can be '' (mosaic), 'grid', or 'portrait'
 - **"grid_template"** (int) (default: 0) Id of the template to be used. Grid display only
 - **"column"** (int) (default: 3) Number of columns. Grid display only
 - **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid display only
@@ -43,7 +43,7 @@ npm install --save @ecl/gallery
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
-- **"footer"** (object) (default: {}) Footer link
+- **"footer"** (object) (default: {}) Footer link. Not available for the portrait variant
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
@@ -51,10 +51,16 @@ npm install --save @ecl/gallery
 - **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
 - **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)
+- **"prev_label"** (string) (default: '') Label of the slider previous button. Portrait variant only
+- **"next_label"** (string) (default: '') Label of the slider next button. Portrait variant only
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"grid"** (boolean) (default: false) Display gallery as a grid; use `variant: 'grid'` instead
 
 ### Example :
 

@@ -221,43 +221,67 @@ module.exports = {
       share_path: '/share#example-image10.jpg',
     },
     {
-      // Image
-      picture: {
+      // Embedded video (AV Portal) with thumbnail
+      thumbnail: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          alt: 'Lorem ipsum',
+          src: 'https://api.prd.commavservices.eu/thumbnail/I-283755/019d7296-446e-7b37-aa68-a796e95d182c/1200.jpg?t=1775821882',
+          alt: 'What is the European Union?',
         },
       },
-      title: '12',
-      description: 'Lorem ipsum',
-      meta: 'Copyright, Author, Licence for Lorem ipsum',
-      share_path: '/share#example-image10.jpg',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-283755&lg=EN',
+      },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
+      title: 'What is the European Union?',
+      description:
+        'How is the EU different from Europe, and why does it exist? From the European Coal and Steel Community to the euro, the Single Market and free movement. [Embedded video (AV Portal) with thumbnail]',
+      meta: 'Copyright European Union',
+      share_path: '/share#I-283755',
+      publication_date: '01 Sep 2026',
+      video_length: '1:53',
     },
     {
-      // Image
-      picture: {
+      // Embedded video (AV Portal) with thumbnail
+      thumbnail: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          alt: 'Lorem ipsum',
+          src: 'https://api.prd.commavservices.eu/thumbnail/9b516080-72e6-4c8f-ba9e-543241e4d6e2-1707738521/640.jpg?1707739098278?latest=0008532569',
+          alt: 'Berlaymont building',
         },
       },
-      title: '13',
-      description: 'Lorem ipsum',
-      meta: 'Copyright, Author, Licence for Lorem ipsum',
-      share_path: '/share#example-image10.jpg',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-252605&lg=EN',
+      },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
+      title: 'Exterior views of the European Commission',
+      description:
+        'Exterior views of the Berlaymont building, headquarters of the European Commission in Brussels. [Embedded video (AV Portal) with thumbnail]',
+      meta: 'Copyright European Union',
+      share_path: '/share#I-252605',
+      publication_date: '12 Feb 2024',
+      video_length: '0:25',
     },
     {
-      // Image
-      picture: {
+      // Embedded video (AV Portal) with thumbnail
+      thumbnail: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          alt: 'Lorem ipsum',
+          src: 'https://api.prd.commavservices.eu/thumbnail/I-273146/01973ac1-c084-71ad-8acf-59f555a8b296/1200.jpg?t=1749113128',
+          alt: '#DiscussAI',
         },
       },
-      title: '14',
-      description: 'Lorem ipsum',
-      meta: 'Copyright, Author, Licence for Lorem ipsum',
-      share_path: '/share#example-image10.jpg',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-273146&lg=EN',
+      },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
+      title: '#DiscussAI: a national conversation on Artificial Intelligence',
+      description:
+        'Success story from the research management community: ADAPT at Dublin City University engaged more than 80,000 people across Ireland in a conversation on AI and its role in society. [Embedded video (AV Portal) with thumbnail]',
+      meta: 'Copyright European Union',
+      share_path: '/share#I-273146',
+      publication_date: '13 Feb 2025',
+      video_length: '1:54',
     },
     {
       // Image
@@ -310,4 +334,6 @@ module.exports = {
     },
   },
   counter_label: 'Media files in this gallery',
+  prev_label: 'Previous',
+  next_label: 'Next',
 };

@@ -5,13 +5,21 @@ $gallery: (
   actions-margin: var(--s-m),
   detail-color: map.get($color, 'white'),
   detail-padding: var(--s-xl),
-  description-background: color-mix(in srgb, var(--c-d) 65%, transparent),
+  description-background: linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--c-d-140) 80%, transparent) 10%,
+      color-mix(in srgb, var(--c-d-140) 53%, transparent) 50%,
+      transparent 100%
+    ),
+  description-blur: 20px,
+  description-padding: var(--s-2xl) var(--s-m) var(--s-m),
   description-font: var(--f-s),
   gallery-info-color: var(--c-d-140),
   gallery-info-font: var(--f-s),
-  item-meta-padding: var(--s-xs),
-  item-meta-margin: 0 calc(-1 * var(--s-2xs)) var(--s-xs),
-  item-meta-font: var(--f-xs),
+  item-meta-margin: var(--s-xs),
+  item-meta-font: var(--f-s),
+  title-font: var(--f-m),
+  title-font-weight: map.get($font-weight, 'bold'),
   overlay-background: color-mix(in srgb, var(--c-d) 90%, transparent),
   overlay-shadow: var(--sh-3),
   overlay-title-font: var(--f-m),
@@ -21,6 +29,9 @@ $gallery: (
   overlay-date-font: var(--f-m),
   overlay-meta-font: var(--f-m),
   overlay-action-gap: var(--s-xl),
+  portrait: (
+    gap: var(--s-l),
+  ),
 );
 $gallery-print: (
   description-font: map.get($font-print, 's'),

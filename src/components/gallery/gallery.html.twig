@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "grid" (boolean) (default: false) Display gallery as a grid
+  - "variant" (string) (default: '') Gallery variant; can be '' (mosaic), 'grid', or 'portrait'
   - "grid_template" (int) (default: 0) Id of the template to be used. Grid display only
   - "column" (int) (default: 3) Number of columns. Grid display only
   - "ratio" (string) (default: '3-2') Image aspect ratio. Grid display only
@@ -26,7 +26,7 @@
     - "published_label" (string) (default: ''): label for the publication date
     - "share" (object) (default: {}): object of type link
     - "sr_overlay_label" (string) (default: '') aria-label for the overlay
-  - "footer" (object) (default: {}): object of type link
+  - "footer" (object) (default: {}): object of type link. Not available for the portrait variant
   - "items" (array) (default: [])
     - "title" (string) (default: '')
     - "title_always_visible" (boolean) (default: false)
@@ -45,15 +45,22 @@
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "selected_item_id" (int) (default: 0)
+  - "prev_label" (string) (default: '') Label of the slider previous button. Portrait variant only
+  - "next_label" (string) (default: '') Label of the slider next button. Portrait variant only
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
+{# DEPRECATED
+- "grid" (boolean) (default: false) Display gallery as a grid
+#}
+{% set _grid = grid|default(false) %}
+
 {# variables #}
 
-{% set _grid = grid|default(false) %}
+{% set _variant = variant|default('') %}
 {% set _grid_template = grid_template|default(0) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
@@ -79,6 +86,13 @@
 {% set _overlay_attrs = [] %}
 {% set _full_width = full_width|default(false) %}
 {% set _sr_video_player = sr_video_player|default('') %}
+{% set _prev_label = prev_label|default('') %}
+{% set _next_label = next_label|default('') %}
+
+{# Backward compatibility #}
+{% if _grid %}
+  {% set _variant = 'grid' %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -86,7 +100,7 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if _grid %}
+{% if _variant == 'grid' %}
   {% set _css_class = _css_class ~ ' ecl-gallery--grid' %}
 
   {% if _grid_template is not empty %}
@@ -100,6 +114,10 @@
   {% if _ratio is not empty %}
     {% set _css_class = _css_class ~ ' ecl-gallery--ratio-' ~ _ratio %}
   {% endif %}
+{%  elseif _variant == 'portrait' %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--portrait' %}
+  {% set _expandable = false %}
+  {% set _footer = {} %}
 {% endif %}
 
 {% if _full_width %}
@@ -141,61 +159,88 @@
   {{ _extra_attributes|raw }}
   data-ecl-gallery
 >
-  <ul class="ecl-gallery__list">
-    {% for _key, _item in _items %}
-      {% set _item_class = '' %}
-      {% set _item_attrs = [] %}
-      {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
-        {% set _item_class = _item.extra_classes %}
-      {% endif %}
-      {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
-        {% set _item_attrs = _item.extra_attributes %}
-      {% endif %}
-      {% include '@ecl/gallery/gallery-item.html.twig' with {
-        id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
-        item: _item,
-        sr_video_label: _sr_video_label,
-        sr_video_player: _sr_video_player,
-        disable_overlay: _disable_overlay,
-        picture_zoom: _picture_zoom,
-        extra_attributes: _item_attrs,
-        extra_classes: _item_class,
-      } only %}
-    {% endfor %}
-  </ul>
-  <div class="ecl-gallery__footer">
-  {%- if _expandable -%}
-    <div class="ecl-gallery__info">
-      <div class="ecl-gallery__info-total" id="{{ _id }}-info">
-        <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
-      </div>
-        {% include '@ecl/button/button.html.twig' with {
-          label: _view_all_label,
-          type: 'submit',
-          variant: 'tertiary',
-          extra_attributes: [
-            { name: 'data-ecl-gallery-all' },
-            { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
-            { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
-            { name: 'aria-describedby', value: _id ~ '-info' },
-          ],
-          extra_classes: 'ecl-gallery__view-all',
+  <div
+    class="ecl-gallery__viewport"
+    {% if _variant == 'portrait' %}
+      data-ecl-gallery-slider
+    {% endif %}
+  >
+    <ul class="ecl-gallery__list">
+      {% for _key, _item in _items %}
+        {% set _item_class = '' %}
+        {% set _item_attrs = [] %}
+        {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
+          {% set _item_class = _item.extra_classes %}
+        {% endif %}
+        {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
+          {% set _item_attrs = _item.extra_attributes %}
+        {% endif %}
+        {% include '@ecl/gallery/gallery-item.html.twig' with {
+          id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
+          item: _item,
+          sr_video_label: _sr_video_label,
+          sr_video_player: _sr_video_player,
+          disable_overlay: _disable_overlay,
+          picture_zoom: _picture_zoom,
+          extra_attributes: _item_attrs,
+          extra_classes: _item_class,
         } only %}
-    </div>
-  {%- endif -%}
-  {% if _footer.link is defined and _footer.link is not empty %}
-    <hr class="ecl-gallery__footer-divider" />
-    <div class="ecl-gallery__footer-link">
-      {% include '@ecl/link/link.html.twig' with _footer|merge({
-        link: _footer.link|merge({
-          type: 'standalone',
-          icon_position: 'after',
-        }),
-        icon: _footer.icon
-      }) only %}
-    </div>
-  {% endif %}
+      {% endfor %}
+    </ul>
   </div>
+
+  {# Footer #}
+  {% if _full_width %}
+  <div class="ecl-container">
+  {% endif %}
+    <div class="ecl-gallery__footer">
+    {%- if _variant == 'portrait' -%}
+      {% include '@ecl/slider/slider-pager.html.twig' with {
+        prev_label: _prev_label,
+        next_label: _next_label,
+        hide_label: true,
+        dots: false,
+        size: 'm',
+        extra_classes: 'ecl-gallery__portrait-pager',
+        prev_extra_classes: 'ecl-gallery__portrait-prev',
+        next_extra_classes: 'ecl-gallery__portrait-next',
+      } only %}
+    {%- elseif _expandable -%}
+      <div class="ecl-gallery__info">
+        <div class="ecl-gallery__info-total" id="{{ _id }}-info">
+          <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+        </div>
+          {% include '@ecl/button/button.html.twig' with {
+            label: _view_all_label,
+            type: 'submit',
+            variant: 'tertiary',
+            extra_attributes: [
+              { name: 'data-ecl-gallery-all' },
+              { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
+              { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
+              { name: 'aria-describedby', value: _id ~ '-info' },
+            ],
+            extra_classes: 'ecl-gallery__view-all',
+          } only %}
+      </div>
+    {%- endif -%}
+    {% if _footer.link is defined and _footer.link is not empty %}
+      <hr class="ecl-gallery__footer-divider" />
+      <div class="ecl-gallery__footer-link">
+        {% include '@ecl/link/link.html.twig' with _footer|merge({
+          link: _footer.link|merge({
+            type: 'standalone',
+            icon_position: 'after',
+          }),
+          icon: _footer.icon
+        }) only %}
+      </div>
+    {% endif %}
+    </div>
+  {% if _full_width %}
+  </div>
+  {% endif %}
+
   {% set _selected_item = {} %}
   {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}
