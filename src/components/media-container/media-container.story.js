@@ -8,7 +8,7 @@ import dataVideo from './demo/data--video';
 import dataEmbed from './demo/data--embed-video';
 import dataInfographic from './demo/data--infographic';
 import mediaContainer from './media-container.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   let args = {

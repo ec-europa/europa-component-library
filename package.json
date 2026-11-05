@@ -29,7 +29,7 @@
     "start:website": "cd src/website && npm run start",
     "stop": "pkill -f 'ecl-builder' ; pkill -f 'STORYBOOK_SYSTEM' ; true",
     "test": "run-p test:*",
-    "test:components": "jest --verbose",
+    "test:components": "vitest run --config vitest.config.mjs",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-deps": "npm-check-updates -i -ws",
     "chromatic-eu": "cd src/playground/eu && npm run build",
@@ -39,13 +39,13 @@
     "update-version": "lerna version --no-push --no-git-tag-version"
   },
   "devDependencies": {
+    "@ecl/test-utils": "workspace:*",
     "@babel/eslint-parser": "7.29.9",
     "@babel/plugin-proposal-export-default-from": "7.29.7",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-runtime": "7.29.7",
     "@prettier/plugin-xml": "3.4.2",
     "@size-limit/preset-big-lib": "14.3.0",
-    "babel-jest": "30.5.2",
     "chromatic": "18.13.3",
     "classnames": "2.5.1",
     "cross-env": "10.1.0",
@@ -56,7 +56,6 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-jest": "29.17.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-prettier": "5.5.7",
     "eslint-plugin-react": "7.37.5",
@@ -64,9 +63,7 @@
     "glob": "13.0.6",
     "global": "4.4.0",
     "husky": "9.1.7",
-    "jest": "30.5.2",
     "jest-axe": "11.0.0",
-    "jest-environment-jsdom": "30.5.2",
     "lerna": "10.1.1",
     "lerna-changelog": "2.2.0",
     "lint-staged": "17.6.0",
@@ -87,11 +84,25 @@
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.2",
     "stylelint-scss": "7.3.0",
-    "unist-util-visit": "5.1.0"
+    "unist-util-visit": "5.1.0",
+    "storybook": "10.6.4",
+    "@ecl/builder": "workspace:*",
+    "@ecl/dom-utils": "workspace:*",
+    "@ecl/resources-ec-logo": "workspace:*",
+    "@ecl/resources-eu-logo": "workspace:*",
+    "@ecl/resources-icons": "workspace:*",
+    "@ecl/story-utils": "workspace:*",
+    "@ecl/storybook-addon-code": "workspace:*",
+    "@ecl/storybook-addon-notes": "workspace:*",
+    "lorem-ipsum": "3.0.0",
+    "vitest": "5.0.5",
+    "vite": "7.3.7",
+    "jsdom": "26.1.0"
   },
   "packageManager": "pnpm@10.9.0",
   "pnpm": {
     "overrides": {
+      "twing": "7.3.1",
       "serialize-javascript": ">=3.1.0",
       "trim": ">=0.0.3",
       "glob-parent": ">=5.1.2",
@@ -130,8 +141,7 @@
       "serve-static": ">=1.16.0",
       "path-to-regexp": "0.1.12",
       "inquirer": "12.2.0",
-      "nanoid": "3.3.8",
-      "esbuild": "0.24.2"
+      "nanoid": "3.3.8"
     }
   },
   "engines": {
@@ -150,10 +160,6 @@
       "prettier --write",
       "stylelint"
     ]
-  },
-  "jest": {
-    "verbose": true,
-    "testEnvironment": "jsdom"
   },
   "apps": {
     "storybook-ec": {

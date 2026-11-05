@@ -11,7 +11,7 @@ import dataListIllustrationIconList from './demo/data--icon-list';
 import dataListIllustrationNumberList from './demo/data--number-list';
 
 import listIllustration from './list-illustration.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const imgDefault = dataListIllustrationImage.items[0].picture;
 const iconDefault = dataListIllustrationIcon.items[0].icon;

@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   citation:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales, nisl tincidunt hendrerit elementum, purus risus tempus dui, sit amet cursus massa odio non lacus.',
   author: 'Someone - <cite>Lorem Ipsum</cite>',
