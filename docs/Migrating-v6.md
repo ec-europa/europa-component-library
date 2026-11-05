@@ -20,5 +20,8 @@ Following elements have been deprecated, and are removed in ECL v6
   - parameter `translation.toggle` (now set in the template directly)
 - gallery:
   - parameter `grid` (replaced by `variant`)
+- highlighted search:
+  - parameter `search_input` (replaced by `search_fields`)
+  - parameter `search_helper` (replaced by `helper_text` in `search_fields`)
 - site header:
   - parameter `banner_top` (previously used for class name)
