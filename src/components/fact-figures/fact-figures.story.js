@@ -300,6 +300,7 @@ Highlighted.render = async (args) => {
 };
 Highlighted.args = {
   ...getArgs(dataHighlighted),
+  background_color: 'dark',
   show_view_all: false,
   source_type: 'none',
   full_width: true,
