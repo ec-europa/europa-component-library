@@ -17,6 +17,7 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 
 const getArgs = (data) => {
   const args = {
+    background_color: 'light',
     centered: false,
     full_width: false,
     show_view_all: true,
@@ -41,6 +42,21 @@ const getArgs = (data) => {
 const getArgTypes = () => {
   const argTypes = getColorModeControls();
 
+  argTypes.background_color = {
+    name: 'background color',
+    description: 'Background color of the component',
+    type: 'select',
+    options: ['light', 'dark'],
+    mapping: {
+      light: 'light',
+      dark: 'dark',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'light' },
+      category: 'Items',
+    },
+  };
   argTypes.centered = {
     type: { name: 'boolean' },
     description: 'Centered content',
@@ -221,6 +237,7 @@ const prepareData = (data, args) => {
 
   // Other controls
   clone.color_mode = args.color_mode;
+  clone.background_color = args.background_color;
   clone.font_size = args.font_size;
   clone.items[0].value = args.value;
   clone.items[0].title = args.title;
@@ -228,6 +245,11 @@ const prepareData = (data, args) => {
   if (args.icon) {
     clone.items[0].icon.name = args.icon;
     clone.icon_size = args.icon_size;
+  }
+
+  if (args.items_number) {
+    const count = Math.min(Math.max(args.items_number, 2), 4);
+    clone.items = clone.items.slice(0, count);
   }
 
   return clone;
@@ -278,9 +300,11 @@ Highlighted.render = async (args) => {
 };
 Highlighted.args = {
   ...getArgs(dataHighlighted),
+  color_mode: 'blue-navy',
   show_view_all: false,
   source_type: 'none',
   full_width: true,
+  items_number: 4,
 };
 Highlighted.argTypes = {
   ...getArgTypes(),
@@ -289,6 +313,14 @@ Highlighted.argTypes = {
   },
   column: {
     table: { disable: true },
+  },
+  items_number: {
+    name: 'number of items',
+    control: { type: 'range', min: 2, max: 4, step: 1 },
+    description: 'Number of items to display',
+    table: {
+      category: 'Items',
+    },
   },
 };
 Highlighted.parameters = {

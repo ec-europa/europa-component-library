@@ -156,30 +156,6 @@ $fact-figures: null !default;
   }
 }
 
-.ecl-fact-figures--highlighted {
-  .ecl-fact-figures__icon-wrapper {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    background: var(--c-w-500);
-    border: 1px solid var(--c-g-25, var(--c-d-10));
-    margin-block-end: map.get($fact-figures, 'icon-highlighted-margin');
-  }
-
-  .ecl-fact-figures__value,
-  .ecl-fact-figures__title {
-    color: var(--cm-on-surface, --c-d-80);
-  }
-
-  .ecl-fact-figures__description,
-  .ecl-fact-figures__icon {
-    margin: 0;
-  }
-}
-
 /* stylelint-disable-next-line order/order */
 @container ecl-fact-figures (width >= #{map.get($theme, 'breakpoint', 'l')}) {
   .ecl-fact-figures__container {
@@ -226,6 +202,64 @@ $fact-figures: null !default;
     .ecl-fact-figures__item--font-m & {
       font: map.get($fact-figures, 'value-font-desktop-m');
       font-weight: map.get($fact-figures, 'value-font-weight');
+    }
+  }
+}
+
+// Highlighted variant
+.ecl-fact-figures--highlighted {
+  .ecl-fact-figures__icon-wrapper {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    background: var(--c-w-500);
+    border: 1px solid map.get($fact-figures, 'icon-wrapper-border');
+    margin-block-end: map.get($fact-figures, 'icon-highlighted-margin');
+  }
+
+  .ecl-fact-figures__value,
+  .ecl-fact-figures__title {
+    color: var(--cm-on-surface, --c-d-80);
+  }
+
+  .ecl-fact-figures__description,
+  .ecl-fact-figures__icon {
+    margin: 0;
+  }
+}
+
+// Dark background color
+.ecl-fact-figures--dark {
+  background-color: map.get($fact-figures, 'background-dark');
+
+  .ecl-fact-figures__item,
+  .ecl-fact-figures__icon,
+  .ecl-fact-figures__view-all,
+  .ecl-fact-figures__sources {
+    color: map.get($fact-figures, 'text-color-dark');
+  }
+
+  .ecl-fact-figures__sources-item {
+    &:not(:last-child)::after {
+      color: map.get($fact-figures, 'text-color-dark');
+    }
+  }
+
+  .ecl-fact-figures__source {
+    @include link-component.inverted-link;
+  }
+
+  &.ecl-fact-figures--highlighted {
+    .ecl-fact-figures__value,
+    .ecl-fact-figures__title {
+      color: map.get($fact-figures, 'text-color-dark');
+    }
+
+    .ecl-fact-figures__icon {
+      color: map.get($fact-figures, 'icon-color');
     }
   }
 }

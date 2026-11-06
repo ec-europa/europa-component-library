@@ -9,6 +9,7 @@ npm install --save @ecl/fact-figures
 ### Parameters:
 
 - **"color_mode"** (string) (default: '') Name of the color mode
+- **"background_color"** (string) (default: 'light') Light or dark background
 - **"column"** (integer) (default: 3): Number of columns (1 to 4)
 - **"centered"** (boolean) (default: false)
 - **"font_size"** (string) (default: 'l') Size of the value (can be 'm', 'l')
@@ -46,29 +47,29 @@ npm install --save @ecl/fact-figures
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/fact-figures/fact-figures.html.twig' with { 
-  column: 3, 
-  display_icons, true, 
-  icon_size: 'l', 
-  items: [ 
-    { 
-      icon: { 
+{% include '@ecl/fact-figures/fact-figures.html.twig' with {
+  column: 3,
+  display_icons, true,
+  icon_size: 'l',
+  items: [
+    {
+      icon: {
         name: 'chart-bar',
         family: 'phosphor',
-      }, 
-      value: "00.0 million", 
-      title: "Lorem ipsum", 
-      description: "Nunc condimentum sapien ut nibh finibus suscipit vitae at justo." 
-    }, 
-    { 
-      icon: { 
+      },
+      value: "00.0 million",
+      title: "Lorem ipsum",
+      description: "Nunc condimentum sapien ut nibh finibus suscipit vitae at justo."
+    },
+    {
+      icon: {
         name: 'chart-bar',
         family: 'phosphor',
-      }, 
-      value: "00.0 million", 
-      title: "Sed hendrerit", 
-      description: "Turpis varius congue venenatis, erat dui feugiat felis." 
-    }, 
+      },
+      value: "00.0 million",
+      title: "Sed hendrerit",
+      description: "Turpis varius congue venenatis, erat dui feugiat felis."
+    },
   ],
   sources_label: 'Sources:',
   sources: [
@@ -79,11 +80,11 @@ npm install --save @ecl/fact-figures
       },
     },
   ],
-  view_all: { 
-    link: { 
-      label: "View all", 
-      path: "/example" 
+  view_all: {
+    link: {
+      label: "View all",
+      path: "/example"
     },
-  } 
-} %} 
+  }
+} %}
 ```

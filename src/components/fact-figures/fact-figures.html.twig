@@ -4,6 +4,7 @@
 {#
   Parameters:
   - "color_mode" (string)
+  - "background_color" (string) (default: 'light') Can be 'light' or 'dark'
   - "column" (integer) (default: 3): Number of columns (1 to 4)
   - "centered" (boolean) (default: false)
   - "variant" (string) (default: '') Can be 'highlighted'
@@ -52,6 +53,7 @@
 {% set _variant = variant|default('') %}
 {% set _extra_attributes = '' %}
 {% set _columns = column|default(3) %}
+{% set _background_color = background_color|default('light') %}
 {% set _container_classes = 'ecl-fact-figures__container' %}
 {% set _full_width = full_width|default(false) %}
 {% set _font_size = font_size|default('l') %}
@@ -66,6 +68,10 @@
 
 {% if _variant is empty %}
   {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+{% endif %}
+
+{% if _background_color == 'dark' %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--dark' %}
 {% endif %}
 
 {% if _color_mode is not empty %}
@@ -114,6 +120,7 @@
       {% include '@ecl/link/link.html.twig' with {
         link: source.link|merge({
           no_icon_wrapping: true,
+          inverted: _background_color == 'dark' ? true : false,
         }),
         extra_classes: 'ecl-fact-figures__source',
       } only %}
@@ -220,6 +227,7 @@
       {% include '@ecl/link/link.html.twig' with view_all|merge({
         link: view_all.link|merge({
           type: 'standalone',
+          inverted: _background_color == 'dark' ? true : false,
         }),
         icon: view_all.link.external ? {} : view_all.icon|default({})|merge({
           name: 'arrow-right',
