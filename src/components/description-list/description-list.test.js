@@ -50,7 +50,11 @@ describe('Description list', () => {
         variant: 'horizontal',
       });
 
-      return expect(render(horizontal)).resolves.toMatchSnapshot();
+      return render(horizontal).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('renders correctly with extra class names', () => {
