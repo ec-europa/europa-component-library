@@ -182,12 +182,6 @@ $fact-figures: null !default;
     .ecl-fact-figures--col-4:not(.ecl-fact-figures--highlighted) & {
       grid-template-columns: repeat(4, 1fr);
     }
-
-    .ecl-fact-figures--highlighted & {
-      grid-template-columns: none;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(0, 1fr);
-    }
   }
 
   .ecl-fact-figures__item {
@@ -208,6 +202,14 @@ $fact-figures: null !default;
 
 // Highlighted variant
 .ecl-fact-figures--highlighted {
+  border-radius: 0;
+
+  .ecl-fact-figures__items {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
   .ecl-fact-figures__icon-wrapper {
     align-items: center;
     display: inline-flex;

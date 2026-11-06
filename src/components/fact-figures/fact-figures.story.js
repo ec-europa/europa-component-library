@@ -33,7 +33,7 @@ const getArgs = (data) => {
   };
 
   if (getSystem() === 'ec') {
-    args.color_mode = 'default';
+    args.color_mode = data.variant === 'highlighted' ? 'blue-navy' : 'default';
   }
 
   return args;
@@ -300,7 +300,6 @@ Highlighted.render = async (args) => {
 };
 Highlighted.args = {
   ...getArgs(dataHighlighted),
-  color_mode: 'blue-navy',
   show_view_all: false,
   source_type: 'none',
   full_width: true,
