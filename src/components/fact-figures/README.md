@@ -10,6 +10,7 @@ npm install --save @ecl/fact-figures
 
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"background_color"** (string) (default: 'light') Light or dark background
+- **"full_width"** (boolean) (default: 'false') Full width of the viewport
 - **"column"** (integer) (default: 3): Number of columns (1 to 4)
 - **"centered"** (boolean) (default: false)
 - **"font_size"** (string) (default: 'l') Size of the value (can be 'm', 'l')
