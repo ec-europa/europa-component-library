@@ -3,8 +3,9 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import demoData from './demo/data';
+import dataHighlighted from './demo/data--highlighted';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';
@@ -16,13 +17,15 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 
 const getArgs = (data) => {
   const args = {
+    background_color: 'light',
     centered: false,
+    full_width: false,
     show_view_all: true,
     show_icons: true,
-    column: 3,
+    column: data.column,
     font_size: 'l',
     icon: data.items[0].icon.name,
-    icon_size: 'medium',
+    icon_size: 'l',
     value: data.items[0].value,
     title: data.items[0].title,
     description: data.items[0].description,
@@ -30,7 +33,7 @@ const getArgs = (data) => {
   };
 
   if (getSystem() === 'ec') {
-    args.color_mode = 'default';
+    args.color_mode = data.variant === 'highlighted' ? 'blue navy' : 'default';
   }
 
   return args;
@@ -39,9 +42,34 @@ const getArgs = (data) => {
 const getArgTypes = () => {
   const argTypes = getColorModeControls();
 
+  argTypes.background_color = {
+    name: 'background color',
+    description: 'Background color of the component',
+    type: 'select',
+    options: ['light', 'dark'],
+    mapping: {
+      light: 'light',
+      dark: 'dark',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'light' },
+      category: 'Items',
+    },
+  };
   argTypes.centered = {
     type: { name: 'boolean' },
     description: 'Centered content',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Items',
+    },
+  };
+  argTypes.full_width = {
+    name: 'full width',
+    type: { name: 'boolean' },
+    description: 'Full width of the viewport (it has to be in a container)',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
@@ -114,14 +142,20 @@ const getArgTypes = () => {
     name: 'icon size',
     description: 'Size of the icon',
     type: 'select',
-    options: ['medium', 'large'],
+    options: ['l', '2xl'],
+    control: {
+      labels: {
+        l: 'medium',
+        '2xl': 'large',
+      },
+    },
     mapping: {
       medium: 'l',
       large: '2xl',
     },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'medium' },
+      defaultValue: { summary: 'l' },
       category: 'Content (first item)',
     },
     if: { arg: 'show_icons' },
@@ -196,12 +230,14 @@ const prepareData = (data, args) => {
   }
   clone.display_icons = args.show_icons;
   clone.centered = args.centered;
+  clone.full_width = args.full_width;
 
   // Column display
   clone.column = args.column;
 
   // Other controls
   clone.color_mode = args.color_mode;
+  clone.background_color = args.background_color;
   clone.font_size = args.font_size;
   clone.items[0].value = args.value;
   clone.items[0].title = args.title;
@@ -211,12 +247,32 @@ const prepareData = (data, args) => {
     clone.icon_size = args.icon_size;
   }
 
+  if (args.items_number) {
+    const count = Math.min(Math.max(args.items_number, 2), 4);
+    clone.items = clone.items.slice(0, count);
+  }
+
   return clone;
 };
 
 export default {
   title: 'Components/Fact figures',
-  decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      modes: {
+        m: { disable: true },
+        xl: { disable: true },
+      },
+    },
+    breakpointIndicator: {
+      container: '.ecl-fact-figures',
+    },
+  },
+  decorators: [
+    withNotes,
+    withCode,
+    (story) => `<div class=ecl-container>${story()}</div>`,
+  ],
 };
 
 export const Default = (_, { loaded: { component } }) => component;
@@ -232,13 +288,44 @@ Default.parameters = {
     markdown: notes,
     json: ({ args }) => prepareData(demoData, args),
   },
-  chromatic: {
-    modes: {
-      m: { disable: true },
-      xl: { disable: true },
+};
+
+export const Highlighted = (_, { loaded: { component } }) => component;
+
+Highlighted.render = async (args) => {
+  const renderedFactFiguresHighlighted = await factFigures(
+    prepareData(dataHighlighted, args),
+  );
+  return renderedFactFiguresHighlighted;
+};
+Highlighted.args = {
+  ...getArgs(dataHighlighted),
+  background_color: 'dark',
+  show_view_all: false,
+  font_size: 'm',
+  source_type: 'none',
+  items_number: 4,
+};
+Highlighted.argTypes = {
+  ...getArgTypes(),
+  title: {
+    table: { disable: true },
+  },
+  column: {
+    table: { disable: true },
+  },
+  items_number: {
+    name: 'number of items',
+    control: { type: 'range', min: 2, max: 4, step: 1 },
+    description: 'Number of items to display',
+    table: {
+      category: 'Items',
     },
   },
-  breakpointIndicator: {
-    container: '.ecl-fact-figures',
+};
+Highlighted.parameters = {
+  notes: {
+    markdown: notes,
+    json: ({ args }) => prepareData(dataHighlighted, args),
   },
 };

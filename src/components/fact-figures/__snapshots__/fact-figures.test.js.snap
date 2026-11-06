@@ -14,10 +14,14 @@ exports[`Fact and figures 1 col renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -194,190 +198,14 @@ exports[`Fact and figures 1 col renders correctly when centerd 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
           <div
-            class="ecl-fact-figures__value"
-          >
-            00.0 million                            
-            <span
-              class="ecl-fact-figures__title"
-            >
-              Lorem ipsum
-            </span>
-          </div>
-          <div
-            class="ecl-fact-figures__description"
-          >
-            Nunc eu est nec orci rhoncus venenatis. Donec rutrum lacus eget lobortis eleifend. Duis cursus sapien ac felis bibendum, in sagittis turpis porttitor. Aliquam sed mauris et orci efficitur mollis. Donec eu dolor in turpis sollicitudin malesuada.
-          </div>
-          <div
-            class="ecl-fact-figures__sources"
+            class="ecl-fact-figures__icon-wrapper"
           >
             <span
-              class="ecl-fact-figures__sources-label"
-            >
-              Sources:
-            </span>
-            <ul
-              class="ecl-fact-figures__sources-list"
-            >
-              <li
-                class="ecl-fact-figures__sources-item"
-              >
-                <a
-                  class="ecl-link ecl-link--icon ecl-fact-figures__source"
-                  href="/example"
-                >
-                  <span
-                    class="ecl-link__label"
-                  >
-                    The length of this string is meant to test the text wrapping, The length of this string is meant to test the text wrapping
-                  </span>
-                   
-                  <span
-                    aria-hidden="false"
-                    class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-square-out"
-                  />
-                </a>
-              </li>
-              <li
-                class="ecl-fact-figures__sources-item"
-              >
-                <a
-                  class="ecl-link ecl-link--icon ecl-fact-figures__source"
-                  href="/example"
-                >
-                  <span
-                    class="ecl-link__label"
-                  >
-                    Eurostat
-                  </span>
-                   
-                  <span
-                    aria-hidden="false"
-                    class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-square-out"
-                  />
-                </a>
-              </li>
-              <li
-                class="ecl-fact-figures__sources-item"
-              >
-                <span
-                  class="ecl-fact-figures__source"
-                >
-                  Textual element
-                </span>
-              </li>
-              <li
-                class="ecl-fact-figures__sources-item"
-              >
-                <a
-                  class="ecl-link ecl-fact-figures__source"
-                  href="/example"
-                >
-                  The length of this string is meant to test the text wrapping
-                </a>
-              </li>
-              <li
-                class="ecl-fact-figures__sources-item"
-              >
-                <span
-                  class="ecl-fact-figures__source"
-                >
-                  Textual element
-                </span>
-              </li>
-            </ul>
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
           </div>
-        </div>
-      </div>
-      <div
-        class="ecl-fact-figures__sources"
-      >
-        <span
-          class="ecl-fact-figures__sources-label"
-        >
-          Sources:
-        </span>
-        <ul
-          class="ecl-fact-figures__sources-list"
-        >
-          <li
-            class="ecl-fact-figures__sources-item"
-          >
-            <a
-              class="ecl-link ecl-fact-figures__source"
-              href="/example"
-            >
-              Eurostat
-            </a>
-          </li>
-          <li
-            class="ecl-fact-figures__sources-item"
-          >
-            <a
-              class="ecl-link ecl-fact-figures__source"
-              href="/example"
-            >
-              DG CNECT
-            </a>
-          </li>
-          <li
-            class="ecl-fact-figures__sources-item"
-          >
-            <a
-              class="ecl-link ecl-fact-figures__source"
-              href="/example"
-            >
-              Eurostat
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="ecl-fact-figures__view-all"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-fact-figures__view-all-link"
-          href="/example"
-        >
-          <span
-            class="ecl-link__label"
-          >
-            View all
-          </span>
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-right"
-          />
-        </a>
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`Fact and figures 1 col renders correctly whit large icons 1`] = `
-<jest>
-  <div
-    class="ecl-fact-figures ecl-fact-figures--col-1"
-  >
-    <div
-      class="ecl-fact-figures__container"
-    >
-      <div
-        class="ecl-fact-figures__items"
-      >
-        <div
-          class="ecl-fact-figures__item is-first"
-        >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--2xl ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
           <div
             class="ecl-fact-figures__value"
           >
@@ -556,10 +384,14 @@ exports[`Fact and figures 1 col renders correctly with extra attributes 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -736,10 +568,198 @@ exports[`Fact and figures 1 col renders correctly with extra class names 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            00.0 million                            
+            <span
+              class="ecl-fact-figures__title"
+            >
+              Lorem ipsum
+            </span>
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Nunc eu est nec orci rhoncus venenatis. Donec rutrum lacus eget lobortis eleifend. Duis cursus sapien ac felis bibendum, in sagittis turpis porttitor. Aliquam sed mauris et orci efficitur mollis. Donec eu dolor in turpis sollicitudin malesuada.
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <span
+              class="ecl-fact-figures__sources-label"
+            >
+              Sources:
+            </span>
+            <ul
+              class="ecl-fact-figures__sources-list"
+            >
+              <li
+                class="ecl-fact-figures__sources-item"
+              >
+                <a
+                  class="ecl-link ecl-link--icon ecl-fact-figures__source"
+                  href="/example"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    The length of this string is meant to test the text wrapping, The length of this string is meant to test the text wrapping
+                  </span>
+                   
+                  <span
+                    aria-hidden="false"
+                    class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-square-out"
+                  />
+                </a>
+              </li>
+              <li
+                class="ecl-fact-figures__sources-item"
+              >
+                <a
+                  class="ecl-link ecl-link--icon ecl-fact-figures__source"
+                  href="/example"
+                >
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Eurostat
+                  </span>
+                   
+                  <span
+                    aria-hidden="false"
+                    class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-square-out"
+                  />
+                </a>
+              </li>
+              <li
+                class="ecl-fact-figures__sources-item"
+              >
+                <span
+                  class="ecl-fact-figures__source"
+                >
+                  Textual element
+                </span>
+              </li>
+              <li
+                class="ecl-fact-figures__sources-item"
+              >
+                <a
+                  class="ecl-link ecl-fact-figures__source"
+                  href="/example"
+                >
+                  The length of this string is meant to test the text wrapping
+                </a>
+              </li>
+              <li
+                class="ecl-fact-figures__sources-item"
+              >
+                <span
+                  class="ecl-fact-figures__source"
+                >
+                  Textual element
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ecl-fact-figures__sources"
+      >
+        <span
+          class="ecl-fact-figures__sources-label"
+        >
+          Sources:
+        </span>
+        <ul
+          class="ecl-fact-figures__sources-list"
+        >
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </li>
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              DG CNECT
+            </a>
+          </li>
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-fact-figures__view-all"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-fact-figures__view-all-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            View all
+          </span>
           <span
             aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            class="wt-icon-phosphor--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-right"
           />
+        </a>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Fact and figures 1 col renders correctly with large icons 1`] = `
+<jest>
+  <div
+    class="ecl-fact-figures ecl-fact-figures--col-1"
+  >
+    <div
+      class="ecl-fact-figures__container"
+    >
+      <div
+        class="ecl-fact-figures__items"
+      >
+        <div
+          class="ecl-fact-figures__item is-first"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--2xl ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -916,10 +936,14 @@ exports[`Fact and figures 2 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1018,10 +1042,14 @@ exports[`Fact and figures 2 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--table ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--table"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--table ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--table"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1134,10 +1162,14 @@ exports[`Fact and figures 3 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1236,10 +1268,14 @@ exports[`Fact and figures 3 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--table ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--table"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--table ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--table"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1274,10 +1310,14 @@ exports[`Fact and figures 3 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-line-up ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-line-up"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-line-up ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-line-up"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1312,10 +1352,14 @@ exports[`Fact and figures 3 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--network ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--network"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--network ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--network"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1350,10 +1394,14 @@ exports[`Fact and figures 3 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--sliders ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--sliders"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--sliders ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--sliders"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1388,10 +1436,14 @@ exports[`Fact and figures 3 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--image ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--image"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--image ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--image"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1504,10 +1556,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1606,10 +1662,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--table ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--table"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--table ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--table"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1644,10 +1704,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-line-up ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-line-up"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-line-up ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-line-up"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1682,10 +1746,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--network ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--network"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--network ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--network"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1720,10 +1788,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--sliders ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--sliders"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--sliders ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--sliders"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1758,10 +1830,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--image ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--image"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--image ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--image"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1796,10 +1872,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--globe ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--globe"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--globe ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--globe"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1834,10 +1914,14 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--presentation ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--presentation"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--presentation ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--presentation"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -1936,6 +2020,408 @@ exports[`Fact and figures 4 cols renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Fact and figures highlighted variant renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-fact-figures ecl-fact-figures--full-width ecl-fact-figures--highlighted"
+  >
+    <div
+      class="ecl-fact-figures__container ecl-container"
+    >
+      <div
+        class="ecl-fact-figures__items"
+      >
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m is-first"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--users-four ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--users-four"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            36          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Local communities
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--baby ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--baby"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            1,102          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Children, aged up to 4
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--gender-female ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--gender-female"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            24          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Active women members.
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--certificate ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--certificate"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            58          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Trained women
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ecl-fact-figures__sources"
+      >
+        <ul
+          class="ecl-fact-figures__sources-list"
+        >
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </li>
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              DG CNECT
+            </a>
+          </li>
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-fact-figures__view-all"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-fact-figures__view-all-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            View all
+          </span>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-right"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Fact and figures highlighted variant renders correctly with a dark background 1`] = `
+<jest>
+  <div
+    class="ecl-fact-figures ecl-fact-figures--dark ecl-fact-figures--full-width ecl-fact-figures--highlighted"
+  >
+    <div
+      class="ecl-fact-figures__container ecl-container"
+    >
+      <div
+        class="ecl-fact-figures__items"
+      >
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m is-first"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--users-four ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--users-four"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            36          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Local communities
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--baby ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--baby"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            1,102          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Children, aged up to 4
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--gender-female ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--gender-female"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            24          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Active women members.
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+        <div
+          class="ecl-fact-figures__item ecl-fact-figures__item--font-m"
+        >
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--certificate ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--certificate"
+            />
+          </div>
+          <div
+            class="ecl-fact-figures__value"
+          >
+            58          
+          </div>
+          <div
+            class="ecl-fact-figures__description"
+          >
+            Trained women
+          </div>
+          <div
+            class="ecl-fact-figures__sources"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ecl-fact-figures__sources"
+      >
+        <ul
+          class="ecl-fact-figures__sources-list"
+        >
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </li>
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              DG CNECT
+            </a>
+          </li>
+          <li
+            class="ecl-fact-figures__sources-item"
+          >
+            <a
+              class="ecl-link ecl-fact-figures__source"
+              href="/example"
+            >
+              Eurostat
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-fact-figures__view-all"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-fact-figures__view-all-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            View all
+          </span>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--arrow-right ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-right"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
 exports[`Fact and figures without title renders correctly 1`] = `
 <jest>
   <div
@@ -1950,10 +2436,14 @@ exports[`Fact and figures without title renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__value"
           >
@@ -2125,10 +2615,14 @@ exports[`Fact and figures without value renders correctly 1`] = `
         <div
           class="ecl-fact-figures__item is-first"
         >
-          <span
-            aria-hidden="true"
-            class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
-          />
+          <div
+            class="ecl-fact-figures__icon-wrapper"
+          >
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--chart-bar ecl-icon ecl-icon--l ecl-fact-figures__icon ecl-icon-phosphor--chart-bar"
+            />
+          </div>
           <div
             class="ecl-fact-figures__title"
           >

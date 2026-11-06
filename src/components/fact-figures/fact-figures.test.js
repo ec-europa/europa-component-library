@@ -7,6 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 import demoContent from './demo/data';
+import demoHighlighted from './demo/data--highlighted';
 
 const demo1Col = { ...demoContent, column: 1 };
 demo1Col.items = demo1Col.items.slice(0, 1);
@@ -37,7 +38,7 @@ describe('Fact and figures', () => {
       return expect(render(centeredData)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly whit large icons', () => {
+    test('renders correctly with large icons', () => {
       expect.assertions(1);
 
       const largeIconsData = { ...demo1Col, icon_size: '2xl' };
@@ -96,6 +97,28 @@ describe('Fact and figures', () => {
       expect.assertions(1);
 
       return expect(render(demo4Col)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('highlighted variant', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(demoHighlighted)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with a dark background', () => {
+      expect.assertions(1);
+
+      const darkHighlighted = { ...demoHighlighted, background_color: 'dark' };
+
+      return expect(render(darkHighlighted)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, demo1Col, true)),
+      ).toHaveNoViolations();
     });
   });
 
