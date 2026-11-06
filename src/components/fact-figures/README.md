@@ -8,6 +8,7 @@ npm install --save @ecl/fact-figures
 
 ### Parameters:
 
+- **"variant"** (string) (default: '') Name of the variant (highlighted)
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"background_color"** (string) (default: 'light') Light or dark background
 - **"full_width"** (boolean) (default: 'false') Full width of the viewport
