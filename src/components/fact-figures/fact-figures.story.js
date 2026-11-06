@@ -33,7 +33,7 @@ const getArgs = (data) => {
   };
 
   if (getSystem() === 'ec') {
-    args.color_mode = data.variant === 'highlighted' ? 'blue-navy' : 'default';
+    args.color_mode = data.variant === 'highlighted' ? 'blue navy' : 'default';
   }
 
   return args;
