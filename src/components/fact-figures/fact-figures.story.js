@@ -303,7 +303,6 @@ Highlighted.args = {
   background_color: 'dark',
   show_view_all: false,
   source_type: 'none',
-  full_width: true,
   items_number: 4,
 };
 Highlighted.argTypes = {
