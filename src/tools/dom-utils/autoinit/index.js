@@ -1,8 +1,23 @@
 import { queryAll } from '..';
 
-export const autoInit = ({ root = document, ...options } = {}) => {
+export const autoInit = ({
+  root = document,
+  borderRadius,
+  ...componentOptions
+} = {}) => {
   if (!ECL) {
     throw new TypeError('Called autoInit but ECL is not present');
+  }
+
+  if (borderRadius !== undefined) {
+    if (borderRadius === null || borderRadius === undefined) {
+      document.documentElement.style.removeProperty('--ecl-border-radius');
+    } else {
+      document.documentElement.style.setProperty(
+        '--ecl-border-radius',
+        borderRadius,
+      );
+    }
   }
 
   const nodes = queryAll('[data-ecl-auto-init]', root);
@@ -34,7 +49,7 @@ export const autoInit = ({ root = document, ...options } = {}) => {
           );
         }
 
-        ctor.autoInit(node, options);
+        ctor.autoInit(node, componentOptions);
       });
   };
 

@@ -81,8 +81,11 @@ $min-height-desktop: 548px;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border-radius: map.get($theme, 'border-radius', 's')
-      map.get($theme, 'border-radius', 's') 0 0;
+    border-radius: var(
+      --ecl-border-radius,
+      map.get($theme, 'border-radius', 's')
+        map.get($theme, 'border-radius', 's') 0 0
+    );
     overflow: hidden;
   }
 
@@ -110,13 +113,19 @@ $min-height-desktop: 548px;
   }
 
   .ecl-story-card__grid-details {
-    border-radius: map.get($theme, 'border-radius', 's');
+    border-radius: var(
+      --ecl-border-radius,
+      map.get($theme, 'border-radius', 's')
+    );
 
     @include mixins-color.focus-default;
   }
 
   .ecl-story-card__grid-details-content {
-    border-radius: map.get($theme, 'border-radius', 's');
+    border-radius: var(
+      --ecl-border-radius,
+      map.get($theme, 'border-radius', 's')
+    );
   }
 
   .ecl-story-card__content-icon svg {
@@ -175,8 +184,11 @@ $min-height-desktop: 548px;
 
   .ecl-story-card__pager {
     background: map.get($story-card, 'card', 'background');
-    border-radius: 0 0 map.get($theme, 'border-radius', 's')
-      map.get($theme, 'border-radius', 's');
+    border-radius: var(
+      --ecl-border-radius,
+      0 0 map.get($theme, 'border-radius', 's')
+        map.get($theme, 'border-radius', 's')
+    );
     display: flex;
     align-items: center;
     padding: var(--s-xs);
@@ -322,7 +334,10 @@ $min-height-desktop: 548px;
     all: unset;
     display: flex;
     flex-direction: column;
-    border-radius: map.get($theme, 'border-radius', 's');
+    border-radius: var(
+      --ecl-border-radius,
+      map.get($theme, 'border-radius', 's')
+    );
     height: 21.25rem;
     overflow: hidden;
     position: relative;

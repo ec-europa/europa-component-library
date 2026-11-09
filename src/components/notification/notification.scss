@@ -13,7 +13,7 @@ $notification: null !default;
 
 .ecl-notification {
   border: map.get($notification, 'border-width') solid transparent;
-  border-radius: map.get($notification, 'radius');
+  border-radius: var(--ecl-border-radius, map.get($notification, 'radius'));
   box-sizing: border-box;
   color: map.get($notification, 'color');
   display: flex;

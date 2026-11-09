@@ -21,6 +21,15 @@ Then, in the footer of the document (or whenever the document is ready), call:
 ECL.autoInit();
 ```
 
+To override the border radius used by supported ECL components, pass a CSS
+length as `borderRadius`. The value is applied to `--ecl-border-radius` on
+`document.documentElement`; each component's existing radius remains in use
+when no override is supplied. Pass `null` to remove a previous override.
+
+```js
+ECL.autoInit({ borderRadius: '8px' });
+```
+
 `ECL.autoInit()` returns an object containing:
 
 - list of initialized components

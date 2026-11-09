@@ -14,7 +14,7 @@ $button: null !default;
 %ecl-button {
   appearance: none;
   background: none;
-  border-radius: map.get($button, 'radius');
+  border-radius: var(--ecl-border-radius, map.get($button, 'radius'));
   border-width: 0;
   cursor: pointer;
   display: inline-block;

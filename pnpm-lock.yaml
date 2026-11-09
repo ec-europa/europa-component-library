@@ -1759,6 +1759,15 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
 
+  src/playground/addons/storybook-addon-border-radius:
+    dependencies:
+      react:
+        specifier: 19.3.1
+        version: 19.3.1
+      storybook:
+        specifier: 10.6.4
+        version: 10.6.4(@types/react@19.2.14)(prettier@3.9.10)(react@19.3.1)
+
   src/playground/addons/storybook-addon-code:
     dependencies:
       '@ecl/builder':
@@ -1851,6 +1860,9 @@ importers:
 
   src/playground/config:
     dependencies:
+      '@ecl/storybook-addon-border-radius':
+        specifier: workspace:*
+        version: link:../addons/storybook-addon-border-radius
       '@ecl/storybook-addon-code':
         specifier: workspace:*
         version: link:../addons/storybook-addon-code
@@ -1902,6 +1914,9 @@ importers:
       '@duetds/date-picker':
         specifier: 1.4.0
         version: 1.4.0
+      '@ecl/storybook-addon-border-radius':
+        specifier: 5.4.0
+        version: link:../addons/storybook-addon-border-radius
       '@ecl/storybook-addon-code':
         specifier: workspace:*
         version: link:../addons/storybook-addon-code
@@ -1956,6 +1971,9 @@ importers:
       '@duetds/date-picker':
         specifier: 1.4.0
         version: 1.4.0
+      '@ecl/storybook-addon-border-radius':
+        specifier: 5.4.0
+        version: link:../addons/storybook-addon-border-radius
       '@ecl/storybook-addon-code':
         specifier: workspace:*
         version: link:../addons/storybook-addon-code
@@ -12349,18 +12367,6 @@ packages:
     resolution: {integrity: sha512-dYwyZredl67GyLLIHJnRM3h2PcOmN5SkcgC7eM5DPDEOEl6dLFqVrMg3F1Ea32usj4VSVZtd2H4MtKTNOf6nPg==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-
   ws@8.21.3:
     resolution: {integrity: sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw==}
     engines: {node: '>=10.0.0'}
@@ -12566,7 +12572,7 @@ snapshots:
       '@babel/helper-validator-option': 7.29.7
       browserslist: 4.28.8
       lru-cache: 5.1.1
-      semver: 7.7.4
+      semver: 7.8.5
 
   '@babel/helper-create-class-features-plugin@7.29.7(@babel/core@7.29.7)':
     dependencies:
@@ -15623,7 +15629,7 @@ snapshots:
       '@babel/compat-data': 7.29.7
       '@babel/core': 7.29.7
       '@babel/helper-define-polyfill-provider': 0.6.8(@babel/core@7.29.7)
-      semver: 7.7.4
+      semver: 7.8.5
     transitivePeerDependencies:
       - supports-color
 
@@ -16846,7 +16852,7 @@ snapshots:
       cors: 2.8.6
       debug: 4.4.3(supports-color@7.2.0)
       engine.io-parser: 5.2.3
-      ws: 8.20.0
+      ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -21494,7 +21500,7 @@ snapshots:
   socket.io-adapter@2.5.6:
     dependencies:
       debug: 4.4.3(supports-color@7.2.0)
-      ws: 8.20.0
+      ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -22796,8 +22802,6 @@ snapshots:
   write-file-atomic@8.0.0:
     dependencies:
       signal-exit: 4.1.0
-
-  ws@8.20.0: {}
 
   ws@8.21.3: {}
 
