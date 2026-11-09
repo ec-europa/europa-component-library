@@ -85,6 +85,7 @@
       {% include '@ecl/button/button.html.twig' with _expand_all|merge({
         variant: _expand_all.variant|default('tertiary'),
         type: 'button',
+        size: 'm',
         extra_classes: 'ecl-category-filter__expand-all',
         extra_attributes: _expand_all.extra_attributes|default([])|merge([
           { name: 'data-ecl-category-filter-expand-all' },
@@ -95,6 +96,7 @@
       {% include '@ecl/button/button.html.twig' with _collapse_all|merge({
         variant: _collapse_all.variant|default('tertiary'),
         type: 'button',
+        size: 'm',
         extra_classes: 'ecl-category-filter__collapse-all',
         extra_attributes: _collapse_all.extra_attributes|default([])|merge([
           { name: 'data-ecl-category-filter-collapse-all' },
