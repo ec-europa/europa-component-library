@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   sr_video_player: 'Video player',
   title: 'New digital strategy',
   description:

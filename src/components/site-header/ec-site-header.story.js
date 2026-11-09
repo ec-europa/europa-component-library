@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import { userEvent } from '@storybook/test';
+import { userEvent } from 'storybook/test';
 
 // Get data
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
@@ -11,7 +11,7 @@ import enDataMenuLong from '@ecl/menu/demo/data--ec-long';
 import enDataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataFullEC from './demo/data--ec';
 import siteHeader from './site-header.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 // Preserve original data.
 const dataFull = { ...dataFullEC };

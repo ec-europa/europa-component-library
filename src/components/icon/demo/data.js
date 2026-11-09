@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   icon: {
     name: 'arrow-down',
     family: 'phosphor',

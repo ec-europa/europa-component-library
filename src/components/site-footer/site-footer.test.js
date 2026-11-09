@@ -5,11 +5,11 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataCoreEC from '@ecl/site-footer/demo/data-core--ec';
-import dataStandardisedEC from '@ecl/site-footer/demo/data-standardised--ec';
-import dataHarmonisedEC from '@ecl/site-footer/demo/data-harmonised--ec';
-import dataCoreEU from '@ecl/site-footer/demo/data-core--eu';
-import dataHarmonisedEU from '@ecl/site-footer/demo/data-harmonised--eu';
+import dataCoreEC from './demo/data-core--ec';
+import dataStandardisedEC from './demo/data-standardised--ec';
+import dataHarmonisedEC from './demo/data-harmonised--ec';
+import dataCoreEU from './demo/data-core--eu';
+import dataHarmonisedEU from './demo/data-harmonised--eu';
 
 expect.extend(toHaveNoViolations);
 
