@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import specs from './demo/data';
 import specsPoll from './demo/data-poll';
 import quiz from './quiz.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const icon = specs.items[0].icon;
 const picture = specs.items[0].picture;

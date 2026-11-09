@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import inpageNavigation from './inpage-navigation.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const system = getSystem();
 if (system === 'eu') {

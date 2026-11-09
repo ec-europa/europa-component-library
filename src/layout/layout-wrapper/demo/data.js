@@ -221,7 +221,7 @@ const contentTypes = {
   list_illustration: listIllustrationData,
 };
 
-module.exports = {
+export default {
   contentTypes,
   title: {
     level: 2,

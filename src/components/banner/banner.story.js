@@ -7,7 +7,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import bannerDataImage from './demo/data--image';
 import bannerDataVideo from './demo/data--video';
 import banner from './banner.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {

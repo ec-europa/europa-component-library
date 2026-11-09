@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   tab_behaviour: true,
   items: [
     { label: 'A first tab', path: '#ecl-tabs-1', id: 'ecl-tabs-item-1' },

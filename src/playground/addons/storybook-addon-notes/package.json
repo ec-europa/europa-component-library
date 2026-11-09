@@ -7,13 +7,16 @@
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
-    "@storybook/manager-api": "8.6.19",
-    "@storybook/preview-api": "8.6.19",
     "he": "2.0.0",
     "marked": "18.1.1",
     "prismjs": "1.30.0",
     "prop-types": "15.8.1",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "storybook": "10.6.4"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./preset": "./preset.mjs"
   }
 }

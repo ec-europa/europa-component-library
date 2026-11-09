@@ -8,7 +8,7 @@ import demoData from './demo/data';
 import dataHighlighted from './demo/data--highlighted';
 
 import factFigures from './fact-figures.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const iconMapping = iconsAll.reduce((mapping, icon) => {
   mapping[icon] = icon;

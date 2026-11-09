@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 // Import data for demos
 import spotlightDataImage from './demo/data--image';
 import spotlight from './spotlight.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {
