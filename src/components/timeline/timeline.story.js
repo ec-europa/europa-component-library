@@ -7,7 +7,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import demoDataSet from './demo/data--set';
 import timeline from './timeline.html.twig';
 import timelineSet from './timeline-set.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {

@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import specs from './demo/data';
 import skipLink from './skip-link.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => ({
   focus: false,

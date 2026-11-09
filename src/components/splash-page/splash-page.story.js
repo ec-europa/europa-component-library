@@ -11,7 +11,7 @@ import enLogoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positi
 import dataEC from './demo/data--ec';
 import dataEU from './demo/data--eu';
 import splashPage from './splash-page.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const system = getSystem();
 const dataSplash = system === 'eu' ? dataEU : dataEC;

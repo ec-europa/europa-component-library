@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import demoDataEc from './demo/data--ec';
 import demoDataEu from './demo/data--eu';
 import searchForm from './search-form.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const system = getSystem();
 const dataSearch = system === 'eu' ? demoDataEu : demoDataEc;

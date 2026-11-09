@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   id: 'highlighted-search',
   title: 'Find your next role',
   description: 'Discover job opportunities in the EU institutions',

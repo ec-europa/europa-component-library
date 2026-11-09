@@ -4,7 +4,7 @@ import { allModes } from '../../playground/ec/.storybook/modes';
 
 import defaultData from './demo/data';
 import AnimatedNumbers from './animated-numbers.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {
