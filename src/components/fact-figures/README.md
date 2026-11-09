@@ -51,7 +51,7 @@ npm install --save @ecl/fact-figures
 ```twig
 {% include '@ecl/fact-figures/fact-figures.html.twig' with {
   column: 3,
-  display_icons, true,
+  display_icons: true,
   icon_size: 'l',
   items: [
     {

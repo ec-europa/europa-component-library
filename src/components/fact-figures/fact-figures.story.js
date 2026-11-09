@@ -33,7 +33,7 @@ const getArgs = (data) => {
   };
 
   if (getSystem() === 'ec') {
-    args.color_mode = data.variant === 'highlighted' ? 'blue navy' : 'default';
+    args.color_mode = 'default';
   }
 
   return args;
@@ -248,7 +248,7 @@ const prepareData = (data, args) => {
   }
 
   if (args.items_number) {
-    const count = Math.min(Math.max(args.items_number, 2), 4);
+    const count = Math.min(Math.max(args.items_number, 1), 4);
     clone.items = clone.items.slice(0, count);
   }
 

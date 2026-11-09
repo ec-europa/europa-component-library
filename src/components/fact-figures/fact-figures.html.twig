@@ -66,9 +66,11 @@
 
 {# Internal logic - Process properties #}
 
-{% if _variant is empty %}
-  {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+{% if items|length < 4 or (items|length == 4 and column is not defined) %}
+  {% set _columns = items|length %}
 {% endif %}
+
+{% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
 
 {% if _background_color == 'dark' %}
   {% set _css_class = _css_class ~ ' ecl-fact-figures--dark' %}

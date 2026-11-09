@@ -171,15 +171,15 @@ $fact-figures: null !default;
     column-gap: map.get($fact-figures, 'margin-horizontal');
     row-gap: map.get($fact-figures, 'margin-vertical');
 
-    .ecl-fact-figures--col-2:not(.ecl-fact-figures--highlighted) & {
+    .ecl-fact-figures--col-2 & {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .ecl-fact-figures--col-3:not(.ecl-fact-figures--highlighted) & {
+    .ecl-fact-figures--col-3 & {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .ecl-fact-figures--col-4:not(.ecl-fact-figures--highlighted) & {
+    .ecl-fact-figures--col-4 & {
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -204,12 +204,6 @@ $fact-figures: null !default;
 .ecl-fact-figures--highlighted {
   border-radius: 0;
 
-  .ecl-fact-figures__items {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
-  }
-
   .ecl-fact-figures__icon-wrapper {
     align-items: center;
     display: inline-flex;
@@ -224,7 +218,7 @@ $fact-figures: null !default;
 
   .ecl-fact-figures__value,
   .ecl-fact-figures__title {
-    color: var(--cm-on-surface, --c-d-80);
+    color: var(--cm-on-surface, var(--c-d-80));
   }
 
   .ecl-fact-figures__description,
@@ -242,6 +236,10 @@ $fact-figures: null !default;
   .ecl-fact-figures__view-all,
   .ecl-fact-figures__sources {
     color: map.get($fact-figures, 'text-color-dark');
+  }
+
+  .ecl-fact-figures__view-all {
+    border-top-color: map.get($fact-figures, 'text-color-dark');
   }
 
   .ecl-fact-figures__sources-item {

@@ -5,7 +5,6 @@ export default {
   variant: 'highlighted',
   display_icons: true,
   font_size: 'm',
-  full_width: true,
   view_all: {
     link: {
       path: exampleLink,
