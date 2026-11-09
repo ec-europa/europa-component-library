@@ -20,6 +20,10 @@ export function createConfig(system, configDir) {
     STORYBOOK_SYSTEM: system.toUpperCase(),
     STORYBOOK_CHROMATIC: process.env.STORYBOOK_CHROMATIC || '',
   };
+  const envPattern = new RegExp(
+    `\\bprocess\\.env\\.(${Object.keys(environment).join('|')})\\b`,
+    'g',
+  );
 
   return {
     framework: packagePath('@storybook/html-vite'),
@@ -64,6 +68,23 @@ export function createConfig(system, configDir) {
               'utilities',
             ].map((dir) => path.resolve(sourceRoot, dir)),
           }),
+          {
+            // Inline env vars before nodePolyfills() swaps `process` for its shim (breaks `define`).
+            name: 'ecl-process-env',
+            enforce: 'pre',
+            transform(code, id) {
+              if (
+                id.includes('/node_modules/') ||
+                !code.includes('process.env')
+              ) {
+                return null;
+              }
+              const replaced = code.replace(envPattern, (_, name) =>
+                JSON.stringify(environment[name]),
+              );
+              return replaced === code ? null : { code: replaced, map: null };
+            },
+          },
           nodePolyfills(),
         ],
         define: Object.fromEntries(
@@ -87,6 +108,14 @@ export function createConfig(system, configDir) {
           dedupe: ['react', 'react-dom'],
         },
         server: { fs: { allow: [normalizePath(repositoryRoot)] } },
+        optimizeDeps: {
+          // The polyfill banner lacks a trailing `;`, which breaks Prism's IIFE-based languages.
+          exclude: [
+            'prismjs/components/prism-markup-templating',
+            'prismjs/components/prism-bash',
+            'prismjs/components/prism-twig',
+          ],
+        },
       });
     },
   };
