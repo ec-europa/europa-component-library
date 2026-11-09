@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import fileUpload from './file-upload-status.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataFiles = {
   icon_path: '/icons.svg',

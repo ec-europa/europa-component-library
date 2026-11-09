@@ -1,4 +1,4 @@
-import sass from 'sass';
+import * as sass from 'sass';
 import postcss from 'postcss';
 
 import getSystem from './utils/getSystem';
@@ -123,7 +123,9 @@ describe('ECL Builder', () => {
       async function runTest() {
         let system = getSystem();
         function customSassFunctionAsync() {
-          return Promise.resolve(new sass.types.String(system || ''));
+          return Promise.resolve(
+            new sass.SassString(system || '', { quotes: false }),
+          );
         }
 
         const string = `
@@ -146,9 +148,7 @@ describe('ECL Builder', () => {
         sassResult = await sass.compileStringAsync(string, options);
         postcssResult = await postcss(getPlugins()).process(sassResult.css);
         expect(postcssResult.css).toEqual(
-          `.system-specific {
-        content: ec;
-      }`,
+          '.system-specific {\n  content: ec;\n}',
         );
 
         process.env.ECL_SYSTEM = 'eu';
@@ -156,13 +156,11 @@ describe('ECL Builder', () => {
         sassResult = await sass.compileStringAsync(string, options);
         postcssResult = await postcss(getPlugins()).process(sassResult.css);
         expect(postcssResult.css).toEqual(
-          `.system-specific {
-        content: eu;
-      }`,
+          '.system-specific {\n  content: eu;\n}',
         );
       }
 
-      runTest();
+      return runTest();
     });
   });
 });

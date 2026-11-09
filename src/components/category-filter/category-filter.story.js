@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import categoryFilter from './category-filter.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => {
   const args = {};

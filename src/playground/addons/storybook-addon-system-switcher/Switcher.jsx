@@ -1,22 +1,23 @@
 import React from 'react';
-import { IconButton, Separator } from '@storybook/components';
-import getSystem from '@ecl/builder/utils/getSystem';
+import { ToggleButton, Separator } from 'storybook/internal/components';
 
 function Switcher() {
   const fullUrl = window.location.href.split('?')[0];
   const playgroundPos = fullUrl.indexOf('/playground');
   const beforePlayground = fullUrl.substring(0, playgroundPos);
   const queryString = window.location.search;
-  const system = getSystem();
+  const system = process.env.STORYBOOK_SYSTEM.toLowerCase();
   const isEc = system === 'ec';
   const isEu = system === 'eu';
 
   return (
     <>
       <Separator />
-      <IconButton
+      <ToggleButton
+        ariaLabel="EC styleguide"
+        variant="ghost"
         key="ec"
-        active={isEc}
+        pressed={isEc}
         title="EC styleguide"
         style={{ borderRadius: 0, fontWeight: 'bold' }}
       >
@@ -34,10 +35,12 @@ function Switcher() {
         ) : (
           <span>EC</span>
         )}
-      </IconButton>
-      <IconButton
+      </ToggleButton>
+      <ToggleButton
+        ariaLabel="EU styleguide"
+        variant="ghost"
         key="eu"
-        active={isEu}
+        pressed={isEu}
         title="EU styleguide"
         style={{ borderRadius: 0, fontWeight: 'bold' }}
       >
@@ -55,7 +58,7 @@ function Switcher() {
         ) : (
           <span>EU</span>
         )}
-      </IconButton>
+      </ToggleButton>
     </>
   );
 }

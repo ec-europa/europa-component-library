@@ -13,7 +13,7 @@ import dataSecondaryInverted from './demo/data--secondary-inverted';
 import dataStandalone from './demo/data--standalone';
 
 import link from './link.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 // Create 'none' option.
 iconsAll.unshift('none');

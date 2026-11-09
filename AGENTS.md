@@ -18,10 +18,10 @@ pnpm start:ec         # Storybook for the EC system (port 9001)
 pnpm start:eu         # Storybook for the EU system (port 9002)
 pnpm start:website    # Documentation website
 
-pnpm test:components              # run all Jest tests
+pnpm test:components              # run all component tests with Vitest
 pnpm test:components -- button    # test a single component
-npm run test:components -- button -u  # update snapshots for one component only
-npm run test:components -- -u         # update all snapshots
+pnpm test:components -- button -u # update snapshots for one component only
+pnpm test:components -- -u        # update all snapshots
 
 pnpm lint             # ESLint + Stylelint
 pnpm prettier:write   # auto-format
@@ -59,7 +59,7 @@ Every component is a self-contained package at `src/components/{name}/`:
 | `{name}.scss`      | Component styles (BEM, `@use` modules) |
 | `{name}.js`        | JS behaviour (optional)                |
 | `{name}.story.js`  | Storybook story                        |
-| `{name}.test.js`   | Jest snapshot + axe a11y tests         |
+| `{name}.test.js`   | Vitest snapshot + axe a11y tests       |
 | `demo/data.js`     | Sample data for stories                |
 | `package.json`     | Declares `@ecl/{name}`, lists deps     |
 

@@ -54,8 +54,11 @@ pnpm test:components -- button
 Update test snapshots:
 
 ```bash
-pnpm test:components -- -u
+pnpm test:components -- button -u
 ```
+
+Component tests use Vitest. Review snapshot diffs before updating; omit `button` to
+update snapshots for all components.
 
 ## Build
 
