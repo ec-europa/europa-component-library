@@ -465,8 +465,6 @@ $mega-menu: null !default;
     padding: 1px 3px;
 
     &.ecl-mega-menu__link-icon--desktop {
-      height: calc(var(--s-s) + 0.5px);
-      width: calc(var(--s-s) + 0.5px);
       display: none;
     }
   }
@@ -723,12 +721,12 @@ $mega-menu: null !default;
     .ecl-mega-menu__item--has-children,
     .ecl-mega-menu__item--has-container {
       .ecl-mega-menu__link .ecl-icon {
-        height: calc(var(--s-xs) + 2px);
         transform: none;
-        width: calc(var(--s-xs) + 2px);
 
         &.ecl-mega-menu__link-icon--desktop {
           display: flex;
+          height: calc(var(--s-s) + 0.5px);
+          width: calc(var(--s-s) + 0.5px);
         }
 
         &.ecl-mega-menu__link-icon--mobile {
@@ -1014,8 +1012,8 @@ $mega-menu: null !default;
   .ecl-button__container .ecl-icon {
     // Overriding style coming from button to align item on the right
     margin-inline-start: auto !important;
-    height: map.get($theme, 'icon', '2xs');
-    width: map.get($theme, 'icon', '2xs');
+    height: 1rem;
+    width: 1rem;
   }
 }
 

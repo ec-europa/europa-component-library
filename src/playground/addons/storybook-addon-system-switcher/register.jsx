@@ -1,5 +1,5 @@
 import React from 'react';
-import { addons, types } from '@storybook/manager-api';
+import { addons, types } from 'storybook/manager-api';
 import Switcher from './Switcher';
 
 const ADDON_ID = 'ecl/storybook/system-switcher';

@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import specs from './demo/data';
 import dateBlock from './date-block.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 // Preserve original data.
 const dataOngoing = { ...specs, variant: 'ongoing' };
