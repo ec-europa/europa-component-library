@@ -5,7 +5,7 @@ import { correctPaths } from '@ecl/story-utils';
 import dataDefault from './demo/data';
 
 import contentBlock from './content-block.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {};

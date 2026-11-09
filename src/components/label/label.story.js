@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import dataDefault from './demo/data';
 import label from './label.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => ({
   label: data.label,
