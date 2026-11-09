@@ -7,7 +7,7 @@ import dataDescriptionListDefault from './demo/data--default';
 import dataDescriptionListHorizontal from './demo/data--horizontal';
 
 import descriptionList from './description-list.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {};

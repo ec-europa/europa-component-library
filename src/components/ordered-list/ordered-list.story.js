@@ -7,7 +7,7 @@ import dataUnstyled from './demo/data--unstyled';
 import dataDivider from './demo/data--with-divider';
 
 import orderedList from './ordered-list.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => ({
   label: data.items[0].label,

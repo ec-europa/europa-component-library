@@ -6,7 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import demoDataImage from './demo/data--image';
 import demoDataVideo from './demo/data--video';
 import textMedia from './text-media.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const system = getSystem();
 
