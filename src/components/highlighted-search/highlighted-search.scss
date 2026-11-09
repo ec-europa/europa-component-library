@@ -224,7 +224,8 @@ $highlighted-search: null !default;
   }
 
   // Fields share the 3 rows through subgrid, so the button aligns on the field row.
-  // Any number of fields is supported, with the same width for each of them.
+  // Any number of fields is supported, with the same width for each of them,
+  // unless relative widths are passed (--ecl-highlighted-search-columns).
   .ecl-highlighted-search__form-content {
     grid-template-columns: minmax(0, 1fr) auto;
     row-gap: 0;
@@ -241,7 +242,7 @@ $highlighted-search: null !default;
     grid-auto-flow: column;
     grid-column: 1;
     grid-row: 1 / span 3;
-    grid-template-columns: none;
+    grid-template-columns: var(--ecl-highlighted-search-columns, none);
     grid-template-rows: subgrid;
     row-gap: 0;
   }

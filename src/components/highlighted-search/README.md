@@ -19,6 +19,7 @@ npm install --save @ecl/highlighted-search
   - "label" (string) Label of the field
   - "hide_label" (boolean) (default: false) Hide the label visually (kept for screen readers)
   - "helper_text" (string) (default: '') Helper text of the field
+  - "relative_width" (number) (default: 1) Width of the field, relative to the other ones (eg. 2 for twice as large); desktop only
   - "input" (object) Field, following ECL Text input, ECL Select or ECL Datepicker structure
     - "input_type" (string) Type of the field; can be 'text', 'select', 'datepicker'
 - **"search_button"** (object) (default: {}) Search button, following ECL Button structure

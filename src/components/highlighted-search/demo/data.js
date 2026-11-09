@@ -9,6 +9,7 @@ export default {
     {
       label: 'Search keywords',
       helper_text: 'e.g. full time, designer, writer',
+      relative_width: 2,
       input: {
         input_type: 'text',
         id: 'highlighted-search-input-id',

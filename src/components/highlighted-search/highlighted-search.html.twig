@@ -13,6 +13,7 @@
       - "label" (string) Label of the field
       - "hide_label" (boolean) (default: false) Hide the label visually (kept for screen readers)
       - "helper_text" (string) (default: '') Helper text of the field
+      - "relative_width" (number) (default: 1) Width of the field, relative to the other ones (eg. 2 for twice as large); desktop only
       - "input" (object) Field, following ECL Text input, ECL Select or ECL Datepicker structure
         - "input_type" (string) Type of the field; can be 'text', 'select', 'datepicker'
     - "search_button" (object) (default: {}) Search button, following ECL Button structure
@@ -53,6 +54,8 @@
 {% set _suggestion = suggestion|default({}) %}
 
 {% set _title_id = _id ~ '-title' %}
+{% set _fields_columns = [] %}
+{% set _fields_has_custom_width = false %}
 
 {# Backward compatibility: legacy search input, used when no search fields are provided #}
 {% if _search_fields is empty and search_input is defined and search_input is not empty %}
@@ -111,6 +114,18 @@
   {% set _form_extra_attributes = ' method="GET"' ~ _form_extra_attributes %}
 {% endif %}
 
+{# Relative widths of the fields, only output when at least one differs from the default #}
+{% for _field in _search_fields %}
+  {% set _field_width = _field.relative_width|default(1) %}
+  {% if not (_field_width > 0) %}
+    {% set _field_width = 1 %}
+  {% endif %}
+  {% if _field_width != 1 %}
+    {% set _fields_has_custom_width = true %}
+  {% endif %}
+  {% set _fields_columns = _fields_columns|merge(['minmax(0, ' ~ _field_width ~ 'fr)']) %}
+{% endfor %}
+
 {# Print the result #}
 
 <div
@@ -150,7 +165,12 @@
         {{ _form_extra_attributes|raw }}
       >
         <div class="ecl-highlighted-search__form-content">
-          <div class="ecl-highlighted-search__fields">
+          <div
+            class="ecl-highlighted-search__fields"
+            {% if _fields_has_custom_width %}
+              style="--ecl-highlighted-search-columns: {{ _fields_columns|join(' ')|e('html_attr') }}"
+            {% endif %}
+          >
             {% for _field in _search_fields %}
               {% set _field_input = _field.input|default({}) %}
               {% set _field_type = _field_input.input_type|default('text') %}
