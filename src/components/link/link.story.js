@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
-import { useArgs, useEffect } from '@storybook/preview-api';
+import { useArgs, useEffect } from 'storybook/preview-api';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/list-phosphor.json';
@@ -48,7 +48,7 @@ const getArgs = (data, variant) => {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = getIndicatorControls({ arg: 'icon_name', neq: 'none' });
+  let argTypes = {};
 
   argTypes.label = {
     name: 'label',
@@ -176,6 +176,11 @@ const getArgTypes = (variant) => {
         type: 'string',
         category: 'Display',
       },
+    };
+
+    argTypes = {
+      ...argTypes,
+      ...getIndicatorControls({ arg: 'icon_name', neq: 'none' }),
     };
   }
 
