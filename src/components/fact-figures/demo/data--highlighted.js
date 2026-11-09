@@ -38,7 +38,7 @@ export default {
         family: 'phosphor',
       },
       value: '36',
-      description: 'Local communities',
+      title: 'Local communities',
       sources: [
         {
           link: {
@@ -54,7 +54,7 @@ export default {
         family: 'phosphor',
       },
       value: '1,102',
-      description: 'Children, aged up to 4',
+      title: 'Children, aged up to 4',
       sources: [
         {
           link: {
@@ -70,7 +70,7 @@ export default {
         family: 'phosphor',
       },
       value: '24',
-      description: 'Active women members.',
+      title: 'Active women members.',
       sources: [
         {
           link: {
@@ -86,7 +86,7 @@ export default {
         family: 'phosphor',
       },
       value: '58',
-      description: 'Trained women',
+      title: 'Trained women',
       sources: [
         {
           link: {
