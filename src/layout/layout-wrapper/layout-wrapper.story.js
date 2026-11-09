@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import dataDemo from './demo/data';
 import layoutWrapper from './layout-wrapper.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {

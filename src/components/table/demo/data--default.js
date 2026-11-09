@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   id: 'table-id',
   caption: 'Table caption',
   label_filter: 'Filter',

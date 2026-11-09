@@ -12,14 +12,8 @@ class Skeleton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Open by default in build—check SSR vs. client
-      sidebarOpen:
-        typeof window === 'undefined'
-          ? true
-          : Math.max(
-              document.documentElement.clientWidth,
-              window.innerWidth || 0,
-            ) > 996,
+      // Match the server markup during hydration; apply the viewport after mount.
+      sidebarOpen: true,
       forceRefresh: false,
     };
     this.toggleSidebar = this.toggleSidebar.bind(this);
@@ -29,13 +23,13 @@ class Skeleton extends Component {
     const { system, isLoading } = this.props;
     if (typeof window === 'undefined') return;
 
-    // Update state on client—keep open if prerendered open
-    this.setState((prevState) => ({
+    // Apply the viewport after the initial server/client render has matched.
+    this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-          1140 || prevState.sidebarOpen,
-    }));
+        1140,
+    });
 
     if (!isLoading) {
       const element = document.getElementById(`${system}-css`);

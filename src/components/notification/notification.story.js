@@ -9,7 +9,7 @@ import dataError from './demo/data--error';
 import dataWarning from './demo/data--warning';
 
 import notification from './notification.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataLinks = [...dataInfo.links];
 

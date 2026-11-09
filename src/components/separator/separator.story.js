@@ -2,7 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
 import separator from './separator.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 export default {
   title: 'Components/Divider',

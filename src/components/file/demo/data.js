@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   title:
     'In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond',
   language: 'English',

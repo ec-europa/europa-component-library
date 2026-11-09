@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { addons, types, useAddonState } from '@storybook/manager-api';
+import { addons, types, useAddonState } from 'storybook/manager-api';
 import { BORDER_RADIUS_CHANGED } from './index';
 
 const ADDON_ID = 'ecl/border-radius';

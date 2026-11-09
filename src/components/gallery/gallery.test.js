@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import {
   merge,
   renderTwigFileAsNode,
@@ -57,7 +58,7 @@ describe('Gallery', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-    jest.setTimeout(15000);
+    vi.setConfig({ testTimeout: 15000 });
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
@@ -71,7 +72,7 @@ describe('Gallery', () => {
       return expect(render(demoDataGrid)).resolves.toMatchSnapshot();
     });
 
-    jest.setTimeout(15000);
+    vi.setConfig({ testTimeout: 15000 });
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoDataGrid, true)),
@@ -85,7 +86,7 @@ describe('Gallery', () => {
       return expect(render(demoDataPortrait)).resolves.toMatchSnapshot();
     });
 
-    jest.setTimeout(15000);
+    vi.setConfig({ testTimeout: 15000 });
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoDataPortrait, true)),
