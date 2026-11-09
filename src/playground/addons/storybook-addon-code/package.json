@@ -6,14 +6,15 @@
   "private": true,
   "dependencies": {
     "@ecl/builder": "5.4.0",
-    "@storybook/components": "8.6.19",
-    "@storybook/manager-api": "8.6.19",
-    "@storybook/preview-api": "8.6.19",
-    "@storybook/theming": "8.6.19",
     "html-entities": "2.6.0",
     "js-beautify": "2.0.3",
     "prop-types": "15.8.1",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "storybook": "10.6.4"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./preset": "./preset.mjs"
   }
 }

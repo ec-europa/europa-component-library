@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   icon_list: true,
   divider: false,
   items: [

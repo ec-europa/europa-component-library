@@ -9,7 +9,7 @@ import dataLink from './demo/data--link';
 import dataRemovable from './demo/data--removable';
 
 import tag from './tag.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 // Flags icons (prefixed)
 const flagOptions = iconsFlag.map((icon) => `flag_${icon.name}`);
