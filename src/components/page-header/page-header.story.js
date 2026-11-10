@@ -94,6 +94,9 @@ const getArgs = (data) => {
   if (data.picture_background.img.src) {
     args.background_image_url = data.picture_background.img.src;
     args.picture_position = 'top';
+    args.picture_side = 'left';
+    args.picture_highlight = false;
+    args.picture_contained = false;
   }
 
   args.hide_title = false;
@@ -266,27 +269,53 @@ const getArgTypes = () => {
     name: 'background image position',
     type: 'select',
     description: 'Change image position',
-    options: ['top', 'beside', 'beside-right', 'bottom'],
-    control: {
-      labels: {
-        top: 'top',
-        beside: 'beside',
-        'beside-right': 'beside (right)',
-        bottom: 'bottom',
-      },
-    },
-    mapping: {
-      top: 'top',
-      beside: 'beside',
-      'beside-right': 'beside-right',
-      bottom: 'bottom',
-    },
+    options: ['top', 'beside', 'bottom'],
     table: {
       type: 'string',
       defaultValue: { summary: 'top' },
       category: 'Display',
     },
     if: { arg: 'show_picture' },
+  };
+
+  // Story-only control, combined with picture_position into 'beside' or 'beside-right'
+  argTypes.picture_side = {
+    name: 'background image side',
+    type: 'select',
+    description: 'Side of the image when placed beside',
+    options: ['left', 'right'],
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'left' },
+      category: 'Display',
+    },
+    if: { arg: 'picture_position', eq: 'beside' },
+  };
+
+  argTypes.picture_highlight = {
+    name: 'background image highlight',
+    type: 'boolean',
+    description:
+      'Highlight the background image; only when the image is placed beside',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+    if: { arg: 'picture_position', eq: 'beside' },
+  };
+
+  argTypes.picture_contained = {
+    name: 'background image contained',
+    type: 'boolean',
+    description:
+      'Keep the image inside the main container; only when the image is placed beside',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+    if: { arg: 'picture_position', eq: 'beside' },
   };
 
   argTypes.hide_title = {
@@ -318,7 +347,12 @@ const prepareData = (data, args) => {
   if (!args.show_picture) {
     delete clone.picture_background;
   } else if (args.background_image_url) {
-    clone.picture_position = args.picture_position;
+    clone.picture_position =
+      args.picture_position === 'beside' && args.picture_side === 'right'
+        ? 'beside-right'
+        : args.picture_position;
+    clone.picture_highlight = args.picture_highlight;
+    clone.picture_contained = args.picture_contained;
     clone.picture_background = {
       img: {
         src: args.background_image_url,

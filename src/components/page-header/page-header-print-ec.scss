@@ -177,6 +177,17 @@ $page-header-print: null !default;
   }
 }
 
+// Picture and text inside the main container
+.ecl-page-header--picture-contained {
+  .ecl-page-header__container {
+    column-gap: map.get($theme, 'grid', 'gutter-print');
+  }
+
+  .ecl-page-header__section-info {
+    padding-inline: 0;
+  }
+}
+
 // Expandable
 .ecl-page-header-expandable {
   background-color: var(--cm-surface-primary-low);

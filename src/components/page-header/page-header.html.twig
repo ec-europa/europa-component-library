@@ -15,7 +15,9 @@
       }
     - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
-    - "picture_position" (string) (default: 'top') Position of the picture; can be 'top', 'beside', 'beside-right' or 'bottom'
+    - "picture_position" (string) (default: 'top'): Position of the picture; can be 'top', 'beside', 'beside-right' or 'bottom'
+    - "picture_highlight" (boolean) (default: false): Highlight the background picture; only when it is placed beside
+    - "picture_contained" (boolean) (default: false): Keep the background picture inside the main container; only when the picture is placed beside
     - "meta" (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with ECL Breadcrumb
     - "extra_classes" (string) (default: '') Extra classes (space separated)
@@ -44,6 +46,8 @@
 {% set _picture_thumbnail = picture_thumbnail|default({}) %}
 {% set _picture_background = picture_background|default({}) %}
 {% set _picture_position = picture_position|default('top') %}
+{% set _picture_highlight = picture_highlight|default(false) %}
+{% set _picture_contained = picture_contained|default(false) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
 {% set _expandable = expandable|default({}) %}
@@ -74,6 +78,17 @@
 {% endif %}
 
 {% set _picture_beside = _picture_position in ['beside', 'beside-right'] %}
+{% set _picture_contained = _picture_contained and _picture_beside and _picture_background is not empty %}
+{% set _container_class = 'ecl-page-header__container' %}
+
+{% if _picture_contained %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--picture-contained' %}
+  {% set _container_class = _container_class ~ ' ecl-container' %}
+{% endif %}
+
+{% if _picture_highlight %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--picture-highlight' %}
+{% endif %}
 
 {% if _picture_background is not empty %}
   {% if _picture_position == 'beside-right' %}
@@ -238,7 +253,7 @@
     {{- _picture_markup -}}
   {% endif %}
 
-  <div class="ecl-page-header__container">
+  <div class="{{ _container_class }}">
     {% if _picture_beside %}
       {{- _column_content_markup -}}
     {% else %}

@@ -297,6 +297,116 @@ $page-header: null !default;
   }
 }
 
+// Picture beside: alignment, contained and highlight variants
+// Spacing follows the grid gutter of the current breakpoint
+.ecl-page-header--picture-beside {
+  @each $breakpoint, $gutter in map.get($theme, 'grid-gutter-width') {
+    @include breakpoints.up($breakpoint) {
+      --ecl-page-header-gutter: #{$gutter};
+    }
+  }
+
+  .ecl-page-header__picture-background {
+    box-sizing: border-box;
+  }
+}
+
+.ecl-page-header--picture-contained .ecl-page-header__section-info {
+  padding-inline: 0;
+}
+
+.ecl-page-header--picture-highlight.ecl-page-header--picture-beside {
+  .ecl-page-header__background {
+    border-radius: 4rem;
+    box-shadow: 0.75rem 0.75rem 0 0 var(--c-s);
+  }
+
+  // Room for the shadow; sides only when not contained
+  .ecl-page-header__picture-background {
+    padding-block: var(--ecl-page-header-gutter);
+  }
+
+  &:not(.ecl-page-header--picture-contained)
+    .ecl-page-header__picture-background {
+    padding-inline: var(--ecl-page-header-gutter);
+  }
+
+  // Picture comes last: its padding replaces the header bottom padding
+  &.ecl-page-header--picture-beside-right.ecl-page-header--background {
+    padding-block-end: 0;
+  }
+}
+
+// Stacked
+@include breakpoints.down('l') {
+  // Keep the margin below the text instead of the highlight top padding
+  .ecl-page-header--picture-highlight.ecl-page-header--picture-beside-right
+    .ecl-page-header__picture-background {
+    padding-block-start: 0;
+  }
+
+  // Contained picture on top: space it from the header edge
+  .ecl-page-header--picture-contained.ecl-page-header--picture-beside:not(
+      .ecl-page-header--picture-beside-right
+    )
+    .ecl-page-header__picture-background {
+    padding-block-start: var(--ecl-page-header-gutter);
+  }
+}
+
+// Columns
+@include breakpoints.up('xl') {
+  // Text aligned with the main container; the picture bleeds to the edge
+  $container-offset: max(
+    var(--ecl-page-header-gutter),
+    calc(
+      (100% - map.get($theme, 'container', 'xl')) / 2 +
+        var(--ecl-page-header-gutter)
+    )
+  );
+
+  .ecl-page-header--picture-beside-right:not(
+      .ecl-page-header--picture-contained
+    )
+    .ecl-page-header__section-info {
+    padding-inline-start: $container-offset;
+  }
+
+  .ecl-page-header--picture-beside:not(
+      .ecl-page-header--picture-beside-right,
+      .ecl-page-header--picture-contained
+    )
+    .ecl-page-header__section-info {
+    padding-inline-end: $container-offset;
+  }
+
+  .ecl-page-header--picture-contained {
+    .ecl-page-header__container {
+      column-gap: var(--ecl-page-header-gutter);
+    }
+
+    .ecl-page-header__picture-background {
+      padding-block: var(--ecl-page-header-gutter);
+    }
+  }
+
+  // Highlight: shadow room on the outer side only
+  .ecl-page-header--picture-highlight.ecl-page-header--picture-beside-right:not(
+      .ecl-page-header--picture-contained
+    )
+    .ecl-page-header__picture-background {
+    padding-inline-start: 0;
+  }
+
+  .ecl-page-header--picture-highlight.ecl-page-header--picture-beside:not(
+      .ecl-page-header--picture-beside-right,
+      .ecl-page-header--picture-contained
+    )
+    .ecl-page-header__picture-background {
+    padding-inline-end: 0;
+  }
+}
+
 @media (min-width: map.get($theme, 'container', 'xl')) {
   .ecl-page-header--picture-beside {
     .ecl-page-header__background {
