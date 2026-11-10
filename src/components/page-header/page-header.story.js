@@ -95,7 +95,7 @@ const getArgs = (data) => {
     args.background_image_url = data.picture_background.img.src;
     args.picture_position = 'top';
     args.picture_side = 'left';
-    args.picture_highlight = false;
+    args.picture_highlighted = false;
     args.picture_contained = false;
   }
 
@@ -292,8 +292,8 @@ const getArgTypes = () => {
     if: { arg: 'picture_position', eq: 'beside' },
   };
 
-  argTypes.picture_highlight = {
-    name: 'background image highlight',
+  argTypes.picture_highlighted = {
+    name: 'background image highlighted',
     type: 'boolean',
     description:
       'Highlight the background image; only when the image is placed beside',
@@ -351,7 +351,7 @@ const prepareData = (data, args) => {
       args.picture_position === 'beside' && args.picture_side === 'right'
         ? 'beside-right'
         : args.picture_position;
-    clone.picture_highlight = args.picture_highlight;
+    clone.picture_highlighted = args.picture_highlighted;
     clone.picture_contained = args.picture_contained;
     clone.picture_background = {
       img: {

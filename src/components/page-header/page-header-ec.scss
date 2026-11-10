@@ -315,7 +315,7 @@ $page-header: null !default;
   padding-inline: 0;
 }
 
-.ecl-page-header--picture-highlight.ecl-page-header--picture-beside {
+.ecl-page-header--picture-highlighted.ecl-page-header--picture-beside {
   .ecl-page-header__background {
     border-radius: 4rem;
     box-shadow: 0.75rem 0.75rem 0 0 var(--c-s);
@@ -340,7 +340,7 @@ $page-header: null !default;
 // Stacked
 @include breakpoints.down('l') {
   // Keep the margin below the text instead of the highlight top padding
-  .ecl-page-header--picture-highlight.ecl-page-header--picture-beside-right
+  .ecl-page-header--picture-highlighted.ecl-page-header--picture-beside-right
     .ecl-page-header__picture-background {
     padding-block-start: 0;
   }
@@ -391,14 +391,14 @@ $page-header: null !default;
   }
 
   // Highlight: shadow room on the outer side only
-  .ecl-page-header--picture-highlight.ecl-page-header--picture-beside-right:not(
+  .ecl-page-header--picture-highlighted.ecl-page-header--picture-beside-right:not(
       .ecl-page-header--picture-contained
     )
     .ecl-page-header__picture-background {
     padding-inline-start: 0;
   }
 
-  .ecl-page-header--picture-highlight.ecl-page-header--picture-beside:not(
+  .ecl-page-header--picture-highlighted.ecl-page-header--picture-beside:not(
       .ecl-page-header--picture-beside-right,
       .ecl-page-header--picture-contained
     )

@@ -22,7 +22,7 @@ npm install --save @ecl/page-header
 - **"picture_thumbnail"** (object) (default: {}) Thumbnail image following ECL Picture structure
 - **"picture_background"** (object) (default: {}) Background image following ECL Picture structure
 - **"picture_position"** (string) (default: 'top') Picture position; can be 'top', 'beside', 'beside-right', 'bottom'
-- **"picture_highlight"** (boolean) (default: false): Highlight the background picture; only when it is placed beside
+- **"picture_highlighted"** (boolean) (default: false): Highlight the background picture; only when it is placed beside
 - **"picture_contained"** (boolean) (default: false): Keep the background picture inside the main container; only when the picture is placed beside
 - **"meta"** (array) (default: []) Header meta items; array of strings or objects with `label` and `icon`
 - **"breadcrumb"** (object) (default: {}) Breadcrumb following ECL Breadcrumb structure

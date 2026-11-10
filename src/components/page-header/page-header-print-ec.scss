@@ -41,6 +41,8 @@ $page-header-print: null !default;
   }
 }
 
+// No dark variant in print: it uses the medium background and the default text color,
+// as light text would disappear when backgrounds are not printed
 .ecl-page-header--background-light {
   background-color: var(--cm-surface-low-2);
 }
