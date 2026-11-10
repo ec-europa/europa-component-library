@@ -109,13 +109,13 @@ Snapshots capture HTML output. Only run them when the markup could have changed.
 If markup changed, run:
 
 ```bash
-pnpm test:components -- <name>   # run tests for this component only
+pnpm test:components <name>      # run tests for this component only
 ```
 
 If snapshots fail, read the diff. If the change was intentional:
 
 ```bash
-npm run test:components -- <name> -u   # update snapshots for this component only
+pnpm test:components <name> -u   # update snapshots for this component only
 ```
 
 Never update snapshots without reading what changed. A snapshot update is a permanent

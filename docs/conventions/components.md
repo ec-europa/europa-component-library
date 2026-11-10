@@ -66,13 +66,13 @@ Each component should have a `.test.js` file with:
 Run tests with:
 
 ```bash
-pnpm test:components -- button
+pnpm test:components button
 ```
 
 Update snapshots after intentional changes:
 
 ```bash
-pnpm test:components -- button -u
+pnpm test:components button -u
 ```
 
 ## Assets

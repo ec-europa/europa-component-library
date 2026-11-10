@@ -56,7 +56,7 @@ To run accessibility tests on components:
 pnpm test:components
 
 # Test a specific component
-pnpm test:components -- button
+pnpm test:components button
 ```
 
 Component tests include `axe-core` checks to catch common accessibility violations.

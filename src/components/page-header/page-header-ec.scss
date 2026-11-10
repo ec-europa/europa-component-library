@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
-@use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
 
@@ -47,16 +46,6 @@ $page-header: null !default;
 
   .ecl-page-header__description-bottom {
     color: map.get($page-header, 'color');
-  }
-
-  .ecl-breadcrumb__icon,
-  .ecl-breadcrumb__current-page,
-  .ecl-breadcrumb__ellipsis:not(:hover, :focus-visible) {
-    color: map.get($page-header, 'dark', 'color');
-  }
-
-  .ecl-breadcrumb__link {
-    @include link-component.inverted-link;
   }
 }
 

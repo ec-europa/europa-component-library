@@ -121,6 +121,7 @@
   {% set _breadcrumb_markup %}
     {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header__breadcrumb',
+      inverted: _background_color == 'dark',
     }) only -%}
   {% endset %}
 {% endif %}
