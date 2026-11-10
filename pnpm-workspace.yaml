@@ -13,3 +13,54 @@ packages:
   - "src/presets/*"
   - "src/tools/*"
   - "src/website"
+managePackageManagerVersions: false
+pmOnFail: ignore
+overrides:
+  twing: 7.3.1
+  serialize-javascript: '>=3.1.0'
+  trim: '>=0.0.3'
+  glob-parent: '>=5.1.2'
+  strip-ansi: 6.0.1
+  ansi-html: '>=0.0.8'
+  follow-redirects: '>=1.14.7'
+  node-fetch: 2.6.7
+  immer: '>=9.0.21'
+  merge: '>=2.1.1'
+  browserslist: '>=4.24.2'
+  node-forge: '>=1.0.0'
+  nth-check: '>=2.0.1 <3'
+  prismjs: '>=1.27.0'
+  minimist: '>=1.2.6'
+  simple-git: '>=3.3.0'
+  portscanner: '>=2.2.0'
+  parse-path: '>=5.0.0'
+  parse-url: '>=8.1.0'
+  qs: '>=6.2.4'
+  json5: '>=2.2.2'
+  ua-parser-js: '>=1.0.33'
+  http-cache-semantics: '>=4.1.1'
+  webpack: '>=5.76.3'
+  yaml: '>=2.2.2'
+  puppeteer: 10.4.0
+  loader-utils: 2.0.4
+  lodash: '>=4.17.21'
+  semver: '>=7.5.2'
+  word-wrap: aashutoshrathi/word-wrap
+  postcss: '>=8.4.31'
+  '@babel/traverse': '>=7.23.2'
+  axios: '>=1.7.4'
+  ip: '>=2.0.1'
+  ws: '>=8.17.1'
+  micromatch: '>=4.0.8'
+  serve-static: '>=1.16.0'
+  path-to-regexp: 0.1.12
+  inquirer: 12.2.0
+  nanoid: 3.3.8
+pnpmVersion: 10.9.0
+linkWorkspacePackages: deep
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  core-js: set this to true or false
+  esbuild: set this to true or false
+  nx: set this to true or false
+  postinstall-postinstall: set this to true or false
