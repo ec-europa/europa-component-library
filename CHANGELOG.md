@@ -1,5 +1,20 @@
 # Changelog
 
+## 5.4.1 (2026-11-10)
+
+#### :rocket: New Feature
+
+- [#4757](https://github.com/ec-europa/europa-component-library/pull/4757) feat(category-filter): add control buttons - FRONT-5535 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#4753](https://github.com/ec-europa/europa-component-library/pull/4753) fix(tabs): Fixing the undefined pagerElement passed to the slider pager script - FRONT-5533 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 5.4.0 (2026-10-22)
 
 #### :bug: Bug Fix
