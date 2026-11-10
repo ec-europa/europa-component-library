@@ -270,6 +270,18 @@ const getArgTypes = () => {
     type: 'select',
     description: 'Change image position',
     options: ['top', 'beside', 'bottom'],
+    control: {
+      labels: {
+        top: 'top',
+        beside: 'beside',
+        bottom: 'bottom',
+      },
+    },
+    mapping: {
+      top: 'top',
+      beside: 'beside',
+      bottom: 'bottom',
+    },
     table: {
       type: 'string',
       defaultValue: { summary: 'top' },
@@ -284,6 +296,16 @@ const getArgTypes = () => {
     type: 'select',
     description: 'Side of the image when placed beside',
     options: ['left', 'right'],
+    control: {
+      labels: {
+        left: 'left',
+        right: 'right',
+      },
+    },
+    mapping: {
+      left: 'left',
+      right: 'right',
+    },
     table: {
       type: 'string',
       defaultValue: { summary: 'left' },
