@@ -58,7 +58,9 @@ own once step 1 has an answer:
    unmodified.
 2. **Themed generation** — the user gives a topic (e.g. "electric cars in
    Europe"); content is invented on-topic but explicitly illustrative, not
-   real. See Step 2's "Themed generation" subsection.
+   real. See Step 2's "Themed generation" subsection. If this option is
+   picked without a topic, ask for the topic next (before the project name,
+   which depends on it).
 3. **Real content** — supplied by the user, e.g. as a sitemap/content
    export. See Step 2's "Real content" subsection. A prompt that names a
    topic directly (as in the example above) already answers this
@@ -103,8 +105,12 @@ every type doc:
   top-level items — trim the demo data's 8 if reusing it) and strip
   promotional content, which is rare in practice: mega-menu has **three
   distinct** rarely-used fields — `info`, `featured`, `promotional` — and
-  they show up at nested `children` levels too, not just top-level, so strip
-  recursively, not just on the items you touch. Re-theme at least the
+  they show up at nested `children` levels too, so strip recursively with
+  `lib.js`'s `stripMegaMenu(items)`. Keep the demo's `toggle`/`close` as they
+  are (label only) — don't hand-write icon objects for them; the templates
+  supply the current Phosphor icons by default, and a hand-written
+  `{ name: 'hamburger' }`/`{ name: 'close' }` renders a stale pre-Phosphor
+  icon. Re-theme at least the
   top-level/topic-flexible item labels for a themed pass (deep nested items
   can stay generic — see Step 2).
 - For each content section: read the component's `README.md` (params) —
@@ -277,8 +283,12 @@ component choice, same data shape — and only rewrite the text leaves:
 - **Icons**: pick real names from the current set — ECL moved to Phosphor,
   ~1,434 icons, listable at
   `https://webtools.europa.eu/rest/wshape?family=phosphor` (fetch this once
-  per page while authoring content, via `WebFetch` — not from `build.js`,
-  which stays offline/deterministic). **Set `family: 'phosphor'` on the icon
+  per page while authoring content — not from `build.js`, which stays
+  offline/deterministic; the names are the `data.phosphor.name` array, so
+  save the JSON and check each chosen name with a one-liner rather than
+  eyeballing it). Cloning a demo item doesn't guarantee a current icon
+  either — a few demos still carry an old family-less one (e.g. carousel's
+  4th item, `corner-arrow`); `verify.js` warns about those. **Set `family: 'phosphor'` on the icon
   object, always** — `{ icon: { name: 'boat', family: 'phosphor' } }`, not
   just `{ name: 'boat' }`. Without it the icon looks up an older, smaller
   default set instead, and a Phosphor-only name silently renders nothing —
@@ -457,11 +467,12 @@ silently):
 - Dumps `<h1>`/`<h2>` text for a skim — including the (visually) hidden
   homepage `<h1>`, which is exactly where the `page-header` title bug in
   Step 2 shows up.
-- Dumps the distinct `wt-icon-*` classes rendered, flagging any without a
-  family segment (`wt-icon--name` rather than `wt-icon-phosphor--name`) —
-  some are legitimately default-set icons (close, hamburger, search, ...),
-  but it's also what a missing `family: 'phosphor'` silently degrades to, so
-  it's worth a glance rather than an assumption.
+- Dumps the distinct `wt-icon-*` classes rendered, warning on any without a
+  family segment (`wt-icon--name` rather than `wt-icon-phosphor--name`).
+  ECL components set their own icon family since the Phosphor migration, so
+  such a hit is almost always a page-authored icon missing
+  `family: 'phosphor'` (style modifiers like `wt-icon--inverted` are
+  ignored).
 - Starts `serve.js` on a scratch port, requests the HTML page, the module
   script, and the main CSS (and, EC only — EU ships no self-hosted fonts,
   see `scripts/static-pages/README.md` — a font file), checks each for

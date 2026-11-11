@@ -94,6 +94,16 @@ function standardSiteHeader(req, clone, suffix, system) {
   return siteHeader;
 }
 
+// Mega-menu's rarely-used blocks (info/featured/promotional) appear at every
+// nesting level, so strip them recursively.
+function stripMegaMenu(items) {
+  return items.map((item) => {
+    const { info, featured, promotional, ...rest } = item;
+    if (rest.children) rest.children = stripMegaMenu(rest.children);
+    return rest;
+  });
+}
+
 // Standard site-footer: logo wired to self-hosted assets (path differs by
 // system — EC nests it under section_common, EU under a specific footer row).
 function standardSiteFooter(req, clone, suffix, system) {
@@ -115,6 +125,7 @@ module.exports = {
   makeReq,
   standardSiteHeader,
   standardSiteFooter,
+  stripMegaMenu,
   STOCK_IMAGES,
   picsumImage,
 };

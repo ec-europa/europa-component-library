@@ -84,6 +84,8 @@ Shared, page-type-**agnostic** helpers used by `build.js` and by every
 - `standardSiteHeader(req, clone, suffix, system)` /
   `standardSiteFooter(req, clone, suffix, system)` — logo wiring + stripped
   rarely-used blocks, shared across every page type.
+- `stripMegaMenu(items)` — recursively drops mega-menu's rarely-used
+  `info`/`featured`/`promotional` blocks.
 - `STOCK_IMAGES` — the 10-image fixed stock set on the ECL S3 bucket
   (`example-image.jpg` through `example-image10.jpg`), for themed-generation
   passes to rotate through instead of repeating one image everywhere — see
@@ -211,9 +213,10 @@ scripts/static-pages/
 
 ## Requirements
 
-- `pnpm install` run at the repo root (needed for
-  `src/playground/{ec|eu}/.storybook/environment.js`'s `twing` dependency,
-  and for the preset's own `dist/` to exist under `src/presets/{ec|eu}/dist/`).
+- `pnpm install` run at the repo root (`build.js` borrows the `twing`
+  dependency of `src/tools/test-utils`, not resolvable from the repo root).
+- The preset built, so `src/presets/{ec|eu}/dist/` exists
+  (`pnpm --filter '@ecl/preset-{ec|eu}' run dist`).
 - No extra dependencies beyond that — plain Node `fs`/`path`/`http`.
 
 ## Related docs

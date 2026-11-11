@@ -16,11 +16,10 @@
 //      visually-hidden <h1>, which is exactly where the page-header
 //      title-shape bug (Step 2) shows up: build succeeds, <h1> silently
 //      keeps its placeholder text.
-//   4. Dumps the distinct wt-icon-* classes rendered, flagging any without
-//      a family segment (wt-icon--name vs wt-icon-{family}--name) — some
-//      are legitimately default-set icons (close, hamburger, search, ...),
-//      but it's also what a missing `family: 'phosphor'` silently degrades
-//      to, so it's worth a glance rather than an assumption.
+//   4. Dumps the distinct wt-icon-* classes rendered, warning on any icon
+//      without a family segment (wt-icon--name vs wt-icon-{family}--name):
+//      ECL components all set a family themselves now, so one of those is
+//      almost always a page-authored icon missing `family: 'phosphor'`.
 //   5. Starts serve.js on a scratch port, requests the page, its module
 //      script, and its main CSS (and, EC only, a font file — EU ships
 //      none), checks each for 200 + a sane Content-Type, then stops the
@@ -106,11 +105,19 @@ const iconClasses = [
     [...html.matchAll(/wt-icon(?:-[a-z]+)?--[a-z0-9-]+/g)].map((m) => m[0]),
   ),
 ].sort();
-const noFamily = iconClasses.filter((c) => /^wt-icon--/.test(c));
+// wt-icon--{style} (icon.html.twig's `style` param) is a modifier, not an icon.
+const STYLE_MODIFIERS = [
+  'wt-icon--primary',
+  'wt-icon--monochrome',
+  'wt-icon--inverted',
+];
+const noFamily = iconClasses.filter(
+  (c) => /^wt-icon--/.test(c) && !STYLE_MODIFIERS.includes(c),
+);
 info(`${iconClasses.length} distinct icon class(es) rendered`);
 if (noFamily.length > 0) {
   info(
-    `  ${noFamily.length} without a family segment — fine for default-set icons (close, hamburger, search, ...), but also what a missing family: 'phosphor' silently degrades to: ${noFamily.join(', ')}`,
+    `  WARN ${noFamily.length} without a family segment — likely a missing family: 'phosphor' (renders nothing if the name is Phosphor-only): ${noFamily.join(', ')}`,
   );
 }
 

@@ -45,9 +45,21 @@ if (!fs.existsSync(twigPath) || !fs.existsSync(dataPath)) {
   process.exit(1);
 }
 
-const environment = require(
-  path.join(REPO, `src/playground/${SYSTEM}/.storybook/environment.js`),
+// Same Twing 7 setup as src/tools/test-utils/environment.js (twing isn't
+// resolvable from the repo root, so borrow test-utils' copy), plus OUT_DIR so
+// the page's own composition can be rendered by name.
+const { createEnvironment, createFilesystemLoader } = require(
+  require.resolve('twing', {
+    paths: [path.join(REPO, 'src/tools/test-utils')],
+  }),
 );
+const loader = createFilesystemLoader(fs);
+const componentPath = path.join(REPO, 'src/components');
+loader.addPath(componentPath);
+loader.addPath(componentPath, '@ecl');
+loader.addPath(path.join(REPO, 'src/compositions'), '@ecl');
+loader.addPath(OUT_DIR);
+const environment = createEnvironment(loader);
 
 // --- 1. copy self-hosted assets (styles/scripts/fonts/images) ---
 copyPresetAssets(REPO, ASSETS_DIR, SYSTEM);
@@ -57,12 +69,10 @@ const buildData = require(dataPath);
 const data = buildData({ REPO, ASSETS_DIR, SYSTEM, req: makeReq(REPO), clone });
 
 // --- 3. render the rule-derived composition ---
-const twigSource = fs.readFileSync(twigPath, 'utf8');
 const suffix = SYSTEM === 'eu' ? 'eu' : 'ec';
 
 environment
-  .createTemplate(twigSource)
-  .then((template) => template.render(data))
+  .render(`${PAGE}.html.twig`, data)
   .then((bodyHtml) => {
     const colorModesLink =
       suffix === 'ec'
