@@ -11,7 +11,7 @@ import logoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positive
 
 import dataInner from './demo/data';
 import inner from './page-inner.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const system = getSystem();
 const prepareData = (data) => {

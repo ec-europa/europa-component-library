@@ -12,6 +12,8 @@ Following elements have been deprecated, and are removed in ECL v6
 
 ### Components
 
+- category filter:
+  - class `ecl-category-filter__list-item--open` (replaced by the native `open` attribute on `ecl-category-filter__details`)
 - featured item:
   - parameter `link_highlighted` (replaced by `link_display`)
 - file:

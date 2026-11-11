@@ -1,4 +1,4 @@
 // Simple content for demo
-module.exports = {
+export default {
   content: 'About the European Commission',
 };

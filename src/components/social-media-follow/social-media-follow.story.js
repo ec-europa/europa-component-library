@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import specs from './demo/data--monochrome';
 import SocialMediaFollow from './social-media-follow.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 // Preserve original data.
 const dataHorizontal = { ...specs };

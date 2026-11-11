@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,

@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import dataDefault from './demo/data';
 import spinner from './spinner.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataInverted = { ...dataDefault, variant: 'inverted' };
 

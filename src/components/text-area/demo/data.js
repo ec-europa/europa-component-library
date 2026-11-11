@@ -1,5 +1,5 @@
 // Simple content for demo
-module.exports = {
+export default {
   label: 'Label',
   invalid_text: 'Error text',
   invalid_icon: {

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   tag: {
     type: 'removable',
     label: 'Removable tag',

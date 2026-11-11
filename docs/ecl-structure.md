@@ -19,7 +19,7 @@ Components are the building blocks of ECL. Each component includes:
 - **JavaScript**: Interactive behavior (when needed)
 - **Twig templates**: Markup generation (optional - HTML can be used directly)
 - **Storybook stories**: Interactive demos
-- **Tests**: Jest unit and snapshot tests
+- **Tests**: Vitest unit and snapshot tests
 - **Documentation**: Usage guidelines and API reference
 
 The npm package exports the component's SCSS and JavaScript as modules.
@@ -33,11 +33,11 @@ The npm package exports the component's SCSS and JavaScript as modules.
   - {component_name}.html.twig - Twig template
   - {component_name}.js - JavaScript behavior (optional)
   - {component_name}.story.js - Storybook stories
-  - {component_name}.test.js - Jest tests
+  - {component_name}.test.js - Vitest tests
   - demo/data.js - Demo data for Storybook
   - package.json - Package manifest
   - README.md - Component documentation
-  - \_\_snapshots\_\_/ - Jest snapshot files
+  - \_\_snapshots\_\_/ - Vitest snapshot files
 
 Concerning dependencies in the `package.json` file, the following rule should be applied:
 
@@ -132,7 +132,7 @@ Build tools and utilities:
   - builder/ - Custom ECL builder (Rollup + Sass + Babel)
   - dom-utils/ - DOM manipulation and autoInit utilities
   - event-manager/ - Event system for components
-  - test-utils/ - Testing helpers for Jest
+  - test-utils/ - Testing helpers for Vitest
 
 ## Playground
 

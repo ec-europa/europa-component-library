@@ -12,7 +12,7 @@ import logoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positive
 
 import dataHome from './demo/data';
 import home from './page-home.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const system = getSystem();
 
