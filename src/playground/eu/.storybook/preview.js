@@ -184,15 +184,6 @@ export const parameters = {
     ],
   },
   disableSaveFromUI: true,
-  a11y: {
-    context: '#storybook-root',
-    config: {
-      checks: [{ id: 'color-contrast', options: { noScroll: true } }],
-    },
-    options: {
-      restoreScroll: true,
-    },
-  },
   docs: {
     canvas: { sourceState: 'shown' },
   },
