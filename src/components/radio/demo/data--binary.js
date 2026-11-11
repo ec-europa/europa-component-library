@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   optional_text: '(optional)',
   required_text: '(required)',
   required: true,
@@ -7,7 +7,8 @@ module.exports = {
   label: 'Do you need help?',
   invalid_text: 'Error text',
   invalid_icon: {
-    name: 'error-outline',
+    name: 'warning-circle',
+    family: 'phosphor',
   },
   sr_invalid_icon: 'Error',
   helper_text: 'Optional help text',

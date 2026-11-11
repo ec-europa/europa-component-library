@@ -1,5 +1,4 @@
 const js = require('@eslint/js');
-const babelParser = require('@babel/eslint-parser');
 const standard = require('eslint-config-standard');
 const globals = require('globals');
 
@@ -10,15 +9,13 @@ const prettierPlugin = require('eslint-plugin-prettier');
 const importPlugin = require('eslint-plugin-import');
 const nPlugin = require('eslint-plugin-n');
 const promisePlugin = require('eslint-plugin-promise');
-const jestPlugin = require('eslint-plugin-jest');
 
 module.exports = [
   js.configs.recommended,
   {
     languageOptions: {
-      parser: babelParser,
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
         sourceType: 'module',
         requireConfigFile: false,
         ecmaFeatures: {
@@ -32,7 +29,6 @@ module.exports = [
       },
     },
     plugins: {
-      jest: jestPlugin,
       import: importPlugin,
       react: reactPlugin,
       'jsx-a11y': jsxA11yPlugin,
@@ -45,6 +41,7 @@ module.exports = [
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
       'import/no-extraneous-dependencies': 'off',
+      'no-useless-assignment': 'off',
       'no-param-reassign': 'off',
       'comma-dangle': 'off',
       'multiline-ternary': 'off',

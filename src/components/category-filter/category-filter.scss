@@ -9,8 +9,18 @@
 $theme: null !default;
 $category-filter: null !default;
 
+// Default width, growing (up to the container) when deep items need more room
 .ecl-category-filter {
-  max-width: 18rem;
+  max-width: 100%;
+  min-width: min(18rem, 100%);
+  width: fit-content;
+}
+
+.ecl-category-filter__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-bottom: var(--s-xs);
 }
 
 .ecl-category-filter__list-item {
@@ -44,6 +54,14 @@ $category-filter: null !default;
     outline: 2px solid var(--cm-border-primary, var(--c-p));
     outline-offset: -2px;
   }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.ecl-category-filter__item {
+  list-style: none;
 }
 
 .ecl-category-filter__item-icon {
@@ -88,12 +106,13 @@ $category-filter: null !default;
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
-// Toggle sub level
-.ecl-category-filter__list-item .ecl-category-filter__list {
-  display: none;
+// Opened sub level
+.ecl-category-filter__details {
+  position: relative;
 }
 
-.ecl-category-filter__list-item--open {
+.ecl-category-filter__list-item--open,
+.ecl-category-filter__details[open] {
   background-color: map.get($category-filter, 'background-subitem');
 
   &::before {
@@ -114,51 +133,41 @@ $category-filter: null !default;
   }
 
   > .ecl-category-filter__item .ecl-category-filter__item-icon {
+    transform: rotate(90deg);
+  }
+
+  > .ecl-category-filter__item--level-1 .ecl-category-filter__item-icon {
     transform: rotate(180deg);
-  }
-
-  .ecl-category-filter__item--level-1 .ecl-category-filter__item-icon {
-    transform: rotate(0deg);
-  }
-
-  > .ecl-category-filter__list {
-    display: block;
   }
 }
 
-// Sub level spacing
-@mixin category-filter-item($level: 0) {
-  padding-inline-start: calc(
-    var(--s-m) + #{$level - 1} * #{map.get($category-filter, 'subitem-spacing')}
+// Sub level spacing (any depth): each nested list adds one step to the
+// indent inherited from its parent list item
+.ecl-category-filter__list-item {
+  --ecl-category-filter-parent-indent: var(--ecl-category-filter-indent, 0px);
+}
+
+.ecl-category-filter__list .ecl-category-filter__list {
+  --ecl-category-filter-indent: calc(
+    var(--ecl-category-filter-parent-indent, 0px) +
+      #{map.get($category-filter, 'subitem-spacing')}
   );
-  // stylelint-disable-next-line nesting-selector-no-missing-scoping-root
-  &.ecl-category-filter__item--has-children {
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-category-filter__item {
+    padding-inline-start: calc(var(--s-m) + var(--ecl-category-filter-indent));
+  }
+
+  // Parent items: the caret icon takes one level of spacing
+  .ecl-category-filter__item--has-children {
     padding-inline-start: calc(
-      var(--s-m) + #{$level - 2} *
+      var(--s-m) + var(--ecl-category-filter-indent) -
         #{map.get($category-filter, 'subitem-spacing')}
     );
   }
 }
 
-.ecl-category-filter__item--level-2 {
-  @include category-filter-item(2);
-}
-
-.ecl-category-filter__item--level-3 {
-  @include category-filter-item(3);
-}
-
-.ecl-category-filter__item--level-4 {
-  @include category-filter-item(4);
-}
-
 // No js
-.no-js .ecl-category-filter__list-item {
-  .ecl-category-filter__item {
-    border-bottom: 0;
-  }
-
-  .ecl-category-filter__list {
-    display: block;
-  }
+.no-js .ecl-category-filter__controls {
+  display: none;
 }

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Highlighted search Default renders correctly 1`] = `
+exports[`Highlighted search > Default > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-highlighted-search"
@@ -73,12 +73,10 @@ exports[`Highlighted search Default renders correctly 1`] = `
       >
         <span
           class="ecl-highlighted-search__suggestion-label"
-          id="highlighted-search-suggestion-label"
         >
           Or explore:
         </span>
         <ul
-          aria-labelledby="highlighted-search-suggestion-label"
           class="ecl-tag-set ecl-highlighted-search__suggestion-list"
         >
           <li
@@ -88,7 +86,11 @@ exports[`Highlighted search Default renders correctly 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Traineeships
+              <span
+                class="ecl-tag__label"
+              >
+                Traineeships
+              </span>
             </a>
           </li>
           <li
@@ -98,7 +100,11 @@ exports[`Highlighted search Default renders correctly 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              IT & Digital
+              <span
+                class="ecl-tag__label"
+              >
+                IT & Digital
+              </span>
             </a>
           </li>
           <li
@@ -108,7 +114,11 @@ exports[`Highlighted search Default renders correctly 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Policy & Law
+              <span
+                class="ecl-tag__label"
+              >
+                Policy & Law
+              </span>
             </a>
           </li>
           <li
@@ -118,7 +128,11 @@ exports[`Highlighted search Default renders correctly 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Translation
+              <span
+                class="ecl-tag__label"
+              >
+                Translation
+              </span>
             </a>
           </li>
           <li
@@ -128,7 +142,11 @@ exports[`Highlighted search Default renders correctly 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Communication
+              <span
+                class="ecl-tag__label"
+              >
+                Communication
+              </span>
             </a>
           </li>
           <li
@@ -138,7 +156,11 @@ exports[`Highlighted search Default renders correctly 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Finance & Economics
+              <span
+                class="ecl-tag__label"
+              >
+                Finance & Economics
+              </span>
             </a>
           </li>
         </ul>
@@ -148,7 +170,7 @@ exports[`Highlighted search Default renders correctly 1`] = `
 </jest>
 `;
 
-exports[`Highlighted search Default renders correctly with a form action 1`] = `
+exports[`Highlighted search > Default > renders correctly with a form action 1`] = `
 <jest>
   <div
     class="ecl-highlighted-search"
@@ -222,12 +244,10 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
       >
         <span
           class="ecl-highlighted-search__suggestion-label"
-          id="highlighted-search-suggestion-label"
         >
           Or explore:
         </span>
         <ul
-          aria-labelledby="highlighted-search-suggestion-label"
           class="ecl-tag-set ecl-highlighted-search__suggestion-list"
         >
           <li
@@ -237,7 +257,11 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Traineeships
+              <span
+                class="ecl-tag__label"
+              >
+                Traineeships
+              </span>
             </a>
           </li>
           <li
@@ -247,7 +271,11 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              IT & Digital
+              <span
+                class="ecl-tag__label"
+              >
+                IT & Digital
+              </span>
             </a>
           </li>
           <li
@@ -257,7 +285,11 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Policy & Law
+              <span
+                class="ecl-tag__label"
+              >
+                Policy & Law
+              </span>
             </a>
           </li>
           <li
@@ -267,7 +299,11 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Translation
+              <span
+                class="ecl-tag__label"
+              >
+                Translation
+              </span>
             </a>
           </li>
           <li
@@ -277,7 +313,11 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Communication
+              <span
+                class="ecl-tag__label"
+              >
+                Communication
+              </span>
             </a>
           </li>
           <li
@@ -287,7 +327,11 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
               class="ecl-tag"
               href="/example"
             >
-              Finance & Economics
+              <span
+                class="ecl-tag__label"
+              >
+                Finance & Economics
+              </span>
             </a>
           </li>
         </ul>
@@ -297,7 +341,7 @@ exports[`Highlighted search Default renders correctly with a form action 1`] = `
 </jest>
 `;
 
-exports[`Highlighted search Default renders correctly with extra attributes 1`] = `
+exports[`Highlighted search > Default > renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-highlighted-search"
@@ -372,12 +416,10 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
       >
         <span
           class="ecl-highlighted-search__suggestion-label"
-          id="highlighted-search-suggestion-label"
         >
           Or explore:
         </span>
         <ul
-          aria-labelledby="highlighted-search-suggestion-label"
           class="ecl-tag-set ecl-highlighted-search__suggestion-list"
         >
           <li
@@ -387,7 +429,11 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               class="ecl-tag"
               href="/example"
             >
-              Traineeships
+              <span
+                class="ecl-tag__label"
+              >
+                Traineeships
+              </span>
             </a>
           </li>
           <li
@@ -397,7 +443,11 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               class="ecl-tag"
               href="/example"
             >
-              IT & Digital
+              <span
+                class="ecl-tag__label"
+              >
+                IT & Digital
+              </span>
             </a>
           </li>
           <li
@@ -407,7 +457,11 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               class="ecl-tag"
               href="/example"
             >
-              Policy & Law
+              <span
+                class="ecl-tag__label"
+              >
+                Policy & Law
+              </span>
             </a>
           </li>
           <li
@@ -417,7 +471,11 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               class="ecl-tag"
               href="/example"
             >
-              Translation
+              <span
+                class="ecl-tag__label"
+              >
+                Translation
+              </span>
             </a>
           </li>
           <li
@@ -427,7 +485,11 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               class="ecl-tag"
               href="/example"
             >
-              Communication
+              <span
+                class="ecl-tag__label"
+              >
+                Communication
+              </span>
             </a>
           </li>
           <li
@@ -437,7 +499,11 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
               class="ecl-tag"
               href="/example"
             >
-              Finance & Economics
+              <span
+                class="ecl-tag__label"
+              >
+                Finance & Economics
+              </span>
             </a>
           </li>
         </ul>
@@ -447,7 +513,7 @@ exports[`Highlighted search Default renders correctly with extra attributes 1`] 
 </jest>
 `;
 
-exports[`Highlighted search Default renders correctly with extra class names 1`] = `
+exports[`Highlighted search > Default > renders correctly with extra class names 1`] = `
 <jest>
   <div
     class="ecl-highlighted-search custom-class custom-class--test"
@@ -520,12 +586,10 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
       >
         <span
           class="ecl-highlighted-search__suggestion-label"
-          id="highlighted-search-suggestion-label"
         >
           Or explore:
         </span>
         <ul
-          aria-labelledby="highlighted-search-suggestion-label"
           class="ecl-tag-set ecl-highlighted-search__suggestion-list"
         >
           <li
@@ -535,7 +599,11 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               class="ecl-tag"
               href="/example"
             >
-              Traineeships
+              <span
+                class="ecl-tag__label"
+              >
+                Traineeships
+              </span>
             </a>
           </li>
           <li
@@ -545,7 +613,11 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               class="ecl-tag"
               href="/example"
             >
-              IT & Digital
+              <span
+                class="ecl-tag__label"
+              >
+                IT & Digital
+              </span>
             </a>
           </li>
           <li
@@ -555,7 +627,11 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               class="ecl-tag"
               href="/example"
             >
-              Policy & Law
+              <span
+                class="ecl-tag__label"
+              >
+                Policy & Law
+              </span>
             </a>
           </li>
           <li
@@ -565,7 +641,11 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               class="ecl-tag"
               href="/example"
             >
-              Translation
+              <span
+                class="ecl-tag__label"
+              >
+                Translation
+              </span>
             </a>
           </li>
           <li
@@ -575,7 +655,11 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               class="ecl-tag"
               href="/example"
             >
-              Communication
+              <span
+                class="ecl-tag__label"
+              >
+                Communication
+              </span>
             </a>
           </li>
           <li
@@ -585,7 +669,11 @@ exports[`Highlighted search Default renders correctly with extra class names 1`]
               class="ecl-tag"
               href="/example"
             >
-              Finance & Economics
+              <span
+                class="ecl-tag__label"
+              >
+                Finance & Economics
+              </span>
             </a>
           </li>
         </ul>

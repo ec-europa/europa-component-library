@@ -1,13 +1,8 @@
 // Simple content for demo
-module.exports = {
+export default {
   id: 'expandable-example',
   button: {
     label: 'Collapsed',
-    icon: {
-      name: 'corner-arrow',
-      transform: 'rotate-180',
-      size: 'fluid',
-    },
   },
   label_expanded: 'Expanded',
   label_collapsed: 'Collapsed',

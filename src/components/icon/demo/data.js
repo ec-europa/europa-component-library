@@ -1,6 +1,7 @@
-module.exports = {
+export default {
   icon: {
-    name: 'audio',
+    name: 'arrow-down',
+    family: 'phosphor',
     size: 'm',
   },
 };

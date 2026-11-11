@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   id: 'gallery-id',
   sr_gallery_label:
     'Open gallery items to view images in original size, watch videos and share them',
@@ -45,6 +45,8 @@ module.exports = {
       description:
         'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens. [Embedded video (Youtube) with a thumbnail]',
       meta: 'Copyright, Author, Licence for embedded media',
+      publication_date: '20 Feb 2020',
+      video_length: '1:01',
     },
     {
       // Image with sources and thumbnail
@@ -70,7 +72,7 @@ module.exports = {
           },
         ],
       },
-      title: 'Agriculture and culture',
+      title: 'Agriculture, business, culture, health, and other topics',
       description:
         'Information on agriculture, business, culture, health, etc. [Image with sources and thumbnail]',
       meta: 'Copyright, Author, Licence for image 2',
@@ -94,6 +96,8 @@ module.exports = {
         'Living, working, travelling in the EU. [Embedded video (AV Portal) with picture instead of thumbnail]',
       meta: 'Copyright, Author, Licence for image 3',
       share_path: '/share#example-image3.jpg',
+      publication_date: '13 Oct 2022',
+      video_length: '1:55',
     },
     {
       // Embedded video (Dailymotion) with thumbnail
@@ -111,6 +115,8 @@ module.exports = {
         'Information on taxes, customs, importing and exporting goods, financial support for businesses. [Embedded video (Dailymotion) with thumbnail]',
       meta: 'Copyright, Author, Licence for image 4',
       share_path: '/share#example-image4.jpg',
+      publication_date: '03 Aug 2019',
+      video_length: '4:25',
     },
     {
       // HTML video
@@ -124,11 +130,14 @@ module.exports = {
         ],
       },
       alt: 'Image 5',
-      title: 'Time lapse of the Arc de Triomphe in Paris from afar',
+      title:
+        'Time lapse of the Arc de Triomphe in Paris from afar. Title very long, taking several lines with ellipsis.',
       description:
         'Time lapse of the Arc de Triomphe in Paris from afar during the day, city roofs, cars and clouds moving in the blue sky. [HTML video]',
       meta: 'Copyright, Author, Licence for image 5',
       share_path: '/share#example-image5.jpg',
+      publication_date: '12 Feb 2023',
+      video_length: '0:27',
     },
     {
       // Embedded video (Vimeo) with thumbnail
@@ -148,6 +157,8 @@ module.exports = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. [Embedded video (Vimeo) with thumbnail]',
       meta: 'Copyright, Author, Licence for image 6',
       share_path: '/share#example-image6.jpg',
+      publication_date: '23 Mar 2025',
+      video_length: '19:57',
     },
     {
       // Image with sources and no thumbnail
@@ -210,43 +221,67 @@ module.exports = {
       share_path: '/share#example-image10.jpg',
     },
     {
-      // Image
-      picture: {
+      // Embedded video (AV Portal) with thumbnail
+      thumbnail: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          alt: 'Lorem ipsum',
+          src: 'https://api.prd.commavservices.eu/thumbnail/I-283755/019d7296-446e-7b37-aa68-a796e95d182c/1200.jpg?t=1775821882',
+          alt: 'What is the European Union?',
         },
       },
-      title: '12',
-      description: 'Lorem ipsum',
-      meta: 'Copyright, Author, Licence for Lorem ipsum',
-      share_path: '/share#example-image10.jpg',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-283755&lg=EN',
+      },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
+      title: 'What is the European Union?',
+      description:
+        'How is the EU different from Europe, and why does it exist? From the European Coal and Steel Community to the euro, the Single Market and free movement. [Embedded video (AV Portal) with thumbnail]',
+      meta: 'Copyright European Union',
+      share_path: '/share#I-283755',
+      publication_date: '01 Sep 2026',
+      video_length: '1:53',
     },
     {
-      // Image
-      picture: {
+      // Embedded video (AV Portal) with thumbnail
+      thumbnail: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          alt: 'Lorem ipsum',
+          src: 'https://api.prd.commavservices.eu/thumbnail/9b516080-72e6-4c8f-ba9e-543241e4d6e2-1707738521/640.jpg?1707739098278?latest=0008532569',
+          alt: 'Berlaymont building',
         },
       },
-      title: '13',
-      description: 'Lorem ipsum',
-      meta: 'Copyright, Author, Licence for Lorem ipsum',
-      share_path: '/share#example-image10.jpg',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-252605&lg=EN',
+      },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
+      title: 'Exterior views of the European Commission',
+      description:
+        'Exterior views of the Berlaymont building, headquarters of the European Commission in Brussels. [Embedded video (AV Portal) with thumbnail]',
+      meta: 'Copyright European Union',
+      share_path: '/share#I-252605',
+      publication_date: '12 Feb 2024',
+      video_length: '0:25',
     },
     {
-      // Image
-      picture: {
+      // Embedded video (AV Portal) with thumbnail
+      thumbnail: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-          alt: 'Lorem ipsum',
+          src: 'https://api.prd.commavservices.eu/thumbnail/I-273146/01973ac1-c084-71ad-8acf-59f555a8b296/1200.jpg?t=1749113128',
+          alt: '#DiscussAI',
         },
       },
-      title: '14',
-      description: 'Lorem ipsum',
-      meta: 'Copyright, Author, Licence for Lorem ipsum',
-      share_path: '/share#example-image10.jpg',
+      embedded_video: {
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-273146&lg=EN',
+      },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
+      title: '#DiscussAI: a national conversation on Artificial Intelligence',
+      description:
+        'Success story from the research management community: ADAPT at Dublin City University engaged more than 80,000 people across Ireland in a conversation on AI and its role in society. [Embedded video (AV Portal) with thumbnail]',
+      meta: 'Copyright European Union',
+      share_path: '/share#I-273146',
+      publication_date: '13 Feb 2025',
+      video_length: '1:54',
     },
     {
       // Image
@@ -263,33 +298,19 @@ module.exports = {
     },
   ],
   overlay: {
+    published_label: 'Published',
     close: {
       variant: 'ghost',
       hide_label: true,
       label: 'Close',
-      icon: {
-        name: 'close',
-        size: 'm',
-      },
     },
     previous: {
       variant: 'tertiary',
       label: 'Previous',
-      icon: {
-        name: 'corner-arrow',
-        size: 's',
-        transform: 'rotate-270',
-      },
-      icon_position: 'before',
     },
     next: {
       variant: 'tertiary',
       label: 'Next',
-      icon: {
-        name: 'corner-arrow',
-        size: 's',
-        transform: 'rotate-90',
-      },
     },
     counter_separator: 'of',
     full_screen_label: 'View original',
@@ -297,10 +318,6 @@ module.exports = {
       link: {
         label: 'Share',
         path: exampleLink,
-      },
-      icon: {
-        name: 'share',
-        size: 'fluid',
       },
     },
     sr_overlay_label: 'Gallery overlay',
@@ -317,4 +334,6 @@ module.exports = {
     },
   },
   counter_label: 'Media files in this gallery',
+  prev_label: 'Previous',
+  next_label: 'Next',
 };

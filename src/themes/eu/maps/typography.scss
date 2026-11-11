@@ -54,46 +54,41 @@ $font: (
   // DEPRECATED
   '2xs': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, '2xs') + '/' + map.get($line-height, '2xs')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'xs': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size, 'xs') + '/' + map.get($line-height, 'xs')}
-    #{map.get($font-family, 'default')},
+    #{map.get($font-size, 'xs') + '/' + map.get($line-height, 'xs')} var(--ff-d),
   's': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size, 's') + '/' + map.get($line-height, 's')}
-    #{map.get($font-family, 'default')},
+    #{map.get($font-size, 's') + '/' + map.get($line-height, 's')} var(--ff-d),
   'm': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size, 'm') + '/' + map.get($line-height, 'm')}
-    #{map.get($font-family, 'default')},
+    #{map.get($font-size, 'm') + '/' + map.get($line-height, 'm')} var(--ff-d),
   'l': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size, 'l') + '/' + map.get($line-height, 'l')}
-    #{map.get($font-family, 'default')},
+    #{map.get($font-size, 'l') + '/' + map.get($line-height, 'l')} var(--ff-d),
   'xl': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size, 'xl') + '/' + map.get($line-height, 'xl')}
-    #{map.get($font-family, 'default')},
+    #{map.get($font-size, 'xl') + '/' + map.get($line-height, 'xl')} var(--ff-d),
   '2xl': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, '2xl') + '/' + map.get($line-height, '2xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '3xl': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, '3xl') + '/' + map.get($line-height, '3xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '4xl': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, '4xl') + '/' + map.get($line-height, '4xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   '5xl': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, '5xl') + '/' + map.get($line-height, '5xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   // DEPRECATED
   '6xl': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, '6xl') + '/' + map.get($line-height, '6xl')}
-    #{map.get($font-family, 'default')}
+    var(--ff-d)
 ) !default;
 $font-ui: (
   's': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size-ui, 's') + '/' + map.get($line-height-ui, 's')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'm': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size-ui, 'm') + '/' + map.get($line-height-ui, 'm')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
 ) !default;
 
 // Print
@@ -214,19 +209,19 @@ $line-height-prolonged: (
 $font-prolonged: (
   'xs': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, 'xs') + '/' + map.get($line-height-prolonged, 'xs')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   's': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, 's') + '/' + map.get($line-height-prolonged, 's')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'm': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, 'm') + '/' + map.get($line-height-prolonged, 'm')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'l': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, 'l') + '/' + map.get($line-height-prolonged, 'l')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
   'xl': normal normal map.get($font-weight, 'regular')
     #{map.get($font-size, 'xl') + '/' + map.get($line-height-prolonged, 'xl')}
-    #{map.get($font-family, 'default')},
+    var(--ff-d),
 ) !default;
 $line-height-prolonged-print: (
   'xs': 15pt,
@@ -238,22 +233,17 @@ $line-height-prolonged-print: (
 $font-prolonged-print: (
   'xs': normal normal map.get($font-weight-print, 'regular')
     #{map.get($font-size-print, 'xs') + '/' +
-    map.get($line-height-prolonged-print, 'xs')}
-    #{map.get($font-family, 'default')},
+    map.get($line-height-prolonged-print, 'xs')} var(--ff-d),
   's': normal normal map.get($font-weight-print, 'regular')
     #{map.get($font-size-print, 's') + '/' +
-    map.get($line-height-prolonged-print, 's')}
-    #{map.get($font-family, 'default')},
+    map.get($line-height-prolonged-print, 's')} var(--ff-d),
   'm': normal normal map.get($font-weight-print, 'regular')
     #{map.get($font-size-print, 'm') + '/' +
-    map.get($line-height-prolonged-print, 'm')}
-    #{map.get($font-family, 'default')},
+    map.get($line-height-prolonged-print, 'm')} var(--ff-d),
   'l': normal normal map.get($font-weight-print, 'regular')
     #{map.get($font-size-print, 'l') + '/' +
-    map.get($line-height-prolonged-print, 'l')}
-    #{map.get($font-family, 'default')},
+    map.get($line-height-prolonged-print, 'l')} var(--ff-d),
   'xl': normal normal map.get($font-weight-print, 'regular')
     #{map.get($font-size-print, 'xl') + '/' +
-    map.get($line-height-prolonged-print, 'xl')}
-    #{map.get($font-family, 'default')},
+    map.get($line-height-prolonged-print, 'xl')} var(--ff-d),
 ) !default;

@@ -5,7 +5,7 @@ import withCode from '@ecl/storybook-addon-code';
 import dataDefault from './demo/data';
 
 import file from './file.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 let previewTimeout = null;
 
@@ -311,6 +311,9 @@ export default {
         xl: { disable: true },
       },
     },
+  },
+  breakpointIndicator: {
+    container: '.ecl-file',
   },
 };
 

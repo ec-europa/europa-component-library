@@ -7,7 +7,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import demoData from './demo/data';
 import demoDtaWithContent from './demo/data--with-content';
 import Tabs from './tabs.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = () => {
   const args = {};
@@ -53,6 +53,9 @@ export default {
         m: { disable: true },
         xl: { disable: true },
       },
+    },
+    breakpointIndicator: {
+      container: '.ecl-tabs',
     },
   },
 };

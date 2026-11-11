@@ -39,8 +39,8 @@ npm install --save @ecl/text-media
       label: 'Read more',
     },
     icon: {
-      name: 'arrow-left',
-      transform: 'flip-horizontal',
+      name: 'arrow-right',
+      family: 'phosphor',
       size: 'm',
     },
   },

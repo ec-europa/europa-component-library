@@ -2,23 +2,15 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   title: 'Menu',
   aria_label: 'Main navigation',
   id: 'demo',
   toggle: {
     label: 'Menu',
-    icon: {
-      name: 'hamburger',
-      size: 'm',
-    },
   },
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 's',
-    },
   },
   back_label: 'Back',
   see_all_label: 'See all pages',

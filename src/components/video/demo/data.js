@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   poster: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
   title: 'Big Buck Bunny',
   sr_video_player: 'Video',

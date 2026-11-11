@@ -30,12 +30,6 @@ npm install --save @ecl/expandable
   id: 'expandable-example', 
   button: { 
     label: 'Collapsed button', 
-    variant: 'secondary', 
-    icon: { 
-      name: 'corner-arrow', 
-      transform: 'rotate-180', 
-      size: 'fluid', 
-    }, 
   }, 
   label_expanded: 'Expanded button', 
   label_collapsed: 'Collapsed button', 

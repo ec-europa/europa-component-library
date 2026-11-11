@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   id: 'featured-item-example',
   title:
     'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
@@ -15,8 +15,8 @@ module.exports = {
       label: 'Read more',
     },
     icon: {
-      name: 'arrow-left',
-      transform: 'flip-horizontal',
+      name: 'arrow-right',
+      family: 'phosphor',
       size: 'm',
     },
   },

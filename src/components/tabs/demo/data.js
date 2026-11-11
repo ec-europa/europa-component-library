@@ -2,7 +2,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   items: [
     { label: 'Tab label', path: exampleLink, id: 'tabs-1' },
     { label: 'Tab label', path: exampleLink, id: 'tabs-2' },

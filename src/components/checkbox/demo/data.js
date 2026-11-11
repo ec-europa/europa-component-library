@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   helper_text: 'Optional help text',
   invalid_text: 'Error text',
   label: 'Select your preferred destinations',
@@ -11,18 +11,12 @@ module.exports = {
   required_text: '(required)',
   required: true,
   name: 'checkbox-default',
-  invalid_icon: {
-    name: 'error-outline',
-  },
   sr_invalid_icon: 'Error',
   input: {
     id: 'checkbox-default',
     input_type: 'checkbox',
     name: 'checkbox-default',
     invalid_text: 'Error text',
-    invalid_icon: {
-      name: 'error-outline',
-    },
     sr_invalid_icon: 'Error',
     items: [
       {

@@ -51,14 +51,14 @@ npm install --save @ecl/content-block
     {
       icon: {
         name: 'calendar',
-        size: 'xs',
+        family: 'phosphor',
       },
       label: '2018/10/22',
     },
     {
       icon: {
-        name: 'location',
-        size: 'xs',
+        name: 'map-pin',
+        family: 'phosphor',
       },
       label: 'Luxembourg',
     },

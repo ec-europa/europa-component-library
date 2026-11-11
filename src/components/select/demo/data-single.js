@@ -1,8 +1,9 @@
-module.exports = {
+export default {
   label: 'Select a country',
   invalid_text: 'Error text',
   invalid_icon: {
-    name: 'error-outline',
+    name: 'warning-circle',
+    family: 'phosphor',
   },
   sr_invalid_icon: 'Error',
   helper_text: 'Optional help text',

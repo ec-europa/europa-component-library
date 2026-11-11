@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   label: 'Pagination',
   items: [
     {
@@ -14,11 +14,6 @@ module.exports = {
           label: 'Previous',
           icon_position: 'before',
           hide_label: true,
-        },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-270',
         },
       },
     },
@@ -105,11 +100,6 @@ module.exports = {
           label: 'Next',
           icon_position: 'after',
           hide_label: true,
-        },
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-90',
         },
       },
     },

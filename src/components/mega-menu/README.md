@@ -9,11 +9,12 @@ npm install --save @ecl/mega-menu
 ### Parameters
 
 - **"id"** (string) (default: random) Unique id for the menu
-- **"toggle"** (object) (default: {}) Toggle (hamburger) button following ECL Button structure
-- **"close"** (object) (default: {}) Close button following ECL Button structure
+- **"toggle"** (object) (default: phosphor 'list' icon) Toggle (hamburger) button following ECL Button structure
+- **"close"** (object) (default: phosphor 'x' icon) Close button following ECL Button structure
 - **"aria_label"** (string) (default: '') Aria label for the main nav element
 - **"second_level_aria_label"** (string) (default: '') Aria label for second-level sub-lists
 - **"third_level_aria_label"** (string) (default: '') Aria label for third-level sub-lists
+- **"current_aria_label"** (string) (default: '') Aria label for the current item
 - **"back_label"** (string) (default: '') Back button label (mobile navigation)
 - **"see_all_label"** (string) (default: '') Label for the "View all" link in sub-menus
 - **"featured_priority"** (string) (default: 'secondary') Which featured panel is visible; can be 'primary', 'secondary'
@@ -21,6 +22,7 @@ npm install --save @ecl/mega-menu
   {
   "label" (string) (default: '') Item label
   "path" (string) (default: '') Item link URL
+  "is_current": (boolean) (optional) Is this the current page?
   "external" (boolean) (default: false) Is the link external?
   "sr_external" (string) (default: '') Screen reader label for the external icon
   "one_level_only" (boolean) (default: false) Disable sub-level navigation for this item
@@ -51,25 +53,19 @@ npm install --save @ecl/mega-menu
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/mega-menu/mega-menu.html.twig' with {
+  aria_label: 'Main navigation',
+  second_level_aria_label: 'Pages in this section',
+  third_level_aria_label: 'Sub-pages in this section',
+  current_aria_label: 'Current section',
   toggle: {
     link: {
       label: 'Menu',
       path: exampleLink,
     },
-    icon:
-      {
-        name: 'hamburger',
-        size: 'm',
-      },
-    }, 
   },
-  close: { 
-    label: 'Close', 
-    icon: { 
-      name: 'close', 
-      size: 'm', 
-    }, 
-  }, 
+  close: {
+    label: 'Close',
+  },
   back_label: 'Back',
   items: [
     {

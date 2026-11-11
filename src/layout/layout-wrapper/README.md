@@ -14,7 +14,7 @@ npm install --save @ecl/layout-wrapper
   - top: always stacked above the grid
   - side: beside the grid at wider breakpoints; capped to 3 columns
 - **"title"** (object) (default: {}): Title of the layout wrapper
-  - "level" (int) (default: 2): Heading level
+  - "level" (int) (default: 2): Heading level, up to h4
   - "label" (string) (default: ''): Title content
 - **"description"** (string) (default: ''): Description of the layout wrapper
 - **"items"** (array) (default: []): Items to be displayed in the wrapper.
@@ -23,6 +23,7 @@ npm install --save @ecl/layout-wrapper
   - an object with a defining component key, e.g. { card: { ... } }
     Supported component keys: card, navigation_list, content_item, file, list_illustration
 - **"direction"** (string) (default: "horizontal"): Flow of items; can be "horizontal" or "vertical"
+- **"divider"** (boolean) (default: false): Display dividers between rows
 - **"view_all"** (object) (default: {}): Link display below the grid; Follows the ECL Link structure
 - **"full_height"** (boolean) (default: true): Elements inside the layout wrapper would take the full height
 - **"extra_classes"** (string) (default: '')

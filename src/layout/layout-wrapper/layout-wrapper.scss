@@ -10,6 +10,7 @@
 // Exposed variables
 $theme: null !default;
 $layout-wrapper: null !default;
+$typography: null !default;
 
 .ecl-layout-wrapper {
   container-name: ecl-layout-wrapper;
@@ -25,11 +26,14 @@ $layout-wrapper: null !default;
 }
 
 // Items sub-grid, single column by default (stacked, mobile-first)
+// Row gap is exposed as a custom property so dividers can be centered in it
 .ecl-layout-wrapper__content {
+  --ecl-layout-wrapper-row-gap: 2rem;
+
   display: grid;
   column-gap: map.get($theme, 'grid', 'gutter-s');
   grid-template-columns: 1fr;
-  row-gap: 1.5rem;
+  row-gap: var(--ecl-layout-wrapper-row-gap);
 }
 
 @include breakpoints.up('m') {
@@ -44,8 +48,63 @@ $layout-wrapper: null !default;
   }
 }
 
-.ecl-layout-wrapper__grid .ecl-layout-wrapper__info > *:first-child {
+// Dividers between rows
+.ecl-layout-wrapper--divider {
+  .ecl-layout-wrapper__content {
+    --ecl-layout-wrapper-row-gap: 4rem;
+
+    overflow: clip;
+
+    // Keep focus outlines visible; must stay below half of the smallest gap
+    overflow-clip-margin: 0.25rem;
+  }
+
+  .ecl-layout-item {
+    position: relative;
+  }
+
+  .ecl-layout-item::before {
+    border-block-start: map.get($layout-wrapper, 'divider');
+    content: '';
+    inset-block-start: calc(var(--ecl-layout-wrapper-row-gap) / -2);
+    inset-inline: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+}
+
+.ecl-layout-wrapper__title {
+  margin: map.get($typography, 'heading-margin');
+  margin-block-end: 0;
+
+  @include mixins.responsive-font('heading2');
+
+  &:is(h3) {
+    @include mixins.responsive-font('heading3');
+  }
+
+  &:is(h4) {
+    @include mixins.responsive-font('heading4');
+  }
+
+  .ecl-layout-wrapper--info-side & {
+    margin-block-start: 0;
+  }
+}
+
+.ecl-layout-wrapper__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-m);
+}
+
+.ecl-layout-wrapper__description > *:first-child {
   margin-block-start: 0;
+}
+
+.ecl-layout-wrapper__grid .ecl-layout-wrapper__info > *:last-child,
+.ecl-layout-wrapper__description > *:last-child {
+  margin-block-end: 0;
 }
 
 .ecl-layout-wrapper__description {

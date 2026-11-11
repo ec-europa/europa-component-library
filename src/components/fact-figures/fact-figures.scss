@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/link/link' as link-component;
 
@@ -16,6 +15,11 @@ $fact-figures: null !default;
   background-color: map.get($fact-figures, 'background');
   border-radius: map.get($fact-figures, 'border-radius');
   margin: 0;
+  container-type: inline-size;
+  container-name: ecl-fact-figures;
+}
+
+.ecl-fact-figures__container {
   padding: map.get($fact-figures, 'padding-mobile');
 }
 
@@ -90,11 +94,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__sources {
-  align-items: center;
   color: map.get($fact-figures, 'source-color');
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-xs);
   margin-block-start: map.get($fact-figures, 'source-spacing');
 
   @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
@@ -108,26 +108,48 @@ $fact-figures: null !default;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: var(--s-xs);
+  display: inline;
+}
+
+.ecl-fact-figures__sources-label {
+  display: inline-block;
+  margin-inline-end: var(--s-xs);
 }
 
 .ecl-fact-figures__source {
   @if map.get($fact-figures, 'source-link-variant') == 'brand' {
     @include link-component.brand-link;
   }
+
+  &:has(svg) {
+    white-space: nowrap;
+  }
+
+  .ecl-link__label {
+    white-space: normal;
+  }
+
+  .ecl-icon {
+    margin-inline-start: map.get($fact-figures, 'source-separator-spacing');
+  }
 }
 
-.ecl-fact-figures__sources-item:not(:last-child)::after {
-  color: map.get($fact-figures, 'source-separator-color');
-  content: '|';
-  margin-inline: var(--s-xs);
+.ecl-fact-figures__sources-item {
+  display: inline;
+
+  &:not(:last-child)::after {
+    color: map.get($fact-figures, 'source-separator-color');
+    content: '\00a0| ';
+    display: inline;
+    padding-inline: map.get($fact-figures, 'source-separator-spacing');
+    position: relative;
+    top: 2px;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-fact-figures {
+@container ecl-fact-figures (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-fact-figures__container {
     padding: map.get($fact-figures, 'padding-desktop');
   }
 

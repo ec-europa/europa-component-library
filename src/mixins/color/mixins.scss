@@ -44,10 +44,6 @@
 // Mixin to set the content color to the current text color
 // Used mostly for element using wysiwyg
 @mixin content-current-color() {
-  .ecl * {
-    color: currentcolor;
-  }
-
   .ecl a,
   .ecl-link {
     --ecl-link-color: currentcolor;

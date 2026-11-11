@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
@@ -13,11 +13,6 @@ module.exports = {
     button: {
       label: 'Collapsed',
       variant: 'secondary',
-      icon: {
-        name: 'corner-arrow',
-        transform: 'rotate-180',
-        size: 'fluid',
-      },
     },
     label_expanded: 'Expanded',
     label_collapsed: 'Collapsed',

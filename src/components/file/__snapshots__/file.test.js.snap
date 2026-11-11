@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`File Thumbnail renders correctly 1`] = `
+exports[`File > Thumbnail > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-file"
@@ -26,19 +26,29 @@ exports[`File Thumbnail renders correctly 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
+          <ul
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
                 class="ecl-label ecl-label--highlight"
               >
-                Highlight
+                highlight
               </span>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-with-thumbnail-title"
@@ -67,76 +77,80 @@ exports[`File Thumbnail renders correctly 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -516,7 +530,7 @@ exports[`File Thumbnail renders correctly 1`] = `
 </jest>
 `;
 
-exports[`File Thumbnail renders correctly without an image 1`] = `
+exports[`File > Thumbnail > renders correctly without an image 1`] = `
 <jest>
   <div
     class="ecl-file"
@@ -543,19 +557,29 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
+          <ul
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
                 class="ecl-label ecl-label--highlight"
               >
-                Highlight
+                highlight
               </span>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-with-thumbnail-title"
@@ -584,76 +608,80 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -1033,7 +1061,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
 </jest>
 `;
 
-exports[`File With translation renders correctly 1`] = `
+exports[`File > With translation > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-file"
@@ -1059,19 +1087,29 @@ exports[`File With translation renders correctly 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
+          <ul
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
                 class="ecl-label ecl-label--highlight"
               >
-                Highlight
+                highlight
               </span>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-with-translation-title"
@@ -1100,76 +1138,80 @@ exports[`File With translation renders correctly 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -1549,7 +1591,7 @@ exports[`File With translation renders correctly 1`] = `
 </jest>
 `;
 
-exports[`File With translation renders correctly with download attribute 1`] = `
+exports[`File > With translation > renders correctly with download attribute 1`] = `
 <jest>
   <div
     class="ecl-file"
@@ -1575,19 +1617,29 @@ exports[`File With translation renders correctly with download attribute 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
+          <ul
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
                 class="ecl-label ecl-label--highlight"
               >
-                Highlight
+                highlight
               </span>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-with-translation-title"
@@ -1616,76 +1668,80 @@ exports[`File With translation renders correctly with download attribute 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -2066,7 +2122,7 @@ exports[`File With translation renders correctly with download attribute 1`] = `
 </jest>
 `;
 
-exports[`File With translation renders correctly with extra attributes 1`] = `
+exports[`File > With translation > renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-file"
@@ -2094,19 +2150,29 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
+          <ul
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
                 class="ecl-label ecl-label--highlight"
               >
-                Highlight
+                highlight
               </span>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-with-translation-title"
@@ -2135,76 +2201,80 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -2584,7 +2654,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
 </jest>
 `;
 
-exports[`File With translation renders correctly with extra class names 1`] = `
+exports[`File > With translation > renders correctly with extra class names 1`] = `
 <jest>
   <div
     class="ecl-file custom-class custom-class--test"
@@ -2610,19 +2680,29 @@ exports[`File With translation renders correctly with extra class names 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
+          <ul
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
                 class="ecl-label ecl-label--highlight"
               >
-                Highlight
+                highlight
               </span>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-with-translation-title"
@@ -2651,76 +2731,80 @@ exports[`File With translation renders correctly with extra class names 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -3100,7 +3184,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
 </jest>
 `;
 
-exports[`File Without translation renders correctly 1`] = `
+exports[`File > Without translation > renders correctly 1`] = `
 <jest>
   <div
     class="ecl-file"
@@ -3125,375 +3209,11 @@ exports[`File Without translation renders correctly 1`] = `
         <div
           class="ecl-file__content"
         >
-          <div
-            class="ecl-file__labels"
-          >
-            <div
-              class="ecl-file__label"
-            >
-              <span
-                class="ecl-label ecl-label--highlight"
-              >
-                Highlight
-              </span>
-            </div>
-          </div>
-          <div
-            class="ecl-file__title"
-            id="ecl-file-without-translation-title"
-          >
-            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
-          </div>
-          <div
-            class="ecl-file__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
-          </div>
           <ul
-            class="ecl-file__primary-meta"
-          >
-            <li
-              class="ecl-file__primary-meta-item"
-            >
-              Meta info
-            </li>
-            <li
-              class="ecl-file__primary-meta-item"
-            >
-              DD Month YYYY
-            </li>
-          </ul>
-          <div
-            class="ecl-file__lists"
-          >
-            <dl
-              class="ecl-description-list"
-              data-ecl-auto-init="DescriptionList"
-              data-ecl-description-list=""
-              data-ecl-description-list-more-label="Show more items"
-              data-ecl-description-list-visible-items="2"
-            >
-              <dt
-                class="ecl-description-list__term"
-              >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
-                >
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
-                      >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
-                    >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      <footer
-        class="ecl-file__footer"
-      >
-        <span
-          class="ecl-file__language ecl-file__language--no-toggle"
-          id="ecl-file-without-translation-lang"
-        >
-          English
-        </span>
-        <div
-          class="ecl-file__action"
-        >
-          <a
-            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
-            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
-            href="/example"
-            id="ecl-file-without-translation-link"
-          >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-without-translation-link-label"
-            >
-              <span
-                id="ecl-file-without-translation-link-label-text"
-              >
-                Download
-              </span>
-              <span
-                class="ecl-file__meta"
-                id="ecl-file-without-translation-meta"
-              >
-                 (16.2 MB - PDF)
-              </span>
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
-            />
-          </a>
-        </div>
-      </footer>
-    </article>
-  </div>
-</jest>
-`;
-
-exports[`File Without translation renders correctly with a single primary meta item 1`] = `
-<jest>
-  <div
-    class="ecl-file"
-    data-ecl-file=""
-    id="ecl-file-without-translation"
-  >
-    <article
-      class="ecl-file__container"
-    >
-      <div
-        class="ecl-file__info"
-      >
-        <picture
-          class="ecl-picture ecl-file__picture"
-        >
-          <img
-            alt=""
-            class="ecl-file__image"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-          />
-        </picture>
-        <div
-          class="ecl-file__content"
-        >
-          <div
+            aria-label="Labels"
             class="ecl-file__labels"
           >
-            <div
-              class="ecl-file__label"
-            >
-              <span
-                class="ecl-label ecl-label--highlight"
-              >
-                Highlight
-              </span>
-            </div>
-          </div>
-          <div
-            class="ecl-file__title"
-            id="ecl-file-without-translation-title"
-          >
-            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
-          </div>
-          <div
-            class="ecl-file__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
-          </div>
-          <div
-            class="ecl-file__primary-meta"
-          >
-            <div
-              class="ecl-file__primary-meta-item"
-            >
-              Meta info
-            </div>
-          </div>
-          <div
-            class="ecl-file__lists"
-          >
-            <dl
-              class="ecl-description-list"
-              data-ecl-auto-init="DescriptionList"
-              data-ecl-description-list=""
-              data-ecl-description-list-more-label="Show more items"
-              data-ecl-description-list-visible-items="2"
-            >
-              <dt
-                class="ecl-description-list__term"
-              >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
-                >
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
-                      >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
-                    >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      <footer
-        class="ecl-file__footer"
-      >
-        <span
-          class="ecl-file__language ecl-file__language--no-toggle"
-          id="ecl-file-without-translation-lang"
-        >
-          English
-        </span>
-        <div
-          class="ecl-file__action"
-        >
-          <a
-            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
-            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
-            href="/example"
-            id="ecl-file-without-translation-link"
-          >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-without-translation-link-label"
-            >
-              <span
-                id="ecl-file-without-translation-link-label-text"
-              >
-                Download
-              </span>
-              <span
-                class="ecl-file__meta"
-                id="ecl-file-without-translation-meta"
-              >
-                 (16.2 MB - PDF)
-              </span>
-            </span>
-            <span
-              aria-hidden="true"
-              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
-            />
-          </a>
-        </div>
-      </footer>
-    </article>
-  </div>
-</jest>
-`;
-
-exports[`File Without translation renders correctly with multiple labels 1`] = `
-<jest>
-  <div
-    class="ecl-file"
-    data-ecl-file=""
-    id="ecl-file-without-translation"
-  >
-    <article
-      class="ecl-file__container"
-    >
-      <div
-        class="ecl-file__info"
-      >
-        <picture
-          class="ecl-picture ecl-file__picture"
-        >
-          <img
-            alt=""
-            class="ecl-file__image"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-          />
-        </picture>
-        <div
-          class="ecl-file__content"
-        >
-          <div
-            class="ecl-file__labels"
-          >
-            <div
+            <li
               class="ecl-file__label"
             >
               <span
@@ -3501,17 +3221,17 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
               >
                 highlight
               </span>
-            </div>
-            <div
+            </li>
+            <li
               class="ecl-file__label"
             >
               <span
-                class="ecl-label ecl-label--low"
+                class="ecl-label ecl-label--high"
               >
-                important
+                high importance
               </span>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             class="ecl-file__title"
             id="ecl-file-without-translation-title"
@@ -3540,76 +3260,473 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
           <div
             class="ecl-file__lists"
           >
-            <dl
+            <div
               class="ecl-description-list"
               data-ecl-auto-init="DescriptionList"
               data-ecl-description-list=""
               data-ecl-description-list-more-label="Show more items"
               data-ecl-description-list-visible-items="2"
             >
-              <dt
-                class="ecl-description-list__term"
+              <dl
+                class="ecl-description-list__content"
               >
-                List
-              </dt>
-              <dd
-                class="ecl-description-list__definition ecl-description-list__definition--inline"
-              >
-                <ul
-                  class="ecl-description-list__definition-list"
-                  data-ecl-description-list-collapsible=""
+                <dt
+                  class="ecl-description-list__term"
                 >
-                  <li
-                    class="ecl-description-list__definition-item"
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    <a
-                      class="ecl-link ecl-link--standalone ecl-link--icon"
-                      href="/example"
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
-                      />
-                      <span
-                        class="ecl-link__label"
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
                       >
-                        List item 1
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 2
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    List item 3
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
-                  >
-                    <a
-                      class="ecl-link ecl-link--standalone"
-                      href="/example"
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
                     >
-                      List item 4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer
+        class="ecl-file__footer"
+      >
+        <span
+          class="ecl-file__language ecl-file__language--no-toggle"
+          id="ecl-file-without-translation-lang"
+        >
+          English
+        </span>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-without-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-without-translation-link-label"
+            >
+              <span
+                id="ecl-file-without-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-without-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
+  </div>
+</jest>
+`;
+
+exports[`File > Without translation > renders correctly with a single primary meta item 1`] = `
+<jest>
+  <div
+    class="ecl-file"
+    data-ecl-file=""
+    id="ecl-file-without-translation"
+  >
+    <article
+      class="ecl-file__container"
+    >
+      <div
+        class="ecl-file__info"
+      >
+        <picture
+          class="ecl-picture ecl-file__picture"
+        >
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <ul
+            aria-label="Labels"
+            class="ecl-file__labels"
+          >
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                highlight
+              </span>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--high"
+              >
+                high importance
+              </span>
+            </li>
+          </ul>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-without-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <div
+            class="ecl-file__primary-meta"
+          >
+            <div
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </div>
+          </div>
+          <div
+            class="ecl-file__lists"
+          >
+            <div
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dl
+                class="ecl-description-list__content"
+              >
+                <dt
+                  class="ecl-description-list__term"
+                >
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    List item 5
-                  </li>
-                  <li
-                    class="ecl-description-list__definition-item"
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer
+        class="ecl-file__footer"
+      >
+        <span
+          class="ecl-file__language ecl-file__language--no-toggle"
+          id="ecl-file-without-translation-lang"
+        >
+          English
+        </span>
+        <div
+          class="ecl-file__action"
+        >
+          <a
+            aria-labelledby="ecl-file-without-translation-link-label-text ecl-file-without-translation-title ecl-file-without-translation-lang ecl-file-without-translation-meta"
+            class="ecl-link ecl-link--standalone ecl-link--brand ecl-link--icon ecl-file__download"
+            href="/example"
+            id="ecl-file-without-translation-link"
+          >
+            <span
+              class="ecl-link__label"
+              id="ecl-file-without-translation-link-label"
+            >
+              <span
+                id="ecl-file-without-translation-link-label-text"
+              >
+                Download
+              </span>
+              <span
+                class="ecl-file__meta"
+                id="ecl-file-without-translation-meta"
+              >
+                 (16.2 MB - PDF)
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="wt-icon-phosphor--download-simple ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--download-simple"
+            />
+          </a>
+        </div>
+      </footer>
+    </article>
+  </div>
+</jest>
+`;
+
+exports[`File > Without translation > renders correctly with multiple labels 1`] = `
+<jest>
+  <div
+    class="ecl-file"
+    data-ecl-file=""
+    id="ecl-file-without-translation"
+  >
+    <article
+      class="ecl-file__container"
+    >
+      <div
+        class="ecl-file__info"
+      >
+        <picture
+          class="ecl-picture ecl-file__picture"
+        >
+          <img
+            alt=""
+            class="ecl-file__image"
+            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+          />
+        </picture>
+        <div
+          class="ecl-file__content"
+        >
+          <ul
+            aria-label="Labels"
+            class="ecl-file__labels"
+          >
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--highlight"
+              >
+                highlight
+              </span>
+            </li>
+            <li
+              class="ecl-file__label"
+            >
+              <span
+                class="ecl-label ecl-label--low"
+              >
+                important
+              </span>
+            </li>
+          </ul>
+          <div
+            class="ecl-file__title"
+            id="ecl-file-without-translation-title"
+          >
+            In-Depth Comprehensive Report on Emissions Standards, Their Impacts, and Future Projections in the European Union for the Year 2023 and Beyond
+          </div>
+          <div
+            class="ecl-file__description"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+          </div>
+          <ul
+            class="ecl-file__primary-meta"
+          >
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              Meta info
+            </li>
+            <li
+              class="ecl-file__primary-meta-item"
+            >
+              DD Month YYYY
+            </li>
+          </ul>
+          <div
+            class="ecl-file__lists"
+          >
+            <div
+              class="ecl-description-list"
+              data-ecl-auto-init="DescriptionList"
+              data-ecl-description-list=""
+              data-ecl-description-list-more-label="Show more items"
+              data-ecl-description-list-visible-items="2"
+            >
+              <dl
+                class="ecl-description-list__content"
+              >
+                <dt
+                  class="ecl-description-list__term"
+                >
+                  List
+                </dt>
+                <dd
+                  class="ecl-description-list__definition ecl-description-list__definition--inline"
+                >
+                  <ul
+                    class="ecl-description-list__definition-list"
+                    data-ecl-description-list-collapsible=""
                   >
-                    List item 6
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon"
+                        href="/example"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="wt-icon-phosphor--calendar-blank ecl-icon ecl-icon--fluid ecl-link__icon ecl-icon-phosphor--calendar-blank"
+                        />
+                        <span
+                          class="ecl-link__label"
+                        >
+                          List item 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 2
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 3
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone"
+                        href="/example"
+                      >
+                        List item 4
+                      </a>
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 5
+                    </li>
+                    <li
+                      class="ecl-description-list__definition-item"
+                    >
+                      List item 6
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
       </div>

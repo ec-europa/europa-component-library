@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import dataDemo from './demo/data';
 import layoutWrapper from './layout-wrapper.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const getArgs = (data) => {
   const args = {
@@ -11,6 +11,7 @@ const getArgs = (data) => {
     nb_columns: 3,
     nb_items: 6,
     direction: 'horizontal',
+    divider: false,
     grid_content: false,
     show_view_all: true,
     full_height: true,
@@ -96,6 +97,17 @@ const getArgTypes = () => {
         type: 'string',
         defaultValue: { summary: 'horizontal' },
         category: 'Display',
+      },
+    },
+    divider: {
+      name: 'divider',
+      type: 'boolean',
+      description: 'Dividers between rows',
+      control: { type: 'boolean' },
+      table: {
+        type: 'bool',
+        category: 'Display',
+        defaultValue: { summary: 'false' },
       },
     },
   };

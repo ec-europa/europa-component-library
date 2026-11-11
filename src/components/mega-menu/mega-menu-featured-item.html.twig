@@ -5,7 +5,6 @@
   - "label" (string) Label of the textual link
   - "path" (string) Path or Url for the href of the link
   - "description" (string) Description of the link or the image
-  - "icon_path": Path to the icons sprite
   - "picture" (associative array) ECL picture
     - "img" (associative array) (default: {}):
     - "src" (string) (default: ''): Path to the image
@@ -32,7 +31,6 @@
 {% set _description = description|default('') %}
 {% set _path = path|default('') %}
 {% set _picture = picture|default({})  %}
-{% set _icon_path = icon_path|default('') %}
 {% set _external = external|default(false) %}
 {% set _sr_external = sr_external|default(false) %}
 {% set _extra_attributes = 'data-ecl-mega-menu-featured-link' %}
@@ -90,7 +88,6 @@
       link: { 
         path: _path,
         type: 'standalone',
-        icon_path: _icon_path,
         external: _external,
         sr_external: _sr_external,
         label: _label, 

@@ -10,9 +10,6 @@ import demoSidebar from './demo/data--sidebar';
 
 expect.extend(toHaveNoViolations);
 
-const oldData = JSON.parse(JSON.stringify(demoData));
-oldData.icon.splice(1, 1);
-
 describe('Accordion', () => {
   const template = '@ecl/accordion/accordion.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
@@ -37,18 +34,27 @@ describe('Accordion', () => {
     ).resolves.toMatchSnapshot();
   });
 
-  test('renders correctly with old data', () => {
+  test('renders correctly with a single custom icon', () => {
     expect.assertions(1);
 
-    return expect(render(oldData)).resolves.toMatchSnapshot();
+    const optionsWithSingleIcon = merge(demoData, {
+      icon: { name: 'corner-arrow', family: 'phosphor' },
+    });
+
+    return expect(render(optionsWithSingleIcon)).resolves.toMatchSnapshot();
   });
 
-  test('renders correctly with a single icon', () => {
+  test('renders correctly with a custom icon pair', () => {
     expect.assertions(1);
 
-    oldData.icon[0].name = 'corner-arrow';
+    const optionsWithCustomIcons = merge(demoData, {
+      icon: [
+        { name: 'corner-arrow', family: 'phosphor' },
+        { name: 'close', family: 'phosphor' },
+      ],
+    });
 
-    return expect(render(oldData)).resolves.toMatchSnapshot();
+    return expect(render(optionsWithCustomIcons)).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with extra toggle class names', () => {

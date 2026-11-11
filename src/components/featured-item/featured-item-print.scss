@@ -106,7 +106,13 @@ $featured-item-print: null !default;
 
   .ecl-featured-item--hcenter & {
     align-items: center;
-    text-align: center;
+
+    .ecl-featured-item__info {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
 
     .ecl-featured-item__link {
       align-self: auto;
@@ -231,6 +237,10 @@ $featured-item-print: null !default;
       flex-grow: 1;
     }
 
+    &.ecl-featured-item--hcenter .ecl-featured-item__link {
+      align-self: flex-start;
+    }
+
     &.ecl-featured-item--vcenter .ecl-featured-item__info {
       justify-content: center;
       display: flex;
@@ -239,6 +249,7 @@ $featured-item-print: null !default;
 
     // stylelint-disable-next-line no-descending-specificity
     .ecl-featured-item__link {
+      box-sizing: border-box;
       background-color: map.get(
         $featured-item,
         'highlight',
@@ -246,21 +257,20 @@ $featured-item-print: null !default;
         'background-color'
       );
       color: map.get($featured-item, 'highlight', 'link', 'color-highlighted');
+      border-end-end-radius: map.get($featured-item, 'border-radius');
       display: block;
-      margin-block-end: calc(
-        -1 *
-          #{map.get($featured-item-print, 'highlight', 'item', 'padding-block')}
+      margin-block: map.get(
+        $featured-item-print,
+        'highlight',
+        'link',
+        'margin-highlighted-block'
       );
-      margin-inline-end: calc(
-        -1 *
-          #{map.get(
-            $featured-item-print,
-            'highlight',
-            'item',
-            'padding-inline'
-          )}
+      margin-inline: map.get(
+        $featured-item-print,
+        'highlight',
+        'link',
+        'margin-highlighted-inline'
       );
-      margin-inline-start: auto;
       width: clamp(
         1px,
         #{map.get($featured-item, 'highlight', 'link', 'max-width')},
@@ -296,15 +306,13 @@ $featured-item-print: null !default;
 
     .ecl-featured-item__container--right .ecl-featured-item__link,
     .ecl-featured-item__item:first-child:only-child .ecl-featured-item__link {
-      margin-inline-end: 0;
-      margin-inline-start: calc(
-        -1 *
-          #{map.get(
-            $featured-item-print,
-            'highlight',
-            'item',
-            'padding-inline'
-          )}
+      border-end-end-radius: 0;
+      border-start-end-radius: map.get($featured-item, 'border-radius');
+      margin-inline: map.get(
+        $featured-item-print,
+        'highlight',
+        'link',
+        'margin-highlighted-inline-right'
       );
     }
   }

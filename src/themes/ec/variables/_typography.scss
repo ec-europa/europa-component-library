@@ -2,7 +2,7 @@
 @use '../index' as *;
 
 $typography: (
-  font-family: map.get($font-family, 'default'),
+  font-family: var(--ff-d),
   heading-margin: var(--s-5xl) 0 var(--s-m),
   heading-color: currentcolor,
   text-color: currentcolor,

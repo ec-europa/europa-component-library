@@ -16,7 +16,7 @@ import dataFileUpload from '@ecl/file-upload/demo/data';
 import dataFileUploadMultiple from '@ecl/file-upload/demo/data--multiple';
 
 import formGroup from './form-group.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataStandaloneCheckbox = {
   ...dataCheckbox,
@@ -157,6 +157,11 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Forms',
   decorators: [withCode, withNotes],
+  parameters: {
+    breakpointIndicator: {
+      container: '.ecl-form-group',
+    },
+  },
 };
 
 export const Text = (_, { loaded: { component } }) => component;

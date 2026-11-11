@@ -32,8 +32,8 @@ npm install --save @ecl/button
   label: 'Example button', 
   disabled: false, 
   icon: { 
-    type: 'ui', 
-    name: 'corner-arrow', 
+    name: 'corner-right',
+    family: 'phosphor', 
     size: 'xs,' 
   }, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 

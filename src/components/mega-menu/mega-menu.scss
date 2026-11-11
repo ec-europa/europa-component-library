@@ -203,13 +203,10 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu--start-panel .ecl-mega-menu__inner {
-  @include with-scrollbar;
-}
-
 // Expanded
 .ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
-  display: block;
+  display: flex;
+  flex-direction: column;
   inset-inline-end: 0;
 }
 
@@ -220,8 +217,16 @@ $mega-menu: null !default;
   color: map.get($mega-menu, 'mobile', 'header-color');
   display: flex;
   flex-flow: row-reverse;
+  flex-shrink: 0;
   height: map.get($mega-menu, 'mobile', 'header-height');
   padding-block-end: var(--s-xs);
+}
+
+.ecl-mega-menu--start-panel .ecl-mega-menu__list,
+.ecl-mega-menu__inner--expanded .ecl-mega-menu__list {
+  min-height: 0;
+
+  @include with-scrollbar;
 }
 
 .ecl-mega-menu__title {
@@ -355,14 +360,17 @@ $mega-menu: null !default;
       display: none;
     }
   }
+
+  .ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
+    display: block;
+  }
 }
 
 .ecl-mega-menu__wrapper {
   background: #fff;
   display: none;
   font: map.get($mega-menu, 'global', 'font');
-  position: absolute;
-  height: 100%;
+  position: relative;
   inset-inline-start: 0;
   padding: 0;
   top: 0;
@@ -451,18 +459,28 @@ $mega-menu: null !default;
 
   .ecl-icon {
     flex-shrink: 0;
-    height: map.get($mega-menu, 'mobile', 'arrow-size');
 
     // Overriding style coming from button to align icon on the right
     margin-inline-start: auto !important;
     padding: 1px 3px;
-    width: map.get($mega-menu, 'mobile', 'arrow-size');
 
-    &:first-of-type {
-      height: calc(var(--s-s) + 0.5px);
-      width: calc(var(--s-s) + 0.5px);
+    &.ecl-mega-menu__link-icon--desktop {
       display: none;
     }
+  }
+}
+
+.ecl-mega-menu__item--current-page .ecl-mega-menu__link {
+  background-color: map.get(
+    $mega-menu,
+    'mobile',
+    'item-current-page-background'
+  );
+  color: map.get($mega-menu, 'mobile', 'item-current-page-color');
+
+  &:hover {
+    background: transparent;
+    color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 }
 
@@ -505,8 +523,10 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
-  transform: rotate(0);
+.ecl-mega-menu--rtl .ecl-mega-menu__link-icon--mobile,
+.ecl-mega-menu--rtl .ecl-icon-phosphor--caret-left,
+.ecl-mega-menu--rtl .ecl-icon-phosphor--caret-right {
+  transform: rotate(180deg);
 }
 
 .ecl-mega-menu__sublink.ecl-mega-menu__parent-link {
@@ -590,11 +610,14 @@ $mega-menu: null !default;
       flex-direction: row;
       inset-inline: 0;
       margin-top: 0;
+      min-height: auto;
+      overflow-y: visible;
       padding: 0;
     }
 
     .ecl-mega-menu__wrapper {
       padding: 0 0 var(--s-2xl);
+      position: absolute;
       top: 48px;
     }
 
@@ -651,6 +674,24 @@ $mega-menu: null !default;
       }
     }
 
+    .ecl-mega-menu__item--current-page .ecl-mega-menu__link {
+      background-color: map.get(
+        $mega-menu,
+        'desktop',
+        'item-current-page-background'
+      );
+      color: map.get($mega-menu, 'desktop', 'item-current-page-color');
+
+      &:hover {
+        background: map.get($mega-menu, 'desktop', 'item-background-hover');
+        color: map.get($mega-menu, 'desktop', 'item-color-hover');
+      }
+
+      &:focus-visible {
+        outline-color: currentcolor;
+      }
+    }
+
     .ecl-mega-menu__item--promotional .ecl-mega-menu__link {
       background: var(--ecl-mega-menu-item-promotional-bg);
       color: var(--ecl-mega-menu-item-promotional-text-color);
@@ -673,22 +714,22 @@ $mega-menu: null !default;
 
     &.ecl-mega-menu--rtl {
       .ecl-mega-menu__see-all .ecl-icon {
-        transform: rotate(0);
+        transform: rotate(180deg);
       }
     }
 
     .ecl-mega-menu__item--has-children,
     .ecl-mega-menu__item--has-container {
       .ecl-mega-menu__link .ecl-icon {
-        height: calc(var(--s-xs) + 2px);
-        transform: rotate(180deg);
-        width: calc(var(--s-xs) + 2px);
+        transform: none;
 
-        &:first-of-type {
+        &.ecl-mega-menu__link-icon--desktop {
           display: flex;
+          height: calc(var(--s-s) + 0.5px);
+          width: calc(var(--s-s) + 0.5px);
         }
 
-        &:last-of-type {
+        &.ecl-mega-menu__link-icon--mobile {
           display: none;
         }
       }
@@ -729,7 +770,7 @@ $mega-menu: null !default;
   .ecl-mega-menu {
     .ecl-mega-menu__item {
       &.ecl-mega-menu__item--expanded > .ecl-button .ecl-icon {
-        transform: rotate(0);
+        transform: rotate(180deg);
       }
 
       &.ecl-mega-menu__item--expanded {
@@ -792,6 +833,11 @@ $mega-menu: null !default;
   .ecl-mega-menu--two-panels {
     .ecl-mega-menu__item--expanded > .ecl-mega-menu__link {
       display: none;
+    }
+
+    // Prevent horizontal scrollbar.
+    .ecl-mega-menu__list {
+      overflow-x: hidden;
     }
 
     .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
@@ -921,7 +967,6 @@ $mega-menu: null !default;
     overflow: visible;
 
     .ecl-link__icon {
-      height: calc(var(--s-s) + 0.5px);
       padding: 1px 3px;
     }
   }
@@ -958,11 +1003,17 @@ $mega-menu: null !default;
   .ecl-icon {
     align-self: center;
     flex-shrink: 0;
+  }
 
+  > .ecl-button__container {
+    width: 100%;
+  }
+
+  .ecl-button__container .ecl-icon {
     // Overriding style coming from button to align item on the right
     margin-inline-start: auto !important;
-    height: map.get($theme, 'icon', '2xs');
-    width: map.get($theme, 'icon', '2xs');
+    height: 1rem;
+    width: 1rem;
   }
 }
 
@@ -984,12 +1035,6 @@ $mega-menu: null !default;
   .ecl-mega-menu__featured-list__item:last-child {
     padding-block-end: var(--s-m);
   }
-
-  @include with-scrollbar;
-}
-
-.ecl-mega-menu__sublist--scrollable {
-  @include with-scrollbar;
 }
 
 .ecl-mega-menu__mega--level-2 {
@@ -1103,7 +1148,7 @@ $mega-menu: null !default;
 .ecl-mega-menu--rtl {
   .ecl-mega-menu__see-all .ecl-icon,
   .ecl-mega-menu__info-link .ecl-icon {
-    transform: rotate(0);
+    transform: rotate(180deg);
   }
 
   .ecl-mega-menu__see-all .ecl-link__label {
@@ -1382,8 +1427,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__subitem {
-        &--current .ecl-mega-menu__sublink,
-        &.ecl-mega-menu__subitem--current-page .ecl-mega-menu__sublink {
+        &--current .ecl-mega-menu__sublink {
           background-color: transparent;
           box-shadow: none;
         }

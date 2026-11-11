@@ -1,12 +1,8 @@
 // Simple content for demo
-module.exports = {
+export default {
   id: 'popover-example',
   close: {
     label: 'Close',
-    icon: {
-      name: 'close',
-      size: 'm',
-    },
     hide_label: true,
   },
   toggle: {
@@ -14,7 +10,8 @@ module.exports = {
     type: 'button',
     variant: 'tertiary',
     icon: {
-      name: 'information-outline',
+      name: 'info',
+      family: 'phosphor',
       size: 'm',
     },
   },

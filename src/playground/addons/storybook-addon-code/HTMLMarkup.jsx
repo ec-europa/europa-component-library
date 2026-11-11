@@ -1,22 +1,38 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { decode } from 'html-entities';
 import {
   SyntaxHighlighter,
-  Button,
   DocumentWrapper,
-} from '@storybook/components';
-import { styled } from '@storybook/theming';
+} from 'storybook/internal/components';
+import { styled } from 'storybook/theming';
 import { html as beautify } from 'js-beautify';
-import prefillPen from './codepen';
+
+const PanelDocument = styled(DocumentWrapper)`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+`;
+
+const CodeViewport = styled.div`
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+`;
 
 const TitleBar = styled.div`
+  flex-shrink: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
 `;
 
 const TabBar = styled.div`
+  flex-shrink: 0;
   display: flex;
   gap: 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.dark};
@@ -44,12 +60,18 @@ const Tab = styled.button`
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
-  flexGrow: '1',
-  flexShrink: '1',
+  boxSizing: 'border-box',
+  minWidth: '100%',
+  width: 'max-content',
+  // Both scrollbars belong to the bounded viewport, rather than a full-height pre.
+  '& pre': {
+    overflow: 'visible',
+    maxHeight: 'none',
+  },
 }));
 
 function HTMLMarkup({ active, markup, originalMarkup }) {
-  const [activeTab, setActiveTab] = useState('source');
+  const [activeTab, setActiveTab] = useState('rendered');
 
   const beautifyHtml = (html, options = {}) => {
     return beautify(html, {
@@ -75,7 +97,6 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
     unformatted: [],
     inline: [],
   });
-  const unescapedRendered = decode(beautifiedRendered);
 
   // For original source HTML, also force block-level formatting for consistent output
   const beautifiedOriginal = originalMarkup
@@ -84,42 +105,15 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
         inline: [],
       })
     : '';
-  const unescapedOriginal = originalMarkup ? decode(beautifiedOriginal) : '';
 
   const currentCode =
     activeTab === 'source' ? beautifiedOriginal : beautifiedRendered;
   const hasOriginal = originalMarkup && originalMarkup.trim() !== '';
 
   return active ? (
-    <DocumentWrapper>
+    <PanelDocument>
       <TitleBar>
         <h1>HTML</h1>
-        <Button
-          type="button"
-          variant="tertiary"
-          onClick={() => {
-            const form = document.createElement('form');
-            const element1 = document.createElement('input');
-
-            form.method = 'POST';
-            form.action = 'https://codepen.io/pen/define';
-            form.target = '_blank';
-
-            element1.type = 'hidden';
-            element1.name = 'data';
-            element1.value = prefillPen(
-              activeTab === 'source' ? unescapedOriginal : unescapedRendered,
-            );
-
-            form.appendChild(element1);
-
-            document.body.appendChild(form);
-            form.submit();
-            form.remove();
-          }}
-        >
-          Open in CodePen
-        </Button>
       </TitleBar>
       {hasOriginal && (
         <TabBar>
@@ -137,10 +131,17 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
           </Tab>
         </TabBar>
       )}
-      <StyledSyntaxHighlighter bordered copyable format={false} language="html">
-        {hasOriginal ? currentCode : beautifiedRendered}
-      </StyledSyntaxHighlighter>
-    </DocumentWrapper>
+      <CodeViewport>
+        <StyledSyntaxHighlighter
+          bordered
+          copyable
+          format={false}
+          language="html"
+        >
+          {hasOriginal ? currentCode : beautifiedRendered}
+        </StyledSyntaxHighlighter>
+      </CodeViewport>
+    </PanelDocument>
   ) : null;
 }
 

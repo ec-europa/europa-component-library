@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'Consectetur adipiscing elit',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec ullamcorper mi. Morbi interdum fermentum tempus. Nam nec rhoncus risus, eget dictum elit. Vestibulum gravida tincidunt venenatis.',
@@ -8,13 +8,15 @@ module.exports = {
     {
       label: 'Brussels',
       icon: {
-        name: 'location',
+        name: 'map-pin',
+        family: 'phosphor',
       },
     },
     {
       label: '1 minute read',
       icon: {
         name: 'clock',
+        family: 'phosphor',
       },
     },
     'Research Center',

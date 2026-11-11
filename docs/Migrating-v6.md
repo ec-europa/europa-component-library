@@ -12,11 +12,15 @@ Following elements have been deprecated, and are removed in ECL v6
 
 ### Components
 
+- category filter:
+  - class `ecl-category-filter__list-item--open` (replaced by the native `open` attribute on `ecl-category-filter__details`)
 - featured item:
   - parameter `link_highlighted` (replaced by `link_display`)
 - file:
   - parameter `variant` (not used anymore)
   - parameter `detail_meta` (replaced by `primary_meta`)
   - parameter `translation.toggle` (now set in the template directly)
+- gallery:
+  - parameter `grid` (replaced by `variant`)
 - site header:
   - parameter `banner_top` (previously used for class name)

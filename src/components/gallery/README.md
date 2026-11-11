@@ -8,7 +8,7 @@ npm install --save @ecl/gallery
 
 ### Parameters
 
-- **"grid"** (boolean) (default: false) Display gallery as a grid
+- **"variant"** (string) (default: '') Gallery variant; can be '' (mosaic), 'grid', or 'portrait'
 - **"grid_template"** (int) (default: 0) Id of the template to be used. Grid display only
 - **"column"** (int) (default: 3) Number of columns. Grid display only
 - **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid display only
@@ -22,9 +22,11 @@ npm install --save @ecl/gallery
   - "full_screen_label" (string) (default: '')
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
+  - "published_label" (string) (default: ''): label for the publication date
   - "sr_overlay_label" (string) (default: '') aria-label for the overlay
 - **"items"** (array) (default: [])
   - "title" (string) (default: '')
+  - "title_always_visible" (boolean) (default: false)
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
@@ -34,12 +36,14 @@ npm install --save @ecl/gallery
   - "embedded_video" (object) (default: {}) Embedded video object (iframe-based)
   - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "share_path" (string) (default: '') URL for the share button in the overlay
+  - "publication_date" (string) (default: '')
+  - "video_length" (string) (default: '')
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
-- **"footer"** (object) (default: {}) Footer link
+- **"footer"** (object) (default: {}) Footer link. Not available for the portrait variant
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
@@ -47,10 +51,16 @@ npm install --save @ecl/gallery
 - **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
 - **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)
+- **"prev_label"** (string) (default: '') Label of the slider previous button. Portrait variant only
+- **"next_label"** (string) (default: '') Label of the slider next button. Portrait variant only
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Deprecated
+
+- **"grid"** (boolean) (default: false) Display gallery as a grid; use `variant: 'grid'` instead
 
 ### Example :
 
@@ -94,9 +104,6 @@ npm install --save @ecl/gallery
       title: 'Living in the EU',
       description: 'Living, working, travelling in the EU', 
       meta: 'Copyright, Author, Licence for image 2', 
-      icon: { 
-        name: 'audio', 
-      }, 
       share_href: '/share#example-image2.jpg', 
     }, 
     ... 
@@ -113,39 +120,27 @@ npm install --save @ecl/gallery
     } 
   },
   overlay: { 
+    published_label: 'Published',
     close: { 
       variant: 'ghost', 
       label: 'Close', 
-      icon: { 
-        name: 'close', 
-        size: 's', 
-      }, 
     }, 
     previous: { 
       variant: 'ghost', 
       label: 'Previous', 
-      icon: { 
-        name: 'corner-arrow', 
-        transform: 'rotate-270', 
-        size: 'l', 
-      }, 
       icon_position: 'before', 
     }, 
     next: { 
       variant: 'ghost', 
       label: 'Next', 
-      icon: { 
-        name: 'corner-arrow', 
-        transform: 'rotate-90', 
-        size: 'l', 
-      }, 
     }, 
     counter_separator: 'of', 
     full_screen_label: 'View original',
     share: { 
       label: 'Share', 
       icon: { 
-        name: 'share', 
+        name: 'share-network',
+        family: 'phosphor',
         size: 'fluid', 
       }, 
     }, 

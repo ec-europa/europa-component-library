@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import {
   merge,
   renderTwigFileAsNode,
@@ -8,7 +9,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 // Import data for tests
 import demoData from './demo/data';
 
-const demoDataGrid = { ...demoData, grid: true };
+const demoDataGrid = { ...demoData, variant: 'grid' };
+const demoDataPortrait = { ...demoData, variant: 'portrait' };
 
 expect.extend(toHaveNoViolations);
 
@@ -56,7 +58,7 @@ describe('Gallery', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-    jest.setTimeout(15000);
+    vi.setConfig({ testTimeout: 15000 });
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
@@ -70,10 +72,24 @@ describe('Gallery', () => {
       return expect(render(demoDataGrid)).resolves.toMatchSnapshot();
     });
 
-    jest.setTimeout(15000);
+    vi.setConfig({ testTimeout: 15000 });
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoDataGrid, true)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Portrait', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoDataPortrait)).resolves.toMatchSnapshot();
+    });
+
+    vi.setConfig({ testTimeout: 15000 });
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, demoDataPortrait, true)),
       ).toHaveNoViolations();
     });
   });

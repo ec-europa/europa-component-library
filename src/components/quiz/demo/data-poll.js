@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   id: 'quiz-poll',
   variant: 'poll',
   title: 'Ut enim ad minim veniam ',
@@ -9,9 +9,13 @@ module.exports = {
   prev_label: 'Previous',
   items: [
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Europe flag',
+        },
+      },
+      image_display: 'reveal',
       correct_label: 'Correct answer',
       incorrect_label: 'Incorrect answer',
       correct_chosen_label: 'Your correct answer',
@@ -26,8 +30,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       back_icon: {
@@ -35,14 +39,14 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'check-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
         error: {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
@@ -51,9 +55,13 @@ module.exports = {
         'The European Commission has the exclusive right to propose new EU laws',
     },
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+          alt: 'Europe flag',
+        },
+      },
+      image_display: 'reveal',
       question:
         'What document allows EU citizens to travel freely between most EU countries?',
       correct_label: 'Correct answer',
@@ -69,8 +77,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       answer_title: 'The correct answer is B.',
@@ -88,15 +96,19 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },
     },
     {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          alt: 'Europe flag',
+        },
+      },
+      image_display: 'reveal',
       question: 'What currency is used in many EU countries?',
       answer_title: 'The correct answer is C.',
       answer: 'The Euro is the official currency used by many EU conutries',
@@ -117,8 +129,8 @@ module.exports = {
       icon: {
         icon: {
           family: 'phosphor',
-          name: 'question',
-          size: '2xl',
+          name: 'question-mark',
+          size: 'xl',
         },
       },
       back_icon: {
@@ -126,107 +138,14 @@ module.exports = {
           icon: {
             family: 'phosphor',
             name: 'check-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
         error: {
           icon: {
             family: 'phosphor',
             name: 'x-circle',
-            size: '2xl',
-          },
-        },
-      },
-    },
-    {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?',
-      answer_title: 'The correct answer is B.',
-      answer: 'Duis id mattis libero. Quisque accumsan nisi',
-      correct_label: 'Correct answer',
-      incorrect_label: 'Incorrect answer',
-      correct_chosen_label: 'Your correct answer',
-      incorrect_chosen_label: 'Your incorrect answer',
-      options: [
-        {
-          name: 'Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum',
-        },
-        {
-          name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          correct: true,
-        },
-        { name: 'ivamus auctor blandit auctor.' },
-      ],
-      icon: {
-        icon: {
-          name: 'question',
-          family: 'phosphor',
-          size: '2xl',
-        },
-      },
-      back_icon: {
-        success: {
-          icon: {
-            family: 'phosphor',
-            name: 'check-circle',
-            size: '2xl',
-          },
-        },
-        error: {
-          icon: {
-            family: 'phosphor',
-            name: 'x-circle',
-            size: '2xl',
-          },
-        },
-      },
-    },
-    {
-      category: 'Quiz',
-      success_category: 'Correct',
-      error_category: 'Incorrect',
-      question:
-        'Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.',
-      answer_title: 'The correct answer is C.',
-      answer: 'Duis id mattis libero. Quisque accumsan nisi',
-      correct_label: 'Correct answer',
-      incorrect_label: 'Incorrect answer',
-      correct_chosen_label: 'Your correct answer',
-      incorrect_chosen_label: 'Your incorrect answer',
-      options: [
-        {
-          name: 'Aenean est metus, malesuada sed suscipit id, tempor non sapien.',
-        },
-        {
-          name: 'In id nisi vel diam mollis varius. In vitae dui et dolor suscipit venenatis.',
-        },
-        {
-          name: 'Aenean facilisis venenatis lacus, et egestas quam mattis eu.',
-          correct: true,
-        },
-      ],
-      icon: {
-        icon: {
-          family: 'phosphor',
-          name: 'question',
-          size: '2xl',
-        },
-      },
-      back_icon: {
-        success: {
-          icon: {
-            family: 'phosphor',
-            name: 'check-circle',
-            size: '2xl',
-          },
-        },
-        error: {
-          icon: {
-            family: 'phosphor',
-            name: 'x-circle',
-            size: '2xl',
+            size: 'xl',
           },
         },
       },

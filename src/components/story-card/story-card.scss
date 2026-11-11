@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
 @use '@ecl/utility-screen-reader/screen-reader';
+@use '@ecl/mixins-color/mixins' as mixins-color;
 
 // Exposed variables
 $theme: null !default;
@@ -108,6 +109,12 @@ $min-height-desktop: 548px;
     gap: map.get($story-card, 'card', 'content-gap');
   }
 
+  .ecl-story-card__grid-details {
+    border-radius: map.get($theme, 'border-radius', 's');
+
+    @include mixins-color.focus-default;
+  }
+
   .ecl-story-card__grid-details-content {
     border-radius: map.get($theme, 'border-radius', 's');
   }
@@ -127,12 +134,18 @@ $min-height-desktop: 548px;
     display: none;
   }
 
-  .ecl-story-card__card-title,
-  .ecl-story-card__grid-details-title {
+  .ecl-story-card__card-title {
     color: map.get($story-card, 'card', 'title-color');
     font: map.get($story-card, 'card', 'title-font');
     font-weight: map.get($story-card, 'card', 'title-font-weight');
-    margin-block: 0;
+    margin: 0;
+  }
+
+  .ecl-story-card__testimonial-container {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($story-card, 'card', 'content-gap');
+    margin: 0;
   }
 
   .ecl-story-card__testimonial {
@@ -426,9 +439,4 @@ $min-height-desktop: 548px;
       display: none;
     }
   }
-}
-
-[dir='rtl'] .ecl-story-card__grid-next,
-[dir='rtl'] .ecl-story-card__grid-prev {
-  transform: rotate(180deg);
 }

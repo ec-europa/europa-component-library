@@ -7,7 +7,7 @@
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
     - "size" (string) (default: 'l'): Size of the modal. Could be 's', 'm', 'l' or 'full' 
     - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
-    - "close" (object of type "button") (default: {}): close button; label has to be provided for screen reader
+    - "close" (object of type "button") (default: phosphor 'x' icon): close button; label has to be provided for screen reader
     - "buttons" (array) (default: []) Array of ECL Button objects displayed in the modal footer
     - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
@@ -32,6 +32,7 @@
 {% set _css_class = 'ecl-modal' %}
 {% set _sr_icon = sr_icon|default('') %}
 {% set _close = close|default({}) %}
+{% set _default_close_icon = { name: 'x', family: 'phosphor' } %}
 {% set _header = header|default('') %}
 {% set _header_icon = '' %}
 {% set _body = body|default('') %}
@@ -44,13 +45,13 @@
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ecl-modal--' ~ _variant %}
   {% if _variant == 'information' %}
-    {% set _header_icon = 'information-outline' %}
+    {% set _header_icon = 'info' %}
   {% elseif _variant == 'success' %}
-    {% set _header_icon = 'success-outline' %}
+    {% set _header_icon = 'check-circle' %}
   {% elseif _variant == 'warning' %}
-    {% set _header_icon = 'warning-outline' %}
+    {% set _header_icon = 'warning' %}
   {% elseif _variant == 'error' %}
-    {% set _header_icon = 'error-outline' %}
+    {% set _header_icon = 'warning-circle' %}
   {% endif %}
 {% endif %}
 
@@ -101,6 +102,7 @@
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
                 name: _header_icon,
+                family: 'phosphor',
                 size: 'xl',
               },
               as_image: true,
@@ -123,6 +125,7 @@
             variant: 'tertiary',
             style: 'neutral',
             size: 'm',
+            icon: _close.icon|default([]) is not empty ? _close.icon : _default_close_icon,
             hide_label: true,
             extra_classes: 'ecl-modal__close',
             extra_attributes: [{

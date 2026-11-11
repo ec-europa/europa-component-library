@@ -1,7 +1,7 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
-module.exports = {
+export default {
   logo: {
     alt: 'European Commission',
     breakpoint: 'xs',
@@ -28,21 +28,18 @@ module.exports = {
       indicator: {
         value: 10,
         sr_label: 'Items not read',
+        position: 'left',
       },
       aria_label: 'Custom aria label',
     },
     icon: {
-      name: 'brochure',
+      name: 'newspaper',
+      family: 'phosphor',
     },
     overlay: {
       title: 'Custom title',
       close: {
         label: 'Close',
-        icon: {
-          path: '/icons.svg',
-          name: 'close',
-          size: 'm',
-        },
         hide_label: true,
       },
       content: '<ul><li>Point 1</li><li>Point 2</li><li>Point 3</li></ul>',
@@ -55,10 +52,6 @@ module.exports = {
       title: 'Select your language',
       close: {
         label: 'Close',
-        icon: {
-          name: 'close',
-          size: 'm',
-        },
         hide_label: true,
       },
       items: [
@@ -268,23 +261,15 @@ module.exports = {
       href: exampleLink,
     },
     icon: {
-      name: 'corner-arrow',
+      name: 'caret-right',
+      family: 'phosphor',
       size: 'fluid',
-      transform: 'rotate-90',
     },
   },
   notification: {
     variant: 'info',
-    icon: {
-      name: 'information-outline',
-      size: 'l',
-    },
     close: {
       label: 'Close',
-      icon: {
-        name: 'close',
-        size: 'm',
-      },
       hide_label: true,
     },
     links: [

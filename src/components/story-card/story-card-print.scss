@@ -39,7 +39,12 @@ $theme: null !default;
   .ecl-story-card__card-title {
     font: map.get($theme, 'font-print', 'l');
     font-weight: map.get($theme, 'font-weight', 'bold');
+    margin: 0;
     margin-block-end: map.get($theme, 'spacing-print', 'm');
+  }
+
+  .ecl-story-card__testimonial-container {
+    margin: 0;
   }
 
   .ecl-story-card__card-description {

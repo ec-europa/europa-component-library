@@ -120,48 +120,42 @@ $description-list-print: null !default;
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline;
-  margin-inline-end: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
-  padding-inline-start: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
-  position: relative;
 
-  &::before {
-    background-color: map.get($description-list, 'separator-color');
-    border-radius: 50%;
-    content: '';
-    display: block;
-    height: 4px;
-    inset-inline-start: -2px;
-    position: absolute;
-    top: map.get($description-list, 'taxonomy-separator-offset');
-    width: 4px;
-  }
-
-  &:first-child {
-    padding-inline-start: 0;
-  }
-
-  &:first-child::before {
-    display: none;
-  }
-
-  &:last-child {
-    margin-inline-start: 0;
+  // Separator drawn at the end of the item, followed by a zero-width space so
+  // lines only wrap after it, as the markup is rendered spaceless
+  &:not(:last-child)::after {
+    background-image: radial-gradient(
+      circle closest-side,
+      map.get($description-list, 'separator-color') 85%,
+      transparent
+    );
+    background-position: center
+      map.get($description-list, 'taxonomy-separator-offset');
+    background-repeat: no-repeat;
+    background-size: 4px 4px;
+    content: '\200B';
+    padding-inline-start: calc(
+      #{map.get($theme, 'spacing-print', 'xs')} * 2 + 4px
+    );
   }
 }
 
 // Horizontal description lists
 
-.ecl-description-list--horizontal,
+.ecl-description-list--horizontal .ecl-description-list__content,
 %ecl-description-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  column-gap: map.get($theme, 'spacing-print', 'xl');
+  grid-template-columns: map.get($description-list, 'term-width') fit-content(
+      var(--max-w)
+    );
 
   .ecl-description-list__term,
   %ecl-description-list__term {
+    // Explicit columns keep terms and definitions aligned when one is missing
+    grid-column: 1;
     margin-top: map.get($theme, 'spacing-print', 'm');
-    width: map.get($description-list-print, 'term-width');
   }
 
   .ecl-description-list__term:first-of-type {
@@ -171,13 +165,9 @@ $description-list-print: null !default;
   .ecl-description-list__definition,
   %ecl-description-list__definition {
     align-items: flex-start;
-    margin-inline-start: map.get($theme, 'spacing-print', 'xl');
+    grid-column: 2;
     margin-top: map.get($theme, 'spacing-print', 'm');
     overflow-wrap: break-word;
-    width: calc(
-      #{map.get($description-list-print, 'definition-width')} -
-        #{map.get($theme, 'spacing-print', 'xl')}
-    );
   }
 
   .ecl-description-list__definition:first-of-type {

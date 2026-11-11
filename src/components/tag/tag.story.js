@@ -3,11 +3,34 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
+import iconsFlag from '@ecl/resources-icons/list-flag-eu-member.json';
 import dataLink from './demo/data--link';
 import dataRemovable from './demo/data--removable';
 
 import tag from './tag.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
+
+// Flags icons (prefixed)
+const flagOptions = iconsFlag.map((icon) => `flag_${icon.name}`);
+const flagLabels = iconsFlag.reduce((labels, icon) => {
+  labels[`flag_${icon.name}`] = `Flag - ${icon.label}`;
+  return labels;
+}, {});
+
+const iconMapping = iconsAll.reduce(
+  (mapping, icon) => {
+    mapping[icon] = { name: icon, family: 'phosphor' };
+    return mapping;
+  },
+  iconsFlag.reduce((mapping, icon) => {
+    mapping[`flag_${icon.name}`] = { name: icon.name, family: 'flags' };
+    return mapping;
+  }, {}),
+);
+
+// Create 'none' option.
+const iconOptions = ['none', ...iconsAll, ...flagOptions];
 
 const getArgs = (data) => {
   const args = {};
@@ -15,10 +38,16 @@ const getArgs = (data) => {
   if (getSystem() === 'ec') {
     args.color_mode = 'default';
   }
+
   args.label = data.tag.label;
+  args.icon_name = 'none';
+  args.icon_title = '';
   args.nowrap = false;
   if (data.tag.type === 'link') {
     args.external = false;
+  }
+  if (data.tag.type === 'removable') {
+    args.disabled = false;
   }
 
   return args;
@@ -26,7 +55,6 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = getColorModeControls();
-
   argTypes.nowrap = {
     name: 'no wrap',
     type: { name: 'boolean' },
@@ -48,6 +76,33 @@ const getArgTypes = (data) => {
     },
   };
 
+  argTypes.icon_name = {
+    name: 'icon name',
+    type: { name: 'select' },
+    description: 'Icon displayed before the label',
+    options: iconOptions,
+    mapping: iconMapping,
+    control: {
+      labels: flagLabels,
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+  };
+  argTypes.icon_title = {
+    name: 'icon title',
+    type: 'string',
+    description: 'Textual information for the icon, mostly for screen readers',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'icon_name', neq: 'none' },
+  };
+
   if (data.tag.type === 'link') {
     argTypes.external = {
       type: { name: 'boolean' },
@@ -60,13 +115,35 @@ const getArgTypes = (data) => {
     };
   }
 
+  if (data.tag.type === 'removable') {
+    argTypes.disabled = {
+      name: 'disabled',
+      type: { name: 'boolean' },
+      description: 'Disable the removable tag',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+    };
+  }
+
   return argTypes;
 };
 
 const prepareData = (data, args) => {
   data.tag.label = args.label;
   data.tag.nowrap = args.nowrap;
+  data.tag.disabled = args.disabled;
   data.tag.external = args.external;
+  if (args.icon_name && args.icon_name !== 'none') {
+    data.tag.icon = {
+      ...args.icon_name,
+      title: args.icon_title,
+    };
+  } else {
+    delete data.tag.icon;
+  }
 
   correctPaths(data);
 

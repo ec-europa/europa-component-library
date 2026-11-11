@@ -13,6 +13,7 @@ import dataContentItem from '@ecl/content-item/demo/data--event';
 import dataFeaturedItem from '@ecl/featured-item/demo/data';
 import dataNavigationList from '@ecl/navigation-list/demo/data-illustration';
 import dataSloganTicker from '@ecl/slogan-ticker/demo/data';
+import dataGallery from '@ecl/gallery/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
@@ -86,6 +87,15 @@ const navigationList = JSON.parse(JSON.stringify(dataNavigationList));
 navigationList.column = 3;
 navigationList.items.push(...navigationList.items);
 
+const gallery = {
+  ...JSON.parse(JSON.stringify(dataGallery)),
+  id: 'gallery-portrait',
+  variant: 'portrait',
+};
+gallery.items = gallery.items.filter(
+  (item) => item.video || item.embedded_video,
+);
+
 const system = getSystem();
 
 const data = {
@@ -102,6 +112,7 @@ const data = {
   featured_item: dataFeaturedItem,
   navigation_list: navigationList,
   slogan_ticker: dataSloganTicker,
+  gallery,
 };
 
 export default data;

@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls } from '@ecl/story-utils';
 import specs from './demo/data';
 import sloganTicker from './slogan-ticker.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 import isChromatic from 'chromatic/isChromatic';
 import getSystem from '@ecl/builder/utils/getSystem';
 

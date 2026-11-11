@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import featuredItem from './featured-item.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const demoDataHighlighted = { ...demoData, type: 'highlight' };
 const mediaContainer = { ...demoData.media_container };
@@ -92,7 +92,7 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (system === 'ec' && data.type === 'highlight') {
+  if (data.type === 'highlight') {
     argTypes.link_display = {
       name: 'link display',
       type: { name: 'select' },
@@ -244,9 +244,6 @@ const prepareData = (data, args) => {
 
   if (clone.link.link.label) {
     clone.link.link.label = args.link_label;
-  }
-  if (clone.link.icon) {
-    clone.link.icon.size = system === 'ec' ? 'm' : 'xs';
   }
   if (args.show_media) {
     clone.position = args.media_position;

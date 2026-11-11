@@ -1,13 +1,14 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIndicatorControls } from '@ecl/story-utils';
+import { useArgs, useEffect } from 'storybook/preview-api';
 
 // Import data for demos
-import iconsAll from '@ecl/resources-icons/list.json';
+import iconsAll from '@ecl/resources-icons/list-phosphor.json';
 import dataButton from './demo/data';
 
 import button from './button.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
 const dataButtonPrimary = { ...dataButton, variant: 'primary' };
 const dataButtonSecondary = { ...dataButton, variant: 'secondary' };
@@ -33,6 +34,9 @@ const getArgs = (data) => ({
   indicator: false,
   indicator_value: '10',
   indicator_label: 'Items not read',
+  indicator_position: '',
+  indicator_variant: '',
+  indicator_shape: '',
 });
 
 const stylePrimary = {
@@ -72,7 +76,7 @@ const styleSecondary = {
 };
 
 const getArgTypes = (variant) => {
-  const argTypes = getIndicatorControls({ arg: 'hide_label', eq: true });
+  let argTypes = {};
 
   argTypes.size = {
     name: 'size',
@@ -214,6 +218,11 @@ const getArgTypes = (variant) => {
     },
   };
 
+  argTypes = {
+    ...argTypes,
+    ...getIndicatorControls({ arg: 'icon_name', neq: 'none' }),
+  };
+
   return argTypes;
 };
 
@@ -223,7 +232,17 @@ const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
   data.hide_label = args.hide_label;
-  data.indicator = args.indicator ? { value: '', sr_label: '' } : {};
+  if (args.icon_name && args.icon_name !== 'none') {
+    data.icon = {};
+    data.icon.name = args.icon_name;
+    data.icon.family = 'phosphor';
+    data.icon.size = 'xs';
+    data.icon.transform =
+      args.icon_transform !== 'none' ? args.icon_transform : '';
+    data.icon_position = args.icon_position;
+    data.icon.title = args.icon_title;
+  }
+  data.indicator = {};
   if (args.indicator) {
     if (args.indicator_value !== '') {
       data.indicator.value = args.indicator_value;
@@ -231,15 +250,10 @@ const prepareData = (data, args) => {
     if (args.indicator_label !== '') {
       data.indicator.sr_label = args.indicator_label;
     }
-  }
-  if (args.icon_name && args.icon_name !== 'none') {
-    data.icon = {};
-    data.icon.name = args.icon_name;
-    data.icon.size = 'xs';
-    data.icon.transform =
-      args.icon_transform !== 'none' ? args.icon_transform : '';
-    data.icon_position = args.icon_position;
-    data.icon.title = args.icon_title;
+    data.indicator.variant =
+      args.indicator_variant !== 'default' ? args.indicator_variant : '';
+    data.indicator.position = args.indicator_position;
+    data.indicator.shape = args.indicator_shape;
   }
   if (args.icon_name === 'none') {
     delete data.icon;
@@ -261,7 +275,21 @@ const renderStory = async (data, args) => {
 
 export default {
   title: 'Components/Button',
-  decorators: [withCode, withNotes],
+  decorators: [
+    withCode,
+    withNotes,
+    (Story) => {
+      const [{ icon_name: iconName }, updateArgs] = useArgs();
+
+      useEffect(() => {
+        if (iconName === 'none') {
+          updateArgs({ indicator: false });
+        }
+      }, [iconName]);
+
+      return Story();
+    },
+  ],
   parameters: {
     chromatic: {
       modes: {
