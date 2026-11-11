@@ -28,7 +28,7 @@ export default {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     },
     {
-      term: 'Label 04 (no definition)',
+      term: 'Label 04 (without definition)',
     },
     {
       term: 'Label 05',

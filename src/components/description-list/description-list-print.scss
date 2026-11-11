@@ -175,6 +175,14 @@ $description-list-print: null !default;
   }
 }
 
+// Fluid label width: the term column takes the width of the longest term
+.ecl-description-list--fluid-label .ecl-description-list__content,
+%ecl-description-list--fluid-label {
+  grid-template-columns: minmax(min-content, max-content) fit-content(
+      var(--max-w)
+    );
+}
+
 .ecl-description-list__see_more {
   display: none;
 }
