@@ -13,8 +13,6 @@ packages:
   - "src/presets/*"
   - "src/tools/*"
   - "src/website"
-managePackageManagerVersions: false
-pmOnFail: ignore
 overrides:
   twing: 7.3.1
   serialize-javascript: '>=3.1.0'
@@ -48,6 +46,7 @@ overrides:
   postcss: '>=8.4.31'
   '@babel/traverse': '7.29.7'
   axios: '>=1.7.4'
+  word-wrap: '1.2.5'
   ip: '>=2.0.1'
   ws: '>=8.17.1'
   micromatch: '>=4.0.8'
@@ -55,14 +54,13 @@ overrides:
   path-to-regexp: 0.1.12
   inquirer: 12.2.0
   nanoid: 3.3.8
-pnpmVersion: 10.9.0
 linkWorkspacePackages: deep
 allowBuilds:
-  '@parcel/watcher': set this to true or false
-  core-js: set this to true or false
-  esbuild: set this to true or false
-  nx: set this to true or false
-  postinstall-postinstall: set this to true or false
+  '@parcel/watcher': true
+  core-js: true
+  esbuild: true
+  nx: false
+  postinstall-postinstall: false
 minimumReleaseAgeExclude:
   - '@storybook/addon-a11y@10.6.7'
   - '@storybook/addon-docs@10.6.7'
