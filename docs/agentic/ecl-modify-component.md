@@ -47,9 +47,11 @@ ECL uses a breakpoints mixin — do not write raw `@media` queries. The pattern 
 }
 ```
 
-Available breakpoint keys: `'xs'` (480px), `'s'` (768px), `'m'` (996px), `'l'` (1140px).
+Available breakpoint keys (from `src/themes/{ec|eu}/maps/layout.scss`): `'xs'` (0),
+`'s'` (480px), `'m'` (768px), `'l'` (996px), `'xl'` (1140px).
 
-If the component SCSS does not already import `@ecl/grid/mixins/breakpoints`, check
+If the component SCSS does not already import `@ecl/grid/mixins/breakpoints`
+(package lives in `src/layout/grid/`), check
 `{name}/package.json` — add `"@ecl/grid": "<VERSION>"` to `devDependencies` if missing,
 then add the `@use` at the top of the SCSS file.
 
@@ -115,7 +117,7 @@ pnpm test:components -- <name>   # run tests for this component only
 If snapshots fail, read the diff. If the change was intentional:
 
 ```bash
-npm run test:components -- <name> -u   # update snapshots for this component only
+pnpm test:components -- <name> -u   # update snapshots for this component only
 ```
 
 Never update snapshots without reading what changed. A snapshot update is a permanent
