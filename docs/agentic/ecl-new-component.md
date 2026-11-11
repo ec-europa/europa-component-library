@@ -271,13 +271,16 @@ export default <NamePascal>;
 
 Replace `<NAME_PASCAL_SCREAMING>` with the SCREAMING_SNAKE_CASE key used in `ECL.autoInit` options (e.g. `SLIDER`, `EXPANDABLE`).
 
+Add `getArgs(data)` / `getArgTypes(data)` parameters only once the functions actually
+read from `data` (see `ecl-story-controls`).
+
 ### `demo/data.js`
 
 ```js
-module.exports = {};
+export default {};
 ```
 
-Use `module.exports` (not ES module syntax).
+Use ES module syntax (`export default`), like every other component's demo data.
 
 ### `<name>.story.js`
 
@@ -288,9 +291,9 @@ import { correctPaths } from '@ecl/story-utils';
 
 import defaultData from './demo/data';
 import <NamePascal> from './<name>.html.twig';
-import notes from './README.md';
+import notes from './README.md?raw';
 
-const getArgs = (data) => ({});
+const getArgs = () => ({});
 
 const getArgTypes = () => ({});
 
@@ -312,7 +315,7 @@ Default.render = async (args) => {
   return rendered;
 };
 Default.storyName = 'default';
-Default.args = getArgs(defaultData);
+Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.parameters = {
   notes: { markdown: notes, json: ({ args }) => prepareData(defaultData, args) },
@@ -464,6 +467,19 @@ grep -n "@use '@ecl/<sibling-name>/" src/presets/ec/src/ec.scss
 ```
 
 Apply the same insertion, next to the same sibling, in `eu.scss`.
+
+**JS components only — `src/presets/{ec|eu}/src/{ec|eu}.js` and `{ec|eu}-esm.js`**
+
+Without this the component is never bundled and `autoInit` does nothing. Insert next to
+the same sibling (these lists are not strictly alphabetical either):
+
+```js
+// ec.js / eu.js
+export * from '@ecl/<name>';
+
+// ec-esm.js / eu-esm.js — add the import AND the key in the `ECL` object
+import <NamePascal> from '@ecl/<name>';
+```
 
 **`src/presets/ec/src/ec-print.scss` and `src/presets/eu/src/eu-print.scss`**
 
