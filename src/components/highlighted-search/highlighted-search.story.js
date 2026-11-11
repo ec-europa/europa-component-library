@@ -30,7 +30,7 @@ const getArgTypes = () => ({
   ...getColorModeControls(),
   nb_fields: {
     name: 'number of fields',
-    control: { type: 'range', min: 1, max: 4, step: 1 },
+    control: { type: 'range', min: 1, max: 2, step: 1 },
     description:
       'Number of fields examples (text field, select, datepicker, multiple select)',
     table: {

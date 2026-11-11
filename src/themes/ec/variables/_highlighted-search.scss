@@ -19,7 +19,8 @@ $highlighted-search: (
     spacing: var(--s-xs),
   ),
   form: (
-    margin: var(--s-3xl),
+    margin-mobile: var(--s-m),
+    margin-desktop: var(--s-3xl),
     gap: var(--s-xs),
     icon-offset: var(--s-s),
     icon-gap: var(--s-xs),
@@ -27,8 +28,9 @@ $highlighted-search: (
   ),
   suggestion: (
     font: 'body-s',
+    font-weight: map.get($font-weight, 'semi-bold'),
     label-padding: var(--s-2xs),
-    margin-mobile: var(--s-3xl),
-    margin-desktop: var(--s-m),
+    margin: var(--s-m),
+    gap: var(--s-xs),
   ),
 );

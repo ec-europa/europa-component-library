@@ -49,7 +49,7 @@ $highlighted-search: null !default;
   display: flex;
   flex-direction: column;
   gap: var(--s-xs);
-  margin-block-end: map.get($highlighted-search, 'form', 'margin');
+  margin-block-end: map.get($highlighted-search, 'form', 'margin-mobile');
 }
 
 .ecl-highlighted-search__title {
@@ -192,15 +192,12 @@ $highlighted-search: null !default;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  gap: var(--s-m);
-  margin-block-start: map.get(
-    $highlighted-search,
-    'suggestion',
-    'margin-mobile'
-  );
+  gap: map.get($highlighted-search, 'suggestion', 'gap');
+  margin-block-start: map.get($highlighted-search, 'suggestion', 'margin');
 
   @include mixins.responsive-font(
-    map.get($highlighted-search, 'suggestion', 'font')
+    map.get($highlighted-search, 'suggestion', 'font'),
+    $font-weight: map.get($highlighted-search, 'suggestion', 'font-weight')
   );
 }
 
@@ -216,11 +213,10 @@ $highlighted-search: null !default;
 @container ecl-highlighted-search (width >= #{map.get($theme, 'breakpoint', 'm')}) {
   .ecl-highlighted-search__suggestion {
     flex-direction: row;
-    margin-block-start: map.get(
-      $highlighted-search,
-      'suggestion',
-      'margin-desktop'
-    );
+  }
+
+  .ecl-highlighted-search__info {
+    margin-block-end: map.get($highlighted-search, 'form', 'margin-desktop');
   }
 
   // Fields share the 3 rows through subgrid, so the button aligns on the field row.
