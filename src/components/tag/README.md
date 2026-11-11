@@ -17,6 +17,7 @@ npm install --save @ecl/tag
   - "external" (boolean) (default: false) Show external icon for link tags
   - "aria_label" (string) (default: '') Aria label for removable tags
   - "nowrap" (boolean) (default: false) Prevent the tag from wrapping
+  - "disabled" (boolean) (default: false) Disable removable tags
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

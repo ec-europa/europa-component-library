@@ -46,6 +46,9 @@ const getArgs = (data) => {
   if (data.tag.type === 'link') {
     args.external = false;
   }
+  if (data.tag.type === 'removable') {
+    args.disabled = false;
+  }
 
   return args;
 };
@@ -112,12 +115,26 @@ const getArgTypes = (data) => {
     };
   }
 
+  if (data.tag.type === 'removable') {
+    argTypes.disabled = {
+      name: 'disabled',
+      type: { name: 'boolean' },
+      description: 'Disable the removable tag',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+    };
+  }
+
   return argTypes;
 };
 
 const prepareData = (data, args) => {
   data.tag.label = args.label;
   data.tag.nowrap = args.nowrap;
+  data.tag.disabled = args.disabled;
   data.tag.external = args.external;
   if (args.icon_name && args.icon_name !== 'none') {
     data.tag.icon = {
