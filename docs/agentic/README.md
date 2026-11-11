@@ -17,6 +17,12 @@ into `docs/conventions/` or `docs/decisions/`.
 | [ecl-update-token.md](./ecl-update-token.md)         | Updating EC color tokens from a design export or inline value list                                                                                                 |
 | [ecl-static-page.md](./ecl-static-page.md)           | Composing a standalone static HTML page/prototype from ECL components — split by page type (`ecl-static-page-{homepage,inner}.md`), read only the one that applies |
 
+Reference fragments (no slash command, pulled in by other skills):
+
+| File                               | Used by                                                      |
+| ---------------------------------- | ------------------------------------------------------------ |
+| [ecl-picture.md](./ecl-picture.md) | `ecl-modify-component` — adding or changing an image/Picture |
+
 ## Potential future skills
 
 Not yet written — create when a real task requires it.
@@ -67,10 +73,6 @@ full name.
 Pass your task as the argument after the command name:
 
 > `/ecl-new-component Add a slider component with JS`
-
-**Note for CLI users:** the terminal requires a `/project:` prefix because project
-commands are namespaced there. Use `/project:ecl-new-component` instead of
-`/ecl-new-component`. The web and desktop apps do not need this prefix.
 
 ### Cursor / GitHub Copilot / other tools
 
