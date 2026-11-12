@@ -62,6 +62,90 @@ describe('Page Header', () => {
       return expect(render(pictureBeside)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with picture beside right', () => {
+      expect.assertions(1);
+      const pictureBesideRight = JSON.parse(JSON.stringify(demoDefault));
+      pictureBesideRight.picture_position = 'beside-right';
+
+      return expect(render(pictureBesideRight)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with highlighted picture beside', () => {
+      expect.assertions(1);
+      const pictureHighlighted = JSON.parse(JSON.stringify(demoDefault));
+      pictureHighlighted.picture_position = 'beside';
+      pictureHighlighted.picture_highlighted = true;
+
+      return expect(render(pictureHighlighted)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with contained picture beside right', () => {
+      expect.assertions(1);
+      const pictureContained = JSON.parse(JSON.stringify(demoDefault));
+      pictureContained.picture_position = 'beside-right';
+      pictureContained.picture_contained = true;
+
+      return expect(render(pictureContained)).resolves.toMatchSnapshot();
+    });
+
+    test('ignores highlight and contained when the picture is not beside', async () => {
+      expect.assertions(4);
+      const pictureTop = JSON.parse(JSON.stringify(demoDefault));
+      pictureTop.picture_position = 'top';
+      pictureTop.picture_highlighted = true;
+      pictureTop.picture_contained = true;
+
+      const noPicture = JSON.parse(JSON.stringify(demoDefault));
+      noPicture.picture_position = 'beside';
+      noPicture.picture_highlighted = true;
+      noPicture.picture_contained = true;
+      noPicture.picture_background = {};
+
+      for (const params of [pictureTop, noPicture]) {
+        const node = await render(params);
+        expect(
+          node.querySelector(
+            '.ecl-page-header--picture-highlighted, .ecl-page-header--picture-contained',
+          ),
+        ).toBeNull();
+        expect(
+          node.querySelector('.ecl-page-header__container.ecl-container'),
+        ).toBeNull();
+      }
+    });
+
+    test('renders correctly with light background color', () => {
+      expect.assertions(1);
+      const backgroundLight = JSON.parse(JSON.stringify(demoDefault));
+      backgroundLight.background_color = 'light';
+
+      return expect(render(backgroundLight)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with medium background color', () => {
+      expect.assertions(1);
+      const backgroundMedium = JSON.parse(JSON.stringify(demoDefault));
+      backgroundMedium.background_color = 'medium';
+
+      return expect(render(backgroundMedium)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with dark background color', () => {
+      expect.assertions(1);
+      const backgroundDark = JSON.parse(JSON.stringify(demoDefault));
+      backgroundDark.background_color = 'dark';
+
+      return expect(render(backgroundDark)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with deprecated has_background', () => {
+      expect.assertions(1);
+      const hasBackground = JSON.parse(JSON.stringify(demoDefault));
+      hasBackground.has_background = true;
+
+      return expect(render(hasBackground)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

@@ -22,5 +22,7 @@ Following elements have been deprecated, and are removed in ECL v6
   - parameter `translation.toggle` (now set in the template directly)
 - gallery:
   - parameter `grid` (replaced by `variant`)
+- page header:
+  - parameter `has_background` (replaced by `background_color`)
 - site header:
   - parameter `banner_top` (previously used for class name)

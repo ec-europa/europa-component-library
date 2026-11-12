@@ -74,7 +74,7 @@ const getArgs = (data) => {
     show_thumbnail: false,
     show_meta: true,
     show_page_header_expandable: false,
-    has_background: false,
+    background_color: '',
   };
 
   if (getSystem() === 'ec') {
@@ -94,6 +94,9 @@ const getArgs = (data) => {
   if (data.picture_background.img.src) {
     args.background_image_url = data.picture_background.img.src;
     args.picture_position = 'top';
+    args.picture_side = 'left';
+    args.picture_highlighted = false;
+    args.picture_contained = false;
   }
 
   args.hide_title = false;
@@ -108,12 +111,12 @@ const getArgs = (data) => {
 
 const getArgTypes = () => {
   const argTypes = {
-    ...getColorModeControls({ arg: 'has_background' }),
+    ...getColorModeControls({ arg: 'background_color', neq: '' }),
     ...expandableArgTypes(),
   };
 
   argTypes.show_breadcrumb = {
-    name: 'Breadcrumb',
+    name: 'breadcrumb',
     type: 'boolean',
     description: 'Toggle breadcrumb visibility',
     table: {
@@ -122,17 +125,16 @@ const getArgTypes = () => {
   };
 
   argTypes.show_thumbnail = {
-    name: 'Featured media',
+    name: 'featured media',
     type: 'boolean',
     description: 'Toggle featured media (thumbnail) visibility',
     table: {
       category: 'Optional',
     },
-    if: { arg: 'show_description' },
   };
 
   argTypes.show_page_header_expandable = {
-    name: 'Expandable',
+    name: 'expandable',
     type: 'boolean',
     description: 'Toggle element visibility',
     table: {
@@ -141,7 +143,7 @@ const getArgTypes = () => {
   };
 
   argTypes.show_description = {
-    name: 'Introduction',
+    name: 'introduction',
     type: 'boolean',
     description: 'Toggle introduction (description) visibility',
     table: {
@@ -150,7 +152,7 @@ const getArgTypes = () => {
   };
 
   argTypes.show_meta = {
-    name: 'Meta',
+    name: 'meta',
     type: 'boolean',
     description: 'Toggle meta visibility',
     table: {
@@ -159,7 +161,7 @@ const getArgTypes = () => {
   };
 
   argTypes.show_picture = {
-    name: 'Image',
+    name: 'image',
     type: 'boolean',
     description: 'Toggle image visibility',
     table: {
@@ -168,7 +170,7 @@ const getArgTypes = () => {
   };
 
   argTypes.title = {
-    name: 'Page title',
+    name: 'page title',
     type: { name: 'string', required: true },
     description: 'The page title',
     table: {
@@ -178,18 +180,34 @@ const getArgTypes = () => {
     },
   };
 
-  argTypes.has_background = {
-    name: 'Enable background color',
-    type: 'boolean',
-    description: 'Use a colored background',
+  argTypes.background_color = {
+    name: 'background color',
+    type: 'select',
+    description: 'Background color of the page header',
+    options: ['', 'light', 'medium', 'dark'],
+    control: {
+      labels: {
+        '': 'none',
+        light: 'light',
+        medium: 'medium',
+        dark: 'dark',
+      },
+    },
+    mapping: {
+      none: '',
+      light: 'light',
+      medium: 'medium',
+      dark: 'dark',
+    },
     table: {
-      type: { summary: 'boolean' },
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
       category: 'Display',
     },
   };
 
   argTypes.description = {
-    name: 'Introduction',
+    name: 'introduction',
     type: 'string',
     description: 'The page introduction (description)',
     table: {
@@ -201,7 +219,7 @@ const getArgTypes = () => {
   };
 
   argTypes.description_position = {
-    name: 'Description position',
+    name: 'description position',
     type: 'select',
     description: 'Change description position',
     options: ['top', 'bottom'],
@@ -224,7 +242,7 @@ const getArgTypes = () => {
   };
 
   argTypes.meta = {
-    name: 'Meta',
+    name: 'meta',
     type: 'array',
     description: 'The page meta',
     table: {
@@ -236,7 +254,7 @@ const getArgTypes = () => {
   };
 
   argTypes.background_image_url = {
-    name: 'Background image',
+    name: 'background image',
     type: 'string',
     description: 'The image url',
     table: {
@@ -248,7 +266,7 @@ const getArgTypes = () => {
   };
 
   argTypes.picture_position = {
-    name: 'Background image position',
+    name: 'background image position',
     type: 'select',
     description: 'Change image position',
     options: ['top', 'beside', 'bottom'],
@@ -272,8 +290,58 @@ const getArgTypes = () => {
     if: { arg: 'show_picture' },
   };
 
+  // Story-only control, combined with picture_position into 'beside' or 'beside-right'
+  argTypes.picture_side = {
+    name: 'background image side',
+    type: 'select',
+    description: 'Side of the image when placed beside',
+    options: ['left', 'right'],
+    control: {
+      labels: {
+        left: 'left',
+        right: 'right',
+      },
+    },
+    mapping: {
+      left: 'left',
+      right: 'right',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'left' },
+      category: 'Display',
+    },
+    if: { arg: 'picture_position', eq: 'beside' },
+  };
+
+  argTypes.picture_highlighted = {
+    name: 'background image highlighted',
+    type: 'boolean',
+    description:
+      'Highlight the background image; only when the image is placed beside',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+    if: { arg: 'picture_position', eq: 'beside' },
+  };
+
+  argTypes.picture_contained = {
+    name: 'background image contained',
+    type: 'boolean',
+    description:
+      'Keep the image inside the main container; only when the image is placed beside',
+    table: {
+      type: 'boolean',
+      defaultValue: { summary: false },
+      category: 'Display',
+    },
+    if: { arg: 'picture_position', eq: 'beside' },
+  };
+
   argTypes.hide_title = {
-    name: 'Hide title',
+    name: 'hide title',
     type: 'boolean',
     description:
       'Toggle title visibility, for screen reader only. This implies that the visible page title is provided somewhere else (banner for instance)',
@@ -301,7 +369,12 @@ const prepareData = (data, args) => {
   if (!args.show_picture) {
     delete clone.picture_background;
   } else if (args.background_image_url) {
-    clone.picture_position = args.picture_position;
+    clone.picture_position =
+      args.picture_position === 'beside' && args.picture_side === 'right'
+        ? 'beside-right'
+        : args.picture_position;
+    clone.picture_highlighted = args.picture_highlighted;
+    clone.picture_contained = args.picture_contained;
     clone.picture_background = {
       img: {
         src: args.background_image_url,
@@ -339,7 +412,7 @@ const prepareData = (data, args) => {
 
   clone.title = args.title;
   clone.hide_title = args.hide_title;
-  clone.has_background = args.has_background;
+  clone.background_color = args.background_color;
 
   correctPaths(clone);
 

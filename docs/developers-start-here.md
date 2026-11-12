@@ -48,13 +48,13 @@ pnpm test:components
 Test a specific component:
 
 ```bash
-pnpm test:components -- button
+pnpm test:components button
 ```
 
 Update test snapshots:
 
 ```bash
-pnpm test:components -- button -u
+pnpm test:components button -u
 ```
 
 Component tests use Vitest. Review snapshot diffs before updating; omit `button` to

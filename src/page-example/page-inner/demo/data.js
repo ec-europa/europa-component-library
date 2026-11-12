@@ -31,7 +31,7 @@ delete dataSiteHeaderEU.site_name;
 
 const pageHeader = JSON.parse(JSON.stringify(dataPageHeader));
 pageHeader.breadcrumb = dataBreadcrumb;
-pageHeader.picture_position = 'top';
+pageHeader.picture_position = 'beside-right';
 delete pageHeader.picture_thumbnail;
 
 dataInpageNavigation.links[0].label = 'Donec nec ex condimentum';

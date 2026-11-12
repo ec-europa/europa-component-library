@@ -6,10 +6,10 @@ ECL component tests run with Vitest. Each component has two kinds of assertions:
 ## Running tests
 
 ```bash
-pnpm test:components                 # all components — slow, avoid unless needed
-pnpm test:components -- button       # single component by folder name
-pnpm test:components -- button -u    # update snapshots for one component only
-pnpm test:components -- -u           # update all snapshots (use sparingly)
+pnpm test:components              # all components — slow, avoid unless needed
+pnpm test:components button       # single component by folder name
+pnpm test:components button -u    # update snapshots for one component only
+pnpm test:components -u           # update all snapshots (use sparingly)
 ```
 
 Vitest configuration is in `vitest.config.mjs`; it retains the existing

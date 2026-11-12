@@ -664,7 +664,7 @@ grep -n "name: 'ec_<sibling-name_underscored>'\|name: 'ec_<sibling-name_undersco
 
 ```bash
 pnpm install
-pnpm test:components -- <name>
+pnpm test:components <name>
 ```
 
 Tests should pass on first run. If snapshots are missing they will be created automatically.

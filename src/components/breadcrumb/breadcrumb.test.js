@@ -94,4 +94,22 @@ describe('Breadcrumb', () => {
       ).toHaveNoViolations();
     });
   });
+
+  describe('Inverted', () => {
+    const data = merge(dataLong, {
+      ellipsis_label: 'Click to expand',
+      inverted: true,
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('passes the accessibility tests', async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, data)),
+      ).toHaveNoViolations();
+    });
+  });
 });

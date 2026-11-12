@@ -2,24 +2,26 @@
 @use '../index' as *;
 
 $page-header: (
+  color: var(--c-d),
   title: (
-    color: var(--c-d),
     font: var(--f-5xl),
     letter-spacing: 0,
   ),
   description: (
-    color: var(--c-d),
     font: var(--f-l),
     font-weight: map.get($font-weight, 'regular'),
   ),
   meta: (
-    color: var(--c-d),
     font: var(--f-s),
     first-font-weight: map.get($font-weight, 'bold'),
     first-margin-block: 0,
     first-letter-spacing: 0,
     first-text-transform: uppercase,
     first-font: var(--f-m),
+  ),
+  dark: (
+    background: var(--c-p-140),
+    color: #fff,
   ),
 );
 $page-header-print: (
