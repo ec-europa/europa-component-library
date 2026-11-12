@@ -68,3 +68,11 @@ pnpm start:ep   # build EP, then run the EP watcher and the EC Storybook (no EC 
 `start:ep` opens the EC Storybook with `ecl-ep` on and `ecl-ec` off in the
 "ECL styles" panel; the EP checkbox only appears there. The EP watcher only
 rebuilds `ecl-ep.css`; run `pnpm build:ep` for the other outputs.
+
+### Preview
+
+Each PR preview on Netlify also publishes the EP Storybook at
+`/playground/ep/` (EP styles on, "Specific" stories listed). It is built only
+when `ECL_EP_PREVIEW=true` (set in the PR preview job of `.github/workflows/ci.yml`),
+so it is not part of the release website. Build it locally with
+`pnpm --filter @ecl/twig-ec-storybook build:ep`.

@@ -15,9 +15,9 @@ export function createConfig(system, configDir) {
   const isProd = process.env.NODE_ENV === 'production';
   const outputFolder = isProd ? 'dist' : 'build';
   const excludedSystem = system === 'ec' ? 'eu' : 'ec';
-  // Specific EP preset, served in the EC dev Storybook only under `pnpm start:ep`.
+  // Specific EP preset: `pnpm start:ep` locally, `build:ep` for PR previews.
   const epBuild = path.resolve(sourceRoot, 'specific/presets/ep/build');
-  const withEp = system === 'ec' && !isProd && process.env.ECL_EP === 'true';
+  const withEp = system === 'ec' && process.env.ECL_EP === 'true';
   const environment = {
     PUBLIC_URL: process.env.PUBLIC_URL || '',
     STORYBOOK_SYSTEM: system.toUpperCase(),
@@ -51,7 +51,7 @@ export function createConfig(system, configDir) {
             path.resolve(sourceRoot, 'presets/reset', outputFolder),
           ]
         : []),
-      ...(withEp ? [{ from: epBuild, to: '/ep' }] : []),
+      ...(withEp && !isProd ? [{ from: epBuild, to: '/ep' }] : []),
       path.resolve(configDir, '../public'),
     ],
     env: (existing) => ({ ...existing, ...environment }),
