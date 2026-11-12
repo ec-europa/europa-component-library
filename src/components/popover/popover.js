@@ -129,10 +129,10 @@ export class Popover {
       `#${this.toggle.getAttribute('aria-controls')}`,
     );
 
-    // Exit if no target found
-    if (!this.target) {
+    // Exit if no toggle or target found
+    if (!this.target || !this.toggle) {
       throw new TypeError(
-        'Target has to be provided for popover (aria-controls)',
+        'Toggle and target have to be provided for popover (aria-controls)',
       );
     }
 
@@ -487,13 +487,14 @@ export class Popover {
    */
   handleArrowPosition(direction) {
     const popoverRect = this.target.getBoundingClientRect();
+    const toggleRect = this.toggle.getBoundingClientRect();
 
     if (direction === 'left' || direction === 'right') {
       if (this.element.classList.contains(this.POPOVER_CLASSES.PUSH_BOTTOM)) {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            this.toggleRect.top - popoverRect.top + this.toggleRect.height / 2,
+            toggleRect.top - popoverRect.top + toggleRect.height / 2,
           )}px`,
         );
       } else if (
@@ -502,7 +503,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.top + this.toggleRect.top + this.toggleRect.height / 2,
+            popoverRect.top + toggleRect.top + toggleRect.height / 2,
           )}px`,
         );
       }
@@ -511,8 +512,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.right -
-              (this.toggleRect.right - this.toggleRect.width / 2),
+            popoverRect.right - (toggleRect.right - toggleRect.width / 2),
           )}px`,
         );
       } else if (
@@ -521,7 +521,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            this.toggleRect.left - popoverRect.left + this.toggleRect.width / 2,
+            toggleRect.left - popoverRect.left + toggleRect.width / 2,
           )}px`,
         );
       }
