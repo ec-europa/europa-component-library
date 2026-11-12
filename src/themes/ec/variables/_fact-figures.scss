@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $fact-figures: (
   background: var(--cm-surface-low-2),
@@ -38,6 +39,7 @@ $fact-figures: (
   source-separator-color: var(--cm-on-surface-brand),
   source-separator-spacing: var(--s-3xs),
 );
+$fact-figures: overrides.apply('fact-figures', $fact-figures);
 $fact-figures-print: (
   title-font: map.get($font-print, '4xl'),
   title-font-weight: map.get($font-weight, 'light'),
@@ -45,3 +47,4 @@ $fact-figures-print: (
   value-font-l: map.get($font-print, '5xl'),
   value-font-weight: map.get($font-weight, 'light'),
 );
+$fact-figures-print: overrides.apply('fact-figures-print', $fact-figures-print);

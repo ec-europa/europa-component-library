@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $tabs: (
   margin-bottom: 0,
@@ -46,3 +47,4 @@ $tabs: (
     font-weight: map.get($font-weight, 'regular'),
   ),
 );
+$tabs: overrides.apply('tabs', $tabs);

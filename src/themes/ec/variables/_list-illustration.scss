@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $list-illustration: (
   background-color: var(--cm-surface-low-1),
@@ -39,6 +40,7 @@ $list-illustration: (
     margin: var(--s-xs),
   ),
 );
+$list-illustration: overrides.apply('list-illustration', $list-illustration);
 $list-illustration-print: (
   value: (
     font-desktop-m: map.get($font-print, '4xl'),
@@ -53,4 +55,8 @@ $list-illustration-print: (
   description: (
     margin: map.get($spacing-print, 'xs'),
   ),
+);
+$list-illustration-print: overrides.apply(
+  'list-illustration-print',
+  $list-illustration-print
 );

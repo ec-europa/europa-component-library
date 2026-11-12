@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $site-header: (
   background-color: var(--cm-surface-inverted),
@@ -39,3 +40,4 @@ $site-header: (
     close-top: var(--s-m),
   ),
 );
+$site-header: overrides.apply('site-header', $site-header);

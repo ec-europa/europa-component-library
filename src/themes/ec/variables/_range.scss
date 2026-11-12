@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use 'sass:color';
 @use '../index' as *;
+@use '../overrides';
 
 $range: (
   bar-color: var(--cm-border-neutral),
@@ -28,3 +29,4 @@ $range: (
   outline-color: var(--cm-border-primary),
   outline-offset: 2px,
 );
+$range: overrides.apply('range', $range);

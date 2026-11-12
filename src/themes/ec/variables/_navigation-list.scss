@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $navigation-list: (
   grid-row-gap: var(--s-5xl),
@@ -11,6 +12,11 @@ $navigation-list: (
   shadow: var(--sh-1),
   background: var(--cm-surface-inverted),
 );
+$navigation-list: overrides.apply('navigation-list', $navigation-list);
 $navigation-list-print: (
   title-font: map.get($font-print, 'xl'),
+);
+$navigation-list-print: overrides.apply(
+  'navigation-list-print',
+  $navigation-list-print
 );

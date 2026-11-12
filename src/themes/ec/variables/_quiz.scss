@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $quiz: (
   quiz: (
@@ -62,6 +63,8 @@ $quiz: (
     error-color: var(--c-er-100),
   ),
 );
+$quiz: overrides.apply('quiz', $quiz);
 $quiz-print: (
   question-font-weight: map.get($font-weight, 'semi-bold'),
 );
+$quiz-print: overrides.apply('quiz-print', $quiz-print);

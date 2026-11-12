@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $slogan-ticker: (
   shadow: none,
@@ -9,3 +10,4 @@ $slogan-ticker: (
   padding: var(--s-l) 0,
   button-shadow: map.get($shadow, '5'),
 );
+$slogan-ticker: overrides.apply('slogan-ticker', $slogan-ticker);

@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $modal: (
   overlay: var(--cm-surface-lowest-variant),
@@ -33,3 +34,4 @@ $modal: (
     margin-block-start: var(--s-xl),
   ),
 );
+$modal: overrides.apply('modal', $modal);

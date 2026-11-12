@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $media-container: (
   border-radius: 0,
@@ -18,7 +19,12 @@ $media-container: (
   expandable-spacing-top: var(--s-xl),
   scrollbar-width: 16px,
 );
+$media-container: overrides.apply('media-container', $media-container);
 $media-container-print: (
   caption-font: map.get($font-print, 'xs'),
   caption-padding: map.get($spacing-print, 'xs'),
+);
+$media-container-print: overrides.apply(
+  'media-container-print',
+  $media-container-print
 );

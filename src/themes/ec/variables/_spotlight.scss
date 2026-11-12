@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $spotlight: (
   gradient: linear-gradient(
@@ -52,3 +53,4 @@ $spotlight: (
     padding-block: var(--s-5xl),
   ),
 );
+$spotlight: overrides.apply('spotlight', $spotlight);

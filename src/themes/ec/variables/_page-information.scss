@@ -1,7 +1,9 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $page-information: (
   color: var(--cm-on-surface-grey),
   font: 'body-s',
 );
+$page-information: overrides.apply('page-information', $page-information);

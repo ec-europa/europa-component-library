@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $category-filter: (
   separator: none,
@@ -7,3 +8,4 @@ $category-filter: (
   background-subitem: var(--cm-surface-low-1),
   subitem-spacing: var(--s-xl),
 );
+$category-filter: overrides.apply('category-filter', $category-filter);

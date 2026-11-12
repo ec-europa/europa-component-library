@@ -2848,6 +2848,25 @@ importers:
         specifier: 6.1.4
         version: 6.1.4
 
+  src/specific/presets/ep:
+    dependencies:
+      '@ecl/preset-ec':
+        specifier: 5.4.0
+        version: link:../../../presets/ec
+    devDependencies:
+      '@ecl/builder':
+        specifier: 5.4.0
+        version: link:../../../tools/builder
+      cross-env:
+        specifier: 10.1.0
+        version: 10.1.0
+      npm-run-all:
+        specifier: 4.1.5
+        version: 4.1.5
+      rimraf:
+        specifier: 6.1.4
+        version: 6.1.4
+
   src/themes/color-modes: {}
 
   src/themes/ec: {}
@@ -3605,7 +3624,7 @@ importers:
         version: 4.0.5
       netlify-cms-proxy-server:
         specifier: 1.3.24
-        version: 1.3.24(supports-color@7.2.0)
+        version: 1.3.24(supports-color@10.2.2)
       postcss:
         specifier: '>=8.4.31'
         version: 8.5.26
@@ -14287,9 +14306,9 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@kwsites/file-exists@1.1.1(supports-color@7.2.0)':
+  '@kwsites/file-exists@1.1.1(supports-color@10.2.2)':
     dependencies:
-      debug: 4.4.3(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -15747,8 +15766,8 @@ snapshots:
       clean-stack: 2.2.0
       indent-string: 4.0.0
 
-  ajv-formats@2.1.1:
-    dependencies:
+  ajv-formats@2.1.1(ajv@8.18.0):
+    optionalDependencies:
       ajv: 8.18.0
 
   ajv-keywords@3.5.2(ajv@6.14.0):
@@ -16247,7 +16266,7 @@ snapshots:
       rx: 4.1.0
       send: 0.19.2(supports-color@10.2.2)
       serve-index: 1.9.2(supports-color@10.2.2)
-      serve-static: 2.2.1(supports-color@7.2.0)
+      serve-static: 2.2.1(supports-color@10.2.2)
       server-destroy: 1.0.1
       socket.io: 4.8.3(supports-color@10.2.2)
       ua-parser-js: 2.0.9
@@ -17233,10 +17252,10 @@ snapshots:
     dependencies:
       once: 1.4.0
 
-  engine.io-client@6.6.4(supports-color@7.2.0):
+  engine.io-client@6.6.4(supports-color@10.2.2):
     dependencies:
       '@socket.io/component-emitter': 3.1.2
-      debug: 4.4.3(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
       engine.io-parser: 5.2.3
       ws: 8.21.3
       xmlhttprequest-ssl: 2.1.2
@@ -17247,7 +17266,7 @@ snapshots:
 
   engine.io-parser@5.2.3: {}
 
-  engine.io@6.6.6(supports-color@7.2.0):
+  engine.io@6.6.6(supports-color@10.2.2):
     dependencies:
       '@types/cors': 2.8.19
       '@types/node': 25.5.2
@@ -17256,7 +17275,7 @@ snapshots:
       base64id: 2.0.0
       cookie: 0.7.2
       cors: 2.8.6
-      debug: 4.4.3(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
       engine.io-parser: 5.2.3
       ws: 8.20.0
     transitivePeerDependencies:
@@ -20104,7 +20123,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  netlify-cms-proxy-server@1.3.24(supports-color@7.2.0):
+  netlify-cms-proxy-server@1.3.24(supports-color@10.2.2):
     dependencies:
       '@hapi/joi': 17.1.1
       async-mutex: 0.3.2
@@ -20112,7 +20131,7 @@ snapshots:
       dotenv: 10.0.0
       express: 4.22.1(supports-color@10.2.2)
       morgan: 1.10.1(supports-color@10.2.2)
-      simple-git: 3.35.2(supports-color@7.2.0)
+      simple-git: 3.35.2(supports-color@10.2.2)
       what-the-diff: 0.6.0
       winston: 3.19.0
     transitivePeerDependencies:
@@ -21776,7 +21795,7 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
       ajv: 8.18.0
-      ajv-formats: 2.1.1
+      ajv-formats: 2.1.1(ajv@8.18.0)
       ajv-keywords: 5.1.0(ajv@8.18.0)
 
   section-matter@1.0.0:
@@ -21822,22 +21841,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  send@1.2.1(supports-color@7.2.0):
-    dependencies:
-      debug: 4.4.3(supports-color@7.2.0)
-      encodeurl: 2.0.0
-      escape-html: 1.0.3
-      etag: 1.8.1
-      fresh: 2.0.0
-      http-errors: 2.0.1
-      mime-types: 3.0.2
-      ms: 2.1.3
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      statuses: 2.0.2
-    transitivePeerDependencies:
-      - supports-color
-
   serialize-javascript@7.0.5: {}
 
   serve-handler@6.1.7:
@@ -21868,15 +21871,6 @@ snapshots:
       escape-html: 1.0.3
       parseurl: 1.3.3
       send: 1.2.1(supports-color@10.2.2)
-    transitivePeerDependencies:
-      - supports-color
-
-  serve-static@2.2.1(supports-color@7.2.0):
-    dependencies:
-      encodeurl: 2.0.0
-      escape-html: 1.0.3
-      parseurl: 1.3.3
-      send: 1.2.1(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -21992,13 +21986,13 @@ snapshots:
       - kerberos
       - supports-color
 
-  simple-git@3.35.2(supports-color@7.2.0):
+  simple-git@3.35.2(supports-color@10.2.2):
     dependencies:
-      '@kwsites/file-exists': 1.1.1(supports-color@7.2.0)
+      '@kwsites/file-exists': 1.1.1(supports-color@10.2.2)
       '@kwsites/promise-deferred': 1.1.1
       '@simple-git/args-pathspec': 1.0.2
       '@simple-git/argv-parser': 1.0.3
-      debug: 4.4.3(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -22037,9 +22031,9 @@ snapshots:
     dependencies:
       no-case: 2.3.2
 
-  socket.io-adapter@2.5.6(supports-color@7.2.0):
+  socket.io-adapter@2.5.6(supports-color@10.2.2):
     dependencies:
-      debug: 4.4.3(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
       ws: 8.20.0
     transitivePeerDependencies:
       - bufferutil
@@ -22049,8 +22043,8 @@ snapshots:
   socket.io-client@4.8.3(supports-color@10.2.2):
     dependencies:
       '@socket.io/component-emitter': 3.1.2
-      debug: 4.4.3(supports-color@7.2.0)
-      engine.io-client: 6.6.4(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
+      engine.io-client: 6.6.4(supports-color@10.2.2)
       socket.io-parser: 4.2.6(supports-color@10.2.2)
     transitivePeerDependencies:
       - bufferutil
@@ -22069,9 +22063,9 @@ snapshots:
       accepts: 1.3.8
       base64id: 2.0.0
       cors: 2.8.6
-      debug: 4.4.3(supports-color@7.2.0)
-      engine.io: 6.6.6(supports-color@7.2.0)
-      socket.io-adapter: 2.5.6(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@10.2.2)
+      engine.io: 6.6.6(supports-color@10.2.2)
+      socket.io-adapter: 2.5.6(supports-color@10.2.2)
       socket.io-parser: 4.2.6(supports-color@10.2.2)
     transitivePeerDependencies:
       - bufferutil

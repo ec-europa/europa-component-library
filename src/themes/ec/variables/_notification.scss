@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $notification: (
   radius: map.get($border-radius, 's') 0 0 map.get($border-radius, 's'),
@@ -47,6 +48,7 @@ $notification: (
     border-color: transparent,
   ),
 );
+$notification: overrides.apply('notification', $notification);
 $notification-print: (
   padding: map.get($spacing-print, 'l') map.get($spacing-print, '5xl')
     map.get($spacing-print, 'l') map.get($spacing-print, 's'),
@@ -54,3 +56,4 @@ $notification-print: (
   title-font: map.get($font-print, 'm'),
   title-spacing: 0,
 );
+$notification-print: overrides.apply('notification-print', $notification-print);

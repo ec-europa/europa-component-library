@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $table: (
   row-border: 1px solid var(--cm-border-low),
@@ -50,3 +51,4 @@ $table: (
     color: var(--cm-on-surface-grey),
   ),
 );
+$table: overrides.apply('table', $table);

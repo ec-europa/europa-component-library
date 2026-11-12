@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $select: (
   font: var(--f-s),
@@ -50,3 +51,4 @@ $select: (
     dropdown-container-max-height: 16rem,
   ),
 );
+$select: overrides.apply('select', $select);

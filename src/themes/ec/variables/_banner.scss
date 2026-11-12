@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $banner: (
   background-color: var(--cm-surface-color-mode-low),
@@ -83,6 +84,7 @@ $banner: (
   description-margin: var(--s-s),
   overlay: var(--c-g-600),
 );
+$banner: overrides.apply('banner', $banner);
 $banner-print: (
   container-padding-bottom: map.get($spacing-print, '4xl'),
   container-padding-top: map.get($spacing-print, '4xl'),
@@ -90,3 +92,4 @@ $banner-print: (
   content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
     map.get($spacing-print, 'l'),
 );
+$banner-print: overrides.apply('banner-print', $banner-print);
