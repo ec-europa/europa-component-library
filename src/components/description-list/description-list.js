@@ -177,18 +177,22 @@ export class DescriptionList {
             contentEl.prepend(span);
           }
 
-          const hiddenItems = Array.from(list.children).filter((item) =>
-            item.classList.contains(
-              'ecl-description-list__definition-item--hidden',
-            ),
-          );
+          const items = Array.from(list.children)
+            .filter((item) =>
+              item.classList.contains('ecl-description-list__definition-item'),
+            )
+            .map((item) => {
+              const clone = item.cloneNode(true);
 
-          hiddenItems.forEach((item) => {
-            item.classList.remove(
-              'ecl-description-list__definition-item--hidden',
-            );
-            contentEl.appendChild(item);
-          });
+              clone.classList.remove(
+                'ecl-description-list__definition-item--hidden',
+                'ecl-description-list__definition-item--last-visible',
+              );
+
+              return clone;
+            });
+
+          contentEl.append(...items);
 
           list.dataset.popoverPopulated = 'true';
         }
