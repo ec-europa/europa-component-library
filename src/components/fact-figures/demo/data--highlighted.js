@@ -39,6 +39,7 @@ export default {
       },
       value: '36',
       title: 'Local communities',
+      description: 'Turpis varius congue venenatis, erat dui feugiat felis.',
       sources: [
         {
           link: {
@@ -71,6 +72,8 @@ export default {
       },
       value: '24',
       title: 'Active women members.',
+      description:
+        'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
       sources: [
         {
           link: {
@@ -87,6 +90,7 @@ export default {
       },
       value: '58',
       title: 'Trained women',
+      description: 'Cras vestibulum efficitur mi, quis porta tellus rutrum ut.',
       sources: [
         {
           link: {
