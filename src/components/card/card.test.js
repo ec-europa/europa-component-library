@@ -9,6 +9,24 @@ import dataCard from './demo/data';
 
 expect.extend(toHaveNoViolations);
 
+const normalizeGeneratedIds = (element) => {
+  const generated = element.querySelector('[id^="ecl-popover"]');
+
+  if (generated) {
+    const stableId = 'generated-id';
+
+    generated.setAttribute('id', stableId);
+
+    const controller = element.querySelector('[aria-controls^="ecl-popover"]');
+
+    if (controller) {
+      controller.setAttribute('aria-controls', stableId);
+    }
+  }
+
+  return element;
+};
+
 describe('Card', () => {
   const template = '@ecl/card/card.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
@@ -16,7 +34,12 @@ describe('Card', () => {
   describe('Default', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataCard)).resolves.toMatchSnapshot();
+
+      return render(dataCard).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('renders correctly with extra class names', () => {
@@ -39,7 +62,11 @@ describe('Card', () => {
         ],
       });
 
-      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+      return render(withExtraAttributes).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('passes the accessibility tests', async () => {
