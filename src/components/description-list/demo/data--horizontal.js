@@ -135,6 +135,7 @@ export default {
     {
       term: 'Label 09',
       type: 'tag',
+      more_popover: true,
       definition: [
         { tag: { label: 'Link tag', path: exampleLink } },
         { tag: { label: 'Long link tag', path: exampleLink } },

@@ -129,17 +129,16 @@ export class Popover {
       `#${this.toggle.getAttribute('aria-controls')}`,
     );
 
-    // Exit if no target found
-    if (!this.target) {
+    // Exit if no toggle or target found
+    if (!this.target || !this.toggle) {
       throw new TypeError(
-        'Target has to be provided for popover (aria-controls)',
+        'Toggle and target have to be provided for popover (aria-controls)',
       );
     }
 
     this.scrollable = this.target.firstElementChild;
 
     window.addEventListener('resize', this.checkPosition);
-    document.addEventListener('scroll', this.checkPosition);
 
     // Bind click event on toggle
     if (this.attachClickListener && this.toggle) {
@@ -192,7 +191,6 @@ export class Popover {
       this.close.removeEventListener('click', this.handleClickOnToggle);
     }
     window.removeEventListener('resize', this.checkPosition);
-    document.removeEventListener('scroll', this.checkPosition);
 
     if (this.attachKeyListener) {
       document.removeEventListener('keyup', this.handleKeyboardGlobal);
@@ -400,7 +398,6 @@ export class Popover {
     // Try to use as much of the available width, respecting the max-width set.
     const styles = window.getComputedStyle(this.scrollable);
     const maxWidth = parseInt(styles.getPropertyValue('max-width'), 10);
-    const minWidth = parseInt(styles.getPropertyValue('min-width'), 10);
     const padding = parseInt(styles.getPropertyValue('padding-left'), 10) * 2;
 
     // We consider 90% of the biggest space available
@@ -415,9 +412,6 @@ export class Popover {
         containerWidth > maxWidth)
     ) {
       targetWidth = maxWidth;
-    } else if (horizontalSpace < minWidth + padding) {
-      // If the available space is smaller than minWidth (plus padding), set to minWidth
-      targetWidth = minWidth;
     } else if (direction === 'left' || direction === 'right') {
       // Otherwise, set the width to the available space minus the padding
       targetWidth = horizontalSpace - padding;
@@ -493,13 +487,14 @@ export class Popover {
    */
   handleArrowPosition(direction) {
     const popoverRect = this.target.getBoundingClientRect();
+    const toggleRect = this.toggle.getBoundingClientRect();
 
     if (direction === 'left' || direction === 'right') {
       if (this.element.classList.contains(this.POPOVER_CLASSES.PUSH_BOTTOM)) {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            this.toggleRect.top - popoverRect.top + this.toggleRect.height / 2,
+            toggleRect.top - popoverRect.top + toggleRect.height / 2,
           )}px`,
         );
       } else if (
@@ -508,7 +503,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.top + this.toggleRect.top + this.toggleRect.height / 2,
+            popoverRect.top + toggleRect.top + toggleRect.height / 2,
           )}px`,
         );
       }
@@ -517,8 +512,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.right -
-              (this.toggleRect.right - this.toggleRect.width / 2),
+            popoverRect.right - (toggleRect.right - toggleRect.width / 2),
           )}px`,
         );
       } else if (
@@ -527,7 +521,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            this.toggleRect.left - popoverRect.left + this.toggleRect.width / 2,
+            toggleRect.left - popoverRect.left + toggleRect.width / 2,
           )}px`,
         );
       }

@@ -7,12 +7,14 @@
           "term" (string or array of string)
           "definition" (block or array of string or array of ECL Link or array of ECL Tag)
           "type" (string): type of data, if not plain text; could be "link", "link-inline", "taxonomy", "tag"
+          "more_popover" (boolean) (default: false) Reveal hidden items in a popover
         },
         ...
       ]
     - "variant" (string) (default: ''): global variant of the list (horizontal, vertical)
     - "visible_items": (integer) (default: 0) Number of visible items (0 to display all items)
     - "more_label": (string) (default: '') Label for the more button, if requested
+    - "popover_close_label" (string) (default: '') Label of the popover's close button
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -30,6 +32,7 @@
 {% set _variant = variant|default('') %}
 {% set _more_label = more_label|default('') %}
 {% set _extra_attributes = '' %}
+{% set _popover_markup = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -40,6 +43,25 @@
     { name: 'data-ecl-description-list-visible-items', value: _visible_items },
     { name: 'data-ecl-auto-init', value: 'DescriptionList' }
   ] %}
+
+  {% set _popover_markup %}
+    <li class="ecl-description-list__see_more">
+      {% include '@ecl/popover/popover.html.twig' with {
+        toggle: {
+          label: _more_label,
+          extra_classes: 'ecl-link ecl-link--standalone',
+          type: 'button',
+          variant: 'tertiary',
+        },
+        close: {
+          label: _popover_close_label,
+          hide_label: true,
+        },
+        extra_classes: 'ecl-description-list__popover',
+        extra_attributes: [{ name: 'data-ecl-description-list-popover'}],
+      } only %}
+    </li>
+  {% endset %}
 {% endif %}
 
 {% if _variant is not empty %}
@@ -101,6 +123,9 @@
                 {%- endif -%}
                 </li>
               {%- endfor -%}
+              {% if _item.more_popover %}
+                {{- _popover_markup -}}
+              {% endif %}
               </ul>
             </dd>
 
@@ -119,6 +144,9 @@
                 }) only %}
                 </li>
               {% endfor %}
+              {% if _item.more_popover %}
+                {{- _popover_markup -}}
+              {% endif %}
               </ul>
             </dd>
 
@@ -141,6 +169,9 @@
                 {%- endif -%}
                 </li>
               {%- endfor -%}
+              {% if _item.more_popover %}
+                {{- _popover_markup -}}
+              {% endif %}
               </ul>
             </dd>
 
@@ -150,6 +181,9 @@
               <ul class="ecl-description-list__definition-list"
               {%- if _visible_items > 0 -%}
                 data-ecl-description-list-collapsible
+                {% if _item.more_popover %}
+                  data-ecl-description-list-has-popover
+                {% endif %}
               {%- endif -%}
               >
               {% for _definition in _item.definition %}
@@ -159,6 +193,9 @@
                 }) only %}
                 </li>
               {% endfor %}
+              {% if _item.more_popover %}
+                {{- _popover_markup -}}
+              {% endif %}
               </ul>
             </dd>
 
