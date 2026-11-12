@@ -13,6 +13,7 @@
     - "incorrect_label" (string) (default: '') label for sr only about the incorrect option
     - "incorrect_chosen_label" (string) (default: '')  label for sr only about the chosen option when incorrect
     - "esc_box" (string) (default: '')
+    - "description" (string) (default: '') Additional information about the question (reveal variant)
     - "options" (array) Array of options (poll variant)
       - "name" (string) Name of the option, eg: 'Paris'
       - "correct" (boolean) Whether the option is correct or not
@@ -34,6 +35,7 @@
 {% set _image_display = image_display|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _question = question|default('') %}
+{% set _description = description|default('') %}
 {% set _icon = icon|default({}) %}
 {% set _back_icon = back_icon|default({}) %}
 {% set _esc_box = esc_box|default('') %}
@@ -147,6 +149,9 @@
       {%  if _variant == 'reveal' %}
         <div class="ecl-quiz-card__question" id="{{ _id }}-question">
           {{- _question -}}
+        </div>
+        <div class="ecl-quiz-card__description">
+          {{- _descritpion -}}
         </div>
       {% endif %}
       {% if _options is not empty %}

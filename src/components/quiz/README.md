@@ -27,6 +27,7 @@ npm install --save @ecl/quiz
   - "answer_title" (string) (default: '') Title on the back of the card
   - "correct_label" (string) (default: '') Label for the correct answer indicator
   - "incorrect_label" (string) (default: '') Label for the incorrect answer indicator
+  - "description" (string) (default: '') Additional information about the question (reveal variant)
   - "options" (array) Answer options (poll variant)
   - "icon" (object) Icon on the front of the card following ECL Icon structure
   - "flip_icon" (object) Icon on the flip button following ECL Icon structure
