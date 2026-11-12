@@ -1,0 +1,47 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "title" (string) (default: '') Site name
+  - "url" (string) (default: '/') Link of the site name
+  - "extra_classes" (string) (default: '') Extra classes (space separated) for the header
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the header
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('') %}
+{% set _url = url|default('/') %}
+{% set _css_class = 'ecl-site-header-compact' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<header
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-container ecl-site-header-compact__container">
+    <a href="{{ _url }}" class="ecl-site-header-compact__title">{{- _title -}}</a>
+  </div>
+</header>
+
+{% endapply %}

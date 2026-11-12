@@ -32,6 +32,7 @@ export function createConfig(system, configDir) {
       `../../../compositions/*/!(${excludedSystem}*).story.js`,
       `../../../layout/*/!(${excludedSystem}*).story.js`,
       `../../../page-example/*/!(${excludedSystem}*).story.js`,
+      ...(withEp ? ['../../../specific/components/*/*.story.js'] : []),
     ],
     addons: [
       packagePath('@storybook/addon-docs'),
@@ -66,6 +67,7 @@ export function createConfig(system, configDir) {
               'page-example',
               'layout',
               'utilities',
+              'specific/components',
             ].map((dir) => path.resolve(sourceRoot, dir)),
           }),
           nodePolyfills(),

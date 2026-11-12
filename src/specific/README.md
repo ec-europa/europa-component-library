@@ -11,8 +11,24 @@ several site presets.
 ```
 src/specific/
   presets/{site}/       @ecl/specific-preset-{site}: a full EC preset compiled with site overrides
-  components/{name}/    @ecl/specific-{name}: components that are not part of ECL, used by one or more presets
+  components/specific-{name}/    @ecl/specific-{name}: components that are not part of ECL, used by one or more presets
 ```
+
+## How a component works
+
+A specific component follows the ECL component anatomy, with the `specific-`
+prefix on the folder so that folder, npm package and Twig path match:
+
+- Twig: `{% include '@ecl/specific-{name}/{name}.html.twig' %}`
+- CSS classes: `ecl-{name}` (BEM, like ECL components)
+- The component SCSS only exposes `$theme` and `${name}` maps (`null !default`).
+  Values live in each preset that uses it, in
+  `presets/{site}/src/variables/_{name}.scss`, and the component is loaded at
+  the end of `{site}.scss`. The preset lists the component in its dependencies.
+- Stories appear in the EC Storybook under "Specific" only with `pnpm start:ep`.
+  Tests run with the other component tests (`pnpm test:components`).
+- Components are published on npm with the release, but are not part of
+  `@ecl/twig-templates`: sites install the ones they use.
 
 ## How a preset works
 

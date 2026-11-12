@@ -2848,11 +2848,20 @@ importers:
         specifier: 6.1.4
         version: 6.1.4
 
+  src/specific/components/specific-site-header-compact:
+    dependencies:
+      '@ecl/mixins-color':
+        specifier: 5.4.0
+        version: link:../../../mixins/color
+
   src/specific/presets/ep:
     dependencies:
       '@ecl/preset-ec':
         specifier: 5.4.0
         version: link:../../../presets/ec
+      '@ecl/specific-site-header-compact':
+        specifier: 5.4.0
+        version: link:../../components/specific-site-header-compact
     devDependencies:
       '@ecl/builder':
         specifier: 5.4.0

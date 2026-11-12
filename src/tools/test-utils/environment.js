@@ -21,6 +21,7 @@ loader.addPath(componentPath);
 loader.addPath(componentPath, '@ecl');
 loader.addPath(path.resolve(sourceRoot, 'compositions'), '@ecl');
 loader.addPath(path.resolve(sourceRoot, 'page-example'), '@ecl');
+loader.addPath(path.resolve(sourceRoot, 'specific/components'), '@ecl');
 
 // Twing 7 leaves autoescaping disabled when autoEscapingStrategy is omitted,
 // matching the previous environment's autoescape: false setting.
