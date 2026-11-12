@@ -24,9 +24,9 @@ pnpm test:components button -u # update snapshots for one component only
 pnpm test:components -u        # update all snapshots
 
 pnpm lint             # ESLint + Stylelint
-pnpm prettier:write   # auto-format
+pnpm pretty-write     # auto-format
 
-pnpm dist             # full build (presets + components + resources)
+pnpm dist             # full build (presets + storybook + website)
 pnpm --filter '@ecl/button' run dist  # build a single package
 ```
 
@@ -38,6 +38,9 @@ pnpm --filter '@ecl/button' run dist  # build a single package
 src/
   components/     ← 60+ components, each an @ecl/{name} npm package
   compositions/   ← higher-level markup patterns built from components
+  layout/         ← grid (@ecl/grid, incl. breakpoints mixin)
+  mixins/, utilities/ ← shared Sass mixins and utility classes
+  twig-templates/ ← aggregate package of all Twig templates
   themes/         ← design tokens for EC and EU (maps/, variables/)
   presets/        ← bundled distributions (ec, eu, reset, rtl)
   playground/     ← Storybook instances (ec/, eu/)
