@@ -49,7 +49,11 @@ describe('Card', () => {
         extra_classes: 'custom-class custom-class--test',
       });
 
-      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+      return render(withExtraClasses).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('renders correctly with extra attributes', () => {
