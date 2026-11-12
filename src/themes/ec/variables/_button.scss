@@ -2,6 +2,7 @@
 
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $button: (
   radius: map.get($border-radius, 's'),
@@ -306,3 +307,4 @@ $button: (
     opacity-disabled: 0.5,
   ),
 );
+$button: overrides.apply('button', $button);

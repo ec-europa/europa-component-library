@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $news-ticker: (
   border-radius: map.get($border-radius, 's'),
@@ -32,3 +33,4 @@ $news-ticker: (
     color: var(--cm-on-surface-grey),
   ),
 );
+$news-ticker: overrides.apply('news-ticker', $news-ticker);

@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $content-block: (
   description-margin-mobile: var(--s-xs),
@@ -29,3 +30,4 @@ $content-block: (
   title-margin-mobile: var(--s-xs),
   title-margin-tablet: var(--s-s),
 );
+$content-block: overrides.apply('content-block', $content-block);

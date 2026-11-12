@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $page-summary: (
   title-font: 'body-s',
@@ -17,3 +18,4 @@ $page-summary: (
   list-margin: calc(1.125rem - 1px),
   list-padding: calc(1rem - 1px),
 );
+$page-summary: overrides.apply('page-summary', $page-summary);

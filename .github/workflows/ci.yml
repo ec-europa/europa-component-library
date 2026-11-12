@@ -83,6 +83,8 @@ jobs:
         run: pnpm build:icons
       - name: Package application
         run: pnpm dist
+        env:
+          ECL_EP_PREVIEW: true
       - uses: jpoehnelt/reusable-workspace/save@v1
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0

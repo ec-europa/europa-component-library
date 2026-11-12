@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $gallery: (
   actions-margin: var(--s-s),
@@ -33,6 +34,8 @@ $gallery: (
     gap: var(--s-xl),
   ),
 );
+$gallery: overrides.apply('gallery', $gallery);
 $gallery-print: (
   description-font: map.get($font-print, 'xs'),
 );
+$gallery-print: overrides.apply('gallery-print', $gallery-print);

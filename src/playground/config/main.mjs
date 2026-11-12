@@ -15,6 +15,9 @@ export function createConfig(system, configDir) {
   const isProd = process.env.NODE_ENV === 'production';
   const outputFolder = isProd ? 'dist' : 'build';
   const excludedSystem = system === 'ec' ? 'eu' : 'ec';
+  // Specific EP preset: `pnpm start:ep` locally, `build:ep` for PR previews.
+  const epBuild = path.resolve(sourceRoot, 'specific/presets/ep/build');
+  const withEp = system === 'ec' && process.env.ECL_EP === 'true';
   const environment = {
     PUBLIC_URL: process.env.PUBLIC_URL || '',
     STORYBOOK_SYSTEM: system.toUpperCase(),
@@ -29,6 +32,7 @@ export function createConfig(system, configDir) {
       `../../../compositions/*/!(${excludedSystem}*).story.js`,
       `../../../layout/*/!(${excludedSystem}*).story.js`,
       `../../../page-example/*/!(${excludedSystem}*).story.js`,
+      ...(withEp ? ['../../../specific/components/*/*.story.js'] : []),
     ],
     addons: [
       packagePath('@storybook/addon-docs'),
@@ -47,6 +51,7 @@ export function createConfig(system, configDir) {
             path.resolve(sourceRoot, 'presets/reset', outputFolder),
           ]
         : []),
+      ...(withEp && !isProd ? [{ from: epBuild, to: '/ep' }] : []),
       path.resolve(configDir, '../public'),
     ],
     env: (existing) => ({ ...existing, ...environment }),
@@ -62,16 +67,21 @@ export function createConfig(system, configDir) {
               'page-example',
               'layout',
               'utilities',
+              'specific/components',
             ].map((dir) => path.resolve(sourceRoot, dir)),
           }),
           nodePolyfills(),
         ],
-        define: Object.fromEntries(
-          Object.entries(environment).map(([name, value]) => [
-            `process.env.${name}`,
-            JSON.stringify(value),
-          ]),
-        ),
+        define: {
+          ...Object.fromEntries(
+            Object.entries(environment).map(([name, value]) => [
+              `process.env.${name}`,
+              JSON.stringify(value),
+            ]),
+          ),
+          // Bare identifier: the node polyfills shim `process`, so process.env.* is not replaced.
+          __ECL_STORYBOOK_EP__: JSON.stringify(withEp),
+        },
         resolve: {
           // The polyfill plugin injects these bare imports into workspace
           // sources that do not depend on the plugin. Resolve them from this

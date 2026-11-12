@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as theme;
+
+$site-header-compact: (
+  background: var(--cm-surface-inverted),
+  border-bottom: 1px solid var(--cm-border-low),
+  color: var(--cm-on-surface),
+  font: map.get(theme.$font, 'l'),
+  height: 4rem,
+);

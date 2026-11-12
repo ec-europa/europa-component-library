@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $highlighted-search: (
   background-color: var(--cm-surface-color-mode-high),
@@ -34,3 +35,4 @@ $highlighted-search: (
     focus-inverted: true,
   ),
 );
+$highlighted-search: overrides.apply('highlighted-search', $highlighted-search);

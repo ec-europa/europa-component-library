@@ -1,3 +1,4 @@
+/* global __ECL_STORYBOOK_EP__ */
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { create } from 'storybook/theming';
 import { Buffer } from 'buffer';
@@ -153,12 +154,23 @@ export const parameters = {
         picked: true,
         group: 'screen',
       },
+      // `pnpm start:ep` shows EP instead of EC (ecl-ec.css is not rebuilt there).
       {
         id: 'ecl-ec',
         href: './styles/ecl-ec.css',
-        picked: true,
+        picked: !__ECL_STORYBOOK_EP__,
         group: 'screen',
       },
+      ...(__ECL_STORYBOOK_EP__
+        ? [
+            {
+              id: 'ecl-ep',
+              href: './ep/styles/ecl-ep.css',
+              picked: true,
+              group: 'others',
+            },
+          ]
+        : []),
       {
         id: 'ecl-ec-color-modes',
         href: './styles/ecl-ec-color-modes.css',

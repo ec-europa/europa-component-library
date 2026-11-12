@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $slider-pager: (
   dot-background: var(--c-a-200),
@@ -7,3 +8,4 @@ $slider-pager: (
   dot-spacing: var(--s-3xs),
   outline-color: var(--cm-border-primary),
 );
+$slider-pager: overrides.apply('slider-pager', $slider-pager);

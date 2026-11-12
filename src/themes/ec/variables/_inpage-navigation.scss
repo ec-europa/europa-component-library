@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $inpage-toggle-width: calc(var(--s-s) + var(--s-s) + var(--s-s));
 $inpage-navigation: (
@@ -97,3 +98,4 @@ $inpage-navigation: (
     'offset': -2px,
   ),
 );
+$inpage-navigation: overrides.apply('inpage-navigation', $inpage-navigation);

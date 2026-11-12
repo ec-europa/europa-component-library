@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $add-to-calendar: (
   info: (
@@ -25,3 +26,4 @@ $add-to-calendar: (
     gap: var(--s-3xs),
   ),
 );
+$add-to-calendar: overrides.apply('add-to-calendar', $add-to-calendar);

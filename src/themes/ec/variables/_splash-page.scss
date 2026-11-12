@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $splash-page: (
   logo-background: var(--cm-surface-neutral-lowest),
@@ -7,6 +8,8 @@ $splash-page: (
   logo-height-mobile: 2.75rem,
   logo-height-desktop: 4rem,
 );
+$splash-page: overrides.apply('splash-page', $splash-page);
 $splash-page-print: (
   logo-padding: map.get($spacing-print, 'xl') map.get($spacing-print, '3xl'),
 );
+$splash-page-print: overrides.apply('splash-page-print', $splash-page-print);

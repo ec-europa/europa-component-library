@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $radio: (
   binary-margin: var(--s-xl),
@@ -37,3 +38,4 @@ $radio: (
     border-color: var(--cm-border-grey-medium),
   ),
 );
+$radio: overrides.apply('radio', $radio);

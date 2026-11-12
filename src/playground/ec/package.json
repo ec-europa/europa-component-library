@@ -7,6 +7,7 @@
   "description": "Storybook EC Twig",
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EC storybook build -c .storybook -o build",
+    "build:ep": "ECL_EP=true STORYBOOK_SYSTEM=EC storybook build -c .storybook -o build-ep",
     "postinstall": "ncp node_modules/@duetds/date-picker/dist/duet public/duet",
     "start": "STORYBOOK_SYSTEM=EC node start.js"
   },

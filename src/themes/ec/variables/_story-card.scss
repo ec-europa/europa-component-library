@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $story-card: (
   story-card: (
@@ -30,3 +31,4 @@ $story-card: (
     title-font-weight: map.get($font-weight, 'semi-bold'),
   ),
 );
+$story-card: overrides.apply('story-card', $story-card);

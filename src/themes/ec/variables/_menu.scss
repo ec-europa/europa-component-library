@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 // stylelint-disable length-zero-no-unit
 $menu: (
@@ -108,4 +109,5 @@ $menu: (
     sublink-current-shadow: none,
   ),
 );
+$menu: overrides.apply('menu', $menu);
 // stylelint-enable length-zero-no-unit

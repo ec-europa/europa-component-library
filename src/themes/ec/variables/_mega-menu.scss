@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 // stylelint-disable length-zero-no-unit
 $mega-menu: (
@@ -81,4 +82,5 @@ $mega-menu: (
     sublink-current-background: var(--cm-surface-neutral-lowest),
   ),
 );
+$mega-menu: overrides.apply('mega-menu', $mega-menu);
 // stylelint-enable length-zero-no-unit

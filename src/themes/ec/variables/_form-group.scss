@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $form-group: (
   margin-icon: var(--s-3xs),
@@ -32,3 +33,4 @@ $form-group: (
     margin-block: var(--s-xs) 0,
   ),
 );
+$form-group: overrides.apply('form-group', $form-group);
