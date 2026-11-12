@@ -139,7 +139,6 @@ export class Popover {
     this.scrollable = this.target.firstElementChild;
 
     window.addEventListener('resize', this.checkPosition);
-    document.addEventListener('scroll', this.checkPosition);
 
     // Bind click event on toggle
     if (this.attachClickListener && this.toggle) {
@@ -192,7 +191,6 @@ export class Popover {
       this.close.removeEventListener('click', this.handleClickOnToggle);
     }
     window.removeEventListener('resize', this.checkPosition);
-    document.removeEventListener('scroll', this.checkPosition);
 
     if (this.attachKeyListener) {
       document.removeEventListener('keyup', this.handleKeyboardGlobal);
