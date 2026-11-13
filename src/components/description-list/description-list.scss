@@ -191,7 +191,7 @@ $description-list: null !default;
 // Horizontal description lists
 
 @include breakpoints.up('l') {
-  .ecl-description-list--horizontal .ecl-description-list__content,
+  .ecl-description-list--horizontal,
   %ecl-description-list {
     display: grid;
     column-gap: var(--s-xl);
