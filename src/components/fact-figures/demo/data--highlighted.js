@@ -5,6 +5,7 @@ export default {
   variant: 'highlighted',
   display_icons: true,
   font_size: 'm',
+  sources_label: 'Sources:',
   view_all: {
     link: {
       path: exampleLink,
@@ -56,6 +57,7 @@ export default {
       },
       value: '1,102',
       title: 'Children, aged up to 4',
+      description: 'Lorem ipsum dolor sit amet',
       sources: [
         {
           link: {
@@ -71,7 +73,7 @@ export default {
         family: 'phosphor',
       },
       value: '24',
-      title: 'Active women members.',
+      title: 'Active women members',
       description:
         'Aliquam lacinia diam eu sem malesuada, in interdum ante bibendum.',
       sources: [

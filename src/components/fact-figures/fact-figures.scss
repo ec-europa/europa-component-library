@@ -126,9 +126,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__source {
-  @if map.get($fact-figures, 'source-link-variant') == 'brand' {
-    @include link-component.brand-link;
-  }
+  @include link-component.brand-link;
 
   &:has(svg) {
     white-space: nowrap;
@@ -218,7 +216,7 @@ $fact-figures: null !default;
 
   .ecl-fact-figures__value,
   .ecl-fact-figures__title {
-    color: var(--cm-on-surface, var(--c-d-80));
+    color: var(--cm-on-surface, var(--c-p));
   }
 
   .ecl-fact-figures__icon {
