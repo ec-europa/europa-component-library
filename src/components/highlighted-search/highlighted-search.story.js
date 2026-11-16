@@ -42,6 +42,10 @@ const getArgTypes = () => ({
     type: { name: 'select' },
     description: 'Background color',
     options: ['dark', 'light'],
+    mapping: {
+      dark: 'dark',
+      light: 'light',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'dark' },
@@ -53,6 +57,10 @@ const getArgTypes = () => ({
     type: { name: 'select' },
     description: 'Content alignment (horizontal)',
     options: ['center', 'left'],
+    mapping: {
+      center: 'center',
+      left: 'left',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'center' },
