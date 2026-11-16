@@ -223,6 +223,11 @@ $page-header: null !default;
 
   &.ecl-page-header--background-dark .ecl-breadcrumb__container {
     background-color: map.get($page-header, 'dark', 'background');
+    color: map.get($page-header, 'dark', 'color');
+
+    .ecl-page-header__description-bottom {
+      color: map.get($page-header, 'color');
+    }
   }
 
   .ecl-page-header__title {
