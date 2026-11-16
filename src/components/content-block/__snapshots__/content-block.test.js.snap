@@ -106,236 +106,232 @@ exports[`Content block > Default > renders correctly 1`] = `
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"
@@ -521,236 +517,232 @@ exports[`Content block > Default > renders correctly with extra attributes 1`] =
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"
@@ -934,236 +926,232 @@ exports[`Content block > Default > renders correctly with extra class names 1`] 
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"
@@ -1347,236 +1335,232 @@ exports[`Content block > Default > renders correctly with link extra attributes 
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list a-list-extra-class"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"
@@ -1830,236 +1814,232 @@ exports[`Content block > Default > renders correctly with list extra classes 1`]
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list a-list-extra-class"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"
@@ -2237,236 +2217,232 @@ exports[`Content block > Default > renders correctly with simple title 1`] = `
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"
@@ -2606,236 +2582,232 @@ exports[`Content block > Default > renders correctly with single list items 1`] 
     <div
       class="ecl-content-block__list-container"
     >
-      <div
+      <dl
         class="ecl-description-list ecl-content-block__list"
       >
-        <dl
-          class="ecl-description-list__content"
+        <dt
+          class="ecl-description-list__term"
         >
-          <dt
-            class="ecl-description-list__term"
+          Standalone links
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--link"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Standalone links
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--link"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Standard text
-          </dt>
-          <dd
-            class="ecl-description-list__definition"
-          >
-            Lorem ipsum dolor sit amet, 
-            <a
-              class="ecl-link"
-              href="/example"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              consectetur adipiscing elit
-            </a>
-            .
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Standard text
+        </dt>
+        <dd
+          class="ecl-description-list__definition"
+        >
+          Lorem ipsum dolor sit amet, 
+          <a
+            class="ecl-link"
+            href="/example"
           >
-            Links inline
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--inline"
+            consectetur adipiscing elit
+          </a>
+          .
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Links inline
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--inline"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                <a
-                  class="ecl-link ecl-link--standalone"
-                  href="/example"
-                >
-                  Lorem ipsum dolor sit amet
-                </a>
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
               >
-                Taxonomy item 1
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </li>
-            </ul>
-          </dd>
-          <dt
-            class="ecl-description-list__term"
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Taxonomy list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Tags list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--tag"
-          >
-            <ul
-              class="ecl-description-list__definition-list"
+            <li
+              class="ecl-description-list__definition-item"
             >
-              <li
-                class="ecl-description-list__definition-item"
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
+        </dd>
+        <dt
+          class="ecl-description-list__term"
+        >
+          Tags list
+        </dt>
+        <dd
+          class="ecl-description-list__definition ecl-description-list__definition--tag"
+        >
+          <ul
+            class="ecl-description-list__definition-list"
+          >
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Long link tag
-                  </span>
-                </a>
-              </li>
-              <li
-                class="ecl-description-list__definition-item"
+                  Long link tag
+                </span>
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-tag"
+                href="/example"
               >
-                <a
-                  class="ecl-tag"
-                  href="/example"
+                <span
+                  class="ecl-tag__label"
                 >
-                  <span
-                    class="ecl-tag__label"
-                  >
-                    Link tag
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
+                  Link tag
+                </span>
+              </a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
     </div>
     <div
       class="ecl-content-block__link-container"

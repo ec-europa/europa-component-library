@@ -31,8 +31,8 @@ const getArgTypes = () => {
 
   if (getSystem() === 'ec') {
     argTypes.color_mode.name = 'color mode example (typography)';
-    argTypes.color_mode.description = `Test the typography color inheritance.
-      Using surface-0 token as background, on-surface-swap-0 for the text color`;
+    argTypes.color_mode.description =
+      'Test the typography color inheritance. Using surface-0 token as background, on-surface-swap-0 for the text color';
   }
 
   return argTypes;
