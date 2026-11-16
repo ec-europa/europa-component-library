@@ -5,7 +5,9 @@
     - "id" (string) (default: random): Unique id for the quiz item; generated from quiz id or randomized
     - "image_display" (string) (default: 'none'): With image, on both side or only in the back (None, Reveal, Always)
     - "picture" (oject) (default: {}) Ecl Picture object
+    - "micro_title_question" (string) (default: '') Additional information about the question (reveal variant)
     - "question" (string) (default: '') Question to show on the front of the card
+    - "micro_title_answer" (string) (default: '') Additional information about the answer (reveal variant)
     - "answer" (string) (default: '') Answer to show on the back of the card
     - "answer_title" (string) (default: '') Title for the answer section on the back of the card
     - "correct_label" (string) (default: '') label for sr only about the correct option
@@ -13,7 +15,6 @@
     - "incorrect_label" (string) (default: '') label for sr only about the incorrect option
     - "incorrect_chosen_label" (string) (default: '')  label for sr only about the chosen option when incorrect
     - "esc_box" (string) (default: '')
-    - "description" (string) (default: '') Additional information about the question (reveal variant)
     - "options" (array) Array of options (poll variant)
       - "name" (string) Name of the option, eg: 'Paris'
       - "correct" (boolean) Whether the option is correct or not
@@ -35,7 +36,8 @@
 {% set _image_display = image_display|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _question = question|default('') %}
-{% set _description = description|default('') %}
+{% set _micro_title_question = micro_title_question|default('') %}
+{% set _micro_title_answer = micro_title_answer|default('') %}
 {% set _icon = icon|default({}) %}
 {% set _back_icon = back_icon|default({}) %}
 {% set _esc_box = esc_box|default('') %}
@@ -146,12 +148,15 @@
           </div>
         {% endif %}
         </div>
-      {%  if _variant == 'reveal' %}
+      {% if _variant == 'reveal' %}
         <div class="ecl-quiz-card__question" id="{{ _id }}-question">
+          {% if _micro_title_question is not empty %}
+            <div class="ecl-quiz-card__micro-title">
+              {{- _micro_title_question -}}
+            </div>
+          {% endif %}
+
           {{- _question -}}
-        </div>
-        <div class="ecl-quiz-card__description">
-          {{- _descritpion -}}
         </div>
       {% endif %}
       {% if _options is not empty %}
@@ -226,6 +231,13 @@
           {%- if _answer_title is not empty -%}
             <div class="ecl-quiz-card__answer-title" tabindex="0">{{ _answer_title }}</div>
           {%- endif -%}
+
+          {% if _variant == 'reveal' and _micro_title_answer is not empty %}
+            <div class="ecl-quiz-card__micro-title">
+              {{- _micro_title_answer -}}
+            </div>
+          {% endif %}
+
           {{-  _answer -}}
           </div>
         </div>
