@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/mixins-typography/mixins';
-@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -13,6 +12,11 @@ $description-list: null !default;
 
 .ecl-description-list,
 %ecl-description-list {
+  container-type: inline-size;
+  container-name: ecl-list-container;
+}
+
+.ecl-description-list__content {
   margin: 0;
 }
 
@@ -190,8 +194,8 @@ $description-list: null !default;
 
 // Horizontal description lists
 
-@include breakpoints.up('l') {
-  .ecl-description-list--horizontal,
+@container ecl-list-container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
+  .ecl-description-list--horizontal .ecl-description-list__content,
   %ecl-description-list {
     display: grid;
     column-gap: var(--s-xl);
