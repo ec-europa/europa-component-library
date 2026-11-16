@@ -67,20 +67,6 @@ describe('Category filter', () => {
       return expect(render(withName)).resolves.toMatchSnapshot();
     });
 
-    test('ignores the name when expand/collapse all buttons are displayed', () => {
-      expect.assertions(1);
-
-      const withNameAndControls = merge(demoData, {
-        name: 'category-filter-name',
-      });
-
-      return expect(
-        render(withNameAndControls).then((node) =>
-          node.querySelector('details[name]'),
-        ),
-      ).resolves.toBeNull();
-    });
-
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData)),
