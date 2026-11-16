@@ -28,6 +28,7 @@ export default {
       indicator: {
         value: 10,
         sr_label: 'Items not read',
+        position: 'left',
       },
       aria_label: 'Custom aria label',
     },

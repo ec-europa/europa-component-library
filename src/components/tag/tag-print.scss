@@ -7,19 +7,47 @@
 
 // Exposed variables
 $theme: null !default;
+$tag: null !default;
 
 .ecl-tag {
+  align-items: center;
+  background-color: map.get($tag, 'background-color');
+  border-radius: map.get($tag, 'border-radius');
+  border: none;
+  box-sizing: border-box;
+  color: map.get($tag, 'color');
+  display: inline-flex;
+  font: map.get($tag, 'font');
+  padding: map.get($tag, 'padding');
+  text-align: start;
+  text-decoration: none;
+
+  &[disabled] {
+    background-color: map.get($tag, 'background-color-disabled');
+    color: map.get($tag, 'color-disabled');
+  }
+}
+
+.ecl-tag__label {
+  padding-inline: map.get($tag, 'label-padding-inline');
+}
+
+// Icons
+.ecl-tag__icon {
   appearance: none;
   background: none;
   border-width: 0;
-  color: var(--cm-on-surface-brand, var(--c-d));
-  font: map.get($theme, 'font-print', 's');
+  flex-shrink: 0;
+  height: map.get($theme, 'icon', 'xs');
   padding: 0;
-  text-decoration: none;
-}
+  pointer-events: auto;
+  position: relative;
+  width: map.get($theme, 'icon', 'xs');
 
-.ecl-tag__icon {
-  display: none;
+  &.ecl-tag__icon--external {
+    height: map.get($theme, 'icon', '2xs');
+    width: map.get($theme, 'icon', '2xs');
+  }
 }
 
 // Tag set

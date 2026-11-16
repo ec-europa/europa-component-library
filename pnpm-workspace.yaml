@@ -13,3 +13,62 @@ packages:
   - "src/presets/*"
   - "src/tools/*"
   - "src/website"
+overrides:
+  twing: 7.3.1
+  serialize-javascript: '>=3.1.0'
+  trim: '>=0.0.3'
+  glob-parent: '>=5.1.2'
+  strip-ansi: 6.0.1
+  ansi-html: '>=0.0.8'
+  follow-redirects: '>=1.14.7'
+  node-fetch: 2.6.7
+  immer: '>=9.0.21'
+  merge: '>=2.1.1'
+  browserslist: '>=4.24.2'
+  node-forge: '>=1.0.0'
+  nth-check: '>=2.0.1 <3'
+  prismjs: '>=1.27.0'
+  minimist: '>=1.2.6'
+  simple-git: '>=3.3.0'
+  portscanner: '>=2.2.0'
+  parse-path: '>=5.0.0'
+  parse-url: '>=8.1.0'
+  qs: '>=6.2.4'
+  json5: '>=2.2.2'
+  ua-parser-js: '>=1.0.33'
+  http-cache-semantics: '>=4.1.1'
+  webpack: '>=5.76.3'
+  yaml: '>=2.2.2'
+  puppeteer: 10.4.0
+  loader-utils: 2.0.4
+  lodash: '>=4.17.21'
+  semver: '>=7.5.2'
+  postcss: '>=8.4.31'
+  '@babel/traverse': '7.29.7'
+  axios: '>=1.7.4'
+  word-wrap: '1.2.5'
+  ip: '>=2.0.1'
+  ws: '>=8.17.1'
+  micromatch: '>=4.0.8'
+  serve-static: '>=1.16.0'
+  path-to-regexp: 0.1.12
+  inquirer: 12.2.0
+  nanoid: 3.3.8
+linkWorkspacePackages: deep
+allowBuilds:
+  '@parcel/watcher': true
+  core-js: true
+  esbuild: true
+  nx: false
+  postinstall-postinstall: false
+minimumReleaseAgeExclude:
+  - '@storybook/addon-a11y@10.6.7'
+  - '@storybook/addon-docs@10.6.7'
+  - '@storybook/addon-vitest@10.6.7'
+  - '@storybook/builder-vite@10.6.7'
+  - '@storybook/html-vite@10.6.7'
+  - '@storybook/html@10.6.7'
+  - '@storybook/react-dom-shim@10.6.7'
+  - chromatic@18.14.3
+  - marked@18.2.0
+  - storybook@10.6.7

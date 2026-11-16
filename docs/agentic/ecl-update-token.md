@@ -212,19 +212,16 @@ convention is:
 
 If only hex values changed (no structural changes), **no edit is needed** in this file.
 
-**Deprecated tokens:** `--cm-border-high` has been removed from the website (deprecated as of ECL 5.x). Do not re-add it to the colours page even if it appears in a future export.
-
 ---
 
 ## Step 6 — verify
 
 ```bash
-# Quick sanity: make sure the changed tokens compile
-pnpm --filter '@ecl/theme-ec' run dist
-
-# If any component snapshot tests reference colors, check them
-pnpm test:components
+# Make sure the changed tokens compile (@ecl/theme-ec has no build script of its own)
+pnpm --filter '@ecl/preset-ec' run build:styles
 ```
+
+No need to run component tests: snapshots capture HTML, not colour values.
 
 If the build fails with a Sass error, the most common cause is a missing map key — check
 that the key added in `color.scss` is spelled identically to any reference in
