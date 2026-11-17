@@ -1,6 +1,6 @@
 # ECL Agentic Skills
 
-Task-oriented guides for AI agents working on ECL. Each file describes how to approach
+Task-oriented guides for AI agents working on ECL. Each skill describes how to approach
 a specific recurring task — what to check, in what order, and what to avoid.
 
 These are not reference documentation. For full details on any topic, follow the links
@@ -8,19 +8,36 @@ into `docs/conventions/` or `docs/decisions/`.
 
 ## Available skills
 
-| Skill                                                | When to use                                                        |
-| ---------------------------------------------------- | ------------------------------------------------------------------ |
-| [ecl-new-component.md](./ecl-new-component.md)       | Scaffolding a brand-new component from scratch                     |
-| [ecl-modify-component.md](./ecl-modify-component.md) | Changing styles, markup, or behaviour of an existing component     |
-| [ecl-testing.md](./ecl-testing.md)                   | Running tests, handling snapshot updates, fixing axe failures      |
-| [ecl-story-controls.md](./ecl-story-controls.md)     | Adding or modifying Storybook stories and controls                 |
-| [ecl-update-token.md](./ecl-update-token.md)         | Updating EC color tokens from a design export or inline value list |
+| Skill                                                   | When to use                                                    |
+| ------------------------------------------------------- | -------------------------------------------------------------- |
+| [ecl-new-component](./ecl-new-component/SKILL.md)       | Scaffolding a brand-new component from scratch                 |
+| [ecl-modify-component](./ecl-modify-component/SKILL.md) | Changing styles, markup, or behaviour of an existing component |
+| [ecl-testing](./ecl-testing/SKILL.md)                   | Running tests, handling snapshot updates, fixing axe failures  |
+| [ecl-story-controls](./ecl-story-controls/SKILL.md)     | Adding or modifying Storybook stories and controls             |
+| [ecl-update-token](./ecl-update-token/SKILL.md)         | Updating EC color tokens from a design export or inline values |
 
-Reference fragments (no slash command, pulled in by other skills):
+## Format
 
-| File                               | Used by                                                      |
-| ---------------------------------- | ------------------------------------------------------------ |
-| [ecl-picture.md](./ecl-picture.md) | `ecl-modify-component` — adding or changing an image/Picture |
+Skills follow the open [Agent Skills](https://agentskills.io) format, so any tool that
+supports it can load them, and any other tool can read them as plain markdown:
+
+```
+ecl-<task>/
+  SKILL.md        ← frontmatter (name, description) + the workflow
+  reference/      ← details loaded only when the workflow points to them
+```
+
+- **`description`** is what an agent reads to decide whether to load the skill. Write it
+  in the third person, say what the skill does _and_ when to use it, and include the
+  words a user would naturally type.
+- **Progressive disclosure** — keep `SKILL.md` focused on the steps and decisions.
+  Move material only some tasks need (templates, mapping tables, specialised patterns)
+  into `reference/`, linked directly from `SKILL.md` (one level deep, no chains).
+- **One owner per rule** — e.g. when to run or update snapshots lives in `ecl-testing`;
+  other skills refer to it instead of repeating it.
+- **Explain why** a rule exists rather than relying on capitals or "NEVER"; it lets the
+  agent handle the cases the rule did not anticipate.
+- **No line numbers** — point to files with a `grep` pattern so the skill survives edits.
 
 ## Potential future skills
 
@@ -34,55 +51,26 @@ Not yet written — create when a real task requires it.
 
 ---
 
-## How to use these skills
-
-Skills are plain markdown files that any AI tool can read. The `ecl-` prefix
-namespaces them so they stay unambiguous if multiple skill sets are installed together.
-
-### Generic usage
-
-The simplest approach works with any tool: reference the skill by name and describe
-your task.
-
-> "Follow `ecl-modify-component` to add a disabled state to the banner component."
-> "Use `ecl-new-component` to scaffold a new slider component with JS."
-
-Alternatively, just describe the task naturally — if the skill files are part of the
-agent's context, it will pick the right one automatically.
-
----
-
 ## Tool-specific setup
 
 ### Claude Code (web / desktop / CLI)
 
-Skills are registered as project slash commands in `.claude/commands/`. Type `/ecl`
-and let the autocomplete suggest the available commands — you do not need to type the
-full name.
-
-```
-/ecl-new-component       scaffold a new component
-/ecl-modify-component    change an existing component
-/ecl-testing             run or fix tests
-/ecl-story-controls      add or update stories
-/ecl-update-token        update EC color tokens
-```
-
-Pass your task as the argument after the command name:
+`.claude/skills` is a symlink to this folder, so the skills are discovered
+automatically: Claude loads one when the task matches its description. They can also be
+invoked explicitly — type `/ecl` and pick from the autocomplete:
 
 > `/ecl-new-component Add a slider component with JS`
 
-### Cursor / GitHub Copilot / other tools
+On Windows, cloning needs `git config core.symlinks true` (and Developer Mode) for the
+symlink to resolve.
 
-Add `docs/agentic/` to your tool's project rules or custom instructions. With the
-folder indexed, reference skills by name only:
+### Other tools (Cursor, GitHub Copilot, Kiro, Codex…)
+
+If the tool supports Agent Skills, point its skills directory at `docs/agentic/`.
+Otherwise add `docs/agentic/` to the tool's project rules or context and reference
+skills by name:
 
 > "Follow `ecl-modify-component` to add a disabled state to the banner component."
-
-### Kiro
-
-Add `docs/agentic/` to Kiro's project context so all skill files are always available
-without explicit references. Then just describe your task naturally.
 
 ---
 
@@ -90,8 +78,8 @@ without explicit references. Then just describe your task naturally.
 
 - **Be specific about the task.** "Fix the button styles" gives the agent less to work
   with than "Add a hover colour token to the button component".
-- **One skill per task.** If a task spans multiple skills (e.g. modifying a component
-  _and_ adding a story), name both explicitly.
+- **Tasks can span skills.** Modifying a component and adding a story uses both
+  `ecl-modify-component` and `ecl-story-controls`; the skills link to each other.
 - **Skills are a starting point.** If the agent's output doesn't match ECL conventions,
   check whether the missing rule is in `docs/conventions/` and consider adding it to
-  the skill file.
+  the skill (or its `reference/`).

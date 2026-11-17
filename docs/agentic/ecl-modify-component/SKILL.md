@@ -1,39 +1,44 @@
-# Skill: modify an existing ECL component
+---
+name: ecl-modify-component
+description: Guides changes to an existing ECL component in src/components/ — styles and design tokens, Twig markup and parameters, responsive layout, print styles, images. Use when the user asks to fix, restyle, extend, add a parameter or variant to, or otherwise change a component that already exists. For Storybook-only changes use ecl-story-controls; for EC palette/color-mode tokens use ecl-update-token.
+---
 
-Use this when changing styles, markup, behaviour, or adding parameters to an existing component.
+# Modify an existing ECL component
 
-## Locate the files
+## Trace before editing
 
-Every visual property has a chain. Trace it before editing anything:
+Every visual property has a chain. Follow it before changing anything:
 
 ```
 demo/data.js  →  {name}.html.twig  →  {name}.scss  →  src/themes/{ec|eu}/variables/_{name}.scss
 ```
 
-Start from the theme variables file. If a token already exists for what you want to change,
-update it there — not in the component SCSS. Hardcoding values in component SCSS is wrong.
+Start from the theme variables file. If a token already exists for what you want to
+change, update it there. Hardcoded values in component SCSS bypass theming and make
+EC/EU diverge silently.
 
-## Understand the SCSS approach for this component
+Ask the user which system (EC, EU or both) the change targets if the request does not say.
 
-Open `{name}.scss` (and check for `{name}-ec.scss` / `{name}-eu.scss` siblings):
+## Which SCSS files to edit
 
-| What you find                              | Approach                   | Implication                             |
-| ------------------------------------------ | -------------------------- | --------------------------------------- |
-| One file, no system suffix                 | Shared — one file for both | Edit the single file                    |
-| `{name}-ec.scss` and `{name}-eu.scss` only | Fully separate             | Edit both if the change applies to both |
+Look at the component folder:
 
-Each component also has a `{name}-print.scss` (or per-system print variants). Keep print
-styles in sync with their screen counterpart when you change layout or spacing.
+| What you find                                | Edit                                    |
+| -------------------------------------------- | --------------------------------------- |
+| `{name}.scss` only                           | The single shared file                  |
+| `{name}-ec.scss` and `{name}-eu.scss`        | Each system the change applies to       |
+| `{name}-print.scss` (or per-system variants) | Too, whenever layout or spacing changes |
 
 ## Changing styles
 
-1. Check `src/themes/{ec|eu}/variables/_{name}.scss` — use or add a token rather than hardcoding.
-2. Edit the component SCSS, referencing the token via `map.get($<name>, 'token-key')`.
-3. If the change is EC-only or EU-only, edit only that system's file.
+1. Check `src/themes/{ec|eu}/variables/_{name}.scss` — use or add a token rather than
+   hardcoding.
+2. Reference it from the component SCSS with `map.get($<name>, 'token-key')`.
+3. EC-only or EU-only change → edit only that system's variables/files.
 
 ### Responsive layout
 
-ECL uses a breakpoints mixin — do not write raw `@media` queries. The pattern is:
+Use the breakpoints mixin, never raw `@media` queries:
 
 ```scss
 @use '@ecl/grid/mixins/breakpoints';
@@ -42,83 +47,40 @@ ECL uses a breakpoints mixin — do not write raw `@media` queries. The pattern 
   flex-direction: column; // mobile first
 
   @include breakpoints.up('m') {
-    flex-direction: row;  // tablet and above
+    flex-direction: row;
   }
 }
 ```
 
-Available breakpoint keys (from `src/themes/{ec|eu}/maps/layout.scss`): `'xs'` (0),
-`'s'` (480px), `'m'` (768px), `'l'` (996px), `'xl'` (1140px).
+Keys (from `src/themes/{ec|eu}/maps/layout.scss`): `'xs'` 0, `'s'` 480px, `'m'` 768px,
+`'l'` 996px, `'xl'` 1140px.
 
-If the component SCSS does not already import `@ecl/grid/mixins/breakpoints`
-(package lives in `src/layout/grid/`), check
-`{name}/package.json` — add `"@ecl/grid": "<VERSION>"` to `devDependencies` if missing,
-then add the `@use` at the top of the SCSS file.
+If the SCSS does not already `@use` the mixin, add `"@ecl/grid": "<VERSION>"` to the
+component's `devDependencies` (copy the version from another `@ecl/*` dependency) and
+the `@use` line at the top of the file.
 
 ## Changing the Twig template
 
-- Follow the existing parameter pattern: declare at the top with `{# Parameters: ... #}`,
-  use internal `_` variables, never output raw user content without escaping.
-- `extra_classes` and `extra_attributes` passthrough must be preserved in every template.
-- If you add a new parameter, update all of these in sync:
-  - `{name}.html.twig` — add the parameter and use it
-  - `demo/data.js` — add a sensible default value
-  - `{name}.story.js` — add to `getArgs` and `getArgTypes`
-  - `README.md` — add to the Parameters section
+- Keep the existing parameter pattern: documented in the `{# Parameters: ... #}` header,
+  internal `_` variables, escaped output.
+- Never drop the `extra_classes` / `extra_attributes` passthrough.
+- A new parameter must be added in all four places together:
+  - `{name}.html.twig` — declare in the header and use it
+  - `demo/data.js` — sensible default value
+  - `{name}.story.js` — only if a control is useful; ask the user when unsure, then
+    follow `ecl-story-controls`
+  - `README.md` — Parameters section
 
-### Images
+**Images** — if the task adds or changes an image, read
+[reference/picture.md](reference/picture.md) first (Picture component vs plain `<img>`,
+include pattern, demo data, overflow fix).
 
-If the task involves adding an image, read [`docs/agentic/ecl-picture.md`](./ecl-picture.md)
-before making any changes — it covers the Picture vs plain `<img>` decision, Twig include
-pattern, demo data shape, and the SCSS overflow fix.
-
-### Optional sub-objects in stories
-
-Not every new optional parameter needs a Storybook toggle control. If it's unclear whether
-a control is useful, **ask the user** before adding one.
-
-When a toggle is needed and the parameter is an optional object (e.g. an image, an icon),
-expose it as a boolean toggle rather than the raw object. The pattern:
-
-```js
-// getArgs
-show_image: true,
-
-// getArgTypes
-show_image: {
-  name: 'image',
-  type: { name: 'boolean' },
-  description: 'Toggle image visibility',
-  table: { type: { summary: 'boolean' }, category: 'Optional' },
-},
-
-// prepareData
-if (!args.show_image) {
-  delete clone.image;
-}
-```
-
-## After any change
-
-Snapshots capture HTML output. Only run them when the markup could have changed.
-
-| What changed                          | Run tests?   |
-| ------------------------------------- | ------------ |
-| `{name}.html.twig` or `demo/data.js`  | Yes — always |
-| `{name}.story.js`                     | Yes          |
-| `{name}.scss` or theme variables only | No — skip    |
-
-If markup changed, run:
+## Verify
 
 ```bash
-pnpm test:components -- <name>   # run tests for this component only
+pnpm lint                         # always — Stylelint/ESLint
+pnpm test:components -- <name>    # only if the Twig template or demo data changed
 ```
 
-If snapshots fail, read the diff. If the change was intentional:
-
-```bash
-pnpm test:components -- <name> -u   # update snapshots for this component only
-```
-
-Never update snapshots without reading what changed. A snapshot update is a permanent
-record that the new HTML output is correct.
+Snapshots capture rendered HTML, so SCSS and token-only changes cannot affect them.
+If a snapshot fails, follow `ecl-testing` — never update with `-u` before reading the diff.
