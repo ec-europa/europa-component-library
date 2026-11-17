@@ -15,8 +15,10 @@ export default {
         },
       },
       image_display: 'always',
+      micro_title_question: 'Question',
       question:
         'When you travel in the EU, what happens to your roaming charges?',
+      micro_title_answer: 'Answer',
       answer: 'You usually pay the same at home, no extra roaming fees.',
       icon: {
         icon: {
@@ -50,8 +52,10 @@ export default {
         },
       },
       image_display: 'reveal',
+      micro_title_question: 'Question',
       question:
         'What document allows EU citizens to travel freely between most EU countries?',
+      micro_title_answer: 'Answer',
       answer: 'A valid ID card or passport is usually enough.',
       back_text: 'Flip back',
       flip_text: 'Reveal answer',
@@ -64,7 +68,9 @@ export default {
       },
     },
     {
+      micro_title_question: 'Question',
       question: 'What currency is used in many EU countries?',
+      micro_title_answer: 'Answer',
       answer: 'The euro (€) is used in many EU member states.',
       icon: {
         icon: {
@@ -84,7 +90,9 @@ export default {
       },
     },
     {
+      micro_title_question: 'Question',
       question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      micro_title_answer: 'Answer',
       answer:
         'Duis id mattis libero. Quisque accumsan nisi in nisl ultrices dictum',
       icon: {
@@ -105,8 +113,10 @@ export default {
       },
     },
     {
+      micro_title_question: 'Question',
       question:
         'Nam lorem eros, auctor at feugiat id, efficitur non velit. Nam ac arcu vitae eros dapibus cursus vel eget lectus.',
+      micro_title_answer: 'Answer',
       answer:
         'Aenean est metus, malesuada sed suscipit id, tempor non sapien. Donec viverra, odio id venenatis sollicitudin',
       icon: {
